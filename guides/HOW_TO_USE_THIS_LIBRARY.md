@@ -18,12 +18,12 @@
 
 The library has two faces backed by the same files:
 
-1. The live site: [teamstarwolf.github.io/TeamStarWolf](https://teamstarwolf.github.io/TeamStarWolf/). It opens on a navigation homepage ([HOME](/HOME.md)) with stat tiles, a Quick router, and full-text search. Use this for reading and finding things.
-2. The GitHub repo: [github.com/TeamStarWolf/TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf). It opens on the [README](/README.md), which carries the "At a glance" numbers and the "Start here" table. Use this for raw files, datasets, issues, and pull requests.
+1. The live site: [teamstarwolf.github.io/TeamStarWolf](https://teamstarwolf.github.io/TeamStarWolf/). It opens on a navigation homepage ([HOME](/HOME.md)) with a Quick router, the How-to guides, and full-text search. Use this for reading and finding things.
+2. The GitHub repo: [github.com/TeamStarWolf/TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf). It opens on the [README](/README.md), which carries the "Where to start" table and the dataset overview. Use this for raw files, datasets, issues, and pull requests.
 
 Every page on the live site has an "Edit this page on GitHub" link at the top, so you can hop between surfaces from wherever you are.
 
-Checkpoint: You can see the homepage hero ("An open, threat-informed cybersecurity reference library") and the stat tiles: 139 reference docs, 47 discipline paths, 28 Navigator layers.
+Checkpoint: You can see the homepage hero ("A cybersecurity reference library cross-referenced to MITRE ATT&CK.") and the Quick router cards (Map coverage & gaps, Build detections, Hunt, Respond now, and so on). Neither the homepage nor the README carries headline counts; the current numbers live in [data/generated/stats.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/generated/stats.json).
 
 Watch out: Dataset links (the `.jsonl` files) always open on GitHub, not on the site; the site's hash router cannot serve raw data files. That is by design, not a broken link.
 
@@ -37,9 +37,9 @@ The repo is one flat root of reference documents plus a few purposeful folders:
 | `disciplines/` | 47 guided learning paths that sequence those references in the right order; hub at [Discipline Paths](/disciplines/README.md) |
 | `guides/` | Step-by-step how-to guides (you are reading one): procedures, where the references are doctrine |
 | `techniques/` | Per-technique ATT&CK detail pages, one file per tactic: hub at [Technique Detail Pages](/techniques/README.md) |
-| `detections/` | Detection engineering: 691 MITRE detection strategies + 1,739 analytics ([Detection Strategies](/detections/strategies/README.md)) and 65 multi-platform queries ([Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)) |
+| `detections/` | Detection engineering: 697 MITRE detection strategies + 1,758 analytics ([Detection Strategies](/detections/strategies/README.md)) and 65 multi-platform queries ([Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)) |
 | `data/` | Machine-readable JSONL datasets: every mapping in the library as one JSON object per line (ATT&CK, D3FEND, CWE, CAPEC, ATLAS, Engage, F3, and the NIST 800-53 coverage edges) |
-| `navigator/` | 28 ATT&CK Navigator heatmap layers: index at [Navigator Layers](/navigator/index.md) |
+| `navigator/` | ATT&CK Navigator heatmap layers: index at [Navigator Layers](/navigator/index.md) |
 | `scores/` | Gap analyses computed from the datasets: start with [Priority Gap Analysis](/scores/attack_priority_gaps.md) |
 | `research/` | Curated research indexes: conference talks, tool crosswalks, lab tracks |
 
@@ -72,7 +72,7 @@ Read it forward to go from a vulnerability to the defensive action that stops it
 
 - Behavior: [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md) scores all 691 Enterprise techniques; [Technique Detail Pages](/techniques/README.md) give the full per-technique write-up
 - Weakness and pattern: [CWE Reference](/CWE_REFERENCE.md) (969 weaknesses) and [CAPEC Reference](/CAPEC_REFERENCE.md) (615 patterns, 177 bridging to ATT&CK)
-- Defense: [D3FEND Reference](/D3FEND_REFERENCE.md) (156 countermeasures) and the 5,314 NIST 800-53 control->technique edges in [Controls Mapping](/CONTROLS_MAPPING.md), sourced from the [CTID Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/)
+- Defense: [D3FEND Reference](/D3FEND_REFERENCE.md) (156 countermeasures) and the 5,263 NIST 800-53 control->technique edges in [Controls Mapping](/CONTROLS_MAPPING.md), sourced from the [CTID Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/)
 - The on-disk shape: [Coverage Schema](/COVERAGE_SCHEMA.md) documents the vendor -> control -> technique edge tables that power the Navigator layers and gap scores
 
 Checkpoint: You can answer "which NIST 800-53 controls mitigate Valid Accounts (T1078)?" using [Controls Mapping](/CONTROLS_MAPPING.md), and you know the same fact exists as machine-readable rows in `data/control_to_technique.jsonl`.
@@ -106,13 +106,13 @@ Worked example ("where are our coverage gaps?"):
 
 1. Read the [Threat-Informed Defense Reference](/THREAT_INFORMED_DEFENSE_REFERENCE.md) for the model, then [ATT&CK Matrix Analysis](/ATTACK_MATRIX_ANALYSIS_REFERENCE.md) for the 24 analytic lenses you can apply to a matrix.
 2. Open the [Navigator Layers index](/navigator/index.md) and click any layer's " Navigator" link: it opens MITRE's hosted [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) with the layer pre-loaded via its documented `layerURL` fragment. Start with the master NIST 800-53 coverage layer.
-3. Read the ranked write-ups: [Priority Gap Analysis](/scores/attack_priority_gaps.md) lists the most-used, least-covered techniques, and the Framework Blind Spots layer shows the 223 techniques with no mapped NIST 800-53 control.
+3. Read the ranked write-ups: [Priority Gap Analysis](/scores/attack_priority_gaps.md) lists the most-used, least-covered techniques, and the Framework Blind Spots layer shows the live Enterprise techniques with no mapped NIST 800-53 control.
 4. For vendor questions ("what does our EDR actually cover?"), use the vendor layers and the edge tables described in [Coverage Schema](/COVERAGE_SCHEMA.md).
 5. For richer interactive analysis (EPSS, CISA KEV, detection-content correlation), move to the [ATTACK-Navi workbench](https://teamstarwolf.github.io/ATTACK-Navi/).
 
 Checkpoint: A coverage heatmap open in ATT&CK Navigator and a shortlist of high-priority gap techniques for your program.
 
-Watch out: Layers are pinned to ATT&CK versions (the CTID control mappings are built on ATT&CK v16.1; the analytic layers on v18.1). Comparing layers across versions can silently drop or mismatch techniques: check the version badge Navigator shows for each layer. Also, "no mapped control" means no *NIST 800-53 mapping exists*, not that a technique is impossible to defend: treat blind spots as prompts for detection engineering, not verdicts.
+Watch out: This library's ATT&CK layers are pinned to ATT&CK v19 (v19.2 technique IDs and tactics; the CTID control mappings underneath were published for ATT&CK v16.1 and are carried forward to the v19.2 successors of revoked IDs). Comparing them with a layer pinned to another ATT&CK version can silently drop or mismatch techniques: check the version column on the layer index and the version badge Navigator shows for each layer. Also, "no mapped control" means no *NIST 800-53 mapping exists*, not that a technique is impossible to defend: treat blind spots as prompts for detection engineering, not verdicts.
 
 ## Step 8: Take the data home
 

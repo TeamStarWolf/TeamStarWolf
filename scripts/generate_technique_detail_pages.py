@@ -5,16 +5,23 @@
 These two subsystems predated the /mitre per-object pages and had NO generator in-repo
 (they were v18.1-era one-offs). This builds both deterministically at ATT&CK v19.2:
 the 15 v19.2 tactics (Defense Evasion -> Stealth + new Defense Impairment), the T1682-T1690
-block included, revoked techniques excluded (their /mitre pages carry banners), and
-lab-fictional groups (G1056) / non-official S9xxx software excluded from the external
-attribution lists.
+block included, revoked techniques excluded (their /mitre pages carry banners). G1056 and
+the S9xxx software block are official ATT&CK v19.2 entries (verified against attack.mitre.org)
+and are INCLUDED in the external attribution lists.
 
 Outputs (repo root): techniques/README.md + techniques/<tactic>.md (x15);
 detections/strategies/README.md + detections/strategies/<tactic>.md (x15).
 Run from the repo root: python scripts/generate_technique_detail_pages.py
+CI drift gate:          python scripts/generate_technique_detail_pages.py --check
+  (renders into a temporary directory, writes nothing in the repo, and exits 1 if a
+  committed page differs, is missing, or is an orphan the generator no longer writes)
 """
+import argparse
 import json
 import re
+import shutil
+import sys
+import tempfile
 from collections import defaultdict
 from pathlib import Path
 
@@ -36,8 +43,8 @@ TACTIC_ORDER = [
 ]
 TAC_NAME = {s: n for s, n, _ in TACTIC_ORDER}
 TAC_TAID = {s: t for s, _, t in TACTIC_ORDER}
-LAB_GROUPS = {"G1056"}
-OFFICIAL_SW = re.compile(r"S[01]\d{3}")
+LAB_GROUPS = set()                     # G1056 is an official ATT&CK v19.2 group (verified live); include it
+OFFICIAL_SW = re.compile(r"S\d{4}")    # S9xxx are official v19.2 software too; include the full S#### range
 
 
 def load(p):
@@ -116,10 +123,16 @@ def tech_block(tid):
         out.append("**ATT&CK mitigations:** none mapped  ")
     nist = p.get("nist_800_53_controls") or []
     if nist:
+        via = p.get("nist_800_53_controls_via_revoked") or {}
+        note = (" (carried forward from revoked " + ", ".join(sorted(via)) +
+                ": the CTID mapping is keyed on the predecessor id)") if via else ""
         out.append("**NIST 800-53 R5 controls (" + str(len(nist)) + "):** " +
-                   ", ".join("`" + c + "`" for c in nist) + "  ")
+                   ", ".join("`" + c + "`" for c in nist) + note + "  ")
     else:
-        out.append("**NIST 800-53 R5 controls:** none — *framework blind spot; rely on detection/design controls*  ")
+        # build_control_rollup.py already carries CTID edges forward from revoked
+        # predecessors, so an empty list means neither this id nor any predecessor is mapped.
+        out.append("**NIST 800-53 R5 controls:** none (*no CTID mapping under this ID or its "
+                   "predecessors; rely on detection/design controls*)  ")
     strat = p.get("detection_strategies") or []
     if strat:
         out.append("**ATT&CK detection strategy:** " + "; ".join(strat) + "  ")
@@ -246,9 +259,52 @@ def render_det_readme():
     return "\n".join(out)
 
 
+TREES = ("techniques", "detections/strategies")
+
+
+def check():
+    """Render both trees into a temp dir and diff them against the committed pages."""
+    tmp = Path(tempfile.mkdtemp(prefix="tsw-techdetail-check-"))
+    try:
+        write_pages(tmp)
+        problems = []
+        n = 0
+        for tree in TREES:
+            out, committed = tmp / tree, ROOT / tree
+            produced = {f.name for f in out.glob("*.md")}
+            n += len(produced)
+            for name in sorted(produced):
+                c = committed / name
+                if not c.exists():
+                    problems.append("missing  " + tree + "/" + name + "  (generator writes it; not committed)")
+                elif c.read_text(encoding="utf-8") != (out / name).read_text(encoding="utf-8"):
+                    problems.append("stale    " + tree + "/" + name + "  (committed page differs from the data)")
+            for c in sorted(committed.glob("*.md")):
+                if c.name not in produced:
+                    problems.append("orphan   " + tree + "/" + c.name + "  (committed, but no longer generated)")
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+    if problems:
+        print("TECHNIQUE/DETECTION PAGES DRIFT: run `python scripts/generate_technique_detail_pages.py` "
+              "and commit the result:")
+        for line in problems:
+            print("  " + line)
+        return 1
+    print("OK: " + str(n) + " generated techniques/ + detections/strategies/ pages match the committed tree")
+    return 0
+
+
 def main():
-    tdir = ROOT / "techniques"
-    ddir = ROOT / "detections" / "strategies"
+    ap = argparse.ArgumentParser(description="Generate techniques/ and detections/strategies/ from data/attack.")
+    ap.add_argument("--check", action="store_true", help="write nothing; exit 1 if the committed pages drift")
+    if ap.parse_args().check:
+        sys.exit(check())
+    write_pages(ROOT)
+
+
+def write_pages(root):
+    tdir = root / "techniques"
+    ddir = root / "detections" / "strategies"
     tdir.mkdir(parents=True, exist_ok=True)
     ddir.mkdir(parents=True, exist_ok=True)
     # remove the stale defense-evasion.md (renamed to stealth + defense-impairment)

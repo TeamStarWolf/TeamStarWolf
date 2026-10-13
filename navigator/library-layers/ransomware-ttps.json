@@ -1,7 +1,7 @@
 {
   "name": "TeamStarWolf - Ransomware TTPs",
   "versions": {
-    "attack": "16",
+    "attack": "19",
     "navigator": "4.9",
     "layer": "4.5"
   },
@@ -43,7 +43,7 @@
     },
     {
       "techniqueID": "T1078",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Compromised valid accounts can support access during an intrusion. Sources: RANSOMWARE_DEFENSE_REFERENCE.md."
     },
@@ -84,10 +84,10 @@
       "comment": "Remote Desktop Protocol supports lateral movement between compromised systems. Sources: RANSOMWARE_DEFENSE_REFERENCE.md."
     },
     {
-      "techniqueID": "T1562.001",
-      "tactic": "defense-evasion",
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
       "score": 100,
-      "comment": "Disabling or modifying security tools reduces defensive visibility before impact. Sources: RANSOMWARE_DEFENSE_REFERENCE.md."
+      "comment": "Disabling or modifying security tools reduces defensive visibility before impact. Sources: RANSOMWARE_DEFENSE_REFERENCE.md. (Re-keyed from T1562.001, which ATT&CK v19 revoked in favour of T1685; data/attack/superseded_by.jsonl.)"
     },
     {
       "techniqueID": "T1530",
@@ -172,6 +172,10 @@
     {
       "name": "generated_by",
       "value": "Codex Task 1 per Claude Code handoff"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v19.2: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
     }
   ],
   "links": [

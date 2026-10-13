@@ -1,7 +1,7 @@
 {
   "name": "TeamStarWolf - Web Application Attacks",
   "versions": {
-    "attack": "16",
+    "attack": "19",
     "navigator": "4.9",
     "layer": "4.5"
   },
@@ -54,8 +54,44 @@
       "comment": "Valid Accounts is cited for API credential stuffing, stolen JWT reuse, broken auth, and access-control abuse in the API and secure coding references."
     },
     {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 88,
+      "comment": "Valid Accounts is cited for API credential stuffing, stolen JWT reuse, broken auth, and access-control abuse in the API and secure coding references."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 88,
+      "comment": "Valid Accounts is cited for API credential stuffing, stolen JWT reuse, broken auth, and access-control abuse in the API and secure coding references."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 88,
+      "comment": "Valid Accounts is cited for API credential stuffing, stolen JWT reuse, broken auth, and access-control abuse in the API and secure coding references."
+    },
+    {
       "techniqueID": "T1078.001",
       "tactic": "initial-access",
+      "score": 78,
+      "comment": "Default accounts are included for default credential testing and exposed admin panels described in the web security and pentesting references."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 78,
+      "comment": "Default accounts are included for default credential testing and exposed admin panels described in the web security and pentesting references."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 78,
+      "comment": "Default accounts are included for default credential testing and exposed admin panels described in the web security and pentesting references."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
       "score": 78,
       "comment": "Default accounts are included for default credential testing and exposed admin panels described in the web security and pentesting references."
     },
@@ -205,7 +241,7 @@
     },
     {
       "techniqueID": "T1070",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 54,
       "comment": "Indicator Removal is included for logging and monitoring failures, log tampering concerns, and missing audit trails in web and API environments."
     }
@@ -243,12 +279,24 @@
       "value": "32"
     },
     {
+      "name": "technique_tactic_entries",
+      "value": "38"
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
       "name": "validation_source",
       "value": "data/attack/technique_profiles.jsonl"
     },
     {
       "name": "generated_by",
       "value": "Codex Task 1 per Claude Code handoff"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v19.2: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
     }
   ],
   "links": [

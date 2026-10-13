@@ -51,9 +51,9 @@ Use cloud free tiers to practice without hardware. Good for learning specific sk
 
 | Provider | Free Tier Notes |
 |---|---|
-| AWS Free Tier | 750 hrs/mo t2.micro (12 months), good for EC2/IAM/S3 labs |
-| Azure Free Tier | $200 credit + 12-month free services |
-| Google Cloud (GCP) | $300 credit, Always Free f1-micro |
+| AWS Free Tier | New accounts (since 15 Jul 2025): $100 sign-up credit + up to $100 more; the Free plan closes after 6 months or when credits run out; 30+ always-free services. Good for EC2/IAM/S3 labs |
+| Azure Free Tier | $200 credit (30 days) + 12-month free services (750 hrs/mo B1s-class VMs) + always-free services |
+| Google Cloud (GCP) | $300 credit (90 days), Always Free e2-micro VM (us-west1, us-central1, us-east1) |
 | VPS providers (Vultr, Linode, Hetzner) | $5-$10/mo for practice boxes; destroy when done |
 | CloudGoat / FLAWS.cloud | Dedicated vulnerable cloud environments (see Section 6) |
 
@@ -400,7 +400,7 @@ The home lab is the foundation for every practical cybersecurity discipline. Use
 
 ## Active Directory Lab (Windows Domain)
 
-This section is a deep-dive into building a deliberately vulnerable Active Directory environment â€” the closest thing to a real enterprise target you can build at home. Most real-world breaches involve AD at some stage, so this lab is essential for both attackers and defenders.
+This section is a deep-dive into building a deliberately vulnerable Active Directory environment — the closest thing to a real enterprise target you can build at home. Most real-world breaches involve AD at some stage, so this lab is essential for both attackers and defenders.
 
 ### Why Build a Vulnerable AD Lab?
 
@@ -410,7 +410,7 @@ Active Directory is the authentication and authorization backbone of virtually e
 - Misconfigurations (Kerberoastable service accounts, unconstrained delegation, weak ACLs) are extremely common in real environments.
 - Attacks like Pass-the-Hash, Kerberoasting, and BloodHound path abuse are difficult to understand without hands-on practice.
 
-By building your own AD lab, you can attack it freely, break things, reset to a snapshot, and try again â€” learning far more than any guided exercise allows.
+By building your own AD lab, you can attack it freely, break things, reset to a snapshot, and try again — learning far more than any guided exercise allows.
 
 ### Hypervisor Requirements
 
@@ -436,7 +436,7 @@ Minimum host resources for a basic AD lab:
 
 ### Getting Free Windows ISOs
 
-Microsoft provides 180-day evaluation versions of Windows Server and Windows 10/11 Enterprise â€” completely free, no license key needed. Evaluations can be extended with `slmgr /rearm` for additional time.
+Microsoft provides 180-day evaluation versions of Windows Server and Windows 10/11 Enterprise — completely free, no license key needed. Evaluations can be extended with `slmgr /rearm` for additional time.
 
 | Download | URL |
 |---|---|
@@ -491,7 +491,7 @@ Install-ADDSForest `
 # Server reboots automatically. Log back in as CORP\Administrator
 ```
 
-> Why it matters: The `-InstallDns` flag installs DNS on the DC itself. In AD, DNS is critical â€” domain-joined machines use the DC as their DNS server to find domain resources via SRV records.
+> Why it matters: The `-InstallDns` flag installs DNS on the DC itself. In AD, DNS is critical — domain-joined machines use the DC as their DNS server to find domain resources via SRV records.
 
 #### Creating Users, Groups, and OUs
 
@@ -565,13 +565,13 @@ New-GPLink -Name "Lab - Deploy Sysmon" -Target "OU=Corp Computers,DC=corp,DC=loc
 On each Windows 10/11 workstation VM:
 
 ```powershell
-# Set DNS to the DC's IP (critical â€” must be done before joining)
+# Set DNS to the DC's IP (critical — must be done before joining)
 Set-DnsClientServerAddress -InterfaceAlias "Ethernet0" -ServerAddresses 192.168.40.10
 
 # Rename the machine
 Rename-Computer -NewName "WRK01" -Restart
 
-# After reboot â€” join the domain
+# After reboot — join the domain
 Add-Computer -DomainName "corp.local" `
   -OUPath "OU=Corp Computers,DC=corp,DC=local" `
   -Credential (Get-Credential) `
@@ -642,7 +642,7 @@ impacket-GetUserSPNs corp.local/bjones:Summer2024! -dc-ip 192.168.40.10 -request
 hashcat -m 13100 kerberoast_hashes.txt /usr/share/wordlists/rockyou.txt
 ```
 
-> Why it matters: Kerberoasting doesn't require elevated privileges â€” any domain user can request a service ticket. Service accounts often have weak passwords and high privileges, making this a high-value technique.
+> Why it matters: Kerberoasting doesn't require elevated privileges — any domain user can request a service ticket. Service accounts often have weak passwords and high privileges, making this a high-value technique.
 
 #### AS-REP Roasting
 
@@ -693,25 +693,29 @@ bloodhound &
 
 Cloud security is one of the fastest-growing areas of offensive and defensive security. AWS is the dominant cloud provider and the most common target in bug bounty programs and real-world breaches. This section walks you through building a practical cloud attack lab at zero cost (with careful management).
 
-> Cost Warning: AWS can generate unexpected charges if resources are left running. Set up billing alerts (covered below) BEFORE deploying anything. The free tier has specific limits â€” exceeding them results in charges. Always destroy resources when done.
+> Cost Warning: AWS can generate unexpected charges if resources are left running. Set up billing alerts (covered below) BEFORE deploying anything. The free tier has specific limits — exceeding them results in charges. Always destroy resources when done.
 
-### AWS Free Tier â€” What You Actually Get
+### AWS Free Tier — What You Actually Get
 
-The free tier has three categories:
+AWS replaced the old 12-month / 750-hour tier with a credit model for accounts created on or after 15 July 2025. At sign-up you choose a Free plan or a Paid plan:
 
 | Category | Details | Key Services |
 |---|---|---|
-| Always Free | Never expires | Lambda (1M requests/mo), DynamoDB (25 GB), SNS (1M publishes) |
-| 12-Month Free | From account creation date | EC2 t2.micro (750 hrs/mo), S3 (5 GB), RDS (750 hrs/mo), CloudTrail (1 trail) |
-| Trials | Short-term trials | GuardDuty (30 days), Macie (30 days), Security Hub (30 days) |
+| Sign-up credits | $100 when the account is created, plus up to $100 more for completing onboarding activities (up to $200 total) | Spent by the eligible services you run: EC2 (free-tier-eligible types: t3.micro, t3.small, t4g.micro, t4g.small, c7i-flex.large, m7i-flex.large), S3, RDS, CloudTrail, etc. |
+| Free plan | Ends after 6 months or when the credits are used up, whichever comes first; the account then closes (upgrade to the Paid plan within 90 days to keep it). No charges, but only select services | Good fit for a short, bounded lab |
+| Paid plan | Same credits; usage beyond them is billed pay-as-you-go and the account does not close | Needed for services the Free plan excludes |
+| Always Free | Monthly limits that never expire, on both plans | Lambda (1M requests/mo), DynamoDB (25 GB), SNS (1M publishes) |
+| Short-term trials | Paid plan only | GuardDuty (30 days), Macie (30 days), Security Hub (30 days) |
 
-> Key free tier caveat: The 750 EC2 hours covers ONE t2.micro running 24/7 for a month. If you run two t2.micros simultaneously, you burn through the free hours in 15 days and get charged for the second instance.
+Accounts created before 15 July 2025 keep the legacy tier: 750 hrs/mo of t2.micro or t3.micro for 12 months from account creation, billed pay-as-you-go above the limits. Check the current terms at https://aws.amazon.com/free/ before you budget a lab.
 
-### Step 1 â€” Create an AWS Account
+> Key free tier caveat: Credits drain per hour for everything left running. Two instances spend them twice as fast, and on the Free plan the account and everything in it closes when the credits run out. List the instance types your account can run on the free tier with `aws ec2 describe-instance-types --filters Name=free-tier-eligible,Values=true --query "InstanceTypes[*].InstanceType" --output text`.
+
+### Step 1 — Create an AWS Account
 
 1. Go to https://aws.amazon.com and create an account (credit card required for verification, but you won't be charged if you stay in free tier).
-2. Immediately enable MFA on the root account: IAM Console â†’ Security Credentials â†’ Assign MFA device.
-3. Create an IAM admin user â€” never use the root account for daily work:
+2. Immediately enable MFA on the root account: IAM Console → Security Credentials → Assign MFA device.
+3. Create an IAM admin user — never use the root account for daily work:
 
 ```bash
 # Using AWS CLI (after installing: https://aws.amazon.com/cli/)
@@ -723,7 +727,7 @@ aws iam create-login-profile --user-name lab-admin --password 'LabAdmin@2024!' -
 
 > Why create a separate IAM user? The root account has unrestricted access to everything, including billing and account closure. If you accidentally expose root credentials (e.g., push them to GitHub), an attacker could do irreversible damage. IAM users can have permissions scoped to only what you need.
 
-### Step 2 â€” Set Up Billing Alerts (Do This First)
+### Step 2 — Set Up Billing Alerts (Do This First)
 
 This is the most important step before deploying anything:
 
@@ -744,12 +748,12 @@ aws cloudwatch put-metric-alarm \
   --region us-east-1
 ```
 
-Or via the console: Billing Dashboard â†’ Billing Preferences â†’ Enable "Receive Billing Alerts" â†’ CloudWatch â†’ Alarms â†’ Create Alarm â†’ Billing.
+Or via the console: Billing Dashboard → Billing Preferences → Enable "Receive Billing Alerts" → CloudWatch → Alarms → Create Alarm → Billing.
 
 Also enable AWS Budgets (free for 2 budgets/month):
-- Billing Console â†’ Budgets â†’ Create Budget â†’ Zero spend budget (alerts at $0.01)
+- Billing Console → Budgets → Create Budget → Zero spend budget (alerts at $0.01)
 
-### Step 3 â€” Basic VPC and EC2 Setup
+### Step 3 — Basic VPC and EC2 Setup
 
 Understanding VPC networking is foundational to cloud security. A VPC is your private network within AWS:
 
@@ -770,9 +774,11 @@ aws ec2 create-internet-gateway \
 aws ec2 attach-internet-gateway --vpc-id vpc-XXXXXXXXX --internet-gateway-id igw-XXXXXXXXX
 
 # Launch a free tier EC2 instance (Amazon Linux 2023)
+# resolve:ssm: looks up the current AL2023 AMI for your region, so no hard-coded AMI ID goes stale
+# (t3.micro is free-tier eligible on both the credit-based plans and the legacy 12-month tier)
 aws ec2 run-instances \
-  --image-id ami-0c02fb55956c7d316 \
-  --instance-type t2.micro \
+  --image-id resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64 \
+  --instance-type t3.micro \
   --key-name my-lab-key \
   --subnet-id subnet-XXXXXXXXX \
   --security-group-ids sg-XXXXXXXXX \
@@ -781,7 +787,7 @@ aws ec2 run-instances \
 
 > Why understand VPCs? Most cloud attack scenarios involve exploiting misconfigured security groups, exposed S3 buckets, or SSRF vulnerabilities that let you reach the EC2 metadata service. Understanding how VPCs, subnets, and routing work makes these attacks comprehensible.
 
-### Step 4 â€” IAM Configuration for Practice
+### Step 4 — IAM Configuration for Practice
 
 IAM (Identity and Access Management) misconfigurations are the root cause of most AWS breaches. Set up intentionally misconfigured IAM roles to practice enumeration and privilege escalation:
 
@@ -810,7 +816,7 @@ aws iam create-user --user-name low-priv-user
 aws iam create-access-key --user-name low-priv-user
 ```
 
-### Step 5 â€” Enable CloudTrail Logging
+### Step 5 — Enable CloudTrail Logging
 
 CloudTrail records every API call made in your account. It is the foundation of AWS forensics and detection:
 
@@ -831,7 +837,7 @@ aws cloudtrail start-logging --name lab-trail
 
 > Why CloudTrail matters: Every attacker action in AWS generates a CloudTrail event. Understanding what actions leave traces (and which don't) is essential for both red and blue team work. Practice by attacking your lab environment, then reviewing CloudTrail logs to see exactly what was recorded.
 
-### Step 6 â€” Deploy CloudGoat (Intentionally Vulnerable AWS)
+### Step 6 — Deploy CloudGoat (Intentionally Vulnerable AWS)
 
 [CloudGoat](https://github.com/RhinoSecurityLabs/cloudgoat) by Rhino Security Labs is the premier intentionally vulnerable AWS environment. It uses Terraform to spin up realistic attack scenarios.
 
@@ -848,7 +854,7 @@ cloudgoat list
 # Deploy a scenario (example: IAM privilege escalation)
 cloudgoat create iam_privesc_by_attachment
 
-# When done â€” ALWAYS destroy to avoid charges
+# When done — ALWAYS destroy to avoid charges
 cloudgoat destroy iam_privesc_by_attachment
 ```
 
@@ -881,20 +887,20 @@ Key CloudGoat scenarios:
 
 Azure is the second-largest cloud provider and the dominant platform for enterprise Microsoft environments. Entra ID (formerly Azure Active Directory) is deeply integrated with Microsoft 365, making it a critical target in enterprise attacks and a required skill for modern red and blue teamers.
 
-> Cost Warning: Azure's free account is generous but has limits. The $200 credit expires after 30 days. After that, only "Always Free" services remain. Services like Azure VMs are NOT free after the credit is used. Set up cost alerts before deploying anything beyond free-tier services.
+> Cost Warning: Azure's free account is generous but has limits. The $200 credit expires after 30 days; to keep the account you then move to pay-as-you-go. The 12-month free amounts (including 750 hrs/mo of B1s-class VMs) and the always-free services still apply, but anything beyond those monthly amounts is billed, and the 12-month services are billed at normal rates once the first year ends. Set up cost alerts before deploying anything beyond free-tier services.
 
-### Azure Free Account â€” What You Get
+### Azure Free Account — What You Get
 
 | Tier | What's Included | Duration |
 |---|---|---|
 | $200 credit | Any Azure service | 30 days from signup |
-| Always Free | 750 hrs B1s VM, 5 GB Blob Storage, Azure Functions (1M executions), Cosmos DB (1,000 RUs) | Permanent |
-| 12-Month Free | B1s VMs, 64 GB managed disk, SQL Database (250 GB) | 12 months from signup |
+| 12-Month Free | 750 hrs/mo each of B1s, B2pts v2 (Arm) and B2ats v2 (AMD) burstable VMs (Linux and Windows), 2 x 64 GB managed disks, 5 GB Blob Storage (LRS hot), SQL Database (250 GB S0), PostgreSQL/MySQL Flexible Server (750 hrs B1MS) | 12 months from signup, then pay-as-you-go |
+| Always Free | 65+ services, e.g. Azure Functions (1M requests/mo), Cosmos DB free tier (1,000 RU/s + 25 GB), App Service (10 apps) | Permanent |
 | Entra ID Free Tier | User management, SSO, MFA (up to 50,000 objects) | Permanent |
 
-Sign up at: https://azure.microsoft.com/en-us/free/
+Sign up at: https://azure.microsoft.com/en-us/free/ (offers change; check the current list at https://azure.microsoft.com/en-us/pricing/free-services/)
 
-### Step 1 â€” Create an Azure Free Account and Entra ID Tenant
+### Step 1 — Create an Azure Free Account and Entra ID Tenant
 
 When you create an Azure account, you automatically get a free Entra ID (Azure AD) tenant. This is the identity provider for your entire Azure environment.
 
@@ -920,9 +926,9 @@ az consumption budget create \
   --notifications "[{\"enabled\":true,\"operator\":\"GreaterThan\",\"threshold\":80,\"contactEmails\":[\"youremail@example.com\"],\"thresholdType\":\"Actual\"}]"
 ```
 
-### Step 2 â€” Set Up Test Users, Groups, and Roles
+### Step 2 — Set Up Test Users, Groups, and Roles
 
-The free Entra ID tier supports up to 50,000 objects â€” more than enough for a lab:
+The free Entra ID tier supports up to 50,000 objects — more than enough for a lab:
 
 ```bash
 # Create test users
@@ -948,16 +954,16 @@ az ad group member add \
   --group "Lab Security Team" \
   --member-id $(az ad user show --id labuser1@YOURTENANT.onmicrosoft.com --query id -o tsv)
 
-# Assign a role (Global Reader â€” read-only to everything in Entra)
+# Assign a role (Global Reader — read-only to everything in Entra)
 az role assignment create \
   --assignee labuser1@YOURTENANT.onmicrosoft.com \
   --role "Global Reader" \
   --scope /subscriptions/YOUR_SUBSCRIPTION_ID
 ```
 
-> Why Entra ID matters: Entra ID is the identity backbone for all Microsoft 365 services (Teams, SharePoint, Exchange, Defender). In a real enterprise attack, compromising an Entra ID account can grant access to email, files, and enterprise applications â€” not just Azure resources.
+> Why Entra ID matters: Entra ID is the identity backbone for all Microsoft 365 services (Teams, SharePoint, Exchange, Defender). In a real enterprise attack, compromising an Entra ID account can grant access to email, files, and enterprise applications — not just Azure resources.
 
-### Step 3 â€” Deploy AzureGoat (Intentionally Vulnerable Azure)
+### Step 3 — Deploy AzureGoat (Intentionally Vulnerable Azure)
 
 [AzureGoat](https://github.com/ine-labs/AzureGoat) by INE Labs mirrors CloudGoat but for Azure, with realistic privilege escalation and misconfiguration scenarios:
 
@@ -972,7 +978,7 @@ terraform init
 # Deploy (uses your Azure CLI credentials)
 terraform apply
 
-# When done â€” ALWAYS destroy
+# When done — ALWAYS destroy
 terraform destroy
 ```
 
@@ -983,9 +989,9 @@ AzureGoat includes scenarios for:
 - Key Vault secret extraction
 - SSRF via Azure metadata service (`169.254.169.254`)
 
-### Step 4 â€” Microsoft 365 Developer Program (Free E5 License)
+### Step 4 — Microsoft 365 Developer Program (Free E5 License)
 
-This is one of the best-kept secrets in cybersecurity education. Microsoft offers a free Microsoft 365 E5 developer subscription (normally ~$57/user/month) for 90 days, renewable if you actively use it for development/learning.
+Microsoft offers a free, renewable Microsoft 365 E5 developer subscription (normally ~$57/user/month), but it is no longer open to everyone: since early 2024 only current Visual Studio Professional or Enterprise subscribers and members of qualifying programs can set one up. The subscription renews while you actively use it for development. If you do not qualify, use the public trials listed after the sign-up steps.
 
 What's included (25 user licenses):
 - Microsoft 365 E5 (Word, Excel, Teams, SharePoint, Exchange, etc.)
@@ -998,18 +1004,26 @@ What's included (25 user licenses):
 Sign up: https://developer.microsoft.com/en-us/microsoft-365/dev-program
 
 ```
-1. Click "Join now" and sign in with a Microsoft account
-2. Choose "Security" or "Development" as your focus area
-3. Select "Instant sandbox" for fastest setup
+1. Click "Join now" and sign in with the Microsoft account tied to your Visual Studio subscription
+2. Complete the profile (focus area, e.g. "Security")
+3. From the program dashboard, set up the E5 sandbox (offered only if your account qualifies)
 4. Wait ~2 minutes for provisioning
-5. Note the admin credentials provided â€” these are your E5 tenant credentials
+5. Note the admin credentials provided — these are your E5 tenant credentials
 ```
 
-> Why this is valuable: Practicing with Sentinel, Defender XDR, and Entra ID P2 features normally costs hundreds of dollars per month. The developer program gives you a full enterprise security stack for free.
+> Why this is valuable: Practicing with Sentinel, Defender XDR, and Entra ID P2 features normally costs hundreds of dollars per month. For eligible subscribers, the developer program gives you a full enterprise security stack for free.
 
-### Step 5 â€” Microsoft Sentinel Lab Setup
+If you are not eligible, these public trials cover the same practice areas. They are time-limited, so plan your lab around them:
 
-Once you have the E5 dev subscription:
+| Option | What you get | Notes |
+|---|---|---|
+| Microsoft 365 E5 trial | 25 E5 licenses for one month | Start it in the Microsoft 365 admin center (Billing -> Purchase services -> Microsoft 365 E5 -> Start free trial). Microsoft's Defender XDR lab guide walks through it: https://learn.microsoft.com/en-us/defender-xdr/setup-m365deval |
+| Microsoft Sentinel free trial | First 31 days of a new workspace, up to 10 GB/day | Runs on any Azure subscription, including the free account above |
+| Entra ID P2 trial | Conditional Access, PIM, Identity Protection | Activate from the Entra admin center (Billing -> Licenses) |
+
+### Step 5 — Microsoft Sentinel Lab Setup
+
+Once you have an E5 tenant (developer sandbox or trial): Sentinel itself runs in an Azure subscription, and to connect the E5 tenant's Defender XDR data that subscription must belong to the same Entra tenant (sign up for an Azure subscription while signed in as the E5 tenant's admin).
 
 ```bash
 # Connect to your dev tenant
@@ -1036,7 +1050,7 @@ Key things to practice in Sentinel:
 - Build Workbooks (dashboards) for visualizing security data
 - Use Threat Intelligence to enrich alerts with IOC data
 
-### Step 6 â€” AzureHound and ROADtools for Enumeration Practice
+### Step 6 — AzureHound and ROADtools for Enumeration Practice
 
 Just as BloodHound enumerates on-premises AD, AzureHound and ROADtools map Entra ID attack paths:
 
@@ -1060,13 +1074,13 @@ roadrecon gather
 roadrecon gui  # Launches a web interface for exploring the data
 ```
 
-> Why these tools matter: AzureHound reveals the same type of attack paths that BloodHound does for on-prem AD â€” but in the cloud. You can find paths like "User A can reset User B's password â†’ User B is a Global Admin" and practice exploiting them in your own tenant.
+> Why these tools matter: AzureHound reveals the same type of attack paths that BloodHound does for on-prem AD — but in the cloud. You can find paths like "User A can reset User B's password → User B is a Global Admin" and practice exploiting them in your own tenant.
 
 ---
 
 ## Self-Hosting a Website / VPS Setup
 
-Running your own VPS is a practical skill that bridges web security, Linux administration, and bug bounty reconnaissance practice. Hosting your own vulnerable web apps gives you a realistic target that you fully control â€” no rate limits, no legal concerns, no downtime.
+Running your own VPS is a practical skill that bridges web security, Linux administration, and bug bounty reconnaissance practice. Hosting your own vulnerable web apps gives you a realistic target that you fully control — no rate limits, no legal concerns, no downtime.
 
 ### Choosing a VPS Provider
 
@@ -1075,14 +1089,14 @@ Running your own VPS is a practical skill that bridges web security, Linux admin
 | DigitalOcean | $4/mo (512 MB RAM, 10 GB SSD) | Excellent docs; $200 credit for 60 days via referral links |
 | Linode / Akamai | $5/mo (1 GB RAM, 25 GB SSD) | Solid performance; good free credit offers |
 | Vultr | $2.50/mo (512 MB RAM, 10 GB SSD) | Cheapest option; many datacenter locations |
-| Hetzner | â‚¬3.79/mo (2 vCPU, 4 GB RAM) | Exceptional value; EU-based |
+| Hetzner | €3.79/mo (2 vCPU, 4 GB RAM) | Exceptional value; EU-based |
 | Oracle Cloud Free Tier | Free permanently | 2 AMD VMs (1 GB RAM each) + 4 ARM cores + 24 GB RAM (Ampere A1); genuinely free |
 
-> Free option: Oracle Cloud's Always Free tier is remarkably generous â€” you get ARM-based VMs with 4 cores and 24 GB RAM total at no cost. The catch: account creation can be difficult, and support is limited. See: https://www.oracle.com/cloud/free/
+> Free option: Oracle Cloud's Always Free tier is remarkably generous — you get ARM-based VMs with 4 cores and 24 GB RAM total at no cost. The catch: account creation can be difficult, and support is limited. See: https://www.oracle.com/cloud/free/
 
-Recommended for beginners: DigitalOcean or Vultr â€” both have clean interfaces, good documentation, and hourly billing so you only pay for what you use.
+Recommended for beginners: DigitalOcean or Vultr — both have clean interfaces, good documentation, and hourly billing so you only pay for what you use.
 
-### Step 1 â€” Initial Server Setup
+### Step 1 — Initial Server Setup
 
 After spinning up a fresh Ubuntu 22.04 LTS VPS:
 
@@ -1103,12 +1117,12 @@ su - labuser
 
 > Why not use root? Running as root means a single misconfiguration or exploited vulnerability gives an attacker full control immediately. A non-root user with sudo requires an extra step, limiting blast radius.
 
-### Step 2 â€” SSH Key Authentication
+### Step 2 — SSH Key Authentication
 
 Password-based SSH is vulnerable to brute force. Switch to key authentication:
 
 ```bash
-# On YOUR LOCAL MACHINE â€” generate an SSH key pair
+# On YOUR LOCAL MACHINE — generate an SSH key pair
 ssh-keygen -t ed25519 -C "lab-vps-key" -f ~/.ssh/lab_vps_key
 
 # Copy the public key to the server
@@ -1121,7 +1135,7 @@ ssh -i ~/.ssh/lab_vps_key labuser@YOUR_SERVER_IP
 Once key login is confirmed, disable password authentication:
 
 ```bash
-# On the server â€” edit SSH config
+# On the server — edit SSH config
 sudo nano /etc/ssh/sshd_config
 # Change these lines:
 #   PasswordAuthentication no
@@ -1131,7 +1145,7 @@ sudo nano /etc/ssh/sshd_config
 sudo systemctl restart sshd
 ```
 
-### Step 3 â€” Firewall with UFW
+### Step 3 — Firewall with UFW
 
 UFW (Uncomplicated Firewall) is the easiest way to manage iptables rules on Ubuntu:
 
@@ -1159,14 +1173,14 @@ sudo ufw status verbose
 
 > Critical: Always `ufw allow ssh` before `ufw enable`. Forgetting this locks you out of your own server. Most cloud providers have a web-based console as a fallback, but it's still a headache.
 
-### Step 4 â€” Fail2ban (Brute Force Protection)
+### Step 4 — Fail2ban (Brute Force Protection)
 
 Fail2ban monitors log files and automatically bans IP addresses that show signs of brute force attacks:
 
 ```bash
 sudo apt install fail2ban -y
 
-# Create a local config (don't edit jail.conf directly â€” it gets overwritten on updates)
+# Create a local config (don't edit jail.conf directly — it gets overwritten on updates)
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 sudo nano /etc/fail2ban/jail.local
 
@@ -1183,9 +1197,9 @@ sudo systemctl start fail2ban
 sudo fail2ban-client status sshd
 ```
 
-> Why fail2ban matters for learning: It's a practical example of a detection and response system â€” it reads logs, identifies patterns, and takes automated action. This is conceptually identical to how a SIEM + SOAR works at enterprise scale.
+> Why fail2ban matters for learning: It's a practical example of a detection and response system — it reads logs, identifies patterns, and takes automated action. This is conceptually identical to how a SIEM + SOAR works at enterprise scale.
 
-### Step 5 â€” Install Docker and Docker Compose
+### Step 5 — Install Docker and Docker Compose
 
 Docker makes it trivial to deploy and tear down vulnerable web applications:
 
@@ -1205,7 +1219,7 @@ docker --version
 docker compose version
 ```
 
-### Step 6 â€” Deploy Vulnerable Web Applications
+### Step 6 — Deploy Vulnerable Web Applications
 
 #### DVWA (Damn Vulnerable Web Application)
 
@@ -1273,7 +1287,7 @@ docker compose up -d
 # Access at http://YOUR_SERVER_IP:8888/WebGoat
 ```
 
-WebGoat is lesson-based with guided hints â€” good for learning the WHY behind each vulnerability.
+WebGoat is lesson-based with guided hints — good for learning the WHY behind each vulnerability.
 
 #### Multi-App Stack (Run All Three)
 
@@ -1308,12 +1322,12 @@ docker compose ps  # Verify all are running
 
 > Security note: If you expose these apps to the internet (not just localhost), anyone can access them. Either restrict access with UFW (`ufw allow from YOUR_HOME_IP to any port 8080`) or use a VPN to access your VPS privately.
 
-### Step 7 â€” Domain Setup with Cloudflare
+### Step 7 — Domain Setup with Cloudflare
 
 If you want a real domain name (useful for bug bounty practice and SSL certificates):
 
 1. Buy a cheap domain from Namecheap, Porkbun (~$1-$10/year for `.xyz`, `.io` domains).
-2. Add the domain to Cloudflare (free): https://dash.cloudflare.com â€” Cloudflare provides free DNS, DDoS protection, and SSL.
+2. Add the domain to Cloudflare (free): https://dash.cloudflare.com — Cloudflare provides free DNS, DDoS protection, and SSL.
 3. In Cloudflare, create DNS A records pointing to your VPS IP.
 
 ```
@@ -1328,11 +1342,11 @@ Value: YOUR_VPS_IP
 Proxy: Enabled
 ```
 
-### Step 8 â€” Nginx or Caddy as a Reverse Proxy
+### Step 8 — Nginx or Caddy as a Reverse Proxy
 
 A reverse proxy sits in front of your Docker containers and handles SSL termination:
 
-#### Option A: Caddy (Easier â€” Automatic HTTPS)
+#### Option A: Caddy (Easier — Automatic HTTPS)
 
 Caddy automatically obtains and renews Let's Encrypt certificates:
 
@@ -1355,7 +1369,7 @@ dvwa.yourdomain.com {
 
 ```bash
 sudo systemctl reload caddy
-# Caddy automatically provisions TLS certs â€” no certbot needed
+# Caddy automatically provisions TLS certs — no certbot needed
 ```
 
 #### Option B: Nginx + Let's Encrypt Certbot
@@ -1403,10 +1417,10 @@ Detection engineering and blue team skills are built by practicing detection on 
 [DetectionLab](https://github.com/clong/DetectionLab) is the most complete pre-built lab for detection engineering. It automatically provisions a full Windows AD domain with enterprise logging infrastructure.
 
 What it includes:
-- `dc.windomain.local` â€” Windows Server 2019 Domain Controller
-- `wef.windomain.local` â€” Windows Event Forwarding server
-- `win10.windomain.local` â€” Windows 10 workstation (domain-joined)
-- `logger` â€” Ubuntu VM running Splunk, Fleet (osquery), Zeek, Suricata, and Velociraptor
+- `dc.windomain.local` — Windows Server 2019 Domain Controller
+- `wef.windomain.local` — Windows Event Forwarding server
+- `win10.windomain.local` — Windows 10 workstation (domain-joined)
+- `logger` — Ubuntu VM running Splunk, Fleet (osquery), Zeek, Suricata, and Velociraptor
 
 Prerequisites: Vagrant + VirtualBox or VMware (see Section 2), ~24 GB RAM.
 
@@ -1467,14 +1481,23 @@ Key things to practice in Security Onion:
 
 ### Option 3: Elastic SIEM (Free Tier) with Sysmon
 
-Building your own Elastic SIEM from scratch gives you deep understanding of how SIEMs work under the hood â€” ingestion pipelines, index mappings, detection rules, and alert workflows.
+Building your own Elastic SIEM from scratch gives you deep understanding of how SIEMs work under the hood — ingestion pipelines, index mappings, detection rules, and alert workflows.
+
+Kibana 8.x cannot connect to Elasticsearch as the `elastic` superuser; it uses the built-in `kibana_system` account, and `ELASTIC_PASSWORD` sets only the `elastic` password. The compose file below therefore runs a one-shot `setup` container that sets the `kibana_system` password before Kibana starts. Without that step Kibana loops on `unable to authenticate user [kibana_system]` and never serves port 5601.
 
 ```bash
-# Deploy Elasticsearch + Kibana with Docker Compose
+# Deploy Elasticsearch + Kibana with Docker Compose (Compose v2: `docker compose`)
 mkdir ~/elastic-siem && cd ~/elastic-siem
 
+# Passwords live in .env. Keep them alphanumeric: Elastic's Docker guide warns that
+# special characters break the variable substitution used below.
+cat > .env << 'EOF'
+ELASTIC_PASSWORD=ChangeMe123
+KIBANA_PASSWORD=KibanaSys123
+KIBANA_ENCRYPTION_KEY=labonlyencryptionkey32charsminimum0001
+EOF
+
 cat > docker-compose.yml << 'EOF'
-version: '3'
 services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
@@ -1482,38 +1505,69 @@ services:
       - discovery.type=single-node
       - ES_JAVA_OPTS=-Xms2g -Xmx2g
       - xpack.security.enabled=true
-      - ELASTIC_PASSWORD=ChangeMe123!
+      # Plain HTTP on 9200 for an isolated lab. Without these two lines Elasticsearch 8
+      # may auto-enable TLS on first start, and Kibana's http:// connection then fails.
+      - xpack.security.http.ssl.enabled=false
+      - xpack.security.transport.ssl.enabled=false
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
     ports:
       - "9200:9200"
     volumes:
       - esdata:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:9200 | grep -q 'missing authentication credentials'"]
+      interval: 10s
+      timeout: 10s
+      retries: 30
+
+  # One-shot job: set the kibana_system password, then exit
+  setup:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    command: >
+      bash -c 'until curl -s -o /dev/null -w "%{http_code}" -u "elastic:${ELASTIC_PASSWORD}"
+      -X POST -H "Content-Type: application/json"
+      http://elasticsearch:9200/_security/user/kibana_system/_password
+      -d "{\"password\":\"${KIBANA_PASSWORD}\"}" | grep -q 200; do echo waiting for elasticsearch; sleep 5; done;
+      echo kibana_system password set'
 
   kibana:
     image: docker.elastic.co/kibana/kibana:8.11.0
     environment:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
       - ELASTICSEARCH_USERNAME=kibana_system
-      - ELASTICSEARCH_PASSWORD=ChangeMe123!
+      - ELASTICSEARCH_PASSWORD=${KIBANA_PASSWORD}
+      # Needed by the Security app's detection rules and by Fleet (32+ characters)
+      - XPACK_ENCRYPTEDSAVEDOBJECTS_ENCRYPTIONKEY=${KIBANA_ENCRYPTION_KEY}
     ports:
       - "5601:5601"
     depends_on:
-      - elasticsearch
+      setup:
+        condition: service_completed_successfully
 
 volumes:
   esdata:
 EOF
 
 docker compose up -d
-# Kibana: http://localhost:5601 (elastic / ChangeMe123!)
+docker compose logs setup   # should end with "kibana_system password set"
+# Kibana: http://localhost:5601 - log in as elastic with the ELASTIC_PASSWORD from .env
+# (kibana_system is only for Kibana's own connection to Elasticsearch)
 ```
+
+If you started an earlier version of this stack (it used `ChangeMe123!` for both accounts), either run `docker compose down -v` and start again with the files above, or keep the old stack running and set the missing password by hand once Elasticsearch is up: `curl -u 'elastic:ChangeMe123!' -X POST http://localhost:9200/_security/user/kibana_system/_password -H 'Content-Type: application/json' -d '{"password":"ChangeMe123!"}'`.
 
 Install Elastic Agent on Windows targets (forwards Sysmon + Windows Event Logs):
 
 ```powershell
 # Download Elastic Agent on your Windows VM
 # In Kibana: Fleet -> Agent policies -> Create policy -> Add agent
+# Fleet first asks you to add a Fleet Server (port 8220); it is not part of the compose file above,
+# so add it from the Fleet UI on the Docker host or another lab VM before enrolling agents.
 # Follow the enrollment command shown in the UI, e.g.:
-.\elastic-agent.exe install --url=https://YOUR_KIBANA:8220 --enrollment-token=TOKEN_FROM_UI
+.\elastic-agent.exe install --url=https://YOUR_FLEET_SERVER:8220 --enrollment-token=TOKEN_FROM_UI
 
 # Install Sysmon with a community config for rich event telemetry
 .\Sysmon64.exe -accepteula -i sysmonconfig.xml
@@ -1575,19 +1629,19 @@ WHERE Mtime > now() - 86400  -- Last 24 hours
 SELECT * FROM Artifact.Windows.Detection.Amcache()
 ```
 
-> Why Velociraptor for beginners: Unlike full SIEMs, Velociraptor has a gentle learning curve while teaching fundamental EDR concepts. You can immediately run forensic artifacts against live endpoints and see results â€” no complex ingestion pipeline required.
+> Why Velociraptor for beginners: Unlike full SIEMs, Velociraptor has a gentle learning curve while teaching fundamental EDR concepts. You can immediately run forensic artifacts against live endpoints and see results — no complex ingestion pipeline required.
 
 ### Building a Detection Engineering Workflow
 
 Combine the above tools into a repeatable workflow for developing detections:
 
 ```
-1. ATTACK  â†’ Perform a specific technique (e.g., Kerberoasting, LSASS dump, WMI persistence)
-2. COLLECT â†’ Gather logs from Sysmon, Windows Event Log, Zeek network logs, EDR telemetry
-3. IDENTIFY â†’ Find what log events were generated by the attack
-4. WRITE   â†’ Create a detection rule (Sigma, Splunk SPL, KQL, Suricata rule)
-5. TEST    â†’ Replay the attack, confirm the rule fires; tune to reduce false positives
-6. SHARE   â†’ Convert Sigma rules to platform-specific formats and share on GitHub
+1. ATTACK  → Perform a specific technique (e.g., Kerberoasting, LSASS dump, WMI persistence)
+2. COLLECT → Gather logs from Sysmon, Windows Event Log, Zeek network logs, EDR telemetry
+3. IDENTIFY → Find what log events were generated by the attack
+4. WRITE   → Create a detection rule (Sigma, Splunk SPL, KQL, Suricata rule)
+5. TEST    → Replay the attack, confirm the rule fires; tune to reduce false positives
+6. SHARE   → Convert Sigma rules to platform-specific formats and share on GitHub
 ```
 
 Sigma rule example (generic format, converts to Splunk/Elastic/QRadar):

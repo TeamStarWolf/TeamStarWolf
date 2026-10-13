@@ -226,7 +226,7 @@ Essential cheat sheet URLs (bookmark these):
 - [revshells.com](https://www.revshells.com) - Reverse shell generator for every language - instant copy/paste
 - [Metasploit Unleashed](https://www.offensive-security.com/metasploit-unleashed/) - Free comprehensive Metasploit guide from OffSec
 - [ropnop - Upgrading Shells to TTY](https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/) - The definitive TTY upgrade guide
-- [ropnop - Transferring Files Kaliâ†’Windows](https://blog.ropnop.com/transferring-files-from-kali-to-windows/) - All file transfer methods in one place
+- [ropnop - Transferring Files Kali→Windows](https://blog.ropnop.com/transferring-files-from-kali-to-windows/) - All file transfer methods in one place
 - [explainshell.com](https://explainshell.com) - Paste any shell command and get an explanation of every flag
 - [Nmap NSE Script Docs](https://nmap.org/nsedoc/) - Full reference for all 600+ Nmap scripts
 - [Nmap Cheat Sheet (highon.coffee)](https://highon.coffee/blog/nmap-cheat-sheet/) - Quick flag and scan type reference
@@ -917,7 +917,7 @@ Practice: [Gandalf prompt injection game](https://gandalf.lakera.ai) | HuggingFa
 | CompTIA PenTest+ Guide | Various | Intermediate | Mid-level pentest cert - lighter than OSCP |
 | CEH Certified Ethical Hacker | Various | Beginner | Broad survey - better for resume than for skills |
 
-> Practical note: Cert priority order for offense: Net+ â†’ Sec+ â†’ PNPT â†’ OSCP â†’ CRTO. For defense: Net+ â†’ Sec+ â†’ BTL1 â†’ CySA+ â†’ GCIH. Don't get CISSP until you have 5 years experience - it won't help you before then.
+> Practical note: Cert priority order for offense: Net+ → Sec+ → PNPT → OSCP → CRTO. For defense: Net+ → Sec+ → BTL1 → CySA+ → GCIH. Don't get CISSP until you have 5 years experience - it won't help you before then.
 
 Hands-on repos:
 - [Free-Certifications](https://github.com/cloudcommunity/Free-Certifications) - Free courses with certs to supplement paid study
@@ -1031,7 +1031,7 @@ Portfolio builders: Start a blog | Do HTB/THM writeups | Submit a CVE | Contribu
 | Platform | Best For | Cost |
 |----------|---------|------|
 | [Hack The Box](https://hackthebox.com) | Pentesting, AD, reversing | Free + VIP |
-| [TryHackMe](https://tryhackme.com) | Beginners â†’ intermediate | Free + premium |
+| [TryHackMe](https://tryhackme.com) | Beginners → intermediate | Free + premium |
 | [PortSwigger Web Academy](https://portswigger.net/web-security) | Web security mastery | Free |
 | [pwn.college](https://pwn.college) | Binary exploitation | Free |
 | [CryptoHack](https://cryptohack.org) | Cryptography | Free |

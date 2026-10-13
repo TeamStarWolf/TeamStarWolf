@@ -7,15 +7,15 @@ Digital artifacts: Create Process, Executable File
 
 Blocking the execution of files on a host in accordance with defined application policy rules.
 
-## ATT&CK techniques countered (59)
+## ATT&CK techniques countered (58)
 
-- [T0846](https://attack.mitre.org/techniques/T0846): filters
-- [T0853](https://attack.mitre.org/techniques/T0853): blocks
-- [T0863](https://attack.mitre.org/techniques/T0863): filters
-- [T0871](https://attack.mitre.org/techniques/T0871): blocks
-- [T0888](https://attack.mitre.org/techniques/T0888): filters
-- [T0894](https://attack.mitre.org/techniques/T0894): blocks, filters
-- [T0895](https://attack.mitre.org/techniques/T0895): blocks, filters
+- [T0846: Remote System Discovery](https://attack.mitre.org/techniques/T0846): filters
+- [T0853: Scripting](https://attack.mitre.org/techniques/T0853): blocks
+- [T0863: User Execution](https://attack.mitre.org/techniques/T0863): filters
+- [T0871: Execution through API](https://attack.mitre.org/techniques/T0871): blocks
+- [T0888: Remote System Information Discovery](https://attack.mitre.org/techniques/T0888): filters
+- [T0894: System Binary Proxy Execution](https://attack.mitre.org/techniques/T0894): blocks, filters
+- [T0895: Autorun Image](https://attack.mitre.org/techniques/T0895): blocks, filters
 - [T1007: System Service Discovery](/mitre/techniques/T1007.md): filters. Adversaries may try to gather information about registered local system services.
 - [T1010: Application Window Discovery](/mitre/techniques/T1010.md): filters. Adversaries may attempt to get a listing of open application windows.
 - [T1016: System Network Configuration Discovery](/mitre/techniques/T1016.md): blocks, filters. Adversaries may look for details about the network configuration and settings, such as IP and/or MAC addresses, of systems they access or through information discovery of remote systems.
@@ -62,7 +62,6 @@ Blocking the execution of files on a host in accordance with defined application
 - [T1547.001: Registry Run Keys / Startup Folder](/mitre/techniques/T1547-001.md): blocks. Adversaries may achieve persistence by adding a program to a startup folder or referencing it with a Registry run key.
 - [T1547.009: Shortcut Modification](/mitre/techniques/T1547-009.md): blocks. Adversaries may create or modify shortcuts that can execute a program during system boot or user login.
 - [T1548.002: Bypass User Account Control](/mitre/techniques/T1548-002.md): blocks, filters. Adversaries may bypass UAC mechanisms to elevate process privileges on system.
-- [T1562.003: Impair Command History Logging](/mitre/techniques/T1562-003.md): blocks. Adversaries may impair command history logging to hide commands they run on a compromised system.
 - [T1565.003: Runtime Data Manipulation](/mitre/techniques/T1565-003.md): blocks. Adversaries may modify systems in order to manipulate the data as it is accessed and displayed to an end user, thus threatening the integrity of the data.
 - [T1574.007: Path Interception by PATH Environment Variable](/mitre/techniques/T1574-007.md): blocks. Adversaries may execute their own malicious payloads by hijacking environment variables used to load libraries.
 - [T1574.008: Path Interception by Search Order Hijacking](/mitre/techniques/T1574-008.md): blocks. Adversaries may execute their own malicious payloads by hijacking the search order used to load other programs.

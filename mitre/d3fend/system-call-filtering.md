@@ -7,22 +7,22 @@ Digital artifacts: Process, System Call
 
 Controlling access to local computer system resources with kernel-level capabilities.
 
-## ATT&CK techniques countered (67)
+## ATT&CK techniques countered (66)
 
-- [T0806](https://attack.mitre.org/techniques/T0806): isolates
-- [T0813](https://attack.mitre.org/techniques/T0813): isolates
-- [T0814](https://attack.mitre.org/techniques/T0814): isolates
-- [T0819](https://attack.mitre.org/techniques/T0819): isolates
-- [T0821](https://attack.mitre.org/techniques/T0821): isolates
-- [T0823](https://attack.mitre.org/techniques/T0823): isolates
-- [T0834](https://attack.mitre.org/techniques/T0834): filters
-- [T0846](https://attack.mitre.org/techniques/T0846): filters
-- [T0852](https://attack.mitre.org/techniques/T0852): filters
-- [T0863](https://attack.mitre.org/techniques/T0863): filters
-- [T0878](https://attack.mitre.org/techniques/T0878): isolates
-- [T0888](https://attack.mitre.org/techniques/T0888): filters
-- [T0894](https://attack.mitre.org/techniques/T0894): filters
-- [T0895](https://attack.mitre.org/techniques/T0895): filters
+- [T0806: Brute Force I/O](https://attack.mitre.org/techniques/T0806): isolates
+- [T0813: Denial of Control](https://attack.mitre.org/techniques/T0813): isolates
+- [T0814: Denial of Service](https://attack.mitre.org/techniques/T0814): isolates
+- [T0819: Exploit Public-Facing Application](https://attack.mitre.org/techniques/T0819): isolates
+- [T0821: Modify Controller Tasking](https://attack.mitre.org/techniques/T0821): isolates
+- [T0823: Graphical User Interface](https://attack.mitre.org/techniques/T0823): isolates
+- [T0834: Native API](https://attack.mitre.org/techniques/T0834): filters
+- [T0846: Remote System Discovery](https://attack.mitre.org/techniques/T0846): filters
+- [T0852: Screen Capture](https://attack.mitre.org/techniques/T0852): filters
+- [T0863: User Execution](https://attack.mitre.org/techniques/T0863): filters
+- [T0878: Alarm Suppression](https://attack.mitre.org/techniques/T0878): isolates
+- [T0888: Remote System Information Discovery](https://attack.mitre.org/techniques/T0888): filters
+- [T0894: System Binary Proxy Execution](https://attack.mitre.org/techniques/T0894): filters
+- [T0895: Autorun Image](https://attack.mitre.org/techniques/T0895): filters
 - [T1003.001: LSASS Memory](/mitre/techniques/T1003-001.md): isolates. Adversaries may attempt to access credential material stored in the process memory of the Local Security Authority Subsystem Service (LSASS).
 - [T1003.002: Security Account Manager](/mitre/techniques/T1003-002.md): isolates. Adversaries may attempt to extract credential material from the Security Account Manager (SAM) database either through in-memory techniques or through the Windows Registry where the SAM database is stored.
 - [T1003.004: LSA Secrets](/mitre/techniques/T1003-004.md): isolates. Adversaries with SYSTEM access to a host may attempt to access Local Security Authority (LSA) secrets, which can contain a variety of different credential materials, such as credentials for service accounts.
@@ -73,7 +73,6 @@ Controlling access to local computer system resources with kernel-level capabili
 - [T1550: Use Alternate Authentication Material](/mitre/techniques/T1550.md): isolates. Adversaries may use alternate authentication material, such as password hashes, Kerberos tickets, and application access tokens, in order to move laterally within an environment and bypass normal system access controls.
 - [T1555.003: Credentials from Web Browsers](/mitre/techniques/T1555-003.md): filters. Adversaries may acquire credentials from web browsers by reading files specific to the target browser.
 - [T1556: Modify Authentication Process](/mitre/techniques/T1556.md): isolates. Adversaries may modify authentication mechanisms and processes to access user credentials or enable otherwise unwarranted access to accounts.
-- [T1562.001: Disable or Modify Tools](/mitre/techniques/T1562-001.md): isolates. Adversaries may modify and/or disable security tools to avoid possible detection of their malware/tools and activities.
 - [T1621: Multi-Factor Authentication Request Generation](/mitre/techniques/T1621.md): isolates. Adversaries may attempt to bypass multi-factor authentication (MFA) mechanisms and gain access to accounts by generating MFA requests sent to users.
 - [T1685: Disable or Modify Tools](/mitre/techniques/T1685.md): isolates. Adversaries may disable, degrade, or tamper with security tools or applications (e.g., endpoint detection and response (EDR) tools, intrusion detection systems (IDS), antivirus, logging agents, sensors, etc.) to impair or reduce visibility of defensive capabilities.
 

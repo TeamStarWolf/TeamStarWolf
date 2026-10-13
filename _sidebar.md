@@ -225,6 +225,12 @@
   - [AI Security Reference](/AI_SECURITY_REFERENCE.md)
   - [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md)
   - [AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md)
+  - AI Tooling
+    - [Overview](/ai-tooling/README.md)
+    - [AI Tools and LLMs Index](/ai-tooling/AI_TOOLS_INDEX.md)
+    - [AI Tool Manuals](/ai-tooling/tools/README.md)
+    - [AI and LLM Learning Path](/ai-tooling/AI_LEARNING_PATH.md)
+    - [AI Labs](/ai-tooling/AI_LABS.md)
   - [Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md)
 
 ---
@@ -275,6 +281,19 @@
 
 ---
 
+- Case Studies
+  - [Overview](/case-studies/README.md)
+  - [AI Threats: A 2026 Case Study](/case-studies/AI_THREATS_2026.md)
+
+---
+
+- Tools Research
+  - [Overview](/tools-research/README.md)
+  - [ServiceNow USEM with Tenable & Wiz](/tools-research/SERVICENOW_USEM_TENABLE_WIZ.md)
+  - [ServiceNow VR, CC & CVR with Tenable & Wiz](/tools-research/SERVICENOW_VR_CC_CVR_TENABLE_WIZ.md)
+
+---
+
 - Resources
   - [Starred Repositories](/STARRED_REPOS.md)
   - [Book List](/CYBERSECURITY_BOOK_LIST.md)
@@ -286,4 +305,4 @@
 
 ---
 
-- [Contributing](/.github/CONTRIBUTING.md)
+- [Contributing](/CONTRIBUTING.md)

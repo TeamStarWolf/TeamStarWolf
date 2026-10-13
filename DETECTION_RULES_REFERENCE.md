@@ -1273,7 +1273,7 @@ tags:
     - attack.t1053.005
 ```
 
-### Stealth (T1070.001: Clear Windows Event Logs)
+### Stealth (T1685.005: Clear Windows Event Logs)
 ```yaml
 title: Windows Event Log Cleared
 id: a62b31e2-d8d6-4b29-bf50-e4b4edb9c45a
@@ -1295,7 +1295,7 @@ falsepositives:
 level: high
 tags:
     - attack.defense_evasion
-    - attack.t1070.001
+    - attack.t1685.005
 ```
 
 ### Credential Access (T1003.001: LSASS Memory Dump)

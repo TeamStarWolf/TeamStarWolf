@@ -14,7 +14,9 @@ specific task step by step. [Learning paths](disciplines/README.md) suggest an o
 discipline and collect training, tools, books, and certifications for it. [Framework pages](mitre/README.md)
 are generated from MITRE data, one page for each ATT&CK technique, group, software entry, campaign, and
 mitigation, and for each CAPEC, D3FEND, ATLAS, and F3 entry. The library also includes curated lists of
-tools, reading, and other resources.
+tools, reading, and other resources, and [Tools Research](tools-research/README.md) studies that review
+security products and their integrations against the vendors' official documentation. [Case Studies](case-studies/README.md)
+examine how the threat landscape is changing, with every claim graded by evidence.
 
 Where a published mapping exists, an ATT&CK technique is linked to the NIST SP 800-53 controls that mitigate
 it, the detection strategies and analytics MITRE publishes for it, the CAPEC attack patterns that reference
@@ -34,8 +36,8 @@ renders the same files.
 | Assess ATT&CK coverage | [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [ATT&CK Matrix Analysis](ATTACK_MATRIX_ANALYSIS_REFERENCE.md), [Priority Gap Analysis](scores/attack_priority_gaps.md), [Navigator layers](navigator/index.md) |
 | Respond to an incident | [Incident Response](INCIDENT_RESPONSE_REFERENCE.md), [IR Playbooks](IR_PLAYBOOKS.md), [Digital Forensics](DIGITAL_FORENSICS_REFERENCE.md) |
 | Harden systems and cloud | [Windows](WINDOWS_HARDENING_REFERENCE.md) and [Linux](LINUX_HARDENING_REFERENCE.md) hardening, [Cloud Security](CLOUD_SECURITY_REFERENCE.md), [Zero Trust](ZERO_TRUST_REFERENCE.md) |
-| Manage vulnerabilities | [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md), [Vulnerability Prioritization](VULNERABILITY_PRIORITIZATION_REFERENCE.md), [CTEM](CTEM_REFERENCE.md), [Triage a CVE](guides/TRIAGE_A_CVE.md) |
-| Secure AI and ML systems | [MITRE ATLAS](ATLAS_REFERENCE.md), [AI Security](AI_SECURITY_REFERENCE.md), [AI and MCP Security](AI_MCP_SECURITY_REFERENCE.md) |
+| Manage vulnerabilities | [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md), [Vulnerability Prioritization](VULNERABILITY_PRIORITIZATION_REFERENCE.md), [CTEM](CTEM_REFERENCE.md), [Triage a CVE](guides/TRIAGE_A_CVE.md), [Tools Research](tools-research/README.md) |
+| Secure AI and ML systems | [MITRE ATLAS](ATLAS_REFERENCE.md), [AI Security](AI_SECURITY_REFERENCE.md), [AI and MCP Security](AI_MCP_SECURITY_REFERENCE.md), [AI Threats 2026 case study](case-studies/AI_THREATS_2026.md), [AI Tooling](ai-tooling/README.md) |
 | Use deception | [MITRE Engage](ENGAGE_REFERENCE.md), [Honeypots and Deception](HONEYPOT_DECEPTION_REFERENCE.md), [Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md) |
 | Counter fraud | [MITRE F3](FRAUD_FRAMEWORK_REFERENCE.md), [Social Engineering](SOCIAL_ENGINEERING_REFERENCE.md), [Identity Security](IDENTITY_SECURITY_REFERENCE.md) |
 | Build a career | [Career Paths](CAREER_PATHS.md), [Certifications](CERTIFICATIONS.md), [Home Lab Setup](HOMELAB_SETUP.md), [Hands-On Labs](LABS.md) |
@@ -70,9 +72,10 @@ open each one in the Navigator. [data/EDGES.md](data/EDGES.md) describes each re
 
 The ATT&CK data files, the technique pages, and the framework pages are built from MITRE ATT&CK v19.2. The
 technique records also keep a small number of techniques that MITRE has since revoked or renumbered. Some
-summary pages, including the technique atlases, Threat Group Profiles, and the Priority Gap Analysis, and
-most Navigator layers were generated from earlier ATT&CK releases and have not yet been regenerated. Each
-states the version it was built from.
+summary pages, including the technique atlases and Threat Group Profiles, were generated from earlier
+ATT&CK releases and have not yet been regenerated. Each states the version it was built from. The ATT&CK
+Navigator layers are pinned to ATT&CK v19 and use v19.2 technique IDs and tactics; the layer index shows
+each layer's version and how it was built.
 
 Control mappings from NIST SP 800-53 Rev. 5 to ATT&CK come from the Center for Threat-Informed Defense
 [Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/). This library
@@ -85,9 +88,14 @@ editorial assessments. They are not provided or validated by the vendors, and th
 starting point for research rather than as evidence of coverage. The vendor, control, and technique model is
 described in [COVERAGE_SCHEMA.md](COVERAGE_SCHEMA.md).
 
-Continuous integration validates the JSONL data files, checks the structure of the main Navigator coverage
-layer, and checks that the figures quoted on the index pages and the data manifest match the data. A
-scheduled link check reports broken links but does not block changes.
+Continuous integration validates the JSONL data files, checks every Navigator layer's technique IDs,
+tactics and ATT&CK version against the data, and checks that the figures quoted on the index pages and the
+data manifest match the data. It also regenerates every generated page set (`mitre/`, `techniques/`,
+`detections/strategies/`, `scores/`) and fails if a committed page has drifted from the data; rejects
+mojibake, invalid UTF-8 and tracked build junk; and blocks a change that adds a revoked ATT&CK ID to a
+hand-written page. Links are checked the way the docsify site resolves them: a new broken internal link or
+anchor fails the build, as does a new outbound link that does not resolve. A weekly scan of every outbound
+link is reported in the workflow's job summary.
 
 ## Library by domain
 
@@ -123,13 +131,18 @@ facts, regulatory requirements, and anything you intend to run.
 Offensive techniques and tooling are described for authorized testing, education, and defensive research.
 Do not use them against systems you do not have permission to test.
 
+Cloning on Windows: a few references quote attack and evasion snippets as analysis samples, and Microsoft
+Defender quarantines MALWARE_ANALYSIS_REFERENCE.md on checkout, which leaves a tracked file deleted in
+`git status`. Before cloning, follow [Cloning on Windows](CONTRIBUTING.md#cloning-on-windows), and
+never commit that deletion.
+
 MITRE ATT&CK, ATLAS, CAPEC, CWE, D3FEND, EMB3D, Engage, F3, and FiGHT are maintained by The MITRE
 Corporation, and the Mappings Explorer is published by MITRE's Center for Threat-Informed Defense. ATT&CK is
 a registered trademark of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.
 
 ## Contributing and license
 
-Corrections and additions are welcome. See [CONTRIBUTING](.github/CONTRIBUTING.md), or open an
+Corrections and additions are welcome. See [CONTRIBUTING](CONTRIBUTING.md), or open an
 [issue](https://github.com/TeamStarWolf/TeamStarWolf/issues).
 
 Original content is released under the [MIT License](LICENSE). Data and text drawn from MITRE and other

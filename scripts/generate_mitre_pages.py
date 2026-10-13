@@ -16,17 +16,21 @@ carries the paragraph for a technique the data file does not know, or the data f
 missing while pages carry the paragraph, the run aborts before writing anything.
 
 Usage:
-    python scripts/generate_mitre_pages.py                 # techniques + landing
+    python scripts/generate_mitre_pages.py                 # techniques (+ index) + landing
+    python scripts/generate_mitre_pages.py --only all      # every mitre/ section
     python scripts/generate_mitre_pages.py --only techniques,landing
-    python scripts/generate_mitre_pages.py --check         # write to mitre/_gen_check/ (no overwrite)
+    python scripts/generate_mitre_pages.py --only all --check   # CI: render to a temp dir, fail on any drift
     python scripts/generate_mitre_pages.py --verify-corpus 21   # CI: data file <-> pages round-trip, exactly 21
 """
 import json
 import re
 import argparse
+import shutil
+import tempfile
 from pathlib import Path
 
 from plain_markdown import plain
+from attack_ids import AttackIds
 from collections import defaultdict, Counter
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -304,6 +308,8 @@ class DB:
             acts = re.findall(r"'id':\s*'([^']+)',\s*'name':\s*'([^']+)'", str(r.get("engage_activities", "")))
             if acts:
                 self.engage[r["technique_id"]] = [{"id": i, "name": n} for i, n in acts]
+        self.ids = AttackIds(ROOT)
+        self._carry_forward_crosswalks()
         ea_p = DATA / "engage/engage_activities.jsonl"
         self.engage_desc = {r["activity_id"]: r.get("description", "") for r in (load_jsonl(ea_p) if ea_p.exists() else [])}
 
@@ -337,6 +343,17 @@ class DB:
         # removed — those entities are official MITRE ATT&CK v19.2, verified live.)
         cp_p = DATA / "attack/campaign_profiles.jsonl"
         self.camp_prof = {r["campaign_id"]: r for r in (load_jsonl(cp_p) if cp_p.exists() else [])}
+        # Live per-technique edges. Technique pages print counts and lists from these
+        # edge tables, not from the denormalised *_count / mitigations /
+        # detection_strategies fields on technique_profiles (review gen-6/gen-7/gen-8:
+        # those fields were a pre-v19 snapshot, so headers contradicted the lists).
+        self.camps_by_t = defaultdict(list)
+        for cid in sorted(self.camp_prof):
+            for t in self.camp_prof[cid].get("techniques") or []:
+                self.camps_by_t[t].append(cid)
+        self.strats_by_t = defaultdict(list)
+        for r in sorted(load_jsonl(DATA / "attack/detection_strategies.jsonl"), key=lambda r: r["strategy_id"]):
+            self.strats_by_t[r["technique_id"]].append(r["name"])
 
         self.nist_name = {}
         for r in load_jsonl(DATA / "control_to_technique.jsonl"):
@@ -365,8 +382,10 @@ class DB:
         # --- mitigations ---
         self.mit = {r["mitigation_id"]: r for r in load_jsonl(DATA / "attack/mitigations.jsonl")}
         self.mit_techs = defaultdict(list)
+        self.mits_by_t = defaultdict(list)
         for r in load_jsonl(DATA / "attack/mitigation_to_technique.jsonl"):
             self.mit_techs[r["mitigation_id"]].append((r["technique_id"], r["technique_name"]))
+            self.mits_by_t[r["technique_id"]].append({"id": r["mitigation_id"], "name": r["mitigation_name"]})
 
         # --- CAPEC + CWE ---
         self.capec = {r["capec_id"]: r for r in load_jsonl(DATA / "weaknesses/capec.jsonl")}
@@ -382,20 +401,77 @@ class DB:
                 self.atlas_subs[r["parent_id"]].append(r["technique_id"])
 
         # --- D3FEND (reverse map: countermeasure -> tactic, artifacts, ATT&CK techniques it counters) ---
+        # D3FEND publishes its ATT&CK mappings against whatever id they were authored for,
+        # so a row keyed on an id ATT&CK has since revoked (T1562.010) is shown on the live
+        # successor (T1689) with the predecessor kept as provenance, never as a second,
+        # unmarked "countered" technique. Deprecated ids (no successor) are listed apart.
+        # Artifacts and counters are sorted so the pages do not depend on the row order
+        # of technique_to_d3fend.jsonl.
         self.d3_pages = {}
         for r in load_jsonl(DATA / "attack/technique_to_d3fend.jsonl"):
             name = r.get("d3fend_technique")
             if not name:
                 continue
-            page = self.d3_pages.setdefault(name, {"tactic": "", "artifacts": [], "counters": []})
+            page = self.d3_pages.setdefault(name, {"tactic": "", "artifacts": set(), "counters": {},
+                                                   "retired": set()})
             if not page["tactic"] and r.get("d3fend_tactic"):
                 page["tactic"] = sstr(r["d3fend_tactic"])
-            for a in (r.get("digital_artifact") or []):
-                if a not in page["artifacts"]:
-                    page["artifacts"].append(a)
+            page["artifacts"].update(a for a in (r.get("digital_artifact") or []) if a)
             tid = r.get("technique_id", "")
-            if tid.startswith("T") and not tid.startswith("TA"):
-                page["counters"].append((tid, sstr(r.get("relation")) or "maps"))
+            if not (tid.startswith("T") and not tid.startswith("TA")):
+                continue
+            rel = sstr(r.get("relation")) or "maps"
+            dom = self.attack_domain(tid)
+            state, succ = self.ids.status(tid, dom)
+            if state == "revoked":
+                key, via = (dom, succ), tid
+            elif state == "live":
+                key, via = (dom, tid), None
+            else:  # deprecated (no successor), dangling or unknown: not a current technique
+                page["retired"].add(tid)
+                continue
+            c = page["counters"].setdefault(key, {"rels": set(), "direct": False, "via": set()})
+            c["rels"].add(rel)
+            if via:
+                c["via"].add(via)
+            else:
+                c["direct"] = True
+        for page in self.d3_pages.values():
+            page["artifacts"] = sorted(page["artifacts"])
+            page["retired"] = sorted(page["retired"])
+
+    def attack_domain(self, tid):
+        """'ics' for an ICS-domain technique id (T0xxx and the v19 ICS T16xx block), else 'enterprise'."""
+        if tid in self.prof:
+            return "enterprise"
+        if tid in self.ids.profiles.get("ics", {}) or tid in self.ids.sup.get("ics", {}):
+            return "ics"
+        return "enterprise"
+
+
+    def _carry_forward_crosswalks(self):
+        """D3FEND, CAR and Engage publish their ATT&CK mappings against whatever id they
+        were authored for, so an edge keyed on an id ATT&CK has since revoked (T1562 ->
+        T1685, T1574.002 -> T1574.001, ...) is also shown on the live successor, following
+        data/attack/superseded_by.jsonl chains - the same rule build_control_rollup.py and
+        backfill_capec_edges.py apply to NIST and CAPEC. The revoked page keeps its own
+        edges; an item already on the successor is not repeated."""
+        def merge(dst, src, key):
+            have = {x.get(key) for x in dst}
+            for x in src:
+                if x.get(key) not in have:
+                    dst.append(x)
+                    have.add(x.get(key))
+
+        preds = self.ids.predecessors("enterprise")
+        for succ in sorted(preds):
+            for old in preds[succ]:
+                if self.d3.get(old):
+                    merge(self.d3[succ], self.d3[old], "d3fend_technique")
+                if self.car.get(old):
+                    merge(self.car.setdefault(succ, []), self.car[old], "car_id")
+                if self.engage.get(old):
+                    merge(self.engage.setdefault(succ, []), self.engage[old], "id")
 
 
 # ----------------------------------------------------------------------------- technique
@@ -403,10 +479,20 @@ def render_technique(db, tid):
     p = db.prof[tid]
     out = ["# " + tid + " " + DASH + " " + p["name"] + "\n", '<a id="' + tanchor(tid) + '"></a>\n']
 
-    tactics = ", ".join(p.get("tactics") or []) or DASH
     plats = ", ".join(p.get("platforms") or []) or DASH
-    hdr = [
-        "**Tactics:** " + tactics + "  ",
+    if p.get("revoked"):
+        # A revoked object has no v19.2 tactic. Its stored tactic is the pre-v19 one put
+        # through the Defense Evasion -> Stealth rename, so print it as the legacy tactic
+        # and give the successor's v19.2 tactics next to it (review cur-8).
+        legacy = [LEGACY_TACTIC.get(t, t) for t in (p.get("tactics") or [])]
+        tac_lines = ["**Tactics (pre-v19, legacy):** " + (", ".join(legacy) or DASH) + "  "]
+        sup = p.get("superseded_by")
+        if sup and sup in db.prof:
+            tac_lines.append("**Successor's tactics (" + ATTACK_VER + "):** " +
+                             (", ".join(db.prof[sup].get("tactics") or []) or DASH) + "  ")
+    else:
+        tac_lines = ["**Tactics:** " + (", ".join(p.get("tactics") or []) or DASH) + "  "]
+    hdr = tac_lines + [
         "**Platforms:** " + plats + "  ",
         "**ATT&CK:** [" + tid + "](" + str(p.get("url")) + ")  ",
     ]
@@ -443,8 +529,8 @@ def render_technique(db, tid):
     if tid in db.corpus:
         out.append(db.corpus[tid] + "\n")
 
-    # Mitigations
-    migs = p.get("mitigations") or []
+    # Mitigations (live edges: mitigation_to_technique.jsonl)
+    migs = sorted(db.mits_by_t.get(tid) or [], key=lambda m: m["id"])
     if migs:
         out.append("## Mitigations (" + str(len(migs)) + ")\n")
         rows = []
@@ -477,7 +563,7 @@ def render_technique(db, tid):
         out.append("\n".join(rows) + "\n")
 
     # Detection (enriched: strategies + analytics with log sources)
-    strategies = p.get("detection_strategies") or []
+    strategies = db.strats_by_t.get(tid) or []
     analytics = db.analytics.get(tid) or []
     if strategies or analytics:
         out.append("## Detection\n")
@@ -551,9 +637,9 @@ def render_technique(db, tid):
     # Adversary usage (named, replaces bare counts)
     groups = db.groups_by_t.get(tid) or []
     sw = db.sw_by_t.get(tid) or []
-    gc = p.get("group_count", len(groups))
-    sc = p.get("software_count", len(sw))
-    cc = p.get("campaign_count", 0)
+    gc = len(groups)
+    sc = len(sw)
+    cc = len(db.camps_by_t.get(tid) or [])
     if groups or sw or cc:
         out.append("## Adversary usage\n")
         if groups:
@@ -579,18 +665,25 @@ def render_technique(db, tid):
         if cc:
             out.append("**Campaigns:** " + str(cc) + " (per MITRE ATT&CK)\n")
 
-    # Sub-techniques (for parent techniques)
+    # Sub-techniques (for parent techniques). Revoked sub-techniques are not current
+    # members of the parent (review cur-4): they are listed apart with their successor.
     kids = sorted(db.subs.get(tid) or [])
-    if kids:
-        out.append("## Sub-techniques (" + str(len(kids)) + ")\n")
+    live_kids = [k for k in kids if not db.prof[k].get("revoked")]
+    gone_kids = [k for k in kids if db.prof[k].get("revoked")]
+    if live_kids:
+        out.append("## Sub-techniques (" + str(len(live_kids)) + ")\n")
         rows = []
-        for k in kids:
+        for k in live_kids:
             line = "- [" + k + " " + DASH + " " + db.prof[k]["name"] + "](/mitre/techniques/" + tslug(k) + ".md)"
             ks = summarize(db.prof[k].get("description"))
             if ks:
                 line += " " + DASH + " " + ks
             rows.append(line)
         out.append("\n".join(rows) + "\n")
+    if gone_kids:
+        out.append("## Revoked sub-techniques (" + str(len(gone_kids)) + ")\n")
+        out.append("Revoked in ATT&CK " + ATTACK_VER + "; the pages are kept for reference.\n")
+        out.append("\n".join("- " + revoked_line(db, k) for k in gone_kids) + "\n")
 
     # NIST 800-53 (now with control names)
     nist = p.get("nist_800_53_controls") or []
@@ -601,6 +694,9 @@ def render_technique(db, tid):
             nm = db.nist_name.get(c)
             rows.append("- `" + c + "` " + DASH + " " + nm if nm else "- `" + c + "`")
         out.append("\n".join(rows) + "\n")
+        via = p.get("nist_800_53_controls_via_revoked") or {}
+        if via:
+            out.append(_via_revoked_note(db, via, "the CTID NIST 800-53 mapping"))
 
     # CAPEC (if mapped)
     capec = p.get("capec") or []
@@ -613,14 +709,41 @@ def render_technique(db, tid):
             ids.append("- [" + label + "](/mitre/capec/" + cid + ".md)")
         out.append("## CAPEC attack patterns (" + str(len(ids)) + ")\n")
         out.append("\n".join(ids) + "\n")
+        via = p.get("capec_via_revoked") or {}
+        if via:
+            out.append(_via_revoked_note(db, via, "CAPEC"))
 
     out.append(FOOTER)
     return "\n".join(out)
 
 
 # ----------------------------------------------------------------------------- shared
-def link_tech(db, tid, name=None):
-    """Link an ATT&CK technique id: enterprise -> internal page, ICS (T0) -> official, else code."""
+def revoked_line(db, tid):
+    """'[T1562.001: Disable or Modify Tools](...) (revoked; superseded by [T1685: ...](...))'."""
+    p = db.prof[tid]
+    sup = p.get("superseded_by")
+    line = "[" + tid + " " + DASH + " " + p["name"] + "](/mitre/techniques/" + tslug(tid) + ".md)"
+    if sup:
+        return line + " (revoked; superseded by " + link_tech(db, sup, p.get("superseded_by_name") or None) + ")"
+    return line + " (revoked)"
+
+
+def _via_revoked_note(db, via, source):
+    """Provenance line for edges carried forward from revoked predecessor ids."""
+    preds = ", ".join(link_tech(db, old) + " (" + str(len(items)) + ")"
+                      for old, items in sorted(via.items()))
+    return ("_Carried forward from revoked " + preds + ": " + source + " is keyed on the "
+            "predecessor id, which ATT&CK has since revoked in favour of this technique (current release: v19.2)._\n")
+
+
+def link_tech(db, tid, name=None, domain="enterprise"):
+    """Link an ATT&CK technique id: enterprise -> internal page, ICS -> official, else code."""
+    if domain == "ics":
+        rec = db.ids.profiles.get("ics", {}).get(tid) or {}
+        nm = name or rec.get("name")
+        label = tid + " " + DASH + " " + nm if nm else tid
+        url = rec.get("url") or "https://attack.mitre.org/techniques/" + tid.replace(".", "/")
+        return "[" + label + "](" + url + ")"
     nm = name or (db.prof.get(tid, {}) or {}).get("name")
     label = tid + " " + DASH + " " + nm if nm else tid
     if tid in db.prof:
@@ -634,7 +757,7 @@ def link_tech(db, tid, name=None):
 def render_mitigation(db, mid, existing):
     m = db.mit.get(mid, {})
     out = ["# " + mid + " " + DASH + " " + m.get("name", "") + "\n", '<a id="' + mid.lower() + '"></a>\n']
-    tc = m.get("technique_count", len(db.mit_techs.get(mid, [])))
+    tc = len(db.mit_techs.get(mid, []))  # live edge count, never the stored snapshot
     out.append("**ATT&CK:** [" + mid + "](" + str(m.get("url")) + ") \N{MIDDLE DOT} addresses **" + str(tc) + "** techniques\n")
     if m.get("description"):
         out.append(m["description"].strip() + "\n")
@@ -663,7 +786,10 @@ def render_tactic(db, slug, existing):
         m = re.search(r'</a>\s*\n+(.*?)(?:\n\s*\n|\Z)', existing, re.S)
         if m:
             desc = m.group(1).strip()
-    techs = [t for t, p in db.prof.items() if slug in (p.get("tactics") or [])]
+    # live techniques only: a revoked object has no v19.2 tactic (its stored one is the
+    # pre-v19 tactic put through the rename), and the tactic landing counts live only
+    techs = [t for t, p in db.prof.items()
+             if not p.get("revoked") and slug in (p.get("tactics") or [])]
     techs.sort()
     out = ["# " + title + "\n", '<a id="' + slug + '"></a>\n']
     if desc:
@@ -686,6 +812,7 @@ def render_tactic(db, slug, existing):
 
 # v19.2 renamed Defense Evasion (TA0005) -> Stealth and split out Defense Impairment (TA0112).
 RENAMED_TACTICS = {"defense-evasion": ("Defense Evasion", "stealth", "Stealth")}
+LEGACY_TACTIC = {new: old for old, (_, new, _) in RENAMED_TACTICS.items()}  # stealth -> defense-evasion
 TACTIC_ORDER = [
     ("reconnaissance", "Reconnaissance"), ("resource-development", "Resource Development"),
     ("initial-access", "Initial Access"), ("execution", "Execution"), ("persistence", "Persistence"),
@@ -694,6 +821,12 @@ TACTIC_ORDER = [
     ("discovery", "Discovery"), ("lateral-movement", "Lateral Movement"), ("collection", "Collection"),
     ("command-and-control", "Command and Control"), ("exfiltration", "Exfiltration"), ("impact", "Impact"),
 ]
+TACTIC_NAME = dict(TACTIC_ORDER)
+
+
+def primary_tactic(p):
+    """First v19.2 tactic of a technique (the grouping /techniques/ uses too), else None."""
+    return next((t for t in (p.get("tactics") or []) if t in TACTIC_NAME), None)
 
 
 def render_tactic_pointer(old_name, new_slug, new_name):
@@ -721,6 +854,64 @@ def render_tactic_landing(db):
     return "\n".join(out)
 
 
+# ----------------------------------------------------------------------------- section landings
+def render_technique_index(db):
+    """mitre/techniques/README.md, from data (review gen-12/cur-7: it used to be a
+    hand-maintained file that missed every v19 technique and listed revoked ids unmarked)."""
+    live = sorted(t for t, p in db.prof.items() if not p.get("revoked"))
+    gone = sorted(t for t, p in db.prof.items() if p.get("revoked"))
+    by_tac, untagged = defaultdict(list), []
+    for t in live:
+        tac = primary_tactic(db.prof[t])
+        (by_tac[tac] if tac else untagged).append(t)
+
+    def item(t):
+        return ("- [" + t + " " + DASH + " " + db.prof[t]["name"] + "](/mitre/techniques/" + tslug(t) + ".md)" +
+                (" " + STAR if t in db.corpus_ids else ""))
+
+    out = ["# MITRE ATT&CK Techniques: Enriched Pages", "",
+           "One page per ATT&CK technique (" + str(len(db.prof)) + " pages: " + str(len(live)) +
+           " current in ATT&CK " + ATTACK_VER + " plus " + str(len(gone)) + " revoked in " + ATTACK_VER +
+           " and kept for reference), each enriched with mitigations, D3FEND countermeasures, CAPEC, NIST "
+           "800-53 controls, detection strategies, and Team Star Wolf corpus prevalence where observed. "
+           "Each current technique is listed once, under its primary (first) tactic; a "
+           "[tactic page](/mitre/tactics/README.md) lists every technique in that tactic. " + STAR +
+           " marks the " + str(len(db.corpus_ids)) + " techniques seen in the Team Star Wolf training corpus.", "",
+           "[MITRE Hub](/mitre/README.md) \N{MIDDLE DOT} [Tactics](/mitre/tactics/README.md) \N{MIDDLE DOT} "
+           "[Mitigations](/mitre/mitigations/README.md)", ""]
+    for slug, name in TACTIC_ORDER:
+        ts = by_tac.get(slug) or []
+        if not ts:
+            continue
+        out.append("## " + name + " (" + str(len(ts)) + ")\n")
+        out.append("\n".join(item(t) for t in ts) + "\n")
+    if untagged:
+        out.append("## No " + ATTACK_VER + " tactic (" + str(len(untagged)) + ")\n")
+        out.append("\n".join(item(t) for t in untagged) + "\n")
+    if gone:
+        out.append("## Revoked in ATT&CK " + ATTACK_VER + " (" + str(len(gone)) + ")\n")
+        out.append("No longer current ATT&CK techniques. Each page is kept so old links resolve, and "
+                   "carries a banner to the technique that replaced it.\n")
+        out.append("\n".join("- " + revoked_line(db, t) for t in gone) + "\n")
+    out.append(SHORT_FOOTER)
+    return "\n".join(out)
+
+
+def render_mitigation_landing(db, mids):
+    """mitre/mitigations/README.md: the per-mitigation counts, from the live edge table."""
+    rows = sorted(mids, key=lambda m: (-len(db.mit_techs.get(m, [])), m))
+    out = ["# MITRE ATT&CK Mitigations: with Implementation Guidance", "",
+           "One page per ATT&CK mitigation (" + str(len(rows)) + "), each with concrete how-to-implement "
+           "steps, mapped NIST 800-53 families, the techniques it addresses, and Team Star Wolf corpus "
+           "relevance. ATT&CK " + ATTACK_VER + ".", "",
+           "[MITRE Hub](/mitre/README.md), [Techniques](/mitre/techniques/README.md)", "", "",
+           "| Mitigation | Techniques addressed |", "|---|---:|"]
+    for mid in rows:
+        out.append("| [" + mid + " " + DASH + " " + db.mit[mid].get("name", "") + "](/mitre/mitigations/" +
+                   mid + ".md) | " + str(len(db.mit_techs.get(mid, []))) + " |")
+    return "\n".join(out) + "\n"
+
+
 # ----------------------------------------------------------------------------- d3fend
 def render_d3fend(db, slug, existing):
     # find this page's countermeasure name from the existing H1
@@ -736,27 +927,33 @@ def render_d3fend(db, slug, existing):
         if page["tactic"]:
             out.append("**D3FEND tactic:** " + page["tactic"] + "  ")
         if page["artifacts"]:
-            out.append("**Digital artifacts:** " + ", ".join(page["artifacts"]) + "  ")
+            out.append("**Digital artifacts:** " + ", ".join(page["artifacts"]) + "  ")  # sorted in DB
         out.append("")
         if defrec.get("definition"):
             out.append(str(defrec["definition"]).strip() + "\n")
         if defrec.get("how_to"):
             out.append("## How to deploy\n")
             out.append(str(defrec["how_to"]).strip() + "\n")
-        # ATT&CK techniques countered — link enterprise + ICS, drop non-ATT&CK (DE-) rows
-        seen, rows = set(), []
-        for tid, rel in page["counters"]:
-            if tid in seen:
-                continue
-            seen.add(tid)
-            line = "- " + link_tech(db, tid) + " " + DASH + " " + rel
-            ts = summarize((db.prof.get(tid, {}) or {}).get("description"))
+        # ATT&CK techniques countered: live ids only (enterprise + ICS), sorted by id; a row
+        # D3FEND keys on a revoked id is shown on its live successor with the predecessor
+        # named as provenance (see DB.d3_pages).
+        rows = []
+        for (dom, tid) in sorted(page["counters"], key=lambda k: (k[1], k[0])):
+            c = page["counters"][(dom, tid)]
+            line = "- " + link_tech(db, tid, domain=dom) + " " + DASH + " " + ", ".join(sorted(c["rels"]))
+            if c["via"] and not c["direct"]:
+                line += (" (D3FEND maps the revoked predecessor " +
+                         ", ".join(sorted(c["via"])) + ")")
+            ts = summarize((db.prof.get(tid, {}) or {}).get("description")) if dom == "enterprise" else ""
             if ts:
                 line += ". " + ts
             rows.append(line)
         if rows:
             out.append("## ATT&CK techniques countered (" + str(len(rows)) + ")\n")
             out.append("\n".join(rows))
+        if page["retired"]:
+            out.append("\n_D3FEND also maps " + ", ".join(page["retired"]) + ", deprecated in ATT&CK "
+                       "with no successor; not counted above._")
     out.append("\n" + SHORT_FOOTER)
     return "\n".join(out)
 
@@ -1056,7 +1253,9 @@ def render_campaign_landing(db):
 def render_landing(db):
     n_tech = len(list((MITRE / "techniques").glob("T*.md")))
     n_mit = len(list((MITRE / "mitigations").glob("M*.md")))
-    n_tac = len([p for p in (MITRE / "tactics").glob("*.md") if p.name != "README.md"])
+    # the 15 v19.2 tactics; defense-evasion.md is only a legacy pointer to Stealth (review cur-7)
+    n_tac = len([p for p in (MITRE / "tactics").glob("*.md")
+                 if p.name != "README.md" and p.stem not in RENAMED_TACTICS])
     n_d3 = len([p for p in (MITRE / "d3fend").glob("*.md") if p.name != "README.md"])
     n_cap = len(list((MITRE / "capec").glob("CAPEC-*.md")))
     n_atl = len(list((MITRE / "atlas").glob("AML-*.md")))
@@ -1191,20 +1390,25 @@ def render_crosswalk(db):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", default="techniques,landing")
-    ap.add_argument("--check", action="store_true")
+    ap.add_argument("--check", action="store_true",
+                    help="write nothing under mitre/: render the selected sections into a temporary "
+                         "directory and exit 1 if any committed page differs, is missing, or is an orphan "
+                         "the generator no longer produces")
     ap.add_argument("--verify-corpus", type=int, metavar="N", default=None,
                     help="write nothing; fail unless corpus_signal.jsonl holds exactly N rows, every "
                          "row's paragraph is on its committed page verbatim, and no page carries a "
                          "paragraph the data file lacks")
     args = ap.parse_args()
     only = set(x.strip() for x in args.only.split(",") if x.strip())
+    if "all" in only:
+        only = {"techniques", "mitigations", "tactics", "d3fend", "capec", "atlas", "f3", "groups",
+                "software", "campaigns", "crosswalk", "landing"}
 
     try:
         db = DB()
     except CorpusSignalError as e:
         print("ERROR: corpus signal: " + str(e))
         raise SystemExit(2)
-    out_root = (MITRE / "_gen_check") if args.check else MITRE
     print("loaded: " + str(len(db.prof)) + " techniques, corpus preserved for " +
           str(len(db.corpus_ids)) + " of them (" + CORPUS_PATH.relative_to(ROOT).as_posix() +
           "; " + str(len(db.corpus_on_pages)) + " committed pages carry the paragraph)")
@@ -1230,6 +1434,67 @@ def main():
               "(data file == committed pages)")
         return
 
+    # --check renders OUTSIDE the repository (the old mitre/_gen_check/ lived inside the tree
+    # that pages-deploy.yml uploads wholesale, so a stray local check run could be deployed).
+    check_dir = Path(tempfile.mkdtemp(prefix="tsw-mitre-check-")) if args.check else None
+    out_root = (check_dir / "mitre") if args.check else MITRE
+    try:
+        generate(db, only, out_root)
+        if args.check:
+            raise SystemExit(compare_tree(out_root, only))
+    finally:
+        if check_dir is not None:
+            shutil.rmtree(check_dir, ignore_errors=True)
+
+
+# Sections whose directory holds a hand-written README.md the generator does not own.
+HANDWRITTEN_README = {"capec", "atlas", "d3fend"}
+SECTION_DIRS = ("techniques", "mitigations", "tactics", "d3fend", "capec", "atlas", "f3", "groups",
+                "software", "campaigns")
+
+
+def _norm(p):
+    # read_text() already folds CRLF to LF, so a Windows checkout compares equal
+    return p.read_text(encoding="utf-8")
+
+
+def compare_tree(out_root, only):
+    """Diff the freshly rendered sections against the committed mitre/ tree.
+    Returns 0 when identical, 1 (after printing every difference) otherwise."""
+    problems = []
+    for f in sorted(out_root.rglob("*.md")):
+        rel = f.relative_to(out_root)
+        committed = MITRE / rel
+        if not committed.exists():
+            problems.append("missing  mitre/" + rel.as_posix() + "  (generator writes it; not committed)")
+        elif _norm(committed) != _norm(f):
+            problems.append("stale    mitre/" + rel.as_posix() + "  (committed page differs from the data)")
+    for sec in SECTION_DIRS:
+        if sec not in only:
+            continue
+        for committed in sorted((MITRE / sec).glob("*.md")):
+            if committed.name == "README.md" and sec in HANDWRITTEN_README:
+                continue
+            if not (out_root / sec / committed.name).exists():
+                problems.append("orphan   mitre/" + sec + "/" + committed.name +
+                                "  (committed, but the data no longer produces it)")
+    n = sum(1 for _ in out_root.rglob("*.md"))
+    if problems:
+        sel = "all" if set(SECTION_DIRS) | {"crosswalk", "landing"} <= only else ",".join(sorted(only))
+        print("MITRE PAGES DRIFT: " + str(len(problems)) + " of " + str(n) + " generated pages differ "
+              "from the committed tree. Run `python scripts/generate_mitre_pages.py --only " + sel +
+              "` and commit the result:")
+        for line in problems[:200]:
+            print("  " + line)
+        if len(problems) > 200:
+            print("  ... and " + str(len(problems) - 200) + " more")
+        return 1
+    print("OK: " + str(n) + " generated mitre/ pages match the committed tree (" + ",".join(sorted(only)) + ")")
+    return 0
+
+
+def generate(db, only, out_root):
+    """Render the selected sections of mitre/ into out_root (mitre/ itself, or a --check temp dir)."""
     if "techniques" in only:
         d = out_root / "techniques"
         d.mkdir(parents=True, exist_ok=True)
@@ -1237,19 +1502,21 @@ def main():
         for tid in db.prof:
             (d / (tslug(tid) + ".md")).write_text(plain(render_technique(db, tid)), encoding="utf-8")
             n += 1
-        print("techniques: wrote " + str(n) + " pages")
+        (d / "README.md").write_text(plain(render_technique_index(db)), encoding="utf-8")
+        print("techniques: wrote " + str(n) + " pages + README")
 
     if "mitigations" in only:
         d = out_root / "mitigations"
         d.mkdir(parents=True, exist_ok=True)
-        n = 0
+        mids = []
         for f in sorted((MITRE / "mitigations").glob("M*.md")):
             mid = f.stem
             if mid not in db.mit:
                 continue
             (d / (mid + ".md")).write_text(plain(render_mitigation(db, mid, f.read_text(encoding="utf-8"))), encoding="utf-8")
-            n += 1
-        print("mitigations: wrote " + str(n) + " pages")
+            mids.append(mid)
+        (d / "README.md").write_text(plain(render_mitigation_landing(db, mids)), encoding="utf-8")
+        print("mitigations: wrote " + str(len(mids)) + " pages + README")
 
     if "tactics" in only:
         d = out_root / "tactics"

@@ -9,7 +9,7 @@ Restoring the data in a database.
 
 ## ATT&CK techniques countered (23)
 
-- [T0894](https://attack.mitre.org/techniques/T0894): restores
+- [T0894: System Binary Proxy Execution](https://attack.mitre.org/techniques/T0894): restores
 - [T1003.002: Security Account Manager](/mitre/techniques/T1003-002.md): restores. Adversaries may attempt to extract credential material from the Security Account Manager (SAM) database either through in-memory techniques or through the Windows Registry where the SAM database is stored.
 - [T1003.004: LSA Secrets](/mitre/techniques/T1003-004.md): restores. Adversaries with SYSTEM access to a host may attempt to access Local Security Authority (LSA) secrets, which can contain a variety of different credential materials, such as credentials for service accounts.
 - [T1003.008: /etc/passwd and /etc/shadow](/mitre/techniques/T1003-008.md): restores. Adversaries may attempt to dump the contents of <code>/etc/passwd</code> and <code>/etc/shadow</code> to enable offline password cracking.

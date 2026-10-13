@@ -15,8 +15,8 @@ F3 was developed by the MITRE [Center for Threat-Informed Defense](https://ctid.
 | Techniques | 123 (74 parent, 49 sub-techniques) |
 | Shared with ATT&CK | 43 techniques reuse ATT&CK `T####` IDs where fraud actors use standard cyber TTPs |
 | Version | v1.1 |
-| Navigator layer | [`navigator/fraud/f3-matrix.json`](navigator/fraud/f3-matrix.json) |
-| Datasets | [`data/fraud/f3_techniques.jsonl`](data/fraud/f3_techniques.jsonl), [`data/fraud/f3_tactics.jsonl`](data/fraud/f3_tactics.jsonl) |
+| Navigator layer | [`navigator/fraud/f3-matrix.json`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/fraud/f3-matrix.json) |
+| Datasets | [`data/fraud/f3_techniques.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/fraud/f3_techniques.jsonl), [`data/fraud/f3_tactics.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/fraud/f3_tactics.jsonl) |
 
 Why it matters. Traditional ATT&CK coverage stops at the intrusion. Fraud loss usually happens *after* it: in account takeover, mule networks, and cash-out. F3 extends the behavioral model through to Monetization, which is where the money actually leaves. Pair it with the [Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md) and [CTEM Reference](CTEM_REFERENCE.md) for the full exposure-to-impact picture.
 
@@ -294,7 +294,7 @@ The fraud actor's actions to convert assets, often stolen, into usable funds or 
 
 | Goal | How |
 |---|---|
-| See the fraud matrix | Load [`navigator/fraud/f3-matrix.json`](navigator/fraud/f3-matrix.json) in the [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) |
+| See the fraud matrix | Load [`navigator/fraud/f3-matrix.json`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/fraud/f3-matrix.json) in the [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) |
 | Join fraud to cyber | F3 techniques carrying ATT&CK `T####` IDs map straight into the [Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) and [detail pages](techniques/README.md) |
 | Build detections | Use the shared-ID techniques with the [Detection Strategies](detections/strategies/README.md) and [Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
 | Prioritize exposure | Feed fraud outcomes into the [CTEM](CTEM_REFERENCE.md) prioritization and validation stages |

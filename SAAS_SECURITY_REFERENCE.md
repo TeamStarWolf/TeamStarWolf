@@ -150,7 +150,7 @@ The two anchor techniques for the OAuth-token threat class, verified current in 
 | [T1528 Steal Application Access Token](https://attack.mitre.org/techniques/T1528/) | Credential Access | Consent phishing and token theft: the acquisition side of every case study above |
 | [T1550.001 Application Access Token](https://attack.mitre.org/techniques/T1550/001/) (under T1550 Use Alternate Authentication Material) | Lateral Movement | Replaying stolen/issued tokens to act as the app or user: the Drift mechanism |
 
-Adjacent techniques that recur in the case studies (IDs verified against this library's [technique dataset](data/attack/technique_profiles.jsonl); re-check tactic placement on attack.mitre.org, since v19 moved several techniques between tactics):
+Adjacent techniques that recur in the case studies (IDs verified against this library's [technique dataset](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/technique_profiles.jsonl); re-check tactic placement on attack.mitre.org, since v19 moved several techniques between tactics):
 
 | Technique | Where it appeared above |
 |---|---|

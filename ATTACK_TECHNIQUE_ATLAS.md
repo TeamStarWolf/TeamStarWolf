@@ -2,7 +2,7 @@
 
 > A complete, cross-referenced map of the 691 MITRE ATT&CK Enterprise techniques and sub-techniques (ATT&CK v18.1), organized by tactic. Every technique is scored by how many threat groups and pieces of software use it, how many ATT&CK mitigations and NIST 800-53 controls address it, and whether ATT&CK ships a detection strategy for it, so you can see, at a glance, what matters and what is under-covered.
 
-Legend: Grp = threat groups observed using it, SW = software (malware/tools) implementing it, Mit = ATT&CK mitigations, NIST = NIST 800-53 R5 controls (via CTID), Det = ATT&CK detection strategy exists. Machine-readable source: [`data/attack/technique_profiles.jsonl`](data/attack/technique_profiles.jsonl).
+Legend: Grp = threat groups observed using it, SW = software (malware/tools) implementing it, Mit = ATT&CK mitigations, NIST = NIST 800-53 R5 controls (via CTID), Det = ATT&CK detection strategy exists. Machine-readable source: [`data/attack/technique_profiles.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/technique_profiles.jsonl).
 
 Want the full write-up per technique? Browse the [Technique Detail Pages](techniques/README.md): each of the 691 techniques consolidated with its description, mitigations, NIST controls, detections, and the groups and software that use it.
 

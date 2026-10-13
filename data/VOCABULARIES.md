@@ -6,8 +6,8 @@ on. Library-defined vocabularies are stable and owned here; MITRE-derived
 vocabularies track the upstream framework and are updated when it changes. The
 `confidence`, `coverage_type`, `mapping_type`, `edge_type`, `relation`, and
 `reason` values below are enforced in CI by `scripts/validate_jsonl.py`; a value
-outside the locked set fails the build. See [MANIFEST.json](MANIFEST.json) for
-per-file provenance and [../THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md).
+outside the locked set fails the build. See [MANIFEST.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/MANIFEST.json) for
+per-file provenance and [../THIRD_PARTY_NOTICES.md](/THIRD_PARTY_NOTICES.md).
 
 ## Edge / crosswalk vocabularies (library-defined: locked)
 

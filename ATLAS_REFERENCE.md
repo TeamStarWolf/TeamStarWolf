@@ -14,8 +14,8 @@ ATLAS deliberately mirrors the ATT&CK structure and reuses its tactic names wher
 | Tactics | 16 |
 | Techniques | 170 (101 parent, 69 sub-techniques) |
 | Mitigations | 35 |
-| Navigator layers | [ATLAS matrix](navigator/ai/atlas-matrix.json), [case-study frequency](navigator/ai/atlas-case-study-frequency.json) |
-| Datasets | [techniques](data/ai/atlas_techniques.jsonl), [tactics](data/ai/atlas_tactics.jsonl), [mitigations](data/ai/atlas_mitigations.jsonl) |
+| Navigator layers | [ATLAS matrix](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/ai/atlas-matrix.json), [case-study frequency](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/ai/atlas-case-study-frequency.json) |
+| Datasets | [techniques](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/ai/atlas_techniques.jsonl), [tactics](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/ai/atlas_tactics.jsonl), [mitigations](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/ai/atlas_mitigations.jsonl) |
 
 Related in this library: [AI Security Reference](AI_SECURITY_REFERENCE.md) (OWASP LLM Top 10, prompt injection, guardrails), [AI & MCP Security](AI_MCP_SECURITY_REFERENCE.md), [AI Offensive Security](AI_OFFENSIVE_SECURITY_REFERENCE.md), [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md)
 

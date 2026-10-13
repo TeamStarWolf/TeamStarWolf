@@ -8,7 +8,7 @@
 | Start at | [All campaigns](#all-campaigns) for the sortable index, [Detailed profiles](#detailed-profiles) for per-campaign technique lists |
 | Pairs with | [Threat Group Profiles](THREAT_GROUP_PROFILES.md), [Notable Incidents](NOTABLE_INCIDENTS.md) |
 
-Machine-readable: [`data/attack/campaigns.jsonl`](data/attack/campaigns.jsonl)
+Machine-readable: [`data/attack/campaigns.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/campaigns.jsonl)
 
 ## All campaigns
 

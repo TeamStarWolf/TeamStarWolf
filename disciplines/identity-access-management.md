@@ -268,4 +268,4 @@ SCIM (System for Cross-domain Identity Management)
 - [cloud-security.md](/disciplines/cloud-security.md): Cloud IAM is a distinct and critical subdiscipline: AWS IAM, Azure Entra ID Conditional Access, and GCP Workload Identity are the access control planes that CIEM tools analyze and cloud security practitioners must master
 - [threat-intelligence.md](/disciplines/threat-intelligence.md): Identity-targeted threat actors and campaigns (credential phishing, AiTM attacks, MFA fatigue campaigns) require CTI context to understand current adversary tradecraft and prioritize which authentication controls to harden first
 - [incident-response.md](/disciplines/incident-response.md): Identity compromise is the most common initial access and lateral movement vector; IR teams depend on IAM teams to reset credentials, revoke tokens, and implement emergency access controls during active incidents
-- [Enterprise Security Pipeline](../SECURITY_PIPELINE.md): Stage 2: Identity & Access
+- [Enterprise Security Pipeline](/SECURITY_PIPELINE.md): Stage 2: Identity & Access

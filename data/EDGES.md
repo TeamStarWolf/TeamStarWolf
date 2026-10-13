@@ -10,8 +10,8 @@ join the library's relationships without re-deriving them. The source/target fie
 presence declared here is enforced in CI by `scripts/validate_jsonl.py` (the
 `edge-contract` check): every row must carry a non-empty source id and a non-empty
 target id (or, for adjacency rows, a non-empty target list whose items carry the
-declared id key). See [VOCABULARIES.md](VOCABULARIES.md) for the allowed
-`edge_type` / `confidence` / `relation` value sets and [MANIFEST.json](MANIFEST.json)
+declared id key). See [VOCABULARIES.md](/data/VOCABULARIES.md) for the allowed
+`edge_type` / `confidence` / `relation` value sets and [MANIFEST.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/MANIFEST.json)
 for per-file provenance, row counts and hashes.
 
 Node id conventions: `technique` = ATT&CK `T####[.###]` (Enterprise/Mobile) or ICS
@@ -36,7 +36,7 @@ D3FEND technique name; `car_analytic` = `CAR-YYYY-MM-NNN`; `engage_activity` =
 | `attack/technique_to_d3fend_internal.jsonl` | `technique_id`, d3fend_offensive_technique | `d3fend_technique`, d3fend_countermeasure | `technique_countered_by_d3fend` (see `relation`) | N/A | MITRE D3FEND |
 | `attack/superseded_by.jsonl` | `old_id`, technique | `new_id`, technique¹ | `technique_superseded_by` | N/A | MITRE ATT&CK |
 
-¹ `new_id` is nullable: a `deprecated` retirement (or a revoked-to-dead-end) has `new_id: null`. See [VOCABULARIES.md](VOCABULARIES.md) `reason`.
+¹ `new_id` is nullable: a `deprecated` retirement (or a revoked-to-dead-end) has `new_id: null`. See [VOCABULARIES.md](/data/VOCABULARIES.md) `reason`.
 
 ## Adjacency edges (one row = one source to a list of targets)
 

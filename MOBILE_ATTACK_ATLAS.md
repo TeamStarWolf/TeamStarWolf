@@ -1,6 +1,6 @@
 # Mobile ATT&CK Technique Atlas
 
-> The complete MITRE ATT&CK for Mobile matrix (v18.1), 124 techniques across 12 tactics, cross-referenced to the threat groups and software that use them and the ATT&CK mitigations that address them. Machine-readable source: [`data/attack/mobile/technique_profiles.jsonl`](data/attack/mobile/technique_profiles.jsonl).
+> The complete MITRE ATT&CK for Mobile matrix (v18.1), 124 techniques across 12 tactics, cross-referenced to the threat groups and software that use them and the ATT&CK mitigations that address them. Machine-readable source: [`data/attack/mobile/technique_profiles.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/mobile/technique_profiles.jsonl).
 
 Legend: Grp = threat groups, SW = software, Mit = ATT&CK mitigations, Det = ATT&CK detection guidance exists.
 

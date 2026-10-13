@@ -6,9 +6,9 @@ TeamStarWolf is a documentation and data library: a collection of Markdown refer
 
 | You found... | Please report via |
 |---|---|
-| A factual error, a wrong ATT&CK/CVE/control ID, or a mapping presented as authoritative that isn't | A [content-fix issue](../../issues/new/choose) |
-| A broken or hijacked outbound link (e.g. a cited domain that now resolves to something malicious) | A [content-fix issue](../../issues/new/choose), marked urgent |
-| A genuine vulnerability in a `scripts/` build/validation script, or anything you'd rather not disclose publicly | [Private vulnerability reporting](../../security/advisories/new) (GitHub -> Security -> Report a vulnerability) |
+| A factual error, a wrong ATT&CK/CVE/control ID, or a mapping presented as authoritative that isn't | A [content-fix issue](https://github.com/TeamStarWolf/TeamStarWolf/issues/new/choose) |
+| A broken or hijacked outbound link (e.g. a cited domain that now resolves to something malicious) | A [content-fix issue](https://github.com/TeamStarWolf/TeamStarWolf/issues/new/choose), marked urgent |
+| A genuine vulnerability in a `scripts/` build/validation script, or anything you'd rather not disclose publicly | [Private vulnerability reporting](https://github.com/TeamStarWolf/TeamStarWolf/security/advisories/new) (GitHub -> Security -> Report a vulnerability) |
 
 For anything sensitive, prefer the private advisory channel over a public issue so it can be triaged before disclosure.
 

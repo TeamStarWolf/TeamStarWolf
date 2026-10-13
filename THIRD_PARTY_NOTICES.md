@@ -1,11 +1,11 @@
 # Third-Party Notices
 
-The TeamStarWolf reference library is released under the [MIT License](LICENSE).
+The TeamStarWolf reference library is released under the [MIT License](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/LICENSE).
 It aggregates and reformats data from several third-party sources, each governed
 by its own terms. This file records those sources and their licenses. A
 machine-readable, per-file provenance record (with row counts, byte sizes and
-SHA-256 checksums) is generated at [`data/MANIFEST.json`](data/MANIFEST.json)
-by [`scripts/build_manifest.py`](scripts/build_manifest.py).
+SHA-256 checksums) is generated at [`data/MANIFEST.json`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/MANIFEST.json)
+by [`scripts/build_manifest.py`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/scripts/build_manifest.py).
 
 Nothing here modifies the license of the upstream material; it remains under the
 terms of its respective owner. Where this library derives new records (for

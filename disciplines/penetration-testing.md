@@ -329,9 +329,9 @@ Each finding contains:
 
 - [Red Teaming](/disciplines/red-teaming.md): Adversarial simulation beyond the structured pentest methodology
 - [Active Directory Security](/disciplines/active-directory.md): In-depth coverage of AD attack and defense techniques
-- [PENTEST_CHECKLISTS.md](../PENTEST_CHECKLISTS.md): Phase-by-phase testing checklists
-- [CERTIFICATIONS.md](../CERTIFICATIONS.md): Full certification roadmap across all disciplines
-- [HTB Tracks](../research/HTB_TRACKS.md): HackTheBox learning paths aligned to penetration testing
+- [PENTEST_CHECKLISTS.md](/PENTEST_CHECKLISTS.md): Phase-by-phase testing checklists
+- [CERTIFICATIONS.md](/CERTIFICATIONS.md): Full certification roadmap across all disciplines
+- [HTB Tracks](/research/HTB_TRACKS.md): HackTheBox learning paths aligned to penetration testing
 
 ---
 

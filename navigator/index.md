@@ -9,7 +9,7 @@ Live ATT&CK Enterprise heatmaps showing vendor and security domain coverage acro
 
 | Layer | Description | Load |
 |---|---|---|
-| [NIST 800-53 R5 Overview](teamstarwolf_vendor_coverage.json) | 470 ATT&CK techniques scored by NIST 800-53 R5 control depth: CTID-sourced (ATT&CK v16.1, 109 controls, 5,314 mapping edges) | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json) |
+| [NIST 800-53 R5 Overview](teamstarwolf_vendor_coverage.json) | 468 ATT&CK techniques scored by NIST 800-53 R5 control depth: CTID-sourced (ATT&CK v16.1, 109 controls, 5,263 mapping edges) | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json) |
 
 ---
 

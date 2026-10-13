@@ -16,14 +16,27 @@ control of each of its sub-techniques. A sub-technique has no children, so its
 rolled set equals its direct set.
 
 Source of truth for edges is data/control_to_technique.jsonl (CTID Mappings
-Explorer, NIST 800-53 r5). The script also asserts the profile's existing
-`nist_800_53_controls` equals the direct edges derived from that file.
+Explorer, NIST 800-53 r5, mapped against ATT&CK v16.1). Direct controls are carried
+forward through data/attack/superseded_by.jsonl: the CTID mapping is keyed on ids that
+ATT&CK v19 revoked (T1562.001, T1070.001, ...), and MITRE only renumbered those
+behaviours, so a live successor's direct set = its own CTID edges UNION the edges of
+every revoked predecessor whose chain resolves to it (T1685 <- T1562, T1562.001,
+T1562.006). The revoked rows keep their own edges. Carried controls are recorded per
+predecessor in `nist_800_53_controls_via_revoked` ({predecessor_id: [controls]},
+present only when non-empty) so the CTID source is never presented as mapping the new
+id directly.
+
+This script owns `nist_800_53_controls`, `nist_control_count`,
+`nist_800_53_controls_via_revoked`, `nist_800_53_controls_rolled` and
+`nist_control_count_rolled`.
 
 Default: rewrite technique_profiles.jsonl in place (formatting/CRLF preserved).
---check: recompute and exit 1 if the committed rolled fields drift.
+--check: recompute and exit 1 if any of those committed fields drift.
 """
 from __future__ import annotations
 import json, os, re, sys
+
+from attack_ids import AttackIds
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROFILES = os.path.join(ROOT, "data", "attack", "technique_profiles.jsonl")
@@ -39,7 +52,9 @@ def _ctrl_key(c: str):
 
 
 def _direct_controls():
-    m = {}
+    """technique_id -> set(controls) after the superseded_by carry-forward, plus the
+    provenance {successor_id: {predecessor_id: [controls]}}."""
+    m, rekeyed = {}, {}
     with open(C2T, encoding="utf-8") as f:
         for line in f:
             line = line.strip()
@@ -49,7 +64,29 @@ def _direct_controls():
             t, c = r.get("attack_technique"), r.get("nist_control")
             if t and c:
                 m.setdefault(t, set()).add(c)
-    return m
+                # rows build_ctid_edges.py re-keyed from a stale source id
+                for old in r.get("via_revoked") or []:
+                    rekeyed.setdefault(t, {}).setdefault(old, set()).add(c)
+    merged, prov = AttackIds().carry_forward(m)
+    for t, by_old in rekeyed.items():
+        for old, cs in by_old.items():
+            by_pred = prov.setdefault(t, {})
+            by_pred[old] = sorted(set(by_pred.get(old, [])) | cs)
+    prov = {t: {old: sorted(cs, key=_ctrl_key) for old, cs in sorted(by_old.items())}
+            for t, by_old in prov.items()}
+    return merged, prov
+
+
+def _with_via_revoked(r, via):
+    """Place nist_800_53_controls_via_revoked right after nist_control_count (or drop it)."""
+    out = {}
+    for k, v in r.items():
+        if k == "nist_800_53_controls_via_revoked":
+            continue
+        out[k] = v
+        if k == "nist_control_count" and via:
+            out["nist_800_53_controls_via_revoked"] = via
+    return out
 
 
 def _read_profiles():
@@ -78,39 +115,47 @@ def compute(profiles, direct):
 
 def main():
     profiles, nl = _read_profiles()
-    direct = _direct_controls()
+    direct, prov = _direct_controls()
     rolled = compute(profiles, direct)
 
-    # Consistency: the profile's existing direct field must match the CTID edges.
-    mismatches = []
-    for r in profiles:
-        t = r["technique_id"]
-        have = set(r.get("nist_800_53_controls") or [])
-        want = set(direct.get(t, set()))
-        if have != want:
-            mismatches.append((t, len(have), len(want)))
+    def want_direct(r):
+        # keep the committed order when the set is unchanged (lexical order otherwise)
+        want = direct.get(r["technique_id"], set())
+        have = r.get("nist_800_53_controls") or []
+        return have if (set(have) == want and len(have) == len(want)) else sorted(want)
 
     check = "--check" in sys.argv
     if check:
-        drift = [r["technique_id"] for r in profiles
-                 if r.get("nist_800_53_controls_rolled") != rolled[r["technique_id"]]
-                 or r.get("nist_control_count_rolled") != len(rolled[r["technique_id"]])]
+        drift = []
+        for r in profiles:
+            t = r["technique_id"]
+            d = sorted(direct.get(t, set()))
+            if (sorted(r.get("nist_800_53_controls") or []) != d
+                    or r.get("nist_control_count") != len(d)
+                    or (r.get("nist_800_53_controls_via_revoked") or {}) != prov.get(t, {})
+                    or r.get("nist_800_53_controls_rolled") != rolled[t]
+                    or r.get("nist_control_count_rolled") != len(rolled[t])):
+                drift.append(t)
         if drift:
             print(f"CONTROL-ROLLUP DRIFT on {len(drift)} profiles "
                   f"(run scripts/build_control_rollup.py): {', '.join(drift[:15])}"
                   + (" ..." if len(drift) > 15 else ""))
             sys.exit(1)
-        if mismatches:
-            print(f"WARNING: {len(mismatches)} profiles' direct nist_800_53_controls "
-                  f"differ from control_to_technique.jsonl (not failing): "
-                  + ", ".join(f"{t}({h}!={w})" for t, h, w in mismatches[:10]))
-        print(f"OK: control rollup consistent for all {len(profiles)} profiles")
+        print(f"OK: control rollup consistent for all {len(profiles)} profiles "
+              f"({len(prov)} carry controls forward from revoked predecessors)")
         return
 
-    for r in profiles:
+    changed_direct = []
+    for i, r in enumerate(profiles):
         t = r["technique_id"]
+        d = want_direct(r)
+        if d != (r.get("nist_800_53_controls") or []):
+            changed_direct.append(t)
+        r["nist_800_53_controls"] = d
+        r["nist_control_count"] = len(d)
         r["nist_800_53_controls_rolled"] = rolled[t]
         r["nist_control_count_rolled"] = len(rolled[t])
+        profiles[i] = _with_via_revoked(r, prov.get(t))
 
     out = nl.join(json.dumps(r, ensure_ascii=False) for r in profiles) + nl
     with open(PROFILES, "w", encoding="utf-8", newline="") as f:
@@ -122,9 +167,10 @@ def main():
     print(f"wrote {PROFILES}")
     print(f"  profiles stamped with rolled controls: {len(profiles)}")
     print(f"  parent techniques whose rolled set exceeds direct: {len(gained)}")
-    if mismatches:
-        print(f"  NOTE: {len(mismatches)} profiles' direct field != control_to_technique "
-              f"edges (pre-existing): {', '.join(t for t, _, _ in mismatches[:8])}")
+    print(f"  profiles whose direct control set changed: {len(changed_direct)}"
+          + (f" ({', '.join(changed_direct[:12])}{' ...' if len(changed_direct) > 12 else ''})"
+             if changed_direct else ""))
+    print(f"  live successors carrying controls from revoked predecessors: {len(prov)}")
 
 
 if __name__ == "__main__":

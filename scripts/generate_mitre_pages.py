@@ -27,6 +27,7 @@ import argparse
 from pathlib import Path
 
 from plain_markdown import plain
+from attack_ids import AttackIds
 from collections import defaultdict, Counter
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -304,6 +305,7 @@ class DB:
             acts = re.findall(r"'id':\s*'([^']+)',\s*'name':\s*'([^']+)'", str(r.get("engage_activities", "")))
             if acts:
                 self.engage[r["technique_id"]] = [{"id": i, "name": n} for i, n in acts]
+        self._carry_forward_crosswalks()
         ea_p = DATA / "engage/engage_activities.jsonl"
         self.engage_desc = {r["activity_id"]: r.get("description", "") for r in (load_jsonl(ea_p) if ea_p.exists() else [])}
 
@@ -396,6 +398,31 @@ class DB:
             tid = r.get("technique_id", "")
             if tid.startswith("T") and not tid.startswith("TA"):
                 page["counters"].append((tid, sstr(r.get("relation")) or "maps"))
+
+
+    def _carry_forward_crosswalks(self):
+        """D3FEND, CAR and Engage publish their ATT&CK mappings against whatever id they
+        were authored for, so an edge keyed on an id ATT&CK v19 revoked (T1562 ->
+        T1685, T1574.002 -> T1574.001, ...) is also shown on the live successor, following
+        data/attack/superseded_by.jsonl chains - the same rule build_control_rollup.py and
+        backfill_capec_edges.py apply to NIST and CAPEC. The revoked page keeps its own
+        edges; an item already on the successor is not repeated."""
+        def merge(dst, src, key):
+            have = {x.get(key) for x in dst}
+            for x in src:
+                if x.get(key) not in have:
+                    dst.append(x)
+                    have.add(x.get(key))
+
+        preds = AttackIds(ROOT).predecessors("enterprise")
+        for succ in sorted(preds):
+            for old in preds[succ]:
+                if self.d3.get(old):
+                    merge(self.d3[succ], self.d3[old], "d3fend_technique")
+                if self.car.get(old):
+                    merge(self.car.setdefault(succ, []), self.car[old], "car_id")
+                if self.engage.get(old):
+                    merge(self.engage.setdefault(succ, []), self.engage[old], "id")
 
 
 # ----------------------------------------------------------------------------- technique
@@ -601,6 +628,9 @@ def render_technique(db, tid):
             nm = db.nist_name.get(c)
             rows.append("- `" + c + "` " + DASH + " " + nm if nm else "- `" + c + "`")
         out.append("\n".join(rows) + "\n")
+        via = p.get("nist_800_53_controls_via_revoked") or {}
+        if via:
+            out.append(_via_revoked_note(db, via, "the CTID NIST 800-53 mapping"))
 
     # CAPEC (if mapped)
     capec = p.get("capec") or []
@@ -613,12 +643,23 @@ def render_technique(db, tid):
             ids.append("- [" + label + "](/mitre/capec/" + cid + ".md)")
         out.append("## CAPEC attack patterns (" + str(len(ids)) + ")\n")
         out.append("\n".join(ids) + "\n")
+        via = p.get("capec_via_revoked") or {}
+        if via:
+            out.append(_via_revoked_note(db, via, "CAPEC"))
 
     out.append(FOOTER)
     return "\n".join(out)
 
 
 # ----------------------------------------------------------------------------- shared
+def _via_revoked_note(db, via, source):
+    """Provenance line for edges carried forward from revoked predecessor ids."""
+    preds = ", ".join(link_tech(db, old) + " (" + str(len(items)) + ")"
+                      for old, items in sorted(via.items()))
+    return ("_Carried forward from revoked " + preds + ": " + source + " is keyed on the "
+            "predecessor id, which ATT&CK v19.2 renumbered to this technique._\n")
+
+
 def link_tech(db, tid, name=None):
     """Link an ATT&CK technique id: enterprise -> internal page, ICS (T0) -> official, else code."""
     nm = name or (db.prof.get(tid, {}) or {}).get("name")

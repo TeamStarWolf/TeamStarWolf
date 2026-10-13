@@ -54,6 +54,36 @@ own primary-key validation) but are part of the same relationship graph:
 - `attack/technique_profiles.jsonl` -> `capec` (technique -> CAPEC ids),
   `nist_800_53_controls` / `nist_800_53_controls_rolled` (technique -> controls),
   `mitigations` (technique -> mitigations), `d3fend`, `data_components`.
+  `nist_800_53_controls_via_revoked` / `capec_via_revoked` record which of those
+  edges were carried forward from a revoked predecessor (see below).
 - `attack/{group,software,campaign}_profiles.jsonl` -> `techniques` (actor -> techniques).
 
-*Last updated: 2026-09-29 | TeamStarWolf Cybersecurity Reference Library*
+## Revoked technique ids, carry-forward and integrity rules
+
+Third-party mappings are published against the ATT&CK version they were authored for:
+the CTID NIST 800-53 mapping targets ATT&CK v16.1, CAPEC/D3FEND/CAR/Engage target older
+releases. When ATT&CK v19 renumbered a technique (`revoked-by`, recorded in
+`attack/superseded_by.jsonl`, e.g. T1562.001 -> T1685, T1070.001 -> T1685.005), the
+mapping still describes the same behaviour, so:
+
+- the source edge rows stay keyed on the id the upstream publishes (the revoked id keeps
+  a lineage row in `technique_profiles.jsonl` and keeps its own edges);
+- every consumer carries those edges forward to the live successor, following
+  `superseded_by` chains, through one shared rule (`scripts/attack_ids.py`):
+  `build_control_rollup.py` (profile NIST fields), `backfill_capec_edges.py` (profile
+  CAPEC), `build_ctid_edges.py` (`vendor_to_technique.jsonl`) and the D3FEND/CAR/Engage
+  loaders of `generate_mitre_pages.py`;
+- a carried edge names its predecessor(s) in `via_revoked` (edge rows) or
+  `*_via_revoked` ({predecessor: [targets]}, profiles), so the upstream is never
+  presented as mapping the new id directly;
+- a key that was already stale in the upstream's own version (T1574.002, revoked in
+  v16) is re-keyed in `control_to_technique.jsonl` itself, again with `via_revoked`.
+
+`scripts/validate_jsonl.py` enforces, in CI: one row per (source, target) in every edge
+table; every ATT&CK technique reference is live in the table's domain or resolves through
+`superseded_by` to a live successor (an unknown id, e.g. a Mobile id in an Enterprise
+table, fails); `via_revoked` ids resolve to the row's target; and a row's denormalised
+`tactics` equals the target technique's current tactics. `build_ctid_edges.py --check`
+fails if either CTID-derived table drifts from its sources.
+
+*Last updated: 2026-10-12 | TeamStarWolf Cybersecurity Reference Library*

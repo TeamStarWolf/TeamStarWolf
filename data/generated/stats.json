@@ -1,7 +1,7 @@
 {
   "analytics": 1758,
   "campaigns": 56,
-  "control_to_technique_edges": 5314,
+  "control_to_technique_edges": 5263,
   "data_components": 106,
   "detection_strategies": 697,
   "detection_strategy_technique_rows": 697,
@@ -20,5 +20,5 @@
   "technique_to_d3fend_edges": 3992,
   "technique_total": 714,
   "techniques_with_d3fend": 403,
-  "vendor_to_technique_edges": 17250
+  "vendor_to_technique_edges": 17668
 }

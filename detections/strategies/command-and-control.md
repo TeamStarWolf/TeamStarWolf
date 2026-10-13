@@ -196,7 +196,7 @@ Platforms: ESXi, Linux, Network Devices, Windows, macOS
 ATT&CK: [T1071.002](https://attack.mitre.org/techniques/T1071/002/), [detail page](../../techniques/command-and-control.md#t1071002)
 
 - `AN1169` Analytic 1169, Windows
-  Detects FTP, SMB, or TFTP traffic initiated by suspicious processes like PowerShell, cmd.exe, or rundll32.exe, especially with large outbound file transfers or unbalanced traffic volume.
+  Detects FTP, SMB, or TFTP traffic initiated by suspicious processes like PowerShell, cmd.exe, or rundll32.exe—especially with large outbound file transfers or unbalanced traffic volume.
   - *Log sources:* `WinEventLog:Sysmon (EventCode=3, 22)`; `WinEventLog:Sysmon (EventCode=1)`; `NSM:Flow (ftp.log, smb_files.log)`
   - *Tune:* `ProcessImageFilter`: Limit to non-standard FTP clients or suspicious binaries (e.g., cmd, mshta); `DataFlowDirectionThreshold`: Ratio of outbound:inbound bytes; e.g., >90% outbound; `FilenamePattern`: Suspicious file extensions or naming (e.g., .zip, .rar, random hash names)
 - `AN1170` Analytic 1170, Linux
@@ -228,7 +228,7 @@ ATT&CK: [T1071.003](https://attack.mitre.org/techniques/T1071/003/), [detail pag
 - `AN0379` Analytic 0379, Windows
   Detects unauthorized use of SMTP/IMAP/POP3 by suspicious binaries (e.g., PowerShell, rundll32) to exfiltrate data or beacon via email, often bypassing proxy or content filters.
   - *Log sources:* `WinEventLog:Sysmon (EventCode=3, 22)`; `WinEventLog:Sysmon (EventCode=1)`; `NSM:Flow (smtp.log)`
-  - *Tune:* `ProcessImageName`: Limit to uncommon clients (e.g., scripts or CLI tools using .NET SMTP libraries); `DestPortFilter`: Typically 25, 587, 993, 995, or 465; flag anomalies; `AttachmentType`: Flag suspicious attachments (e.g., .zip, .7z, .bin)
+  - *Tune:* `ProcessImageName`: Limit to uncommon clients (e.g., scripts or CLI tools using .NET SMTP libraries); `DestPortFilter`: Typically 25, 587, 993, 995, or 465 – flag anomalies; `AttachmentType`: Flag suspicious attachments (e.g., .zip, .7z, .bin)
 - `AN0380` Analytic 0380, Linux
   Detects non-interactive or script-driven email transmission using tools like `sendmail`, `mailx`, or custom SMTP scripts by background processes, especially when sending attachments or large payloads.
   - *Log sources:* `auditd:SYSCALL (execve)`; `NSM:Flow (smtp.log, conn.log)`
@@ -370,7 +370,7 @@ ATT&CK: [T1090.002](https://attack.mitre.org/techniques/T1090/002/), [detail pag
 - `AN0922` Analytic 0922, Windows
   Unusual process (e.g., `rundll32`, `mshta`, `wscript`, or custom payloads) initiates network connection to external IPs/domains that proxy C2 traffic, often over uncommon ports or high entropy HTTP/S connections.
   - *Log sources:* `WinEventLog:Sysmon (EventCode=3, 22)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Microsoft-Windows-Windows Defender/Operational (Unusual external domain access)`
-  - *Tune:* `DestinationASN`: Adjust for known benign but high-risk infrastructure (e.g., hosting providers like DigitalOcean, OVH, etc.).; `ParentProcess`: Detect suspicious lineage (proxy tools launched from script interpreters or LOLBins).; `EntropyThreshold`: Tune based on expected randomness in outbound request payloads.
+  - *Tune:* `DestinationASN`: Adjust for known benign but high-risk infrastructure (e.g., hosting providers like DigitalOcean, OVH, etc.).; `ParentProcess`: Detect suspicious lineage—proxy tools launched from script interpreters or LOLBins.; `EntropyThreshold`: Tune based on expected randomness in outbound request payloads.
 - `AN0923` Analytic 0923, Linux
   `curl`, `wget`, `ncat`, `socat`, or custom binaries initiate outbound traffic to Internet-based proxies (e.g., via VPS or CDN). Behavior may include reverse shell constructs or persistent outbound beacons.
   - *Log sources:* `auditd:SYSCALL (execve)`; `NSM:Flow (conn.log or http.log)`; `NSM:Flow (alert log)`
@@ -386,7 +386,7 @@ ATT&CK: [T1090.002](https://attack.mitre.org/techniques/T1090/002/), [detail pag
 - `AN0926` Analytic 0926, Network Devices
   Changes to NAT/firewall policies enabling outbound port forwarding from internal IPs to Internet-based proxy endpoints. Log spikes in outbound flows to CDN, VPS, or anomalous ASNs with few return packets.
   - *Log sources:* `Firewall Audit Logs (Outbound NAT Rule Changes)`; `NSM:Flow (Outbound flow records)`; `networkdevice:syslog (Dynamic route changes)`
-  - *Tune:* `FlowThreshold`: Number of flows or bytes transferred per minute; flag surges to unrecognized ASNs.; `DestinationIPCategory`: Proxy destination categories (CDN, TOR exit node, anonymous hosting).; `ConfigChangeUser`: Track if unexpected user or automation changed NAT/forwarding rules.
+  - *Tune:* `FlowThreshold`: Number of flows or bytes transferred per minute—flag surges to unrecognized ASNs.; `DestinationIPCategory`: Proxy destination categories: CDN, TOR exit node, anonymous hosting.; `ConfigChangeUser`: Track if unexpected user or automation changed NAT/forwarding rules.
 
 ---
 
@@ -434,7 +434,7 @@ ATT&CK: [T1090.004](https://attack.mitre.org/techniques/T1090/004/), [detail pag
 - `AN0565` Analytic 0565, Linux
   Applications such as `curl`, `wget`, or custom binaries initiate HTTPS connections where the TLS SNI is mismatched or absent while HTTP Host targets CDN-available C2 endpoints.
   - *Log sources:* `NSM:Flow (ssl.log + http.log)`; `auditd:SYSCALL (execve)`
-  - *Tune:* `SNIFieldAbsent`: Detect TLS sessions where SNI is empty ('domainless' fronting).; `AllowedTools`: Environmental tuning for known binaries using alternate SNI for testing (e.g., API tests).; `ProcessContext`: Enrich command-line arguments or parent-child lineage to detect abuse.
+  - *Tune:* `SNIFieldAbsent`: Detect TLS sessions where SNI is empty—'domainless' fronting.; `AllowedTools`: Environmental tuning for known binaries using alternate SNI for testing (e.g., API tests).; `ProcessContext`: Enrich command-line arguments or parent-child lineage to detect abuse.
 - `AN0566` Analytic 0566, macOS
   Unsigned or user-space apps initiate TLS connections with one hostname and HTTP headers requesting a different domain, commonly abused in CDN-resident domain fronting techniques.
   - *Log sources:* `macos:unifiedlog (network, socket, and http logs)`; `macos:osquery (process_events)`
@@ -442,7 +442,7 @@ ATT&CK: [T1090.004](https://attack.mitre.org/techniques/T1090/004/), [detail pag
 - `AN0567` Analytic 0567, ESXi
   Traffic originating from ESXi hosts or management interfaces displays SNI-to-Host mismatch behavior, particularly anomalous given typical infrastructure communication patterns.
   - *Log sources:* `NSM:Firewall (TLS/HTTP inspection)`; `esxi:shell (/var/log/vmkernel.log, /var/log/vmkwarning.log)`
-  - *Tune:* `AdminPortAccess`: ESXi hosts should rarely initiate external HTTPS; threshold to alert.; `TLSHandshakeOutliers`: Define entropy or timing anomalies for TLS handshake.; `DomainMismatchThreshold`: SNI/Host mismatch occurrence tolerance.
+  - *Tune:* `AdminPortAccess`: ESXi hosts should rarely initiate external HTTPS—threshold to alert.; `TLSHandshakeOutliers`: Define entropy or timing anomalies for TLS handshake.; `DomainMismatchThreshold`: SNI/Host mismatch occurrence tolerance.
 
 ---
 

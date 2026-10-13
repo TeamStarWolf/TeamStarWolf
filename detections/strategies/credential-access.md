@@ -248,7 +248,7 @@ ATT&CK: [T1110.002](https://attack.mitre.org/techniques/T1110/002/), [detail pag
 - `AN0292` Analytic 0292, Windows
   Use of hash-cracking tools (e.g., John the Ripper, Hashcat) after credential dumping, combined with high CPU usage or GPU invocation via unsigned binaries accessing password hash files
   - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Security (EventCode=4663, 4670, 4656)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=10)`
-  - *Tune:* `HashToolName`: Match execution against known cracking toolnames like hashcat.exe, john.exe, etc.; `FilePathIndicators`: Watch for access to common hash dump locations (e.g., SAM, SYSTEM, NTDS.dit); `ExecutionContext`: Run context (local interactive user vs. scheduled task or remote session)
+  - *Tune:* `HashToolName`: Match execution against known cracking toolnames like hashcat.exe, john.exe, etc.; `FilePathIndicators`: Watch for access to common hash dump locations (e.g., SAM, SYSTEM, NTDS.dit); `ExecutionContext`: Run context: local interactive user vs. scheduled task or remote session
 - `AN0293` Analytic 0293, Linux
   Execution of hash cracking binaries or scripts (e.g., john, hashcat) following access to shadow file or dumped hashes
   - *Log sources:* `auditd:SYSCALL (execve)`; `linux:syslog (auth.log or custom tool logs)`
@@ -442,7 +442,7 @@ ATT&CK: [T1528](https://attack.mitre.org/techniques/T1528/), [detail page](../..
   - *Log sources:* `m365:unified (App-only or delegated access patterns where client_id != known enterprise apps)`
   - *Tune:* `ClientAppIDAllowList`: Defenders may allow known app IDs, flag unknowns; `AccessVolumeThreshold`: Rate of resource access by a newly consented app
 - `AN1427` Analytic 1427, SaaS
-  Programmatic access to user content via stolen access tokens in platforms like Slack, GitHub, Google Workspace, especially from new IPs, apps, or excessive resource access.
+  Programmatic access to user content via stolen access tokens in platforms like Slack, GitHub, Google Workspace — especially from new IPs, apps, or excessive resource access.
   - *Log sources:* `saas:googleworkspace (Access via OAuth credentials with unusual scopes or from anomalous IPs)`; `saas:slack (OAuth token use by unknown app client_id accessing private channels or files)`
   - *Tune:* `GeoVelocity`: Flag when token use appears across geographically distant logins; `OAuthScopeSensitivity`: Weight certain scopes (admin, file.read) as higher risk
 
@@ -600,7 +600,7 @@ ATT&CK: [T1552.004](https://attack.mitre.org/techniques/T1552/004/), [detail pag
 - `AN1519` Analytic 1519, Network Devices
   CLI-based export of private key material (e.g., 'crypto pki export') with anomalous user session or AAA role escalation.
   - *Log sources:* `networkdevice:syslog (Detected CLI command to export key material)`
-  - *Tune:* `CLICommandMatch`: Regex for export commands (e.g., crypto pki export, export ssh-key); `AAAUserContext`: Source username or role performing export; may tune for known admins
+  - *Tune:* `CLICommandMatch`: Regex for export commands (e.g., crypto pki export, export ssh-key); `AAAUserContext`: Source username or role performing export — may tune for known admins
 
 ---
 

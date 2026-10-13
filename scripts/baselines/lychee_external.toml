@@ -93,6 +93,7 @@ exclude = [
   '^https://docs\.redhat\.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/assembly_blocking-and-allowing-applications-using-fapolicyd_security-hardening/?$',
   '^https://drata\.com/?$',
   '^https://emailrep\.io/?$',
+  '^https://fitcrack\.fit\.vutbr\.cz/?$',
   '^https://github\.com/gophish/gophish/blob/master/VERSION/?$',
   '^https://intune\.microsoft\.com/?$',
   '^https://media\.defense\.gov/2021/Feb/25/2002588479/-1/-1/0/CSI_EMBRACING_ZT_SECURITY_MODEL_UOO115131-21\.PDF/?$',

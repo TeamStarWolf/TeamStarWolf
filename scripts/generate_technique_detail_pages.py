@@ -313,10 +313,10 @@ def write_pages(root):
         if old.exists():
             old.unlink()
     for slug, _, _ in TACTIC_ORDER:
-        (tdir / (slug + ".md")).write_text(plain(render_tech_tactic(slug)), encoding="utf-8")
-        (ddir / (slug + ".md")).write_text(plain(render_det_tactic(slug)), encoding="utf-8")
-    (tdir / "README.md").write_text(plain(render_tech_readme()), encoding="utf-8")
-    (ddir / "README.md").write_text(plain(render_det_readme()), encoding="utf-8")
+        (tdir / (slug + ".md")).write_text(plain(render_tech_tactic(slug)), encoding="utf-8", newline="\n")
+        (ddir / (slug + ".md")).write_text(plain(render_det_tactic(slug)), encoding="utf-8", newline="\n")
+    (tdir / "README.md").write_text(plain(render_tech_readme()), encoding="utf-8", newline="\n")
+    (ddir / "README.md").write_text(plain(render_det_readme()), encoding="utf-8", newline="\n")
     print("techniques/: wrote 15 tactic pages + README (" + str(len(primary)) + " techniques)")
     print("detections/strategies/: wrote 15 tactic pages + README")
 

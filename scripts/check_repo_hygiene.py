@@ -55,7 +55,7 @@ def check_junk(files: list[str]) -> list[str]:
 
 # ----------------------------------------------------------------------------- 2. encoding
 TEXT_EXT = (".md", ".json", ".jsonl", ".svg", ".py", ".yml", ".yaml", ".html", ".csv", ".cff",
-            ".txt", ".js", ".css", ".gitignore", ".lychee-exclude", ".nojekyll")
+            ".txt", ".js", ".css", ".gitignore", ".lycheeignore", ".nojekyll")
 TEXT_NAMES = ("LICENSE",)
 # Written with escapes so this file never matches itself. Each alternative is what a
 # UTF-8 multi-byte sequence looks like after being misread as cp1252/latin-1:

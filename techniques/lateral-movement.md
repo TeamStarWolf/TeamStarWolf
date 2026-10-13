@@ -305,7 +305,7 @@ Adversaries may hijack a legitimate user’s remote desktop session to move late
 
 ATT&CK mitigations (7): [M1018 User Account Management](../ATTACK_MITIGATIONS_REFERENCE.md#m1018), [M1026 Privileged Account Management](../ATTACK_MITIGATIONS_REFERENCE.md#m1026), [M1028 Operating System Configuration](../ATTACK_MITIGATIONS_REFERENCE.md#m1028), [M1030 Network Segmentation](../ATTACK_MITIGATIONS_REFERENCE.md#m1030), [M1035 Limit Access to Resource Over Network](../ATTACK_MITIGATIONS_REFERENCE.md#m1035), [M1042 Disable or Remove Feature or Program](../ATTACK_MITIGATIONS_REFERENCE.md#m1042), [M1047 Audit](../ATTACK_MITIGATIONS_REFERENCE.md#m1047)  
 NIST 800-53 R5 controls (18): `AC-11`, `AC-12`, `AC-17`, `AC-2`, `AC-3`, `AC-4`, `AC-5`, `AC-6`, `CM-2`, `CM-5`, `CM-6`, `CM-7`, `CM-8`, `IA-2`, `RA-5`, `SC-46`, `SC-7`, `SI-4`  
-ATT&CK detection strategy: Detection fo Remote Service Session Hijacking for RDP.  
+ATT&CK detection strategy: Detection of Remote Service Session Hijacking for RDP.  
 Used by 1 threat groups: [G0001 Axiom](https://attack.mitre.org/groups/G0001)  
 Implemented by 1 software: [S0366 WannaCry](https://attack.mitre.org/software/S0366)  
 

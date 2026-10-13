@@ -22,7 +22,7 @@ Implemented by 93 software: [S0062 DustySky](https://attack.mitre.org/software/S
 ### T1053: Scheduled Task/Job
 <a id="t1053"></a>
 
-Tactics: Execution, Persistence, Privilege Escalation, Platforms: Windows, Linux, macOS, Containers, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1053)  
+Tactics: Execution, Persistence, Privilege Escalation, Platforms: Containers, ESXi, Linux, macOS, Network Devices, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1053)  
 
 Adversaries may abuse task scheduling functionality to facilitate initial or recurring execution of malicious code. Utilities exist within all major operating systems to schedule programs or scripts to be executed at a specified date and time. A task can also be scheduled on a remote system, provided the proper authentication is met (ex: RPC and file and printer sharing in Windows environments). Scheduling a task on a remote system typically may require being a member of an admin or otherwise privileged group on the remote system. Adversaries may use task scheduling to execute programs at system startup or on a scheduled basis for persistence. These mechanisms can also be abused to run a process under the context of a specified account (such as one with elevated permissions/privileges). Similar to [System Binary Proxy Execution](https://attack.mitre.org/techniques/T1218), adversaries have also abused task scheduling to potentially mask one-time execution under a trusted system process.
 
@@ -108,7 +108,7 @@ ATT&CK detection strategy: Detection of Malicious Kubernetes CronJob Scheduling
 ### T1059: Command and Scripting Interpreter
 <a id="t1059"></a>
 
-Tactics: Execution, Platforms: ESXi, IaaS, Identity Provider, Linux, macOS, Network Devices, Office Suite, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1059)  
+Tactics: Execution, Platforms: Containers, ESXi, IaaS, Identity Provider, Linux, macOS, Network Devices, Office Suite, SaaS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1059)  
 
 Adversaries may abuse command and script interpreters to execute commands, scripts, or binaries. These interfaces and languages provide ways of interacting with computer systems and are a common feature across many different platforms. Most systems come with some built-in command-line interface and scripting capabilities, for example, macOS and Linux distributions include some flavor of [Unix Shell](https://attack.mitre.org/techniques/T1059/004) while Windows installations include the [Windows Command Shell](https://attack.mitre.org/techniques/T1059/003) and [PowerShell](https://attack.mitre.org/techniques/T1059/001). There are also cross-platform interpreters such as [Python](https://attack.mitre.org/techniques/T1059/006), as well as those commonly associated with client applications such as [JavaScript](https://attack.mitre.org/techniques/T1059/007) and [Visual Basic](https://attack.mitre.org/techniques/T1059/005). Adversaries may abuse these technologies in various ways as a means of executing arbitrary commands. Commands and scripts can be embedded in [Initial Access](https://attack.mitre.org/tactics/TA0001) payloads delivered to victims as lure documents or as secondary payloads downloaded from an existing C2. Adversaries may also execute commands through interactive terminals/shells, as well as utilize various [Remote Services](https://attack.mitre.org/techniques/T1021) in order to achieve remote Execution.
 

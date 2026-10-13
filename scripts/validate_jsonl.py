@@ -22,6 +22,13 @@ Layers of checks:
      target, and a denormalised `tactics` copy must equal the target technique's
      current tactics in technique_profiles (no retired shortname such as
      defense-evasion survives a re-pin).
+  6. Count-vs-edge consistency (COUNT_RULES): a denormalised count or list stored on
+     a node row must equal what its edge table says, e.g. a technique profile's
+     `group_count` must equal its rows in group_to_technique.jsonl and its
+     `detection_strategies` must equal the strategy names detection_strategies.jsonl
+     gives it. Page headers print these fields, so a stale snapshot of an older
+     ATT&CK release would otherwise contradict the list printed under it (review
+     findings gen-6/gen-7/gen-8: 167 technique pages, 8 mitigations).
 
 Previously only the three crosswalks were validated (3 of 41 datasets); this
 covers them all (Library Enhancement Roadmap Tier 1.9).
@@ -176,6 +183,92 @@ EDGES = {
     "data/engage/attack_to_engage.jsonl":          {"source": "technique_id", "target": "engage_activities", "target_list_key": "id"},
     "data/attack/technique_to_car.jsonl":          {"source": "technique_id", "target": "car", "target_list_key": "car_id"},
 }
+
+
+# Layer 6 - count-vs-edge consistency. Each rule: (node file, node id field, stored
+# field, edge file, edge source field, edge target/value field, kind). The edge side
+# is grouped by `source` and the stored field is compared with:
+#   count - the number of distinct values;   ids  - the sorted distinct values of
+#   the list's `id` keys;   names - the sorted distinct values;   bool - non-empty.
+# `*_profiles.jsonl` lists serve as the edge side where no edge table exists
+# (campaign -> technique, group -> software, software -> group).
+TP = "data/attack/technique_profiles.jsonl"
+COUNT_RULES = [
+    (TP, "technique_id", "group_count", "data/attack/group_to_technique.jsonl", "technique_id", "group_id", "count"),
+    (TP, "technique_id", "software_count", "data/attack/software_to_technique.jsonl", "technique_id", "software_id", "count"),
+    (TP, "technique_id", "campaign_count", "data/attack/campaign_profiles.jsonl", "techniques[]", "campaign_id", "count"),
+    (TP, "technique_id", "mitigation_count", "data/attack/mitigation_to_technique.jsonl", "technique_id", "mitigation_id", "count"),
+    (TP, "technique_id", "mitigations", "data/attack/mitigation_to_technique.jsonl", "technique_id", "mitigation_id", "ids"),
+    (TP, "technique_id", "detection_strategies", "data/attack/detection_strategies.jsonl", "technique_id", "name", "names"),
+    (TP, "technique_id", "has_detection_strategy", "data/attack/detection_strategies.jsonl", "technique_id", "name", "bool"),
+    (TP, "technique_id", "nist_control_count", TP, "technique_id", "nist_800_53_controls[]", "count"),
+    (TP, "technique_id", "nist_control_count_rolled", TP, "technique_id", "nist_800_53_controls_rolled[]", "count"),
+    ("data/attack/mitigations.jsonl", "mitigation_id", "technique_count", "data/attack/mitigation_to_technique.jsonl", "mitigation_id", "technique_id", "count"),
+    ("data/attack/groups.jsonl", "group_id", "technique_count", "data/attack/group_to_technique.jsonl", "group_id", "technique_id", "count"),
+    ("data/attack/groups.jsonl", "group_id", "software_count", "data/attack/group_profiles.jsonl", "group_id", "software[]", "count"),
+    ("data/attack/software.jsonl", "software_id", "technique_count", "data/attack/software_to_technique.jsonl", "software_id", "technique_id", "count"),
+    ("data/attack/software.jsonl", "software_id", "group_count", "data/attack/software_profiles.jsonl", "software_id", "groups[]", "count"),
+    ("data/attack/campaigns.jsonl", "campaign_id", "technique_count", "data/attack/campaign_profiles.jsonl", "campaign_id", "techniques[]", "count"),
+    ("data/attack/ics/technique_profiles.jsonl", "technique_id", "group_count", "data/attack/ics/group_to_technique.jsonl", "technique_id", "group_id", "count"),
+    ("data/attack/mobile/technique_profiles.jsonl", "technique_id", "group_count", "data/attack/mobile/group_to_technique.jsonl", "technique_id", "group_id", "count"),
+]
+
+
+def _rows(rel, cache):
+    if rel not in cache:
+        p = ROOT / rel
+        rows = []
+        if p.exists():
+            with open(p, encoding="utf-8") as f:
+                for raw in f:
+                    raw = raw.strip()
+                    if raw:
+                        try:
+                            rec = json.loads(raw)
+                        except json.JSONDecodeError:
+                            continue  # reported by layer 1
+                        if isinstance(rec, dict):
+                            rows.append(rec)
+        cache[rel] = rows
+    return cache[rel]
+
+
+def _values(rec, field):
+    """A field's values as a list; `name[]` means the field is itself a list."""
+    if field.endswith("[]"):
+        v = rec.get(field[:-2])
+        return list(v) if isinstance(v, list) else []
+    v = rec.get(field)
+    return [] if v in (None, "") else [v]
+
+
+def count_consistency_errors():
+    """Layer 6: {node file: [error, ...]} for every COUNT_RULES mismatch."""
+    cache, out = {}, {}
+    for node_rel, node_key, stored, edge_rel, src, tgt, kind in COUNT_RULES:
+        edges = {}
+        for rec in _rows(edge_rel, cache):
+            for s in _values(rec, src):
+                edges.setdefault(s, set()).update(_values(rec, tgt))
+        for rec in _rows(node_rel, cache):
+            nid = rec.get(node_key)
+            have = rec.get(stored)
+            vals = edges.get(nid, set())
+            if kind == "count":
+                want = len(vals)
+            elif kind == "bool":
+                want = bool(vals)
+            elif kind == "ids":
+                want = sorted(vals)
+                have = sorted(m.get("id") for m in have or [] if isinstance(m, dict))
+            else:
+                want = sorted(vals)
+                have = sorted(have or [])
+            if have != want:
+                out.setdefault(node_rel, []).append(
+                    f"  {nid}: '{stored}' = {have!r} but {edge_rel.split('/')[-1]} "
+                    f"gives {want!r}")
+    return out
 
 
 def _ref_errors(record, ref, ids):
@@ -357,6 +450,22 @@ def main():
             total_errors += len(errors)
         else:
             print(f"OK    {rel}  ({line_count} records; {', '.join(checks)})")
+
+    # Layer 6 - stored counts/lists vs their edge tables (cross-file)
+    consistency = count_consistency_errors()
+    for node_rel in sorted({r[0] for r in COUNT_RULES}):
+        errs = consistency.get(node_rel, [])
+        fields = ", ".join(r[2] for r in COUNT_RULES if r[0] == node_rel)
+        if errs:
+            print(f"FAIL  {node_rel}  count-vs-edge: {len(errs)} mismatch(es) "
+                  f"(regenerate with scripts/build_attack_core.py)")
+            for e in errs[:25]:
+                print(e)
+            if len(errs) > 25:
+                print(f"  ... and {len(errs) - 25} more")
+            total_errors += len(errs)
+        else:
+            print(f"OK    {node_rel}  (count-vs-edge: {fields})")
 
     print("\n" + "=" * 60)
     print(f"Datasets validated: {len(files)}   Records: {total_lines}")

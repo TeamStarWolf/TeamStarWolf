@@ -588,7 +588,7 @@ Adversaries may disable, degrade, or tamper with security tools or applications 
 
 ATT&CK mitigations (7): [M1018 User Account Management](../ATTACK_MITIGATIONS_REFERENCE.md#m1018), [M1022 Restrict File and Directory Permissions](../ATTACK_MITIGATIONS_REFERENCE.md#m1022), [M1024 Restrict Registry Permissions](../ATTACK_MITIGATIONS_REFERENCE.md#m1024), [M1038 Execution Prevention](../ATTACK_MITIGATIONS_REFERENCE.md#m1038), [M1042 Disable or Remove Feature or Program](../ATTACK_MITIGATIONS_REFERENCE.md#m1042), [M1047 Audit](../ATTACK_MITIGATIONS_REFERENCE.md#m1047), [M1054 Software Configuration](../ATTACK_MITIGATIONS_REFERENCE.md#m1054)  
 NIST 800-53 R5 controls (19): `AC-2`, `AC-3`, `AC-5`, `AC-6`, `CA-7`, `CM-10`, `CM-2`, `CM-5`, `CM-6`, `CM-7`, `IA-2`, `IA-4`, `IA-9`, `RA-5`, `SC-23`, `SC-8`, `SI-3`, `SI-4`, `SI-7` (carried forward from revoked T1562, T1562.001, T1562.006: the CTID mapping is keyed on the predecessor id)  
-ATT&CK detection strategy: Detection Strategy for Impair Defenses Across Platforms; Detection of Impair Defenses through Disabled or Modified Tools across OS Platforms.; Detection Strategy for Impair Defenses Indicator Blocking  
+ATT&CK detection strategy: Detection of Defense Impairment through Disabled or Modified Tools across OS Platforms.  
 Used by 32 threat groups: [G0010 Turla](https://attack.mitre.org/groups/G0010), [G0024 Putter Panda](https://attack.mitre.org/groups/G0024), [G0032 Lazarus Group](https://attack.mitre.org/groups/G0032), [G0037 FIN6](https://attack.mitre.org/groups/G0037), [G0047 Gamaredon Group](https://attack.mitre.org/groups/G0047), [G0059 Magic Hound](https://attack.mitre.org/groups/G0059), [G0060 BRONZE BUTLER](https://attack.mitre.org/groups/G0060), [G0069 MuddyWater](https://attack.mitre.org/groups/G0069), [G0078 Gorgon Group](https://attack.mitre.org/groups/G0078), [G0082 APT38](https://attack.mitre.org/groups/G0082), [G0092 TA505](https://attack.mitre.org/groups/G0092), [G0094 Kimsuky](https://attack.mitre.org/groups/G0094), [G0096 APT41](https://attack.mitre.org/groups/G0096), [G0102 Wizard Spider](https://attack.mitre.org/groups/G0102), [G0106 Rocke](https://attack.mitre.org/groups/G0106), [G0119 Indrik Spider](https://attack.mitre.org/groups/G0119), [G0139 TeamTNT](https://attack.mitre.org/groups/G0139), [G0143 Aquatic Panda](https://attack.mitre.org/groups/G0143), [G1015 Scattered Spider](https://attack.mitre.org/groups/G1015), [G1018 TA2541](https://attack.mitre.org/groups/G1018), [G1023 APT5](https://attack.mitre.org/groups/G1023), [G1024 Akira](https://attack.mitre.org/groups/G1024), [G1030 Agrius](https://attack.mitre.org/groups/G1030), [G1031 Saint Bear](https://attack.mitre.org/groups/G1031), [G1032 INC Ransom](https://attack.mitre.org/groups/G1032), [G1040 Play](https://attack.mitre.org/groups/G1040), [G1043 BlackByte](https://attack.mitre.org/groups/G1043), [G1047 Velvet Ant](https://attack.mitre.org/groups/G1047), [G1048 UNC3886](https://attack.mitre.org/groups/G1048), [G1051 Medusa Group](https://attack.mitre.org/groups/G1051), [G1052 Contagious Interview](https://attack.mitre.org/groups/G1052), [G1054 MirrorFace](https://attack.mitre.org/groups/G1054)  
 Implemented by 87 software: [S0004 TinyZBot](https://attack.mitre.org/software/S0004), [S0058 SslMM](https://attack.mitre.org/software/S0058), [S0061 HDoor](https://attack.mitre.org/software/S0061), [S0130 Unknown Logger](https://attack.mitre.org/software/S0130), [S0132 H1N1](https://attack.mitre.org/software/S0132), [S0144 ChChes](https://attack.mitre.org/software/S0144), [S0154 Cobalt Strike](https://attack.mitre.org/software/S0154), [S0201 JPIN](https://attack.mitre.org/software/S0201), [S0223 POWERSTATS](https://attack.mitre.org/software/S0223), [S0228 NanHaiShu](https://attack.mitre.org/software/S0228), [S0249 Gold Dragon](https://attack.mitre.org/software/S0249), [S0252 Brave Prince](https://attack.mitre.org/software/S0252), [S0253 RunningRAT](https://attack.mitre.org/software/S0253), [S0266 TrickBot](https://attack.mitre.org/software/S0266), [S0279 Proton](https://attack.mitre.org/software/S0279), [S0331 Agent Tesla](https://attack.mitre.org/software/S0331), [S0334 DarkComet](https://attack.mitre.org/software/S0334), [S0336 NanoCore](https://attack.mitre.org/software/S0336), [S0372 LockerGoga](https://attack.mitre.org/software/S0372), [S0377 Ebury](https://attack.mitre.org/software/S0377), [S0400 RobbinHood](https://attack.mitre.org/software/S0400), [S0412 ZxShell](https://attack.mitre.org/software/S0412), [S0434 Imminent Monitor](https://attack.mitre.org/software/S0434), [S0446 Ryuk](https://attack.mitre.org/software/S0446), [S0449 Maze](https://attack.mitre.org/software/S0449), [S0455 Metamorfo](https://attack.mitre.org/software/S0455), [S0457 Netwalker](https://attack.mitre.org/software/S0457), [S0468 Skidmap](https://attack.mitre.org/software/S0468), [S0477 Goopy](https://attack.mitre.org/software/S0477), [S0481 Ragnar Locker](https://attack.mitre.org/software/S0481), [S0482 Bundlore](https://attack.mitre.org/software/S0482), [S0484 Carberp](https://attack.mitre.org/software/S0484), [S0491 StrongPity](https://attack.mitre.org/software/S0491), [S0496 REvil](https://attack.mitre.org/software/S0496), [S0531 Grandoreiro](https://attack.mitre.org/software/S0531), [S0534 Bazar](https://attack.mitre.org/software/S0534), [S0554 Egregor](https://attack.mitre.org/software/S0554), [S0559 SUNBURST](https://attack.mitre.org/software/S0559), [S0576 MegaCortex](https://attack.mitre.org/software/S0576), [S0579 Waterbear](https://attack.mitre.org/software/S0579), [S0583 Pysa](https://attack.mitre.org/software/S0583), [S0595 ThiefQuest](https://attack.mitre.org/software/S0595), [S0601 Hildegard](https://attack.mitre.org/software/S0601), [S0603 Stuxnet](https://attack.mitre.org/software/S0603), [S0605 EKANS](https://attack.mitre.org/software/S0605), [S0608 Conficker](https://attack.mitre.org/software/S0608), [S0611 Clop](https://attack.mitre.org/software/S0611), [S0638 Babuk](https://attack.mitre.org/software/S0638), [S0640 Avaddon](https://attack.mitre.org/software/S0640), [S0650 QakBot](https://attack.mitre.org/software/S0650), [S0659 Diavol](https://attack.mitre.org/software/S0659), [S0669 KOCTOPUS](https://attack.mitre.org/software/S0669), [S0670 WarzoneRAT](https://attack.mitre.org/software/S0670), [S0688 Meteor](https://attack.mitre.org/software/S0688), [S0689 WhisperGate](https://attack.mitre.org/software/S0689), [S0692 SILENTTRINITY](https://attack.mitre.org/software/S0692), [S0695 Donut](https://attack.mitre.org/software/S0695), [S0697 HermeticWiper](https://attack.mitre.org/software/S0697), [S1048 macOS.OSAMiner](https://attack.mitre.org/software/S1048), [S1063 Brute Ratel C4](https://attack.mitre.org/software/S1063), [S1065 Woody RAT](https://attack.mitre.org/software/S1065), [S1097 HUI Loader](https://attack.mitre.org/software/S1097), [S1111 DarkGate](https://attack.mitre.org/software/S1111), [S1114 ZIPLINE](https://attack.mitre.org/software/S1114), [S1130 Raspberry Robin](https://attack.mitre.org/software/S1130), [S1135 MultiLayer Wiper](https://attack.mitre.org/software/S1135), [S1169 Mango](https://attack.mitre.org/software/S1169), [S1178 ShrinkLocker](https://attack.mitre.org/software/S1178), [S1180 BlackByte Ransomware](https://attack.mitre.org/software/S1180), [S1184 BOLDMOVE](https://attack.mitre.org/software/S1184), [S1199 LockBit 2.0](https://attack.mitre.org/software/S1199), [S1200 StealBit](https://attack.mitre.org/software/S1200), [S1202 LockBit 3.0](https://attack.mitre.org/software/S1202), [S1206 JumbledPath](https://attack.mitre.org/software/S1206), [S1207 XLoader](https://attack.mitre.org/software/S1207), [S1213 Lumma Stealer](https://attack.mitre.org/software/S1213), [S1234 SplatCloak](https://attack.mitre.org/software/S1234), [S1240 RedLine Stealer](https://attack.mitre.org/software/S1240), [S1242 Qilin](https://attack.mitre.org/software/S1242), [S1244 Medusa Ransomware](https://attack.mitre.org/software/S1244), [S9008 Shai-Hulud](https://attack.mitre.org/software/S9008), [S9013 DRYHOOK](https://attack.mitre.org/software/S9013), [S9014 PHASEJAM](https://attack.mitre.org/software/S9014), [S9017 DCRAT](https://attack.mitre.org/software/S9017), [S9019 PureCrypter](https://attack.mitre.org/software/S9019), [S9024 SPAWNCHIMERA](https://attack.mitre.org/software/S9024), [S9039 LazyWiper](https://attack.mitre.org/software/S9039)  
 
@@ -603,7 +603,7 @@ Adversaries may disable or modify the Windows Event Log to limit data that can b
 
 ATT&CK mitigations (4): [M1018 User Account Management](../ATTACK_MITIGATIONS_REFERENCE.md#m1018), [M1022 Restrict File and Directory Permissions](../ATTACK_MITIGATIONS_REFERENCE.md#m1022), [M1024 Restrict Registry Permissions](../ATTACK_MITIGATIONS_REFERENCE.md#m1024), [M1047 Audit](../ATTACK_MITIGATIONS_REFERENCE.md#m1047)  
 NIST 800-53 R5 controls (13): `AC-2`, `AC-3`, `AC-5`, `AC-6`, `CA-7`, `CM-2`, `CM-5`, `CM-6`, `CM-7`, `IA-2`, `SI-3`, `SI-4`, `SI-7` (carried forward from revoked T1562.002: the CTID mapping is keyed on the predecessor id)  
-ATT&CK detection strategy: Detect disabled Windows event logging  
+ATT&CK detection strategy: Detect Disabled Windows Event Log  
 Used by 2 threat groups: [G0027 Threat Group-3390](https://attack.mitre.org/groups/G0027), [G0059 Magic Hound](https://attack.mitre.org/groups/G0059)  
 Implemented by 1 software: [S0645 Wevtutil](https://attack.mitre.org/software/S0645)  
 
@@ -618,7 +618,7 @@ An adversary may disable or modify cloud logging capabilities and integrations t
 
 ATT&CK mitigations (1): [M1018 User Account Management](../ATTACK_MITIGATIONS_REFERENCE.md#m1018)  
 NIST 800-53 R5 controls (7): `AC-2`, `AC-3`, `AC-5`, `AC-6`, `CM-3`, `CM-5`, `IA-2` (carried forward from revoked T1562.008: the CTID mapping is keyed on the predecessor id)  
-ATT&CK detection strategy: Detection Strategy for Disable or Modify Cloud Logs  
+ATT&CK detection strategy: Detection Strategy for Disable or Modify Cloud Log  
 Used by 1 threat groups: [G0016 APT29](https://attack.mitre.org/groups/G0016)  
 Implemented by 1 software: [S1091 Pacu](https://attack.mitre.org/software/S1091)  
 
@@ -633,7 +633,7 @@ Adversaries may spoof or manipulate security tool user interfaces (UIs) to false
 
 ATT&CK mitigations (1): [M1038 Execution Prevention](../ATTACK_MITIGATIONS_REFERENCE.md#m1038)  
 NIST 800-53 R5 controls (5): `CM-5`, `CM-6`, `SI-3`, `SI-4`, `SI-7` (carried forward from revoked T1562.011: the CTID mapping is keyed on the predecessor id)  
-ATT&CK detection strategy: Detection for Spoofing Security Alerting across OS Platforms  
+ATT&CK detection strategy: Detection for Spoofing Tool UI across OS Platforms  
 Implemented by 1 software: [S9014 PHASEJAM](https://attack.mitre.org/software/S9014)  
 
 ---
@@ -647,7 +647,7 @@ Adversaries may disable or modify the Linux Audit system to hide malicious activ
 
 ATT&CK mitigations (2): [M1018 User Account Management](../ATTACK_MITIGATIONS_REFERENCE.md#m1018), [M1047 Audit](../ATTACK_MITIGATIONS_REFERENCE.md#m1047)  
 NIST 800-53 R5 controls (8): `AC-2`, `AC-3`, `AC-6`, `CM-3`, `CM-5`, `CM-6`, `SI-4`, `SI-7` (carried forward from revoked T1562.012: the CTID mapping is keyed on the predecessor id)  
-ATT&CK detection strategy: Detection Strategy for Disable or Modify Linux Audit System  
+ATT&CK detection strategy: Detection Strategy for Disable or Modify Linux Audit System Log  
 Implemented by 1 software: [S0377 Ebury](https://attack.mitre.org/software/S0377)  
 
 ---
@@ -720,7 +720,7 @@ Adversaries may disable network device-based firewall mechanisms entirely or add
 
 ATT&CK mitigations (3): [M1018 User Account Management](../ATTACK_MITIGATIONS_REFERENCE.md#m1018), [M1047 Audit](../ATTACK_MITIGATIONS_REFERENCE.md#m1047), [M1051 Update Software](../ATTACK_MITIGATIONS_REFERENCE.md#m1051)  
 NIST 800-53 R5 controls: none (*no CTID mapping under this ID or its predecessors; rely on detection/design controls*)  
-ATT&CK detection strategy: Unauthorized Network Firewall Rule Modification (T1562.013)  
+ATT&CK detection strategy: Detection of Unauthorized Network Firewall Rule Modification  
 Used by 1 threat groups: [G0082 APT38](https://attack.mitre.org/groups/G0082)  
 Implemented by 2 software: [S0531 Grandoreiro](https://attack.mitre.org/software/S0531), [S0687 Cyclops Blink](https://attack.mitre.org/software/S0687)  
 
@@ -735,6 +735,7 @@ Adversaries may disable or modify the Windows host firewall to bypass controls l
 
 ATT&CK mitigations (4): [M1018 User Account Management](../ATTACK_MITIGATIONS_REFERENCE.md#m1018), [M1022 Restrict File and Directory Permissions](../ATTACK_MITIGATIONS_REFERENCE.md#m1022), [M1024 Restrict Registry Permissions](../ATTACK_MITIGATIONS_REFERENCE.md#m1024), [M1047 Audit](../ATTACK_MITIGATIONS_REFERENCE.md#m1047)  
 NIST 800-53 R5 controls: none (*no CTID mapping under this ID or its predecessors; rely on detection/design controls*)  
+ATT&CK detection strategy: Detect Windows Firewall  
 Used by 6 threat groups: [G0032 Lazarus Group](https://attack.mitre.org/groups/G0032), [G0049 OilRig](https://attack.mitre.org/groups/G0049), [G0059 Magic Hound](https://attack.mitre.org/groups/G0059), [G1009 Moses Staff](https://attack.mitre.org/groups/G1009), [G1054 MirrorFace](https://attack.mitre.org/groups/G1054), [G1055 VOID MANTICORE](https://attack.mitre.org/groups/G1055)  
 Implemented by 9 software: [S0125 Remsec](https://attack.mitre.org/software/S0125), [S0132 H1N1](https://attack.mitre.org/software/S0132), [S0245 BADCALL](https://attack.mitre.org/software/S0245), [S0246 HARDRAIN](https://attack.mitre.org/software/S0246), [S0263 TYPEFRAME](https://attack.mitre.org/software/S0263), [S0334 DarkComet](https://attack.mitre.org/software/S0334), [S0385 njRAT](https://attack.mitre.org/software/S0385), [S1181 BlackByte 2.0 Ransomware](https://attack.mitre.org/software/S1181), [S9023 HiddenFace](https://attack.mitre.org/software/S9023)  
 
@@ -749,6 +750,7 @@ Adversaries may exploit vulnerabilities in security software, infrastructure, or
 
 ATT&CK mitigations: none mapped  
 NIST 800-53 R5 controls: none (*no CTID mapping under this ID or its predecessors; rely on detection/design controls*)  
+ATT&CK detection strategy: Detection of Defense Impairment  
 
 ---
 
@@ -789,7 +791,7 @@ Adversaries may impair command history logging to hide commands they run on a co
 
 ATT&CK mitigations (2): [M1028 Operating System Configuration](../ATTACK_MITIGATIONS_REFERENCE.md#m1028), [M1039 Environment Variable Permissions](../ATTACK_MITIGATIONS_REFERENCE.md#m1039)  
 NIST 800-53 R5 controls (4): `CM-2`, `CM-6`, `CM-7`, `SI-4` (carried forward from revoked T1562.003: the CTID mapping is keyed on the predecessor id)  
-ATT&CK detection strategy: Detection Strategy for Impair Defenses via Impair Command History Logging across OS platforms.  
+ATT&CK detection strategy: Detection Strategy for Defense Impairment via Prevent Command History Logging across OS platforms.  
 Used by 4 threat groups: [G0082 APT38](https://attack.mitre.org/groups/G0082), [G1041 Sea Turtle](https://attack.mitre.org/groups/G1041), [G1048 UNC3886](https://attack.mitre.org/groups/G1048), [G1051 Medusa Group](https://attack.mitre.org/groups/G1051)  
 Implemented by 6 software: [S0692 SILENTTRINITY](https://attack.mitre.org/software/S0692), [S1161 BPFDoor](https://attack.mitre.org/software/S1161), [S1186 Line Dancer](https://attack.mitre.org/software/S1186), [S1217 VIRTUALPITA](https://attack.mitre.org/software/S1217), [S9015 BRICKSTORM](https://attack.mitre.org/software/S9015), [S9024 SPAWNCHIMERA](https://attack.mitre.org/software/S9024)  
 

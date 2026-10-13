@@ -657,7 +657,7 @@ def _via_revoked_note(db, via, source):
     preds = ", ".join(link_tech(db, old) + " (" + str(len(items)) + ")"
                       for old, items in sorted(via.items()))
     return ("_Carried forward from revoked " + preds + ": " + source + " is keyed on the "
-            "predecessor id, which ATT&CK v19.2 renumbered to this technique._\n")
+            "predecessor id, which ATT&CK has since revoked in favour of this technique (current release: v19.2)._\n")
 
 
 def link_tech(db, tid, name=None):

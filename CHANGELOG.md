@@ -14,6 +14,12 @@ by the date its pull requests merged to `main` rather than by tagged release.
   and Container Vulnerability Response with Tenable and Wiz, both verified against
   ServiceNow's official documentation repository (Brazil release, September 2026).
   Linked from the sidebar, homepage, README, and index
+- Tools Research: Tool Manuals and Repositories, a verified directory of official manuals,
+  API references, release notes, ServiceNow Store and Splunkbase listings, GitHub
+  organizations, repositories and GitHub Pages sites for ServiceNow, Armis and the MITRE
+  threat-informed defense ecosystem, every link checked on 2026-10-08, with a table of dead
+  or moved links to avoid. Cross-links the Security Tool Documentation index for Tenable,
+  Wiz, Snyk, Invicti, Zafran and Splunk
 - Case Studies section (`case-studies/`): evidence-graded studies of how the threat
   landscape is changing, written from primary sources, with original figures and PDF
   downloads. First study: AI Threats in the Cybersecurity Industry, a 2026 case study of

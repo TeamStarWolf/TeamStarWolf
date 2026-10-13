@@ -132,7 +132,7 @@ Wire failure alarms before go-live, not after the first gap. Pipelines fail sile
 
 Checkpoint: Dashboards and alerts live for all five signals; an inventory row exists that a stranger could use to understand, audit, or decommission this source.
 
-Watch out: Adversaries deliberately impair telemetry ([T1562.001](https://attack.mitre.org/techniques/T1562/001/)). A pipeline that cannot distinguish "config change" from "someone killed the forwarder" cannot support that detection at all, which is why the silence alert is not optional.
+Watch out: Adversaries deliberately impair telemetry ([T1685](https://attack.mitre.org/techniques/T1685/)). A pipeline that cannot distinguish "config change" from "someone killed the forwarder" cannot support that detection at all, which is why the silence alert is not optional.
 
 ## Step 8: Prove a detection fires end to end
 

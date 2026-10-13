@@ -4,7 +4,7 @@
   "inputs_sha256": {
     "data/attack/technique_profiles.jsonl": "56c1302b4620d011a58a30469e0694c297d0c3af89d41fecc7852f34bf7baccb",
     "data/attack/superseded_by.jsonl": "d3afa6f7699d07027b12afdc8c476df2694c885f3e224d6cb6e329a9b5c37c75",
-    "data/vendor_to_technique.jsonl": "18ab61f88985f32e971ea90f73b40397f7be8779f9737a3a788bca232f7bdead"
+    "data/vendor_to_technique.jsonl": "4702882894497f81fd644692f8e06ca69976576b73a010f7cb70e0c506601852"
   },
   "coverage_definition": "A technique is covered when at least one stack vendor satisfies a NIST 800-53 R5 control that the CTID mapping links to it (vendor_to_control JOIN control_to_technique, revoked ids carried forward to their live successor). It is control-mapping availability, not a measured detection or prevention.",
   "total_covered_techniques": 462,
@@ -19,8 +19,8 @@
     "splunk-es": "splunk-enterprise-security",
     "tenable": "tenable-io"
   },
-  "vendor_edge_rows": 17668,
-  "vendor_edge_rows_on_revoked_ids": 520,
+  "vendor_edge_rows": 15722,
+  "vendor_edge_rows_on_revoked_ids": 465,
   "tactic_summary": {
     "reconnaissance": {
       "covered": 6,

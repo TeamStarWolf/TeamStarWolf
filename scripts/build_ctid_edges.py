@@ -20,8 +20,14 @@ data/control_to_technique.jsonl  (NIST 800-53 r5 -> ATT&CK, CTID Mappings Explor
 
 data/vendor_to_technique.jsonl  (fully derived)
     vendor_to_control JOIN control_to_technique, with each revoked technique's controls
-    also carried forward to its live successor (T1562.001 -> T1685 ...). Rows produced
-    only through a predecessor list it in `via_revoked`. coverage_type / confidence follow
+    also carried forward to its live successor (T1562.001 -> T1685 ...). A row that joins
+    through at least one control the technique holds only through a revoked predecessor
+    lists that predecessor in `via_revoked`, whichever way the control arrived: carried
+    forward from a revoked id that keeps a profile row, or re-keyed above from a stale id
+    (the control_to_technique row's own `via_revoked`, e.g. T1574.002 -> T1574.001).
+    data/vendor_to_control.jsonl carries one `vendor_normalized` slug per product; a
+    retired alias slug (VENDOR_SLUG_ALIASES) appearing there is an error, so a product is
+    never joined, scored or listed twice. coverage_type / confidence follow
     the original derivation: SI-4/CA-7 detect, RA-5/CA-2 identify, everything else
     prevent; detect+prevent -> prevent_detect, else detect > identify > prevent;
     confidence by number of joining controls (1 low, 2 medium, 3+ high).
@@ -45,6 +51,22 @@ V2T = ROOT / "data" / "vendor_to_technique.jsonl"
 DETECT = {"SI-4", "CA-7"}
 IDENTIFY = {"RA-5", "CA-2"}
 V2T_SOURCE = "Derived: vendor_to_control join control_to_technique (CTID)"
+
+# Retired vendor_normalized slugs -> the product's one slug. Each pair was the same product
+# listed in CONTROLS_MAPPING.md under a company name and a product name (or an old and a
+# new product name); the data now carries only the right-hand slug. Kept so a retired
+# slug cannot come back (build_v2t fails on one) and so scripts/compute_coverage.py can
+# record the former keys in scores/. Zscaler ZIA, ZPA and the generic "zscaler" row are
+# three products and are deliberately not listed here.
+VENDOR_SLUG_ALIASES = {
+    "cyberark": "cyberark-pam",
+    "elastic-siem": "elastic-security",
+    "microsoft-defender-for-o365": "microsoft-defender-for-office-365",
+    "qualys": "qualys-vmdr",
+    "rapid7": "rapid7-insightvm",
+    "splunk-es": "splunk-enterprise-security",
+    "tenable": "tenable-io",
+}
 
 
 def _insert_after(row: dict, after: str, key: str, value) -> dict:
@@ -116,16 +138,42 @@ def _coverage(via: list[str]) -> str:
 def build_v2t(ids: AttackIds, c2t: list[dict]) -> list[dict]:
     prof = ids.profiles["enterprise"]
     vendor_name, vendor_ctrls = {}, {}
+    retired = set()
     for r in read_jsonl(V2C):
         vn = r["vendor_normalized"]
+        if vn in VENDOR_SLUG_ALIASES:
+            retired.add(vn)
         vendor_name.setdefault(vn, r["vendor"])
         vendor_ctrls.setdefault(vn, set()).add(r["nist_control"])
+    if retired:
+        print("ERROR: vendor_to_control.jsonl uses retired vendor slugs (one slug per product):")
+        for vn in sorted(retired):
+            print(f"  {vn} -> use {VENDOR_SLUG_ALIASES[vn]}")
+        sys.exit(2)
+    missing = sorted({c for c in VENDOR_SLUG_ALIASES.values() if c not in vendor_ctrls})
+    if missing:
+        print(f"ERROR: VENDOR_SLUG_ALIASES targets with no vendor_to_control rows: {missing}")
+        sys.exit(2)
 
-    own, desc = {}, {}
+    # own[t]: every control the technique holds in control_to_technique (native or re-keyed);
+    # native[t]: only the rows CTID keyed on t itself; rekeyed[t]: {stale id: controls}
+    own, native, rekeyed, desc = {}, {}, {}, {}
     for r in c2t:
-        own.setdefault(r["attack_technique"], set()).add(r["nist_control"])
-        desc.setdefault(r["attack_technique"], r.get("technique_desc"))
+        t, c = r["attack_technique"], r["nist_control"]
+        own.setdefault(t, set()).add(c)
+        if r.get("via_revoked"):
+            for old in r["via_revoked"]:
+                rekeyed.setdefault(t, {}).setdefault(old, set()).add(c)
+        else:
+            native.setdefault(t, set()).add(c)
+        desc.setdefault(t, r.get("technique_desc"))
     merged, prov = ids.carry_forward(own)
+    # one provenance map per technique: predecessor -> controls it contributed
+    via_pred: dict[str, dict[str, set]] = {}
+    for src in (prov, rekeyed):
+        for t, olds in src.items():
+            for old, ctrls in olds.items():
+                via_pred.setdefault(t, {}).setdefault(old, set()).update(ctrls)
 
     rows = []
     for vn in sorted(vendor_ctrls):
@@ -147,8 +195,8 @@ def build_v2t(ids: AttackIds, c2t: list[dict]) -> list[dict]:
                 "control_count": len(via),
                 "tactics": list(prof[t].get("tactics") or []),
             }
-            carried_only = set(via) - own.get(t, set())
-            preds = sorted(p for p, ctrls in (prov.get(t) or {}).items() if carried_only & set(ctrls))
+            carried_only = set(via) - native.get(t, set())
+            preds = sorted(p for p, ctrls in (via_pred.get(t) or {}).items() if carried_only & ctrls)
             if preds:
                 row["via_revoked"] = preds
             row["source"] = V2T_SOURCE

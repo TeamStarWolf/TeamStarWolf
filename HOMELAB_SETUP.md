@@ -203,7 +203,7 @@ Attack Victim  AD     DMZ   Monitoring
 ## 7. Active Directory Lab Setup
 
 ### Prerequisites
-- Windows Server 2019 or 2022 evaluation ISO ([download free 180-day eval](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server))
+- Windows Server 2019 or 2022 evaluation ISO ([download free 180-day eval](https://web.archive.org/web/20240101172847/https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server))
 - Windows 10/11 evaluation ISO
 - Hypervisor with at least 12 GB RAM available for the AD segment
 

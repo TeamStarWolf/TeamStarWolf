@@ -3850,7 +3850,7 @@ Changes made to a group, such as membership, name, or permissions (ex: Windows E
  - Event ID 4732: Member added to a local group.
 - Azure AD: `Set-AzureADGroup -ObjectId <GroupId> -DisplayName "New Name"`
 - AWS IAM: `aws iam update-group --group-name <GroupName> --new-path "/admin/"`
-- Google Workspace: Modify permissions via Admin SDK API: `PATCH https://admin.googleapis.com/a  
+- Google Workspace: Modify permissions via Admin SDK API: `PATCH https://admin.googleapis.com/admin/directory/v1/groups/<groupKey>`
 
 | Log source | Channel |
 |---|---|

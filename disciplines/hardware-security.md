@@ -11,8 +11,8 @@ Hardware security addresses the lowest layers of the computing stack: firmware, 
 | Level | Description | Free Resource |
 |---|---|---|
 | Beginner | Understand how firmware is structured, how UEFI/Secure Boot works, and what a TPM does. Practice with binwalk on firmware images and tpm2-tools on a test system. | [Chipsec Documentation](https://chipsec.github.io/) |
-| Intermediate | Extract and reverse engineer firmware with Ghidra. Use OpenOCD for JTAG connectivity. Explore TPM PCR sealing/unsealing. Study the Secure Boot chain on real hardware. | [DEF CON Hardware Hacking Village Talks](https://www.dc-hhv.com/) |
-| Advanced | Perform side-channel power analysis with ChipWhisperer, fault injection (voltage/clock glitching), and PCIe DMA attacks with pcileech. Research UEFI implant techniques and measured boot bypass. | [ChipWhisperer Wiki & Tutorials](https://wiki.newae.com/) |
+| Intermediate | Extract and reverse engineer firmware with Ghidra. Use OpenOCD for JTAG connectivity. Explore TPM PCR sealing/unsealing. Study the Secure Boot chain on real hardware. | DEF CON Hardware Hacking Village Talks |
+| Advanced | Perform side-channel power analysis with ChipWhisperer, fault injection (voltage/clock glitching), and PCIe DMA attacks with pcileech. Research UEFI implant techniques and measured boot bypass. | ChipWhisperer Wiki & Tutorials |
 
 ---
 
@@ -20,7 +20,7 @@ Hardware security addresses the lowest layers of the computing stack: firmware, 
 
 | Platform | URL | What You Learn |
 |---|---|---|
-| ChipWhisperer Wiki | https://wiki.newae.com/ | Side-channel analysis, fault injection, hardware security fundamentals |
+| ChipWhisperer Wiki | `https://wiki.newae.com/` | Side-channel analysis, fault injection, hardware security fundamentals |
 | Chipsec Documentation | https://chipsec.github.io/ | UEFI/BIOS security assessment, SPI flash inspection, platform security checks |
 | DEF CON HHV (YouTube) | https://www.youtube.com/@DEFCONConference | Hardware hacking talks, soldering workshops, JTAG/UART labs |
 | Hardwear.io Talks | https://hardwear.io/ | Conference presentations: secure boot, side-channel, embedded research |
@@ -36,7 +36,7 @@ Hardware security addresses the lowest layers of the computing stack: firmware, 
 | Tool | Purpose | Link |
 |---|---|---|
 | binwalk | Firmware extraction: identifies and extracts embedded file systems and binaries | https://github.com/ReFirmLabs/binwalk |
-| Firmwalker | Searches extracted firmware for credentials, private keys, and config files | https://github.com/craigz28/firmwalker |
+| Firmwalker | Searches extracted firmware for credentials, private keys, and config files | https://web.archive.org/web/20260109160817/https://github.com/craigz28/firmwalker |
 | Jefferson | JFFS2 (flash filesystem) extractor | https://github.com/sviehb/jefferson |
 | ubireader | UBI/UBIFS flash filesystem extraction | https://github.com/jrspruitt/ubi_reader |
 | FACT (Firmware Analysis and Comparison Tool) | Automated firmware unpacking, analysis, and vulnerability comparison | https://github.com/fkie-cad/FACT_core |
@@ -50,7 +50,7 @@ Hardware security addresses the lowest layers of the computing stack: firmware, 
 | OpenOCD | JTAG/SWD interface for debugging embedded targets; supports hundreds of devices | https://openocd.org/ |
 | JTAGulator | Identifies JTAG/UART pins on unknown PCBs via brute-force scanning | http://www.grandideastudio.com/jtagulator/ |
 | flashrom | Read, write, and verify SPI/I2C flash chips directly from PCB pads | https://www.flashrom.org/ |
-| Bus Pirate | Universal bus interface: SPI, I2C, UART, JTAG: beginner-friendly hardware tool | http://dangerousprototypes.com/docs/Bus_Pirate |
+| Bus Pirate | Universal bus interface: SPI, I2C, UART, JTAG: beginner-friendly hardware tool | https://web.archive.org/web/20260723022119/http://dangerousprototypes.com/docs/Bus_Pirate |
 | HydraBus | Open-source multi-protocol hardware interface for security research | https://github.com/hydrabus/hydrabus |
 | GreatFET | USB-based hardware hacking platform: GPIO, SPI, I2C, UART, JTAG | https://github.com/greatscottgadgets/greatfet |
 | Sigrok / PulseView | Open-source logic analyzer software; works with low-cost logic analyzers | https://sigrok.org/ |
@@ -167,7 +167,7 @@ Hardware security addresses the lowest layers of the computing stack: firmware, 
 | [OffSec EXP-301 (OSED)](https://www.offensive-security.com/exp301-osed/) | OffSec | Windows exploit development; foundational for hardware-adjacent exploitation |
 | [SANS FOR610](https://www.sans.org/cyber-security-courses/reverse-engineering-malware-malware-analysis-tools-techniques/) | SANS | Malware and firmware reverse engineering |
 | [CompTIA Security+](https://www.comptia.org/certifications/security) | CompTIA | Broad security fundamentals including physical and hardware controls |
-| [Certified Hardware Security Professional (CHSP)](https://www.hardwaresecurity.io/) | HSP Institute | Dedicated hardware security practitioner certification |
+| Certified Hardware Security Professional (CHSP) | HSP Institute | Dedicated hardware security practitioner certification |
 | [OSCP](https://www.offensive-security.com/pwk-oscp/) | OffSec | Penetration testing: includes physical, embedded, and IoT attack paths |
 
 ---
@@ -177,11 +177,11 @@ Hardware security addresses the lowest layers of the computing stack: firmware, 
 | Resource | Type | Notes |
 |---|---|---|
 | [The Hardware Hacker (bunnie huang)](https://nostarch.com/hardwarehacking) | Book | Practical hardware hacking, PCB analysis, firmware extraction |
-| [Hacking the Xbox (bunnie huang)](https://nostarch.com/xbox.htm) | Book | Classic hardware RE; free PDF; security by obscurity failures |
+| [Hacking the Xbox (bunnie huang)](https://nostarch.com/xboxfree) | Book | Classic hardware RE; free PDF; security by obscurity failures |
 | [Embedded Security (Jasper van Woudenberg)](https://www.riscure.com/book/) | Book | Side-channel analysis and fault injection: academic and practical |
 | [Joe Grand DEF CON Talks](https://www.youtube.com/results?search_query=joe+grand+defcon) | Video | Wallet recovery, JTAG reconnaissance, hardware attack methodology |
 | [Hardwear.io Conference](https://hardwear.io/) | Conference | Premier annual hardware security conference |
-| [DEF CON Hardware Hacking Village](https://www.dc-hhv.com/) | Community | Annual competitions, beginner workshops, talks |
+| DEF CON Hardware Hacking Village | Community | Annual competitions, beginner workshops, talks |
 | [Chipsec Documentation](https://chipsec.github.io/) | Reference | Intel platform security assessment tool and framework |
 | [NIST SP 800-193](https://csrc.nist.gov/publications/detail/sp/800-193/final) | Standard | Platform firmware resiliency: detect, protect, recover |
 

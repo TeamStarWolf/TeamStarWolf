@@ -43,7 +43,7 @@ Threat modeling produces actionable security requirements, guides architecture d
 | [Threagile](https://threagile.io/) | Open source | Threat modeling as code; YAML input; risk report + DFD output; CI/CD integration |
 | [IriusRisk Community](https://community.iriusrisk.com/) | Free/Commercial | Collaborative; STRIDE, OWASP, PASTA; threat library; requirements generation |
 | [draw.io](https://draw.io/) | Free | General diagramming; DFD shapes available; export to OWASP Threat Dragon |
-| [Lucidchart](https://lucidchart.com/) | Freemium | Collaborative DFDs; team-friendly; export options |
+| [Lucidchart](https://lucid.co/lucidchart) | Freemium | Collaborative DFDs; team-friendly; export options |
 
 ### Attack Tree Tools
 | Tool | Type | Description |
@@ -59,7 +59,7 @@ Threat modeling produces actionable security requirements, guides architecture d
 | [CAPEC (Common Attack Pattern Enumeration and Classification)](https://capec.mitre.org/) | MITRE's attack pattern catalog; maps to CWE weaknesses |
 | [CWE (Common Weakness Enumeration)](https://cwe.mitre.org/) | Software weaknesses taxonomy; foundational for threat modeling |
 | [OWASP Top 10](https://owasp.org/www-project-top-ten/) | Web application threat reference |
-| [OWASP API Security Top 10](https://owasp.org/www-project-api-security/) | API-specific threat reference |
+| [OWASP API Security Top 10](https://owasp.org/API-Security/) | API-specific threat reference |
 
 ## Commercial Platforms
 

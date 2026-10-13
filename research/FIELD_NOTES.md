@@ -21,7 +21,7 @@ Writeups and lessons learned from building, reviewing, and hardening projects in
 
 ## 1. Hardening LimeWire v4
 
-Project: [TeamStarWolf/LimeWire](https://github.com/TeamStarWolf/LimeWire), a Python desktop audio production studio (~100 source files, Tkinter GUI, ffmpeg/yt-dlp subprocess heavy).
+Project: TeamStarWolf/LimeWire, a Python desktop audio production studio (~100 source files, Tkinter GUI, ffmpeg/yt-dlp subprocess heavy).
 
 Method: Three iterative rounds of `code-reviewer` agent audits with manual triage, `pytest` regression coverage on the security module after each fix, and a hard "fix-introduces-regression" check before every commit.
 

@@ -809,7 +809,7 @@ Online tools:
 
 | Tool | Purpose | URL |
 | --- | --- | --- |
-| Shodan | Search internet-connected devices | https://shodan.io |
+| Shodan | Search internet-connected devices | https://www.shodan.io/ |
 | Censys | Certificate and host search | https://search.censys.io |
 | VirusTotal | Domain/IP/file reputation | https://virustotal.com |
 | SecurityTrails | DNS history, subdomains | https://securitytrails.com |

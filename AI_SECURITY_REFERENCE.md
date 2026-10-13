@@ -10,7 +10,7 @@
 
 A comprehensive reference covering OWASP LLM Top 10 (2025), prompt injection attacks, adversarial machine learning, securing AI deployments, and using AI in security operations.
 
-*Sources: [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications), [MITRE ATLAS](https://atlas.mitre.org), [NIST AI RMF](https://airc.nist.gov/RMF), [EU AI Act](https://artificialintelligenceact.eu)*
+*Sources: [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications), [MITRE ATLAS](https://atlas.mitre.org), NIST AI RMF, [EU AI Act](https://artificialintelligenceact.eu)*
 
 ---
 
@@ -921,4 +921,4 @@ Deployment:
 
 ---
 
-*References: [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications) | [MITRE ATLAS](https://atlas.mitre.org) | [NIST AI RMF](https://airc.nist.gov/RMF) | [EU AI Act](https://artificialintelligenceact.eu) | [OWASP AI Exchange](https://owaspai.org)*
+*References: [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications) | [MITRE ATLAS](https://atlas.mitre.org) | NIST AI RMF | [EU AI Act](https://artificialintelligenceact.eu) | [OWASP AI Exchange](https://owaspai.org)*

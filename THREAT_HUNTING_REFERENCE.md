@@ -2146,7 +2146,7 @@ Team Capability:
 | MISP Project | Threat intel platform | https://www.misp-project.org/ |
 | OpenCTI | Threat intel platform | https://www.opencti.io/ |
 | SecurityRiskAdvisors/VECTR | Hunt tracking | https://github.com/SecurityRiskAdvisors/VECTR |
-| OTRF/ATTACKdatamap | Data source mapping | https://github.com/OTRF/ATTACKdatamap |
+| OTRF/ATTACKdatamap | Data source mapping | https://github.com/olafhartong/ATTACKdatamap |
 | detection.fyi | Sigma search engine | https://detection.fyi |
 | Neo23x0/yarGen | YARA auto-generation | https://github.com/Neo23x0/yarGen |
 | f-bader/AzSentinelQueries | KQL query library | https://github.com/f-bader/AzSentinelQueries |

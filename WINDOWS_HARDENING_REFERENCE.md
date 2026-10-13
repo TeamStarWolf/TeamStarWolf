@@ -1804,7 +1804,7 @@ System:
 - [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks/): Windows 10/11, Server 2022
 - [Microsoft Security Compliance Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=55319)
 - [DISA STIG Viewer](https://public.cyber.mil/stigs/srg-stig-tools/)
-- [NSA Cybersecurity Guidance: Windows 10](https://media.defense.gov/2021/Sep/07/2002840795/-1/-1/0/CSI_WINDOWS-10-TLSSECURITY-SETTINGS_UOO12173421.PDF)
+- NSA Cybersecurity Guidance: Windows 10
 - [MITRE ATT&CK for Enterprise](https://attack.mitre.org/matrices/enterprise/windows/)
 - [SwiftOnSecurity sysmon-config](https://github.com/SwiftOnSecurity/sysmon-config)
 - [olafhartong/sysmon-modular](https://github.com/olafhartong/sysmon-modular)

@@ -49,8 +49,8 @@ Traditional perimeter-based security assumed that everything inside the corporat
 |---|---|
 | [Illumio](https://www.illumio.com/) | Workload microsegmentation |
 | [VMware NSX](https://www.vmware.com/products/nsx.html) | Software-defined networking + microsegmentation |
-| [Guardicore (Akamai)](https://www.akamai.com/products/guardicore-segmentation) | Agentless microsegmentation, workload visualization |
-| [Cisco Secure Workload](https://www.cisco.com/c/en/us/products/security/tetration/index.html) | Application-aware microsegmentation |
+| Guardicore (Akamai) | Agentless microsegmentation, workload visualization |
+| [Cisco Secure Workload](https://www.cisco.com/site/us/en/products/security/secure-workload/index.html) | Application-aware microsegmentation |
 
 ### Service Mesh (Application/Workload Pillar)
 | Tool | Purpose |

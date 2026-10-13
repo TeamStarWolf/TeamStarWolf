@@ -27,7 +27,7 @@ Privacy engineering is the discipline of making data protection a structural pro
 | [ISO/IEC 27701:2025](https://www.iso.org/standard/27701) | Privacy Information Management System (PIMS); standalone since 2025 (2019 ed. extended ISO 27001) |
 | [GDPR (EU 2016/679)](https://gdpr.eu/) | EU General Data Protection Regulation |
 | [CCPA/CPRA](https://oag.ca.gov/privacy/ccpa) | California Consumer Privacy Act |
-| [NIST SP 800-188](https://csrc.nist.gov/publications/detail/sp/800-188/final) | De-Identification of Government Datasets |
+| [NIST SP 800-188](https://csrc.nist.gov/pubs/sp/800/188/final) | De-Identification of Government Datasets |
 | [LINDDUN](https://linddun.org/) | Privacy threat modeling framework |
 
 ---
@@ -52,7 +52,7 @@ Privacy engineering is the discipline of making data protection a structural pro
 - [Privacypatterns.eu](https://privacypatterns.eu/): Free library of privacy design patterns analogous to software design patterns; each pattern describes a recurring privacy problem and a reusable solution; useful for privacy engineers integrating privacy into system design decisions
 - [ENISA Privacy and Data Protection by Design](https://www.enisa.europa.eu/publications/privacy-and-data-protection-by-design): Free technical guide from the EU Agency for Cybersecurity; covers privacy-by-design implementation in software development, data management, and system architecture; directly applicable to GDPR Article 25 compliance requirements
 - [GDPR Full Text at gdpr.eu](https://gdpr.eu/): Free, annotated version of the GDPR regulation; reading Recitals 26 (anonymization), 39 (transparency), and 78 (data protection by design) alongside the articles provides essential regulatory context for privacy engineering decisions
-- [Differential Privacy: A Primer for a Non-Technical Audience](https://privacytools.seas.harvard.edu/files/privacytools/files/pedagogical-document-dp_0.pdf): Free Harvard paper explaining differential privacy without advanced mathematics; explains the epsilon budget, sensitivity, and noise mechanisms (Laplace, Gaussian) in accessible terms; the best starting point before diving into implementation
+- [Differential Privacy: A Primer for a Non-Technical Audience](https://web.archive.org/web/20250112204258/https://privacytools.seas.harvard.edu/files/privacytools/files/pedagogical-document-dp_0.pdf): Free Harvard paper explaining differential privacy without advanced mathematics; explains the epsilon budget, sensitivity, and noise mechanisms (Laplace, Gaussian) in accessible terms; the best starting point before diving into implementation
 - [IAPP CIPT Body of Knowledge](https://iapp.org/certify/cipt/): The study outline for the Certified Information Privacy Technologist exam is publicly available; it maps the full scope of technical privacy engineering knowledge including data flows, PETs (Privacy Enhancing Technologies), and system design; useful as a curriculum even without pursuing the certification
 
 ---
@@ -190,8 +190,8 @@ Privacy engineering controls address adversary techniques that exploit data coll
 
 | Certification | Issuer | Who Should Pursue It | What It Covers |
 |---|---|---|---|
-| [CIPP/E](https://iapp.org/certify/cipp/europe/) | IAPP | Privacy engineers working with EU data or GDPR-governed systems | GDPR articles, lawful bases, data subject rights, DPIAs, supervisory authority interaction; the foundational regulatory credential for European privacy work |
-| [CIPP/US](https://iapp.org/certify/cipp/us/) | IAPP | Privacy engineers in US organizations handling consumer data | US federal privacy laws (HIPAA, COPPA, GLBA), state laws (CCPA/CPRA), sector-specific requirements; essential for anyone building privacy programs in the US market |
+| [CIPP/E](https://web.archive.org/web/20250325224313/https://iapp.org/certify/cipp/europe/) | IAPP | Privacy engineers working with EU data or GDPR-governed systems | GDPR articles, lawful bases, data subject rights, DPIAs, supervisory authority interaction; the foundational regulatory credential for European privacy work |
+| [CIPP/US](https://web.archive.org/web/20251007002410/https://iapp.org/certify/cipp/us/) | IAPP | Privacy engineers in US organizations handling consumer data | US federal privacy laws (HIPAA, COPPA, GLBA), state laws (CCPA/CPRA), sector-specific requirements; essential for anyone building privacy programs in the US market |
 | [CIPT](https://iapp.org/certify/cipt/) | IAPP | Software engineers, data engineers, and security engineers who implement privacy controls | Privacy technologies (differential privacy, k-anonymity, encryption, tokenization), data flow analysis, PII in code, privacy-by-design system architecture; the most technical IAPP credential |
 | [CIPM](https://iapp.org/certify/cipm/) | IAPP | Privacy engineers moving into privacy program management | Privacy program governance, risk management, DPO functions, vendor management, cross-border transfers; bridges engineering and organizational management |
 | [FIP](https://iapp.org/certify/fip/) | IAPP | Senior privacy professionals demonstrating broad expertise | Fellow of Information Privacy designation; requires holding a CIPP plus significant experience; the senior-most IAPP credential |
@@ -203,12 +203,12 @@ Privacy engineering controls address adversary techniques that exploit data coll
 
 | Resource | Type | Notes |
 |---|---|---|
-| [IAPP Privacy Engineering Microsite](https://iapp.org/resources/article/privacy-engineering/) | Reference | IAPP privacy engineering resources; practitioner articles and regulatory analysis |
+| IAPP Privacy Engineering Microsite | Reference | IAPP privacy engineering resources; practitioner articles and regulatory analysis |
 | [NIST Privacy Framework](https://www.nist.gov/privacy-framework) | Framework | Free download; profiles and implementation guides; the US federal privacy risk management standard |
 | [Privacypatterns.eu](https://privacypatterns.eu/) | Pattern library | Design patterns for privacy; each pattern is a reusable solution to a recurring privacy engineering problem |
 | [ENISA Privacy and Data Protection by Design](https://www.enisa.europa.eu/publications/privacy-and-data-protection-by-design) | Guide | EU Agency technical guide; covers PbD implementation in software development and system architecture |
 | [The Privacy Engineer's Manifesto](https://link.springer.com/book/10.1007/978-1-4302-6356-2) | Book | Foundational privacy engineering text by Michelle Dennedy, Jonathan Fox, and Tom Finneran; defines the field's methodology |
-| [Differential Privacy: A Primer](https://privacytools.seas.harvard.edu/files/privacytools/files/pedagogical-document-dp_0.pdf) | Paper | Accessible Harvard introduction to differential privacy without advanced mathematics |
+| [Differential Privacy: A Primer](https://web.archive.org/web/20250112204258/https://privacytools.seas.harvard.edu/files/privacytools/files/pedagogical-document-dp_0.pdf) | Paper | Accessible Harvard introduction to differential privacy without advanced mathematics |
 | [LINDDUN Documentation](https://linddun.org/) | Methodology | Full privacy threat modeling methodology; threat trees, worked examples, and the Go card deck |
 | [Programming Differential Privacy (near.org)](https://programming-dp.com/) | Free book | Free online book covering differential privacy implementation in Python from first principles |
 

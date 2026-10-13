@@ -23,7 +23,7 @@ Data security is the set of technical and operational practices that ensure sens
 |---|---|---|
 | Foundation | Understand data classification tiers, encryption fundamentals (symmetric vs. asymmetric, AES, TLS), and regulatory drivers (GDPR, HIPAA, PCI DSS). Learn what DLP is and why it fails without classification. | [NIST SP 800-53 MP/SC families](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final), [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html), CompTIA Security+ study materials, GDPR Article 32 text |
 | Practitioner | Deploy and tune DLP policies in a lab environment. Practice key management with HashiCorp Vault. Run Microsoft Presidio against a sample dataset. Understand DSPM and how it differs from CSPM. Build a data classification policy from scratch. | [HashiCorp Vault tutorials](https://developer.hashicorp.com/vault/tutorials), [Microsoft Presidio](https://github.com/microsoft/presidio), [Microsoft Purview learning path](https://learn.microsoft.com/en-us/purview/), CDPSE exam prep materials |
-| Advanced | Design enterprise-wide data governance programs. Integrate DSPM into cloud pipelines. Implement field-level encryption and tokenization in applications. Lead data breach response. Build a KMS strategy across multi-cloud. Evaluate DSPM/DAM vendors against requirements. | [NIST SP 800-188](https://csrc.nist.gov/publications/detail/sp/800-188/final) (de-identification), [Cloud Security Alliance research](https://cloudsecurityalliance.org/research/), Varonis/BigID vendor documentation, breach notification law matrix |
+| Advanced | Design enterprise-wide data governance programs. Integrate DSPM into cloud pipelines. Implement field-level encryption and tokenization in applications. Lead data breach response. Build a KMS strategy across multi-cloud. Evaluate DSPM/DAM vendors against requirements. | [NIST SP 800-188](https://csrc.nist.gov/pubs/sp/800/188/final) (de-identification), [Cloud Security Alliance research](https://cloudsecurityalliance.org/research/), Varonis/BigID vendor documentation, breach notification law matrix |
 
 ---
 
@@ -89,12 +89,12 @@ Data security is the set of technical and operational practices that ensure sens
 | [Varonis](https://www.varonis.com/) | DSPM + DAM + DLP | Deep on-prem + cloud data visibility; behavioral analytics on data access patterns |
 | [BigID](https://bigid.com/) | DSPM + privacy + data catalog | ML-driven PII discovery across structured and unstructured data at scale |
 | [Normalyze](https://normalyze.ai/) | Cloud DSPM | Agentless cloud data discovery; maps data flows and access paths |
-| [Forcepoint DLP](https://www.forcepoint.com/product/dlp) | Enterprise DLP | Endpoint + email + cloud; behavior-based policy enforcement |
+| Forcepoint DLP | Enterprise DLP | Endpoint + email + cloud; behavior-based policy enforcement |
 | [Symantec DLP (Broadcom)](https://www.broadcom.com/products/cybersecurity/information-protection/data-loss-prevention) | Enterprise DLP | Legacy market leader; deep content inspection across all channels |
 | [Netskope](https://www.netskope.com/) | CASB + DLP | Cloud-delivered; real-time inspection of SaaS and cloud traffic |
-| [Thales CipherTrust](https://cpl.thalesgroup.com/encryption/ciphertrust-platform) | Enterprise KMS + encryption | HSM-backed key management; tokenization; transparent data encryption |
+| Thales CipherTrust | Enterprise KMS + encryption | HSM-backed key management; tokenization; transparent data encryption |
 | [IBM Guardium](https://www.ibm.com/products/ibm-guardium) | DAM + compliance | Database activity monitoring at scale; real-time policy enforcement |
-| [Rubrik Security Cloud](https://www.rubrik.com/solutions/cyber-recovery) | Backup + data security | Ransomware recovery + data classification; immutable backup architecture |
+| Rubrik Security Cloud | Backup + data security | Ransomware recovery + data classification; immutable backup architecture |
 
 ---
 
@@ -178,9 +178,9 @@ Data security controls directly address the following MITRE ATT&CK techniques:
 | [NIST Cybersecurity Framework: Protect](https://www.nist.gov/cyberframework) | Framework | Data security is core to the Protect function; free download includes implementation tiers and profiles |
 | [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html) | Reference | Application-layer encryption best practices; algorithm selection, key storage, and common implementation errors |
 | [Cloud Security Alliance STAR](https://cloudsecurityalliance.org/star/) | Registry | Cloud provider security and data controls; the CCM (Cloud Controls Matrix) maps data security requirements to cloud provider capabilities |
-| [ENISA Data Protection Guidelines](https://www.enisa.europa.eu/topics/data-protection) | Reference | EU agency data protection technical guides; free and authoritative for GDPR-aligned data security programs |
+| [ENISA Data Protection Guidelines](https://web.archive.org/web/20220102205655/https://www.enisa.europa.eu/topics/data-protection) | Reference | EU agency data protection technical guides; free and authoritative for GDPR-aligned data security programs |
 | [The Data Warehouse Toolkit (Kimball)](https://www.kimballgroup.com/) | Book | Foundational text for understanding how data is structured in analytics environments; essential context for data security engineers protecting analytics platforms |
-| [NIST SP 800-188](https://csrc.nist.gov/publications/detail/sp/800-188/final) | Standard | De-identification of government datasets; the technical reference for anonymization techniques and their limitations |
+| [NIST SP 800-188](https://csrc.nist.gov/pubs/sp/800/188/final) | Standard | De-identification of government datasets; the technical reference for anonymization techniques and their limitations |
 | [Securosis Data Security Lifecycle](https://securosis.com/) | Research | Vendor-neutral research on data security architecture and cloud data protection; practitioner-focused and free |
 
 ---

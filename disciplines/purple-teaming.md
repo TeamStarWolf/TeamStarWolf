@@ -174,13 +174,13 @@ Key metrics:
 
 | Certification | Issuer | Focus |
 |---|---|---|
-| [PNPT (Practical Network Penetration Tester)](https://www.tcm-sec.com/pnpt/) | TCM Security | Practical offensive skills used in purple exercises |
-| [CRTO (Certified Red Team Operator)](https://training.zeropointsecurity.co.uk/courses/red-team-ops) | Zero Point Security | C2 operations, adversary TTPs for emulation |
-| [CRTL (Certified Red Team Lead)](https://training.zeropointsecurity.co.uk/courses/red-team-ops-ii) | Zero Point Security | Red team leadership and advanced TTPs |
+| [PNPT (Practical Network Penetration Tester)](https://certifications.tcm-sec.com/pnpt/) | TCM Security | Practical offensive skills used in purple exercises |
+| [CRTO (Certified Red Team Operator)](https://www.zeropointsecurity.co.uk/course/red-team-ops) | Zero Point Security | C2 operations, adversary TTPs for emulation |
+| [CRTL (Certified Red Team Lead)](https://www.zeropointsecurity.co.uk/course/red-team-ops-ii) | Zero Point Security | Red team leadership and advanced TTPs |
 | [GPEN](https://www.giac.org/certifications/penetration-tester-gpen/) | GIAC | Penetration testing fundamentals |
 | [GDAT](https://www.giac.org/certifications/defending-advanced-threats-gdat/) | GIAC | Defending Advanced Threats: blue team side |
 | [GRTP (GIAC Red Team Professional)](https://www.giac.org/certifications/red-team-professional-grtp/) | GIAC | Advanced red team operations and adversary emulation |
-| [ATT&CK Fundamentals Badge](https://mad20.io/course-library/) | MAD20 | MITRE ATT&CK fundamentals |
+| ATT&CK Fundamentals Badge | MAD20 | MITRE ATT&CK fundamentals |
 
 ---
 
@@ -188,7 +188,7 @@ Key metrics:
 
 | Resource | Type | Notes |
 |---|---|---|
-| [The Hacker Playbook 3 (Peter Kim)](https://www.thehackerplaybook.com/) | Book | Red team TTPs, C2 ops, lateral movement: essential for exercise design |
+| The Hacker Playbook 3 (Peter Kim) | Book | Red team TTPs, C2 ops, lateral movement: essential for exercise design |
 | [Purple Team Exercise Framework (PTEF)](https://github.com/scythe-io/purple-team-exercise-framework) | Framework | Scythe-published methodology for running structured exercises |
 | [MITRE CTID Adversary Emulation Library](https://github.com/center-for-threat-informed-defense/adversary_emulation_library) | Free | Full emulation plans for APT3, APT29, FIN6, and others |
 | [Atomic Red Team Documentation](https://atomicredteam.io/) | Reference | 900+ ATT&CK-mapped test procedures |

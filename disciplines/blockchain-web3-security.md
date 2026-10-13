@@ -93,7 +93,7 @@ Malicious project developers retain privileged contract functions (unlimited min
 
 ### Runtime Monitoring
 - [forta-network/forta-core-go](https://github.com/forta-network/forta-core-go): Decentralized threat detection network; community-run bots monitoring on-chain activity for exploits and anomalous transactions
-- [OpenZeppelin Defender](https://www.openzeppelin.com/defender): Smart contract operations platform with automated monitoring, incident response, and upgrade management
+- [OpenZeppelin Defender](https://web.archive.org/web/20250109130846/https://www.openzeppelin.com/defender): Smart contract operations platform with automated monitoring, incident response, and upgrade management
 - [Tenderly](https://tenderly.co/): Smart contract monitoring, alerting, and simulation platform; transaction simulation before on-chain execution
 
 ### Blockchain Analytics

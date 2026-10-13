@@ -84,7 +84,7 @@ so every technique can carry a consistent "coverage stack."
 |---|---|---|
 | MITRE ATT&CK | The behavior spine: techniques, groups, software, campaigns | [attack-stix-data](https://github.com/mitre-attack/attack-stix-data) |
 | MITRE ATT&CK Groups & Software | Which adversaries/tools use a technique (exposure & frequency) | Bundled in ATT&CK STIX |
-| VERIS | Incident action taxonomy for breach-pattern context | [veriscommunity.net](https://veriscommunity.net/) |
+| VERIS | Incident action taxonomy for breach-pattern context | [veriscommunity.net](https://verisframework.org/) |
 
 ### Exposure & prioritization (what to fix first)
 
@@ -138,7 +138,7 @@ multi-platform analytics keyed to ATT&CK techniques.
 |---|---|---|
 | MITRE D3FEND | Countermeasure techniques per ATT&CK behavior | [d3fend.mitre.org](https://d3fend.mitre.org/) |
 | MITRE Engage | Denial, deception, and adversary-engagement activities | [engage.mitre.org](https://engage.mitre.org/) |
-| NIST 800-53 R5 | Control framework, mapped to ATT&CK via CTID | [CTID Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/nist800-53/) |
+| NIST 800-53 R5 | Control framework, mapped to ATT&CK via CTID | [CTID Mappings Explorer](https://ctid.mitre.org/mappings/external/nist/) |
 | CIS Controls / Safeguards | Prioritized control set with ATT&CK mappings | [CIS Controls](https://www.cisecurity.org/controls) |
 | Cloud controls (AWS/Azure/GCP/M365/CSA CCM) | Cloud-native control -> ATT&CK mappings | [CTID Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/) |
 

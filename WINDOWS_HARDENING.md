@@ -1455,8 +1455,8 @@ Test-WindowsHardening
 - [DISA STIGs: Windows](https://public.cyber.mil/stigs/downloads/)
 - [Microsoft Defender for Endpoint ASR documentation](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/attack-surface-reduction)
 - [Windows LAPS documentation](https://learn.microsoft.com/en-us/windows-server/identity/laps/laps-overview)
-- [WDAC policy creation guide](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/windows-defender-application-control/design/wdac-policy-design-guide)
+- WDAC policy creation guide
 - [CIS-CAT Pro](https://www.cisecurity.org/cybersecurity-tools/cis-cat-pro/)
-- [Microsoft Baseline Security Analyzer (deprecated: use SCT)](https://learn.microsoft.com/en-us/security-updates/mbsa/)
+- Microsoft Baseline Security Analyzer (deprecated: use SCT)
 - [ATT&CK Mitigations index](https://attack.mitre.org/mitigations/enterprise/)
 - [NIST SP 800-53 Rev 5](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)

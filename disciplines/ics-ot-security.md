@@ -69,7 +69,7 @@ Defensive implication: Because these protocols cannot be made inherently secure 
 ## Free Training
 
 - [CISA ICS Training](https://www.cisa.gov/resources-tools/programs/ics-training-available-through-cisa): The most comprehensive free ICS security training available; in-person and virtual courses covering ICS fundamentals, network defense, incident response, and vulnerability assessment for critical infrastructure practitioners
-- [Idaho National Laboratory (INL) Courses](https://inl.gov/national-security/cyber-security/): Free and subsidized ICS security courses from the DOE's primary ICS security research lab
+- Idaho National Laboratory (INL) Courses: Free and subsidized ICS security courses from the DOE's primary ICS security research lab
 - [CISA Training Catalog (NICCS)](https://niccs.cisa.gov/training/catalog): No-cost federal training including dedicated ICS/SCADA security modules
 - [MITRE ATT&CK for ICS](https://attack.mitre.org/matrices/ics/): Free framework documenting adversary tactics and techniques specific to industrial control systems with real-world case studies
 - [BHIS ICS/OT Webcasts](https://www.blackhillsinfosec.com/blog/webcasts/): Free webcasts covering OT/ICS security topics and incident response considerations
@@ -174,15 +174,15 @@ ATT&CK for ICS documents techniques used in real campaigns against industrial en
 | Resource | Type | Notes |
 |---|---|---|
 | [MITRE ATT&CK for ICS](https://attack.mitre.org/matrices/ics/) | Free framework | Definitive adversary behavior framework for ICS; 12 tactics with real campaign mappings |
-| [CISA ICS-CERT Advisories](https://www.cisa.gov/ics-advisories) | Free advisories | Primary source for ICS vulnerability advisories and critical infrastructure alerts |
+| CISA ICS-CERT Advisories | Free advisories | Primary source for ICS vulnerability advisories and critical infrastructure alerts |
 | [Dragos Year in Review](https://www.dragos.com/year-in-review/) | Free annual report | Most actionable ICS threat intelligence report; covers tracked threat groups |
-| [NIST SP 800-82 Rev 3](https://csrc.nist.gov/publications/detail/sp/800-82/3/final) | Free standard | Guide to OT Security; adapts 800-53 for industrial environments |
+| [NIST SP 800-82 Rev 3](https://csrc.nist.gov/pubs/sp/800/82/r3/final) | Free standard | Guide to OT Security; adapts 800-53 for industrial environments |
 | [IEC 62443 Standards](https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards) | Standard | International security standard for industrial automation; governance framework for ICS programs |
 | [NERC CIP Standards](https://www.nerc.com/pa/Stand/Pages/CIPStandards.aspx) | Standard | Mandatory cybersecurity standards for the bulk electric system in North America |
 | Hacking Exposed ICS (Bodungen et al.) | Book | Foundational ICS penetration testing reference; covers architecture, protocol attacks, and assessment methodology |
 | Countdown to Zero Day (Kim Zetter) | Book | Definitive Stuxnet account; required reading for understanding nation-state ICS attacks |
 | Industrial Cybersecurity (Pascal Ackerman) | Book | Practical guide to ICS/SCADA security monitoring, network architecture, and defense-in-depth |
-| [Idaho National Laboratory Cyber Programs](https://inl.gov/national-security/cyber-security/) | Free training | Free training, research publications, and SCADA test bed resources from DOE's primary ICS research lab |
+| Idaho National Laboratory Cyber Programs | Free training | Free training, research publications, and SCADA test bed resources from DOE's primary ICS research lab |
 
 ---
 

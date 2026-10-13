@@ -14,7 +14,7 @@ Earn AWS Solutions Architect Associate (or its Azure/GCP equivalent) before focu
 |---|---|---|
 | Foundation | Shared responsibility model, cloud IAM fundamentals, S3/blob storage security, VPC/network segmentation, CloudTrail/cloud logging | [AWS Cloud Practitioner (free)](https://aws.amazon.com/training/digital/aws-cloud-practitioner-essentials/), [flaws.cloud](http://flaws.cloud), [BHIS cloud security webcasts](https://www.blackhillsinfosec.com/blog/webcasts/) |
 | Practitioner | Cloud pentesting (IAM privesc, SSRF to metadata, S3 enumeration), cloud-native logging and detection, container security, Kubernetes hardening | [flaws.cloud](http://flaws.cloud) + [flaws2.cloud](http://flaws2.cloud), [CloudGoat (Rhino Security)](https://github.com/RhinoSecurityLabs/cloudgoat), [HTB Academy Cloud path](https://academy.hackthebox.com), [Wiz Academy (free)](https://www.wiz.io/academy) |
-| Advanced | Multi-cloud CSPM, cloud IR and forensics, zero trust architecture, eBPF-based runtime security, CNAPP concepts, cloud attack simulation | [SANS SEC541](https://www.sans.org/cyber-security-courses/aws-bootcamp/)/[SEC588](https://www.sans.org/cyber-security-courses/cloud-penetration-testing/), [Wiz Research blog](https://www.wiz.io/blog/tag/research), [Stratus Red Team](https://stratus-red-team.cloud), [CNCF security papers](https://github.com/cncf/tag-security) |
+| Advanced | Multi-cloud CSPM, cloud IR and forensics, zero trust architecture, eBPF-based runtime security, CNAPP concepts, cloud attack simulation | SANS SEC541/[SEC588](https://www.sans.org/cyber-security-courses/cloud-penetration-testing/), [Wiz Research blog](https://www.wiz.io/blog/tag/research), [Stratus Red Team](https://stratus-red-team.cloud), [CNCF security papers](https://github.com/cncf/tag-security) |
 
 ---
 
@@ -181,7 +181,7 @@ Cloud attack techniques are catalogued in the [MITRE ATT&CK Cloud Matrix](https:
 - [MITRE ATT&CK Cloud Matrix](https://attack.mitre.org/matrices/enterprise/cloud/): Adversary behavior framework covering AWS, Azure, GCP, Office 365, and SaaS attack techniques
 - [CIS Cloud Benchmarks](https://www.cisecurity.org/cis-benchmarks): Free hardening baselines for AWS, Azure, GCP, and Kubernetes; the compliance standard most cloud security programs anchor to
 - [AWS Customer Security Incidents](https://github.com/ramimac/aws-customer-security-incidents): Curated public record of real AWS security incidents; learning from actual breaches is the best way to understand real cloud attack patterns
-- [CNCF Cloud Native Security Whitepaper](https://github.com/cncf/tag-security/blob/main/security-whitepaper/v2/CNCF_cloud-native-security-whitepaper-May2022-v2.pdf): Authoritative cloud-native security architecture reference from the CNCF Security Technical Advisory Group
+- [CNCF Cloud Native Security Whitepaper](https://web.archive.org/web/20230417215914/https://github.com/cncf/tag-security/blob/main/security-whitepaper/v2/CNCF_cloud-native-security-whitepaper-May2022-v2.pdf): Authoritative cloud-native security architecture reference from the CNCF Security Technical Advisory Group
 
 ---
 

@@ -24,7 +24,7 @@ Mobile security encompasses the protection of smartphones, tablets, and the appl
 | OWASP MASVS | https://mas.owasp.org/MASVS/ | Security verification standard for mobile apps: requirements and control mapping |
 | Frida Documentation | https://frida.re/docs/ | Dynamic instrumentation: method hooking, class enumeration, native tracing |
 | TryHackMe: Android rooms | https://tryhackme.com/ | Guided Android static/dynamic analysis labs |
-| HackTricks Mobile | https://book.hacktricks.xyz/mobile-pentesting/ | Mobile pentesting techniques reference |
+| HackTricks Mobile | https://web.archive.org/web/20241001210624/https://book.hacktricks.xyz/mobile-pentesting/ | Mobile pentesting techniques reference |
 | TCM Security (free resources) | https://academy.tcm-sec.com/ | Practical mobile security fundamentals (free tier available) |
 
 ---
@@ -72,7 +72,7 @@ Mobile security encompasses the protection of smartphones, tablets, and the appl
 |---|---|---|
 | [Microsoft Intune](https://www.microsoft.com/en-us/security/business/endpoint-management/microsoft-intune) | MDM/EMM | BYOD + COPE; Conditional Access integration; widely deployed |
 | [Jamf Pro](https://www.jamf.com/products/jamf-pro/) | Apple device management | MDM for iOS, macOS, tvOS; zero-touch deployment |
-| [VMware Workspace ONE](https://www.vmware.com/products/workspace-one.html) | EMM + UEM | AirWatch heritage; unified endpoint management |
+| [VMware Workspace ONE](https://web.archive.org/web/20240103060913/https://www.vmware.com/products/workspace-one.html) | EMM + UEM | AirWatch heritage; unified endpoint management |
 | [Ivanti MobileIron](https://www.ivanti.com/products/ivanti-neurons-for-mdm) | MDM + MTD | Enterprise mobility management with integrated threat defense |
 
 ### Mobile Threat Defense (MTD)
@@ -81,8 +81,8 @@ Mobile security encompasses the protection of smartphones, tablets, and the appl
 |---|---|---|
 | [Lookout](https://www.lookout.com/) | Mobile Threat Defense | iOS + Android MTD; phishing and network threat protection |
 | [Zimperium](https://www.zimperium.com/) | MTD + MAPS (Mobile App Protection Suite) | zIPS for device MTD; zScan for app security testing |
-| [SentinelOne Mobile](https://www.sentinelone.com/platform/mobile/) | Mobile EDR | Behavioral detection for iOS and Android |
-| [CrowdStrike Falcon Go](https://www.crowdstrike.com/products/endpoint-security/falcon-go/) | Mobile endpoint protection | Lightweight mobile protection for iOS and Android |
+| SentinelOne Mobile | Mobile EDR | Behavioral detection for iOS and Android |
+| CrowdStrike Falcon Go | Mobile endpoint protection | Lightweight mobile protection for iOS and Android |
 
 ---
 
@@ -178,10 +178,10 @@ Key attack techniques:
 | Certification | Issuer | Focus |
 |---|---|---|
 | [GMOB](https://www.giac.org/certifications/mobile-device-security-analyst-gmob/) | GIAC | Mobile Device Security Analyst: device management and mobile threat defense |
-| [eMAPT](https://elearnsecurity.com/product/emapt-certification/) | eLearnSecurity | Mobile Application Penetration Tester: practical iOS and Android testing |
+| [eMAPT](https://web.archive.org/web/20230326034250/https://elearnsecurity.com/product/emapt-certification/) | eLearnSecurity | Mobile Application Penetration Tester: practical iOS and Android testing |
 | [OSCP](https://www.offensive-security.com/pwk-oscp/) | OffSec | Penetration testing: foundational skills applicable to mobile exploitation |
-| [eWPTXv2](https://elearnsecurity.com/product/ewptxv2-certification/) | eLearnSecurity | Web + mobile pentesting, API security |
-| [MAPT (TCM Security)](https://www.tcm-sec.com/mapt/) | TCM Security | Practical mobile application pentesting (Android + iOS) |
+| [eWPTXv2](https://web.archive.org/web/20230326034250/https://elearnsecurity.com/product/ewptxv2-certification/) | eLearnSecurity | Web + mobile pentesting, API security |
+| MAPT (TCM Security) | TCM Security | Practical mobile application pentesting (Android + iOS) |
 
 ---
 
@@ -192,7 +192,7 @@ Key attack techniques:
 | [OWASP MASTG](https://mas.owasp.org/MASTG/) | Free guide | Definitive mobile application security testing guide: iOS and Android |
 | [Android Security Internals (Elenkov)](https://nostarch.com/androidsecurity) | Book | Deep Android security architecture: permissions, cryptography, secure storage |
 | [iOS App Security (Charlie Miller)](https://www.amazon.com/iOS-App-Security-Charlie-Miller/dp/0470639520) | Book | iOS security internals and vulnerability research |
-| [HackTricks: Mobile Pentesting](https://book.hacktricks.xyz/mobile-pentesting/) | Reference | Extensive mobile pentesting techniques for Android and iOS |
+| [HackTricks: Mobile Pentesting](https://web.archive.org/web/20241001210624/https://book.hacktricks.xyz/mobile-pentesting/) | Reference | Extensive mobile pentesting techniques for Android and iOS |
 | [TCM Security Mobile Course](https://academy.tcm-sec.com/p/mobile-application-penetration-testing) | Course | Practical Android + iOS pentesting from scratch |
 | [Frida Handbook / Snippets](https://github.com/iddoeldor/frida-snippets) | Reference | Frida snippet collection for common mobile hooking scenarios |
 | [NSO Group Pegasus Technical Analysis (Amnesty Tech)](https://www.amnesty.org/en/latest/research/2021/07/forensic-methodology-report-how-to-catch-nso-groups-pegasus/) | Research | Forensic methodology for detecting mobile spyware; zero-click exploit indicators |

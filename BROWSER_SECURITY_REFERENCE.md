@@ -590,7 +590,7 @@ Firefox Enterprise policy (policies.json):
 2. Review `manifest.json`: check `permissions`, `host_permissions`, `content_scripts`.
 3. Audit background scripts for external network requests and form submission listeners.
 4. Monitor network traffic while extension is active using DevTools Network tab.
-5. Tools: CRXcavator (https://crxcavator.io/), tarnish (Mandiant), Chrome Extension Source Viewer.
+5. Tools: CRXcavator (https://web.archive.org/web/20251006164505/https://crxcavator.io/), tarnish (Mandiant), Chrome Extension Source Viewer.
 
 ---
 
@@ -839,7 +839,7 @@ JSON Schema validation: Reject input containing `__proto__`, `constructor`, or `
 
 | Resource | URL |
 |----------|-----|
-| OWASP Browser Security Cheat Sheet | https://cheatsheetseries.owasp.org/cheatsheets/Browser_Security_Cheat_Sheet.html |
+| OWASP Browser Security Cheat Sheet | `https://cheatsheetseries.owasp.org/cheatsheets/Browser_Security_Cheat_Sheet.html` |
 | OWASP CSRF Prevention Cheat Sheet | https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html |
 | OWASP Clickjacking Defense | https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html |
 | CSP Evaluator (Google) | https://csp-evaluator.withgoogle.com/ |
@@ -848,6 +848,6 @@ JSON Schema validation: Reject input containing `__proto__`, `constructor`, or `
 | HSTS Preload List | https://hstspreload.org |
 | MDN Web Docs: HTTP Security | https://developer.mozilla.org/en-US/docs/Web/HTTP |
 | PortSwigger Web Security Academy | https://portswigger.net/web-security |
-| CRXcavator Extension Analysis | https://crxcavator.io/ |
-| Chromium Security Architecture | https://chromium.googlesource.com/chromium/src/+/main/docs/security/security-architecture.md |
+| CRXcavator Extension Analysis | https://web.archive.org/web/20251006164505/https://crxcavator.io/ |
+| Chromium Security Architecture | `https://chromium.googlesource.com/chromium/src/+/main/docs/security/security-architecture.md` |
 | Prototype Pollution Research | https://github.com/BlackFan/client-side-prototype-pollution |

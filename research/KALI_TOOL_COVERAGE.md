@@ -53,7 +53,7 @@ Grouped by which existing Stars List the tool would join. Each entry is a tool t
 - `getallurls` (`gau`): [lc/gau](https://github.com/lc/gau), fetches URLs from AlienVault OTX, Wayback, Common Crawl
 - `gospider`: [jaeles-project/gospider](https://github.com/jaeles-project/gospider), fast web spider in Go
 - `goshs`: [patrickhener/goshs](https://github.com/patrickhener/goshs), replacement for SimpleHTTPServer with auth and TLS
-- `hurl`: [Orange-Cyberdefense/hurl](https://github.com/Orange-Cyberdefense/hurl), HTTP request sender
+- `hurl`: Orange-Cyberdefense/hurl, HTTP request sender
 - `jsql-injection`: [ron190/jsql-injection](https://github.com/ron190/jsql-injection), Java SQL injection tool
 - `subzy`: [LukaSikic/subzy](https://github.com/LukaSikic/subzy), subdomain takeover scanner
 - `urlcrazy`: [urbanadventurer/urlcrazy](https://github.com/urbanadventurer/urlcrazy), typo-domain generator
@@ -77,7 +77,7 @@ Grouped by which existing Stars List the tool would join. Each entry is a tool t
 - `linux-exploit-suggester`: [mzet-/linux-exploit-suggester](https://github.com/mzet-/linux-exploit-suggester), local privesc auditor
 - `linuxprivchecker`: [sleventyeleven/linuxprivchecker](https://github.com/sleventyeleven/linuxprivchecker), script-based linux audit
 - `windows-exploit-suggester`: [AonCyberLabs/Windows-Exploit-Suggester](https://github.com/AonCyberLabs/Windows-Exploit-Suggester)
-- `xss-payload-list`: [payloadbox/xss-payload-list](https://github.com/payloadbox/xss-payload-list)
+- `xss-payload-list`: [payloadbox/xss-payload-list](https://web.archive.org/web/20250105201429/https://github.com/payloadbox/xss-payload-list)
 
 ### Detection Engineering and Analytics
 - `chainsaw`: [WithSecureLabs/chainsaw](https://github.com/WithSecureLabs/chainsaw), fast Sigma-based event log triage (verify, high-priority)
@@ -106,7 +106,7 @@ Grouped by which existing Stars List the tool would join. Each entry is a tool t
 - `cewl`: [digininja/CeWL](https://github.com/digininja/CeWL), wordlist scraper
 - `email2phonenumber`: [martinvigo/email2phonenumber](https://github.com/martinvigo/email2phonenumber)
 - `metagoofil`: [laramies/metagoofil](https://github.com/laramies/metagoofil), file metadata scraper
-- `osrframework`: [i3visio/osrframework](https://github.com/i3visio/osrframework), OSINT framework
+- `osrframework`: [i3visio/osrframework](https://web.archive.org/web/20250129031848/https://github.com/i3visio/osrframework), OSINT framework
 - `pwndb`: [davidtavarez/pwndb](https://github.com/davidtavarez/pwndb), leaked credential search
 
 ### Wireless Security (slated for new List)

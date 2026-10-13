@@ -643,7 +643,7 @@ Containment
 |---|---|---|
 | FBI Cyber Division | [ic3.gov](https://www.ic3.gov/) or local field office | Ransomware, nation-state attacks, critical infrastructure incidents; FBI may have decryption keys |
 | CISA | [cisa.gov/report](https://www.cisa.gov/report) or 1-888-282-0870 | Critical infrastructure incidents; CISA provides free technical assistance |
-| US Secret Service | [secretservice.gov/investigation/cyber](https://www.secretservice.gov/investigation/cyber) | Financial cybercrime, BEC, payment card fraud |
+| US Secret Service | [secretservice.gov/investigation/cyber](https://web.archive.org/web/20240104003313/https://www.secretservice.gov/investigation/cyber) | Financial cybercrime, BEC, payment card fraud |
 | DHS | Via CISA for most cyber incidents | |
 | NSA (CNMF) | For cleared defense contractors | Nation-state intrusions on defense networks |
 | OFAC | [ofac.treasury.gov](https://ofac.treasury.gov/) | Ransomware payment compliance: report if paying or seeking license |
@@ -653,7 +653,7 @@ Containment
 |---|---|---|
 | UK | NCSC | [report.ncsc.gov.uk](https://report.ncsc.gov.uk) |
 | EU | Europol EC3 | [europol.europa.eu/report-a-crime/report-cybercrime-online](https://www.europol.europa.eu/report-a-crime/report-cybercrime-online) |
-| Australia | ACSC | [cyber.gov.au/report](https://www.cyber.gov.au/report) |
+| Australia | ACSC | [cyber.gov.au/report](https://www.cyber.gov.au/submit-a-report) |
 | Canada | CCCS | [cyber.gc.ca](https://www.cyber.gc.ca/) |
 | Germany | BSI | [bsi.bund.de](https://www.bsi.bund.de/) |
 | Global | INTERPOL | Via national contact; for multi-country attacks |

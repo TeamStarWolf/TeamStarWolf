@@ -62,7 +62,7 @@
     },
     {
       "name": "mapping_url",
-      "value": "https://center-for-threat-informed-defense.github.io/mappings-explorer/external/nist800-53/"
+      "value": "https://ctid.mitre.org/mappings/external/nist/"
     },
     {
       "name": "attack_version",

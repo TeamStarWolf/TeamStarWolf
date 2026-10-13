@@ -100,9 +100,12 @@ jobs:
         uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           # http(s) only: in-repo links are the internal job's. Exclusions live in .lycheeignore
-          # (read automatically from the working directory).
+          # (read automatically from the working directory). --root-dir lets lychee turn a
+          # root-absolute page link ("/X.md", the form docsify needs) into a file:// URI that
+          # the scheme filter then skips; without it every such link is an input error.
           args: >-
             --no-progress
+            --root-dir '${{ github.workspace }}'
             --scheme https --scheme http
             --timeout 20
             --max-retries 3

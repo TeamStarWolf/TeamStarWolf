@@ -154,3 +154,6 @@ jobs:
 
       - name: Control-rollup consistency check
         run: python scripts/build_control_rollup.py --check
+
+      - name: Priority-gap page + analytics Navigator layers match the data
+        run: python scripts/build_priority_gaps.py --check

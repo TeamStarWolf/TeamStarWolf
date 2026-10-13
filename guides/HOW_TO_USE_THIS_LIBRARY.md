@@ -106,7 +106,7 @@ Worked example ("where are our coverage gaps?"):
 
 1. Read the [Threat-Informed Defense Reference](/THREAT_INFORMED_DEFENSE_REFERENCE.md) for the model, then [ATT&CK Matrix Analysis](/ATTACK_MATRIX_ANALYSIS_REFERENCE.md) for the 24 analytic lenses you can apply to a matrix.
 2. Open the [Navigator Layers index](/navigator/index.md) and click any layer's " Navigator" link: it opens MITRE's hosted [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) with the layer pre-loaded via its documented `layerURL` fragment. Start with the master NIST 800-53 coverage layer.
-3. Read the ranked write-ups: [Priority Gap Analysis](/scores/attack_priority_gaps.md) lists the most-used, least-covered techniques, and the Framework Blind Spots layer shows the 223 techniques with no mapped NIST 800-53 control.
+3. Read the ranked write-ups: [Priority Gap Analysis](/scores/attack_priority_gaps.md) lists the most-used, least-covered techniques, and the Framework Blind Spots layer shows the live Enterprise techniques with no mapped NIST 800-53 control.
 4. For vendor questions ("what does our EDR actually cover?"), use the vendor layers and the edge tables described in [Coverage Schema](/COVERAGE_SCHEMA.md).
 5. For richer interactive analysis (EPSS, CISA KEV, detection-content correlation), move to the [ATTACK-Navi workbench](https://teamstarwolf.github.io/ATTACK-Navi/).
 

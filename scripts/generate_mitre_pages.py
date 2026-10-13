@@ -557,15 +557,20 @@ def render_technique(db, tid):
             rows.append(line)
         out.append("\n".join(rows) + "\n")
 
-    # D3FEND (now linked to the d3fend pages)
+    # D3FEND (now linked to the d3fend pages). One row per countermeasure (the first edge
+    # for a name wins, as before), listed by D3FEND id (D3-AL, D3-AM, ...) so the page does
+    # not depend on the row order of technique_to_d3fend.jsonl or on which carried-forward
+    # predecessor was merged first; a name with no countermeasure record sorts last by name.
     edges = db.d3.get(tid) or []
     if edges:
-        seen, rows = set(), []
+        first = {}
         for e in edges:
             name = e.get("d3fend_technique")
-            if not name or name in seen:
-                continue
-            seen.add(name)
+            if name and name not in first:
+                first[name] = e
+        rows = []
+        for name in sorted(first, key=lambda n: d3fend_sort_key(db, n)):
+            e = first[name]
             tac = sstr(e.get("d3fend_tactic"))
             rel = sstr(e.get("relation")) or "maps"
             tac_txt = " (" + tac + ")" if tac else ""
@@ -742,6 +747,13 @@ def render_technique(db, tid):
 
 
 # ----------------------------------------------------------------------------- shared
+def d3fend_sort_key(db, name):
+    """Sort key for a D3FEND countermeasure: its D3FEND id (data/attack/d3fend_countermeasures.jsonl),
+    then the name; a countermeasure with no id sorts after every one that has one."""
+    did = (db.d3_defs.get(name, {}) or {}).get("d3fend_id") or ""
+    return (0, did, name) if did else (1, "", name)
+
+
 def revoked_line(db, tid):
     """'[T1562.001: Disable or Modify Tools](...) (revoked; superseded by [T1685: ...](...))'."""
     p = db.prof[tid]

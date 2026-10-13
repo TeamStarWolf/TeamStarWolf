@@ -3,8 +3,8 @@
 Generate the enriched MITRE per-object knowledge base (mitre/) from committed data (data/).
 
 Regenerates one page per MITRE object for: techniques, mitigations, tactics, D3FEND,
-CAPEC, ATLAS, plus the /mitre/README landing. Everything is derived deterministically
-from data/attack, data/weaknesses, and data/ai.
+CAPEC, ATLAS, plus every section's README.md index and the /mitre/README landing.
+Everything is derived deterministically from data/attack, data/weaknesses, and data/ai.
 
 CORPUS SIGNAL: the "Team Star Wolf corpus signal" paragraph on a technique page (and the
 "(observed)" mark that flags corpus-observed techniques on tactic pages, the crosswalk
@@ -395,6 +395,7 @@ class DB:
         # --- ATLAS ---
         self.atlas = {r["technique_id"]: r for r in load_jsonl(DATA / "ai/atlas_techniques.jsonl")}
         self.atlas_mit = {r["mitigation_id"]: r for r in load_jsonl(DATA / "ai/atlas_mitigations.jsonl")}
+        self.atlas_tactics = {r["tactic_id"]: r for r in load_jsonl(DATA / "ai/atlas_tactics.jsonl")}
         self.atlas_subs = defaultdict(list)
         for r in self.atlas.values():
             if r.get("parent_id"):
@@ -455,23 +456,38 @@ class DB:
         T1685, T1574.002 -> T1574.001, ...) is also shown on the live successor, following
         data/attack/superseded_by.jsonl chains - the same rule build_control_rollup.py and
         backfill_capec_edges.py apply to NIST and CAPEC. The revoked page keeps its own
-        edges; an item already on the successor is not repeated."""
+        edges; an item already on the successor is not repeated.
+
+        Provenance is kept per framework in self.{d3,car,engage}_via_revoked as
+        successor -> {revoked predecessor: sorted keys that predecessor maps}, the same
+        rule and shape as AttackIds.carry_forward() and the nist_800_53_controls_via_revoked
+        / capec_via_revoked profile fields, so the technique page prints the same
+        "Carried forward from revoked ..." line under the D3FEND, CAR and Engage sections.
+        (The successor rows #48 copied into technique_to_d3fend.jsonl and
+        technique_to_car.jsonl are those predecessors' mappings, so they are credited to
+        the predecessor too.) Only live successors appear in predecessors(), so a revoked
+        page never receives carried edges or the line."""
         def merge(dst, src, key):
             have = {x.get(key) for x in dst}
             for x in src:
                 if x.get(key) not in have:
                     dst.append(x)
                     have.add(x.get(key))
+            return sorted({x.get(key) for x in src})
 
+        self.d3_via_revoked, self.car_via_revoked, self.engage_via_revoked = {}, {}, {}
         preds = self.ids.predecessors("enterprise")
         for succ in sorted(preds):
             for old in preds[succ]:
                 if self.d3.get(old):
-                    merge(self.d3[succ], self.d3[old], "d3fend_technique")
+                    self.d3_via_revoked.setdefault(succ, {})[old] = merge(
+                        self.d3[succ], self.d3[old], "d3fend_technique")
                 if self.car.get(old):
-                    merge(self.car.setdefault(succ, []), self.car[old], "car_id")
+                    self.car_via_revoked.setdefault(succ, {})[old] = merge(
+                        self.car.setdefault(succ, []), self.car[old], "car_id")
                 if self.engage.get(old):
-                    merge(self.engage.setdefault(succ, []), self.engage[old], "id")
+                    self.engage_via_revoked.setdefault(succ, {})[old] = merge(
+                        self.engage.setdefault(succ, []), self.engage[old], "id")
 
 
 # ----------------------------------------------------------------------------- technique
@@ -542,15 +558,20 @@ def render_technique(db, tid):
             rows.append(line)
         out.append("\n".join(rows) + "\n")
 
-    # D3FEND (now linked to the d3fend pages)
+    # D3FEND (now linked to the d3fend pages). One row per countermeasure (the first edge
+    # for a name wins, as before), listed by D3FEND id (D3-AL, D3-AM, ...) so the page does
+    # not depend on the row order of technique_to_d3fend.jsonl or on which carried-forward
+    # predecessor was merged first; a name with no countermeasure record sorts last by name.
     edges = db.d3.get(tid) or []
     if edges:
-        seen, rows = set(), []
+        first = {}
         for e in edges:
             name = e.get("d3fend_technique")
-            if not name or name in seen:
-                continue
-            seen.add(name)
+            if name and name not in first:
+                first[name] = e
+        rows = []
+        for name in sorted(first, key=lambda n: d3fend_sort_key(db, n)):
+            e = first[name]
             tac = sstr(e.get("d3fend_tactic"))
             rel = sstr(e.get("relation")) or "maps"
             tac_txt = " (" + tac + ")" if tac else ""
@@ -561,6 +582,9 @@ def render_technique(db, tid):
             rows.append(drow)
         out.append("## D3FEND countermeasures (" + str(len(rows)) + ")\n")
         out.append("\n".join(rows) + "\n")
+        via = db.d3_via_revoked.get(tid) or {}
+        if via:
+            out.append(_via_revoked_note(db, via, "D3FEND"))
 
     # Detection (enriched: strategies + analytics with log sources)
     strategies = db.strats_by_t.get(tid) or []
@@ -612,6 +636,9 @@ def render_technique(db, tid):
             "- [" + c["car_id"] + " " + DASH + " " + c["title"] + "](" + c["url"] + ")" +
             ((" " + DASH + " coverage: " + c["coverage"]) if c.get("coverage") else "")
             for c in car) + "\n")
+        via = db.car_via_revoked.get(tid) or {}
+        if via:
+            out.append(_via_revoked_note(db, via, "MITRE CAR"))
 
     # MITRE Engage (adversary engagement / deception opportunities)
     eng = db.engage.get(tid) or []
@@ -625,6 +652,9 @@ def render_technique(db, tid):
                 line += " " + DASH + " " + d
             rows.append(line)
         out.append("\n".join(rows) + "\n")
+        via = db.engage_via_revoked.get(tid) or {}
+        if via:
+            out.append(_via_revoked_note(db, via, "MITRE Engage"))
 
     # F3 (CTID Fight Fraud Framework) — this technique is also modeled as a fraud technique
     if tid in db.f3_of_attack:
@@ -718,6 +748,13 @@ def render_technique(db, tid):
 
 
 # ----------------------------------------------------------------------------- shared
+def d3fend_sort_key(db, name):
+    """Sort key for a D3FEND countermeasure: its D3FEND id (data/attack/d3fend_countermeasures.jsonl),
+    then the name; a countermeasure with no id sorts after every one that has one."""
+    did = (db.d3_defs.get(name, {}) or {}).get("d3fend_id") or ""
+    return (0, did, name) if did else (1, "", name)
+
+
 def revoked_line(db, tid):
     """'[T1562.001: Disable or Modify Tools](...) (revoked; superseded by [T1685: ...](...))'."""
     p = db.prof[tid]
@@ -958,7 +995,44 @@ def render_d3fend(db, slug, existing):
     return "\n".join(out)
 
 
+def render_d3fend_index(db, names):
+    """mitre/d3fend/README.md: one line per D3FEND page the generator writes (names from the
+    page H1s), sorted by name, with the countermeasure's D3FEND tactic. It used to be a
+    hand-maintained file; the count and order are now derived."""
+    out = ["# D3FEND Countermeasures (" + str(len(names)) + ")", "",
+           "One page per D3FEND technique, with the ATT&CK techniques it counters.", ""]
+    for slug, name in sorted(names, key=lambda sn: sn[1]):
+        tac = (db.d3_pages.get(name) or {}).get("tactic") or \
+              sstr((db.d3_defs.get(name, {}) or {}).get("d3fend_tactic"))
+        out.append("- [" + name + "](/mitre/d3fend/" + slug + ".md)" + (" (" + tac + ")" if tac else ""))
+    out += ["", "[MITRE Hub](/mitre/README.md)", ""]
+    return "\n".join(out)
+
+
 # ----------------------------------------------------------------------------- capec
+CAPEC_SEVERITY_ORDER = ("Very High", "High", "Medium", "Low", "Very Low")
+
+
+def render_capec_index(db):
+    """mitre/capec/README.md: every CAPEC page, grouped by typical severity (most severe
+    first; a pattern with no severity under "Unknown"), ids in string order within a group.
+    It used to be a hand-maintained file; the counts and grouping are now derived."""
+    by_sev = defaultdict(list)
+    for cid, c in db.capec.items():
+        sev = str(c.get("typical_severity") or "").strip()
+        by_sev[sev if sev in CAPEC_SEVERITY_ORDER else "Unknown"].append(cid)
+    out = ["# CAPEC Attack Patterns (" + str(len(db.capec)) + ")", "",
+           "One page per CAPEC pattern, mapped to ATT&CK techniques and CWE.", "", ""]
+    for sev in CAPEC_SEVERITY_ORDER + ("Unknown",):
+        ids = sorted(by_sev.get(sev) or [])
+        if not ids:
+            continue
+        out += ["## " + sev + " severity (" + str(len(ids)) + ")", ""]
+        out += ["- [" + cid + " " + DASH + " " + db.capec[cid].get("name", "") + "](/mitre/capec/" + cid + ".md)"
+                for cid in ids]
+        out.append("")
+    out += ["[MITRE Hub](/mitre/README.md)", ""]
+    return "\n".join(out)
 def render_capec(db, cid):
     c = db.capec[cid]
     out = ["# " + cid + " " + DASH + " " + c.get("name", "") + "\n",
@@ -1061,6 +1135,23 @@ def render_atlas_mitigation(db, mid):
     if r.get("description"):
         out.append(str(r["description"]).strip() + "\n")
     out.append(SHORT_FOOTER)
+    return "\n".join(out)
+
+
+def render_atlas_index(db):
+    """mitre/atlas/README.md (the MITRE ATLAS AI matrix pages): every ATLAS technique and
+    mitigation page, ids in string order. It used to be a hand-maintained file; the counts
+    are now derived (tactics from data/ai/atlas_tactics.jsonl)."""
+    out = ["# MITRE ATLAS (AI/ML): Enriched Pages", "",
+           str(len(db.atlas)) + " techniques + " + str(len(db.atlas_mit)) + " mitigations across " +
+           str(len(db.atlas_tactics)) + " tactics. AI/ML adversarial threat landscape.", "",
+           "## Techniques", ""]
+    out += ["- [" + tid + " " + DASH + " " + db.atlas[tid].get("name", "") + "](/mitre/atlas/" + aml_slug(tid) + ".md)"
+            for tid in sorted(db.atlas)]
+    out += ["", "## Mitigations", ""]
+    out += ["- [" + mid + " " + DASH + " " + db.atlas_mit[mid].get("name", "") + "](/mitre/atlas/" + aml_slug(mid) + ".md)"
+            for mid in sorted(db.atlas_mit)]
+    out += ["", "[MITRE Hub](/mitre/README.md)", ""]
     return "\n".join(out)
 
 
@@ -1447,8 +1538,8 @@ def main():
             shutil.rmtree(check_dir, ignore_errors=True)
 
 
-# Sections whose directory holds a hand-written README.md the generator does not own.
-HANDWRITTEN_README = {"capec", "atlas", "d3fend"}
+# Every section README.md is generated (capec, atlas and d3fend were hand-written until
+# their index renderers landed), so the drift check compares and orphan-checks all of them.
 SECTION_DIRS = ("techniques", "mitigations", "tactics", "d3fend", "capec", "atlas", "f3", "groups",
                 "software", "campaigns")
 
@@ -1473,8 +1564,6 @@ def compare_tree(out_root, only):
         if sec not in only:
             continue
         for committed in sorted((MITRE / sec).glob("*.md")):
-            if committed.name == "README.md" and sec in HANDWRITTEN_README:
-                continue
             if not (out_root / sec / committed.name).exists():
                 problems.append("orphan   mitre/" + sec + "/" + committed.name +
                                 "  (committed, but the data no longer produces it)")
@@ -1537,13 +1626,16 @@ def generate(db, only, out_root):
     if "d3fend" in only:
         d = out_root / "d3fend"
         d.mkdir(parents=True, exist_ok=True)
-        n = 0
+        names = []
         for f in sorted((MITRE / "d3fend").glob("*.md")):
             if f.name == "README.md":
                 continue
-            (d / f.name).write_text(plain(render_d3fend(db, f.stem, f.read_text(encoding="utf-8"))), encoding="utf-8", newline="\n")
-            n += 1
-        print("d3fend: wrote " + str(n) + " pages")
+            existing = f.read_text(encoding="utf-8")
+            (d / f.name).write_text(plain(render_d3fend(db, f.stem, existing)), encoding="utf-8", newline="\n")
+            first = existing.splitlines()[0] if existing.splitlines() else ""
+            names.append((f.stem, first[len("# D3FEND:"):].strip() if first.startswith("# D3FEND:") else ""))
+        (d / "README.md").write_text(plain(render_d3fend_index(db, names)), encoding="utf-8", newline="\n")
+        print("d3fend: wrote " + str(len(names)) + " pages + README")
 
     if "capec" in only:
         d = out_root / "capec"
@@ -1552,7 +1644,8 @@ def generate(db, only, out_root):
         for cid in db.capec:
             (d / (cid + ".md")).write_text(plain(render_capec(db, cid)), encoding="utf-8", newline="\n")
             n += 1
-        print("capec: wrote " + str(n) + " pages")
+        (d / "README.md").write_text(plain(render_capec_index(db)), encoding="utf-8", newline="\n")
+        print("capec: wrote " + str(n) + " pages + README")
 
     if "atlas" in only:
         d = out_root / "atlas"
@@ -1564,7 +1657,8 @@ def generate(db, only, out_root):
         for mid in db.atlas_mit:
             (d / (aml_slug(mid) + ".md")).write_text(plain(render_atlas_mitigation(db, mid)), encoding="utf-8", newline="\n")
             nm += 1
-        print("atlas: wrote " + str(nt) + " technique + " + str(nm) + " mitigation pages")
+        (d / "README.md").write_text(plain(render_atlas_index(db)), encoding="utf-8", newline="\n")
+        print("atlas: wrote " + str(nt) + " technique + " + str(nm) + " mitigation pages + README")
 
     if "f3" in only:
         d = out_root / "f3"

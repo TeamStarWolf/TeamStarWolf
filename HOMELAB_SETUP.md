@@ -51,9 +51,9 @@ Use cloud free tiers to practice without hardware. Good for learning specific sk
 
 | Provider | Free Tier Notes |
 |---|---|
-| AWS Free Tier | 750 hrs/mo t2.micro (12 months), good for EC2/IAM/S3 labs |
-| Azure Free Tier | $200 credit + 12-month free services |
-| Google Cloud (GCP) | $300 credit, Always Free f1-micro |
+| AWS Free Tier | New accounts (since 15 Jul 2025): $100 sign-up credit + up to $100 more; the Free plan closes after 6 months or when credits run out; 30+ always-free services. Good for EC2/IAM/S3 labs |
+| Azure Free Tier | $200 credit (30 days) + 12-month free services (750 hrs/mo B1s-class VMs) + always-free services |
+| Google Cloud (GCP) | $300 credit (90 days), Always Free e2-micro VM (us-west1, us-central1, us-east1) |
 | VPS providers (Vultr, Linode, Hetzner) | $5-$10/mo for practice boxes; destroy when done |
 | CloudGoat / FLAWS.cloud | Dedicated vulnerable cloud environments (see Section 6) |
 
@@ -697,15 +697,19 @@ Cloud security is one of the fastest-growing areas of offensive and defensive se
 
 ### AWS Free Tier â€” What You Actually Get
 
-The free tier has three categories:
+AWS replaced the old 12-month / 750-hour tier with a credit model for accounts created on or after 15 July 2025. At sign-up you choose a Free plan or a Paid plan:
 
 | Category | Details | Key Services |
 |---|---|---|
-| Always Free | Never expires | Lambda (1M requests/mo), DynamoDB (25 GB), SNS (1M publishes) |
-| 12-Month Free | From account creation date | EC2 t2.micro (750 hrs/mo), S3 (5 GB), RDS (750 hrs/mo), CloudTrail (1 trail) |
-| Trials | Short-term trials | GuardDuty (30 days), Macie (30 days), Security Hub (30 days) |
+| Sign-up credits | $100 when the account is created, plus up to $100 more for completing onboarding activities (up to $200 total) | Spent by the eligible services you run: EC2 (free-tier-eligible types: t3.micro, t3.small, t4g.micro, t4g.small, c7i-flex.large, m7i-flex.large), S3, RDS, CloudTrail, etc. |
+| Free plan | Ends after 6 months or when the credits are used up, whichever comes first; the account then closes (upgrade to the Paid plan within 90 days to keep it). No charges, but only select services | Good fit for a short, bounded lab |
+| Paid plan | Same credits; usage beyond them is billed pay-as-you-go and the account does not close | Needed for services the Free plan excludes |
+| Always Free | Monthly limits that never expire, on both plans | Lambda (1M requests/mo), DynamoDB (25 GB), SNS (1M publishes) |
+| Short-term trials | Paid plan only | GuardDuty (30 days), Macie (30 days), Security Hub (30 days) |
 
-> Key free tier caveat: The 750 EC2 hours covers ONE t2.micro running 24/7 for a month. If you run two t2.micros simultaneously, you burn through the free hours in 15 days and get charged for the second instance.
+Accounts created before 15 July 2025 keep the legacy tier: 750 hrs/mo of t2.micro or t3.micro for 12 months from account creation, billed pay-as-you-go above the limits. Check the current terms at https://aws.amazon.com/free/ before you budget a lab.
+
+> Key free tier caveat: Credits drain per hour for everything left running. Two instances spend them twice as fast, and on the Free plan the account and everything in it closes when the credits run out. List the instance types your account can run on the free tier with `aws ec2 describe-instance-types --filters Name=free-tier-eligible,Values=true --query "InstanceTypes[*].InstanceType" --output text`.
 
 ### Step 1 â€” Create an AWS Account
 
@@ -770,9 +774,11 @@ aws ec2 create-internet-gateway \
 aws ec2 attach-internet-gateway --vpc-id vpc-XXXXXXXXX --internet-gateway-id igw-XXXXXXXXX
 
 # Launch a free tier EC2 instance (Amazon Linux 2023)
+# resolve:ssm: looks up the current AL2023 AMI for your region, so no hard-coded AMI ID goes stale
+# (t3.micro is free-tier eligible on both the credit-based plans and the legacy 12-month tier)
 aws ec2 run-instances \
-  --image-id ami-0c02fb55956c7d316 \
-  --instance-type t2.micro \
+  --image-id resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64 \
+  --instance-type t3.micro \
   --key-name my-lab-key \
   --subnet-id subnet-XXXXXXXXX \
   --security-group-ids sg-XXXXXXXXX \
@@ -881,18 +887,18 @@ Key CloudGoat scenarios:
 
 Azure is the second-largest cloud provider and the dominant platform for enterprise Microsoft environments. Entra ID (formerly Azure Active Directory) is deeply integrated with Microsoft 365, making it a critical target in enterprise attacks and a required skill for modern red and blue teamers.
 
-> Cost Warning: Azure's free account is generous but has limits. The $200 credit expires after 30 days. After that, only "Always Free" services remain. Services like Azure VMs are NOT free after the credit is used. Set up cost alerts before deploying anything beyond free-tier services.
+> Cost Warning: Azure's free account is generous but has limits. The $200 credit expires after 30 days; to keep the account you then move to pay-as-you-go. The 12-month free amounts (including 750 hrs/mo of B1s-class VMs) and the always-free services still apply, but anything beyond those monthly amounts is billed, and the 12-month services are billed at normal rates once the first year ends. Set up cost alerts before deploying anything beyond free-tier services.
 
 ### Azure Free Account â€” What You Get
 
 | Tier | What's Included | Duration |
 |---|---|---|
 | $200 credit | Any Azure service | 30 days from signup |
-| Always Free | 750 hrs B1s VM, 5 GB Blob Storage, Azure Functions (1M executions), Cosmos DB (1,000 RUs) | Permanent |
-| 12-Month Free | B1s VMs, 64 GB managed disk, SQL Database (250 GB) | 12 months from signup |
+| 12-Month Free | 750 hrs/mo each of B1s, B2pts v2 (Arm) and B2ats v2 (AMD) burstable VMs (Linux and Windows), 2 x 64 GB managed disks, 5 GB Blob Storage (LRS hot), SQL Database (250 GB S0), PostgreSQL/MySQL Flexible Server (750 hrs B1MS) | 12 months from signup, then pay-as-you-go |
+| Always Free | 65+ services, e.g. Azure Functions (1M requests/mo), Cosmos DB free tier (1,000 RU/s + 25 GB), App Service (10 apps) | Permanent |
 | Entra ID Free Tier | User management, SSO, MFA (up to 50,000 objects) | Permanent |
 
-Sign up at: https://azure.microsoft.com/en-us/free/
+Sign up at: https://azure.microsoft.com/en-us/free/ (offers change; check the current list at https://azure.microsoft.com/en-us/pricing/free-services/)
 
 ### Step 1 â€” Create an Azure Free Account and Entra ID Tenant
 
@@ -985,7 +991,7 @@ AzureGoat includes scenarios for:
 
 ### Step 4 â€” Microsoft 365 Developer Program (Free E5 License)
 
-This is one of the best-kept secrets in cybersecurity education. Microsoft offers a free Microsoft 365 E5 developer subscription (normally ~$57/user/month) for 90 days, renewable if you actively use it for development/learning.
+Microsoft offers a free, renewable Microsoft 365 E5 developer subscription (normally ~$57/user/month), but it is no longer open to everyone: since early 2024 only current Visual Studio Professional or Enterprise subscribers and members of qualifying programs can set one up. The subscription renews while you actively use it for development. If you do not qualify, use the public trials listed after the sign-up steps.
 
 What's included (25 user licenses):
 - Microsoft 365 E5 (Word, Excel, Teams, SharePoint, Exchange, etc.)
@@ -998,18 +1004,26 @@ What's included (25 user licenses):
 Sign up: https://developer.microsoft.com/en-us/microsoft-365/dev-program
 
 ```
-1. Click "Join now" and sign in with a Microsoft account
-2. Choose "Security" or "Development" as your focus area
-3. Select "Instant sandbox" for fastest setup
+1. Click "Join now" and sign in with the Microsoft account tied to your Visual Studio subscription
+2. Complete the profile (focus area, e.g. "Security")
+3. From the program dashboard, set up the E5 sandbox (offered only if your account qualifies)
 4. Wait ~2 minutes for provisioning
 5. Note the admin credentials provided â€” these are your E5 tenant credentials
 ```
 
-> Why this is valuable: Practicing with Sentinel, Defender XDR, and Entra ID P2 features normally costs hundreds of dollars per month. The developer program gives you a full enterprise security stack for free.
+> Why this is valuable: Practicing with Sentinel, Defender XDR, and Entra ID P2 features normally costs hundreds of dollars per month. For eligible subscribers, the developer program gives you a full enterprise security stack for free.
+
+If you are not eligible, these public trials cover the same practice areas. They are time-limited, so plan your lab around them:
+
+| Option | What you get | Notes |
+|---|---|---|
+| Microsoft 365 E5 trial | 25 E5 licenses for one month | Start it in the Microsoft 365 admin center (Billing -> Purchase services -> Microsoft 365 E5 -> Start free trial). Microsoft's Defender XDR lab guide walks through it: https://learn.microsoft.com/en-us/defender-xdr/setup-m365deval |
+| Microsoft Sentinel free trial | First 31 days of a new workspace, up to 10 GB/day | Runs on any Azure subscription, including the free account above |
+| Entra ID P2 trial | Conditional Access, PIM, Identity Protection | Activate from the Entra admin center (Billing -> Licenses) |
 
 ### Step 5 â€” Microsoft Sentinel Lab Setup
 
-Once you have the E5 dev subscription:
+Once you have an E5 tenant (developer sandbox or trial): Sentinel itself runs in an Azure subscription, and to connect the E5 tenant's Defender XDR data that subscription must belong to the same Entra tenant (sign up for an Azure subscription while signed in as the E5 tenant's admin).
 
 ```bash
 # Connect to your dev tenant
@@ -1469,12 +1483,21 @@ Key things to practice in Security Onion:
 
 Building your own Elastic SIEM from scratch gives you deep understanding of how SIEMs work under the hood â€” ingestion pipelines, index mappings, detection rules, and alert workflows.
 
+Kibana 8.x cannot connect to Elasticsearch as the `elastic` superuser; it uses the built-in `kibana_system` account, and `ELASTIC_PASSWORD` sets only the `elastic` password. The compose file below therefore runs a one-shot `setup` container that sets the `kibana_system` password before Kibana starts. Without that step Kibana loops on `unable to authenticate user [kibana_system]` and never serves port 5601.
+
 ```bash
-# Deploy Elasticsearch + Kibana with Docker Compose
+# Deploy Elasticsearch + Kibana with Docker Compose (Compose v2: `docker compose`)
 mkdir ~/elastic-siem && cd ~/elastic-siem
 
+# Passwords live in .env. Keep them alphanumeric: Elastic's Docker guide warns that
+# special characters break the variable substitution used below.
+cat > .env << 'EOF'
+ELASTIC_PASSWORD=ChangeMe123
+KIBANA_PASSWORD=KibanaSys123
+KIBANA_ENCRYPTION_KEY=labonlyencryptionkey32charsminimum0001
+EOF
+
 cat > docker-compose.yml << 'EOF'
-version: '3'
 services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
@@ -1482,38 +1505,69 @@ services:
       - discovery.type=single-node
       - ES_JAVA_OPTS=-Xms2g -Xmx2g
       - xpack.security.enabled=true
-      - ELASTIC_PASSWORD=ChangeMe123!
+      # Plain HTTP on 9200 for an isolated lab. Without these two lines Elasticsearch 8
+      # may auto-enable TLS on first start, and Kibana's http:// connection then fails.
+      - xpack.security.http.ssl.enabled=false
+      - xpack.security.transport.ssl.enabled=false
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
     ports:
       - "9200:9200"
     volumes:
       - esdata:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:9200 | grep -q 'missing authentication credentials'"]
+      interval: 10s
+      timeout: 10s
+      retries: 30
+
+  # One-shot job: set the kibana_system password, then exit
+  setup:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    command: >
+      bash -c 'until curl -s -o /dev/null -w "%{http_code}" -u "elastic:${ELASTIC_PASSWORD}"
+      -X POST -H "Content-Type: application/json"
+      http://elasticsearch:9200/_security/user/kibana_system/_password
+      -d "{\"password\":\"${KIBANA_PASSWORD}\"}" | grep -q 200; do echo waiting for elasticsearch; sleep 5; done;
+      echo kibana_system password set'
 
   kibana:
     image: docker.elastic.co/kibana/kibana:8.11.0
     environment:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
       - ELASTICSEARCH_USERNAME=kibana_system
-      - ELASTICSEARCH_PASSWORD=ChangeMe123!
+      - ELASTICSEARCH_PASSWORD=${KIBANA_PASSWORD}
+      # Needed by the Security app's detection rules and by Fleet (32+ characters)
+      - XPACK_ENCRYPTEDSAVEDOBJECTS_ENCRYPTIONKEY=${KIBANA_ENCRYPTION_KEY}
     ports:
       - "5601:5601"
     depends_on:
-      - elasticsearch
+      setup:
+        condition: service_completed_successfully
 
 volumes:
   esdata:
 EOF
 
 docker compose up -d
-# Kibana: http://localhost:5601 (elastic / ChangeMe123!)
+docker compose logs setup   # should end with "kibana_system password set"
+# Kibana: http://localhost:5601 - log in as elastic with the ELASTIC_PASSWORD from .env
+# (kibana_system is only for Kibana's own connection to Elasticsearch)
 ```
+
+If you started an earlier version of this stack, either run `docker compose down -v` and start again, or set the password by hand once Elasticsearch is up: `curl -u elastic:ChangeMe123 -X POST http://localhost:9200/_security/user/kibana_system/_password -H 'Content-Type: application/json' -d '{"password":"KibanaSys123"}'`.
 
 Install Elastic Agent on Windows targets (forwards Sysmon + Windows Event Logs):
 
 ```powershell
 # Download Elastic Agent on your Windows VM
 # In Kibana: Fleet -> Agent policies -> Create policy -> Add agent
+# Fleet first asks you to add a Fleet Server (port 8220); it is not part of the compose file above,
+# so add it from the Fleet UI on the Docker host or another lab VM before enrolling agents.
 # Follow the enrollment command shown in the UI, e.g.:
-.\elastic-agent.exe install --url=https://YOUR_KIBANA:8220 --enrollment-token=TOKEN_FROM_UI
+.\elastic-agent.exe install --url=https://YOUR_FLEET_SERVER:8220 --enrollment-token=TOKEN_FROM_UI
 
 # Install Sysmon with a community config for rich event telemetry
 .\Sysmon64.exe -accepteula -i sysmonconfig.xml

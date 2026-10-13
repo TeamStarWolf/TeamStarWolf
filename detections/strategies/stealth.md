@@ -2,7 +2,7 @@
 
 > MITRE ATT&CK detection strategies and analytics (v19.2) for techniques whose primary tactic is Stealth. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
 
-See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](../TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](../../ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](../../techniques/README.md)
+See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](/techniques/README.md)
 
 ---
 
@@ -11,7 +11,7 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 
 Detection strategy: Detection of Direct Volume Access for File System Evasion (`DET0426`)  
 Platforms: Network Devices, Windows  
-ATT&CK: [T1006](https://attack.mitre.org/techniques/T1006/), [detail page](../../techniques/stealth.md#t1006)
+ATT&CK: [T1006](https://attack.mitre.org/techniques/T1006/), [detail page](/techniques/stealth.md#t1006)
 
 - `AN1193` Analytic 1193, Windows
   Processes accessing raw logical drives (e.g., \.\C:) to bypass file system protections or directly manipulate data structures.
@@ -29,7 +29,7 @@ ATT&CK: [T1006](https://attack.mitre.org/techniques/T1006/), [detail page](../..
 
 Detection strategy: Detection of Kernel/User-Level Rootkit Behavior Across Platforms (`DET0377`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1014](https://attack.mitre.org/techniques/T1014/), [detail page](../../techniques/stealth.md#t1014)
+ATT&CK: [T1014](https://attack.mitre.org/techniques/T1014/), [detail page](/techniques/stealth.md#t1014)
 
 - `AN1061` Analytic 1061, Windows
   Unauthorized or anomalous loading of kernel-mode drivers or DLLs, concealed services, or abnormal modification of boot components indicative of rootkit activity.
@@ -51,7 +51,7 @@ ATT&CK: [T1014](https://attack.mitre.org/techniques/T1014/), [detail page](../..
 
 Detection strategy: Behavioral Detection of Obfuscated Files or Information (`DET0378`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1027](https://attack.mitre.org/techniques/T1027/), [detail page](../../techniques/stealth.md#t1027)
+ATT&CK: [T1027](https://attack.mitre.org/techniques/T1027/), [detail page](/techniques/stealth.md#t1027)
 
 - `AN1064` Analytic 1064, Windows
   Correlates script execution or suspicious parent processes with creation or modification of encoded, compressed, or encrypted file formats (e.g., .zip, .7z, .enc) and abnormal command-line syntax or PowerShell obfuscation.
@@ -81,7 +81,7 @@ ATT&CK: [T1027](https://attack.mitre.org/techniques/T1027/), [detail page](../..
 
 Detection strategy: Detection Strategy for Obfuscated Files or Information: Binary Padding (`DET0553`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1027.001](https://attack.mitre.org/techniques/T1027/001/), [detail page](../../techniques/stealth.md#t1027001)
+ATT&CK: [T1027.001](https://attack.mitre.org/techniques/T1027/001/), [detail page](/techniques/stealth.md#t1027001)
 
 - `AN1528` Analytic 1528, Windows
   Detects the creation or execution of padded binary files (e.g., large size but minimal legitimate content) followed by process execution or lateral movement from the host.
@@ -103,7 +103,7 @@ ATT&CK: [T1027.001](https://attack.mitre.org/techniques/T1027/001/), [detail pag
 
 Detection strategy: Obfuscated Binary Unpacking Detection via Behavioral Patterns (`DET0023`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1027.002](https://attack.mitre.org/techniques/T1027/002/), [detail page](../../techniques/stealth.md#t1027002)
+ATT&CK: [T1027.002](https://attack.mitre.org/techniques/T1027/002/), [detail page](/techniques/stealth.md#t1027002)
 
 - `AN0066` Analytic 0066, Windows
   Detection of unpacking behavior through abnormal memory allocation, followed by executable code injection and execution from non-image sections.
@@ -125,7 +125,7 @@ ATT&CK: [T1027.002](https://attack.mitre.org/techniques/T1027/002/), [detail pag
 
 Detection strategy: Detection Strategy for Steganographic Abuse in File & Script Execution (`DET0119`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1027.003](https://attack.mitre.org/techniques/T1027/003/), [detail page](../../techniques/stealth.md#t1027003)
+ATT&CK: [T1027.003](https://attack.mitre.org/techniques/T1027/003/), [detail page](/techniques/stealth.md#t1027003)
 
 - `AN0331` Analytic 0331, Windows
   Detects execution of image viewers or PowerShell scripts accessing or decoding files with mismatched MIME headers or embedded script-like byte patterns; often correlated with suspicious parent-child process lineage and outbound connections.
@@ -147,7 +147,7 @@ ATT&CK: [T1027.003](https://attack.mitre.org/techniques/T1027/003/), [detail pag
 
 Detection strategy: Detection Strategy for Compile After Delivery - Source Code to Executable Transformation (`DET0501`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1027.004](https://attack.mitre.org/techniques/T1027/004/), [detail page](../../techniques/stealth.md#t1027004)
+ATT&CK: [T1027.004](https://attack.mitre.org/techniques/T1027/004/), [detail page](/techniques/stealth.md#t1027004)
 
 - `AN1381` Analytic 1381, Windows
   Detects compilation activity using csc.exe, ilasm.exe, or msbuild.exe initiated by user-space processes outside typical development environments, followed by execution or network activity from newly written binaries.
@@ -169,7 +169,7 @@ ATT&CK: [T1027.004](https://attack.mitre.org/techniques/T1027/004/), [detail pag
 
 Detection strategy: Detection Strategy for Indicator Removal from Tools - Post-AV Evasion Modification (`DET0189`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1027.005](https://attack.mitre.org/techniques/T1027/005/), [detail page](../../techniques/stealth.md#t1027005)
+ATT&CK: [T1027.005](https://attack.mitre.org/techniques/T1027/005/), [detail page](/techniques/stealth.md#t1027005)
 
 - `AN0540` Analytic 0540, Windows
   Detection of known tools or malware flagged by antivirus, followed by a near-term drop of a similar binary with modified signature and resumed activity (execution, C2, or persistence).
@@ -191,7 +191,7 @@ ATT&CK: [T1027.005](https://attack.mitre.org/techniques/T1027/005/), [detail pag
 
 Detection strategy: Detection Strategy for HTML Smuggling via JavaScript Blob + Dynamic File Drop (`DET0313`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1027.006](https://attack.mitre.org/techniques/T1027/006/), [detail page](../../techniques/stealth.md#t1027006)
+ATT&CK: [T1027.006](https://attack.mitre.org/techniques/T1027/006/), [detail page](/techniques/stealth.md#t1027006)
 
 - `AN0872` Analytic 0872, Windows
   Detection of browser-based or email client-driven file creation (often from temp directories) following navigation to or execution of HTML files containing JavaScript Blob APIs or base64 Data URLs, with follow-on execution of the dropped payload. Leveraging Sysmon EventID 15 to inspect Zone.Identifier ADS for HostUrl/ReferrerUrl indicators (e.g., HostUrl=about:internet). Optional: absence of a large HTTP download record for the same URL/client in proxy logs (suggests local assembly)
@@ -213,7 +213,7 @@ ATT&CK: [T1027.006](https://attack.mitre.org/techniques/T1027/006/), [detail pag
 
 Detection strategy: Detection Strategy for Dynamic API Resolution via Hash-Based Function Lookups (`DET0091`)  
 Platforms: Windows  
-ATT&CK: [T1027.007](https://attack.mitre.org/techniques/T1027/007/), [detail page](../../techniques/stealth.md#t1027007)
+ATT&CK: [T1027.007](https://attack.mitre.org/techniques/T1027/007/), [detail page](/techniques/stealth.md#t1027007)
 
 - `AN0250` Analytic 0250, Windows
   Behavioral chain involving suspicious use of GetProcAddress and LoadLibrary following memory allocation and manual mapping, often paired with low entropy strings, abnormal API use without static import tables, or delayed module load behaviors.
@@ -227,7 +227,7 @@ ATT&CK: [T1027.007](https://attack.mitre.org/techniques/T1027/007/), [detail pag
 
 Detection strategy: Detection Strategy for Stripped Payloads Across Platforms (`DET0019`)  
 Platforms: Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1027.008](https://attack.mitre.org/techniques/T1027/008/), [detail page](../../techniques/stealth.md#t1027008)
+ATT&CK: [T1027.008](https://attack.mitre.org/techniques/T1027/008/), [detail page](/techniques/stealth.md#t1027008)
 
 - `AN0055` Analytic 0055, Windows
   Executable or script payloads lacking symbol information and readable strings that are created or dropped by unusual or short-lived processes.
@@ -253,7 +253,7 @@ ATT&CK: [T1027.008](https://attack.mitre.org/techniques/T1027/008/), [detail pag
 
 Detection strategy: Detection Strategy for Embedded Payloads (`DET0214`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1027.009](https://attack.mitre.org/techniques/T1027/009/), [detail page](../../techniques/stealth.md#t1027009)
+ATT&CK: [T1027.009](https://attack.mitre.org/techniques/T1027/009/), [detail page](/techniques/stealth.md#t1027009)
 
 - `AN0599` Analytic 0599, Windows
   Detection of executables or scripts containing hidden embedded resources or secondary payloads, often with anomalies in file size vs. functionality or dropped child binaries.
@@ -275,7 +275,7 @@ ATT&CK: [T1027.009](https://attack.mitre.org/techniques/T1027/009/), [detail pag
 
 Detection strategy: Detection Strategy for Command Obfuscation (`DET0505`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1027.010](https://attack.mitre.org/techniques/T1027/010/), [detail page](../../techniques/stealth.md#t1027010)
+ATT&CK: [T1027.010](https://attack.mitre.org/techniques/T1027/010/), [detail page](/techniques/stealth.md#t1027010)
 
 - `AN1394` Analytic 1394, Windows
   Detection of command-line activity exhibiting syntactic obfuscation patterns, such as excessive escape characters, base64 encoding, command concatenation, or outlier command length and entropy.
@@ -297,7 +297,7 @@ ATT&CK: [T1027.010](https://attack.mitre.org/techniques/T1027/010/), [detail pag
 
 Detection strategy: Detection Strategy for Fileless Storage via Registry, WMI, and Shared Memory (`DET0344`)  
 Platforms: Linux, Windows  
-ATT&CK: [T1027.011](https://attack.mitre.org/techniques/T1027/011/), [detail page](../../techniques/stealth.md#t1027011)
+ATT&CK: [T1027.011](https://attack.mitre.org/techniques/T1027/011/), [detail page](/techniques/stealth.md#t1027011)
 
 - `AN0973` Analytic 0973, Windows
   Detects abuse of fileless storage mechanisms such as Registry keys, WMI classes, and Event Logs used to stage payloads, scripts, or encoded content outside traditional files.
@@ -315,7 +315,7 @@ ATT&CK: [T1027.011](https://attack.mitre.org/techniques/T1027/011/), [detail pag
 
 Detection strategy: Detection Strategy for LNK Icon Smuggling (`DET0405`)  
 Platforms: Windows  
-ATT&CK: [T1027.012](https://attack.mitre.org/techniques/T1027/012/), [detail page](../../techniques/stealth.md#t1027012)
+ATT&CK: [T1027.012](https://attack.mitre.org/techniques/T1027/012/), [detail page](/techniques/stealth.md#t1027012)
 
 - `AN1134` Analytic 1134, Windows
   Correlates LNK file execution with embedded resource extraction or suspicious network activity following initial launch, often leading to payload delivery via disguised icons.
@@ -329,7 +329,7 @@ ATT&CK: [T1027.012](https://attack.mitre.org/techniques/T1027/012/), [detail pag
 
 Detection strategy: Encrypted or Encoded File Payload Detection Strategy (`DET0087`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1027.013](https://attack.mitre.org/techniques/T1027/013/), [detail page](../../techniques/stealth.md#t1027013)
+ATT&CK: [T1027.013](https://attack.mitre.org/techniques/T1027/013/), [detail page](/techniques/stealth.md#t1027013)
 
 - `AN0237` Analytic 0237, Windows
   Detection of processes that load or decode encrypted/encoded files in memory and subsequently execute or inject them, indicating payload unpacking or memory-resident malware.
@@ -351,7 +351,7 @@ ATT&CK: [T1027.013](https://attack.mitre.org/techniques/T1027/013/), [detail pag
 
 Detection strategy: Detection Strategy for Polymorphic Code Mutation and Execution (`DET0324`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1027.014](https://attack.mitre.org/techniques/T1027/014/), [detail page](../../techniques/stealth.md#t1027014)
+ATT&CK: [T1027.014](https://attack.mitre.org/techniques/T1027/014/), [detail page](/techniques/stealth.md#t1027014)
 
 - `AN0919` Analytic 0919, Windows
   Identifies self-modifying executables that exhibit changes in binary hash, entropy, or memory sections during or between executions—often tied to dynamic unpacking or decryption behaviors.
@@ -373,7 +373,7 @@ ATT&CK: [T1027.014](https://attack.mitre.org/techniques/T1027/014/), [detail pag
 
 Detection strategy: Detection Strategy for Compressed Payload Creation and Execution (`DET0281`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1027.015](https://attack.mitre.org/techniques/T1027/015/), [detail page](../../techniques/stealth.md#t1027015)
+ATT&CK: [T1027.015](https://attack.mitre.org/techniques/T1027/015/), [detail page](/techniques/stealth.md#t1027015)
 
 - `AN0782` Analytic 0782, Windows
   Monitors for compression tool usage (e.g., 7zip, WinRAR, MakeCab) that follows or precedes file modification, suspicious file types (e.g., .exe, .dll) being compressed, or dropped from self-extracting archives followed by immediate execution.
@@ -395,7 +395,7 @@ ATT&CK: [T1027.015](https://attack.mitre.org/techniques/T1027/015/), [detail pag
 
 Detection strategy: Detection Strategy for Junk Code Obfuscation with Suspicious Execution Patterns (`DET0322`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1027.016](https://attack.mitre.org/techniques/T1027/016/), [detail page](../../techniques/stealth.md#t1027016)
+ATT&CK: [T1027.016](https://attack.mitre.org/techniques/T1027/016/), [detail page](/techniques/stealth.md#t1027016)
 
 - `AN0913` Analytic 0913, Windows
   Detects the presence of executables with high NOP padding, unusually large binary size for their function, and follow-on execution or memory injection from such files, especially when originating from temp or user-space paths.
@@ -417,7 +417,7 @@ ATT&CK: [T1027.016](https://attack.mitre.org/techniques/T1027/016/), [detail pag
 
 Detection strategy: Detection Strategy for SVG Smuggling with Script Execution and Delivery Behavior (`DET0510`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1027.017](https://attack.mitre.org/techniques/T1027/017/), [detail page](../../techniques/stealth.md#t1027017)
+ATT&CK: [T1027.017](https://attack.mitre.org/techniques/T1027/017/), [detail page](/techniques/stealth.md#t1027017)
 
 - `AN1407` Analytic 1407, Windows
   Detects suspicious SVG file creation or download events followed by script engine execution (e.g., wscript.exe, mshta.exe, rundll32.exe), network callbacks, or browser-based credential collection.
@@ -439,7 +439,7 @@ ATT&CK: [T1027.017](https://attack.mitre.org/techniques/T1027/017/), [detail pag
 
 Detection strategy: Detection Strategy for Invisible Unicode (`DET0920`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1027.018](https://attack.mitre.org/techniques/T1027/018/), [detail page](../../techniques/stealth.md#t1027018)
+ATT&CK: [T1027.018](https://attack.mitre.org/techniques/T1027/018/), [detail page](/techniques/stealth.md#t1027018)
 
 - `AN2063` Analytic 2063, Windows
   Detection identifies execution of scripts or files that appear visually benign (low printable character ratio) but result in runtime decoding, dynamic evaluation, and subsequent process or network activity. Correlation links script execution with abnormal Unicode density and follow-on behavior such as child process creation or outbound connections.
@@ -461,7 +461,7 @@ ATT&CK: [T1027.018](https://attack.mitre.org/techniques/T1027/018/), [detail pag
 
 Detection strategy: Behavioral Detection of Masquerading Across Platforms via Metadata and Execution Discrepancy (`DET0127`)  
 Platforms: Containers, ESXi, Linux, Windows, macOS  
-ATT&CK: [T1036](https://attack.mitre.org/techniques/T1036/), [detail page](../../techniques/stealth.md#t1036)
+ATT&CK: [T1036](https://attack.mitre.org/techniques/T1036/), [detail page](/techniques/stealth.md#t1036)
 
 - `AN0355` Analytic 0355, Windows
   Adversary renames LOLBINs or deploys binaries with spoofed file names, internal PE metadata, or misleading icons to appear legitimate. File creation is followed by execution or service registration inconsistent with known usage.
@@ -491,7 +491,7 @@ ATT&CK: [T1036](https://attack.mitre.org/techniques/T1036/), [detail page](../..
 
 Detection strategy: Invalid Code Signature Execution Detection via Metadata and Behavioral Context (`DET0031`)  
 Platforms: Windows, macOS  
-ATT&CK: [T1036.001](https://attack.mitre.org/techniques/T1036/001/), [detail page](../../techniques/stealth.md#t1036001)
+ATT&CK: [T1036.001](https://attack.mitre.org/techniques/T1036/001/), [detail page](/techniques/stealth.md#t1036001)
 
 - `AN0089` Analytic 0089, Windows
   Execution of binaries with invalid digital signatures, where metadata claims code is signed but validation fails. Behavior is often correlated with suspicious parent processes or unexpected execution paths.
@@ -509,7 +509,7 @@ ATT&CK: [T1036.001](https://attack.mitre.org/techniques/T1036/001/), [detail pag
 
 Detection strategy: Right-to-Left Override Masquerading Detection via Filename and Execution Context (`DET0527`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1036.002](https://attack.mitre.org/techniques/T1036/002/), [detail page](../../techniques/stealth.md#t1036002)
+ATT&CK: [T1036.002](https://attack.mitre.org/techniques/T1036/002/), [detail page](/techniques/stealth.md#t1036002)
 
 - `AN1461` Analytic 1461, Windows
   Execution of files containing right-to-left override characters (U+202E) to masquerade true file extensions. Often found in phishing payloads or file downloads.
@@ -531,7 +531,7 @@ ATT&CK: [T1036.002](https://attack.mitre.org/techniques/T1036/002/), [detail pag
 
 Detection strategy: Renamed Legitimate Utility Execution with Metadata Mismatch and Suspicious Path (`DET0005`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1036.003](https://attack.mitre.org/techniques/T1036/003/), [detail page](../../techniques/stealth.md#t1036003)
+ATT&CK: [T1036.003](https://attack.mitre.org/techniques/T1036/003/), [detail page](/techniques/stealth.md#t1036003)
 
 - `AN0012` Analytic 0012, Windows
   Execution of binaries where the on-disk filename does not match PE metadata such as OriginalFilename or InternalName. Often observed with renamed LOLBAS or system binaries like rundll32, powershell, or psexec.
@@ -553,7 +553,7 @@ ATT&CK: [T1036.003](https://attack.mitre.org/techniques/T1036/003/), [detail pag
 
 Detection strategy: Detection of Masqueraded Tasks or Services with Suspicious Naming and Execution (`DET0117`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1036.004](https://attack.mitre.org/techniques/T1036/004/), [detail page](../../techniques/stealth.md#t1036004)
+ATT&CK: [T1036.004](https://attack.mitre.org/techniques/T1036/004/), [detail page](/techniques/stealth.md#t1036004)
 
 - `AN0324` Analytic 0324, Windows
   Creation or modification of Windows services or scheduled tasks with names or descriptions mimicking legitimate entries, followed by anomalous execution of untrusted binaries or LOLBAS.
@@ -575,7 +575,7 @@ ATT&CK: [T1036.004](https://attack.mitre.org/techniques/T1036/004/), [detail pag
 
 Detection strategy: Detection Strategy for Masquerading via Legitimate Resource Name or Location (`DET0347`)  
 Platforms: Containers, ESXi, Linux, Windows, macOS  
-ATT&CK: [T1036.005](https://attack.mitre.org/techniques/T1036/005/), [detail page](../../techniques/stealth.md#t1036005)
+ATT&CK: [T1036.005](https://attack.mitre.org/techniques/T1036/005/), [detail page](/techniques/stealth.md#t1036005)
 
 - `AN0983` Analytic 0983, Windows
   Detects processes or binaries executed from trusted directories (e.g., System32) or using trusted names (e.g., svchost.exe) where the metadata, hash, or parent process does not align with legitimate activity patterns.
@@ -605,7 +605,7 @@ ATT&CK: [T1036.005](https://attack.mitre.org/techniques/T1036/005/), [detail pag
 
 Detection strategy: Masquerading via Space After Filename - Behavioral Detection Strategy (`DET0292`)  
 Platforms: Linux, macOS  
-ATT&CK: [T1036.006](https://attack.mitre.org/techniques/T1036/006/), [detail page](../../techniques/stealth.md#t1036006)
+ATT&CK: [T1036.006](https://attack.mitre.org/techniques/T1036/006/), [detail page](/techniques/stealth.md#t1036006)
 
 - `AN0812` Analytic 0812, Linux
   Detection of file execution where the file name contains a trailing space to masquerade as a known executable. Adversaries may exploit the way command line interpreters handle file names with trailing whitespace.
@@ -623,7 +623,7 @@ ATT&CK: [T1036.006](https://attack.mitre.org/techniques/T1036/006/), [detail pag
 
 Detection strategy: Detection Strategy for Double File Extension Masquerading (`DET0366`)  
 Platforms: Windows  
-ATT&CK: [T1036.007](https://attack.mitre.org/techniques/T1036/007/), [detail page](../../techniques/stealth.md#t1036007)
+ATT&CK: [T1036.007](https://attack.mitre.org/techniques/T1036/007/), [detail page](/techniques/stealth.md#t1036007)
 
 - `AN1033` Analytic 1033, Windows
   Detects adversary behavior where a file with a benign-looking first extension (e.g., .txt, .jpg) ends with a dangerous second extension (e.g., .exe, .scr), and is subsequently executed. The behavior chain includes file creation with misleading naming and user or system-initiated process execution from the disguised file.
@@ -637,7 +637,7 @@ ATT&CK: [T1036.007](https://attack.mitre.org/techniques/T1036/007/), [detail pag
 
 Detection strategy: Detection Strategy for Masquerading via File Type Modification (`DET0226`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1036.008](https://attack.mitre.org/techniques/T1036/008/), [detail page](../../techniques/stealth.md#t1036008)
+ATT&CK: [T1036.008](https://attack.mitre.org/techniques/T1036/008/), [detail page](/techniques/stealth.md#t1036008)
 
 - `AN0630` Analytic 0630, Windows
   Detects behavior where files with non-executable or misleading extensions (e.g., .jpg, .txt) are created or modified but subsequently executed as binaries based on internal file headers or abnormal parent process lineage. This includes identifying polyglot files or malformed magic bytes indicative of masquerading attempts.
@@ -659,7 +659,7 @@ ATT&CK: [T1036.008](https://attack.mitre.org/techniques/T1036/008/), [detail pag
 
 Detection strategy: Detection Strategy for Masquerading via Breaking Process Trees (`DET0443`)  
 Platforms: Linux, macOS  
-ATT&CK: [T1036.009](https://attack.mitre.org/techniques/T1036/009/), [detail page](../../techniques/stealth.md#t1036009)
+ATT&CK: [T1036.009](https://attack.mitre.org/techniques/T1036/009/), [detail page](/techniques/stealth.md#t1036009)
 
 - `AN1223` Analytic 1223, Linux
   Detects anomalous process execution patterns where a process's parent terminates quickly after process creation or is re-parented to 'init' (PID 1), often indicating double-fork or daemon-style detachment. These behaviors sever the parent-child relationship and obscure the execution origin in process tree analysis.
@@ -677,7 +677,7 @@ ATT&CK: [T1036.009](https://attack.mitre.org/techniques/T1036/009/), [detail pag
 
 Detection strategy: Detection Strategy for Masquerading via Account Name Similarity (`DET0383`)  
 Platforms: Containers, Identity Provider, Linux, Windows  
-ATT&CK: [T1036.010](https://attack.mitre.org/techniques/T1036/010/), [detail page](../../techniques/stealth.md#t1036010)
+ATT&CK: [T1036.010](https://attack.mitre.org/techniques/T1036/010/), [detail page](/techniques/stealth.md#t1036010)
 
 - `AN1077` Analytic 1077, Windows
   Detects adversary behavior where a newly created or renamed user account closely resembles existing service or administrator accounts to blend in and avoid detection. Common patterns include prefix/suffix modifications, homoglyphs, or use of names like 'admin1', 'adm1n', or 'backup_help'.
@@ -703,7 +703,7 @@ ATT&CK: [T1036.010](https://attack.mitre.org/techniques/T1036/010/), [detail pag
 
 Detection strategy: Detection Strategy for Overwritten Process Arguments Masquerading (`DET0164`)  
 Platforms: Linux  
-ATT&CK: [T1036.011](https://attack.mitre.org/techniques/T1036/011/), [detail page](../../techniques/stealth.md#t1036011)
+ATT&CK: [T1036.011](https://attack.mitre.org/techniques/T1036/011/), [detail page](/techniques/stealth.md#t1036011)
 
 - `AN0466` Analytic 0466, Linux
   Detects adversary behavior where the command-line arguments of a running process are overwritten in memory to spoof the process name, typically replacing it with a benign or misleading string. The detection correlates unexpected null byte sequences, discrepancies between `/proc/<pid>/cmdline` and process ancestry, and suspicious memory writes shortly after process start.
@@ -717,7 +717,7 @@ ATT&CK: [T1036.011](https://attack.mitre.org/techniques/T1036/011/), [detail pag
 
 Detection strategy: Detection of Spoofed User-Agent (`DET0898`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1036.012](https://attack.mitre.org/techniques/T1036/012/), [detail page](../../techniques/stealth.md#t1036012)
+ATT&CK: [T1036.012](https://attack.mitre.org/techniques/T1036/012/), [detail page](/techniques/stealth.md#t1036012)
 
 - `AN2029` Analytic 2029, Windows
   Process execution without GUI context (e.g., powershell.exe, wscript.exe) generates HTTP traffic with a spoofed User-Agent mimicking a legitimate browser. No corresponding UI application (e.g., msedge.exe) is active or in parent lineage. The User-Agent deviates from known enterprise baselines or contains spoofed platform indicators. User-Agent strings can be gathered with API calls such as `ShellExecuteW` to open the default browser on a socket to receive an HTTP reply, or by hard coding the User-Agent string for a specific browser.
@@ -739,7 +739,7 @@ ATT&CK: [T1036.012](https://attack.mitre.org/techniques/T1036/012/), [detail pag
 
 Detection strategy: Behavioral Detection of Process Injection Across Platforms (`DET0508`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1055](https://attack.mitre.org/techniques/T1055/), [detail page](../../techniques/stealth.md#t1055)
+ATT&CK: [T1055](https://attack.mitre.org/techniques/T1055/), [detail page](/techniques/stealth.md#t1055)
 
 - `AN1399` Analytic 1399, Windows
   Detects process injection by correlating memory manipulation API calls (e.g., VirtualAllocEx, WriteProcessMemory), suspicious thread creation (e.g., CreateRemoteThread), and unusual DLL loads within another process's context.
@@ -761,7 +761,7 @@ ATT&CK: [T1055](https://attack.mitre.org/techniques/T1055/), [detail page](../..
 
 Detection strategy: Behavioral Detection of DLL Injection via Windows API (`DET0389`)  
 Platforms: Windows  
-ATT&CK: [T1055.001](https://attack.mitre.org/techniques/T1055/001/), [detail page](../../techniques/stealth.md#t1055001)
+ATT&CK: [T1055.001](https://attack.mitre.org/techniques/T1055/001/), [detail page](/techniques/stealth.md#t1055001)
 
 - `AN1095` Analytic 1095, Windows
   Detects DLL injection through correlation of memory allocation and writing to remote process memory (e.g., VirtualAllocEx, WriteProcessMemory), followed by remote thread creation (e.g., CreateRemoteThread) that loads a suspicious or unsigned DLL using LoadLibrary or reflective loading.
@@ -775,7 +775,7 @@ ATT&CK: [T1055.001](https://attack.mitre.org/techniques/T1055/001/), [detail pag
 
 Detection strategy: Behavioral Detection of PE Injection via Remote Memory Mapping (`DET0106`)  
 Platforms: Windows  
-ATT&CK: [T1055.002](https://attack.mitre.org/techniques/T1055/002/), [detail page](../../techniques/stealth.md#t1055002)
+ATT&CK: [T1055.002](https://attack.mitre.org/techniques/T1055/002/), [detail page](/techniques/stealth.md#t1055002)
 
 - `AN0297` Analytic 0297, Windows
   Detects PE injection through a behavioral sequence where one process opens (OpenProcess) a handle to another, allocates remote memory (VirtualAllocEx), writes a PE header (MZ) or shellcode (WriteProcessMemory), then initiates a new thread (CreateRemoteThread or NtCreateThreadEx) in that process—executing injected code in memory without touching disk. Optional: injects a trampoline or shellcode that unpacks/reflectively maps the payload.
@@ -789,7 +789,7 @@ ATT&CK: [T1055.002](https://attack.mitre.org/techniques/T1055/002/), [detail pag
 
 Detection strategy: Behavioral Detection of Thread Execution Hijacking via Thread Suspension and Context Switching (`DET0295`)  
 Platforms: Windows  
-ATT&CK: [T1055.003](https://attack.mitre.org/techniques/T1055/003/), [detail page](../../techniques/stealth.md#t1055003)
+ATT&CK: [T1055.003](https://attack.mitre.org/techniques/T1055/003/), [detail page](/techniques/stealth.md#t1055003)
 
 - `AN0822` Analytic 0822, Windows
   Detects hijacking of an existing thread (OpenThread) through a behavioral chain involving thread suspension (SuspendThread), memory modification (VirtualAllocEx + WriteProcessMemory), context manipulation (SetThreadContext), and thread resumption—all within another live process's address space (ResumeThread).
@@ -803,7 +803,7 @@ ATT&CK: [T1055.003](https://attack.mitre.org/techniques/T1055/003/), [detail pag
 
 Detection strategy: Behavioral Detection of Asynchronous Procedure Call (APC) Injection via Remote Thread Queuing (`DET0100`)  
 Platforms: Windows  
-ATT&CK: [T1055.004](https://attack.mitre.org/techniques/T1055/004/), [detail page](../../techniques/stealth.md#t1055004)
+ATT&CK: [T1055.004](https://attack.mitre.org/techniques/T1055/004/), [detail page](/techniques/stealth.md#t1055004)
 
 - `AN0277` Analytic 0277, Windows
   Detects malicious injection behavior involving memory allocation, remote thread queuing via APC (e.g., QueueUserAPC), and altered thread context within another live process to execute unauthorized code under legitimate context.
@@ -817,7 +817,7 @@ ATT&CK: [T1055.004](https://attack.mitre.org/techniques/T1055/004/), [detail pag
 
 Detection strategy: Detection Strategy for TLS Callback Injection via PE Memory Modification and Hollowing (`DET0467`)  
 Platforms: Windows  
-ATT&CK: [T1055.005](https://attack.mitre.org/techniques/T1055/005/), [detail page](../../techniques/stealth.md#t1055005)
+ATT&CK: [T1055.005](https://attack.mitre.org/techniques/T1055/005/), [detail page](/techniques/stealth.md#t1055005)
 
 - `AN1289` Analytic 1289, Windows
   Detects thread local storage (TLS) callback injection by monitoring memory modifications to PE headers and TLS directory structures during or after process hollowing events, followed by anomalous thread behavior prior to main entry point execution.
@@ -831,7 +831,7 @@ ATT&CK: [T1055.005](https://attack.mitre.org/techniques/T1055/005/), [detail pag
 
 Detection strategy: Detection Strategy for Ptrace-Based Process Injection on Linux (`DET0203`)  
 Platforms: Linux  
-ATT&CK: [T1055.008](https://attack.mitre.org/techniques/T1055/008/), [detail page](../../techniques/stealth.md#t1055008)
+ATT&CK: [T1055.008](https://attack.mitre.org/techniques/T1055/008/), [detail page](/techniques/stealth.md#t1055008)
 
 - `AN0579` Analytic 0579, Linux
   Detects ptrace-based process injection by correlating audit logs of ptrace syscalls, memory modifications (e.g., poketext, pokedata), and suspicious register manipulation on a target process not normally debugged by the originator. Alerts on processes attempting to ptrace non-child or privileged processes, especially those followed by abnormal memory or execution behavior.
@@ -845,7 +845,7 @@ ATT&CK: [T1055.008](https://attack.mitre.org/techniques/T1055/008/), [detail pag
 
 Detection strategy: Detection Strategy for /proc Memory Injection on Linux (`DET0541`)  
 Platforms: Linux  
-ATT&CK: [T1055.009](https://attack.mitre.org/techniques/T1055/009/), [detail page](../../techniques/stealth.md#t1055009)
+ATT&CK: [T1055.009](https://attack.mitre.org/techniques/T1055/009/), [detail page](/techniques/stealth.md#t1055009)
 
 - `AN1494` Analytic 1494, Linux
   Detects adversary behavior where a process enumerates and modifies another process's memory using /proc/[pid]/maps and /proc/[pid]/mem files. This includes identifying gadgets via memory mappings and overwriting process memory via low-level file modification or dd usage.
@@ -859,7 +859,7 @@ ATT&CK: [T1055.009](https://attack.mitre.org/techniques/T1055/009/), [detail pag
 
 Detection strategy: Detection Strategy for Extra Window Memory (EWM) Injection on Windows (`DET0217`)  
 Platforms: Windows  
-ATT&CK: [T1055.011](https://attack.mitre.org/techniques/T1055/011/), [detail page](../../techniques/stealth.md#t1055011)
+ATT&CK: [T1055.011](https://attack.mitre.org/techniques/T1055/011/), [detail page](/techniques/stealth.md#t1055011)
 
 - `AN0608` Analytic 0608, Windows
   Detects adversary manipulation of Extra Window Memory (EWM) in a GUI process, where the attacker uses SetWindowLong or SetClassLong to redirect function pointers to injected shellcode stored in shared memory, then triggers execution via a window message like SendNotifyMessage.
@@ -873,7 +873,7 @@ ATT&CK: [T1055.011](https://attack.mitre.org/techniques/T1055/011/), [detail pag
 
 Detection strategy: Detection Strategy for Process Hollowing on Windows (`DET0382`)  
 Platforms: Windows  
-ATT&CK: [T1055.012](https://attack.mitre.org/techniques/T1055/012/), [detail page](../../techniques/stealth.md#t1055012)
+ATT&CK: [T1055.012](https://attack.mitre.org/techniques/T1055/012/), [detail page](/techniques/stealth.md#t1055012)
 
 - `AN1076` Analytic 1076, Windows
   Detects adversary use of suspended process creation, using the CREATE_SUSPENDED flag via CreateProcess, followed by unmapping the memory of the child process (NtUnmapViewOfSection) and replacing it with malicious code via VirtualAllocEx/WriteProcessMemory, then SetThreadContext and ResumeThread to begin execution within the hollowed process.
@@ -887,7 +887,7 @@ ATT&CK: [T1055.012](https://attack.mitre.org/techniques/T1055/012/), [detail pag
 
 Detection strategy: Detection Strategy for Process Doppelgänging on Windows (`DET0544`)  
 Platforms: Windows  
-ATT&CK: [T1055.013](https://attack.mitre.org/techniques/T1055/013/), [detail page](../../techniques/stealth.md#t1055013)
+ATT&CK: [T1055.013](https://attack.mitre.org/techniques/T1055/013/), [detail page](/techniques/stealth.md#t1055013)
 
 - `AN1501` Analytic 1501, Windows
   Detects adversary abuse of Transactional NTFS (TxF) and undocumented process loading mechanisms (e.g., NtCreateProcessEx) to create a hollowed process from an uncommitted, maliciously tainted file image in memory, later executed via NtCreateThreadEx.
@@ -901,7 +901,7 @@ ATT&CK: [T1055.013](https://attack.mitre.org/techniques/T1055/013/), [detail pag
 
 Detection strategy: Detection Strategy for VDSO Hijacking on Linux (`DET0448`)  
 Platforms: Linux  
-ATT&CK: [T1055.014](https://attack.mitre.org/techniques/T1055/014/), [detail page](../../techniques/stealth.md#t1055014)
+ATT&CK: [T1055.014](https://attack.mitre.org/techniques/T1055/014/), [detail page](/techniques/stealth.md#t1055014)
 
 - `AN1241` Analytic 1241, Linux
   Detects the redirection of syscall execution flow via modification of VDSO code stubs or GOT entries to load and execute a malicious shared object through mmap and ptrace.
@@ -915,7 +915,7 @@ ATT&CK: [T1055.014](https://attack.mitre.org/techniques/T1055/014/), [detail pag
 
 Detection strategy: Detection Strategy for ListPlanting Injection on Windows (`DET0331`)  
 Platforms: Windows  
-ATT&CK: [T1055.015](https://attack.mitre.org/techniques/T1055/015/), [detail page](../../techniques/stealth.md#t1055015)
+ATT&CK: [T1055.015](https://attack.mitre.org/techniques/T1055/015/), [detail page](/techniques/stealth.md#t1055015)
 
 - `AN0941` Analytic 0941, Windows
   Detects the use of message-based injection by monitoring for sequences involving FindWindow (EnumWindows or EnumChildWindows), VirtualAllocEx or related API calls, combined with suspicious PostMessage/SendMessage (e.g., LVM_SETITEMPOSITION) use to SysListView32 controls, followed by LVM_SORTITEMS invocation instead of WriteProcessMemory.
@@ -929,7 +929,7 @@ ATT&CK: [T1055.015](https://attack.mitre.org/techniques/T1055/015/), [detail pag
 
 Detection strategy: Behavioral Detection of Indicator Removal Across Platforms (`DET0184`)  
 Platforms: Containers, ESXi, Linux, Office Suite, Windows, macOS  
-ATT&CK: [T1070](https://attack.mitre.org/techniques/T1070/), [detail page](../../techniques/stealth.md#t1070)
+ATT&CK: [T1070](https://attack.mitre.org/techniques/T1070/), [detail page](/techniques/stealth.md#t1070)
 
 - `AN0520` Analytic 0520, Windows
   Monitors sequences involving deletion/modification of logs, registry keys, scheduled tasks, or prefetch files following suspicious process activity or elevated access escalation.
@@ -963,7 +963,7 @@ ATT&CK: [T1070](https://attack.mitre.org/techniques/T1070/), [detail page](../..
 
 Detection strategy: Behavioral Detection of Command History Clearing (`DET0165`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1070.003](https://attack.mitre.org/techniques/T1070/003/), [detail page](../../techniques/stealth.md#t1070003)
+ATT&CK: [T1070.003](https://attack.mitre.org/techniques/T1070/003/), [detail page](/techniques/stealth.md#t1070003)
 
 - `AN0467` Analytic 0467, Linux
   Detects adversary behavior clearing command history via `history -c`, deletion or modification of ~/.bash_history, or manipulation of the HISTFILE environment variable post-login.
@@ -993,7 +993,7 @@ ATT&CK: [T1070.003](https://attack.mitre.org/techniques/T1070/003/), [detail pag
 
 Detection strategy: Behavioral Detection of Malicious File Deletion (`DET0140`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1070.004](https://attack.mitre.org/techniques/T1070/004/), [detail page](../../techniques/stealth.md#t1070004)
+ATT&CK: [T1070.004](https://attack.mitre.org/techniques/T1070/004/), [detail page](/techniques/stealth.md#t1070004)
 
 - `AN0392` Analytic 0392, Windows
   Detects adversary behavior deleting artifacts (e.g., dropped payloads, evidence files) using native or external utilities (e.g., del, erase, SDelete). Detects deletion events correlated with unusual process lineage or timing post-execution.
@@ -1019,7 +1019,7 @@ ATT&CK: [T1070.004](https://attack.mitre.org/techniques/T1070/004/), [detail pag
 
 Detection strategy: Behavioral Detection of Network Share Connection Removal via CLI and SMB Disconnects (`DET0103`)  
 Platforms: Windows  
-ATT&CK: [T1070.005](https://attack.mitre.org/techniques/T1070/005/), [detail page](../../techniques/stealth.md#t1070005)
+ATT&CK: [T1070.005](https://attack.mitre.org/techniques/T1070/005/), [detail page](/techniques/stealth.md#t1070005)
 
 - `AN0286` Analytic 0286, Windows
   Detects network share disconnection attempts using command-line tools like `net use /delete`, PowerShell `Remove-SmbMapping`, and correlation with process lineage and SMB session teardown activity.
@@ -1033,7 +1033,7 @@ ATT&CK: [T1070.005](https://attack.mitre.org/techniques/T1070/005/), [detail pag
 
 Detection strategy: Cross-Platform Behavioral Detection of File Timestomping via Metadata Tampering (`DET0591`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1070.006](https://attack.mitre.org/techniques/T1070/006/), [detail page](../../techniques/stealth.md#t1070006)
+ATT&CK: [T1070.006](https://attack.mitre.org/techniques/T1070/006/), [detail page](/techniques/stealth.md#t1070006)
 
 - `AN1626` Analytic 1626, Windows
   Detects attempts to modify file timestamps via API usage (e.g., `SetFileTime`), CLI tools (e.g., `w32tm`, PowerShell), or double-timestomp behavior where $SI and $FN timestamps are mismatched or reverted.
@@ -1059,7 +1059,7 @@ ATT&CK: [T1070.006](https://attack.mitre.org/techniques/T1070/006/), [detail pag
 
 Detection strategy: Behavioral Detection of Network History and Configuration Tampering (`DET0049`)  
 Platforms: Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1070.007](https://attack.mitre.org/techniques/T1070/007/), [detail page](../../techniques/stealth.md#t1070007)
+ATT&CK: [T1070.007](https://attack.mitre.org/techniques/T1070/007/), [detail page](/techniques/stealth.md#t1070007)
 
 - `AN0133` Analytic 0133, Windows
   Detects attempts to clear RDP/network history and modify network configuration artifacts through command execution, registry key deletion, firewall rule changes, and suspicious file deletions (e.g., Default.rdp, registry edits to Terminal Server Client keys).
@@ -1085,7 +1085,7 @@ ATT&CK: [T1070.007](https://attack.mitre.org/techniques/T1070/007/), [detail pag
 
 Detection strategy: Behavioral Detection of Mailbox Data and Log Deletion for Anti-Forensics (`DET0266`)  
 Platforms: Linux, Office Suite, Windows, macOS  
-ATT&CK: [T1070.008](https://attack.mitre.org/techniques/T1070/008/), [detail page](../../techniques/stealth.md#t1070008)
+ATT&CK: [T1070.008](https://attack.mitre.org/techniques/T1070/008/), [detail page](/techniques/stealth.md#t1070008)
 
 - `AN0737` Analytic 0737, Windows
   Detects mailbox manipulation or deletion via PowerShell (e.g., Remove-MailboxExportRequest), file deletion from Outlook data stores (Unistore.db), or tampering with quarantined mail logs.
@@ -1111,7 +1111,7 @@ ATT&CK: [T1070.008](https://attack.mitre.org/techniques/T1070/008/), [detail pag
 
 Detection strategy: Detection of Persistence Artifact Removal Across Host Platforms (`DET0040`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1070.009](https://attack.mitre.org/techniques/T1070/009/), [detail page](../../techniques/stealth.md#t1070009)
+ATT&CK: [T1070.009](https://attack.mitre.org/techniques/T1070/009/), [detail page](/techniques/stealth.md#t1070009)
 
 - `AN0113` Analytic 0113, Windows
   Detects adversary activity that removes persistence artifacts such as services, registry keys, scheduled tasks, user accounts, and binaries through commands like `sc delete`, `schtasks /delete`, or `reg delete`.
@@ -1137,7 +1137,7 @@ ATT&CK: [T1070.009](https://attack.mitre.org/techniques/T1070/009/), [detail pag
 
 Detection strategy: Detection of Malware Relocation via Suspicious File Movement (`DET0439`)  
 Platforms: Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1070.010](https://attack.mitre.org/techniques/T1070/010/), [detail page](../../techniques/stealth.md#t1070010)
+ATT&CK: [T1070.010](https://attack.mitre.org/techniques/T1070/010/), [detail page](/techniques/stealth.md#t1070010)
 
 - `AN1216` Analytic 1216, Windows
   Detects the relocation of malicious executables via copy/move actions across suspicious folders (e.g., from Downloads to System32), followed by deletion of the original source or renaming to blend into legitimate binaries.
@@ -1163,7 +1163,7 @@ ATT&CK: [T1070.010](https://attack.mitre.org/techniques/T1070/010/), [detail pag
 
 Detection strategy: Detection of Valid Account Abuse Across Platforms (`DET0560`)  
 Platforms: Containers, Identity Provider, Linux, Windows, macOS  
-ATT&CK: [T1078](https://attack.mitre.org/techniques/T1078/), [detail page](../../techniques/stealth.md#t1078)
+ATT&CK: [T1078](https://attack.mitre.org/techniques/T1078/), [detail page](/techniques/stealth.md#t1078)
 
 - `AN1543` Analytic 1543, Windows
   Detection of compromised or misused valid accounts via anomalous logon patterns, abnormal logon types, and inconsistent geographic or time-based activity across Windows endpoints.
@@ -1193,7 +1193,7 @@ ATT&CK: [T1078](https://attack.mitre.org/techniques/T1078/), [detail page](../..
 
 Detection strategy: Detection of Default Account Abuse Across Platforms (`DET0465`)  
 Platforms: ESXi, Identity Provider, Linux, Network Devices, Windows  
-ATT&CK: [T1078.001](https://attack.mitre.org/techniques/T1078/001/), [detail page](../../techniques/stealth.md#t1078001)
+ATT&CK: [T1078.001](https://attack.mitre.org/techniques/T1078/001/), [detail page](/techniques/stealth.md#t1078001)
 
 - `AN1283` Analytic 1283, Windows
   Detection of default account usage such as Guest or Administrator performing interactive or remote logons on systems outside of installation or maintenance windows.
@@ -1223,7 +1223,7 @@ ATT&CK: [T1078.001](https://attack.mitre.org/techniques/T1078/001/), [detail pag
 
 Detection strategy: Abuse of Domain Accounts (`DET0210`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1078.002](https://attack.mitre.org/techniques/T1078/002/), [detail page](../../techniques/stealth.md#t1078002)
+ATT&CK: [T1078.002](https://attack.mitre.org/techniques/T1078/002/), [detail page](/techniques/stealth.md#t1078002)
 
 - `AN0590` Analytic 0590, Windows
   Detection of suspicious logon behavior using valid domain accounts across multiple hosts, off-hours, or simultaneous sessions from geographically distant locations.
@@ -1249,7 +1249,7 @@ ATT&CK: [T1078.002](https://attack.mitre.org/techniques/T1078/002/), [detail pag
 
 Detection strategy: Detection of Local Account Abuse for Initial Access and Persistence (`DET0407`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1078.003](https://attack.mitre.org/techniques/T1078/003/), [detail page](../../techniques/stealth.md#t1078003)
+ATT&CK: [T1078.003](https://attack.mitre.org/techniques/T1078/003/), [detail page](/techniques/stealth.md#t1078003)
 
 - `AN1137` Analytic 1137, Windows
   Detects anomalous usage of local accounts to log into a system, especially accounts not typically used interactively or outside business hours.
@@ -1271,7 +1271,7 @@ ATT&CK: [T1078.003](https://attack.mitre.org/techniques/T1078/003/), [detail pag
 
 Detection strategy: Detection of Abused or Compromised Cloud Accounts for Access and Persistence (`DET0546`)  
 Platforms: IaaS, Identity Provider, Office Suite, SaaS  
-ATT&CK: [T1078.004](https://attack.mitre.org/techniques/T1078/004/), [detail page](../../techniques/stealth.md#t1078004)
+ATT&CK: [T1078.004](https://attack.mitre.org/techniques/T1078/004/), [detail page](/techniques/stealth.md#t1078004)
 
 - `AN1503` Analytic 1503, Identity Provider
   Detects anomalous authentication activity such as sign-ins from impossible geolocations or legacy protocols from high-privileged accounts.
@@ -1297,7 +1297,7 @@ ATT&CK: [T1078.004](https://attack.mitre.org/techniques/T1078/004/), [detail pag
 
 Detection strategy: Behavior-chain, platform-aware detection strategy for T1127 Trusted Developer Utilities Proxy Execution (Windows) (`DET0172`)  
 Platforms: Windows  
-ATT&CK: [T1127](https://attack.mitre.org/techniques/T1127/), [detail page](../../techniques/stealth.md#t1127)
+ATT&CK: [T1127](https://attack.mitre.org/techniques/T1127/), [detail page](/techniques/stealth.md#t1127)
 
 - `AN0488` Analytic 0488, Windows
   A trusted/signed developer utility (parent) is executed in a non-developer context and (a) spawns suspicious children (e.g., powershell.exe, cmd.exe, rundll32.exe, regsvr32.exe, wscript.exe), (b) loads unsigned/user-writable DLLs, (c) writes and then runs a new PE from user-writable paths, and/or (d) immediately makes outbound network connections.
@@ -1311,7 +1311,7 @@ ATT&CK: [T1127](https://attack.mitre.org/techniques/T1127/), [detail page](../..
 
 Detection strategy: Behavior-chain detection strategy for T1127.001 Trusted Developer Utilities Proxy Execution: MSBuild (Windows) (`DET0556`)  
 Platforms: Windows  
-ATT&CK: [T1127.001](https://attack.mitre.org/techniques/T1127/001/), [detail page](../../techniques/stealth.md#t1127001)
+ATT&CK: [T1127.001](https://attack.mitre.org/techniques/T1127/001/), [detail page](/techniques/stealth.md#t1127001)
 
 - `AN1535` Analytic 1535, Windows
   MSBuild.exe is invoked outside expected developer/build contexts or with anomalous arguments (e.g., non-canonical paths, remote shares, Base64/obfuscated property values). Within a short window, it (a) spawns high-risk LOLBins/script interpreters, (b) writes new PE/DLL/script artifacts into user-writable paths and executes them, (c) loads unsigned/user-writable modules, (d) performs memory injection/thread creation into other processes, and/or (e) initiates outbound network connections.
@@ -1325,7 +1325,7 @@ ATT&CK: [T1127.001](https://attack.mitre.org/techniques/T1127/001/), [detail pag
 
 Detection strategy: Behavior-chain detection strategy for T1127.002 Trusted Developer Utilities Proxy Execution: ClickOnce (Windows) (`DET0191`)  
 Platforms: Windows  
-ATT&CK: [T1127.002](https://attack.mitre.org/techniques/T1127/002/), [detail page](../../techniques/stealth.md#t1127002)
+ATT&CK: [T1127.002](https://attack.mitre.org/techniques/T1127/002/), [detail page](/techniques/stealth.md#t1127002)
 
 - `AN0550` Analytic 0550, Windows
   Abuse of ClickOnce applications where rundll32.exe invokes dfshim.dll with ShOpenVerbApplication or dfsvc.exe spawns unexpected child processes or loads unsigned modules.
@@ -1339,7 +1339,7 @@ ATT&CK: [T1127.002](https://attack.mitre.org/techniques/T1127/002/), [detail pag
 
 Detection strategy: Behavior-chain detection strategy for T1127.003 Trusted Developer Utilities Proxy Execution: JamPlus (Windows) (`DET0585`)  
 Platforms: Windows  
-ATT&CK: [T1127.003](https://attack.mitre.org/techniques/T1127/003/), [detail page](../../techniques/stealth.md#t1127003)
+ATT&CK: [T1127.003](https://attack.mitre.org/techniques/T1127/003/), [detail page](/techniques/stealth.md#t1127003)
 
 - `AN1610` Analytic 1610, Windows
   Abuse of JamPlus.exe to launch malicious payloads via crafted .jam files, resulting in abnormal process creation, command execution, or artifact generation outside of standard development workflows.
@@ -1353,7 +1353,7 @@ ATT&CK: [T1127.003](https://attack.mitre.org/techniques/T1127/003/), [detail pag
 
 Detection strategy: Behavior-chain detection for T1134 Access Token Manipulation on Windows (`DET0283`)  
 Platforms: Windows  
-ATT&CK: [T1134](https://attack.mitre.org/techniques/T1134/), [detail page](../../techniques/stealth.md#t1134)
+ATT&CK: [T1134](https://attack.mitre.org/techniques/T1134/), [detail page](/techniques/stealth.md#t1134)
 
 - `AN0786` Analytic 0786, Windows
   Detection of suspicious token manipulation chains: use of token-related APIs (e.g., LogonUser, DuplicateTokenEx) or commands (runas) -> spawning of a new process under a different security context (e.g., SYSTEM) -> mismatched parent-child process lineage or anomalies in Event Tracing for Windows (ETW) token/PPID data -> abnormal lateral or privilege escalation activity.
@@ -1367,7 +1367,7 @@ ATT&CK: [T1134](https://attack.mitre.org/techniques/T1134/), [detail page](../..
 
 Detection strategy: Behavior-chain detection for T1134.001 Access Token Manipulation: Token Impersonation/Theft on Windows (`DET0482`)  
 Platforms: Windows  
-ATT&CK: [T1134.001](https://attack.mitre.org/techniques/T1134/001/), [detail page](../../techniques/stealth.md#t1134001)
+ATT&CK: [T1134.001](https://attack.mitre.org/techniques/T1134/001/), [detail page](/techniques/stealth.md#t1134001)
 
 - `AN1324` Analytic 1324, Windows
   Detection of token duplication and impersonation attempts by correlating suspicious command-line executions (e.g., runas) with API calls to DuplicateToken, DuplicateTokenEx, ImpersonateLoggedOnUser, or SetThreadToken. The chain includes the initial command execution or in-memory API invocation -> token handle duplication or thread token assignment -> a new or existing process assuming the impersonated user's context.
@@ -1381,7 +1381,7 @@ ATT&CK: [T1134.001](https://attack.mitre.org/techniques/T1134/001/), [detail pag
 
 Detection strategy: Behavior-chain detection for T1134.002 Create Process with Token (Windows) (`DET0456`)  
 Platforms: Windows  
-ATT&CK: [T1134.002](https://attack.mitre.org/techniques/T1134/002/), [detail page](../../techniques/stealth.md#t1134002)
+ATT&CK: [T1134.002](https://attack.mitre.org/techniques/T1134/002/), [detail page](/techniques/stealth.md#t1134002)
 
 - `AN1253` Analytic 1253, Windows
   A process (often after stealing/creating a token) calls CreateProcessWithTokenW/CreateProcessAsUserW or uses runas to spawn a new process whose security context (SID/LogonId/IntegrityLevel) differs from its parent. Chain: (1) suspicious command/API -> (2) privileged handle or token duplication/open -> (3) new child process running as another user / higher integrity -> (4) optional follow‑on privileged/lateral actions.
@@ -1395,7 +1395,7 @@ ATT&CK: [T1134.002](https://attack.mitre.org/techniques/T1134/002/), [detail pag
 
 Detection strategy: Behavior‑chain detection for T1134.003 Make and Impersonate Token (Windows) (`DET0498`)  
 Platforms: Windows  
-ATT&CK: [T1134.003](https://attack.mitre.org/techniques/T1134/003/), [detail page](../../techniques/stealth.md#t1134003)
+ATT&CK: [T1134.003](https://attack.mitre.org/techniques/T1134/003/), [detail page](/techniques/stealth.md#t1134003)
 
 - `AN1375` Analytic 1375, Windows
   A process creates a brand‑new logon session/token (LogonUser*/LsaLogonUser) and then assigns/impersonates it (SetThreadToken/ImpersonateLoggedOnUser) to run actions under that freshly created security context. Chain: (1) suspicious command or script block (e.g., runas /netonly, PowerShell P/Invoke of LogonUser) -> (2) ETW/API evidence of LogonUser*/SetThreadToken -> (3) Security 4624 New Logon (often LogonType=9 NewCredentials or 2/3 from a non‑interactive parent) with no interactive desktop -> (4) sysmon 1 process(es) executing with the new LogonId/SID different from the parent process -> (5) optional privileged ops/lateral movement.
@@ -1409,7 +1409,7 @@ ATT&CK: [T1134.003](https://attack.mitre.org/techniques/T1134/003/), [detail pag
 
 Detection strategy: Behavior-chain detection for T1134.004 Access Token Manipulation: Parent PID Spoofing (Windows) (`DET0489`)  
 Platforms: Windows  
-ATT&CK: [T1134.004](https://attack.mitre.org/techniques/T1134/004/), [detail page](../../techniques/stealth.md#t1134004)
+ATT&CK: [T1134.004](https://attack.mitre.org/techniques/T1134/004/), [detail page](/techniques/stealth.md#t1134004)
 
 - `AN1351` Analytic 1351, Windows
   A process explicitly forges its parent using EXTENDED_STARTUPINFO + PROC_THREAD_ATTRIBUTE_PARENT_PROCESS (UpdateProcThreadAttribute -> CreateProcess[A/W]/CreateProcessAsUserW) or other Native API paths, resulting in mismatched/implausible lineage across ETW EventHeader ProcessId, Security 4688 Creator Process ID/Name, and sysmon ParentProcessGuid. Often paired with privilege escalation when the chosen parent runs as SYSTEM.
@@ -1423,7 +1423,7 @@ ATT&CK: [T1134.004](https://attack.mitre.org/techniques/T1134/004/), [detail pag
 
 Detection strategy: Behavior-chain detection for T1134.005 Access Token Manipulation: SID-History Injection (Windows) (`DET0136`)  
 Platforms: Windows  
-ATT&CK: [T1134.005](https://attack.mitre.org/techniques/T1134/005/), [detail page](../../techniques/stealth.md#t1134005)
+ATT&CK: [T1134.005](https://attack.mitre.org/techniques/T1134/005/), [detail page](/techniques/stealth.md#t1134005)
 
 - `AN0383` Analytic 0383, Windows
   Detection of unauthorized modification of Active Directory SID-History attributes to escalate privileges. This chain involves: (1) privileged operations or API calls to DsAddSidHistory or related AD modification functions, (2) observed attribute changes in SID-History (Event ID 5136), (3) new logon sessions where the token includes unexpected or privileged SID-History values, and (4) follow-on resource access using elevated privileges derived from SID-History injection.
@@ -1437,7 +1437,7 @@ ATT&CK: [T1134.005](https://attack.mitre.org/techniques/T1134/005/), [detail pag
 
 Detection strategy: Detect Adversary Deobfuscation or Decoding of Files and Payloads (`DET0275`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1140](https://attack.mitre.org/techniques/T1140/), [detail page](../../techniques/stealth.md#t1140)
+ATT&CK: [T1140](https://attack.mitre.org/techniques/T1140/), [detail page](/techniques/stealth.md#t1140)
 
 - `AN0767` Analytic 0767, Windows
   An adversary leverages built-in tools such as certutil.exe, powershell.exe, or copy.exe to decode, reassemble, or extract hidden malicious content from obfuscated containers or encoded formats. The decoding utility often spawns shortly after file staging or download and may be chained with script interpreters or further payload execution.
@@ -1459,7 +1459,7 @@ ATT&CK: [T1140](https://attack.mitre.org/techniques/T1140/), [detail page](../..
 
 Detection strategy: Detect abuse of Windows BITS Jobs for download, execution and persistence (`DET0098`)  
 Platforms: Windows  
-ATT&CK: [T1197](https://attack.mitre.org/techniques/T1197/), [detail page](../../techniques/stealth.md#t1197)
+ATT&CK: [T1197](https://attack.mitre.org/techniques/T1197/), [detail page](/techniques/stealth.md#t1197)
 
 - `AN0274` Analytic 0274, Windows
   Behavioral chain: (1) An actor creates or modifies a BITS job via bitsadmin.exe, PowerShell BITS cmdlets, or COM; (2) the job performs HTTP(S)/SMB network transfers while the owning user is logged on; (3) upon job completion/error, BITS launches a notify command (SetNotifyCmdLine) from svchost.exe -k netsvcs -s BITS, often establishing persistence by keeping long-lived jobs. The strategy correlates process creation, command/script telemetry, BITS-Client operational events, and network connections initiated by BITS.
@@ -1473,7 +1473,7 @@ ATT&CK: [T1197](https://attack.mitre.org/techniques/T1197/), [detail page](../..
 
 Detection strategy: Indirect Command Execution – Windows utility abuse behavior chain (`DET0200`)  
 Platforms: Windows  
-ATT&CK: [T1202](https://attack.mitre.org/techniques/T1202/), [detail page](../../techniques/stealth.md#t1202)
+ATT&CK: [T1202](https://attack.mitre.org/techniques/T1202/), [detail page](/techniques/stealth.md#t1202)
 
 - `AN0576` Analytic 0576, Windows
   Cause->effect chain: (1) A user or service launches an indirection utility (e.g., forfiles.exe, pcalua.exe, wsl.exe, scriptrunner.exe, ssh.exe with -o ProxyCommand/LocalCommand). (2) That utility spawns a secondary program/command (PowerShell, cmd, msiexec, regsvr32, curl, arbitrary EXE) and/or opens outbound network connections. (3) Optional precursor modification of SSH config to persist LocalCommand/ProxyCommand. Correlate process creation, command/script content, file access to %USERPROFILE%\.ssh\config, and network connections from the utility or its child.
@@ -1487,7 +1487,7 @@ ATT&CK: [T1202](https://attack.mitre.org/techniques/T1202/), [detail page](../..
 
 Detection strategy: Traffic Signaling (Port-knock / magic-packet -> firewall or service activation) – T1205 (`DET0524`)  
 Platforms: Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1205](https://attack.mitre.org/techniques/T1205/), [detail page](../../techniques/stealth.md#t1205)
+ATT&CK: [T1205](https://attack.mitre.org/techniques/T1205/), [detail page](/techniques/stealth.md#t1205)
 
 - `AN1448` Analytic 1448, Windows
   A remote host sends a short sequence of failed connection attempts (RST/ICMP unreachable) to a set of closed ports. Within a brief window the endpoint (a) adds/enables a firewall rule or (b) a sniffer-backed process begins listening or opens a new socket, after which a successful connection occurs. Also detects Wake-on-LAN magic packets seen on local segment.
@@ -1513,7 +1513,7 @@ ATT&CK: [T1205](https://attack.mitre.org/techniques/T1205/), [detail page](../..
 
 Detection strategy: Port-knock -> rule/daemon change -> first successful connect (T1205.001) (`DET0302`)  
 Platforms: Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1205.001](https://attack.mitre.org/techniques/T1205/001/), [detail page](../../techniques/stealth.md#t1205001)
+ATT&CK: [T1205.001](https://attack.mitre.org/techniques/T1205/001/), [detail page](/techniques/stealth.md#t1205001)
 
 - `AN0842` Analytic 0842, Windows
   A remote source rapidly touches a short sequence of closed ports (SYN->RST/S0) on a Windows host. Within a short window the host changes firewall state (WFP rule added/modified or service starts listening) and then the same source completes the first successful handshake to the newly opened port.
@@ -1539,7 +1539,7 @@ ATT&CK: [T1205.001](https://attack.mitre.org/techniques/T1205/001/), [detail pag
 
 Detection strategy: Socket-filter trigger -> on-host raw-socket activity -> reverse connection (T1205.002) (`DET0162`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1205.002](https://attack.mitre.org/techniques/T1205/002/), [detail page](../../techniques/stealth.md#t1205002)
+ATT&CK: [T1205.002](https://attack.mitre.org/techniques/T1205/002/), [detail page](/techniques/stealth.md#t1205002)
 
 - `AN0462` Analytic 0462, Windows
   Adversary installs/uses packet-capture or raw-socket capability (WinPcap/Npcap, wpcap/packet DLLs or raw socket attach) and sets a filter. A crafted inbound packet is observed; within a short window the host process that loaded capture libraries initiates an outbound connection (e.g., reverse shell) to the packet origin.
@@ -1561,7 +1561,7 @@ ATT&CK: [T1205.002](https://attack.mitre.org/techniques/T1205/002/), [detail pag
 
 Detection strategy: Detection Strategy for Exploitation for Stealth (`DET0595`)  
 Platforms: IaaS, Linux, SaaS, Windows, macOS  
-ATT&CK: [T1211](https://attack.mitre.org/techniques/T1211/), [detail page](../../techniques/stealth.md#t1211)
+ATT&CK: [T1211](https://attack.mitre.org/techniques/T1211/), [detail page](/techniques/stealth.md#t1211)
 
 - `AN1633` Analytic 1633, Windows
   Detects exploitation attempts targeting defensive security software or OS services. Defender observation includes abnormal process behavior (e.g., AV or EDR crashing unexpectedly), unsigned/untrusted modules loaded into defensive processes, or privilege escalation from security agent services. Multi-event correlation ties exploitation attempts to subsequent evasive behavior like service termination or missing logs.
@@ -1591,7 +1591,7 @@ ATT&CK: [T1211](https://attack.mitre.org/techniques/T1211/), [detail page](../..
 
 Detection strategy: Detection of Script-Based Proxy Execution via Signed Microsoft Utilities (`DET0466`)  
 Platforms: Windows  
-ATT&CK: [T1216](https://attack.mitre.org/techniques/T1216/), [detail page](../../techniques/stealth.md#t1216)
+ATT&CK: [T1216](https://attack.mitre.org/techniques/T1216/), [detail page](/techniques/stealth.md#t1216)
 
 - `AN1288` Analytic 1288, Windows
   Execution of Microsoft-signed scripts (e.g., pubprn.vbs, installutil.exe, wscript.exe, cscript.exe) used to proxy execution of untrusted or external binaries. Behavior is detected through command-line process lineage, child process spawning, and unsigned payload execution from signed parent.
@@ -1605,7 +1605,7 @@ ATT&CK: [T1216](https://attack.mitre.org/techniques/T1216/), [detail page](../..
 
 Detection strategy: Detecting Remote Script Proxy Execution via PubPrn.vbs (`DET0528`)  
 Platforms: Windows  
-ATT&CK: [T1216.001](https://attack.mitre.org/techniques/T1216/001/), [detail page](../../techniques/stealth.md#t1216001)
+ATT&CK: [T1216.001](https://attack.mitre.org/techniques/T1216/001/), [detail page](/techniques/stealth.md#t1216001)
 
 - `AN1464` Analytic 1464, Windows
   Execution of PubPrn.vbs via cscript.exe using the 'script:' moniker to load and execute a remote .sct scriptlet file, bypassing signature validation and proxying remote payloads through a signed Microsoft script host.
@@ -1619,7 +1619,7 @@ ATT&CK: [T1216.001](https://attack.mitre.org/techniques/T1216/001/), [detail pag
 
 Detection strategy: Detecting PowerShell Execution via SyncAppvPublishingServer.vbs Proxy Abuse (`DET0440`)  
 Platforms: Windows  
-ATT&CK: [T1216.002](https://attack.mitre.org/techniques/T1216/002/), [detail page](../../techniques/stealth.md#t1216002)
+ATT&CK: [T1216.002](https://attack.mitre.org/techniques/T1216/002/), [detail page](/techniques/stealth.md#t1216002)
 
 - `AN1220` Analytic 1220, Windows
   Execution of SyncAppvPublishingServer.vbs through wscript.exe with a command-line containing embedded PowerShell, proxying malicious PowerShell execution through a Microsoft-signed VBScript interpreter to evade detection and restrictions.
@@ -1633,7 +1633,7 @@ ATT&CK: [T1216.002](https://attack.mitre.org/techniques/T1216/002/), [detail pag
 
 Detection strategy: Detection of Proxy Execution via Trusted Signed Binaries Across Platforms (`DET0081`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1218](https://attack.mitre.org/techniques/T1218/), [detail page](../../techniques/stealth.md#t1218)
+ATT&CK: [T1218](https://attack.mitre.org/techniques/T1218/), [detail page](/techniques/stealth.md#t1218)
 
 - `AN0226` Analytic 0226, Windows
   Execution of trusted, Microsoft-signed binaries such as `rundll32.exe`, `msiexec.exe`, or `regsvr32.exe` used to execute externally hosted, unsigned, or suspicious payloads through command-line parameters or network retrieval.
@@ -1655,7 +1655,7 @@ ATT&CK: [T1218](https://attack.mitre.org/techniques/T1218/), [detail page](../..
 
 Detection strategy: Detection of Suspicious Compiled HTML File Execution via hh.exe (`DET0342`)  
 Platforms: Windows  
-ATT&CK: [T1218.001](https://attack.mitre.org/techniques/T1218/001/), [detail page](../../techniques/stealth.md#t1218001)
+ATT&CK: [T1218.001](https://attack.mitre.org/techniques/T1218/001/), [detail page](/techniques/stealth.md#t1218001)
 
 - `AN0968` Analytic 0968, Windows
   Execution of hh.exe to open a .chm file followed by suspicious child processes or script engine invocation (VBScript, JScript, mshta, powershell). Behavior includes loading a CHM file from untrusted locations, or immediately spawning commands indicative of payload execution.
@@ -1669,7 +1669,7 @@ ATT&CK: [T1218.001](https://attack.mitre.org/techniques/T1218/001/), [detail pag
 
 Detection strategy: Detection of Malicious Control Panel Item Execution via control.exe or Rundll32 (`DET0194`)  
 Platforms: Windows  
-ATT&CK: [T1218.002](https://attack.mitre.org/techniques/T1218/002/), [detail page](../../techniques/stealth.md#t1218002)
+ATT&CK: [T1218.002](https://attack.mitre.org/techniques/T1218/002/), [detail page](/techniques/stealth.md#t1218002)
 
 - `AN0558` Analytic 0558, Windows
   Execution of control.exe or rundll32.exe with parameters pointing to CPL files, especially from non-standard directories or newly created files, followed by suspicious child process execution or registry modifications registering new Control Panel items.
@@ -1683,7 +1683,7 @@ ATT&CK: [T1218.002](https://attack.mitre.org/techniques/T1218/002/), [detail pag
 
 Detection strategy: Detection of Malicious Profile Installation via CMSTP.exe (`DET0328`)  
 Platforms: Windows  
-ATT&CK: [T1218.003](https://attack.mitre.org/techniques/T1218/003/), [detail page](../../techniques/stealth.md#t1218003)
+ATT&CK: [T1218.003](https://attack.mitre.org/techniques/T1218/003/), [detail page](/techniques/stealth.md#t1218003)
 
 - `AN0932` Analytic 0932, Windows
   Execution of CMSTP.exe with arguments pointing to suspicious or remote INF/SCT/DLL payloads, optionally followed by outbound network connections to untrusted IPs, process injection via COM interfaces (CMSTPLUA, CMLUAUTIL), registry modifications registering malicious profiles, or creation of suspicious INF/DLL/SCT files prior to execution.
@@ -1697,7 +1697,7 @@ ATT&CK: [T1218.003](https://attack.mitre.org/techniques/T1218/003/), [detail pag
 
 Detection strategy: Detection of Malicious Code Execution via InstallUtil.exe (`DET0138`)  
 Platforms: Windows  
-ATT&CK: [T1218.004](https://attack.mitre.org/techniques/T1218/004/), [detail page](../../techniques/stealth.md#t1218004)
+ATT&CK: [T1218.004](https://attack.mitre.org/techniques/T1218/004/), [detail page](/techniques/stealth.md#t1218004)
 
 - `AN0388` Analytic 0388, Windows
   Execution of InstallUtil.exe from .NET framework directories with arguments specifying non-standard or attacker-supplied assemblies, especially when followed by suspicious child process creation or script execution. Detection also includes correlation of newly created binaries prior to InstallUtil invocation and anomalous command-line usage compared to historical baselines.
@@ -1711,7 +1711,7 @@ ATT&CK: [T1218.004](https://attack.mitre.org/techniques/T1218/004/), [detail pag
 
 Detection strategy: Detecting Mshta-based Proxy Execution via Suspicious HTA or Script Invocation (`DET0506`)  
 Platforms: Windows  
-ATT&CK: [T1218.005](https://attack.mitre.org/techniques/T1218/005/), [detail page](../../techniques/stealth.md#t1218005)
+ATT&CK: [T1218.005](https://attack.mitre.org/techniques/T1218/005/), [detail page](/techniques/stealth.md#t1218005)
 
 - `AN1397` Analytic 1397, Windows
   Detection of mshta.exe execution where command-line arguments reference remote or local HTA/script content (VBScript/JScript) followed by subsequent file creation, network retrieval, or process spawning that indicates payload execution outside standard Internet Explorer security context. Correlation includes parent process lineage, command-line inspection, and network connection creation to untrusted or anomalous endpoints.
@@ -1725,7 +1725,7 @@ ATT&CK: [T1218.005](https://attack.mitre.org/techniques/T1218/005/), [detail pag
 
 Detection strategy: Detection of Msiexec Abuse for Local, Network, and DLL Execution (`DET0158`)  
 Platforms: Windows  
-ATT&CK: [T1218.007](https://attack.mitre.org/techniques/T1218/007/), [detail page](../../techniques/stealth.md#t1218007)
+ATT&CK: [T1218.007](https://attack.mitre.org/techniques/T1218/007/), [detail page](/techniques/stealth.md#t1218007)
 
 - `AN0445` Analytic 0445, Windows
   Detection of msiexec.exe execution where command-line arguments reference remote MSI packages, UNC paths, HTTP/HTTPS URLs, or DLLs, correlated with subsequent module loads and/or network connections to previously unseen destinations. The behavioral chain links process creation of msiexec.exe with suspicious parameters, network activity to retrieve payloads, and module loading indicative of malicious installation or DLL execution.
@@ -1739,7 +1739,7 @@ ATT&CK: [T1218.007](https://attack.mitre.org/techniques/T1218/007/), [detail pag
 
 Detection strategy: Detecting Odbcconf Proxy Execution of Malicious DLLs (`DET0486`)  
 Platforms: Windows  
-ATT&CK: [T1218.008](https://attack.mitre.org/techniques/T1218/008/), [detail page](../../techniques/stealth.md#t1218008)
+ATT&CK: [T1218.008](https://attack.mitre.org/techniques/T1218/008/), [detail page](/techniques/stealth.md#t1218008)
 
 - `AN1335` Analytic 1335, Windows
   Identifies abuse of odbcconf.exe to execute malicious DLLs using the REGSVR command flag. Behavior chain: (1) Process creation of odbcconf.exe with /REGSVR or /A {REGSVR ...} arguments -> (2) DLL load by odbcconf.exe of non-standard or unsigned modules -> (3) Optional follow-on process creation or network activity from loaded DLL.
@@ -1753,7 +1753,7 @@ ATT&CK: [T1218.008](https://attack.mitre.org/techniques/T1218/008/), [detail pag
 
 Detection strategy: Detecting .NET COM Registration Abuse via Regsvcs/Regasm (`DET0361`)  
 Platforms: Windows  
-ATT&CK: [T1218.009](https://attack.mitre.org/techniques/T1218/009/), [detail page](../../techniques/stealth.md#t1218009)
+ATT&CK: [T1218.009](https://attack.mitre.org/techniques/T1218/009/), [detail page](/techniques/stealth.md#t1218009)
 
 - `AN1028` Analytic 1028, Windows
   Abuse of Regsvcs.exe or Regasm.exe to execute arbitrary code embedded in .NET assemblies via [ComRegisterFunction]/[ComUnregisterFunction]. Behavioral chain: (1) Process creation of regsvcs/regasm with suspicious assembly paths/flags -> (2) Assembly/DLL load inside regsvcs/regasm -> (3) Registry writes to HKCR\CLSID/ProgID during COM registration -> (4) Optional child process or network activity spawned by installer/registration code.
@@ -1767,7 +1767,7 @@ ATT&CK: [T1218.009](https://attack.mitre.org/techniques/T1218/009/), [detail pag
 
 Detection strategy: Detection Strategy for System Binary Proxy Execution: Regsvr32 (`DET0282`)  
 Platforms: Windows  
-ATT&CK: [T1218.010](https://attack.mitre.org/techniques/T1218/010/), [detail page](../../techniques/stealth.md#t1218010)
+ATT&CK: [T1218.010](https://attack.mitre.org/techniques/T1218/010/), [detail page](/techniques/stealth.md#t1218010)
 
 - `AN0785` Analytic 0785, Windows
   Detection focuses on identifying anomalous regsvr32.exe executions that deviate from normal administrative or system use. Defenders may observe regsvr32.exe loading scriptlets or DLLs from unusual paths (especially temporary directories or remote URLs), command-line arguments invoking /i or /u with suspicious file references, network connections initiated by regsvr32.exe, and unsigned or untrusted DLLs being loaded shortly after regsvr32.exe invocation. Correlated sequences include regsvr32.exe process creation, module load of DLL/scriptlet, and optional outbound network traffic.
@@ -1781,7 +1781,7 @@ ATT&CK: [T1218.010](https://attack.mitre.org/techniques/T1218/010/), [detail pag
 
 Detection strategy: Detection Strategy for T1218.011 Rundll32 Abuse (`DET0475`)  
 Platforms: Windows  
-ATT&CK: [T1218.011](https://attack.mitre.org/techniques/T1218/011/), [detail page](../../techniques/stealth.md#t1218011)
+ATT&CK: [T1218.011](https://attack.mitre.org/techniques/T1218/011/), [detail page](/techniques/stealth.md#t1218011)
 
 - `AN1308` Analytic 1308, Windows
   Detects rundll32.exe invoked with atypical arguments (.dll, .cpl, javascript:, mshtml). DLLs not normally loaded by rundll32 are mapped into memory. Control_RunDLL or RunHTMLApplication invoked. Suspicious DLLs or scripts accessed from disk or network. Rundll32 reaches out to external domains (e.g., fetching .sct or .hta).
@@ -1795,7 +1795,7 @@ ATT&CK: [T1218.011](https://attack.mitre.org/techniques/T1218/011/), [detail pag
 
 Detection strategy: Detection Strategy for T1218.012 Verclsid Abuse (`DET0042`)  
 Platforms: Windows  
-ATT&CK: [T1218.012](https://attack.mitre.org/techniques/T1218/012/), [detail page](../../techniques/stealth.md#t1218012)
+ATT&CK: [T1218.012](https://attack.mitre.org/techniques/T1218/012/), [detail page](/techniques/stealth.md#t1218012)
 
 - `AN0118` Analytic 0118, Windows
   Detects abuse of verclsid.exe to execute COM objects by monitoring process creation, CLSID arguments, DLLs or scriptlet engines loaded into memory, and If the CLSID points to remote SCT/HTA content, verclsid.exe makes outbound connections.
@@ -1809,7 +1809,7 @@ ATT&CK: [T1218.012](https://attack.mitre.org/techniques/T1218/012/), [detail pag
 
 Detection strategy: Detecting Code Injection via mavinject.exe (App-V Injector) (`DET0433`)  
 Platforms: Windows  
-ATT&CK: [T1218.013](https://attack.mitre.org/techniques/T1218/013/), [detail page](../../techniques/stealth.md#t1218013)
+ATT&CK: [T1218.013](https://attack.mitre.org/techniques/T1218/013/), [detail page](/techniques/stealth.md#t1218013)
 
 - `AN1207` Analytic 1207, Windows
   Abuse of mavinject.exe to inject DLLs or import descriptors into another running process. Chain: (1) mavinject.exe starts with /INJECTRUNNING or /HMODULE -> (2) mavinject obtains high-access handles to a target process (VM_WRITE/CREATE_THREAD) -> (3) target process loads attacker DLL (module load) -> (4) optional follow-on child activity or network egress from the target process.
@@ -1823,7 +1823,7 @@ ATT&CK: [T1218.013](https://attack.mitre.org/techniques/T1218/013/), [detail pag
 
 Detection strategy: Detecting MMC (.msc) Proxy Execution and Malicious COM Activation (`DET0222`)  
 Platforms: Windows  
-ATT&CK: [T1218.014](https://attack.mitre.org/techniques/T1218/014/), [detail page](../../techniques/stealth.md#t1218014)
+ATT&CK: [T1218.014](https://attack.mitre.org/techniques/T1218/014/), [detail page](/techniques/stealth.md#t1218014)
 
 - `AN0622` Analytic 0622, Windows
   Abuse of mmc.exe to execute non-Microsoft or user-staged .msc files and malicious COM CLSIDs. Behavioral chain: (1) suspicious mmc.exe invocation with /a or -Embedding and non-standard .msc path -> (2) COM activation of non-baseline CLSIDs by mmc.exe -> (3) mmc.exe loads non-baseline DLLs (user-writable/UNC/unsigned) -> (4) optional network/DNS activity from mmc.exe.
@@ -1837,7 +1837,7 @@ ATT&CK: [T1218.014](https://attack.mitre.org/techniques/T1218/014/), [detail pag
 
 Detection strategy: Detecting Electron Application Abuse for Proxy Execution (`DET0025`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1218.015](https://attack.mitre.org/techniques/T1218/015/), [detail page](../../techniques/stealth.md#t1218015)
+ATT&CK: [T1218.015](https://attack.mitre.org/techniques/T1218/015/), [detail page](/techniques/stealth.md#t1218015)
 
 - `AN0071` Analytic 0071, Windows
   Abuse of trusted Electron apps (Teams, Slack, Chrome) to spawn child processes or execute payloads via malicious command-line arguments (e.g., --gpu-launcher) and modified app resources (.asar). Behavior chain: suspicious parent process (Electron app) -> unusual command-line args -> child process creation -> optional DLL/network artifacts.
@@ -1859,7 +1859,7 @@ ATT&CK: [T1218.015](https://attack.mitre.org/techniques/T1218/015/), [detail pag
 
 Detection strategy: Detect XSL Script Abuse via msxsl and wmic (`DET0205`)  
 Platforms: Windows  
-ATT&CK: [T1220](https://attack.mitre.org/techniques/T1220/), [detail page](../../techniques/stealth.md#t1220)
+ATT&CK: [T1220](https://attack.mitre.org/techniques/T1220/), [detail page](/techniques/stealth.md#t1220)
 
 - `AN0581` Analytic 0581, Windows
   Execution of XSL scripts via msxsl.exe or wmic.exe using embedded JScript or VBScript for proxy execution. Detection correlates process creation, command-line patterns, and module load behavior of scripting components (e.g., jscript.dll).
@@ -1873,7 +1873,7 @@ ATT&CK: [T1220](https://attack.mitre.org/techniques/T1220/), [detail page](../..
 
 Detection strategy: Template Injection Detection - Windows (`DET0566`)  
 Platforms: Windows  
-ATT&CK: [T1221](https://attack.mitre.org/techniques/T1221/), [detail page](../../techniques/stealth.md#t1221)
+ATT&CK: [T1221](https://attack.mitre.org/techniques/T1221/), [detail page](/techniques/stealth.md#t1221)
 
 - `AN1564` Analytic 1564, Windows
   Detection of Office or document viewer processes (e.g., winword.exe) initiating network connections to remote templates or executing scripts due to manipulated template references (e.g., embedded in .docx, .rtf, or .dotm files), followed by suspicious child process creation (e.g., PowerShell).
@@ -1887,7 +1887,7 @@ ATT&CK: [T1221](https://attack.mitre.org/techniques/T1221/), [detail page](../..
 
 Detection strategy: Multi-Platform Execution Guardrails Environmental Validation Detection Strategy (`DET0562`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1480](https://attack.mitre.org/techniques/T1480/), [detail page](../../techniques/stealth.md#t1480)
+ATT&CK: [T1480](https://attack.mitre.org/techniques/T1480/), [detail page](/techniques/stealth.md#t1480)
 
 - `AN1551` Analytic 1551, Windows
   Windows environmental validation behavioral chain: (1) Rapid system discovery reconnaissance through WMI queries, registry enumeration, and network share discovery, (2) Environment-specific artifact collection (hostname, domain, IP addresses, installed software, hardware identifiers), (3) Cryptographic operations or conditional logic based on collected environmental values, (4) Selective payload execution contingent on environmental validation results, (5) Temporal correlation between discovery activities and subsequent execution or network communication
@@ -1913,7 +1913,7 @@ ATT&CK: [T1480](https://attack.mitre.org/techniques/T1480/), [detail page](../..
 
 Detection strategy: Environmental Keying Discovery-to-Decryption Behavioral Chain Detection Strategy (`DET0474`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1480.001](https://attack.mitre.org/techniques/T1480/001/), [detail page](../../techniques/stealth.md#t1480001)
+ATT&CK: [T1480.001](https://attack.mitre.org/techniques/T1480/001/), [detail page](/techniques/stealth.md#t1480001)
 
 - `AN1305` Analytic 1305, Windows
   Windows-specific environmental keying behavioral chain: (1) Rapid system information discovery through multiple techniques (WMI queries, registry enumeration, network share discovery, hostname/domain checks), (2) Target validation through specific environmental artifact collection (AD domain membership, network topology, installed software versions), (3) Cryptographic operation correlation indicating payload decryption based on collected environmental values, (4) Subsequent malicious code execution following successful environmental validation, (5) Temporal clustering of discovery activities suggesting automated environmental assessment
@@ -1935,7 +1935,7 @@ ATT&CK: [T1480.001](https://attack.mitre.org/techniques/T1480/001/), [detail pag
 
 Detection strategy: Detection of Mutex-Based Execution Guardrails Across Platforms (`DET0132`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1480.002](https://attack.mitre.org/techniques/T1480/002/), [detail page](../../techniques/stealth.md#t1480002)
+ATT&CK: [T1480.002](https://attack.mitre.org/techniques/T1480/002/), [detail page](/techniques/stealth.md#t1480002)
 
 - `AN0372` Analytic 0372, Windows
   Adversary-created named mutex using system APIs (e.g., CreateMutexW) followed by conditional process termination or alternate code path indicating malware avoiding reinfection.
@@ -1957,7 +1957,7 @@ ATT&CK: [T1480.002](https://attack.mitre.org/techniques/T1480/002/), [detail pag
 
 Detection strategy: Detection Strategy for T1497 Virtualization/Sandbox Evasion (`DET0046`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1497](https://attack.mitre.org/techniques/T1497/), [detail page](../../techniques/stealth.md#t1497)
+ATT&CK: [T1497](https://attack.mitre.org/techniques/T1497/), [detail page](/techniques/stealth.md#t1497)
 
 - `AN0127` Analytic 0127, Windows
   Execution of discovery commands or API calls for virtualization artifacts (e.g., registry keys, device drivers, services), sleep/skipped execution behavior, or sandbox evasion DLLs before payload deployment.
@@ -1979,7 +1979,7 @@ ATT&CK: [T1497](https://attack.mitre.org/techniques/T1497/), [detail page](../..
 
 Detection strategy: Virtualization/Sandbox Evasion via System Checks across Windows, Linux, macOS (`DET0168`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1497.001](https://attack.mitre.org/techniques/T1497/001/), [detail page](../../techniques/stealth.md#t1497001)
+ATT&CK: [T1497.001](https://attack.mitre.org/techniques/T1497/001/), [detail page](/techniques/stealth.md#t1497001)
 
 - `AN0478` Analytic 0478, Windows
   Script or binary performs a rapid sequence of system discovery checks (e.g., CPU count, RAM size, registry keys, running processes) indicative of VM detection
@@ -2001,7 +2001,7 @@ ATT&CK: [T1497.001](https://attack.mitre.org/techniques/T1497/001/), [detail pag
 
 Detection strategy: Detect User Activity Based Sandbox Evasion via Input & Artifact Probing (`DET0420`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1497.002](https://attack.mitre.org/techniques/T1497/002/), [detail page](../../techniques/stealth.md#t1497002)
+ATT&CK: [T1497.002](https://attack.mitre.org/techniques/T1497/002/), [detail page](/techniques/stealth.md#t1497002)
 
 - `AN1182` Analytic 1182, Windows
   Process execution that probes user activity artifacts (e.g., desktop files, registry history) following recent user login/unlock events.
@@ -2023,7 +2023,7 @@ ATT&CK: [T1497.002](https://attack.mitre.org/techniques/T1497/002/), [detail pag
 
 Detection strategy: Detect Time-Based Evasion via Sleep, Timer Loops, and Delayed Execution (`DET0141`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1497.003](https://attack.mitre.org/techniques/T1497/003/), [detail page](../../techniques/stealth.md#t1497003)
+ATT&CK: [T1497.003](https://attack.mitre.org/techniques/T1497/003/), [detail page](/techniques/stealth.md#t1497003)
 
 - `AN0396` Analytic 0396, Windows
   Process creation involving suspicious delays (e.g., Sleep, ping -n loops, WaitForSingleObject), followed by sensitive system access or lateral movement behaviors.
@@ -2045,7 +2045,7 @@ ATT&CK: [T1497.003](https://attack.mitre.org/techniques/T1497/003/), [detail pag
 
 Detection strategy: Detection of Adversary Use of Unused or Unsupported Cloud Regions (IaaS) (`DET0247`)  
 Platforms: IaaS  
-ATT&CK: [T1535](https://attack.mitre.org/techniques/T1535/), [detail page](../../techniques/stealth.md#t1535)
+ATT&CK: [T1535](https://attack.mitre.org/techniques/T1535/), [detail page](/techniques/stealth.md#t1535)
 
 - `AN0690` Analytic 0690, IaaS
   Detects creation of cloud instances, services, or resources in normally unused or unsupported regions, especially following initial account access or credential use from known regions. Correlates resource provisioning across regions with absence of historical usage and alerting from standard logging services (e.g., GuardDuty not enabled in that region).
@@ -2059,7 +2059,7 @@ ATT&CK: [T1535](https://attack.mitre.org/techniques/T1535/), [detail page](../..
 
 Detection strategy: Detection Strategy for T1542 Pre-OS Boot (`DET0278`)  
 Platforms: Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1542](https://attack.mitre.org/techniques/T1542/), [detail page](../../techniques/stealth.md#t1542)
+ATT&CK: [T1542](https://attack.mitre.org/techniques/T1542/), [detail page](/techniques/stealth.md#t1542)
 
 - `AN0774` Analytic 0774, Windows
   Unusual modification of boot records (MBR, VBR) or EFI partitions not associated with legitimate patch cycles or OS upgrades. Registry or WMI events associated with firmware update tools executed from unexpected parent processes. API calls (e.g., DeviceIoControl) writing directly to raw disk sectors. Subsequent abnormal boot configuration changes followed by unsigned driver loads.
@@ -2085,7 +2085,7 @@ ATT&CK: [T1542](https://attack.mitre.org/techniques/T1542/), [detail page](../..
 
 Detection strategy: Detection Strategy for T1542.001 Pre-OS Boot: System Firmware (`DET0099`)  
 Platforms: Network Devices, Windows  
-ATT&CK: [T1542.001](https://attack.mitre.org/techniques/T1542/001/), [detail page](../../techniques/stealth.md#t1542001)
+ATT&CK: [T1542.001](https://attack.mitre.org/techniques/T1542/001/), [detail page](/techniques/stealth.md#t1542001)
 
 - `AN0275` Analytic 0275, Windows
   Unexpected write operations to BIOS/UEFI firmware regions or EFI boot partitions that do not correlate with legitimate vendor firmware updates. API calls or utilities such as fwupdate.exe or vendor flash tools executed from non-administrative or non-IT management accounts. Suspicious raw disk writes targeting System Firmware GUID partitions followed by abnormal reboot sequences.
@@ -2103,7 +2103,7 @@ ATT&CK: [T1542.001](https://attack.mitre.org/techniques/T1542/001/), [detail pag
 
 Detection strategy: Detection Strategy for T1542.002 Pre-OS Boot: Component Firmware (`DET0323`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1542.002](https://attack.mitre.org/techniques/T1542/002/), [detail page](../../techniques/stealth.md#t1542002)
+ATT&CK: [T1542.002](https://attack.mitre.org/techniques/T1542/002/), [detail page](/techniques/stealth.md#t1542002)
 
 - `AN0916` Analytic 0916, Windows
   Detection of anomalous driver and firmware interactions, including unsigned or unexpected firmware updates, driver loads linked to hardware components, and suspicious use of privileged APIs to read/write firmware or controller memory.
@@ -2125,7 +2125,7 @@ ATT&CK: [T1542.002](https://attack.mitre.org/techniques/T1542/002/), [detail pag
 
 Detection strategy: Detection Strategy for File Creation or Modification of Boot Files (`DET0150`)  
 Platforms: Linux, Windows  
-ATT&CK: [T1542.003](https://attack.mitre.org/techniques/T1542/003/), [detail page](../../techniques/stealth.md#t1542003)
+ATT&CK: [T1542.003](https://attack.mitre.org/techniques/T1542/003/), [detail page](/techniques/stealth.md#t1542003)
 
 - `AN0428` Analytic 0428, Windows
   Detection of raw access to physical drives, modification of boot records (MBR/VBR), and suspicious file creation or alteration within the EFI System Partition (ESP). Correlates privileged process execution with low-level disk modification and unexpected driver or firmware interactions.
@@ -2143,7 +2143,7 @@ ATT&CK: [T1542.003](https://attack.mitre.org/techniques/T1542/003/), [detail pag
 
 Detection strategy: Detection Strategy for T1542.004 Pre-OS Boot: ROMMONkit (`DET0175`)  
 Platforms: Network Devices  
-ATT&CK: [T1542.004](https://attack.mitre.org/techniques/T1542/004/), [detail page](../../techniques/stealth.md#t1542004)
+ATT&CK: [T1542.004](https://attack.mitre.org/techniques/T1542/004/), [detail page](/techniques/stealth.md#t1542004)
 
 - `AN0497` Analytic 0497, Network Devices
   Detection of anomalous ROMMON image changes or upgrades, unexpected reboots following firmware updates, and unauthorized use of firmware upgrade commands or TFTP transfers. Correlation of config modification, privilege escalation, and boot cycle anomalies provides visibility into ROMMON tampering attempts.
@@ -2157,7 +2157,7 @@ ATT&CK: [T1542.004](https://attack.mitre.org/techniques/T1542/004/), [detail pag
 
 Detection strategy: Detection Strategy for T1542.005 Pre-OS Boot: TFTP Boot (`DET0582`)  
 Platforms: Network Devices  
-ATT&CK: [T1542.005](https://attack.mitre.org/techniques/T1542/005/), [detail page](../../techniques/stealth.md#t1542005)
+ATT&CK: [T1542.005](https://attack.mitre.org/techniques/T1542/005/), [detail page](/techniques/stealth.md#t1542005)
 
 - `AN1603` Analytic 1603, Network Devices
   Detection of unauthorized changes to boot configurations pointing to TFTP servers, unusual firmware loads during netbooting, or suspicious TFTP traffic. Correlation of boot config modifications, command history logs, and unexpected system image hashes provides detection coverage for adversaries attempting to persist via malicious TFTP boot images.
@@ -2171,7 +2171,7 @@ ATT&CK: [T1542.005](https://attack.mitre.org/techniques/T1542/005/), [detail pag
 
 Detection strategy: Detection Strategy for Hidden Artifacts Across Platforms (`DET0502`)  
 Platforms: ESXi, Linux, Office Suite, Windows, macOS  
-ATT&CK: [T1564](https://attack.mitre.org/techniques/T1564/), [detail page](../../techniques/stealth.md#t1564)
+ATT&CK: [T1564](https://attack.mitre.org/techniques/T1564/), [detail page](/techniques/stealth.md#t1564)
 
 - `AN1384` Analytic 1384, Windows
   Abuse of file/registry attributes to hide malicious files, directories, or services. Defender view: detection of attrib.exe setting hidden/system flags, creation of Alternate Data Streams, or registry keys altering file visibility.
@@ -2201,7 +2201,7 @@ ATT&CK: [T1564](https://attack.mitre.org/techniques/T1564/), [detail page](../..
 
 Detection strategy: Detection Strategy for Hidden Files and Directories (`DET0032`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1564.001](https://attack.mitre.org/techniques/T1564/001/), [detail page](../../techniques/stealth.md#t1564001)
+ATT&CK: [T1564.001](https://attack.mitre.org/techniques/T1564/001/), [detail page](/techniques/stealth.md#t1564001)
 
 - `AN0091` Analytic 0091, Windows
   Suspicious use of attrib.exe or PowerShell commands to set hidden attributes on files/directories. Defender view: processes modifying file attributes to 'hidden' or creating files with ADS (alternate data streams).
@@ -2223,7 +2223,7 @@ ATT&CK: [T1564.001](https://attack.mitre.org/techniques/T1564/001/), [detail pag
 
 Detection strategy: Detection Strategy for Hidden User Accounts (`DET0353`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1564.002](https://attack.mitre.org/techniques/T1564/002/), [detail page](../../techniques/stealth.md#t1564002)
+ATT&CK: [T1564.002](https://attack.mitre.org/techniques/T1564/002/), [detail page](/techniques/stealth.md#t1564002)
 
 - `AN1001` Analytic 1001, Windows
   Registry modifications to HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\UserList setting user visibility to 0, or creation of user accounts not shown on login screen. Defender view: correlation of account creation with registry edits that mark users hidden.
@@ -2245,7 +2245,7 @@ ATT&CK: [T1564.002](https://attack.mitre.org/techniques/T1564/002/), [detail pag
 
 Detection strategy: Detection Strategy for Hidden Windows (`DET0128`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1564.003](https://attack.mitre.org/techniques/T1564/003/), [detail page](../../techniques/stealth.md#t1564003)
+ATT&CK: [T1564.003](https://attack.mitre.org/techniques/T1564/003/), [detail page](/techniques/stealth.md#t1564003)
 
 - `AN0360` Analytic 0360, Windows
   Suspicious use of scripting parameters or registry edits to hide process windows (e.g., powershell.exe -WindowStyle Hidden, or registry modifications pushing window positions off screen). Defender view: correlation of hidden execution with anomalous process lineage or hVNC-like CreateDesktop API calls.
@@ -2267,7 +2267,7 @@ ATT&CK: [T1564.003](https://attack.mitre.org/techniques/T1564/003/), [detail pag
 
 Detection strategy: Detection Strategy for NTFS File Attribute Abuse (ADS/EAs) (`DET0432`)  
 Platforms: Windows  
-ATT&CK: [T1564.004](https://attack.mitre.org/techniques/T1564/004/), [detail page](../../techniques/stealth.md#t1564004)
+ATT&CK: [T1564.004](https://attack.mitre.org/techniques/T1564/004/), [detail page](/techniques/stealth.md#t1564004)
 
 - `AN1206` Analytic 1206, Windows
   Suspicious use of NTFS file attributes such as Alternate Data Streams (ADS) or Extended Attributes (EA) to hide data. Defender perspective: anomalous file creations or modifications containing colon syntax (file.ext:ads), API calls like ZwSetEaFile/ZwQueryEaFile, or PowerShell/Windows utilities interacting with -stream parameters. Correlation across file metadata anomalies, process lineage, and command execution provides context.
@@ -2281,7 +2281,7 @@ ATT&CK: [T1564.004](https://attack.mitre.org/techniques/T1564/004/), [detail pag
 
 Detection strategy: Detection Strategy for Hidden File System Abuse (`DET0461`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1564.005](https://attack.mitre.org/techniques/T1564/005/), [detail page](../../techniques/stealth.md#t1564005)
+ATT&CK: [T1564.005](https://attack.mitre.org/techniques/T1564/005/), [detail page](/techniques/stealth.md#t1564005)
 
 - `AN1271` Analytic 1271, Windows
   Anomalous creation or mounting of hidden partitions or virtual file systems. Defender view: detection of registry modifications linked to non-standard file systems, suspicious disk I/O patterns, or bootkit-like behavior where hidden volumes are accessed outside normal file system APIs.
@@ -2303,7 +2303,7 @@ ATT&CK: [T1564.005](https://attack.mitre.org/techniques/T1564/005/), [detail pag
 
 Detection strategy: Detection Strategy for Hidden Virtual Instance Execution (`DET0321`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1564.006](https://attack.mitre.org/techniques/T1564/006/), [detail page](../../techniques/stealth.md#t1564006)
+ATT&CK: [T1564.006](https://attack.mitre.org/techniques/T1564/006/), [detail page](/techniques/stealth.md#t1564006)
 
 - `AN0909` Analytic 0909, Windows
   Unusual execution of virtualization binaries (VBoxManage.exe, vmware-vmx.exe, vmwp.exe) with headless or suppressed notification arguments. Registry and service modifications linked to virtualization installs. Defender view: anomalies in process creation, service metadata, and registry writes tied to enabling hidden VMs.
@@ -2329,7 +2329,7 @@ ATT&CK: [T1564.006](https://attack.mitre.org/techniques/T1564/006/), [detail pag
 
 Detection strategy: Detection Strategy for VBA Stomping (`DET0012`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1564.007](https://attack.mitre.org/techniques/T1564/007/), [detail page](../../techniques/stealth.md#t1564007)
+ATT&CK: [T1564.007](https://attack.mitre.org/techniques/T1564/007/), [detail page](/techniques/stealth.md#t1564007)
 
 - `AN0034` Analytic 0034, Windows
   Discrepancies between VBA source code and p-code inside Office documents. Defender perspective: anomalies in file metadata streams, execution of Office processes loading macros without source code consistency, and script execution with no corresponding source metadata.
@@ -2351,7 +2351,7 @@ ATT&CK: [T1564.007](https://attack.mitre.org/techniques/T1564/007/), [detail pag
 
 Detection strategy: Detection Strategy for Email Hiding Rules (`DET0192`)  
 Platforms: Linux, Office Suite, Windows, macOS  
-ATT&CK: [T1564.008](https://attack.mitre.org/techniques/T1564/008/), [detail page](../../techniques/stealth.md#t1564008)
+ATT&CK: [T1564.008](https://attack.mitre.org/techniques/T1564/008/), [detail page](/techniques/stealth.md#t1564008)
 
 - `AN0551` Analytic 0551, Windows
   Suspicious creation or modification of inbox rules through PowerShell (New-InboxRule, Set-InboxRule) to automatically delete, move, or hide emails. Defender perspective: unusual rule activity correlated with mailbox access and filtering patterns.
@@ -2377,7 +2377,7 @@ ATT&CK: [T1564.008](https://attack.mitre.org/techniques/T1564/008/), [detail pag
 
 Detection strategy: Detection Strategy for Resource Forking on macOS (`DET0584`)  
 Platforms: macOS  
-ATT&CK: [T1564.009](https://attack.mitre.org/techniques/T1564/009/), [detail page](../../techniques/stealth.md#t1564009)
+ATT&CK: [T1564.009](https://attack.mitre.org/techniques/T1564/009/), [detail page](/techniques/stealth.md#t1564009)
 
 - `AN1609` Analytic 1609, macOS
   Unexpected creation or modification of files with `com.apple.ResourceFork` extended attributes containing unusually large or non-standard data. Defender perspective: detection of resource forks in contexts where they are uncommon, especially when paired with process execution or network activity.
@@ -2391,7 +2391,7 @@ ATT&CK: [T1564.009](https://attack.mitre.org/techniques/T1564/009/), [detail pag
 
 Detection strategy: Detection Strategy for Process Argument Spoofing on Windows (`DET0045`)  
 Platforms: Windows  
-ATT&CK: [T1564.010](https://attack.mitre.org/techniques/T1564/010/), [detail page](../../techniques/stealth.md#t1564010)
+ATT&CK: [T1564.010](https://attack.mitre.org/techniques/T1564/010/), [detail page](/techniques/stealth.md#t1564010)
 
 - `AN0126` Analytic 0126, Windows
   Inconsistencies between process command-line arguments logged at creation time and subsequent process behavior. Defender perspective: monitoring for processes launched in a suspended state, followed by memory modifications (e.g., WriteProcessMemory targeting the PEB) that overwrite arguments before execution resumes. Detection also includes observing anomalous behaviors from processes whose logged arguments do not align with executed activity (e.g., network connections, file writes, or registry modifications).
@@ -2405,7 +2405,7 @@ ATT&CK: [T1564.010](https://attack.mitre.org/techniques/T1564/010/), [detail pag
 
 Detection strategy: Detection Strategy for Ignore Process Interrupts (`DET0067`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1564.011](https://attack.mitre.org/techniques/T1564/011/), [detail page](../../techniques/stealth.md#t1564011)
+ATT&CK: [T1564.011](https://attack.mitre.org/techniques/T1564/011/), [detail page](/techniques/stealth.md#t1564011)
 
 - `AN0181` Analytic 0181, Linux
   Execution of processes using nohup or shell redirection to ignore SIGHUP and continue running after session termination. Defender perspective: correlation between commands including nohup, disowned jobs, or `&` suffix with continued process execution after parent terminal exit.
@@ -2427,7 +2427,7 @@ ATT&CK: [T1564.011](https://attack.mitre.org/techniques/T1564/011/), [detail pag
 
 Detection strategy: Detection Strategy for File/Path Exclusions (`DET0051`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1564.012](https://attack.mitre.org/techniques/T1564/012/), [detail page](../../techniques/stealth.md#t1564012)
+ATT&CK: [T1564.012](https://attack.mitre.org/techniques/T1564/012/), [detail page](/techniques/stealth.md#t1564012)
 
 - `AN0139` Analytic 0139, Windows
   Creation or modification of files in directories known to be excluded from AV scanning (e.g., C:\Windows\Temp, Exchange server directories, or default AV exclusions). Defender perspective: correlate file creation with execution behavior or anomalous parent processes writing to excluded paths.
@@ -2449,7 +2449,7 @@ ATT&CK: [T1564.012](https://attack.mitre.org/techniques/T1564/012/), [detail pag
 
 Detection strategy: Detection Strategy for Bind Mounts on Linux (`DET0428`)  
 Platforms: Linux  
-ATT&CK: [T1564.013](https://attack.mitre.org/techniques/T1564/013/), [detail page](../../techniques/stealth.md#t1564013)
+ATT&CK: [T1564.013](https://attack.mitre.org/techniques/T1564/013/), [detail page](/techniques/stealth.md#t1564013)
 
 - `AN1196` Analytic 1196, Linux
   Abuse of bind mounts to obscure process directories. Defender perspective: detecting anomalous mount operations where a process’s /proc entry is remapped to another directory, often hiding malicious activity from native utilities (ps, top). Behavior chain includes: (1) execution of `mount` with `-o bind` or `-B` flags, (2) modification of /proc entries inconsistent with expected process lineage, and (3) subsequent anomalous activity from processes whose metadata no longer matches execution context.
@@ -2463,7 +2463,7 @@ ATT&CK: [T1564.013](https://attack.mitre.org/techniques/T1564/013/), [detail pag
 
 Detection strategy: Detection Strategy for Extended Attributes Abuse (`DET0406`)  
 Platforms: Linux, macOS  
-ATT&CK: [T1564.014](https://attack.mitre.org/techniques/T1564/014/), [detail page](../../techniques/stealth.md#t1564014)
+ATT&CK: [T1564.014](https://attack.mitre.org/techniques/T1564/014/), [detail page](/techniques/stealth.md#t1564014)
 
 - `AN1135` Analytic 1135, Linux
   Abuse of extended attributes (xattrs) to embed hidden payloads into legitimate files. Defender perspective: detect anomalous use of setfattr or getfattr commands, or direct syscalls (setxattr, getxattr) where attributes are unusually large or contain encoded data. Behavior chain includes: (1) execution of setfattr with suspicious namespaces (user., trusted.), (2) file metadata modification inconsistent with file size/hash, and (3) subsequent process execution reading attributes followed by decoding activity.
@@ -2481,7 +2481,7 @@ ATT&CK: [T1564.014](https://attack.mitre.org/techniques/T1564/014/), [detail pag
 
 Detection strategy: Detection Strategy for Hijack Execution Flow across OS platforms. (`DET0218`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1574](https://attack.mitre.org/techniques/T1574/), [detail page](../../techniques/stealth.md#t1574)
+ATT&CK: [T1574](https://attack.mitre.org/techniques/T1574/), [detail page](/techniques/stealth.md#t1574)
 
 - `AN0609` Analytic 0609, Windows
   Unusual modifications to service binary paths, registry keys, or DLL load paths resulting in alternate execution flow. Defender observes registry key modifications, suspicious file writes into system directories, and processes loading libraries from abnormal paths.
@@ -2503,7 +2503,7 @@ ATT&CK: [T1574](https://attack.mitre.org/techniques/T1574/), [detail page](../..
 
 Detection strategy: Detection Strategy for Hijack Execution Flow for DLLs (`DET0201`)  
 Platforms: Windows  
-ATT&CK: [T1574.001](https://attack.mitre.org/techniques/T1574/001/), [detail page](../../techniques/stealth.md#t1574001)
+ATT&CK: [T1574.001](https://attack.mitre.org/techniques/T1574/001/), [detail page](/techniques/stealth.md#t1574001)
 
 - `AN0577` Analytic 0577, Windows
   DLL hijacking behaviors including unexpected DLL loads from non-standard directories, replacement of DLLs, phantom DLL insertion, redirection file creation, and substitution of legitimate DLLs. Defender correlates file system modifications, registry changes, and module load telemetry to detect abnormal DLL behavior in trusted processes.
@@ -2517,7 +2517,7 @@ ATT&CK: [T1574.001](https://attack.mitre.org/techniques/T1574/001/), [detail pag
 
 Detection strategy: Detection Strategy for Hijack Execution Flow: Dylib Hijacking (`DET0152`)  
 Platforms: macOS  
-ATT&CK: [T1574.004](https://attack.mitre.org/techniques/T1574/004/), [detail page](../../techniques/stealth.md#t1574004)
+ATT&CK: [T1574.004](https://attack.mitre.org/techniques/T1574/004/), [detail page](/techniques/stealth.md#t1574004)
 
 - `AN0435` Analytic 0435, macOS
   Detection focuses on adversaries placing or modifying malicious dylibs in locations searched by legitimate applications. From the defender’s perspective, observable patterns include unexpected creation or modification of dylib files in application bundle paths, unusual module loads by processes compared to historical baselines, and execution of applications loading dylibs from suspicious directories (e.g., /tmp, user-controlled paths). Correlation across file system changes, process execution, and module loads provides high-fidelity detection.
@@ -2531,7 +2531,7 @@ ATT&CK: [T1574.004](https://attack.mitre.org/techniques/T1574/004/), [detail pag
 
 Detection strategy: Detection Strategy for Hijack Execution Flow using Executable Installer File Permissions Weakness (`DET0038`)  
 Platforms: Windows  
-ATT&CK: [T1574.005](https://attack.mitre.org/techniques/T1574/005/), [detail page](../../techniques/stealth.md#t1574005)
+ATT&CK: [T1574.005](https://attack.mitre.org/techniques/T1574/005/), [detail page](/techniques/stealth.md#t1574005)
 
 - `AN0108` Analytic 0108, Windows
   Executables written or modified in installer directories (e.g., %TEMP% subdirectories or Program Files installer paths) followed by execution under elevated context. Defender observes abnormal file replacement activity, process creation by installer processes pointing to attacker-supplied binaries, and unexpected module loads in elevated processes.
@@ -2545,7 +2545,7 @@ ATT&CK: [T1574.005](https://attack.mitre.org/techniques/T1574/005/), [detail pag
 
 Detection strategy: Detection Strategy for Hijack Execution Flow: Dynamic Linker Hijacking (`DET0435`)  
 Platforms: Linux, macOS  
-ATT&CK: [T1574.006](https://attack.mitre.org/techniques/T1574/006/), [detail page](../../techniques/stealth.md#t1574006)
+ATT&CK: [T1574.006](https://attack.mitre.org/techniques/T1574/006/), [detail page](/techniques/stealth.md#t1574006)
 
 - `AN1209` Analytic 1209, Linux
   Detection focuses on identifying abuse of LD_PRELOAD and related linker variables. Defender perspective: monitor unexpected setting or modification of LD_PRELOAD in shell initialization scripts or environment exports, file creation of suspicious shared libraries, and correlation of these modifications with anomalous process execution. Key signals include execve events with LD_PRELOAD defined, newly created .so files in user directories, and processes hooking libc functions exhibiting abnormal behavior.
@@ -2563,7 +2563,7 @@ ATT&CK: [T1574.006](https://attack.mitre.org/techniques/T1574/006/), [detail pag
 
 Detection strategy: Detection Strategy for Hijack Execution Flow using Path Interception by PATH Environment Variable. (`DET0004`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1574.007](https://attack.mitre.org/techniques/T1574/007/), [detail page](../../techniques/stealth.md#t1574007)
+ATT&CK: [T1574.007](https://attack.mitre.org/techniques/T1574/007/), [detail page](/techniques/stealth.md#t1574007)
 
 - `AN0009` Analytic 0009, Windows
   Abnormal modification of the PATH environment variable or registry keys controlling system paths, combined with execution of binaries named after legitimate system tools from user-writable directories. Defender correlates registry modifications, file creation of suspicious binaries, and process execution paths inconsistent with baseline system directories.
@@ -2585,7 +2585,7 @@ ATT&CK: [T1574.007](https://attack.mitre.org/techniques/T1574/007/), [detail pag
 
 Detection strategy: Detection Strategy for Hijack Execution Flow using Path Interception by Search Order Hijacking (`DET0564`)  
 Platforms: Windows  
-ATT&CK: [T1574.008](https://attack.mitre.org/techniques/T1574/008/), [detail page](../../techniques/stealth.md#t1574008)
+ATT&CK: [T1574.008](https://attack.mitre.org/techniques/T1574/008/), [detail page](/techniques/stealth.md#t1574008)
 
 - `AN1560` Analytic 1560, Windows
   Processes executing binaries named after legitimate system utilities (e.g., net.exe, findstr.exe, python.exe) from non-standard or application-specific directories, combined with file creation or modification events for such binaries. Defender correlates file writes in vulnerable directories, process execution paths inconsistent with baseline system paths, and abnormal parent-child relationships in process lineage.
@@ -2599,7 +2599,7 @@ ATT&CK: [T1574.008](https://attack.mitre.org/techniques/T1574/008/), [detail pag
 
 Detection strategy: Detection Strategy for Hijack Execution Flow through Path Interception by Unquoted Path (`DET0064`)  
 Platforms: Windows  
-ATT&CK: [T1574.009](https://attack.mitre.org/techniques/T1574/009/), [detail page](../../techniques/stealth.md#t1574009)
+ATT&CK: [T1574.009](https://attack.mitre.org/techniques/T1574/009/), [detail page](/techniques/stealth.md#t1574009)
 
 - `AN0176` Analytic 0176, Windows
   Unquoted service or shortcut paths that contain spaces and allow path interception by higher-level executables. Defender observes registry service configurations with unquoted paths, file creation of executables in parent directories of unquoted paths, and subsequent process execution from unexpected locations.
@@ -2613,7 +2613,7 @@ ATT&CK: [T1574.009](https://attack.mitre.org/techniques/T1574/009/), [detail pag
 
 Detection strategy: Detection Strategy for Hijack Execution Flow through Services File Permissions Weakness. (`DET0436`)  
 Platforms: Windows  
-ATT&CK: [T1574.010](https://attack.mitre.org/techniques/T1574/010/), [detail page](../../techniques/stealth.md#t1574010)
+ATT&CK: [T1574.010](https://attack.mitre.org/techniques/T1574/010/), [detail page](/techniques/stealth.md#t1574010)
 
 - `AN1211` Analytic 1211, Windows
   Modification or replacement of service executables due to weak file or directory permissions. Defender observes file writes to service binary paths, unexpected modifications of executables associated with registered services, and subsequent service execution of attacker-supplied binaries under elevated permissions.
@@ -2627,7 +2627,7 @@ ATT&CK: [T1574.010](https://attack.mitre.org/techniques/T1574/010/), [detail pag
 
 Detection strategy: Detection Strategy for Hijack Execution Flow through Service Registry Premission Weakness. (`DET0427`)  
 Platforms: Windows  
-ATT&CK: [T1574.011](https://attack.mitre.org/techniques/T1574/011/), [detail page](../../techniques/stealth.md#t1574011)
+ATT&CK: [T1574.011](https://attack.mitre.org/techniques/T1574/011/), [detail page](/techniques/stealth.md#t1574011)
 
 - `AN1195` Analytic 1195, Windows
   Unauthorized modification of service-related registry keys such as ImagePath, FailureCommand, ServiceDll, or Performance/Parameters keys. Defender correlates registry modifications, anomalous service metadata changes, and subsequent service process executions that deviate from baseline configurations.
@@ -2641,7 +2641,7 @@ ATT&CK: [T1574.011](https://attack.mitre.org/techniques/T1574/011/), [detail pag
 
 Detection strategy: Detection Strategy for Hijack Execution Flow using the Windows COR_PROFILER. (`DET0479`)  
 Platforms: Windows  
-ATT&CK: [T1574.012](https://attack.mitre.org/techniques/T1574/012/), [detail page](../../techniques/stealth.md#t1574012)
+ATT&CK: [T1574.012](https://attack.mitre.org/techniques/T1574/012/), [detail page](/techniques/stealth.md#t1574012)
 
 - `AN1319` Analytic 1319, Windows
   Modification of COR_PROFILER-related environment variables or Registry keys (COR_ENABLE_PROFILING, COR_PROFILER, COR_PROFILER_PATH), combined with anomalous .NET process creation or unmanaged DLL loads. Defender observes registry modifications, suspicious process creation with altered environment variables, and profiler DLLs loaded unexpectedly into .NET CLR processes.
@@ -2655,7 +2655,7 @@ ATT&CK: [T1574.012](https://attack.mitre.org/techniques/T1574/012/), [detail pag
 
 Detection strategy: Detection Strategy for Hijack Execution Flow through the KernelCallbackTable on Windows. (`DET0577`)  
 Platforms: Windows  
-ATT&CK: [T1574.013](https://attack.mitre.org/techniques/T1574/013/), [detail page](../../techniques/stealth.md#t1574013)
+ATT&CK: [T1574.013](https://attack.mitre.org/techniques/T1574/013/), [detail page](/techniques/stealth.md#t1574013)
 
 - `AN1593` Analytic 1593, Windows
   Unexpected modification of the KernelCallbackTable in a process’s PEB followed by invocation of modified callback functions (e.g., fnCOPYDATA) through Windows messages. Defender observes suspicious API call chains such as NtQueryInformationProcess -> WriteProcessMemory -> abnormal GUI callback execution, often correlating to anomalous process behavior such as network activity or code injection.
@@ -2669,7 +2669,7 @@ ATT&CK: [T1574.013](https://attack.mitre.org/techniques/T1574/013/), [detail pag
 
 Detection strategy: Detection Strategy for Hijack Execution Flow through the AppDomainManager on Windows. (`DET0517`)  
 Platforms: Windows  
-ATT&CK: [T1574.014](https://attack.mitre.org/techniques/T1574/014/), [detail page](../../techniques/stealth.md#t1574014)
+ATT&CK: [T1574.014](https://attack.mitre.org/techniques/T1574/014/), [detail page](/techniques/stealth.md#t1574014)
 
 - `AN1433` Analytic 1433, Windows
   Detection focuses on unauthorized manipulation of .NET AppDomainManager behavior. Defenders may observe suspicious creation of new AppDomains within trusted processes, anomalous loading of assemblies via non-standard configuration files, or registry/environment variable changes redirecting AppDomainManager to malicious assemblies. Correlated events include config file tampering, new process creation of .NET host processes (e.g., w3wp.exe, powershell.exe) with modified runtime parameters, and module loads of unusual or unsigned .NET DLLs.
@@ -2683,7 +2683,7 @@ ATT&CK: [T1574.014](https://attack.mitre.org/techniques/T1574/014/), [detail pag
 
 Detection strategy: Detection Strategy for Build Image on Host (`DET0459`)  
 Platforms: Containers  
-ATT&CK: [T1612](https://attack.mitre.org/techniques/T1612/), [detail page](../../techniques/stealth.md#t1612)
+ATT&CK: [T1612](https://attack.mitre.org/techniques/T1612/), [detail page](/techniques/stealth.md#t1612)
 
 - `AN1261` Analytic 1261, Containers
   Detection of container image build activity directly on the host using Docker or Kubernetes APIs. Defenders may observe Docker build requests, anomalous Dockerfile instructions (such as downloading code from unknown IPs), or creation of new images followed by immediate deployment. This behavior chain typically consists of an unexpected image creation event correlated with outbound network communication to non-standard or untrusted destinations.
@@ -2697,7 +2697,7 @@ ATT&CK: [T1612](https://attack.mitre.org/techniques/T1612/), [detail page](../..
 
 Detection strategy: Detection Strategy for Reflective Code Loading (`DET0300`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1620](https://attack.mitre.org/techniques/T1620/), [detail page](../../techniques/stealth.md#t1620)
+ATT&CK: [T1620](https://attack.mitre.org/techniques/T1620/), [detail page](/techniques/stealth.md#t1620)
 
 - `AN0838` Analytic 0838, Windows
   Detect anomalous chains of memory allocation and execution inside the same process (e.g., VirtualAlloc -> memcpy -> VirtualProtect -> CreateThread). Unlike process injection, reflective code loading does not perform cross-process memory writes — the suspicious activity occurs entirely within the process’s own PID context.
@@ -2719,7 +2719,7 @@ ATT&CK: [T1620](https://attack.mitre.org/techniques/T1620/), [detail page](../..
 
 Detection strategy: Detection Strategy for Debugger Evasion (T1622) (`DET0371`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1622](https://attack.mitre.org/techniques/T1622/), [detail page](../../techniques/stealth.md#t1622)
+ATT&CK: [T1622](https://attack.mitre.org/techniques/T1622/), [detail page](/techniques/stealth.md#t1622)
 
 - `AN1045` Analytic 1045, Windows
   Monitor for suspicious use of Windows API calls such as IsDebuggerPresent() and NtQueryInformationProcess(), or processes manually checking the BeingDebugged flag in the Process Environment Block (PEB). Detect sequences of OutputDebugStringW() calls in short intervals that may indicate debugger flooding attempts.
@@ -2741,7 +2741,7 @@ ATT&CK: [T1622](https://attack.mitre.org/techniques/T1622/), [detail page](../..
 
 Detection strategy: Multi-Platform Detection Strategy for T1678 - Delay Execution (`DET0372`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1678](https://attack.mitre.org/techniques/T1678/), [detail page](../../techniques/stealth.md#t1678)
+ATT&CK: [T1678](https://attack.mitre.org/techniques/T1678/), [detail page](/techniques/stealth.md#t1678)
 
 - `AN1048` Analytic 1048, Windows
   Correlated use of sleep/delay mechanisms (e.g., kernel32!Sleep, NTDLL APIs) in short-lived processes, combined with parent processes invoking suspicious scripts (e.g., wscript, powershell) with minimal user interaction.
@@ -2763,7 +2763,7 @@ ATT&CK: [T1678](https://attack.mitre.org/techniques/T1678/), [detail page](../..
 
 Detection strategy: Detection of Selective Exclusion (`DET0897`)  
 Platforms: Windows  
-ATT&CK: [T1679](https://attack.mitre.org/techniques/T1679/), [detail page](../../techniques/stealth.md#t1679)
+ATT&CK: [T1679](https://attack.mitre.org/techniques/T1679/), [detail page](/techniques/stealth.md#t1679)
 
 - `AN2030` Analytic 2030, Windows
   A process with no prior history or outside of known whitelisted tools initiates file or registry modifications to configure exclusion rules for antivirus, backup, or file-handling systems. Or a file system enumeration for specific file names andcritical extensions like .dll, .exe, .sys, or specific directories such as 'Program Files' or security tool paths or system component discovery for the exclusion of the files or components.
@@ -2777,7 +2777,7 @@ ATT&CK: [T1679](https://attack.mitre.org/techniques/T1679/), [detail page](../..
 
 Detection strategy: Detect Social Engineering (`DET0899`)  
 Platforms: Linux, Office Suite, SaaS, Windows, macOS  
-ATT&CK: [T1684](https://attack.mitre.org/techniques/T1684/), [detail page](../../techniques/stealth.md#t1684)
+ATT&CK: [T1684](https://attack.mitre.org/techniques/T1684/), [detail page](/techniques/stealth.md#t1684)
 
 - `AN2033` Analytic 2033, Office Suite
   Detects suspicious inbound communications or collaboration requests followed by rapid sensitive user actions such as file sharing changes, macro enablement, OAuth consent, credential submission, or financial workflow approvals that deviate from historical relationships or normal approval patterns.
@@ -2807,7 +2807,7 @@ ATT&CK: [T1684](https://attack.mitre.org/techniques/T1684/), [detail page](../..
 
 Detection strategy: Detection Strategy for Impersonation (`DET0286`)  
 Platforms: Linux, Office Suite, SaaS, Windows, macOS  
-ATT&CK: [T1684.001](https://attack.mitre.org/techniques/T1684/001/), [detail page](../../techniques/stealth.md#t1684001)
+ATT&CK: [T1684.001](https://attack.mitre.org/techniques/T1684/001/), [detail page](/techniques/stealth.md#t1684001)
 
 - `AN0792` Analytic 0792, Windows
   Monitor for anomalous email activity originating from Windows-hosted applications (e.g., Outlook) where the sending account name or display name does not match the underlying SMTP address. Detect abnormal volume of outbound messages containing sensitive keywords (e.g., 'payment', 'wire transfer') or anomalous login locations for accounts associated with email sending activity.
@@ -2837,7 +2837,7 @@ ATT&CK: [T1684.001](https://attack.mitre.org/techniques/T1684/001/), [detail pag
 
 Detection strategy: Detection Strategy for Email Spoofing (`DET0431`)  
 Platforms: Linux, Office Suite, Windows, macOS  
-ATT&CK: [T1684.002](https://attack.mitre.org/techniques/T1684/002/), [detail page](../../techniques/stealth.md#t1684002)
+ATT&CK: [T1684.002](https://attack.mitre.org/techniques/T1684/002/), [detail page](/techniques/stealth.md#t1684002)
 
 - `AN1202` Analytic 1202, Windows
   Monitor email message traces and headers for failed SPF, DKIM, or DMARC checks indicating spoofed sender identities. Correlate abnormal sender domains or mismatched return-paths with elevated spoofing likelihood.

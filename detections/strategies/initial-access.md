@@ -2,7 +2,7 @@
 
 > MITRE ATT&CK detection strategies and analytics (v19.2) for techniques whose primary tactic is Initial Access. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
 
-See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](../TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](../../ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](../../techniques/README.md)
+See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](/techniques/README.md)
 
 ---
 
@@ -11,7 +11,7 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 
 Detection strategy: Drive-by Compromise — Behavior-based, Multi-platform Detection Strategy (T1189) (`DET0176`)  
 Platforms: Identity Provider, Linux, Windows, macOS  
-ATT&CK: [T1189](https://attack.mitre.org/techniques/T1189/), [detail page](../../techniques/initial-access.md#t1189)
+ATT&CK: [T1189](https://attack.mitre.org/techniques/T1189/), [detail page](/techniques/initial-access.md#t1189)
 
 - `AN0498` Analytic 0498, Windows
   Correlated evidence of anomalous browser/network behavior (suspicious external resource fetches and script injection patterns) followed by atypical child processes, ephemeral execution contexts, memory modification or process injection, and unexpected file drops. Defender sees network requests to previously unseen/suspicious domains or resources + browser process spawning unusual children or loading unsigned modules + file writes or registry changes shortly after those requests.
@@ -37,7 +37,7 @@ ATT&CK: [T1189](https://attack.mitre.org/techniques/T1189/), [detail page](../..
 
 Detection strategy: Exploit Public-Facing Application – multi-signal correlation (request -> error -> post-exploit process/egress) (`DET0080`)  
 Platforms: Containers, ESXi, IaaS, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1190](https://attack.mitre.org/techniques/T1190/), [detail page](../../techniques/initial-access.md#t1190)
+ATT&CK: [T1190](https://attack.mitre.org/techniques/T1190/), [detail page](/techniques/initial-access.md#t1190)
 
 - `AN0219` Analytic 0219, Windows
   Adversary sends crafted HTTP/S (or other service) input to an Internet-facing app (IIS/ASP.NET, API, device portal). Chain: (1) abnormal request patterns to public endpoint -> (2) elevated 4xx/5xx or unusual methods/paths -> (3) server process (w3wp.exe/other service) spawns shell/LOLbins or loads non-standard modules -> (4) optional outbound callback from the host/container.
@@ -75,7 +75,7 @@ ATT&CK: [T1190](https://attack.mitre.org/techniques/T1190/), [detail page](../..
 
 Detection strategy: Behavioral detection for Supply Chain Compromise (package/update tamper -> install -> first-run) (`DET0537`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1195](https://attack.mitre.org/techniques/T1195/), [detail page](../../techniques/initial-access.md#t1195)
+ATT&CK: [T1195](https://attack.mitre.org/techniques/T1195/), [detail page](/techniques/initial-access.md#t1195)
 
 - `AN1480` Analytic 1480, Windows
   1) New or updated software is delivered/installed from atypical sources or with signature/hash mismatches; 2) installer/updater writes binaries to unexpected paths or replaces existing signed files; 3) first run causes unsigned/abnormally signed modules to load or child processes to execute, optionally followed by network egress to new destinations.
@@ -97,7 +97,7 @@ ATT&CK: [T1195](https://attack.mitre.org/techniques/T1195/), [detail page](../..
 
 Detection strategy: Supply-chain tamper in dependencies/dev-tools (manager->write/install->first-run->egress) (`DET0009`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1195.001](https://attack.mitre.org/techniques/T1195/001/), [detail page](../../techniques/initial-access.md#t1195001)
+ATT&CK: [T1195.001](https://attack.mitre.org/techniques/T1195/001/), [detail page](/techniques/initial-access.md#t1195001)
 
 - `AN0021` Analytic 0021, Windows
   Adversary manipulates dependencies/dev tools used by developers or CI: a package manager (npm/yarn/pnpm, pip/pipenv, nuget/dotnet, chocolatey/winget, maven/gradle) or a compiler/IDE downloads or restores content; files are written under project paths and execution paths (node_modules, packages, .nuget, .gradle, .m2, %AppData%\npm, %UserProfile%\.cargo\bin, temp build dirs). First run of newly written components triggers scripts (preinstall/postinstall), shell/PowerShell spawning, or loader DLLs, followed by network egress to non-approved registries/CDNs.
@@ -119,7 +119,7 @@ ATT&CK: [T1195.001](https://attack.mitre.org/techniques/T1195/001/), [detail pag
 
 Detection strategy: Compromised software/update chain (installer/write -> first-run/child -> egress/signature anomaly) (`DET0309`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1195.002](https://attack.mitre.org/techniques/T1195/002/), [detail page](../../techniques/initial-access.md#t1195002)
+ATT&CK: [T1195.002](https://attack.mitre.org/techniques/T1195/002/), [detail page](/techniques/initial-access.md#t1195002)
 
 - `AN0862` Analytic 0862, Windows
   Adversary ships a tampered application or update: an updater/installer (msiexec/setup/update.exe/vendor service) writes or replaces binaries; on first run it spawns scripts/shells or unsigned DLLs and beacons to non-approved update CDNs/hosts. Detection correlates: (1) process creation of installer/updater -> (2) file metadata changes in program paths -> (3) first-run children and module/signature anomalies -> (4) outbound connections to unexpected hosts within a short window.
@@ -141,7 +141,7 @@ ATT&CK: [T1195.002](https://attack.mitre.org/techniques/T1195/002/), [detail pag
 
 Detection strategy: Hardware Supply Chain Compromise Detection via Host Status & Boot Integrity Checks (`DET0368`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1195.003](https://attack.mitre.org/techniques/T1195/003/), [detail page](../../techniques/initial-access.md#t1195003)
+ATT&CK: [T1195.003](https://attack.mitre.org/techniques/T1195/003/), [detail page](/techniques/initial-access.md#t1195003)
 
 - `AN1035` Analytic 1035, Windows
   Detects tampered hardware or firmware via anomalous host status telemetry. Behavioral chain: (1) Pre-OS or firmware components exhibit unexpected version changes, signature failures, or modified boot paths; (2) System management/firmware tools log hardware inventory drift; (3) Sensor health telemetry or boot attestation events fail baseline checks; (4) Follow-on process execution from altered firmware or unknown drivers after boot.
@@ -163,7 +163,7 @@ ATT&CK: [T1195.003](https://attack.mitre.org/techniques/T1195/003/), [detail pag
 
 Detection strategy: Detect abuse of Trusted Relationships (third-party and delegated admin access) (`DET0488`)  
 Platforms: IaaS, Identity Provider, Linux, Office Suite, SaaS, Windows, macOS  
-ATT&CK: [T1199](https://attack.mitre.org/techniques/T1199/), [detail page](../../techniques/initial-access.md#t1199)
+ATT&CK: [T1199](https://attack.mitre.org/techniques/T1199/), [detail page](/techniques/initial-access.md#t1199)
 
 - `AN1344` Analytic 1344, Windows
   Behavioral chain: (1) a login from a third-party account or untrusted source network establishes an interactive/remote session; (2) the session acquires elevated privileges or accesses sensitive resources atypical for that account; (3) subsequent lateral movement or data access occurs from the same session/device. Correlate Windows logon events, token elevation/privileged use, and resource access with third-party context.
@@ -201,7 +201,7 @@ ATT&CK: [T1199](https://attack.mitre.org/techniques/T1199/), [detail page](../..
 
 Detection strategy: Detect unauthorized or suspicious Hardware Additions (USB/Thunderbolt/Network) (`DET0069`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1200](https://attack.mitre.org/techniques/T1200/), [detail page](../../techniques/initial-access.md#t1200)
+ATT&CK: [T1200](https://attack.mitre.org/techniques/T1200/), [detail page](/techniques/initial-access.md#t1200)
 
 - `AN0185` Analytic 0185, Windows
   Chain: (1) a new external device is recognized by Windows (USB/Thunderbolt/PCIe) or a new block device appears; (2) within a short window, the same user/session spawns processes or the OS mounts a new volume; (3) optional follow-on activity such as HID keystroke injection, DMA driver load, or new network interface MAC on DHCP. Correlate Security EID 6416 / Kernel-PnP with sysmon and DHCP/network metadata.
@@ -223,7 +223,7 @@ ATT&CK: [T1200](https://attack.mitre.org/techniques/T1200/), [detail page](../..
 
 Detection strategy: Detection Strategy for Phishing across platforms. (`DET0070`)  
 Platforms: Identity Provider, Linux, Office Suite, SaaS, Windows, macOS  
-ATT&CK: [T1566](https://attack.mitre.org/techniques/T1566/), [detail page](../../techniques/initial-access.md#t1566)
+ATT&CK: [T1566](https://attack.mitre.org/techniques/T1566/), [detail page](/techniques/initial-access.md#t1566)
 
 - `AN0188` Analytic 0188, Windows
   Unusual inbound email activity where attachments or embedded URLs are delivered to users followed by execution of new processes or suspicious document behavior. Detection involves correlating email metadata, file creation, and network activity after a phishing message is received.
@@ -257,7 +257,7 @@ ATT&CK: [T1566](https://attack.mitre.org/techniques/T1566/), [detail page](../..
 
 Detection strategy: Detection Strategy for Spearphishing Attachment across OS Platforms (`DET0236`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1566.001](https://attack.mitre.org/techniques/T1566/001/), [detail page](../../techniques/initial-access.md#t1566001)
+ATT&CK: [T1566.001](https://attack.mitre.org/techniques/T1566/001/), [detail page](/techniques/initial-access.md#t1566001)
 
 - `AN0655` Analytic 0655, Windows
   Detection of spearphishing attachments by correlating suspicious email delivery with subsequent file creation and abnormal process execution (e.g., Office spawning PowerShell or CMD). Behavior chain includes inbound email metadata -> attachment stored on disk -> process execution -> outbound network activity.
@@ -279,7 +279,7 @@ ATT&CK: [T1566.001](https://attack.mitre.org/techniques/T1566/001/), [detail pag
 
 Detection strategy: Detection Strategy for Spearphishing Links (`DET0107`)  
 Platforms: Identity Provider, Linux, Windows, macOS  
-ATT&CK: [T1566.002](https://attack.mitre.org/techniques/T1566/002/), [detail page](../../techniques/initial-access.md#t1566002)
+ATT&CK: [T1566.002](https://attack.mitre.org/techniques/T1566/002/), [detail page](/techniques/initial-access.md#t1566002)
 
 - `AN0298` Analytic 0298, Windows
   Correlation of inbound emails with embedded links followed by user-driven browser navigation to suspicious or obfuscated domains. Detection chain includes malicious URL in email -> user click recorded in Office logs -> browser process spawning unusual child processes (e.g., PowerShell, cmd) or download activity.
@@ -305,7 +305,7 @@ ATT&CK: [T1566.002](https://attack.mitre.org/techniques/T1566/002/), [detail pag
 
 Detection strategy: Detection Strategy for Spearphishing via a Service across OS Platforms (`DET0115`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1566.003](https://attack.mitre.org/techniques/T1566/003/), [detail page](../../techniques/initial-access.md#t1566003)
+ATT&CK: [T1566.003](https://attack.mitre.org/techniques/T1566/003/), [detail page](/techniques/initial-access.md#t1566003)
 
 - `AN0320` Analytic 0320, Windows
   Inbound spearphishing attempts delivered via third-party services (e.g., Gmail, LinkedIn messages) leading to malicious file downloads or browser-initiated script execution. Defender view includes correlation of external service logins, unexpected file write operations, and suspicious descendant processes spawned from productivity or browser applications.
@@ -327,7 +327,7 @@ ATT&CK: [T1566.003](https://attack.mitre.org/techniques/T1566/003/), [detail pag
 
 Detection strategy: Detection Strategy for Spearphishing Voice across OS platforms (`DET0245`)  
 Platforms: Identity Provider, Linux, Windows, macOS  
-ATT&CK: [T1566.004](https://attack.mitre.org/techniques/T1566/004/), [detail page](../../techniques/initial-access.md#t1566004)
+ATT&CK: [T1566.004](https://attack.mitre.org/techniques/T1566/004/), [detail page](/techniques/initial-access.md#t1566004)
 
 - `AN0683` Analytic 0683, Windows
   Monitor call log records from corporate devices for unusual or unauthorized numbers, especially repeated calls to/from known malicious phone numbers. Correlate with subsequent system events (e.g., browser navigation, remote management tool execution).
@@ -353,7 +353,7 @@ ATT&CK: [T1566.004](https://attack.mitre.org/techniques/T1566/004/), [detail pag
 
 Detection strategy: Detection Strategy for Content Injection (`DET0349`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1659](https://attack.mitre.org/techniques/T1659/), [detail page](../../techniques/initial-access.md#t1659)
+ATT&CK: [T1659](https://attack.mitre.org/techniques/T1659/), [detail page](/techniques/initial-access.md#t1659)
 
 - `AN0992` Analytic 0992, Windows
   Detect suspicious file creations and process executions triggered by browser activity (e.g., injected payloads written to %AppData% or Temp directories, then executed). Correlate network anomalies with subsequent local process creation or script execution.
@@ -375,7 +375,7 @@ ATT&CK: [T1659](https://attack.mitre.org/techniques/T1659/), [detail page](../..
 
 Detection strategy: Detection Strategy for Wi-Fi Networks (`DET0536`)  
 Platforms: Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1669](https://attack.mitre.org/techniques/T1669/), [detail page](../../techniques/initial-access.md#t1669)
+ATT&CK: [T1669](https://attack.mitre.org/techniques/T1669/), [detail page](/techniques/initial-access.md#t1669)
 
 - `AN1476` Analytic 1476, Windows
   Detects anomalous wireless connections such as unexpected SSID associations, failed or repeated authentication attempts, and connections outside of known geofenced networks. Defenders should monitor wireless connection logs and event codes for network discovery, authentication, and association events.

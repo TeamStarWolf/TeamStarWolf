@@ -218,7 +218,12 @@ def main() -> None:
     if not pipeline:
         errors.append(f"{PIPELINE}: no '## Stage N: Title' headings found")
     index_md = read_text(ROOT / INDEX_MD)
-    linked = {u for u in re.findall(r"\]\(([^)\s]+\.json)\)", index_md) if "://" not in u}
+    # A layer is listed by a Markdown link to its file: the GitHub blob URL that
+    # build_navigator_layers.py writes (docsify would route a relative "x.json" link to
+    # "x.json.md" and 404), or a relative path under navigator/.
+    linked = set(re.findall(r"\]\(https://github\.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/"
+                            r"([^)\s]+\.json)\)", index_md))
+    linked |= {u for u in re.findall(r"\]\(([^)\s]+\.json)\)", index_md) if "://" not in u}
     raw = set(re.findall(r"raw\.githubusercontent\.com/TeamStarWolf/TeamStarWolf/main/navigator/"
                          r"([^)\s\"]+\.json)", index_md))
 

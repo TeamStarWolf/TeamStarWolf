@@ -2,7 +2,7 @@
 
 > MITRE ATT&CK detection strategies and analytics (v19.2) for techniques whose primary tactic is Persistence. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
 
-See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](../TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](../../ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](../../techniques/README.md)
+See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](/techniques/README.md)
 
 ---
 
@@ -11,7 +11,7 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 
 Detection strategy: Boot or Logon Initialization Scripts Detection Strategy (`DET0112`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1037](https://attack.mitre.org/techniques/T1037/), [detail page](../../techniques/persistence.md#t1037)
+ATT&CK: [T1037](https://attack.mitre.org/techniques/T1037/), [detail page](/techniques/persistence.md#t1037)
 
 - `AN0311` Analytic 0311, Windows
   Monitoring modification and execution of user or system logon scripts such as in registry Run keys or startup folders.
@@ -41,7 +41,7 @@ ATT&CK: [T1037](https://attack.mitre.org/techniques/T1037/), [detail page](../..
 
 Detection strategy: Detect Logon Script Modifications and Execution (`DET0072`)  
 Platforms: Windows  
-ATT&CK: [T1037.001](https://attack.mitre.org/techniques/T1037/001/), [detail page](../../techniques/persistence.md#t1037001)
+ATT&CK: [T1037.001](https://attack.mitre.org/techniques/T1037/001/), [detail page](/techniques/persistence.md#t1037001)
 
 - `AN0199` Analytic 0199, Windows
   Detects adversary use of logon script configuration via Group Policy or user object attributes, followed by script execution post-authentication. Behavior includes modification of script path or file, then process execution under user logon context.
@@ -55,7 +55,7 @@ ATT&CK: [T1037.001](https://attack.mitre.org/techniques/T1037/001/), [detail pag
 
 Detection strategy: Detection Strategy for Login Hook Persistence on macOS (`DET0244`)  
 Platforms: macOS  
-ATT&CK: [T1037.002](https://attack.mitre.org/techniques/T1037/002/), [detail page](../../techniques/persistence.md#t1037002)
+ATT&CK: [T1037.002](https://attack.mitre.org/techniques/T1037/002/), [detail page](/techniques/persistence.md#t1037002)
 
 - `AN0682` Analytic 0682, macOS
   Detection of persistent login hooks configured via defaults or plist modifications that result in execution of scripts or binaries at user login, breaking expected parent-child process lineage.
@@ -69,7 +69,7 @@ ATT&CK: [T1037.002](https://attack.mitre.org/techniques/T1037/002/), [detail pag
 
 Detection strategy: Detect Network Logon Script Abuse via Multi-Event Correlation on Windows (`DET0367`)  
 Platforms: Windows  
-ATT&CK: [T1037.003](https://attack.mitre.org/techniques/T1037/003/), [detail page](../../techniques/persistence.md#t1037003)
+ATT&CK: [T1037.003](https://attack.mitre.org/techniques/T1037/003/), [detail page](/techniques/persistence.md#t1037003)
 
 - `AN1034` Analytic 1034, Windows
   Correlates Group Policy updates that configure network logon scripts with subsequent remote file execution behaviors triggered by user logons to identify potential persistence or execution chains tied to adversarial manipulation of logon scripts.
@@ -83,7 +83,7 @@ ATT&CK: [T1037.003](https://attack.mitre.org/techniques/T1037/003/), [detail pag
 
 Detection strategy: Detection Strategy for Boot or Logon Initialization Scripts: RC Scripts (`DET0237`)  
 Platforms: ESXi, Linux, Network Devices, macOS  
-ATT&CK: [T1037.004](https://attack.mitre.org/techniques/T1037/004/), [detail page](../../techniques/persistence.md#t1037004)
+ATT&CK: [T1037.004](https://attack.mitre.org/techniques/T1037/004/), [detail page](/techniques/persistence.md#t1037004)
 
 - `AN0658` Analytic 0658, Linux
   Detection of modified or newly created /etc/rc.local or /etc/init.d scripts followed by suspicious execution during system startup.
@@ -109,7 +109,7 @@ ATT&CK: [T1037.004](https://attack.mitre.org/techniques/T1037/004/), [detail pag
 
 Detection strategy: Detect Modification of macOS Startup Items (`DET0429`)  
 Platforms: macOS  
-ATT&CK: [T1037.005](https://attack.mitre.org/techniques/T1037/005/), [detail page](../../techniques/persistence.md#t1037005)
+ATT&CK: [T1037.005](https://attack.mitre.org/techniques/T1037/005/), [detail page](/techniques/persistence.md#t1037005)
 
 - `AN1197` Analytic 1197, macOS
   Detects the modification or addition of Launch Agents or Startup Items to establish persistence. Adversaries may write plist or executable files to ~/Library/LaunchAgents/, /Library/StartupItems/, or similar directories and configure them to run at user or system boot. Detection requires correlating file creation or modification events with subsequent user logon or boot-time process execution.
@@ -123,7 +123,7 @@ ATT&CK: [T1037.005](https://attack.mitre.org/techniques/T1037/005/), [detail pag
 
 Detection strategy: Account Manipulation Behavior Chain Detection (`DET0096`)  
 Platforms: ESXi, Identity Provider, Linux, SaaS, Windows, macOS  
-ATT&CK: [T1098](https://attack.mitre.org/techniques/T1098/), [detail page](../../techniques/persistence.md#t1098)
+ATT&CK: [T1098](https://attack.mitre.org/techniques/T1098/), [detail page](/techniques/persistence.md#t1098)
 
 - `AN0265` Analytic 0265, Windows
   Account attribute changes (e.g., password set, group membership, servicePrincipalName, logon hours) correlated with unusual process lineage or timing, indicating privilege escalation or persistence via valid accounts.
@@ -157,7 +157,7 @@ ATT&CK: [T1098](https://attack.mitre.org/techniques/T1098/), [detail page](../..
 
 Detection strategy: Detection Strategy for Additional Cloud Credentials in IaaS/IdP/SaaS (`DET0531`)  
 Platforms: IaaS, Identity Provider, SaaS  
-ATT&CK: [T1098.001](https://attack.mitre.org/techniques/T1098/001/), [detail page](../../techniques/persistence.md#t1098001)
+ATT&CK: [T1098.001](https://attack.mitre.org/techniques/T1098/001/), [detail page](/techniques/persistence.md#t1098001)
 
 - `AN1469` Analytic 1469, Identity Provider
   Addition of credentials (keys, app passwords, x.509 certs) to existing cloud accounts, service principals, or OAuth apps via portal or API by non-standard identities or IP ranges.
@@ -179,7 +179,7 @@ ATT&CK: [T1098.001](https://attack.mitre.org/techniques/T1098/001/), [detail pag
 
 Detection strategy: Detection Strategy for Addition of Email Delegate Permissions (`DET0373`)  
 Platforms: Office Suite, Windows  
-ATT&CK: [T1098.002](https://attack.mitre.org/techniques/T1098/002/), [detail page](../../techniques/persistence.md#t1098002)
+ATT&CK: [T1098.002](https://attack.mitre.org/techniques/T1098/002/), [detail page](/techniques/persistence.md#t1098002)
 
 - `AN1051` Analytic 1051, Office Suite
   Detection of anomalous or unauthorized mailbox delegation activity (e.g., Add-MailboxPermission, Default/Anonymous mailbox permissions, Gmail delegation setup).
@@ -197,7 +197,7 @@ ATT&CK: [T1098.002](https://attack.mitre.org/techniques/T1098/002/), [detail pag
 
 Detection strategy: Detection Strategy for Role Addition to Cloud Accounts (`DET0277`)  
 Platforms: IaaS, Identity Provider, Office Suite  
-ATT&CK: [T1098.003](https://attack.mitre.org/techniques/T1098/003/), [detail page](../../techniques/persistence.md#t1098003)
+ATT&CK: [T1098.003](https://attack.mitre.org/techniques/T1098/003/), [detail page](/techniques/persistence.md#t1098003)
 
 - `AN0771` Analytic 0771, IaaS
   Detection of new IAM roles or policies attached to a user/service in AWS/GCP/Azure outside normal patterns or hours, often following account compromise.
@@ -219,7 +219,7 @@ ATT&CK: [T1098.003](https://attack.mitre.org/techniques/T1098/003/), [detail pag
 
 Detection strategy: Detection Strategy for SSH Key Injection in Authorized Keys (`DET0126`)  
 Platforms: ESXi, IaaS, Linux, Network Devices, macOS  
-ATT&CK: [T1098.004](https://attack.mitre.org/techniques/T1098/004/), [detail page](../../techniques/persistence.md#t1098004)
+ATT&CK: [T1098.004](https://attack.mitre.org/techniques/T1098/004/), [detail page](/techniques/persistence.md#t1098004)
 
 - `AN0350` Analytic 0350, Linux
   Adversary attempts to gain persistence by modifying ~/.ssh/authorized_keys via shell, text editor, echo or redirected output.
@@ -249,7 +249,7 @@ ATT&CK: [T1098.004](https://attack.mitre.org/techniques/T1098/004/), [detail pag
 
 Detection strategy: Suspicious Device Registration via Entra ID or MFA Platform (`DET0036`)  
 Platforms: Identity Provider, Windows  
-ATT&CK: [T1098.005](https://attack.mitre.org/techniques/T1098/005/), [detail page](../../techniques/persistence.md#t1098005)
+ATT&CK: [T1098.005](https://attack.mitre.org/techniques/T1098/005/), [detail page](/techniques/persistence.md#t1098005)
 
 - `AN0103` Analytic 0103, Identity Provider
   Adversary registers new devices to compromised user accounts to bypass MFA or conditional access policies via Azure Entra ID, Okta, or Duo self-enrollment portals.
@@ -267,7 +267,7 @@ ATT&CK: [T1098.005](https://attack.mitre.org/techniques/T1098/005/), [detail pag
 
 Detection strategy: Suspicious RoleBinding or ClusterRoleBinding Assignment in Kubernetes (`DET0572`)  
 Platforms: Containers  
-ATT&CK: [T1098.006](https://attack.mitre.org/techniques/T1098/006/), [detail page](../../techniques/persistence.md#t1098006)
+ATT&CK: [T1098.006](https://attack.mitre.org/techniques/T1098/006/), [detail page](/techniques/persistence.md#t1098006)
 
 - `AN1579` Analytic 1579, Containers
   Detects assignment of high-privilege roles to user or service accounts via Kubernetes RoleBinding or ClusterRoleBinding objects, especially outside of CI/CD automation or from unknown IPs.
@@ -281,7 +281,7 @@ ATT&CK: [T1098.006](https://attack.mitre.org/techniques/T1098/006/), [detail pag
 
 Detection strategy: Suspicious Addition to Local or Domain Groups (`DET0310`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1098.007](https://attack.mitre.org/techniques/T1098/007/), [detail page](../../techniques/persistence.md#t1098007)
+ATT&CK: [T1098.007](https://attack.mitre.org/techniques/T1098/007/), [detail page](/techniques/persistence.md#t1098007)
 
 - `AN0865` Analytic 0865, Windows
   Detects unauthorized additions of users or machine accounts to privileged local or domain groups (e.g., Administrators, Remote Desktop Users).
@@ -303,7 +303,7 @@ ATT&CK: [T1098.007](https://attack.mitre.org/techniques/T1098/007/), [detail pag
 
 Detection strategy: Behavior-chain detection for T1133 External Remote Services across Windows, Linux, macOS, Containers (`DET0354`)  
 Platforms: Containers, Linux, Windows, macOS  
-ATT&CK: [T1133](https://attack.mitre.org/techniques/T1133/), [detail page](../../techniques/persistence.md#t1133)
+ATT&CK: [T1133](https://attack.mitre.org/techniques/T1133/), [detail page](/techniques/persistence.md#t1133)
 
 - `AN1004` Analytic 1004, Windows
   Unusual or unauthorized external remote access attempts (e.g., RDP, VPN, Citrix) -> repeated failed logins followed by a successful session from uncommon geolocations or outside business hours -> subsequent internal lateral movement or data exfiltration activities.
@@ -329,7 +329,7 @@ ATT&CK: [T1133](https://attack.mitre.org/techniques/T1133/), [detail page](../..
 
 Detection strategy: Detection Strategy for T1136 - Create Account across platforms (`DET0583`)  
 Platforms: IaaS, Identity Provider, Linux, Windows, macOS  
-ATT&CK: [T1136](https://attack.mitre.org/techniques/T1136/), [detail page](../../techniques/persistence.md#t1136)
+ATT&CK: [T1136](https://attack.mitre.org/techniques/T1136/), [detail page](/techniques/persistence.md#t1136)
 
 - `AN1604` Analytic 1604, Windows
   Adversary uses built-in OS tools or API calls to create local or domain accounts for persistence or lateral movement. Tools such as 'net user', PowerShell, or MMC snap-ins may be used. Detection focuses on Event ID 4720 paired with process lineage and user context.
@@ -359,7 +359,7 @@ ATT&CK: [T1136](https://attack.mitre.org/techniques/T1136/), [detail page](../..
 
 Detection strategy: T1136.001 Detection Strategy - Local Account Creation Across Platforms (`DET0447`)  
 Platforms: Containers, ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1136.001](https://attack.mitre.org/techniques/T1136/001/), [detail page](../../techniques/persistence.md#t1136001)
+ATT&CK: [T1136.001](https://attack.mitre.org/techniques/T1136/001/), [detail page](/techniques/persistence.md#t1136001)
 
 - `AN1235` Analytic 1235, Windows
   Adversary uses built-in tools like 'net user /add', PowerShell, or WMI to create a local user. Sequence: Account creation event (4720) follows process creation of a suspicious executable (e.g., powershell.exe or net.exe).
@@ -393,7 +393,7 @@ ATT&CK: [T1136.001](https://attack.mitre.org/techniques/T1136/001/), [detail pag
 
 Detection strategy: T1136.002 Detection Strategy - Domain Account Creation Across Platforms (`DET0003`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1136.002](https://attack.mitre.org/techniques/T1136/002/), [detail page](../../techniques/persistence.md#t1136002)
+ATT&CK: [T1136.002](https://attack.mitre.org/techniques/T1136/002/), [detail page](/techniques/persistence.md#t1136002)
 
 - `AN0006` Analytic 0006, Windows
   Adversary uses built-in tools such as 'net user /add /domain' or PowerShell to create a domain user account. The behavior chain includes: (1) suspicious process execution on a domain controller followed by (2) user account creation event (Event ID 4720) on the same host.
@@ -415,7 +415,7 @@ ATT&CK: [T1136.002](https://attack.mitre.org/techniques/T1136/002/), [detail pag
 
 Detection strategy: Detection Strategy for T1136.003 - Cloud Account Creation across IaaS, IdP, SaaS, Office (`DET0319`)  
 Platforms: IaaS, Identity Provider, Office Suite, SaaS  
-ATT&CK: [T1136.003](https://attack.mitre.org/techniques/T1136/003/), [detail page](../../techniques/persistence.md#t1136003)
+ATT&CK: [T1136.003](https://attack.mitre.org/techniques/T1136/003/), [detail page](/techniques/persistence.md#t1136003)
 
 - `AN0899` Analytic 0899, Identity Provider
   Adversaries create user accounts via identity provider APIs or admin portals (e.g., Azure AD, Okta). These accounts may be assigned elevated privileges or used in chained authentication. Detection monitors Add User activity from suspicious IPs or automation sources, followed by role/permission escalation.
@@ -441,7 +441,7 @@ ATT&CK: [T1136.003](https://attack.mitre.org/techniques/T1136/003/), [detail pag
 
 Detection strategy: Detect Office Startup-Based Persistence via Macros, Forms, and Registry Hooks (`DET0398`)  
 Platforms: Office Suite, Windows  
-ATT&CK: [T1137](https://attack.mitre.org/techniques/T1137/), [detail page](../../techniques/persistence.md#t1137)
+ATT&CK: [T1137](https://attack.mitre.org/techniques/T1137/), [detail page](/techniques/persistence.md#t1137)
 
 - `AN1116` Analytic 1116, Windows
   Office-based persistence via Office template macros, Outlook forms/rules/homepage, or registry-persistent scripts. Adversary modifies registry keys or Office application directories to load malicious scripts at startup.
@@ -459,7 +459,7 @@ ATT&CK: [T1137](https://attack.mitre.org/techniques/T1137/), [detail page](../..
 
 Detection strategy: Detect Persistence via Office Template Macro Injection or Registry Hijack (`DET0519`)  
 Platforms: Office Suite, Windows  
-ATT&CK: [T1137.001](https://attack.mitre.org/techniques/T1137/001/), [detail page](../../techniques/persistence.md#t1137001)
+ATT&CK: [T1137.001](https://attack.mitre.org/techniques/T1137/001/), [detail page](/techniques/persistence.md#t1137001)
 
 - `AN1436` Analytic 1436, Windows
   Adversaries inject VBA macros into Office templates such as Normal.dotm or Personal.xlsb or redirect Office template load path via registry key (GlobalDotName) to gain persistence. Template macros trigger execution of malicious code on application startup.
@@ -477,7 +477,7 @@ ATT&CK: [T1137.001](https://attack.mitre.org/techniques/T1137/001/), [detail pag
 
 Detection strategy: Detect Persistence via Office Test Registry DLL Injection (`DET0315`)  
 Platforms: Office Suite, Windows  
-ATT&CK: [T1137.002](https://attack.mitre.org/techniques/T1137/002/), [detail page](../../techniques/persistence.md#t1137002)
+ATT&CK: [T1137.002](https://attack.mitre.org/techniques/T1137/002/), [detail page](/techniques/persistence.md#t1137002)
 
 - `AN0880` Analytic 0880, Windows
   Adversaries create the 'Office Test\Special\Perf' registry key and specify a malicious DLL path that is auto-loaded when an Office application starts. This DLL is injected into the Office process memory space and can provide persistent execution without requiring macro enablement.
@@ -495,7 +495,7 @@ ATT&CK: [T1137.002](https://attack.mitre.org/techniques/T1137/002/), [detail pag
 
 Detection strategy: Detect Persistence via Outlook Custom Forms Triggered by Malicious Email (`DET0029`)  
 Platforms: Office Suite, Windows  
-ATT&CK: [T1137.003](https://attack.mitre.org/techniques/T1137/003/), [detail page](../../techniques/persistence.md#t1137003)
+ATT&CK: [T1137.003](https://attack.mitre.org/techniques/T1137/003/), [detail page](/techniques/persistence.md#t1137003)
 
 - `AN0085` Analytic 0085, Windows
   Adversary uses a tool like Ruler to insert a malicious custom form into the user's Outlook mailbox. The form is designed to auto-execute on Outlook startup or on receipt of a specially crafted email. This results in child processes launched from outlook.exe and possibly network connections or payload loading.
@@ -513,7 +513,7 @@ ATT&CK: [T1137.003](https://attack.mitre.org/techniques/T1137/003/), [detail pag
 
 Detection strategy: Detect Persistence via Outlook Home Page Exploitation (`DET0177`)  
 Platforms: Office Suite, Windows  
-ATT&CK: [T1137.004](https://attack.mitre.org/techniques/T1137/004/), [detail page](../../techniques/persistence.md#t1137004)
+ATT&CK: [T1137.004](https://attack.mitre.org/techniques/T1137/004/), [detail page](/techniques/persistence.md#t1137004)
 
 - `AN0502` Analytic 0502, Windows
   Adversary uses a tool like Ruler to configure a malicious Outlook folder Home Page that loads a remote or embedded HTML payload upon folder interaction. Execution chain begins with Outlook launching, a specific folder being accessed, and a suspicious child process being spawned or COM-based execution invoked.
@@ -531,7 +531,7 @@ ATT&CK: [T1137.004](https://attack.mitre.org/techniques/T1137/004/), [detail pag
 
 Detection strategy: Detect Persistence via Malicious Outlook Rules (`DET0095`)  
 Platforms: Office Suite, Windows  
-ATT&CK: [T1137.005](https://attack.mitre.org/techniques/T1137/005/), [detail page](../../techniques/persistence.md#t1137005)
+ATT&CK: [T1137.005](https://attack.mitre.org/techniques/T1137/005/), [detail page](/techniques/persistence.md#t1137005)
 
 - `AN0263` Analytic 0263, Windows
   Adversary uses a tool like Ruler or MFCMapi to create a malicious Outlook rule that triggers execution upon receipt of a crafted email. On email delivery, Outlook executes the rule, resulting in code execution (e.g., launching mshta.exe or PowerShell). Outlook spawns a non-standard child process, often unsanctioned, without user interaction.
@@ -549,7 +549,7 @@ ATT&CK: [T1137.005](https://attack.mitre.org/techniques/T1137/005/), [detail pag
 
 Detection strategy: Detect Persistence via Malicious Office Add-ins (`DET0050`)  
 Platforms: Office Suite, Windows  
-ATT&CK: [T1137.006](https://attack.mitre.org/techniques/T1137/006/), [detail page](../../techniques/persistence.md#t1137006)
+ATT&CK: [T1137.006](https://attack.mitre.org/techniques/T1137/006/), [detail page](/techniques/persistence.md#t1137006)
 
 - `AN0137` Analytic 0137, Windows
   An adversary writes or drops a malicious Office Add-in (e.g., WLL, XLL, COM) to a trusted directory or modifies registry keys to load malicious add-ins on Office application launch. Upon user opening Word or Excel, the add-in is automatically loaded, triggering execution of the payload, often spawning scripting engines or anomalous child processes.
@@ -567,7 +567,7 @@ ATT&CK: [T1137.006](https://attack.mitre.org/techniques/T1137/006/), [detail pag
 
 Detection strategy: Detection of Malicious or Unauthorized Software Extensions (`DET0092`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1176](https://attack.mitre.org/techniques/T1176/), [detail page](../../techniques/persistence.md#t1176)
+ATT&CK: [T1176](https://attack.mitre.org/techniques/T1176/), [detail page](/techniques/persistence.md#t1176)
 
 - `AN0251` Analytic 0251, Windows
   Installation or execution of a malicious browser or IDE extension, followed by abnormal registry entries or outbound network connections from the host application
@@ -589,7 +589,7 @@ ATT&CK: [T1176](https://attack.mitre.org/techniques/T1176/), [detail page](../..
 
 Detection strategy: Detecting Malicious Browser Extensions Across Platforms (`DET0044`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1176.001](https://attack.mitre.org/techniques/T1176/001/), [detail page](../../techniques/persistence.md#t1176001)
+ATT&CK: [T1176.001](https://attack.mitre.org/techniques/T1176/001/), [detail page](/techniques/persistence.md#t1176001)
 
 - `AN0123` Analytic 0123, Windows
   Installation of a new browser extension followed by suspicious file writes or outbound network connections to untrusted domains by the browser process.
@@ -611,7 +611,7 @@ ATT&CK: [T1176.001](https://attack.mitre.org/techniques/T1176/001/), [detail pag
 
 Detection strategy: Detect malicious IDE extension install/usage and IDE tunneling (`DET0561`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1176.002](https://attack.mitre.org/techniques/T1176/002/), [detail page](../../techniques/persistence.md#t1176002)
+ATT&CK: [T1176.002](https://attack.mitre.org/techniques/T1176/002/), [detail page](/techniques/persistence.md#t1176002)
 
 - `AN1548` Analytic 1548, Windows
   Adversary installs or side-loads an IDE extension (VS Code, IntelliJ/JetBrains, Eclipse) or enables IDE tunneling. Chain: (1) IDE binary starts on a non-developer endpoint or server, often with install/force/tunnel flags -> (2) extension files/registrations appear under user profile -> (3) browser/IDE initiates outbound connections to extension marketplaces, update endpoints, or IDE remote/tunnel services -> (4) optional child tools (ssh, node, powershell) execute under the IDE context.
@@ -633,7 +633,7 @@ ATT&CK: [T1176.002](https://attack.mitre.org/techniques/T1176/002/), [detail pag
 
 Detection strategy: Detection Strategy for T1505 - Server Software Component (`DET0547`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1505](https://attack.mitre.org/techniques/T1505/), [detail page](../../techniques/persistence.md#t1505)
+ATT&CK: [T1505](https://attack.mitre.org/techniques/T1505/), [detail page](/techniques/persistence.md#t1505)
 
 - `AN1507` Analytic 1507, Windows
   Installation of malicious IIS/Apache/SQL server modules that later execute command-line interpreters or establish outbound connections.
@@ -659,7 +659,7 @@ ATT&CK: [T1505](https://attack.mitre.org/techniques/T1505/), [detail page](../..
 
 Detection strategy: Detection Strategy for SQL Stored Procedures Abuse via T1505.001 (`DET0181`)  
 Platforms: Linux, Windows  
-ATT&CK: [T1505.001](https://attack.mitre.org/techniques/T1505/001/), [detail page](../../techniques/persistence.md#t1505001)
+ATT&CK: [T1505.001](https://attack.mitre.org/techniques/T1505/001/), [detail page](/techniques/persistence.md#t1505001)
 
 - `AN0511` Analytic 0511, Windows
   Creation or modification of stored procedures invoking xp_cmdshell or CLR assemblies for command execution and persistence.
@@ -677,7 +677,7 @@ ATT&CK: [T1505.001](https://attack.mitre.org/techniques/T1505/001/), [detail pag
 
 Detection strategy: Detection Strategy for T1505.002 - Transport Agent Abuse (Windows/Linux) (`DET0166`)  
 Platforms: Linux, Windows  
-ATT&CK: [T1505.002](https://attack.mitre.org/techniques/T1505/002/), [detail page](../../techniques/persistence.md#t1505002)
+ATT&CK: [T1505.002](https://attack.mitre.org/techniques/T1505/002/), [detail page](/techniques/persistence.md#t1505002)
 
 - `AN0472` Analytic 0472, Windows
   Adversary registers a malicious Microsoft Exchange transport agent DLL (.NET assembly), configures it via PowerShell or Exchange Management Shell, and persists code execution by manipulating email processing logic based on rules or headers.
@@ -695,7 +695,7 @@ ATT&CK: [T1505.002](https://attack.mitre.org/techniques/T1505/002/), [detail pag
 
 Detection strategy: Web Shell Detection via Server Behavior and File Execution Chains (`DET0394`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1505.003](https://attack.mitre.org/techniques/T1505/003/), [detail page](../../techniques/persistence.md#t1505003)
+ATT&CK: [T1505.003](https://attack.mitre.org/techniques/T1505/003/), [detail page](/techniques/persistence.md#t1505003)
 
 - `AN1108` Analytic 1108, Windows
   Unexpected file creation in web directories followed by web server processes (e.g., w3wp.exe) spawning command shells or script interpreters (e.g., cmd.exe, powershell.exe)
@@ -717,7 +717,7 @@ ATT&CK: [T1505.003](https://attack.mitre.org/techniques/T1505/003/), [detail pag
 
 Detection strategy: Detection Strategy for T1505.004 - Malicious IIS Components (`DET0068`)  
 Platforms: Windows  
-ATT&CK: [T1505.004](https://attack.mitre.org/techniques/T1505/004/), [detail page](../../techniques/persistence.md#t1505004)
+ATT&CK: [T1505.004](https://attack.mitre.org/techniques/T1505/004/), [detail page](/techniques/persistence.md#t1505004)
 
 - `AN0184` Analytic 0184, Windows
   Adversary installs or modifies IIS components (ISAPI filters, extensions, or modules) using DLL files registered via configuration changes or administrative tools like AppCmd.exe. These components intercept or manipulate HTTP requests/responses for persistence or C2.
@@ -731,7 +731,7 @@ ATT&CK: [T1505.004](https://attack.mitre.org/techniques/T1505/004/), [detail pag
 
 Detection strategy: Detection Strategy for T1505.005 – Terminal Services DLL Modification (Windows) (`DET0212`)  
 Platforms: Windows  
-ATT&CK: [T1505.005](https://attack.mitre.org/techniques/T1505/005/), [detail page](../../techniques/persistence.md#t1505005)
+ATT&CK: [T1505.005](https://attack.mitre.org/techniques/T1505/005/), [detail page](/techniques/persistence.md#t1505005)
 
 - `AN0595` Analytic 0595, Windows
   Adversary modifies or replaces the Terminal Services DLL (`termsrv.dll`) or changes the associated `ServiceDll` Registry value to load an arbitrary or patched DLL that enables persistent and enhanced RDP access. This may include binary replacement, registry tampering, and unexpected module loads by the `svchost.exe -k termsvcs` process.
@@ -745,7 +745,7 @@ ATT&CK: [T1505.005](https://attack.mitre.org/techniques/T1505/005/), [detail pag
 
 Detection strategy: Detect Abuse of vSphere Installation Bundles (VIBs) for Persistent Access (`DET0535`)  
 Platforms: ESXi  
-ATT&CK: [T1505.006](https://attack.mitre.org/techniques/T1505/006/), [detail page](../../techniques/persistence.md#t1505006)
+ATT&CK: [T1505.006](https://attack.mitre.org/techniques/T1505/006/), [detail page](/techniques/persistence.md#t1505006)
 
 - `AN1475` Analytic 1475, ESXi
   Malicious VIB installation for persistence via `esxcli software vib install` using `--force` or `--no-sig-check`, enabling custom startup scripts or firewall rules. Behavior chain: (1) unsigned/suspicious VIB installation -> (2) startup script or binary placed in persistent boot path -> (3) persistence across reboot via /etc/rc.local.d or other boot hook).
@@ -759,7 +759,7 @@ ATT&CK: [T1505.006](https://attack.mitre.org/techniques/T1505/006/), [detail pag
 
 Detection strategy: Detection Strategy for T1525 – Implant Internal Image (`DET0334`)  
 Platforms: Containers, IaaS  
-ATT&CK: [T1525](https://attack.mitre.org/techniques/T1525/), [detail page](../../techniques/persistence.md#t1525)
+ATT&CK: [T1525](https://attack.mitre.org/techniques/T1525/), [detail page](/techniques/persistence.md#t1525)
 
 - `AN0946` Analytic 0946, Containers
   Implantation of malicious code into container images followed by registry push and use in new deployments.
@@ -777,7 +777,7 @@ ATT&CK: [T1525](https://attack.mitre.org/techniques/T1525/), [detail page](../..
 
 Detection strategy: Detection of System Process Creation or Modification Across Platforms (`DET0571`)  
 Platforms: Containers, Linux, Windows, macOS  
-ATT&CK: [T1543](https://attack.mitre.org/techniques/T1543/), [detail page](../../techniques/persistence.md#t1543)
+ATT&CK: [T1543](https://attack.mitre.org/techniques/T1543/), [detail page](/techniques/persistence.md#t1543)
 
 - `AN1575` Analytic 1575, Windows
   Detects command-line or API-based creation/modification of Windows Services via `sc.exe`, `powershell.exe`, `services.exe`, or `ChangeServiceConfig`. Looks for creation/modification of autostart services via registry changes, file drops to `System32\services`, and anomalous parent-child process trees.
@@ -803,7 +803,7 @@ ATT&CK: [T1543](https://attack.mitre.org/techniques/T1543/), [detail page](../..
 
 Detection strategy: Detection of Launch Agent Creation or Modification on macOS (`DET0434`)  
 Platforms: macOS  
-ATT&CK: [T1543.001](https://attack.mitre.org/techniques/T1543/001/), [detail page](../../techniques/persistence.md#t1543001)
+ATT&CK: [T1543.001](https://attack.mitre.org/techniques/T1543/001/), [detail page](/techniques/persistence.md#t1543001)
 
 - `AN1208` Analytic 1208, macOS
   Detects creation or modification of user-level Launch Agents in monitored directories using `.plist` files with suspicious `ProgramArguments` or `RunAtLoad` keys. Correlates file write activity with execution of `launchctl` or unsigned binaries invoked at login.
@@ -817,7 +817,7 @@ ATT&CK: [T1543.001](https://attack.mitre.org/techniques/T1543/001/), [detail pag
 
 Detection strategy: Detection of Systemd Service Creation or Modification on Linux (`DET0253`)  
 Platforms: Linux  
-ATT&CK: [T1543.002](https://attack.mitre.org/techniques/T1543/002/), [detail page](../../techniques/persistence.md#t1543002)
+ATT&CK: [T1543.002](https://attack.mitre.org/techniques/T1543/002/), [detail page](/techniques/persistence.md#t1543002)
 
 - `AN0701` Analytic 0701, Linux
   Detects the creation or modification of `.service` unit files in system/user-level directories, combined with execution of `systemctl`, `service`, or dynamically created drop-ins via systemd generators. Detects persistence by analyzing the `ExecStart` path, file entropy, and symlink usage, especially when paired with execution from `/tmp`, `/dev/shm`, or unmounted volumes.
@@ -831,7 +831,7 @@ ATT&CK: [T1543.002](https://attack.mitre.org/techniques/T1543/002/), [detail pag
 
 Detection strategy: Detection of Windows Service Creation or Modification (`DET0552`)  
 Platforms: Windows  
-ATT&CK: [T1543.003](https://attack.mitre.org/techniques/T1543/003/), [detail page](../../techniques/persistence.md#t1543003)
+ATT&CK: [T1543.003](https://attack.mitre.org/techniques/T1543/003/), [detail page](/techniques/persistence.md#t1543003)
 
 - `AN1527` Analytic 1527, Windows
   Detects creation or modification of Windows Services through command-line tools (e.g., `sc.exe`, `powershell.exe`), Registry key changes under `HKLM\System\CurrentControlSet\Services`, and service execution under SYSTEM with unsigned or anomalous binary paths. Detects privilege escalation via driver installation or `CreateServiceW` usage. Correlates parent-child lineage, startup behavior, and rare service names.
@@ -845,7 +845,7 @@ ATT&CK: [T1543.003](https://attack.mitre.org/techniques/T1543/003/), [detail pag
 
 Detection strategy: Detection Strategy for Launch Daemon Creation or Modification (macOS) (`DET0401`)  
 Platforms: macOS  
-ATT&CK: [T1543.004](https://attack.mitre.org/techniques/T1543/004/), [detail page](../../techniques/persistence.md#t1543004)
+ATT&CK: [T1543.004](https://attack.mitre.org/techniques/T1543/004/), [detail page](/techniques/persistence.md#t1543004)
 
 - `AN1126` Analytic 1126, macOS
   Creation or modification of `.plist` files in /Library/LaunchDaemons/, especially those with suspicious Program or ProgramArguments paths, combined with execution activity under launchd with elevated privileges. Detectable through correlated Unified Logs, file monitoring, and process telemetry.
@@ -859,7 +859,7 @@ ATT&CK: [T1543.004](https://attack.mitre.org/techniques/T1543/004/), [detail pag
 
 Detection strategy: Detect persistent or elevated container services via container runtime or cluster manipulation (`DET0473`)  
 Platforms: Containers  
-ATT&CK: [T1543.005](https://attack.mitre.org/techniques/T1543/005/), [detail page](../../techniques/persistence.md#t1543005)
+ATT&CK: [T1543.005](https://attack.mitre.org/techniques/T1543/005/), [detail page](/techniques/persistence.md#t1543005)
 
 - `AN1304` Analytic 1304, Containers
   Correlate the creation or modification of containers using restart policies (e.g., 'always') or DaemonSets with elevated host access, service account misuse, or privileged container contexts. Watch for manipulation of systemd units involving containers or pod scheduling targeting specific nodes or namespaces.
@@ -873,7 +873,7 @@ ATT&CK: [T1543.005](https://attack.mitre.org/techniques/T1543/005/), [detail pag
 
 Detection strategy: Detection Strategy for T1546.017 - Udev Rules (Linux) (`DET0375`)  
 Platforms: Linux  
-ATT&CK: [T1546.017](https://attack.mitre.org/techniques/T1546/017/), [detail page](../../techniques/persistence.md#t1546017)
+ATT&CK: [T1546.017](https://attack.mitre.org/techniques/T1546/017/), [detail page](/techniques/persistence.md#t1546017)
 
 - `AN1056` Analytic 1056, Linux
   Monitor for creation or modification of udev rules files in key directories (/etc/udev/rules.d/, /lib/udev/rules.d/, /usr/lib/udev/rules.d/). Look for RUN+= or IMPORT keys invoking suspicious binaries or scripts. Correlate this with process execution from systemd-udevd context, and file writes near udev reload/restart events. Combine this with unexpected background process spawning from udevd-related forks.
@@ -887,7 +887,7 @@ ATT&CK: [T1546.017](https://attack.mitre.org/techniques/T1546/017/), [detail pag
 
 Detection strategy: Linux Python Startup Hook Persistence via .pth and Customize Files (T1546.018) (`DET0258`)  
 Platforms: Linux  
-ATT&CK: [T1546.018](https://attack.mitre.org/techniques/T1546/018/), [detail page](../../techniques/persistence.md#t1546018)
+ATT&CK: [T1546.018](https://attack.mitre.org/techniques/T1546/018/), [detail page](/techniques/persistence.md#t1546018)
 
 - `AN0713` Analytic 0713, Linux
   Defender observes unauthorized modification or creation of Python hook files such as `.pth`, `sitecustomize.py`, or `usercustomize.py` in Python `site-packages`, `dist-packages`, or user paths. This is often correlated with subsequent unexpected interpreter execution (e.g., python3 running without user interaction), changes in interpreter behavior (e.g., malicious imports), and outbound connections initiated from Python. Defender links write/modify actions on hook files with execve of python process and/or anomalous child process or network activity.
@@ -901,7 +901,7 @@ ATT&CK: [T1546.018](https://attack.mitre.org/techniques/T1546/018/), [detail pag
 
 Detection strategy: Boot or Logon Autostart Execution Detection Strategy (`DET0274`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1547](https://attack.mitre.org/techniques/T1547/), [detail page](../../techniques/persistence.md#t1547)
+ATT&CK: [T1547](https://attack.mitre.org/techniques/T1547/), [detail page](/techniques/persistence.md#t1547)
 
 - `AN0764` Analytic 0764, Windows
   Correlation of registry key modification for Run/RunOnce with abnormal parent-child process relationships and outlier execution at user logon or system startup
@@ -923,7 +923,7 @@ ATT&CK: [T1547](https://attack.mitre.org/techniques/T1547/), [detail page](../..
 
 Detection strategy: Detect Registry and Startup Folder Persistence (Windows) (`DET0365`)  
 Platforms: Windows  
-ATT&CK: [T1547.001](https://attack.mitre.org/techniques/T1547/001/), [detail page](../../techniques/persistence.md#t1547001)
+ATT&CK: [T1547.001](https://attack.mitre.org/techniques/T1547/001/), [detail page](/techniques/persistence.md#t1547001)
 
 - `AN1032` Analytic 1032, Windows
   Correlation of Registry key creation/modification events under known Run/Startup keys with new or unusual binary paths or script-based payloads. Multi-event detection includes registry modification followed by process execution from non-standard directories or abnormal parent-child process relationships.
@@ -937,7 +937,7 @@ ATT&CK: [T1547.001](https://attack.mitre.org/techniques/T1547/001/), [detail pag
 
 Detection strategy: Detect LSA Authentication Package Persistence via Registry and LSASS DLL Load (`DET0207`)  
 Platforms: Windows  
-ATT&CK: [T1547.002](https://attack.mitre.org/techniques/T1547/002/), [detail page](../../techniques/persistence.md#t1547002)
+ATT&CK: [T1547.002](https://attack.mitre.org/techniques/T1547/002/), [detail page](/techniques/persistence.md#t1547002)
 
 - `AN0583` Analytic 0583, Windows
   Registry modification of the LSA Authentication Packages key followed by LSASS loading a non-standard or unsigned DLL. This includes unusual write access to `HKLM\SYSTEM\CurrentControlSet\Control\Lsa`, especially during non-installation timeframes. Correlated with `lsass.exe` loading DLLs not present in baseline or lacking valid signatures.
@@ -951,7 +951,7 @@ ATT&CK: [T1547.002](https://attack.mitre.org/techniques/T1547/002/), [detail pag
 
 Detection strategy: Detect Abuse of Windows Time Providers for Persistence (`DET0122`)  
 Platforms: Windows  
-ATT&CK: [T1547.003](https://attack.mitre.org/techniques/T1547/003/), [detail page](../../techniques/persistence.md#t1547003)
+ATT&CK: [T1547.003](https://attack.mitre.org/techniques/T1547/003/), [detail page](/techniques/persistence.md#t1547003)
 
 - `AN0341` Analytic 0341, Windows
   Behavioral correlation of privileged registry key creation under the W32Time TimeProviders path combined with a new DLL written to disk and potential process activity by LocalService. Indicates abuse of Time Providers for persistence.
@@ -965,7 +965,7 @@ ATT&CK: [T1547.003](https://attack.mitre.org/techniques/T1547/003/), [detail pag
 
 Detection strategy: Detect Winlogon Helper DLL Abuse via Registry and Process Artifacts on Windows (`DET0404`)  
 Platforms: Windows  
-ATT&CK: [T1547.004](https://attack.mitre.org/techniques/T1547/004/), [detail page](../../techniques/persistence.md#t1547004)
+ATT&CK: [T1547.004](https://attack.mitre.org/techniques/T1547/004/), [detail page](/techniques/persistence.md#t1547004)
 
 - `AN1133` Analytic 1133, Windows
   Monitor Windows Registry modifications to Winlogon keys (Shell, Userinit, Notify) that introduce new executable or DLL paths. Correlate these changes with subsequent DLL loading, image loads, or process creation originating from winlogon.exe or userinit.exe. Abnormal child process lineage or unauthorized binaries in C:\Windows\System32 may indicate abuse.
@@ -979,7 +979,7 @@ ATT&CK: [T1547.004](https://attack.mitre.org/techniques/T1547/004/), [detail pag
 
 Detection strategy: Registry and LSASS Monitoring for Security Support Provider Abuse (`DET0542`)  
 Platforms: Windows  
-ATT&CK: [T1547.005](https://attack.mitre.org/techniques/T1547/005/), [detail page](../../techniques/persistence.md#t1547005)
+ATT&CK: [T1547.005](https://attack.mitre.org/techniques/T1547/005/), [detail page](/techniques/persistence.md#t1547005)
 
 - `AN1495` Analytic 1495, Windows
   Monitor registry modifications to `HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Security Packages` or `...\OSConfig\Security Packages`, especially insertions of new DLL entries. Correlate this with subsequent DLL module loads into `lsass.exe`. Track unsigned or anomalous DLLs loading into LSASS using image load auditing. LSASS loads unsigned DLL due to AuditLevel=8 registry configuration or System reboot followed by DLL load into lsass.exe
@@ -993,7 +993,7 @@ ATT&CK: [T1547.005](https://attack.mitre.org/techniques/T1547/005/), [detail pag
 
 Detection strategy: Detection Strategy for Kernel Modules and Extensions Autostart Execution (`DET0450`)  
 Platforms: Linux, macOS  
-ATT&CK: [T1547.006](https://attack.mitre.org/techniques/T1547/006/), [detail page](../../techniques/persistence.md#t1547006)
+ATT&CK: [T1547.006](https://attack.mitre.org/techniques/T1547/006/), [detail page](/techniques/persistence.md#t1547006)
 
 - `AN1243` Analytic 1243, Linux
   Monitor kernel module load/unload activity via modprobe, insmod, rmmod, or direct manipulation of /lib/modules. Correlate with installation of kernel headers, compilation commands, or downloads of .ko files. Detect anomalies in unsigned module loading or repeated module load attempts under non-root users.
@@ -1011,7 +1011,7 @@ ATT&CK: [T1547.006](https://attack.mitre.org/techniques/T1547/006/), [detail pag
 
 Detection strategy: Detect persistence via reopened application plist modification (macOS) (`DET0125`)  
 Platforms: macOS  
-ATT&CK: [T1547.007](https://attack.mitre.org/techniques/T1547/007/), [detail page](../../techniques/persistence.md#t1547007)
+ATT&CK: [T1547.007](https://attack.mitre.org/techniques/T1547/007/), [detail page](/techniques/persistence.md#t1547007)
 
 - `AN0349` Analytic 0349, macOS
   Unusual modification or creation of loginwindow-related plist files in '~/Library/Preferences/ByHost' correlated with unauthorized application paths and execution upon login.
@@ -1025,7 +1025,7 @@ ATT&CK: [T1547.007](https://attack.mitre.org/techniques/T1547/007/), [detail pag
 
 Detection strategy: Detect unauthorized LSASS driver persistence via LSA plugin abuse (Windows) (`DET0225`)  
 Platforms: Windows  
-ATT&CK: [T1547.008](https://attack.mitre.org/techniques/T1547/008/), [detail page](../../techniques/persistence.md#t1547008)
+ATT&CK: [T1547.008](https://attack.mitre.org/techniques/T1547/008/), [detail page](/techniques/persistence.md#t1547008)
 
 - `AN0629` Analytic 0629, Windows
   Unauthorized creation or modification of DLLs loaded by LSASS, abnormal registry values under LSA extensions, and anomalous DLL load activity into the lsass.exe process context—correlated during boot or logon events.
@@ -1039,7 +1039,7 @@ ATT&CK: [T1547.008](https://attack.mitre.org/techniques/T1547/008/), [detail pag
 
 Detection strategy: Detection Strategy for T1547.009 – Shortcut Modification (Windows) (`DET0180`)  
 Platforms: Windows  
-ATT&CK: [T1547.009](https://attack.mitre.org/techniques/T1547/009/), [detail page](../../techniques/persistence.md#t1547009)
+ATT&CK: [T1547.009](https://attack.mitre.org/techniques/T1547/009/), [detail page](/techniques/persistence.md#t1547009)
 
 - `AN0510` Analytic 0510, Windows
   Detection correlates file creation or modification of `.lnk` (shortcut) files in autostart locations with anomalous parent-child process lineage or unsigned binaries. Defenders should watch for LNK creation/modification events outside of known software installations, patch events, or OS updates. Flag shortcut targets pointing to suspicious locations or unknown binaries, particularly those written by script interpreters or spawned from phishing delivery chains.
@@ -1053,7 +1053,7 @@ ATT&CK: [T1547.009](https://attack.mitre.org/techniques/T1547/009/), [detail pag
 
 Detection strategy: Detection Strategy for T1547.010 – Port Monitor DLL Persistence via spoolsv.exe (Windows) (`DET0204`)  
 Platforms: Windows  
-ATT&CK: [T1547.010](https://attack.mitre.org/techniques/T1547/010/), [detail page](../../techniques/persistence.md#t1547010)
+ATT&CK: [T1547.010](https://attack.mitre.org/techniques/T1547/010/), [detail page](/techniques/persistence.md#t1547010)
 
 - `AN0580` Analytic 0580, Windows
   Detects suspicious registry modifications under `HKLM\SYSTEM\CurrentControlSet\Control\Print\Monitors\*\Driver`, DLL loads by `spoolsv.exe` of non-standard or unsigned modules, and abnormal usage of the `AddMonitor` API by non-installation processes. This pattern often indicates an attempt to persist a malicious DLL via the print monitor mechanism, particularly when correlated with creation of files in `C:\Windows\System32` not tied to known patches or installations.
@@ -1067,7 +1067,7 @@ ATT&CK: [T1547.010](https://attack.mitre.org/techniques/T1547/010/), [detail pag
 
 Detection strategy: Windows Detection Strategy for T1547.012 - Print Processor DLL Persistence (`DET0026`)  
 Platforms: Windows  
-ATT&CK: [T1547.012](https://attack.mitre.org/techniques/T1547/012/), [detail page](../../techniques/persistence.md#t1547012)
+ATT&CK: [T1547.012](https://attack.mitre.org/techniques/T1547/012/), [detail page](/techniques/persistence.md#t1547012)
 
 - `AN0074` Analytic 0074, Windows
   Correlated registry modifications under Print Processors path, followed by DLL file creation within the system print processor directory, and DLL load by spoolsv.exe. Malicious execution often occurs during service restart or system boot, with SYSTEM-level privileges.
@@ -1081,7 +1081,7 @@ ATT&CK: [T1547.012](https://attack.mitre.org/techniques/T1547/012/), [detail pag
 
 Detection strategy: Linux Detection Strategy for T1547.013 - XDG Autostart Entries (`DET0390`)  
 Platforms: Linux  
-ATT&CK: [T1547.013](https://attack.mitre.org/techniques/T1547/013/), [detail page](../../techniques/persistence.md#t1547013)
+ATT&CK: [T1547.013](https://attack.mitre.org/techniques/T1547/013/), [detail page](/techniques/persistence.md#t1547013)
 
 - `AN1096` Analytic 1096, Linux
   Correlation of file creation/modification of `.desktop` files within XDG autostart directories, followed by execution of processes at user login initiated by the desktop environment. Malicious entries typically include suspicious Exec paths or anomalous names and are not associated with installed packages.
@@ -1095,7 +1095,7 @@ ATT&CK: [T1547.013](https://attack.mitre.org/techniques/T1547/013/), [detail pag
 
 Detection strategy: Detect Active Setup Persistence via StubPath Execution (`DET0312`)  
 Platforms: Windows  
-ATT&CK: [T1547.014](https://attack.mitre.org/techniques/T1547/014/), [detail page](../../techniques/persistence.md#t1547014)
+ATT&CK: [T1547.014](https://attack.mitre.org/techniques/T1547/014/), [detail page](/techniques/persistence.md#t1547014)
 
 - `AN0871` Analytic 0871, Windows
   Multi-event correlation of Registry creation under Active Setup with anomalous execution of processes at user logon. Behavioral patterns include creation/modification of HKLM Active Setup keys with non-standard StubPath values, followed by process execution from uncommon paths, unsigned binaries, or unusual parent-child lineage post-user login.
@@ -1109,7 +1109,7 @@ ATT&CK: [T1547.014](https://attack.mitre.org/techniques/T1547/014/), [detail pag
 
 Detection strategy: Detection Strategy for T1547.015 – Login Items on macOS (`DET0121`)  
 Platforms: macOS  
-ATT&CK: [T1547.015](https://attack.mitre.org/techniques/T1547/015/), [detail page](../../techniques/persistence.md#t1547015)
+ATT&CK: [T1547.015](https://attack.mitre.org/techniques/T1547/015/), [detail page](/techniques/persistence.md#t1547015)
 
 - `AN0340` Analytic 0340, macOS
   Creation or modification of Login Items using AppleScript or Service Management Framework. Detection focuses on file creation/modification of `backgrounditems.btm`, new executables in `Contents/Library/LoginItems/`, use of `SMLoginItemSetEnabled` API, or suspicious processes triggered post-login without user interaction. Behavioral pivot includes anomalous AppleEvents, suspicious parent-child process pairs, and login-triggered execution chains.
@@ -1123,7 +1123,7 @@ ATT&CK: [T1547.015](https://attack.mitre.org/techniques/T1547/015/), [detail pag
 
 Detection strategy: Detect Compromise of Host Software Binaries (`DET0336`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1554](https://attack.mitre.org/techniques/T1554/), [detail page](../../techniques/persistence.md#t1554)
+ATT&CK: [T1554](https://attack.mitre.org/techniques/T1554/), [detail page](/techniques/persistence.md#t1554)
 
 - `AN0949` Analytic 0949, Windows
   Monitors for unexpected modifications of system or application binaries, particularly signed executables. Correlates file write events with subsequent unsigned or anomalously signed process execution, and checks for tampered binaries outside normal patch cycles.
@@ -1149,7 +1149,7 @@ ATT&CK: [T1554](https://attack.mitre.org/techniques/T1554/), [detail page](../..
 
 Detection strategy: Detection Strategy for Power Settings Abuse (`DET0417`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1653](https://attack.mitre.org/techniques/T1653/), [detail page](../../techniques/persistence.md#t1653)
+ATT&CK: [T1653](https://attack.mitre.org/techniques/T1653/), [detail page](/techniques/persistence.md#t1653)
 
 - `AN1174` Analytic 1174, Windows
   Monitor command execution of powercfg.exe with arguments modifying sleep, hibernate, or display timeouts. Abnormal or repeated modifications to power settings outside administrative baselines may indicate persistence attempts. Correlate process creation with registry and system configuration changes to build behavioral chains.
@@ -1171,7 +1171,7 @@ ATT&CK: [T1653](https://attack.mitre.org/techniques/T1653/), [detail page](../..
 
 Detection strategy: Detection Strategy for Exclusive Control (`DET0015`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1668](https://attack.mitre.org/techniques/T1668/), [detail page](../../techniques/persistence.md#t1668)
+ATT&CK: [T1668](https://attack.mitre.org/techniques/T1668/), [detail page](/techniques/persistence.md#t1668)
 
 - `AN0045` Analytic 0045, Windows
   Detects unusual command executions and service modifications that indicate self-patching or disabling of vulnerable services post-compromise. Defenders should monitor for service stop commands, suspicious process termination, and execution of binaries or scripts aligned with known patching or service management tools outside of expected admin contexts.
@@ -1193,7 +1193,7 @@ ATT&CK: [T1668](https://attack.mitre.org/techniques/T1668/), [detail page](../..
 
 Detection strategy: Detection Strategy for Cloud Application Integration (`DET0539`)  
 Platforms: Office Suite, SaaS  
-ATT&CK: [T1671](https://attack.mitre.org/techniques/T1671/), [detail page](../../techniques/persistence.md#t1671)
+ATT&CK: [T1671](https://attack.mitre.org/techniques/T1671/), [detail page](/techniques/persistence.md#t1671)
 
 - `AN1487` Analytic 1487, Office Suite
   Detects suspicious OAuth application integrations within Office 365 or Google Workspace environments, such as new app registrations, unexpected consent grants, or privilege assignments. Defenders should correlate between application creation/modification events and associated user or service principal activity to identify persistence via app integrations.

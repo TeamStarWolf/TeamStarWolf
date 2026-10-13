@@ -5,48 +5,117 @@ on:
     branches: [main]
     paths:
       - '**/*.md'
+      - 'index.html'
+      - '.lycheeignore'
+      - 'scripts/check_docsify_links.py'
+      - 'scripts/repo_files.py'
+      - 'scripts/baselines/docsify_links.json'
+      - '.github/workflows/link-check.yml'
   pull_request:
     branches: [main]
     paths:
       - '**/*.md'
+      - 'index.html'
+      - '.lycheeignore'
+      - 'scripts/check_docsify_links.py'
+      - 'scripts/repo_files.py'
+      - 'scripts/baselines/docsify_links.json'
+      - '.github/workflows/link-check.yml'
   schedule:
-    - cron: '0 6 * * 1'  # Every Monday at 6am UTC
+    - cron: '0 6 * * 1'  # Every Monday at 6am UTC: full external scan
   workflow_dispatch:
 
 jobs:
-  link-check:
-    name: Check links in Markdown files
+  internal:
+    name: Internal links and anchors (docsify routing)
+    # Blocking. Resolves every in-repo link and #anchor the way the published docsify site
+    # does (relativePath: false, docsify heading slugs), which lychee cannot: it resolves
+    # links relative to the linking file with GitHub slugs. Pre-existing breakage is held in
+    # scripts/baselines/docsify_links.json; a new broken link or anchor fails the build.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Run Lychee link checker
-        uses: lycheeverse/lychee-action@v1
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          args: |
-            --verbose
+          python-version: '3.11'
+
+      - name: Check internal links and anchors
+        run: python scripts/check_docsify_links.py
+
+  external:
+    name: External links (lychee)
+    # Pull requests and pushes: BLOCKING on the http(s) links the change adds (the added
+    # lines of the diff), so a dead, expired or hijackable outbound link cannot be merged.
+    # Links that were already on a page are not re-litigated on every unrelated edit.
+    # Monday schedule / manual run: the full scan of every page, reported in the run's job
+    # summary and the uploaded report; it does not fail, because the external web changes
+    # under the library and the list is worked through by hand.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Collect the links to check
+        id: inputs
+        env:
+          EVENT: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          mkdir -p lychee
+          if [ "$EVENT" = "pull_request" ] || [ "$EVENT" = "push" ]; then
+            if [ "$EVENT" = "pull_request" ]; then
+              RANGE="$BASE_SHA...HEAD"
+            elif [ -n "$BEFORE" ] && ! echo "$BEFORE" | grep -qE '^0+$' && git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+              RANGE="$BEFORE..HEAD"
+            else
+              RANGE="HEAD~1..HEAD"
+            fi
+            # Added lines only (no context), Markdown only; lychee extracts the URLs.
+            git diff --no-color -U0 "$RANGE" -- '*.md' | grep -E '^\+[^+]' | cut -c2- > lychee/added-lines.md || true
+            echo "links=$(grep -cE 'https?://' lychee/added-lines.md || true)" >> "$GITHUB_OUTPUT"
+            echo "input=lychee/added-lines.md" >> "$GITHUB_OUTPUT"
+            echo "fail=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "links=all" >> "$GITHUB_OUTPUT"
+            echo "input=./**/*.md" >> "$GITHUB_OUTPUT"
+            echo "fail=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run lychee
+        if: steps.inputs.outputs.links != '0'
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # http(s) only: in-repo links are the internal job's. Exclusions live in .lycheeignore
+          # (read automatically from the working directory).
+          args: >-
             --no-progress
+            --scheme https --scheme http
             --timeout 20
             --max-retries 3
-            --accept 200,206,429
-            --exclude 'localhost'
-            --exclude '127\.0\.0\.1'
-            --exclude 'example\.com'
-            --exclude 'twitter\.com'
-            --exclude 'x\.com'
-            --exclude 'linkedin\.com'
-            --exclude 'github\.com/TeamStarWolf/TeamStarWolf/blob'
-            --exclude-file .lychee-exclude
-            './**/*.md'
-          fail: false
+            --accept '200..=299, 429'
+            '${{ steps.inputs.outputs.input }}'
+          fail: ${{ steps.inputs.outputs.fail }}
+          failIfEmpty: false
+          jobSummary: true
+          format: markdown
+          output: lychee/out.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: No new external links in this change
+        if: steps.inputs.outputs.links == '0'
+        run: echo "The change adds no http(s) links to Markdown; nothing to check."
+
       - name: Upload link check report
         uses: actions/upload-artifact@v4
-        if: always()
+        if: always() && steps.inputs.outputs.links != '0'
         with:
           name: link-check-report
           path: lychee/out.md
-          retention-days: 14
+          retention-days: 30

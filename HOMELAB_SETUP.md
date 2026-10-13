@@ -1557,7 +1557,7 @@ docker compose logs setup   # should end with "kibana_system password set"
 # (kibana_system is only for Kibana's own connection to Elasticsearch)
 ```
 
-If you started an earlier version of this stack, either run `docker compose down -v` and start again, or set the password by hand once Elasticsearch is up: `curl -u elastic:ChangeMe123 -X POST http://localhost:9200/_security/user/kibana_system/_password -H 'Content-Type: application/json' -d '{"password":"KibanaSys123"}'`.
+If you started an earlier version of this stack (it used `ChangeMe123!` for both accounts), either run `docker compose down -v` and start again with the files above, or keep the old stack running and set the missing password by hand once Elasticsearch is up: `curl -u 'elastic:ChangeMe123!' -X POST http://localhost:9200/_security/user/kibana_system/_password -H 'Content-Type: application/json' -d '{"password":"ChangeMe123!"}'`.
 
 Install Elastic Agent on Windows targets (forwards Sysmon + Windows Event Logs):
 

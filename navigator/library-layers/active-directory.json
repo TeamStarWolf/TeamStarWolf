@@ -1,7 +1,7 @@
 {
   "name": "TeamStarWolf - Active Directory",
   "versions": {
-    "attack": "16",
+    "attack": "19",
     "navigator": "4.9",
     "layer": "4.5"
   },
@@ -97,7 +97,7 @@
     },
     {
       "techniqueID": "T1134.005",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "SID-history injection can alter effective domain privileges. Sources: ACTIVE_DIRECTORY_ATTACKS.md."
     },
@@ -115,7 +115,7 @@
     },
     {
       "techniqueID": "T1207",
-      "tactic": "defense-evasion",
+      "tactic": "defense-impairment",
       "score": 100,
       "comment": "A rogue domain controller can manipulate directory replication behavior. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md."
     },
@@ -145,21 +145,9 @@
     },
     {
       "techniqueID": "T1550.002",
-      "tactic": "defense-evasion",
-      "score": 100,
-      "comment": "Pass the Hash reuses password hashes as authentication material. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md, ACTIVE_DIRECTORY_ATTACKS.md."
-    },
-    {
-      "techniqueID": "T1550.002",
       "tactic": "lateral-movement",
       "score": 100,
       "comment": "Pass the Hash reuses password hashes as authentication material. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md, ACTIVE_DIRECTORY_ATTACKS.md."
-    },
-    {
-      "techniqueID": "T1550.003",
-      "tactic": "defense-evasion",
-      "score": 100,
-      "comment": "Pass the Ticket reuses Kerberos tickets for unauthorized access. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md, ACTIVE_DIRECTORY_ATTACKS.md."
     },
     {
       "techniqueID": "T1550.003",
@@ -175,7 +163,7 @@
     },
     {
       "techniqueID": "T1556.001",
-      "tactic": "defense-evasion",
+      "tactic": "defense-impairment",
       "score": 100,
       "comment": "Domain controller authentication modification includes skeleton-key-style tampering. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md, ACTIVE_DIRECTORY_ATTACKS.md."
     },
@@ -263,7 +251,7 @@
     },
     {
       "name": "technique_tactic_entries",
-      "value": "36"
+      "value": "34"
     },
     {
       "name": "score_meaning",
@@ -280,6 +268,10 @@
     {
       "name": "generated_by",
       "value": "Codex Task 1 per Claude Code handoff"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v19.2: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
     }
   ],
   "links": [

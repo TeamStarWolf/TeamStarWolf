@@ -1,7 +1,7 @@
 {
   "name": "TeamStarWolf - Container and Kubernetes Attacks",
   "versions": {
-    "attack": "16",
+    "attack": "19",
     "navigator": "4.9",
     "layer": "4.5"
   },
@@ -19,12 +19,6 @@
   "techniques": [
     {
       "techniqueID": "T1610",
-      "tactic": "defense-evasion",
-      "score": 100,
-      "comment": "Deploying a container can introduce attacker-controlled execution into the environment. Sources: CONTAINER_SECURITY_REFERENCE.md."
-    },
-    {
-      "techniqueID": "T1610",
       "tactic": "execution",
       "score": 100,
       "comment": "Deploying a container can introduce attacker-controlled execution into the environment. Sources: CONTAINER_SECURITY_REFERENCE.md."
@@ -37,7 +31,7 @@
     },
     {
       "techniqueID": "T1612",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Building images on a compromised host can prepare attacker-controlled workloads. Sources: CONTAINER_SECURITY_REFERENCE.md."
     },
@@ -67,7 +61,7 @@
     },
     {
       "techniqueID": "T1078",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Valid credentials can provide access to registries or other container services. Sources: CONTAINER_SECURITY_REFERENCE.md."
     },
@@ -125,7 +119,7 @@
     },
     {
       "name": "technique_tactic_entries",
-      "value": "13"
+      "value": "12"
     },
     {
       "name": "score_meaning",
@@ -142,6 +136,10 @@
     {
       "name": "generated_by",
       "value": "Codex Task 1 per Claude Code handoff"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v19.2: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
     }
   ],
   "links": [

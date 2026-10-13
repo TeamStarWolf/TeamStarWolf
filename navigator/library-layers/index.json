@@ -8,7 +8,7 @@
   {
     "file": "cwe-weakness-classes.json",
     "name": "TeamStarWolf - CWE Weakness Classes",
-    "description": "Curated practitioner view, not an official MITRE CWE-to-ATT&CK mapping. Selects CWE records whose abstraction is Class, follows their explicit related_capec links, then the linked CAPEC records' explicit attack_techniques values. Only techniques present in data/attack/technique_profiles.jsonl are included. These indirect associations support exploration, not a claim that a weakness always produces the technique. Sources: CWE_REFERENCE.md, CAPEC_REFERENCE.md, data/weaknesses/cwe.jsonl, data/weaknesses/capec.jsonl, and data/attack/technique_profiles.jsonl. No hierarchy inheritance is inferred. Scores indicate membership only.",
+    "description": "Curated practitioner view, not an official MITRE CWE-to-ATT&CK mapping. Selects CWE records whose abstraction is Class, follows their explicit related_capec links, then the linked CAPEC records' explicit attack_techniques values. Only live (non-revoked) techniques in data/attack/technique_profiles.jsonl are included; a CAPEC link to an id ATT&CK v19 revoked is shown under its successor (data/attack/superseded_by.jsonl). These indirect associations support exploration, not a claim that a weakness always produces the technique. Sources: CWE_REFERENCE.md, CAPEC_REFERENCE.md, data/weaknesses/cwe.jsonl, data/weaknesses/capec.jsonl, and data/attack/technique_profiles.jsonl. No hierarchy inheritance is inferred. Scores indicate membership only.",
     "blurb": "Connects CWE weakness classes to ATT&CK behaviors through explicit CAPEC links in the library. These indirect associations support investigation; they do not mean a weakness always produces the behavior."
   },
   {

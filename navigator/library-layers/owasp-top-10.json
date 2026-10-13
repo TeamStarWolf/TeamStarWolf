@@ -1,7 +1,7 @@
 {
   "name": "TeamStarWolf - OWASP Top 10 (2021)",
   "versions": {
-    "attack": "16",
+    "attack": "19",
     "navigator": "4.9",
     "layer": "4.5"
   },
@@ -19,7 +19,7 @@
   "techniques": [
     {
       "techniqueID": "T1078",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "A01:2021 Broken Access Control: the reference associates valid-account abuse with access-control failures; using an account alone does not establish a weakness. Sources: SECURE_CODING_REFERENCE.md."
     },
@@ -44,12 +44,6 @@
     {
       "techniqueID": "T1548",
       "tactic": "privilege-escalation",
-      "score": 100,
-      "comment": "A01:2021 Broken Access Control: contextual association for abuse of an elevation mechanism; an arbitrary authorization defect is not automatically this technique. Sources: SECURE_CODING_REFERENCE.md."
-    },
-    {
-      "techniqueID": "T1548",
-      "tactic": "defense-evasion",
       "score": 100,
       "comment": "A01:2021 Broken Access Control: contextual association for abuse of an elevation mechanism; an arbitrary authorization defect is not automatically this technique. Sources: SECURE_CODING_REFERENCE.md."
     },
@@ -121,7 +115,7 @@
     },
     {
       "techniqueID": "T1070",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "A09:2021 Security Logging and Monitoring Failures: the reference associates indicator removal with audit visibility; missing logging alone is not indicator removal. Sources: SECURE_CODING_REFERENCE.md."
     },
@@ -161,7 +155,7 @@
     },
     {
       "name": "technique_tactic_entries",
-      "value": "19"
+      "value": "18"
     },
     {
       "name": "score_meaning",
@@ -178,6 +172,10 @@
     {
       "name": "generated_by",
       "value": "Codex Task 1 per Claude Code handoff"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v19.2: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
     }
   ],
   "links": [

@@ -112,7 +112,7 @@ Worked example ("where are our coverage gaps?"):
 
 Checkpoint: A coverage heatmap open in ATT&CK Navigator and a shortlist of high-priority gap techniques for your program.
 
-Watch out: Layers are pinned to ATT&CK versions (the CTID control mappings are built on ATT&CK v16.1; the analytic layers on v18.1). Comparing layers across versions can silently drop or mismatch techniques: check the version badge Navigator shows for each layer. Also, "no mapped control" means no *NIST 800-53 mapping exists*, not that a technique is impossible to defend: treat blind spots as prompts for detection engineering, not verdicts.
+Watch out: This library's ATT&CK layers are pinned to ATT&CK v19 (v19.2 technique IDs and tactics; the CTID control mappings underneath were published for ATT&CK v16.1 and are carried forward to the v19.2 successors of revoked IDs). Comparing them with a layer pinned to another ATT&CK version can silently drop or mismatch techniques: check the version column on the layer index and the version badge Navigator shows for each layer. Also, "no mapped control" means no *NIST 800-53 mapping exists*, not that a technique is impossible to defend: treat blind spots as prompts for detection engineering, not verdicts.
 
 ## Step 8: Take the data home
 

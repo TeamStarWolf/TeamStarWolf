@@ -158,7 +158,7 @@ Techniques mitigated: T1021 (Remote Services), T1133 (External Remote Services),
 ### Navigator Layers
 - [Network & Boundary Stage Layer](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/stages/stage4_network_boundary.json)
 - [Network / ZT Vendor Layer](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/network_zscaler_paloalto.json)
-- [Email Security Vendor Layer](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/email_proofpoint_mimecast.json)
+- [Email Security Vendor Layer](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/email_proofpoint_mimecast_defender.json)
 
 ### Discipline Pages
 - [Network Security](disciplines/network-security.md)

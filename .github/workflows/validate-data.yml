@@ -11,6 +11,7 @@ on:
       - 'HOME.md'
       - 'INDEX.md'
       - 'CITATION.cff'
+      - 'SECURITY_PIPELINE.md'
       - 'scores/**'
       - 'mitre/**'
   pull_request:
@@ -23,6 +24,7 @@ on:
       - 'HOME.md'
       - 'INDEX.md'
       - 'CITATION.cff'
+      - 'SECURITY_PIPELINE.md'
       - 'scores/**'
       - 'mitre/**'
   workflow_dispatch:
@@ -70,7 +72,11 @@ jobs:
         run: python scripts/generate_mitre_pages.py --verify-corpus 21
 
   validate-navigator:
-    name: Validate ATT&CK Navigator layer
+    name: Validate ATT&CK Navigator layers
+    # Every layer under navigator/ (not just one): JSON shape, domain, versions.attack == 19 for
+    # the ATT&CK domains, every techniqueID LIVE (present and not revoked/deprecated) in its
+    # domain's profile file, every tactic a v19.2 tactic of that technique, no orphan layers,
+    # stage names vs SECURITY_PIPELINE.md. ATLAS/F3 layers are checked against their own data.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -81,37 +87,14 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Validate Navigator layer JSON
-        run: |
-          python -c "
-          import json, sys
-          with open('navigator/teamstarwolf_vendor_coverage.json') as f:
-              layer = json.load(f)
-          required = ['name', 'versions', 'domain', 'techniques', 'gradient']
-          missing = [k for k in required if k not in layer]
-          if missing:
-              print(f'ERROR: Missing required fields: {missing}')
-              sys.exit(1)
-          technique_count = len(layer['techniques'])
-          # Every techniqueID must be an Enterprise technique the library knows (live, or a
-          # revoked v19 id kept as a lineage row). A Mobile id or a pre-v16 revoked id that
-          # leaked in from the edge tables (T1521.003, T1574.002) can never render.
-          with open('data/attack/technique_profiles.jsonl', encoding='utf-8') as f:
-              known = {json.loads(l)['technique_id'] for l in f if l.strip()}
-          stray = sorted({t['techniqueID'] for t in layer['techniques']} - known)
-          if stray:
-              print(f'ERROR: techniqueIDs not in data/attack/technique_profiles.jsonl: {stray}')
-              sys.exit(1)
-          scored = {t['techniqueID'] for t in layer['techniques']}
-          meta = {m['name']: m['value'] for m in layer.get('metadata', [])}
-          declared = meta.get('techniques_scored')
-          if declared is not None and int(declared) != len(scored):
-              print(f'ERROR: metadata techniques_scored={declared} but the layer scores {len(scored)}')
-              sys.exit(1)
-          print(f'OK: Navigator layer valid — {technique_count} entries, {len(scored)} techniques')
-          scores = [t['score'] for t in layer['techniques'] if 'score' in t]
-          print(f'OK: Score range {min(scores)}–{max(scores)}')
-          "
+      - name: Validate every Navigator layer against the v19.2 data
+        run: python scripts/validate_navigator.py
+
+      - name: Full-stack layer, curated-layer normalization and navigator/index.md match the data
+        run: python scripts/build_navigator_layers.py --check
+
+      - name: scores/ (coverage scores + rendered coverage_gaps.md) match the data
+        run: python scripts/compute_coverage.py --check
 
   stats-drift:
     name: Headline-number drift guard

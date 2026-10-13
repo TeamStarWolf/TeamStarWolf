@@ -10,11 +10,24 @@ downstream enrichment. Every profile field this script can derive from the STIX
 is re-derived on every run, so no count or list on a profile is left as a
 snapshot of an older release.
 
-Source of truth (immutable — the "-19.2" filename pins the content):
-    https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/enterprise-attack/enterprise-attack-19.2.json
+Source of truth, pinned to a commit. The "-19.2" filename alone pins nothing: the
+file lives on the mutable `master` branch, and on release day it was added in
+commit 8ce3fd8f and then replaced with different content in 6cda5ad8.
+    mitre-attack/attack-stix-data @ 6cda5ad8462c79e14fbb872f4e09059b18e0cfc4 (tag v19.2)
+    enterprise-attack/enterprise-attack-19.2.json
+    SHA-256 dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4
+The bundle's SHA-256 is verified before it is parsed, whether it was fetched or
+read from a local file, and a mismatch aborts the run. data/MANIFEST.json records
+the same pin under `inputs` (scripts/build_manifest.py reads it from here).
 
 Offline / CI override: set env ATTACK_STIX_PATH=<file> or pass --stix <file>.
     python scripts/build_attack_core.py --stix .stix-cache-enterprise-19.2.json
+The local file must be byte-identical to the pinned bundle (same SHA-256).
+
+Re-pinning to a new ATT&CK release is a deliberate edit: set STIX_COMMIT to the
+attack-stix-data commit that carries the new bundle (its release tag), STIX_FILE
+to the bundle's path, and STIX_SHA256 to the bundle's SHA-256 (a mismatch error
+prints the actual value), then regenerate.
 
 Every file is opened with encoding="utf-8" (the STIX is UTF-8; the Windows
 cp1252 default crashes on it). Output is deterministic: each file is sorted by
@@ -58,6 +71,7 @@ not run the downstream scripts (each has its own --check).
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import subprocess
@@ -68,10 +82,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "attack"
 
-STIX_URL = (
-    "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/"
-    "master/enterprise-attack/enterprise-attack-19.2.json"
-)
+# The pinned STIX input (see the module docstring). A commit SHA, never a branch.
+STIX_REPO = "mitre-attack/attack-stix-data"
+STIX_COMMIT = "6cda5ad8462c79e14fbb872f4e09059b18e0cfc4"  # tag v19.2
+STIX_FILE = "enterprise-attack/enterprise-attack-19.2.json"
+STIX_SHA256 = "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4"
+STIX_BYTES = 53835637
+STIX_URL = f"https://raw.githubusercontent.com/{STIX_REPO}/{STIX_COMMIT}/{STIX_FILE}"
 
 ATTACK = "mitre-attack"
 
@@ -79,19 +96,36 @@ ATTACK = "mitre-attack"
 # --------------------------------------------------------------------------- #
 # STIX loading + helpers
 # --------------------------------------------------------------------------- #
+def verify_stix(raw: bytes, origin: str) -> None:
+    """Abort unless `raw` is byte-identical to the pinned bundle (STIX_SHA256)."""
+    digest = hashlib.sha256(raw).hexdigest()
+    if digest != STIX_SHA256:
+        sys.exit(
+            f"[build_attack_core] STIX INTEGRITY FAILURE: {origin}\n"
+            f"  expected sha256 {STIX_SHA256} ({STIX_BYTES:,} bytes, {STIX_REPO}@{STIX_COMMIT[:12]})\n"
+            f"  actual   sha256 {digest} ({len(raw):,} bytes)\n"
+            "  Nothing was written. Use the pinned bundle, or re-pin deliberately "
+            "(STIX_COMMIT / STIX_FILE / STIX_SHA256; see the module docstring)."
+        )
+
+
 def load_stix(path: str | None) -> list[dict]:
     """Load the STIX bundle's `objects`. Prefer an explicit path/env override;
-    otherwise fetch the pinned immutable URL."""
+    otherwise fetch the commit-pinned URL. Either way the bytes must match
+    STIX_SHA256 before anything is parsed."""
     src = path or os.environ.get("ATTACK_STIX_PATH")
     if src:
         print(f"[build_attack_core] reading STIX from {src}", file=sys.stderr)
-        with open(src, encoding="utf-8") as f:
-            bundle = json.load(f)
+        with open(src, "rb") as f:
+            raw = f.read()
     else:
         print(f"[build_attack_core] fetching STIX from {STIX_URL}", file=sys.stderr)
         req = urllib.request.Request(STIX_URL, headers={"User-Agent": "attack-lib-v19/build_attack_core"})
-        with urllib.request.urlopen(req) as resp:  # noqa: S310 (fixed, trusted URL)
-            bundle = json.loads(resp.read().decode("utf-8"))
+        with urllib.request.urlopen(req, timeout=120) as resp:  # noqa: S310 (fixed URL, hash-checked)
+            raw = resp.read()
+        src = STIX_URL
+    verify_stix(raw, src)
+    bundle = json.loads(raw.decode("utf-8"))
     return bundle["objects"]
 
 

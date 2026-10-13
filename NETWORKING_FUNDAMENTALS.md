@@ -1364,7 +1364,7 @@ hcxpcapngtool -o hash.hc22000 capture.pcapng
 hashcat -m 22000 hash.hc22000 rockyou.txt
 ```
 
-ATT&CK: T1465 (Rogue Wi-Fi Access Points); T1040 (Network Sniffing); T1557 (Adversary-in-the-Middle)
+ATT&CK: T1638 (Adversary-in-the-Middle); T1040 (Network Sniffing); T1557 (Adversary-in-the-Middle)
 
 ---
 
@@ -1652,7 +1652,7 @@ Zero Trust overlay principle:
 | T1095 | Non-Standard Port | C2 on non-standard port (e.g., HTTPS on 8443) | TCP/UDP: L4 |
 | T1557 | Adversary-in-the-Middle | ARP poisoning, DHCP spoofing, rogue AP | L2/L3 |
 | T1557.002 | ARP Cache Poisoning | Gratuitous ARP, arpspoof | L2 |
-| T1562.004 | Disable/Modify Firewall | `iptables -F`, Windows FW disable via GPO | L3/L4 |
+| T1686 | Disable/Modify Firewall | `iptables -F`, Windows FW disable via GPO | L3/L4 |
 | T1563 | Remote Service Session Hijacking | TCP sequence number injection | TCP: L4 |
 | T1568.001 | Fast Flux DNS | Rapid IP rotation via low-TTL DNS | DNS: L7 |
 | T1568.002 | Domain Generation Algorithms | Algorithmic C2 domain generation | DNS: L7 |

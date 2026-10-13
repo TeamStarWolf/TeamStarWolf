@@ -207,7 +207,7 @@ Awareness is a recognized mitigation, MITRE ATT&CK M1017 (User Training), and di
 | Phishing | T1566 | Primary target; simulation + JIT training (M1017) lowers click rate and raises report rate across all sub-techniques |
 | Phishing for Information | T1598 | Verify identity before sharing credentials/data via phone, email, or web form |
 | User Execution | T1204 | Train against opening unexpected attachments/macros/files; JIT triggered on simulation failure |
-| Impersonation | T1656 | BEC/executive-impersonation awareness; verbal callback verification for financial requests regardless of apparent authority |
+| Impersonation | T1684.001 | BEC/executive-impersonation awareness; verbal callback verification for financial requests regardless of apparent authority |
 
 Control frameworks: NIST 800-53 AT-2/AT-3/AT-4, CSF 2.0 PR.AT, ISO 27001 A.6.3. For deployed-vs-reference control semantics and coverage scoring, see [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md).
 

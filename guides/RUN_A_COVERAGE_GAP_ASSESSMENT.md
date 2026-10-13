@@ -57,7 +57,7 @@ Watch out: Layers must share the same domain and ATT&CK version to be combined. 
 Now bring in the defensive side: how deeply NIST 800-53 controls (via CTID mappings) cover each technique.
 
 1. In a new Navigator tab, choose Open Existing Layer -> load from URL and paste the master coverage layer: `https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json` (it is also the first row of the [Navigator layer index](/navigator/index.md), with a one-click load link).
-2. The layer scores 470 techniques by NIST 800-53 R5 control depth. Use the score-interpretation table in the [layer index](/navigator/index.md): roughly, 20+ means broad control coverage, 1-9 means thin.
+2. The layer scores 468 techniques by NIST 800-53 R5 control depth. Use the score-interpretation table in the [layer index](/navigator/index.md): roughly, 20+ means broad control coverage, 1-9 means thin.
 3. The layer was built against an earlier ATT&CK version, so Navigator opens its layer upgrade interface; accept the upgrade to the current version, review the techniques it flags as added, changed, or removed, and click done. You need it on the same version as your threat layer before Step 5.
 
 Checkpoint: Two aligned layers open side by side (threat scores in one tab, NIST control depth in the other, both on the same ATT&CK version).

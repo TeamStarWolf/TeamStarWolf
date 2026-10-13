@@ -12,37 +12,37 @@ For each ATT&CK mitigation: how many techniques it addresses, the NIST 800-53 co
 
 | Mitigation | Techniques | Top NIST 800-53 families | D3FEND countermeasures |
 |---|---:|---|---:|
-| [M1018: User Account Management](/mitre/mitigations/M1018.md) | 119 | AC, CM, SI, IA, SC, SA, CA, RA | 106 |
+| [M1018: User Account Management](/mitre/mitigations/M1018.md) | 119 | AC, CM, SI, IA, SC, CA, SA, RA | 106 |
 | [M1026: Privileged Account Management](/mitre/mitigations/M1026.md) | 112 | AC, CM, SI, IA, SC, SA, CA, RA | 103 |
-| [M1047: Audit](/mitre/mitigations/M1047.md) | 110 | AC, CM, SI, IA, SC, RA, CA, SA | 105 |
+| [M1047: Audit](/mitre/mitigations/M1047.md) | 110 | AC, CM, SI, IA, SC, RA, SA, CA | 105 |
 | [M1056: Pre-compromise](/mitre/mitigations/M1056.md) | 88 | SC | 0 |
-| [M1038: Execution Prevention](/mitre/mitigations/M1038.md) | 79 | SI, CM, AC, SC, RA, IA, CA, SR | 61 |
+| [M1038: Execution Prevention](/mitre/mitigations/M1038.md) | 79 | SI, CM, AC, SC, RA, IA, CA, SA | 61 |
 | [M1042: Disable or Remove Feature or Program](/mitre/mitigations/M1042.md) | 71 | CM, AC, SI, SC, IA, RA, CA, SR | 90 |
 | [M1017: User Training](/mitre/mitigations/M1017.md) | 60 | AC, SI, CM, SC, IA, CA, SA, RA | 83 |
-| [M1022: Restrict File and Directory Permissions](/mitre/mitigations/M1022.md) | 60 | AC, CM, SI, CA, SC, IA, RA, CP | 73 |
+| [M1022: Restrict File and Directory Permissions](/mitre/mitigations/M1022.md) | 60 | AC, SI, CM, SC, CA, IA, CP, RA | 73 |
 | [M1031: Network Intrusion Prevention](/mitre/mitigations/M1031.md) | 59 | SI, SC, CM, AC, CA, SA, IA, RA | 52 |
 | [M1040: Behavior Prevention on Endpoint](/mitre/mitigations/M1040.md) | 51 | SI, CM, AC, SC, IA, CA, RA, CP | 58 |
 | [M1037: Filter Network Traffic](/mitre/mitigations/M1037.md) | 49 | AC, SI, CM, SC, CA, IA, SA, RA | 49 |
 | [M1032: Multi-factor Authentication](/mitre/mitigations/M1032.md) | 48 | AC, CM, IA, SI, SC, SA, CA, RA | 74 |
 | [M1027: Password Policies](/mitre/mitigations/M1027.md) | 47 | AC, CM, IA, SI, SC, SA, CA, RA | 72 |
-| [M1051: Update Software](/mitre/mitigations/M1051.md) | 42 | SI, AC, CM, SC, IA, RA, CA, SA | 86 |
+| [M1051: Update Software](/mitre/mitigations/M1051.md) | 42 | SI, AC, CM, SC, IA, SA, RA, CA | 86 |
 | [M1028: Operating System Configuration](/mitre/mitigations/M1028.md) | 39 | CM, AC, SI, IA, SC, RA, CA, SA | 83 |
 | [M1030: Network Segmentation](/mitre/mitigations/M1030.md) | 37 | AC, CM, SC, SI, IA, CA, RA, SA | 62 |
 | [M1054: Software Configuration](/mitre/mitigations/M1054.md) | 36 | AC, CM, SI, SC, IA, CA, RA, SA | 61 |
-| [M1041: Encrypt Sensitive Information](/mitre/mitigations/M1041.md) | 33 | AC, SI, CM, SC, IA, CA, CP, RA | 63 |
+| [M1041: Encrypt Sensitive Information](/mitre/mitigations/M1041.md) | 33 | AC, SI, CM, SC, IA, CP, CA, RA | 63 |
 | [M1021: Restrict Web-Based Content](/mitre/mitigations/M1021.md) | 31 | SI, CM, AC, SC, CA, IA, RA, SA | 63 |
 | [M1049: Antivirus/Antimalware](/mitre/mitigations/M1049.md) | 23 | SI, CM, AC, SC, IA, CA, RA | 38 |
 | [M1045: Code Signing](/mitre/mitigations/M1045.md) | 22 | CM, SI, AC, SR, IA, SA, RA, SC | 46 |
-| [M1024: Restrict Registry Permissions](/mitre/mitigations/M1024.md) | 20 | AC, CM, SI, IA, CA, SC, SA, RA | 41 |
+| [M1024: Restrict Registry Permissions](/mitre/mitigations/M1024.md) | 20 | AC, CM, SI, IA, CA, SC, RA, SA | 41 |
 | [M1035: Limit Access to Resource Over Network](/mitre/mitigations/M1035.md) | 19 | AC, CM, SI, SC, IA, RA, CA, SA | 45 |
-| [M1013: Application Developer Guidance](/mitre/mitigations/M1013.md) | 17 | CM, SI, AC, SC, SA, IA, RA, CA | 62 |
+| [M1013: Application Developer Guidance](/mitre/mitigations/M1013.md) | 17 | CM, SI, AC, SA, SC, IA, RA, CA | 62 |
 | [M1033: Limit Software Installation](/mitre/mitigations/M1033.md) | 17 | CM, SI, AC, CA, IA, SC, SA, RA | 24 |
 | [M1015: Active Directory Configuration](/mitre/mitigations/M1015.md) | 15 | AC, CM, IA, SI, SA, SC, CA, RA | 66 |
 | [M1046: Boot Integrity](/mitre/mitigations/M1046.md) | 14 | CM, AC, SI, IA, SA, SR, RA, SC | 20 |
 | [M1048: Application Isolation and Sandboxing](/mitre/mitigations/M1048.md) | 14 | SC, SI, AC, CM, RA, IA, CA, SA | 40 |
 | [M1050: Exploit Protection](/mitre/mitigations/M1050.md) | 12 | SC, SI, CM, AC, CA, RA, IA, SA | 56 |
 | [M1057: Data Loss Prevention](/mitre/mitigations/M1057.md) | 12 | AC, SC, SI, CM, SA, CA, SR, IA | 26 |
-| [M1029: Remote Data Storage](/mitre/mitigations/M1029.md) | 11 | AC, SI, CM, SC, CP, CA, IA, SA | 19 |
+| [M1029: Remote Data Storage](/mitre/mitigations/M1029.md) | 11 | AC, SI, CM, CP, SC, CA, IA, SA | 19 |
 | [M1036: Account Use Policies](/mitre/mitigations/M1036.md) | 11 | AC, IA, CM, SA, SI, SC, CA, RA | 47 |
 | [M1043: Credential Access Protection](/mitre/mitigations/M1043.md) | 10 | AC, CM, SI, IA, SC, SR, CA, SA | 38 |
 | [M1053: Data Backup](/mitre/mitigations/M1053.md) | 10 | CP, SI, AC, CM | 20 |
@@ -53,9 +53,9 @@ For each ATT&CK mitigation: how many techniques it addresses, the NIST 800-53 co
 | [M1016: Vulnerability Scanning](/mitre/mitigations/M1016.md) | 5 | CM, SC, SI, AC, CA, RA, SR, SA | 23 |
 | [M1019: Threat Intelligence Program](/mitre/mitigations/M1019.md) | 5 | SC, SI, CM, AC, RA, CA, IA | 33 |
 | [M1020: SSL/TLS Inspection](/mitre/mitigations/M1020.md) | 4 | SC, CM, SI, AC, CA | 23 |
-| [M1044: Restrict Library Loading](/mitre/mitigations/M1044.md) | 3 | SI, CM, AC, RA, SC, CA, IA | 15 |
+| [M1044: Restrict Library Loading](/mitre/mitigations/M1044.md) | 3 | SI, CM, SA, AC, RA, SC, CA, IA | 15 |
 | [M1055: Do Not Mitigate](/mitre/mitigations/M1055.md) | 3 | N/A | 0 |
-| [M1039: Environment Variable Permissions](/mitre/mitigations/M1039.md) | 2 | AC, SI, CM, CA | 22 |
+| [M1039: Environment Variable Permissions](/mitre/mitigations/M1039.md) | 2 | CM, AC, SI, CA | 22 |
 
 ## Per-technique crosswalk (counts + links)
 
@@ -494,7 +494,7 @@ For each ATT&CK mitigation: how many techniques it addresses, the NIST 800-53 co
 | [T1553.006](/mitre/techniques/T1553-006.md) Code Signing Policy Modification | defense-impairment | [M1024](/mitre/mitigations/M1024.md) [M1026](/mitre/mitigations/M1026.md) [M1046](/mitre/mitigations/M1046.md) | 13 | 0 | 0 |
 | [T1554](/mitre/techniques/T1554.md) Compromise Host Software Binary | persistence | [M1045](/mitre/mitigations/M1045.md) | 9 | 4 | 1 |
 | [T1555](/mitre/techniques/T1555.md) Credentials from Password Stores | credential-access | [M1026](/mitre/mitigations/M1026.md) [M1027](/mitre/mitigations/M1027.md) [M1051](/mitre/mitigations/M1051.md) | 8 | 13 | 1 |
-| [T1555.001](/mitre/techniques/T1555-001.md) Keychain | credential-access | [M1027](/mitre/mitigations/M1027.md) | 3 | 2 | 1 |
+| [T1555.001](/mitre/techniques/T1555-001.md) Keychain | credential-access | [M1027](/mitre/mitigations/M1027.md) | 3 | 11 | 1 |
 | [T1555.002](/mitre/techniques/T1555-002.md) Securityd Memory | credential-access | N/A | 5 | 2 | 0 |
 | [T1555.003](/mitre/techniques/T1555-003.md) Credentials from Web Browsers | credential-access | [M1017](/mitre/mitigations/M1017.md) [M1018](/mitre/mitigations/M1018.md) [M1021](/mitre/mitigations/M1021.md) [M1027](/mitre/mitigations/M1027.md) [M1051](/mitre/mitigations/M1051.md) | 0 | 15 | 0 |
 | [T1555.004](/mitre/techniques/T1555-004.md) Windows Credential Manager | credential-access | [M1042](/mitre/mitigations/M1042.md) | 5 | 0 | 0 |
@@ -579,7 +579,7 @@ For each ATT&CK mitigation: how many techniques it addresses, the NIST 800-53 co
 | [T1573.001](/mitre/techniques/T1573-001.md) Symmetric Cryptography | command-and-control | [M1031](/mitre/mitigations/M1031.md) | 11 | 11 | 0 |
 | [T1573.002](/mitre/techniques/T1573-002.md) Asymmetric Cryptography | command-and-control | [M1020](/mitre/mitigations/M1020.md) [M1031](/mitre/mitigations/M1031.md) | 11 | 23 | 0 |
 | [T1574](/mitre/techniques/T1574.md) Hijack Execution Flow (observed) | stealth, execution | [M1013](/mitre/mitigations/M1013.md) [M1018](/mitre/mitigations/M1018.md) [M1022](/mitre/mitigations/M1022.md) [M1024](/mitre/mitigations/M1024.md) [M1038](/mitre/mitigations/M1038.md) [M1040](/mitre/mitigations/M1040.md) +4 | 18 | 0 | 0 |
-| [T1574.001](/mitre/techniques/T1574-001.md) DLL | stealth, execution | [M1013](/mitre/mitigations/M1013.md) [M1038](/mitre/mitigations/M1038.md) [M1044](/mitre/mitigations/M1044.md) [M1047](/mitre/mitigations/M1047.md) [M1051](/mitre/mitigations/M1051.md) | 8 | 11 | 1 |
+| [T1574.001](/mitre/techniques/T1574-001.md) DLL | stealth, execution | [M1013](/mitre/mitigations/M1013.md) [M1038](/mitre/mitigations/M1038.md) [M1044](/mitre/mitigations/M1044.md) [M1047](/mitre/mitigations/M1047.md) [M1051](/mitre/mitigations/M1051.md) | 17 | 11 | 2 |
 | [T1574.004](/mitre/techniques/T1574-004.md) Dylib Hijacking | stealth, execution | [M1022](/mitre/mitigations/M1022.md) | 13 | 11 | 1 |
 | [T1574.005](/mitre/techniques/T1574-005.md) Executable Installer File Permissions Weakness | stealth, execution | [M1018](/mitre/mitigations/M1018.md) [M1047](/mitre/mitigations/M1047.md) [M1052](/mitre/mitigations/M1052.md) | 11 | 5 | 2 |
 | [T1574.006](/mitre/techniques/T1574-006.md) Dynamic Linker Hijacking | stealth, execution | [M1028](/mitre/mitigations/M1028.md) [M1038](/mitre/mitigations/M1038.md) | 4 | 12 | 2 |
@@ -714,7 +714,7 @@ For each ATT&CK mitigation: how many techniques it addresses, the NIST 800-53 co
 | [T1620](/mitre/techniques/T1620.md) Reflective Code Loading | stealth | N/A | 0 | 2 | 1 |
 | [T1621](/mitre/techniques/T1621.md) Multi-Factor Authentication Request Generation | credential-access | [M1017](/mitre/mitigations/M1017.md) [M1032](/mitre/mitigations/M1032.md) [M1036](/mitre/mitigations/M1036.md) | 7 | 12 | 0 |
 | [T1622](/mitre/techniques/T1622.md) Debugger Evasion | stealth, discovery | N/A | 15 | 0 | 0 |
-| [T1647](/mitre/techniques/T1647.md) Plist File Modification | defense-impairment | [M1013](/mitre/mitigations/M1013.md) | 15 | 0 | 1 |
+| [T1647](/mitre/techniques/T1647.md) Plist File Modification | defense-impairment | [M1013](/mitre/mitigations/M1013.md) | 15 | 11 | 1 |
 | [T1648](/mitre/techniques/T1648.md) Serverless Execution | execution | [M1018](/mitre/mitigations/M1018.md) [M1036](/mitre/mitigations/M1036.md) | 8 | 0 | 0 |
 | [T1649](/mitre/techniques/T1649.md) Steal or Forge Authentication Certificates | credential-access | [M1015](/mitre/mitigations/M1015.md) [M1041](/mitre/mitigations/M1041.md) [M1042](/mitre/mitigations/M1042.md) [M1047](/mitre/mitigations/M1047.md) | 3 | 20 | 0 |
 | [T1650](/mitre/techniques/T1650.md) Acquire Access | resource-development | [M1056](/mitre/mitigations/M1056.md) | 0 | 0 | 0 |
@@ -745,21 +745,21 @@ For each ATT&CK mitigation: how many techniques it addresses, the NIST 800-53 co
 | [T1684](/mitre/techniques/T1684.md) Social Engineering | stealth | [M1017](/mitre/mitigations/M1017.md) [M1036](/mitre/mitigations/M1036.md) [M1047](/mitre/mitigations/M1047.md) | 0 | 0 | 0 |
 | [T1684.001](/mitre/techniques/T1684-001.md) Impersonation | stealth | [M1017](/mitre/mitigations/M1017.md) [M1019](/mitre/mitigations/M1019.md) | 0 | 0 | 0 |
 | [T1684.002](/mitre/techniques/T1684-002.md) Email Spoofing | stealth | [M1054](/mitre/mitigations/M1054.md) | 0 | 0 | 0 |
-| [T1685](/mitre/techniques/T1685.md) Disable or Modify Tools | defense-impairment | [M1018](/mitre/mitigations/M1018.md) [M1022](/mitre/mitigations/M1022.md) [M1024](/mitre/mitigations/M1024.md) [M1038](/mitre/mitigations/M1038.md) [M1042](/mitre/mitigations/M1042.md) [M1047](/mitre/mitigations/M1047.md) +1 | 0 | 12 | 0 |
-| [T1685.001](/mitre/techniques/T1685-001.md) Disable or Modify Windows Event Log | defense-impairment | [M1018](/mitre/mitigations/M1018.md) [M1022](/mitre/mitigations/M1022.md) [M1024](/mitre/mitigations/M1024.md) [M1047](/mitre/mitigations/M1047.md) | 0 | 4 | 0 |
-| [T1685.002](/mitre/techniques/T1685-002.md) Disable or Modify Cloud Log | defense-impairment | [M1018](/mitre/mitigations/M1018.md) | 0 | 2 | 0 |
-| [T1685.003](/mitre/techniques/T1685-003.md) Modify or Spoof Tool UI | defense-impairment | [M1038](/mitre/mitigations/M1038.md) | 0 | 0 | 0 |
-| [T1685.004](/mitre/techniques/T1685-004.md) Disable or Modify Linux Audit System Log | defense-impairment | [M1018](/mitre/mitigations/M1018.md) [M1047](/mitre/mitigations/M1047.md) | 0 | 0 | 0 |
-| [T1685.005](/mitre/techniques/T1685-005.md) Clear Windows Event Logs | defense-impairment | [M1022](/mitre/mitigations/M1022.md) [M1029](/mitre/mitigations/M1029.md) [M1041](/mitre/mitigations/M1041.md) | 0 | 2 | 0 |
-| [T1685.006](/mitre/techniques/T1685-006.md) Clear Linux or Mac System Logs | defense-impairment | [M1022](/mitre/mitigations/M1022.md) [M1029](/mitre/mitigations/M1029.md) [M1041](/mitre/mitigations/M1041.md) | 0 | 12 | 0 |
-| [T1686](/mitre/techniques/T1686.md) Disable or Modify System Firewall | defense-impairment | [M1018](/mitre/mitigations/M1018.md) [M1022](/mitre/mitigations/M1022.md) [M1024](/mitre/mitigations/M1024.md) [M1047](/mitre/mitigations/M1047.md) | 0 | 2 | 0 |
-| [T1686.001](/mitre/techniques/T1686-001.md) Cloud Firewall | defense-impairment | [M1018](/mitre/mitigations/M1018.md) [M1047](/mitre/mitigations/M1047.md) | 0 | 2 | 0 |
+| [T1685](/mitre/techniques/T1685.md) Disable or Modify Tools | defense-impairment | [M1018](/mitre/mitigations/M1018.md) [M1022](/mitre/mitigations/M1022.md) [M1024](/mitre/mitigations/M1024.md) [M1038](/mitre/mitigations/M1038.md) [M1042](/mitre/mitigations/M1042.md) [M1047](/mitre/mitigations/M1047.md) +1 | 19 | 12 | 2 |
+| [T1685.001](/mitre/techniques/T1685-001.md) Disable or Modify Windows Event Log | defense-impairment | [M1018](/mitre/mitigations/M1018.md) [M1022](/mitre/mitigations/M1022.md) [M1024](/mitre/mitigations/M1024.md) [M1047](/mitre/mitigations/M1047.md) | 13 | 4 | 3 |
+| [T1685.002](/mitre/techniques/T1685-002.md) Disable or Modify Cloud Log | defense-impairment | [M1018](/mitre/mitigations/M1018.md) | 7 | 2 | 3 |
+| [T1685.003](/mitre/techniques/T1685-003.md) Modify or Spoof Tool UI | defense-impairment | [M1038](/mitre/mitigations/M1038.md) | 5 | 0 | 0 |
+| [T1685.004](/mitre/techniques/T1685-004.md) Disable or Modify Linux Audit System Log | defense-impairment | [M1018](/mitre/mitigations/M1018.md) [M1047](/mitre/mitigations/M1047.md) | 8 | 0 | 0 |
+| [T1685.005](/mitre/techniques/T1685-005.md) Clear Windows Event Logs | defense-impairment | [M1022](/mitre/mitigations/M1022.md) [M1029](/mitre/mitigations/M1029.md) [M1041](/mitre/mitigations/M1041.md) | 21 | 2 | 0 |
+| [T1685.006](/mitre/techniques/T1685-006.md) Clear Linux or Mac System Logs | defense-impairment | [M1022](/mitre/mitigations/M1022.md) [M1029](/mitre/mitigations/M1029.md) [M1041](/mitre/mitigations/M1041.md) | 21 | 12 | 0 |
+| [T1686](/mitre/techniques/T1686.md) Disable or Modify System Firewall | defense-impairment | [M1018](/mitre/mitigations/M1018.md) [M1022](/mitre/mitigations/M1022.md) [M1024](/mitre/mitigations/M1024.md) [M1047](/mitre/mitigations/M1047.md) | 13 | 2 | 1 |
+| [T1686.001](/mitre/techniques/T1686-001.md) Cloud Firewall | defense-impairment | [M1018](/mitre/mitigations/M1018.md) [M1047](/mitre/mitigations/M1047.md) | 6 | 2 | 1 |
 | [T1686.002](/mitre/techniques/T1686-002.md) Network Device Firewall | defense-impairment | [M1018](/mitre/mitigations/M1018.md) [M1047](/mitre/mitigations/M1047.md) [M1051](/mitre/mitigations/M1051.md) | 0 | 4 | 0 |
 | [T1686.003](/mitre/techniques/T1686-003.md) Windows Host Firewall | defense-impairment | [M1018](/mitre/mitigations/M1018.md) [M1022](/mitre/mitigations/M1022.md) [M1024](/mitre/mitigations/M1024.md) [M1047](/mitre/mitigations/M1047.md) | 0 | 0 | 0 |
 | [T1687](/mitre/techniques/T1687.md) Exploitation for Defense Impairment | defense-impairment | N/A | 0 | 0 | 0 |
-| [T1688](/mitre/techniques/T1688.md) Safe Mode Boot | defense-impairment | [M1026](/mitre/mitigations/M1026.md) [M1054](/mitre/mitigations/M1054.md) | 0 | 4 | 0 |
-| [T1689](/mitre/techniques/T1689.md) Downgrade Attack | defense-impairment | [M1042](/mitre/mitigations/M1042.md) [M1054](/mitre/mitigations/M1054.md) | 0 | 1 | 0 |
-| [T1690](/mitre/techniques/T1690.md) Prevent Command History Logging | defense-impairment | [M1028](/mitre/mitigations/M1028.md) [M1039](/mitre/mitigations/M1039.md) | 0 | 20 | 0 |
+| [T1688](/mitre/techniques/T1688.md) Safe Mode Boot | defense-impairment | [M1026](/mitre/mitigations/M1026.md) [M1054](/mitre/mitigations/M1054.md) | 13 | 4 | 1 |
+| [T1689](/mitre/techniques/T1689.md) Downgrade Attack | defense-impairment | [M1042](/mitre/mitigations/M1042.md) [M1054](/mitre/mitigations/M1054.md) | 7 | 1 | 0 |
+| [T1690](/mitre/techniques/T1690.md) Prevent Command History Logging | defense-impairment | [M1028](/mitre/mitigations/M1028.md) [M1039](/mitre/mitigations/M1039.md) | 4 | 20 | 2 |
 
 ---
 

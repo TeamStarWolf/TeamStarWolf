@@ -116,10 +116,16 @@ def tech_block(tid):
         out.append("**ATT&CK mitigations:** none mapped  ")
     nist = p.get("nist_800_53_controls") or []
     if nist:
+        via = p.get("nist_800_53_controls_via_revoked") or {}
+        note = (" (carried forward from revoked " + ", ".join(sorted(via)) +
+                ": the CTID mapping is keyed on the predecessor id)") if via else ""
         out.append("**NIST 800-53 R5 controls (" + str(len(nist)) + "):** " +
-                   ", ".join("`" + c + "`" for c in nist) + "  ")
+                   ", ".join("`" + c + "`" for c in nist) + note + "  ")
     else:
-        out.append("**NIST 800-53 R5 controls:** none — *framework blind spot; rely on detection/design controls*  ")
+        # build_control_rollup.py already carries CTID edges forward from revoked
+        # predecessors, so an empty list means neither this id nor any predecessor is mapped.
+        out.append("**NIST 800-53 R5 controls:** none (*no CTID mapping under this ID or its "
+                   "predecessors; rely on detection/design controls*)  ")
     strat = p.get("detection_strategies") or []
     if strat:
         out.append("**ATT&CK detection strategy:** " + "; ".join(strat) + "  ")

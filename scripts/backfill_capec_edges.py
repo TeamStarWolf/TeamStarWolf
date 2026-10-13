@@ -8,6 +8,13 @@ field per technique but ships it empty in every row (a generator omission —
 audit / Library Enhancement Roadmap Tier 1.5). This script inverts the CAPEC
 mapping (technique_id -> sorted CAPEC ids) and writes it into each profile.
 
+CAPEC is keyed on whatever ATT&CK id it was authored against, so a pattern mapped to
+an id that ATT&CK later revoked (T1562.002, T1574.002, ...) is carried forward to the
+live successor through data/attack/superseded_by.jsonl (T1562.002 -> T1685.001); the
+revoked profile keeps its own edge. The carried CAPEC ids are recorded per
+predecessor in `capec_via_revoked` ({predecessor_id: [CAPEC ids]}, present only when
+non-empty), so a reader can tell a CAPEC mapping of the new id from an inherited one.
+
 Default: rewrite technique_profiles.jsonl in place (only rows that gain edges
 change; formatting and line endings are preserved for a clean diff).
 --check:  recompute and fail (exit 1) if any profile's `capec` diverges from the
@@ -15,6 +22,8 @@ change; formatting and line endings are preserved for a clean diff).
 """
 from __future__ import annotations
 import json, os, sys
+
+from attack_ids import AttackIds
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROFILES = os.path.join(ROOT, "data", "attack", "technique_profiles.jsonl")
@@ -30,7 +39,8 @@ def _capec_sort_key(capec_id: str):
 
 
 def derive_edges():
-    """technique_id -> sorted unique list of CAPEC ids that map to it."""
+    """(technique_id -> sorted CAPEC ids after the superseded_by carry-forward,
+    successor_id -> {predecessor_id: [CAPEC ids]} provenance, raw technique ids)."""
     edges: dict[str, set] = {}
     with open(CAPEC, encoding="utf-8") as f:
         for line in f:
@@ -42,7 +52,22 @@ def derive_edges():
             for tid in row.get("attack_techniques") or []:
                 if isinstance(tid, str) and tid.startswith("T") and cid:
                     edges.setdefault(tid, set()).add(cid)
-    return {t: sorted(c, key=_capec_sort_key) for t, c in edges.items()}
+    merged, prov = AttackIds().carry_forward(edges)
+    prov = {t: {old: sorted(c, key=_capec_sort_key) for old, c in sorted(by_old.items())}
+            for t, by_old in prov.items()}
+    return ({t: sorted(c, key=_capec_sort_key) for t, c in merged.items()}, prov, set(edges))
+
+
+def _with_via_revoked(r, via):
+    """Place capec_via_revoked right after capec (or drop it when empty)."""
+    out = {}
+    for k, v in r.items():
+        if k == "capec_via_revoked":
+            continue
+        out[k] = v
+        if k == "capec" and via:
+            out["capec_via_revoked"] = via
+    return out
 
 
 def _read_profiles_raw():
@@ -54,22 +79,27 @@ def _read_profiles_raw():
 
 
 def main():
-    edges = derive_edges()
+    edges, prov, raw_ids = derive_edges()
     rows, nl = _read_profiles_raw()
     profile_ids = {r["technique_id"] for r in rows}
-    # CAPEC-referenced techniques absent from the profile set (data-hygiene signal).
-    orphans = sorted(set(edges) - profile_ids, key=lambda t: t)
+    ids = AttackIds()
+    # CAPEC-referenced techniques that are neither enterprise profiles nor resolvable
+    # through superseded_by (data-hygiene signal, e.g. a Mobile-domain id).
+    orphans = sorted(t for t in raw_ids - profile_ids if ids.resolve(t) is None)
 
     check = "--check" in sys.argv
     drift = []
     changed = 0
-    for r in rows:
-        want = edges.get(r["technique_id"], [])
-        if r.get("capec", []) != want:
+    for i, r in enumerate(rows):
+        t = r["technique_id"]
+        want = edges.get(t, [])
+        via = prov.get(t, {})
+        if r.get("capec", []) != want or (r.get("capec_via_revoked") or {}) != via:
             if check:
-                drift.append(r["technique_id"])
+                drift.append(t)
             else:
                 r["capec"] = want
+                rows[i] = _with_via_revoked(r, via)
                 changed += 1
 
     if check:
@@ -92,10 +122,12 @@ def main():
     print(f"wrote {PROFILES}")
     print(f"  profiles updated: {changed}")
     print(f"  profiles now carrying CAPEC edges: {populated} (of {len(rows)})")
-    print(f"  distinct techniques mapped in capec.jsonl: {len(edges)}")
+    print(f"  distinct techniques mapped in capec.jsonl: {len(raw_ids)}")
+    print(f"  live successors carrying CAPEC from revoked predecessors: "
+          f"{sum(1 for t in prov if t in profile_ids)}")
     if orphans:
-        print(f"  NOTE: {len(orphans)} CAPEC-referenced techniques are absent from "
-              f"technique_profiles.jsonl (revoked/renamed?): {', '.join(orphans[:10])}"
+        print(f"  NOTE: {len(orphans)} CAPEC-referenced techniques are not enterprise "
+              f"techniques (other ATT&CK domain?): {', '.join(orphans[:10])}"
               + (" ..." if len(orphans) > 10 else ""))
 
 

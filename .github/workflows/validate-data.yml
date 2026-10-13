@@ -46,6 +46,9 @@ jobs:
       - name: Check CAPEC edge integrity (profiles vs capec.jsonl)
         run: python scripts/backfill_capec_edges.py --check
 
+      - name: Check CTID edge tables (control/vendor -> technique) match their sources
+        run: python scripts/build_ctid_edges.py --check
+
   corpus-signal:
     name: Corpus-signal round-trip (data file == pages, exactly 21)
     # The "Team Star Wolf corpus signal" paragraph on 21 technique pages comes from the
@@ -90,7 +93,22 @@ jobs:
               print(f'ERROR: Missing required fields: {missing}')
               sys.exit(1)
           technique_count = len(layer['techniques'])
-          print(f'OK: Navigator layer valid — {technique_count} techniques')
+          # Every techniqueID must be an Enterprise technique the library knows (live, or a
+          # revoked v19 id kept as a lineage row). A Mobile id or a pre-v16 revoked id that
+          # leaked in from the edge tables (T1521.003, T1574.002) can never render.
+          with open('data/attack/technique_profiles.jsonl', encoding='utf-8') as f:
+              known = {json.loads(l)['technique_id'] for l in f if l.strip()}
+          stray = sorted({t['techniqueID'] for t in layer['techniques']} - known)
+          if stray:
+              print(f'ERROR: techniqueIDs not in data/attack/technique_profiles.jsonl: {stray}')
+              sys.exit(1)
+          scored = {t['techniqueID'] for t in layer['techniques']}
+          meta = {m['name']: m['value'] for m in layer.get('metadata', [])}
+          declared = meta.get('techniques_scored')
+          if declared is not None and int(declared) != len(scored):
+              print(f'ERROR: metadata techniques_scored={declared} but the layer scores {len(scored)}')
+              sys.exit(1)
+          print(f'OK: Navigator layer valid — {technique_count} entries, {len(scored)} techniques')
           scores = [t['score'] for t in layer['techniques'] if 'score' in t]
           print(f'OK: Score range {min(scores)}–{max(scores)}')
           "

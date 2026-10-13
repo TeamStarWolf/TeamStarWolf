@@ -71,7 +71,7 @@ open each one in the Navigator. [data/EDGES.md](data/EDGES.md) describes each re
 [data/MANIFEST.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/MANIFEST.json) records each file's source, license, row count, and checksum.
 
 The ATT&CK data files, the technique pages, and the framework pages are built from MITRE ATT&CK v19.2. The
-technique records also keep a small number of techniques that MITRE has since revoked or renumbered. Some
+technique records also keep a small number of techniques that MITRE has since revoked. Some
 summary pages, including the technique atlases and Threat Group Profiles, were generated from earlier
 ATT&CK releases and have not yet been regenerated. Each states the version it was built from. The ATT&CK
 Navigator layers are pinned to ATT&CK v19 and use v19.2 technique IDs and tactics; the layer index shows

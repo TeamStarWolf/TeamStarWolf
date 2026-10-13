@@ -1109,8 +1109,8 @@ ATT&CK Navigator allows visualization of techniques used during an engagement as
 
 ```json
 {
-  "name": "Q4 2024 Red Team Engagement",
-  "versions": {"attack": "14", "navigator": "4.9", "layer": "4.5"},
+  "name": "Red Team Engagement",
+  "versions": {"attack": "19", "navigator": "4.9", "layer": "4.5"},
   "domain": "enterprise-attack",
   "techniques": [
     {

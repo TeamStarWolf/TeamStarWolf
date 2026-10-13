@@ -291,7 +291,7 @@ ATTACK-Navi supports custom heatmap layers that can visualize coverage scores di
 ```json
 {
   "name": "Vendor Stack Coverage",
-  "versions": { "attack": "16.1", "navigator": "5.0.0", "layer": "4.5" },
+  "versions": { "attack": "19", "navigator": "5.0.0", "layer": "4.5" },
   "domain": "enterprise-attack",
   "techniques": [
     {
@@ -390,7 +390,7 @@ def generate_navigator_layer(technique_scores: dict[str, float]) -> dict:
 
     return {
         "name": "Coverage Heatmap",
-        "versions": {"attack": "14", "navigator": "4.9", "layer": "4.5"},
+        "versions": {"attack": "19", "navigator": "4.9", "layer": "4.5"},
         "domain": "enterprise-attack",
         "description": "Control coverage mapped to ATT&CK techniques",
         "gradient": {

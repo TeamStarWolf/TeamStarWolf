@@ -111,7 +111,7 @@ Watch out: Counts are availability, not proof. "12 Sigma rules exist" does not m
    - On both lists: a consensus gap; highest confidence.
    - High on yours, absent from the global top 75: your differentiated exposure; lead your report with these, they are what a generic benchmark misses.
    - High globally, absent from yours: either your scoped groups genuinely don't use it, or your scoping was too narrow. Re-check Step 1 before dismissing it.
-3. If you also run the vendor stack modeled in this library, compare tactic-level numbers with the [Coverage Gap Analysis](/scores/coverage_gaps.md) and its `scores/tactic_coverage.json`; Collection, Discovery, and Stealth are its standing critical gaps and deserve suspicion in any stack.
+3. If you also run the vendor stack modeled in this library, compare tactic-level numbers with the [Coverage Gap Analysis](/scores/coverage_gaps.md) and its `scores/tactic_coverage.json`. In the current report the three lowest-coverage tactics are Resource Development, Reconnaissance, and Discovery; treat whichever tactics sit at the bottom of that table with suspicion in any stack, and check the report's header for the data it was computed from.
 
 Checkpoint: Every technique on your list is labeled consensus, differentiated, or descoped-with-reason.
 

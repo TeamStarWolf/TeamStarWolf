@@ -163,11 +163,10 @@ Key attack techniques:
 
 | Technique ID | Name | Tactic | Relevance |
 |---|---|---|---|
-| [T1437](https://attack.mitre.org/techniques/T1437/) | Standard Application Layer Protocol | Command and Control | Malware using HTTPS/HTTP for C2; MTD network inspection detects anomalies |
-| [T1444](https://attack.mitre.org/techniques/T1444/) | Masquerade as Legitimate Application | Defense Evasion | Trojanized apps in third-party stores; enterprise app store controls |
-| [T1446](https://attack.mitre.org/techniques/T1446/) | Device Lockout | Impact | Ransomware locks device; MDM remote wipe as recovery |
-| [T1447](https://attack.mitre.org/techniques/T1447/) | Delete Device Data | Impact | Destructive apps wipe device data; MDM selective wipe limits blast radius |
-| [T1448](https://attack.mitre.org/techniques/T1448/) | Carrier Billing Fraud | Impact | Malware silently charges premium SMS; MTD anomaly detection |
+| [T1437](https://attack.mitre.org/techniques/T1437/) | Application Layer Protocol | Command and Control | Malware using HTTPS/HTTP for C2; MTD network inspection detects anomalies |
+| [T1629.002](https://attack.mitre.org/techniques/T1629/002/) | Device Lockout | Defense Evasion | Ransomware locks device; MDM remote wipe as recovery |
+| [T1630.002](https://attack.mitre.org/techniques/T1630/002/) | File Deletion | Defense Evasion | Destructive apps wipe device data; MDM selective wipe limits blast radius |
+| [T1643](https://attack.mitre.org/techniques/T1643/) | Generate Traffic from Victim | Impact | Malware silently charges premium SMS; MTD anomaly detection |
 | [T1517](https://attack.mitre.org/techniques/T1517/) | Access Notifications | Collection | Spyware reads notification content; permission model enforcement |
 | [T1532](https://attack.mitre.org/techniques/T1532/) | Archive Collected Data | Collection | Staging exfiltrated data before transmission; MTD detects large outbound transfers |
 | [T1533](https://attack.mitre.org/techniques/T1533/) | Data from Local System | Collection | Reading contacts, SMS, files, keychain data; Frida-based spyware |

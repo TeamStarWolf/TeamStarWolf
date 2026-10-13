@@ -199,7 +199,7 @@ Deception technology primarily detects post-initial-access techniques (adversari
 | [Thinkst Applied Research](https://thinkst.com/research/) | Blog | Canary token research and deception theory |
 | [Active Defense & Cyber Deception (SANS)](https://www.sans.org/white-papers/36022/) | White paper | Foundational active defense paper |
 | The Art of Deception (Mitnick) | Book | Social engineering and deception fundamentals |
-| [Honeypots for Windows (Spitzner)](https://link.springer.com/book/9781590593357) | Book | Classic honeypot deployment guide |
+| [Honeypots for Windows (Spitzner)](https://link.springer.com/book/10.1007/978-1-4302-0007-9) | Book | Classic honeypot deployment guide |
 | [T-Pot Documentation](https://github.com/telekom-security/tpotce/wiki) | Reference | All-in-one honeypot platform setup |
 | [Canarytokens Docs](https://docs.canarytokens.org/) | Reference | Token types and deployment guide |
 

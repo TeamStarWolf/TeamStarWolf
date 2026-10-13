@@ -174,9 +174,9 @@ Key metrics:
 
 | Certification | Issuer | Focus |
 |---|---|---|
-| [PNPT (Practical Network Penetration Tester)](https://www.tcm-sec.com/pnpt/) | TCM Security | Practical offensive skills used in purple exercises |
-| [CRTO (Certified Red Team Operator)](https://training.zeropointsecurity.co.uk/courses/red-team-ops) | Zero Point Security | C2 operations, adversary TTPs for emulation |
-| [CRTL (Certified Red Team Lead)](https://training.zeropointsecurity.co.uk/courses/red-team-ops-ii) | Zero Point Security | Red team leadership and advanced TTPs |
+| [PNPT (Practical Network Penetration Tester)](https://certifications.tcm-sec.com/pnpt/) | TCM Security | Practical offensive skills used in purple exercises |
+| [CRTO (Certified Red Team Operator)](https://www.zeropointsecurity.co.uk/course/red-team-ops) | Zero Point Security | C2 operations, adversary TTPs for emulation |
+| [CRTL (Certified Red Team Lead)](https://www.zeropointsecurity.co.uk/course/red-team-ops-ii) | Zero Point Security | Red team leadership and advanced TTPs |
 | [GPEN](https://www.giac.org/certifications/penetration-tester-gpen/) | GIAC | Penetration testing fundamentals |
 | [GDAT](https://www.giac.org/certifications/defending-advanced-threats-gdat/) | GIAC | Defending Advanced Threats: blue team side |
 | [GRTP (GIAC Red Team Professional)](https://www.giac.org/certifications/red-team-professional-grtp/) | GIAC | Advanced red team operations and adversary emulation |

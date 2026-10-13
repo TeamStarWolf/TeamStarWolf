@@ -847,7 +847,7 @@ sysctl -a | grep kptr_restrict
 
 ### 4.3 Kernel Self Protection Project (KSPP) Recommendations
 
-The KSPP (https://kernsec.org/wiki/Kernel_Self_Protection_Project/) recommends:
+The KSPP (https://kspp.github.io/) recommends:
 
 ```bash
 # Kernel compile-time options (relevant for custom builds)
@@ -2515,7 +2515,7 @@ firewall-cmd --state   # Should be: running
 | dev-sec.io | https://dev-sec.io | Hardening framework |
 | Ansible Galaxy | https://galaxy.ansible.com/search?keywords=hardening | Security roles |
 | NVD / NIST | https://nvd.nist.gov | CVE database |
-| KSPP | https://kernsec.org/wiki/Kernel_Self_Protection_Project/ | Kernel hardening |
+| KSPP | https://kspp.github.io/ | Kernel hardening |
 | Arch Linux Security | https://wiki.archlinux.org/title/Security | Excellent general reference |
 | Lynis | `lynis audit system` | Local security auditing |
 | ssh-audit | `ssh-audit hostname` | SSH configuration testing |

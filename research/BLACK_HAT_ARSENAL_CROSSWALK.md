@@ -419,7 +419,7 @@ This section catalogs notable Black Hat Arsenal and community offensive/defensiv
 |---|---|---|---|
 | Velociraptor | Velocidex | Digital forensics and incident response platform with VQL query language for endpoint telemetry | github.com/Velocidex/velociraptor |
 | Volatility 3 | volatilityfoundation | Memory forensics framework for Windows, Linux, and macOS; supports plugin-based analysis | github.com/volatilityfoundation/volatility3 |
-| KAPE | EricZimmerman | Triage artifact collection and processing tool; collects Windows forensic artifacts and runs analysis modules | https://www.kroll.com/en/services/cyber-risk/incidents-intrusions-breaches/kroll-artifact-parser-extractor-kape |
+| KAPE | EricZimmerman | Triage artifact collection and processing tool; collects Windows forensic artifacts and runs analysis modules | https://www.kroll.com/en/services/cyber/reactive-services/kroll-artifact-parser-and-extractor-kape |
 | Chainsaw | WithSecureLabs | Fast Windows Event Log hunting and threat detection using Sigma rules and built-in patterns | github.com/WithSecureLabs/chainsaw |
 | Hayabusa | Yamato-Security | Windows Event Log fast forensics and threat hunting tool with 4000+ Sigma-based detection rules | github.com/Yamato-Security/hayabusa |
 

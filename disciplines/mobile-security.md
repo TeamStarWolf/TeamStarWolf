@@ -24,7 +24,7 @@ Mobile security encompasses the protection of smartphones, tablets, and the appl
 | OWASP MASVS | https://mas.owasp.org/MASVS/ | Security verification standard for mobile apps: requirements and control mapping |
 | Frida Documentation | https://frida.re/docs/ | Dynamic instrumentation: method hooking, class enumeration, native tracing |
 | TryHackMe: Android rooms | https://tryhackme.com/ | Guided Android static/dynamic analysis labs |
-| HackTricks Mobile | https://book.hacktricks.xyz/mobile-pentesting/ | Mobile pentesting techniques reference |
+| HackTricks Mobile | https://web.archive.org/web/20241001210624/https://book.hacktricks.xyz/mobile-pentesting/ | Mobile pentesting techniques reference |
 | TCM Security (free resources) | https://academy.tcm-sec.com/ | Practical mobile security fundamentals (free tier available) |
 
 ---
@@ -192,7 +192,7 @@ Key attack techniques:
 | [OWASP MASTG](https://mas.owasp.org/MASTG/) | Free guide | Definitive mobile application security testing guide: iOS and Android |
 | [Android Security Internals (Elenkov)](https://nostarch.com/androidsecurity) | Book | Deep Android security architecture: permissions, cryptography, secure storage |
 | [iOS App Security (Charlie Miller)](https://www.amazon.com/iOS-App-Security-Charlie-Miller/dp/0470639520) | Book | iOS security internals and vulnerability research |
-| [HackTricks: Mobile Pentesting](https://book.hacktricks.xyz/mobile-pentesting/) | Reference | Extensive mobile pentesting techniques for Android and iOS |
+| [HackTricks: Mobile Pentesting](https://web.archive.org/web/20241001210624/https://book.hacktricks.xyz/mobile-pentesting/) | Reference | Extensive mobile pentesting techniques for Android and iOS |
 | [TCM Security Mobile Course](https://academy.tcm-sec.com/p/mobile-application-penetration-testing) | Course | Practical Android + iOS pentesting from scratch |
 | [Frida Handbook / Snippets](https://github.com/iddoeldor/frida-snippets) | Reference | Frida snippet collection for common mobile hooking scenarios |
 | [NSO Group Pegasus Technical Analysis (Amnesty Tech)](https://www.amnesty.org/en/latest/research/2021/07/forensic-methodology-report-how-to-catch-nso-groups-pegasus/) | Research | Forensic methodology for detecting mobile spyware; zero-click exploit indicators |

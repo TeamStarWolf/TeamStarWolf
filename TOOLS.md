@@ -346,7 +346,7 @@ For deeper context on how tools map to NIST 800-53 controls and ATT&CK technique
 | [CrackerJack](https://github.com/ctxis/crackerjack) | Python | OSS | Hashcat WebUI; session management, mask generation, API, notifications, local and LDAP authenti |
 | [Cracklord](http://jmmcatee.github.io/cracklord/) | Go | OSS | Scalable, pluggable, and distributed system for hash cracking, supports Hashcat |
 | [Duplicut](https://github.com/nil0x42/duplicut) | C | OSS | Remove duplicates from massive wordlist, without sorting it (for dictionary-based password crac |
-| [Fitcrack](https://web.archive.org/web/20260308042352/https://fitcrack.fit.vutbr.cz/) | C | OSS | Hashcat-based distributed password cracking system with WebUI |
+| [Fitcrack](https://fitcrack.fit.vutbr.cz/) | C | OSS | Hashcat-based distributed password cracking system with WebUI |
 | [GAU](https://github.com/lc/gau) | Go | OSS | Fetch known URLs from AlienVault's Open Threat Exchange, the Wayback Machine, Common Crawl, and |
 | [GeoWordlists](https://github.com/p0dalirius/GeoWordlists) | Python | OSS | Generate wordlists of passwords containing cities at a defined distance around the client city |
 | [GoCrack](https://github.com/fireeye/gocrack) | Go | OSS | Management frontend for hash cracking tools, supporting hashcat |

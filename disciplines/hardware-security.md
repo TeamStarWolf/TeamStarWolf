@@ -50,7 +50,7 @@ Hardware security addresses the lowest layers of the computing stack: firmware, 
 | OpenOCD | JTAG/SWD interface for debugging embedded targets; supports hundreds of devices | https://openocd.org/ |
 | JTAGulator | Identifies JTAG/UART pins on unknown PCBs via brute-force scanning | http://www.grandideastudio.com/jtagulator/ |
 | flashrom | Read, write, and verify SPI/I2C flash chips directly from PCB pads | https://www.flashrom.org/ |
-| Bus Pirate | Universal bus interface: SPI, I2C, UART, JTAG: beginner-friendly hardware tool | http://dangerousprototypes.com/docs/Bus_Pirate |
+| Bus Pirate | Universal bus interface: SPI, I2C, UART, JTAG: beginner-friendly hardware tool | https://web.archive.org/web/20260723022119/http://dangerousprototypes.com/docs/Bus_Pirate |
 | HydraBus | Open-source multi-protocol hardware interface for security research | https://github.com/hydrabus/hydrabus |
 | GreatFET | USB-based hardware hacking platform: GPIO, SPI, I2C, UART, JTAG | https://github.com/greatscottgadgets/greatfet |
 | Sigrok / PulseView | Open-source logic analyzer software; works with low-cost logic analyzers | https://sigrok.org/ |
@@ -177,7 +177,7 @@ Hardware security addresses the lowest layers of the computing stack: firmware, 
 | Resource | Type | Notes |
 |---|---|---|
 | [The Hardware Hacker (bunnie huang)](https://nostarch.com/hardwarehacking) | Book | Practical hardware hacking, PCB analysis, firmware extraction |
-| [Hacking the Xbox (bunnie huang)](https://nostarch.com/xbox) | Book | Classic hardware RE; free PDF; security by obscurity failures |
+| [Hacking the Xbox (bunnie huang)](https://nostarch.com/xboxfree) | Book | Classic hardware RE; free PDF; security by obscurity failures |
 | [Embedded Security (Jasper van Woudenberg)](https://www.riscure.com/book/) | Book | Side-channel analysis and fault injection: academic and practical |
 | [Joe Grand DEF CON Talks](https://www.youtube.com/results?search_query=joe+grand+defcon) | Video | Wallet recovery, JTAG reconnaissance, hardware attack methodology |
 | [Hardwear.io Conference](https://hardwear.io/) | Conference | Premier annual hardware security conference |

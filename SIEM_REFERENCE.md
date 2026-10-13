@@ -843,6 +843,16 @@ Decoder XML:
 - Findings: Matched events grouped by rule; severity mapped from Sigma level
 - Correlation Rules: Chain multiple findings across rules for complex detection
 
+### Reference Open-Source Build Stacks (community)
+
+For a runnable reference architecture around the Wazuh/OpenSearch stack above, these community projects assemble the pieces end to end. They are single-maintainer projects; verify and harden before production (several default to unauthenticated services).
+
+- **siem-docker-stack** - [github.com/ChiefGyk3D/siem-docker-stack](https://github.com/ChiefGyk3D/siem-docker-stack) - Docker Compose SIEM/SOC on one host: OpenSearch hot/warm tiering, Logstash, Syslog-ng, Wazuh (Manager/Indexer/Dashboard), Grafana, Prometheus, InfluxDB; home-lab/SMB scale (GPL-2.0).
+- **pfsense-siem-stack** - [github.com/ChiefGyk3D/pfsense-siem-stack](https://github.com/ChiefGyk3D/pfsense-siem-stack) - forwards pfSense Suricata IDS, pfBlockerNG, and Telegraf telemetry into OpenSearch/Grafana via Logstash, with MaxMind GeoIP enrichment (MPL-2.0).
+- **jumpcloud-wazuh-bridge** - [github.com/ChiefGyk3D/jumpcloud-wazuh-bridge](https://github.com/ChiefGyk3D/jumpcloud-wazuh-bridge) - ingests JumpCloud Directory Insights (IdP auth) events into Wazuh as JSONL with a decoder, ruleset (IDs 100300-100350), and a 14-panel Grafana dashboard (Apache-2.0).
+
+> These ship their own Wazuh rulesets; load only one Wazuh ruleset source to avoid duplicate alerts. For more community tooling see [Open Source Security Toolkit](OPEN_SOURCE_TOOLKIT.md#community-open-source-stacks-and-tooling-by-chiefgyk3d).
+
 ---
 ## 6. Log Collection & Normalization
 

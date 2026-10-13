@@ -857,7 +857,7 @@ mov eax, 0     ; leaf 0: vendor string
 cpuid          ; EBX:EDX:ECX = vendor
 ; VMware:   "VMwareVMware"
 ; VirtualBox: "VBoxVBoxVBox"
-; KVM:      "KVMKVMKVM   "
+; KVM:      "KVMKVMKVM\0\0\0"
 ; Hyper-V:  "Microsoft Hv"
 ; Intel:    "GenuineIntel"
 ```
@@ -950,7 +950,7 @@ ql.run()
 
 ## Section 6: Decompilers & Code Recovery
 
-### Ghidra Decompiler â€” Advanced Techniques
+### Ghidra Decompiler — Advanced Techniques
 
 #### Struct Recovery Workflow
 

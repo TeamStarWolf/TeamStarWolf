@@ -62,8 +62,8 @@ TEXT_NAMES = ("LICENSE",)
 #   C3 xx / C2 xx  -> "A-tilde" or "A-circumflex" + a Latin-1 symbol   (e-acute, nbsp, copyright...)
 #   E2 80 xx       -> "a-circumflex" + euro sign (cp1252) or + U+0080   (dashes, quotes, bullets)
 #   EF BB BF       -> "i-diaeresis" + ">>" + "inverted ?"               (a BOM pasted mid-text)
-MOJIBAKE_RE = re.compile("[ÃÂ][\u0080-¿]|â[€\u0080][\u0080-¿‘-›Œ-˜]?"
-                         "|ï»¿")
+MOJIBAKE_RE = re.compile("[\u00c3\u00c2][\u0080-\u00bf]|\u00e2[\u20ac\u0080][\u0080-\u00bf\u2018-\u203a\u0152-\u02dc]?"
+                         "|\u00ef\u00bb\u00bf")
 
 
 def is_text(f: str) -> bool:
@@ -84,7 +84,7 @@ def check_encoding(files: list[str]) -> list[str]:
             problems.append(f + ": not valid UTF-8 (byte offset " + str(e.start) + ")")
             continue
         for i, line in enumerate(t.split("\n"), 1):
-            if "�" in line:
+            if "\ufffd" in line:
                 problems.append(f + ":" + str(i) + ": U+FFFD replacement character (a lossy decode)")
             m = MOJIBAKE_RE.search(line)
             if m:

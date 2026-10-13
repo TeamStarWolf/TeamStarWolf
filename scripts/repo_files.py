@@ -55,5 +55,5 @@ def read_text(rel: str) -> str | None:
     if b is None:
         return None
     t = b.decode("utf-8", errors="replace")
-    t = t[1:] if t.startswith("﻿") else t     # a BOM is not content (browsers drop it)
+    t = t[1:] if t.startswith("\ufeff") else t     # a BOM is not content (browsers drop it)
     return t.replace("\r\n", "\n")

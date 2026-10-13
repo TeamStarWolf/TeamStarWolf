@@ -2,6 +2,7 @@
 {"group_id": "G0034", "group_name": "Sandworm Team", "technique_id": "T1660", "technique_name": "Phishing"}
 {"group_id": "G0034", "group_name": "Sandworm Team", "technique_id": "T1676", "technique_name": "Linked Devices"}
 {"group_id": "G0070", "group_name": "Dark Caracal", "technique_id": "T1437.001", "technique_name": "Web Protocols"}
+{"group_id": "G0094", "group_name": "Kimsuky", "technique_id": "T1660", "technique_name": "Phishing"}
 {"group_id": "G0097", "group_name": "Bouncing Golf", "technique_id": "T1655.001", "technique_name": "Match Legitimate Name or Location"}
 {"group_id": "G0112", "group_name": "Windshift", "technique_id": "T1406", "technique_name": "Obfuscated Files or Information"}
 {"group_id": "G0112", "group_name": "Windshift", "technique_id": "T1407", "technique_name": "Download New Code at Runtime"}

@@ -111,7 +111,7 @@ ServiceNow product docs live in the [ServiceNow/ServiceNowDocs](https://github.c
 | [Field mapping for the Wiz VR integrations](https://github.com/ServiceNow/ServiceNowDocs/blob/brazil/markdown/security-management/vulnerability-response/wiz-vul-resp-integration-view-findings.md) | Reference | Wiz field mapping | OK |
 | [Wiz Container Vulnerability integration](https://github.com/ServiceNow/ServiceNowDocs/blob/brazil/markdown/security-management/container-vulnerability-response/wiz-exploring-cvr-vuln-intcf.md) | Integration guide | Wiz container findings into CVR | OK |
 | [Wiz Test Results and Issues with CC](https://github.com/ServiceNow/ServiceNowDocs/blob/brazil/markdown/security-management/configuration-compliance/exploring-wiz-ctest-results-int.md) | Integration guide | Wiz cloud misconfigurations into CC | OK |
-| [Wiz AI-SEM integration](https://github.com/ServiceNow/ServiceNowDocs/blob/brazil/markdown/security-management/configuration-compliance/wiz-ai-sem-integration.md) | Integration guide | Wiz AI security exposure findings | OK |
+| [Wiz Test Results integration: send AI security findings to AI-SEM](https://github.com/ServiceNow/ServiceNowDocs/blob/brazil/markdown/security-management/configuration-compliance/exploring-wiz-ctest-results-int.md) | Integration guide | Wiz AI security exposure findings | OK |
 | [Wiz AVR integration](https://github.com/ServiceNow/ServiceNowDocs/blob/brazil/markdown/security-management/application-vulnerability-response/wiz-exploring-avr-sca-secrets.md) | Integration guide | Wiz SCA and secrets findings into AVR | OK |
 | [Invicti Vulnerability Integration](https://github.com/ServiceNow/ServiceNowDocs/blob/brazil/markdown/security-management/application-vulnerability-response/invicti-vuln-integration.md) | Integration guide | Invicti findings into AVR | OK |
 | [Install the Invicti integration](https://github.com/ServiceNow/ServiceNowDocs/blob/brazil/markdown/security-management/application-vulnerability-response/invicti-install.md) | Integration guide | Install the ServiceNow-built app | OK |
@@ -564,7 +564,7 @@ Projects from the MITRE Center for Threat-Informed Defense (CTID). Several mappi
 | [MITRE Engage](https://engage.mitre.org/) | Docs | Denial, deception and adversary engagement | OK |
 | [Engage matrix](https://engage.mitre.org/matrix/) | Docs | Engage matrix | OK |
 | [Engage starter kit](https://engage.mitre.org/starter-kit/) | Docs | Getting started | OK |
-| [Engage resources](https://engage.mitre.org/resources/) | Docs | Resources | OK |
+| [Engage tools and resources](https://engage.mitre.org/tools/) | Docs | Resources | OK |
 | [CAPEC](https://capec.mitre.org/) | Docs | Attack pattern enumeration | OK |
 | [CAPEC downloads](https://capec.mitre.org/data/downloads.html) | Feed | XML and CSV downloads | OK |
 | [CAPEC latest XML](https://capec.mitre.org/data/xml/capec_latest.xml) | Feed | Full CAPEC XML | OK |

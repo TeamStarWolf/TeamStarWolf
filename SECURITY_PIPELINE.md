@@ -270,7 +270,7 @@ These figures are copied from the `tactic_summary` block of [`scores/coverage_ga
 | Exfiltration | 18 of 19 | 94.7% | 1 |
 | Lateral Movement | 22 of 23 | 95.7% | 1 |
 
-The generated report does not rank tactics. It assigns gap priority to each uncovered technique by the number of ATT&CK groups documented using it. See the [Coverage Gap Analysis](scores/coverage_gaps.md) for what "covered" means there, the ranked gap list, and its recommended capability additions.
+The generated report gives tactics no priority label: it lists the lowest-coverage tactics, and assigns gap priority to each uncovered technique by the number of ATT&CK groups documented using it (critical >= 20, high >= 10, medium >= 3). See the [Coverage Gap Analysis](scores/coverage_gaps.md) for what "covered" means there, the ranked gap list, and its recommended capability additions.
 
 ---
 

@@ -25,13 +25,12 @@ _Official documentation & manuals_
 
 _API & developer docs_
 - [Tanium Developer Hub](https://developer.tanium.com)
-- [Tanium API Reference (GraphQL API Gateway + Platform REST API)](https://developer.tanium.com/site/global/docs/api_reference)
+- [Tanium API documentation (GraphQL API Gateway + Platform REST API; the full reference needs a Tanium login)](https://developer.tanium.com/apis/api_intro)
 
 _GitHub (official)_
 - [Tanium GitHub organization —  (NOTE: org existence not confirmable via search this run; verify the org is Tanium-verified before trusting)](https://github.com/Tanium)
 
 _Community / integration / detection repos_
-- [PyTan — community Python wrapper for the Tanium SOAP/REST API](https://github.com/tanium/pytan)
 - [pytan3 (newer Python client, docs on Read the Docs)](https://pytan3.readthedocs.io)
 
 _Learning & reference_
@@ -49,7 +48,7 @@ _Official documentation & manuals_
 - [Microsoft Defender XDR documentation (parent suite)](https://learn.microsoft.com/en-us/defender-xdr/)
 
 _API & developer docs_
-- [Defender for Endpoint management & APIs overview](https://learn.microsoft.com/en-us/defender-endpoint/management-apis)
+- [Defender for Endpoint management & APIs overview](https://learn.microsoft.com/en-us/defender-endpoint/api/management-apis)
 - [Defender for Endpoint API reference (apis-intro)](https://learn.microsoft.com/en-us/defender-endpoint/api/apis-intro)
 - [Microsoft Graph Security API (strategic API surface for Defender)](https://learn.microsoft.com/en-us/graph/api/resources/security-api-overview)
 
@@ -98,7 +97,7 @@ _Community / integration / detection repos_
 - [Atomic Red Team (ATT&CK test content)](https://github.com/redcanaryco/atomic-red-team)
 
 _Learning & reference_
-- [CrowdStrike University (training/certification)](https://www.crowdstrike.com/services/crowdstrike-university/)
+- [CrowdStrike University (training/certification)](https://www.crowdstrike.com/en-us/crowdstrike-university/)
 - [FalconPy documentation site & wiki](https://www.falconpy.io)
 - [CrowdStrike blog](https://www.crowdstrike.com/blog/)
 
@@ -139,7 +138,7 @@ _Learning & reference_
 - [Akamai TechDocs Developer hub](https://techdocs.akamai.com/developer/docs)
 - [Akamai Community](https://community.akamai.com)
 - [Akamai Security blog](https://www.akamai.com/blog/security)
-- [App & API Protector getting-started / best practices](https://techdocs.akamai.com/cloud-security/docs/welcome-to-app-api-protector)
+- [App & API Protector overview and getting started](https://techdocs.akamai.com/cloud-security/docs/app-api-protector)
 
 > Note: App & API Protector (AAP) is the current flagship WAF/WAAP; Web Application Protector (WAP) is the lighter self-service variant and Kona Site Defender is the legacy enterprise WAF — all three share the same Application Security API and akamai_appsec_* Terraform resources. There is no separate 'App & API Protector API' — it is configured through the Application Security API. All APIs require EdgeGrid token auth (.eddgerc client credentials) and an API client granted AppSec access. edgegrid-golang is now v7+ on main (v1 is a legacy branch; package split into edgegrid/config and edgegrid/signer).
 
@@ -153,7 +152,7 @@ _Official documentation & manuals_
 - [AWS WAF endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/waf.html)
 
 _API & developer docs_
-- [AWS WAFV2 API Reference](https://docs.aws.amazon.com/waf/latest/APIReferenceV2/Welcome.html)
+- [AWS WAFV2 API Reference](https://docs.aws.amazon.com/waf/latest/APIReference/Welcome.html)
 - [AWS CLI wafv2 command reference](https://docs.aws.amazon.com/cli/latest/reference/wafv2/index.html)
 - [Boto3 WAFV2 client (Python SDK)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/wafv2.html)
 - [Terraform aws_wafv2_web_acl resource (HashiCorp AWS provider)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/wafv2_web_acl)
@@ -168,7 +167,7 @@ _GitHub (official)_
 _Community / integration / detection repos_
 - [aws-solutions/aws-waf-security-automations (managed WAF rule set + IP reputation/flood/scanner protection)](https://github.com/aws-solutions/aws-waf-security-automations)
 - [aws-samples/aws-waf-sample (sample WAF conditions/rules)](https://github.com/aws-samples/aws-waf-sample)
-- [awslabs/aws-waf-security-automations-partner-dashboard / AWS WAF dashboards](https://github.com/aws-samples/aws-cloudwatch-dashboard-for-aws-waf)
+- [aws-samples/aws-waf-dashboard — AWS WAF dashboards (OpenSearch)](https://github.com/aws-samples/aws-waf-dashboard)
 
 _Learning & reference_
 - [AWS Security blog — WAF category](https://aws.amazon.com/blogs/security/category/security-identity-compliance/aws-waf/)
@@ -192,7 +191,7 @@ _API & developer docs_
 - [terraform-provider-citrixadc (Terraform Registry)](https://registry.terraform.io/providers/citrix/citrixadc/latest/docs)
 - [netscaler/adc-nitro-go (NITRO API Go SDK)](https://github.com/netscaler/adc-nitro-go)
 - [ansible-collection-netscaleradc (Ansible Galaxy)](https://galaxy.ansible.com/ui/repo/published/netscaler/adc/)
-- [NetScaler config reference (appfw NITRO config objects)](https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release/configuration/application-firewall.html)
+- [NetScaler config reference (appfw NITRO config objects)](https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release/configuration/appfw/appfw.html)
 
 _GitHub (official)_
 - [NetScaler GitHub org](https://github.com/netscaler)
@@ -208,7 +207,7 @@ _Community / integration / detection repos_
 - [netscaler/netscaler-k8s-ingress-controller (WAF via CRDs for Kubernetes)](https://github.com/netscaler/netscaler-k8s-ingress-controller)
 
 _Learning & reference_
-- [NetScaler Education & training](https://www.netscaler.com/services-support/education)
+- [NetScaler training & certification (Citrix Education)](https://www.citrix.com/training-and-certifications/)
 - [NetScaler blogs](https://www.netscaler.com/blog)
 - [NetScaler Web App Firewall deployment/best-practice guide](https://docs.netscaler.com/en-us/citrix-adc/current-release/application-firewall/appfw-deployment-guide.html)
 - [NetScaler developer hub (NITRO, automation samples)](https://developer-docs.netscaler.com/)
@@ -222,8 +221,8 @@ _Learning & reference_
 
 _Official documentation & manuals_
 - [Check Point Support Center (home for all product docs, SK articles, downloads)](https://support.checkpoint.com)
-- [Check Point Documentation / admin guides hub (per-product guides, PDFs/HTML)](https://sc1.checkpoint.com/documents/)
-- [Infinity Portal Administration Guide](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/Infinity-Portal-Admin-Guide/Content/Topics-Infinity-Portal/Introduction-to-Infinity-Portal.htm)
+- [Check Point Support Center — documentation, admin guides and SK articles](https://support.checkpoint.com/)
+- [Check Point Portal (formerly Infinity Portal) Administration Guide](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/Infinity-Portal-Admin-Guide/Content/Topics-Infinity-Portal/Introduction-to-CP-Portal.htm)
 - [Quantum product page / resources](https://www.checkpoint.com/quantum/)
 - [Check Point Infinity Platform overview](https://www.checkpoint.com/infinity/)
 
@@ -245,7 +244,7 @@ _Community / integration / detection repos_
 - [terraform-azure-cloudguard-network-security (Azure deployment module)](https://github.com/CheckPointSW/terraform-azure-cloudguard-network-security)
 - [Evasions (Check Point Research malware-evasion encyclopedia)](https://github.com/CheckPointSW/Evasions)
 - [InviZzzible (VM/sandbox detection & evasion assessment tool)](https://github.com/CheckPointSW/InviZzzible)
-- [Check Point App/Add-on for Splunk (log analytics)](https://splunkbase.splunk.com/app/2843)
+- [Check Point App/Add-on for Splunk (log analytics)](https://splunkbase.splunk.com/app/4293)
 
 _Learning & reference_
 - [Check Point Training & Certification (CCSA/CCSE, courseware)](https://training-certifications.checkpoint.com/)
@@ -290,7 +289,7 @@ _Community / integration / detection repos_
 - [Zscaler terraform modules (ZIA/ZPA reusable modules)](https://registry.terraform.io/namespaces/zscaler)
 
 _Learning & reference_
-- [Zscaler Training & Certification (Zscaler Academy, ZCCA/ZCCP)](https://www.zscaler.com/resources/training-certification)
+- [Zscaler Cyber Academy (training & certification)](https://www.zscaler.com/zscaler-cyber-academy)
 - [Zscaler Community (forums, knowledge, user groups)](https://community.zscaler.com)
 - [Zscaler ThreatLabz (threat research blog)](https://www.zscaler.com/blogs/security-research)
 - [Zscaler Tools (free internet exposure / security posture tools)](https://www.zscaler.com/tools)
@@ -351,7 +350,7 @@ _Official documentation & manuals_
 _API & developer docs_
 - [Microsoft Defender for Cloud REST API reference](https://learn.microsoft.com/en-us/rest/api/defenderforcloud/)
 - [Security Center REST API (legacy namespace, still referenced)](https://learn.microsoft.com/en-us/rest/api/securitycenter/)
-- [Azure Resource Manager Microsoft.Security provider (api-version query)](https://learn.microsoft.com/en-us/azure/templates/microsoft.security/)
+- [Azure Resource Manager Microsoft.Security provider (api-version query)](https://learn.microsoft.com/en-us/azure/templates/microsoft.security/allversions)
 - [azurerm Terraform provider (security_center_* resources)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 - [Azure SDK for Python / .NET developer docs](https://learn.microsoft.com/en-us/azure/developer/)
 
@@ -443,9 +442,9 @@ _Learning & reference_
 
 _Official documentation & manuals_
 - [Tenable Documentation Hub (all products)](https://docs.tenable.com)
-- [Tenable One Exposure Management Platform docs](https://docs.tenable.com/Tenableone.htm)
+- [Tenable One Exposure Management Platform docs](https://docs.tenable.com/exposure-management.htm)
 - [Tenable Vulnerability Management (formerly Tenable.io) docs](https://docs.tenable.com/Tenableio.htm)
-- [Tenable Nessus documentation (Essentials/Professional/Expert/Manager)](https://docs.tenable.com/nessus.htm)
+- [Tenable Nessus documentation (Essentials/Professional/Expert/Manager)](https://docs.tenable.com/Nessus.htm)
 - [Tenable Security Center docs](https://docs.tenable.com/security-center.htm)
 
 _API & developer docs_
@@ -456,7 +455,7 @@ _API & developer docs_
 _GitHub (official)_
 - [Tenable GitHub organization (~89 repos)](https://github.com/tenable)
 - [pyTenable — Python library for Tenable platform APIs](https://github.com/tenable/pyTenable)
-- [tenable-connectors — officially supported connectors for the Tenable Integration Framework](https://github.com/tenable/tenable-connectors)
+- [Tenable Exposure Management connectors — third-party connector documentation](https://docs.tenable.com/exposure-management/Content/connectors/connectors.htm)
 - [integration-jira-cloud — Jira Cloud integration](https://github.com/tenable/integration-jira-cloud)
 - [container-security-action / was-action — official GitHub Actions for Tenable container & WAS scans](https://github.com/tenable/container-security-action)
 
@@ -478,7 +477,7 @@ _Learning & reference_
 _Official documentation & manuals_
 - [Zafran Threat Exposure Management Platform (product overview)](https://zafran.io/platform)
 - [Zafran homepage](https://zafran.io)
-- [Zafran resource library (whitepapers, briefs)](https://zafran.io/resources)
+- [Zafran resource library (whitepapers, briefs)](https://www.zafran.io/whitepaper)
 
 _API & developer docs_
 - [Zafran Security API profile (third-party index, API Evangelist) —  (no public first-party API reference located; API access is behind customer authentication)](https://providers.apievangelist.com/providers/zafran-security/)
@@ -490,7 +489,7 @@ _Community / integration / detection repos_
 - No notable community repositories specific to Zafran were found (product is closed/SaaS with marketplace-based integrations rather than open-source tooling).
 
 _Learning & reference_
-- [Zafran blog & resources](https://zafran.io/resources)
+- [Zafran blog & resources](https://www.zafran.io/learn)
 - [AWS Marketplace listing](https://aws.amazon.com/marketplace/pp/prodview-3fcfd4kifsf7k)
 - CrowdStrike Marketplace / Trend Micro partner platform listings (integration references)
 
@@ -572,7 +571,7 @@ _Learning & reference_
 
 _Official documentation & manuals_
 - [HackerOne Platform Documentation (Help Center)](https://docs.hackerone.com)
-- [Get Started section —   (navigate from docs.hackerone.com 'Get Started')](https://docs.hackerone.com/en/collections/...)
+- [HackerOne Help Center — Get Started](https://docs.hackerone.com/en/collections/6084098-get-started)
 - [Run a Program (customer/program-owner guidance) —  (Run a Program section)](https://docs.hackerone.com)
 - [Integrate Tools (third-party integrations incl. GitHub/Jira) —  (Integrate Tools section)](https://docs.hackerone.com)
 
@@ -614,7 +613,7 @@ _Official documentation & manuals_
 _API & developer docs_
 - [Microsoft identity platform documentation](https://learn.microsoft.com/en-us/entra/identity-platform/)
 - [Microsoft Graph API reference (overview)](https://learn.microsoft.com/en-us/graph/api/overview)
-- [Microsoft Graph Azure AD / Entra resources overview](https://learn.microsoft.com/en-us/graph/api/resources/azure-ad-overview)
+- [Microsoft Graph Azure AD / Entra resources overview](https://learn.microsoft.com/en-us/graph/api/resources/identity-network-access-overview?view=graph-rest-1.0)
 - [Microsoft identity platform code samples (auth libraries)](https://learn.microsoft.com/en-us/entra/identity-platform/sample-v2-code)
 - [Terraform azuread provider (HashiCorp Registry)](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs)
 - [HashiCorp tutorial: Manage Microsoft Entra ID users and groups](https://developer.hashicorp.com/terraform/tutorials/azure/entra-id)
@@ -685,9 +684,9 @@ _Learning & reference_
 
 _Official documentation & manuals_
 - [CyberArk documentation portal (all products)](https://docs.cyberark.com/)
-- [CyberArk Privileged Access Manager – Self-Hosted docs](https://docs.cyberark.com/pam-self-hosted/)
-- [CyberArk Privilege Cloud (SaaS PAM) docs](https://docs.cyberark.com/privilege-cloud-shared-services/)
-- [CyberArk Identity (SSO/MFA, formerly Idaptive) docs](https://docs.cyberark.com/identity/)
+- [CyberArk Privileged Access Manager – Self-Hosted docs](https://docs.cyberark.com/pam-self-hosted/latest/en/content/resources/_topnav/cc_home.htm)
+- [CyberArk Privilege Cloud (SaaS PAM) docs](https://docs.cyberark.com/find-privcloud-docs/latest/en/content/privilege%20cloud/privcloud-new-doc-location.htm)
+- [CyberArk Identity (SSO/MFA, formerly Idaptive) docs](https://docs.cyberark.com/find-identity-docs/latest/en/content/getstarted/identity-new-doc-location.htm)
 - [CyberArk corporate site / product pages](https://www.cyberark.com/)
 
 _API & developer docs_
@@ -726,7 +725,7 @@ _Official documentation & manuals_
 - [ES Install and Upgrade Manual](https://docs.splunk.com/Documentation/ES/latest/Install/Overview)
 - [Use Splunk Enterprise Security (analyst workflow)](https://docs.splunk.com/Documentation/ES/latest/User)
 - [Administer Splunk Enterprise Security](https://docs.splunk.com/Documentation/ES/latest/Admin)
-- [Splunk Help Center (new docs portal)](https://help.splunk.com/en/splunk-enterprise-security)
+- [Splunk Help Center (new docs portal)](https://help.splunk.com/en)
 - [Splunk Enterprise Security product page](https://www.splunk.com/en_us/products/enterprise-security.html)
 - [Splunk Enterprise core docs (platform)](https://docs.splunk.com/Documentation/Splunk/latest)
 

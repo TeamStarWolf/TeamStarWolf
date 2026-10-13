@@ -135,7 +135,7 @@ _Learning & reference_
 - [Akamai TechDocs Developer hub](https://techdocs.akamai.com/developer/docs)
 - [Akamai Community](https://community.akamai.com)
 - [Akamai Security blog](https://www.akamai.com/blog/security)
-- [App & API Protector getting-started / best practices](https://techdocs.akamai.com/cloud-security/docs/welcome-to-app-api-protector)
+- [App & API Protector overview and getting started](https://techdocs.akamai.com/cloud-security/docs/app-api-protector)
 
 > Note: App & API Protector (AAP) is the current flagship WAF/WAAP; Web Application Protector (WAP) is the lighter self-service variant and Kona Site Defender is the legacy enterprise WAF — all three share the same Application Security API and akamai_appsec_* Terraform resources. There is no separate 'App & API Protector API' — it is configured through the Application Security API. All APIs require EdgeGrid token auth (.eddgerc client credentials) and an API client granted AppSec access. edgegrid-golang is now v7+ on main (v1 is a legacy branch; package split into edgegrid/config and edgegrid/signer).
 

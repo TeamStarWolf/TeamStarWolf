@@ -99,7 +99,7 @@ curl -s -X POST -u $H1_USER:$H1_TOKEN 'https://api.hackerone.com/v1/reports/<id>
 
 _Official documentation & manuals_
 - [HackerOne Platform Documentation (Help Center)](https://docs.hackerone.com)
-- [Get Started section —   (navigate from docs.hackerone.com 'Get Started')](https://docs.hackerone.com/en/collections/...)
+- [HackerOne Help Center — Get Started](https://docs.hackerone.com/en/collections/6084098-get-started)
 - [Run a Program (customer/program-owner guidance) —  (Run a Program section)](https://docs.hackerone.com)
 - [Integrate Tools (third-party integrations incl. GitHub/Jira) —  (Integrate Tools section)](https://docs.hackerone.com)
 

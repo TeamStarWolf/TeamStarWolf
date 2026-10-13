@@ -106,9 +106,9 @@ sourcetype="tenable:io:vuln" "plugin.cve"="CVE-2024-3400" | stats latest(state) 
 
 _Official documentation & manuals_
 - [Tenable Documentation Hub (all products)](https://docs.tenable.com)
-- [Tenable One Exposure Management Platform docs](https://docs.tenable.com/Tenableone.htm)
+- [Tenable One Exposure Management Platform docs](https://docs.tenable.com/exposure-management.htm)
 - [Tenable Vulnerability Management (formerly Tenable.io) docs](https://docs.tenable.com/Tenableio.htm)
-- [Tenable Nessus documentation (Essentials/Professional/Expert/Manager)](https://docs.tenable.com/nessus.htm)
+- [Tenable Nessus documentation (Essentials/Professional/Expert/Manager)](https://docs.tenable.com/Nessus.htm)
 - [Tenable Security Center docs](https://docs.tenable.com/security-center.htm)
 
 _API & developer docs_
@@ -119,7 +119,7 @@ _API & developer docs_
 _GitHub (official)_
 - [Tenable GitHub organization (~89 repos)](https://github.com/tenable)
 - [pyTenable — Python library for Tenable platform APIs](https://github.com/tenable/pyTenable)
-- [tenable-connectors — officially supported connectors for the Tenable Integration Framework](https://github.com/tenable/tenable-connectors)
+- [Tenable Exposure Management connectors — third-party connector documentation](https://docs.tenable.com/exposure-management/Content/connectors/connectors.htm)
 - [integration-jira-cloud — Jira Cloud integration](https://github.com/tenable/integration-jira-cloud)
 - [container-security-action / was-action — official GitHub Actions for Tenable container & WAS scans](https://github.com/tenable/container-security-action)
 

@@ -130,7 +130,7 @@ _Official documentation & manuals_
 - [ES Install and Upgrade Manual](https://docs.splunk.com/Documentation/ES/latest/Install/Overview)
 - [Use Splunk Enterprise Security (analyst workflow)](https://docs.splunk.com/Documentation/ES/latest/User)
 - [Administer Splunk Enterprise Security](https://docs.splunk.com/Documentation/ES/latest/Admin)
-- [Splunk Help Center (new docs portal)](https://help.splunk.com/en/splunk-enterprise-security)
+- [Splunk Help Center (new docs portal)](https://help.splunk.com/en)
 - [Splunk Enterprise Security product page](https://www.splunk.com/en_us/products/enterprise-security.html)
 - [Splunk Enterprise core docs (platform)](https://docs.splunk.com/Documentation/Splunk/latest)
 

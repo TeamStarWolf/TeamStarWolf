@@ -128,7 +128,7 @@ _Official documentation & manuals_
 - [Microsoft Defender XDR documentation (parent suite)](https://learn.microsoft.com/en-us/defender-xdr/)
 
 _API & developer docs_
-- [Defender for Endpoint management & APIs overview](https://learn.microsoft.com/en-us/defender-endpoint/management-apis)
+- [Defender for Endpoint management & APIs overview](https://learn.microsoft.com/en-us/defender-endpoint/api/management-apis)
 - [Defender for Endpoint API reference (apis-intro)](https://learn.microsoft.com/en-us/defender-endpoint/api/apis-intro)
 - [Microsoft Graph Security API (strategic API surface for Defender)](https://learn.microsoft.com/en-us/graph/api/resources/security-api-overview)
 

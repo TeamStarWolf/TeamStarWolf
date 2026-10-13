@@ -115,13 +115,12 @@ _Official documentation & manuals_
 
 _API & developer docs_
 - [Tanium Developer Hub](https://developer.tanium.com)
-- [Tanium API Reference (GraphQL API Gateway + Platform REST API)](https://developer.tanium.com/site/global/docs/api_reference)
+- [Tanium API documentation (GraphQL API Gateway + Platform REST API; the full reference needs a Tanium login)](https://developer.tanium.com/apis/api_intro)
 
 _GitHub (official)_
 - [Tanium GitHub organization —  (NOTE: org existence not confirmable via search this run; verify the org is Tanium-verified before trusting)](https://github.com/Tanium)
 
 _Community / integration / detection repos_
-- [PyTan — community Python wrapper for the Tanium SOAP/REST API](https://github.com/tanium/pytan)
 - [pytan3 (newer Python client, docs on Read the Docs)](https://pytan3.readthedocs.io)
 
 _Learning & reference_

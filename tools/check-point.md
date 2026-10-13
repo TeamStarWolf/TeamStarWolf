@@ -116,8 +116,8 @@ ips stat ; enabled_blades ; cp_log_export status
 
 _Official documentation & manuals_
 - [Check Point Support Center (home for all product docs, SK articles, downloads)](https://support.checkpoint.com)
-- [Check Point Documentation / admin guides hub (per-product guides, PDFs/HTML)](https://sc1.checkpoint.com/documents/)
-- [Infinity Portal Administration Guide](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/Infinity-Portal-Admin-Guide/Content/Topics-Infinity-Portal/Introduction-to-Infinity-Portal.htm)
+- [Check Point Support Center — documentation, admin guides and SK articles](https://support.checkpoint.com/)
+- [Check Point Portal (formerly Infinity Portal) Administration Guide](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/Infinity-Portal-Admin-Guide/Content/Topics-Infinity-Portal/Introduction-to-CP-Portal.htm)
 - [Quantum product page / resources](https://www.checkpoint.com/quantum/)
 - [Check Point Infinity Platform overview](https://www.checkpoint.com/infinity/)
 
@@ -139,7 +139,7 @@ _Community / integration / detection repos_
 - [terraform-azure-cloudguard-network-security (Azure deployment module)](https://github.com/CheckPointSW/terraform-azure-cloudguard-network-security)
 - [Evasions (Check Point Research malware-evasion encyclopedia)](https://github.com/CheckPointSW/Evasions)
 - [InviZzzible (VM/sandbox detection & evasion assessment tool)](https://github.com/CheckPointSW/InviZzzible)
-- [Check Point App/Add-on for Splunk (log analytics)](https://splunkbase.splunk.com/app/2843)
+- [Check Point App/Add-on for Splunk (log analytics)](https://splunkbase.splunk.com/app/4293)
 
 _Learning & reference_
 - [Check Point Training & Certification (CCSA/CCSE, courseware)](https://training-certifications.checkpoint.com/)

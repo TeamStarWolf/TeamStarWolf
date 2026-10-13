@@ -113,7 +113,7 @@ _Official documentation & manuals_
 - [AWS WAF endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/waf.html)
 
 _API & developer docs_
-- [AWS WAFV2 API Reference](https://docs.aws.amazon.com/waf/latest/APIReferenceV2/Welcome.html)
+- [AWS WAFV2 API Reference](https://docs.aws.amazon.com/waf/latest/APIReference/Welcome.html)
 - [AWS CLI wafv2 command reference](https://docs.aws.amazon.com/cli/latest/reference/wafv2/index.html)
 - [Boto3 WAFV2 client (Python SDK)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/wafv2.html)
 - [Terraform aws_wafv2_web_acl resource (HashiCorp AWS provider)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/wafv2_web_acl)
@@ -128,7 +128,7 @@ _GitHub (official)_
 _Community / integration / detection repos_
 - [aws-solutions/aws-waf-security-automations (managed WAF rule set + IP reputation/flood/scanner protection)](https://github.com/aws-solutions/aws-waf-security-automations)
 - [aws-samples/aws-waf-sample (sample WAF conditions/rules)](https://github.com/aws-samples/aws-waf-sample)
-- [awslabs/aws-waf-security-automations-partner-dashboard / AWS WAF dashboards](https://github.com/aws-samples/aws-cloudwatch-dashboard-for-aws-waf)
+- [aws-samples/aws-waf-dashboard — AWS WAF dashboards (OpenSearch)](https://github.com/aws-samples/aws-waf-dashboard)
 
 _Learning & reference_
 - [AWS Security blog — WAF category](https://aws.amazon.com/blogs/security/category/security-identity-compliance/aws-waf/)

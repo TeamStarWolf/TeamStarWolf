@@ -147,7 +147,7 @@ _Community / integration / detection repos_
 - [Zscaler terraform modules (ZIA/ZPA reusable modules)](https://registry.terraform.io/namespaces/zscaler)
 
 _Learning & reference_
-- [Zscaler Training & Certification (Zscaler Academy, ZCCA/ZCCP)](https://www.zscaler.com/resources/training-certification)
+- [Zscaler Cyber Academy (training & certification)](https://www.zscaler.com/zscaler-cyber-academy)
 - [Zscaler Community (forums, knowledge, user groups)](https://community.zscaler.com)
 - [Zscaler ThreatLabz (threat research blog)](https://www.zscaler.com/blogs/security-research)
 - [Zscaler Tools (free internet exposure / security posture tools)](https://www.zscaler.com/tools)

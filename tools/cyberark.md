@@ -122,9 +122,9 @@ CommonSecurityLog
 
 _Official documentation & manuals_
 - [CyberArk documentation portal (all products)](https://docs.cyberark.com/)
-- [CyberArk Privileged Access Manager – Self-Hosted docs](https://docs.cyberark.com/pam-self-hosted/)
-- [CyberArk Privilege Cloud (SaaS PAM) docs](https://docs.cyberark.com/privilege-cloud-shared-services/)
-- [CyberArk Identity (SSO/MFA, formerly Idaptive) docs](https://docs.cyberark.com/identity/)
+- [CyberArk Privileged Access Manager – Self-Hosted docs](https://docs.cyberark.com/pam-self-hosted/latest/en/content/resources/_topnav/cc_home.htm)
+- [CyberArk Privilege Cloud (SaaS PAM) docs](https://docs.cyberark.com/find-privcloud-docs/latest/en/content/privilege%20cloud/privcloud-new-doc-location.htm)
+- [CyberArk Identity (SSO/MFA, formerly Idaptive) docs](https://docs.cyberark.com/find-identity-docs/latest/en/content/getstarted/identity-new-doc-location.htm)
 - [CyberArk corporate site / product pages](https://www.cyberark.com/)
 
 _API & developer docs_

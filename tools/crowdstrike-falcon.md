@@ -142,7 +142,7 @@ _Community / integration / detection repos_
 - [Atomic Red Team (ATT&CK test content)](https://github.com/redcanaryco/atomic-red-team)
 
 _Learning & reference_
-- [CrowdStrike University (training/certification)](https://www.crowdstrike.com/services/crowdstrike-university/)
+- [CrowdStrike University (training/certification)](https://www.crowdstrike.com/en-us/crowdstrike-university/)
 - [FalconPy documentation site & wiki](https://www.falconpy.io)
 - [CrowdStrike blog](https://www.crowdstrike.com/blog/)
 

@@ -94,7 +94,7 @@ sn_vul_vulnerable_item: zafran_mitigative_factors ISNOTEMPTY ^ zafran_applicable
 _Official documentation & manuals_
 - [Zafran Threat Exposure Management Platform (product overview)](https://zafran.io/platform)
 - [Zafran homepage](https://zafran.io)
-- [Zafran resource library (whitepapers, briefs)](https://zafran.io/resources)
+- [Zafran resource library (whitepapers, briefs)](https://www.zafran.io/whitepaper)
 
 _API & developer docs_
 - [Zafran Security API profile (third-party index, API Evangelist) —  (no public first-party API reference located; API access is behind customer authentication)](https://providers.apievangelist.com/providers/zafran-security/)
@@ -110,7 +110,7 @@ _Community / integration / detection repos_
 - No notable community repositories specific to Zafran were found (product is closed/SaaS with marketplace-based integrations rather than open-source tooling).
 
 _Learning & reference_
-- [Zafran blog & resources](https://zafran.io/resources)
+- [Zafran blog & resources](https://www.zafran.io/learn)
 - [AWS Marketplace listing](https://aws.amazon.com/marketplace/pp/prodview-3fcfd4kifsf7k)
 - CrowdStrike Marketplace / Trend Micro partner platform listings (integration references)
 

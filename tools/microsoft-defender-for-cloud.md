@@ -123,7 +123,7 @@ _Official documentation & manuals_
 _API & developer docs_
 - [Microsoft Defender for Cloud REST API reference](https://learn.microsoft.com/en-us/rest/api/defenderforcloud/)
 - [Security Center REST API (legacy namespace, still referenced)](https://learn.microsoft.com/en-us/rest/api/securitycenter/)
-- [Azure Resource Manager Microsoft.Security provider (api-version query)](https://learn.microsoft.com/en-us/azure/templates/microsoft.security/)
+- [Azure Resource Manager Microsoft.Security provider (api-version query)](https://learn.microsoft.com/en-us/azure/templates/microsoft.security/allversions)
 - [azurerm Terraform provider (security_center_* resources)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 - [Azure SDK for Python / .NET developer docs](https://learn.microsoft.com/en-us/azure/developer/)
 

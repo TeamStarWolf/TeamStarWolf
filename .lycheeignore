@@ -22,6 +22,11 @@ github\.com/TeamStarWolf/TeamStarWolf/(blob|tree|raw)/
 # The site root stays checked.
 ^https?://atlas\.mitre\.org/.+
 
+# CyberArk documentation (docs.cyberark.com, docs.conjur.org) returns 404 to every non-browser
+# client, even for pages that exist (verified 2026-10-13: curl and lychee -> 404, browser -> 200).
+^https?://docs\.cyberark\.com([/:?#]|$)
+^https?://docs\.conjur\.org([/:?#]|$)
+
 # Placeholders and loopback
 ^https?://(localhost|127\.0\.0\.1|0\.0\.0\.0)([/:?#]|$)
 ^https?://([a-z0-9-]+\.)*example\.com([/:?#]|$)

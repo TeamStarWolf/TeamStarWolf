@@ -129,7 +129,7 @@ _Official documentation & manuals_
 _API & developer docs_
 - [Microsoft identity platform documentation](https://learn.microsoft.com/en-us/entra/identity-platform/)
 - [Microsoft Graph API reference (overview)](https://learn.microsoft.com/en-us/graph/api/overview)
-- [Microsoft Graph Azure AD / Entra resources overview](https://learn.microsoft.com/en-us/graph/api/resources/azure-ad-overview)
+- [Microsoft Graph Azure AD / Entra resources overview](https://learn.microsoft.com/en-us/graph/api/resources/identity-network-access-overview?view=graph-rest-1.0)
 - [Microsoft identity platform code samples (auth libraries)](https://learn.microsoft.com/en-us/entra/identity-platform/sample-v2-code)
 - [Terraform azuread provider (HashiCorp Registry)](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs)
 - [HashiCorp tutorial: Manage Microsoft Entra ID users and groups](https://developer.hashicorp.com/terraform/tutorials/azure/entra-id)

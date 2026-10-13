@@ -117,7 +117,7 @@ _API & developer docs_
 - [terraform-provider-citrixadc (Terraform Registry)](https://registry.terraform.io/providers/citrix/citrixadc/latest/docs)
 - [netscaler/adc-nitro-go (NITRO API Go SDK)](https://github.com/netscaler/adc-nitro-go)
 - [ansible-collection-netscaleradc (Ansible Galaxy)](https://galaxy.ansible.com/ui/repo/published/netscaler/adc/)
-- [NetScaler config reference (appfw NITRO config objects)](https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release/configuration/application-firewall.html)
+- [NetScaler config reference (appfw NITRO config objects)](https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release/configuration/appfw/appfw.html)
 
 _GitHub (official)_
 - [NetScaler GitHub org](https://github.com/netscaler)
@@ -133,7 +133,7 @@ _Community / integration / detection repos_
 - [netscaler/netscaler-k8s-ingress-controller (WAF via CRDs for Kubernetes)](https://github.com/netscaler/netscaler-k8s-ingress-controller)
 
 _Learning & reference_
-- [NetScaler Education & training](https://www.netscaler.com/services-support/education)
+- [NetScaler training & certification (Citrix Education)](https://www.citrix.com/training-and-certifications/)
 - [NetScaler blogs](https://www.netscaler.com/blog)
 - [NetScaler Web App Firewall deployment/best-practice guide](https://docs.netscaler.com/en-us/citrix-adc/current-release/application-firewall/appfw-deployment-guide.html)
 - [NetScaler developer hub (NITRO, automation samples)](https://developer-docs.netscaler.com/)

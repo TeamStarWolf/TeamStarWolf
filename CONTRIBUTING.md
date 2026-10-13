@@ -75,7 +75,7 @@ Thank you for helping improve this resource. This is a community-maintained cybe
 - No duplicate entries across pages
 
 ### JSONL Data Files
-- Follow the schema defined in [COVERAGE_SCHEMA.md](../COVERAGE_SCHEMA.md)
+- Follow the schema defined in [COVERAGE_SCHEMA.md](COVERAGE_SCHEMA.md)
 - Validate your additions locally: `python scripts/validate_jsonl.py`
 - Include a source reference for vendor-to-control mappings where possible
 

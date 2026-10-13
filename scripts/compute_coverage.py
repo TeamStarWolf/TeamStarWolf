@@ -9,6 +9,10 @@ Usage:
     python scripts/compute_coverage.py --output scores/
     python scripts/compute_coverage.py --tactic "credential-access"
 
+--tactic narrows only the printed console summary to one tactic (and lists that tactic's
+uncovered techniques); the score files below are always written for every tactic, so a
+filtered run never leaves partial files in scores/.
+
 Output:
     scores/tactic_coverage.json  - coverage % per tactic
     scores/coverage_gaps.json    - ranked gap list with recommendations
@@ -233,18 +237,26 @@ def compute_coverage(args):
         json.dump(gaps_output, f, indent=2)
     print(f"Written: {gaps_path}")
 
-    # Print summary
+    # Print summary (optionally narrowed to one tactic with --tactic)
+    selected = [args.tactic] if args.tactic else list(tactic_coverage)
     print("\n=== COVERAGE SUMMARY ===")
     print(f"{'Tactic':<30} {'Covered':>8} {'Total':>8} {'Pct':>8}")
     print("-" * 58)
-    for tactic, data in tactic_coverage.items():
+    for tactic in selected:
+        data = tactic_coverage[tactic]
         print(f"{data['name']:<30} {data['covered_count']:>8} {data['total_in_attack']:>8} {data['coverage_pct_of_total']:>7}%")
+    if args.tactic:
+        gaps = tactic_coverage[args.tactic]["gap_techniques"]
+        print(f"\nUncovered techniques in {tactic_coverage[args.tactic]['name']} ({len(gaps)}):")
+        for tech in gaps:
+            print(f"  {tech}")
 
 
 def main():
     parser = argparse.ArgumentParser(description="TeamStarWolf Coverage Gap Scorer")
     parser.add_argument("--output", default="scores", help="Output directory (default: scores/)")
-    parser.add_argument("--tactic", help="Filter output to specific tactic")
+    parser.add_argument("--tactic", choices=sorted(TACTIC_METADATA),
+                        help="Narrow the printed summary to one tactic (score files are always complete)")
     args = parser.parse_args()
     compute_coverage(args)
 

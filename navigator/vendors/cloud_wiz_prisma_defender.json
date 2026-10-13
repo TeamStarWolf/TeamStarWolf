@@ -1,10 +1,10 @@
 {
   "versions": {
-    "attack": "13",
+    "attack": "19",
     "navigator": "4.9",
     "layer": "4.5"
   },
-  "name": "Cloud Security Coverage \u2014 Wiz, Prisma Cloud, Microsoft Defender for Cloud",
+  "name": "Cloud Security Coverage — Wiz, Prisma Cloud, Microsoft Defender for Cloud",
   "description": "ATT&CK technique coverage provided by Wiz, Prisma Cloud (Palo Alto Networks), and Microsoft Defender for Cloud through CSPM, secrets scanning, cloud account protection, and workload security.",
   "domain": "enterprise-attack",
   "techniques": [
@@ -105,9 +105,9 @@
       "color": ""
     },
     {
-      "techniqueID": "T1562.008",
+      "techniqueID": "T1685.002",
       "score": 3,
-      "comment": "Cloud logging disable detection \u2014 CloudTrail/Diagnostic settings",
+      "comment": "Cloud logging disable detection — CloudTrail/Diagnostic settings (Re-keyed from T1562.008, which ATT&CK v19 revoked in favour of T1685.002; data/attack/superseded_by.jsonl.)",
       "color": ""
     },
     {
@@ -173,7 +173,12 @@
       "color": "#06b6d4"
     }
   ],
-  "metadata": [],
+  "metadata": [
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v19.2: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
   "links": [],
   "showTacticRowBackground": true,
   "tacticRowBackground": "#1e293b",

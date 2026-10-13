@@ -24,6 +24,21 @@ def _rows(rel):
             out.append(json.loads(line))
     return out
 
+def _navigator_layers():
+    """Navigator layers = JSON objects with a techniques list; index files such as
+    navigator/library-layers/index.json are not layers and are not counted."""
+    n = 0
+    for p in glob.glob(os.path.join(ROOT, "navigator", "**", "*.json"), recursive=True):
+        try:
+            with open(p, encoding="utf-8") as f:
+                d = json.load(f)
+        except (OSError, ValueError):
+            continue
+        if isinstance(d, dict) and isinstance(d.get("techniques"), list):
+            n += 1
+    return n
+
+
 def _count(rel):
     r = _rows(rel)
     return len(r) if r is not None else None
@@ -69,7 +84,7 @@ def compute():
         "technique_to_d3fend_edges": len(d3) if d3 else None,
         "techniques_with_d3fend": d3_tech,
         # --- workbench / docs ---
-        "navigator_layers": len(glob.glob(os.path.join(ROOT, "navigator", "**", "*.json"), recursive=True)) or None,
+        "navigator_layers": _navigator_layers() or None,
         "reference_docs": len(glob.glob(os.path.join(ROOT, "*.md"))),
     }
     return {k: v for k, v in stats.items() if v is not None}

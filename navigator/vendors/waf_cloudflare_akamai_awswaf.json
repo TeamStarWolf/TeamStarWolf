@@ -1,7 +1,7 @@
 {
-  "name": "WAF/WAAP \u2014 Cloudflare / Akamai / AWS WAF / F5 Advanced",
+  "name": "WAF/WAAP — Cloudflare / Akamai / AWS WAF / F5 Advanced",
   "versions": {
-    "attack": "13",
+    "attack": "19",
     "navigator": "4.9",
     "layer": "4.5"
   },
@@ -12,14 +12,13 @@
       "Windows",
       "Linux",
       "macOS",
-      "Network",
-      "Cloud",
-      "Containers",
-      "SaaS",
+      "Network Devices",
       "IaaS",
-      "Office 365",
-      "Azure AD",
-      "Google Workspace"
+      "SaaS",
+      "Office Suite",
+      "Identity Provider",
+      "Containers",
+      "PRE"
     ]
   },
   "sorting": 0,
@@ -55,7 +54,7 @@
     },
     {
       "techniqueID": "T1055",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#10b981",
       "comment": "Process injection via web shell blocked by WAF/WAAP",
       "enabled": true,
@@ -85,7 +84,7 @@
     },
     {
       "techniqueID": "T1027",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#10b981",
       "comment": "Encoded/obfuscated payloads detected and blocked",
       "enabled": true,
@@ -95,7 +94,7 @@
     },
     {
       "techniqueID": "T1027.001",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#10b981",
       "comment": "Binary padding/obfuscation in web requests detected",
       "enabled": true,
@@ -175,7 +174,7 @@
     },
     {
       "techniqueID": "T1211",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#10b981",
       "comment": "Exploitation for defense evasion blocked at WAF boundary",
       "enabled": true,
@@ -207,7 +206,7 @@
       "techniqueID": "T1102",
       "tactic": "command-and-control",
       "color": "#10b981",
-      "comment": "Web service C2 via allowed cloud platforms \u2014 CASB + WAF combination",
+      "comment": "Web service C2 via allowed cloud platforms — CASB + WAF combination",
       "enabled": true,
       "metadata": [],
       "links": [],
@@ -217,7 +216,7 @@
       "techniqueID": "T1530",
       "tactic": "collection",
       "color": "#10b981",
-      "comment": "Cloud storage object access \u2014 S3 presigned URL abuse detection",
+      "comment": "Cloud storage object access — S3 presigned URL abuse detection",
       "enabled": true,
       "metadata": [],
       "links": [],
@@ -247,7 +246,7 @@
       "techniqueID": "T1091",
       "tactic": "lateral-movement",
       "color": "#10b981",
-      "comment": "Replication through removable media \u2014 web-delivered payload blocked",
+      "comment": "Replication through removable media — web-delivered payload blocked",
       "enabled": true,
       "metadata": [],
       "links": [],
@@ -284,11 +283,16 @@
   },
   "legendItems": [
     {
-      "label": "Covered by WAF/WAAP \u2014 Cloudflare / Akamai / AWS WAF / F5 Advanced",
+      "label": "Covered by WAF/WAAP — Cloudflare / Akamai / AWS WAF / F5 Advanced",
       "color": "#10b981"
     }
   ],
-  "metadata": [],
+  "metadata": [
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v19.2: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
   "links": [],
   "showTacticRowBackground": false,
   "tacticRowBackground": "#dddddd",

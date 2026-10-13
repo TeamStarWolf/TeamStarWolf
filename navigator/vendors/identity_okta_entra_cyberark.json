@@ -1,7 +1,7 @@
 {
-  "name": "Identity \u2014 Okta / Microsoft Entra ID / CyberArk PAM",
+  "name": "Identity — Okta / Microsoft Entra ID / CyberArk PAM",
   "versions": {
-    "attack": "13",
+    "attack": "19",
     "navigator": "4.9",
     "layer": "4.5"
   },
@@ -12,14 +12,12 @@
       "Windows",
       "Linux",
       "macOS",
-      "Network",
-      "Cloud",
-      "Containers",
-      "SaaS",
+      "Network Devices",
       "IaaS",
-      "Office 365",
-      "Azure AD",
-      "Google Workspace"
+      "SaaS",
+      "Office Suite",
+      "Identity Provider",
+      "Containers"
     ]
   },
   "sorting": 0,
@@ -35,7 +33,7 @@
   "techniques": [
     {
       "techniqueID": "T1078",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#8b5cf6",
       "comment": "Valid account abuse detected by UEBA and impossible travel policies",
       "enabled": true,
@@ -45,7 +43,7 @@
     },
     {
       "techniqueID": "T1078.002",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#8b5cf6",
       "comment": "Domain account abuse: Entra ID sign-in risk policies",
       "enabled": true,
@@ -55,7 +53,7 @@
     },
     {
       "techniqueID": "T1078.003",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#8b5cf6",
       "comment": "Local account abuse: CyberArk PAM vaulting and session recording",
       "enabled": true,
@@ -65,7 +63,7 @@
     },
     {
       "techniqueID": "T1078.004",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#8b5cf6",
       "comment": "Cloud account abuse: Okta / Entra ID risk-based Conditional Access",
       "enabled": true,
@@ -265,7 +263,7 @@
     },
     {
       "techniqueID": "T1484",
-      "tactic": "defense-evasion",
+      "tactic": "defense-impairment",
       "color": "#8b5cf6",
       "comment": "Domain policy modification: GPO change alerting",
       "enabled": true,
@@ -284,11 +282,16 @@
   },
   "legendItems": [
     {
-      "label": "Covered by Identity \u2014 Okta / Microsoft Entra ID / CyberArk PAM",
+      "label": "Covered by Identity — Okta / Microsoft Entra ID / CyberArk PAM",
       "color": "#8b5cf6"
     }
   ],
-  "metadata": [],
+  "metadata": [
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v19.2: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
   "links": [],
   "showTacticRowBackground": false,
   "tacticRowBackground": "#dddddd",

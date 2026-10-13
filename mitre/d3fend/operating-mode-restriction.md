@@ -9,8 +9,8 @@ Restricting unauthorized changes to the operating mode prevents devices from swi
 
 ## ATT&CK techniques countered (2)
 
-- [T0800](https://attack.mitre.org/techniques/T0800): restricts
-- [T0858](https://attack.mitre.org/techniques/T0858): restricts
+- [T0800: Activate Firmware Update Mode](https://attack.mitre.org/techniques/T0800): restricts
+- [T0858: Change Operating Mode](https://attack.mitre.org/techniques/T0858): restricts
 
 ---
 

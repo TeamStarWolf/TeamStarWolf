@@ -9,12 +9,12 @@ Web session access mediation secures user sessions in web applications by employ
 
 ## ATT&CK techniques countered (14)
 
-- [T0806](https://attack.mitre.org/techniques/T0806): isolates
-- [T0813](https://attack.mitre.org/techniques/T0813): isolates
-- [T0814](https://attack.mitre.org/techniques/T0814): isolates
-- [T0819](https://attack.mitre.org/techniques/T0819): isolates
-- [T0821](https://attack.mitre.org/techniques/T0821): isolates
-- [T0878](https://attack.mitre.org/techniques/T0878): isolates
+- [T0806: Brute Force I/O](https://attack.mitre.org/techniques/T0806): isolates
+- [T0813: Denial of Control](https://attack.mitre.org/techniques/T0813): isolates
+- [T0814: Denial of Service](https://attack.mitre.org/techniques/T0814): isolates
+- [T0819: Exploit Public-Facing Application](https://attack.mitre.org/techniques/T0819): isolates
+- [T0821: Modify Controller Tasking](https://attack.mitre.org/techniques/T0821): isolates
+- [T0878: Alarm Suppression](https://attack.mitre.org/techniques/T0878): isolates
 - [T1003.001: LSASS Memory](/mitre/techniques/T1003-001.md): isolates. Adversaries may attempt to access credential material stored in the process memory of the Local Security Authority Subsystem Service (LSASS).
 - [T1003.002: Security Account Manager](/mitre/techniques/T1003-002.md): isolates. Adversaries may attempt to extract credential material from the Security Account Manager (SAM) database either through in-memory techniques or through the Windows Registry where the SAM database is stored.
 - [T1033: System Owner/User Discovery](/mitre/techniques/T1033.md): isolates. Adversaries may attempt to identify the primary user, currently logged in user, set of users that commonly uses a system, or whether a user is actively using the system.

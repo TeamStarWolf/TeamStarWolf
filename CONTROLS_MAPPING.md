@@ -70,6 +70,8 @@ Each NIST control family mitigates a set of ATT&CK tactics and techniques. The t
 
 ## Vendor to NIST Control to ATT&CK Coverage
 
+Each product has one name on this page, in this table and in the [reference table](#vendor-to-nist-800-53-control-mapping-reference) below. [`data/vendor_to_control.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/vendor_to_control.jsonl) carries it under one `vendor_normalized` slug with the union of the controls the two tables list for it. Zscaler, Zscaler ZIA and Zscaler ZPA are kept as three entries.
+
 ### GRC / Risk Management Vendors
 
 | Vendor | Market Family | Primary NIST Controls | ATT&CK Coverage via CTID |
@@ -78,9 +80,9 @@ Each NIST control family mitigates a set of ATT&CK tactics and techniques. The t
 | RSA Archer | GRC | PM-1, RA-3, CA-2, CA-5 | Risk context across all tactics |
 | OneTrust | GRC | PM-1, PM-20, RA-3, RA-8 | Privacy-relevant technique coverage |
 | MetricStream | GRC | PM-1, RA-3, CA-2 | Risk and compliance coverage |
-| Tenable | Risk & VM | RA-5, CM-8, SA-11 | [Via KEV](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/kev/): Exploitation-mapped techniques |
-| Qualys | Risk & VM | RA-5, CM-8, SI-2 | [Via KEV](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/kev/): Exploitation-mapped techniques |
-| Rapid7 | Risk & VM | RA-5, SI-2, CM-7 | [Via KEV](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/kev/): Exploitation-mapped techniques |
+| Tenable.io / Nessus | Risk & VM | RA-5, CM-8, SA-11 | [Via KEV](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/kev/): Exploitation-mapped techniques |
+| Qualys VMDR | Risk & VM | RA-5, CM-8, SI-2 | [Via KEV](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/kev/): Exploitation-mapped techniques |
+| Rapid7 InsightVM | Risk & VM | RA-5, SI-2, CM-7 | [Via KEV](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/kev/): Exploitation-mapped techniques |
 | Wiz | Risk & VM / Cloud | RA-5, CM-8, AC-2, AU-2 | [AWS](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/aws/), [Azure](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/azure/), [GCP](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/gcp/) |
 
 ### Identity & Zero Trust Vendors
@@ -89,7 +91,7 @@ Each NIST control family mitigates a set of ATT&CK tactics and techniques. The t
 |---|---|---|---|
 | Microsoft Entra ID | Identity | IA-2, IA-5, AC-2, AC-3, AC-6 | [Azure IAM -> T1078, T1110, T1556, T1134, T1098](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/azure/) |
 | Okta | Identity | IA-2, IA-5, AC-2, AC-3 | Initial Access (T1078), Credential Access (T1110), Persistence (T1098) |
-| CyberArk | Identity (PAM) | AC-2, AC-3, AC-6, IA-4 | Privilege Escalation (T1078.003), Credential Access (T1003) |
+| CyberArk PAM | Identity (PAM) | AC-2, AC-3, AC-6, IA-4 | Privilege Escalation (T1078.003), Credential Access (T1003) |
 | BeyondTrust | Identity (PAM) | AC-2, AC-6, IA-4, AC-17 | Privilege Escalation, Lateral Movement via credentials |
 | Ping Identity | Identity | IA-2, IA-8, AC-2, AC-3 | Initial Access, Credential Access |
 | Zscaler | Zero Trust | AC-17, SC-7, AC-20, IA-3 | C2 (T1071), Lateral Movement (T1021), Exfiltration (T1048) |
@@ -114,7 +116,7 @@ Each NIST control family mitigates a set of ATT&CK tactics and techniques. The t
 | CrowdStrike Falcon | SecOps (EDR) | SI-3, SI-4, CM-7, AU-2 | Broad coverage: Initial Access through Impact; all ATT&CK tactics |
 | SentinelOne | SecOps (EDR) | SI-3, SI-4, CM-7 | Broad endpoint coverage across all ATT&CK tactics |
 | Microsoft Defender for Endpoint | SecOps (EDR) | SI-3, SI-4, CM-7, AU-2 | [M365 -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/m365/) comprehensive |
-| Splunk ES | SecOps (SIEM) | AU-2, AU-6, AU-12, SI-4 | Detection coverage across all tactics via correlation |
+| Splunk Enterprise Security | SecOps (SIEM) | AU-2, AU-6, AU-12, SI-4 | Detection coverage across all tactics via correlation |
 | Microsoft Sentinel | SecOps (SIEM) | AU-2, AU-6, SI-4, IR-4 | [M365 -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/m365/) + Azure |
 | Elastic Security | SecOps (SIEM) | AU-2, AU-6, SI-4 | EQL behavioral detection across all tactics |
 | Exabeam | SecOps (UEBA) | AU-6, SI-4, IR-4 | Insider threat, Credential Access, Lateral Movement |
@@ -136,7 +138,7 @@ Each NIST control family mitigates a set of ATT&CK tactics and techniques. The t
 |---|---|---|---|
 | Proofpoint | Email Security | SI-3, SI-8, SC-8, SC-28 | Initial Access (T1566 Phishing), Execution (T1204) |
 | Mimecast | Email Security | SI-3, SI-8, SC-8 | Phishing (T1566), Execution via email (T1204) |
-| Microsoft Defender for O365 | Email Security | SI-3, SI-8, SC-8 | [M365 -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/m365/) email coverage |
+| Microsoft Defender for Office 365 | Email Security | SI-3, SI-8, SC-8 | [M365 -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/m365/) email coverage |
 
 ### Threat Intelligence Vendors
 
@@ -220,7 +222,7 @@ Security Operations / SIEM
 | Splunk Enterprise Security | AU-2, AU-3, AU-6, IR-4, IR-5, SI-4 | SIEM with UBA and SOAR |
 | Microsoft Sentinel | AU-2, AU-3, AU-6, AU-12, IR-4 | Cloud-native SIEM + SOAR |
 | IBM QRadar | AU-2, AU-6, IR-4, IR-5, SI-4 | SIEM with threat intelligence integration |
-| Elastic SIEM | AU-2, AU-6, SI-4 | Open-source SIEM on ELK stack |
+| Elastic Security | AU-2, AU-6, SI-4 | Open-source SIEM on ELK stack |
 | Palo Alto Cortex XSIAM | AU-2, AU-6, IR-4, SI-4 | AI-driven SOC platform |
 
 Vulnerability and Compliance

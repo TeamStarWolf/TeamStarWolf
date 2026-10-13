@@ -109,7 +109,14 @@ mapping still describes the same behaviour, so:
   `*_via_revoked` ({predecessor: [targets]}, profiles), so the upstream is never
   presented as mapping the new id directly;
 - a key that was already stale in the upstream's own version (T1574.002, revoked in
-  v16) is re-keyed in `control_to_technique.jsonl` itself, again with `via_revoked`.
+  v16) is re-keyed in `control_to_technique.jsonl` itself, again with `via_revoked`; a
+  `vendor_to_technique.jsonl` row that joins through such a re-keyed control carries the
+  same `via_revoked`, exactly as a row carried forward from a revoked id does.
+
+`vendor_to_control.jsonl` carries one `vendor_normalized` slug per product (CONTROLS_MAPPING.md
+names each product once). The retired alias slugs are listed in `VENDOR_SLUG_ALIASES`
+(`scripts/build_ctid_edges.py`), which fails if one reappears; Zscaler, Zscaler ZIA and
+Zscaler ZPA are three products.
 
 `scripts/validate_jsonl.py` enforces, in CI: one row per (source, target) in every edge
 table; every ATT&CK technique reference is live in the table's domain or resolves through

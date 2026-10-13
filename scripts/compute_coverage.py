@@ -40,6 +40,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from attack_ids import AttackIds
+from build_ctid_edges import VENDOR_SLUG_ALIASES
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -91,21 +92,11 @@ TACTIC_METADATA = {
     "impact":               {"name": "Impact",               "weight": 1.1},
 }
 
-# The edge table carries some products under two normalized keys (the same product listed
-# twice in CONTROLS_MAPPING.md under a company name and a product name, or under an old
-# and a new product name). Fold each alias into one canonical key so the vendor count and
-# per-vendor figures count a product once; the folded keys are listed in the output.
-# Zscaler ZIA and ZPA are distinct products and stay separate, as does the generic
-# "zscaler" row, which does not identify a single product.
-VENDOR_ALIASES = {
-    "cyberark": "cyberark-pam",
-    "elastic-siem": "elastic-security",
-    "microsoft-defender-for-o365": "microsoft-defender-for-office-365",
-    "qualys": "qualys-vmdr",
-    "rapid7": "rapid7-insightvm",
-    "splunk-es": "splunk-enterprise-security",
-    "tenable": "tenable-io",
-}
+# One vendor_normalized slug per product: data/vendor_to_control.jsonl carries each product
+# under a single slug (the alias fold is in the data, not here). VENDOR_SLUG_ALIASES
+# (scripts/build_ctid_edges.py) lists the retired slugs; they are recorded in scores/ as
+# each product's former keys, and an edge row on one is an error. Zscaler ZIA, ZPA and
+# the generic "zscaler" row are three products.
 
 TOP_GAPS = 30
 GAP_RANKING = ("group_count desc, software_count desc, campaign_count desc, "
@@ -229,11 +220,11 @@ def compute() -> tuple[dict[str, str], dict[str, dict]]:
     if empty:
         fail(f"no live techniques for tactic(s) {empty}; profiles are not ATT&CK v{ATTACK_VERSION}")
 
-    # vendor -> covered live techniques (revoked ids resolved, aliases folded)
+    # vendor -> covered live techniques (revoked ids resolved; one slug per product)
     v2t = load_jsonl(VENDOR_TO_TECHNIQUE)
     vendor_techs: dict[str, set] = defaultdict(set)
     display: dict[str, str] = {}
-    aliases_seen: dict[str, set] = defaultdict(set)
+    retired_seen: set[str] = set()
     revoked_rows = 0
     for n, edge in enumerate(v2t, 1):
         raw = edge.get("attack_technique", "")
@@ -246,18 +237,20 @@ def compute() -> tuple[dict[str, str], dict[str, dict]]:
                  "technique nor resolvable through superseded_by")
         if tid != raw:
             revoked_rows += 1
-        canon = VENDOR_ALIASES.get(key, key)
-        if canon != key:
-            aliases_seen[canon].add(key)
-        else:
-            display[canon] = edge.get("vendor") or canon
-        vendor_techs[canon].add(tid)
-    unused = sorted(a for a, c in VENDOR_ALIASES.items() if a not in aliases_seen.get(c, ()))
-    if unused:
-        fail(f"VENDOR_ALIASES entries no longer present in the edge table: {unused}")
-    missing_canon = sorted(c for c in aliases_seen if c not in display)
+        if key in VENDOR_SLUG_ALIASES:
+            retired_seen.add(key)
+        display[key] = edge.get("vendor") or key
+        vendor_techs[key].add(tid)
+    if retired_seen:
+        fail(f"{VENDOR_TO_TECHNIQUE} uses retired vendor slugs (fold them in "
+             f"data/vendor_to_control.jsonl and run scripts/build_ctid_edges.py): "
+             f"{sorted(retired_seen)}")
+    missing_canon = sorted({c for c in VENDOR_SLUG_ALIASES.values() if c not in display})
     if missing_canon:
-        fail(f"alias targets with no edge rows of their own: {missing_canon}")
+        fail(f"VENDOR_SLUG_ALIASES targets with no edge rows: {missing_canon}")
+    former_keys: dict[str, list] = defaultdict(list)
+    for old, canon in sorted(VENDOR_SLUG_ALIASES.items()):
+        former_keys[canon].append(old)
 
     covered = set().union(*vendor_techs.values())
 
@@ -287,7 +280,7 @@ def compute() -> tuple[dict[str, str], dict[str, dict]]:
                 dist[tactic] = members
         vendor_coverage[vendor] = {
             "vendor": display[vendor],
-            "aliases": sorted(aliases_seen.get(vendor, ())),
+            "aliases": former_keys.get(vendor, []),
             "technique_count": len(techs),
             "techniques": sorted(techs),
             "tactic_distribution": dist,
@@ -362,7 +355,7 @@ def compute() -> tuple[dict[str, str], dict[str, dict]]:
         "total_covered_techniques": len(covered),
         "total_technique_universe": len(tech_tactics),
         "total_vendor_stack_vendors": len(vendor_coverage),
-        "vendor_aliases_folded": {a: VENDOR_ALIASES[a] for a in sorted(VENDOR_ALIASES)},
+        "vendor_aliases_folded": {a: VENDOR_SLUG_ALIASES[a] for a in sorted(VENDOR_SLUG_ALIASES)},
         "vendor_edge_rows": len(v2t),
         "vendor_edge_rows_on_revoked_ids": revoked_rows,
         "tactic_summary": {
@@ -429,7 +422,9 @@ def render_md(g: dict, tactic_coverage: dict, vendor_coverage: dict, gaps: list)
       "revoked id), so revoked ids are never counted as techniques.")
     a("")
     if g["vendor_aliases_folded"]:
-        a("Products listed under two keys in the edge table are counted once: "
+        a("Each product is counted once under one key. Products that the edge data used to list "
+          "under two keys were folded into one in "
+          f"[`data/vendor_to_control.jsonl`]({repo_href('data/vendor_to_control.jsonl')}): "
           + "; ".join(f"`{k}` -> `{v}`" for k, v in g["vendor_aliases_folded"].items()) + ".")
         a("")
     a(f"Overall: {cov:,} of the {total:,} live Enterprise v{g['attack_version']} techniques and "

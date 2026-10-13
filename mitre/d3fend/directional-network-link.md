@@ -9,8 +9,8 @@ Enforce one-way network communication by preventing two-way communication.
 
 ## ATT&CK techniques countered (2)
 
-- [T0860](https://attack.mitre.org/techniques/T0860): restricts
-- [T0887](https://attack.mitre.org/techniques/T0887): restricts
+- [T0860: Wireless Compromise](https://attack.mitre.org/techniques/T0860): restricts
+- [T0887: Wireless Sniffing](https://attack.mitre.org/techniques/T0887): restricts
 
 ---
 

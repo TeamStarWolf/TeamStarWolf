@@ -534,7 +534,7 @@ Effective payload development requires addressing each of these detection surfac
 
 ### 5.2 Process Injection Techniques
 
-DLL Sideloading (T1574.002):
+DLL Sideloading (T1574.001):
 Many legitimate Windows applications attempt to load DLLs from the application directory before the System32 path. If the application directory is writable and a required DLL does not exist there, an attacker can place a malicious DLL.
 
 ```

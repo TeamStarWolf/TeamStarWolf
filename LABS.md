@@ -143,11 +143,11 @@ A curated index of free and accessible lab environments, CTF platforms, and prac
 |---|---|---|
 | [PicoCTF](https://picoctf.org/) | Jeopardy-style challenges | Beginner |
 | [CTFtime.org](https://ctftime.org/) | CTF event calendar and archives | All levels |
-| [Hack The Box](https://hackthebox.com) | Machine and challenge hacking | Intermediateâ€“Advanced |
+| [Hack The Box](https://hackthebox.com) | Machine and challenge hacking | Intermediate–Advanced |
 | [pwn.college](https://pwn.college/) | Binary exploitation and systems security | Intermediate |
 | [pwnable.kr](https://pwnable.kr/) | Binary exploitation wargames | Intermediate |
 | [Root-Me](https://www.root-me.org/) | 500+ challenges across all categories | All levels |
-| [NahamCon CTF](https://www.nahamcon.com/) | Annual beginner-friendly CTF | Beginnerâ€“Intermediate |
+| [NahamCon CTF](https://www.nahamcon.com/) | Annual beginner-friendly CTF | Beginner–Intermediate |
 | [RingZer0 CTF](https://ringzer0ctf.com/) | Broad category challenges | Intermediate |
 | [DEF CON CTF](https://defcon.org/html/links/dc-ctf.html) | World's most prestigious hacking competition | Elite |
 
@@ -182,15 +182,15 @@ Use AWS Free Tier + CloudGoat + Prowler:
 1. Create free AWS account
 2. Deploy [CloudGoat](https://github.com/RhinoSecurityLabs/cloudgoat) vulnerable scenarios
 3. Run [Prowler](https://github.com/prowler-cloud/prowler) to identify misconfigurations
-4. Practice with [flaws.cloud](http://flaws.cloud) â€” no AWS account needed
+4. Practice with [flaws.cloud](http://flaws.cloud) — no AWS account needed
 
 ---
 
 ## Related Resources
-- [Career Paths & Cert Roadmap](CAREER_PATHS.md) â€” skill progression by career track
-- [Enterprise Security Pipeline](SECURITY_PIPELINE.md) â€” vendor and control mapping by stage
-- [ATT&CK Navigator](navigator/) â€” technique coverage visualization
-- [Starred Repositories](STARRED_REPOS.md) â€” curated tool and project repos
+- [Career Paths & Cert Roadmap](CAREER_PATHS.md) — skill progression by career track
+- [Enterprise Security Pipeline](SECURITY_PIPELINE.md) — vendor and control mapping by stage
+- [ATT&CK Navigator](navigator/) — technique coverage visualization
+- [Starred Repositories](STARRED_REPOS.md) — curated tool and project repos
 
 ---
 

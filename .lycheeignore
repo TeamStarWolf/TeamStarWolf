@@ -1,0 +1,33 @@
+# Regexes for URLs the EXTERNAL link check (lychee, .github/workflows/link-check.yml) skips.
+# lychee reads this file automatically from the working directory. Internal links are not
+# checked by lychee at all: scripts/check_docsify_links.py resolves them the way the docsify
+# site does. Keep this list short; every entry is a class of link nobody verifies.
+
+# Domain entries are anchored so that, e.g., "x.com" does not also skip box.com.
+
+# Social media: blocks automated clients
+^https?://([a-z0-9-]+\.)*twitter\.com([/:?#]|$)
+^https?://([a-z0-9-]+\.)*x\.com([/:?#]|$)
+^https?://([a-z0-9-]+\.)*linkedin\.com([/:?#]|$)
+^https?://([a-z0-9-]+\.)*instagram\.com([/:?#]|$)
+^https?://([a-z0-9-]+\.)*facebook\.com([/:?#]|$)
+
+# This repository's own blob/tree links: the files are checked by check_docsify_links.py,
+# and hundreds of GitHub requests per run hit the rate limit. Other TeamStarWolf repositories
+# (for example ATTACK-Navi) are NOT excluded and are checked.
+github\.com/TeamStarWolf/TeamStarWolf/(blob|tree|raw)/
+
+# MITRE ATLAS is a single-page app: every deep link returns 404 to a non-browser client even
+# when the page exists (verified 2026-10-13: /techniques/AML.T0051 -> 404, / -> 200).
+# The site root stays checked.
+^https?://atlas\.mitre\.org/.+
+
+# Placeholders and loopback
+^https?://(localhost|127\.0\.0\.1|0\.0\.0\.0)([/:?#]|$)
+^https?://([a-z0-9-]+\.)*example\.com([/:?#]|$)
+^https?://([a-z0-9-]+\.)*example\.org([/:?#]|$)
+
+# Redirect shorteners
+^https?://([a-z0-9-]+\.)*bit\.ly([/:?#]|$)
+^https?://([a-z0-9-]+\.)*tinyurl\.com([/:?#]|$)
+^https?://t\.co/

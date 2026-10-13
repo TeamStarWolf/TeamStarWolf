@@ -9,13 +9,13 @@ Analyzing system calls to determine whether a process is exhibiting unauthorized
 
 ## ATT&CK techniques countered (47)
 
-- [T0834](https://attack.mitre.org/techniques/T0834): analyzes
-- [T0846](https://attack.mitre.org/techniques/T0846): analyzes
-- [T0852](https://attack.mitre.org/techniques/T0852): analyzes
-- [T0863](https://attack.mitre.org/techniques/T0863): analyzes
-- [T0888](https://attack.mitre.org/techniques/T0888): analyzes
-- [T0894](https://attack.mitre.org/techniques/T0894): analyzes
-- [T0895](https://attack.mitre.org/techniques/T0895): analyzes
+- [T0834: Native API](https://attack.mitre.org/techniques/T0834): analyzes
+- [T0846: Remote System Discovery](https://attack.mitre.org/techniques/T0846): analyzes
+- [T0852: Screen Capture](https://attack.mitre.org/techniques/T0852): analyzes
+- [T0863: User Execution](https://attack.mitre.org/techniques/T0863): analyzes
+- [T0888: Remote System Information Discovery](https://attack.mitre.org/techniques/T0888): analyzes
+- [T0894: System Binary Proxy Execution](https://attack.mitre.org/techniques/T0894): analyzes
+- [T0895: Autorun Image](https://attack.mitre.org/techniques/T0895): analyzes
 - [T1007: System Service Discovery](/mitre/techniques/T1007.md): analyzes. Adversaries may try to gather information about registered local system services.
 - [T1010: Application Window Discovery](/mitre/techniques/T1010.md): analyzes. Adversaries may attempt to get a listing of open application windows.
 - [T1012: Query Registry](/mitre/techniques/T1012.md): analyzes. Adversaries may interact with the Windows Registry to gather information about the system, configuration, and installed software.

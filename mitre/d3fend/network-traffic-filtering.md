@@ -3,56 +3,50 @@
 <a id="network-traffic-filtering"></a>
 
 D3FEND tactic: Isolate  
-Digital artifacts: OT Protocol Message, Network Traffic  
+Digital artifacts: Network Traffic, OT Protocol Message  
 
 Restricting network traffic originating from any location.
 
 ## ATT&CK techniques countered (116)
 
-- [T0800](https://attack.mitre.org/techniques/T0800): filters
-- [T0801](https://attack.mitre.org/techniques/T0801): filters
-- [T0802](https://attack.mitre.org/techniques/T0802): filters
-- [T0803](https://attack.mitre.org/techniques/T0803): filters
-- [T0805](https://attack.mitre.org/techniques/T0805): filters
-- [T0806](https://attack.mitre.org/techniques/T0806): filters
-- [T0809](https://attack.mitre.org/techniques/T0809): filters
-- [T0811](https://attack.mitre.org/techniques/T0811): filters
-- [T0814](https://attack.mitre.org/techniques/T0814): filters
-- [T0817](https://attack.mitre.org/techniques/T0817): filters
-- [T0819](https://attack.mitre.org/techniques/T0819): filters
-- [T0821](https://attack.mitre.org/techniques/T0821): filters
-- [T0822](https://attack.mitre.org/techniques/T0822): filters
-- [T0830](https://attack.mitre.org/techniques/T0830): filters
-- [T0835](https://attack.mitre.org/techniques/T0835): filters
-- [T0836](https://attack.mitre.org/techniques/T0836): filters
-- [T0838](https://attack.mitre.org/techniques/T0838): filters
-- [T0839](https://attack.mitre.org/techniques/T0839): filters
-- [T0840](https://attack.mitre.org/techniques/T0840): filters
-- [T0842](https://attack.mitre.org/techniques/T0842): filters
-- [T0843](https://attack.mitre.org/techniques/T0843): filters
-- [T0845](https://attack.mitre.org/techniques/T0845): filters
-- [T0846](https://attack.mitre.org/techniques/T0846): filters
-- [T0848](https://attack.mitre.org/techniques/T0848): filters
-- [T0855](https://attack.mitre.org/techniques/T0855): filters
-- [T0856](https://attack.mitre.org/techniques/T0856): filters
-- [T0857](https://attack.mitre.org/techniques/T0857): filters
-- [T0858](https://attack.mitre.org/techniques/T0858): filters
-- [T0861](https://attack.mitre.org/techniques/T0861): filters
-- [T0865](https://attack.mitre.org/techniques/T0865): filters
-- [T0866](https://attack.mitre.org/techniques/T0866): filters
-- [T0868](https://attack.mitre.org/techniques/T0868): filters
-- [T0869](https://attack.mitre.org/techniques/T0869): filters
-- [T0873](https://attack.mitre.org/techniques/T0873): filters
-- [T0877](https://attack.mitre.org/techniques/T0877): filters
-- [T0878](https://attack.mitre.org/techniques/T0878): filters
-- [T0884](https://attack.mitre.org/techniques/T0884): filters
-- [T0885](https://attack.mitre.org/techniques/T0885): filters
-- [T0886](https://attack.mitre.org/techniques/T0886): filters
-- [T0888](https://attack.mitre.org/techniques/T0888): filters
-- [T0889](https://attack.mitre.org/techniques/T0889): filters
-- [T0893](https://attack.mitre.org/techniques/T0893): filters
-- [T0894](https://attack.mitre.org/techniques/T0894): filters
-- [T0895](https://attack.mitre.org/techniques/T0895): filters
+- [T0800: Activate Firmware Update Mode](https://attack.mitre.org/techniques/T0800): filters
+- [T0801: Monitor Process State](https://attack.mitre.org/techniques/T0801): filters
+- [T0802: Automated Collection](https://attack.mitre.org/techniques/T0802): filters
+- [T0806: Brute Force I/O](https://attack.mitre.org/techniques/T0806): filters
+- [T0809: Data Destruction](https://attack.mitre.org/techniques/T0809): filters
+- [T0811: Data from Information Repositories](https://attack.mitre.org/techniques/T0811): filters
+- [T0814: Denial of Service](https://attack.mitre.org/techniques/T0814): filters
+- [T0817: Drive-by Compromise](https://attack.mitre.org/techniques/T0817): filters
+- [T0819: Exploit Public-Facing Application](https://attack.mitre.org/techniques/T0819): filters
+- [T0821: Modify Controller Tasking](https://attack.mitre.org/techniques/T0821): filters
+- [T0822: External Remote Services](https://attack.mitre.org/techniques/T0822): filters
+- [T0830: Adversary-in-the-Middle](https://attack.mitre.org/techniques/T0830): filters
+- [T0835: Manipulate I/O Image](https://attack.mitre.org/techniques/T0835): filters
+- [T0836: Modify Parameter](https://attack.mitre.org/techniques/T0836): filters
+- [T0838: Modify Alarm Settings](https://attack.mitre.org/techniques/T0838): filters
+- [T0840: Network Connection Enumeration](https://attack.mitre.org/techniques/T0840): filters
+- [T0842: Network Sniffing](https://attack.mitre.org/techniques/T0842): filters
+- [T0843: Program Download](https://attack.mitre.org/techniques/T0843): filters
+- [T0845: Program Upload](https://attack.mitre.org/techniques/T0845): filters
+- [T0846: Remote System Discovery](https://attack.mitre.org/techniques/T0846): filters
+- [T0848: Rogue Master](https://attack.mitre.org/techniques/T0848): filters
+- [T0858: Change Operating Mode](https://attack.mitre.org/techniques/T0858): filters
+- [T0861: Point & Tag Identification](https://attack.mitre.org/techniques/T0861): filters
+- [T0865: Spearphishing Attachment](https://attack.mitre.org/techniques/T0865): filters
+- [T0866: Exploitation of Remote Services](https://attack.mitre.org/techniques/T0866): filters
+- [T0868: Detect Operating Mode](https://attack.mitre.org/techniques/T0868): filters
+- [T0869: Standard Application Layer Protocol](https://attack.mitre.org/techniques/T0869): filters
+- [T0873: Project File Infection](https://attack.mitre.org/techniques/T0873): filters
+- [T0877: I/O Image](https://attack.mitre.org/techniques/T0877): filters
+- [T0878: Alarm Suppression](https://attack.mitre.org/techniques/T0878): filters
+- [T0884: Connection Proxy](https://attack.mitre.org/techniques/T0884): filters
+- [T0885: Commonly Used Port](https://attack.mitre.org/techniques/T0885): filters
+- [T0886: Remote Services](https://attack.mitre.org/techniques/T0886): filters
+- [T0888: Remote System Information Discovery](https://attack.mitre.org/techniques/T0888): filters
+- [T0889: Modify Program](https://attack.mitre.org/techniques/T0889): filters
+- [T0893: Data from Local System](https://attack.mitre.org/techniques/T0893): filters
+- [T0894: System Binary Proxy Execution](https://attack.mitre.org/techniques/T0894): filters
+- [T0895: Autorun Image](https://attack.mitre.org/techniques/T0895): filters
 - [T1001: Data Obfuscation](/mitre/techniques/T1001.md): filters. Adversaries may obfuscate command and control traffic to make it more difficult to detect.
 - [T1003.006: DCSync](/mitre/techniques/T1003-006.md): filters. Adversaries may attempt to access credentials and other sensitive information by abusing a Windows Domain Controller's application programming interface (API) to simulate the replication process from a remote domain controller using a technique called DCSync.
 - [T1008: Fallback Channels](/mitre/techniques/T1008.md): filters. Adversaries may use fallback or alternate communication channels if the primary channel is compromised or inaccessible in order to maintain reliable command and control and to avoid data transfer thresholds.
@@ -125,6 +119,12 @@ Restricting network traffic originating from any location.
 - [T1573: Encrypted Channel](/mitre/techniques/T1573.md): filters. Adversaries may employ an encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol.
 - [T1573.001: Symmetric Cryptography](/mitre/techniques/T1573-001.md): filters. Adversaries may employ a known symmetric encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol.
 - [T1573.002: Asymmetric Cryptography](/mitre/techniques/T1573-002.md): filters. Adversaries may employ a known asymmetric encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol.
+- [T1691.001: Command Message](https://attack.mitre.org/techniques/T1691/001): filters (D3FEND maps the revoked predecessor T0803)
+- [T1692.001: Command Message](https://attack.mitre.org/techniques/T1692/001): filters (D3FEND maps the revoked predecessor T0855)
+- [T1692.002: Reporting Message](https://attack.mitre.org/techniques/T1692/002): filters (D3FEND maps the revoked predecessor T0856)
+- [T1693.001: System Firmware](https://attack.mitre.org/techniques/T1693/001): filters (D3FEND maps the revoked predecessor T0857)
+- [T1693.002: Module Firmware](https://attack.mitre.org/techniques/T1693/002): filters (D3FEND maps the revoked predecessor T0839)
+- [T1695.001: Serial COM](https://attack.mitre.org/techniques/T1695/001): filters (D3FEND maps the revoked predecessor T0805)
 
 ---
 

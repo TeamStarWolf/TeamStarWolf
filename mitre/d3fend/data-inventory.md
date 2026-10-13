@@ -3,14 +3,14 @@
 <a id="data-inventory"></a>
 
 D3FEND tactic: Model  
-Digital artifacts: Document File, Database  
+Digital artifacts: Database, Document File  
 
 Data inventorying identifies and records the schemas, formats, volumes, and locations of data stored and used on the organization's architecture.
 
 ## ATT&CK techniques countered (31)
 
-- [T0865](https://attack.mitre.org/techniques/T0865): inventories
-- [T0894](https://attack.mitre.org/techniques/T0894): inventories
+- [T0865: Spearphishing Attachment](https://attack.mitre.org/techniques/T0865): inventories
+- [T0894: System Binary Proxy Execution](https://attack.mitre.org/techniques/T0894): inventories
 - [T1003.002: Security Account Manager](/mitre/techniques/T1003-002.md): inventories. Adversaries may attempt to extract credential material from the Security Account Manager (SAM) database either through in-memory techniques or through the Windows Registry where the SAM database is stored.
 - [T1003.004: LSA Secrets](/mitre/techniques/T1003-004.md): inventories. Adversaries with SYSTEM access to a host may attempt to access Local Security Authority (LSA) secrets, which can contain a variety of different credential materials, such as credentials for service accounts.
 - [T1003.008: /etc/passwd and /etc/shadow](/mitre/techniques/T1003-008.md): inventories. Adversaries may attempt to dump the contents of <code>/etc/passwd</code> and <code>/etc/shadow</code> to enable offline password cracking.

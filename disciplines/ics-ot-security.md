@@ -25,7 +25,7 @@ The Purdue Enterprise Reference Architecture (PERA) defines the logical layers s
 | Level | Name | Components | IT/OT Boundary Risk |
 |---|---|---|---|
 | Level 0 | Physical Process | Sensors, actuators, final control elements | Attacker commands here cause physical damage (Stuxnet centrifuges, TRITON safety systems) |
-| Level 1 | Basic Control | PLCs, RTUs, field controllers | Direct process manipulation via unauthorized command messages (T0855) |
+| Level 1 | Basic Control | PLCs, RTUs, field controllers | Direct process manipulation via unauthorized command messages (T1692.001) |
 | Level 2 | Supervisory Control | SCADA, DCS, HMIs, engineering workstations | HMI exploitation enables Level 0/1 access; engineering workstation compromise is a common pivot |
 | Level 3 | Manufacturing Operations | MES, historian, batch management, scheduling | IT/OT convergence zone; historian servers often bridge corporate and OT networks |
 | Level 3.5 | Industrial DMZ (iDMZ) | Data diodes, jump servers, patch management, AV updates | Should exist but frequently absent; missing iDMZ is the most common IT-to-OT pivot path |
@@ -147,7 +147,7 @@ ATT&CK for ICS documents techniques used in real campaigns against industrial en
 
 | Technique | ID | Description | Detection Approach |
 |---|---|---|---|
-| Unauthorized Command Message | T0855 | Sending unauthorized commands to PLCs/RTUs to alter setpoints, open/close valves, or trip breakers | Allowlist expected command sources and values; alert on commands from unexpected hosts |
+| Command Message | T1692.001 | Sending unauthorized commands to PLCs/RTUs to alter setpoints, open/close valves, or trip breakers | Allowlist expected command sources and values; alert on commands from unexpected hosts |
 | Denial of Control | T0815 | Preventing operators from issuing commands to process equipment; flooding PLC command queues | Monitor for communication anomalies; rate limiting; redundant control paths |
 | Man in the Middle | T0830 | Intercepting and potentially modifying ICS protocol communications between components | Encrypted protocols where possible; passive anomaly detection; network segmentation limiting L2 access |
 | Network Connection Enumeration | T0840 | Mapping OT network topology and device inventory as reconnaissance | Alert on active scanning in OT networks; passive discovery is expected but active Nmap scans are not |

@@ -298,7 +298,7 @@ ATT&CK: [T1546.016](https://attack.mitre.org/techniques/T1546/016/), [detail pag
 - `AN0939` Analytic 0939, Linux
   Detection of maintainer scripts (e.g., postinst, preinst) being modified or executed during dpkg or rpm operations. Watch for script content that spawns additional processes or writes outside package scope.
   - *Log sources:* `auditd:SYSCALL (Execution of dpkg or rpm followed by fork/execve from within postinst, prerm, etc.)`; `auditd:SYSCALL (write)`
-  - *Tune:* `ScriptName`: May be postinst, preinst, prerm, or postrm depending on packaging system; `PackageManager`: Depends on system (dpkg, apt, rpm, yum, etc.)
+  - *Tune:* `ScriptName`: May be postinst, preinst, prerm, or postrm depending on packaging system; `PackageManager`: Depends on system: dpkg, apt, rpm, yum, etc.
 - `AN0940` Analytic 0940, Windows
   Detection of msiexec.exe running installer packages that result in anomalous process creation. Look for unexpected binaries executed by msiexec or custom action DLLs in the temp directory.
   - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=11)`
@@ -357,7 +357,7 @@ ATT&CK: [T1548.001](https://attack.mitre.org/techniques/T1548/001/), [detail pag
 ### T1548.002: Bypass User Account Control
 <a id="t1548002"></a>
 
-Detection strategy: Detection Strategy for T1548.002, Bypass User Account Control (UAC) (`DET0388`)  
+Detection strategy: Detection Strategy for T1548.002 – Bypass User Account Control (UAC) (`DET0388`)  
 Platforms: Windows  
 ATT&CK: [T1548.002](https://attack.mitre.org/techniques/T1548/002/), [detail page](../../techniques/privilege-escalation.md#t1548002)
 

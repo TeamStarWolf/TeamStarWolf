@@ -1,7 +1,7 @@
 {
   "name": "Stage 3 — Endpoint & Workload Protection",
   "versions": {
-    "attack": "13",
+    "attack": "19",
     "navigator": "4.9",
     "layer": "4.5"
   },
@@ -50,7 +50,7 @@
     },
     {
       "techniqueID": "T1055",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 3,
       "comment": "SC-3/SC-39: Process Isolation; EDR memory scanning"
     },
@@ -115,16 +115,10 @@
       "comment": "Service stop detection; SI-3 behavioral rules"
     },
     {
-      "techniqueID": "T1562",
-      "tactic": "defense-evasion",
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
       "score": 3,
-      "comment": "EDR self-protection; tamper protection; AU integrity"
-    },
-    {
-      "techniqueID": "T1562.001",
-      "tactic": "defense-evasion",
-      "score": 3,
-      "comment": "Disable/modify security tools — tamper protection"
+      "comment": "EDR self-protection; tamper protection; AU integrity (Re-keyed from T1562, which ATT&CK v19 revoked in favour of T1685; data/attack/superseded_by.jsonl.) | Disable/modify security tools — tamper protection (Re-keyed from T1562.001, which ATT&CK v19 revoked in favour of T1685; data/attack/superseded_by.jsonl.)"
     },
     {
       "techniqueID": "T1003",
@@ -170,7 +164,7 @@
     },
     {
       "techniqueID": "T1036",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 2,
       "comment": "CM-7/SI-7: Masquerading detection; binary integrity checking"
     }
@@ -209,6 +203,10 @@
     {
       "name": "source",
       "value": "TeamStarWolf — https://github.com/TeamStarWolf/TeamStarWolf"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v19.2: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
     }
   ],
   "links": [

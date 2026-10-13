@@ -25,6 +25,29 @@ Thank you for helping improve this resource. This is a community-maintained cybe
 
 ## How to Contribute
 
+### Cloning on Windows
+
+A few reference docs quote attack and evasion snippets as analysis samples. Microsoft Defender detects the
+AMSI-bypass example in `MALWARE_ANALYSIS_REFERENCE.md` and quarantines the file during `git clone`, so a
+default Windows clone starts with that tracked file deleted (`git status --short` shows
+` D MALWARE_ANALYSIS_REFERENCE.md`). The detection is expected; the snippet is intentional reference material.
+Pick one of these before you clone:
+
+- Add a Defender exclusion for the folder you will clone into (Windows Security -> Virus & threat protection
+  -> Manage settings -> Exclusions), clone, and confirm `git status` is clean. If the file was already
+  quarantined, restore it with `git checkout -- MALWARE_ANALYSIS_REFERENCE.md` once the exclusion is in place.
+- Or leave Defender alone and skip that one file with a sparse checkout:
+
+  ```
+  git clone --no-checkout https://github.com/TeamStarWolf/TeamStarWolf.git
+  cd TeamStarWolf
+  git sparse-checkout set --no-cone "*" "!MALWARE_ANALYSIS_REFERENCE.md"
+  git checkout
+  ```
+
+Either way, never commit the deletion. Stage files by name rather than with `git add -A` or `git commit -a`
+if `git status` shows the ` D` entry.
+
 ### Quick Fix (Broken Link, Typo, Wrong Cert Name)
 
 1. Click "Edit this page on GitHub" at the top of any page on the site
@@ -75,7 +98,7 @@ Thank you for helping improve this resource. This is a community-maintained cybe
 - No duplicate entries across pages
 
 ### JSONL Data Files
-- Follow the schema defined in [COVERAGE_SCHEMA.md](../COVERAGE_SCHEMA.md)
+- Follow the schema defined in [COVERAGE_SCHEMA.md](COVERAGE_SCHEMA.md)
 - Validate your additions locally: `python scripts/validate_jsonl.py`
 - Include a source reference for vendor-to-control mappings where possible
 
@@ -90,6 +113,7 @@ Before submitting, verify:
 - [ ] You haven't introduced duplicate entries
 - [ ] Your change follows the existing table format
 - [ ] If you added a JSONL record, it passes `python scripts/validate_jsonl.py`
+- [ ] Your diff does not delete `MALWARE_ANALYSIS_REFERENCE.md` (see [Cloning on Windows](#cloning-on-windows))
 
 ---
 

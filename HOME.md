@@ -115,7 +115,7 @@ Press <kbd>/</kbd> to search, for example for a technique ID such as T1059.
 
 ## How-to guides
 
-The [how-to guides](#/guides/README) are step-by-step procedures with prerequisites, numbered steps, and checks.
+The [how-to guides](/guides/README.md) are step-by-step procedures with prerequisites, numbered steps, and checks.
 
 <div class="tsw-router">
   <a class="tsw-card" href="#/guides/HOW_TO_USE_THIS_LIBRARY">
@@ -144,7 +144,7 @@ The [how-to guides](#/guides/README) are step-by-step procedures with prerequisi
   </a>
 </div>
 
-[All how-to guides](#/guides/README)
+[All how-to guides](/guides/README.md)
 
 ## How it connects
 
@@ -315,6 +315,7 @@ The references follow the chain from a vulnerability (CVE) to the weakness it ex
     <a class="tsw-swb-l" href="#/AI_SECURITY_REFERENCE">AI Security</a>
     <a class="tsw-swb-l" href="#/AI_MCP_SECURITY_REFERENCE">AI &amp; MCP Security</a>
     <a class="tsw-swb-l" href="#/AI_OFFENSIVE_SECURITY_REFERENCE">AI Offensive Security</a>
+    <a class="tsw-swb-l" href="#/ai-tooling/README">AI Tooling: tools, manuals, learning, labs</a>
     <a class="tsw-swb-l" href="#/BLOCKCHAIN_SECURITY_REFERENCE">Blockchain Security</a>
   </div>
   <div class="tsw-swb-group">
@@ -357,6 +358,17 @@ The references follow the chain from a vulnerability (CVE) to the weakness it ex
     <a class="tsw-swb-l" href="#/RESOURCES">Resources</a>
     <a class="tsw-swb-l" href="#/OPEN_SOURCE_TOOLKIT">Open Source Toolkit</a>
     <a class="tsw-swb-l" href="#/TOOLS">Tools Reference</a>
+  </div>
+  <div class="tsw-swb-group">
+    <div class="tsw-swb-h">Tools Research</div>
+    <a class="tsw-swb-l" href="#/tools-research/README">Overview</a>
+    <a class="tsw-swb-l" href="#/tools-research/SERVICENOW_USEM_TENABLE_WIZ">ServiceNow USEM with Tenable &amp; Wiz</a>
+    <a class="tsw-swb-l" href="#/tools-research/SERVICENOW_VR_CC_CVR_TENABLE_WIZ">ServiceNow VR, CC &amp; CVR with Tenable &amp; Wiz</a>
+  </div>
+  <div class="tsw-swb-group">
+    <div class="tsw-swb-h">Case Studies</div>
+    <a class="tsw-swb-l" href="#/case-studies/README">Overview</a>
+    <a class="tsw-swb-l" href="#/case-studies/AI_THREATS_2026">AI Threats: A 2026 Case Study</a>
   </div>
 </div>
 
@@ -466,7 +478,7 @@ Free training platforms such as Antisyphon, PortSwigger, HTB Academy, TryHackMe,
 
 <div class="tsw-footer">
   <div class="tsw-footer-links">
-    <a href="#/.github/CONTRIBUTING">Contribute</a><span class="tsw-footer-sep">|</span><a href="https://github.com/TeamStarWolf/TeamStarWolf/issues" target="_blank" rel="noopener">Open an issue</a><span class="tsw-footer-sep">|</span><a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/LICENSE" target="_blank" rel="noopener">License</a><span class="tsw-footer-sep">|</span><a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/THIRD_PARTY_NOTICES.md" target="_blank" rel="noopener">Third-party notices</a><span class="tsw-footer-sep">|</span><a href="https://github.com/TeamStarWolf/ATTACK-Navi" target="_blank" rel="noopener">ATTACK-Navi repository</a>
+    <a href="#/CONTRIBUTING">Contribute</a><span class="tsw-footer-sep">|</span><a href="https://github.com/TeamStarWolf/TeamStarWolf/issues" target="_blank" rel="noopener">Open an issue</a><span class="tsw-footer-sep">|</span><a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/LICENSE" target="_blank" rel="noopener">License</a><span class="tsw-footer-sep">|</span><a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/THIRD_PARTY_NOTICES.md" target="_blank" rel="noopener">Third-party notices</a><span class="tsw-footer-sep">|</span><a href="https://github.com/TeamStarWolf/ATTACK-Navi" target="_blank" rel="noopener">ATTACK-Navi repository</a>
   </div>
   <div class="tsw-footer-small">
     Offensive material is provided for authorized security testing, education, and defensive research.

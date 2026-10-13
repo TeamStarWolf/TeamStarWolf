@@ -1,7 +1,7 @@
 {
-  "name": "Stage 5 — Application Security",
+  "name": "Application Security (cross-stage view)",
   "versions": {
-    "attack": "13",
+    "attack": "19",
     "navigator": "4.9",
     "layer": "4.5"
   },
@@ -12,14 +12,12 @@
       "Windows",
       "Linux",
       "macOS",
-      "Network",
-      "Cloud",
-      "Containers",
-      "SaaS",
+      "Network Devices",
       "IaaS",
-      "Office 365",
-      "Azure AD",
-      "Google Workspace"
+      "SaaS",
+      "Office Suite",
+      "Identity Provider",
+      "Containers"
     ]
   },
   "sorting": 0,
@@ -65,7 +63,7 @@
     },
     {
       "techniqueID": "T1055",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#f59e0b",
       "comment": "Covered by SAST process injection detection",
       "enabled": true,
@@ -75,7 +73,7 @@
     },
     {
       "techniqueID": "T1055.001",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#f59e0b",
       "comment": "Covered by SAST dynamic-link library injection detection",
       "enabled": true,
@@ -85,7 +83,7 @@
     },
     {
       "techniqueID": "T1055.012",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#f59e0b",
       "comment": "Covered by SAST process hollowing detection",
       "enabled": true,
@@ -125,7 +123,7 @@
     },
     {
       "techniqueID": "T1140",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#f59e0b",
       "comment": "Covered by SAST deobfuscation/decode detection",
       "enabled": true,
@@ -135,7 +133,7 @@
     },
     {
       "techniqueID": "T1027",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#f59e0b",
       "comment": "Covered by SAST obfuscated files detection",
       "enabled": true,
@@ -145,7 +143,7 @@
     },
     {
       "techniqueID": "T1027.001",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#f59e0b",
       "comment": "Covered by SAST binary padding detection",
       "enabled": true,
@@ -155,7 +153,7 @@
     },
     {
       "techniqueID": "T1027.002",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#f59e0b",
       "comment": "Covered by SAST software packing detection",
       "enabled": true,
@@ -165,7 +163,7 @@
     },
     {
       "techniqueID": "T1027.003",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#f59e0b",
       "comment": "Covered by SAST steganography detection",
       "enabled": true,
@@ -185,7 +183,7 @@
     },
     {
       "techniqueID": "T1211",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#f59e0b",
       "comment": "Covered by DAST defense evasion exploit detection",
       "enabled": true,
@@ -308,7 +306,16 @@
       "color": "#f59e0b"
     }
   ],
-  "metadata": [],
+  "metadata": [
+    {
+      "name": "pipeline_stage",
+      "value": "Cross-stage view: SECURITY_PIPELINE.md has no separate application-security stage. The file name predates the current stage numbering."
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v19.2: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
   "links": [],
   "showTacticRowBackground": false,
   "tacticRowBackground": "#dddddd",

@@ -1,31 +1,19 @@
 name: Validate Data Files
 
 on:
+  # No paths filter: the drift, encoding and revoked-ID gates below cover generated trees
+  # (mitre/, techniques/, detections/, scores/) and every hand-written page, so any change
+  # can break one of them. The whole workflow runs in about a minute.
   push:
     branches: [main]
-    paths:
-      - 'data/**'
-      - 'navigator/**'
-      - 'scripts/**'
-      - 'README.md'
-      - 'HOME.md'
-      - 'INDEX.md'
-      - 'CITATION.cff'
-      - 'scores/**'
-      - 'mitre/**'
   pull_request:
     branches: [main]
-    paths:
-      - 'data/**'
-      - 'navigator/**'
-      - 'scripts/**'
-      - 'README.md'
-      - 'HOME.md'
-      - 'INDEX.md'
-      - 'CITATION.cff'
-      - 'scores/**'
-      - 'mitre/**'
   workflow_dispatch:
+
+# Least privilege: every job only reads the checkout. Declared here so it does not
+# depend on the repository's default GITHUB_TOKEN setting.
+permissions:
+  contents: read
 
 jobs:
   validate-jsonl:
@@ -33,10 +21,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: '3.11'
 
@@ -45,6 +35,9 @@ jobs:
 
       - name: Check CAPEC edge integrity (profiles vs capec.jsonl)
         run: python scripts/backfill_capec_edges.py --check
+
+      - name: Check CTID edge tables (control/vendor -> technique) match their sources
+        run: python scripts/build_ctid_edges.py --check
 
   corpus-signal:
     name: Corpus-signal round-trip (data file == pages, exactly 21)
@@ -56,44 +49,97 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: '3.11'
 
       - name: Corpus signal preserved for exactly 21 techniques
         run: python scripts/generate_mitre_pages.py --verify-corpus 21
 
-  validate-navigator:
-    name: Validate ATT&CK Navigator layer
+  pages-drift:
+    name: Generated page trees match the data (mitre/, techniques/, detections/strategies/)
+    # Each generator renders into a temporary directory (nothing is written in the checkout)
+    # and fails on any committed page that differs from the data, is missing, or is an orphan
+    # the data no longer produces. scores/ is diffed by compute_coverage.py --check in the
+    # validate-navigator job; the priority-gap page by build_priority_gaps.py --check below.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: '3.11'
 
-      - name: Validate Navigator layer JSON
-        run: |
-          python -c "
-          import json, sys
-          with open('navigator/teamstarwolf_vendor_coverage.json') as f:
-              layer = json.load(f)
-          required = ['name', 'versions', 'domain', 'techniques', 'gradient']
-          missing = [k for k in required if k not in layer]
-          if missing:
-              print(f'ERROR: Missing required fields: {missing}')
-              sys.exit(1)
-          technique_count = len(layer['techniques'])
-          print(f'OK: Navigator layer valid — {technique_count} techniques')
-          scores = [t['score'] for t in layer['techniques'] if 'score' in t]
-          print(f'OK: Score range {min(scores)}–{max(scores)}')
-          "
+      - name: mitre/ (every section) matches the data
+        run: python scripts/generate_mitre_pages.py --only all --check
+
+      - name: techniques/ and detections/strategies/ match the data
+        run: python scripts/generate_technique_detail_pages.py --check
+
+  repo-hygiene:
+    name: Tracked junk, text encoding, revoked ATT&CK IDs in hand-written pages
+    # junk: nothing build/editor/OS-generated is tracked (all of it would be published).
+    # encoding: every tracked text file is valid UTF-8 with no U+FFFD and no double-encoded
+    #   UTF-8 (the mojibake class PR-15 cleaned up).
+    # revoked: hand-written pages may not cite a revoked/deprecated ATT&CK ID (per
+    #   data/attack/superseded_by.jsonl) more often than scripts/baselines/revoked_ids.json
+    #   records; the baseline holds the pre-existing citations and may only shrink.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: '3.11'
+
+      - name: No tracked junk
+        run: python scripts/check_repo_hygiene.py --only junk
+
+      - name: Valid UTF-8, no mojibake
+        run: python scripts/check_repo_hygiene.py --only encoding
+
+      - name: No new revoked/deprecated ATT&CK IDs in hand-written pages
+        run: python scripts/check_repo_hygiene.py --only revoked --report
+
+  validate-navigator:
+    name: Validate ATT&CK Navigator layers
+    # Every layer under navigator/ (not just one): JSON shape, domain, versions.attack == 19 for
+    # the ATT&CK domains, every techniqueID LIVE (present and not revoked/deprecated) in its
+    # domain's profile file, every tactic a v19.2 tactic of that technique, no orphan layers,
+    # stage names vs SECURITY_PIPELINE.md. ATLAS/F3 layers are checked against their own data.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: '3.11'
+
+      - name: Validate every Navigator layer against the v19.2 data
+        run: python scripts/validate_navigator.py
+
+      - name: Full-stack layer, curated-layer normalization and navigator/index.md match the data
+        run: python scripts/build_navigator_layers.py --check
+
+      - name: scores/ (coverage scores + rendered coverage_gaps.md) match the data
+        run: python scripts/compute_coverage.py --check
 
   stats-drift:
     name: Headline-number drift guard
@@ -103,10 +149,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: '3.11'
 
@@ -136,3 +184,6 @@ jobs:
 
       - name: Control-rollup consistency check
         run: python scripts/build_control_rollup.py --check
+
+      - name: Priority-gap page + analytics Navigator layers match the data
+        run: python scripts/build_priority_gaps.py --check

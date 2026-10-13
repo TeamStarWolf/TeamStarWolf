@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | Read this when | you just took (or are interviewing for) a security-leadership role, standing up a program from zero, rebuilding one after an incident or a failed audit, defending or cutting a security budget, prepping a board deck, or deciding who declares an incident "material" |
-| Start at | [The First 90 Days](#the-first-90-days), [Organizational Design & Reporting Lines](#organizational-design--reporting-lines), [Budgeting & Headcount](#budgeting--headcount), [Board & Executive Reporting](#board--executive-reporting) |
+| Start at | [The First 90 Days](#the-first-90-days), [Organizational Design & Reporting Lines](#organizational-design-amp-reporting-lines), [Budgeting & Headcount](#budgeting-amp-headcount), [Board & Executive Reporting](#board-amp-executive-reporting) |
 | Pairs with | [GRC_REFERENCE.md](GRC_REFERENCE.md), [SECURITY_METRICS_REFERENCE.md](SECURITY_METRICS_REFERENCE.md), [REGULATORY_LANDSCAPE_REFERENCE.md](REGULATORY_LANDSCAPE_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [CAREER_PATHS.md](CAREER_PATHS.md), [FRAMEWORKS.md](FRAMEWORKS.md) |
 
 > Not legal advice. Disclosure, materiality, and personal-liability topics below are operational guidance for a security leader, not legal counsel. Materiality determinations, breach-notification duties, and director/officer exposure turn on specific facts and jurisdictions; decide them with qualified counsel and your general counsel in the room. Regulatory specifics were verified as of 2026-09-29; confirm current text before relying on any clock or rule.

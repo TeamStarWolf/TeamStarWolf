@@ -51,8 +51,16 @@ yarn-error.log*
 
 # Staged MITRE ATT&CK STIX cache — a ~53 MB offline copy used by
 # scripts/build_attack_core.py via --stix/ATTACK_STIX_PATH. The generator fetches
-# the pinned immutable URL by default, so this local bundle is never committed.
+# the commit-pinned URL by default and checks every bundle (fetched or local) against
+# its pinned SHA-256, so this local bundle is never committed.
 .stix-cache-*.json
+
+# Scratch output of older generate_mitre_pages.py --check runs (the check now renders to a
+# system temp dir). Never commit it: everything tracked is published by pages-deploy.yml.
+mitre/_gen_check/
+
+# lychee-action report directory (link-check.yml writes it in CI; local runs may too)
+/lychee/
 
 # OS cruft
 .DS_Store

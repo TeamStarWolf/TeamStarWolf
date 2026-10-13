@@ -176,8 +176,13 @@ def priority(group_count: int) -> str:
     return "low"
 
 
-def compute() -> dict:
-    """Compute all score payloads in memory. Returns {filename: text}."""
+def compute() -> tuple[dict[str, str], dict[str, dict]]:
+    """Compute all score payloads in memory.
+
+    Returns (files, tactic_coverage): files maps each score filename under scores/ to its
+    text; tactic_coverage is the per-tactic payload (also in tactic_coverage.json) that
+    main() uses for the printed summary.
+    """
     for rel in INPUTS:
         if not (ROOT / rel).is_file():
             fail(f"{rel} not found (resolved from the repo root {ROOT})")

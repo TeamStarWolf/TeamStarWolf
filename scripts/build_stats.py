@@ -143,7 +143,7 @@ def main():
         return
     outdir = os.path.join(ROOT, "data", "generated")
     os.makedirs(outdir, exist_ok=True)
-    with open(os.path.join(outdir, "stats.json"), "w", encoding="utf-8") as f:
+    with open(os.path.join(outdir, "stats.json"), "w", encoding="utf-8", newline="\n") as f:
         json.dump(stats, f, indent=2, sort_keys=True)
         f.write("\n")
     print("wrote data/generated/stats.json")

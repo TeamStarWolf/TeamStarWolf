@@ -58,6 +58,19 @@ own primary-key validation) but are part of the same relationship graph:
   edges were carried forward from a revoked predecessor (see below).
 - `attack/{group,software,campaign}_profiles.jsonl` -> `techniques` (actor -> techniques).
 
+Denormalised counts are copies of an edge table, never independent facts. On
+`technique_profiles.jsonl`, `group_count`, `software_count`, `campaign_count`,
+`mitigations` / `mitigation_count` and `detection_strategies` /
+`has_detection_strategy` are re-derived by `scripts/build_attack_core.py` from the
+same v19.2 relationships that write `group_to_technique`, `software_to_technique`,
+`campaign_profiles.techniques`, `mitigation_to_technique` and
+`detection_strategies.jsonl`; so are `technique_count` on `mitigations.jsonl`,
+`groups.jsonl`, `software.jsonl` and `campaigns.jsonl`. `scripts/validate_jsonl.py`
+(layer 6, count-vs-edge) fails when a stored count or list differs from its edge
+table. A technique revoked in v19.2 has none of these ATT&CK relationships of its own
+(ATT&CK moved them to the successor), so its counts are 0; the third-party
+crosswalks below are what a revoked id keeps.
+
 ## Revoked technique ids, carry-forward and integrity rules
 
 Third-party mappings are published against the ATT&CK version they were authored for:

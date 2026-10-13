@@ -309,6 +309,7 @@ Adversaries may abuse invisible or non-printing Unicode characters to conceal ma
 
 ATT&CK mitigations: none mapped  
 NIST 800-53 R5 controls: none (*no CTID mapping under this ID or its predecessors; rely on detection/design controls*)  
+ATT&CK detection strategy: Detection Strategy for Invisible Unicode  
 Implemented by 1 software: [S9010 GlassWorm](https://attack.mitre.org/software/S9010)  
 
 ---
@@ -1137,7 +1138,7 @@ Adversaries may exploit vulnerabilities to evade detection by hiding activity, s
 
 ATT&CK mitigations (4): [M1019 Threat Intelligence Program](../ATTACK_MITIGATIONS_REFERENCE.md#m1019), [M1048 Application Isolation and Sandboxing](../ATTACK_MITIGATIONS_REFERENCE.md#m1048), [M1050 Exploit Protection](../ATTACK_MITIGATIONS_REFERENCE.md#m1050), [M1051 Update Software](../ATTACK_MITIGATIONS_REFERENCE.md#m1051)  
 NIST 800-53 R5 controls (22): `AC-4`, `AC-6`, `CA-7`, `CM-2`, `CM-6`, `CM-8`, `RA-10`, `RA-5`, `SC-18`, `SC-2`, `SC-26`, `SC-29`, `SC-3`, `SC-30`, `SC-35`, `SC-39`, `SC-7`, `SI-2`, `SI-3`, `SI-4`, `SI-5`, `SI-7`  
-ATT&CK detection strategy: Detection Strategy for Exploitation for Defense Evasion  
+ATT&CK detection strategy: Detection Strategy for Exploitation for Stealth  
 Used by 2 threat groups: [G0007 APT28](https://attack.mitre.org/groups/G0007), [G1047 Velvet Ant](https://attack.mitre.org/groups/G1047)  
 
 ---
@@ -2111,6 +2112,7 @@ Adversaries may use social engineering techniques to influence users to take act
 
 ATT&CK mitigations (3): [M1017 User Training](../ATTACK_MITIGATIONS_REFERENCE.md#m1017), [M1036 Account Use Policies](../ATTACK_MITIGATIONS_REFERENCE.md#m1036), [M1047 Audit](../ATTACK_MITIGATIONS_REFERENCE.md#m1047)  
 NIST 800-53 R5 controls: none (*no CTID mapping under this ID or its predecessors; rely on detection/design controls*)  
+ATT&CK detection strategy: Detect Social Engineering  
 Used by 1 threat groups: [G1057 ShinyHunters](https://attack.mitre.org/groups/G1057)  
 
 ---

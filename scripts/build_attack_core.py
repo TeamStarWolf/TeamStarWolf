@@ -4,9 +4,11 @@ Regenerate the ATT&CK core JSONL from the authoritative MITRE ATT&CK v19.2
 enterprise STIX bundle.
 
 This is the audit's #1 remediation ("re-pin the ATT&CK core to v19.2 end to
-end"). It (over)writes eight files under data/attack/ from a single source of
-truth, and patches technique_profiles.jsonl in place (tactics + revoked flag)
-without disturbing its downstream enrichment.
+end"). It (over)writes nine files under data/attack/ from a single source of
+truth, and patches technique_profiles.jsonl in place without disturbing its
+downstream enrichment. Every profile field this script can derive from the STIX
+is re-derived on every run, so no count or list on a profile is left as a
+snapshot of an older release.
 
 Source of truth (immutable — the "-19.2" filename pins the content):
     https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/enterprise-attack/enterprise-attack-19.2.json
@@ -24,15 +26,41 @@ Generated files:
     groups.jsonl                    software.jsonl              campaigns.jsonl
     group_to_technique.jsonl        software_to_technique.jsonl
     mitigation_to_technique.jsonl   detection_strategies.jsonl analytics.jsonl
-Patched in place:
-    technique_profiles.jsonl        (tactics re-pinned + revoked flags; all
-                                     other fields and row order preserved)
+    mitigations.jsonl               (id, name, url and technique_count from the STIX;
+                                     an existing row keeps its curated one-paragraph
+                                     `description`)
+Patched in place (all other fields and the row order preserved):
+    technique_profiles.jsonl        name, platforms, tactics, revoked flag,
+                                    attack_version (x_mitre_version), mitigations,
+                                    mitigation_count,
+                                    group_count, software_count, campaign_count,
+                                    detection_strategies, has_detection_strategy
+
+The profile fields come from the same relationship maps that write the edge
+tables, so `group_count` equals the technique's rows in group_to_technique.jsonl,
+and so on; scripts/validate_jsonl.py enforces that. A technique revoked in v19.2
+has no relationships of its own (ATT&CK moved its `uses`, `mitigates` and
+`detects` edges to the successor recorded in superseded_by.jsonl), so its
+ATT&CK-native counts are 0 and its page points at the successor. The third-party
+crosswalks that are keyed on the revoked id (NIST, CAPEC, D3FEND, CAR) belong to
+the downstream scripts and are not touched here.
+
+After a re-pin, the files derived FROM the core are rebuilt in this order (skip
+with --no-downstream):
+    scripts/build_ctid_edges.py      control/vendor edge `tactics` copies, re-keying
+    scripts/build_control_rollup.py  nist_800_53_controls* on technique_profiles
+    scripts/backfill_capec_edges.py  capec / capec_via_revoked on technique_profiles
+
+--check rebuilds everything in memory and exits 1 if any committed file differs.
+It needs the STIX (--stix, ATTACK_STIX_PATH or network), writes nothing and does
+not run the downstream scripts (each has its own --check).
 """
 from __future__ import annotations
 
 import argparse
 import json
 import os
+import subprocess
 import sys
 import urllib.request
 from pathlib import Path
@@ -99,11 +127,13 @@ def technique_tactics(ap: dict) -> list[str]:
     ]
 
 
+def serialise_jsonl(rows: list[dict]) -> bytes:
+    """Deterministic JSONL bytes: UTF-8, CRLF line endings, trailing newline."""
+    return "".join(json.dumps(row, ensure_ascii=False) + "\r\n" for row in rows).encode("utf-8")
+
+
 def write_jsonl(path: Path, rows: list[dict]) -> None:
-    """Deterministic JSONL writer: UTF-8, CRLF line endings, trailing newline."""
-    with open(path, "w", encoding="utf-8", newline="") as f:
-        for row in rows:
-            f.write(json.dumps(row, ensure_ascii=False) + "\r\n")
+    path.write_bytes(serialise_jsonl(rows))
     print(f"[build_attack_core] wrote {path.relative_to(ROOT)}  ({len(rows)} rows)", file=sys.stderr)
 
 
@@ -317,6 +347,36 @@ def build_mitigation_to_technique(idx: Index, m) -> list[dict]:
     return sorted(rows, key=lambda r: (r["mitigation_id"], r["technique_id"]))
 
 
+def build_mitigations(idx: Index, m) -> list[dict]:
+    """mitigations.jsonl from the STIX course-of-action objects. `technique_count` is
+    the mitigation's row count in mitigation_to_technique.jsonl. The committed
+    `description` is a curated one-paragraph summary (the STIX text continues into a
+    bulleted implementation list), so an existing row keeps it; a mitigation that is
+    new to the release gets the STIX text up to its first line break."""
+    path = DATA / "mitigations.jsonl"
+    curated = {}
+    if path.exists():
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                if line.strip():
+                    r = json.loads(line)
+                    curated[r["mitigation_id"]] = r.get("description")
+    rows = []
+    for mit in idx.mitigations:
+        mid = attack_id(mit)
+        desc = curated.get(mid)
+        if desc is None:
+            desc = (mit.get("description") or "").split("\n", 1)[0].strip()
+        rows.append({
+            "mitigation_id": mid,
+            "name": mit.get("name"),
+            "technique_count": len(m["mit_tech"].get(mit["id"], ())),
+            "url": attack_url(mit),
+            "description": desc,
+        })
+    return sorted(rows, key=lambda r: r["mitigation_id"])
+
+
 def build_detection_strategies(idx: Index) -> list[dict]:
     rows = []
     for ds in idx.strategies:
@@ -388,12 +448,32 @@ def build_analytics(idx: Index) -> list[dict]:
     return sorted(rows, key=lambda r: r["analytic_id"])
 
 
-def patch_technique_profiles(idx: Index) -> dict:
-    """Patch technique_profiles.jsonl in place: set each row's `tactics` from the
-    v19.2 STIX technique, and add `revoked: true` for techniques revoked or
-    deprecated in v19.2. Preserve every other field and the row order."""
+def _invert(edges: dict[str, set]) -> dict[str, set]:
+    """{source_ref: {technique_ref}} -> {technique_ref: {source_ref}}."""
+    out: dict[str, set] = {}
+    for src, techs in edges.items():
+        for t in techs:
+            out.setdefault(t, set()).add(src)
+    return out
+
+
+def patch_technique_profiles(idx: Index, m, strategies: list[dict]) -> tuple[dict, list[dict]]:
+    """Re-derive, on every technique_profiles.jsonl row, the fields this script owns
+    (see the module docstring) from the v19.2 STIX and from the same relationship
+    maps that write the edge tables, and add `revoked: true` for techniques revoked
+    or deprecated in v19.2. Every other field (the NIST/CAPEC enrichment owned by
+    the downstream scripts, descriptions, ...) and the row order are preserved.
+    Returns (stats, rows); nothing is written here."""
     path = DATA / "technique_profiles.jsonl"
     ap_by_extid = {attack_id(o): o for o in idx.ap if attack_id(o)}
+    t_groups = _invert(m["group_tech"])
+    t_sw = _invert(m["sw_tech"])
+    t_camps = _invert(m["camp_tech"])
+    t_mits = _invert(m["mit_tech"])
+    # detection_strategies.jsonl rows -> strategy names per technique, in strategy-id order
+    t_strats: dict[str, list[str]] = {}
+    for st in sorted(strategies, key=lambda r: r["strategy_id"]):
+        t_strats.setdefault(st["technique_id"], []).append(st["name"])
 
     rows = []
     with open(path, encoding="utf-8") as f:
@@ -403,13 +483,16 @@ def patch_technique_profiles(idx: Index) -> dict:
                 rows.append(json.loads(line))
 
     tactics_changed = 0
+    rows_changed = 0
     flagged = 0
     missing = []
     for r in rows:
-        ap = ap_by_extid.get(r["technique_id"])
+        tid = r["technique_id"]
+        ap = ap_by_extid.get(tid)
         if ap is None:
-            missing.append(r["technique_id"])
+            missing.append(tid)
             continue
+        before = dict(r)
         new_tactics = technique_tactics(ap)
         if new_tactics != r.get("tactics"):
             tactics_changed += 1
@@ -417,10 +500,43 @@ def patch_technique_profiles(idx: Index) -> dict:
         if not is_active(ap):
             r["revoked"] = True
             flagged += 1
+        ref = ap["id"]
+        mits = sorted(
+            ({"id": attack_id(idx.by_id[x]), "name": idx.by_id[x].get("name")} for x in t_mits.get(ref, ())),
+            key=lambda d: d["id"],
+        )
+        strats = t_strats.get(tid, [])
+        r["name"] = ap.get("name")
+        plats = ap.get("x_mitre_platforms", [])
+        if set(r.get("platforms") or []) != set(plats):
+            r["platforms"] = list(plats)  # keep the committed order when only the order differs
+        r["attack_version"] = ap.get("x_mitre_version")
+        r["mitigations"] = mits
+        r["mitigation_count"] = len(mits)
+        r["group_count"] = len(t_groups.get(ref, ()))
+        r["software_count"] = len(t_sw.get(ref, ()))
+        r["campaign_count"] = len(t_camps.get(ref, ()))
+        r["detection_strategies"] = strats
+        r["has_detection_strategy"] = bool(strats)
+        if r != before:
+            rows_changed += 1
 
-    write_jsonl(path, rows)
-    return {"rows": len(rows), "tactics_changed": tactics_changed,
-            "flagged_revoked": flagged, "missing_in_stix": missing}
+    return ({"rows": len(rows), "tactics_changed": tactics_changed, "rows_changed": rows_changed,
+             "flagged_revoked": flagged, "missing_in_stix": missing}, rows)
+
+
+DOWNSTREAM = ("build_ctid_edges.py", "build_control_rollup.py", "backfill_capec_edges.py")
+
+
+def run_downstream() -> None:
+    """Rebuild what is derived from the core, in dependency order: the CTID edge
+    tables copy each target's tactics from technique_profiles (build_ctid_edges),
+    the NIST rollup reads those edges (build_control_rollup), and the CAPEC
+    backfill follows the same superseded_by chains. Each script is deterministic,
+    so on an unchanged core this is a no-op."""
+    for script in DOWNSTREAM:
+        print(f"[build_attack_core] running scripts/{script}", file=sys.stderr)
+        subprocess.run([sys.executable, str(ROOT / "scripts" / script)], cwd=str(ROOT), check=True)
 
 
 # --------------------------------------------------------------------------- #
@@ -429,28 +545,54 @@ def patch_technique_profiles(idx: Index) -> dict:
 def main() -> None:
     ap = argparse.ArgumentParser(description="Regenerate the ATT&CK core JSONL from MITRE v19.2 STIX.")
     ap.add_argument("--stix", help="Path to a local enterprise-attack-19.2.json (overrides the fetch).")
+    ap.add_argument("--check", action="store_true",
+                    help="Rebuild in memory and exit 1 if any committed file differs; write nothing.")
+    ap.add_argument("--no-downstream", action="store_true",
+                    help="Do not run " + ", ".join(DOWNSTREAM) + " after writing.")
     args = ap.parse_args()
 
     objs = load_stix(args.stix)
     idx = Index(objs)
     m = build_edge_maps(idx)
 
-    write_jsonl(DATA / "groups.jsonl", build_groups(idx, m))
-    write_jsonl(DATA / "software.jsonl", build_software(idx, m))
-    write_jsonl(DATA / "campaigns.jsonl", build_campaigns(idx, m))
-    write_jsonl(DATA / "group_to_technique.jsonl", build_group_to_technique(idx, m))
-    write_jsonl(DATA / "software_to_technique.jsonl", build_software_to_technique(idx, m))
-    write_jsonl(DATA / "mitigation_to_technique.jsonl", build_mitigation_to_technique(idx, m))
-    write_jsonl(DATA / "detection_strategies.jsonl", build_detection_strategies(idx))
-    write_jsonl(DATA / "analytics.jsonl", build_analytics(idx))
-    tp = patch_technique_profiles(idx)
+    strategies = build_detection_strategies(idx)
+    # mitigations.jsonl and technique_profiles.jsonl are read (curated descriptions,
+    # downstream enrichment) before anything is written.
+    mitigations = build_mitigations(idx, m)
+    tp, profiles = patch_technique_profiles(idx, m, strategies)
+    outputs = [
+        ("groups.jsonl", build_groups(idx, m)),
+        ("software.jsonl", build_software(idx, m)),
+        ("campaigns.jsonl", build_campaigns(idx, m)),
+        ("group_to_technique.jsonl", build_group_to_technique(idx, m)),
+        ("software_to_technique.jsonl", build_software_to_technique(idx, m)),
+        ("mitigation_to_technique.jsonl", build_mitigation_to_technique(idx, m)),
+        ("mitigations.jsonl", mitigations),
+        ("detection_strategies.jsonl", strategies),
+        ("analytics.jsonl", build_analytics(idx)),
+        ("technique_profiles.jsonl", profiles),
+    ]
 
+    if args.check:
+        stale = [name for name, rows in outputs
+                 if not (DATA / name).exists() or (DATA / name).read_bytes() != serialise_jsonl(rows)]
+        if stale:
+            print("ATT&CK CORE DRIFT (run scripts/build_attack_core.py): " + ", ".join(stale))
+            sys.exit(1)
+        print(f"OK: {len(outputs)} data/attack files match the v19.2 STIX")
+        return
+
+    for name, rows in outputs:
+        write_jsonl(DATA / name, rows)
     print(
         f"[build_attack_core] technique_profiles patched: {tp['rows']} rows, "
-        f"{tp['tactics_changed']} tactics changed, {tp['flagged_revoked']} flagged revoked"
+        f"{tp['tactics_changed']} tactics changed, {tp['rows_changed']} rows changed, "
+        f"{tp['flagged_revoked']} flagged revoked"
         + (f", MISSING in STIX: {tp['missing_in_stix']}" if tp["missing_in_stix"] else ""),
         file=sys.stderr,
     )
+    if not args.no_downstream:
+        run_downstream()
 
 
 if __name__ == "__main__":

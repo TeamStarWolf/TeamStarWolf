@@ -3,7 +3,7 @@
 > What this is. A field guide to running defense with MITRE ATT&CK at the center, connecting the
 > knowledge systems that answer *what behavior is happening*, *what weakness enables it*, *what products
 > are affected*, and *what we should do about it*. It is the conceptual backbone behind this repository's
-> [ATT&CK Navigator layers](navigator/), [control/technique edge tables](data/), and the
+> [ATT&CK Navigator layers](navigator/), [control/technique edge tables](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data), and the
 > [ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) workbench.
 
 | | |
@@ -168,10 +168,10 @@ and visualize:
 
 | Artifact | What it gives you |
 |---|---|
-| [`data/control_to_technique.jsonl`](data/control_to_technique.jsonl) | NIST 800-53 R5 -> ATT&CK technique edges (authoritative, CTID-sourced) |
-| [`data/vendor_to_control.jsonl`](data/vendor_to_control.jsonl) | Which NIST controls each security vendor satisfies |
-| [`data/vendor_to_technique.jsonl`](data/vendor_to_technique.jsonl) | Derived vendor -> ATT&CK coverage via the control join |
-| [`navigator/teamstarwolf_vendor_coverage.json`](navigator/teamstarwolf_vendor_coverage.json) | Master ATT&CK Navigator heatmap: technique control-depth |
+| [`data/control_to_technique.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/control_to_technique.jsonl) | NIST 800-53 R5 -> ATT&CK technique edges (authoritative, CTID-sourced) |
+| [`data/vendor_to_control.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/vendor_to_control.jsonl) | Which NIST controls each security vendor satisfies |
+| [`data/vendor_to_technique.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/vendor_to_technique.jsonl) | Derived vendor -> ATT&CK coverage via the control join |
+| [`navigator/teamstarwolf_vendor_coverage.json`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/teamstarwolf_vendor_coverage.json) | Master ATT&CK Navigator heatmap: technique control-depth |
 | [`CONTROLS_MAPPING.md`](CONTROLS_MAPPING.md) | Human-readable vendor -> NIST -> ATT&CK cross-reference |
 | [`COVERAGE_SCHEMA.md`](COVERAGE_SCHEMA.md) | Data model + gap-scoring functions |
 | [`scores/coverage_gaps.md`](scores/coverage_gaps.md) | Where the modeled stack leaves ATT&CK gaps |
@@ -207,7 +207,7 @@ Following one technique across the whole graph:
 | exposure | Any CVE that yields code execution feeding a PowerShell cradle; prioritize by KEV/EPSS |
 | detection | Encoded-command and script-block analytics: see the [Detection Library entry](detections/TECHNIQUE_DETECTION_LIBRARY.md#t1059001) for Splunk/Elastic/KQL/Chronicle/CrowdStrike queries |
 | validation | [Atomic Red Team T1059.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1059.001) tests |
-| mitigation (controls) | NIST 800-53 controls mapped to T1059.001 (CM-7 least functionality, SI-3/SI-4, AC-6); see [`control_to_technique.jsonl`](data/control_to_technique.jsonl) |
+| mitigation (controls) | NIST 800-53 controls mapped to T1059.001 (CM-7 least functionality, SI-3/SI-4, AC-6); see [`control_to_technique.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/control_to_technique.jsonl) |
 | defense (D3FEND) | Script execution analysis, process spawn analysis countermeasures |
 
 The same traversal works for any technique and is exactly what the coverage layers and detection library

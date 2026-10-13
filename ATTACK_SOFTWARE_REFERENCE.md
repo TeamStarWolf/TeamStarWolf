@@ -8,7 +8,7 @@
 | Start at | [All software by technique breadth](#all-software-by-technique-breadth), [Detailed profiles - most capable software](#detailed-profiles-most-capable-software) |
 | Pairs with | [Threat Group Profiles](THREAT_GROUP_PROFILES.md), [Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md), [Malware Families](MALWARE_FAMILIES.md) |
 
-Machine-readable: [`data/attack/software.jsonl`](data/attack/software.jsonl), [`data/attack/software_to_technique.jsonl`](data/attack/software_to_technique.jsonl)
+Machine-readable: [`data/attack/software.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/software.jsonl), [`data/attack/software_to_technique.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/software_to_technique.jsonl)
 
 ## All software by technique breadth
 

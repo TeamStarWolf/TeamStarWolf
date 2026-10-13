@@ -6,18 +6,18 @@
 |---|---|
 | Read this when | you are building or tuning a SIEM/EDR detection for a specific ATT&CK technique, you need a hunt query for your platform's language (SPL, EQL/KQL, YARA-L, CQL), you want to check which NIST 800-53 controls mitigate a technique you just detected |
 | Start at | [How to use this library](#how-to-use-this-library), [Technique index](#technique-index), [Provenance & attribution](#provenance-amp-attribution) |
-| Pairs with | [Detection Rules Reference](../DETECTION_RULES_REFERENCE.md), [Threat Hunting Reference](../THREAT_HUNTING_REFERENCE.md), [Detection strategies](strategies/README.md), [Controls Mapping](../CONTROLS_MAPPING.md) |
+| Pairs with | [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [Detection strategies](/detections/strategies/README.md), [Controls Mapping](/CONTROLS_MAPPING.md) |
 
 Platforms covered: Splunk (SPL), Elastic (EQL/KQL), Microsoft Defender / Sentinel (KQL), Google SecOps / Chronicle (YARA-L / UDM), CrowdStrike Falcon LogScale (CQL)  
 Techniques covered: 13  
-Machine-readable source: [`detections/technique-queries.json`](technique-queries.json)
+Machine-readable source: [`detections/technique-queries.json`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/detections/technique-queries.json)
 
 ### How to use this library
 
 1. Pick the technique you are hunting or building coverage for (see the index below).
 2. Copy the query for your platform and adapt field names/indexes to your environment: these are starting points seeded from community detection projects, not drop-in production rules. Validate against your own data model and tune out benign activity before deploying.
 3. Exercise the detection safely with the matching [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team) test for the technique, then confirm the alert fires.
-4. Close the loop: check the NIST 800-53 controls listed for the technique against your control stack using the [control-depth coverage layer](../navigator/teamstarwolf_vendor_coverage.json) and [edge tables](../data/).
+4. Close the loop: check the NIST 800-53 controls listed for the technique against your control stack using the [control-depth coverage layer](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/teamstarwolf_vendor_coverage.json) and [edge tables](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data).
 
 ### Provenance & attribution
 
@@ -1138,10 +1138,10 @@ rule t1566_001_office_macro {
 
 ## Related references
 
-- [Threat-Informed Defense Reference](../THREAT_INFORMED_DEFENSE_REFERENCE.md): the ATT&CK-centric knowledge graph and data-source stack behind this library
-- [ATT&CK Matrix Analysis Reference](../ATTACK_MATRIX_ANALYSIS_REFERENCE.md): coverage, detection, and risk scoring lenses
-- [Detection Rules Reference](../DETECTION_RULES_REFERENCE.md): writing Sigma, YARA, and Suricata rules
-- [SIEM Reference](../SIEM_REFERENCE.md), [Threat Hunting Reference](../THREAT_HUNTING_REFERENCE.md), [Purple Team Reference](../PURPLE_TEAM_REFERENCE.md)
-- [Controls Mapping](../CONTROLS_MAPPING.md), [Coverage layer](../navigator/), [Edge tables](../data/)
+- [Threat-Informed Defense Reference](/THREAT_INFORMED_DEFENSE_REFERENCE.md): the ATT&CK-centric knowledge graph and data-source stack behind this library
+- [ATT&CK Matrix Analysis Reference](/ATTACK_MATRIX_ANALYSIS_REFERENCE.md): coverage, detection, and risk scoring lenses
+- [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md): writing Sigma, YARA, and Suricata rules
+- [SIEM Reference](/SIEM_REFERENCE.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [Purple Team Reference](/PURPLE_TEAM_REFERENCE.md)
+- [Controls Mapping](/CONTROLS_MAPPING.md), [Coverage layer](/navigator/index.md), [Edge tables](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data)
 
 *Detection content adapted from open community sources for the ATTACK-Navi project; see attribution above. This library is a study/hunting aid and carries no warranty.*

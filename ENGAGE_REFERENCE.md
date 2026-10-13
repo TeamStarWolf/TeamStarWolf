@@ -8,7 +8,7 @@
 | Approaches | 9 |
 | Activities | 31 |
 | ATT&CK mappings | 793 across 175 techniques |
-| Datasets | [goals](data/engage/engage_goals.jsonl), [approaches](data/engage/engage_approaches.jsonl), [activities](data/engage/engage_activities.jsonl), [ATT&CK -> Engage](data/engage/attack_to_engage.jsonl) |
+| Datasets | [goals](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/engage/engage_goals.jsonl), [approaches](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/engage/engage_approaches.jsonl), [activities](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/engage/engage_activities.jsonl), [ATT&CK -> Engage](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/engage/attack_to_engage.jsonl) |
 
 > Deception is a detection strategy, not a trap for its own sake. Engage's value is that every activity ties back to an adversary behavior (ATT&CK technique) and a defensive outcome, so a honeypot becomes a measurable control rather than a science project.
 

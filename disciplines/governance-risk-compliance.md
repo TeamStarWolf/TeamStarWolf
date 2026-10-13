@@ -141,8 +141,8 @@ GRC is framework-heavy but fundamentally about communication and process. Start 
 - [FAIR Institute: Quantitative Risk Analysis](https://www.fairinstitute.org)
 - [OSCAL: Machine-Readable Compliance Data](https://pages.nist.gov/OSCAL/)
 - [FedRAMP Authorization Process](https://www.fedramp.gov/program-basics/)
-- [TeamStarWolf Controls Mapping](../CONTROLS_MAPPING.md): Vendor -> NIST 800-53 -> ATT&CK cross-reference
-- [TeamStarWolf Security Pipeline](../SECURITY_PIPELINE.md): GRC in the enterprise security lifecycle
+- [TeamStarWolf Controls Mapping](/CONTROLS_MAPPING.md): Vendor -> NIST 800-53 -> ATT&CK cross-reference
+- [TeamStarWolf Security Pipeline](/SECURITY_PIPELINE.md): GRC in the enterprise security lifecycle
 
 #### GRC Frameworks Side-by-Side
 

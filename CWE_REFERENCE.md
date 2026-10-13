@@ -2,7 +2,7 @@
 
 > [MITRE CWE](https://cwe.mitre.org/) (Common Weakness Enumeration) catalogs the 969 software and hardware weakness types that vulnerabilities (CVEs) are instances of. CWE is the *weakness* node of the [threat-informed knowledge graph](THREAT_INFORMED_DEFENSE_REFERENCE.md) (CVE -> CWE -> CAPEC -> ATT&CK -> D3FEND), answering *why* an exploit works. See the official [CWE Top 25 Most Dangerous Weaknesses](https://cwe.mitre.org/top25/).
 
-Machine-readable: [`data/weaknesses/cwe.jsonl`](data/weaknesses/cwe.jsonl). Related: [CAPEC Attack Patterns](CAPEC_REFERENCE.md), [Secure Coding](SECURE_CODING_REFERENCE.md).
+Machine-readable: [`data/weaknesses/cwe.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/weaknesses/cwe.jsonl). Related: [CAPEC Attack Patterns](CAPEC_REFERENCE.md), [Secure Coding](SECURE_CODING_REFERENCE.md).
 
 | | |
 |---|---|

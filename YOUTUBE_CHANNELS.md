@@ -192,7 +192,7 @@ A curated library of YouTube channels organized by discipline. Use it when you w
 
 The Arsenal source material only exposes a handful of direct YouTube links, so this section stays intentionally small and source-backed.
 
-- Black Hat Official YouTube - https://www.youtube.com/@BlackHatOfficialYT - Use this with [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWALK.md) and the session titles in [research/data/blackhat_arsenal_tools.csv](research/data/blackhat_arsenal_tools.csv) to build a focused watch queue
+- Black Hat Official YouTube - https://www.youtube.com/@BlackHatOfficialYT - Use this with [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWALK.md) and the session titles in [research/data/blackhat_arsenal_tools.csv](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/research/data/blackhat_arsenal_tools.csv) to build a focused watch queue
 - Faraday - https://www.youtube.com/channel/UCnHpyTi7zRQ9A4U4Ldc65YQ - Collaborative pentest platform walkthroughs
 - OWTF - https://www.youtube.com/user/owtfproject - Offensive web testing workflow demos
 - GEF playlist - https://www.youtube.com/playlist?list=PLjAuO31Rg972WeMvdR_57Qu-aVM8T6DkQ - Debugger workflow material tied to GEF

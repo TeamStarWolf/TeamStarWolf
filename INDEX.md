@@ -70,6 +70,7 @@
 | [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md) | Vendor-specific config, policy tuning, and detection guidance for major enterprise security platforms |
 | [Enterprise Security Pipeline](SECURITY_PIPELINE.md) | End-to-end security lifecycle with vendor mapping across all 6 stages |
 | [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md) | Buffer overflows, ROP chains, heap exploitation, format strings, shellcode, pwntools, Windows exploit dev, CTF resources |
+| [Field Notes](research/FIELD_NOTES.md) | Writeups and lessons learned from building, reviewing, and hardening projects in public: what changed, what it surfaced, and what may help others doing similar work |
 | [Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE.md) | IoT/Firmware attack surface, extraction, analysis, UEFI/BIOS, protocols, hardware interfaces, standards |
 | [Fight Fraud Framework (MITRE F3)](FRAUD_FRAMEWORK_REFERENCE.md) | 123 cyber-enabled financial fraud techniques across 8 tactics (reconnaissance through monetization) from MITRE's Center for Threat-Informed Defense |
 | [Frameworks Reference](FRAMEWORKS.md) | Side-by-side comparison of NIST CSF, 800-53, ISO 27001, SOC 2, PCI DSS, CMMC, GDPR, and 10+ other frameworks |
@@ -104,6 +105,7 @@
 | [Insider Threat Program Reference](INSIDER_THREAT_REFERENCE.md) | MITRE CTID Insider Threat TTP Knowledge Base v2.0, EO 13587/NITTF/NISPOM foundations, CISA mitigation guide, UAM detection, HR/legal/privacy guardrails, program metrics |
 | [Interview Prep](INTERVIEW_PREP.md) | Common interview questions by role: SOC analyst, pentester, DFIR, cloud security, AppSec |
 | [IR Playbooks](IR_PLAYBOOKS.md) | Step-by-step response procedures for ransomware, BEC, data exfiltration, DDoS, cloud incidents, and more |
+| [Kali Linux Tool Coverage](research/KALI_TOOL_COVERAGE.md) | Coverage analysis comparing the Kali Linux tool catalog against the curated Stars Lists and the starred GitHub repositories index |
 | [Kubernetes Security Reference](KUBERNETES_SECURITY_REFERENCE.md) | K8s RBAC attacks, container escape, Pod Security Standards, NetworkPolicy, secrets management, Falco, kube-bench |
 | [LimeWire](https://github.com/TeamStarWolf/LimeWire) | Python desktop audio studio: download, analysis, editing, stem separation, and batch processing |
 | [Linux Hardening](LINUX_HARDENING.md) | CIS Benchmark, STIG, kernel hardening (sysctl), SELinux/AppArmor, auditd rules, SSH hardening, service sandboxing |

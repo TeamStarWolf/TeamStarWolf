@@ -90,8 +90,12 @@ described in [COVERAGE_SCHEMA.md](COVERAGE_SCHEMA.md).
 
 Continuous integration validates the JSONL data files, checks every Navigator layer's technique IDs,
 tactics and ATT&CK version against the data, and checks that the figures quoted on the index pages and the
-data manifest match the data. A
-scheduled link check reports broken links but does not block changes.
+data manifest match the data. It also regenerates every generated page set (`mitre/`, `techniques/`,
+`detections/strategies/`, `scores/`) and fails if a committed page has drifted from the data; rejects
+mojibake, invalid UTF-8 and tracked build junk; and blocks a change that adds a revoked ATT&CK ID to a
+hand-written page. Links are checked the way the docsify site resolves them: a new broken internal link or
+anchor fails the build, as does a new outbound link that does not resolve. A weekly scan of every outbound
+link is reported in the workflow's job summary.
 
 ## Library by domain
 

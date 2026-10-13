@@ -316,11 +316,11 @@ Author's editorial mapping, not an official artifact. No published MITRE or CISA
 |---|---|---|
 | Exploitation of the internet-facing service | [T1190](https://attack.mitre.org/techniques/T1190/) Exploit Public-Facing Application | KEV-keyed patching; IDS at the boundary; appliance crash/error telemetry |
 | Authenticated access via VPN/gateway | [T1133](https://attack.mitre.org/techniques/T1133/) External Remote Services, [T1078](https://attack.mitre.org/techniques/T1078/) Valid Accounts | VPN session analytics; MFA-context anomalies; first-hop monitoring |
-| Web shells on appliances (LEMURLOOT-class, per AA23-158A) | [T1505.003](https://attack.mitre.org/techniques/T1505.003/) Web Shell | Egress from the appliance; vendor integrity checks; config/filesystem diffs where exposed |
+| Web shells on appliances (LEMURLOOT-class, per AA23-158A) | [T1505.003](https://attack.mitre.org/techniques/T1505/003/) Web Shell | Egress from the appliance; vendor integrity checks; config/filesystem diffs where exposed |
 | Firmware/OS image tampering, boot-level persistence | [T1601](https://attack.mitre.org/techniques/T1601/) Modify System Image, [T1542](https://attack.mitre.org/techniques/T1542/) Pre-OS Boot | Image hash verification against vendor values; vendor firmware-verification procedures; replacement policy |
-| Authentication modification on network devices | [T1556.004](https://attack.mitre.org/techniques/T1556.004/) Network Device Authentication | Config diff alerting; AAA command accounting |
+| Authentication modification on network devices | [T1556.004](https://attack.mitre.org/techniques/T1556/004/) Network Device Authentication | Config diff alerting; AAA command accounting |
 | Disabling/blinding device logging | [T1685](https://attack.mitre.org/techniques/T1685/) Disable or Modify Tools | "Logging went quiet" alerts; off-box log baselines |
-| Compromised edge devices as relay infrastructure | [T1090.003](https://attack.mitre.org/techniques/T1090.003/) Multi-hop Proxy | Egress monitoring; botnet-advisory IOC review (Raptor Train) |
+| Compromised edge devices as relay infrastructure | [T1090.003](https://attack.mitre.org/techniques/T1090/003/) Multi-hop Proxy | Egress monitoring; botnet-advisory IOC review (Raptor Train) |
 | C2 blended into normal protocols | [T1071](https://attack.mitre.org/techniques/T1071/) Application Layer Protocol | NetFlow/Zeek baselining of appliance-sourced traffic |
 
 ---

@@ -4,12 +4,12 @@
 
 | Read this when… | Start at… |
 |---|---|
-| You are standing up an architecture practice or need a shared vocabulary | [Principles & drivers](#1-principles--drivers), [Standards & frameworks](#8-standards--frameworks) |
-| You are choosing a structure for a new system | [Reference architectures & patterns](#2-reference-architectures--patterns), [Key design decisions & trade-offs](#5-key-design-decisions--trade-offs) |
-| You are documenting an existing system | [Building blocks & domains](#3-building-blocks--domains), [C4 & arc42](#43-documenting-architecture-c4-arc42-adrs) |
-| You need to justify or defend a decision | [ADRs](#43-documenting-architecture-c4-arc42-adrs), [Quality attributes & ATAM](#4-quality-attributes-nfrs--trade-off-analysis) |
-| You are a security reviewer looking at a design | [Security-by-design integration](#6-security-by-design-integration), [Anti-patterns & pitfalls](#7-anti-patterns--pitfalls) |
-| You want to score maturity or run a review | [Maturity & checklist](#9-maturity--checklist) |
+| You are standing up an architecture practice or need a shared vocabulary | [Principles & drivers](#_1-principles-amp-drivers), [Standards & frameworks](#_8-standards-amp-frameworks) |
+| You are choosing a structure for a new system | [Reference architectures & patterns](#_2-reference-architectures-amp-patterns), [Key design decisions & trade-offs](#_5-key-design-decisions-amp-trade-offs) |
+| You are documenting an existing system | [Building blocks & domains](#_3-building-blocks-amp-domains), [C4 & arc42](#_43-documenting-architecture-c4-arc42-adrs) |
+| You need to justify or defend a decision | [ADRs](#_43-documenting-architecture-c4-arc42-adrs), [Quality attributes & ATAM](#_4-quality-attributes-nfrs-amp-trade-off-analysis) |
+| You are a security reviewer looking at a design | [Security-by-design integration](#_6-security-by-design-integration), [Anti-patterns & pitfalls](#_7-anti-patterns-amp-pitfalls) |
+| You want to score maturity or run a review | [Maturity & checklist](#_9-maturity-amp-checklist) |
 
 ---
 

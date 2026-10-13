@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | Read this when | designing a new ML platform or LLM/RAG/agent application, reviewing an AI reference architecture, deciding train-vs-buy / serving topology / RAG vs fine-tune, standing up MLOps/LLMOps, or preparing an AI architecture review board |
-| Start at | [Principles & Drivers](#_1-principles-drivers), [Reference Architectures & Patterns](#_2-reference-architectures-patterns), [Key Design Decisions & Trade-offs](#_4-key-design-decisions-tradeoffs), [Maturity & Checklist](#_8-maturity-checklist) |
+| Start at | [Principles & Drivers](#_1-principles-amp-drivers), [Reference Architectures & Patterns](#_2-reference-architectures-amp-patterns), [Key Design Decisions & Trade-offs](#_4-key-design-decisions-amp-trade-offs), [Maturity & Checklist](#_8-maturity-amp-checklist) |
 | Pairs with | [AI_INFRASTRUCTURE_SECURITY_REFERENCE.md](AI_INFRASTRUCTURE_SECURITY_REFERENCE.md), [AI_MCP_SECURITY_REFERENCE.md](AI_MCP_SECURITY_REFERENCE.md), [AI_SECURITY_REFERENCE.md](AI_SECURITY_REFERENCE.md), [AGENTIC_AI_ATTACK_REFERENCE.md](AGENTIC_AI_ATTACK_REFERENCE.md), [ATLAS_REFERENCE.md](ATLAS_REFERENCE.md), [SECURITY_ARCHITECTURE_REFERENCE.md](SECURITY_ARCHITECTURE_REFERENCE.md), [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md) |
 
 *Standards and tool names verified against primary sources on 2026-10-08: MCP spec current revision **2025-11-25** ([modelcontextprotocol.io](https://modelcontextprotocol.io/)); OWASP Top 10 for LLM Applications **2025 (v2.0)** ([genai.owasp.org](https://genai.owasp.org/)); OWASP Top 10 for Agentic Applications **2026**; NIST AI RMF (AI 100-1) + Generative AI Profile **NIST AI 600-1** (July 2024); ISO/IEC 42001:2023; MITRE ATLAS (16 tactics). Where a version may have moved since, the text says "verify".*
@@ -14,15 +14,15 @@
 
 ## Table of Contents
 
-1. [Principles & Drivers](#_1-principles-drivers)
-2. [Reference Architectures & Patterns](#_2-reference-architectures-patterns)
+1. [Principles & Drivers](#_1-principles-amp-drivers)
+2. [Reference Architectures & Patterns](#_2-reference-architectures-amp-patterns)
 3. [Building Blocks / Domains](#_3-building-blocks-domains)
-4. [Key Design Decisions & Trade-offs](#_4-key-design-decisions-tradeoffs)
+4. [Key Design Decisions & Trade-offs](#_4-key-design-decisions-amp-trade-offs)
 5. [Security-by-Design Integration](#_5-security-by-design-integration)
-6. [Standards & Frameworks](#_6-standards-frameworks)
-7. [Anti-Patterns & Pitfalls](#_7-anti-patterns-pitfalls)
-8. [Maturity & Checklist](#_8-maturity-checklist)
-9. [Tools & Further Reading](#_9-tools-further-reading)
+6. [Standards & Frameworks](#_6-standards-amp-frameworks)
+7. [Anti-Patterns & Pitfalls](#_7-anti-patterns-amp-pitfalls)
+8. [Maturity & Checklist](#_8-maturity-amp-checklist)
+9. [Tools & Further Reading](#_9-tools-amp-further-reading)
 
 ---
 

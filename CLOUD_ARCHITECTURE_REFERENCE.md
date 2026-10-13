@@ -4,15 +4,15 @@
 
 | Read this when… | Start at |
 |---|---|
-| You're setting up a brand-new cloud footprint (greenfield org) | [Landing zones & org design](#2-reference-architectures--patterns) |
-| You need to justify an account/subscription/project boundary | [ADR-01](#key-design-decisions--trade-offs-adr-style) |
-| You're designing the network and don't know hub-and-spoke from a VPC peer | [Networking reference](#networking-hub-and-spoke--transit) |
-| You're choosing serverless vs. containers vs. Kubernetes | [ADR-04](#key-design-decisions--trade-offs-adr-style) + [Compute](#compute-serverless-containers-kubernetes) |
-| You must hit an RTO/RPO or survive a region loss | [Resilience & DR](#resilience-ha--dr) |
+| You're setting up a brand-new cloud footprint (greenfield org) | [Landing zones & org design](#_2-reference-architectures-amp-patterns) |
+| You need to justify an account/subscription/project boundary | [ADR-01](#key-design-decisions-amp-trade-offs-adr-style) |
+| You're designing the network and don't know hub-and-spoke from a VPC peer | [Networking reference](#networking-hub-and-spoke-amp-transit) |
+| You're choosing serverless vs. containers vs. Kubernetes | [ADR-04](#key-design-decisions-amp-trade-offs-adr-style) + [Compute](#compute-serverless-containers-kubernetes) |
+| You must hit an RTO/RPO or survive a region loss | [Resilience & DR](#resilience-ha-amp-dr) |
 | Finance is asking why the bill tripled | [Cost architecture (FinOps)](#cost-architecture-finops) |
 | You're doing a threat model / security review of a cloud design | [Security-by-design](#security-by-design-integration) |
-| You want a go/no-go checklist before production | [Maturity & checklist](#maturity--checklist) |
-| You inherited a mess and want to name the smells | [Anti-patterns & pitfalls](#anti-patterns--pitfalls) |
+| You want a go/no-go checklist before production | [Maturity & checklist](#maturity-amp-checklist) |
+| You inherited a mess and want to name the smells | [Anti-patterns & pitfalls](#anti-patterns-amp-pitfalls) |
 
 ---
 
@@ -34,7 +34,7 @@ Cloud architecture optimizes against forces that pull in different directions. N
 | **Design for failure** | Everything fails; assume AZ/region/service loss. No single points of failure. | Cloud SLAs are per-component, not end-to-end — composition is your job. |
 | **Immutable infrastructure** | Rebuild, don't patch in place. Golden images / IaC define state. | Eliminates config drift; recovery = redeploy. ATT&CK persistence has nowhere to hide. |
 | **Everything as code** | IaC (Terraform/OpenTofu, CloudFormation, Bicep, Pulumi), policy as code, pipelines as code. | Reviewable, versioned, testable, reproducible. A PR is your change control. |
-| **Least privilege & zero standing access** | Short-lived, scoped, just-in-time credentials; no shared root; no long-lived keys. | Identity is the primary attack surface in cloud (see [ATT&CK integration](#tie-to-mitre-attck)). |
+| **Least privilege & zero standing access** | Short-lived, scoped, just-in-time credentials; no shared root; no long-lived keys. | Identity is the primary attack surface in cloud (see [ATT&CK integration](#tie-to-mitre-attampck)). |
 | **Defense in depth** | Network, identity, workload, data layers each enforce policy independently. | One misconfig shouldn't be game over. |
 | **Automate governance (guardrails, not gates)** | Preventive + detective controls in code; let teams move fast inside a safe box. | Scales better than review boards; closes the window attackers exploit. |
 | **Loose coupling** | Async messaging, well-defined APIs, bulkheads. | Blast radius containment; independent scaling and deploy. |
@@ -166,7 +166,7 @@ Ingress → API gateway → [ service mesh: mTLS, retries, circuit-breaking ]
                               │                             resource limits,
                            per-svc datastore                network policy)
 ```
-Choose only when you have enough services and platform-engineering maturity to justify the operational weight (see [ADR-04](#key-design-decisions--trade-offs-adr-style)). A managed control plane (EKS/AKS/GKE) is table stakes; GKE Autopilot / EKS-Fargate remove node management.
+Choose only when you have enough services and platform-engineering maturity to justify the operational weight (see [ADR-04](#key-design-decisions-amp-trade-offs-adr-style)). A managed control plane (EKS/AKS/GKE) is table stakes; GKE Autopilot / EKS-Fargate remove node management.
 
 ### Data / analytics (lakehouse)
 
@@ -186,7 +186,7 @@ Active/Passive (warm standby)          Active/Active
    │ DNS/Global LB ─────────┘              └──── global data layer ────┘
    failover on health check               traffic split by latency/geo
 ```
-Active/active maximizes availability and spends it in complexity (conflict resolution, global data consistency). Most systems want active/passive with tested, automated failover — see [Resilience](#resilience-ha--dr).
+Active/active maximizes availability and spends it in complexity (conflict resolution, global data consistency). Most systems want active/passive with tested, automated failover — see [Resilience](#resilience-ha-amp-dr).
 
 ---
 
@@ -280,7 +280,7 @@ Each ADR: **Context → Options → Decision (default) → Consequences.** Adapt
 ### ADR-07 — Multi-cloud posture
 - **Options:** single-cloud · best-of-breed multi-cloud · portable-everywhere (K8s + abstraction).
 - **Decision:** **Single primary cloud** for most orgs; go multi-cloud only for concrete drivers (regulatory, acquisition, specific best-of-breed service, resilience mandate). Don't pay the abstraction tax for a hypothetical.
-- **Consequences:** Single-cloud = deeper service use, lower complexity, real lock-in. Multi-cloud = negotiating leverage and resilience at the cost of lowest-common-denominator design, doubled operational/security surface, and egress between clouds. See [multi-cloud & hybrid](#multi-cloud--hybrid).
+- **Consequences:** Single-cloud = deeper service use, lower complexity, real lock-in. Multi-cloud = negotiating leverage and resilience at the cost of lowest-common-denominator design, doubled operational/security surface, and egress between clouds. See [multi-cloud & hybrid](#multi-cloud-amp-hybrid).
 
 ### ADR-08 — Resilience target (RTO/RPO) → topology
 - **Decision:** Derive topology from RTO/RPO, not the reverse. Backup/restore → pilot-light → warm-standby → active/active as targets tighten. Most systems: **multi-AZ by default, multi-region warm-standby for tier-1**.
@@ -345,7 +345,7 @@ CSPM/CNAPP + native findings ──► auto-remediate or alert SIEM             
 
 | Standard / framework | What it gives cloud architects |
 |---|---|
-| **AWS/Azure/Google Well-Architected** | The design-review baseline (see [Principles](#1-principles--drivers)). |
+| **AWS/Azure/Google Well-Architected** | The design-review baseline (see [Principles](#_1-principles-amp-drivers)). |
 | **NIST SP 800-53 Rev. 5** | The control catalog most US/enterprise cloud baselines map to. |
 | **NIST SP 800-145** | The canonical definition of cloud (service & deployment models). |
 | **NIST SP 800-144 / 800-146** | Guidance on security/privacy in public cloud and cloud synopsis. |

@@ -4,13 +4,13 @@
 
 | Read this when… | Start at |
 |---|---|
-| You are greenfielding a data-center fabric | [Reference architectures](#2-reference-architectures--patterns) → Spine-leaf / Clos |
-| You inherited a flat network and need to segment it | [Segmentation & ZTNA](#34-segmentation-micro-segmentation--zero-trust) · [Anti-patterns](#7-anti-patterns--pitfalls) |
-| You are connecting multiple sites or clouds | [SD-WAN & SASE](#35-wan-sd-wan-sase--sse) · [Hybrid/cloud interconnect](#37-hybrid--cloud-interconnect) |
-| You are making a specific topology/overlay call | [Key design decisions (ADRs)](#4-key-design-decisions--trade-offs) |
-| You need to tie design to controls & threats | [Security-by-design](#5-security-by-design-integration) |
-| You want to score an existing network | [Maturity / checklist](#8-maturity--checklist) |
-| You need the authoritative sources | [Standards](#6-standards--frameworks) · [Tools & further reading](#9-tools--further-reading) |
+| You are greenfielding a data-center fabric | [Reference architectures](#_2-reference-architectures-amp-patterns) → Spine-leaf / Clos |
+| You inherited a flat network and need to segment it | [Segmentation & ZTNA](#_34-segmentation-micro-segmentation-amp-zero-trust) · [Anti-patterns](#_7-anti-patterns-amp-pitfalls) |
+| You are connecting multiple sites or clouds | [SD-WAN & SASE](#_35-wan-sd-wan-sase-amp-sse) · [Hybrid/cloud interconnect](#adr-7-cloud-connectivity-private-interconnect-vs-vpn-vs-public-ztna) |
+| You are making a specific topology/overlay call | [Key design decisions (ADRs)](#_4-key-design-decisions-amp-trade-offs) |
+| You need to tie design to controls & threats | [Security-by-design](#_5-security-by-design-integration) |
+| You want to score an existing network | [Maturity / checklist](#_8-maturity-checklist) |
+| You need the authoritative sources | [Standards](#_6-standards-amp-frameworks) · [Tools & further reading](#_9-tools-amp-further-reading) |
 
 ---
 

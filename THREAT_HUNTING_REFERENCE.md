@@ -1979,8 +1979,8 @@ coverage = {
 }
 
 layer = {
-    "name": "Threat Hunting Coverage Q1 2024",
-    "versions": {"attack": "14", "navigator": "4.9.1", "layer": "4.5"},
+    "name": "Threat Hunting Coverage",
+    "versions": {"attack": "19", "navigator": "4.9.1", "layer": "4.5"},
     "domain": "enterprise-attack",
     "description": "Current threat hunting coverage mapped to ATT&CK",
     "filters": {"platforms": ["Windows", "Linux", "macOS"]},

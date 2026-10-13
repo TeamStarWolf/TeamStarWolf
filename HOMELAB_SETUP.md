@@ -894,8 +894,8 @@ Azure is the second-largest cloud provider and the dominant platform for enterpr
 | Tier | What's Included | Duration |
 |---|---|---|
 | $200 credit | Any Azure service | 30 days from signup |
-| 12-Month Free | 750 hrs/mo each of B1s, B2pts v2 (Arm) and B2ats v2 (AMD) burstable VMs (Linux and Windows), 2 x 64 GB managed disks, 5 GB Blob Storage (LRS hot), SQL Database (250 GB S0), PostgreSQL/MySQL Flexible Server (750 hrs B1MS) | 12 months from signup, then pay-as-you-go |
-| Always Free | 65+ services, e.g. Azure Functions (1M requests/mo), Cosmos DB free tier (1,000 RU/s + 25 GB), App Service (10 apps) | Permanent |
+| 12-Month Free | 750 hrs/mo each of B1s, B2pts v2 (Arm) and B2ats v2 (AMD) burstable VMs (Linux and Windows), 2 x 64 GB managed disks, 5 GB Blob Storage (LRS hot), PostgreSQL/MySQL Flexible Server (750 hrs B1MS) | 12 months from signup, then pay-as-you-go |
+| Always Free | 65+ services, e.g. Azure Functions (1M requests/mo), Cosmos DB free tier (1,000 RU/s + 25 GB), App Service (10 apps), Azure SQL Database free offer (up to 10 General Purpose serverless databases per subscription, each with 100,000 vCore seconds and 32 GB of data per month; it replaced the old 12-month 250 GB S0 offer) | Permanent |
 | Entra ID Free Tier | User management, SSO, MFA (up to 50,000 objects) | Permanent |
 
 Sign up at: https://azure.microsoft.com/en-us/free/ (offers change; check the current list at https://azure.microsoft.com/en-us/pricing/free-services/)
@@ -914,17 +914,17 @@ az login
 # Check your subscription
 az account show
 
-# Set a cost alert immediately
+# Set a monthly budget immediately (runs for one year from this month; GNU date syntax)
 az consumption budget create \
   --budget-name "lab-budget" \
   --amount 10 \
-  --category Cost \
-  --time-grain Monthly \
+  --category cost \
+  --time-grain monthly \
   --start-date $(date +%Y-%m-01) \
-  --end-date 2026-12-31 \
-  --resource-group-name "" \
-  --notifications "[{\"enabled\":true,\"operator\":\"GreaterThan\",\"threshold\":80,\"contactEmails\":[\"youremail@example.com\"],\"thresholdType\":\"Actual\"}]"
+  --end-date $(date -d "+1 year" +%Y-%m-01)
 ```
+
+`az consumption budget create` sets the amount and period but takes no alert recipients. Add the email alert (for example, actual cost above 80%) in the portal under Cost Management -> Budgets -> lab-budget. See the [`az consumption budget` reference](https://learn.microsoft.com/en-us/cli/azure/consumption/budget).
 
 ### Step 2 — Set Up Test Users, Groups, and Roles
 
@@ -997,9 +997,10 @@ What's included (25 user licenses):
 - Microsoft 365 E5 (Word, Excel, Teams, SharePoint, Exchange, etc.)
 - Microsoft Defender for Office 365 (P2)
 - Microsoft Defender for Endpoint (P2)
-- Microsoft Sentinel (free data ingestion up to 10 GB/day during trial)
 - Microsoft Purview (eDiscovery, Compliance)
 - Entra ID P2 (Conditional Access, PIM, Identity Protection)
+
+Microsoft Sentinel is not part of the E5 license. It runs and is billed in an Azure subscription (Step 5). A new Sentinel workspace's first 31 days are free up to 10 GB/day, and Microsoft's [Sentinel benefit for Microsoft 365 E5, A5, F5 and G5 customers](https://azure.microsoft.com/en-us/pricing/offers/sentinel-microsoft-365-offer/) grants up to 5 MB per user per day of qualifying Microsoft 365 data ingestion.
 
 Sign up: https://developer.microsoft.com/en-us/microsoft-365/dev-program
 
@@ -1011,7 +1012,7 @@ Sign up: https://developer.microsoft.com/en-us/microsoft-365/dev-program
 5. Note the admin credentials provided — these are your E5 tenant credentials
 ```
 
-> Why this is valuable: Practicing with Sentinel, Defender XDR, and Entra ID P2 features normally costs hundreds of dollars per month. For eligible subscribers, the developer program gives you a full enterprise security stack for free.
+> Why this is valuable: Practicing with Defender XDR and Entra ID P2 features normally costs hundreds of dollars per month. For eligible subscribers, the developer program gives you that enterprise security stack for free; pair it with the Sentinel free trial for the SIEM side.
 
 If you are not eligible, these public trials cover the same practice areas. They are time-limited, so plan your lab around them:
 
@@ -1036,9 +1037,11 @@ az monitor log-analytics workspace create \
   --location eastus
 
 # Enable Microsoft Sentinel on the workspace
-az security insights workspace create \
+# (sentinel CLI extension, installed on first use; Microsoft marks the command experimental)
+az sentinel onboarding-state create \
   --resource-group lab-rg \
-  --workspace-name lab-sentinel-workspace
+  --workspace-name lab-sentinel-workspace \
+  --name default
 
 # Connect Microsoft 365 Defender data connector (ingests Defender XDR events)
 # This is done in the Sentinel portal: Content Hub -> Microsoft 365 Defender -> Install

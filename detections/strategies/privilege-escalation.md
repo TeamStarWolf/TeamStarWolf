@@ -2,7 +2,7 @@
 
 > MITRE ATT&CK detection strategies and analytics (v19.2) for techniques whose primary tactic is Privilege Escalation. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
 
-See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](../TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](../../ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](../../techniques/README.md)
+See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](/techniques/README.md)
 
 ---
 
@@ -11,7 +11,7 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 
 Detection strategy: Detection Strategy for Exploitation for Privilege Escalation (`DET0514`)  
 Platforms: Containers, Linux, Windows, macOS  
-ATT&CK: [T1068](https://attack.mitre.org/techniques/T1068/), [detail page](../../techniques/privilege-escalation.md#t1068)
+ATT&CK: [T1068](https://attack.mitre.org/techniques/T1068/), [detail page](/techniques/privilege-escalation.md#t1068)
 
 - `AN1419` Analytic 1419, Windows
   Detects exploitation attempts targeting vulnerable kernel drivers or OS components, often followed by unusual process or token behavior.
@@ -37,7 +37,7 @@ ATT&CK: [T1068](https://attack.mitre.org/techniques/T1068/), [detail page](../..
 
 Detection strategy: Behavioral Detection of Event Triggered Execution Across Platforms (`DET0010`)  
 Platforms: IaaS, Linux, Office Suite, SaaS, Windows, macOS  
-ATT&CK: [T1546](https://attack.mitre.org/techniques/T1546/), [detail page](../../techniques/privilege-escalation.md#t1546)
+ATT&CK: [T1546](https://attack.mitre.org/techniques/T1546/), [detail page](/techniques/privilege-escalation.md#t1546)
 
 - `AN0024` Analytic 0024, Windows
   Correlates unexpected modifications to WMI event filters, scheduled task triggers, or registry autorun keys with subsequent execution of non-standard binaries by SYSTEM-level processes.
@@ -71,7 +71,7 @@ ATT&CK: [T1546](https://attack.mitre.org/techniques/T1546/), [detail page](../..
 
 Detection strategy: Detect Default File Association Hijack via Registry & Execution Correlation on Windows (`DET0061`)  
 Platforms: Windows  
-ATT&CK: [T1546.001](https://attack.mitre.org/techniques/T1546/001/), [detail page](../../techniques/privilege-escalation.md#t1546001)
+ATT&CK: [T1546.001](https://attack.mitre.org/techniques/T1546/001/), [detail page](/techniques/privilege-escalation.md#t1546001)
 
 - `AN0170` Analytic 0170, Windows
   Detects modification of registry keys used for default file handlers, followed by anomalous process execution from user-initiated file opens. This includes tracking changes under HKCU and HKCR for file extension mappings, and correlating them with new or suspicious handler paths launching unusual child processes (e.g., PowerShell, cmd, wscript).
@@ -85,7 +85,7 @@ ATT&CK: [T1546.001](https://attack.mitre.org/techniques/T1546/001/), [detail pag
 
 Detection strategy: Detect Screensaver-Based Persistence via Registry and Execution Chains (`DET0154`)  
 Platforms: Windows  
-ATT&CK: [T1546.002](https://attack.mitre.org/techniques/T1546/002/), [detail page](../../techniques/privilege-escalation.md#t1546002)
+ATT&CK: [T1546.002](https://attack.mitre.org/techniques/T1546/002/), [detail page](/techniques/privilege-escalation.md#t1546002)
 
 - `AN0441` Analytic 0441, Windows
   Unusual screensaver (.scr) executions correlated with recent registry modifications to HKCU\Control Panel\Desktop values such as SCRNSAVE.exe, ScreenSaveTimeout, and ScreenSaveActive. Detection focuses on PE image paths not consistent with known legitimate screensavers and triggered after user inactivity timeout.
@@ -99,7 +99,7 @@ ATT&CK: [T1546.002](https://attack.mitre.org/techniques/T1546/002/), [detail pag
 
 Detection strategy: Detect WMI Event Subscription for Persistence via WmiPrvSE Process and MOF Compilation (`DET0086`)  
 Platforms: Windows  
-ATT&CK: [T1546.003](https://attack.mitre.org/techniques/T1546/003/), [detail page](../../techniques/privilege-escalation.md#t1546003)
+ATT&CK: [T1546.003](https://attack.mitre.org/techniques/T1546/003/), [detail page](/techniques/privilege-escalation.md#t1546003)
 
 - `AN0236` Analytic 0236, Windows
   Monitor for creation of WMI EventFilter, EventConsumer, and FilterToConsumerBinding objects through WMI or MOF file execution. Detect command-line execution of `mofcomp.exe`, usage of `Register-WmiEvent` via PowerShell, and anomalous child processes of `WmiPrvSE.exe` that indicate triggered execution. Look for lateral anomalies in process lineage and WMI logging channels.
@@ -113,7 +113,7 @@ ATT&CK: [T1546.003](https://attack.mitre.org/techniques/T1546/003/), [detail pag
 
 Detection strategy: Detect Shell Configuration Modification for Persistence via Event-Triggered Execution (`DET0020`)  
 Platforms: Linux, macOS  
-ATT&CK: [T1546.004](https://attack.mitre.org/techniques/T1546/004/), [detail page](../../techniques/privilege-escalation.md#t1546004)
+ATT&CK: [T1546.004](https://attack.mitre.org/techniques/T1546/004/), [detail page](/techniques/privilege-escalation.md#t1546004)
 
 - `AN0059` Analytic 0059, Linux
   Detects modification of shell startup/logout scripts such as ~/.bashrc, ~/.bash_profile, or /etc/profile, followed by anomalous process execution or network connections upon interactive or remote shell login.
@@ -131,7 +131,7 @@ ATT&CK: [T1546.004](https://attack.mitre.org/techniques/T1546/004/), [detail pag
 
 Detection strategy: Detection Strategy for Event Triggered Execution via Trap (T1546.005) (`DET0369`)  
 Platforms: Linux, macOS  
-ATT&CK: [T1546.005](https://attack.mitre.org/techniques/T1546/005/), [detail page](../../techniques/privilege-escalation.md#t1546005)
+ATT&CK: [T1546.005](https://attack.mitre.org/techniques/T1546/005/), [detail page](/techniques/privilege-escalation.md#t1546005)
 
 - `AN1038` Analytic 1038, Linux
   Correlate file modifications in shell startup scripts (e.g., .bashrc, .profile) with embedded `trap` commands and observe if those changes are followed by the unexpected execution of child processes when terminal signals (e.g., SIGINT) are triggered. Use contextual linking with user session activity to detect privilege misuse.
@@ -149,7 +149,7 @@ ATT&CK: [T1546.005](https://attack.mitre.org/techniques/T1546/005/), [detail pag
 
 Detection strategy: Detection Strategy for LC_LOAD_DYLIB Modification in Mach-O Binaries on macOS (`DET0216`)  
 Platforms: macOS  
-ATT&CK: [T1546.006](https://attack.mitre.org/techniques/T1546/006/), [detail page](../../techniques/privilege-escalation.md#t1546006)
+ATT&CK: [T1546.006](https://attack.mitre.org/techniques/T1546/006/), [detail page](/techniques/privilege-escalation.md#t1546006)
 
 - `AN0607` Analytic 0607, macOS
   Detection focuses on unauthorized modification of Mach-O binaries to include LC_LOAD_DYLIB headers pointing to malicious dylibs. Behavior is identified via a chain of file metadata changes, removal of code signatures, and subsequent anomalous dylib loads at runtime. Correlation of file changes with lack of authorized updates and process memory mapping of unrecognized or unsigned libraries is crucial.
@@ -163,7 +163,7 @@ ATT&CK: [T1546.006](https://attack.mitre.org/techniques/T1546/006/), [detail pag
 
 Detection strategy: Detection Strategy for Netsh Helper DLL Persistence via Registry and Child Process Monitoring (Windows) (`DET0575`)  
 Platforms: Windows  
-ATT&CK: [T1546.007](https://attack.mitre.org/techniques/T1546/007/), [detail page](../../techniques/privilege-escalation.md#t1546007)
+ATT&CK: [T1546.007](https://attack.mitre.org/techniques/T1546/007/), [detail page](/techniques/privilege-escalation.md#t1546007)
 
 - `AN1588` Analytic 1588, Windows
   Detection focuses on monitoring registry modifications under HKLM\SOFTWARE\Microsoft\Netsh that indicate the addition of helper DLLs, followed by anomalous child process activity or module load behavior initiated by netsh.exe. These behaviors are rarely legitimate and may represent an adversary establishing persistence.
@@ -177,7 +177,7 @@ ATT&CK: [T1546.007](https://attack.mitre.org/techniques/T1546/007/), [detail pag
 
 Detection strategy: Detection Strategy for Accessibility Feature Hijacking via Binary Replacement or Registry Modification (`DET0033`)  
 Platforms: Windows  
-ATT&CK: [T1546.008](https://attack.mitre.org/techniques/T1546/008/), [detail page](../../techniques/privilege-escalation.md#t1546008)
+ATT&CK: [T1546.008](https://attack.mitre.org/techniques/T1546/008/), [detail page](/techniques/privilege-escalation.md#t1546008)
 
 - `AN0094` Analytic 0094, Windows
   Defenders can observe suspicious replacement or tampering of system accessibility binaries (e.g., utilman.exe, sethc.exe, osk.exe) and anomalous modifications to registry keys used to redirect accessibility programs (such as IFEO keys). Additionally, execution of cmd.exe or other suspicious binaries triggered from the login screen by SYSTEM can be correlated as part of a behavior chain.
@@ -191,7 +191,7 @@ ATT&CK: [T1546.008](https://attack.mitre.org/techniques/T1546/008/), [detail pag
 
 Detection strategy: Detection Strategy for AppCert DLLs Persistence via Registry Injection (`DET0362`)  
 Platforms: Windows  
-ATT&CK: [T1546.009](https://attack.mitre.org/techniques/T1546/009/), [detail page](../../techniques/privilege-escalation.md#t1546009)
+ATT&CK: [T1546.009](https://attack.mitre.org/techniques/T1546/009/), [detail page](/techniques/privilege-escalation.md#t1546009)
 
 - `AN1029` Analytic 1029, Windows
   Detection of AppCert DLL abuse involves correlating registry modifications to the AppCertDLLs key with subsequent unexpected DLL load behavior during process creation events. Specifically, defenders can observe abnormal DLLs being loaded into standard Windows processes after changes to the 'AppCertDLLs' registry value. Monitoring CreateProcess-family API executions with injected DLLs and linking those DLLs back to recent registry edits is key to identifying misuse. This is often accompanied by elevated privileges and potential lateral movement or discovery behavior.
@@ -205,7 +205,7 @@ ATT&CK: [T1546.009](https://attack.mitre.org/techniques/T1546/009/), [detail pag
 
 Detection strategy: Detection Strategy for Event Triggered Execution: AppInit DLLs (Windows) (`DET0557`)  
 Platforms: Windows  
-ATT&CK: [T1546.010](https://attack.mitre.org/techniques/T1546/010/), [detail page](../../techniques/privilege-escalation.md#t1546010)
+ATT&CK: [T1546.010](https://attack.mitre.org/techniques/T1546/010/), [detail page](/techniques/privilege-escalation.md#t1546010)
 
 - `AN1536` Analytic 1536, Windows
   Registry key modification to AppInit_DLLs value followed by anomalous DLL loading by processes importing user32.dll, especially unsigned or uncommon DLLs, suggesting unauthorized AppInit persistence or privilege escalation.
@@ -219,7 +219,7 @@ ATT&CK: [T1546.010](https://attack.mitre.org/techniques/T1546/010/), [detail pag
 
 Detection strategy: Detection Strategy for Application Shimming via sdbinst.exe and Registry Artifacts (Windows) (`DET0017`)  
 Platforms: Windows  
-ATT&CK: [T1546.011](https://attack.mitre.org/techniques/T1546/011/), [detail page](../../techniques/privilege-escalation.md#t1546011)
+ATT&CK: [T1546.011](https://attack.mitre.org/techniques/T1546/011/), [detail page](/techniques/privilege-escalation.md#t1546011)
 
 - `AN0051` Analytic 0051, Windows
   Correlated modification of AppCompat registry keys and execution of sdbinst.exe to install custom shim databases. Followed by DLL injection via shim behavior into target application processes.
@@ -233,7 +233,7 @@ ATT&CK: [T1546.011](https://attack.mitre.org/techniques/T1546/011/), [detail pag
 
 Detection strategy: Detection Strategy for IFEO Injection on Windows (`DET0422`)  
 Platforms: Windows  
-ATT&CK: [T1546.012](https://attack.mitre.org/techniques/T1546/012/), [detail page](../../techniques/privilege-escalation.md#t1546012)
+ATT&CK: [T1546.012](https://attack.mitre.org/techniques/T1546/012/), [detail page](/techniques/privilege-escalation.md#t1546012)
 
 - `AN1186` Analytic 1186, Windows
   Registry key modifications under IFEO paths (e.g., Debugger value set under Image File Execution Options), especially for security-related or accessibility binaries, followed by anomalous process execution with debugger flags or SYSTEM-level access at login. Detectable by correlating registry modifications, process creation, and parent-child anomalies with unusual command-line usage or access tokens.
@@ -247,7 +247,7 @@ ATT&CK: [T1546.012](https://attack.mitre.org/techniques/T1546/012/), [detail pag
 
 Detection strategy: Detection Strategy for PowerShell Profile Persistence via profile.ps1 Modification (`DET0451`)  
 Platforms: Windows  
-ATT&CK: [T1546.013](https://attack.mitre.org/techniques/T1546/013/), [detail page](../../techniques/privilege-escalation.md#t1546013)
+ATT&CK: [T1546.013](https://attack.mitre.org/techniques/T1546/013/), [detail page](/techniques/privilege-escalation.md#t1546013)
 
 - `AN1245` Analytic 1245, Windows
   Defenders can identify PowerShell profile-based persistence by correlating file creation or modification in known profile locations with subsequent PowerShell process launches that do not use the `-NoProfile` flag. Profile scripts loading unusual modules or launching external programs, particularly under elevated contexts, are suspicious and may represent adversary persistence or privilege escalation.
@@ -261,7 +261,7 @@ ATT&CK: [T1546.013](https://attack.mitre.org/techniques/T1546/013/), [detail pag
 
 Detection strategy: Detection Strategy for Event Triggered Execution via emond on macOS (`DET0555`)  
 Platforms: macOS  
-ATT&CK: [T1546.014](https://attack.mitre.org/techniques/T1546/014/), [detail page](../../techniques/privilege-escalation.md#t1546014)
+ATT&CK: [T1546.014](https://attack.mitre.org/techniques/T1546/014/), [detail page](/techniques/privilege-escalation.md#t1546014)
 
 - `AN1534` Analytic 1534, macOS
   Detection focuses on identifying unauthorized file creation or modification within `/etc/emond.d/rules/` or `/private/var/db/emondClients`, which indicate attempts to register a malicious emond rule. Correlate with process execution of `/sbin/emond` and any launched commands it invokes, especially during boot or login events. Anomalies may include rules created by non-root users or unexpected shell commands executed by emond.
@@ -275,7 +275,7 @@ ATT&CK: [T1546.014](https://attack.mitre.org/techniques/T1546/014/), [detail pag
 
 Detection strategy: Windows COM Hijacking Detection via Registry and DLL Load Correlation (`DET0481`)  
 Platforms: Windows  
-ATT&CK: [T1546.015](https://attack.mitre.org/techniques/T1546/015/), [detail page](../../techniques/privilege-escalation.md#t1546015)
+ATT&CK: [T1546.015](https://attack.mitre.org/techniques/T1546/015/), [detail page](/techniques/privilege-escalation.md#t1546015)
 
 - `AN1323` Analytic 1323, Windows
   Correlate suspicious registry modifications to known COM object CLSIDs with subsequent DLL loads or unexpected binary execution paths. Detect placement of COM CLSID entries under HKEY_CURRENT_USER\Software\Classes\CLSID\ overriding default HKLM paths. Flag anomalous DLL loads traced back to hijacked COM registry changes.
@@ -289,7 +289,7 @@ ATT&CK: [T1546.015](https://attack.mitre.org/techniques/T1546/015/), [detail pag
 
 Detection strategy: Detection Strategy for T1546.016 - Event Triggered Execution via Installer Packages (`DET0330`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1546.016](https://attack.mitre.org/techniques/T1546/016/), [detail page](../../techniques/privilege-escalation.md#t1546016)
+ATT&CK: [T1546.016](https://attack.mitre.org/techniques/T1546/016/), [detail page](/techniques/privilege-escalation.md#t1546016)
 
 - `AN0938` Analytic 0938, macOS
   Correlation of package install event with execution of postinstall scripts containing unknown binaries or abnormal CLI usage. Look for `/usr/sbin/installer` execution followed by child processes originating from postinstall script.
@@ -311,7 +311,7 @@ ATT&CK: [T1546.016](https://attack.mitre.org/techniques/T1546/016/), [detail pag
 
 Detection strategy: Detection Strategy for Abuse Elevation Control Mechanism (T1548) (`DET0345`)  
 Platforms: IaaS, Identity Provider, Linux, Windows, macOS  
-ATT&CK: [T1548](https://attack.mitre.org/techniques/T1548/), [detail page](../../techniques/privilege-escalation.md#t1548)
+ATT&CK: [T1548](https://attack.mitre.org/techniques/T1548/), [detail page](/techniques/privilege-escalation.md#t1548)
 
 - `AN0975` Analytic 0975, Windows
   Correlate registry modifications (e.g., UAC bypass registry keys), unusual parent-child process relationships (e.g., control.exe spawning cmd.exe), and unsigned elevated process executions with non-standard tokens or elevation flags.
@@ -341,7 +341,7 @@ ATT&CK: [T1548](https://attack.mitre.org/techniques/T1548/), [detail page](../..
 
 Detection strategy: Setuid/Setgid Privilege Abuse Detection (Linux/macOS) (`DET0110`)  
 Platforms: Linux, macOS  
-ATT&CK: [T1548.001](https://attack.mitre.org/techniques/T1548/001/), [detail page](../../techniques/privilege-escalation.md#t1548001)
+ATT&CK: [T1548.001](https://attack.mitre.org/techniques/T1548/001/), [detail page](/techniques/privilege-escalation.md#t1548001)
 
 - `AN0307` Analytic 0307, Linux
   Correlation of chmod operations setting setuid/setgid bits followed by privileged process execution (EUID != UID), especially from user-writable or abnormal paths.
@@ -359,7 +359,7 @@ ATT&CK: [T1548.001](https://attack.mitre.org/techniques/T1548/001/), [detail pag
 
 Detection strategy: Detection Strategy for T1548.002 – Bypass User Account Control (UAC) (`DET0388`)  
 Platforms: Windows  
-ATT&CK: [T1548.002](https://attack.mitre.org/techniques/T1548/002/), [detail page](../../techniques/privilege-escalation.md#t1548002)
+ATT&CK: [T1548.002](https://attack.mitre.org/techniques/T1548/002/), [detail page](/techniques/privilege-escalation.md#t1548002)
 
 - `AN1094` Analytic 1094, Windows
   Detects a multi-event behavior chain involving UAC bypass attempts via known auto-elevated binaries (e.g., eventvwr.exe, sdclt.exe), unauthorized Registry changes to UAC-related keys, and anomalous process execution with elevated privileges but lacking standard parent-child lineage. Suspicious patterns include invocation of auto-elevated COM objects or manipulation of isolatedCommand Registry entries without consent prompts.
@@ -373,7 +373,7 @@ ATT&CK: [T1548.002](https://attack.mitre.org/techniques/T1548/002/), [detail pag
 
 Detection strategy: Behavioral Detection Strategy for Abuse of Sudo and Sudo Caching (`DET0052`)  
 Platforms: Linux, macOS  
-ATT&CK: [T1548.003](https://attack.mitre.org/techniques/T1548/003/), [detail page](../../techniques/privilege-escalation.md#t1548003)
+ATT&CK: [T1548.003](https://attack.mitre.org/techniques/T1548/003/), [detail page](/techniques/privilege-escalation.md#t1548003)
 
 - `AN0142` Analytic 0142, Linux
   Correlate command executions involving 'sudo' with elevated effective user ID (euid=0), especially when tty_tickets is disabled or timestamp_timeout is actively abused.
@@ -391,7 +391,7 @@ ATT&CK: [T1548.003](https://attack.mitre.org/techniques/T1548/003/), [detail pag
 
 Detection strategy: macOS AuthorizationExecuteWithPrivileges Elevation Prompt Detection (`DET0395`)  
 Platforms: macOS  
-ATT&CK: [T1548.004](https://attack.mitre.org/techniques/T1548/004/), [detail page](../../techniques/privilege-escalation.md#t1548004)
+ATT&CK: [T1548.004](https://attack.mitre.org/techniques/T1548/004/), [detail page](/techniques/privilege-escalation.md#t1548004)
 
 - `AN1111` Analytic 1111, macOS
   Detects abuse of AuthorizationExecuteWithPrivileges API to gain elevated privileges via user credential prompts, typically through invocation of /usr/libexec/security_authtrampoline. Detection involves correlation of API usage, binary reputation, and prompt context.
@@ -405,7 +405,7 @@ ATT&CK: [T1548.004](https://attack.mitre.org/techniques/T1548/004/), [detail pag
 
 Detection strategy: Detection Strategy for Temporary Elevated Cloud Access Abuse (T1548.005) (`DET0393`)  
 Platforms: IaaS, Identity Provider, Office Suite  
-ATT&CK: [T1548.005](https://attack.mitre.org/techniques/T1548/005/), [detail page](../../techniques/privilege-escalation.md#t1548005)
+ATT&CK: [T1548.005](https://attack.mitre.org/techniques/T1548/005/), [detail page](/techniques/privilege-escalation.md#t1548005)
 
 - `AN1105` Analytic 1105, IaaS
   Multiple AWS CloudTrail events indicating temporary privilege escalation via PassRole and AssumeRole targeting newly created services or non-interactive infrastructure.
@@ -427,7 +427,7 @@ ATT&CK: [T1548.005](https://attack.mitre.org/techniques/T1548/005/), [detail pag
 
 Detection strategy: TCC Database Manipulation via Launchctl and Unprotected SIP (`DET0534`)  
 Platforms: macOS  
-ATT&CK: [T1548.006](https://attack.mitre.org/techniques/T1548/006/), [detail page](../../techniques/privilege-escalation.md#t1548006)
+ATT&CK: [T1548.006](https://attack.mitre.org/techniques/T1548/006/), [detail page](/techniques/privilege-escalation.md#t1548006)
 
 - `AN1474` Analytic 1474, macOS
   Unauthorized modification of TCC.db followed by elevated process execution under a trusted parent (e.g., Finder, SystemUIServer) or via launchctl environment override. Also includes identification of SIP being disabled, which is highly uncommon and a prerequisite for this abuse path.
@@ -441,7 +441,7 @@ ATT&CK: [T1548.006](https://attack.mitre.org/techniques/T1548/006/), [detail pag
 
 Detection strategy: Detection Strategy for Escape to Host (`DET0219`)  
 Platforms: Containers, ESXi, Linux, Windows  
-ATT&CK: [T1611](https://attack.mitre.org/techniques/T1611/), [detail page](../../techniques/privilege-escalation.md#t1611)
+ATT&CK: [T1611](https://attack.mitre.org/techniques/T1611/), [detail page](/techniques/privilege-escalation.md#t1611)
 
 - `AN0612` Analytic 0612, Containers
   Detection of container escape attempts via bind mounts, privileged containers, or abuse of docker.sock. Defenders may observe anomalous volume mount configurations (e.g., hostPath to / or /proc), unexpected privileged container launches, or use of container administration commands to access host resources. These events typically correlate with subsequent process execution on the host outside of normal container isolation.

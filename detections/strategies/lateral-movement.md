@@ -2,7 +2,7 @@
 
 > MITRE ATT&CK detection strategies and analytics (v19.2) for techniques whose primary tactic is Lateral Movement. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
 
-See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](../TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](../../ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](../../techniques/README.md)
+See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](/techniques/README.md)
 
 ---
 
@@ -11,7 +11,7 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 
 Detection strategy: Behavioral Detection Strategy for Remote Service Logins and Post-Access Activity (`DET0269`)  
 Platforms: ESXi, IaaS, Linux, Windows, macOS  
-ATT&CK: [T1021](https://attack.mitre.org/techniques/T1021/), [detail page](../../techniques/lateral-movement.md#t1021)
+ATT&CK: [T1021](https://attack.mitre.org/techniques/T1021/), [detail page](/techniques/lateral-movement.md#t1021)
 
 - `AN0750` Analytic 0750, Windows
   Logon via RDP or WMI by a user account followed by uncommon command execution, file manipulation, or lateral network connections.
@@ -41,7 +41,7 @@ ATT&CK: [T1021](https://attack.mitre.org/techniques/T1021/), [detail page](../..
 
 Detection strategy: Multi-event Detection Strategy for RDP-Based Remote Logins and Post-Access Activity (`DET0327`)  
 Platforms: Windows  
-ATT&CK: [T1021.001](https://attack.mitre.org/techniques/T1021/001/), [detail page](../../techniques/lateral-movement.md#t1021001)
+ATT&CK: [T1021.001](https://attack.mitre.org/techniques/T1021/001/), [detail page](/techniques/lateral-movement.md#t1021001)
 
 - `AN0931` Analytic 0931, Windows
   Remote Desktop (RDP) logon by a user followed by unusual process execution, file access, or lateral movement activity within a short timeframe.
@@ -55,7 +55,7 @@ ATT&CK: [T1021.001](https://attack.mitre.org/techniques/T1021/001/), [detail pag
 
 Detection strategy: Multi-Event Detection for SMB Admin Share Lateral Movement (`DET0530`)  
 Platforms: Windows  
-ATT&CK: [T1021.002](https://attack.mitre.org/techniques/T1021/002/), [detail page](../../techniques/lateral-movement.md#t1021002)
+ATT&CK: [T1021.002](https://attack.mitre.org/techniques/T1021/002/), [detail page](/techniques/lateral-movement.md#t1021002)
 
 - `AN1468` Analytic 1468, Windows
   An SMB-based remote file share access followed by lateral movement actions such as remote service creation, task scheduling, or suspicious process execution on the target host using ADMIN$ or C$ shares.
@@ -69,7 +69,7 @@ ATT&CK: [T1021.002](https://attack.mitre.org/techniques/T1021/002/), [detail pag
 
 Detection strategy: Multi-Event Behavioral Detection for DCOM-Based Remote Code Execution (`DET0285`)  
 Platforms: Windows  
-ATT&CK: [T1021.003](https://attack.mitre.org/techniques/T1021/003/), [detail page](../../techniques/lateral-movement.md#t1021003)
+ATT&CK: [T1021.003](https://attack.mitre.org/techniques/T1021/003/), [detail page](/techniques/lateral-movement.md#t1021003)
 
 - `AN0791` Analytic 0791, Windows
   A remote DCOM invocation by a privileged account using RPC (port 135), followed by abnormal process instantiation or module loading on the remote system indicative of code execution.
@@ -83,7 +83,7 @@ ATT&CK: [T1021.003](https://attack.mitre.org/techniques/T1021/003/), [detail pag
 
 Detection strategy: Behavioral Detection of Remote SSH Logins Followed by Post-Login Execution (`DET0596`)  
 Platforms: ESXi, Linux, macOS  
-ATT&CK: [T1021.004](https://attack.mitre.org/techniques/T1021/004/), [detail page](../../techniques/lateral-movement.md#t1021004)
+ATT&CK: [T1021.004](https://attack.mitre.org/techniques/T1021/004/), [detail page](/techniques/lateral-movement.md#t1021004)
 
 - `AN1638` Analytic 1638, Linux
   SSH login from a remote system (via sshd), followed by user context execution of suspicious binaries or privilege escalation behavior.
@@ -105,7 +105,7 @@ ATT&CK: [T1021.004](https://attack.mitre.org/techniques/T1021/004/), [detail pag
 
 Detection strategy: Behavioral Detection of Unauthorized VNC Remote Control Sessions (`DET0178`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1021.005](https://attack.mitre.org/techniques/T1021/005/), [detail page](../../techniques/lateral-movement.md#t1021005)
+ATT&CK: [T1021.005](https://attack.mitre.org/techniques/T1021/005/), [detail page](/techniques/lateral-movement.md#t1021005)
 
 - `AN0504` Analytic 0504, Windows
   Detection of VNC service or executable starting unexpectedly, followed by user session creation and interactive desktop activity (mouse/keyboard simulation).
@@ -127,7 +127,7 @@ ATT&CK: [T1021.005](https://attack.mitre.org/techniques/T1021/005/), [detail pag
 
 Detection strategy: Behavioral Detection of WinRM-Based Remote Access (`DET0477`)  
 Platforms: Windows  
-ATT&CK: [T1021.006](https://attack.mitre.org/techniques/T1021/006/), [detail page](../../techniques/lateral-movement.md#t1021006)
+ATT&CK: [T1021.006](https://attack.mitre.org/techniques/T1021/006/), [detail page](/techniques/lateral-movement.md#t1021006)
 
 - `AN1313` Analytic 1313, Windows
   Adversaries using WinRM to remotely execute commands, launch child processes, or access WMI. The detection chain includes service use, network activity, remote session logon, and process creation within a short temporal window.
@@ -141,7 +141,7 @@ ATT&CK: [T1021.006](https://attack.mitre.org/techniques/T1021/006/), [detail pag
 
 Detection strategy: Behavioral Detection of Remote Cloud Logins via Valid Accounts (`DET0008`)  
 Platforms: IaaS, Identity Provider, Office Suite, SaaS  
-ATT&CK: [T1021.007](https://attack.mitre.org/techniques/T1021/007/), [detail page](../../techniques/lateral-movement.md#t1021007)
+ATT&CK: [T1021.007](https://attack.mitre.org/techniques/T1021/007/), [detail page](/techniques/lateral-movement.md#t1021007)
 
 - `AN0017` Analytic 0017, IaaS
   Cloud login from atypical geolocation or user-agent string, followed by resource enumeration or infrastructure manipulation using cloud CLI/API
@@ -167,7 +167,7 @@ ATT&CK: [T1021.007](https://attack.mitre.org/techniques/T1021/007/), [detail pag
 
 Detection strategy: Detection of Direct VM Console Access via Cloud-Native Methods (`DET0211`)  
 Platforms: IaaS  
-ATT&CK: [T1021.008](https://attack.mitre.org/techniques/T1021/008/), [detail page](../../techniques/lateral-movement.md#t1021008)
+ATT&CK: [T1021.008](https://attack.mitre.org/techniques/T1021/008/), [detail page](/techniques/lateral-movement.md#t1021008)
 
 - `AN0594` Analytic 0594, IaaS
   Direct login to cloud-hosted virtual machines via cloud-native access methods (e.g., EC2 Instance Connect, Azure Serial Console, SSM), followed by command execution or privilege escalation on the VM
@@ -181,7 +181,7 @@ ATT&CK: [T1021.008](https://attack.mitre.org/techniques/T1021/008/), [detail pag
 
 Detection strategy: Detection of Tainted Content Written to Shared Storage (`DET0471`)  
 Platforms: Linux, Office Suite, SaaS, Windows, macOS  
-ATT&CK: [T1080](https://attack.mitre.org/techniques/T1080/), [detail page](../../techniques/lateral-movement.md#t1080)
+ATT&CK: [T1080](https://attack.mitre.org/techniques/T1080/), [detail page](/techniques/lateral-movement.md#t1080)
 
 - `AN1298` Analytic 1298, Windows
   Detects adversary tampering of shared directories via file drops (e.g., malicious LNK, EXE, VBS) followed by user execution or suspicious network activity.
@@ -211,7 +211,7 @@ ATT&CK: [T1080](https://attack.mitre.org/techniques/T1080/), [detail page](../..
 
 Detection strategy: Removable Media Execution Chain Detection via File and Process Activity (`DET0301`)  
 Platforms: Windows  
-ATT&CK: [T1091](https://attack.mitre.org/techniques/T1091/), [detail page](../../techniques/lateral-movement.md#t1091)
+ATT&CK: [T1091](https://attack.mitre.org/techniques/T1091/), [detail page](/techniques/lateral-movement.md#t1091)
 
 - `AN0841` Analytic 0841, Windows
   Execution of files originating from removable media after drive mount, with correlation to file write activity, autorun usage, or lateral spread via staged tools.
@@ -225,7 +225,7 @@ ATT&CK: [T1091](https://attack.mitre.org/techniques/T1091/), [detail page](../..
 
 Detection strategy: Exploitation of Remote Services – multi-platform lateral movement detection (`DET0118`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1210](https://attack.mitre.org/techniques/T1210/), [detail page](../../techniques/lateral-movement.md#t1210)
+ATT&CK: [T1210](https://attack.mitre.org/techniques/T1210/), [detail page](/techniques/lateral-movement.md#t1210)
 
 - `AN0327` Analytic 0327, Windows
   Correlates inbound network access to remote service ports (e.g., SMB/RPC 445/135, RDP 3389, WinRM 5985/5986) with near-time instability in the target service (crash, abnormal restart), suspicious child process creation under the service, and post-access lateral-movement behaviors. The chain indicates likely exploitation rather than normal administration.
@@ -251,7 +251,7 @@ ATT&CK: [T1210](https://attack.mitre.org/techniques/T1210/), [detail page](../..
 
 Detection strategy: Internal Spearphishing via Trusted Accounts (`DET0054`)  
 Platforms: Linux, Office Suite, SaaS, Windows, macOS  
-ATT&CK: [T1534](https://attack.mitre.org/techniques/T1534/), [detail page](../../techniques/lateral-movement.md#t1534)
+ATT&CK: [T1534](https://attack.mitre.org/techniques/T1534/), [detail page](/techniques/lateral-movement.md#t1534)
 
 - `AN0147` Analytic 0147, Windows
   Sequence of internal email sent from a recently compromised user account (preceded by abnormal logon or device activity), with attachments or links leading to execution or credential harvesting. Defender observes: internal mail delivery to peers with high entropy attachments, followed by click events, process initiation, or credential prompts.
@@ -281,7 +281,7 @@ ATT&CK: [T1534](https://attack.mitre.org/techniques/T1534/), [detail page](../..
 
 Detection strategy: Behavioral Detection Strategy for Use Alternate Authentication Material (T1550) (`DET0338`)  
 Platforms: Containers, IaaS, Identity Provider, Linux, Office Suite, SaaS, Windows  
-ATT&CK: [T1550](https://attack.mitre.org/techniques/T1550/), [detail page](../../techniques/lateral-movement.md#t1550)
+ATT&CK: [T1550](https://attack.mitre.org/techniques/T1550/), [detail page](/techniques/lateral-movement.md#t1550)
 
 - `AN0954` Analytic 0954, Windows
   Use of stolen Kerberos tickets or token impersonation resulting in logon sessions from accounts without expected interactive logon events.
@@ -319,7 +319,7 @@ ATT&CK: [T1550](https://attack.mitre.org/techniques/T1550/), [detail page](../..
 
 Detection strategy: Behavioral Detection Strategy for Use Alternate Authentication Material: Application Access Token (T1550.001) (`DET0185`)  
 Platforms: Containers, IaaS, Identity Provider, Office Suite, SaaS  
-ATT&CK: [T1550.001](https://attack.mitre.org/techniques/T1550/001/), [detail page](../../techniques/lateral-movement.md#t1550001)
+ATT&CK: [T1550.001](https://attack.mitre.org/techniques/T1550/001/), [detail page](/techniques/lateral-movement.md#t1550001)
 
 - `AN0526` Analytic 0526, IaaS
   Use of AWS STS or GCP IAM APIs to request temporary tokens or federation sessions inconsistent with normal account activity, including from unexpected principals or regions.
@@ -349,7 +349,7 @@ ATT&CK: [T1550.001](https://attack.mitre.org/techniques/T1550/001/), [detail pag
 
 Detection strategy: Detection Strategy for T1550.002 - Pass the Hash (Windows) (`DET0409`)  
 Platforms: Windows  
-ATT&CK: [T1550.002](https://attack.mitre.org/techniques/T1550/002/), [detail page](../../techniques/lateral-movement.md#t1550002)
+ATT&CK: [T1550.002](https://attack.mitre.org/techniques/T1550/002/), [detail page](/techniques/lateral-movement.md#t1550002)
 
 - `AN1144` Analytic 1144, Windows
   Detects anomalous NTLM LogonType 3 authentications that occur without accompanying domain logon events, especially from lateral systems or involving built-in administrative tools. Monitors for mismatches between source user context and system being accessed. Correlates LogonSession creation, NTLM authentications, and process/service initiation to identify suspicious use of stolen password hashes for remote access or service logon without password entry. Detects overpass-the-hash by combining Kerberos ticket issuance with NTLM-based lateral movement.
@@ -363,7 +363,7 @@ ATT&CK: [T1550.002](https://attack.mitre.org/techniques/T1550/002/), [detail pag
 
 Detection strategy: Detection Strategy for T1550.003 - Pass the Ticket (Windows) (`DET0352`)  
 Platforms: Windows  
-ATT&CK: [T1550.003](https://attack.mitre.org/techniques/T1550/003/), [detail page](../../techniques/lateral-movement.md#t1550003)
+ATT&CK: [T1550.003](https://attack.mitre.org/techniques/T1550/003/), [detail page](/techniques/lateral-movement.md#t1550003)
 
 - `AN1000` Analytic 1000, Windows
   Detects unauthorized Kerberos ticket injection by correlating service ticket (TGS - 4769) requests with absent corresponding account logons (4624) and prior Ticket Granting Ticket (TGT - 4768) activity. Highlights anomalous service ticket generation chains involving unexpected users, hosts, or times, and suspicious injection of tickets via mimikatz-like tooling into LSASS memory. Behavior also includes network lateral movement using Kerberos authentication absent expected interactive logon patterns.
@@ -377,7 +377,7 @@ ATT&CK: [T1550.003](https://attack.mitre.org/techniques/T1550/003/), [detail pag
 
 Detection strategy: Detect Use of Stolen Web Session Cookies Across Platforms (`DET0074`)  
 Platforms: IaaS, Office Suite, SaaS  
-ATT&CK: [T1550.004](https://attack.mitre.org/techniques/T1550/004/), [detail page](../../techniques/lateral-movement.md#t1550004)
+ATT&CK: [T1550.004](https://attack.mitre.org/techniques/T1550/004/), [detail page](/techniques/lateral-movement.md#t1550004)
 
 - `AN0201` Analytic 0201, IaaS
   Anomalous access to cloud web applications using session tokens without corresponding MFA/credential validation, often from unusual locations or device fingerprints.
@@ -399,7 +399,7 @@ ATT&CK: [T1550.004](https://attack.mitre.org/techniques/T1550/004/), [detail pag
 
 Detection strategy: Detection of Remote Service Session Hijacking (`DET0079`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1563](https://attack.mitre.org/techniques/T1563/), [detail page](../../techniques/lateral-movement.md#t1563)
+ATT&CK: [T1563](https://attack.mitre.org/techniques/T1563/), [detail page](/techniques/lateral-movement.md#t1563)
 
 - `AN0216` Analytic 0216, Windows
   Detection of anomalous RDP or remote service session activity where a logon session is hijacked rather than newly created. Indicators include mismatched user credentials vs. active session tokens, service session takeovers without corresponding successful logon events, or RDP shadowing activity without user consent.
@@ -421,7 +421,7 @@ ATT&CK: [T1563](https://attack.mitre.org/techniques/T1563/), [detail page](../..
 
 Detection strategy: Detection Strategy for SSH Session Hijacking (`DET0256`)  
 Platforms: Linux, macOS  
-ATT&CK: [T1563.001](https://attack.mitre.org/techniques/T1563/001/), [detail page](../../techniques/lateral-movement.md#t1563001)
+ATT&CK: [T1563.001](https://attack.mitre.org/techniques/T1563/001/), [detail page](/techniques/lateral-movement.md#t1563001)
 
 - `AN0710` Analytic 0710, Linux
   Suspicious reuse of SSH agent sockets across multiple users or processes, anomalous access to ~/.ssh/ or /tmp/ssh-* sockets, and abnormal patterns of lateral movement via SSH without new authentication events. Defender view: detect when one process accesses another user's SSH agent or when an existing SSH connection is used to pivot unexpectedly.
@@ -439,7 +439,7 @@ ATT&CK: [T1563.001](https://attack.mitre.org/techniques/T1563/001/), [detail pag
 
 Detection strategy: Detection of Remote Service Session Hijacking for RDP. (`DET0588`)  
 Platforms: Windows  
-ATT&CK: [T1563.002](https://attack.mitre.org/techniques/T1563/002/), [detail page](../../techniques/lateral-movement.md#t1563002)
+ATT&CK: [T1563.002](https://attack.mitre.org/techniques/T1563/002/), [detail page](/techniques/lateral-movement.md#t1563002)
 
 - `AN1620` Analytic 1620, Windows
   Detection of suspicious use of `tscon.exe` or equivalent methods to hijack legitimate RDP sessions. Defenders can observe anomalies such as session reassignments without corresponding authentication, processes spawned in the context of hijacked sessions, or unusual RDP network traffic flows that deviate from expected baselines.
@@ -453,7 +453,7 @@ ATT&CK: [T1563.002](https://attack.mitre.org/techniques/T1563/002/), [detail pag
 
 Detection strategy: Detection Strategy for Lateral Tool Transfer across OS platforms (`DET0183`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1570](https://attack.mitre.org/techniques/T1570/), [detail page](../../techniques/lateral-movement.md#t1570)
+ATT&CK: [T1570](https://attack.mitre.org/techniques/T1570/), [detail page](/techniques/lateral-movement.md#t1570)
 
 - `AN0516` Analytic 0516, Windows
   Correlate suspicious file transfers over SMB or Admin$ shares with process creation events (e.g., cmd.exe, powershell.exe, certutil.exe) that do not align with normal administrative behavior. Detect remote file writes followed by execution of transferred binaries.

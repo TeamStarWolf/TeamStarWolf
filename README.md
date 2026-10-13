@@ -72,7 +72,7 @@ open each one in the Navigator. [data/EDGES.md](data/EDGES.md) describes each re
 
 The ATT&CK data files, the technique pages, and the framework pages are built from MITRE ATT&CK v19.2. The
 technique records also keep a small number of techniques that MITRE has since revoked or renumbered. Some
-summary pages, including the technique atlases, Threat Group Profiles, and the Priority Gap Analysis, and
+summary pages, including the technique atlases and Threat Group Profiles, and
 most Navigator layers were generated from earlier ATT&CK releases and have not yet been regenerated. Each
 states the version it was built from.
 

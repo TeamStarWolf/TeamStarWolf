@@ -62,7 +62,7 @@ Now bring in the defensive side: how deeply NIST 800-53 controls (via CTID mappi
 
 Checkpoint: Two aligned layers open side by side (threat scores in one tab, NIST control depth in the other, both on the same ATT&CK version).
 
-Watch out: Absence of a score here is a *data-coverage* gap, not automatically a security gap; 223 of 691 Enterprise techniques simply have no CTID-mapped NIST control (see the framework blind-spots layer in the [layer index](/navigator/index.md)). Note them; don't panic over them.
+Watch out: Absence of a score here is a *data-coverage* gap, not automatically a security gap; many live Enterprise techniques simply have no CTID-mapped NIST control (the framework blind-spots layer in the [layer index](/navigator/index.md) lists them, and the [ATT&CK Priority Gap Analysis](/scores/attack_priority_gaps.md) states the current count). Note them; don't panic over them.
 
 ## Step 5: Compute the priority-gap layer
 

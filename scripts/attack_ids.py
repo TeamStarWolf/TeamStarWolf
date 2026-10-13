@@ -16,7 +16,7 @@ apply the SAME supersession rule:
 
 Carry-forward: a mapping published against a revoked id (e.g. the CTID NIST 800-53
 mapping, keyed on ATT&CK v16.1's T1562.001) still describes the same behaviour after
-MITRE renumbered it, so builders re-key it to the live successor (T1685) and record the
+ATT&CK revoked it in favour of a successor (data/attack/superseded_by.jsonl), so builders re-key it to the live successor (T1685) and record the
 predecessor id as provenance ("via_revoked"). The source rows themselves are kept.
 """
 from __future__ import annotations

@@ -18,8 +18,8 @@ rolled set equals its direct set.
 Source of truth for edges is data/control_to_technique.jsonl (CTID Mappings
 Explorer, NIST 800-53 r5, mapped against ATT&CK v16.1). Direct controls are carried
 forward through data/attack/superseded_by.jsonl: the CTID mapping is keyed on ids that
-ATT&CK v19 revoked (T1562.001, T1070.001, ...), and MITRE only renumbered those
-behaviours, so a live successor's direct set = its own CTID edges UNION the edges of
+ATT&CK has since revoked (T1562.001, T1070.001, ...) in favour of live successors
+recorded in superseded_by.jsonl, so a live successor's direct set = its own CTID edges UNION the edges of
 every revoked predecessor whose chain resolves to it (T1685 <- T1562, T1562.001,
 T1562.006). The revoked rows keep their own edges. Carried controls are recorded per
 predecessor in `nist_800_53_controls_via_revoked` ({predecessor_id: [controls]},

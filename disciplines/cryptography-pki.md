@@ -227,7 +227,7 @@ Symmetric Encryption
 | AES-256-GCM | 256-bit | GCM | High-security requirements, post-quantum margin | FIPS 140-3 approved; minimal performance cost over AES-128 |
 | AES-128-CBC | 128-bit | CBC | Legacy; widely supported | Requires separate MAC; BEAST attack on old TLS; no auth encryption |
 | ChaCha20-Poly1305 | 256-bit | Stream+MAC | Mobile/low-power devices | TLS 1.3 alternative to AES-GCM; faster on devices without AES hardware instructions |
-| 3DES | 168-bit effective | CBC | Legacy mainframe, some payment HSMs | Deprecated; Sweet32 attack; avoid in new systems |
+| 3DES | 168-bit key / 112-bit effective | CBC | Legacy mainframe, some payment HSMs | Deprecated; Sweet32 attack; avoid in new systems |
 | DES | 56-bit | CBC | Do not use | Trivially broken (56-bit key) |
 
 Asymmetric Encryption

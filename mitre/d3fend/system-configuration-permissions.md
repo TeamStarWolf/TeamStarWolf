@@ -9,7 +9,7 @@ Restricting system configuration modifications to a specific user or group of us
 
 ## ATT&CK techniques countered (14)
 
-- [T0894](https://attack.mitre.org/techniques/T0894): restricts
+- [T0894: System Binary Proxy Execution](https://attack.mitre.org/techniques/T0894): restricts
 - [T1012: Query Registry](/mitre/techniques/T1012.md): restricts. Adversaries may interact with the Windows Registry to gather information about the system, configuration, and installed software.
 - [T1112: Modify Registry](/mitre/techniques/T1112.md): restricts. Adversaries may interact with the Windows Registry as part of a variety of other techniques to aid in defense evasion, persistence, and execution.
 - [T1137.006: Add-ins](/mitre/techniques/T1137-006.md): restricts. Adversaries may abuse Microsoft Office add-ins to obtain persistence on a compromised system.

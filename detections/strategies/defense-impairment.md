@@ -695,53 +695,45 @@ ATT&CK: [T1666](https://attack.mitre.org/techniques/T1666/), [detail page](../..
 ### T1685: Disable or Modify Tools
 <a id="t1685"></a>
 
-Detection strategy: Detection Strategy for Impair Defenses Across Platforms (`DET0317`)  
-Platforms: Containers, ESXi, IaaS, Identity Provider, Linux, Network Devices, Office Suite, Windows, macOS  
+Detection strategy: Detection of Defense Impairment through Disabled or Modified Tools across OS Platforms. (`DET0497`)  
+Platforms: Containers, ESXi, IaaS, Linux, Network Devices, Windows, macOS  
 ATT&CK: [T1685](https://attack.mitre.org/techniques/T1685/), [detail page](../../techniques/defense-impairment.md#t1685)
 
-- `AN0886` Analytic 0886, Windows
-  Unusual service stop events, termination of AV/EDR processes, registry modifications disabling security tools, and firewall/defender configuration changes. Correlate process creation with service stop requests and registry edits.
-  - *Log sources:* `WinEventLog:Security (EventCode=4688)`; `WinEventLog:System (EventCode=7045)`; `WinEventLog:Sysmon (EventCode=12)`
-  - *Tune:* `ProcessWhitelist`: Exclude authorized administrative tools that stop services during maintenance.; `ServiceNamePatterns`: Refine which services are considered security-critical (e.g., AV, EDR, firewall).
-- `AN0887` Analytic 0887, Linux
-  Execution of commands that stop or kill processes associated with logging or security daemons (auditd, syslog, falco). Detect modifications to iptables or disabling SELinux/AppArmor enforcement. Correlate sudo/root context with abrupt service halts.
-  - *Log sources:* `auditd:EXECVE (systemctl stop auditd, kill -9 <pid>, or modifications to /etc/selinux/config)`; `auditd:SYSCALL (kill syscalls targeting logging/security processes)`; `linux:syslog (iptables or nftables rule changes)`
-  - *Tune:* `ServiceList`: Adjust monitored security service names depending on host configuration.; `TimeWindow`: Correlate multiple kill/stop events in short succession.
-- `AN0888` Analytic 0888, macOS
-  Execution of commands or APIs that disable Gatekeeper, XProtect, or system integrity protections. Detect configuration changes through unified logs. Monitor termination of system security daemons (e.g., syspolicyd).
-  - *Log sources:* `macos:unifiedlog (spctl --master-disable, csrutil disable, or defaults write to disable Gatekeeper)`; `macos:unifiedlog (Termination of syspolicyd or XProtect processes)`
-  - *Tune:* `AdminToolWhitelist`: Developers may legitimately disable Gatekeeper; whitelist approved contexts.
-- `AN0889` Analytic 0889, Containers
-  Modification of container runtime security profiles (AppArmor, seccomp) or removal of monitoring agents within containers. Detect unauthorized mounting/unmounting of host /proc or /sys to disable logging or auditing.
-  - *Log sources:* `kubernetes:audit (seccomp or AppArmor profile changes)`; `docker:runtime (Termination of monitoring sidecar or security container)`
-  - *Tune:* `RuntimeProfiles`: Specify which security profiles should be monitored for modification.
-- `AN0890` Analytic 0890, ESXi
-  Unusual ESXi shell commands disabling syslog forwarding or stopping hostd/vpxa daemons. Detect modifications to firewall rules on ESXi host or disabling of lockdown mode.
-  - *Log sources:* `esxi:shell (esxcli system syslog config set --loghost='' or stopping hostd service)`; `esxi:vmkernel (Disabling or modifying firewall rules)`
-  - *Tune:* `LogDestination`: Tune for environment-specific log forwarding hosts.
-- `AN0891` Analytic 0891, IaaS
-  Cloud control plane actions disabling security services (CloudTrail logging, GuardDuty, Security Hub). Detect IAM role abuse correlating with service disable events.
-  - *Log sources:* `AWS:CloudTrail (StopLogging, DeleteTrail, or DisableSecurityService)`
-  - *Tune:* `ServiceScope`: Specify which cloud services (logging, monitoring, threat detection) must never be disabled.
-- `AN0892` Analytic 0892, Identity Provider
-  Changes to security configurations such as disabling MFA requirements, reducing session token lifetimes, or turning off risk-based policies. Correlate admin logins with sudden policy downgrades.
-  - *Log sources:* `azure:policy (DisableMfaPolicy or change to ConditionalAccess rules)`
-  - *Tune:* `PolicyList`: Adjust for the critical identity provider security policies to monitor.
-- `AN0893` Analytic 0893, Network Devices
-  Execution of commands disabling AAA, logging, or security features on routers/switches. Detect privilege escalation followed by config changes that disable defense mechanisms.
-  - *Log sources:* `networkdevice:syslog (no logging buffered, no aaa new-model, disable firewall)`
-  - *Tune:* `CommandPatterns`: Customize destructive command list per vendor platform.
-- `AN0894` Analytic 0894, Office Suite
-  Disabling of security macros or safe mode settings within Word/Excel/Outlook. Detect registry edits or configuration file changes that weaken macro enforcement.
-  - *Log sources:* `m365:unified (MacroSecuritySettingsChanged or SafeModeDisabled)`
-  - *Tune:* `ApplicationScope`: Specify which Office applications are monitored for macro security configuration changes.
+- `AN1369` Analytic 1369, Windows
+  Detection of adversary behavior that disables or modifies security tools, including killing AV/EDR processes, stopping services, altering Sysmon registry keys, or tampering with exclusion lists. Defenders observe process/service termination, registry modification, and abnormal absence of expected telemetry.
+  - *Log sources:* `WinEventLog:System (EventCode=7045)`; `WinEventLog:Sysmon (EventCode=5)`; `WinEventLog:Sysmon (EventCode=13, 14)`
+  - *Tune:* `ProcessNameExclusions`: List of expected administrative tools/processes to prevent false positives.; `TimeWindow`: Defines correlation window linking process termination, registry edits, and service stoppage.; `ServiceNames`: Customizable list of security service names per enterprise deployment.
+- `AN1370` Analytic 1370, Linux
+  Detects kill/systemctl/service commands against EDR, auditd, falco, osquery, rsyslog, journald, or agent processes; configuration edits disabling startup; module unload attempts; abrupt cessation of logs after privileged shell execution.
+  - *Log sources:* `auditd:SYSCALL (execve: systemctl stop, service stop, or kill -9 on security daemons (e.g., falcon-sensor, auditd))`; `auditd:CONFIG_CHANGE (delete: Modification of systemd unit files or config for security agents)`
+  - *Tune:* `AgentServiceNames`: List of endpoint protection service names (varies across deployments).; `AllowedAdminAccounts`: Accounts permitted to legitimately stop or reconfigure services.
+- `AN1371` Analytic 1371, macOS
+  Detection of adversary disabling endpoint security tools by unloading launch agents/daemons, modifying configuration profiles, or disabling Gatekeeper/XProtect/logging settings, or removing endpoint agents followed by telemetry loss.
+  - *Log sources:* `macos:unifiedlog (Execution of launchctl unload, kill, or removal of security agent daemons)`; `macos:unifiedlog (Modification of system configuration profiles affecting security tools)`
+  - *Tune:* `DaemonNames`: Expected security agent daemons (e.g., com.crowdstrike.falcon.Agent).; `TimeWindow`: Detection correlation period for multiple security tool disable actions.
+- `AN1372` Analytic 1372, IaaS
+  Correlates control-plane API actions disabling cloud-native monitoring or sensor agents (CloudTrail, GuardDuty, Security Hub, Defender, monitoring agents), role abuse preceding disablement, or instance agent uninstall events
+  - *Log sources:* `AWS:CloudTrail (Delete* / Stop*: DeleteAlarms, StopLogging, or DisableMonitoring API calls)`
+  - *Tune:* `APIActions`: Customizable list of cloud provider API calls related to monitoring/alerting disablement.; `UserContext`: Distinguishes adversary actions from authorized DevOps/CloudOps activities.
+- `AN1373` Analytic 1373, Containers
+  Detects disabling container runtime security controls, removing sidecar sensors, modifying seccomp/AppArmor profiles, mounting host proc/sys paths to interfere with host logging, or killing in-container monitoring agents.
+  - *Log sources:* `kubernetes:audit (kubectl delete or patch of security pods/admission controllers)`
+  - *Tune:* `NamespaceExclusions`: Exclusion of namespaces where temporary deletion of monitoring tools is legitimate (e.g., staging).
+- `AN1374` Analytic 1374, Network Devices
+  Detects disabling AAA, syslog, SNMP traps, ACL logging, or security features on routers/switches/firewalls; correlates privileged login followed by configuration commit reducing visibility.
+  - *Log sources:* `networkdevice:config (write: Startup configuration changes disabling security checks)`; `networkdevice:syslog (no logging host, no aaa new-model, no snmp-server, commit)`
+  - *Tune:* `ConfigBaseline`: Reference configuration state for detecting unauthorized modifications.
+- `AN2044` Analytic 2044, ESXi
+  Detects esxcli commands disabling syslog, firewall, lockdown mode, or stopping hostd/vpxa; correlates command execution with reduced forwarding activity.
+  - *Log sources:* `esxi:shell (esxcli system syslog config set/reload, services.sh restart/stop)`; `esxi:hostd (service state change)`
+  - *Tune:* `ExpectedAdminIPs`: Authorized management sources.
 
 ---
 
 ### T1685.001: Disable or Modify Windows Event Log
 <a id="t1685001"></a>
 
-Detection strategy: Detect disabled Windows event logging (`DET0187`)  
+Detection strategy: Detect Disabled Windows Event Log (`DET0187`)  
 Platforms: Windows  
 ATT&CK: [T1685.001](https://attack.mitre.org/techniques/T1685/001/), [detail page](../../techniques/defense-impairment.md#t1685001)
 
@@ -755,7 +747,7 @@ ATT&CK: [T1685.001](https://attack.mitre.org/techniques/T1685/001/), [detail pag
 ### T1685.002: Disable or Modify Cloud Log
 <a id="t1685002"></a>
 
-Detection strategy: Detection Strategy for Disable or Modify Cloud Logs (`DET0289`)  
+Detection strategy: Detection Strategy for Disable or Modify Cloud Log (`DET0289`)  
 Platforms: IaaS, Identity Provider, Office Suite, SaaS  
 ATT&CK: [T1685.002](https://attack.mitre.org/techniques/T1685/002/), [detail page](../../techniques/defense-impairment.md#t1685002)
 
@@ -781,7 +773,7 @@ ATT&CK: [T1685.002](https://attack.mitre.org/techniques/T1685/002/), [detail pag
 ### T1685.003: Modify or Spoof Tool UI
 <a id="t1685003"></a>
 
-Detection strategy: Detection for Spoofing Security Alerting across OS Platforms (`DET0311`)  
+Detection strategy: Detection for Spoofing Tool UI across OS Platforms (`DET0311`)  
 Platforms: Linux, Windows, macOS  
 ATT&CK: [T1685.003](https://attack.mitre.org/techniques/T1685/003/), [detail page](../../techniques/defense-impairment.md#t1685003)
 
@@ -803,7 +795,7 @@ ATT&CK: [T1685.003](https://attack.mitre.org/techniques/T1685/003/), [detail pag
 ### T1685.004: Disable or Modify Linux Audit System Log
 <a id="t1685004"></a>
 
-Detection strategy: Detection Strategy for Disable or Modify Linux Audit System (`DET0062`)  
+Detection strategy: Detection Strategy for Disable or Modify Linux Audit System Log (`DET0062`)  
 Platforms: Linux  
 ATT&CK: [T1685.004](https://attack.mitre.org/techniques/T1685/004/), [detail page](../../techniques/defense-impairment.md#t1685004)
 
@@ -893,7 +885,7 @@ ATT&CK: [T1686.001](https://attack.mitre.org/techniques/T1686/001/), [detail pag
 ### T1686.002: Network Device Firewall
 <a id="t1686002"></a>
 
-Detection strategy: Unauthorized Network Firewall Rule Modification (T1562.013) (`DET0306`)  
+Detection strategy: Detection of Unauthorized Network Firewall Rule Modification (`DET0306`)  
 Platforms: Network Devices  
 ATT&CK: [T1686.002](https://attack.mitre.org/techniques/T1686/002/), [detail page](../../techniques/defense-impairment.md#t1686002)
 
@@ -901,6 +893,50 @@ ATT&CK: [T1686.002](https://attack.mitre.org/techniques/T1686/002/), [detail pag
   Defender observes configuration changes on firewall/network appliance involving rule creation, modification, or deletion from abnormal management IPs or non-console channels (e.g., remote CLI, API). These are often correlated with a spike in previously blocked outbound traffic, unexpected allow-all rules, or bulk rule deletions. Behavior often follows unauthorized login, privilege escalation, or API abuse.
   - *Log sources:* `networkdevice:Firewall (update_rule: Access control or NAT rule modified or disabled outside maintenance window)`; `networkdevice:Firewall (Login from untrusted IP, or new admin account accessing firewall console/API)`; `networkdevice:Firewall (Audit trail or CLI/API access indicating commands like no access-list, delete rule-set, clear config)`; `NSM:Flow (Outbound traffic spike through formerly blocked ports/subnets following config change)`
   - *Tune:* `TrustedAdminIPs`: Allowlisted IPs/subnets where administrative access is expected (e.g., jump box, VPN mgmt); `ConfigChangeWindow`: Expected maintenance window (e.g., 02:00-04:00 UTC) to filter benign changes; `RuleScopeThreshold`: Number of rules affected or port ranges modified to determine severity; `NewUserPrivilegeThreshold`: Flag new users making changes without observed privilege elevation path
+
+---
+
+### T1686.003: Windows Host Firewall
+<a id="t1686003"></a>
+
+Detection strategy: Detect Windows Firewall (`DET0901`)  
+Platforms: Windows  
+ATT&CK: [T1686.003](https://attack.mitre.org/techniques/T1686/003/), [detail page](../../techniques/defense-impairment.md#t1686003)
+
+- `AN2043` Analytic 2043, Windows
+  Detects processes or users modifying Windows Defender Firewall profiles, policies, or rules followed by measurable network exposure changes. Correlates firewall management execution, registry/policy mutation, service state changes, and subsequent inbound or outbound connectivity inconsistent with baseline administration.
+  - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Security (EventCode=4688)`; `WinEventLog:Sysmon (EventCode=13, 14)`; `WinEventLog:Sysmon (EventCode=12)`; `WinEventLog:System (EventCode=7036)`; `WinEventLog:Sysmon (EventCode=3, 22)`; `WinEventLog:Security (EventCode=5156, 5157)`
+  - *Tune:* `AuthorizedAdminAccounts`: Known administrators allowed to manage host firewall settings; `MaintenanceWindow`: Approved change windows where firewall modifications are expected; `ExposureCorrelationWindow`: Time window to correlate firewall change with new connections/listeners; `SensitivePorts`: Ports of concern such as RDP, SMB, WinRM, SSH, custom admin ports; `AllowedManagementParents`: Expected parent processes such as SCCM, Intune agent, GPO client; `RuleScopeThreshold`: Detect widening from subnet/local scope to Any/0.0.0.0/0
+
+---
+
+### T1687: Exploitation for Defense Impairment
+<a id="t1687"></a>
+
+Detection strategy: Detection of Defense Impairment (`DET0900`)  
+Platforms: IaaS, Linux, SaaS, Windows, macOS  
+ATT&CK: [T1687](https://attack.mitre.org/techniques/T1687/), [detail page](../../techniques/defense-impairment.md#t1687)
+
+- `AN2038` Analytic 2038, Windows
+  Detects suspicious interactions with security products followed by service crashes, unexpected restarts, driver unloads, telemetry gaps, or tamper-state changes. Correlates exploit precursor behavior with immediate degradation of defensive services and follow-on process execution.
+  - *Log sources:* `WinEventLog:System (EventCode=7035)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=6)`; `WinEventLog:Security (EventCode=4688)`
+  - *Tune:* `CrashCorrelationWindow`: Time between suspicious interaction and security service failure; `ProtectedServiceList`: Security agents/services expected to remain stable; `TelemetryGapThreshold`: Acceptable heartbeat silence duration
+- `AN2039` Analytic 2039, Linux
+  Detects exploitation attempts against security daemons or kernel security modules followed by daemon termination, disabled logging, module unload, audit stoppage, or reduced endpoint telemetry. Correlates local execution or network input with control degradation.
+  - *Log sources:* `auditd:EXECVE (execve, kill, ptrace, insmod, rmmod targeting security processes)`; `auditd:DAEMON (auditd stopped, config changed, logging suspended)`
+  - *Tune:* `ProtectedProcessNames`: Names of EDR, audit, AV, firewall daemons; `ModuleUnloadAllowlist`: Approved maintenance unload operations; `HealthGapThreshold`: Expected telemetry heartbeat tolerance
+- `AN2040` Analytic 2040, macOS
+  Detects crafted activity resulting in crashes or impairment of endpoint security extensions, network filters, launch daemons, or telemetry agents. Correlates process activity, system extension state changes, and telemetry interruption.
+  - *Log sources:* `macos:unifiedlog (Crash or abnormal termination of security agent or system extension host)`; `macos:unifiedlog (Extension disabled, unloaded, failed to start)`; `NSM:Flow (Traffic spike preceding control crash)`
+  - *Tune:* `ExtensionList`: Protected security system extensions; `CrashBurstThreshold`: Multiple failures in short interval
+- `AN2041` Analytic 2041, IaaS
+  Detects exploitation of cloud-native security boundaries or management components followed by disabled logging, detached agents, changed security groups, policy bypass, or telemetry suppression. Correlates suspicious API activity with reduced control coverage.
+  - *Log sources:* `AWS:CloudTrail (StopLogging, DeleteTrail, or DisableSecurityService)`; `AWS:CloudTrail (ModifyInstanceAttribute)`; `AWS:CloudTrail (AuthorizeSecurityGroupIngress)`
+  - *Tune:* `CriticalTrailList`: Audit trails that must remain enabled; `ControlChangeWindow`: Time after suspicious API sequence to inspect coverage loss
+- `AN2042` Analytic 2042, SaaS
+  Detects exploitation or abuse of SaaS security workflows resulting in disabled alerts, reduced retention, bypassed enforcement, role escalation, or tokenized persistence that weakens monitoring. Correlates unusual admin/API activity with visibility reduction.
+  - *Log sources:* `saas:okta (policy.rule.update;system.log.disable;admin.role.assign)`; `m365:unified (Set-AdminAuditLogConfig;New-ApplicationAccessPolicy;ConsentToApplication)`
+  - *Tune:* `PrivilegedActorAllowlist`: Approved admins allowed to change controls; `RetentionChangeThreshold`: Minimum acceptable logging retention
 
 ---
 
@@ -943,7 +979,7 @@ ATT&CK: [T1689](https://attack.mitre.org/techniques/T1689/), [detail page](../..
 ### T1690: Prevent Command History Logging
 <a id="t1690"></a>
 
-Detection strategy: Detection Strategy for Impair Defenses via Impair Command History Logging across OS platforms. (`DET0563`)  
+Detection strategy: Detection Strategy for Defense Impairment via Prevent Command History Logging across OS platforms. (`DET0563`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
 ATT&CK: [T1690](https://attack.mitre.org/techniques/T1690/), [detail page](../../techniques/defense-impairment.md#t1690)
 

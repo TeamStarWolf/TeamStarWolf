@@ -200,7 +200,7 @@ Example: Phishing Triage Playbook
 | Technique ID | Name | Tactic | Relevance |
 |---|---|---|---|
 | T1070 | Indicator Removal | Stealth | Log deletion and timestomping that SOC must detect via integrity monitoring |
-| T1562 | Impair Defenses | Defense Impairment | Disabling logging, AV, or EDR agents; SOC must alert on agent health status |
+| T1685 | Disable or Modify Tools | Defense Impairment | Disabling logging, AV, or EDR agents; SOC must alert on agent health status |
 | T1036 | Masquerading | Stealth | LOLBAS and renamed binaries detected via process signature and path analysis |
 | T1055 | Process Injection | Privilege Escalation | Injected code in legitimate processes detected via memory anomaly analysis |
 | T1059 | Command and Scripting Interpreter | Execution | PowerShell, WMI, and scripting engine abuse detected via script block logging |

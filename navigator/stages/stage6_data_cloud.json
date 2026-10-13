@@ -1,7 +1,7 @@
 {
   "name": "Stage 6 — Data & Cloud Security",
   "versions": {
-    "attack": "13",
+    "attack": "19",
     "navigator": "4.9",
     "layer": "4.5"
   },
@@ -12,11 +12,11 @@
       "Windows",
       "macOS",
       "Linux",
-      "Cloud",
       "IaaS",
       "SaaS",
-      "Containers",
-      "Office Suite"
+      "Office Suite",
+      "Identity Provider",
+      "Containers"
     ]
   },
   "sorting": 3,
@@ -60,7 +60,7 @@
     },
     {
       "techniqueID": "T1619",
-      "tactic": "collection",
+      "tactic": "discovery",
       "score": 3,
       "comment": "Cloud Storage Object Discovery — CSPM bucket access logging"
     },
@@ -126,13 +126,13 @@
     },
     {
       "techniqueID": "T1578",
-      "tactic": "defense-evasion",
+      "tactic": "defense-impairment",
       "score": 2,
       "comment": "Modify Cloud Compute Infrastructure — CSPM change detection"
     },
     {
       "techniqueID": "T1578.002",
-      "tactic": "defense-evasion",
+      "tactic": "defense-impairment",
       "score": 2,
       "comment": "Create Cloud Instance — CSPM anomalous resource creation"
     },
@@ -183,6 +183,10 @@
     {
       "name": "source",
       "value": "TeamStarWolf — https://github.com/TeamStarWolf/TeamStarWolf"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v19.2: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
     }
   ],
   "links": [

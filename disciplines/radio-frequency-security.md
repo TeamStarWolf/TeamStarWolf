@@ -209,7 +209,7 @@ RF security techniques map to several MITRE ATT&CK and ATT&CK for ICS/Mobile tac
 |-----------|-----------|-----------|
 | Network Sniffing | T1040 | Passive RF interception of wireless protocols |
 | Adversary-in-the-Middle | T1557 | Rogue AP (evil twin), GSM IMSI catcher |
-| Wireless Compromise | T1465 (Mobile) | Deauth + evil twin, rogue AP |
+| Wireless Compromise | T1638 (Mobile) | Deauth + evil twin, rogue AP |
 | Exfiltration Over Alternative Protocol | T1048 | RF covert channel, exfil via sub-GHz |
 | Replay Attack | ICS: T0830 | Key fob replay, RFID card replay |
 | Exploitation of Remote Services | T1210 | ZigBee key capture -> device control |

@@ -1,0 +1,22 @@
+# Keeps the commit-SHA pins in .github/workflows/*.yml current. Dependabot rewrites
+# both the SHA and the trailing "# vX.Y.Z" comment, one reviewable PR at a time.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    # Do not adopt a release in its first week: a hijacked or bad release is usually
+    # pulled within days, and a pin should never move to it.
+    cooldown:
+      default-days: 7
+    commit-message:
+      prefix: ci
+    groups:
+      # Minor and patch bumps of every action in one PR; each major bump gets its own PR
+      # (majors change runtime/behaviour and are reviewed separately).
+      github-actions:
+        patterns: ['*']
+        update-types: [minor, patch]
+    open-pull-requests-limit: 5

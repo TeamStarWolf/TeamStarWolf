@@ -1,12 +1,12 @@
 {
   "name": "TeamStarWolf - CWE Weakness Classes",
   "versions": {
-    "attack": "16",
+    "attack": "19",
     "navigator": "4.9",
     "layer": "4.5"
   },
   "domain": "enterprise-attack",
-  "description": "Curated practitioner view, not an official MITRE CWE-to-ATT&CK mapping. Selects CWE records whose abstraction is Class, follows their explicit related_capec links, then the linked CAPEC records' explicit attack_techniques values. Only techniques present in data/attack/technique_profiles.jsonl are included. These indirect associations support exploration, not a claim that a weakness always produces the technique. Sources: CWE_REFERENCE.md, CAPEC_REFERENCE.md, data/weaknesses/cwe.jsonl, data/weaknesses/capec.jsonl, and data/attack/technique_profiles.jsonl. No hierarchy inheritance is inferred. Scores indicate membership only.",
+  "description": "Curated practitioner view, not an official MITRE CWE-to-ATT&CK mapping. Selects CWE records whose abstraction is Class, follows their explicit related_capec links, then the linked CAPEC records' explicit attack_techniques values. Only live (non-revoked) techniques in data/attack/technique_profiles.jsonl are included; a CAPEC link to an id ATT&CK v19 revoked is shown under its successor (data/attack/superseded_by.jsonl). These indirect associations support exploration, not a claim that a weakness always produces the technique. Sources: CWE_REFERENCE.md, CAPEC_REFERENCE.md, data/weaknesses/cwe.jsonl, data/weaknesses/capec.jsonl, and data/attack/technique_profiles.jsonl. No hierarchy inheritance is inferred. Scores indicate membership only.",
   "sorting": 3,
   "layout": {
     "layout": "side",
@@ -67,31 +67,31 @@
     },
     {
       "techniqueID": "T1027",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Obfuscated Files or Information: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-172 -> CAPEC-267; CWE-20 -> CAPEC-267; CWE-74 -> CAPEC-267 -> T1027. Not a direct CWE-to-technique equivalence."
     },
     {
       "techniqueID": "T1027.003",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Steganography: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-506 -> CAPEC-636 -> T1027.003. Not a direct CWE-to-technique equivalence."
     },
     {
       "techniqueID": "T1027.004",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Compile After Delivery: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-506 -> CAPEC-636 -> T1027.004. Not a direct CWE-to-technique equivalence."
     },
     {
       "techniqueID": "T1027.006",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "HTML Smuggling: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-282 -> CAPEC-35 -> T1027.006. Not a direct CWE-to-technique equivalence."
     },
     {
       "techniqueID": "T1027.009",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Embedded Payloads: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-282 -> CAPEC-35; CWE-506 -> CAPEC-448 -> T1027.009. Not a direct CWE-to-technique equivalence."
     },
@@ -103,19 +103,19 @@
     },
     {
       "techniqueID": "T1036",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Masquerading: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-706 -> CAPEC-177 -> T1036. Not a direct CWE-to-technique equivalence."
     },
     {
       "techniqueID": "T1036.001",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Invalid Code Signature: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-20 -> CAPEC-473; CWE-327 -> CAPEC-473 -> T1036.001. Not a direct CWE-to-technique equivalence."
     },
     {
       "techniqueID": "T1036.005",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Match Legitimate Resource Name or Location: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-200 -> CAPEC-616 -> T1036.005. Not a direct CWE-to-technique equivalence."
     },
@@ -169,7 +169,7 @@
     },
     {
       "techniqueID": "T1078",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Valid Accounts: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-522 -> CAPEC-560 -> T1078. Not a direct CWE-to-technique equivalence."
     },
@@ -271,7 +271,7 @@
     },
     {
       "techniqueID": "T1134",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Access Token Manipulation: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-287 -> CAPEC-633; CWE-346 -> CAPEC-21; CWE-602 -> CAPEC-21; CWE-642 -> CAPEC-21 -> T1134. Not a direct CWE-to-technique equivalence."
     },
@@ -283,7 +283,7 @@
     },
     {
       "techniqueID": "T1134.001",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Token Impersonation/Theft: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-200 -> CAPEC-60; CWE-285 -> CAPEC-60; CWE-346 -> CAPEC-60; CWE-732 -> CAPEC-60 -> T1134.001. Not a direct CWE-to-technique equivalence."
     },
@@ -319,7 +319,7 @@
     },
     {
       "techniqueID": "T1211",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Exploitation for Defense Evasion: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-345 -> CAPEC-665; CWE-862 -> CAPEC-665 -> T1211. Not a direct CWE-to-technique equivalence."
     },
@@ -331,13 +331,13 @@
     },
     {
       "techniqueID": "T1218.001",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Compiled HTML File: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-506 -> CAPEC-636 -> T1218.001. Not a direct CWE-to-technique equivalence."
     },
     {
       "techniqueID": "T1221",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Template Injection: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-506 -> CAPEC-636 -> T1221. Not a direct CWE-to-technique equivalence."
     },
@@ -415,7 +415,7 @@
     },
     {
       "techniqueID": "T1542.002",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Component Firmware: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-345 -> CAPEC-665; CWE-862 -> CAPEC-665 -> T1542.002. Not a direct CWE-to-technique equivalence."
     },
@@ -438,28 +438,10 @@
       "comment": "Abuse Elevation Control Mechanism: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-269 -> CAPEC-122; CWE-269 -> CAPEC-233; CWE-287 -> CAPEC-114; CWE-287 -> CAPEC-115; CWE-732 -> CAPEC-122 -> T1548. Not a direct CWE-to-technique equivalence."
     },
     {
-      "techniqueID": "T1548",
-      "tactic": "defense-evasion",
-      "score": 100,
-      "comment": "Abuse Elevation Control Mechanism: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-269 -> CAPEC-122; CWE-269 -> CAPEC-233; CWE-287 -> CAPEC-114; CWE-287 -> CAPEC-115; CWE-732 -> CAPEC-122 -> T1548. Not a direct CWE-to-technique equivalence."
-    },
-    {
-      "techniqueID": "T1550.001",
-      "tactic": "defense-evasion",
-      "score": 100,
-      "comment": "Application Access Token: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-287 -> CAPEC-593 -> T1550.001. Not a direct CWE-to-technique equivalence."
-    },
-    {
       "techniqueID": "T1550.001",
       "tactic": "lateral-movement",
       "score": 100,
       "comment": "Application Access Token: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-287 -> CAPEC-593 -> T1550.001. Not a direct CWE-to-technique equivalence."
-    },
-    {
-      "techniqueID": "T1550.002",
-      "tactic": "defense-evasion",
-      "score": 100,
-      "comment": "Pass the Hash: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-522 -> CAPEC-644 -> T1550.002. Not a direct CWE-to-technique equivalence."
     },
     {
       "techniqueID": "T1550.002",
@@ -469,21 +451,9 @@
     },
     {
       "techniqueID": "T1550.003",
-      "tactic": "defense-evasion",
-      "score": 100,
-      "comment": "Pass the Ticket: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-522 -> CAPEC-645 -> T1550.003. Not a direct CWE-to-technique equivalence."
-    },
-    {
-      "techniqueID": "T1550.003",
       "tactic": "lateral-movement",
       "score": 100,
       "comment": "Pass the Ticket: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-522 -> CAPEC-645 -> T1550.003. Not a direct CWE-to-technique equivalence."
-    },
-    {
-      "techniqueID": "T1550.004",
-      "tactic": "defense-evasion",
-      "score": 100,
-      "comment": "Web Session Cookie: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-200 -> CAPEC-60; CWE-285 -> CAPEC-60; CWE-346 -> CAPEC-60; CWE-732 -> CAPEC-60 -> T1550.004. Not a direct CWE-to-technique equivalence."
     },
     {
       "techniqueID": "T1550.004",
@@ -505,7 +475,7 @@
     },
     {
       "techniqueID": "T1553.002",
-      "tactic": "defense-evasion",
+      "tactic": "defense-impairment",
       "score": 100,
       "comment": "Code Signing: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-20 -> CAPEC-473; CWE-327 -> CAPEC-473; CWE-732 -> CAPEC-206 -> T1553.002. Not a direct CWE-to-technique equivalence."
     },
@@ -523,7 +493,7 @@
     },
     {
       "techniqueID": "T1556",
-      "tactic": "defense-evasion",
+      "tactic": "defense-impairment",
       "score": 100,
       "comment": "Modify Authentication Process: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-345 -> CAPEC-665; CWE-862 -> CAPEC-665 -> T1556. Not a direct CWE-to-technique equivalence."
     },
@@ -582,10 +552,10 @@
       "comment": "Kerberoasting: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-522 -> CAPEC-509 -> T1558.003. Not a direct CWE-to-technique equivalence."
     },
     {
-      "techniqueID": "T1562.003",
-      "tactic": "defense-evasion",
+      "techniqueID": "T1690",
+      "tactic": "defense-impairment",
       "score": 100,
-      "comment": "Impair Command History Logging: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-20 -> CAPEC-13; CWE-200 -> CAPEC-13; CWE-285 -> CAPEC-13; CWE-74 -> CAPEC-13 -> T1562.003. Not a direct CWE-to-technique equivalence."
+      "comment": "Impair Command History Logging: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-20 -> CAPEC-13; CWE-200 -> CAPEC-13; CWE-285 -> CAPEC-13; CWE-74 -> CAPEC-13 -> T1562.003. Not a direct CWE-to-technique equivalence. (Re-keyed from T1562.003, which ATT&CK v19 revoked in favour of T1690; data/attack/superseded_by.jsonl.)"
     },
     {
       "techniqueID": "T1563",
@@ -595,7 +565,7 @@
     },
     {
       "techniqueID": "T1564.009",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Resource Forking: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-282 -> CAPEC-35 -> T1564.009. Not a direct CWE-to-technique equivalence."
     },
@@ -631,109 +601,73 @@
     },
     {
       "techniqueID": "T1574.005",
-      "tactic": "persistence",
+      "tactic": "execution",
       "score": 100,
       "comment": "Executable Installer File Permissions Weakness: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-282 -> CAPEC-17; CWE-285 -> CAPEC-17; CWE-732 -> CAPEC-17; CWE-732 -> CAPEC-642 -> T1574.005. Not a direct CWE-to-technique equivalence."
     },
     {
       "techniqueID": "T1574.005",
-      "tactic": "privilege-escalation",
-      "score": 100,
-      "comment": "Executable Installer File Permissions Weakness: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-282 -> CAPEC-17; CWE-285 -> CAPEC-17; CWE-732 -> CAPEC-17; CWE-732 -> CAPEC-642 -> T1574.005. Not a direct CWE-to-technique equivalence."
-    },
-    {
-      "techniqueID": "T1574.005",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Executable Installer File Permissions Weakness: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-282 -> CAPEC-17; CWE-285 -> CAPEC-17; CWE-732 -> CAPEC-17; CWE-732 -> CAPEC-642 -> T1574.005. Not a direct CWE-to-technique equivalence."
     },
     {
       "techniqueID": "T1574.006",
-      "tactic": "persistence",
+      "tactic": "execution",
       "score": 100,
       "comment": "Dynamic Linker Hijacking: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-114 -> CAPEC-640; CWE-20 -> CAPEC-13; CWE-200 -> CAPEC-13; CWE-285 -> CAPEC-13; CWE-74 -> CAPEC-13 -> T1574.006. Not a direct CWE-to-technique equivalence."
     },
     {
       "techniqueID": "T1574.006",
-      "tactic": "privilege-escalation",
-      "score": 100,
-      "comment": "Dynamic Linker Hijacking: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-114 -> CAPEC-640; CWE-20 -> CAPEC-13; CWE-200 -> CAPEC-13; CWE-285 -> CAPEC-13; CWE-74 -> CAPEC-13 -> T1574.006. Not a direct CWE-to-technique equivalence."
-    },
-    {
-      "techniqueID": "T1574.006",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Dynamic Linker Hijacking: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-114 -> CAPEC-640; CWE-20 -> CAPEC-13; CWE-200 -> CAPEC-13; CWE-285 -> CAPEC-13; CWE-74 -> CAPEC-13 -> T1574.006. Not a direct CWE-to-technique equivalence."
     },
     {
       "techniqueID": "T1574.007",
-      "tactic": "persistence",
+      "tactic": "execution",
       "score": 100,
       "comment": "Path Interception by PATH Environment Variable: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-20 -> CAPEC-13; CWE-200 -> CAPEC-13; CWE-285 -> CAPEC-13; CWE-74 -> CAPEC-13 -> T1574.007. Not a direct CWE-to-technique equivalence."
     },
     {
       "techniqueID": "T1574.007",
-      "tactic": "privilege-escalation",
-      "score": 100,
-      "comment": "Path Interception by PATH Environment Variable: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-20 -> CAPEC-13; CWE-200 -> CAPEC-13; CWE-285 -> CAPEC-13; CWE-74 -> CAPEC-13 -> T1574.007. Not a direct CWE-to-technique equivalence."
-    },
-    {
-      "techniqueID": "T1574.007",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Path Interception by PATH Environment Variable: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-20 -> CAPEC-13; CWE-200 -> CAPEC-13; CWE-285 -> CAPEC-13; CWE-74 -> CAPEC-13 -> T1574.007. Not a direct CWE-to-technique equivalence."
     },
     {
       "techniqueID": "T1574.008",
-      "tactic": "persistence",
+      "tactic": "execution",
       "score": 100,
       "comment": "Path Interception by Search Order Hijacking: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-706 -> CAPEC-159 -> T1574.008. Not a direct CWE-to-technique equivalence."
     },
     {
       "techniqueID": "T1574.008",
-      "tactic": "privilege-escalation",
-      "score": 100,
-      "comment": "Path Interception by Search Order Hijacking: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-706 -> CAPEC-159 -> T1574.008. Not a direct CWE-to-technique equivalence."
-    },
-    {
-      "techniqueID": "T1574.008",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Path Interception by Search Order Hijacking: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-706 -> CAPEC-159 -> T1574.008. Not a direct CWE-to-technique equivalence."
     },
     {
       "techniqueID": "T1574.010",
-      "tactic": "persistence",
+      "tactic": "execution",
       "score": 100,
       "comment": "Services File Permissions Weakness: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-282 -> CAPEC-17; CWE-285 -> CAPEC-1; CWE-285 -> CAPEC-17; CWE-732 -> CAPEC-1; CWE-732 -> CAPEC-17; CWE-732 -> CAPEC-180 -> T1574.010. Not a direct CWE-to-technique equivalence."
     },
     {
       "techniqueID": "T1574.010",
-      "tactic": "privilege-escalation",
-      "score": 100,
-      "comment": "Services File Permissions Weakness: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-282 -> CAPEC-17; CWE-285 -> CAPEC-1; CWE-285 -> CAPEC-17; CWE-732 -> CAPEC-1; CWE-732 -> CAPEC-17; CWE-732 -> CAPEC-180 -> T1574.010. Not a direct CWE-to-technique equivalence."
-    },
-    {
-      "techniqueID": "T1574.010",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Services File Permissions Weakness: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-282 -> CAPEC-17; CWE-285 -> CAPEC-1; CWE-285 -> CAPEC-17; CWE-732 -> CAPEC-1; CWE-732 -> CAPEC-17; CWE-732 -> CAPEC-180 -> T1574.010. Not a direct CWE-to-technique equivalence."
     },
     {
       "techniqueID": "T1574.013",
-      "tactic": "persistence",
+      "tactic": "execution",
       "score": 100,
       "comment": "KernelCallbackTable: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-114 -> CAPEC-640 -> T1574.013. Not a direct CWE-to-technique equivalence."
     },
     {
       "techniqueID": "T1574.013",
-      "tactic": "privilege-escalation",
-      "score": 100,
-      "comment": "KernelCallbackTable: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-114 -> CAPEC-640 -> T1574.013. Not a direct CWE-to-technique equivalence."
-    },
-    {
-      "techniqueID": "T1574.013",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "KernelCallbackTable: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-114 -> CAPEC-640 -> T1574.013. Not a direct CWE-to-technique equivalence."
     },
@@ -793,7 +727,7 @@
     },
     {
       "techniqueID": "T1620",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 100,
       "comment": "Reflective Code Loading: indirect CWE Class -> CAPEC -> ATT&CK association in the library data. Source paths: CWE-114 -> CAPEC-640 -> T1620. Not a direct CWE-to-technique equivalence."
     }
@@ -827,7 +761,7 @@
     },
     {
       "name": "technique_tactic_entries",
-      "value": "130"
+      "value": "119"
     },
     {
       "name": "score_meaning",
@@ -848,6 +782,10 @@
     {
       "name": "unresolved_techniques_omitted",
       "value": "T1574.002"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v19.2: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
     }
   ],
   "links": [

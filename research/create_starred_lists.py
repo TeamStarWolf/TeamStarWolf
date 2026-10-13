@@ -1,20 +1,29 @@
-"""Create GitHub Stars Lists from STARRED_REPOS.md categories.
+"""Create or update GitHub Stars Lists from the STARRED_REPOS.md categories.
 
-Prerequisite: Refresh gh CLI auth with the 'user' scope:
-    gh auth refresh -s user
+Maintainer helper. With --apply it WRITES TO THE AUTHENTICATED GITHUB ACCOUNT: it
+creates one PUBLIC Stars List per major STARRED_REPOS.md section on whatever account
+`gh` is logged into, and replaces each list's full repository set (updateUserList is
+a replace, not an append). Without --apply it only prints the plan and never calls gh.
 
-Then run:
-    python create_starred_lists.py
+Usage (from anywhere in the clone):
+    python research/create_starred_lists.py            # dry run: print planned lists
+    gh auth refresh -s user                            # only needed for --apply
+    python research/create_starred_lists.py --apply    # create/update the lists
 
-This creates one GitHub Stars List per major category and adds the relevant repos.
+All values reach GitHub as GraphQL variables, never by string interpolation, so repo
+names parsed from the Markdown cannot alter a query.
 """
-import subprocess
+import argparse
 import json
 import re
-import sys
+import subprocess
 from pathlib import Path
 
-INDEX = Path(__file__).parent / "STARRED_REPOS.md"
+# STARRED_REPOS.md lives at the repository root, one level above research/.
+INDEX = Path(__file__).resolve().parents[1] / "STARRED_REPOS.md"
+
+# owner/name as GitHub allows it; anything else parsed from the Markdown is skipped.
+REPO_RE = re.compile(r"^[A-Za-z0-9-]+/[A-Za-z0-9._-]+$")
 
 # Major-section -> Stars List name (under GitHub's UI 50-character limit)
 SECTION_TO_LIST = {
@@ -38,9 +47,22 @@ SECTION_TO_LIST = {
     "Anthropic & AI Skills": "18. Anthropic & AI Skills",
 }
 
+Q_LISTS = "query { viewer { lists(first: 100) { nodes { id name } } } }"
+Q_REPO = "query($owner: String!, $name: String!) { repository(owner: $owner, name: $name) { id } }"
+M_CREATE = """mutation($name: String!, $description: String!) {
+  createUserList(input: {name: $name, description: $description, isPrivate: false}) {
+    list { id name }
+  }
+}"""
+M_SET = """mutation($listId: ID!, $repositoryIds: [ID!]!) {
+  updateUserList(input: {listId: $listId, repositoryIds: $repositoryIds}) {
+    list { id name }
+  }
+}"""
+
 
 def parse_index():
-    """Parse STARRED_REPOS.md into {major_section: [repo_full_names]}."""
+    """Parse STARRED_REPOS.md into {major_section: [owner/name, ...]}."""
     content = INDEX.read_text(encoding="utf-8")
     sections = {}
     cur_major = None
@@ -48,97 +70,87 @@ def parse_index():
         m = re.match(r"^## (.+?)$", line)
         if m and not m.group(1).startswith("Table"):
             cur_major = m.group(1).strip()
-            if cur_major not in sections:
-                sections[cur_major] = []
+            sections.setdefault(cur_major, [])
             continue
         m = re.match(r"^- \[([^\]]+)\]\(https://github\.com/", line)
         if m and cur_major:
-            sections[cur_major].append(m.group(1))
+            name = m.group(1).strip()
+            if REPO_RE.match(name):
+                sections[cur_major].append(name)
+            else:
+                print(f"  ! Skipping unparseable repo name in '{cur_major}': {name!r}")
     return sections
 
 
-def gql(query):
-    """Run a GraphQL query via gh CLI."""
+def gql(query, variables=None):
+    """Run a GraphQL request through `gh api graphql`, passing values as variables."""
+    body = json.dumps({"query": query, "variables": variables or {}})
     r = subprocess.run(
-        ["gh", "api", "graphql", "-f", f"query={query}"],
-        capture_output=True, text=True
+        ["gh", "api", "graphql", "--input", "-"],
+        input=body, capture_output=True, text=True,
     )
     if r.returncode != 0:
-        return None, r.stderr
+        return None, r.stderr.strip()
     try:
-        return json.loads(r.stdout), None
+        out = json.loads(r.stdout)
     except json.JSONDecodeError:
         return None, r.stdout
+    if out.get("errors"):
+        return None, out["errors"]
+    return out, None
 
 
 def get_existing_lists():
-    """Return {name: list_id}."""
-    out, err = gql('query { viewer { lists(first: 100) { nodes { id name } } } }')
+    """Return {name: list_id} for the authenticated account."""
+    out, err = gql(Q_LISTS)
     if not out:
-        return {}
+        raise SystemExit(f"Could not read existing Stars Lists: {err}")
     return {n["name"]: n["id"] for n in out["data"]["viewer"]["lists"]["nodes"]}
 
 
 def create_list(name, description):
-    """Create a Stars List. Returns list ID or None."""
-    desc_escaped = description.replace('"', '\\"')
-    q = f'''mutation {{
-        createUserList(input: {{
-            name: "{name}",
-            description: "{desc_escaped}",
-            isPrivate: false
-        }}) {{ list {{ id name }} }}
-    }}'''
-    out, err = gql(q)
-    if not out or "errors" in out:
-        print(f"  ! Failed to create '{name}': {err or out.get('errors')}")
+    """Create a public Stars List. Returns its ID or None."""
+    out, err = gql(M_CREATE, {"name": name, "description": description})
+    if not out:
+        print(f"  ! Failed to create '{name}': {err}")
         return None
     return out["data"]["createUserList"]["list"]["id"]
 
 
 def get_repo_id(full_name):
     owner, name = full_name.split("/", 1)
-    q = f'query {{ repository(owner: "{owner}", name: "{name}") {{ id }} }}'
-    out, _ = gql(q)
+    out, _ = gql(Q_REPO, {"owner": owner, "name": name})
     if not out or out.get("data", {}).get("repository") is None:
         return None
     return out["data"]["repository"]["id"]
 
 
-def add_to_list(list_id, repo_id):
-    q = f'''mutation {{
-        updateUserList(input: {{
-            listId: "{list_id}",
-            repositoryIds: ["{repo_id}"]
-        }}) {{ list {{ id }} }}
-    }}'''
-    # NOTE: updateUserList replaces the full set of repo IDs each call.
-    # For bulk inserts, batch them up. See helper below.
-    out, err = gql(q)
-    return bool(out and "errors" not in out), err
-
-
 def set_list_repos(list_id, repo_full_names):
-    """Set the full repo set for a list in one mutation."""
-    repo_ids = []
-    for full in repo_full_names:
-        rid = get_repo_id(full)
-        if rid:
-            repo_ids.append(rid)
-    ids_str = ",".join(f'"{rid}"' for rid in repo_ids)
-    q = f'''mutation {{
-        updateUserList(input: {{
-            listId: "{list_id}",
-            repositoryIds: [{ids_str}]
-        }}) {{ list {{ id name }} }}
-    }}'''
-    out, err = gql(q)
-    return bool(out and "errors" not in out), len(repo_ids), err
+    """Replace the list's full repository set in one mutation."""
+    repo_ids = [rid for rid in (get_repo_id(f) for f in repo_full_names) if rid]
+    out, err = gql(M_SET, {"listId": list_id, "repositoryIds": repo_ids})
+    return bool(out), len(repo_ids), err
 
 
 def main():
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("--apply", action="store_true",
+                    help="create/update the Stars Lists on the account gh is logged into "
+                         "(default: dry run, no gh calls)")
+    args = ap.parse_args()
+
     sections = parse_index()
-    print(f"Parsed {sum(len(r) for r in sections.values())} repos across {len(sections)} sections.")
+    print(f"Parsed {sum(len(r) for r in sections.values())} repos across {len(sections)} sections "
+          f"from {INDEX}.")
+
+    if not args.apply:
+        print("DRY RUN: no changes made. Re-run with --apply to write these PUBLIC lists "
+              "(each list's repository set is replaced, not appended).")
+        for major, list_name in SECTION_TO_LIST.items():
+            repos = sections.get(major, [])
+            print(f"  {list_name}: {len(repos)} repos" if repos
+                  else f"  {list_name}: skipped (no repos)")
+        return
 
     existing = get_existing_lists()
     print(f"Existing lists: {len(existing)}")
@@ -151,18 +163,15 @@ def main():
 
         if list_name in existing:
             list_id = existing[list_name]
-            print(f"\n[Updating] '{list_name}' ({len(repos)} repos)")
+            print(f"[Updating] '{list_name}' ({len(repos)} repos)")
         else:
             list_id = create_list(list_name, f"Auto-curated: {major}")
             if not list_id:
                 continue
-            print(f"\n[Created] '{list_name}' ({len(repos)} repos)")
+            print(f"[Created] '{list_name}' ({len(repos)} repos)")
 
         ok, count, err = set_list_repos(list_id, repos)
-        if ok:
-            print(f"  Added {count} repos")
-        else:
-            print(f"  FAILED: {err}")
+        print(f"  Set {count} repos" if ok else f"  FAILED: {err}")
 
 
 if __name__ == "__main__":

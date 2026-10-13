@@ -9,8 +9,8 @@ Restricting network traffic originating from a private host or enclave destined 
 
 ## ATT&CK techniques countered (32)
 
-- [T0869](https://attack.mitre.org/techniques/T0869): filters
-- [T0884](https://attack.mitre.org/techniques/T0884): filters
+- [T0869: Standard Application Layer Protocol](https://attack.mitre.org/techniques/T0869): filters
+- [T0884: Connection Proxy](https://attack.mitre.org/techniques/T0884): filters
 - [T1001: Data Obfuscation](/mitre/techniques/T1001.md): filters. Adversaries may obfuscate command and control traffic to make it more difficult to detect.
 - [T1008: Fallback Channels](/mitre/techniques/T1008.md): filters. Adversaries may use fallback or alternate communication channels if the primary channel is compromised or inaccessible in order to maintain reliable command and control and to avoid data transfer thresholds.
 - [T1048.001: Exfiltration Over Symmetric Encrypted Non-C2 Protocol](/mitre/techniques/T1048-001.md): filters. Adversaries may steal data by exfiltrating it over a symmetrically encrypted network protocol other than that of the existing command and control channel.

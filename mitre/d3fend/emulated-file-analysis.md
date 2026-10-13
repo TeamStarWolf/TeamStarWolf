@@ -3,17 +3,17 @@
 <a id="emulated-file-analysis"></a>
 
 D3FEND tactic: Detect  
-Digital artifacts: Executable File, Document File  
+Digital artifacts: Document File, Executable File  
 
 Emulating instructions in a file looking for specific patterns.
 
-## ATT&CK techniques countered (44)
+## ATT&CK techniques countered (43)
 
-- [T0853](https://attack.mitre.org/techniques/T0853): analyzes
-- [T0865](https://attack.mitre.org/techniques/T0865): analyzes
-- [T0871](https://attack.mitre.org/techniques/T0871): analyzes
-- [T0894](https://attack.mitre.org/techniques/T0894): analyzes
-- [T0895](https://attack.mitre.org/techniques/T0895): analyzes
+- [T0853: Scripting](https://attack.mitre.org/techniques/T0853): analyzes
+- [T0865: Spearphishing Attachment](https://attack.mitre.org/techniques/T0865): analyzes
+- [T0871: Execution through API](https://attack.mitre.org/techniques/T0871): analyzes
+- [T0894: System Binary Proxy Execution](https://attack.mitre.org/techniques/T0894): analyzes
+- [T0895: Autorun Image](https://attack.mitre.org/techniques/T0895): analyzes
 - [T1016: System Network Configuration Discovery](/mitre/techniques/T1016.md): analyzes. Adversaries may look for details about the network configuration and settings, such as IP and/or MAC addresses, of systems they access or through information discovery of remote systems.
 - [T1027.001: Binary Padding](/mitre/techniques/T1027-001.md): analyzes. Adversaries may use binary padding to add junk data and change the on-disk representation of malware.
 - [T1027.002: Software Packing](/mitre/techniques/T1027-002.md): analyzes. Adversaries may perform software packing or virtual machine software protection to conceal their code.
@@ -44,7 +44,6 @@ Emulating instructions in a file looking for specific patterns.
 - [T1547.001: Registry Run Keys / Startup Folder](/mitre/techniques/T1547-001.md): analyzes. Adversaries may achieve persistence by adding a program to a startup folder or referencing it with a Registry run key.
 - [T1547.009: Shortcut Modification](/mitre/techniques/T1547-009.md): analyzes. Adversaries may create or modify shortcuts that can execute a program during system boot or user login.
 - [T1548.002: Bypass User Account Control](/mitre/techniques/T1548-002.md): analyzes. Adversaries may bypass UAC mechanisms to elevate process privileges on system.
-- [T1562.003: Impair Command History Logging](/mitre/techniques/T1562-003.md): analyzes. Adversaries may impair command history logging to hide commands they run on a compromised system.
 - [T1564.007: VBA Stomping](/mitre/techniques/T1564-007.md): analyzes. Adversaries may hide malicious Visual Basic for Applications (VBA) payloads embedded within MS Office documents by replacing the VBA source code with benign data.
 - [T1565.003: Runtime Data Manipulation](/mitre/techniques/T1565-003.md): analyzes. Adversaries may modify systems in order to manipulate the data as it is accessed and displayed to an end user, thus threatening the integrity of the data.
 - [T1566.001: Spearphishing Attachment](/mitre/techniques/T1566-001.md): analyzes. Adversaries may send spearphishing emails with a malicious attachment in an attempt to gain access to victim systems.

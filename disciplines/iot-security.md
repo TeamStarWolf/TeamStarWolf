@@ -226,7 +226,7 @@ MITRE ATT&CK Enterprise, ICS, and Mobile domains all apply to IoT. Key technique
 | Non-Standard Port | T1571 | IoT C2 communications on unusual ports; covert channel exfiltration through IoT devices | Egress filtering to permitted destinations only; alert on unexpected port/protocol combinations |
 | Exploit Public-Facing Application | T1190 | Exploitation of IoT web management interfaces, MQTT brokers, and cloud APIs exposed to internet | Network segmentation; IoT devices behind NAT; avoid internet exposure of management interfaces |
 | Default Accounts | T1078.001 | Default credential exploitation; most prevalent IoT initial access technique; automated by Mirai scanner | Enforce credential change at provisioning; credential scanning during deployment |
-| Firmware Corruption | T0839 | Malicious firmware update to compromise device or destroy functionality; VPNFilter kill stage | Signed firmware updates; secure boot chain; FOTA integrity verification before application |
+| Firmware Corruption | T1693.002 | Malicious firmware update to compromise device or destroy functionality; VPNFilter kill stage | Signed firmware updates; secure boot chain; FOTA integrity verification before application |
 | Modify Firmware | T0821 | Attacker replaces or modifies device firmware to establish persistence or add malicious capability | Firmware integrity monitoring; compare running firmware hash against manufacturer baseline |
 
 ---

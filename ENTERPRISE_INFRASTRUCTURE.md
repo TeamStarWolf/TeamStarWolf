@@ -383,7 +383,7 @@ Quick security reference:
 | File Server | Sensitive data discovery | T1039 (Data from Network Shared Drive), T1021.002 (SMB/Windows Admin Shares) |
 | Hypervisor | VM escape, ransomware | T1611 (Escape to Host), T1486 (Data Encrypted for Impact) |
 | Identity Server (AD/Entra) | Privilege escalation, persistence | T1078.002 (Domain Accounts), T1484 (Domain Policy Modification) |
-| Monitoring Infrastructure | Defense evasion (log tampering) | T1562.001 (Disable or Modify Tools), T1070 (Indicator Removal) |
+| Monitoring Infrastructure | Defense evasion (log tampering) | T1685 (Disable or Modify Tools), T1070 (Indicator Removal) |
 | CI/CD Pipeline | Supply chain compromise | T1195.002, T1552.001 (Credentials In Files) |
 
 ---

@@ -9,15 +9,14 @@ Replacing old software on a computer system component.
 
 ## ATT&CK techniques countered (35)
 
-- [T0811](https://attack.mitre.org/techniques/T0811): updates
-- [T0817](https://attack.mitre.org/techniques/T0817): updates
-- [T0839](https://attack.mitre.org/techniques/T0839): updates
-- [T0843](https://attack.mitre.org/techniques/T0843): updates
-- [T0845](https://attack.mitre.org/techniques/T0845): updates
-- [T0851](https://attack.mitre.org/techniques/T0851): updates
-- [T0873](https://attack.mitre.org/techniques/T0873): updates
-- [T0889](https://attack.mitre.org/techniques/T0889): updates
-- [T0894](https://attack.mitre.org/techniques/T0894): updates
+- [T0811: Data from Information Repositories](https://attack.mitre.org/techniques/T0811): updates
+- [T0817: Drive-by Compromise](https://attack.mitre.org/techniques/T0817): updates
+- [T0843: Program Download](https://attack.mitre.org/techniques/T0843): updates
+- [T0845: Program Upload](https://attack.mitre.org/techniques/T0845): updates
+- [T0851: Rootkit](https://attack.mitre.org/techniques/T0851): updates
+- [T0873: Project File Infection](https://attack.mitre.org/techniques/T0873): updates
+- [T0889: Modify Program](https://attack.mitre.org/techniques/T0889): updates
+- [T0894: System Binary Proxy Execution](https://attack.mitre.org/techniques/T0894): updates
 - [T1014: Rootkit](/mitre/techniques/T1014.md): updates. Adversaries may use rootkits to hide the presence of programs, files, network connections, services, drivers, and other system components.
 - [T1056.003: Web Portal Capture](/mitre/techniques/T1056-003.md): updates. Adversaries may install code on externally facing portals, such as a VPN login page, to capture and transmit credentials of users who attempt to log into the service.
 - [T1072: Software Deployment Tools](/mitre/techniques/T1072.md): updates. Adversaries may gain access to and use centralized software suites installed within an enterprise to execute commands and move laterally through the network.
@@ -44,6 +43,7 @@ Replacing old software on a computer system component.
 - [T1574.005: Executable Installer File Permissions Weakness](/mitre/techniques/T1574-005.md): updates. Adversaries may execute their own malicious payloads by hijacking the binaries used by an installer.
 - [T1574.010: Services File Permissions Weakness](/mitre/techniques/T1574-010.md): updates. Adversaries may execute their own malicious payloads by hijacking the binaries used by services.
 - [T1649: Steal or Forge Authentication Certificates](/mitre/techniques/T1649.md): updates. Adversaries may steal or forge certificates used for authentication to access remote systems or resources.
+- [T1693.002: Module Firmware](https://attack.mitre.org/techniques/T1693/002): updates (D3FEND maps the revoked predecessor T0839)
 
 ---
 

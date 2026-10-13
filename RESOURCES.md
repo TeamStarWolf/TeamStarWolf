@@ -61,7 +61,7 @@ A curated reference of books, courses, platforms, communities, and standards for
 | SANS OnDemand | [www.sans.org/ondemand](https://www.sans.org/ondemand) | Paid (premium, ~$5k+ per course) | Advanced technical courses across all security domains; GIAC-aligned |
 | INE / eLearnSecurity | [ine.com](https://ine.com) | Free starter / Subscription | Penetration testing, network security, cloud, eJPT/eCPPT/eWPT paths |
 | Cybrary | [www.cybrary.it](https://www.cybrary.it) | Free tier / Subscription | Broad catalog; cert prep, SOC, threat intel, and career development |
-| Coursera â€” Google Cybersecurity | [coursera.org/google-certificates/cybersecurity-certificate](https://www.coursera.org/google-certificates/cybersecurity-certificate) | Paid (financial aid available) | Entry-level foundations; Linux, Python, SIEM, and IDS/IPS concepts |
+| Coursera — Google Cybersecurity | [coursera.org/google-certificates/cybersecurity-certificate](https://www.coursera.org/google-certificates/cybersecurity-certificate) | Paid (financial aid available) | Entry-level foundations; Linux, Python, SIEM, and IDS/IPS concepts |
 | ISC2 Certified in Cybersecurity (CC) | [isc2.org/certifications/cc](https://www.isc2.org/certifications/cc) | Free exam (limited offer) | Security fundamentals; ideal first certification for career changers |
 
 ---
@@ -77,7 +77,7 @@ A curated reference of books, courses, platforms, communities, and standards for
 | [STOK](https://www.youtube.com/@STOKfredrik) | Bug bounty methodology, recon automation, and web application security research |
 | [The Cyber Mentor (TCM)](https://www.youtube.com/@TCMSecurityAcademy) | Practical ethical hacking, Active Directory attacks, OSCP prep, and career guidance |
 | [David Bombal](https://www.youtube.com/@davidbombal) | Networking, Python automation, ethical hacking tools, and certification prep |
-| [Gerald Auger â€” SimplyCyber](https://www.youtube.com/@SimplyCyber) | GRC, security leadership, career development, and daily cybersecurity news |
+| [Gerald Auger — SimplyCyber](https://www.youtube.com/@SimplyCyber) | GRC, security leadership, career development, and daily cybersecurity news |
 | [SANS Institute](https://www.youtube.com/@SANSInstitute) | Technical talks, course previews, Summit recordings, and practitioner interviews |
 | [Seytonic](https://www.youtube.com/@Seytonic) | Hardware hacking, Flipper Zero, RF security, and DIY security projects |
 

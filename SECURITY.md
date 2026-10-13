@@ -14,8 +14,8 @@ For anything sensitive, prefer the private advisory channel over a public issue 
 
 ## Scope
 
-- In scope: content accuracy and integrity; the `scripts/` build and validation code; the CI workflows; the docsify site configuration.
-- Out of scope: the security of third-party sites, tools, or datasets this library *links to* or *describes*; report those to their respective owners. Descriptions of offensive techniques are documented for defensive purposes; this library contains no exploit code or operational attack tooling.
+- In scope: content accuracy and integrity; the `scripts/` build and validation code; the maintainer helper in `research/`; the CI workflows; the docsify site configuration.
+- Out of scope: the security of third-party sites, tools, or datasets this library *links to* or *describes*; report those to their respective owners. Descriptions of offensive techniques are documented for defensive purposes. The library ships no exploit kits or attack tools as software, but several references quote short attack and evasion snippets as analysis samples (most notably the AMSI-bypass example under "AMSI Bypass" in [MALWARE_ANALYSIS_REFERENCE.md](MALWARE_ANALYSIS_REFERENCE.md)). Some antivirus engines, including Microsoft Defender, flag those files, so do not copy the library into an environment where that would raise an incident. A Defender detection on that file is expected, not a compromise of the repository; see [Cloning on Windows](CONTRIBUTING.md#cloning-on-windows).
 
 ## Response
 

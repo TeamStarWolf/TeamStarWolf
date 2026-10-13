@@ -9,9 +9,9 @@ Analyzing failed connections in a network to detect unauthorized activity.
 
 ## ATT&CK techniques countered (18)
 
-- [T0866](https://attack.mitre.org/techniques/T0866): analyzes
-- [T0884](https://attack.mitre.org/techniques/T0884): analyzes
-- [T0886](https://attack.mitre.org/techniques/T0886): analyzes
+- [T0866: Exploitation of Remote Services](https://attack.mitre.org/techniques/T0866): analyzes
+- [T0884: Connection Proxy](https://attack.mitre.org/techniques/T0884): analyzes
+- [T0886: Remote Services](https://attack.mitre.org/techniques/T0886): analyzes
 - [T1003.006: DCSync](/mitre/techniques/T1003-006.md): analyzes. Adversaries may attempt to access credentials and other sensitive information by abusing a Windows Domain Controller's application programming interface (API) to simulate the replication process from a remote domain controller using a technique called DCSync.
 - [T1021: Remote Services](/mitre/techniques/T1021.md): analyzes. Adversaries may use [Valid Accounts](https://attack.mitre.org/techniques/T1078) to log into a service that accepts remote connections, such as telnet, SSH, and VNC.
 - [T1047: Windows Management Instrumentation](/mitre/techniques/T1047.md): analyzes. Adversaries may abuse Windows Management Instrumentation (WMI) to execute malicious commands and payloads.

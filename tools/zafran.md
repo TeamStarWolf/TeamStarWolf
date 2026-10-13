@@ -99,8 +99,12 @@ _Official documentation & manuals_
 _API & developer docs_
 - [Zafran Security API profile (third-party index, API Evangelist) —  (no public first-party API reference located; API access is behind customer authentication)](https://providers.apievangelist.com/providers/zafran-security/)
 
-_GitHub (official)_
-- No official Zafran Security GitHub organization or public repositories were found.
+_GitHub_
+- [github.com/ZafranSecurity](https://github.com/ZafranSecurity) — a public org (created 2022-11-20, 5 public repos). It is **not** a GitHub-verified org and is not linked from zafran.io, so its provenance is content-based (one repo describes itself as "the official source of Zafran Security's Collector Helm chart"); treat as likely-official but unverified.
+- [zafran-custom-integrations-public](https://github.com/ZafranSecurity/zafran-custom-integrations-public) (MIT) — the Starlark runner for Zafran custom integrations. Its README and `genericimport.proto` are the closest thing to a public Zafran API/data-model reference: the `zafran` module (`collect_instance` / `collect_vulnerability` / `flush`, 100k and 1M per-flush limits), the `IdentifierType` enum (AWS_EC2_INSTANCE_ID, TENABLE_UUID, CROWDSTRIKE_AID, WIZ_GRAPH_ENTITY_ID, TANIUM_ID, ZSCALER_DEVICE_ID, DEFENDER_MACHINE_ID, QUALYS_ASSET_ID, …), and the `ScanType` taxonomy (INFRASTRUCTURE, SCA, EASM, CLOUD_MISCONFIGURATIONS, SAST, DAST_WAS, SECRETS, IAC, DSPM, COMPLIANCE, PENTEST_BUG_BOUNTY).
+- [zafran-collector-helm-chart](https://github.com/ZafranSecurity/zafran-collector-helm-chart) (MIT) — the collector Helm chart (self-described as the official source).
+- [securingthefrontier](https://github.com/ZafranSecurity/securingthefrontier) — a Zafran-run "Securing the Frontier" content site (GitHub Pages, served at securingthefrontier.com).
+- The org's other two repos are a fork of OWASP Juice Shop and a copy of Chainlit — not Zafran product.
 
 _Community / integration / detection repos_
 - No notable community repositories specific to Zafran were found (product is closed/SaaS with marketplace-based integrations rather than open-source tooling).
@@ -110,7 +114,7 @@ _Learning & reference_
 - [AWS Marketplace listing](https://aws.amazon.com/marketplace/pp/prodview-3fcfd4kifsf7k)
 - CrowdStrike Marketplace / Trend Micro partner platform listings (integration references)
 
-> Note: Zafran is a newer (venture-backed) AI-native Continuous Threat Exposure Management (CTEM) / mitigation platform. There is NO public developer documentation site, no public API reference, and no official GitHub presence that could be verified — technical docs, API, and integration setup require a customer account and vendor engagement. Integrations (Cyera, CrowdStrike, Trend Micro, Jira, ServiceNow VR, SOAR) are configured in-product rather than via open-source repos. Treat vendor exploitability/mitigation claims (e.g. '90% of critical vulns not exploitable') as marketing until validated.
+> Note: Zafran is a newer (venture-backed) AI-native Continuous Threat Exposure Management (CTEM) / mitigation platform. There is NO public developer documentation site and no public first-party API reference — docs.zafran.io and api.zafran.io sit behind a customer account, and integration setup requires vendor engagement. The one public technical artifact is the integration data-model (schema + Starlark runner) in the ZafranSecurity GitHub org noted above, whose provenance is content-based/unverified. Integrations (Cyera, CrowdStrike, Trend Micro, Jira, ServiceNow VR, SOAR) are configured in-product rather than via open-source repos. Treat vendor exploitability/mitigation claims (e.g. '90% of critical vulns not exploitable') as marketing until validated.
 
 ## Current state (2025-26)
 

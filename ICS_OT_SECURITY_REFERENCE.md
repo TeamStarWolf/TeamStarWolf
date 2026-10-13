@@ -450,7 +450,7 @@ MITRE ATT&CK for ICS is the definitive framework for mapping adversary behaviors
 | Network Connection Enumeration | T0840 | Map ICS network topology |
 | Remote System Discovery | T0846 | Identify PLCs, RTUs, HMIs |
 | Remote System Information Discovery | T0888 | Query PLC firmware, model, config |
-| I/O Module Discovery | T0824 | Enumerate connected I/O modules |
+| I/O Module Discovery | T0824 (deprecated, no successor) | Enumerate connected I/O modules |
 | Wireless Sniffing | T0887 | Capture unencrypted wireless ICS protocols |
 
 ### Lateral Movement

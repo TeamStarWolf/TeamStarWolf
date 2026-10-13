@@ -14,9 +14,10 @@ data itself) are computed. Provenance (source/license/url) comes from the
 explicit PROVENANCE table below — edit it, never guess, when adding data.
 
 `inputs` records the upstream artifacts a generator fetches rather than ships
-(today: the ATT&CK Enterprise STIX bundle behind scripts/build_attack_core.py),
-each pinned by commit and SHA-256. The values are read from the generator's own
-constants, so --check fails if the manifest and the generator's pin disagree.
+(today: the ATT&CK Enterprise, ICS and Mobile STIX bundles behind
+scripts/build_attack_core.py), each pinned by commit and SHA-256. The values are
+read from the generator's own constants, so --check fails if the manifest and the
+generator's pins disagree.
 
 Default: (re)write data/MANIFEST.json.
 --check: regenerate in memory and exit 1 if the committed manifest is stale.
@@ -131,19 +132,20 @@ def _file_entry(path: str, rel: str):
 
 
 def inputs():
-    """Pinned upstream inputs that generators fetch (not files under data/)."""
+    """Pinned upstream inputs that generators fetch (not files under data/): one entry
+    per ATT&CK STIX bundle (Enterprise, ICS, Mobile) in build_attack_core.STIX_INPUTS."""
     core = build_attack_core
     return [{
-        "name": "MITRE ATT&CK Enterprise STIX bundle (" + os.path.basename(core.STIX_FILE) + ")",
+        "name": "MITRE ATT&CK " + pin["label"] + " STIX bundle (" + os.path.basename(pin["path"]) + ")",
         "consumed_by": "scripts/build_attack_core.py",
         "repo": core.STIX_REPO,
         "commit": core.STIX_COMMIT,
-        "path": core.STIX_FILE,
-        "url": core.STIX_URL,
-        "bytes": core.STIX_BYTES,
-        "sha256": core.STIX_SHA256,
+        "path": pin["path"],
+        "url": pin["url"],
+        "bytes": pin["bytes"],
+        "sha256": pin["sha256"],
         "provenance": SOURCES["attack"],
-    }]
+    } for pin in core.STIX_INPUTS.values()]
 
 
 def compute():

@@ -211,6 +211,10 @@ COUNT_RULES = [
     ("data/attack/campaigns.jsonl", "campaign_id", "technique_count", "data/attack/campaign_profiles.jsonl", "campaign_id", "techniques[]", "count"),
     ("data/attack/ics/technique_profiles.jsonl", "technique_id", "group_count", "data/attack/ics/group_to_technique.jsonl", "technique_id", "group_id", "count"),
     ("data/attack/mobile/technique_profiles.jsonl", "technique_id", "group_count", "data/attack/mobile/group_to_technique.jsonl", "technique_id", "group_id", "count"),
+    # ICS/Mobile ship no software or mitigation edge table; those counts are checked
+    # against the pinned STIX by scripts/build_attack_core.py --check (CI).
+    ("data/attack/ics/groups.jsonl", "group_id", "technique_count", "data/attack/ics/group_to_technique.jsonl", "group_id", "technique_id", "count"),
+    ("data/attack/mobile/groups.jsonl", "group_id", "technique_count", "data/attack/mobile/group_to_technique.jsonl", "group_id", "technique_id", "count"),
 ]
 
 

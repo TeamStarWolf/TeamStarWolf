@@ -24,7 +24,7 @@
       "#08306b"
     ],
     "minValue": 0,
-    "maxValue": 5
+    "maxValue": 6
   },
   "legendItems": [
     {
@@ -51,7 +51,7 @@
     },
     {
       "name": "max_group_count",
-      "value": "5"
+      "value": "6"
     }
   ],
   "showTacticRowBackground": true,
@@ -62,52 +62,52 @@
     {
       "techniqueID": "T1406",
       "score": 1,
-      "comment": "1 threat group and 44 software use this. 0 ATT&CK mitigations."
+      "comment": "1 threat group and 46 software use this. 0 ATT&CK mitigations."
     },
     {
       "techniqueID": "T1407",
       "score": 1,
-      "comment": "1 threat group and 38 software use this. 1 ATT&CK mitigation."
+      "comment": "1 threat group and 39 software use this. 1 ATT&CK mitigation."
     },
     {
       "techniqueID": "T1409",
       "score": 1,
-      "comment": "1 threat group and 29 software use this. 1 ATT&CK mitigation."
+      "comment": "1 threat group and 30 software use this. 1 ATT&CK mitigation."
     },
     {
       "techniqueID": "T1417.001",
       "score": 1,
-      "comment": "1 threat group and 16 software use this. 2 ATT&CK mitigations."
+      "comment": "1 threat group and 19 software use this. 2 ATT&CK mitigations."
     },
     {
       "techniqueID": "T1420",
       "score": 1,
-      "comment": "1 threat group and 14 software use this. 1 ATT&CK mitigation."
+      "comment": "1 threat group and 17 software use this. 1 ATT&CK mitigation."
     },
     {
       "techniqueID": "T1422",
       "score": 1,
-      "comment": "1 threat group and 45 software use this. 1 ATT&CK mitigation."
+      "comment": "1 threat group and 46 software use this. 1 ATT&CK mitigation."
     },
     {
       "techniqueID": "T1426",
       "score": 1,
-      "comment": "1 threat group and 53 software use this. 0 ATT&CK mitigations."
+      "comment": "1 threat group and 55 software use this. 0 ATT&CK mitigations."
     },
     {
       "techniqueID": "T1429",
       "score": 1,
-      "comment": "1 threat group and 49 software use this. 2 ATT&CK mitigations."
+      "comment": "1 threat group and 51 software use this. 2 ATT&CK mitigations."
     },
     {
       "techniqueID": "T1430",
       "score": 1,
-      "comment": "1 threat group and 55 software use this. 4 ATT&CK mitigations."
+      "comment": "1 threat group and 57 software use this. 4 ATT&CK mitigations."
     },
     {
       "techniqueID": "T1437.001",
       "score": 1,
-      "comment": "1 threat group and 46 software use this. 0 ATT&CK mitigations."
+      "comment": "1 threat group and 48 software use this. 0 ATT&CK mitigations."
     },
     {
       "techniqueID": "T1451",
@@ -117,7 +117,7 @@
     {
       "techniqueID": "T1512",
       "score": 1,
-      "comment": "1 threat group and 38 software use this. 1 ATT&CK mitigation."
+      "comment": "1 threat group and 41 software use this. 1 ATT&CK mitigation."
     },
     {
       "techniqueID": "T1521.001",
@@ -127,7 +127,7 @@
     {
       "techniqueID": "T1533",
       "score": 1,
-      "comment": "1 threat group and 50 software use this. 0 ATT&CK mitigations."
+      "comment": "1 threat group and 52 software use this. 0 ATT&CK mitigations."
     },
     {
       "techniqueID": "T1627.001",
@@ -152,22 +152,22 @@
     {
       "techniqueID": "T1636.003",
       "score": 1,
-      "comment": "1 threat group and 53 software use this. 1 ATT&CK mitigation."
+      "comment": "1 threat group and 56 software use this. 1 ATT&CK mitigation."
     },
     {
       "techniqueID": "T1636.004",
       "score": 1,
-      "comment": "1 threat group and 68 software use this. 1 ATT&CK mitigation."
+      "comment": "1 threat group and 71 software use this. 1 ATT&CK mitigation."
     },
     {
       "techniqueID": "T1655.001",
       "score": 3,
-      "comment": "3 threat groups and 40 software use this. 1 ATT&CK mitigation."
+      "comment": "3 threat groups and 41 software use this. 1 ATT&CK mitigation."
     },
     {
       "techniqueID": "T1660",
-      "score": 5,
-      "comment": "5 threat groups and 9 software use this. 2 ATT&CK mitigations."
+      "score": 6,
+      "comment": "6 threat groups and 11 software use this. 2 ATT&CK mitigations."
     },
     {
       "techniqueID": "T1676",

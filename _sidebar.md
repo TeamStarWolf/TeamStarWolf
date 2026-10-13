@@ -295,4 +295,4 @@
 
 ---
 
-- [Contributing](/.github/CONTRIBUTING.md)
+- [Contributing](/CONTRIBUTING.md)

@@ -19,12 +19,14 @@ Usage:
     python scripts/generate_mitre_pages.py                 # techniques (+ index) + landing
     python scripts/generate_mitre_pages.py --only all      # every mitre/ section
     python scripts/generate_mitre_pages.py --only techniques,landing
-    python scripts/generate_mitre_pages.py --check         # write to mitre/_gen_check/ (no overwrite)
+    python scripts/generate_mitre_pages.py --only all --check   # CI: render to a temp dir, fail on any drift
     python scripts/generate_mitre_pages.py --verify-corpus 21   # CI: data file <-> pages round-trip, exactly 21
 """
 import json
 import re
 import argparse
+import shutil
+import tempfile
 from pathlib import Path
 
 from plain_markdown import plain
@@ -1388,7 +1390,10 @@ def render_crosswalk(db):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", default="techniques,landing")
-    ap.add_argument("--check", action="store_true")
+    ap.add_argument("--check", action="store_true",
+                    help="write nothing under mitre/: render the selected sections into a temporary "
+                         "directory and exit 1 if any committed page differs, is missing, or is an orphan "
+                         "the generator no longer produces")
     ap.add_argument("--verify-corpus", type=int, metavar="N", default=None,
                     help="write nothing; fail unless corpus_signal.jsonl holds exactly N rows, every "
                          "row's paragraph is on its committed page verbatim, and no page carries a "
@@ -1404,7 +1409,6 @@ def main():
     except CorpusSignalError as e:
         print("ERROR: corpus signal: " + str(e))
         raise SystemExit(2)
-    out_root = (MITRE / "_gen_check") if args.check else MITRE
     print("loaded: " + str(len(db.prof)) + " techniques, corpus preserved for " +
           str(len(db.corpus_ids)) + " of them (" + CORPUS_PATH.relative_to(ROOT).as_posix() +
           "; " + str(len(db.corpus_on_pages)) + " committed pages carry the paragraph)")
@@ -1430,6 +1434,67 @@ def main():
               "(data file == committed pages)")
         return
 
+    # --check renders OUTSIDE the repository (the old mitre/_gen_check/ lived inside the tree
+    # that pages-deploy.yml uploads wholesale, so a stray local check run could be deployed).
+    check_dir = Path(tempfile.mkdtemp(prefix="tsw-mitre-check-")) if args.check else None
+    out_root = (check_dir / "mitre") if args.check else MITRE
+    try:
+        generate(db, only, out_root)
+        if args.check:
+            raise SystemExit(compare_tree(out_root, only))
+    finally:
+        if check_dir is not None:
+            shutil.rmtree(check_dir, ignore_errors=True)
+
+
+# Sections whose directory holds a hand-written README.md the generator does not own.
+HANDWRITTEN_README = {"capec", "atlas", "d3fend"}
+SECTION_DIRS = ("techniques", "mitigations", "tactics", "d3fend", "capec", "atlas", "f3", "groups",
+                "software", "campaigns")
+
+
+def _norm(p):
+    # read_text() already folds CRLF to LF, so a Windows checkout compares equal
+    return p.read_text(encoding="utf-8")
+
+
+def compare_tree(out_root, only):
+    """Diff the freshly rendered sections against the committed mitre/ tree.
+    Returns 0 when identical, 1 (after printing every difference) otherwise."""
+    problems = []
+    for f in sorted(out_root.rglob("*.md")):
+        rel = f.relative_to(out_root)
+        committed = MITRE / rel
+        if not committed.exists():
+            problems.append("missing  mitre/" + rel.as_posix() + "  (generator writes it; not committed)")
+        elif _norm(committed) != _norm(f):
+            problems.append("stale    mitre/" + rel.as_posix() + "  (committed page differs from the data)")
+    for sec in SECTION_DIRS:
+        if sec not in only:
+            continue
+        for committed in sorted((MITRE / sec).glob("*.md")):
+            if committed.name == "README.md" and sec in HANDWRITTEN_README:
+                continue
+            if not (out_root / sec / committed.name).exists():
+                problems.append("orphan   mitre/" + sec + "/" + committed.name +
+                                "  (committed, but the data no longer produces it)")
+    n = sum(1 for _ in out_root.rglob("*.md"))
+    if problems:
+        sel = "all" if set(SECTION_DIRS) | {"crosswalk", "landing"} <= only else ",".join(sorted(only))
+        print("MITRE PAGES DRIFT: " + str(len(problems)) + " of " + str(n) + " generated pages differ "
+              "from the committed tree. Run `python scripts/generate_mitre_pages.py --only " + sel +
+              "` and commit the result:")
+        for line in problems[:200]:
+            print("  " + line)
+        if len(problems) > 200:
+            print("  ... and " + str(len(problems) - 200) + " more")
+        return 1
+    print("OK: " + str(n) + " generated mitre/ pages match the committed tree (" + ",".join(sorted(only)) + ")")
+    return 0
+
+
+def generate(db, only, out_root):
+    """Render the selected sections of mitre/ into out_root (mitre/ itself, or a --check temp dir)."""
     if "techniques" in only:
         d = out_root / "techniques"
         d.mkdir(parents=True, exist_ok=True)

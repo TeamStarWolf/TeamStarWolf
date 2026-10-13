@@ -54,6 +54,13 @@ yarn-error.log*
 # the pinned immutable URL by default, so this local bundle is never committed.
 .stix-cache-*.json
 
+# Scratch output of older generate_mitre_pages.py --check runs (the check now renders to a
+# system temp dir). Never commit it: everything tracked is published by pages-deploy.yml.
+mitre/_gen_check/
+
+# lychee-action report directory (link-check.yml writes it in CI; local runs may too)
+/lychee/
+
 # OS cruft
 .DS_Store
 .DS_Store?

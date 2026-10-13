@@ -1,32 +1,13 @@
 name: Validate Data Files
 
 on:
+  # No paths filter: the drift, encoding and revoked-ID gates below cover generated trees
+  # (mitre/, techniques/, detections/, scores/) and every hand-written page, so any change
+  # can break one of them. The whole workflow runs in about a minute.
   push:
     branches: [main]
-    paths:
-      - 'data/**'
-      - 'navigator/**'
-      - 'scripts/**'
-      - 'README.md'
-      - 'HOME.md'
-      - 'INDEX.md'
-      - 'CITATION.cff'
-      - 'SECURITY_PIPELINE.md'
-      - 'scores/**'
-      - 'mitre/**'
   pull_request:
     branches: [main]
-    paths:
-      - 'data/**'
-      - 'navigator/**'
-      - 'scripts/**'
-      - 'README.md'
-      - 'HOME.md'
-      - 'INDEX.md'
-      - 'CITATION.cff'
-      - 'SECURITY_PIPELINE.md'
-      - 'scores/**'
-      - 'mitre/**'
   workflow_dispatch:
 
 jobs:
@@ -70,6 +51,55 @@ jobs:
 
       - name: Corpus signal preserved for exactly 21 techniques
         run: python scripts/generate_mitre_pages.py --verify-corpus 21
+
+  pages-drift:
+    name: Generated page trees match the data (mitre/, techniques/, detections/strategies/)
+    # Each generator renders into a temporary directory (nothing is written in the checkout)
+    # and fails on any committed page that differs from the data, is missing, or is an orphan
+    # the data no longer produces. scores/ is diffed by compute_coverage.py --check in the
+    # validate-navigator job; the priority-gap page by build_priority_gaps.py --check below.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: mitre/ (every section) matches the data
+        run: python scripts/generate_mitre_pages.py --only all --check
+
+      - name: techniques/ and detections/strategies/ match the data
+        run: python scripts/generate_technique_detail_pages.py --check
+
+  repo-hygiene:
+    name: Tracked junk, text encoding, revoked ATT&CK IDs in hand-written pages
+    # junk: nothing build/editor/OS-generated is tracked (all of it would be published).
+    # encoding: every tracked text file is valid UTF-8 with no U+FFFD and no double-encoded
+    #   UTF-8 (the mojibake class PR-15 cleaned up).
+    # revoked: hand-written pages may not cite a revoked/deprecated ATT&CK ID (per
+    #   data/attack/superseded_by.jsonl) more often than scripts/baselines/revoked_ids.json
+    #   records; the baseline holds the pre-existing citations and may only shrink.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: No tracked junk
+        run: python scripts/check_repo_hygiene.py --only junk
+
+      - name: Valid UTF-8, no mojibake
+        run: python scripts/check_repo_hygiene.py --only encoding
+
+      - name: No new revoked/deprecated ATT&CK IDs in hand-written pages
+        run: python scripts/check_repo_hygiene.py --only revoked --report
 
   validate-navigator:
     name: Validate ATT&CK Navigator layers

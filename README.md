@@ -125,6 +125,11 @@ facts, regulatory requirements, and anything you intend to run.
 Offensive techniques and tooling are described for authorized testing, education, and defensive research.
 Do not use them against systems you do not have permission to test.
 
+Cloning on Windows: a few references quote attack and evasion snippets as analysis samples, and Microsoft
+Defender quarantines MALWARE_ANALYSIS_REFERENCE.md on checkout, which leaves a tracked file deleted in
+`git status`. Before cloning, follow [Cloning on Windows](CONTRIBUTING.md#cloning-on-windows), and
+never commit that deletion.
+
 MITRE ATT&CK, ATLAS, CAPEC, CWE, D3FEND, EMB3D, Engage, F3, and FiGHT are maintained by The MITRE
 Corporation, and the Mappings Explorer is published by MITRE's Center for Threat-Informed Defense. ATT&CK is
 a registered trademark of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.

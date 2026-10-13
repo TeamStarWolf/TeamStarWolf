@@ -18,12 +18,12 @@
 
 The library has two faces backed by the same files:
 
-1. The live site: [teamstarwolf.github.io/TeamStarWolf](https://teamstarwolf.github.io/TeamStarWolf/). It opens on a navigation homepage ([HOME](/HOME.md)) with stat tiles, a Quick router, and full-text search. Use this for reading and finding things.
-2. The GitHub repo: [github.com/TeamStarWolf/TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf). It opens on the [README](/README.md), which carries the "At a glance" numbers and the "Start here" table. Use this for raw files, datasets, issues, and pull requests.
+1. The live site: [teamstarwolf.github.io/TeamStarWolf](https://teamstarwolf.github.io/TeamStarWolf/). It opens on a navigation homepage ([HOME](/HOME.md)) with a Quick router, the How-to guides, and full-text search. Use this for reading and finding things.
+2. The GitHub repo: [github.com/TeamStarWolf/TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf). It opens on the [README](/README.md), which carries the "Where to start" table and the dataset overview. Use this for raw files, datasets, issues, and pull requests.
 
 Every page on the live site has an "Edit this page on GitHub" link at the top, so you can hop between surfaces from wherever you are.
 
-Checkpoint: You can see the homepage hero ("An open, threat-informed cybersecurity reference library") and the stat tiles: 139 reference docs, 47 discipline paths, 28 Navigator layers.
+Checkpoint: You can see the homepage hero ("A cybersecurity reference library cross-referenced to MITRE ATT&CK.") and the Quick router cards (Map coverage & gaps, Build detections, Hunt, Respond now, and so on). Neither the homepage nor the README carries headline counts; the current numbers live in [data/generated/stats.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/generated/stats.json).
 
 Watch out: Dataset links (the `.jsonl` files) always open on GitHub, not on the site; the site's hash router cannot serve raw data files. That is by design, not a broken link.
 
@@ -37,9 +37,9 @@ The repo is one flat root of reference documents plus a few purposeful folders:
 | `disciplines/` | 47 guided learning paths that sequence those references in the right order; hub at [Discipline Paths](/disciplines/README.md) |
 | `guides/` | Step-by-step how-to guides (you are reading one): procedures, where the references are doctrine |
 | `techniques/` | Per-technique ATT&CK detail pages, one file per tactic: hub at [Technique Detail Pages](/techniques/README.md) |
-| `detections/` | Detection engineering: 691 MITRE detection strategies + 1,739 analytics ([Detection Strategies](/detections/strategies/README.md)) and 65 multi-platform queries ([Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)) |
+| `detections/` | Detection engineering: 697 MITRE detection strategies + 1,758 analytics ([Detection Strategies](/detections/strategies/README.md)) and 65 multi-platform queries ([Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)) |
 | `data/` | Machine-readable JSONL datasets: every mapping in the library as one JSON object per line (ATT&CK, D3FEND, CWE, CAPEC, ATLAS, Engage, F3, and the NIST 800-53 coverage edges) |
-| `navigator/` | 28 ATT&CK Navigator heatmap layers: index at [Navigator Layers](/navigator/index.md) |
+| `navigator/` | ATT&CK Navigator heatmap layers: index at [Navigator Layers](/navigator/index.md) |
 | `scores/` | Gap analyses computed from the datasets: start with [Priority Gap Analysis](/scores/attack_priority_gaps.md) |
 | `research/` | Curated research indexes: conference talks, tool crosswalks, lab tracks |
 

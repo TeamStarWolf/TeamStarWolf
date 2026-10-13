@@ -90,7 +90,10 @@ CHECKS = [
     (r"([\d,]+)\s+(?:MITRE ATT&CK\s+)?(?:intrusion\s+)?campaigns", "campaigns"),
     (r"([\d,]+)\s+(?:workbench\s+|navigator\s+)?layers", "navigator_layers"),
 ]
-DOCS = ["README.md", "HOME.md", "INDEX.md", "CITATION.cff"] + \
+# guides/HOW_TO_USE_THIS_LIBRARY.md is the onboarding walk-through and quotes library-wide
+# totals; the other guides quote relational subsets ("6 groups") the regexes would misread.
+DOCS = ["README.md", "HOME.md", "INDEX.md", "CITATION.cff",
+        os.path.join("guides", "HOW_TO_USE_THIS_LIBRARY.md")] + \
        [os.path.relpath(p, ROOT) for p in glob.glob(os.path.join(ROOT, "scores", "*.md"))]
 
 def check(stats):

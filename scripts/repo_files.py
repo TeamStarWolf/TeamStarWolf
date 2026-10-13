@@ -1,5 +1,5 @@
 """Shared helpers for the repository-wide CI checks (check_docsify_links.py,
-check_authored_text.py): the set of tracked files and a robust reader.
+check_repo_hygiene.py): the set of tracked files and a robust reader.
 
 The universe is `git ls-files`, i.e. exactly what actions/checkout puts in the Pages
 artifact, so an untracked local file never makes a link look valid and never trips a

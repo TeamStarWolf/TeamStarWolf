@@ -1500,9 +1500,9 @@ def generate(db, only, out_root):
         d.mkdir(parents=True, exist_ok=True)
         n = 0
         for tid in db.prof:
-            (d / (tslug(tid) + ".md")).write_text(plain(render_technique(db, tid)), encoding="utf-8")
+            (d / (tslug(tid) + ".md")).write_text(plain(render_technique(db, tid)), encoding="utf-8", newline="\n")
             n += 1
-        (d / "README.md").write_text(plain(render_technique_index(db)), encoding="utf-8")
+        (d / "README.md").write_text(plain(render_technique_index(db)), encoding="utf-8", newline="\n")
         print("techniques: wrote " + str(n) + " pages + README")
 
     if "mitigations" in only:
@@ -1513,9 +1513,9 @@ def generate(db, only, out_root):
             mid = f.stem
             if mid not in db.mit:
                 continue
-            (d / (mid + ".md")).write_text(plain(render_mitigation(db, mid, f.read_text(encoding="utf-8"))), encoding="utf-8")
+            (d / (mid + ".md")).write_text(plain(render_mitigation(db, mid, f.read_text(encoding="utf-8"))), encoding="utf-8", newline="\n")
             mids.append(mid)
-        (d / "README.md").write_text(plain(render_mitigation_landing(db, mids)), encoding="utf-8")
+        (d / "README.md").write_text(plain(render_mitigation_landing(db, mids)), encoding="utf-8", newline="\n")
         print("mitigations: wrote " + str(len(mids)) + " pages + README")
 
     if "tactics" in only:
@@ -1527,11 +1527,11 @@ def generate(db, only, out_root):
                 continue
             if f.stem in RENAMED_TACTICS:
                 on, ns, nn = RENAMED_TACTICS[f.stem]
-                (d / f.name).write_text(plain(render_tactic_pointer(on, ns, nn)), encoding="utf-8")
+                (d / f.name).write_text(plain(render_tactic_pointer(on, ns, nn)), encoding="utf-8", newline="\n")
             else:
-                (d / f.name).write_text(plain(render_tactic(db, f.stem, f.read_text(encoding="utf-8"))), encoding="utf-8")
+                (d / f.name).write_text(plain(render_tactic(db, f.stem, f.read_text(encoding="utf-8"))), encoding="utf-8", newline="\n")
             n += 1
-        (d / "README.md").write_text(plain(render_tactic_landing(db)), encoding="utf-8")
+        (d / "README.md").write_text(plain(render_tactic_landing(db)), encoding="utf-8", newline="\n")
         print("tactics: wrote " + str(n) + " pages + README")
 
     if "d3fend" in only:
@@ -1541,7 +1541,7 @@ def generate(db, only, out_root):
         for f in sorted((MITRE / "d3fend").glob("*.md")):
             if f.name == "README.md":
                 continue
-            (d / f.name).write_text(plain(render_d3fend(db, f.stem, f.read_text(encoding="utf-8"))), encoding="utf-8")
+            (d / f.name).write_text(plain(render_d3fend(db, f.stem, f.read_text(encoding="utf-8"))), encoding="utf-8", newline="\n")
             n += 1
         print("d3fend: wrote " + str(n) + " pages")
 
@@ -1550,7 +1550,7 @@ def generate(db, only, out_root):
         d.mkdir(parents=True, exist_ok=True)
         n = 0
         for cid in db.capec:
-            (d / (cid + ".md")).write_text(plain(render_capec(db, cid)), encoding="utf-8")
+            (d / (cid + ".md")).write_text(plain(render_capec(db, cid)), encoding="utf-8", newline="\n")
             n += 1
         print("capec: wrote " + str(n) + " pages")
 
@@ -1559,10 +1559,10 @@ def generate(db, only, out_root):
         d.mkdir(parents=True, exist_ok=True)
         nt = nm = 0
         for tid in db.atlas:
-            (d / (aml_slug(tid) + ".md")).write_text(plain(render_atlas_technique(db, tid)), encoding="utf-8")
+            (d / (aml_slug(tid) + ".md")).write_text(plain(render_atlas_technique(db, tid)), encoding="utf-8", newline="\n")
             nt += 1
         for mid in db.atlas_mit:
-            (d / (aml_slug(mid) + ".md")).write_text(plain(render_atlas_mitigation(db, mid)), encoding="utf-8")
+            (d / (aml_slug(mid) + ".md")).write_text(plain(render_atlas_mitigation(db, mid)), encoding="utf-8", newline="\n")
             nm += 1
         print("atlas: wrote " + str(nt) + " technique + " + str(nm) + " mitigation pages")
 
@@ -1571,9 +1571,9 @@ def generate(db, only, out_root):
         d.mkdir(parents=True, exist_ok=True)
         n = 0
         for fid in db.f3:
-            (d / (fid + ".md")).write_text(plain(render_f3_technique(db, fid)), encoding="utf-8")
+            (d / (fid + ".md")).write_text(plain(render_f3_technique(db, fid)), encoding="utf-8", newline="\n")
             n += 1
-        (d / "README.md").write_text(plain(render_f3_landing(db)), encoding="utf-8")
+        (d / "README.md").write_text(plain(render_f3_landing(db)), encoding="utf-8", newline="\n")
         print("f3: wrote " + str(n) + " technique pages + README")
 
     if "groups" in only:
@@ -1581,9 +1581,9 @@ def generate(db, only, out_root):
         d.mkdir(parents=True, exist_ok=True)
         n = 0
         for gid in db.group_prof:
-            (d / (gid + ".md")).write_text(plain(render_group(db, gid)), encoding="utf-8")
+            (d / (gid + ".md")).write_text(plain(render_group(db, gid)), encoding="utf-8", newline="\n")
             n += 1
-        (d / "README.md").write_text(plain(render_group_landing(db)), encoding="utf-8")
+        (d / "README.md").write_text(plain(render_group_landing(db)), encoding="utf-8", newline="\n")
         print("groups: wrote " + str(n) + " pages + README")
 
     if "software" in only:
@@ -1591,9 +1591,9 @@ def generate(db, only, out_root):
         d.mkdir(parents=True, exist_ok=True)
         n = 0
         for sid in db.sw_prof:
-            (d / (sid + ".md")).write_text(plain(render_software(db, sid)), encoding="utf-8")
+            (d / (sid + ".md")).write_text(plain(render_software(db, sid)), encoding="utf-8", newline="\n")
             n += 1
-        (d / "README.md").write_text(plain(render_software_landing(db)), encoding="utf-8")
+        (d / "README.md").write_text(plain(render_software_landing(db)), encoding="utf-8", newline="\n")
         print("software: wrote " + str(n) + " pages + README")
 
     if "campaigns" in only:
@@ -1601,19 +1601,19 @@ def generate(db, only, out_root):
         d.mkdir(parents=True, exist_ok=True)
         n = 0
         for cid in db.camp_prof:
-            (d / (cid + ".md")).write_text(plain(render_campaign(db, cid)), encoding="utf-8")
+            (d / (cid + ".md")).write_text(plain(render_campaign(db, cid)), encoding="utf-8", newline="\n")
             n += 1
-        (d / "README.md").write_text(plain(render_campaign_landing(db)), encoding="utf-8")
+        (d / "README.md").write_text(plain(render_campaign_landing(db)), encoding="utf-8", newline="\n")
         print("campaigns: wrote " + str(n) + " pages + README")
 
     if "crosswalk" in only:
         out_root.mkdir(parents=True, exist_ok=True)
-        (out_root / "crosswalk.md").write_text(plain(render_crosswalk(db)), encoding="utf-8")
+        (out_root / "crosswalk.md").write_text(plain(render_crosswalk(db)), encoding="utf-8", newline="\n")
         print("crosswalk: wrote crosswalk.md")
 
     if "landing" in only:
         out_root.mkdir(parents=True, exist_ok=True)
-        (out_root / "README.md").write_text(plain(render_landing(db)), encoding="utf-8")
+        (out_root / "README.md").write_text(plain(render_landing(db)), encoding="utf-8", newline="\n")
         print("landing: wrote README.md")
 
 

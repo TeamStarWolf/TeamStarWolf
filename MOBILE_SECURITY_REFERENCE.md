@@ -1564,8 +1564,8 @@ frida -U -f owasp.mstg.uncrackable1 --no-pause -l uncrackable1_solve.js
 
 | Tactic | Technique ID | Technique Name | Example |
 |---|---|---|---|
-| Initial Access | T1475 | Deliver Malicious App via Authorized App Store | Joker malware on Google Play |
-| Initial Access | T1476 | Deliver Malicious App via Other Means | Smishing link to APK; enterprise profile abuse |
+| Initial Access | T1475 (deprecated, no successor) | Deliver Malicious App via Authorized App Store | Joker malware on Google Play |
+| Initial Access | T1476 (deprecated, no successor) | Deliver Malicious App via Other Means | Smishing link to APK; enterprise profile abuse |
 | Initial Access | T1458 | Repackaged Application | Trojanized APK with RAT embedded |
 | Execution | T1603 | Scheduled Task/Job | AlarmManager / JobScheduler for persistence |
 | Persistence | T1577 | Compromise Application Executable | Modify APK; reflash device firmware |

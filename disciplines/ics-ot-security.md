@@ -153,7 +153,7 @@ ATT&CK for ICS documents techniques used in real campaigns against industrial en
 | Network Connection Enumeration | T0840 | Mapping OT network topology and device inventory as reconnaissance | Alert on active scanning in OT networks; passive discovery is expected but active Nmap scans are not |
 | Damage to Property | T0879 | Actions resulting in physical damage to equipment or the environment, the ultimate ICS attack objective | Consequence analysis; physical safety systems (SIS) as last resort; process safety interlocks |
 | Activate Firmware Update Mode | T0800 | Forcing a device into firmware update mode to deploy malicious firmware or cause disruption | Restrict firmware update capabilities; monitor for unexpected update mode transitions |
-| Modify Control Logic | T0833 | Modifying PLC ladder logic, function block diagrams, or other control programs | Integrity monitoring of PLC programs; compare against known-good baselines; engineering workstation audit logs |
+| Modify Control Logic | T0833 (deprecated, no successor) | Modifying PLC ladder logic, function block diagrams, or other control programs | Integrity monitoring of PLC programs; compare against known-good baselines; engineering workstation audit logs |
 | Spearphishing Attachment | T0865 | Initial access via malicious email attachments targeting OT-adjacent staff (engineers, IT admins) | Email security controls at IT boundary; awareness training for engineering and operations staff |
 
 ---

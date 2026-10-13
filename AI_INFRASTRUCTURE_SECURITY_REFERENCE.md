@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | Read this when | you are threat-modeling or hardening an ML platform (registry, feature store, inference tier), reviewing whether it is safe to load a third-party model artifact, standing up model signing or SBOM-for-models, securing a Jupyter/Kubeflow environment, or triaging a CVE in an AI-serving component |
-| Start at | [The AI Infrastructure Attack Surface](#1-the-ai-infrastructure-attack-surface), [Unsafe Model Deserialization](#2-model-serialization--unsafe-deserialization), [GPU & Inference-Server Hardening](#8-gpu--inference-server-hardening), [Consolidated Hardening Checklist](#10-consolidated-hardening-checklist) |
+| Start at | [The AI Infrastructure Attack Surface](#_1-the-ai-infrastructure-attack-surface), [Unsafe Model Deserialization](#_2-model-serialization-amp-unsafe-deserialization), [GPU & Inference-Server Hardening](#_8-gpu-amp-inference-server-hardening), [Consolidated Hardening Checklist](#_10-consolidated-hardening-checklist) |
 | Pairs with | [AI_SECURITY_REFERENCE.md](AI_SECURITY_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [AGENTIC_AI_ATTACK_REFERENCE.md](AGENTIC_AI_ATTACK_REFERENCE.md), [DEVSECOPS_REFERENCE.md](DEVSECOPS_REFERENCE.md), [KUBERNETES_SECURITY_REFERENCE.md](KUBERNETES_SECURITY_REFERENCE.md) |
 
 *Sources: [NIST SP 800-218A](https://csrc.nist.gov/pubs/sp/800/218/a/final), [CISA/NSA AI Data Security CSI (2025)](https://www.cisa.gov/news-events/alerts/2025/05/22/new-best-practices-guide-securing-ai-data-released), [OWASP GenAI Security Project](https://genai.owasp.org/), [Coalition for Secure AI (CoSAI)](https://www.coalitionforsecureai.org/), [sigstore/model-transparency](https://github.com/sigstore/model-transparency). Facts verified 2026-09-29.*
@@ -18,14 +18,14 @@ Prompt injection gets the headlines, but most *real* AI compromises reported in 
 
 | Layer | Representative components | Primary infra risks | Deep-dive |
 |---|---|---|---|
-| Model artifacts | `.pkl`, `.pt`/`.bin`, `.h5`, `.keras`, `.joblib`, `.gguf`, `.safetensors` | Code execution on load, backdoored weights, tampering | [§2](#2-model-serialization--unsafe-deserialization) |
-| Registry / artifact store | MLflow, Hugging Face Hub, S3/GCS/Azure Blob, JFrog, Nexus | Unauthenticated pull/push, no provenance, malicious upload | [§3](#3-model-registries--artifact-provenance) |
-| Training data & RAG corpus | Data lakes, DVC, LakeFS, web-scraped sets, RAG document stores | Poisoning, backdoor triggers, split-view/frontrunning | [§4](#4-training-data--rag-corpus-poisoning) |
-| Vector store | Chroma, Pinecone, Weaviate, Milvus, Qdrant, pgvector | Broken tenant isolation, corpus poisoning, embedding inversion | [§5](#5-vector-store--embedding-security) |
-| Feature store | Feast, Tecton, SageMaker/Vertex/Databricks feature stores | Integrity/skew, PII exposure, weak access control | [§6](#6-feature-stores) |
+| Model artifacts | `.pkl`, `.pt`/`.bin`, `.h5`, `.keras`, `.joblib`, `.gguf`, `.safetensors` | Code execution on load, backdoored weights, tampering | [§2](#_2-model-serialization-amp-unsafe-deserialization) |
+| Registry / artifact store | MLflow, Hugging Face Hub, S3/GCS/Azure Blob, JFrog, Nexus | Unauthenticated pull/push, no provenance, malicious upload | [§3](#_3-model-registries-amp-artifact-provenance) |
+| Training data & RAG corpus | Data lakes, DVC, LakeFS, web-scraped sets, RAG document stores | Poisoning, backdoor triggers, split-view/frontrunning | [§4](#_4-training-data-amp-rag-corpus-poisoning) |
+| Vector store | Chroma, Pinecone, Weaviate, Milvus, Qdrant, pgvector | Broken tenant isolation, corpus poisoning, embedding inversion | [§5](#_5-vector-store-amp-embedding-security) |
+| Feature store | Feast, Tecton, SageMaker/Vertex/Databricks feature stores | Integrity/skew, PII exposure, weak access control | [§6](#_6-feature-stores) |
 | ML pipeline / CI-CD | Kubeflow, Airflow, Argo, MLflow Pipelines, GitHub Actions | Supply-chain injection, secrets in notebooks, weak provenance | [§7](#_7-ml-pipeline-ci-cd-supply-chain) |
-| Serving / GPU tier | Triton, TorchServe, vLLM, Ray Serve, Ollama, KServe | Unauth RCE, model theft, resource exhaustion, tenant escape | [§8](#8-gpu--inference-server-hardening) |
-| Access & governance | API gateways, IAM, quotas, audit logs | Missing authn/authz, no rate limits, no audit trail | [§9](#9-model-access-control--rate-limiting) |
+| Serving / GPU tier | Triton, TorchServe, vLLM, Ray Serve, Ollama, KServe | Unauth RCE, model theft, resource exhaustion, tenant escape | [§8](#_8-gpu-amp-inference-server-hardening) |
+| Access & governance | API gateways, IAM, quotas, audit logs | Missing authn/authz, no rate limits, no audit trail | [§9](#_9-model-access-control-amp-rate-limiting) |
 
 Framing for threat models. Map these to MITRE ATLAS tactics for AI systems (*ML/AI Supply Chain Compromise*, *Poison Training Data*, *Manipulate AI Model*, and *Exfiltrate/Extract AI Model*), but treat the enabling weaknesses (missing auth, deserialization, exposed dashboards) as ordinary [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md) and [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md) problems. See [ATLAS_REFERENCE.md](ATLAS_REFERENCE.md) for current technique IDs and names.
 

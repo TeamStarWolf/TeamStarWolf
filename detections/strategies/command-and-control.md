@@ -2,7 +2,7 @@
 
 > MITRE ATT&CK detection strategies and analytics (v19.2) for techniques whose primary tactic is Command and Control. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
 
-See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](../TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](../../ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](../../techniques/README.md)
+See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](/techniques/README.md)
 
 ---
 
@@ -11,7 +11,7 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 
 Detection strategy: Detect Obfuscated C2 via Network Traffic Analysis (`DET0053`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1001](https://attack.mitre.org/techniques/T1001/), [detail page](../../techniques/command-and-control.md#t1001)
+ATT&CK: [T1001](https://attack.mitre.org/techniques/T1001/), [detail page](/techniques/command-and-control.md#t1001)
 
 - `AN0144` Analytic 0144, Windows
   Detects excessive outbound traffic to remote host over HTTP(S) from uncommon or previously unseen processes.
@@ -33,7 +33,7 @@ ATT&CK: [T1001](https://attack.mitre.org/techniques/T1001/), [detail page](../..
 
 Detection strategy: Detecting Junk Data in C2 Channels via Behavioral Analysis (`DET0011`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1001.001](https://attack.mitre.org/techniques/T1001/001/), [detail page](../../techniques/command-and-control.md#t1001001)
+ATT&CK: [T1001.001](https://attack.mitre.org/techniques/T1001/001/), [detail page](/techniques/command-and-control.md#t1001001)
 
 - `AN0030` Analytic 0030, Windows
   Processes generating large outbound connections with disproportionate send/receive ratios, often to uncommon ports or hosts, potentially inserting meaningless data into protocol payloads.
@@ -59,7 +59,7 @@ ATT&CK: [T1001.001](https://attack.mitre.org/techniques/T1001/001/), [detail pag
 
 Detection strategy: Detecting Steganographic Command and Control via File + Network Correlation (`DET0235`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1001.002](https://attack.mitre.org/techniques/T1001/002/), [detail page](../../techniques/command-and-control.md#t1001002)
+ATT&CK: [T1001.002](https://attack.mitre.org/techniques/T1001/002/), [detail page](/techniques/command-and-control.md#t1001002)
 
 - `AN0651` Analytic 0651, Windows
   Detect the creation or modification of common media file formats (e.g., .jpg, .png, .wav) following suspicious process activity like compression or encryption, especially when paired with lateral movement or exfiltration behavior.
@@ -85,7 +85,7 @@ ATT&CK: [T1001.002](https://attack.mitre.org/techniques/T1001/002/), [detail pag
 
 Detection strategy: Detecting Protocol or Service Impersonation via Anomalous TLS, HTTP Header, and Port Mismatch Correlation (`DET0470`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1001.003](https://attack.mitre.org/techniques/T1001/003/), [detail page](../../techniques/command-and-control.md#t1001003)
+ATT&CK: [T1001.003](https://attack.mitre.org/techniques/T1001/003/), [detail page](/techniques/command-and-control.md#t1001003)
 
 - `AN1294` Analytic 1294, Windows
   Untrusted processes creating outbound TLS/HTTPS connections with malformed certificates or header fields, often mismatched with target service behavior. Detects protocol impersonation attempts via traffic metadata analysis and host process lineage.
@@ -111,7 +111,7 @@ ATT&CK: [T1001.003](https://attack.mitre.org/techniques/T1001/003/), [detail pag
 
 Detection strategy: Behavioral Detection of Fallback or Alternate C2 Channels (`DET0499`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1008](https://attack.mitre.org/techniques/T1008/), [detail page](../../techniques/command-and-control.md#t1008)
+ATT&CK: [T1008](https://attack.mitre.org/techniques/T1008/), [detail page](/techniques/command-and-control.md#t1008)
 
 - `AN1376` Analytic 1376, Windows
   Establishing network connections on uncommon ports or protocols following C2 disruption or blocking. Often executed by processes that typically exhibit no network activity.
@@ -137,7 +137,7 @@ ATT&CK: [T1008](https://attack.mitre.org/techniques/T1008/), [detail page](../..
 
 Detection strategy: Detection of Command and Control Over Application Layer Protocols (`DET0444`)  
 Platforms: Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1071](https://attack.mitre.org/techniques/T1071/), [detail page](../../techniques/command-and-control.md#t1071)
+ATT&CK: [T1071](https://attack.mitre.org/techniques/T1071/), [detail page](/techniques/command-and-control.md#t1071)
 
 - `AN1225` Analytic 1225, Windows
   Detects suspicious usage of common application-layer protocols (e.g., HTTP, HTTPS, DNS, SMB) by abnormal processes, with high outbound byte counts or irregular ports, possibly indicating command and control or data exfiltration.
@@ -163,7 +163,7 @@ ATT&CK: [T1071](https://attack.mitre.org/techniques/T1071/), [detail page](../..
 
 Detection strategy: Detection of Web Protocol-Based C2 Over HTTP, HTTPS, or WebSockets (`DET0027`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1071.001](https://attack.mitre.org/techniques/T1071/001/), [detail page](../../techniques/command-and-control.md#t1071001)
+ATT&CK: [T1071.001](https://attack.mitre.org/techniques/T1071/001/), [detail page](/techniques/command-and-control.md#t1071001)
 
 - `AN0075` Analytic 0075, Windows
   Detects unexpected or high-volume HTTP/S/WebSocket communication from suspicious processes (e.g., PowerShell, rundll32) using uncommon user agents or mimicking browser traffic to unusual domains or IPs.
@@ -193,7 +193,7 @@ ATT&CK: [T1071.001](https://attack.mitre.org/techniques/T1071/001/), [detail pag
 
 Detection strategy: Detection of File Transfer Protocol-Based C2 (FTP, FTPS, SMB, TFTP) (`DET0416`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1071.002](https://attack.mitre.org/techniques/T1071/002/), [detail page](../../techniques/command-and-control.md#t1071002)
+ATT&CK: [T1071.002](https://attack.mitre.org/techniques/T1071/002/), [detail page](/techniques/command-and-control.md#t1071002)
 
 - `AN1169` Analytic 1169, Windows
   Detects FTP, SMB, or TFTP traffic initiated by suspicious processes like PowerShell, cmd.exe, or rundll32.exe—especially with large outbound file transfers or unbalanced traffic volume.
@@ -223,7 +223,7 @@ ATT&CK: [T1071.002](https://attack.mitre.org/techniques/T1071/002/), [detail pag
 
 Detection strategy: Detection of Mail Protocol-Based C2 Activity (SMTP, IMAP, POP3) (`DET0135`)  
 Platforms: Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1071.003](https://attack.mitre.org/techniques/T1071/003/), [detail page](../../techniques/command-and-control.md#t1071003)
+ATT&CK: [T1071.003](https://attack.mitre.org/techniques/T1071/003/), [detail page](/techniques/command-and-control.md#t1071003)
 
 - `AN0379` Analytic 0379, Windows
   Detects unauthorized use of SMTP/IMAP/POP3 by suspicious binaries (e.g., PowerShell, rundll32) to exfiltrate data or beacon via email, often bypassing proxy or content filters.
@@ -249,7 +249,7 @@ ATT&CK: [T1071.003](https://attack.mitre.org/techniques/T1071/003/), [detail pag
 
 Detection strategy: Behavioral Detection of DNS Tunneling and Application Layer Abuse (`DET0400`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1071.004](https://attack.mitre.org/techniques/T1071/004/), [detail page](../../techniques/command-and-control.md#t1071004)
+ATT&CK: [T1071.004](https://attack.mitre.org/techniques/T1071/004/), [detail page](/techniques/command-and-control.md#t1071004)
 
 - `AN1121` Analytic 1121, Windows
   Detects high-frequency or anomalous DNS queries initiated by non-browser, non-system processes (e.g., PowerShell, rundll32, python.exe) used to establish command and control via DNS tunneling.
@@ -279,7 +279,7 @@ ATT&CK: [T1071.004](https://attack.mitre.org/techniques/T1071/004/), [detail pag
 
 Detection strategy: Behavioral Detection of Publish/Subscribe Protocol Misuse for C2 (`DET0002`)  
 Platforms: Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1071.005](https://attack.mitre.org/techniques/T1071/005/), [detail page](../../techniques/command-and-control.md#t1071005)
+ATT&CK: [T1071.005](https://attack.mitre.org/techniques/T1071/005/), [detail page](/techniques/command-and-control.md#t1071005)
 
 - `AN0002` Analytic 0002, Windows
   Detects non-standard processes (e.g., PowerShell, python.exe, rundll32.exe) making outbound connections using publish/subscribe protocols (e.g., MQTT, AMQP) over non-browser, encrypted channels, often beaconing to message brokers.
@@ -305,7 +305,7 @@ ATT&CK: [T1071.005](https://attack.mitre.org/techniques/T1071/005/), [detail pag
 
 Detection strategy: Detection of Proxy Infrastructure Setup and Traffic Bridging (`DET0445`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1090](https://attack.mitre.org/techniques/T1090/), [detail page](../../techniques/command-and-control.md#t1090)
+ATT&CK: [T1090](https://attack.mitre.org/techniques/T1090/), [detail page](/techniques/command-and-control.md#t1090)
 
 - `AN1229` Analytic 1229, Windows
   Suspicious process spawning (e.g., `rundll32`, `svchost`, `powershell`, or `netsh`) followed by network connection creation to internal hosts or uncommon external endpoints on high or non-standard ports.
@@ -335,7 +335,7 @@ ATT&CK: [T1090](https://attack.mitre.org/techniques/T1090/), [detail page](../..
 
 Detection strategy: Internal Proxy Behavior via Lateral Host-to-Host C2 Relay (`DET0075`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1090.001](https://attack.mitre.org/techniques/T1090/001/), [detail page](../../techniques/command-and-control.md#t1090001)
+ATT&CK: [T1090.001](https://attack.mitre.org/techniques/T1090/001/), [detail page](/techniques/command-and-control.md#t1090001)
 
 - `AN0204` Analytic 0204, Windows
   Anomalous process (e.g., `rundll32`, `svchost`, `cmd`) initiates connections to internal peer hosts not seen in typical communication baselines, used to proxy or forward traffic internally, often using SMB, RPC, or high ports.
@@ -365,7 +365,7 @@ ATT&CK: [T1090.001](https://attack.mitre.org/techniques/T1090/001/), [detail pag
 
 Detection strategy: External Proxy Behavior via Outbound Relay to Intermediate Infrastructure (`DET0325`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1090.002](https://attack.mitre.org/techniques/T1090/002/), [detail page](../../techniques/command-and-control.md#t1090002)
+ATT&CK: [T1090.002](https://attack.mitre.org/techniques/T1090/002/), [detail page](/techniques/command-and-control.md#t1090002)
 
 - `AN0922` Analytic 0922, Windows
   Unusual process (e.g., `rundll32`, `mshta`, `wscript`, or custom payloads) initiates network connection to external IPs/domains that proxy C2 traffic, often over uncommon ports or high entropy HTTP/S connections.
@@ -395,7 +395,7 @@ ATT&CK: [T1090.002](https://attack.mitre.org/techniques/T1090/002/), [detail pag
 
 Detection strategy: Multi-hop Proxy Behavior via Relay Node Chaining, Onion Routing, and Network Tunneling (`DET0359`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1090.003](https://attack.mitre.org/techniques/T1090/003/), [detail page](../../techniques/command-and-control.md#t1090003)
+ATT&CK: [T1090.003](https://attack.mitre.org/techniques/T1090/003/), [detail page](/techniques/command-and-control.md#t1090003)
 
 - `AN1020` Analytic 1020, Windows
   Suspicious processes (e.g., Tor clients, relays, unknown binaries) launch with sustained encrypted outbound traffic to known anonymity infrastructure (e.g., Tor, I2P), and may relay to additional internal systems via reverse proxying, ICMP tunneling, or socket forwarding.
@@ -425,7 +425,7 @@ ATT&CK: [T1090.003](https://attack.mitre.org/techniques/T1090/003/), [detail pag
 
 Detection strategy: Domain Fronting Behavior via Mismatched TLS SNI and HTTP Host Headers (`DET0196`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1090.004](https://attack.mitre.org/techniques/T1090/004/), [detail page](../../techniques/command-and-control.md#t1090004)
+ATT&CK: [T1090.004](https://attack.mitre.org/techniques/T1090/004/), [detail page](/techniques/command-and-control.md#t1090004)
 
 - `AN0564` Analytic 0564, Windows
   Suspicious outbound HTTPS connections where the TLS Server Name Indication (SNI) does not match the HTTP Host header, indicating potential use of domain fronting to mask C2 traffic via CDNs.
@@ -451,7 +451,7 @@ ATT&CK: [T1090.004](https://attack.mitre.org/techniques/T1090/004/), [detail pag
 
 Detection strategy: Cross-host C2 via Removable Media Relay (`DET0090`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1092](https://attack.mitre.org/techniques/T1092/), [detail page](../../techniques/command-and-control.md#t1092)
+ATT&CK: [T1092](https://attack.mitre.org/techniques/T1092/), [detail page](/techniques/command-and-control.md#t1092)
 
 - `AN0247` Analytic 0247, Windows
   Behavioral sequence where removable media is mounted, files are written/updated, and subsequently read/executed on a separate host, suggesting removable-media relay communication.
@@ -473,7 +473,7 @@ ATT&CK: [T1092](https://attack.mitre.org/techniques/T1092/), [detail page](../..
 
 Detection strategy: Detection of Non-Application Layer Protocols for C2 (`DET0457`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1095](https://attack.mitre.org/techniques/T1095/), [detail page](../../techniques/command-and-control.md#t1095)
+ATT&CK: [T1095](https://attack.mitre.org/techniques/T1095/), [detail page](/techniques/command-and-control.md#t1095)
 
 - `AN1254` Analytic 1254, Windows
   Anomalous use of ICMP or UDP by non-network service processes for data exfiltration or remote control, especially if traffic bypasses proxy infrastructure or shows unusual flow patterns.
@@ -503,7 +503,7 @@ ATT&CK: [T1095](https://attack.mitre.org/techniques/T1095/), [detail page](../..
 
 Detection strategy: Suspicious Use of Web Services for C2 (`DET0425`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1102](https://attack.mitre.org/techniques/T1102/), [detail page](../../techniques/command-and-control.md#t1102)
+ATT&CK: [T1102](https://attack.mitre.org/techniques/T1102/), [detail page](/techniques/command-and-control.md#t1102)
 
 - `AN1189` Analytic 1189, Windows
   Detects unusual outbound connections to web services from uncommon processes using SSL/TLS, particularly those exhibiting high outbound data volume or persistence.
@@ -529,7 +529,7 @@ ATT&CK: [T1102](https://attack.mitre.org/techniques/T1102/), [detail page](../..
 
 Detection strategy: Detection Strategy for Web Service: Dead Drop Resolver (`DET0058`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1102.001](https://attack.mitre.org/techniques/T1102/001/), [detail page](../../techniques/command-and-control.md#t1102001)
+ATT&CK: [T1102.001](https://attack.mitre.org/techniques/T1102/001/), [detail page](/techniques/command-and-control.md#t1102001)
 
 - `AN0158` Analytic 0158, Windows
   Detection of a process or script that accesses a common web service to retrieve content containing obfuscated indicators of a secondary C2 server (dead drop resolver behavior).
@@ -555,7 +555,7 @@ ATT&CK: [T1102.001](https://attack.mitre.org/techniques/T1102/001/), [detail pag
 
 Detection strategy: Detect Bidirectional Web Service C2 Channels via Process & Network Correlation (`DET0035`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1102.002](https://attack.mitre.org/techniques/T1102/002/), [detail page](../../techniques/command-and-control.md#t1102002)
+ATT&CK: [T1102.002](https://attack.mitre.org/techniques/T1102/002/), [detail page](/techniques/command-and-control.md#t1102002)
 
 - `AN0100` Analytic 0100, Windows
   Suspicious processes initiating encrypted HTTPS connections to common web service domains, followed by abnormal data upload behavior or automated posting behavior indicative of C2 bidirectional traffic.
@@ -577,7 +577,7 @@ ATT&CK: [T1102.002](https://attack.mitre.org/techniques/T1102/002/), [detail pag
 
 Detection strategy: Detect One-Way Web Service Command Channels (`DET0581`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1102.003](https://attack.mitre.org/techniques/T1102/003/), [detail page](../../techniques/command-and-control.md#t1102003)
+ATT&CK: [T1102.003](https://attack.mitre.org/techniques/T1102/003/), [detail page](/techniques/command-and-control.md#t1102003)
 
 - `AN1599` Analytic 1599, Windows
   Suspicious process initiating outbound connections to web services without corresponding response or return traffic, indicative of one-way command channels.
@@ -603,7 +603,7 @@ ATT&CK: [T1102.003](https://attack.mitre.org/techniques/T1102/003/), [detail pag
 
 Detection strategy: Detect Multi-Stage Command and Control Channels (`DET0228`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1104](https://attack.mitre.org/techniques/T1104/), [detail page](../../techniques/command-and-control.md#t1104)
+ATT&CK: [T1104](https://attack.mitre.org/techniques/T1104/), [detail page](/techniques/command-and-control.md#t1104)
 
 - `AN0637` Analytic 0637, Windows
   Initial process initiates outbound connection to first-stage C2, receives payloads or commands, then spawns or injects into a second process that establishes a new outbound connection to an unrelated destination (second-stage C2).
@@ -629,7 +629,7 @@ ATT&CK: [T1104](https://attack.mitre.org/techniques/T1104/), [detail page](../..
 
 Detection strategy: Detect Ingress Tool Transfers via Behavioral Chain (`DET0060`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1105](https://attack.mitre.org/techniques/T1105/), [detail page](../../techniques/command-and-control.md#t1105)
+ATT&CK: [T1105](https://attack.mitre.org/techniques/T1105/), [detail page](/techniques/command-and-control.md#t1105)
 
 - `AN0165` Analytic 0165, Windows
   Unusual or uncommon processes initiate network connections to external destinations followed by file creation (tools downloaded).
@@ -659,7 +659,7 @@ ATT&CK: [T1105](https://attack.mitre.org/techniques/T1105/), [detail page](../..
 
 Detection strategy: Detection Strategy for Data Encoding in C2 Channels (`DET0108`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1132](https://attack.mitre.org/techniques/T1132/), [detail page](../../techniques/command-and-control.md#t1132)
+ATT&CK: [T1132](https://attack.mitre.org/techniques/T1132/), [detail page](/techniques/command-and-control.md#t1132)
 
 - `AN0302` Analytic 0302, Windows
   Atypical processes (e.g., powershell.exe, regsvr32.exe) encode large outbound traffic using Base64 or other character encodings; this traffic is sent over uncommon ports or embedded in protocol fields (e.g., HTTP cookies or headers).
@@ -685,7 +685,7 @@ ATT&CK: [T1132](https://attack.mitre.org/techniques/T1132/), [detail page](../..
 
 Detection strategy: Behavior-chain detection for T1132.001 Data Encoding: Standard Encoding (Base64/Hex/MIME) across Windows, Linux, macOS, ESXi (`DET0124`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1132.001](https://attack.mitre.org/techniques/T1132/001/), [detail page](../../techniques/command-and-control.md#t1132001)
+ATT&CK: [T1132.001](https://attack.mitre.org/techniques/T1132/001/), [detail page](/techniques/command-and-control.md#t1132001)
 
 - `AN0345` Analytic 0345, Windows
   Process invokes a standard encoder (e.g., PowerShell -enc, certutil -encode, base64 via .NET/Invoke-Expression) or emits long Base64/hex literals -> shortly followed by outbound network egress with high bytes_out:bytes_in ratio or HTTP headers/payloads containing Base64/MIME blocks.
@@ -711,7 +711,7 @@ ATT&CK: [T1132.001](https://attack.mitre.org/techniques/T1132/001/), [detail pag
 
 Detection strategy: Behavior-chain detection for T1132.002 Data Encoding: Non-Standard Encoding across Windows, Linux, macOS, ESXi (`DET0326`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1132.002](https://attack.mitre.org/techniques/T1132/002/), [detail page](../../techniques/command-and-control.md#t1132002)
+ATT&CK: [T1132.002](https://attack.mitre.org/techniques/T1132/002/), [detail page](/techniques/command-and-control.md#t1132002)
 
 - `AN0927` Analytic 0927, Windows
   A process/script constructs or references a custom/alphabet translation table (e.g., 64/85/32+ arbitrary chars, XOR/base-N loops) or emits long high-entropy strings that do NOT validate as standard Base64/Hex -> shortly after, the same process (or its child) generates outbound traffic with asymmetric bytes_out:bytes_in, fixed-size beacons, or protocol/header mismatches (e.g., Content-Type says JSON but body fails JSON parse / contains non-standard alphabet).
@@ -737,7 +737,7 @@ ATT&CK: [T1132.002](https://attack.mitre.org/techniques/T1132/002/), [detail pag
 
 Detection strategy: Behavior-Chain Detection for Remote Access Tools (Tool-Agnostic) (`DET0496`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1219](https://attack.mitre.org/techniques/T1219/), [detail page](../../techniques/command-and-control.md#t1219)
+ATT&CK: [T1219](https://attack.mitre.org/techniques/T1219/), [detail page](/techniques/command-and-control.md#t1219)
 
 - `AN1366` Analytic 1366, Windows
   Chain of remote access tool behavior: (1) initial execution of remote-control/assist agent or GUI under user context; (2) persistence via service or autorun; (3) long-lived outbound connection/tunnel to external infrastructure; (4) interactive control signals such as shell or file-manager child processes spawned by the RAT parent.
@@ -759,7 +759,7 @@ ATT&CK: [T1219](https://attack.mitre.org/techniques/T1219/), [detail page](../..
 
 Detection strategy: IDE Tunneling Detection via Process, File, and Network Behaviors (`DET0133`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1219.001](https://attack.mitre.org/techniques/T1219/001/), [detail page](../../techniques/command-and-control.md#t1219001)
+ATT&CK: [T1219.001](https://attack.mitre.org/techniques/T1219/001/), [detail page](/techniques/command-and-control.md#t1219001)
 
 - `AN0375` Analytic 0375, Windows
   Detection of the creation of VSCode or JetBrains CLI tunneling profiles followed by persistent remote access via IDE-integrated tunnels, potentially authenticated via GitHub or JetBrains accounts.
@@ -781,7 +781,7 @@ ATT&CK: [T1219.001](https://attack.mitre.org/techniques/T1219/001/), [detail pag
 
 Detection strategy: Remote Desktop Software Execution and Beaconing Detection (`DET0259`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1219.002](https://attack.mitre.org/techniques/T1219/002/), [detail page](../../techniques/command-and-control.md#t1219002)
+ATT&CK: [T1219.002](https://attack.mitre.org/techniques/T1219/002/), [detail page](/techniques/command-and-control.md#t1219002)
 
 - `AN0714` Analytic 0714, Windows
   Adversary installation or use of RMM software (e.g., TeamViewer, AnyDesk, ScreenConnect) followed by outbound beaconing or remote session establishment
@@ -803,7 +803,7 @@ ATT&CK: [T1219.002](https://attack.mitre.org/techniques/T1219/002/), [detail pag
 
 Detection strategy: Detect Remote Access via USB Hardware (TinyPilot, PiKVM) (`DET0159`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1219.003](https://attack.mitre.org/techniques/T1219/003/), [detail page](../../techniques/command-and-control.md#t1219003)
+ATT&CK: [T1219.003](https://attack.mitre.org/techniques/T1219/003/), [detail page](/techniques/command-and-control.md#t1219003)
 
 - `AN0446` Analytic 0446, Windows
   Detection of USB-based remote access hardware (e.g., TinyPilot, PiKVM) attached to the host via drive or peripheral enumeration, triggering vendor identifiers or unusual EDID announcements.
@@ -825,7 +825,7 @@ ATT&CK: [T1219.003](https://attack.mitre.org/techniques/T1219/003/), [detail pag
 
 Detection strategy: Detection Strategy for Dynamic Resolution across OS Platforms (`DET0039`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1568](https://attack.mitre.org/techniques/T1568/), [detail page](../../techniques/command-and-control.md#t1568)
+ATT&CK: [T1568](https://attack.mitre.org/techniques/T1568/), [detail page](/techniques/command-and-control.md#t1568)
 
 - `AN0109` Analytic 0109, Windows
   Correlate high-frequency or anomalous DNS query activity with processes that do not normally generate network requests (e.g., Office apps, system utilities). Detect pseudo-random or high-entropy domain lookups indicative of domain generation algorithms (DGAs).
@@ -851,7 +851,7 @@ ATT&CK: [T1568](https://attack.mitre.org/techniques/T1568/), [detail page](../..
 
 Detection strategy: Detection Strategy for Dynamic Resolution using Fast Flux DNS (`DET0485`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1568.001](https://attack.mitre.org/techniques/T1568/001/), [detail page](../../techniques/command-and-control.md#t1568001)
+ATT&CK: [T1568.001](https://attack.mitre.org/techniques/T1568/001/), [detail page](/techniques/command-and-control.md#t1568001)
 
 - `AN1331` Analytic 1331, Windows
   Identify repeated DNS resolutions where the same domain name returns multiple IPs in short succession, combined with low TTL values and high query volume from unusual processes. Correlate with process lineage (e.g., Office apps spawning abnormal DNS lookups).
@@ -877,7 +877,7 @@ ATT&CK: [T1568.001](https://attack.mitre.org/techniques/T1568/001/), [detail pag
 
 Detection strategy: Detection Strategy for Dynamic Resolution using Domain Generation Algorithms. (`DET0419`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1568.002](https://attack.mitre.org/techniques/T1568/002/), [detail page](../../techniques/command-and-control.md#t1568002)
+ATT&CK: [T1568.002](https://attack.mitre.org/techniques/T1568/002/), [detail page](/techniques/command-and-control.md#t1568002)
 
 - `AN1178` Analytic 1178, Windows
   Correlate DNS queries that generate domains with high entropy or gibberish patterns, combined with short-lived connections from unusual processes. Monitor Sysmon DNS events and Windows Security logs for abnormal query rates and failed lookups.
@@ -903,7 +903,7 @@ ATT&CK: [T1568.002](https://attack.mitre.org/techniques/T1568/002/), [detail pag
 
 Detection strategy: Detection Strategy for Dynamic Resolution through DNS Calculation (`DET0262`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1568.003](https://attack.mitre.org/techniques/T1568/003/), [detail page](../../techniques/command-and-control.md#t1568003)
+ATT&CK: [T1568.003](https://attack.mitre.org/techniques/T1568/003/), [detail page](/techniques/command-and-control.md#t1568003)
 
 - `AN0728` Analytic 0728, Windows
   Monitor DNS query results where subsequent connections use derived or unusual port numbers not explicitly resolved, especially when tied to suspicious processes. Correlate Sysmon DNS logs (Event ID 22) with process creation and socket activity.
@@ -929,7 +929,7 @@ ATT&CK: [T1568.003](https://attack.mitre.org/techniques/T1568/003/), [detail pag
 
 Detection strategy: Detection Strategy for Non-Standard Ports (`DET0227`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1571](https://attack.mitre.org/techniques/T1571/), [detail page](../../techniques/command-and-control.md#t1571)
+ATT&CK: [T1571](https://attack.mitre.org/techniques/T1571/), [detail page](/techniques/command-and-control.md#t1571)
 
 - `AN0633` Analytic 0633, Windows
   Processes initiating outbound connections on uncommon ports or using protocols inconsistent with the assigned port. Correlating process creation with subsequent network connections reveals anomalies such as svchost.exe or Office applications using high, atypical ports.
@@ -955,7 +955,7 @@ ATT&CK: [T1571](https://attack.mitre.org/techniques/T1571/), [detail page](../..
 
 Detection strategy: Detection Strategy for Protocol Tunneling accross OS platforms. (`DET0538`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1572](https://attack.mitre.org/techniques/T1572/), [detail page](../../techniques/command-and-control.md#t1572)
+ATT&CK: [T1572](https://attack.mitre.org/techniques/T1572/), [detail page](/techniques/command-and-control.md#t1572)
 
 - `AN1483` Analytic 1483, Windows
   Processes such as plink.exe, ssh.exe, or netsh.exe establishing outbound network connections where traffic patterns show encapsulated protocols (e.g., RDP over SSH). Defender observations include anomalous process-to-network relationships, large asymmetric data flows, and port usage mismatches.
@@ -981,7 +981,7 @@ ATT&CK: [T1572](https://attack.mitre.org/techniques/T1572/), [detail page](../..
 
 Detection strategy: Detection Strategy for Encrypted Channel across OS Platforms (`DET0273`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1573](https://attack.mitre.org/techniques/T1573/), [detail page](../../techniques/command-and-control.md#t1573)
+ATT&CK: [T1573](https://attack.mitre.org/techniques/T1573/), [detail page](/techniques/command-and-control.md#t1573)
 
 - `AN0759` Analytic 0759, Windows
   Processes that normally do not initiate network connections establishing outbound encrypted TLS/SSL sessions, especially with asymmetric traffic volumes (client sending more than receiving) or non-standard certificate chains. Defender observations correlate process creation with unexpected network encryption libraries being loaded.
@@ -1011,7 +1011,7 @@ ATT&CK: [T1573](https://attack.mitre.org/techniques/T1573/), [detail page](../..
 
 Detection strategy: Detection Strategy for Encrypted Channel via Symmetric Cryptography across OS Platforms (`DET0143`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1573.001](https://attack.mitre.org/techniques/T1573/001/), [detail page](../../techniques/command-and-control.md#t1573001)
+ATT&CK: [T1573.001](https://attack.mitre.org/techniques/T1573/001/), [detail page](/techniques/command-and-control.md#t1573001)
 
 - `AN0400` Analytic 0400, Windows
   Processes that typically do not perform cryptographic operations loading symmetric encryption libraries (e.g., bcryptprimitives.dll, aes.dll), then initiating outbound connections with high-entropy payloads. Defender correlates process creation, DLL load, and anomalous encrypted traffic patterns.
@@ -1041,7 +1041,7 @@ ATT&CK: [T1573.001](https://attack.mitre.org/techniques/T1573/001/), [detail pag
 
 Detection strategy: Detection Strategy for Encrypted Channel via Asymmetric Cryptography across OS Platforms (`DET0543`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1573.002](https://attack.mitre.org/techniques/T1573/002/), [detail page](../../techniques/command-and-control.md#t1573002)
+ATT&CK: [T1573.002](https://attack.mitre.org/techniques/T1573/002/), [detail page](/techniques/command-and-control.md#t1573002)
 
 - `AN1496` Analytic 1496, Windows
   Processes not typically associated with encryption loading asymmetric crypto libraries (e.g., rsaenh.dll, crypt32.dll) and subsequently initiating outbound TLS/SSL connections with abnormal certificate chains or handshakes. Defender correlates process creation, module load, and unusual encrypted sessions.
@@ -1071,7 +1071,7 @@ ATT&CK: [T1573.002](https://attack.mitre.org/techniques/T1573/002/), [detail pag
 
 Detection strategy: Detection Strategy for Hide Infrastructure (`DET0411`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1665](https://attack.mitre.org/techniques/T1665/), [detail page](../../techniques/command-and-control.md#t1665)
+ATT&CK: [T1665](https://attack.mitre.org/techniques/T1665/), [detail page](/techniques/command-and-control.md#t1665)
 
 - `AN1148` Analytic 1148, Windows
   Monitor DNS queries, proxy logs, and user-agent strings for anomalous patterns associated with adversary attempts to hide infrastructure. Defenders may observe DNS resolutions to short-lived domains, abnormal WHOIS registration data, or filtering of known defensive/responder IP addresses.

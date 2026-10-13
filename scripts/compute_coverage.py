@@ -52,6 +52,24 @@ SUPERSEDED = "data/attack/superseded_by.jsonl"
 VENDOR_TO_TECHNIQUE = "data/vendor_to_technique.jsonl"
 INPUTS = (PROFILES, SUPERSEDED, VENDOR_TO_TECHNIQUE)
 
+# Link form for in-repo targets on generated pages (shared with build_priority_gaps.py and
+# build_navigator_layers.py). The site is docsify with relativePath: false: every Markdown
+# link is a route from the site root, so a page link must be root-absolute ("/X.md"; a
+# "../X.md" link climbs out of the site and 404s), and a link to a data or layer file must be
+# an absolute GitHub URL (docsify routes "x.jsonl" to "x.jsonl.md", which 404s). See
+# scripts/check_docsify_links.py. GitHub resolves "/X.md" from the repository root as well.
+REPO_URL = "https://github.com/TeamStarWolf/TeamStarWolf"
+
+
+def repo_href(rel: str) -> str:
+    """Link target for the repo-relative path `rel` on a generated page."""
+    rel = rel.lstrip("/")
+    if rel.endswith("/"):
+        return f"{REPO_URL}/tree/main/{rel}"
+    if rel.endswith(".md"):
+        return "/" + rel
+    return f"{REPO_URL}/blob/main/{rel}"
+
 # ATT&CK Enterprise v19.2 tactics (15), in matrix order. v19 renamed Defense Evasion
 # (TA0005) -> Stealth and split out Defense Impairment (TA0112). The technique universe
 # per tactic is derived from the committed profiles, never hardcoded.
@@ -393,7 +411,7 @@ def render_md(g: dict, tactic_coverage: dict, vendor_coverage: dict, gaps: list)
       "from these inputs (sha256, first 12 hex digits):")
     a("")
     for rel, h in g["inputs_sha256"].items():
-        a(f"- [`{rel}`](/{rel}) `{h[:12]}`")
+        a(f"- [`{rel}`]({repo_href(rel)}) `{h[:12]}`")
     a("")
     a(f"Modeled stack ({g['total_vendor_stack_vendors']} products): "
       + ", ".join(sorted((v["vendor"] for v in vendor_coverage.values()), key=str.lower)) + ".")
@@ -402,11 +420,11 @@ def render_md(g: dict, tactic_coverage: dict, vendor_coverage: dict, gaps: list)
     a("")
     a("A technique counts as covered when at least one stack product satisfies a NIST 800-53 R5 "
       "control that the [CTID NIST 800-53 R5 mapping](https://github.com/center-for-threat-informed-defense/attack-control-framework-mappings) "
-      "links to it ([`data/vendor_to_technique.jsonl`](/data/vendor_to_technique.jsonl), the "
+      f"links to it ([`{VENDOR_TO_TECHNIQUE}`]({repo_href(VENDOR_TO_TECHNIQUE)}), the "
       "`vendor_to_control` x `control_to_technique` join). This measures control-mapping "
       "availability, not a tested detection or prevention. Mappings that CTID keyed on an ATT&CK id "
       "that v19 revoked are carried forward to the live successor through "
-      "[`superseded_by.jsonl`](/data/attack/superseded_by.jsonl) "
+      f"[`superseded_by.jsonl`]({repo_href(SUPERSEDED)}) "
       f"({g['vendor_edge_rows_on_revoked_ids']:,} of {g['vendor_edge_rows']:,} edge rows are keyed on a "
       "revoked id), so revoked ids are never counted as techniques.")
     a("")
@@ -431,8 +449,8 @@ def render_md(g: dict, tactic_coverage: dict, vendor_coverage: dict, gaps: list)
           f"{d['coverage_pct_of_total']}% | {len(d['gap_techniques'])} |")
     a("")
     a("A technique in several tactics is counted in each, so the rows do not sum to the overall total. "
-      "Per-tactic technique lists are in [`tactic_coverage.json`](/scores/tactic_coverage.json); per-product "
-      "lists are in [`vendor_coverage.json`](/scores/vendor_coverage.json).")
+      f"Per-tactic technique lists are in [`tactic_coverage.json`]({repo_href('scores/tactic_coverage.json')}); "
+      f"per-product lists are in [`vendor_coverage.json`]({repo_href('scores/vendor_coverage.json')}).")
     a("")
     a("---")
     a("")
@@ -514,9 +532,9 @@ def render_md(g: dict, tactic_coverage: dict, vendor_coverage: dict, gaps: list)
     a("")
     a("## References")
     a("")
-    a("- [Vendor to Control edges](/data/vendor_to_control.jsonl)")
-    a("- [Control to Technique edges](/data/control_to_technique.jsonl)")
-    a("- [Vendor to Technique derived edges](/data/vendor_to_technique.jsonl)")
+    a(f"- [Vendor to Control edges]({repo_href('data/vendor_to_control.jsonl')})")
+    a(f"- [Control to Technique edges]({repo_href('data/control_to_technique.jsonl')})")
+    a(f"- [Vendor to Technique derived edges]({repo_href(VENDOR_TO_TECHNIQUE)})")
     a("- [CTID NIST 800-53 R5 mappings](https://github.com/center-for-threat-informed-defense/attack-control-framework-mappings)")
     a("- [ATT&CK Navigator layers](/navigator/)")
     a("- [Coverage Schema](/COVERAGE_SCHEMA.md)")

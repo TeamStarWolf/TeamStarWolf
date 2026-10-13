@@ -2,7 +2,7 @@
 
 > MITRE ATT&CK detection strategies and analytics (v19.2) for techniques whose primary tactic is Discovery. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
 
-See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](../TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](../../ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](../../techniques/README.md)
+See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](/techniques/README.md)
 
 ---
 
@@ -11,7 +11,7 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 
 Detection strategy: Detection of System Service Discovery Commands Across OS Platforms (`DET0483`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1007](https://attack.mitre.org/techniques/T1007/), [detail page](../../techniques/discovery.md#t1007)
+ATT&CK: [T1007](https://attack.mitre.org/techniques/T1007/), [detail page](/techniques/discovery.md#t1007)
 
 - `AN1325` Analytic 1325, Windows
   Enumeration of services via native CLI tools (e.g., `sc query`, `tasklist /svc`, `net start`) or API calls via PowerShell and WMI.
@@ -33,7 +33,7 @@ ATT&CK: [T1007](https://attack.mitre.org/techniques/T1007/), [detail page](../..
 
 Detection strategy: Detection of Application Window Enumeration via API or Scripting (`DET0097`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1010](https://attack.mitre.org/techniques/T1010/), [detail page](../../techniques/discovery.md#t1010)
+ATT&CK: [T1010](https://attack.mitre.org/techniques/T1010/), [detail page](/techniques/discovery.md#t1010)
 
 - `AN0271` Analytic 0271, Windows
   Processes using Win32 API calls (e.g., EnumWindows, GetForegroundWindow) or scripting tools (e.g., PowerShell, VBScript) to enumerate open windows. These often appear with reconnaissance or data collection TTPs.
@@ -55,7 +55,7 @@ ATT&CK: [T1010](https://attack.mitre.org/techniques/T1010/), [detail page](../..
 
 Detection strategy: Detection of Registry Query for Environmental Discovery (`DET0209`)  
 Platforms: Windows  
-ATT&CK: [T1012](https://attack.mitre.org/techniques/T1012/), [detail page](../../techniques/discovery.md#t1012)
+ATT&CK: [T1012](https://attack.mitre.org/techniques/T1012/), [detail page](/techniques/discovery.md#t1012)
 
 - `AN0589` Analytic 0589, Windows
   Registry read access associated with suspicious or non-interactive processes querying system config, installed software, or security settings.
@@ -69,7 +69,7 @@ ATT&CK: [T1012](https://attack.mitre.org/techniques/T1012/), [detail page](../..
 
 Detection strategy: Behavioral Detection of System Network Configuration Discovery (`DET0195`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1016](https://attack.mitre.org/techniques/T1016/), [detail page](../../techniques/discovery.md#t1016)
+ATT&CK: [T1016](https://attack.mitre.org/techniques/T1016/), [detail page](/techniques/discovery.md#t1016)
 
 - `AN0559` Analytic 0559, Windows
   Execution of built-in tools (e.g., ipconfig, route, netsh) or PowerShell/WMI queries to enumerate IP, MAC, interface status, or routing configuration.
@@ -99,7 +99,7 @@ ATT&CK: [T1016](https://attack.mitre.org/techniques/T1016/), [detail page](../..
 
 Detection strategy: Behavioral Detection of Internet Connection Discovery (`DET0357`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1016.001](https://attack.mitre.org/techniques/T1016/001/), [detail page](../../techniques/discovery.md#t1016001)
+ATT&CK: [T1016.001](https://attack.mitre.org/techniques/T1016/001/), [detail page](/techniques/discovery.md#t1016001)
 
 - `AN1015` Analytic 1015, Windows
   Execution of utilities (e.g., ping, tracert, Test-NetConnection) or scripted methods to test Internet connectivity by interacting with external IPs/domains.
@@ -125,7 +125,7 @@ ATT&CK: [T1016.001](https://attack.mitre.org/techniques/T1016/001/), [detail pag
 
 Detection strategy: Behavioral Detection of Wi-Fi Discovery Activity (`DET0464`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1016.002](https://attack.mitre.org/techniques/T1016/002/), [detail page](../../techniques/discovery.md#t1016002)
+ATT&CK: [T1016.002](https://attack.mitre.org/techniques/T1016/002/), [detail page](/techniques/discovery.md#t1016002)
 
 - `AN1280` Analytic 1280, Windows
   Enumeration of saved Wi-Fi profiles and cleartext password retrieval using `netsh wlan` or API-level access to `wlanAPI.dll`.
@@ -147,7 +147,7 @@ ATT&CK: [T1016.002](https://attack.mitre.org/techniques/T1016/002/), [detail pag
 
 Detection strategy: Detection Strategy for Remote System Enumeration Behavior (`DET0574`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1018](https://attack.mitre.org/techniques/T1018/), [detail page](../../techniques/discovery.md#t1018)
+ATT&CK: [T1018](https://attack.mitre.org/techniques/T1018/), [detail page](/techniques/discovery.md#t1018)
 
 - `AN1583` Analytic 1583, Windows
   Execution of network enumeration utilities (e.g., net.exe, ping.exe, tracert.exe) in short succession, often chained with lateral movement tools or system enumeration commands.
@@ -177,7 +177,7 @@ ATT&CK: [T1018](https://attack.mitre.org/techniques/T1018/), [detail page](../..
 
 Detection strategy: Behavioral Detection of User Discovery via Local and Remote Enumeration (`DET0093`)  
 Platforms: Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1033](https://attack.mitre.org/techniques/T1033/), [detail page](../../techniques/discovery.md#t1033)
+ATT&CK: [T1033](https://attack.mitre.org/techniques/T1033/), [detail page](/techniques/discovery.md#t1033)
 
 - `AN0254` Analytic 0254, Windows
   Adversary launches built-in system tools (e.g., whoami, query user, net user) or scripts that enumerate user account information via local execution or remote API queries (e.g., WMI, PowerShell).
@@ -203,7 +203,7 @@ ATT&CK: [T1033](https://attack.mitre.org/techniques/T1033/), [detail page](../..
 
 Detection strategy: Behavioral Detection Strategy for Network Service Discovery Across Platforms (`DET0376`)  
 Platforms: Containers, Linux, Windows, macOS  
-ATT&CK: [T1046](https://attack.mitre.org/techniques/T1046/), [detail page](../../techniques/discovery.md#t1046)
+ATT&CK: [T1046](https://attack.mitre.org/techniques/T1046/), [detail page](/techniques/discovery.md#t1046)
 
 - `AN1057` Analytic 1057, Windows
   Detects processes performing network enumeration (e.g., port scans, service probing) by correlating process creation, socket connections, and sequential destination IP probing within a time window.
@@ -229,7 +229,7 @@ ATT&CK: [T1046](https://attack.mitre.org/techniques/T1046/), [detail page](../..
 
 Detection strategy: Detection of System Network Connections Discovery Across Platforms (`DET0320`)  
 Platforms: ESXi, IaaS, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1049](https://attack.mitre.org/techniques/T1049/), [detail page](../../techniques/discovery.md#t1049)
+ATT&CK: [T1049](https://attack.mitre.org/techniques/T1049/), [detail page](/techniques/discovery.md#t1049)
 
 - `AN0903` Analytic 0903, Windows
   Detects usage of commands or binaries (e.g., netstat, PowerShell Get-NetTCPConnection) and WMI or API calls to enumerate local or remote network connections.
@@ -263,7 +263,7 @@ ATT&CK: [T1049](https://attack.mitre.org/techniques/T1049/), [detail page](../..
 
 Detection strategy: Detection of Adversarial Process Discovery Behavior (`DET0034`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1057](https://attack.mitre.org/techniques/T1057/), [detail page](../../techniques/discovery.md#t1057)
+ATT&CK: [T1057](https://attack.mitre.org/techniques/T1057/), [detail page](/techniques/discovery.md#t1057)
 
 - `AN0095` Analytic 0095, Windows
   Identifies adversary behavior that launches commands or invokes APIs to enumerate active processes (e.g., tasklist.exe, Get-Process, or CreateToolhelp32Snapshot). Detects execution combined with parent process lineage, network session context, or remote origin.
@@ -293,7 +293,7 @@ ATT&CK: [T1057](https://attack.mitre.org/techniques/T1057/), [detail page](../..
 
 Detection strategy: Behavioral Detection of Permission Groups Discovery (`DET0179`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1069](https://attack.mitre.org/techniques/T1069/), [detail page](../../techniques/discovery.md#t1069)
+ATT&CK: [T1069](https://attack.mitre.org/techniques/T1069/), [detail page](/techniques/discovery.md#t1069)
 
 - `AN0507` Analytic 0507, Windows
   Detection of adversary enumeration of domain or local group memberships via native tools such as net.exe, PowerShell, or WMI. This activity may precede lateral movement or privilege escalation.
@@ -315,7 +315,7 @@ ATT&CK: [T1069](https://attack.mitre.org/techniques/T1069/), [detail page](../..
 
 Detection strategy: Behavioral Detection of Local Group Enumeration Across OS Platforms (`DET0114`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1069.001](https://attack.mitre.org/techniques/T1069/001/), [detail page](../../techniques/discovery.md#t1069001)
+ATT&CK: [T1069.001](https://attack.mitre.org/techniques/T1069/001/), [detail page](/techniques/discovery.md#t1069001)
 
 - `AN0317` Analytic 0317, Windows
   Detects attempts to enumerate local groups via Net.exe, PowerShell, or native API calls that precede lateral movement or privilege abuse.
@@ -337,7 +337,7 @@ ATT&CK: [T1069.001](https://attack.mitre.org/techniques/T1069/001/), [detail pag
 
 Detection strategy: Behavioral Detection of Domain Group Discovery (`DET0360`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1069.002](https://attack.mitre.org/techniques/T1069/002/), [detail page](../../techniques/discovery.md#t1069002)
+ATT&CK: [T1069.002](https://attack.mitre.org/techniques/T1069/002/), [detail page](/techniques/discovery.md#t1069002)
 
 - `AN1025` Analytic 1025, Windows
   Detection of domain group enumeration through command-line utilities such as 'net group /domain' or PowerShell cmdlets, followed by suspicious access to API calls or LSASS memory.
@@ -359,7 +359,7 @@ ATT&CK: [T1069.002](https://attack.mitre.org/techniques/T1069/002/), [detail pag
 
 Detection strategy: Behavioral Detection of Cloud Group Enumeration via API and CLI Access (`DET0251`)  
 Platforms: IaaS, Office Suite, SaaS  
-ATT&CK: [T1069.003](https://attack.mitre.org/techniques/T1069/003/), [detail page](../../techniques/discovery.md#t1069003)
+ATT&CK: [T1069.003](https://attack.mitre.org/techniques/T1069/003/), [detail page](/techniques/discovery.md#t1069003)
 
 - `AN0695` Analytic 0695, IaaS
   Detects adversarial use of cloud-native APIs (e.g., AWS IAM, Azure RBAC, GCP Identity) to enumerate cloud group memberships or policy mappings via unauthorized sessions or scripts.
@@ -381,7 +381,7 @@ ATT&CK: [T1069.003](https://attack.mitre.org/techniques/T1069/003/), [detail pag
 
 Detection strategy: System Discovery via Native and Remote Utilities (`DET0525`)  
 Platforms: ESXi, IaaS, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1082](https://attack.mitre.org/techniques/T1082/), [detail page](../../techniques/discovery.md#t1082)
+ATT&CK: [T1082](https://attack.mitre.org/techniques/T1082/), [detail page](/techniques/discovery.md#t1082)
 
 - `AN1452` Analytic 1452, Windows
   Detection of processes executing system environment inspection operations followed by access to OS configuration APIs or registry locations that expose OS version, architecture, patch level, or hardware characteristics. Defenders observe process execution retrieving system configuration metadata immediately after process startup.
@@ -415,7 +415,7 @@ ATT&CK: [T1082](https://attack.mitre.org/techniques/T1082/), [detail page](../..
 
 Detection strategy: Recursive Enumeration of Files and Directories Across Privilege Contexts (`DET0370`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1083](https://attack.mitre.org/techniques/T1083/), [detail page](../../techniques/discovery.md#t1083)
+ATT&CK: [T1083](https://attack.mitre.org/techniques/T1083/), [detail page](/techniques/discovery.md#t1083)
 
 - `AN1040` Analytic 1040, Windows
   Execution of file enumeration commands (e.g., 'dir', 'tree') from non-standard processes or unusual user contexts, followed by recursive directory traversal or access to sensitive locations.
@@ -445,7 +445,7 @@ ATT&CK: [T1083](https://attack.mitre.org/techniques/T1083/), [detail page](../..
 
 Detection strategy: Enumeration of User or Account Information Across Platforms (`DET0587`)  
 Platforms: ESXi, IaaS, Identity Provider, Linux, Office Suite, SaaS, Windows, macOS  
-ATT&CK: [T1087](https://attack.mitre.org/techniques/T1087/), [detail page](../../techniques/discovery.md#t1087)
+ATT&CK: [T1087](https://attack.mitre.org/techniques/T1087/), [detail page](/techniques/discovery.md#t1087)
 
 - `AN1612` Analytic 1612, Windows
   Detection of processes performing local or domain account enumeration by invoking account directory queries or security APIs followed by structured output of account lists. The defender observes command execution or API invocation patterns that retrieve account information and produce enumeration artifacts shortly afterward.
@@ -487,7 +487,7 @@ ATT&CK: [T1087](https://attack.mitre.org/techniques/T1087/), [detail page](../..
 
 Detection strategy: Local Account Enumeration Across Host Platforms (`DET0303`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1087.001](https://attack.mitre.org/techniques/T1087/001/), [detail page](../../techniques/discovery.md#t1087001)
+ATT&CK: [T1087.001](https://attack.mitre.org/techniques/T1087/001/), [detail page](/techniques/discovery.md#t1087001)
 
 - `AN0846` Analytic 0846, Windows
   Adversary enumeration of local user accounts using Net.exe, WMI, or PowerShell.
@@ -513,7 +513,7 @@ ATT&CK: [T1087.001](https://attack.mitre.org/techniques/T1087/001/), [detail pag
 
 Detection strategy: Domain Account Enumeration Across Platforms (`DET0129`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1087.002](https://attack.mitre.org/techniques/T1087/002/), [detail page](../../techniques/discovery.md#t1087002)
+ATT&CK: [T1087.002](https://attack.mitre.org/techniques/T1087/002/), [detail page](/techniques/discovery.md#t1087002)
 
 - `AN0363` Analytic 0363, Windows
   Adversary enumeration of domain accounts using net.exe, PowerShell, WMI, or LDAP queries from non-domain controllers or non-admin endpoints.
@@ -535,7 +535,7 @@ ATT&CK: [T1087.002](https://attack.mitre.org/techniques/T1087/002/), [detail pag
 
 Detection strategy: Enumeration of Global Address Lists via Email Account Discovery (`DET0229`)  
 Platforms: Office Suite, Windows  
-ATT&CK: [T1087.003](https://attack.mitre.org/techniques/T1087/003/), [detail page](../../techniques/discovery.md#t1087003)
+ATT&CK: [T1087.003](https://attack.mitre.org/techniques/T1087/003/), [detail page](/techniques/discovery.md#t1087003)
 
 - `AN0641` Analytic 0641, Windows
   Enumeration of global address lists or email account metadata via PowerShell cmdlets (e.g., Get-GlobalAddressList) or MAPI/RPC from non-admin, non-mailserver systems.
@@ -553,7 +553,7 @@ ATT&CK: [T1087.003](https://attack.mitre.org/techniques/T1087/003/), [detail pag
 
 Detection strategy: Cloud Account Enumeration via API, CLI, and Scripting Interfaces (`DET0386`)  
 Platforms: IaaS, Identity Provider, Office Suite, SaaS  
-ATT&CK: [T1087.004](https://attack.mitre.org/techniques/T1087/004/), [detail page](../../techniques/discovery.md#t1087004)
+ATT&CK: [T1087.004](https://attack.mitre.org/techniques/T1087/004/), [detail page](/techniques/discovery.md#t1087004)
 
 - `AN1087` Analytic 1087, Identity Provider
   Enumeration of identity roles and users via API calls such as `Get-MsolRoleMember`, `az ad user list`, or Graph API tokens from unauthorized users or automation accounts.
@@ -579,7 +579,7 @@ ATT&CK: [T1087.004](https://attack.mitre.org/techniques/T1087/004/), [detail pag
 
 Detection strategy: Peripheral Device Enumeration via System Utilities and API Calls (`DET0491`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1120](https://attack.mitre.org/techniques/T1120/), [detail page](../../techniques/discovery.md#t1120)
+ATT&CK: [T1120](https://attack.mitre.org/techniques/T1120/), [detail page](/techniques/discovery.md#t1120)
 
 - `AN1353` Analytic 1353, Windows
   Suspicious enumeration of attached peripherals via WMI, PowerShell, or low-level API calls potentially chained with removable device interactions.
@@ -601,7 +601,7 @@ ATT&CK: [T1120](https://attack.mitre.org/techniques/T1120/), [detail page](../..
 
 Detection strategy: Behavior-chain, platform-aware detection strategy for T1124 System Time Discovery (`DET0151`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1124](https://attack.mitre.org/techniques/T1124/), [detail page](../../techniques/discovery.md#t1124)
+ATT&CK: [T1124](https://attack.mitre.org/techniques/T1124/), [detail page](/techniques/discovery.md#t1124)
 
 - `AN0430` Analytic 0430, Windows
   Untrusted or unusual process/script (cmd.exe, powershell.exe, w32tm.exe, net.exe, custom binaries) queries system time/timezone (e.g., w32tm /tz, net time \\host, Get-TimeZone, GetTickCount API) and (optionally) is followed within a short window by time-based scheduling or conditional execution (e.g., schtasks /create, at.exe, PowerShell Start-Sleep with large values).
@@ -631,7 +631,7 @@ ATT&CK: [T1124](https://attack.mitre.org/techniques/T1124/), [detail page](../..
 
 Detection strategy: Behavior-chain detection for T1135 Network Share Discovery across Windows, Linux, and macOS (`DET0182`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1135](https://attack.mitre.org/techniques/T1135/), [detail page](../../techniques/discovery.md#t1135)
+ATT&CK: [T1135](https://attack.mitre.org/techniques/T1135/), [detail page](/techniques/discovery.md#t1135)
 
 - `AN0513` Analytic 0513, Windows
   Process or script enumerates network shares via CLI (net view/net share, PowerShell Get-SmbShare/WMI) or OS APIs (NetShareEnum/ srvsvc.NetShareEnumAll RPC) -> bursts of outbound SMB/RPC connections (445/139, \\host\IPC$ / srvsvc) to many hosts inside a short window -> optional follow-on file listing or copy operations.
@@ -653,7 +653,7 @@ ATT&CK: [T1135](https://attack.mitre.org/techniques/T1135/), [detail page](../..
 
 Detection strategy: Password Policy Discovery – cross-platform behavior-chain analytics (`DET0161`)  
 Platforms: IaaS, Identity Provider, Linux, Network Devices, SaaS, Windows, macOS  
-ATT&CK: [T1201](https://attack.mitre.org/techniques/T1201/), [detail page](../../techniques/discovery.md#t1201)
+ATT&CK: [T1201](https://attack.mitre.org/techniques/T1201/), [detail page](/techniques/discovery.md#t1201)
 
 - `AN0455` Analytic 0455, Windows
   Cause->effect chain: (1) a user or service spawns a shell/PowerShell that queries local/domain password policy via commands/cmdlets (e.g., `net accounts`, `Get-ADDefaultDomainPasswordPolicy`, `secedit /export`); (2) optional directory/LDAP reads from DCs; (3) same principal performs adjacent Discovery or credential-related actions within a short window. Correlate sysmon process creation with PowerShell ScriptBlock and Security logs.
@@ -691,7 +691,7 @@ ATT&CK: [T1201](https://attack.mitre.org/techniques/T1201/), [detail page](../..
 
 Detection strategy: Detection of Local Browser Artifact Access for Reconnaissance (`DET0013`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1217](https://attack.mitre.org/techniques/T1217/), [detail page](../../techniques/discovery.md#t1217)
+ATT&CK: [T1217](https://attack.mitre.org/techniques/T1217/), [detail page](/techniques/discovery.md#t1217)
 
 - `AN0037` Analytic 0037, Windows
   Access to browser artifact locations (e.g., Chrome, Edge, Firefox) by processes like PowerShell, cmd.exe, or unknown tools, followed by file reads, decoding, or export operations indicating enumeration of bookmarks, autofill, or history databases.
@@ -713,7 +713,7 @@ ATT&CK: [T1217](https://attack.mitre.org/techniques/T1217/), [detail page](../..
 
 Detection strategy: Detection of Domain Trust Discovery via API, Script, and CLI Enumeration (`DET0007`)  
 Platforms: Windows  
-ATT&CK: [T1482](https://attack.mitre.org/techniques/T1482/), [detail page](../../techniques/discovery.md#t1482)
+ATT&CK: [T1482](https://attack.mitre.org/techniques/T1482/), [detail page](/techniques/discovery.md#t1482)
 
 - `AN0016` Analytic 0016, Windows
   Adversary uses nltest, PowerShell, or Win32/.NET API to enumerate domain trust relationships (via DSEnumerateDomainTrusts, GetAllTrustRelationships, or LDAP queries), followed by discovery or authentication staging.
@@ -727,7 +727,7 @@ ATT&CK: [T1482](https://attack.mitre.org/techniques/T1482/), [detail page](../..
 
 Detection strategy: Multi-Platform Software Discovery Behavior Chain (`DET0392`)  
 Platforms: ESXi, IaaS, Linux, Windows, macOS  
-ATT&CK: [T1518](https://attack.mitre.org/techniques/T1518/), [detail page](../../techniques/discovery.md#t1518)
+ATT&CK: [T1518](https://attack.mitre.org/techniques/T1518/), [detail page](/techniques/discovery.md#t1518)
 
 - `AN1100` Analytic 1100, Windows
   Adversary spawns a process or script to enumerate installed software using WMI, registry, or PowerShell, potentially followed by additional discovery or evasion behavior.
@@ -757,7 +757,7 @@ ATT&CK: [T1518](https://attack.mitre.org/techniques/T1518/), [detail page](../..
 
 Detection strategy: Security Software Discovery Across Platforms (`DET0016`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1518.001](https://attack.mitre.org/techniques/T1518/001/), [detail page](../../techniques/discovery.md#t1518001)
+ATT&CK: [T1518.001](https://attack.mitre.org/techniques/T1518/001/), [detail page](/techniques/discovery.md#t1518001)
 
 - `AN0048` Analytic 0048, Windows
   Adversary executes commands to enumerate installed antivirus, EDR, or firewall agents using WMI, registry queries, and built-in tools (e.g., tasklist, netsh, sc query). Correlated with elevated process privileges or scripting engine usage.
@@ -779,7 +779,7 @@ ATT&CK: [T1518.001](https://attack.mitre.org/techniques/T1518/001/), [detail pag
 
 Detection strategy: Backup Software Discovery via CLI, Registry, and Process Inspection (T1518.002) (`DET0088`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1518.002](https://attack.mitre.org/techniques/T1518/002/), [detail page](../../techniques/discovery.md#t1518002)
+ATT&CK: [T1518.002](https://attack.mitre.org/techniques/T1518/002/), [detail page](/techniques/discovery.md#t1518002)
 
 - `AN0240` Analytic 0240, Windows
   Defender observes execution of commands like `tasklist`, `sc query`, `reg query`, or PowerShell WMI/Registry queries targeting known backup products (e.g., Veeam, Acronis, CrashPlan). Behavior often includes parent-child lineage involving PowerShell or cmd.exe with discovery syntax, and enumeration of services, directories, or registry paths tied to backup software.
@@ -801,7 +801,7 @@ ATT&CK: [T1518.002](https://attack.mitre.org/techniques/T1518/002/), [detail pag
 
 Detection strategy: Detection Strategy for Cloud Service Discovery (`DET0402`)  
 Platforms: IaaS, Identity Provider, Office Suite, SaaS  
-ATT&CK: [T1526](https://attack.mitre.org/techniques/T1526/), [detail page](../../techniques/discovery.md#t1526)
+ATT&CK: [T1526](https://attack.mitre.org/techniques/T1526/), [detail page](/techniques/discovery.md#t1526)
 
 - `AN1127` Analytic 1127, IaaS
   Unusual enumeration of services and resources through cloud APIs such as AWS CLI `describe-*`, Azure Resource Manager queries, or GCP project listings. Defender perspective includes anomalous API calls, unexpected volume of service enumeration, and correlation of discovery with recently compromised sessions.
@@ -827,7 +827,7 @@ ATT&CK: [T1526](https://attack.mitre.org/techniques/T1526/), [detail page](../..
 
 Detection strategy: Detection of Cloud Service Dashboard Usage via GUI-Based Cloud Access (`DET0291`)  
 Platforms: IaaS, Identity Provider, Office Suite, SaaS  
-ATT&CK: [T1538](https://attack.mitre.org/techniques/T1538/), [detail page](../../techniques/discovery.md#t1538)
+ATT&CK: [T1538](https://attack.mitre.org/techniques/T1538/), [detail page](/techniques/discovery.md#t1538)
 
 - `AN0808` Analytic 0808, IaaS
   Detects web console login events followed by read-only or metadata retrieval activity from GUI sources (e.g., browser session, mobile client) rather than API/CLI sources. Correlates across CloudTrail, IAM identity logs, and user-agent context.
@@ -853,7 +853,7 @@ ATT&CK: [T1538](https://attack.mitre.org/techniques/T1538/), [detail page](../..
 
 Detection strategy: Detection Strategy for Cloud Infrastructure Discovery (`DET0169`)  
 Platforms: IaaS  
-ATT&CK: [T1580](https://attack.mitre.org/techniques/T1580/), [detail page](../../techniques/discovery.md#t1580)
+ATT&CK: [T1580](https://attack.mitre.org/techniques/T1580/), [detail page](/techniques/discovery.md#t1580)
 
 - `AN0481` Analytic 0481, IaaS
   Defenders should monitor for suspicious enumeration of cloud infrastructure components via APIs or CLI tools. Observable behaviors include repeated listing or description operations for compute instances, snapshots, storage buckets, and volumes. From a defender’s perspective, risky activity is often identified by new or untrusted identities making discovery calls (e.g., DescribeInstances, ListBuckets, az vm list, gcloud compute instances list), enumeration from unusual geolocations or IPs, or rapid multi-service discovery in sequence. Correlating discovery API usage with later snapshot creation or instance modification provides further context of adversary behavior.
@@ -867,7 +867,7 @@ ATT&CK: [T1580](https://attack.mitre.org/techniques/T1580/), [detail page](../..
 
 Detection strategy: Detection Strategy for Container and Resource Discovery (`DET0490`)  
 Platforms: Containers  
-ATT&CK: [T1613](https://attack.mitre.org/techniques/T1613/), [detail page](../../techniques/discovery.md#t1613)
+ATT&CK: [T1613](https://attack.mitre.org/techniques/T1613/), [detail page](/techniques/discovery.md#t1613)
 
 - `AN1352` Analytic 1352, Containers
   Detection of adversary attempts to enumerate containers, pods, nodes, and related resources within containerized environments. Defenders may observe anomalous API calls to Docker or Kubernetes (e.g., 'docker ps', 'kubectl get pods', 'kubectl get nodes'), unusual account activity against the Kubernetes dashboard, or unexpected queries against container metadata endpoints. These events should be correlated with user context and network activity to reveal resource discovery attempts.
@@ -881,7 +881,7 @@ ATT&CK: [T1613](https://attack.mitre.org/techniques/T1613/), [detail page](../..
 
 Detection strategy: Detection Strategy for System Location Discovery (`DET0043`)  
 Platforms: IaaS, Linux, Windows, macOS  
-ATT&CK: [T1614](https://attack.mitre.org/techniques/T1614/), [detail page](../../techniques/discovery.md#t1614)
+ATT&CK: [T1614](https://attack.mitre.org/techniques/T1614/), [detail page](/techniques/discovery.md#t1614)
 
 - `AN0119` Analytic 0119, Windows
   Unusual process or API usage attempting to query system locale, timezone, or keyboard layout (e.g., calls to GetLocaleInfoW, GetTimeZoneInformation). Detection can be enhanced by correlating with processes not typically associated with system configuration queries, such as unknown binaries or scripts.
@@ -907,7 +907,7 @@ ATT&CK: [T1614](https://attack.mitre.org/techniques/T1614/), [detail page](../..
 
 Detection strategy: Detection Strategy for System Language Discovery (`DET0565`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1614.001](https://attack.mitre.org/techniques/T1614/001/), [detail page](../../techniques/discovery.md#t1614001)
+ATT&CK: [T1614.001](https://attack.mitre.org/techniques/T1614/001/), [detail page](/techniques/discovery.md#t1614001)
 
 - `AN1561` Analytic 1561, Windows
   Registry access to system language keys (e.g., HKLM\SYSTEM\CurrentControlSet\Control\Nls\Language) or suspicious processes invoking locale-related APIs (e.g., GetUserDefaultUILanguage, GetSystemDefaultUILanguage, GetKeyboardLayoutList). Defender visibility focuses on anomalous or non-standard processes issuing these queries, especially when run by unknown binaries or scripts.
@@ -929,7 +929,7 @@ ATT&CK: [T1614.001](https://attack.mitre.org/techniques/T1614/001/), [detail pag
 
 Detection strategy: Detection strategy for Group Policy Discovery on Windows (`DET0055`)  
 Platforms: Windows  
-ATT&CK: [T1615](https://attack.mitre.org/techniques/T1615/), [detail page](../../techniques/discovery.md#t1615)
+ATT&CK: [T1615](https://attack.mitre.org/techniques/T1615/), [detail page](/techniques/discovery.md#t1615)
 
 - `AN0152` Analytic 0152, Windows
   Detection of adversary attempts to enumerate Group Policy settings through suspicious command execution (gpresult), PowerShell enumeration (Get-DomainGPO, Get-DomainGPOLocalGroup), and abnormal LDAP queries targeting groupPolicyContainer objects. Defenders observe unusual process lineage, script execution, or LDAP filter activity against domain controllers.
@@ -943,7 +943,7 @@ ATT&CK: [T1615](https://attack.mitre.org/techniques/T1615/), [detail page](../..
 
 Detection strategy: Detection Strategy for Cloud Storage Object Discovery (`DET0578`)  
 Platforms: IaaS  
-ATT&CK: [T1619](https://attack.mitre.org/techniques/T1619/), [detail page](../../techniques/discovery.md#t1619)
+ATT&CK: [T1619](https://attack.mitre.org/techniques/T1619/), [detail page](/techniques/discovery.md#t1619)
 
 - `AN1594` Analytic 1594, IaaS
   Detection of suspicious enumeration of cloud storage objects via API calls such as AWS S3 ListObjectsV2, Azure List Blobs, or GCP ListObjects. Correlate access with account role, user context, and prior authentication activity to identify anomalous usage patterns (e.g., unusual account, unexpected regions, or large-scale enumeration in short time windows).
@@ -957,7 +957,7 @@ ATT&CK: [T1619](https://attack.mitre.org/techniques/T1619/), [detail page](../..
 
 Detection strategy: Detection Strategy for Device Driver Discovery (`DET0579`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1652](https://attack.mitre.org/techniques/T1652/), [detail page](../../techniques/discovery.md#t1652)
+ATT&CK: [T1652](https://attack.mitre.org/techniques/T1652/), [detail page](/techniques/discovery.md#t1652)
 
 - `AN1595` Analytic 1595, Windows
   Monitor for suspicious usage of driver enumeration utilities (driverquery.exe) or API calls such as EnumDeviceDrivers(). Registry queries against HKLM\SYSTEM\CurrentControlSet\Services and HardwareProfiles that are abnormal may also indicate attempts to discover installed drivers and services. Correlate command execution, process creation, and registry access to build a behavioral chain of driver discovery.
@@ -979,7 +979,7 @@ ATT&CK: [T1652](https://attack.mitre.org/techniques/T1652/), [detail page](../..
 
 Detection strategy: Detection Strategy for Log Enumeration (`DET0255`)  
 Platforms: ESXi, IaaS, Linux, Windows, macOS  
-ATT&CK: [T1654](https://attack.mitre.org/techniques/T1654/), [detail page](../../techniques/discovery.md#t1654)
+ATT&CK: [T1654](https://attack.mitre.org/techniques/T1654/), [detail page](/techniques/discovery.md#t1654)
 
 - `AN0705` Analytic 0705, Windows
   Monitor for use of native utilities such as wevtutil.exe or PowerShell cmdlets (Get-WinEvent, Get-EventLog) to enumerate or export logs. Unusual access to security or system event channels, especially by non-administrative users or processes, should be correlated with subsequent file export or network transfer activity.
@@ -1009,7 +1009,7 @@ ATT&CK: [T1654](https://attack.mitre.org/techniques/T1654/), [detail page](../..
 
 Detection strategy: Detection Strategy for Virtual Machine Discovery (`DET0199`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1673](https://attack.mitre.org/techniques/T1673/), [detail page](../../techniques/discovery.md#t1673)
+ATT&CK: [T1673](https://attack.mitre.org/techniques/T1673/), [detail page](/techniques/discovery.md#t1673)
 
 - `AN0572` Analytic 0572, ESXi
   Monitor for execution of hypervisor management commands such as `esxcli vm process list` or `vim-cmd vmsvc/getallvms` that enumerate virtual machines. Defenders observe unexpected users issuing VM listing commands outside normal administrative workflows.
@@ -1035,7 +1035,7 @@ ATT&CK: [T1673](https://attack.mitre.org/techniques/T1673/), [detail page](../..
 
 Detection strategy: Local Storage Discovery via Drive Enumeration and Filesystem Probing (`DET0188`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1680](https://attack.mitre.org/techniques/T1680/), [detail page](../../techniques/discovery.md#t1680)
+ATT&CK: [T1680](https://attack.mitre.org/techniques/T1680/), [detail page](/techniques/discovery.md#t1680)
 
 - `AN0536` Analytic 0536, Windows
   Drive enumeration using PowerShell (`Get-PSDrive`), `wmic logicaldisk`, or Win32 API indicative of local volume enumeration by non-admin users or executed outside of baseline system inventory scripts.

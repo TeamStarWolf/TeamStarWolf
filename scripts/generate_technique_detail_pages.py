@@ -11,6 +11,9 @@ and are INCLUDED in the external attribution lists.
 
 Outputs (repo root): techniques/README.md + techniques/<tactic>.md (x15);
 detections/strategies/README.md + detections/strategies/<tactic>.md (x15).
+Links: every in-repo link is root-absolute (/X.md). The site is docsify with relativePath:
+false, which routes every Markdown link from the site root, so a '../X.md' link escapes it and
+404s (scripts/check_docsify_links.py); GitHub resolves '/X.md' from the repository root too.
 Run from the repo root: python scripts/generate_technique_detail_pages.py
 CI drift gate:          python scripts/generate_technique_detail_pages.py --check
   (renders into a temporary directory, writes nothing in the repo, and exits 1 if a
@@ -117,7 +120,7 @@ def tech_block(tid):
     migs = p.get("mitigations") or []
     if migs:
         out.append("**ATT&CK mitigations (" + str(len(migs)) + "):** " +
-                   ", ".join("[" + m["id"] + " " + m["name"] + "](../ATTACK_MITIGATIONS_REFERENCE.md#" +
+                   ", ".join("[" + m["id"] + " " + m["name"] + "](/ATTACK_MITIGATIONS_REFERENCE.md#" +
                              m["id"].lower() + ")" for m in migs) + "  ")
     else:
         out.append("**ATT&CK mitigations:** none mapped  ")
@@ -160,7 +163,7 @@ def render_tech_tactic(slug):
            "[" + name + "](https://attack.mitre.org/tactics/" + TAC_TAID[slug] + "/) (ATT&CK Enterprise " + VER +
            "). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection "
            "guidance, and the threat groups and software that use it. See the "
-           "[Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and "
+           "[Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and "
            "[all techniques index](/techniques/README.md).", "", "---", ""]
     for t in ts:
         out.append(tech_block(t))
@@ -174,9 +177,9 @@ def render_tech_readme():
            "(" + VER + "), grouped by primary tactic. Each links its ATT&CK description, mitigations, NIST 800-53 "
            "controls, detections, and the groups and software that use it.", "",
            "**By tactic:** " + navs, "",
-           "See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · "
-           "[Threat Group Profiles](../THREAT_GROUP_PROFILES.md) · "
-           "[Detection Library](../detections/TECHNIQUE_DETECTION_LIBRARY.md)", "",
+           "See also: [Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · "
+           "[Threat Group Profiles](/THREAT_GROUP_PROFILES.md) · "
+           "[Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)", "",
            "| Technique | Name | Detail page |", "|---|---|---|"]
     for t in sorted(primary):
         s = primary[t]
@@ -198,7 +201,7 @@ def det_block(tid):
         plats = ", ".join(st.get("platforms") or []) or "—"
         out.append("**Detection strategy:** " + st.get("name", "") + " (`" + st.get("strategy_id", "") + "`)  ")
         out.append("**Platforms:** " + plats + "  ")
-        out.append("**ATT&CK:** [" + tid + "](" + att_url(tid) + "/) · [detail page](../../techniques/" +
+        out.append("**ATT&CK:** [" + tid + "](" + att_url(tid) + "/) · [detail page](/techniques/" +
                    slug + ".md#" + anchor(tid) + ")")
         out.append("")
         for aid in st.get("analytic_ids", []):
@@ -238,9 +241,9 @@ def render_det_tactic(slug):
            "and the **tunable elements** to adapt it to your environment. Authoritative source: the ATT&CK "
            "detection-strategy model in the Enterprise STIX.", "",
            "See also: [all detection strategies index](/detections/strategies/README.md) · "
-           "[Technique Detection Library](../TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries) · "
-           "[Data Components & Log Sources](../../ATTACK_DATA_COMPONENTS.md) · "
-           "[Technique Detail Pages](../../techniques/README.md)", "", "---", ""]
+           "[Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries) · "
+           "[Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md) · "
+           "[Technique Detail Pages](/techniques/README.md)", "", "---", ""]
     for t in ts:
         out.append(det_block(t))
     return "\n".join(out)
@@ -254,7 +257,7 @@ def render_det_readme():
            "> **" + str(n_strat) + " MITRE ATT&CK detection strategies** and **" + str(n_an) + " analytics** (" + VER +
            ") — the authoritative, MITRE-authored guidance for detecting each technique, with concrete log "
            "sources, channels, detection logic, and tunable parameters. Complements the "
-           "[ready-to-run Technique Detection Library](../TECHNIQUE_DETECTION_LIBRARY.md).", "",
+           "[ready-to-run Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md).", "",
            "**By tactic:** " + navs, ""]
     return "\n".join(out)
 

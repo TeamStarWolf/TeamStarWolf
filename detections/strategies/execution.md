@@ -2,7 +2,7 @@
 
 > MITRE ATT&CK detection strategies and analytics (v19.2) for techniques whose primary tactic is Execution. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
 
-See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](../TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](../../ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](../../techniques/README.md)
+See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](/techniques/README.md)
 
 ---
 
@@ -11,7 +11,7 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 
 Detection strategy: Behavioral Detection Strategy for WMI Execution Abuse on Windows (`DET0364`)  
 Platforms: Windows  
-ATT&CK: [T1047](https://attack.mitre.org/techniques/T1047/), [detail page](../../techniques/execution.md#t1047)
+ATT&CK: [T1047](https://attack.mitre.org/techniques/T1047/), [detail page](/techniques/execution.md#t1047)
 
 - `AN1031` Analytic 1031, Windows
   Detects adversarial abuse of WMI to execute local or remote commands via WMIC, PowerShell, or COM API through a multi-event chain: process creation, command execution, and corresponding network connection if remote.
@@ -25,7 +25,7 @@ ATT&CK: [T1047](https://attack.mitre.org/techniques/T1047/), [detail page](../..
 
 Detection strategy: Cross-Platform Behavioral Detection of Scheduled Task/Job Abuse (`DET0094`)  
 Platforms: Containers, ESXi, Linux, Windows, macOS  
-ATT&CK: [T1053](https://attack.mitre.org/techniques/T1053/), [detail page](../../techniques/execution.md#t1053)
+ATT&CK: [T1053](https://attack.mitre.org/techniques/T1053/), [detail page](/techniques/execution.md#t1053)
 
 - `AN0258` Analytic 0258, Windows
   Detects creation or modification of scheduled tasks using schtasks.exe, at.exe, or COM objects followed by execution of outlier processes tied to the scheduled job.
@@ -55,7 +55,7 @@ ATT&CK: [T1053](https://attack.mitre.org/techniques/T1053/), [detail page](../..
 
 Detection strategy: Cross-Platform Detection of Scheduled Task/Job Abuse via `at` Utility (`DET0333`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1053.002](https://attack.mitre.org/techniques/T1053/002/), [detail page](../../techniques/execution.md#t1053002)
+ATT&CK: [T1053.002](https://attack.mitre.org/techniques/T1053/002/), [detail page](/techniques/execution.md#t1053002)
 
 - `AN0943` Analytic 0943, Windows
   Detects creation of scheduled tasks via `at.exe` or WMI `Win32_ScheduledJob` class, followed by execution of anomalous processes by svchost.exe or taskeng.exe.
@@ -77,7 +77,7 @@ ATT&CK: [T1053.002](https://attack.mitre.org/techniques/T1053/002/), [detail pag
 
 Detection strategy: Cross-Platform Detection of Cron Job Abuse for Persistence and Execution (`DET0290`)  
 Platforms: ESXi, Linux, macOS  
-ATT&CK: [T1053.003](https://attack.mitre.org/techniques/T1053/003/), [detail page](../../techniques/execution.md#t1053003)
+ATT&CK: [T1053.003](https://attack.mitre.org/techniques/T1053/003/), [detail page](/techniques/execution.md#t1053003)
 
 - `AN0805` Analytic 0805, Linux
   Detects creation or modification of crontab entries by non-root users or from abnormal parent processes, followed by the execution of uncommon binaries at scheduled intervals.
@@ -99,7 +99,7 @@ ATT&CK: [T1053.003](https://attack.mitre.org/techniques/T1053/003/), [detail pag
 
 Detection strategy: Detection of Suspicious Scheduled Task Creation and Execution on Windows (`DET0441`)  
 Platforms: Windows  
-ATT&CK: [T1053.005](https://attack.mitre.org/techniques/T1053/005/), [detail page](../../techniques/execution.md#t1053005)
+ATT&CK: [T1053.005](https://attack.mitre.org/techniques/T1053/005/), [detail page](/techniques/execution.md#t1053005)
 
 - `AN1221` Analytic 1221, Windows
   Detects the creation, modification, or deletion of scheduled tasks through Task Scheduler, WMI, PowerShell, or API-based methods followed by execution from svchost.exe or taskeng.exe. Includes detection of hidden or anomalous scheduled tasks, especially those created under SYSTEM or suspicious user contexts.
@@ -113,7 +113,7 @@ ATT&CK: [T1053.005](https://attack.mitre.org/techniques/T1053/005/), [detail pag
 
 Detection strategy: Behavioral Detection of Systemd Timer Abuse for Scheduled Execution (`DET0231`)  
 Platforms: Linux  
-ATT&CK: [T1053.006](https://attack.mitre.org/techniques/T1053/006/), [detail page](../../techniques/execution.md#t1053006)
+ATT&CK: [T1053.006](https://attack.mitre.org/techniques/T1053/006/), [detail page](/techniques/execution.md#t1053006)
 
 - `AN0645` Analytic 0645, Linux
   Detects adversarial abuse of systemd timers by correlating file creation/modification of .timer and .service units in system directories with the execution of abnormal child processes launched by 'systemd' (PID 1), especially as root.
@@ -127,7 +127,7 @@ ATT&CK: [T1053.006](https://attack.mitre.org/techniques/T1053/006/), [detail pag
 
 Detection strategy: Detection of Malicious Kubernetes CronJob Scheduling (`DET0206`)  
 Platforms: Containers  
-ATT&CK: [T1053.007](https://attack.mitre.org/techniques/T1053/007/), [detail page](../../techniques/execution.md#t1053007)
+ATT&CK: [T1053.007](https://attack.mitre.org/techniques/T1053/007/), [detail page](/techniques/execution.md#t1053007)
 
 - `AN0582` Analytic 0582, Containers
   Detects abuse of container orchestration platforms (e.g., Kubernetes) where adversaries create CronJobs to maintain persistence or execute malicious Jobs across the cluster.
@@ -141,7 +141,7 @@ ATT&CK: [T1053.007](https://attack.mitre.org/techniques/T1053/007/), [detail pag
 
 Detection strategy: Behavioral Detection of Command and Scripting Interpreter Abuse (`DET0516`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1059](https://attack.mitre.org/techniques/T1059/), [detail page](../../techniques/execution.md#t1059)
+ATT&CK: [T1059](https://attack.mitre.org/techniques/T1059/), [detail page](/techniques/execution.md#t1059)
 
 - `AN1428` Analytic 1428, Windows
   Detects the execution of scripting or command interpreters (e.g., powershell.exe, cmd.exe, wscript.exe) outside expected administrative time windows or from abnormal user contexts, often followed by encoded/obfuscated arguments or secondary execution events.
@@ -171,7 +171,7 @@ ATT&CK: [T1059](https://attack.mitre.org/techniques/T1059/), [detail page](../..
 
 Detection strategy: Abuse of PowerShell for Arbitrary Execution (`DET0455`)  
 Platforms: Windows  
-ATT&CK: [T1059.001](https://attack.mitre.org/techniques/T1059/001/), [detail page](../../techniques/execution.md#t1059001)
+ATT&CK: [T1059.001](https://attack.mitre.org/techniques/T1059/001/), [detail page](/techniques/execution.md#t1059001)
 
 - `AN1252` Analytic 1252, Windows
   Detects behavioral chains where PowerShell is launched with encoded commands, unusual parent processes, or suspicious modules loaded, potentially followed by network connections or child process spawning. Supports detection of both direct (powershell.exe) and indirect (.NET automation) invocations.
@@ -185,7 +185,7 @@ ATT&CK: [T1059.001](https://attack.mitre.org/techniques/T1059/001/), [detail pag
 
 Detection strategy: Detection of AppleScript-Based Execution on macOS (`DET0414`)  
 Platforms: macOS  
-ATT&CK: [T1059.002](https://attack.mitre.org/techniques/T1059/002/), [detail page](../../techniques/execution.md#t1059002)
+ATT&CK: [T1059.002](https://attack.mitre.org/techniques/T1059/002/), [detail page](/techniques/execution.md#t1059002)
 
 - `AN1164` Analytic 1164, macOS
   Detects AppleScript execution via 'osascript', NSAppleScript/OSAScript APIs, and abnormal application control events across user sessions. Focuses on causal chains such as osascript spawning child processes, script-induced keystrokes, or API-backed dialog spoofing.
@@ -199,7 +199,7 @@ ATT&CK: [T1059.002](https://attack.mitre.org/techniques/T1059/002/), [detail pag
 
 Detection strategy: Behavioral Detection of Windows Command Shell Execution (`DET0202`)  
 Platforms: Windows  
-ATT&CK: [T1059.003](https://attack.mitre.org/techniques/T1059/003/), [detail page](../../techniques/execution.md#t1059003)
+ATT&CK: [T1059.003](https://attack.mitre.org/techniques/T1059/003/), [detail page](/techniques/execution.md#t1059003)
 
 - `AN0578` Analytic 0578, Windows
   Detects interactive or scripted abuse of cmd.exe, batch files, or shell invocation chains. Focuses on parent-child relationships (e.g., cmd.exe launched from unusual parents), anomalous command-line parameters, and chaining with discovery, credential access, or lateral movement behaviors.
@@ -213,7 +213,7 @@ ATT&CK: [T1059.003](https://attack.mitre.org/techniques/T1059/003/), [detail pag
 
 Detection strategy: Behavioral Detection of Unix Shell Execution (`DET0384`)  
 Platforms: ESXi, Linux, Network Devices, macOS  
-ATT&CK: [T1059.004](https://attack.mitre.org/techniques/T1059/004/), [detail page](../../techniques/execution.md#t1059004)
+ATT&CK: [T1059.004](https://attack.mitre.org/techniques/T1059/004/), [detail page](/techniques/execution.md#t1059004)
 
 - `AN1081` Analytic 1081, Linux
   Detects bash, sh, zsh, or BusyBox shell execution initiated via remote sessions, unauthorized users, or embedded within secondary script interpreters. Focus is on chained behavior: shell > suspicious commands > network discovery or persistence indicators.
@@ -239,7 +239,7 @@ ATT&CK: [T1059.004](https://attack.mitre.org/techniques/T1059/004/), [detail pag
 
 Detection strategy: Behavioral Detection of Visual Basic Execution (VBS/VBA/VBScript) (`DET0076`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1059.005](https://attack.mitre.org/techniques/T1059/005/), [detail page](../../techniques/execution.md#t1059005)
+ATT&CK: [T1059.005](https://attack.mitre.org/techniques/T1059/005/), [detail page](/techniques/execution.md#t1059005)
 
 - `AN0209` Analytic 0209, Windows
   Detects execution of VB-based scripts or macros (VBS/VBA/VBScript) through cscript.exe/wscript.exe, Office-based process chains, or HTA usage. Focuses on chained behavior: Office or HTML container spawns script host > script host spawns PowerShell, network connections, or process injection.
@@ -261,7 +261,7 @@ ATT&CK: [T1059.005](https://attack.mitre.org/techniques/T1059/005/), [detail pag
 
 Detection strategy: Cross-Platform Behavioral Detection of Python Execution (`DET0063`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1059.006](https://attack.mitre.org/techniques/T1059/006/), [detail page](../../techniques/execution.md#t1059006)
+ATT&CK: [T1059.006](https://attack.mitre.org/techniques/T1059/006/), [detail page](/techniques/execution.md#t1059006)
 
 - `AN0172` Analytic 0172, Windows
   Detects Python execution via python.exe or py.exe with anomalous parent lineage (e.g., Office macros, LOLBAS), execution from unusual directories, or chained network/PowerShell/system-level activity.
@@ -287,7 +287,7 @@ ATT&CK: [T1059.006](https://attack.mitre.org/techniques/T1059/006/), [detail pag
 
 Detection strategy: Cross-Platform Detection of JavaScript Execution Abuse (`DET0264`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1059.007](https://attack.mitre.org/techniques/T1059/007/), [detail page](../../techniques/execution.md#t1059007)
+ATT&CK: [T1059.007](https://attack.mitre.org/techniques/T1059/007/), [detail page](/techniques/execution.md#t1059007)
 
 - `AN0733` Analytic 0733, Windows
   Detects JavaScript execution through WSH (wscript.exe, cscript.exe) or HTA (mshta.exe), particularly when spawned from Office macros, web browsers, or abnormal user paths. Correlates script execution with outbound network activity or system modification.
@@ -309,7 +309,7 @@ ATT&CK: [T1059.007](https://attack.mitre.org/techniques/T1059/007/), [detail pag
 
 Detection strategy: Behavioral Detection of CLI Abuse on Network Devices (`DET0142`)  
 Platforms: Network Devices  
-ATT&CK: [T1059.008](https://attack.mitre.org/techniques/T1059/008/), [detail page](../../techniques/execution.md#t1059008)
+ATT&CK: [T1059.008](https://attack.mitre.org/techniques/T1059/008/), [detail page](/techniques/execution.md#t1059008)
 
 - `AN0399` Analytic 0399, Network Devices
   Detects unauthorized or anomalous use of command-line interfaces (CLI) on network devices. Focuses on remote access sessions (e.g., SSH/Telnet), privilege escalation within CLI sessions, execution of high-risk commands (e.g., config replace, terminal monitor, no logging), and configuration changes outside of approved windows.
@@ -323,7 +323,7 @@ ATT&CK: [T1059.008](https://attack.mitre.org/techniques/T1059/008/), [detail pag
 
 Detection strategy: Behavioral Detection of Malicious Cloud API Scripting (`DET0078`)  
 Platforms: IaaS  
-ATT&CK: [T1059.009](https://attack.mitre.org/techniques/T1059/009/), [detail page](../../techniques/execution.md#t1059009)
+ATT&CK: [T1059.009](https://attack.mitre.org/techniques/T1059/009/), [detail page](/techniques/execution.md#t1059009)
 
 - `AN0215` Analytic 0215, IaaS
   Detects adversarial use of cloud APIs for command execution, resource control, or reconnaissance. Focuses on CLI/SDK/scripting language abuse via stolen credentials or in-browser Cloud Shells. Monitors for anomalous API calls chained with authentication context shifts (e.g., stolen token -> privileged action) and cross-service impacts.
@@ -337,7 +337,7 @@ ATT&CK: [T1059.009](https://attack.mitre.org/techniques/T1059/009/), [detail pag
 
 Detection strategy: Detection Strategy for AutoHotKey & AutoIT Abuse (`DET0332`)  
 Platforms: Windows  
-ATT&CK: [T1059.010](https://attack.mitre.org/techniques/T1059/010/), [detail page](../../techniques/execution.md#t1059010)
+ATT&CK: [T1059.010](https://attack.mitre.org/techniques/T1059/010/), [detail page](/techniques/execution.md#t1059010)
 
 - `AN0942` Analytic 0942, Windows
   Detects execution of AutoHotKey or AutoIT interpreters or compiled scripts used for unauthorized automation, command execution, or payload delivery, correlated with anomalous process lineage, command-line arguments, or script creation events.
@@ -351,7 +351,7 @@ ATT&CK: [T1059.010](https://attack.mitre.org/techniques/T1059/010/), [detail pag
 
 Detection strategy: Detection Strategy for Lua Scripting Abuse (`DET0101`)  
 Platforms: Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1059.011](https://attack.mitre.org/techniques/T1059/011/), [detail page](../../techniques/execution.md#t1059011)
+ATT&CK: [T1059.011](https://attack.mitre.org/techniques/T1059/011/), [detail page](/techniques/execution.md#t1059011)
 
 - `AN0278` Analytic 0278, Windows
   Detects execution of Lua interpreters or scripts (.lua), especially when correlated with suspicious parent processes or file drop events, indicating malicious use of embedded scripting.
@@ -377,7 +377,7 @@ ATT&CK: [T1059.011](https://attack.mitre.org/techniques/T1059/011/), [detail pag
 
 Detection strategy: Detection Strategy for ESXi Hypervisor CLI Abuse (`DET0558`)  
 Platforms: ESXi  
-ATT&CK: [T1059.012](https://attack.mitre.org/techniques/T1059/012/), [detail page](../../techniques/execution.md#t1059012)
+ATT&CK: [T1059.012](https://attack.mitre.org/techniques/T1059/012/), [detail page](/techniques/execution.md#t1059012)
 
 - `AN1537` Analytic 1537, ESXi
   Detects suspicious use of ESXi native CLI tools like esxcli and vim-cmd by unauthorized users or outside expected maintenance windows. Focus is on actions such as stopping VMs, reconfiguring network/firewall settings, and enabling SSH or logging.
@@ -391,7 +391,7 @@ ATT&CK: [T1059.012](https://attack.mitre.org/techniques/T1059/012/), [detail pag
 
 Detection strategy: Container CLI and API Abuse via Docker/Kubernetes (T1059.013) (`DET0083`)  
 Platforms: Containers  
-ATT&CK: [T1059.013](https://attack.mitre.org/techniques/T1059/013/), [detail page](../../techniques/execution.md#t1059013)
+ATT&CK: [T1059.013](https://attack.mitre.org/techniques/T1059/013/), [detail page](/techniques/execution.md#t1059013)
 
 - `AN0233` Analytic 0233, Containers
   Execution of container orchestration commands (e.g., `docker exec`, `kubectl exec`) or API-driven interactions with running containers from unauthorized hosts or non-standard user contexts. Defender sees programmatic or interactive command execution within containers outside expected CI/CD tools or automation frameworks, often followed by file writes, privilege escalation, or lateral discovery.
@@ -405,7 +405,7 @@ ATT&CK: [T1059.013](https://attack.mitre.org/techniques/T1059/013/), [detail pag
 
 Detection strategy: Detection of Adversary Abuse of Software Deployment Tools (`DET0223`)  
 Platforms: Linux, Network Devices, SaaS, Windows, macOS  
-ATT&CK: [T1072](https://attack.mitre.org/techniques/T1072/), [detail page](../../techniques/execution.md#t1072)
+ATT&CK: [T1072](https://attack.mitre.org/techniques/T1072/), [detail page](/techniques/execution.md#t1072)
 
 - `AN0623` Analytic 0623, Windows
   Detects SCCM, Intune, or remote push execution spawning scripts or binaries from SYSTEM context or unusual consoles (e.g., cmtrace.exe launching PowerShell or cmd.exe).
@@ -435,7 +435,7 @@ ATT&CK: [T1072](https://attack.mitre.org/techniques/T1072/), [detail page](../..
 
 Detection strategy: Behavioral Detection of Native API Invocation via Unusual DLL Loads and Direct Syscalls (`DET0529`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1106](https://attack.mitre.org/techniques/T1106/), [detail page](../../techniques/execution.md#t1106)
+ATT&CK: [T1106](https://attack.mitre.org/techniques/T1106/), [detail page](/techniques/execution.md#t1106)
 
 - `AN1465` Analytic 1465, Windows
   Unusual or suspicious processes loading critical native API DLLs (e.g., ntdll.dll, kernel32.dll) followed by direct syscall behavior, memory manipulation, or hollowing.
@@ -457,7 +457,7 @@ ATT&CK: [T1106](https://attack.mitre.org/techniques/T1106/), [detail page](../..
 
 Detection strategy: Behavior-chain, platform-aware detection strategy for T1129 Shared Modules (`DET0018`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1129](https://attack.mitre.org/techniques/T1129/), [detail page](../../techniques/execution.md#t1129)
+ATT&CK: [T1129](https://attack.mitre.org/techniques/T1129/), [detail page](/techniques/execution.md#t1129)
 
 - `AN0052` Analytic 0052, Windows
   A process (often LOLBin or user-launched program) loads a DLL from a user-writable/UNC/Temp path or unsigned/invalid signer. Within a short window the DLL is (a) newly written to disk, (b) spawned as follow-on execution (rundll32/regsvr32), or (c) establishes outbound C2.
@@ -479,7 +479,7 @@ ATT&CK: [T1129](https://attack.mitre.org/techniques/T1129/), [detail page](../..
 
 Detection strategy: Exploitation for Client Execution – cross-platform behavior chain (browser/Office/3rd-party apps) (`DET0287`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1203](https://attack.mitre.org/techniques/T1203/), [detail page](../../techniques/execution.md#t1203)
+ATT&CK: [T1203](https://attack.mitre.org/techniques/T1203/), [detail page](/techniques/execution.md#t1203)
 
 - `AN0797` Analytic 0797, Windows
   Cause->effect chain: (1) A client app (browser, Office, PDF/Flash/reader) experiences a crash/abnormal exit or loads from an unusual location, then (2) drops or modifies a file in user-writable paths, and/or (3) spawns an unexpected child (e.g., powershell/cmd/mshta/rundll32/wscript/installer), and (4) establishes outbound C2-like connections shortly after. Correlate application logs, file writes, process lineage, and network egress within a short window.
@@ -501,7 +501,7 @@ ATT&CK: [T1203](https://attack.mitre.org/techniques/T1203/), [detail page](../..
 
 Detection strategy: User Execution – multi-surface behavior chain (documents/links -> helper/unpacker -> LOLBIN/child -> egress) (`DET0478`)  
 Platforms: Containers, IaaS, Linux, Windows, macOS  
-ATT&CK: [T1204](https://attack.mitre.org/techniques/T1204/), [detail page](../../techniques/execution.md#t1204)
+ATT&CK: [T1204](https://attack.mitre.org/techniques/T1204/), [detail page](/techniques/execution.md#t1204)
 
 - `AN1314` Analytic 1314, Windows
   Cause->effect chain: (1) User-facing app (Office/PDF/archiver/browser) records an open/click or abnormal event, then (2) a downloaded file is created in a user-writable path and/or decompressed, (3) the parent user app spawns a living-off-the-land binary (e.g., powershell/cmd/mshta/rundll32/msiexec/wscript/expand/zip) or installer, and (4) immediate outbound HTTP(S)/DNS/SMB from the same lineage.
@@ -531,7 +531,7 @@ ATT&CK: [T1204](https://attack.mitre.org/techniques/T1204/), [detail page](../..
 
 Detection strategy: User Execution – Malicious Link (click -> suspicious egress -> download/write -> follow-on activity) (`DET0066`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1204.001](https://attack.mitre.org/techniques/T1204/001/), [detail page](../../techniques/execution.md#t1204001)
+ATT&CK: [T1204.001](https://attack.mitre.org/techniques/T1204/001/), [detail page](/techniques/execution.md#t1204001)
 
 - `AN0178` Analytic 0178, Windows
   Behavioral chain: (1) a user-facing app (browser/Office/email client) launches a URL or handles a link, then (2) the same process lineage makes an outbound connection to an untrusted domain/IP, (3) a file is downloaded or unpacked to a user-writable location shortly after the click. Optional enrichment: subsequent child execution by LOLBINs.
@@ -553,7 +553,7 @@ ATT&CK: [T1204.001](https://attack.mitre.org/techniques/T1204/001/), [detail pag
 
 Detection strategy: User Execution – Malicious File via download/open -> spawn chain (T1204.002) (`DET0294`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1204.002](https://attack.mitre.org/techniques/T1204/002/), [detail page](../../techniques/execution.md#t1204002)
+ATT&CK: [T1204.002](https://attack.mitre.org/techniques/T1204/002/), [detail page](/techniques/execution.md#t1204002)
 
 - `AN0819` Analytic 0819, Windows
   User opens a file delivered by email, web, chat, or share. The handler application (Word/PDF reader/archiver) creates a file in user-controlled paths (Downloads, Temp, Desktop) and then spawns a new or unusual child process (e.g., powershell.exe, wscript.exe, cmd.exe, regsvr32.exe, rundll32.exe, msiexec.exe). Optional precursors include FileStreamCreated (URL/UNC) and Office -> system32 batch writes.
@@ -575,7 +575,7 @@ ATT&CK: [T1204.002](https://attack.mitre.org/techniques/T1204/002/), [detail pag
 
 Detection strategy: User Execution – Malicious Image (containers & IaaS) – pull/run -> start -> anomalous behavior (T1204.003) (`DET0248`)  
 Platforms: Linux, Windows  
-ATT&CK: [T1204.003](https://attack.mitre.org/techniques/T1204/003/), [detail page](../../techniques/execution.md#t1204003)
+ATT&CK: [T1204.003](https://attack.mitre.org/techniques/T1204/003/), [detail page](/techniques/execution.md#t1204003)
 
 - `AN0691` Analytic 0691, Linux
   CONTAINERS (Docker/K8s/containerd): A user pulls an untrusted image from a public/unknown registry and then creates/starts a container from that image. Shortly after start, the container spawns unexpected utilities (e.g., curl/wget/bash/python), or makes outbound network connections atypical for the namespace/workload. The analytic correlates Image Creation/Download -> Container Creation -> Container Start -> Command Execution/Network activity within a short window and with a consistent image digest.
@@ -593,7 +593,7 @@ ATT&CK: [T1204.003](https://attack.mitre.org/techniques/T1204/003/), [detail pag
 
 Detection strategy: User Execution – Malicious Copy & Paste (browser/email -> shell with obfuscated one-liner) – T1204.004 (`DET0340`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1204.004](https://attack.mitre.org/techniques/T1204/004/), [detail page](../../techniques/execution.md#t1204004)
+ATT&CK: [T1204.004](https://attack.mitre.org/techniques/T1204/004/), [detail page](/techniques/execution.md#t1204004)
 
 - `AN0962` Analytic 0962, Windows
   A user is socially engineered (web page, email, document) to open Run/PowerShell/CMD and paste an obfuscated one-liner. The chain is: (1) user context active in a browser/email/office app -> (2) process creation of a command interpreter with suspicious arguments (base64/Invoke-Expression/web download/pipeline to shell) -> (3) optional file drop in %TEMP% or %APPDATA% -> (4) outbound network connection to an external domain. Events are correlated within a short window and with consistent user/session.
@@ -615,7 +615,7 @@ ATT&CK: [T1204.004](https://attack.mitre.org/techniques/T1204/004/), [detail pag
 
 Detection strategy: User-Initiated Malicious Library Installation via Package Manager (T1204.005) (`DET0252`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1204.005](https://attack.mitre.org/techniques/T1204/005/), [detail page](../../techniques/execution.md#t1204005)
+ATT&CK: [T1204.005](https://attack.mitre.org/techniques/T1204/005/), [detail page](/techniques/execution.md#t1204005)
 
 - `AN0698` Analytic 0698, Linux
   User-initiated installation of Python (pip), NodeJS (npm), or other language libraries, followed by unexpected network connections, credential access, or startup file modifications. Defender sees `pip install` or `npm install` commands run by a non-root user, followed shortly by new `.py`, `.sh`, or `.js` files in hidden directories, or interpreter-based execution during boot/login.
@@ -637,7 +637,7 @@ ATT&CK: [T1204.005](https://attack.mitre.org/techniques/T1204/005/), [detail pag
 
 Detection strategy: Detect Abuse of Inter-Process Communication (T1559) (`DET0493`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1559](https://attack.mitre.org/techniques/T1559/), [detail page](../../techniques/execution.md#t1559)
+ATT&CK: [T1559](https://attack.mitre.org/techniques/T1559/), [detail page](/techniques/execution.md#t1559)
 
 - `AN1357` Analytic 1357, Windows
   Detects anomalous use of COM, DDE, or named pipes for execution. Correlates creation or access of IPC mechanisms (e.g., named pipes, COM objects) with unusual parent-child process relationships or code injection patterns (e.g., Office spawning cmd.exe via DDE).
@@ -659,7 +659,7 @@ ATT&CK: [T1559](https://attack.mitre.org/techniques/T1559/), [detail page](../..
 
 Detection strategy: Detect Abuse of Component Object Model (T1559.001) (`DET0224`)  
 Platforms: Windows  
-ATT&CK: [T1559.001](https://attack.mitre.org/techniques/T1559/001/), [detail page](../../techniques/execution.md#t1559001)
+ATT&CK: [T1559.001](https://attack.mitre.org/techniques/T1559/001/), [detail page](/techniques/execution.md#t1559001)
 
 - `AN0628` Analytic 0628, Windows
   Detects anomalous use of COM objects for execution, such as Office applications spawning scripting engines, enumeration of COM interfaces via registry queries, or processes loading atypical DLLs through COM activation. Correlates process creation, module loads, and registry queries to flag suspicious COM-based code execution or persistence.
@@ -673,7 +673,7 @@ ATT&CK: [T1559.001](https://attack.mitre.org/techniques/T1559/001/), [detail pag
 
 Detection strategy: Detect Abuse of Dynamic Data Exchange (T1559.002) (`DET0504`)  
 Platforms: Windows  
-ATT&CK: [T1559.002](https://attack.mitre.org/techniques/T1559/002/), [detail page](../../techniques/execution.md#t1559002)
+ATT&CK: [T1559.002](https://attack.mitre.org/techniques/T1559/002/), [detail page](/techniques/execution.md#t1559002)
 
 - `AN1393` Analytic 1393, Windows
   Detects anomalous use of Dynamic Data Exchange (DDE) for code execution, such as Office applications (WINWORD.EXE, EXCEL.EXE) spawning command interpreters, or loading unusual modules through DDEAUTO/DDE formulas. Correlates suspicious parent-child process relationships, registry keys enabling DDE, and module loads inconsistent with normal Office usage.
@@ -687,7 +687,7 @@ ATT&CK: [T1559.002](https://attack.mitre.org/techniques/T1559/002/), [detail pag
 
 Detection strategy: Detect Abuse of XPC Services (T1559.003) (`DET0335`)  
 Platforms: macOS  
-ATT&CK: [T1559.003](https://attack.mitre.org/techniques/T1559/003/), [detail page](../../techniques/execution.md#t1559003)
+ATT&CK: [T1559.003](https://attack.mitre.org/techniques/T1559/003/), [detail page](/techniques/execution.md#t1559003)
 
 - `AN0948` Analytic 0948, macOS
   Detects anomalous use of macOS XPC services for code execution. Monitors for processes invoking privileged XPC daemons with abnormal parameters, unexpected binaries communicating over NSXPCConnection, or helper tools executing code outside of their expected parent process lineage. Correlates process access attempts to system-level daemons, privilege escalations via XPC misconfigurations, and injection of malicious payloads through inter-process communication.
@@ -701,7 +701,7 @@ ATT&CK: [T1559.003](https://attack.mitre.org/techniques/T1559/003/), [detail pag
 
 Detection strategy: Detection Strategy for System Services across OS platforms. (`DET0279`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1569](https://attack.mitre.org/techniques/T1569/), [detail page](../../techniques/execution.md#t1569)
+ATT&CK: [T1569](https://attack.mitre.org/techniques/T1569/), [detail page](/techniques/execution.md#t1569)
 
 - `AN0778` Analytic 0778, Windows
   Monitor for abnormal creation or modification of Windows services (e.g., via sc.exe, PowerShell, or API calls) that load non-standard executables. Correlate registry changes in service keys with service creation events and process execution to detect service abuse for persistence or execution.
@@ -723,7 +723,7 @@ ATT&CK: [T1569](https://attack.mitre.org/techniques/T1569/), [detail page](../..
 
 Detection strategy: Detection Strategy for System Services: Launchctl (`DET0265`)  
 Platforms: macOS  
-ATT&CK: [T1569.001](https://attack.mitre.org/techniques/T1569/001/), [detail page](../../techniques/execution.md#t1569001)
+ATT&CK: [T1569.001](https://attack.mitre.org/techniques/T1569/001/), [detail page](/techniques/execution.md#t1569001)
 
 - `AN0736` Analytic 0736, macOS
   Abuse of launchctl to execute or manage Launch Agents and Daemons. Defender perspective: correlation of suspicious plist file creation or modification in LaunchAgents/LaunchDaemons directories with subsequent execution of the launchctl command. Abnormal executable paths (e.g., /tmp, /Shared) or launchctl activity followed by network connections are highly suspicious.
@@ -737,7 +737,7 @@ ATT&CK: [T1569.001](https://attack.mitre.org/techniques/T1569/001/), [detail pag
 
 Detection strategy: Detection Strategy for System Services Service Execution (`DET0421`)  
 Platforms: Windows  
-ATT&CK: [T1569.002](https://attack.mitre.org/techniques/T1569/002/), [detail page](../../techniques/execution.md#t1569002)
+ATT&CK: [T1569.002](https://attack.mitre.org/techniques/T1569/002/), [detail page](/techniques/execution.md#t1569002)
 
 - `AN1185` Analytic 1185, Windows
   Detection focuses on abnormal service executions initiated via service control manager APIs, sc.exe, net.exe, or PsExec creating temporary services. Defenders observe process creation of services.exe spawning non-standard binaries, registry changes in service keys followed by rapid execution, and network connections originating from processes tied to transient services. Correlation across process lineage, registry activity, and service logs provides strong signals of malicious service execution.
@@ -751,7 +751,7 @@ ATT&CK: [T1569.002](https://attack.mitre.org/techniques/T1569/002/), [detail pag
 
 Detection strategy: Detection Strategy for System Services: Systemctl (`DET0073`)  
 Platforms: Linux  
-ATT&CK: [T1569.003](https://attack.mitre.org/techniques/T1569/003/), [detail page](../../techniques/execution.md#t1569003)
+ATT&CK: [T1569.003](https://attack.mitre.org/techniques/T1569/003/), [detail page](/techniques/execution.md#t1569003)
 
 - `AN0200` Analytic 0200, Linux
   Abuse of systemctl to execute commands or manage systemd services. Defender perspective: correlate suspicious service creation or modification with execution of systemctl subcommands such as start, enable, or status. Detect cases where systemctl is used to load services from unusual locations (e.g., /tmp, /dev/shm) or where new service units are created outside of expected administrative workflows.
@@ -765,7 +765,7 @@ ATT&CK: [T1569.003](https://attack.mitre.org/techniques/T1569/003/), [detail pag
 
 Detection strategy: Detection Strategy for Container Administration Command Abuse (`DET0065`)  
 Platforms: Containers  
-ATT&CK: [T1609](https://attack.mitre.org/techniques/T1609/), [detail page](../../techniques/execution.md#t1609)
+ATT&CK: [T1609](https://attack.mitre.org/techniques/T1609/), [detail page](/techniques/execution.md#t1609)
 
 - `AN0177` Analytic 0177, Containers
   Defenders may detect abuse of container administration commands by observing anomalous use of management utilities (`docker exec`, `kubectl exec`, or API calls to kubelet) correlated with unexpected process creation inside containers. Behavioral chains include unauthorized API requests followed by command execution within running pods or containers, often originating from unusual user accounts, automation scripts, or IP addresses outside the expected cluster management plane.
@@ -779,7 +779,7 @@ ATT&CK: [T1609](https://attack.mitre.org/techniques/T1609/), [detail page](../..
 
 Detection strategy: Behavior-chain detection for T1610 Deploy Container across Docker & Kubernetes control/node planes (`DET0249`)  
 Platforms: Containers  
-ATT&CK: [T1610](https://attack.mitre.org/techniques/T1610/), [detail page](../../techniques/execution.md#t1610)
+ATT&CK: [T1610](https://attack.mitre.org/techniques/T1610/), [detail page](/techniques/execution.md#t1610)
 
 - `AN0693` Analytic 0693, Containers
   Remote/API driven creation and start of a container whose image is not on an allow‑list (or is tagged `latest`), executed by a non-admin principal, and/or started with risky runtime attributes (e.g., `--privileged`, host PID/NET namespaces, sensitive host path mounts, capability adds). Correlates *create* -> *start* -> first network/process actions from that container within a short time window.
@@ -793,7 +793,7 @@ ATT&CK: [T1610](https://attack.mitre.org/techniques/T1610/), [detail page](../..
 
 Detection strategy: Detection Strategy for Serverless Execution (T1648) (`DET0374`)  
 Platforms: IaaS, Office Suite, SaaS  
-ATT&CK: [T1648](https://attack.mitre.org/techniques/T1648/), [detail page](../../techniques/execution.md#t1648)
+ATT&CK: [T1648](https://attack.mitre.org/techniques/T1648/), [detail page](/techniques/execution.md#t1648)
 
 - `AN1053` Analytic 1053, IaaS
   Correlate creation or modification of serverless functions (e.g., AWS Lambda, GCP Cloud Functions, Azure Functions) with anomalous IAM role assignments or permissions escalation events. Detect subsequent executions of newly created functions that perform unexpected actions such as spawning outbound network connections, accessing sensitive resources, or creating additional credentials.
@@ -815,7 +815,7 @@ ATT&CK: [T1648](https://attack.mitre.org/techniques/T1648/), [detail page](../..
 
 Detection strategy: Detection Strategy for Cloud Administration Command (`DET0545`)  
 Platforms: IaaS  
-ATT&CK: [T1651](https://attack.mitre.org/techniques/T1651/), [detail page](../../techniques/execution.md#t1651)
+ATT&CK: [T1651](https://attack.mitre.org/techniques/T1651/), [detail page](/techniques/execution.md#t1651)
 
 - `AN1502` Analytic 1502, IaaS
   Monitor for suspicious use of cloud-native administrative command services (e.g., AWS Systems Manager Run Command, Azure RunCommand, GCP OS Config) to execute code inside VMs. Detect anomalies such as commands/scripts executed by unexpected users, execution outside of maintenance windows, or commands initiated by service accounts not normally tied to administration. Correlate cloud control-plane activity logs with host-level execution (process creation, script execution) to validate if commands materialized inside the guest OS.
@@ -829,7 +829,7 @@ ATT&CK: [T1651](https://attack.mitre.org/techniques/T1651/), [detail page](../..
 
 Detection strategy: Detection Strategy for Input Injection (`DET0568`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1674](https://attack.mitre.org/techniques/T1674/), [detail page](../../techniques/execution.md#t1674)
+ATT&CK: [T1674](https://attack.mitre.org/techniques/T1674/), [detail page](/techniques/execution.md#t1674)
 
 - `AN1567` Analytic 1567, Windows
   Detects suspicious USB HID device enumeration and keystroke injection patterns, such as rapid sequences of input with no user context, scripts executed through simulated keystrokes, or rogue devices presenting themselves as keyboards.
@@ -851,7 +851,7 @@ ATT&CK: [T1674](https://attack.mitre.org/techniques/T1674/), [detail page](../..
 
 Detection strategy: Detection Strategy for ESXi Administration Command (`DET0232`)  
 Platforms: ESXi  
-ATT&CK: [T1675](https://attack.mitre.org/techniques/T1675/), [detail page](../../techniques/execution.md#t1675)
+ATT&CK: [T1675](https://attack.mitre.org/techniques/T1675/), [detail page](/techniques/execution.md#t1675)
 
 - `AN0646` Analytic 0646, ESXi
   Detects anomalous usage of ESXi Guest Operations APIs such as StartProgramInGuest, ListProcessesInGuest, ListFileInGuest, or InitiateFileTransferFromGuest. Defender perspective focuses on unusual frequency of guest API calls, invocation from unexpected management accounts, or execution outside of business hours. These correlated signals indicate adversarial abuse of ESXi administrative services to run commands on guest VMs.
@@ -865,7 +865,7 @@ ATT&CK: [T1675](https://attack.mitre.org/techniques/T1675/), [detail page](../..
 
 Detection strategy: Detection Strategy for Poisoned Pipeline Execution via SaaS CI/CD Workflows (`DET0533`)  
 Platforms: SaaS  
-ATT&CK: [T1677](https://attack.mitre.org/techniques/T1677/), [detail page](../../techniques/execution.md#t1677)
+ATT&CK: [T1677](https://attack.mitre.org/techniques/T1677/), [detail page](/techniques/execution.md#t1677)
 
 - `AN1473` Analytic 1473, SaaS
   Detects anomalous CI/CD workflow execution originating from forked repositories, with pull request (PR) metadata or commit messages containing suspicious patterns (e.g., encoded payloads), coupled with the use of insecure pipeline triggers like `pull_request_target` or excessive API usage of CI/CD secrets. Correlation with unusual artifact generation or secret exfiltration via encoded or external network destination URLs confirms suspicious behavior.

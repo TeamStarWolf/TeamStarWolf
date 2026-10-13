@@ -2,7 +2,7 @@
 
 > MITRE ATT&CK detection strategies and analytics (v19.2) for techniques whose primary tactic is Exfiltration. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
 
-See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](../TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](../../ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](../../techniques/README.md)
+See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](/techniques/README.md)
 
 ---
 
@@ -11,7 +11,7 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 
 Detection strategy: Detection of Exfiltration Over Alternate Network Interfaces (`DET0077`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1011](https://attack.mitre.org/techniques/T1011/), [detail page](../../techniques/exfiltration.md#t1011)
+ATT&CK: [T1011](https://attack.mitre.org/techniques/T1011/), [detail page](/techniques/exfiltration.md#t1011)
 
 - `AN0212` Analytic 0212, Windows
   Execution of file transfer or network access activity through non-primary interfaces (e.g., WiFi, Bluetooth, cellular) by processes not typically associated with such behavior (e.g., rundll32, powershell, regsvr32).
@@ -33,7 +33,7 @@ ATT&CK: [T1011](https://attack.mitre.org/techniques/T1011/), [detail page](../..
 
 Detection strategy: Detection of Bluetooth-Based Data Exfiltration (`DET0554`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1011.001](https://attack.mitre.org/techniques/T1011/001/), [detail page](../../techniques/exfiltration.md#t1011001)
+ATT&CK: [T1011.001](https://attack.mitre.org/techniques/T1011/001/), [detail page](/techniques/exfiltration.md#t1011001)
 
 - `AN1531` Analytic 1531, Windows
   Detection of non-interactive or suspicious processes accessing Bluetooth interfaces and transmitting outbound traffic following file access or staging activity.
@@ -55,7 +55,7 @@ ATT&CK: [T1011.001](https://attack.mitre.org/techniques/T1011/001/), [detail pag
 
 Detection strategy: Automated Exfiltration Detection Strategy (`DET0397`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1020](https://attack.mitre.org/techniques/T1020/), [detail page](../../techniques/exfiltration.md#t1020)
+ATT&CK: [T1020](https://attack.mitre.org/techniques/T1020/), [detail page](/techniques/exfiltration.md#t1020)
 
 - `AN1113` Analytic 1113, Windows
   Detection of automated tools or scripts periodically transmitting data to external destinations using scheduled tasks or background processes.
@@ -77,7 +77,7 @@ ATT&CK: [T1020](https://attack.mitre.org/techniques/T1020/), [detail page](../..
 
 Detection strategy: Detection Strategy for Traffic Duplication via Mirroring in IaaS and Network Devices (`DET0403`)  
 Platforms: IaaS, Network Devices  
-ATT&CK: [T1020.001](https://attack.mitre.org/techniques/T1020/001/), [detail page](../../techniques/exfiltration.md#t1020001)
+ATT&CK: [T1020.001](https://attack.mitre.org/techniques/T1020/001/), [detail page](/techniques/exfiltration.md#t1020001)
 
 - `AN1131` Analytic 1131, IaaS
   Configuration changes to virtual TAP/mirror policies that forward traffic to unapproved destinations. Detection correlates management plane API calls with mirrored traffic observation.
@@ -95,7 +95,7 @@ ATT&CK: [T1020.001](https://attack.mitre.org/techniques/T1020/001/), [detail pag
 
 Detection strategy: Detection Strategy for Scheduled Transfer and Recurrent Exfiltration Patterns (`DET0399`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1029](https://attack.mitre.org/techniques/T1029/), [detail page](../../techniques/exfiltration.md#t1029)
+ATT&CK: [T1029](https://attack.mitre.org/techniques/T1029/), [detail page](/techniques/exfiltration.md#t1029)
 
 - `AN1118` Analytic 1118, Windows
   Recurring network exfiltration initiated by scheduled or script-based processes exhibiting time-based regularity and consistent external destinations.
@@ -117,7 +117,7 @@ ATT&CK: [T1029](https://attack.mitre.org/techniques/T1029/), [detail page](../..
 
 Detection strategy: Detection Strategy for Data Transfer Size Limits and Chunked Exfiltration (`DET0213`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1030](https://attack.mitre.org/techniques/T1030/), [detail page](../../techniques/exfiltration.md#t1030)
+ATT&CK: [T1030](https://attack.mitre.org/techniques/T1030/), [detail page](/techniques/exfiltration.md#t1030)
 
 - `AN0596` Analytic 0596, Windows
   Adversary uses a process to establish outbound connections that transmit uniform packet sizes at a consistent interval, avoiding threshold-based network alerts.
@@ -139,7 +139,7 @@ ATT&CK: [T1030](https://attack.mitre.org/techniques/T1030/), [detail page](../..
 
 Detection strategy: Detection Strategy for Exfiltration Over C2 Channel (`DET0348`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1041](https://attack.mitre.org/techniques/T1041/), [detail page](../../techniques/exfiltration.md#t1041)
+ATT&CK: [T1041](https://attack.mitre.org/techniques/T1041/), [detail page](/techniques/exfiltration.md#t1041)
 
 - `AN0988` Analytic 0988, Windows
   Identifies suspicious outbound traffic volume mismatches from processes that typically do not generate network activity, particularly over C2 protocols like HTTPS, DNS, or custom TCP/UDP ports, following file or data access.
@@ -165,7 +165,7 @@ ATT&CK: [T1041](https://attack.mitre.org/techniques/T1041/), [detail page](../..
 
 Detection strategy: Behavioral Detection Strategy for Exfiltration Over Alternative Protocol (`DET0131`)  
 Platforms: ESXi, IaaS, Linux, Windows, macOS  
-ATT&CK: [T1048](https://attack.mitre.org/techniques/T1048/), [detail page](../../techniques/exfiltration.md#t1048)
+ATT&CK: [T1048](https://attack.mitre.org/techniques/T1048/), [detail page](/techniques/exfiltration.md#t1048)
 
 - `AN0367` Analytic 0367, Windows
   Detects unusual outbound file transfer behavior using protocols like FTP, SMB, SMTP, or DNS, involving non-standard processes, off-hour activity, or uncommonly high volume.
@@ -195,7 +195,7 @@ ATT&CK: [T1048](https://attack.mitre.org/techniques/T1048/), [detail page](../..
 
 Detection strategy: Behavioral Detection Strategy for Exfiltration Over Symmetric Encrypted Non-C2 Protocol (`DET0503`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1048.001](https://attack.mitre.org/techniques/T1048/001/), [detail page](../../techniques/exfiltration.md#t1048001)
+ATT&CK: [T1048.001](https://attack.mitre.org/techniques/T1048/001/), [detail page](/techniques/exfiltration.md#t1048001)
 
 - `AN1389` Analytic 1389, Windows
   Detects the execution of non-browser processes establishing outbound encrypted network connections using uncommon symmetric encryption protocols (e.g., AES via PowerShell or custom scripts) to alternate external destinations.
@@ -221,7 +221,7 @@ ATT&CK: [T1048.001](https://attack.mitre.org/techniques/T1048/001/), [detail pag
 
 Detection strategy: Detection of Exfiltration Over Asymmetric Encrypted Non-C2 Protocol (`DET0512`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1048.002](https://attack.mitre.org/techniques/T1048/002/), [detail page](../../techniques/exfiltration.md#t1048002)
+ATT&CK: [T1048.002](https://attack.mitre.org/techniques/T1048/002/), [detail page](/techniques/exfiltration.md#t1048002)
 
 - `AN1413` Analytic 1413, Windows
   Detects non-browser processes that establish encrypted outbound connections (e.g., TLS/SSL) to unfamiliar or atypical destinations for the host/user, following a data staging or compression event.
@@ -247,7 +247,7 @@ ATT&CK: [T1048.002](https://attack.mitre.org/techniques/T1048/002/), [detail pag
 
 Detection strategy: Detection of Exfiltration Over Unencrypted Non-C2 Protocol (`DET0149`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1048.003](https://attack.mitre.org/techniques/T1048/003/), [detail page](../../techniques/exfiltration.md#t1048003)
+ATT&CK: [T1048.003](https://attack.mitre.org/techniques/T1048/003/), [detail page](/techniques/exfiltration.md#t1048003)
 
 - `AN0423` Analytic 0423, Windows
   Detects data access or staging events followed by outbound data flows using unencrypted protocols (e.g., FTP, HTTP) initiated by unexpected processes or to rare destinations.
@@ -277,7 +277,7 @@ ATT&CK: [T1048.003](https://attack.mitre.org/techniques/T1048/003/), [detail pag
 
 Detection strategy: Detection of Data Exfiltration via Removable Media (`DET0123`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1052](https://attack.mitre.org/techniques/T1052/), [detail page](../../techniques/exfiltration.md#t1052)
+ATT&CK: [T1052](https://attack.mitre.org/techniques/T1052/), [detail page](/techniques/exfiltration.md#t1052)
 
 - `AN0342` Analytic 0342, Windows
   Detects removable drive insertion followed by unusual file access, compression, or staging activity by unauthorized users or unexpected processes.
@@ -299,7 +299,7 @@ ATT&CK: [T1052](https://attack.mitre.org/techniques/T1052/), [detail page](../..
 
 Detection strategy: Detection of USB-Based Data Exfiltration (`DET0220`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1052.001](https://attack.mitre.org/techniques/T1052/001/), [detail page](../../techniques/exfiltration.md#t1052001)
+ATT&CK: [T1052.001](https://attack.mitre.org/techniques/T1052/001/), [detail page](/techniques/exfiltration.md#t1052001)
 
 - `AN0616` Analytic 0616, Windows
   Detects USB device insertion followed by high-volume or sensitive file access and staging activity by suspicious processes or accounts.
@@ -321,7 +321,7 @@ ATT&CK: [T1052.001](https://attack.mitre.org/techniques/T1052/001/), [detail pag
 
 Detection strategy: Cross-Platform Detection of Data Transfer to Cloud Account (`DET0573`)  
 Platforms: IaaS, Office Suite, SaaS  
-ATT&CK: [T1537](https://attack.mitre.org/techniques/T1537/), [detail page](../../techniques/exfiltration.md#t1537)
+ATT&CK: [T1537](https://attack.mitre.org/techniques/T1537/), [detail page](/techniques/exfiltration.md#t1537)
 
 - `AN1580` Analytic 1580, IaaS
   Detects snapshot sharing, backup exports, or data object transfers from victim-owned cloud accounts to other cloud identities within the same provider (e.g., AWS, Azure) using snapshot sharing, S3 bucket policy updates, or SAS URI generation.
@@ -343,7 +343,7 @@ ATT&CK: [T1537](https://attack.mitre.org/techniques/T1537/), [detail page](../..
 
 Detection strategy: Detection Strategy for Exfiltration Over Web Service (`DET0548`)  
 Platforms: ESXi, Linux, SaaS, Windows, macOS  
-ATT&CK: [T1567](https://attack.mitre.org/techniques/T1567/), [detail page](../../techniques/exfiltration.md#t1567)
+ATT&CK: [T1567](https://attack.mitre.org/techniques/T1567/), [detail page](/techniques/exfiltration.md#t1567)
 
 - `AN1511` Analytic 1511, Windows
   Processes that normally do not initiate network communications suddenly making outbound HTTPS connections with high outbound-to-inbound data ratios. Defender view: correlation between process creation logs (e.g., Word, Excel, PowerShell) and subsequent anomalous network traffic volumes toward common web services (Dropbox, Google Drive, OneDrive).
@@ -373,7 +373,7 @@ ATT&CK: [T1567](https://attack.mitre.org/techniques/T1567/), [detail page](../..
 
 Detection strategy: Detection Strategy for Exfiltration to Code Repository (`DET0318`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1567.001](https://attack.mitre.org/techniques/T1567/001/), [detail page](../../techniques/exfiltration.md#t1567001)
+ATT&CK: [T1567.001](https://attack.mitre.org/techniques/T1567/001/), [detail page](/techniques/exfiltration.md#t1567001)
 
 - `AN0895` Analytic 0895, Windows
   Processes such as PowerShell, Git, or curl initiating outbound HTTPS POST requests to known code repository APIs (e.g., github.com, gitlab.com) immediately following large file reads. Defender view: correlation between file access of sensitive directories (e.g., Documents, Finance) and abnormal data uploads to repository domains.
@@ -399,7 +399,7 @@ ATT&CK: [T1567.001](https://attack.mitre.org/techniques/T1567/001/), [detail pag
 
 Detection strategy: Detection Strategy for Exfiltration to Cloud Storage (`DET0570`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1567.002](https://attack.mitre.org/techniques/T1567/002/), [detail page](../../techniques/exfiltration.md#t1567002)
+ATT&CK: [T1567.002](https://attack.mitre.org/techniques/T1567/002/), [detail page](/techniques/exfiltration.md#t1567002)
 
 - `AN1571` Analytic 1571, Windows
   Unusual processes (e.g., powershell.exe, excel.exe) accessing large local files and subsequently initiating HTTPS POST requests to domains associated with cloud storage services (e.g., dropbox.com, drive.google.com, box.com). Defender perspective: correlation between file reads in sensitive directories and high outbound traffic volume to known storage APIs.
@@ -425,7 +425,7 @@ ATT&CK: [T1567.002](https://attack.mitre.org/techniques/T1567/002/), [detail pag
 
 Detection strategy: Detection Strategy for Exfiltration to Text Storage Sites (`DET0284`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1567.003](https://attack.mitre.org/techniques/T1567/003/), [detail page](../../techniques/exfiltration.md#t1567003)
+ATT&CK: [T1567.003](https://attack.mitre.org/techniques/T1567/003/), [detail page](/techniques/exfiltration.md#t1567003)
 
 - `AN0787` Analytic 0787, Windows
   Unexpected processes (e.g., powershell.exe, wscript.exe, office apps) initiating HTTP POST/PUT requests to text storage domains like pastebin.com or hastebin.com, particularly when preceded by file access in sensitive directories. Defender perspective: correlation of process lineage, large clipboard/file read operations, and outbound uploads to text storage services.
@@ -451,7 +451,7 @@ ATT&CK: [T1567.003](https://attack.mitre.org/techniques/T1567/003/), [detail pag
 
 Detection strategy: Detection Strategy for Exfiltration Over Webhook (`DET0153`)  
 Platforms: ESXi, Linux, SaaS, Windows, macOS  
-ATT&CK: [T1567.004](https://attack.mitre.org/techniques/T1567/004/), [detail page](../../techniques/exfiltration.md#t1567004)
+ATT&CK: [T1567.004](https://attack.mitre.org/techniques/T1567/004/), [detail page](/techniques/exfiltration.md#t1567004)
 
 - `AN0436` Analytic 0436, Windows
   Unusual processes (e.g., powershell.exe, wscript.exe, mshta.exe) posting data to webhook endpoints (Discord, Slack, webhook.site) using HTTP POST/PUT requests. Defender perspective: suspicious process lineage followed by outbound HTTPS traffic to webhook domains.

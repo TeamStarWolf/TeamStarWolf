@@ -55,7 +55,7 @@ from pathlib import Path
 
 from attack_ids import AttackIds
 from build_priority_gaps import NAVIGATOR_VERSIONS
-from compute_coverage import ATTACK_VERSION, TACTIC_METADATA
+from compute_coverage import ATTACK_VERSION, TACTIC_METADATA, repo_href
 
 ROOT = Path(__file__).resolve().parents[1]
 GENERATED_BY = "scripts/build_navigator_layers.py"
@@ -356,7 +356,7 @@ def curated_files() -> list[str]:
 # A layer file under navigator/ that is missing here fails the build (no orphans).
 CATALOG = [
     ("Pipeline Stage Layers",
-     "One layer per stage of the [Enterprise Security Pipeline](../SECURITY_PIPELINE.md), in pipeline "
+     "One layer per stage of the [Enterprise Security Pipeline](/SECURITY_PIPELINE.md), in pipeline "
      "order. Each shows which ATT&CK techniques the controls and tooling of that stage address. "
      "Hand-curated selections; scores are the stage's editorial coverage rating, not measured coverage.",
      [("stages/stage1_governance_grc.json", "Stage 1: Governance, Risk & Compliance",
@@ -384,9 +384,9 @@ CATALOG = [
        "separate application-security stage")]),
     ("Vendor Layers",
      "Hand-curated technique selections per security market family. They are editorial views, "
-     "not derived from [data/vendor_to_technique.jsonl](../data/vendor_to_technique.jsonl), which "
+     f"not derived from [data/vendor_to_technique.jsonl]({repo_href('data/vendor_to_technique.jsonl')}), which "
      "holds the full NIST-control-derived vendor edge set (see the "
-     "[vendor coverage scores](../scores/coverage_gaps.md)).",
+     "[vendor coverage scores](/scores/coverage_gaps.md)).",
      [("vendors/siem_splunk_sentinel_elastic.json", "SIEM & Detection",
        "Splunk ES, Microsoft Sentinel, Elastic Security"),
       ("vendors/edr_crowdstrike_sentinelone.json", "EDR & Endpoint",
@@ -414,14 +414,14 @@ CATALOG = [
        "Earlier identity selection; see the Identity & PAM layer above")]),
     ("Library Layers",
      "Curated practitioner views built from the library's reference pages and data files "
-     "(listed in [library-layers/index.json](library-layers/index.json)). Scores indicate "
+     f"(listed in [library-layers/index.json]({repo_href(LIBRARY_INDEX)})). Scores indicate "
      "membership or editorial weight, not severity or measured coverage.",
      None),  # rows come from library-layers/index.json
     ("Analytic Layers",
      "Threat-intelligence and gap-analysis heatmaps generated from the library's MITRE ATT&CK "
      f"Enterprise v{ATTACK_VERSION}, ICS and Mobile data and the CTID NIST 800-53 R5 mappings by "
      "`scripts/build_priority_gaps.py`. See the [ATT&CK Priority Gap Analysis]"
-     "(../scores/attack_priority_gaps.md) for the ranked write-up.",
+     "(/scores/attack_priority_gaps.md) for the ranked write-up.",
      [("analytics/group_frequency.json", "Threat Group Frequency",
        "Techniques colored by how many tracked ATT&CK threat groups use them; the most common "
        "adversary behaviors"),
@@ -434,20 +434,20 @@ CATALOG = [
        "MITRE ATT&CK for Mobile techniques colored by threat-group usage")]),
     ("AI Systems (MITRE ATLAS)",
      "MITRE ATLAS layers in ATLAS's own `atlas-atlas` Navigator domain, vendored with provenance "
-     "metadata; see the [ATLAS reference](../ATLAS_REFERENCE.md). Open them in the "
+     "metadata; see the [ATLAS reference](/ATLAS_REFERENCE.md). Open them in the "
      "[ATLAS Navigator](https://mitre-atlas.github.io/atlas-navigator/); ATLAS keeps its own tactic "
      "set (including Defense Evasion), separate from ATT&CK Enterprise.",
      [("ai/atlas-matrix.json", "ATLAS Matrix", "The full ATLAS matrix of techniques against AI systems"),
       ("ai/atlas-case-study-frequency.json", "ATLAS Case Study Frequency",
        "ATLAS techniques shaded by how often they appear in ATLAS case studies")]),
     ("Fraud Matrix (MITRE F3)",
-     "The [MITRE Fight Fraud Framework](../FRAUD_FRAMEWORK_REFERENCE.md) matrix, published by "
+     "The [MITRE Fight Fraud Framework](/FRAUD_FRAMEWORK_REFERENCE.md) matrix, published by "
      "MITRE's Center for Threat-Informed Defense (Apache-2.0) and vendored here with provenance "
      "metadata. F3 uses its own `f3-financial` domain and loads its data from the F3 STIX bundle "
      "named in the layer; some ATT&CK-specific overlays do not apply.",
      [("fraud/f3-matrix.json", "F3 Matrix",
-       "The full F3 fraud matrix: use with the [F3 reference](../FRAUD_FRAMEWORK_REFERENCE.md) and "
-       "[datasets](../data/fraud/)")]),
+       "The full F3 fraud matrix: use with the [F3 reference](/FRAUD_FRAMEWORK_REFERENCE.md) and "
+       f"[datasets]({repo_href('data/fraud/')})")]),
 ]
 
 
@@ -472,7 +472,8 @@ def render_index(layers: dict[str, dict], fs: dict) -> str:
     def row(path: str, title: str, desc: str) -> str:
         lay = layers[f"navigator/{path}"]
         n = len({t["techniqueID"] for t in lay["techniques"]})
-        return f"| [{title}]({path}) | {desc} | {n} | {version_cell(lay)} | {load_link(path, lay)} |"
+        return (f"| [{title}]({repo_href('navigator/' + path)}) | {desc} | {n} | {version_cell(lay)} | "
+                f"{load_link(path, lay)} |")
 
     head = "| Layer | Description | Techniques | Version | Load |\n|---|---|---|---|---|"
     lib = json.loads(read_text(LIBRARY_INDEX))
@@ -486,11 +487,11 @@ def render_index(layers: dict[str, dict], fs: dict) -> str:
          "Impairment in place of the retired Defense Evasion; `scripts/validate_navigator.py` checks "
          "every technique ID and tactic against the library's profile data in CI. Provenance differs "
          "by section: the full-stack and analytic layers are generated from the "
-         "[data files](../data/), the stage, vendor and library layers are hand-curated selections "
+         f"[data files]({repo_href('data/')}), the stage, vendor and library layers are hand-curated selections "
          "whose IDs and tactics are normalized to the current release by script, and the ATLAS and F3 "
          "layers are vendored from MITRE in their own Navigator domains.", "",
          "---", "", "## Full Stack Coverage", "", head,
-         f"| [NIST 800-53 R5 Control Depth](teamstarwolf_vendor_coverage.json) | {fs['techniques']} live "
+         f"| [NIST 800-53 R5 Control Depth]({repo_href(FULL_STACK)}) | {fs['techniques']} live "
          f"ATT&CK v{ATTACK_VERSION} techniques scored by NIST 800-53 R5 control depth ({fs['controls']} "
          f"controls, {fs['pairs']:,} technique-control pairs; CTID mapping for ATT&CK v16.1, carried "
          f"forward to v{ATTACK_VERSION} successors) | {fs['techniques']} | "
@@ -524,11 +525,11 @@ def render_index(layers: dict[str, dict], fs: dict) -> str:
           "The score counts mapped NIST 800-53 controls (framework depth). It does not measure vendor "
           "coverage or what is deployed in any environment.", "",
           "---", "", "## References", "",
-          "- [Layer JSON source files](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/navigator/)",
-          "- [Vendor to Control edge table](../data/vendor_to_control.jsonl)",
-          "- [Control to Technique edge table](../data/control_to_technique.jsonl)",
-          "- [Controls Mapping reference](../CONTROLS_MAPPING.md)",
-          "- [Coverage gap analysis](../scores/coverage_gaps.md)",
+          f"- [Layer JSON source files]({repo_href('navigator/')})",
+          f"- [Vendor to Control edge table]({repo_href('data/vendor_to_control.jsonl')})",
+          f"- [Control to Technique edge table]({repo_href('data/control_to_technique.jsonl')})",
+          "- [Controls Mapping reference](/CONTROLS_MAPPING.md)",
+          "- [Coverage gap analysis](/scores/coverage_gaps.md)",
           f"- [CTID Mappings Explorer]({CTID_URL})", "",
           "---", "",
           '<div style="position:relative; width:100%; padding-bottom:65%; min-height:500px;">',

@@ -2,7 +2,7 @@
 
 > MITRE ATT&CK detection strategies and analytics (v19.2) for techniques whose primary tactic is Credential Access. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
 
-See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](../TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](../../ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](../../techniques/README.md)
+See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](/techniques/README.md)
 
 ---
 
@@ -11,7 +11,7 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 
 Detection strategy: Credential Dumping via Sensitive Memory and Registry Access Correlation (`DET0234`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1003](https://attack.mitre.org/techniques/T1003/), [detail page](../../techniques/credential-access.md#t1003)
+ATT&CK: [T1003](https://attack.mitre.org/techniques/T1003/), [detail page](/techniques/credential-access.md#t1003)
 
 - `AN0648` Analytic 0648, Windows
   Processes accessing LSASS memory or SAM registry hives outside of trusted security tools, often followed by file creation or lateral movement. Detects unauthorized access to sensitive OS subsystems for credential extraction.
@@ -33,7 +33,7 @@ ATT&CK: [T1003](https://attack.mitre.org/techniques/T1003/), [detail page](../..
 
 Detection strategy: Detection of Credential Dumping from LSASS Memory via Access and Dump Sequence (`DET0363`)  
 Platforms: Windows  
-ATT&CK: [T1003.001](https://attack.mitre.org/techniques/T1003/001/), [detail page](../../techniques/credential-access.md#t1003001)
+ATT&CK: [T1003.001](https://attack.mitre.org/techniques/T1003/001/), [detail page](/techniques/credential-access.md#t1003001)
 
 - `AN1030` Analytic 1030, Windows
   A non-privileged or abnormal process attempts to open a handle with full access (0x1F0FFF) to lsass.exe and subsequently invokes memory dump, file creation, or registry modification indicative of credential scraping. This behavior chain reflects staged credential theft activity.
@@ -47,7 +47,7 @@ ATT&CK: [T1003.001](https://attack.mitre.org/techniques/T1003/001/), [detail pag
 
 Detection strategy: Credential Dumping from SAM via Registry Dump and Local File Access (`DET0085`)  
 Platforms: Windows  
-ATT&CK: [T1003.002](https://attack.mitre.org/techniques/T1003/002/), [detail page](../../techniques/credential-access.md#t1003002)
+ATT&CK: [T1003.002](https://attack.mitre.org/techniques/T1003/002/), [detail page](/techniques/credential-access.md#t1003002)
 
 - `AN0235` Analytic 0235, Windows
   An adversary running with SYSTEM-level privileges executes commands or accesses registry keys to dump the SAM hive or directly reads sensitive local files from the config directory. This behavior often involves sequential access to HKLM\SAM, HKLM\SYSTEM, and creation of .save or .dmp files, enabling offline hash extraction.
@@ -61,7 +61,7 @@ ATT&CK: [T1003.002](https://attack.mitre.org/techniques/T1003/002/), [detail pag
 
 Detection strategy: Detection of NTDS.dit Credential Dumping from Domain Controllers (`DET0586`)  
 Platforms: Windows  
-ATT&CK: [T1003.003](https://attack.mitre.org/techniques/T1003/003/), [detail page](../../techniques/credential-access.md#t1003003)
+ATT&CK: [T1003.003](https://attack.mitre.org/techniques/T1003/003/), [detail page](/techniques/credential-access.md#t1003003)
 
 - `AN1611` Analytic 1611, Windows
   Detects credential dumping attempts targeting the NTDS.dit database by monitoring shadow copy creation, suspicious file access to %SystemRoot%\NTDS\ntds.dit, and the use of tooling like ntdsutil.exe or volume management APIs.
@@ -75,7 +75,7 @@ ATT&CK: [T1003.003](https://attack.mitre.org/techniques/T1003/003/), [detail pag
 
 Detection strategy: Detection of LSA Secrets Dumping via Registry and Memory Extraction (`DET0437`)  
 Platforms: Windows  
-ATT&CK: [T1003.004](https://attack.mitre.org/techniques/T1003/004/), [detail page](../../techniques/credential-access.md#t1003004)
+ATT&CK: [T1003.004](https://attack.mitre.org/techniques/T1003/004/), [detail page](/techniques/credential-access.md#t1003004)
 
 - `AN1212` Analytic 1212, Windows
   Detects adversary activity aimed at accessing LSA Secrets, including registry key export of HKEY_LOCAL_MACHINE\SECURITY\Policy\Secrets or memory scraping via tools such as Mimikatz or PowerSploit's Invoke-Mimikatz.
@@ -89,7 +89,7 @@ ATT&CK: [T1003.004](https://attack.mitre.org/techniques/T1003/004/), [detail pag
 
 Detection strategy: Detection of Cached Domain Credential Dumping via Local Hash Cache Access (`DET0513`)  
 Platforms: Linux, Windows  
-ATT&CK: [T1003.005](https://attack.mitre.org/techniques/T1003/005/), [detail page](../../techniques/credential-access.md#t1003005)
+ATT&CK: [T1003.005](https://attack.mitre.org/techniques/T1003/005/), [detail page](/techniques/credential-access.md#t1003005)
 
 - `AN1417` Analytic 1417, Windows
   Detects adversary behavior accessing Windows cached domain credential files using tools like Mimikatz, reg.exe, or PowerShell, often combined with registry exports or LSASS memory scraping.
@@ -107,7 +107,7 @@ ATT&CK: [T1003.005](https://attack.mitre.org/techniques/T1003/005/), [detail pag
 
 Detection strategy: Detection of Unauthorized DCSync Operations via Replication API Abuse (`DET0594`)  
 Platforms: Windows  
-ATT&CK: [T1003.006](https://attack.mitre.org/techniques/T1003/006/), [detail page](../../techniques/credential-access.md#t1003006)
+ATT&CK: [T1003.006](https://attack.mitre.org/techniques/T1003/006/), [detail page](/techniques/credential-access.md#t1003006)
 
 - `AN1632` Analytic 1632, Windows
   Detects unauthorized invocation of replication operations (DCSync) via Directory Replication Service (DRS), often executed by threat actors using Mimikatz or similar tools from non-DC endpoints.
@@ -121,7 +121,7 @@ ATT&CK: [T1003.006](https://attack.mitre.org/techniques/T1003/006/), [detail pag
 
 Detection strategy: Detecting OS Credential Dumping via /proc Filesystem Access on Linux (`DET0593`)  
 Platforms: Linux  
-ATT&CK: [T1003.007](https://attack.mitre.org/techniques/T1003/007/), [detail page](../../techniques/credential-access.md#t1003007)
+ATT&CK: [T1003.007](https://attack.mitre.org/techniques/T1003/007/), [detail page](/techniques/credential-access.md#t1003007)
 
 - `AN1631` Analytic 1631, Linux
   Monitoring adversary access to sensitive process memory via the /proc filesystem to extract credential material, often involving multi-step access to /proc/[pid]/mem or /proc/[pid]/maps combined with privilege escalation or credential scraping binaries.
@@ -135,7 +135,7 @@ ATT&CK: [T1003.007](https://attack.mitre.org/techniques/T1003/007/), [detail pag
 
 Detection strategy: Credential Access via /etc/passwd and /etc/shadow Parsing (`DET0446`)  
 Platforms: Linux  
-ATT&CK: [T1003.008](https://attack.mitre.org/techniques/T1003/008/), [detail page](../../techniques/credential-access.md#t1003008)
+ATT&CK: [T1003.008](https://attack.mitre.org/techniques/T1003/008/), [detail page](/techniques/credential-access.md#t1003008)
 
 - `AN1234` Analytic 1234, Linux
   Adversaries attempt to read sensitive files such as /etc/passwd and /etc/shadow for credential dumping. This may involve access to the files directly via command-line utilities (e.g., cat, less), creation of backup copies, or parsing through post-exploitation frameworks. Multi-event correlation includes elevated process execution, file access/read on sensitive paths, and anomalous read behaviors tied to non-root or unusual users.
@@ -149,7 +149,7 @@ ATT&CK: [T1003.008](https://attack.mitre.org/techniques/T1003/008/), [detail pag
 
 Detection strategy: Detection Strategy for Network Sniffing Across Platforms (`DET0314`)  
 Platforms: IaaS, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1040](https://attack.mitre.org/techniques/T1040/), [detail page](../../techniques/credential-access.md#t1040)
+ATT&CK: [T1040](https://attack.mitre.org/techniques/T1040/), [detail page](/techniques/credential-access.md#t1040)
 
 - `AN0875` Analytic 0875, Windows
   Detects suspicious execution of network monitoring tools (e.g., Wireshark, tshark, Microsoft Message Analyzer), driver loading indicative of promiscuous mode, or non-admin user privilege escalation to access NICs for capture.
@@ -179,7 +179,7 @@ ATT&CK: [T1040](https://attack.mitre.org/techniques/T1040/), [detail page](../..
 
 Detection strategy: Brute Force Authentication Failures with Multi-Platform Log Correlation (`DET0463`)  
 Platforms: Identity Provider, Linux, SaaS, Windows, macOS  
-ATT&CK: [T1110](https://attack.mitre.org/techniques/T1110/), [detail page](../../techniques/credential-access.md#t1110)
+ATT&CK: [T1110](https://attack.mitre.org/techniques/T1110/), [detail page](/techniques/credential-access.md#t1110)
 
 - `AN1275` Analytic 1275, Windows
   High volume of failed logon attempts followed by a successful one from a suspicious user, host, or timeframe
@@ -209,7 +209,7 @@ ATT&CK: [T1110](https://attack.mitre.org/techniques/T1110/), [detail page](../..
 
 Detection strategy: Password Guessing via Multi-Source Authentication Failure Correlation (`DET0551`)  
 Platforms: Identity Provider, Linux, Network Devices, SaaS, Windows, macOS  
-ATT&CK: [T1110.001](https://attack.mitre.org/techniques/T1110/001/), [detail page](../../techniques/credential-access.md#t1110001)
+ATT&CK: [T1110.001](https://attack.mitre.org/techniques/T1110/001/), [detail page](/techniques/credential-access.md#t1110001)
 
 - `AN1521` Analytic 1521, Windows
   Series of authentication failures (Event ID 4625) targeting the same or similar user accounts over time from one or more remote IPs
@@ -243,7 +243,7 @@ ATT&CK: [T1110.001](https://attack.mitre.org/techniques/T1110/001/), [detail pag
 
 Detection strategy: Post-Credential Dump Password Cracking Detection via Suspicious File Access and Hash Analysis Tools (`DET0105`)  
 Platforms: Identity Provider, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1110.002](https://attack.mitre.org/techniques/T1110/002/), [detail page](../../techniques/credential-access.md#t1110002)
+ATT&CK: [T1110.002](https://attack.mitre.org/techniques/T1110/002/), [detail page](/techniques/credential-access.md#t1110002)
 
 - `AN0292` Analytic 0292, Windows
   Use of hash-cracking tools (e.g., John the Ripper, Hashcat) after credential dumping, combined with high CPU usage or GPU invocation via unsigned binaries accessing password hash files
@@ -273,7 +273,7 @@ ATT&CK: [T1110.002](https://attack.mitre.org/techniques/T1110/002/), [detail pag
 
 Detection strategy: Distributed Password Spraying via Authentication Failures Across Multiple Accounts (`DET0487`)  
 Platforms: Containers, Identity Provider, Linux, Network Devices, Office Suite, SaaS, Windows, macOS  
-ATT&CK: [T1110.003](https://attack.mitre.org/techniques/T1110/003/), [detail page](../../techniques/credential-access.md#t1110003)
+ATT&CK: [T1110.003](https://attack.mitre.org/techniques/T1110/003/), [detail page](/techniques/credential-access.md#t1110003)
 
 - `AN1336` Analytic 1336, Windows
   A high volume of authentication failures using a single password (or small set) across many different user accounts within a defined time window
@@ -315,7 +315,7 @@ ATT&CK: [T1110.003](https://attack.mitre.org/techniques/T1110/003/), [detail pag
 
 Detection strategy: Credential Stuffing Detection via Reused Breached Credentials Across Services (`DET0460`)  
 Platforms: Containers, IaaS, Identity Provider, Linux, Network Devices, Office Suite, SaaS, Windows, macOS  
-ATT&CK: [T1110.004](https://attack.mitre.org/techniques/T1110/004/), [detail page](../../techniques/credential-access.md#t1110004)
+ATT&CK: [T1110.004](https://attack.mitre.org/techniques/T1110/004/), [detail page](/techniques/credential-access.md#t1110004)
 
 - `AN1262` Analytic 1262, Windows
   Multiple failed authentication attempts using distinct username/password pairs from a single IP address or session within a short time window, targeting common services like RDP or SMB
@@ -361,7 +361,7 @@ ATT&CK: [T1110.004](https://attack.mitre.org/techniques/T1110/004/), [detail pag
 
 Detection strategy: Detection Strategy for MFA Interception via Input Capture and Smart Card Proxying (`DET0246`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1111](https://attack.mitre.org/techniques/T1111/), [detail page](../../techniques/credential-access.md#t1111)
+ATT&CK: [T1111](https://attack.mitre.org/techniques/T1111/), [detail page](/techniques/credential-access.md#t1111)
 
 - `AN0687` Analytic 0687, Windows
   Behavior chain involving unexpected API calls to capture keyboard input, driver loads for keyloggers, or remote use of smart card authentication via logon sessions not initiated by local user interaction
@@ -383,7 +383,7 @@ ATT&CK: [T1111](https://attack.mitre.org/techniques/T1111/), [detail page](../..
 
 Detection strategy: Detect Forced SMB/WebDAV Authentication via lure files and outbound NTLM (`DET0022`)  
 Platforms: Windows  
-ATT&CK: [T1187](https://attack.mitre.org/techniques/T1187/), [detail page](../../techniques/credential-access.md#t1187)
+ATT&CK: [T1187](https://attack.mitre.org/techniques/T1187/), [detail page](/techniques/credential-access.md#t1187)
 
 - `AN0065` Analytic 0065, Windows
   Adversary stages a lure that references a remote resource (e.g., LNK/SCF/Office template). When the user opens/renders the file or a shell enumerates icons, the host automatically attempts SMB or WebDAV authentication to the attacker host. The chain is: (1) lure file is created or modified in a user-exposed location -> (2) user or system accesses the lure -> (3) host makes outbound NTLM (SMB 139/445 or WebDAV over 80/443) to an untrusted destination -> (4) repeated attempts from multiple users/hosts or from privileged workstations.
@@ -397,7 +397,7 @@ ATT&CK: [T1187](https://attack.mitre.org/techniques/T1187/), [detail page](../..
 
 Detection strategy: Detection Strategy for Exploitation for Credential Access (`DET0174`)  
 Platforms: Identity Provider, Linux, Windows, macOS  
-ATT&CK: [T1212](https://attack.mitre.org/techniques/T1212/), [detail page](../../techniques/credential-access.md#t1212)
+ATT&CK: [T1212](https://attack.mitre.org/techniques/T1212/), [detail page](/techniques/credential-access.md#t1212)
 
 - `AN0493` Analytic 0493, Windows
   Detects adversary exploitation of authentication mechanisms or credential validation processes. Defender perspective includes forged Kerberos tickets (e.g., MS14-068), abnormal LSASS memory access, replayed authentication attempts, and unexpected crashes of authentication services. Multi-event correlation ties exploitation attempts to abnormal process creation, service instability, and suspicious authentication events.
@@ -423,7 +423,7 @@ ATT&CK: [T1212](https://attack.mitre.org/techniques/T1212/), [detail page](../..
 
 Detection strategy: Detection Strategy for T1528 - Steal Application Access Token (`DET0515`)  
 Platforms: Containers, IaaS, Identity Provider, Office Suite, SaaS  
-ATT&CK: [T1528](https://attack.mitre.org/techniques/T1528/), [detail page](../../techniques/credential-access.md#t1528)
+ATT&CK: [T1528](https://attack.mitre.org/techniques/T1528/), [detail page](/techniques/credential-access.md#t1528)
 
 - `AN1423` Analytic 1423, Containers
   Access and retrieval of container service account tokens followed by unauthorized API requests using those tokens to interact with the Kubernetes API server or internal services.
@@ -453,7 +453,7 @@ ATT&CK: [T1528](https://attack.mitre.org/techniques/T1528/), [detail page](../..
 
 Detection strategy: Detection of Web Session Cookie Theft via File, Memory, and Network Artifacts (`DET0509`)  
 Platforms: Linux, Office Suite, SaaS, Windows, macOS  
-ATT&CK: [T1539](https://attack.mitre.org/techniques/T1539/), [detail page](../../techniques/credential-access.md#t1539)
+ATT&CK: [T1539](https://attack.mitre.org/techniques/T1539/), [detail page](/techniques/credential-access.md#t1539)
 
 - `AN1402` Analytic 1402, Windows
   Detects suspicious access to browser session cookie storage (e.g., Chrome’s `Cookies` SQLite DB) or memory reads of browser processes. Anomalous injection or memory dump utilities targeting browser processes such as `chrome.exe`, `firefox.exe`, or `msedge.exe`.
@@ -483,7 +483,7 @@ ATT&CK: [T1539](https://attack.mitre.org/techniques/T1539/), [detail page](../..
 
 Detection strategy: Detect Access or Search for Unsecured Credentials Across Platforms (`DET0412`)  
 Platforms: Containers, Identity Provider, Linux, Network Devices, SaaS, Windows, macOS  
-ATT&CK: [T1552](https://attack.mitre.org/techniques/T1552/), [detail page](../../techniques/credential-access.md#t1552)
+ATT&CK: [T1552](https://attack.mitre.org/techniques/T1552/), [detail page](/techniques/credential-access.md#t1552)
 
 - `AN1153` Analytic 1153, Windows
   Unusual access to bash history, registry credentials paths, or private key files by unauthorized or scripting tools, with correlated file and process activity.
@@ -521,7 +521,7 @@ ATT&CK: [T1552](https://attack.mitre.org/techniques/T1552/), [detail page](../..
 
 Detection strategy: Detect Access to Unsecured Credential Files Across Platforms (`DET0307`)  
 Platforms: Containers, IaaS, Linux, Windows, macOS  
-ATT&CK: [T1552.001](https://attack.mitre.org/techniques/T1552/001/), [detail page](../../techniques/credential-access.md#t1552001)
+ATT&CK: [T1552.001](https://attack.mitre.org/techniques/T1552/001/), [detail page](/techniques/credential-access.md#t1552001)
 
 - `AN0856` Analytic 0856, Windows
   Correlated file access to insecure credential files (e.g., *.env, *.xml, *.ps1) followed by suspicious process execution or authentication using retrieved credentials. Detected through Sysmon logs and Windows Security Event logs.
@@ -551,7 +551,7 @@ ATT&CK: [T1552.001](https://attack.mitre.org/techniques/T1552/001/), [detail pag
 
 Detection strategy: Detect Credential Discovery via Windows Registry Enumeration (`DET0250`)  
 Platforms: Windows  
-ATT&CK: [T1552.002](https://attack.mitre.org/techniques/T1552/002/), [detail page](../../techniques/credential-access.md#t1552002)
+ATT&CK: [T1552.002](https://attack.mitre.org/techniques/T1552/002/), [detail page](/techniques/credential-access.md#t1552002)
 
 - `AN0694` Analytic 0694, Windows
   Defenders observe command-line executions or API-based registry reads targeting sensitive paths like HKLM or HKCU with keyword filters such as 'password', 'cred', or 'logon'. Typically performed by Reg.exe, PowerShell, custom binaries, or offensive tools such as Cobalt Strike. Correlation with process ancestry and command-line arguments indicates suspicious credential discovery activity.
@@ -565,7 +565,7 @@ ATT&CK: [T1552.002](https://attack.mitre.org/techniques/T1552/002/), [detail pag
 
 Detection strategy: Detect Access and Parsing of .bash_history Files for Credential Harvesting (`DET0385`)  
 Platforms: Linux, macOS  
-ATT&CK: [T1552.003](https://attack.mitre.org/techniques/T1552/003/), [detail page](../../techniques/credential-access.md#t1552003)
+ATT&CK: [T1552.003](https://attack.mitre.org/techniques/T1552/003/), [detail page](/techniques/credential-access.md#t1552003)
 
 - `AN1085` Analytic 1085, Linux
   A process outside of interactive shell context reads ~/.bash_history directly (e.g., using cat, less, grep), often shortly after privilege escalation or user switch (su/sudo). This may be followed by credential scanning in memory or file writes to new locations.
@@ -583,7 +583,7 @@ ATT&CK: [T1552.003](https://attack.mitre.org/techniques/T1552/003/), [detail pag
 
 Detection strategy: Detect Suspicious Access to Private Key Files and Export Attempts Across Platforms (`DET0549`)  
 Platforms: Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1552.004](https://attack.mitre.org/techniques/T1552/004/), [detail page](../../techniques/credential-access.md#t1552004)
+ATT&CK: [T1552.004](https://attack.mitre.org/techniques/T1552/004/), [detail page](/techniques/credential-access.md#t1552004)
 
 - `AN1516` Analytic 1516, Windows
   A process (non-system or user-initiated) accesses private key files in user profile paths or system certificate stores followed by potential network connections or compression activity.
@@ -609,7 +609,7 @@ ATT&CK: [T1552.004](https://attack.mitre.org/techniques/T1552/004/), [detail pag
 
 Detection strategy: Detect Access to Cloud Instance Metadata API (IaaS) (`DET0001`)  
 Platforms: IaaS  
-ATT&CK: [T1552.005](https://attack.mitre.org/techniques/T1552/005/), [detail page](../../techniques/credential-access.md#t1552005)
+ATT&CK: [T1552.005](https://attack.mitre.org/techniques/T1552/005/), [detail page](/techniques/credential-access.md#t1552005)
 
 - `AN0001` Analytic 0001, IaaS
   Detects access attempts to cloud instance metadata endpoints (e.g., 169.254.169.254) from virtual machines or containerized workloads. This includes both direct access and SSRF exploitation patterns.
@@ -623,7 +623,7 @@ ATT&CK: [T1552.005](https://attack.mitre.org/techniques/T1552/005/), [detail pag
 
 Detection strategy: Detect Access and Decryption of Group Policy Preference (GPP) Credentials in SYSVOL (`DET0381`)  
 Platforms: Windows  
-ATT&CK: [T1552.006](https://attack.mitre.org/techniques/T1552/006/), [detail page](../../techniques/credential-access.md#t1552006)
+ATT&CK: [T1552.006](https://attack.mitre.org/techniques/T1552/006/), [detail page](/techniques/credential-access.md#t1552006)
 
 - `AN1075` Analytic 1075, Windows
   Correlates file enumeration of XML files in the SYSVOL share with suspicious process execution that decodes or reads encrypted credentials embedded in Group Policy Preference files (e.g., Get-GPPPassword.ps1, gpprefdecrypt.py, Metasploit). Detects abnormal access to \DOMAIN\SYSVOL combined with XML file parsing or decryption logic.
@@ -637,7 +637,7 @@ ATT&CK: [T1552.006](https://attack.mitre.org/techniques/T1552/006/), [detail pag
 
 Detection strategy: Detect Abuse of Container APIs for Credential Access (`DET0198`)  
 Platforms: Containers  
-ATT&CK: [T1552.007](https://attack.mitre.org/techniques/T1552/007/), [detail page](../../techniques/credential-access.md#t1552007)
+ATT&CK: [T1552.007](https://attack.mitre.org/techniques/T1552/007/), [detail page](/techniques/credential-access.md#t1552007)
 
 - `AN0571` Analytic 0571, Containers
   Detection correlates anomalous Docker or Kubernetes API requests with access to logs, secrets, or service accounts. Observes unauthorized use of `docker logs`, `kubectl get secrets`, or direct API calls to Kubernetes API server endpoints. Identifies behavioral patterns where adversaries escalate from basic pod/container interaction to privileged API calls exposing sensitive credential material.
@@ -651,7 +651,7 @@ ATT&CK: [T1552.007](https://attack.mitre.org/techniques/T1552/007/), [detail pag
 
 Detection strategy: Detect Unsecured Credentials Shared in Chat Messages (`DET0111`)  
 Platforms: Office Suite, SaaS  
-ATT&CK: [T1552.008](https://attack.mitre.org/techniques/T1552/008/), [detail page](../../techniques/credential-access.md#t1552008)
+ATT&CK: [T1552.008](https://attack.mitre.org/techniques/T1552/008/), [detail page](/techniques/credential-access.md#t1552008)
 
 - `AN0309` Analytic 0309, Office Suite
   Detection correlates message events in email and collaboration tools (e.g., Outlook, Teams) that contain regex-like patterns resembling credentials, API keys, or tokens. Anomalous forwarding or bulk copy activity of chat/email content containing secrets is flagged. Suspicious behavior includes users pasting secrets into direct messages or attaching config files with passwords.
@@ -669,7 +669,7 @@ ATT&CK: [T1552.008](https://attack.mitre.org/techniques/T1552/008/), [detail pag
 
 Detection strategy: Detect Credentials Access from Password Stores (`DET0430`)  
 Platforms: IaaS, Linux, Windows, macOS  
-ATT&CK: [T1555](https://attack.mitre.org/techniques/T1555/), [detail page](../../techniques/credential-access.md#t1555)
+ATT&CK: [T1555](https://attack.mitre.org/techniques/T1555/), [detail page](/techniques/credential-access.md#t1555)
 
 - `AN1198` Analytic 1198, Windows
   Monitors suspicious access to password stores such as LSASS, DPAPI, Windows Credential Manager, or browser credential databases. Detects anomalous process-to-process access (e.g., Mimikatz accessing LSASS) and correlation of credential store file reads with execution of non-standard processes.
@@ -695,7 +695,7 @@ ATT&CK: [T1555](https://attack.mitre.org/techniques/T1555/), [detail page](../..
 
 Detection strategy: Detect Access to macOS Keychain for Credential Theft (`DET0396`)  
 Platforms: macOS  
-ATT&CK: [T1555.001](https://attack.mitre.org/techniques/T1555/001/), [detail page](../../techniques/credential-access.md#t1555001)
+ATT&CK: [T1555.001](https://attack.mitre.org/techniques/T1555/001/), [detail page](/techniques/credential-access.md#t1555001)
 
 - `AN1112` Analytic 1112, macOS
   Detects suspicious access to macOS Keychain files and APIs. Observes processes invoking the 'security' utility or accessing Keychain databases directly, correlates these with abnormal parent process lineage or unexpected user context. Monitors attempts to dump, unlock, or read credential storage beyond normal application workflows.
@@ -709,7 +709,7 @@ ATT&CK: [T1555.001](https://attack.mitre.org/techniques/T1555/001/), [detail pag
 
 Detection strategy: Detect Suspicious Access to securityd Memory for Credential Extraction (`DET0057`)  
 Platforms: Linux, macOS  
-ATT&CK: [T1555.002](https://attack.mitre.org/techniques/T1555/002/), [detail page](../../techniques/credential-access.md#t1555002)
+ATT&CK: [T1555.002](https://attack.mitre.org/techniques/T1555/002/), [detail page](/techniques/credential-access.md#t1555002)
 
 - `AN0156` Analytic 0156, macOS
   Detects suspicious memory access attempts targeting the `securityd` process. Observes tools invoking process memory read operations (e.g., ptrace, task_for_pid) against `securityd`. Correlates with anomalous parent process lineage, root privilege escalation, or repeated unauthorized attempts.
@@ -727,7 +727,7 @@ ATT&CK: [T1555.002](https://attack.mitre.org/techniques/T1555/002/), [detail pag
 
 Detection strategy: Detect Suspicious Access to Browser Credential Stores (`DET0037`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1555.003](https://attack.mitre.org/techniques/T1555/003/), [detail page](../../techniques/credential-access.md#t1555003)
+ATT&CK: [T1555.003](https://attack.mitre.org/techniques/T1555/003/), [detail page](/techniques/credential-access.md#t1555003)
 
 - `AN0105` Analytic 0105, Windows
   Detects unauthorized access to web browser credential stores (e.g., Chrome Login Data, Edge Credential Locker) by processes other than the browser itself. Correlates file reads of credential databases with subsequent API calls to `CryptUnprotectData` or memory inspection attempts.
@@ -749,7 +749,7 @@ ATT&CK: [T1555.003](https://attack.mitre.org/techniques/T1555/003/), [detail pag
 
 Detection strategy: Detect Suspicious Access to Windows Credential Manager (`DET0134`)  
 Platforms: Windows  
-ATT&CK: [T1555.004](https://attack.mitre.org/techniques/T1555/004/), [detail page](../../techniques/credential-access.md#t1555004)
+ATT&CK: [T1555.004](https://attack.mitre.org/techniques/T1555/004/), [detail page](/techniques/credential-access.md#t1555004)
 
 - `AN0378` Analytic 0378, Windows
   Detects unauthorized access to Windows Credential Manager through anomalous process execution (vaultcmd.exe, rundll32.exe keymgr.dll), suspicious API calls (CredEnumerateA), or direct file access to Credential Locker files. Correlates process creation with subsequent file reads of .vcrd/.vpol files under user Credential Locker directories.
@@ -763,7 +763,7 @@ ATT&CK: [T1555.004](https://attack.mitre.org/techniques/T1555/004/), [detail pag
 
 Detection strategy: Detect Unauthorized Access to Password Managers (`DET0597`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1555.005](https://attack.mitre.org/techniques/T1555/005/), [detail page](../../techniques/credential-access.md#t1555005)
+ATT&CK: [T1555.005](https://attack.mitre.org/techniques/T1555/005/), [detail page](/techniques/credential-access.md#t1555005)
 
 - `AN1641` Analytic 1641, Windows
   Detection of suspicious access to password manager processes (KeePass, 1Password, LastPass, Bitwarden) through abnormal process injection, memory reads, or command-line usage of vault-related DLLs. Correlates process creation with OS API calls and file access to vault databases (.kdbx, .opvault, .ldb).
@@ -785,7 +785,7 @@ ATT&CK: [T1555.005](https://attack.mitre.org/techniques/T1555/005/), [detail pag
 
 Detection strategy: Detect Unauthorized Access to Cloud Secrets Management Stores (`DET0130`)  
 Platforms: IaaS  
-ATT&CK: [T1555.006](https://attack.mitre.org/techniques/T1555/006/), [detail page](../../techniques/credential-access.md#t1555006)
+ATT&CK: [T1555.006](https://attack.mitre.org/techniques/T1555/006/), [detail page](/techniques/credential-access.md#t1555006)
 
 - `AN0366` Analytic 0366, IaaS
   Detection of suspicious access to cloud-native secret management systems (AWS Secrets Manager, GCP Secret Manager, Azure Key Vault, HashiCorp Vault). Focuses on abnormal secret retrieval activity, such as secrets being accessed by unusual identities, from unexpected regions, outside business hours, or at high volume. Correlates API calls to secret retrieval with surrounding authentication events, role assumptions, and anomalous execution patterns.
@@ -799,7 +799,7 @@ ATT&CK: [T1555.006](https://attack.mitre.org/techniques/T1555/006/), [detail pag
 
 Detection strategy: Detect Adversary-in-the-Middle via Network and Configuration Anomalies (`DET0296`)  
 Platforms: Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1557](https://attack.mitre.org/techniques/T1557/), [detail page](../../techniques/credential-access.md#t1557)
+ATT&CK: [T1557](https://attack.mitre.org/techniques/T1557/), [detail page](/techniques/credential-access.md#t1557)
 
 - `AN0823` Analytic 0823, Windows
   Detects suspicious DNS/ARP poisoning attempts, unauthorized modifications to registry/network configuration, or abnormal TLS downgrade activity. Correlates changes in system configuration with subsequent unusual network flows or authentication events.
@@ -825,7 +825,7 @@ ATT&CK: [T1557](https://attack.mitre.org/techniques/T1557/), [detail page](../..
 
 Detection strategy: Detect LLMNR/NBT-NS Poisoning and SMB Relay on Windows (`DET0462`)  
 Platforms: Windows  
-ATT&CK: [T1557.001](https://attack.mitre.org/techniques/T1557/001/), [detail page](../../techniques/credential-access.md#t1557001)
+ATT&CK: [T1557.001](https://attack.mitre.org/techniques/T1557/001/), [detail page](/techniques/credential-access.md#t1557001)
 
 - `AN1274` Analytic 1274, Windows
   Detects anomalous network traffic on UDP 5355 (LLMNR) and UDP 137 (NBT-NS) combined with unauthorized SMB relay attempts, registry modifications re-enabling multicast name resolution, or suspicious service creation indicative of adversary-in-the-middle credential interception.
@@ -839,7 +839,7 @@ ATT&CK: [T1557.001](https://attack.mitre.org/techniques/T1557/001/), [detail pag
 
 Detection strategy: Detect ARP Cache Poisoning Across Linux, Windows, and macOS (`DET0387`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1557.002](https://attack.mitre.org/techniques/T1557/002/), [detail page](../../techniques/credential-access.md#t1557002)
+ATT&CK: [T1557.002](https://attack.mitre.org/techniques/T1557/002/), [detail page](/techniques/credential-access.md#t1557002)
 
 - `AN1091` Analytic 1091, Windows
   Detects anomalous ARP traffic or cache modifications on Windows endpoints that indicate ARP poisoning. Behavioral focus is on multiple IP addresses resolving to a single MAC, or unsolicited ARP replies from unauthorized devices.
@@ -861,7 +861,7 @@ ATT&CK: [T1557.002](https://attack.mitre.org/techniques/T1557/002/), [detail pag
 
 Detection strategy: Detect DHCP Spoofing Across Linux, Windows, and macOS (`DET0468`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1557.003](https://attack.mitre.org/techniques/T1557/003/), [detail page](../../techniques/credential-access.md#t1557003)
+ATT&CK: [T1557.003](https://attack.mitre.org/techniques/T1557/003/), [detail page](/techniques/credential-access.md#t1557003)
 
 - `AN1290` Analytic 1290, Windows
   Detects rogue DHCP server activity and anomalous DHCP OFFER/ACK messages assigning unexpected DNS or gateway values. Detection correlates DHCP server role changes, DHCP exhaustion warnings, and sudden network configuration changes across endpoints.
@@ -883,7 +883,7 @@ ATT&CK: [T1557.003](https://attack.mitre.org/techniques/T1557/003/), [detail pag
 
 Detection strategy: Detect Evil Twin Wi-Fi Access Points on Network Devices (`DET0379`)  
 Platforms: Network Devices  
-ATT&CK: [T1557.004](https://attack.mitre.org/techniques/T1557/004/), [detail page](../../techniques/credential-access.md#t1557004)
+ATT&CK: [T1557.004](https://attack.mitre.org/techniques/T1557/004/), [detail page](/techniques/credential-access.md#t1557004)
 
 - `AN1069` Analytic 1069, Network Devices
   Detects rogue Wi-Fi access points broadcasting the same SSID as legitimate APs with stronger signal strength, unexpected MAC/BSSID values, or inconsistent encryption settings. Correlates authentication attempts, captive portal redirections, and anomalous traffic flows through unauthorized APs.
@@ -897,7 +897,7 @@ ATT&CK: [T1557.004](https://attack.mitre.org/techniques/T1557/004/), [detail pag
 
 Detection strategy: Detect Kerberos Ticket Theft or Forgery (T1558) (`DET0522`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1558](https://attack.mitre.org/techniques/T1558/), [detail page](../../techniques/credential-access.md#t1558)
+ATT&CK: [T1558](https://attack.mitre.org/techniques/T1558/), [detail page](/techniques/credential-access.md#t1558)
 
 - `AN1443` Analytic 1443, Windows
   Detects anomalous Kerberos activity such as forged or stolen tickets by correlating malformed fields in logon events, RC4-encrypted TGTs, or TGS requests without corresponding TGT requests. Also detects suspicious processes accessing LSASS memory for ticket extraction.
@@ -919,7 +919,7 @@ ATT&CK: [T1558](https://attack.mitre.org/techniques/T1558/), [detail page](../..
 
 Detection strategy: Detect Forged Kerberos Golden Tickets (T1558.001) (`DET0144`)  
 Platforms: Windows  
-ATT&CK: [T1558.001](https://attack.mitre.org/techniques/T1558/001/), [detail page](../../techniques/credential-access.md#t1558001)
+ATT&CK: [T1558.001](https://attack.mitre.org/techniques/T1558/001/), [detail page](/techniques/credential-access.md#t1558001)
 
 - `AN0405` Analytic 0405, Windows
   Detects forged Kerberos Golden Tickets by correlating anomalous Kerberos ticket lifetimes, unexpected encryption types (e.g., RC4 in modern domains), malformed fields in logon/logoff events, and TGS requests without preceding TGT requests. Also monitors for abnormal patterns of access associated with elevated privileges across multiple systems.
@@ -933,7 +933,7 @@ ATT&CK: [T1558.001](https://attack.mitre.org/techniques/T1558/001/), [detail pag
 
 Detection strategy: Detect Forged Kerberos Silver Tickets (T1558.002) (`DET0241`)  
 Platforms: Windows  
-ATT&CK: [T1558.002](https://attack.mitre.org/techniques/T1558/002/), [detail page](../../techniques/credential-access.md#t1558002)
+ATT&CK: [T1558.002](https://attack.mitre.org/techniques/T1558/002/), [detail page](/techniques/credential-access.md#t1558002)
 
 - `AN0675` Analytic 0675, Windows
   Detects forged Kerberos Silver Tickets by identifying anomalous Kerberos service ticket activity such as malformed fields in logon events, TGS requests without interaction with the KDC, and access attempts using service accounts outside expected hosts/resources. Also monitors suspicious processes accessing LSASS memory for credential dumping.
@@ -947,7 +947,7 @@ ATT&CK: [T1558.002](https://attack.mitre.org/techniques/T1558/002/), [detail pag
 
 Detection strategy: Detect Kerberoasting Attempts (T1558.003) (`DET0157`)  
 Platforms: Windows  
-ATT&CK: [T1558.003](https://attack.mitre.org/techniques/T1558/003/), [detail page](../../techniques/credential-access.md#t1558003)
+ATT&CK: [T1558.003](https://attack.mitre.org/techniques/T1558/003/), [detail page](/techniques/credential-access.md#t1558003)
 
 - `AN0444` Analytic 0444, Windows
   Detects Kerberoasting attempts by monitoring for anomalous Kerberos TGS requests (Event ID 4769) with RC4 encryption (etype 0x17), accounts requesting an unusual number of service tickets in a short period, or service accounts targeted outside normal usage baselines. Also correlates suspicious process activity (e.g., Mimikatz invoking LSASS access) with Kerberos ticket anomalies.
@@ -961,7 +961,7 @@ ATT&CK: [T1558.003](https://attack.mitre.org/techniques/T1558/003/), [detail pag
 
 Detection strategy: Detect AS-REP Roasting Attempts (T1558.004) (`DET0113`)  
 Platforms: Windows  
-ATT&CK: [T1558.004](https://attack.mitre.org/techniques/T1558/004/), [detail page](../../techniques/credential-access.md#t1558004)
+ATT&CK: [T1558.004](https://attack.mitre.org/techniques/T1558/004/), [detail page](/techniques/credential-access.md#t1558004)
 
 - `AN0316` Analytic 0316, Windows
   Detects AS-REP roasting attempts by monitoring for Kerberos AS-REQ/AS-REP authentication patterns where preauthentication is disabled (Event ID 4768 with Pre-Auth Type 0). Correlates these requests with subsequent service ticket activity (Event ID 4769) and anomalies such as requests using weak RC4 encryption (etype 0x17). Excessive enumeration of accounts with 'Do not require Kerberos preauthentication' set in Active Directory is another key detection point.
@@ -975,7 +975,7 @@ ATT&CK: [T1558.004](https://attack.mitre.org/techniques/T1558/004/), [detail pag
 
 Detection strategy: Detect Kerberos Ccache File Theft or Abuse (T1558.005) (`DET0024`)  
 Platforms: Linux, macOS  
-ATT&CK: [T1558.005](https://attack.mitre.org/techniques/T1558/005/), [detail page](../../techniques/credential-access.md#t1558005)
+ATT&CK: [T1558.005](https://attack.mitre.org/techniques/T1558/005/), [detail page](/techniques/credential-access.md#t1558005)
 
 - `AN0069` Analytic 0069, Linux
   Detects unauthorized access, copying, or modification of Kerberos ccache files (krb5cc_%UID% or krb5.ccache) in /tmp or custom paths defined by KRB5CCNAME. Correlates file access with suspicious processes (e.g., credential dumping tools) and subsequent anomalous Kerberos authentication requests from non-standard processes.
@@ -993,7 +993,7 @@ ATT&CK: [T1558.005](https://attack.mitre.org/techniques/T1558/005/), [detail pag
 
 Detection strategy: Detection Strategy for Forged Web Credentials (`DET0260`)  
 Platforms: IaaS, Identity Provider, Linux, Office Suite, SaaS, Windows, macOS  
-ATT&CK: [T1606](https://attack.mitre.org/techniques/T1606/), [detail page](../../techniques/credential-access.md#t1606)
+ATT&CK: [T1606](https://attack.mitre.org/techniques/T1606/), [detail page](/techniques/credential-access.md#t1606)
 
 - `AN0717` Analytic 0717, IaaS
   Defenders may detect adversaries forging web credentials in IaaS environments by monitoring for anomalous API activity such as AssumeRole or GetFederationToken being executed by unusual principals. These events often correlate with sudden logon sessions from unfamiliar IP addresses or regions. The chain is usually secret material misuse (stolen private key or password) -> API request generating a new token -> access to high-value resources.
@@ -1031,7 +1031,7 @@ ATT&CK: [T1606](https://attack.mitre.org/techniques/T1606/), [detail page](../..
 
 Detection strategy: Detection Strategy for Forged Web Cookies (`DET0171`)  
 Platforms: IaaS, Linux, SaaS, Windows, macOS  
-ATT&CK: [T1606.001](https://attack.mitre.org/techniques/T1606/001/), [detail page](../../techniques/credential-access.md#t1606001)
+ATT&CK: [T1606.001](https://attack.mitre.org/techniques/T1606/001/), [detail page](/techniques/credential-access.md#t1606001)
 
 - `AN0483` Analytic 0483, IaaS
   Forged cookies in IaaS environments may appear as authentication attempts that bypass MFA, leveraging AssumeRole or session APIs with cookies that were never legitimately issued. Defenders should correlate cloud logs for cookie-based sessions without prior valid authentication, often followed by resource access from unfamiliar IP addresses.
@@ -1061,7 +1061,7 @@ ATT&CK: [T1606.001](https://attack.mitre.org/techniques/T1606/001/), [detail pag
 
 Detection strategy: Detection Strategy for Forged SAML Tokens (`DET0148`)  
 Platforms: IaaS, Identity Provider, Office Suite, SaaS, Windows  
-ATT&CK: [T1606.002](https://attack.mitre.org/techniques/T1606/002/), [detail page](../../techniques/credential-access.md#t1606002)
+ATT&CK: [T1606.002](https://attack.mitre.org/techniques/T1606/002/), [detail page](/techniques/credential-access.md#t1606002)
 
 - `AN0418` Analytic 0418, Identity Provider
   Forged SAML tokens can be observed as authentication attempts with valid signatures but missing expected preceding Kerberos or authentication events. Defenders may correlate SAML assertions with absent Event IDs 4769, 1200, or 1202, or tokens issued with abnormal lifetimes, issuers, or claims compared to baseline.
@@ -1091,7 +1091,7 @@ ATT&CK: [T1606.002](https://attack.mitre.org/techniques/T1606/002/), [detail pag
 
 Detection strategy: Detection Strategy for Multi-Factor Authentication Request Generation (T1621) (`DET0160`)  
 Platforms: IaaS, Identity Provider, Linux, SaaS, Windows, macOS  
-ATT&CK: [T1621](https://attack.mitre.org/techniques/T1621/), [detail page](../../techniques/credential-access.md#t1621)
+ATT&CK: [T1621](https://attack.mitre.org/techniques/T1621/), [detail page](/techniques/credential-access.md#t1621)
 
 - `AN0449` Analytic 0449, Identity Provider
   Monitor for excessive or anomalous MFA push notifications or token requests, especially when login attempts originate from unusual IPs or geolocations and do not correspond to legitimate user-initiated sessions.
@@ -1125,7 +1125,7 @@ ATT&CK: [T1621](https://attack.mitre.org/techniques/T1621/), [detail page](../..
 
 Detection strategy: Detection Strategy for Steal or Forge Authentication Certificates (`DET0240`)  
 Platforms: Identity Provider, Linux, Windows, macOS  
-ATT&CK: [T1649](https://attack.mitre.org/techniques/T1649/), [detail page](../../techniques/credential-access.md#t1649)
+ATT&CK: [T1649](https://attack.mitre.org/techniques/T1649/), [detail page](/techniques/credential-access.md#t1649)
 
 - `AN0671` Analytic 0671, Windows
   Monitor for abnormal certificate enrollment and usage activity in Active Directory Certificate Services (AD CS), registry access to certificate storage locations, and unusual process executions that attempt to export or access private keys.

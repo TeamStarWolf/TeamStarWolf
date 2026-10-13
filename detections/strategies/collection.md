@@ -2,7 +2,7 @@
 
 > MITRE ATT&CK detection strategies and analytics (v19.2) for techniques whose primary tactic is Collection. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
 
-See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](../TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](../../ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](../../techniques/README.md)
+See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](/techniques/README.md)
 
 ---
 
@@ -11,7 +11,7 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 
 Detection strategy: Detection of Local Data Collection Prior to Exfiltration (`DET0380`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1005](https://attack.mitre.org/techniques/T1005/), [detail page](../../techniques/collection.md#t1005)
+ATT&CK: [T1005](https://attack.mitre.org/techniques/T1005/), [detail page](/techniques/collection.md#t1005)
 
 - `AN1070` Analytic 1070, Windows
   Adversaries collecting local files via PowerShell, WMI, or direct file API calls often include recursive file listings, targeted file reads, and temporary file staging.
@@ -41,7 +41,7 @@ ATT&CK: [T1005](https://attack.mitre.org/techniques/T1005/), [detail page](../..
 
 Detection strategy: Detection of Data Access and Collection from Removable Media (`DET0511`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1025](https://attack.mitre.org/techniques/T1025/), [detail page](../../techniques/collection.md#t1025)
+ATT&CK: [T1025](https://attack.mitre.org/techniques/T1025/), [detail page](/techniques/collection.md#t1025)
 
 - `AN1410` Analytic 1410, Windows
   Adversary mounts a USB device and begins enumerating, copying, or compressing files using scripting engines, cmd, or remote access tools.
@@ -63,7 +63,7 @@ ATT&CK: [T1025](https://attack.mitre.org/techniques/T1025/), [detail page](../..
 
 Detection strategy: Detection Strategy for Data from Network Shared Drive (`DET0410`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1039](https://attack.mitre.org/techniques/T1039/), [detail page](../../techniques/collection.md#t1039)
+ATT&CK: [T1039](https://attack.mitre.org/techniques/T1039/), [detail page](/techniques/collection.md#t1039)
 
 - `AN1145` Analytic 1145, Windows
   Monitoring of file access to network shares (e.g., C$, Admin$) followed by unusual read or copy operations by processes not typically associated with such activity (e.g., PowerShell, certutil).
@@ -85,7 +85,7 @@ ATT&CK: [T1039](https://attack.mitre.org/techniques/T1039/), [detail page](../..
 
 Detection strategy: Behavioral Detection of Input Capture Across Platforms (`DET0102`)  
 Platforms: Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1056](https://attack.mitre.org/techniques/T1056/), [detail page](../../techniques/collection.md#t1056)
+ATT&CK: [T1056](https://attack.mitre.org/techniques/T1056/), [detail page](/techniques/collection.md#t1056)
 
 - `AN0282` Analytic 0282, Windows
   Monitors for abnormal process behavior and API calls like SetWindowsHookEx, GetAsyncKeyState, or device input polling commonly used for keystroke logging.
@@ -111,7 +111,7 @@ ATT&CK: [T1056](https://attack.mitre.org/techniques/T1056/), [detail page](../..
 
 Detection strategy: Behavioral Detection of Keylogging Activity Across Platforms (`DET0089`)  
 Platforms: Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1056.001](https://attack.mitre.org/techniques/T1056/001/), [detail page](../../techniques/collection.md#t1056001)
+ATT&CK: [T1056.001](https://attack.mitre.org/techniques/T1056/001/), [detail page](/techniques/collection.md#t1056001)
 
 - `AN0243` Analytic 0243, Windows
   Monitors suspicious usage of Windows API calls like SetWindowsHookEx, GetKeyState, or polling functions within non-UI service processes, combined with Registry or driver modifications.
@@ -137,7 +137,7 @@ ATT&CK: [T1056.001](https://attack.mitre.org/techniques/T1056/001/), [detail pag
 
 Detection strategy: Behavioral Detection of Spoofed GUI Credential Prompts (`DET0521`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1056.002](https://attack.mitre.org/techniques/T1056/002/), [detail page](../../techniques/collection.md#t1056002)
+ATT&CK: [T1056.002](https://attack.mitre.org/techniques/T1056/002/), [detail page](/techniques/collection.md#t1056002)
 
 - `AN1440` Analytic 1440, Windows
   Detects suspicious use of PowerShell, .NET, or script interpreters to spawn processes that mimic UAC prompts, often with credential capture dialogue boxes invoked from non-standard parent processes.
@@ -159,7 +159,7 @@ ATT&CK: [T1056.002](https://attack.mitre.org/techniques/T1056/002/), [detail pag
 
 Detection strategy: Detection of Credential Harvesting via Web Portal Modification (`DET0480`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1056.003](https://attack.mitre.org/techniques/T1056/003/), [detail page](../../techniques/collection.md#t1056003)
+ATT&CK: [T1056.003](https://attack.mitre.org/techniques/T1056/003/), [detail page](/techniques/collection.md#t1056003)
 
 - `AN1320` Analytic 1320, Linux
   Detects unauthorized modifications to login-facing web server files (e.g., index.php, login.js) typically tied to VPN, SSO, or intranet portals. Correlates suspicious file changes with remote access artifacts or web shell behavior.
@@ -181,7 +181,7 @@ ATT&CK: [T1056.003](https://attack.mitre.org/techniques/T1056/003/), [detail pag
 
 Detection strategy: Detection of Credential Harvesting via API Hooking (`DET0139`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1056.004](https://attack.mitre.org/techniques/T1056/004/), [detail page](../../techniques/collection.md#t1056004)
+ATT&CK: [T1056.004](https://attack.mitre.org/techniques/T1056/004/), [detail page](/techniques/collection.md#t1056004)
 
 - `AN0389` Analytic 0389, Windows
   Detects credential harvesting via userland API hooking (e.g., SetWindowsHookEx, IAT, or inline patching) by correlating memory modifications with hook installation functions and suspicious module loads in credential-sensitive processes like lsass.exe, explorer.exe, or winlogon.exe.
@@ -203,7 +203,7 @@ ATT&CK: [T1056.004](https://attack.mitre.org/techniques/T1056/004/), [detail pag
 
 Detection strategy: Detection of Data Staging Prior to Exfiltration (`DET0014`)  
 Platforms: ESXi, IaaS, Linux, Windows, macOS  
-ATT&CK: [T1074](https://attack.mitre.org/techniques/T1074/), [detail page](../../techniques/collection.md#t1074)
+ATT&CK: [T1074](https://attack.mitre.org/techniques/T1074/), [detail page](/techniques/collection.md#t1074)
 
 - `AN0040` Analytic 0040, Windows
   Detects staging of sensitive files into temporary or public directories, compression with 7zip/WinRAR, or batch copy prior to exfiltration.
@@ -233,7 +233,7 @@ ATT&CK: [T1074](https://attack.mitre.org/techniques/T1074/), [detail page](../..
 
 Detection strategy: Detection of Local Data Staging Prior to Exfiltration (`DET0261`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1074.001](https://attack.mitre.org/techniques/T1074/001/), [detail page](../../techniques/collection.md#t1074001)
+ATT&CK: [T1074.001](https://attack.mitre.org/techniques/T1074/001/), [detail page](/techniques/collection.md#t1074001)
 
 - `AN0724` Analytic 0724, Windows
   Detects file reads across locations followed by writes to temp or staging directories, often compressed or encrypted, indicating local staging behavior.
@@ -259,7 +259,7 @@ ATT&CK: [T1074.001](https://attack.mitre.org/techniques/T1074/001/), [detail pag
 
 Detection strategy: Detection of Remote Data Staging Prior to Exfiltration (`DET0071`)  
 Platforms: ESXi, IaaS, Linux, Windows, macOS  
-ATT&CK: [T1074.002](https://attack.mitre.org/techniques/T1074/002/), [detail page](../../techniques/collection.md#t1074002)
+ATT&CK: [T1074.002](https://attack.mitre.org/techniques/T1074/002/), [detail page](/techniques/collection.md#t1074002)
 
 - `AN0194` Analytic 0194, Windows
   Detects file transfers or mounting operations from remote hosts followed by write actions into a local staging directory, often using SMB or remote shell activity.
@@ -289,7 +289,7 @@ ATT&CK: [T1074.002](https://attack.mitre.org/techniques/T1074/002/), [detail pag
 
 Detection strategy: Detect Screen Capture via Commands and API Calls (`DET0346`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1113](https://attack.mitre.org/techniques/T1113/), [detail page](../../techniques/collection.md#t1113)
+ATT&CK: [T1113](https://attack.mitre.org/techniques/T1113/), [detail page](/techniques/collection.md#t1113)
 
 - `AN0980` Analytic 0980, Windows
   Unusual use of screen capture APIs (e.g., CopyFromScreen) or command-line tools to write image files to disk.
@@ -311,7 +311,7 @@ ATT&CK: [T1113](https://attack.mitre.org/techniques/T1113/), [detail page](../..
 
 Detection strategy: Email Collection via Local Email Access and Auto-Forwarding Behavior (`DET0476`)  
 Platforms: Linux, Office Suite, Windows, macOS  
-ATT&CK: [T1114](https://attack.mitre.org/techniques/T1114/), [detail page](../../techniques/collection.md#t1114)
+ATT&CK: [T1114](https://attack.mitre.org/techniques/T1114/), [detail page](/techniques/collection.md#t1114)
 
 - `AN1309` Analytic 1309, Windows
   Correlates creation of email forwarding rules or header anomalies (e.g., X-MS-Exchange-Organization-AutoForwarded) with suspicious process execution, file access of .pst/.ost files, and network connections to external SMTP servers.
@@ -337,7 +337,7 @@ ATT&CK: [T1114](https://attack.mitre.org/techniques/T1114/), [detail page](../..
 
 Detection strategy: Detect Local Email Collection via Outlook Data File Access and Command Line Tooling (`DET0047`)  
 Platforms: Windows  
-ATT&CK: [T1114.001](https://attack.mitre.org/techniques/T1114/001/), [detail page](../../techniques/collection.md#t1114001)
+ATT&CK: [T1114.001](https://attack.mitre.org/techniques/T1114/001/), [detail page](/techniques/collection.md#t1114001)
 
 - `AN0130` Analytic 0130, Windows
   Detection focuses on processes that attempt to locate, access, or exfiltrate local Outlook data files (.pst/.ost) using file system access, native Windows utilities (e.g., PowerShell, WMI), or remote access tools with file browsing capabilities. The behavior chain includes directory enumeration, file access, optional compression or staging, and network transfer.
@@ -351,7 +351,7 @@ ATT&CK: [T1114.001](https://attack.mitre.org/techniques/T1114/001/), [detail pag
 
 Detection strategy: Detect Remote Email Collection via Abnormal Login and Programmatic Access (`DET0048`)  
 Platforms: Office Suite, Windows  
-ATT&CK: [T1114.002](https://attack.mitre.org/techniques/T1114/002/), [detail page](../../techniques/collection.md#t1114002)
+ATT&CK: [T1114.002](https://attack.mitre.org/techniques/T1114/002/), [detail page](/techniques/collection.md#t1114002)
 
 - `AN0131` Analytic 0131, Windows
   Detects adversaries accessing remote mail systems (e.g., Exchange Online, O365) using stolen credentials or OAuth tokens, followed by scripted access to mailbox contents via PowerShell, AADInternals, or unattended API queries. Detection focuses on abnormal logon sessions, user agents, IP locations, and scripted or tool-based email data access.
@@ -369,7 +369,7 @@ ATT&CK: [T1114.002](https://attack.mitre.org/techniques/T1114/002/), [detail pag
 
 Detection strategy: Email Forwarding Rule Abuse Detection Across Platforms (`DET0576`)  
 Platforms: Linux, Office Suite, Windows, macOS  
-ATT&CK: [T1114.003](https://attack.mitre.org/techniques/T1114/003/), [detail page](../../techniques/collection.md#t1114003)
+ATT&CK: [T1114.003](https://attack.mitre.org/techniques/T1114/003/), [detail page](/techniques/collection.md#t1114003)
 
 - `AN1589` Analytic 1589, Windows
   Creation of inbox rules via PowerShell (New-InboxRule) or transport rules using Exchange cmdlets. Correlates user behavior, cmdlet usage, and rule properties.
@@ -395,7 +395,7 @@ ATT&CK: [T1114.003](https://attack.mitre.org/techniques/T1114/003/), [detail pag
 
 Detection strategy: Clipboard Data Access with Anomalous Context (`DET0341`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1115](https://attack.mitre.org/techniques/T1115/), [detail page](../../techniques/collection.md#t1115)
+ATT&CK: [T1115](https://attack.mitre.org/techniques/T1115/), [detail page](/techniques/collection.md#t1115)
 
 - `AN0965` Analytic 0965, Windows
   Detection of clipboard access via OS utilities (e.g., clip.exe, Get-Clipboard) by non-interactive or abnormal parent processes, potentially chained with staging or exfiltration commands.
@@ -417,7 +417,7 @@ ATT&CK: [T1115](https://attack.mitre.org/techniques/T1115/), [detail page](../..
 
 Detection strategy: Automated File and API Collection Detection Across Platforms (`DET0186`)  
 Platforms: Linux, SaaS, Windows, macOS  
-ATT&CK: [T1119](https://attack.mitre.org/techniques/T1119/), [detail page](../../techniques/collection.md#t1119)
+ATT&CK: [T1119](https://attack.mitre.org/techniques/T1119/), [detail page](/techniques/collection.md#t1119)
 
 - `AN0531` Analytic 0531, Windows
   Automated execution of native utilities and scripts to discover, enumerate, and exfiltrate files and clipboard content. Focus is on detecting repeated file access, scripting engine use, and use of command-line utilities commonly leveraged by collection scripts.
@@ -443,7 +443,7 @@ ATT&CK: [T1119](https://attack.mitre.org/techniques/T1119/), [detail page](../..
 
 Detection strategy: Behavioral Detection Strategy for T1123 Audio Capture Across Windows, Linux, macOS (`DET0221`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1123](https://attack.mitre.org/techniques/T1123/), [detail page](../../techniques/collection.md#t1123)
+ATT&CK: [T1123](https://attack.mitre.org/techniques/T1123/), [detail page](/techniques/collection.md#t1123)
 
 - `AN0619` Analytic 0619, Windows
   Unusual or unauthorized processes accessing microphone APIs (e.g., winmm.dll, avrt.dll) followed by audio file writes to user-accessible or temp directories.
@@ -465,7 +465,7 @@ ATT&CK: [T1123](https://attack.mitre.org/techniques/T1123/), [detail page](../..
 
 Detection strategy: Behavior-chain, platform-aware detection strategy for T1125 Video Capture (`DET0197`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1125](https://attack.mitre.org/techniques/T1125/), [detail page](../../techniques/collection.md#t1125)
+ATT&CK: [T1125](https://attack.mitre.org/techniques/T1125/), [detail page](/techniques/collection.md#t1125)
 
 - `AN0568` Analytic 0568, Windows
   A non-standard process (or script-hosted process) loads camera/video-capture libraries (e.g., avicap32.dll, mf.dll, ksproxy.ax), opens the Camera Frame Server/device, writes video/image artifacts (e.g., .mp4/.avi/.yuv) to unusual locations, and optionally initiates outbound transfer shortly after.
@@ -487,7 +487,7 @@ ATT&CK: [T1125](https://attack.mitre.org/techniques/T1125/), [detail page](../..
 
 Detection strategy: Detect browser session hijacking via privilege, handle access, and remote thread into browsers (`DET0507`)  
 Platforms: Windows  
-ATT&CK: [T1185](https://attack.mitre.org/techniques/T1185/), [detail page](../../techniques/collection.md#t1185)
+ATT&CK: [T1185](https://attack.mitre.org/techniques/T1185/), [detail page](/techniques/collection.md#t1185)
 
 - `AN1398` Analytic 1398, Windows
   Adversary gains high integrity or special privileges (e.g., SeDebugPrivilege), locates a running browser process, opens it with write/inject rights, and modifies it (e.g., CreateRemoteThread / DLL load) to inherit cookies/tokens or establish a browser pivot. Optional step: create a new logon session or use explicit credentials, then drive the victim browser to intranet resources.
@@ -501,7 +501,7 @@ ATT&CK: [T1185](https://attack.mitre.org/techniques/T1185/), [detail page](../..
 
 Detection strategy: Abuse of Information Repositories for Data Collection (`DET0413`)  
 Platforms: Linux, SaaS, Windows, macOS  
-ATT&CK: [T1213](https://attack.mitre.org/techniques/T1213/), [detail page](../../techniques/collection.md#t1213)
+ATT&CK: [T1213](https://attack.mitre.org/techniques/T1213/), [detail page](/techniques/collection.md#t1213)
 
 - `AN1160` Analytic 1160, Windows
   Programmatic or excessive access to file shares, SharePoint, or database repositories by users not typically interacting with them. This includes abnormal access by privileged accounts, enumeration of large numbers of files, or downloads of sensitive content in bursts.
@@ -527,7 +527,7 @@ ATT&CK: [T1213](https://attack.mitre.org/techniques/T1213/), [detail page](../..
 
 Detection strategy: Programmatic and Excessive Access to Confluence Documentation (`DET0358`)  
 Platforms: SaaS  
-ATT&CK: [T1213.001](https://attack.mitre.org/techniques/T1213/001/), [detail page](../../techniques/collection.md#t1213001)
+ATT&CK: [T1213.001](https://attack.mitre.org/techniques/T1213/001/), [detail page](/techniques/collection.md#t1213001)
 
 - `AN1019` Analytic 1019, SaaS
   Detection of excessive or programmatic access to Confluence spaces or pages, particularly by privileged users, through a combination of access logs, API usage, and identity context. Correlates logon sessions, user roles, and abnormal document viewing or export behavior. Identifies burst access patterns and tools/scripts abusing the Confluence API for mass enumeration or data scraping.
@@ -541,7 +541,7 @@ ATT&CK: [T1213.001](https://attack.mitre.org/techniques/T1213/001/), [detail pag
 
 Detection strategy: Detecting Abnormal SharePoint Data Mining by Privileged or Rare Users (`DET0500`)  
 Platforms: Windows  
-ATT&CK: [T1213.002](https://attack.mitre.org/techniques/T1213/002/), [detail page](../../techniques/collection.md#t1213002)
+ATT&CK: [T1213.002](https://attack.mitre.org/techniques/T1213/002/), [detail page](/techniques/collection.md#t1213002)
 
 - `AN1380` Analytic 1380, Windows
   Privileged or rarely used accounts performing bulk access to SharePoint files or metadata over a short time window, indicating potential scripted collection of sensitive internal documents.
@@ -555,7 +555,7 @@ ATT&CK: [T1213.002](https://attack.mitre.org/techniques/T1213/002/), [detail pag
 
 Detection strategy: Detecting Bulk or Anomalous Access to Private Code Repositories via SaaS Platforms (`DET0263`)  
 Platforms: SaaS  
-ATT&CK: [T1213.003](https://attack.mitre.org/techniques/T1213/003/), [detail page](../../techniques/collection.md#t1213003)
+ATT&CK: [T1213.003](https://attack.mitre.org/techniques/T1213/003/), [detail page](/techniques/collection.md#t1213003)
 
 - `AN0732` Analytic 0732, SaaS
   Anomalous or bulk download activity from private or restricted repositories by non-developer or privileged accounts, often preceded by unusual login behavior (e.g., unfamiliar geo, OAuth token use, elevated API rate).
@@ -569,7 +569,7 @@ ATT&CK: [T1213.003](https://attack.mitre.org/techniques/T1213/003/), [detail pag
 
 Detection strategy: Detecting Suspicious Access to CRM Data in SaaS Environments (`DET0550`)  
 Platforms: SaaS  
-ATT&CK: [T1213.004](https://attack.mitre.org/techniques/T1213/004/), [detail page](../../techniques/collection.md#t1213004)
+ATT&CK: [T1213.004](https://attack.mitre.org/techniques/T1213/004/), [detail page](/techniques/collection.md#t1213004)
 
 - `AN1520` Analytic 1520, SaaS
   Anomalous high-volume access to customer records in CRM software by a non-CRM admin user account, especially following initial authentication from a rare location or device. Behavior includes abnormal access to PII fields or data exports within a short time window.
@@ -583,7 +583,7 @@ ATT&CK: [T1213.004](https://attack.mitre.org/techniques/T1213/004/), [detail pag
 
 Detection strategy: Detecting Unauthorized Collection from Messaging Applications in SaaS and Office Environments (`DET0567`)  
 Platforms: Office Suite, SaaS  
-ATT&CK: [T1213.005](https://attack.mitre.org/techniques/T1213/005/), [detail page](../../techniques/collection.md#t1213005)
+ATT&CK: [T1213.005](https://attack.mitre.org/techniques/T1213/005/), [detail page](/techniques/collection.md#t1213005)
 
 - `AN1565` Analytic 1565, SaaS
   Atypical access to Slack or Teams conversations via APIs, automation tokens, or bulk message export functionality, particularly after an account takeover or rare sign-in pattern. Often includes mass retrieval of chat history, download of message content, or scraping of workspace/channel metadata.
@@ -601,7 +601,7 @@ ATT&CK: [T1213.005](https://attack.mitre.org/techniques/T1213/005/), [detail pag
 
 Detection strategy: Suspicious Database Access and Dump Activity Across Environments (T1213.006) (`DET0242`)  
 Platforms: IaaS, Linux, SaaS, Windows, macOS  
-ATT&CK: [T1213.006](https://attack.mitre.org/techniques/T1213/006/), [detail page](../../techniques/collection.md#t1213006)
+ATT&CK: [T1213.006](https://attack.mitre.org/techniques/T1213/006/), [detail page](/techniques/collection.md#t1213006)
 
 - `AN0676` Analytic 0676, Linux
   Unusual database command-line access (e.g., `psql`, `mysql`, `mongo`) from non-admin users, occurring outside typical automation windows or without known service context. Often followed by data dumps to .sql/.csv files or outbound data transfers. Defender sees CLI tools launched interactively or by unusual parent processes, file writes to dump-like filenames, and external connections shortly after.
@@ -631,7 +631,7 @@ ATT&CK: [T1213.006](https://attack.mitre.org/techniques/T1213/006/), [detail pag
 
 Detection strategy: Multi-Platform Cloud Storage Exfiltration Behavior Chain (`DET0484`)  
 Platforms: IaaS, Office Suite, SaaS  
-ATT&CK: [T1530](https://attack.mitre.org/techniques/T1530/), [detail page](../../techniques/collection.md#t1530)
+ATT&CK: [T1530](https://attack.mitre.org/techniques/T1530/), [detail page](/techniques/collection.md#t1530)
 
 - `AN1328` Analytic 1328, IaaS
   Spike in object access from new IAM user or role followed by data exfiltration to external IPs
@@ -653,7 +653,7 @@ ATT&CK: [T1530](https://attack.mitre.org/techniques/T1530/), [detail page](../..
 
 Detection strategy: Detect Archiving and Encryption of Collected Data (T1560) (`DET0526`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1560](https://attack.mitre.org/techniques/T1560/), [detail page](../../techniques/collection.md#t1560)
+ATT&CK: [T1560](https://attack.mitre.org/techniques/T1560/), [detail page](/techniques/collection.md#t1560)
 
 - `AN1458` Analytic 1458, Windows
   Detects adversarial archiving of files prior to exfiltration by correlating execution of compression/encryption utilities (e.g., makecab.exe, rar.exe, 7z.exe, powershell Compress-Archive) with subsequent creation of large compressed or encrypted files. Identifies abnormal process lineage involving crypt32.dll usage, command-line arguments invoking compression switches, and file write operations to temporary or staging directories.
@@ -675,7 +675,7 @@ ATT&CK: [T1560](https://attack.mitre.org/techniques/T1560/), [detail page](../..
 
 Detection strategy: Detect Archiving via Utility (T1560.001) (`DET0298`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1560.001](https://attack.mitre.org/techniques/T1560/001/), [detail page](../../techniques/collection.md#t1560001)
+ATT&CK: [T1560.001](https://attack.mitre.org/techniques/T1560/001/), [detail page](/techniques/collection.md#t1560001)
 
 - `AN0831` Analytic 0831, Windows
   Detects adversarial archiving using built-in or third-party utilities (makecab, diantz, xcopy, certutil, 7z, WinRAR, WinZip). Correlates suspicious process creation events with command-line arguments for compression/encoding, followed by creation of archive files (.cab, .zip, .7z, .rar). Identifies anomalous loading of crypt32.dll for encryption operations or execution of diantz.exe to compress remotely staged files.
@@ -697,7 +697,7 @@ ATT&CK: [T1560.001](https://attack.mitre.org/techniques/T1560/001/), [detail pag
 
 Detection strategy: Detect Archiving via Library (T1560.002) (`DET0268`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1560.002](https://attack.mitre.org/techniques/T1560/002/), [detail page](../../techniques/collection.md#t1560002)
+ATT&CK: [T1560.002](https://attack.mitre.org/techniques/T1560/002/), [detail page](/techniques/collection.md#t1560002)
 
 - `AN0747` Analytic 0747, Windows
   Detects adversarial archiving using libraries (zlib, zip APIs) invoked by scripts or binaries. Correlates process executions of Python, PowerShell, or custom .NET binaries with DLL/module loads linked to compression libraries, followed by archive file creation.
@@ -719,7 +719,7 @@ ATT&CK: [T1560.002](https://attack.mitre.org/techniques/T1560/002/), [detail pag
 
 Detection strategy: Detect Archiving via Custom Method (T1560.003) (`DET0438`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1560.003](https://attack.mitre.org/techniques/T1560/003/), [detail page](../../techniques/collection.md#t1560003)
+ATT&CK: [T1560.003](https://attack.mitre.org/techniques/T1560/003/), [detail page](/techniques/collection.md#t1560003)
 
 - `AN1213` Analytic 1213, Windows
   Detects suspicious custom compression/encryption routines through anomalous script or binary execution that produces high-entropy files without standard archiving utilities. Correlates script execution, memory API usage (bitwise ops, CryptoAPI calls), and creation of archive-like files with uncommon headers.
@@ -741,7 +741,7 @@ ATT&CK: [T1560.003](https://attack.mitre.org/techniques/T1560/003/), [detail pag
 
 Detection strategy: Detection Strategy for Data from Configuration Repository on Network Devices (`DET0592`)  
 Platforms: Network Devices  
-ATT&CK: [T1602](https://attack.mitre.org/techniques/T1602/), [detail page](../../techniques/collection.md#t1602)
+ATT&CK: [T1602](https://attack.mitre.org/techniques/T1602/), [detail page](/techniques/collection.md#t1602)
 
 - `AN1630` Analytic 1630, Network Devices
   Defenders may observe adversary attempts to extract configuration data from management repositories by monitoring for anomalous SNMP queries, API calls, or protocol requests (e.g., NETCONF, RESTCONF) that enumerate system configuration. Suspicious sequences include repeated queries from untrusted IPs, abnormal query types requesting sensitive configuration data, or repository access occurring outside of normal administrative maintenance windows. Abnormal authentication attempts, sudden enumeration of device inventory, or bulk data transfer of configuration files may also be observed.
@@ -755,7 +755,7 @@ ATT&CK: [T1602](https://attack.mitre.org/techniques/T1602/), [detail page](../..
 
 Detection strategy: Detection Strategy for SNMP (MIB Dump) on Network Devices (`DET0453`)  
 Platforms: Network Devices  
-ATT&CK: [T1602.001](https://attack.mitre.org/techniques/T1602/001/), [detail page](../../techniques/collection.md#t1602001)
+ATT&CK: [T1602.001](https://attack.mitre.org/techniques/T1602/001/), [detail page](/techniques/collection.md#t1602001)
 
 - `AN1249` Analytic 1249, Network Devices
   Defenders may observe suspicious SNMP MIB enumeration through abnormal queries for large sets of OIDs, repeated SNMP GETBULK/GETNEXT requests, or queries originating from non-administrative IP addresses. Anomalous use of community strings, authentication failures, or enumeration activity outside maintenance windows may also indicate attempts to dump MIB contents. Correlation across syslog, NetFlow, and SNMP audit data can reveal chains of behavior such as repeated authentication failures followed by successful large-scale OID retrieval.
@@ -769,7 +769,7 @@ ATT&CK: [T1602.001](https://attack.mitre.org/techniques/T1602/001/), [detail pag
 
 Detection strategy: Detection Strategy for Network Device Configuration Dump via Config Repositories (`DET0233`)  
 Platforms: Network Devices  
-ATT&CK: [T1602.002](https://attack.mitre.org/techniques/T1602/002/), [detail page](../../techniques/collection.md#t1602002)
+ATT&CK: [T1602.002](https://attack.mitre.org/techniques/T1602/002/), [detail page](/techniques/collection.md#t1602002)
 
 - `AN0647` Analytic 0647, Network Devices
   Defenders may observe adversary attempts to collect or export full device configurations by detecting unusual SNMP queries, Smart Install (SMI) activity, or CLI/API commands that request running or startup configuration dumps. Correlated behaviors include high-volume read requests for sensitive OIDs, repeated use of 'show running-config' or equivalent commands from untrusted IPs, or unexpected TFTP/SCP/FTP transfers containing configuration files. These behaviors often appear in sequence: anomalous authentication or privilege escalation, followed by bulk configuration retrieval and outbound transfer.

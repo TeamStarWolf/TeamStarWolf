@@ -2,7 +2,7 @@
 
 > MITRE ATT&CK detection strategies and analytics (v19.2) for techniques whose primary tactic is Defense Impairment. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
 
-See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](../TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](../../ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](../../techniques/README.md)
+See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](/techniques/README.md)
 
 ---
 
@@ -11,7 +11,7 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 
 Detection strategy: Behavior-Based Registry Modification Detection on Windows (`DET0280`)  
 Platforms: Windows  
-ATT&CK: [T1112](https://attack.mitre.org/techniques/T1112/), [detail page](../../techniques/defense-impairment.md#t1112)
+ATT&CK: [T1112](https://attack.mitre.org/techniques/T1112/), [detail page](/techniques/defense-impairment.md#t1112)
 
 - `AN0781` Analytic 0781, Windows
   Behavior chain involving abnormal registry modifications via CLI, PowerShell, WMI, or direct API calls, especially targeting persistence, privilege escalation, or defense evasion keys, potentially followed by service restart or process execution. Such as editing Notify/Userinit/Startup keys, or disabling SafeDllSearchMode.
@@ -25,7 +25,7 @@ ATT&CK: [T1112](https://attack.mitre.org/techniques/T1112/), [detail page](../..
 
 Detection strategy: Detection Strategy for Rogue Domain Controller (DCShadow) Registration and Replication Abuse (`DET0276`)  
 Platforms: Windows  
-ATT&CK: [T1207](https://attack.mitre.org/techniques/T1207/), [detail page](../../techniques/defense-impairment.md#t1207)
+ATT&CK: [T1207](https://attack.mitre.org/techniques/T1207/), [detail page](/techniques/defense-impairment.md#t1207)
 
 - `AN0770` Analytic 0770, Windows
   Detection of rogue Domain Controller registration and Active Directory replication abuse by correlating: (1) creation/modification of nTDSDSA and server objects in the Configuration partition, (2) unexpected usage of Directory Replication Service SPNs (GC/ or E3514235-4B06-11D1-AB04-00C04FC2DCD2), (3) replication RPC calls (DrsAddEntry, DrsReplicaAdd, GetNCChanges) originating from non-DC hosts, and (4) Kerberos authentication by non-DC machines using DRS-related SPNs. These events in combination, especially from hosts outside the Domain Controllers OU, may indicate DCShadow or rogue DC activity.
@@ -39,7 +39,7 @@ ATT&CK: [T1207](https://attack.mitre.org/techniques/T1207/), [detail page](../..
 
 Detection strategy: Multi-Platform File and Directory Permissions Modification Detection Strategy (`DET0299`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1222](https://attack.mitre.org/techniques/T1222/), [detail page](../../techniques/defense-impairment.md#t1222)
+ATT&CK: [T1222](https://attack.mitre.org/techniques/T1222/), [detail page](/techniques/defense-impairment.md#t1222)
 
 - `AN0834` Analytic 0834, Windows
   Sequential behavioral chain of privilege escalation through permission modification: (1) Process creation of permission-modifying utilities (icacls, takeown, attrib, cacls), (2) Correlation with unusual user context or timing, (3) DACL modification events targeting sensitive files/directories, (4) Subsequent file access or modification attempts indicating successful privilege bypass
@@ -65,7 +65,7 @@ ATT&CK: [T1222](https://attack.mitre.org/techniques/T1222/), [detail page](../..
 
 Detection strategy: Windows DACL Manipulation Behavioral Chain Detection Strategy (`DET0418`)  
 Platforms: Windows  
-ATT&CK: [T1222.001](https://attack.mitre.org/techniques/T1222/001/), [detail page](../../techniques/defense-impairment.md#t1222001)
+ATT&CK: [T1222.001](https://attack.mitre.org/techniques/T1222/001/), [detail page](/techniques/defense-impairment.md#t1222001)
 
 - `AN1177` Analytic 1177, Windows
   Multi-stage Windows DACL manipulation behavioral chain: (1) Process creation of permission-modifying utilities (icacls.exe, takeown.exe, attrib.exe, cacls.exe) or PowerShell ACL cmdlets, (2) Command-line analysis revealing privilege escalation intent through suspicious parameters (/grant, /takeown, /T, Set-Acl), (3) DACL modification events (4670) correlating with process execution, (4) Subsequent file access attempts (4663) indicating successful permission bypass, (5) Potential follow-on persistence or lateral movement activities
@@ -79,7 +79,7 @@ ATT&CK: [T1222.001](https://attack.mitre.org/techniques/T1222/001/), [detail pag
 
 Detection strategy: Unix-like File Permission Manipulation Behavioral Chain Detection Strategy (`DET0351`)  
 Platforms: Linux, macOS  
-ATT&CK: [T1222.002](https://attack.mitre.org/techniques/T1222/002/), [detail page](../../techniques/defense-impairment.md#t1222002)
+ATT&CK: [T1222.002](https://attack.mitre.org/techniques/T1222/002/), [detail page](/techniques/defense-impairment.md#t1222002)
 
 - `AN0998` Analytic 0998, Linux
   Linux permission escalation behavioral chain: (1) Process creation of permission modification utilities (chmod, chown, chgrp, setfacl) with suspicious parameters indicating privilege escalation intent, (2) System call analysis revealing direct file metadata manipulation (chmod, fchmod, chown, fchown syscalls), (3) Extended attribute and ACL modifications targeting critical system paths, (4) Temporal correlation with subsequent file access or process execution from modified locations, (5) Anomalous permission patterns deviating from system baselines
@@ -97,7 +97,7 @@ ATT&CK: [T1222.002](https://attack.mitre.org/techniques/T1222/002/), [detail pag
 
 Detection strategy: Detection of Domain or Tenant Policy Modifications via AD and Identity Provider (`DET0270`)  
 Platforms: Identity Provider, Windows  
-ATT&CK: [T1484](https://attack.mitre.org/techniques/T1484/), [detail page](../../techniques/defense-impairment.md#t1484)
+ATT&CK: [T1484](https://attack.mitre.org/techniques/T1484/), [detail page](/techniques/defense-impairment.md#t1484)
 
 - `AN0755` Analytic 0755, Windows
   Adversary modifies Group Policy Objects (GPOs), domain trust, or directory service objects via GUI, CLI, or programmatic APIs. Behavior includes creation/modification of GPOs, delegation permissions, trust objects, or rogue domain controller registration.
@@ -115,7 +115,7 @@ ATT&CK: [T1484](https://attack.mitre.org/techniques/T1484/), [detail page](../..
 
 Detection strategy: Detection of Group Policy Modifications via AD Object Changes and File Activity (`DET0305`)  
 Platforms: Windows  
-ATT&CK: [T1484.001](https://attack.mitre.org/techniques/T1484/001/), [detail page](../../techniques/defense-impairment.md#t1484001)
+ATT&CK: [T1484.001](https://attack.mitre.org/techniques/T1484/001/), [detail page](/techniques/defense-impairment.md#t1484001)
 
 - `AN0854` Analytic 0854, Windows
   Adversary modifies GPO containers or files under SYSVOL using LDAP, ADSI, PowerShell (e.g., New-GPOImmediateTask) or GUI tools. This includes directory object changes (e.g., gPCFileSysPath), delegation assignments (SeEnableDelegationPrivilege), and SYSVOL file writes (ScheduledTasks.xml, GptTmpl.inf).
@@ -129,7 +129,7 @@ ATT&CK: [T1484.001](https://attack.mitre.org/techniques/T1484/001/), [detail pag
 
 Detection strategy: Detection of Trust Relationship Modifications in Domain or Tenant Policies (`DET0458`)  
 Platforms: Identity Provider, Windows  
-ATT&CK: [T1484.002](https://attack.mitre.org/techniques/T1484/002/), [detail page](../../techniques/defense-impairment.md#t1484002)
+ATT&CK: [T1484.002](https://attack.mitre.org/techniques/T1484/002/), [detail page](/techniques/defense-impairment.md#t1484002)
 
 - `AN1259` Analytic 1259, Windows
   Adversary modifies Active Directory domain trust settings via `netdom`, `nltest`, or PowerShell to add new domain trust or alter federation. Modifications occur in AD object attributes like trustDirection, trustType, trustAttributes, often paired with SeEnableDelegationPrivilege or certificate injection.
@@ -147,7 +147,7 @@ ATT&CK: [T1484.002](https://attack.mitre.org/techniques/T1484/002/), [detail pag
 
 Detection strategy: Detect Subversion of Trust Controls via Certificate, Registry, and Attribute Manipulation (`DET0452`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1553](https://attack.mitre.org/techniques/T1553/), [detail page](../../techniques/defense-impairment.md#t1553)
+ATT&CK: [T1553](https://attack.mitre.org/techniques/T1553/), [detail page](/techniques/defense-impairment.md#t1553)
 
 - `AN1246` Analytic 1246, Windows
   Detection correlates abnormal installation or modification of root or code-signing certificates, creation/modification of suspicious registry keys for trust providers, and unusual module loads from non-standard locations. Identifies unsigned or improperly signed executables bypassing trust prompts, combined with persistence artifacts.
@@ -169,7 +169,7 @@ ATT&CK: [T1553](https://attack.mitre.org/techniques/T1553/), [detail page](../..
 
 Detection strategy: Detect Gatekeeper Bypass via Quarantine Flag and Trust Control Manipulation (`DET0288`)  
 Platforms: macOS  
-ATT&CK: [T1553.001](https://attack.mitre.org/techniques/T1553/001/), [detail page](../../techniques/defense-impairment.md#t1553001)
+ATT&CK: [T1553.001](https://attack.mitre.org/techniques/T1553/001/), [detail page](/techniques/defense-impairment.md#t1553001)
 
 - `AN0800` Analytic 0800, macOS
   Correlates suspicious removal or modification of the com.apple.quarantine extended attribute, manipulation of LSFileQuarantineEnabled values in Info.plist, and unexpected process execution of unsigned or non-notarized binaries. Also monitors abnormal trust validation failures in unified logs and unusual activity in QuarantineEvents database entries.
@@ -183,7 +183,7 @@ ATT&CK: [T1553.001](https://attack.mitre.org/techniques/T1553/001/), [detail pag
 
 Detection strategy: Detect Suspicious or Malicious Code Signing Abuse (`DET0230`)  
 Platforms: Windows, macOS  
-ATT&CK: [T1553.002](https://attack.mitre.org/techniques/T1553/002/), [detail page](../../techniques/defense-impairment.md#t1553002)
+ATT&CK: [T1553.002](https://attack.mitre.org/techniques/T1553/002/), [detail page](/techniques/defense-impairment.md#t1553002)
 
 - `AN0643` Analytic 0643, Windows
   Detects execution of binaries signed with unusual or recently issued certificates, correlation of process execution with abnormal publisher metadata, and mismatched certificate chains. Monitors for revoked or unknown code signing certificates used in high-privilege contexts.
@@ -201,7 +201,7 @@ ATT&CK: [T1553.002](https://attack.mitre.org/techniques/T1553/002/), [detail pag
 
 Detection strategy: Detection Strategy for Subvert Trust Controls using SIP and Trust Provider Hijacking. (`DET0442`)  
 Platforms: Windows  
-ATT&CK: [T1553.003](https://attack.mitre.org/techniques/T1553/003/), [detail page](../../techniques/defense-impairment.md#t1553003)
+ATT&CK: [T1553.003](https://attack.mitre.org/techniques/T1553/003/), [detail page](/techniques/defense-impairment.md#t1553003)
 
 - `AN1222` Analytic 1222, Windows
   Detection of anomalous registry modifications to Subject Interface Packages (SIPs) or trust provider DLL mappings, unexpected loading of non-Microsoft cryptographic modules, or attempts to redirect WinVerifyTrust validation logic. Defender view focuses on registry tampering, suspicious DLL loads into trusted processes, and abnormal trust validation failures correlated across event streams.
@@ -215,7 +215,7 @@ ATT&CK: [T1553.003](https://attack.mitre.org/techniques/T1553/003/), [detail pag
 
 Detection strategy: Detection Strategy for Subvert Trust Controls via Install Root Certificate. (`DET0056`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1553.004](https://attack.mitre.org/techniques/T1553/004/), [detail page](../../techniques/defense-impairment.md#t1553004)
+ATT&CK: [T1553.004](https://attack.mitre.org/techniques/T1553/004/), [detail page](/techniques/defense-impairment.md#t1553004)
 
 - `AN0153` Analytic 0153, Windows
   Detection of unauthorized modifications to Windows root certificate stores by monitoring registry keys, certificate installation processes, and creation of new certificate entries not in baseline trusted lists.
@@ -237,7 +237,7 @@ ATT&CK: [T1553.004](https://attack.mitre.org/techniques/T1553/004/), [detail pag
 
 Detection strategy: Detect Mark-of-the-Web (MOTW) Bypass via Container and Disk Image Files (`DET0257`)  
 Platforms: Windows  
-ATT&CK: [T1553.005](https://attack.mitre.org/techniques/T1553/005/), [detail page](../../techniques/defense-impairment.md#t1553005)
+ATT&CK: [T1553.005](https://attack.mitre.org/techniques/T1553/005/), [detail page](/techniques/defense-impairment.md#t1553005)
 
 - `AN0712` Analytic 0712, Windows
   Detects extraction or mounting of container/archive files (e.g., .iso, .vhd, .zip) that originated from the Internet but whose contained files lack Zone.Identifier MOTW tagging. Correlates file creation metadata with subsequent execution of unsigned or untrusted binaries launched outside SmartScreen or Protected View.
@@ -251,7 +251,7 @@ ATT&CK: [T1553.005](https://attack.mitre.org/techniques/T1553/005/), [detail pag
 
 Detection strategy: Detect Code Signing Policy Modification (Windows & macOS) (`DET0523`)  
 Platforms: Windows, macOS  
-ATT&CK: [T1553.006](https://attack.mitre.org/techniques/T1553/006/), [detail page](../../techniques/defense-impairment.md#t1553006)
+ATT&CK: [T1553.006](https://attack.mitre.org/techniques/T1553/006/), [detail page](/techniques/defense-impairment.md#t1553006)
 
 - `AN1446` Analytic 1446, Windows
   Monitors execution of administrative utilities (e.g., bcdedit.exe) or registry modifications that disable Driver Signature Enforcement (DSE) or enable Test Signing. Correlates command-line activity, registry changes, and subsequent process executions that bypass signing enforcement.
@@ -269,7 +269,7 @@ ATT&CK: [T1553.006](https://attack.mitre.org/techniques/T1553/006/), [detail pag
 
 Detection strategy: Detect Modification of Authentication Processes Across Platforms (`DET0104`)  
 Platforms: IaaS, Identity Provider, Linux, Windows, macOS  
-ATT&CK: [T1556](https://attack.mitre.org/techniques/T1556/), [detail page](../../techniques/defense-impairment.md#t1556)
+ATT&CK: [T1556](https://attack.mitre.org/techniques/T1556/), [detail page](/techniques/defense-impairment.md#t1556)
 
 - `AN0287` Analytic 0287, Windows
   Detects modification of LSASS and authentication DLLs, suspicious registry changes to password filter packages, and abnormal process access to lsass.exe. Correlates registry modifications, DLL loads, and process handle access events.
@@ -299,7 +299,7 @@ ATT&CK: [T1556](https://attack.mitre.org/techniques/T1556/), [detail page](../..
 
 Detection strategy: Detect Domain Controller Authentication Process Modification (Skeleton Key) (`DET0271`)  
 Platforms: Windows  
-ATT&CK: [T1556.001](https://attack.mitre.org/techniques/T1556/001/), [detail page](../../techniques/defense-impairment.md#t1556001)
+ATT&CK: [T1556.001](https://attack.mitre.org/techniques/T1556/001/), [detail page](/techniques/defense-impairment.md#t1556001)
 
 - `AN0757` Analytic 0757, Windows
   Detects anomalous process access to LSASS on domain controllers, suspicious module loads of authentication DLLs, and registry or file modifications indicative of Skeleton Key-style patching. Correlates LSASS access attempts with subsequent abnormal logon activity patterns.
@@ -313,7 +313,7 @@ ATT&CK: [T1556.001](https://attack.mitre.org/techniques/T1556/001/), [detail pag
 
 Detection strategy: Detect Malicious Password Filter DLL Registration (`DET0472`)  
 Platforms: Windows  
-ATT&CK: [T1556.002](https://attack.mitre.org/techniques/T1556/002/), [detail page](../../techniques/defense-impairment.md#t1556002)
+ATT&CK: [T1556.002](https://attack.mitre.org/techniques/T1556/002/), [detail page](/techniques/defense-impairment.md#t1556002)
 
 - `AN1303` Analytic 1303, Windows
   Detects suspicious registration of new password filter DLLs into the authentication process. Correlates registry modifications to LSASS Notification Packages with subsequent DLL creation and loading events. Observes anomalous file placement of DLLs in system directories followed by LSASS loading the new filter during logon/password change activity.
@@ -327,7 +327,7 @@ ATT&CK: [T1556.002](https://attack.mitre.org/techniques/T1556/002/), [detail pag
 
 Detection strategy: Detect Malicious Modification of Pluggable Authentication Modules (PAM) (`DET0454`)  
 Platforms: Linux, macOS  
-ATT&CK: [T1556.003](https://attack.mitre.org/techniques/T1556/003/), [detail page](../../techniques/defense-impairment.md#t1556003)
+ATT&CK: [T1556.003](https://attack.mitre.org/techniques/T1556/003/), [detail page](/techniques/defense-impairment.md#t1556003)
 
 - `AN1250` Analytic 1250, Linux
   Detects unauthorized modifications to PAM configuration files or shared object modules. Correlates file modification events under /etc/pam.d/ or /lib/security/ with unusual authentication activity such as multiple simultaneous logins, off-hours logins, or logons without corresponding physical/VPN access.
@@ -345,7 +345,7 @@ ATT&CK: [T1556.003](https://attack.mitre.org/techniques/T1556/003/), [detail pag
 
 Detection strategy: Detect Modification of Network Device Authentication via Patched System Images (`DET0272`)  
 Platforms: Network Devices  
-ATT&CK: [T1556.004](https://attack.mitre.org/techniques/T1556/004/), [detail page](../../techniques/defense-impairment.md#t1556004)
+ATT&CK: [T1556.004](https://attack.mitre.org/techniques/T1556/004/), [detail page](/techniques/defense-impairment.md#t1556004)
 
 - `AN0758` Analytic 0758, Network Devices
   Detects unauthorized modification of network device authentication by correlating OS image file changes, checksum mismatches, or memory verification failures with anomalous authentication events. Focus is on behaviors where patched images introduce hardcoded passwords or bypass native authentication.
@@ -359,7 +359,7 @@ ATT&CK: [T1556.004](https://attack.mitre.org/techniques/T1556/004/), [detail pag
 
 Detection strategy: Detect Modification of Authentication Process via Reversible Encryption (`DET0589`)  
 Platforms: Windows  
-ATT&CK: [T1556.005](https://attack.mitre.org/techniques/T1556/005/), [detail page](../../techniques/defense-impairment.md#t1556005)
+ATT&CK: [T1556.005](https://attack.mitre.org/techniques/T1556/005/), [detail page](/techniques/defense-impairment.md#t1556005)
 
 - `AN1621` Analytic 1621, Windows
   Detects enabling of reversible password encryption in Active Directory or Group Policy, suspicious PowerShell commands modifying AD user properties, and unusual account configuration changes correlated with policy modifications. Multi-event correlation links Group Policy edits, PowerShell command execution, and user account property changes to identify tampering with authentication encryption settings.
@@ -373,7 +373,7 @@ ATT&CK: [T1556.005](https://attack.mitre.org/techniques/T1556/005/), [detail pag
 
 Detection strategy: Detect MFA Modification or Disabling Across Platforms (`DET0190`)  
 Platforms: IaaS, Identity Provider, Linux, Office Suite, SaaS, Windows, macOS  
-ATT&CK: [T1556.006](https://attack.mitre.org/techniques/T1556/006/), [detail page](../../techniques/defense-impairment.md#t1556006)
+ATT&CK: [T1556.006](https://attack.mitre.org/techniques/T1556/006/), [detail page](/techniques/defense-impairment.md#t1556006)
 
 - `AN0543` Analytic 0543, Windows
   Detects registry and Group Policy modifications that disable or weaken MFA, suspicious PowerShell usage modifying MFA-related attributes, and anomalous login sessions succeeding without expected MFA challenge.
@@ -411,7 +411,7 @@ ATT&CK: [T1556.006](https://attack.mitre.org/techniques/T1556/006/), [detail pag
 
 Detection strategy: Detect Hybrid Identity Authentication Process Modification (`DET0293`)  
 Platforms: IaaS, Identity Provider, Office Suite, SaaS, Windows  
-ATT&CK: [T1556.007](https://attack.mitre.org/techniques/T1556/007/), [detail page](../../techniques/defense-impairment.md#t1556007)
+ATT&CK: [T1556.007](https://attack.mitre.org/techniques/T1556/007/), [detail page](/techniques/defense-impairment.md#t1556007)
 
 - `AN0814` Analytic 0814, Windows
   Detects injection or tampering of DLLs in hybrid identity agents (e.g., AzureADConnectAuthenticationAgentService), registry or configuration changes tied to PTA/AD FS, and anomalous LSASS or AD FS module loads correlated with authentication anomalies.
@@ -441,7 +441,7 @@ ATT&CK: [T1556.007](https://attack.mitre.org/techniques/T1556/007/), [detail pag
 
 Detection strategy: Detect Network Provider DLL Registration and Credential Capture (`DET0580`)  
 Platforms: Windows  
-ATT&CK: [T1556.008](https://attack.mitre.org/techniques/T1556/008/), [detail page](../../techniques/defense-impairment.md#t1556008)
+ATT&CK: [T1556.008](https://attack.mitre.org/techniques/T1556/008/), [detail page](/techniques/defense-impairment.md#t1556008)
 
 - `AN1598` Analytic 1598, Windows
   Detects registration of new or modified network provider DLLs via registry changes, anomalous file creation of DLLs in system directories, and suspicious process activity (mpnotify.exe interacting with non-standard DLLs). Multi-event correlation ties registry modification events to subsequent DLL loads during user logon activity.
@@ -455,7 +455,7 @@ ATT&CK: [T1556.008](https://attack.mitre.org/techniques/T1556/008/), [detail pag
 
 Detection strategy: Detect Conditional Access Policy Modification in Identity and Cloud Platforms (`DET0030`)  
 Platforms: IaaS, Identity Provider  
-ATT&CK: [T1556.009](https://attack.mitre.org/techniques/T1556/009/), [detail page](../../techniques/defense-impairment.md#t1556009)
+ATT&CK: [T1556.009](https://attack.mitre.org/techniques/T1556/009/), [detail page](/techniques/defense-impairment.md#t1556009)
 
 - `AN0087` Analytic 0087, IaaS
   Detects modifications to IAM conditions or policies that alter authentication behavior, such as adding permissive trusted IPs, removing MFA requirements, or changing regional access restrictions. Behavioral detection focuses on anomalous policy updates tied to privileged accounts and subsequent suspicious logon activity from previously blocked regions or devices.
@@ -473,7 +473,7 @@ ATT&CK: [T1556.009](https://attack.mitre.org/techniques/T1556/009/), [detail pag
 
 Detection strategy: Detection Strategy for Modify Cloud Compute Infrastructure (`DET0308`)  
 Platforms: IaaS  
-ATT&CK: [T1578](https://attack.mitre.org/techniques/T1578/), [detail page](../../techniques/defense-impairment.md#t1578)
+ATT&CK: [T1578](https://attack.mitre.org/techniques/T1578/), [detail page](/techniques/defense-impairment.md#t1578)
 
 - `AN0861` Analytic 0861, IaaS
   Detection focuses on identifying unauthorized or anomalous changes to compute infrastructure components. Defender perspective: monitor for creation, deletion, or modification of instances, volumes, and snapshots outside of approved change management windows; correlate abnormal activity such as rapid snapshot creation followed by new instance mounts, or repeated infrastructure changes by rarely used accounts. Flagging activity linked to unusual geolocation, API client, or automation script is suspicious.
@@ -487,7 +487,7 @@ ATT&CK: [T1578](https://attack.mitre.org/techniques/T1578/), [detail page](../..
 
 Detection strategy: Detection Strategy for Modify Cloud Compute Infrastructure: Create Snapshot (`DET0423`)  
 Platforms: IaaS  
-ATT&CK: [T1578.001](https://attack.mitre.org/techniques/T1578/001/), [detail page](../../techniques/defense-impairment.md#t1578001)
+ATT&CK: [T1578.001](https://attack.mitre.org/techniques/T1578/001/), [detail page](/techniques/defense-impairment.md#t1578001)
 
 - `AN1187` Analytic 1187, IaaS
   Detection focuses on correlating snapshot creation events with subsequent instance creation and mounting activities. From a defender perspective, suspicious sequences include snapshot creation by unexpected or newly created IAM users, snapshots created from sensitive volumes without preceding change-control activity, or snapshots immediately followed by mounting to unauthorized instances. Cross-referencing with user behavior, IP geolocation, and automation context helps distinguish benign backup operations from adversary-driven snapshot exploitation.
@@ -501,7 +501,7 @@ ATT&CK: [T1578.001](https://attack.mitre.org/techniques/T1578/001/), [detail pag
 
 Detection strategy: Detection Strategy for Modify Cloud Compute Infrastructure: Create Cloud Instance (`DET0449`)  
 Platforms: IaaS  
-ATT&CK: [T1578.002](https://attack.mitre.org/techniques/T1578/002/), [detail page](../../techniques/defense-impairment.md#t1578002)
+ATT&CK: [T1578.002](https://attack.mitre.org/techniques/T1578/002/), [detail page](/techniques/defense-impairment.md#t1578002)
 
 - `AN1242` Analytic 1242, IaaS
   Detection focuses on abnormal or unauthorized cloud instance creation events. From a defender’s perspective, suspicious behavior includes VM/instance creation by rarely used or newly created accounts, creation events from unusual geolocations, or rapid sequences of snapshot creation followed by instance creation and mounting. Unexpected network or IAM policy changes applied to new instances can indicate adversarial use rather than legitimate provisioning.
@@ -515,7 +515,7 @@ ATT&CK: [T1578.002](https://attack.mitre.org/techniques/T1578/002/), [detail pag
 
 Detection strategy: Detection Strategy for Modify Cloud Compute Infrastructure: Delete Cloud Instance (`DET0084`)  
 Platforms: IaaS  
-ATT&CK: [T1578.003](https://attack.mitre.org/techniques/T1578/003/), [detail page](../../techniques/defense-impairment.md#t1578003)
+ATT&CK: [T1578.003](https://attack.mitre.org/techniques/T1578/003/), [detail page](/techniques/defense-impairment.md#t1578003)
 
 - `AN0234` Analytic 0234, IaaS
   Defenders can detect suspicious cloud instance deletions by correlating events across authentication, instance lifecycle, and account activity. From a defender’s perspective, behaviors of interest include instances deleted shortly after creation, deletions initiated by new or rarely used accounts, deletions following snapshot creation, and deletions originating from anomalous geolocations or access keys. These may indicate adversarial attempts to destroy forensic evidence or evade detection.
@@ -529,7 +529,7 @@ ATT&CK: [T1578.003](https://attack.mitre.org/techniques/T1578/003/), [detail pag
 
 Detection strategy: Detection Strategy for Modify Cloud Compute Infrastructure: Revert Cloud Instance (`DET0337`)  
 Platforms: IaaS  
-ATT&CK: [T1578.004](https://attack.mitre.org/techniques/T1578/004/), [detail page](../../techniques/defense-impairment.md#t1578004)
+ATT&CK: [T1578.004](https://attack.mitre.org/techniques/T1578/004/), [detail page](/techniques/defense-impairment.md#t1578004)
 
 - `AN0953` Analytic 0953, IaaS
   Defenders can detect suspicious reversion of cloud compute instances by monitoring for unusual snapshot restores, rollback actions, or ephemeral storage resets that occur outside expected administrative workflows. From a defender’s perspective, relevant detection chains include: a snapshot restore triggered by a new or rarely used account, a sequence of snapshot creation immediately followed by a restore and instance start, or rollbacks performed from anomalous geographic or network locations. These patterns may indicate attempts to remove forensic evidence or re-establish a clean execution state for persistence.
@@ -543,7 +543,7 @@ ATT&CK: [T1578.004](https://attack.mitre.org/techniques/T1578/004/), [detail pag
 
 Detection strategy: Detection Strategy for Modify Cloud Compute Infrastructure: Modify Cloud Compute Configurations (`DET0492`)  
 Platforms: IaaS  
-ATT&CK: [T1578.005](https://attack.mitre.org/techniques/T1578/005/), [detail page](../../techniques/defense-impairment.md#t1578005)
+ATT&CK: [T1578.005](https://attack.mitre.org/techniques/T1578/005/), [detail page](/techniques/defense-impairment.md#t1578005)
 
 - `AN1356` Analytic 1356, IaaS
   Defenders should monitor for anomalous or unauthorized changes to cloud compute configurations that alter quotas, tenant-wide policies, subscription associations, or allowed deployment regions. From a defender’s perspective, suspicious behavior chains include a sudden increase in compute quota requests followed by new instance or resource creation, policy modifications that weaken security restrictions, or enabling previously unused/unsupported cloud regions. Correlation across identity, configuration, and subsequent provisioning logs is critical to distinguish legitimate administrative activity from adversarial abuse.
@@ -557,7 +557,7 @@ ATT&CK: [T1578.005](https://attack.mitre.org/techniques/T1578/005/), [detail pag
 
 Detection strategy: Detection Strategy for Network Boundary Bridging (`DET0006`)  
 Platforms: Network Devices  
-ATT&CK: [T1599](https://attack.mitre.org/techniques/T1599/), [detail page](../../techniques/defense-impairment.md#t1599)
+ATT&CK: [T1599](https://attack.mitre.org/techniques/T1599/), [detail page](/techniques/defense-impairment.md#t1599)
 
 - `AN0015` Analytic 0015, Network Devices
   From a defender’s perspective, suspicious bridging is observed when network devices begin allowing traffic that contradicts existing segmentation or access policies. Observable behaviors include sudden modifications to ACLs or firewall rules, unusual cross-boundary traffic flows (e.g., east-west communications across separated VLANs), or simultaneous ingress/egress anomalies. Multi-event correlation is key: configuration changes on a router/firewall followed by unexpected traffic patterns, especially from unusual sources, is a strong indicator of compromise.
@@ -571,7 +571,7 @@ ATT&CK: [T1599](https://attack.mitre.org/techniques/T1599/), [detail page](../..
 
 Detection strategy: Detection Strategy for Network Address Translation Traversal (`DET0163`)  
 Platforms: Network Devices  
-ATT&CK: [T1599.001](https://attack.mitre.org/techniques/T1599/001/), [detail page](../../techniques/defense-impairment.md#t1599001)
+ATT&CK: [T1599.001](https://attack.mitre.org/techniques/T1599/001/), [detail page](/techniques/defense-impairment.md#t1599001)
 
 - `AN0465` Analytic 0465, Network Devices
   Defenders may observe unauthorized or anomalous changes to NAT configurations, including the addition of new translation rules or modifications to existing ones. Suspicious behaviors include sudden introduction of NAT mappings bridging segmented networks, new port address translation rules that obscure true source IPs, or traffic flows inconsistent with expected network design. Multi-event correlation includes detecting configuration changes on routers/firewalls, followed by traffic traversing unexpected internal/external address pairs.
@@ -585,7 +585,7 @@ ATT&CK: [T1599.001](https://attack.mitre.org/techniques/T1599/001/), [detail pag
 
 Detection strategy: Detection Strategy for Weaken Encryption on Network Devices (`DET0339`)  
 Platforms: Network Devices  
-ATT&CK: [T1600](https://attack.mitre.org/techniques/T1600/), [detail page](../../techniques/defense-impairment.md#t1600)
+ATT&CK: [T1600](https://attack.mitre.org/techniques/T1600/), [detail page](/techniques/defense-impairment.md#t1600)
 
 - `AN0961` Analytic 0961, Network Devices
   Defenders may observe unauthorized modifications to encryption-related configuration files, firmware, or crypto modules on network devices. Suspicious patterns include changes to cipher suite configurations, unexpected firmware updates affecting crypto libraries, disabling of hardware cryptographic accelerators, or reductions in key length policies. Correlating configuration changes with anomalies in encrypted traffic characteristics (e.g., weaker ciphers or sudden plaintext transmission) strengthens detection.
@@ -599,7 +599,7 @@ ATT&CK: [T1600](https://attack.mitre.org/techniques/T1600/), [detail page](../..
 
 Detection strategy: Detection Strategy for Weaken Encryption: Reduce Key Space on Network Devices (`DET0243`)  
 Platforms: Network Devices  
-ATT&CK: [T1600.001](https://attack.mitre.org/techniques/T1600/001/), [detail page](../../techniques/defense-impairment.md#t1600001)
+ATT&CK: [T1600.001](https://attack.mitre.org/techniques/T1600/001/), [detail page](/techniques/defense-impairment.md#t1600001)
 
 - `AN0681` Analytic 0681, Network Devices
   Defenders may observe attempts to alter cryptographic settings on network devices that reduce key strength or allowable cipher suites. Suspicious indicators include configuration changes that downgrade encryption algorithms, key length parameters, or the disabling of strong encryption in favor of legacy ciphers. These activities often appear as CLI commands modifying crypto policies, firmware changes affecting crypto libraries, or unexpected updates to key management files. Correlation across device config logs and traffic analysis showing weaker ciphers provides higher confidence of malicious key space reduction.
@@ -613,7 +613,7 @@ ATT&CK: [T1600.001](https://attack.mitre.org/techniques/T1600/001/), [detail pag
 
 Detection strategy: Detection Strategy for Weaken Encryption: Disable Crypto Hardware on Network Devices (`DET0494`)  
 Platforms: Network Devices  
-ATT&CK: [T1600.002](https://attack.mitre.org/techniques/T1600/002/), [detail page](../../techniques/defense-impairment.md#t1600002)
+ATT&CK: [T1600.002](https://attack.mitre.org/techniques/T1600/002/), [detail page](/techniques/defense-impairment.md#t1600002)
 
 - `AN1360` Analytic 1360, Network Devices
   Defenders may observe attempts to disable dedicated crypto hardware on network devices, often visible through anomalous CLI commands, unexpected firmware or configuration updates, and degraded encryption performance. Suspicious indicators include commands that alter hardware acceleration settings (e.g., disabling AES-NI or crypto engines), modification of system image files, or logs showing fallback from hardware to software encryption. Network traffic analysis may also reveal a sudden downgrade in throughput or cipher negotiation behavior consistent with the absence of hardware acceleration.
@@ -627,7 +627,7 @@ ATT&CK: [T1600.002](https://attack.mitre.org/techniques/T1600/002/), [detail pag
 
 Detection strategy: Detection Strategy for Modify System Image on Network Devices (`DET0170`)  
 Platforms: Network Devices  
-ATT&CK: [T1601](https://attack.mitre.org/techniques/T1601/), [detail page](../../techniques/defense-impairment.md#t1601)
+ATT&CK: [T1601](https://attack.mitre.org/techniques/T1601/), [detail page](/techniques/defense-impairment.md#t1601)
 
 - `AN0482` Analytic 0482, Network Devices
   Defenders may observe adversary attempts to alter or replace a network device’s operating system image through anomalous CLI commands, unexpected firmware updates, integrity check failures, or mismatches in version and checksum validation. Suspicious behavior includes modification of image files on storage, OS version output inconsistent with baselines, unexpected reloads or reboots after image replacement, and changes to boot configuration that load non-standard system images.
@@ -641,7 +641,7 @@ ATT&CK: [T1601](https://attack.mitre.org/techniques/T1601/), [detail page](../..
 
 Detection strategy: Detection Strategy for Patch System Image on Network Devices (`DET0469`)  
 Platforms: Network Devices  
-ATT&CK: [T1601.001](https://attack.mitre.org/techniques/T1601/001/), [detail page](../../techniques/defense-impairment.md#t1601001)
+ATT&CK: [T1601.001](https://attack.mitre.org/techniques/T1601/001/), [detail page](/techniques/defense-impairment.md#t1601001)
 
 - `AN1293` Analytic 1293, Network Devices
   Defenders may observe adversary attempts to patch system images by monitoring for anomalous file transfers (TFTP, SCP, FTP) of image files, unauthorized CLI commands altering boot system variables, integrity check mismatches between running and baseline OS images, and runtime memory manipulation attempts. Suspicious sequences include uploading a new image, modifying boot parameters, and subsequent reload/reboot of the device. In-memory patching attempts may manifest as debug commands or boot loader manipulation inconsistent with normal administrative activity.
@@ -655,7 +655,7 @@ ATT&CK: [T1601.001](https://attack.mitre.org/techniques/T1601/001/), [detail pag
 
 Detection strategy: Detection Strategy for Downgrade System Image on Network Devices (`DET0569`)  
 Platforms: Network Devices  
-ATT&CK: [T1601.002](https://attack.mitre.org/techniques/T1601/002/), [detail page](../../techniques/defense-impairment.md#t1601002)
+ATT&CK: [T1601.002](https://attack.mitre.org/techniques/T1601/002/), [detail page](/techniques/defense-impairment.md#t1601002)
 
 - `AN1570` Analytic 1570, Network Devices
   Defenders may observe adversary attempts to downgrade system images by monitoring for anomalous file transfers of OS image files (via TFTP, FTP, SCP), configuration changes pointing boot system variables to older image files, unexpected OS version strings after reboot, and checksum mismatches against approved baseline images. Suspicious chains include transfer of an older image, alteration of boot configuration, and reboot/reload of the device. Adversaries may also tamper with CLI output to disguise downgrade attempts, requiring independent validation of OS version and integrity.
@@ -669,7 +669,7 @@ ATT&CK: [T1601.002](https://attack.mitre.org/techniques/T1601/002/), [detail pag
 
 Detection strategy: Detection Strategy for Plist File Modification (T1647) (`DET0109`)  
 Platforms: macOS  
-ATT&CK: [T1647](https://attack.mitre.org/techniques/T1647/), [detail page](../../techniques/defense-impairment.md#t1647)
+ATT&CK: [T1647](https://attack.mitre.org/techniques/T1647/), [detail page](/techniques/defense-impairment.md#t1647)
 
 - `AN0306` Analytic 0306, macOS
   Monitor for unexpected modifications of plist files in persistence or configuration directories (e.g., ~/Library/LaunchAgents, ~/Library/Preferences, /Library/LaunchDaemons). Detect when modifications are followed by execution of new or unexpected binaries. Track use of utilities such as defaults, plutil, or text editors making changes to Info.plist files. Correlate file modifications with subsequent process launches or service starts that reference the altered plist.
@@ -683,7 +683,7 @@ ATT&CK: [T1647](https://attack.mitre.org/techniques/T1647/), [detail page](../..
 
 Detection strategy: Detection Strategy for Modify Cloud Resource Hierarchy (`DET0155`)  
 Platforms: IaaS  
-ATT&CK: [T1666](https://attack.mitre.org/techniques/T1666/), [detail page](../../techniques/defense-impairment.md#t1666)
+ATT&CK: [T1666](https://attack.mitre.org/techniques/T1666/), [detail page](/techniques/defense-impairment.md#t1666)
 
 - `AN0442` Analytic 0442, IaaS
   Monitor for unauthorized or unusual modifications to cloud resource hierarchies such as AWS Organizations or Azure Management Groups. Defenders may observe anomalous calls to APIs like `LeaveOrganization`, `CreateAccount`, `MoveAccount`, or Azure subscription transfers. Correlate account activity with administrative role assignments, tenant transfers, or new subscription creation that deviates from organizational baselines. Multi-event correlation should track role elevation followed by hierarchy modifications within a short time window.
@@ -697,7 +697,7 @@ ATT&CK: [T1666](https://attack.mitre.org/techniques/T1666/), [detail page](../..
 
 Detection strategy: Detection of Defense Impairment through Disabled or Modified Tools across OS Platforms. (`DET0497`)  
 Platforms: Containers, ESXi, IaaS, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1685](https://attack.mitre.org/techniques/T1685/), [detail page](../../techniques/defense-impairment.md#t1685)
+ATT&CK: [T1685](https://attack.mitre.org/techniques/T1685/), [detail page](/techniques/defense-impairment.md#t1685)
 
 - `AN1369` Analytic 1369, Windows
   Detection of adversary behavior that disables or modifies security tools, including killing AV/EDR processes, stopping services, altering Sysmon registry keys, or tampering with exclusion lists. Defenders observe process/service termination, registry modification, and abnormal absence of expected telemetry.
@@ -735,7 +735,7 @@ ATT&CK: [T1685](https://attack.mitre.org/techniques/T1685/), [detail page](../..
 
 Detection strategy: Detect Disabled Windows Event Log (`DET0187`)  
 Platforms: Windows  
-ATT&CK: [T1685.001](https://attack.mitre.org/techniques/T1685/001/), [detail page](../../techniques/defense-impairment.md#t1685001)
+ATT&CK: [T1685.001](https://attack.mitre.org/techniques/T1685/001/), [detail page](/techniques/defense-impairment.md#t1685001)
 
 - `AN0535` Analytic 0535, Windows
   Detection of attempts to disable or tamper with Windows Event Logging. This includes stopping or disabling the EventLog service, modifying registry keys related to EventLog and Autologger, using `auditpol` or `wevtutil` to disable categories or clear audit policies, and detecting suspicious gaps or resets in event logs. Defenders observe registry changes, service state changes, process execution of disabling commands, and anomalies in event record sequences.
@@ -749,7 +749,7 @@ ATT&CK: [T1685.001](https://attack.mitre.org/techniques/T1685/001/), [detail pag
 
 Detection strategy: Detection Strategy for Disable or Modify Cloud Log (`DET0289`)  
 Platforms: IaaS, Identity Provider, Office Suite, SaaS  
-ATT&CK: [T1685.002](https://attack.mitre.org/techniques/T1685/002/), [detail page](../../techniques/defense-impairment.md#t1685002)
+ATT&CK: [T1685.002](https://attack.mitre.org/techniques/T1685/002/), [detail page](/techniques/defense-impairment.md#t1685002)
 
 - `AN0801` Analytic 0801, IaaS
   Cloud API events where logging services are stopped, deleted, or modified in a way that disables audit visibility. Defender view: unauthorized StopLogging, DeleteTrail, or UpdateSink operations correlated with privileged user activity.
@@ -775,7 +775,7 @@ ATT&CK: [T1685.002](https://attack.mitre.org/techniques/T1685/002/), [detail pag
 
 Detection strategy: Detection for Spoofing Tool UI across OS Platforms (`DET0311`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1685.003](https://attack.mitre.org/techniques/T1685/003/), [detail page](../../techniques/defense-impairment.md#t1685003)
+ATT&CK: [T1685.003](https://attack.mitre.org/techniques/T1685/003/), [detail page](/techniques/defense-impairment.md#t1685003)
 
 - `AN0868` Analytic 0868, Windows
   Detection of inconsistencies between reported sensor health and actual process/service state. For example, Windows Defender tray icon/UI showing healthy status while corresponding Defender services (WinDefend, MsMpEng) are stopped or disabled. Correlates process creation events with missing or terminated security processes and spoofed health events.
@@ -797,7 +797,7 @@ ATT&CK: [T1685.003](https://attack.mitre.org/techniques/T1685/003/), [detail pag
 
 Detection strategy: Detection Strategy for Disable or Modify Linux Audit System Log (`DET0062`)  
 Platforms: Linux  
-ATT&CK: [T1685.004](https://attack.mitre.org/techniques/T1685/004/), [detail page](../../techniques/defense-impairment.md#t1685004)
+ATT&CK: [T1685.004](https://attack.mitre.org/techniques/T1685/004/), [detail page](/techniques/defense-impairment.md#t1685004)
 
 - `AN0171` Analytic 0171, Linux
   Disabling or modifying the Linux Audit system through process termination (auditd killed), service management (systemctl stop auditd), or tampering with rule/configuration files (/etc/audit/audit.rules, audit.conf). Defender view: suspicious execution of auditctl/systemctl commands, file modifications to audit rules, or sudden absence of audit logs correlated with privileged execution.
@@ -811,7 +811,7 @@ ATT&CK: [T1685.004](https://attack.mitre.org/techniques/T1685/004/), [detail pag
 
 Detection strategy: Detection of Event Log Clearing on Windows via Behavioral Chain (`DET0532`)  
 Platforms: Windows  
-ATT&CK: [T1685.005](https://attack.mitre.org/techniques/T1685/005/), [detail page](../../techniques/defense-impairment.md#t1685005)
+ATT&CK: [T1685.005](https://attack.mitre.org/techniques/T1685/005/), [detail page](/techniques/defense-impairment.md#t1685005)
 
 - `AN1472` Analytic 1472, Windows
   Detects behavioral sequence where an adversary gains elevated privileges and clears event logs using native binaries (e.g., wevtutil), PowerShell, or direct file deletion of .evtx files.
@@ -825,7 +825,7 @@ ATT&CK: [T1685.005](https://attack.mitre.org/techniques/T1685/005/), [detail pag
 
 Detection strategy: Behavioral Detection of Log File Clearing on Linux and macOS (`DET0520`)  
 Platforms: Linux, macOS  
-ATT&CK: [T1685.006](https://attack.mitre.org/techniques/T1685/006/), [detail page](../../techniques/defense-impairment.md#t1685006)
+ATT&CK: [T1685.006](https://attack.mitre.org/techniques/T1685/006/), [detail page](/techniques/defense-impairment.md#t1685006)
 
 - `AN1438` Analytic 1438, Linux
   Detects log-clearing behavior by correlating suspicious command execution targeting log files under /var/log/, anomalous deletions or truncations of system logs, and unusual child processes (e.g., shell pipelines or redirections).
@@ -843,7 +843,7 @@ ATT&CK: [T1685.006](https://attack.mitre.org/techniques/T1685/006/), [detail pag
 
 Detection strategy: Detection of Disabled or Modified System Firewalls across OS Platforms. (`DET0145`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1686](https://attack.mitre.org/techniques/T1686/), [detail page](../../techniques/defense-impairment.md#t1686)
+ATT&CK: [T1686](https://attack.mitre.org/techniques/T1686/), [detail page](/techniques/defense-impairment.md#t1686)
 
 - `AN0406` Analytic 0406, Windows
   Detection of firewall tampering by monitoring processes executing netsh, PowerShell Set-NetFirewallProfile, or sc stop mpssvc. Registry modifications under HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy also indicate adversarial actions.
@@ -873,7 +873,7 @@ ATT&CK: [T1686](https://attack.mitre.org/techniques/T1686/), [detail page](../..
 
 Detection strategy: Detection Strategy for Disable or Modify Cloud Firewall (`DET0424`)  
 Platforms: IaaS  
-ATT&CK: [T1686.001](https://attack.mitre.org/techniques/T1686/001/), [detail page](../../techniques/defense-impairment.md#t1686001)
+ATT&CK: [T1686.001](https://attack.mitre.org/techniques/T1686/001/), [detail page](/techniques/defense-impairment.md#t1686001)
 
 - `AN1188` Analytic 1188, IaaS
   Creation, deletion, or modification of security groups and firewall rules in cloud control plane logs that expand access to cloud resources beyond expected baselines. Defender view: unexpected ingress/egress rules permitting 0.0.0.0/0 or opening atypical ports, often correlated with privileged role or API key activity.
@@ -887,7 +887,7 @@ ATT&CK: [T1686.001](https://attack.mitre.org/techniques/T1686/001/), [detail pag
 
 Detection strategy: Detection of Unauthorized Network Firewall Rule Modification (`DET0306`)  
 Platforms: Network Devices  
-ATT&CK: [T1686.002](https://attack.mitre.org/techniques/T1686/002/), [detail page](../../techniques/defense-impairment.md#t1686002)
+ATT&CK: [T1686.002](https://attack.mitre.org/techniques/T1686/002/), [detail page](/techniques/defense-impairment.md#t1686002)
 
 - `AN0855` Analytic 0855, Network Devices
   Defender observes configuration changes on firewall/network appliance involving rule creation, modification, or deletion from abnormal management IPs or non-console channels (e.g., remote CLI, API). These are often correlated with a spike in previously blocked outbound traffic, unexpected allow-all rules, or bulk rule deletions. Behavior often follows unauthorized login, privilege escalation, or API abuse.
@@ -901,7 +901,7 @@ ATT&CK: [T1686.002](https://attack.mitre.org/techniques/T1686/002/), [detail pag
 
 Detection strategy: Detect Windows Firewall (`DET0901`)  
 Platforms: Windows  
-ATT&CK: [T1686.003](https://attack.mitre.org/techniques/T1686/003/), [detail page](../../techniques/defense-impairment.md#t1686003)
+ATT&CK: [T1686.003](https://attack.mitre.org/techniques/T1686/003/), [detail page](/techniques/defense-impairment.md#t1686003)
 
 - `AN2043` Analytic 2043, Windows
   Detects processes or users modifying Windows Defender Firewall profiles, policies, or rules followed by measurable network exposure changes. Correlates firewall management execution, registry/policy mutation, service state changes, and subsequent inbound or outbound connectivity inconsistent with baseline administration.
@@ -915,7 +915,7 @@ ATT&CK: [T1686.003](https://attack.mitre.org/techniques/T1686/003/), [detail pag
 
 Detection strategy: Detection of Defense Impairment (`DET0900`)  
 Platforms: IaaS, Linux, SaaS, Windows, macOS  
-ATT&CK: [T1687](https://attack.mitre.org/techniques/T1687/), [detail page](../../techniques/defense-impairment.md#t1687)
+ATT&CK: [T1687](https://attack.mitre.org/techniques/T1687/), [detail page](/techniques/defense-impairment.md#t1687)
 
 - `AN2038` Analytic 2038, Windows
   Detects suspicious interactions with security products followed by service crashes, unexpected restarts, driver unloads, telemetry gaps, or tamper-state changes. Correlates exploit precursor behavior with immediate degradation of defensive services and follow-on process execution.
@@ -945,7 +945,7 @@ ATT&CK: [T1687](https://attack.mitre.org/techniques/T1687/), [detail page](../..
 
 Detection strategy: Detection Strategy for Safe Mode Boot Abuse (`DET0116`)  
 Platforms: Windows  
-ATT&CK: [T1688](https://attack.mitre.org/techniques/T1688/), [detail page](../../techniques/defense-impairment.md#t1688)
+ATT&CK: [T1688](https://attack.mitre.org/techniques/T1688/), [detail page](/techniques/defense-impairment.md#t1688)
 
 - `AN0323` Analytic 0323, Windows
   Abuse of safe mode via BCD modification, boot configuration utilities (bcdedit.exe, bootcfg.exe), and registry persistence under SafeBoot keys. Defender view: suspicious boot configuration changes correlated with registry edits that enable adversary persistence or disable defenses.
@@ -959,7 +959,7 @@ ATT&CK: [T1688](https://attack.mitre.org/techniques/T1688/), [detail page](../..
 
 Detection strategy: Detecting Downgrade Attacks (`DET0350`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1689](https://attack.mitre.org/techniques/T1689/), [detail page](../../techniques/defense-impairment.md#t1689)
+ATT&CK: [T1689](https://attack.mitre.org/techniques/T1689/), [detail page](/techniques/defense-impairment.md#t1689)
 
 - `AN0995` Analytic 0995, Windows
   Detection of processes launching downgraded PowerShell versions (e.g., v2) or other legacy binaries that lack logging or security features. Correlates command-line arguments, process metadata, and version fields. Monitors registry changes to Defender or HVCI keys that could indicate intentional downgrades.
@@ -981,7 +981,7 @@ ATT&CK: [T1689](https://attack.mitre.org/techniques/T1689/), [detail page](../..
 
 Detection strategy: Detection Strategy for Defense Impairment via Prevent Command History Logging across OS platforms. (`DET0563`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1690](https://attack.mitre.org/techniques/T1690/), [detail page](../../techniques/defense-impairment.md#t1690)
+ATT&CK: [T1690](https://attack.mitre.org/techniques/T1690/), [detail page](/techniques/defense-impairment.md#t1690)
 
 - `AN1555` Analytic 1555, Linux
   Detection of environment variable tampering (HISTFILE, HISTCONTROL, HISTFILESIZE) and absence of expected bash history writes. Correlation of unset or zeroed history variables with active shell sessions is indicative of adversarial evasion.

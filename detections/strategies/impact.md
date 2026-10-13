@@ -2,7 +2,7 @@
 
 > MITRE ATT&CK detection strategies and analytics (v19.2) for techniques whose primary tactic is Impact. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
 
-See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](../TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](../../ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](../../techniques/README.md)
+See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](/techniques/README.md)
 
 ---
 
@@ -11,7 +11,7 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 
 Detection strategy: Detection of Data Destruction Across Platforms via Mass Overwrite and Deletion Patterns (`DET0146`)  
 Platforms: Containers, ESXi, IaaS, Linux, Windows, macOS  
-ATT&CK: [T1485](https://attack.mitre.org/techniques/T1485/), [detail page](../../techniques/impact.md#t1485)
+ATT&CK: [T1485](https://attack.mitre.org/techniques/T1485/), [detail page](/techniques/impact.md#t1485)
 
 - `AN0411` Analytic 0411, Windows
   Adversary spawns command-line tools (e.g., del, cipher /w, SDelete) or scripts to recursively delete or overwrite user/system files. This may be correlated with abnormal file IO activity, registry writes, or tampering in critical system directories.
@@ -45,7 +45,7 @@ ATT&CK: [T1485](https://attack.mitre.org/techniques/T1485/), [detail page](../..
 
 Detection strategy: Detection of Lifecycle Policy Modifications for Triggered Deletion in IaaS Cloud Storage (`DET0041`)  
 Platforms: IaaS  
-ATT&CK: [T1485.001](https://attack.mitre.org/techniques/T1485/001/), [detail page](../../techniques/impact.md#t1485001)
+ATT&CK: [T1485.001](https://attack.mitre.org/techniques/T1485/001/), [detail page](/techniques/impact.md#t1485001)
 
 - `AN0117` Analytic 0117, IaaS
   Adversary with write access to storage modifies lifecycle policies (e.g., via PutBucketLifecycle) to schedule rapid object deletion across one or more storage buckets. This is often used to trigger impact (destruction), remove logs (defense evasion), or force extortion (ransomware).
@@ -59,7 +59,7 @@ ATT&CK: [T1485.001](https://attack.mitre.org/techniques/T1485/001/), [detail pag
 
 Detection strategy: Detection of Multi-Platform File Encryption for Impact (`DET0215`)  
 Platforms: ESXi, IaaS, Linux, Windows, macOS  
-ATT&CK: [T1486](https://attack.mitre.org/techniques/T1486/), [detail page](../../techniques/impact.md#t1486)
+ATT&CK: [T1486](https://attack.mitre.org/techniques/T1486/), [detail page](/techniques/impact.md#t1486)
 
 - `AN0602` Analytic 0602, Windows
   High-frequency file write operations using uncommon extensions, followed by ransom note creation, registry tampering, or shadow copy deletion. Often uses CLI tools like vssadmin, wbadmin, cipher, or PowerShell.
@@ -89,7 +89,7 @@ ATT&CK: [T1486](https://attack.mitre.org/techniques/T1486/), [detail page](../..
 
 Detection strategy: Behavioral Detection for Service Stop across Platforms (`DET0021`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1489](https://attack.mitre.org/techniques/T1489/), [detail page](../../techniques/impact.md#t1489)
+ATT&CK: [T1489](https://attack.mitre.org/techniques/T1489/), [detail page](/techniques/impact.md#t1489)
 
 - `AN0061` Analytic 0061, Windows
   Adversary disables or stops critical services (e.g., Exchange, SQL, AV, endpoint monitoring) using native utilities or API calls, often preceding destructive actions (T1485, T1486). Behavioral chain: Elevated execution context + stop-service or sc.exe or ChangeServiceConfigW + terminated or disabled service + possible follow-up file manipulation.
@@ -115,7 +115,7 @@ ATT&CK: [T1489](https://attack.mitre.org/techniques/T1489/), [detail page](../..
 
 Detection strategy: Behavioral Detection for T1490 - Inhibit System Recovery (`DET0329`)  
 Platforms: ESXi, IaaS, Linux, Network Devices, Windows  
-ATT&CK: [T1490](https://attack.mitre.org/techniques/T1490/), [detail page](../../techniques/impact.md#t1490)
+ATT&CK: [T1490](https://attack.mitre.org/techniques/T1490/), [detail page](/techniques/impact.md#t1490)
 
 - `AN0933` Analytic 0933, Windows
   Process chains that use native utilities (vssadmin, wbadmin, diskshadow, bcdedit, REAgentC, wmic) with arguments to delete shadow copies, disable recovery, or remove backup catalogs
@@ -145,7 +145,7 @@ ATT&CK: [T1490](https://attack.mitre.org/techniques/T1490/), [detail page](../..
 
 Detection strategy: Defacement via File and Web Content Modification Across Platforms (`DET0238`)  
 Platforms: ESXi, IaaS, Linux, Windows, macOS  
-ATT&CK: [T1491](https://attack.mitre.org/techniques/T1491/), [detail page](../../techniques/impact.md#t1491)
+ATT&CK: [T1491](https://attack.mitre.org/techniques/T1491/), [detail page](/techniques/impact.md#t1491)
 
 - `AN0662` Analytic 0662, Windows
   Adversary modifies website or application-hosted content via unauthorized file changes or script injections, often by exploiting web servers or CMS access.
@@ -175,7 +175,7 @@ ATT&CK: [T1491](https://attack.mitre.org/techniques/T1491/), [detail page](../..
 
 Detection strategy: Internal Website and System Content Defacement via UI or Messaging Modifications (`DET0082`)  
 Platforms: ESXi, Linux, Windows, macOS  
-ATT&CK: [T1491.001](https://attack.mitre.org/techniques/T1491/001/), [detail page](../../techniques/impact.md#t1491001)
+ATT&CK: [T1491.001](https://attack.mitre.org/techniques/T1491/001/), [detail page](/techniques/impact.md#t1491001)
 
 - `AN0229` Analytic 0229, Windows
   Adversary modifies internal UI messages (e.g., login banners, desktop wallpapers) or hosted intranet web pages by creating or altering content files using scripts or unauthorized access. Often preceded by privilege escalation or web shell deployment.
@@ -201,7 +201,7 @@ ATT&CK: [T1491.001](https://attack.mitre.org/techniques/T1491/001/), [detail pag
 
 Detection strategy: Behavioral Detection of External Website Defacement across Platforms (`DET0590`)  
 Platforms: IaaS, Linux, Windows, macOS  
-ATT&CK: [T1491.002](https://attack.mitre.org/techniques/T1491/002/), [detail page](../../techniques/impact.md#t1491002)
+ATT&CK: [T1491.002](https://attack.mitre.org/techniques/T1491/002/), [detail page](/techniques/impact.md#t1491002)
 
 - `AN1622` Analytic 1622, Windows
   Adversary modifies externally-facing web content by accessing and overwriting hosted HTML/JS/CSS files, typically following web shell deployment, credential abuse, or exploitation of web application vulnerabilities.
@@ -227,7 +227,7 @@ ATT&CK: [T1491.002](https://attack.mitre.org/techniques/T1491/002/), [detail pag
 
 Detection strategy: Firmware Modification via Flash Tool or Corrupted Firmware Upload (`DET0167`)  
 Platforms: Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1495](https://attack.mitre.org/techniques/T1495/), [detail page](../../techniques/impact.md#t1495)
+ATT&CK: [T1495](https://attack.mitre.org/techniques/T1495/), [detail page](/techniques/impact.md#t1495)
 
 - `AN0474` Analytic 0474, Windows
   Firmware flash utility invoked with elevated privileges followed by raw access to firmware device path or changes to boot configuration.
@@ -253,7 +253,7 @@ ATT&CK: [T1495](https://attack.mitre.org/techniques/T1495/), [detail page](../..
 
 Detection strategy: Resource Hijacking Detection Strategy (`DET0267`)  
 Platforms: Containers, IaaS, Linux, SaaS, Windows, macOS  
-ATT&CK: [T1496](https://attack.mitre.org/techniques/T1496/), [detail page](../../techniques/impact.md#t1496)
+ATT&CK: [T1496](https://attack.mitre.org/techniques/T1496/), [detail page](/techniques/impact.md#t1496)
 
 - `AN0741` Analytic 0741, Windows
   Persistent high CPU utilization combined with suspicious command-line execution (e.g., mining tools or obfuscated scripts) and outbound connections to mining/proxy networks.
@@ -287,7 +287,7 @@ ATT&CK: [T1496](https://attack.mitre.org/techniques/T1496/), [detail page](../..
 
 Detection strategy: Multi-Platform Behavioral Detection for Compute Hijacking (`DET0540`)  
 Platforms: Containers, IaaS, Linux, Windows, macOS  
-ATT&CK: [T1496.001](https://attack.mitre.org/techniques/T1496/001/), [detail page](../../techniques/impact.md#t1496001)
+ATT&CK: [T1496.001](https://attack.mitre.org/techniques/T1496/001/), [detail page](/techniques/impact.md#t1496001)
 
 - `AN1489` Analytic 1489, Windows
   Sustained execution of resource-intensive processes (e.g., cryptocurrency miners), often launched via scheduled tasks, WMI, or PowerShell. These processes frequently establish persistent external connections and attempt to evade detection using masqueraded or renamed binaries.
@@ -317,7 +317,7 @@ ATT&CK: [T1496.001](https://attack.mitre.org/techniques/T1496/001/), [detail pag
 
 Detection strategy: Detect Excessive or Unauthorized Bandwidth Usage for Botnet, Proxyjacking, or Scanning Purposes (`DET0028`)  
 Platforms: Containers, IaaS, Linux, Windows, macOS  
-ATT&CK: [T1496.002](https://attack.mitre.org/techniques/T1496/002/), [detail page](../../techniques/impact.md#t1496002)
+ATT&CK: [T1496.002](https://attack.mitre.org/techniques/T1496/002/), [detail page](/techniques/impact.md#t1496002)
 
 - `AN0080` Analytic 0080, Windows
   Processes invoking network-intensive child processes or uploading large data volumes, often from non-standard user or system contexts, with evidence of long-duration TCP/UDP sessions to unusual destinations.
@@ -347,7 +347,7 @@ ATT&CK: [T1496.002](https://attack.mitre.org/techniques/T1496/002/), [detail pag
 
 Detection strategy: Detection Strategy for Resource Hijacking: SMS Pumping via SaaS Application Logs (`DET0156`)  
 Platforms: SaaS  
-ATT&CK: [T1496.003](https://attack.mitre.org/techniques/T1496/003/), [detail page](../../techniques/impact.md#t1496003)
+ATT&CK: [T1496.003](https://attack.mitre.org/techniques/T1496/003/), [detail page](/techniques/impact.md#t1496003)
 
 - `AN0443` Analytic 0443, SaaS
   Automated and repetitive triggering of SMS messages through OTP/account verification fields on SaaS platforms, leveraging background messaging APIs such as Twilio, AWS SNS, or Amazon Cognito to generate traffic toward attacker-controlled numbers.
@@ -361,7 +361,7 @@ ATT&CK: [T1496.003](https://attack.mitre.org/techniques/T1496/003/), [detail pag
 
 Detection strategy: Detection Strategy for Cloud Service Hijacking via SaaS Abuse (`DET0147`)  
 Platforms: SaaS  
-ATT&CK: [T1496.004](https://attack.mitre.org/techniques/T1496/004/), [detail page](../../techniques/impact.md#t1496004)
+ATT&CK: [T1496.004](https://attack.mitre.org/techniques/T1496/004/), [detail page](/techniques/impact.md#t1496004)
 
 - `AN0417` Analytic 0417, SaaS
   Adversary gains access to cloud-hosted services such as AWS SES, SNS, or OpenAI API, enables or modifies usage policies, and initiates resource-intensive actions (e.g., mass email/SMS or LLM queries), often from unauthorized regions or under anomalous identity conditions.
@@ -375,7 +375,7 @@ ATT&CK: [T1496.004](https://attack.mitre.org/techniques/T1496/004/), [detail pag
 
 Detection strategy: Behavioral Detection of T1498 – Network Denial of Service Across Platforms (`DET0518`)  
 Platforms: Linux, Windows  
-ATT&CK: [T1498](https://attack.mitre.org/techniques/T1498/), [detail page](../../techniques/impact.md#t1498)
+ATT&CK: [T1498](https://attack.mitre.org/techniques/T1498/), [detail page](/techniques/impact.md#t1498)
 
 - `AN1434` Analytic 1434, Windows
   Executable or script generating large outbound network traffic targeting remote hosts or known amplification ports
@@ -393,7 +393,7 @@ ATT&CK: [T1498](https://attack.mitre.org/techniques/T1498/), [detail page](../..
 
 Detection strategy: Direct Network Flood Detection across IaaS, Linux, Windows, and macOS (`DET0343`)  
 Platforms: IaaS, Linux, Windows, macOS  
-ATT&CK: [T1498.001](https://attack.mitre.org/techniques/T1498/001/), [detail page](../../techniques/impact.md#t1498001)
+ATT&CK: [T1498.001](https://attack.mitre.org/techniques/T1498/001/), [detail page](/techniques/impact.md#t1498001)
 
 - `AN0969` Analytic 0969, Windows
   High-volume packet generation by local processes (e.g., PowerShell, cmd, curl.exe) or network service processes resulting in excessive outbound traffic over short time window, correlated with abnormal resource usage or degraded host responsiveness.
@@ -419,7 +419,7 @@ ATT&CK: [T1498.001](https://attack.mitre.org/techniques/T1498/001/), [detail pag
 
 Detection strategy: Detection Strategy for Reflection Amplification DoS (T1498.002) (`DET0408`)  
 Platforms: IaaS, Linux, Windows, macOS  
-ATT&CK: [T1498.002](https://attack.mitre.org/techniques/T1498/002/), [detail page](../../techniques/impact.md#t1498002)
+ATT&CK: [T1498.002](https://attack.mitre.org/techniques/T1498/002/), [detail page](/techniques/impact.md#t1498002)
 
 - `AN1140` Analytic 1140, Windows
   Outbound spoofed traffic to known amplification protocols (e.g., DNS, NTP, Memcached) combined with abnormal network traffic volume targeting remote reflectors, resulting in disproportionate traffic returned to a victim
@@ -445,7 +445,7 @@ ATT&CK: [T1498.002](https://attack.mitre.org/techniques/T1498/002/), [detail pag
 
 Detection strategy: Endpoint Resource Saturation and Crash Pattern Detection Across Platforms (`DET0208`)  
 Platforms: Containers, IaaS, Linux, Windows, macOS  
-ATT&CK: [T1499](https://attack.mitre.org/techniques/T1499/), [detail page](../../techniques/impact.md#t1499)
+ATT&CK: [T1499](https://attack.mitre.org/techniques/T1499/), [detail page](/techniques/impact.md#t1499)
 
 - `AN0584` Analytic 0584, Windows
   Excessive resource exhaustion or service crash induced by processes launched by users or scripts that rapidly consume CPU/memory or attempt malformed service interactions.
@@ -475,7 +475,7 @@ ATT&CK: [T1499](https://attack.mitre.org/techniques/T1499/), [detail page](../..
 
 Detection strategy: Endpoint DoS via OS Exhaustion Flood Detection Strategy (`DET0356`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1499.001](https://attack.mitre.org/techniques/T1499/001/), [detail page](../../techniques/impact.md#t1499001)
+ATT&CK: [T1499.001](https://attack.mitre.org/techniques/T1499/001/), [detail page](/techniques/impact.md#t1499001)
 
 - `AN1012` Analytic 1012, Windows
   Burst of incomplete TCP handshakes (e.g., SYN floods) or uncorrelated ACK packets targeting the state table resulting in OS resource exhaustion.
@@ -497,7 +497,7 @@ ATT&CK: [T1499.001](https://attack.mitre.org/techniques/T1499/001/), [detail pag
 
 Detection strategy: Detection Strategy for Endpoint DoS via Service Exhaustion Flood (`DET0173`)  
 Platforms: IaaS, Linux, Windows, macOS  
-ATT&CK: [T1499.002](https://attack.mitre.org/techniques/T1499/002/), [detail page](../../techniques/impact.md#t1499002)
+ATT&CK: [T1499.002](https://attack.mitre.org/techniques/T1499/002/), [detail page](/techniques/impact.md#t1499002)
 
 - `AN0489` Analytic 0489, Windows
   High-frequency, repetitive service requests (e.g., HTTP, TLS renegotiation) originating from a single or small set of source IPs targeting endpoint web services or application ports, leading to exhaustion of CPU or memory on targeted Windows services.
@@ -523,7 +523,7 @@ ATT&CK: [T1499.002](https://attack.mitre.org/techniques/T1499/002/), [detail pag
 
 Detection strategy: Application Exhaustion Flood Detection Across Platforms (`DET0415`)  
 Platforms: IaaS, Linux, Windows, macOS  
-ATT&CK: [T1499.003](https://attack.mitre.org/techniques/T1499/003/), [detail page](../../techniques/impact.md#t1499003)
+ATT&CK: [T1499.003](https://attack.mitre.org/techniques/T1499/003/), [detail page](/techniques/impact.md#t1499003)
 
 - `AN1165` Analytic 1165, Windows
   Repeated invocation of high-resource application endpoints or GUI components causing CPU and memory spikes, logged as elevated request volumes, prolonged handle locks, or frequent crash recoveries.
@@ -549,7 +549,7 @@ ATT&CK: [T1499.003](https://attack.mitre.org/techniques/T1499/003/), [detail pag
 
 Detection strategy: Detection Strategy for Endpoint DoS via Application or System Exploitation (`DET0304`)  
 Platforms: IaaS, Linux, Windows, macOS  
-ATT&CK: [T1499.004](https://attack.mitre.org/techniques/T1499/004/), [detail page](../../techniques/impact.md#t1499004)
+ATT&CK: [T1499.004](https://attack.mitre.org/techniques/T1499/004/), [detail page](/techniques/impact.md#t1499004)
 
 - `AN0850` Analytic 0850, Windows
   Exploitation of system or application vulnerability (e.g., CVE-based exploit) followed by service crash, restart, or repeated failure within a short time frame, impacting application/system availability.
@@ -575,7 +575,7 @@ ATT&CK: [T1499.004](https://attack.mitre.org/techniques/T1499/004/), [detail pag
 
 Detection strategy: Multi-Platform Shutdown or Reboot Detection via Execution and Host Status Events (`DET0559`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1529](https://attack.mitre.org/techniques/T1529/), [detail page](../../techniques/impact.md#t1529)
+ATT&CK: [T1529](https://attack.mitre.org/techniques/T1529/), [detail page](/techniques/impact.md#t1529)
 
 - `AN1538` Analytic 1538, Windows
   Correlate process execution of shutdown/reboot commands (e.g., shutdown.exe, restart-computer) with host status change logs (Event IDs 1074, 6006) and absence of related administrative context (e.g., user not in Helpdesk group).
@@ -605,7 +605,7 @@ ATT&CK: [T1529](https://attack.mitre.org/techniques/T1529/), [detail page](../..
 
 Detection strategy: Account Access Removal via Multi-Platform Audit Correlation (`DET0120`)  
 Platforms: ESXi, Linux, Office Suite, SaaS, Windows, macOS  
-ATT&CK: [T1531](https://attack.mitre.org/techniques/T1531/), [detail page](../../techniques/impact.md#t1531)
+ATT&CK: [T1531](https://attack.mitre.org/techniques/T1531/), [detail page](/techniques/impact.md#t1531)
 
 - `AN0334` Analytic 0334, Windows
   Correlated user account modification (reset, disable, deletion) events with anomalous process lineage (e.g., PowerShell or net.exe from an interactive session), especially outside of IT admin change windows or by non-admin users.
@@ -639,7 +639,7 @@ ATT&CK: [T1531](https://attack.mitre.org/techniques/T1531/), [detail page](../..
 
 Detection strategy: Detection Strategy for Disk Wipe via Direct Disk Access and Destructive Commands (`DET0137`)  
 Platforms: Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1561](https://attack.mitre.org/techniques/T1561/), [detail page](../../techniques/impact.md#t1561)
+ATT&CK: [T1561](https://attack.mitre.org/techniques/T1561/), [detail page](/techniques/impact.md#t1561)
 
 - `AN0384` Analytic 0384, Windows
   Unusual direct disk access attempts (e.g., use of \\.\PhysicalDrive notation), abnormal writes to MBR/boot sectors, and installation of kernel drivers that grant raw disk access. Correlate anomalous process creation with disk modification attempts and driver loads.
@@ -665,7 +665,7 @@ ATT&CK: [T1561](https://attack.mitre.org/techniques/T1561/), [detail page](../..
 
 Detection strategy: Detection Strategy for Disk Content Wipe via Direct Access and Overwrite (`DET0316`)  
 Platforms: Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1561.001](https://attack.mitre.org/techniques/T1561/001/), [detail page](../../techniques/impact.md#t1561001)
+ATT&CK: [T1561.001](https://attack.mitre.org/techniques/T1561/001/), [detail page](/techniques/impact.md#t1561001)
 
 - `AN0882` Analytic 0882, Windows
   Processes attempting raw disk access via \\.\PhysicalDrive paths, abnormal file I/O to MBR/boot sectors, or loading of third-party drivers (e.g., RawDisk) that enable disk overwrite. Correlate process creation, privilege usage, and disk modification events within a short time window.
@@ -691,7 +691,7 @@ ATT&CK: [T1561.001](https://attack.mitre.org/techniques/T1561/001/), [detail pag
 
 Detection strategy: Detection Strategy for Disk Structure Wipe via Boot/Partition Overwrite (`DET0297`)  
 Platforms: Linux, Network Devices, Windows, macOS  
-ATT&CK: [T1561.002](https://attack.mitre.org/techniques/T1561/002/), [detail page](../../techniques/impact.md#t1561002)
+ATT&CK: [T1561.002](https://attack.mitre.org/techniques/T1561/002/), [detail page](/techniques/impact.md#t1561002)
 
 - `AN0827` Analytic 0827, Windows
   Processes attempting raw disk access to overwrite sensitive structures such as the MBR or partition table using \\.\PhysicalDrive notation. Detection relies on correlating process creation, privilege escalation, and raw sector writes in Sysmon and Security logs.
@@ -717,7 +717,7 @@ ATT&CK: [T1561.002](https://attack.mitre.org/techniques/T1561/002/), [detail pag
 
 Detection strategy: Detection Strategy for Data Manipulation (`DET0059`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1565](https://attack.mitre.org/techniques/T1565/), [detail page](../../techniques/impact.md#t1565)
+ATT&CK: [T1565](https://attack.mitre.org/techniques/T1565/), [detail page](/techniques/impact.md#t1565)
 
 - `AN0162` Analytic 0162, Windows
   Correlate unauthorized or anomalous file modifications, deletions, or metadata changes with suspicious process execution or API calls. Detect abnormal changes to structured data (e.g., database files, logs, financial records) outside expected business process activity.
@@ -739,7 +739,7 @@ ATT&CK: [T1565](https://attack.mitre.org/techniques/T1565/), [detail page](../..
 
 Detection strategy: Detection Strategy for Stored Data Manipulation across OS Platforms. (`DET0193`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1565.001](https://attack.mitre.org/techniques/T1565/001/), [detail page](../../techniques/impact.md#t1565001)
+ATT&CK: [T1565.001](https://attack.mitre.org/techniques/T1565/001/), [detail page](/techniques/impact.md#t1565001)
 
 - `AN0555` Analytic 0555, Windows
   Identify unauthorized creation, deletion, or modification of business-critical stored data such as Office documents, database files, and log archives. Detect anomalous processes modifying stored data outside of expected workflows (e.g., non-database processes modifying database files).
@@ -761,7 +761,7 @@ ATT&CK: [T1565.001](https://attack.mitre.org/techniques/T1565/001/), [detail pag
 
 Detection strategy: Detection Strategy of Transmitted Data Manipulation (`DET0254`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1565.002](https://attack.mitre.org/techniques/T1565/002/), [detail page](../../techniques/impact.md#t1565002)
+ATT&CK: [T1565.002](https://attack.mitre.org/techniques/T1565/002/), [detail page](/techniques/impact.md#t1565002)
 
 - `AN0702` Analytic 0702, Windows
   Monitor for anomalies in transmitted data streams, including mismatched file integrity checks, API interception, or man-in-the-middle modifications. Detect unexpected use of APIs that handle network I/O where transmitted data integrity could be manipulated.
@@ -783,7 +783,7 @@ ATT&CK: [T1565.002](https://attack.mitre.org/techniques/T1565/002/), [detail pag
 
 Detection strategy: Detection Strategy for Runtime Data Manipulation. (`DET0391`)  
 Platforms: Linux, Windows, macOS  
-ATT&CK: [T1565.003](https://attack.mitre.org/techniques/T1565/003/), [detail page](../../techniques/impact.md#t1565003)
+ATT&CK: [T1565.003](https://attack.mitre.org/techniques/T1565/003/), [detail page](/techniques/impact.md#t1565003)
 
 - `AN1097` Analytic 1097, Windows
   Monitor for runtime data manipulations by detecting suspicious modification of application binaries, API hooking, or unexpected behavior from processes responsible for rendering or displaying data. Correlate registry edits, process creation, and unexpected binary hash mismatches.
@@ -805,7 +805,7 @@ ATT&CK: [T1565.003](https://attack.mitre.org/techniques/T1565/003/), [detail pag
 
 Detection strategy: Detection Strategy for Financial Theft (`DET0495`)  
 Platforms: Linux, Office Suite, SaaS, Windows, macOS  
-ATT&CK: [T1657](https://attack.mitre.org/techniques/T1657/), [detail page](../../techniques/impact.md#t1657)
+ATT&CK: [T1657](https://attack.mitre.org/techniques/T1657/), [detail page](/techniques/impact.md#t1657)
 
 - `AN1361` Analytic 1361, Windows
   Monitor for anomalous access to financial applications, browser-based banking sessions, or enterprise ERP systems from Windows endpoints. Detect mass emailing of payment instructions, sudden rule changes in Outlook for financial staff, or use of clipboard data exfiltration tied to cryptocurrency wallet addresses.
@@ -835,7 +835,7 @@ ATT&CK: [T1657](https://attack.mitre.org/techniques/T1657/), [detail page](../..
 
 Detection strategy: Detection Strategy for Email Bombing (`DET0355`)  
 Platforms: Linux, Office Suite, Windows, macOS  
-ATT&CK: [T1667](https://attack.mitre.org/techniques/T1667/), [detail page](../../techniques/impact.md#t1667)
+ATT&CK: [T1667](https://attack.mitre.org/techniques/T1667/), [detail page](/techniques/impact.md#t1667)
 
 - `AN1008` Analytic 1008, Windows
   Detect abnormally high volume of inbound email messages or repetitive attachments being delivered to a single mailbox within a short time window. Defenders should look for anomalous spikes in message counts and repetitive attachment file creation events correlated with targeted users.

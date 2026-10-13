@@ -13,7 +13,10 @@
 exclude = [
   # Bot protection (Akamai "Access Denied", Cloudflare block pages, CloudFront and similar): 403 to automated clients.
   '^http://dangerousprototypes\.com/docs/Bus_Pirate/?$',
+  '^https://archive\.dni\.gov/files/NCSC/documents/features/NITTF_MaturityFramework_web\.pdf/?$',
   '^https://archive\.dni\.gov/index\.php/ncsc-how-we-work/ncsc-nittf/?$',
+  '^https://blackhat\.com/archive/usa/2024/briefings/schedule/?$',
+  '^https://blackhat\.com/html/arsenal\.html/?$',
   '^https://book\.hacktricks\.xyz/mobile-pentesting/?$',
   '^https://cubicsdr\.com/?$',
   '^https://kernsec\.org/wiki/Kernel_Self_Protection_Project/?$',
@@ -21,6 +24,7 @@ exclude = [
   '^https://nostarch\.com/xbox/?$',
   '^https://training\.zeropointsecurity\.co\.uk/courses/red-team-ops/?$',
   '^https://training\.zeropointsecurity\.co\.uk/courses/red-team-ops-ii/?$',
+  '^https://www\.actionfraud\.police\.uk/?$',
   '^https://www\.businesswire\.com/news/home/20210728005787/en/Sevco-Security-Named-Sample-Vendor-for-Cybersecurity-Asset-Attack-Surface-Management-CAASM-in-Gartner%C2%AE-Hype-Cycle%E2%84%A2-for-Network-Security-2021-and-Hype-Cycle%E2%84%A2-for-Security-Operations-2021/?$',
   '^https://www\.businesswire\.com/news/home/20241001622675/en/MITRE-Unveils-Full-Release-of-EMB3D-Threat-Model-that-Introduces-Mitigations/?$',
   '^https://www\.cisco\.com/site/us/en/products/security/secure-workload/index\.html/?$',
@@ -30,6 +34,9 @@ exclude = [
   '^https://www\.oreilly\.com/library/view/container-security/9781492056690/?$',
   '^https://www\.oreilly\.com/library/view/kubernetes-security/9781492039075/?$',
   '^https://www\.oreilly\.com/library/view/zero-trust-networks/9781492096580/?$',
+  '^https://www\.reddit\.com/r/RTLSDR/?$',
+  '^https://www\.reddit\.com/r/lockpicking/?$',
+  '^https://www\.reddit\.com/r/netsec/?$',
 
   # Cloudflare managed challenge: non-browser clients get a 403 "Just a moment..." page (response header cf-mitigated: challenge).
   '^https://academy\.langchain\.com/?$',
@@ -128,6 +135,7 @@ exclude = [
   '^https://www\.globenewswire\.com/news-release/2021/06/02/2240504/0/en/External-Attack-Surface-Management-Recognized-as-An-Emerging-Technology-by-Gartner-CyCognito-Among-List-of-Vendors-Offering-this-Technology\.html/?$',
   '^https://www\.globenewswire\.com/news-release/2026/02/24/3243891/0/en/Insider-Risk-Costs-Hit-19-5M-USD-Per-Year-as-AI-Creates-New-Blind-Spots\.html/?$',
   '^https://www\.globenewswire\.com/news-release/2026/04/10/3271747/0/en/hadrian-named-a-representative-vendor-in-the-gartner-market-guide-for-adversarial-exposure-validation\.html/?$',
+  '^https://www\.gsma\.com/solutions-and-impact/technologies/security/?$',
   '^https://www\.gsma\.com/solutions-and-impact/technologies/security/cybersecurity-knowledge-base/interworking-security/?$',
   '^https://www\.hhs\.gov/hipaa/for-professionals/breach-notification/index\.html/?$',
   '^https://www\.hhs\.gov/hipaa/for-professionals/security/index\.html/?$',

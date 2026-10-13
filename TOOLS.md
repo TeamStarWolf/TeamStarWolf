@@ -448,7 +448,7 @@ For deeper context on how tools map to NIST 800-53 controls and ATT&CK technique
 ### Additional Web Testing Tools
 | Tool | Language | Type | Description |
 |---|---|---|---|
-| [0d1n](https://github.com/CoolerVoid/0d1n) | C | OSS | Automate customized attacks against web applications |
+| [0d1n](https://web.archive.org/web/20220324051003/https://github.com/CoolerVoid/0d1n) | C | OSS | Automate customized attacks against web applications |
 | [1u.ms](http:/1u.ms) | Go | OSS | zero-configuration DNS utilities for assisting in detection and exploitation of SSRF-related vu |
 | [230-OOB](http://xxe.sh/) | Python | OSS | FTP server for OOB XXE attacks |
 | [API-fuzzer](https://github.com/Fuzzapi/API-fuzzer) | Ruby | OSS | Library to fuzz request attributes using common pentesting techniques and lists vulnerabilities |

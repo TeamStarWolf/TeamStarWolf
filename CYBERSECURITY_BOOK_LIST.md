@@ -547,7 +547,7 @@ Practice: [MITRE ATT&CK Evaluations](https://evals.mitre.org/) | [RangeForce](ht
 | People Hacker | Jenny Radcliffe | Beginner | Real-world physical and social engineering stories |
 | The Art of Deception | Kevin Mitnick | Beginner | Classic - social engineering case studies from the master |
 
-> Practical note: Michael Bazzell's [Privacy, Security & OSINT Show](https://inteltechniques.com/podcast.html) podcast covers updates that keep the book current. Subscribe and listen while commuting.
+> Practical note: Michael Bazzell's Privacy, Security & OSINT Show podcast covers updates that keep the book current. Subscribe and listen while commuting.
 
 Hands-on repos:
 - [awesome-osint](https://github.com/jivoi/awesome-osint) - Comprehensive curated OSINT resource list

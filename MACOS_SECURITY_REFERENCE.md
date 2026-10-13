@@ -9,7 +9,7 @@ Related: [Endpoint Security](ENDPOINT_SECURITY_REFERENCE.md), [Windows Hardening
 | | |
 |---|---|
 | Read this when | you inherit or harden a Mac fleet and need a baseline (mSCP/CIS/STIG), you are evaluating or deploying macOS EDR and telemetry, you are building macOS detections and need to map techniques to event sources |
-| Start at | [How macOS defense fits together](#how-macos-defense-fits-together), [Native telemetry: Endpoint Security, unified log, eslogger](#native-telemetry-endpoint-security-unified-log-eslogger), [Defender's checklist](#defenders-checklist) |
+| Start at | [How macOS defense fits together](#how-macos-defense-fits-together), [Native telemetry: Endpoint Security, unified log, eslogger](#native-telemetry-endpoint-security-unified-log-eslogger), [Defender's checklist](#defender39s-checklist) |
 
 ---
 

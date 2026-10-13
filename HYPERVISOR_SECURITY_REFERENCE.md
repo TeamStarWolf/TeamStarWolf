@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | Read this when | you are hardening a VMware/Hyper-V/Proxmox estate, a ransomware IR touched the hypervisor layer, you are scoping vCenter/ESXi patch exposure, or you are designing management-plane isolation and backup immutability for virtual infrastructure |
-| Start at | [Why the Hypervisor Is the Bullseye](#why-the-hypervisor-is-the-bullseye), [The ESXi Ransomware Kill Chain](#the-esxi-ransomware-kill-chain), [Exploited Hypervisor CVEs](#exploited-hypervisor-cves-2019-2026), [ESXi / vSphere Hardening](#vmware-esxi--vsphere-hardening) |
+| Start at | [Why the Hypervisor Is the Bullseye](#why-the-hypervisor-is-the-bullseye), [The ESXi Ransomware Kill Chain](#the-esxi-ransomware-kill-chain), [Exploited Hypervisor CVEs](#exploited-hypervisor-cves-2019-2026), [ESXi / vSphere Hardening](#vmware-esxi-vsphere-hardening) |
 | Pairs with | [RANSOMWARE_DEFENSE_REFERENCE.md](RANSOMWARE_DEFENSE_REFERENCE.md), [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md), [ENTERPRISE_INFRASTRUCTURE.md](ENTERPRISE_INFRASTRUCTURE.md), [CYBER_RESILIENCE_BCDR_REFERENCE.md](CYBER_RESILIENCE_BCDR_REFERENCE.md), [CONTAINER_SECURITY_REFERENCE.md](CONTAINER_SECURITY_REFERENCE.md) |
 
 ---

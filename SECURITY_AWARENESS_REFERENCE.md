@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | Read this when | standing up or overhauling a security-awareness/human-risk program, designing a defensible phishing-simulation cadence, choosing metrics that survive board scrutiny, mapping training obligations across NIST/ISO/PCI/HIPAA/NIS2/DORA, or briefing executives on why annual training alone does not move risk |
-| Start at | [Program Maturity Model](#program-maturity-model), [Phishing Simulation: Methodology, Metrics & Ethics](#phishing-simulation-methodology-metrics--ethics), [Measuring Human Risk](#measuring-human-risk) |
+| Start at | [Program Maturity Model](#program-maturity-model), [Phishing Simulation: Methodology, Metrics & Ethics](#phishing-simulation-methodology-metrics-amp-ethics), [Measuring Human Risk](#measuring-human-risk) |
 | Pairs with | [SOCIAL_ENGINEERING_REFERENCE.md](SOCIAL_ENGINEERING_REFERENCE.md), [EMAIL_SECURITY_REFERENCE.md](EMAIL_SECURITY_REFERENCE.md), [INSIDER_THREAT_REFERENCE.md](INSIDER_THREAT_REFERENCE.md), [SECURITY_METRICS_REFERENCE.md](SECURITY_METRICS_REFERENCE.md), [GRC_REFERENCE.md](GRC_REFERENCE.md) |
 
 > Not legal advice. The training-mandate section below is a defender's operational map, not legal counsel. Statutory and contractual obligations turn on facts, definitions, and national transpositions that change; confirm your specific duties with qualified counsel. Version- and date-specific claims were verified as of 2026-09-29 and carry sources.
@@ -91,7 +91,7 @@ General-workforce awareness is necessary but not sufficient. NIST distinguishes 
 | Executives & assistants | Whaling, deepfake voice/video, travel-based targeting, high-value approval controls | Quarterly + JIT |
 | Developers | Secure coding, OWASP Top 10, secrets handling, dependency/supply-chain risk | Continuous; tie to SDLC (see [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md)) |
 | Privileged / IT admins | Credential hygiene, tiered admin, social-engineering of the helpdesk (MFA-reset fraud) | At hire + quarterly |
-| Board & management body | Cyber-risk oversight, disclosure duties, their own statutory training obligations | At least annually: see [Executive & Board Awareness](#executive--board-awareness) |
+| Board & management body | Cyber-risk oversight, disclosure duties, their own statutory training obligations | At least annually: see [Executive & Board Awareness](#executive-amp-board-awareness) |
 
 ---
 

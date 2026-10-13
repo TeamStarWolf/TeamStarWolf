@@ -40,7 +40,7 @@ narrow the matrix to your situation before coloring it.
 
 Use it to: find techniques with *zero* mitigations (the classic red-cell gap analysis), report
 implementation progress to a program owner, or decide where to add a control. The
-[master coverage layer](navigator/teamstarwolf_vendor_coverage.json) in this repo is a NIST-control-depth
+[master coverage layer](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/teamstarwolf_vendor_coverage.json) in this repo is a NIST-control-depth
 view of this family.
 
 ---

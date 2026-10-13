@@ -8,7 +8,7 @@
 | Start at | [Process Creation](#process-creation), [Command Execution](#command-execution), [Detail](#detail) |
 | Pairs with | [Detection Strategies](detections/strategies/README.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
 
-Machine-readable: [`data/attack/data_components.jsonl`](data/attack/data_components.jsonl). See also: [Detection Strategies](detections/strategies/README.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md).
+Machine-readable: [`data/attack/data_components.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/data_components.jsonl). See also: [Detection Strategies](detections/strategies/README.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md).
 
 | Data Component | Data Source | Techniques | Example log sources |
 |---|---|--:|---|

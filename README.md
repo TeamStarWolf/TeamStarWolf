@@ -64,11 +64,11 @@ place. The Threat-Informed Defense reference explains how they fit together.
 
 ### Data
 
-The relationships behind these pages are published as JSONL files in [`data/`](data/) and as ATT&CK
+The relationships behind these pages are published as JSONL files in [`data/`](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data) and as ATT&CK
 Navigator layers, which [navigator/index.md](navigator/index.md) lists with a description and a link to
 open each one in the Navigator. [data/EDGES.md](data/EDGES.md) describes each relationship file,
 [data/VOCABULARIES.md](data/VOCABULARIES.md) lists the allowed field values, and
-[data/MANIFEST.json](data/MANIFEST.json) records each file's source, license, row count, and checksum.
+[data/MANIFEST.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/MANIFEST.json) records each file's source, license, row count, and checksum.
 
 The ATT&CK data files, the technique pages, and the framework pages are built from MITRE ATT&CK v19.2. The
 technique records also keep a small number of techniques that MITRE has since revoked or renumbered. Some
@@ -145,5 +145,5 @@ a registered trademark of The MITRE Corporation. This project is not affiliated 
 Corrections and additions are welcome. See [CONTRIBUTING](CONTRIBUTING.md), or open an
 [issue](https://github.com/TeamStarWolf/TeamStarWolf/issues).
 
-Original content is released under the [MIT License](LICENSE). Data and text drawn from MITRE and other
+Original content is released under the [MIT License](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/LICENSE). Data and text drawn from MITRE and other
 sources remain under their owners' terms, as described in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

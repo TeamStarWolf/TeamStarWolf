@@ -195,7 +195,7 @@ This is where CTEM departs hardest from legacy VM. Do not prioritize by CVSS bas
 | NIST LEV | Probability the CVE has *already* been exploited, compounded from historical EPSS scores; proposed in NIST CSWP 41 (May 2025) to complement KEV and EPSS | [NIST CSWP 41](https://csrc.nist.gov/pubs/cswp/41/likely-exploited-vulnerabilities-a-proposed-metric/final) |
 | Asset criticality | Business value, data sensitivity, blast radius | Your CMDB / scoping work |
 | Reachability | Is the vulnerable code path/port actually reachable? | Runtime & network context |
-| Compensating controls | Would WAF, EDR, segmentation, or MFA already stop it? | [Coverage data](data/), [D3FEND](D3FEND_REFERENCE.md) |
+| Compensating controls | Would WAF, EDR, segmentation, or MFA already stop it? | [Coverage data](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data), [D3FEND](D3FEND_REFERENCE.md) |
 | Attack-path position | Does it unlock lateral movement toward crown jewels? | [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md), [choke points](#attack-path-management-and-choke-points) |
 | Threat relevance | Do actors targeting *our sector* use this technique? | [Threat Group Profiles](THREAT_GROUP_PROFILES.md) |
 
@@ -541,7 +541,7 @@ This library's data lets you run the loop with real inputs:
 |---|---|
 | Scoping | [Enterprise Infrastructure](ENTERPRISE_INFRASTRUCTURE.md), [Threat Modeling](THREAT_MODELING_REFERENCE.md) |
 | Discovery | [OSINT](OSINT_REFERENCE.md), [Vuln Mgmt](VULNERABILITY_MANAGEMENT_REFERENCE.md), [Cloud](CLOUD_SECURITY_REFERENCE.md), [CWE weaknesses](CWE_REFERENCE.md) |
-| Prioritization | [Vulnerability Prioritization](VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Priority Gap Analysis](scores/attack_priority_gaps.md), [CVE/KEV/EPSS](CVE_REFERENCE.md), [CAPEC patterns](CAPEC_REFERENCE.md), [coverage edge tables](data/) |
+| Prioritization | [Vulnerability Prioritization](VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Priority Gap Analysis](scores/attack_priority_gaps.md), [CVE/KEV/EPSS](CVE_REFERENCE.md), [CAPEC patterns](CAPEC_REFERENCE.md), [coverage edge tables](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data) |
 | Validation | [Purple Team](PURPLE_TEAM_REFERENCE.md), [Detection Strategies](detections/strategies/README.md), [Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
 | Mobilization | [Security Metrics](SECURITY_METRICS_REFERENCE.md), [D3FEND countermeasures](D3FEND_REFERENCE.md), [Controls Mapping](CONTROLS_MAPPING.md) |
 

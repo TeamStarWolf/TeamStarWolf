@@ -297,6 +297,8 @@
 
 - Resources
   - [Starred Repositories](/STARRED_REPOS.md)
+  - [Kali Linux Tool Coverage](/research/KALI_TOOL_COVERAGE.md)
+  - [Field Notes](/research/FIELD_NOTES.md)
   - [Book List](/CYBERSECURITY_BOOK_LIST.md)
   - [YouTube Channels](/YOUTUBE_CHANNELS.md)
   - [X / Twitter List](/TWITTER_FOLLOW_LIST.md)

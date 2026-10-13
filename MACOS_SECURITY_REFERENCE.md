@@ -330,7 +330,7 @@ The [Enterprise macOS platform matrix](https://attack.mitre.org/matrices/enterpr
 | Exfiltration | 8 | Network telemetry; ES file events for staging/archiving |
 | Impact | 15 | ES file-modification bursts (encryption), unified log |
 
-Selected macOS techniques worth building detections around first (IDs, names, and macOS platform verified in this library's [`data/attack/technique_profiles.jsonl`](data/attack/technique_profiles.jsonl), a pre-v19 ATT&CK snapshot that predates the Stealth/Defense-Impairment split, and re-checked against attack.mitre.org v19.2):
+Selected macOS techniques worth building detections around first (IDs, names, and macOS platform verified in this library's [`data/attack/technique_profiles.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/technique_profiles.jsonl), a pre-v19 ATT&CK snapshot that predates the Stealth/Defense-Impairment split, and re-checked against attack.mitre.org v19.2):
 
 | Technique | Why it matters on macOS |
 |---|---|

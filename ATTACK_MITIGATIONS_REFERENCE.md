@@ -8,7 +8,7 @@
 | Start at | [Mitigations by coverage](#mitigations-by-coverage) for the ranked table, [Detail](#detail) for per-mitigation descriptions and example techniques |
 | Pairs with | [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md), [D3FEND_REFERENCE.md](D3FEND_REFERENCE.md), [ATTACK_TECHNIQUE_ATLAS.md](ATTACK_TECHNIQUE_ATLAS.md) |
 
-Machine-readable: [`data/attack/mitigations.jsonl`](data/attack/mitigations.jsonl), [`data/attack/mitigation_to_technique.jsonl`](data/attack/mitigation_to_technique.jsonl)
+Machine-readable: [`data/attack/mitigations.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/mitigations.jsonl), [`data/attack/mitigation_to_technique.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/mitigation_to_technique.jsonl)
 
 ## Mitigations by coverage
 

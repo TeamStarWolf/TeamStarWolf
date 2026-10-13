@@ -2,7 +2,7 @@
 
 > [MITRE CAPEC](https://capec.mitre.org/) (Common Attack Pattern Enumeration and Classification) describes the 615 common patterns of attack that exploit software weaknesses. CAPEC is the *attack-pattern* bridge between CWE (the weakness) and ATT&CK (the adversary behavior) in the [knowledge graph](THREAT_INFORMED_DEFENSE_REFERENCE.md). 177 patterns carry an explicit ATT&CK technique mapping.
 
-Machine-readable: [`data/weaknesses/capec.jsonl`](data/weaknesses/capec.jsonl). Related: [CWE Weaknesses](CWE_REFERENCE.md), [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md).
+Machine-readable: [`data/weaknesses/capec.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/weaknesses/capec.jsonl). Related: [CWE Weaknesses](CWE_REFERENCE.md), [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md).
 
 | | |
 |---|---|

@@ -6,7 +6,7 @@
 |---|---|
 | Read this when | picking your next structured HTB learning path, prepping for a cert like CPTS/CDSA/OSCP, deciding which Pro Lab matches your skill level |
 | Start at | [Recommended Learning Sequences](#recommended-learning-sequences), [Certification Alignment](#certification-alignment), [Pro Labs](#pro-labs) |
-| Pairs with | [HTB Machine Index](HTB_MACHINE_INDEX.md), [Labs Reference](../LABS.md), [Certifications](../CERTIFICATIONS.md) |
+| Pairs with | [HTB Machine Index](/research/HTB_MACHINE_INDEX.md), [Labs Reference](/LABS.md), [Certifications](/CERTIFICATIONS.md) |
 
 Curated learning tracks from [HackTheBox](https://app.hackthebox.com/tracks): structured paths grouping machines and challenges by theme, skill, or certification. Data extracted April 2026.
 
@@ -120,20 +120,20 @@ Tracks created by industry partners for recruitment or team development.
 
 | Track | Related Discipline Pages |
 |---|---|
-| Intro to Red Team / CPTS Preparation | [Penetration Testing](../disciplines/penetration-testing.md), [Active Directory](../disciplines/active-directory.md) |
-| Active Directory Exploitation | [Active Directory Security](../disciplines/active-directory.md), [Red Teaming](../disciplines/red-teaming.md) |
-| Detecting Active Directory Attacks | [Threat Hunting](../disciplines/threat-hunting.md), [SIEM/SOAR](../disciplines/siem-soar.md) |
-| Intro to Blue Team / CDSA Preparation | [Security Operations](../disciplines/security-operations.md), [Incident Response](../disciplines/incident-response.md) |
-| Cloud Track | [Cloud Security](../disciplines/cloud-security.md) |
-| OWASP Top 10 2021 / 2025 | [Application Security](../disciplines/application-security.md) |
-| Reverse Engineering / Binary Exploitation | [Reverse Engineering](../disciplines/reverse-engineering.md), [Exploit Development](../disciplines/exploit-development.md) |
-| ICS and SCADA Exploitation | [ICS/OT Security](../disciplines/ics-ot-security.md) |
-| Mobile Exploitation | [Mobile Security](../disciplines/mobile-security.md) |
-| Intro to Blockchain | [Blockchain and Web3 Security](../disciplines/blockchain-web3-security.md) |
-| Hardware Exploitation | [IoT Security](../disciplines/iot-security.md) |
+| Intro to Red Team / CPTS Preparation | [Penetration Testing](/disciplines/penetration-testing.md), [Active Directory](/disciplines/active-directory.md) |
+| Active Directory Exploitation | [Active Directory Security](/disciplines/active-directory.md), [Red Teaming](/disciplines/red-teaming.md) |
+| Detecting Active Directory Attacks | [Threat Hunting](/disciplines/threat-hunting.md), [SIEM/SOAR](/disciplines/siem-soar.md) |
+| Intro to Blue Team / CDSA Preparation | [Security Operations](/disciplines/security-operations.md), [Incident Response](/disciplines/incident-response.md) |
+| Cloud Track | [Cloud Security](/disciplines/cloud-security.md) |
+| OWASP Top 10 2021 / 2025 | [Application Security](/disciplines/application-security.md) |
+| Reverse Engineering / Binary Exploitation | [Reverse Engineering](/disciplines/reverse-engineering.md), [Exploit Development](/disciplines/exploit-development.md) |
+| ICS and SCADA Exploitation | [ICS/OT Security](/disciplines/ics-ot-security.md) |
+| Mobile Exploitation | [Mobile Security](/disciplines/mobile-security.md) |
+| Intro to Blockchain | [Blockchain and Web3 Security](/disciplines/blockchain-web3-security.md) |
+| Hardware Exploitation | [IoT Security](/disciplines/iot-security.md) |
 | Quantum Exploitation | [Cryptography](/disciplines/cryptography-pki.md) |
-| AI and ML Exploitation | [AI/ML Security](../disciplines/ai-ml-security.md) |
-| CREST CRT / CREST CCT INF / CREST CCT APP | [Certifications](../CERTIFICATIONS.md) |
+| AI and ML Exploitation | [AI/ML Security](/disciplines/ai-ml-security.md) |
+| CREST CRT / CREST CCT INF / CREST CCT APP | [Certifications](/CERTIFICATIONS.md) |
 
 ---
 
@@ -161,8 +161,8 @@ Tracks created by industry partners for recruitment or team development.
 
 ## Related Resources
 - [HTB Machine Index](/research/HTB_MACHINE_INDEX.md): 127 retired machines indexed by difficulty and skill
-- [Labs Reference](../LABS.md): all practice platforms including HTB, THM, BTLO
-- [Certifications](../CERTIFICATIONS.md): cert guide with CREST, HTB, OSCP and 40+ more
+- [Labs Reference](/LABS.md): all practice platforms including HTB, THM, BTLO
+- [Certifications](/CERTIFICATIONS.md): cert guide with CREST, HTB, OSCP and 40+ more
 - [HackTheBox Tracks](https://app.hackthebox.com/tracks): live tracks on HTB (login required)
 ---
 

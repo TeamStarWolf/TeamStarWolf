@@ -246,7 +246,7 @@ Define severity by business impact (data classes, systems, regulatory exposure, 
 Disclosure is a legal determination made *with* counsel and the business, informed by security facts, not a call security makes alone:
 
 - Materiality (SEC registrants): an Item 1.05 Form 8-K is due within 4 business days of determining an incident is material; the clock runs from the materiality determination, not discovery, and the determination must be made "without unreasonable delay." Establish, in advance, who makes it (typically a cross-functional committee: security, legal, finance, disclosure counsel) and how.
-- Breach-notification clocks (GDPR 72h, HIPAA ≤60 days, NIS2/DORA/CRA cascades, US state laws, sector rules) often run in parallel to different regulators; design your IR runbook to the tightest clock and fan out. See the [obligation & deadline matrix](REGULATORY_LANDSCAPE_REFERENCE.md#obligation--deadline-matrix).
+- Breach-notification clocks (GDPR 72h, HIPAA ≤60 days, NIS2/DORA/CRA cascades, US state laws, sector rules) often run in parallel to different regulators; design your IR runbook to the tightest clock and fan out. See the [obligation & deadline matrix](REGULATORY_LANDSCAPE_REFERENCE.md#obligation-amp-deadline-matrix).
 - Ransom payments carry their own fast clocks (e.g., NYDFS 24h) and an OFAC sanctions check, never a decision security makes without counsel and the CFO.
 - Privilege: engage counsel early so IR investigation and forensics can be conducted under privilege where appropriate; document decisions, but assume anything you write may be discoverable.
 

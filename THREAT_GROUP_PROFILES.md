@@ -7,7 +7,7 @@
 | Read this when | you need a group's aliases resolved to one ATT&CK ID, you're scoping which adversaries have the broadest technique coverage, you want a group's signature techniques for threat-informed defense |
 | Start at | [All tracked groups](#all-tracked-groups) for the alias-and-counts table, [Detailed profiles](#detailed-profiles-most-active-groups) for the most active groups' signature techniques |
 
-Machine-readable: [`data/attack/groups.jsonl`](data/attack/groups.jsonl), [`data/attack/group_to_technique.jsonl`](data/attack/group_to_technique.jsonl)
+Machine-readable: [`data/attack/groups.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/groups.jsonl), [`data/attack/group_to_technique.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/group_to_technique.jsonl)
 
 ## All tracked groups
 

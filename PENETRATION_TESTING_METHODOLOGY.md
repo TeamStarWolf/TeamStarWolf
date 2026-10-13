@@ -1545,7 +1545,7 @@ The MITRE ATT&CK Enterprise Matrix v14 covers 14 tactics:
 ```json
 {
   "name": "Pentest Engagement Coverage",
-  "versions": {"attack": "14", "navigator": "4.9", "layer": "4.5"},
+  "versions": {"attack": "19", "navigator": "4.9", "layer": "4.5"},
   "domain": "enterprise-attack",
   "techniques": [
     {"techniqueID": "T1595", "score": 1, "color": "#ff6666", "comment": "Performed"},

@@ -71,7 +71,7 @@ open each one in the Navigator. [data/EDGES.md](data/EDGES.md) describes each re
 [data/MANIFEST.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/MANIFEST.json) records each file's source, license, row count, and checksum.
 
 The ATT&CK data files, the technique pages, and the framework pages are built from MITRE ATT&CK v19.2. The
-technique records also keep a small number of techniques that MITRE has since revoked or renumbered. Some
+technique records also keep a small number of techniques that MITRE has since revoked. Some
 summary pages, including the technique atlases and Threat Group Profiles, were generated from earlier
 ATT&CK releases and have not yet been regenerated. Each states the version it was built from. The ATT&CK
 Navigator layers are pinned to ATT&CK v19 and use v19.2 technique IDs and tactics; the layer index shows
@@ -80,8 +80,9 @@ each layer's version and how it was built.
 Control mappings from NIST SP 800-53 Rev. 5 to ATT&CK come from the Center for Threat-Informed Defense
 [Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/). This library
 uses the Rev. 5 mapping for ATT&CK v16.1. Not every technique has a control mapping: the CTID mapping does
-not cover every technique, and techniques added or renumbered after v16.1 have no mapping under their
-current ID.
+not cover every technique, and techniques added after v16.1 have no CTID mapping of their own. A mapping that
+CTID keyed on an ID that ATT&CK has since revoked is carried to its live successor through
+[data/attack/superseded_by.jsonl](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/superseded_by.jsonl).
 
 The vendor-to-control mappings in [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md) are this library's own
 editorial assessments. They are not provided or validated by the vendors, and they should be treated as a

@@ -39,7 +39,7 @@
       },
       {
         "platform": "microsoft",
-        "title": "Microsoft Defender â€” LSASS access from rare process",
+        "title": "Microsoft Defender — LSASS access from rare process",
         "description": "M365D hunting query for processes opening lsass that are rare in the environment.",
         "dataSource": "DeviceEvents (M365 Defender)",
         "confidence": "high",
@@ -47,7 +47,7 @@
       },
       {
         "platform": "chronicle",
-        "title": "Chronicle YARA-L â€” LSASS dump indicator",
+        "title": "Chronicle YARA-L — LSASS dump indicator",
         "description": "YARA-L 2.0 rule for credential dump pattern against LSASS.",
         "dataSource": "Sysmon UDM events",
         "confidence": "high",
@@ -55,7 +55,7 @@
       },
       {
         "platform": "crowdstrike",
-        "title": "Falcon LogScale â€” LSASS access by uncommon process",
+        "title": "Falcon LogScale — LSASS access by uncommon process",
         "description": "CrowdStrike LogScale query identifying suspicious LSASS access patterns.",
         "dataSource": "Falcon LogScale events",
         "confidence": "high",
@@ -81,7 +81,7 @@
       },
       {
         "platform": "microsoft",
-        "title": "M365 Defender â€” PowerShell with download cradle",
+        "title": "M365 Defender — PowerShell with download cradle",
         "description": "Hunt for PowerShell processes invoking common download / iex cradles.",
         "dataSource": "DeviceProcessEvents",
         "confidence": "high",
@@ -89,7 +89,7 @@
       },
       {
         "platform": "chronicle",
-        "title": "Chronicle â€” PowerShell encoded execution",
+        "title": "Chronicle — PowerShell encoded execution",
         "description": "YARA-L rule for encoded PowerShell command-line patterns.",
         "dataSource": "UDM PROCESS_LAUNCH",
         "confidence": "high",
@@ -97,7 +97,7 @@
       },
       {
         "platform": "crowdstrike",
-        "title": "Falcon LogScale â€” PowerShell encoded cmdline",
+        "title": "Falcon LogScale — PowerShell encoded cmdline",
         "description": "LogScale query for PowerShell encoded command invocations.",
         "dataSource": "Falcon ProcessRollup2",
         "confidence": "high",
@@ -107,7 +107,7 @@
     "T1078": [
       {
         "platform": "splunk",
-        "title": "Suspicious successful logon â€” first time on host",
+        "title": "Suspicious successful logon — first time on host",
         "description": "Successful interactive logon from an account that has never authenticated to this host before.",
         "dataSource": "Windows Security 4624",
         "confidence": "medium",
@@ -115,7 +115,7 @@
       },
       {
         "platform": "elastic",
-        "title": "Anomalous logon â€” new user/host pair",
+        "title": "Anomalous logon — new user/host pair",
         "description": "Elastic ML-aware EQL for first-time interactive logons.",
         "dataSource": "winlog.event_id 4624",
         "confidence": "medium",
@@ -123,7 +123,7 @@
       },
       {
         "platform": "microsoft",
-        "title": "M365 Defender â€” Rare logon location for account",
+        "title": "M365 Defender — Rare logon location for account",
         "description": "Identifies sign-ins from countries the account has not used in 30 days.",
         "dataSource": "AADSignInEventsBeta",
         "confidence": "medium",
@@ -131,7 +131,7 @@
       },
       {
         "platform": "chronicle",
-        "title": "Chronicle â€” Impossible travel (UDM)",
+        "title": "Chronicle — Impossible travel (UDM)",
         "description": "YARA-L impossible-travel detection between two successful auth events.",
         "dataSource": "UDM USER_LOGIN",
         "confidence": "medium",
@@ -139,7 +139,7 @@
       },
       {
         "platform": "crowdstrike",
-        "title": "Falcon LogScale â€” Multiple geographies for same user",
+        "title": "Falcon LogScale — Multiple geographies for same user",
         "description": "Detect identity used in multiple country codes within a short window.",
         "dataSource": "Falcon UserLogon",
         "confidence": "medium",
@@ -165,7 +165,7 @@
       },
       {
         "platform": "microsoft",
-        "title": "M365 Defender â€” Mass file encryption activity",
+        "title": "M365 Defender — Mass file encryption activity",
         "description": "Hunt for high write volume with rename activity on a single device.",
         "dataSource": "DeviceFileEvents",
         "confidence": "high",
@@ -173,7 +173,7 @@
       },
       {
         "platform": "chronicle",
-        "title": "Chronicle â€” Bulk file modification with ransom extension",
+        "title": "Chronicle — Bulk file modification with ransom extension",
         "description": "YARA-L 2.0 rule for ransomware-extension write storm.",
         "dataSource": "UDM FILE_CREATION/MODIFICATION",
         "confidence": "high",
@@ -181,7 +181,7 @@
       },
       {
         "platform": "crowdstrike",
-        "title": "Falcon LogScale â€” Ransomware file extension burst",
+        "title": "Falcon LogScale — Ransomware file extension burst",
         "description": "Bulk write activity with known ransomware extension.",
         "dataSource": "Falcon FsWriteEnded",
         "confidence": "high",
@@ -191,7 +191,7 @@
     "T1190": [
       {
         "platform": "splunk",
-        "title": "Public-facing app â€” exploit attempts in web logs",
+        "title": "Public-facing app — exploit attempts in web logs",
         "description": "Detect 4xx/5xx responses for known exploit paths against perimeter web servers.",
         "dataSource": "Web access logs (Apache/IIS/Nginx)",
         "confidence": "medium",
@@ -207,7 +207,7 @@
       },
       {
         "platform": "microsoft",
-        "title": "M365 â€” Network exposed to known CVE exploit pattern",
+        "title": "M365 — Network exposed to known CVE exploit pattern",
         "description": "Use Microsoft Defender vulnerability data to spot exploit attempts on hosts with known CVE exposure.",
         "dataSource": "DeviceTvmSoftwareVulnerabilities + DeviceNetworkEvents",
         "confidence": "medium",
@@ -215,7 +215,7 @@
       },
       {
         "platform": "chronicle",
-        "title": "Chronicle â€” Web exploit string in URL",
+        "title": "Chronicle — Web exploit string in URL",
         "description": "YARA-L rule detecting exploitation patterns in HTTP traffic.",
         "dataSource": "UDM NETWORK_HTTP",
         "confidence": "medium",
@@ -223,7 +223,7 @@
       },
       {
         "platform": "crowdstrike",
-        "title": "Falcon LogScale â€” Web exploit indicators",
+        "title": "Falcon LogScale — Web exploit indicators",
         "description": "Search for exploit strings in network/proxy logs.",
         "dataSource": "Falcon Network/HTTP",
         "confidence": "medium",
@@ -233,7 +233,7 @@
     "T1110": [
       {
         "platform": "splunk",
-        "title": "Brute force â€” high-volume failed logons followed by success",
+        "title": "Brute force — high-volume failed logons followed by success",
         "description": "Many 4625 failures followed by a 4624 success from same source within 5m.",
         "dataSource": "Windows Security log",
         "confidence": "high",
@@ -249,7 +249,7 @@
       },
       {
         "platform": "microsoft",
-        "title": "M365 â€” Failed sign-ins followed by success (cloud or AD)",
+        "title": "M365 — Failed sign-ins followed by success (cloud or AD)",
         "description": "Identifies password-spray followed by valid logon.",
         "dataSource": "AADSignInEventsBeta or IdentityLogonEvents",
         "confidence": "high",
@@ -257,7 +257,7 @@
       },
       {
         "platform": "chronicle",
-        "title": "Chronicle â€” Brute force success",
+        "title": "Chronicle — Brute force success",
         "description": "YARA-L 2.0 rule for credential brute-force pattern.",
         "dataSource": "UDM USER_LOGIN events",
         "confidence": "high",
@@ -265,7 +265,7 @@
       },
       {
         "platform": "crowdstrike",
-        "title": "Falcon LogScale â€” Brute force pattern",
+        "title": "Falcon LogScale — Brute force pattern",
         "description": "LogScale detection for many auth failures followed by success.",
         "dataSource": "Falcon UserLogonFailed/UserLogon",
         "confidence": "high",
@@ -275,7 +275,7 @@
     "T1566.001": [
       {
         "platform": "splunk",
-        "title": "Spearphishing attachment â€” email gateway â†’ endpoint execution",
+        "title": "Spearphishing attachment — email gateway → endpoint execution",
         "description": "Correlate inbound email attachment with subsequent process creation by Office app.",
         "dataSource": "Email gateway + Sysmon EventCode 1",
         "confidence": "high",
@@ -291,7 +291,7 @@
       },
       {
         "platform": "microsoft",
-        "title": "M365 â€” Office app spawning script interpreter",
+        "title": "M365 — Office app spawning script interpreter",
         "description": "Hunting query for spearphishing macro execution.",
         "dataSource": "DeviceProcessEvents",
         "confidence": "high",
@@ -299,7 +299,7 @@
       },
       {
         "platform": "chronicle",
-        "title": "Chronicle â€” Office macro spawn",
+        "title": "Chronicle — Office macro spawn",
         "description": "YARA-L rule for Office process launching scripting host.",
         "dataSource": "UDM PROCESS_LAUNCH",
         "confidence": "high",
@@ -307,7 +307,7 @@
       },
       {
         "platform": "crowdstrike",
-        "title": "Falcon LogScale â€” Office spawning script host",
+        "title": "Falcon LogScale — Office spawning script host",
         "description": "Detect Office app spawning a script interpreter.",
         "dataSource": "Falcon ProcessRollup2",
         "confidence": "high",
@@ -333,7 +333,7 @@
       },
       {
         "platform": "microsoft",
-        "title": "M365 â€” Cross-process injection events",
+        "title": "M365 — Cross-process injection events",
         "description": "Hunt for cross-process injection actions.",
         "dataSource": "DeviceEvents",
         "confidence": "high",
@@ -341,7 +341,7 @@
       },
       {
         "platform": "chronicle",
-        "title": "Chronicle â€” Process injection indicator",
+        "title": "Chronicle — Process injection indicator",
         "description": "YARA-L rule for cross-process injection.",
         "dataSource": "UDM PROCESS events",
         "confidence": "high",
@@ -349,7 +349,7 @@
       },
       {
         "platform": "crowdstrike",
-        "title": "Falcon LogScale â€” Cross-process injection",
+        "title": "Falcon LogScale — Cross-process injection",
         "description": "LogScale detection for injection patterns.",
         "dataSource": "Falcon ProcessRollup2 + InjectedThread",
         "confidence": "high",
@@ -375,7 +375,7 @@
       },
       {
         "platform": "microsoft",
-        "title": "M365 â€” Encoded command-line activity",
+        "title": "M365 — Encoded command-line activity",
         "description": "Hunting for encoded payloads in command-lines.",
         "dataSource": "DeviceProcessEvents",
         "confidence": "medium",
@@ -383,7 +383,7 @@
       },
       {
         "platform": "chronicle",
-        "title": "Chronicle â€” Encoded payload pattern",
+        "title": "Chronicle — Encoded payload pattern",
         "description": "YARA-L for base64-encoded command execution.",
         "dataSource": "UDM PROCESS_LAUNCH",
         "confidence": "medium",
@@ -391,7 +391,7 @@
       },
       {
         "platform": "crowdstrike",
-        "title": "Falcon LogScale â€” base64 payload in cmdline",
+        "title": "Falcon LogScale — base64 payload in cmdline",
         "description": "LogScale base64 detection.",
         "dataSource": "Falcon ProcessRollup2",
         "confidence": "medium",
@@ -401,7 +401,7 @@
     "T1021.001": [
       {
         "platform": "splunk",
-        "title": "RDP â€” successful logon from unusual source",
+        "title": "RDP — successful logon from unusual source",
         "description": "Logon Type 10 (RemoteInteractive) from a new source IP.",
         "dataSource": "Windows Security 4624",
         "confidence": "medium",
@@ -417,7 +417,7 @@
       },
       {
         "platform": "microsoft",
-        "title": "M365 â€” RDP logon to server",
+        "title": "M365 — RDP logon to server",
         "description": "Hunting for RDP successful sessions.",
         "dataSource": "DeviceLogonEvents",
         "confidence": "medium",
@@ -425,7 +425,7 @@
       },
       {
         "platform": "chronicle",
-        "title": "Chronicle â€” RDP successful logon",
+        "title": "Chronicle — RDP successful logon",
         "description": "YARA-L rule for RemoteInteractive successful logon.",
         "dataSource": "UDM USER_LOGIN",
         "confidence": "medium",
@@ -433,7 +433,7 @@
       },
       {
         "platform": "crowdstrike",
-        "title": "Falcon LogScale â€” RDP logon",
+        "title": "Falcon LogScale — RDP logon",
         "description": "LogScale RDP logon detection.",
         "dataSource": "Falcon UserLogon",
         "confidence": "medium",
@@ -459,7 +459,7 @@
       },
       {
         "platform": "microsoft",
-        "title": "M365 â€” Scheduled task created with payload",
+        "title": "M365 — Scheduled task created with payload",
         "description": "Hunt for schtasks.exe /create with suspicious payload.",
         "dataSource": "DeviceProcessEvents",
         "confidence": "high",
@@ -467,7 +467,7 @@
       },
       {
         "platform": "chronicle",
-        "title": "Chronicle â€” Scheduled task with script payload",
+        "title": "Chronicle — Scheduled task with script payload",
         "description": "YARA-L rule for schtasks creation with scripting payload.",
         "dataSource": "UDM PROCESS_LAUNCH",
         "confidence": "high",
@@ -475,7 +475,7 @@
       },
       {
         "platform": "crowdstrike",
-        "title": "Falcon LogScale â€” schtasks /create",
+        "title": "Falcon LogScale — schtasks /create",
         "description": "LogScale detection for scheduled task creation with script payload.",
         "dataSource": "Falcon ProcessRollup2",
         "confidence": "high",
@@ -485,7 +485,7 @@
     "T1547.001": [
       {
         "platform": "splunk",
-        "title": "Persistence â€” registry Run key modification",
+        "title": "Persistence — registry Run key modification",
         "description": "Sysmon EventCode 13 (RegistryValueSet) for HKCU/HKLM Run keys.",
         "dataSource": "Sysmon EventCode 13",
         "confidence": "high",
@@ -501,7 +501,7 @@
       },
       {
         "platform": "microsoft",
-        "title": "M365 â€” Autostart registry persistence",
+        "title": "M365 — Autostart registry persistence",
         "description": "Hunt for Run/RunOnce registry value writes.",
         "dataSource": "DeviceRegistryEvents",
         "confidence": "high",
@@ -509,7 +509,7 @@
       },
       {
         "platform": "chronicle",
-        "title": "Chronicle â€” Run-key persistence",
+        "title": "Chronicle — Run-key persistence",
         "description": "YARA-L rule for Run-key autostart write.",
         "dataSource": "UDM REGISTRY_MODIFICATION",
         "confidence": "high",
@@ -517,7 +517,7 @@
       },
       {
         "platform": "crowdstrike",
-        "title": "Falcon LogScale â€” Run-key persistence",
+        "title": "Falcon LogScale — Run-key persistence",
         "description": "LogScale detection for Run/RunOnce registry persistence.",
         "dataSource": "Falcon AsepValueUpdate",
         "confidence": "high",
@@ -527,7 +527,7 @@
     "T1018": [
       {
         "platform": "splunk",
-        "title": "Network discovery â€” net.exe view, ping sweep",
+        "title": "Network discovery — net.exe view, ping sweep",
         "description": "Detect built-in Windows reconnaissance commands typical of post-exploit discovery.",
         "dataSource": "Sysmon EventCode 1",
         "confidence": "medium",
@@ -543,7 +543,7 @@
       },
       {
         "platform": "microsoft",
-        "title": "M365 â€” Discovery commands",
+        "title": "M365 — Discovery commands",
         "description": "Hunt for native discovery utilities.",
         "dataSource": "DeviceProcessEvents",
         "confidence": "medium",
@@ -551,7 +551,7 @@
       },
       {
         "platform": "chronicle",
-        "title": "Chronicle â€” Built-in discovery commands",
+        "title": "Chronicle — Built-in discovery commands",
         "description": "YARA-L rule for native Windows discovery utilities.",
         "dataSource": "UDM PROCESS_LAUNCH",
         "confidence": "medium",
@@ -559,7 +559,7 @@
       },
       {
         "platform": "crowdstrike",
-        "title": "Falcon LogScale â€” Discovery commands",
+        "title": "Falcon LogScale — Discovery commands",
         "description": "LogScale detection for built-in discovery utilities.",
         "dataSource": "Falcon ProcessRollup2",
         "confidence": "medium",

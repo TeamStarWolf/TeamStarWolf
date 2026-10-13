@@ -415,7 +415,7 @@ Architecture is a control. The table shows how structural choices map to control
 | Centralized authn + MFA at every boundary | IA-2; CSF **PR.AA-02/03** | Brute Force **T1110**, Phishing **T1566** | Multi-factor Authentication **M1032** |
 | Input validation / parameterized queries in adapters | SI-10; OWASP ASVS V5 | Exploit Public-Facing App **T1190** | — (secure coding) |
 | Encryption in transit (mTLS) & at rest | SC-8, SC-28; CSF **PR.DS** | Adversary-in-the-Middle **T1557**, Exfil over C2 | Encrypt Sensitive Info **M1041** |
-| Immutable, centralized audit logging | AU-2/AU-9; CSF **DE.AE/DE.CM** | Indicator Removal **T1070**, Impair Defenses **T1562** | Remote Data Storage **M1029** |
+| Immutable, centralized audit logging | AU-2/AU-9; CSF **DE.AE/DE.CM** | Indicator Removal **T1070**, Disable or Modify Tools **T1685** | Remote Data Storage **M1029** |
 | SBOM + SCA + dependency pinning/signing | SR-3/SR-11; CSF **GV.SC**; CIS Control 2/16 | Supply Chain Compromise **T1195** | — (SLSA, Update SW **M1051**) |
 | Secrets in a vault, short-lived, rotated | IA-5; CSF **PR.AA**; CIS Control 6 | Unsecured Credentials **T1552** | — (secrets management) |
 | Rate limiting / bot management at edge | SC-5; CSF **PR.IR** | Endpoint DoS **T1499**, Brute Force **T1110** | Filter Network Traffic **M1037** |

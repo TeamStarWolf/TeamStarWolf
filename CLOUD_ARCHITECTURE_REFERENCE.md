@@ -87,7 +87,7 @@ A **landing zone** is a pre-configured, governed, multi-account (AWS) / multi-su
 **Why one account/subscription/project per workload×environment is the default blast-radius boundary:** it's the strongest native isolation plane (separate IAM trust, API rate limits, billing, and control-plane policy). Resource groups / namespaces are *organizational*, not *security*, boundaries.
 
 **Landing-zone non-negotiables (the foundation stamps these before any workload):**
-1. **Centralized, immutable logging** — org-wide trail (CloudTrail / Azure Activity + Diagnostic / Cloud Audit Logs) shipped to a dedicated, write-once log-archive account the workload teams cannot alter. *(NIST AU-9, ATT&CK T1562.008 "Disable/Modify Cloud Logs" mitigation.)*
+1. **Centralized, immutable logging** — org-wide trail (CloudTrail / Azure Activity + Diagnostic / Cloud Audit Logs) shipped to a dedicated, write-once log-archive account the workload teams cannot alter. *(NIST AU-9, ATT&CK T1685.002 "Disable or Modify Cloud Log" mitigation.)*
 2. **Preventive guardrails** — SCPs/Azure Policy/Org Policy deny high-risk actions (disabling logging, opening `0.0.0.0/0` to sensitive ports, creating IAM users with long-lived keys, leaving a region un-restricted).
 3. **Centralized identity** — federation to one IdP; no local users. Break-glass accounts hardware-MFA'd, sealed, monitored.
 4. **Network baseline** — shared connectivity hub, standard address plan, no default VPC/VNet left in place.
@@ -299,13 +299,13 @@ You always own: identity & access config, data classification & encryption choic
 
 | Architectural choice | Exposure it removes | Threat-informed mapping |
 |---|---|---|
-| Landing zone with preventive guardrails | Whole classes of misconfig never happen | CIS Benchmarks; NIST CM-2/CM-6/CM-7; prevents T1562 (Impair Defenses) |
+| Landing zone with preventive guardrails | Whole classes of misconfig never happen | CIS Benchmarks; NIST CM-2/CM-6/CM-7; prevents T1685 (Disable or Modify Tools) |
 | One account/sub/project per workload | Lateral movement & blast radius | NIST SC-7, AC-4; ATT&CK T1021/TA0008 (Lateral Movement) contained |
 | Federated SSO + no long-lived keys | Credential theft & reuse | NIST IA-2/IA-5; ATT&CK T1078 (Valid Accounts), T1552 (Unsecured Credentials) |
 | Least privilege + permission boundaries | Privilege escalation | NIST AC-6; ATT&CK T1098, T1548 |
 | Private endpoints / no public data services | Internet-exposed data stores | ATT&CK T1530 (Data from Cloud Storage), T1619 (Cloud Storage Object Discovery) |
 | Centralized inspected egress | C2 & exfil channels | ATT&CK TA0011 (C2), T1048 (Exfil Over Alternative Protocol) |
-| Immutable logging in a sealed account | Attacker covering tracks | NIST AU-9; ATT&CK T1562.008 (Disable/Modify Cloud Logs) |
+| Immutable logging in a sealed account | Attacker covering tracks | NIST AU-9; ATT&CK T1685.002 (Disable or Modify Cloud Log) |
 | Encryption + CMK with revocation | Data-at-rest compromise, insider | NIST SC-12/SC-13/SC-28 |
 | Immutable infra + IaC | Persistence & drift | ATT&CK TA0003 (Persistence) hard to hold; drift detectable |
 | WAF/CDN/DDoS at edge | L7 attacks, volumetric DoS | ATT&CK T1499 (Endpoint DoS); OWASP Top 10 at the edge |
@@ -380,7 +380,7 @@ CSPM/CNAPP + native findings ──► auto-remediate or alert SIEM             
 | **`0.0.0.0/0` to admin ports (SSH/RDP)** | Internet-facing brute-force & exploit surface | Bastion/SSM/Bastion-as-a-service, zero inbound, JIT access |
 | **Over-permissive IAM (`*:*`, admin for apps)** | Massive privilege-escalation & lateral-movement surface | Least privilege, permission boundaries, CIEM to right-size |
 | **Click-ops in production** | Undocumented drift, irreproducible, no change control | IaC + policy-as-code + pipelines; deny console writes in prod |
-| **Logging you can't trust** | Attackers disable/alter logs (T1562.008); no forensics | Immutable, org-wide, sealed log-archive account |
+| **Logging you can't trust** | Attackers disable/alter logs (T1685.002); no forensics | Immutable, org-wide, sealed log-archive account |
 | **Single-region "HA"** | AZ redundancy ≠ region redundancy; one region event = outage | Multi-AZ by default; multi-region per RTO/RPO; *test failover* |
 | **No egress control** | C2/exfil have an open door; no detection chokepoint | Centralized inspected egress; default-deny |
 | **Chatty synchronous microservices** | Latency, cascading failure, cost; a distributed monolith | Async where possible; bulkheads, timeouts, circuit breakers |

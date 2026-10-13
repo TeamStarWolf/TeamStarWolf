@@ -21,6 +21,12 @@ by the date its pull requests merged to `main` rather than by tagged release.
   malware, prompt injection, the AI software supply chain, and machine-speed vulnerability
   discovery), each event graded Confirmed, Reported, or Demonstrated, with sources checked
   as of 7 October 2026. Linked from the sidebar, homepage, README, and index
+- AI Tooling (`ai-tooling/`), under AI & Emerging Tech: a practical guide to AI tools and LLMs.
+  A grouped index of 46 tools and model platforms (model APIs, local inference, vector
+  databases, agent frameworks, MCP and A2A, coding agents, workflow builders, evaluation,
+  observability, guardrails, AI red teaming), a one-page manual for each with quick start and
+  security notes citing verified CVEs and incidents, a nine-module learning path, and six local,
+  defensive labs. Facts checked against official sources on 8 October 2026
 - Case Studies: a 16-slide PowerPoint deck for the AI Threats 2026 case study
   (`case-studies/slides/`), with each slide's sources in its speaker notes, linked
   from the study page and the Case Studies hub

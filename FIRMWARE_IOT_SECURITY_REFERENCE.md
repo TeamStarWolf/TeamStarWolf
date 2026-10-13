@@ -2629,23 +2629,23 @@ Tactic-Technique Mapping (Key T0800-T0900 Range):
 | Execution | T0807 | Command-Line Interface | Linux shell via UART/SSH |
 | Execution | T0821 | Modify Controller Tasking | Direct PLC program modification |
 | Execution | T0871 | Execution through API | SCADA/DCS API abuse |
-| Persistence | T0839 | Module Firmware | Malicious firmware in PLC modules |
-| Persistence | T0857 | System Firmware | Router/device firmware backdoor |
+| Persistence | T1693.002 | Module Firmware | Malicious firmware in PLC modules |
+| Persistence | T1693.001 | System Firmware | Router/device firmware backdoor |
 | Persistence | T0859 | Valid Accounts | Use of stolen credentials |
 | Evasion | T0849 | Masquerading | Legitimate-looking process names |
 | Evasion | T0872 | Indicator Removal on Host | Log clearing |
 | Discovery | T0840 | Network Connection Enumeration | OT network mapping |
 | Discovery | T0842 | Network Sniffing | Capture ICS protocol traffic |
 | Discovery | T0888 | Remote System Information Discovery | Enumerate SCADA/HMI hosts |
-| Lateral Movement | T0812 | Default Credentials | Cross-device lateral movement |
+| Lateral Movement | T1694.001 | Default Credentials | Cross-device lateral movement |
 | Lateral Movement | T0866 | Lateral Tool Transfer | Move tools between OT systems |
 | Collection | T0801 | Monitor Process State | Read PLC register values |
 | Collection | T0845 | Program Upload | Extract PLC ladder logic |
 | C2 | T0885 | Commonly Used Port | C2 over Modbus/DNP3 |
 | C2 | T0884 | Connection Proxy | Pivot through IoT devices |
 | Inhibit Response | T0800 | Activate Firmware Update Mode | Force insecure update state |
-| Inhibit Response | T0803 | Block Command Message | Prevent safety commands |
-| Inhibit Response | T0804 | Block Reporting Message | Suppress alarms |
+| Inhibit Response | T1691.001 | Command Message | Prevent safety commands |
+| Inhibit Response | T1691.002 | Reporting Message | Suppress alarms |
 | Impact | T0813 | Denial of Control | Prevent operator control |
 | Impact | T0826 | Loss of Availability | System shutdown/DoS |
 | Impact | T0831 | Manipulation of Control | Alter process values |
@@ -2654,7 +2654,7 @@ Tactic-Technique Mapping (Key T0800-T0900 Range):
 Stuxnet ATT&CK Mapping Reference:
 ```
 T0862: Supply chain via infected USB drives
-T0857: Modified Siemens S7-315 firmware
+T1693.001: Modified Siemens S7-315 firmware
 T0831: Manipulation of centrifuge speed (manipulation of control)
 T0879: Physical damage to uranium centrifuges
 T0884: Used legitimate Siemens STEP 7 software for persistence

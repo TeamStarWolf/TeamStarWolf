@@ -5,9 +5,9 @@
 These two subsystems predated the /mitre per-object pages and had NO generator in-repo
 (they were v18.1-era one-offs). This builds both deterministically at ATT&CK v19.2:
 the 15 v19.2 tactics (Defense Evasion -> Stealth + new Defense Impairment), the T1682-T1690
-block included, revoked techniques excluded (their /mitre pages carry banners), and
-lab-fictional groups (G1056) / non-official S9xxx software excluded from the external
-attribution lists.
+block included, revoked techniques excluded (their /mitre pages carry banners). G1056 and
+the S9xxx software block are official ATT&CK v19.2 entries (verified against attack.mitre.org)
+and are INCLUDED in the external attribution lists.
 
 Outputs (repo root): techniques/README.md + techniques/<tactic>.md (x15);
 detections/strategies/README.md + detections/strategies/<tactic>.md (x15).
@@ -36,8 +36,8 @@ TACTIC_ORDER = [
 ]
 TAC_NAME = {s: n for s, n, _ in TACTIC_ORDER}
 TAC_TAID = {s: t for s, _, t in TACTIC_ORDER}
-LAB_GROUPS = {"G1056"}
-OFFICIAL_SW = re.compile(r"S[01]\d{3}")
+LAB_GROUPS = set()                     # G1056 is an official ATT&CK v19.2 group (verified live); include it
+OFFICIAL_SW = re.compile(r"S\d{4}")    # S9xxx are official v19.2 software too; include the full S#### range
 
 
 def load(p):

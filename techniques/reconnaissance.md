@@ -14,7 +14,7 @@ Adversaries may gather information about the victim's identity that can be used 
 ATT&CK mitigations (1): [M1056 Pre-compromise](../ATTACK_MITIGATIONS_REFERENCE.md#m1056)  
 NIST 800-53 R5 controls: none (*framework blind spot; rely on detection/design controls*)  
 ATT&CK detection strategy: Detection of Gather Victim Identity Information  
-Used by 9 threat groups: [G0050 APT32](https://attack.mitre.org/groups/G0050), [G0059 Magic Hound](https://attack.mitre.org/groups/G0059), [G1001 HEXANE](https://attack.mitre.org/groups/G1001), [G1004 LAPSUS$](https://attack.mitre.org/groups/G1004), [G1015 Scattered Spider](https://attack.mitre.org/groups/G1015), [G1016 FIN13](https://attack.mitre.org/groups/G1016), [G1017 Volt Typhoon](https://attack.mitre.org/groups/G1017), [G1033 Star Blizzard](https://attack.mitre.org/groups/G1033), [G1052 Contagious Interview](https://attack.mitre.org/groups/G1052)  
+Used by 10 threat groups: [G0050 APT32](https://attack.mitre.org/groups/G0050), [G0059 Magic Hound](https://attack.mitre.org/groups/G0059), [G1001 HEXANE](https://attack.mitre.org/groups/G1001), [G1004 LAPSUS$](https://attack.mitre.org/groups/G1004), [G1015 Scattered Spider](https://attack.mitre.org/groups/G1015), [G1016 FIN13](https://attack.mitre.org/groups/G1016), [G1017 Volt Typhoon](https://attack.mitre.org/groups/G1017), [G1033 Star Blizzard](https://attack.mitre.org/groups/G1033), [G1052 Contagious Interview](https://attack.mitre.org/groups/G1052), [G1055 VOID MANTICORE](https://attack.mitre.org/groups/G1055)  
 
 ---
 
@@ -28,7 +28,7 @@ Adversaries may gather credentials that can be used during targeting. Account cr
 ATT&CK mitigations (1): [M1056 Pre-compromise](../ATTACK_MITIGATIONS_REFERENCE.md#m1056)  
 NIST 800-53 R5 controls: none (*framework blind spot; rely on detection/design controls*)  
 ATT&CK detection strategy: Detection of Credentials  
-Used by 5 threat groups: [G0007 APT28](https://attack.mitre.org/groups/G0007), [G0059 Magic Hound](https://attack.mitre.org/groups/G0059), [G0065 Leviathan](https://attack.mitre.org/groups/G0065), [G0114 Chimera](https://attack.mitre.org/groups/G0114), [G1004 LAPSUS$](https://attack.mitre.org/groups/G1004)  
+Used by 6 threat groups: [G0007 APT28](https://attack.mitre.org/groups/G0007), [G0059 Magic Hound](https://attack.mitre.org/groups/G0059), [G0065 Leviathan](https://attack.mitre.org/groups/G0065), [G0114 Chimera](https://attack.mitre.org/groups/G0114), [G1004 LAPSUS$](https://attack.mitre.org/groups/G1004), [G1057 ShinyHunters](https://attack.mitre.org/groups/G1057)  
 
 ---
 
@@ -126,7 +126,7 @@ Adversaries may gather information about the victim's network topology that can 
 ATT&CK mitigations (1): [M1056 Pre-compromise](../ATTACK_MITIGATIONS_REFERENCE.md#m1056)  
 NIST 800-53 R5 controls: none (*framework blind spot; rely on detection/design controls*)  
 ATT&CK detection strategy: Detection of Network Topology  
-Used by 3 threat groups: [G1016 FIN13](https://attack.mitre.org/groups/G1016), [G1017 Volt Typhoon](https://attack.mitre.org/groups/G1017), [G1045 Salt Typhoon](https://attack.mitre.org/groups/G1045)  
+Used by 4 threat groups: [G0069 MuddyWater](https://attack.mitre.org/groups/G0069), [G1016 FIN13](https://attack.mitre.org/groups/G1016), [G1017 Volt Typhoon](https://attack.mitre.org/groups/G1017), [G1045 Salt Typhoon](https://attack.mitre.org/groups/G1045)  
 
 ---
 
@@ -168,7 +168,7 @@ Adversaries may gather information about the victim's organization that can be u
 ATT&CK mitigations (1): [M1056 Pre-compromise](../ATTACK_MITIGATIONS_REFERENCE.md#m1056)  
 NIST 800-53 R5 controls: none (*framework blind spot; rely on detection/design controls*)  
 ATT&CK detection strategy: Detection of Gather Victim Org Information  
-Used by 6 threat groups: [G0007 APT28](https://attack.mitre.org/groups/G0007), [G0032 Lazarus Group](https://attack.mitre.org/groups/G0032), [G0046 FIN7](https://attack.mitre.org/groups/G0046), [G0094 Kimsuky](https://attack.mitre.org/groups/G0094), [G1017 Volt Typhoon](https://attack.mitre.org/groups/G1017), [G1036 Moonstone Sleet](https://attack.mitre.org/groups/G1036)  
+Used by 7 threat groups: [G0007 APT28](https://attack.mitre.org/groups/G0007), [G0032 Lazarus Group](https://attack.mitre.org/groups/G0032), [G0046 FIN7](https://attack.mitre.org/groups/G0046), [G0094 Kimsuky](https://attack.mitre.org/groups/G0094), [G1017 Volt Typhoon](https://attack.mitre.org/groups/G1017), [G1036 Moonstone Sleet](https://attack.mitre.org/groups/G1036), [G1054 MirrorFace](https://attack.mitre.org/groups/G1054)  
 
 ---
 
@@ -305,7 +305,7 @@ Adversaries may search freely available websites and/or domains for information 
 ATT&CK mitigations (2): [M1013 Application Developer Guidance](../ATTACK_MITIGATIONS_REFERENCE.md#m1013), [M1047 Audit](../ATTACK_MITIGATIONS_REFERENCE.md#m1047)  
 NIST 800-53 R5 controls: none (*framework blind spot; rely on detection/design controls*)  
 ATT&CK detection strategy: Detection of Search Open Websites/Domains  
-Used by 6 threat groups: [G0034 Sandworm Team](https://attack.mitre.org/groups/G0034), [G0094 Kimsuky](https://attack.mitre.org/groups/G0094), [G0129 Mustang Panda](https://attack.mitre.org/groups/G0129), [G1017 Volt Typhoon](https://attack.mitre.org/groups/G1017), [G1033 Star Blizzard](https://attack.mitre.org/groups/G1033), [G1052 Contagious Interview](https://attack.mitre.org/groups/G1052)  
+Used by 6 threat groups: [G0034 Sandworm Team](https://attack.mitre.org/groups/G0034), [G0099 APT-C-36](https://attack.mitre.org/groups/G0099), [G0129 Mustang Panda](https://attack.mitre.org/groups/G0129), [G1017 Volt Typhoon](https://attack.mitre.org/groups/G1017), [G1033 Star Blizzard](https://attack.mitre.org/groups/G1033), [G1052 Contagious Interview](https://attack.mitre.org/groups/G1052)  
 
 ---
 
@@ -347,7 +347,8 @@ Adversaries may search public code repositories for information about victims th
 ATT&CK mitigations (2): [M1013 Application Developer Guidance](../ATTACK_MITIGATIONS_REFERENCE.md#m1013), [M1047 Audit](../ATTACK_MITIGATIONS_REFERENCE.md#m1047)  
 NIST 800-53 R5 controls (1): `CM-8`  
 ATT&CK detection strategy: Detection of Code Repositories  
-Used by 3 threat groups: [G0125 HAFNIUM](https://attack.mitre.org/groups/G0125), [G1004 LAPSUS$](https://attack.mitre.org/groups/G1004), [G1052 Contagious Interview](https://attack.mitre.org/groups/G1052)  
+Used by 4 threat groups: [G0125 HAFNIUM](https://attack.mitre.org/groups/G0125), [G1004 LAPSUS$](https://attack.mitre.org/groups/G1004), [G1052 Contagious Interview](https://attack.mitre.org/groups/G1052), [G1057 ShinyHunters](https://attack.mitre.org/groups/G1057)  
+Implemented by 1 software: [S9008 Shai-Hulud](https://attack.mitre.org/software/S9008)  
 
 ---
 
@@ -402,7 +403,7 @@ Adversaries may scan victims for vulnerabilities that can be used during targeti
 ATT&CK mitigations (1): [M1056 Pre-compromise](../ATTACK_MITIGATIONS_REFERENCE.md#m1056)  
 NIST 800-53 R5 controls: none (*framework blind spot; rely on detection/design controls*)  
 ATT&CK detection strategy: Detection of Vulnerability Scanning  
-Used by 13 threat groups: [G0007 APT28](https://attack.mitre.org/groups/G0007), [G0016 APT29](https://attack.mitre.org/groups/G0016), [G0034 Sandworm Team](https://attack.mitre.org/groups/G0034), [G0035 Dragonfly](https://attack.mitre.org/groups/G0035), [G0059 Magic Hound](https://attack.mitre.org/groups/G0059), [G0065 Leviathan](https://attack.mitre.org/groups/G0065), [G0096 APT41](https://attack.mitre.org/groups/G0096), [G0123 Volatile Cedar](https://attack.mitre.org/groups/G0123), [G0139 TeamTNT](https://attack.mitre.org/groups/G0139), [G0143 Aquatic Panda](https://attack.mitre.org/groups/G0143), [G1003 Ember Bear](https://attack.mitre.org/groups/G1003), [G1006 Earth Lusca](https://attack.mitre.org/groups/G1006), [G1035 Winter Vivern](https://attack.mitre.org/groups/G1035)  
+Used by 15 threat groups: [G0007 APT28](https://attack.mitre.org/groups/G0007), [G0016 APT29](https://attack.mitre.org/groups/G0016), [G0034 Sandworm Team](https://attack.mitre.org/groups/G0034), [G0035 Dragonfly](https://attack.mitre.org/groups/G0035), [G0059 Magic Hound](https://attack.mitre.org/groups/G0059), [G0065 Leviathan](https://attack.mitre.org/groups/G0065), [G0096 APT41](https://attack.mitre.org/groups/G0096), [G0123 Volatile Cedar](https://attack.mitre.org/groups/G0123), [G0139 TeamTNT](https://attack.mitre.org/groups/G0139), [G0143 Aquatic Panda](https://attack.mitre.org/groups/G0143), [G1003 Ember Bear](https://attack.mitre.org/groups/G1003), [G1006 Earth Lusca](https://attack.mitre.org/groups/G1006), [G1035 Winter Vivern](https://attack.mitre.org/groups/G1035), [G1055 VOID MANTICORE](https://attack.mitre.org/groups/G1055), [G1057 ShinyHunters](https://attack.mitre.org/groups/G1057)  
 
 ---
 
@@ -551,7 +552,7 @@ Adversaries may send phishing messages to elicit sensitive information that can 
 ATT&CK mitigations (2): [M1017 User Training](../ATTACK_MITIGATIONS_REFERENCE.md#m1017), [M1054 Software Configuration](../ATTACK_MITIGATIONS_REFERENCE.md#m1054)  
 NIST 800-53 R5 controls (11): `AC-4`, `CA-7`, `CM-2`, `CM-6`, `IA-9`, `SC-20`, `SC-44`, `SC-7`, `SI-3`, `SI-4`, `SI-8`  
 ATT&CK detection strategy: Detection of Phishing for Information  
-Used by 5 threat groups: [G0007 APT28](https://attack.mitre.org/groups/G0007), [G0094 Kimsuky](https://attack.mitre.org/groups/G0094), [G0128 ZIRCONIUM](https://attack.mitre.org/groups/G0128), [G1015 Scattered Spider](https://attack.mitre.org/groups/G1015), [G1036 Moonstone Sleet](https://attack.mitre.org/groups/G1036)  
+Used by 6 threat groups: [G0007 APT28](https://attack.mitre.org/groups/G0007), [G0094 Kimsuky](https://attack.mitre.org/groups/G0094), [G0128 ZIRCONIUM](https://attack.mitre.org/groups/G0128), [G1015 Scattered Spider](https://attack.mitre.org/groups/G1015), [G1036 Moonstone Sleet](https://attack.mitre.org/groups/G1036), [G1057 ShinyHunters](https://attack.mitre.org/groups/G1057)  
 
 ---
 
@@ -592,8 +593,8 @@ Adversaries may send spearphishing messages with a malicious link to elicit sens
 ATT&CK mitigations (2): [M1017 User Training](../ATTACK_MITIGATIONS_REFERENCE.md#m1017), [M1054 Software Configuration](../ATTACK_MITIGATIONS_REFERENCE.md#m1054)  
 NIST 800-53 R5 controls (11): `AC-4`, `CA-7`, `CM-2`, `CM-6`, `IA-9`, `SC-20`, `SC-44`, `SC-7`, `SI-3`, `SI-4`, `SI-8`  
 ATT&CK detection strategy: Detection of Spearphishing Link  
-Used by 15 threat groups: [G0007 APT28](https://attack.mitre.org/groups/G0007), [G0034 Sandworm Team](https://attack.mitre.org/groups/G0034), [G0035 Dragonfly](https://attack.mitre.org/groups/G0035), [G0040 Patchwork](https://attack.mitre.org/groups/G0040), [G0050 APT32](https://attack.mitre.org/groups/G0050), [G0059 Magic Hound](https://attack.mitre.org/groups/G0059), [G0094 Kimsuky](https://attack.mitre.org/groups/G0094), [G0121 Sidewinder](https://attack.mitre.org/groups/G0121), [G0122 Silent Librarian](https://attack.mitre.org/groups/G0122), [G0128 ZIRCONIUM](https://attack.mitre.org/groups/G0128), [G0129 Mustang Panda](https://attack.mitre.org/groups/G0129), [G1012 CURIUM](https://attack.mitre.org/groups/G1012), [G1015 Scattered Spider](https://attack.mitre.org/groups/G1015), [G1033 Star Blizzard](https://attack.mitre.org/groups/G1033), [G1036 Moonstone Sleet](https://attack.mitre.org/groups/G1036)  
-Implemented by 2 software: [S0649 SMOKEDHAM](https://attack.mitre.org/software/S0649), [S0677 AADInternals](https://attack.mitre.org/software/S0677)  
+Used by 16 threat groups: [G0007 APT28](https://attack.mitre.org/groups/G0007), [G0034 Sandworm Team](https://attack.mitre.org/groups/G0034), [G0035 Dragonfly](https://attack.mitre.org/groups/G0035), [G0040 Patchwork](https://attack.mitre.org/groups/G0040), [G0050 APT32](https://attack.mitre.org/groups/G0050), [G0059 Magic Hound](https://attack.mitre.org/groups/G0059), [G0094 Kimsuky](https://attack.mitre.org/groups/G0094), [G0121 Sidewinder](https://attack.mitre.org/groups/G0121), [G0122 Silent Librarian](https://attack.mitre.org/groups/G0122), [G0128 ZIRCONIUM](https://attack.mitre.org/groups/G0128), [G0129 Mustang Panda](https://attack.mitre.org/groups/G0129), [G1012 CURIUM](https://attack.mitre.org/groups/G1012), [G1015 Scattered Spider](https://attack.mitre.org/groups/G1015), [G1033 Star Blizzard](https://attack.mitre.org/groups/G1033), [G1036 Moonstone Sleet](https://attack.mitre.org/groups/G1036), [G1057 ShinyHunters](https://attack.mitre.org/groups/G1057)  
+Implemented by 3 software: [S0649 SMOKEDHAM](https://attack.mitre.org/software/S0649), [S0677 AADInternals](https://attack.mitre.org/software/S0677), [S9003 evilginx2](https://attack.mitre.org/software/S9003)  
 
 ---
 

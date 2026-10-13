@@ -9,8 +9,7 @@ Access modeling captures and records the access permissions granted to identitie
 
 ## ATT&CK techniques countered (26)
 
-- [T0812](https://attack.mitre.org/techniques/T0812): maps
-- [T0859](https://attack.mitre.org/techniques/T0859): maps
+- [T0859: Valid Accounts](https://attack.mitre.org/techniques/T0859): maps
 - [T1078: Valid Accounts](/mitre/techniques/T1078.md): maps. Adversaries may obtain and abuse credentials of existing accounts as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion.
 - [T1078.001: Default Accounts](/mitre/techniques/T1078-001.md): maps. Adversaries may obtain and abuse credentials of a default account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion.
 - [T1078.002: Domain Accounts](/mitre/techniques/T1078-002.md): maps. Adversaries may obtain and abuse credentials of a domain account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion.
@@ -35,6 +34,7 @@ Access modeling captures and records the access permissions granted to identitie
 - [T1552.006: Group Policy Preferences](/mitre/techniques/T1552-006.md): maps. Adversaries may attempt to find unsecured credentials in Group Policy Preferences (GPP).
 - [T1556.009: Conditional Access Policies](/mitre/techniques/T1556-009.md): maps. Adversaries may disable or modify conditional access policies to enable persistent access to compromised accounts.
 - [T1615: Group Policy Discovery](/mitre/techniques/T1615.md): maps. Adversaries may gather information on Group Policy settings to identify paths for privilege escalation, security measures applied within a domain, and to discover patterns in domain objects that can be manipulated or used to blend in the environment.
+- [T1694.001: Default Credentials](https://attack.mitre.org/techniques/T1694/001): maps (D3FEND maps the revoked predecessor T0812)
 
 ---
 

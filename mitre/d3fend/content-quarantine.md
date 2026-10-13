@@ -3,20 +3,20 @@
 <a id="content-quarantine"></a>
 
 D3FEND tactic: Isolate  
-Digital artifacts: File, Database Record  
+Digital artifacts: Database Record, File  
 
 Transfer content that does not comply with policy to a quarantine zone.
 
-## ATT&CK techniques countered (123)
+## ATT&CK techniques countered (118)
 
-- [T0851](https://attack.mitre.org/techniques/T0851): quarantines
-- [T0853](https://attack.mitre.org/techniques/T0853): quarantines
-- [T0865](https://attack.mitre.org/techniques/T0865): quarantines
-- [T0871](https://attack.mitre.org/techniques/T0871): quarantines
-- [T0888](https://attack.mitre.org/techniques/T0888): quarantines
-- [T0893](https://attack.mitre.org/techniques/T0893): quarantines
-- [T0894](https://attack.mitre.org/techniques/T0894): quarantines
-- [T0895](https://attack.mitre.org/techniques/T0895): quarantines
+- [T0851: Rootkit](https://attack.mitre.org/techniques/T0851): quarantines
+- [T0853: Scripting](https://attack.mitre.org/techniques/T0853): quarantines
+- [T0865: Spearphishing Attachment](https://attack.mitre.org/techniques/T0865): quarantines
+- [T0871: Execution through API](https://attack.mitre.org/techniques/T0871): quarantines
+- [T0888: Remote System Information Discovery](https://attack.mitre.org/techniques/T0888): quarantines
+- [T0893: Data from Local System](https://attack.mitre.org/techniques/T0893): quarantines
+- [T0894: System Binary Proxy Execution](https://attack.mitre.org/techniques/T0894): quarantines
+- [T0895: Autorun Image](https://attack.mitre.org/techniques/T0895): quarantines
 - [T1003.007: Proc Filesystem](/mitre/techniques/T1003-007.md): quarantines. Adversaries may gather credentials from the proc filesystem or `/proc`.
 - [T1003.008: /etc/passwd and /etc/shadow](/mitre/techniques/T1003-008.md): quarantines. Adversaries may attempt to dump the contents of <code>/etc/passwd</code> and <code>/etc/shadow</code> to enable offline password cracking.
 - [T1005: Data from Local System](/mitre/techniques/T1005.md): quarantines. Adversaries may search local system sources, such as file systems, configuration files, local databases, virtual machine files, or process memory, to find files of interest and sensitive data prior to Exfiltration.
@@ -37,14 +37,12 @@ Transfer content that does not comply with policy to a quarantine zone.
 - [T1037.004: RC Scripts](/mitre/techniques/T1037-004.md): quarantines. Adversaries may establish persistence by modifying RC scripts, which are executed during a Unix-like system’s startup.
 - [T1041: Exfiltration Over C2 Channel](/mitre/techniques/T1041.md): quarantines. Adversaries may steal data by exfiltrating it over an existing command and control channel.
 - [T1048.002: Exfiltration Over Asymmetric Encrypted Non-C2 Protocol](/mitre/techniques/T1048-002.md): quarantines. Adversaries may steal data by exfiltrating it over an asymmetrically encrypted network protocol other than that of the existing command and control channel.
-- `T1053.004`: quarantines
 - [T1055.001: Dynamic-link Library Injection](/mitre/techniques/T1055-001.md): quarantines. Adversaries may inject dynamic-link libraries (DLLs) into processes in order to evade process-based defenses as well as possibly elevate privileges.
 - [T1055.002: Portable Executable Injection](/mitre/techniques/T1055-002.md): quarantines. Adversaries may inject portable executables (PE) into processes in order to evade process-based defenses as well as possibly elevate privileges.
 - [T1055.003: Thread Execution Hijacking](/mitre/techniques/T1055-003.md): quarantines. Adversaries may inject malicious code into hijacked processes in order to evade process-based defenses as well as possibly elevate privileges.
 - [T1055.009: Proc Memory](/mitre/techniques/T1055-009.md): quarantines. Adversaries may inject malicious code into processes via the /proc filesystem in order to evade process-based defenses as well as possibly elevate privileges.
 - [T1055.014: VDSO Hijacking](/mitre/techniques/T1055-014.md): quarantines. Adversaries may inject malicious code into processes via VDSO hijacking in order to evade process-based defenses as well as possibly elevate privileges.
 - [T1059: Command and Scripting Interpreter](/mitre/techniques/T1059.md): quarantines. Adversaries may abuse command and script interpreters to execute commands, scripts, or binaries.
-- [T1070.002: Clear Linux or Mac System Logs](/mitre/techniques/T1070-002.md): quarantines. Adversaries may clear system logs to hide evidence of an intrusion.
 - [T1070.004: File Deletion](/mitre/techniques/T1070-004.md): quarantines. Adversaries may delete files left behind by the actions of their intrusion activity.
 - [T1071: Application Layer Protocol](/mitre/techniques/T1071.md): quarantines. Adversaries may communicate using OSI application layer protocols to avoid detection/network filtering by blending in with existing traffic.
 - [T1071.001: Web Protocols](/mitre/techniques/T1071-001.md): quarantines. Adversaries may communicate using application layer protocols associated with web traffic to avoid detection/network filtering by blending in with existing traffic.
@@ -93,7 +91,6 @@ Transfer content that does not comply with policy to a quarantine zone.
 - [T1547.008: LSASS Driver](/mitre/techniques/T1547-008.md): quarantines. Adversaries may modify or add LSASS drivers to obtain persistence on compromised systems.
 - [T1547.009: Shortcut Modification](/mitre/techniques/T1547-009.md): quarantines. Adversaries may create or modify shortcuts that can execute a program during system boot or user login.
 - [T1547.010: Port Monitors](/mitre/techniques/T1547-010.md): quarantines. Adversaries may use port monitors to run an adversary supplied DLL during system boot for persistence or privilege escalation.
-- `T1547.011`: quarantines
 - [T1548.002: Bypass User Account Control](/mitre/techniques/T1548-002.md): quarantines. Adversaries may bypass UAC mechanisms to elevate process privileges on system.
 - [T1548.003: Sudo and Sudo Caching](/mitre/techniques/T1548-003.md): quarantines. Adversaries may perform sudo caching and/or use the sudoers file to elevate privileges.
 - [T1552.001: Credentials In Files](/mitre/techniques/T1552-001.md): quarantines. Adversaries may search local file systems and remote file shares for files containing insecurely stored credentials.
@@ -107,8 +104,6 @@ Transfer content that does not comply with policy to a quarantine zone.
 - [T1560.001: Archive via Utility](/mitre/techniques/T1560-001.md): quarantines. Adversaries may use utilities to compress and/or encrypt collected data prior to exfiltration.
 - [T1560.002: Archive via Library](/mitre/techniques/T1560-002.md): quarantines. An adversary may compress or encrypt data that is collected prior to exfiltration using 3rd party libraries.
 - [T1560.003: Archive via Custom Method](/mitre/techniques/T1560-003.md): quarantines. An adversary may compress or encrypt data that is collected prior to exfiltration using a custom method.
-- [T1562.003: Impair Command History Logging](/mitre/techniques/T1562-003.md): quarantines. Adversaries may impair command history logging to hide commands they run on a compromised system.
-- [T1562.009: Safe Mode Boot](/mitre/techniques/T1562-009.md): quarantines. Adversaries may abuse Windows safe mode to disable endpoint defenses.
 - [T1564.002: Hidden Users](/mitre/techniques/T1564-002.md): quarantines. Adversaries may use hidden users to hide the presence of user accounts they create or modify.
 - [T1564.003: Hidden Window](/mitre/techniques/T1564-003.md): quarantines. Adversaries may use hidden windows to conceal malicious activity from the plain sight of users.
 - [T1564.006: Run Virtual Instance](/mitre/techniques/T1564-006.md): quarantines. Adversaries may carry out malicious operations using a virtual instance to avoid detection.
@@ -120,7 +115,6 @@ Transfer content that does not comply with policy to a quarantine zone.
 - [T1566.003: Spearphishing via Service](/mitre/techniques/T1566-003.md): quarantines. Adversaries may send spearphishing messages via third-party services in an attempt to gain access to victim systems.
 - [T1573.002: Asymmetric Cryptography](/mitre/techniques/T1573-002.md): quarantines. Adversaries may employ a known asymmetric encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol.
 - [T1574.001: DLL](/mitre/techniques/T1574-001.md): quarantines. Adversaries may abuse dynamic-link library files (DLLs) in order to achieve persistence, escalate privileges, and evade defenses.
-- `T1574.002`: quarantines
 - [T1574.004: Dylib Hijacking](/mitre/techniques/T1574-004.md): quarantines. Adversaries may execute their own payloads by placing a malicious dynamic library (dylib) with an expected name in a path a victim application searches at runtime.
 - [T1574.006: Dynamic Linker Hijacking](/mitre/techniques/T1574-006.md): quarantines. Adversaries may execute their own malicious payloads by hijacking environment variables the dynamic linker uses to load shared libraries.
 - [T1574.007: Path Interception by PATH Environment Variable](/mitre/techniques/T1574-007.md): quarantines. Adversaries may execute their own malicious payloads by hijacking environment variables used to load libraries.
@@ -128,10 +122,13 @@ Transfer content that does not comply with policy to a quarantine zone.
 - [T1574.009: Path Interception by Unquoted Path](/mitre/techniques/T1574-009.md): quarantines. Adversaries may execute their own malicious payloads by hijacking vulnerable file path references.
 - [T1574.011: Services Registry Permissions Weakness](/mitre/techniques/T1574-011.md): quarantines. Adversaries may execute their own malicious payloads by hijacking the Registry entries used by services.
 - [T1574.012: COR_PROFILER](/mitre/techniques/T1574-012.md): quarantines. Adversaries may leverage the COR_PROFILER environment variable to hijack the execution flow of programs that load the.NET CLR.
+- [T1647: Plist File Modification](/mitre/techniques/T1647.md): quarantines (D3FEND maps the revoked predecessor T1547.011). Adversaries may modify property list files (plist files) to enable other malicious activity, while also potentially evading and bypassing system defenses.
 - [T1649: Steal or Forge Authentication Certificates](/mitre/techniques/T1649.md): quarantines. Adversaries may steal or forge certificates used for authentication to access remote systems or resources.
 - [T1685.006: Clear Linux or Mac System Logs](/mitre/techniques/T1685-006.md): quarantines. Adversaries may clear system logs to hide evidence of an intrusion.
-- [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): quarantines. Adversaries may impair command history logging to hide commands they run on a compromised system.
 - [T1688: Safe Mode Boot](/mitre/techniques/T1688.md): quarantines. Adversaries may abuse Windows safe mode to disable endpoint defenses.
+- [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): quarantines. Adversaries may impair command history logging to hide commands they run on a compromised system.
+
+_D3FEND also maps T1053.004, deprecated in ATT&CK with no successor; not counted above._
 
 ---
 

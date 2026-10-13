@@ -9,9 +9,9 @@ Comparing a value stored in a stack frame with a known good value in order to pr
 
 ## ATT&CK techniques countered (8)
 
-- [T0820](https://attack.mitre.org/techniques/T0820): validates
-- [T0866](https://attack.mitre.org/techniques/T0866): validates
-- [T0890](https://attack.mitre.org/techniques/T0890): validates
+- [T0820: Exploitation for Evasion](https://attack.mitre.org/techniques/T0820): validates
+- [T0866: Exploitation of Remote Services](https://attack.mitre.org/techniques/T0866): validates
+- [T0890: Exploitation for Privilege Escalation](https://attack.mitre.org/techniques/T0890): validates
 - [T1068: Exploitation for Privilege Escalation](/mitre/techniques/T1068.md): validates. Adversaries may exploit software vulnerabilities in an attempt to elevate privileges.
 - [T1203: Exploitation for Client Execution](/mitre/techniques/T1203.md): validates. Adversaries may exploit software vulnerabilities in client applications to execute code.
 - [T1210: Exploitation of Remote Services](/mitre/techniques/T1210.md): validates. Adversaries may exploit remote services to gain unauthorized access to internal systems once inside of a network.

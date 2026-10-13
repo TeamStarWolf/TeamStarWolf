@@ -3,15 +3,14 @@
 <a id="change-default-password"></a>
 
 D3FEND tactic: Harden  
-Digital artifacts: Password, User Account, OT Controller  
+Digital artifacts: OT Controller, Password, User Account  
 
 Changing the default password means replacing the factory-set credentials with a strong, unique password before the device is deployed, preventing unauthorized access.
 
 ## ATT&CK techniques countered (23)
 
-- [T0812](https://attack.mitre.org/techniques/T0812): strengthens
-- [T0848](https://attack.mitre.org/techniques/T0848): hardens
-- [T0859](https://attack.mitre.org/techniques/T0859): strengthens
+- [T0848: Rogue Master](https://attack.mitre.org/techniques/T0848): hardens
+- [T0859: Valid Accounts](https://attack.mitre.org/techniques/T0859): strengthens
 - [T1078: Valid Accounts](/mitre/techniques/T1078.md): strengthens. Adversaries may obtain and abuse credentials of existing accounts as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion.
 - [T1078.001: Default Accounts](/mitre/techniques/T1078-001.md): strengthens. Adversaries may obtain and abuse credentials of a default account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion.
 - [T1078.002: Domain Accounts](/mitre/techniques/T1078-002.md): strengthens. Adversaries may obtain and abuse credentials of a domain account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion.
@@ -32,6 +31,7 @@ Changing the default password means replacing the factory-set credentials with a
 - [T1136.003: Cloud Account](/mitre/techniques/T1136-003.md): strengthens. Adversaries may create a cloud account to maintain access to victim systems.
 - [T1531: Account Access Removal](/mitre/techniques/T1531.md): strengthens. Adversaries may interrupt availability of system and network resources by inhibiting access to accounts utilized by legitimate users.
 - [T1548.005: Temporary Elevated Cloud Access](/mitre/techniques/T1548-005.md): strengthens. Adversaries may abuse permission configurations that allow them to gain temporarily elevated access to cloud resources.
+- [T1694.001: Default Credentials](https://attack.mitre.org/techniques/T1694/001): strengthens (D3FEND maps the revoked predecessor T0812)
 
 ---
 

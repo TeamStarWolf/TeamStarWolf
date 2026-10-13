@@ -7,16 +7,16 @@ Digital artifacts: File
 
 File eviction techniques delete files from system storage.
 
-## ATT&CK techniques countered (109)
+## ATT&CK techniques countered (105)
 
-- [T0851](https://attack.mitre.org/techniques/T0851): deletes
-- [T0853](https://attack.mitre.org/techniques/T0853): deletes
-- [T0865](https://attack.mitre.org/techniques/T0865): deletes
-- [T0871](https://attack.mitre.org/techniques/T0871): deletes
-- [T0888](https://attack.mitre.org/techniques/T0888): deletes
-- [T0893](https://attack.mitre.org/techniques/T0893): deletes
-- [T0894](https://attack.mitre.org/techniques/T0894): deletes
-- [T0895](https://attack.mitre.org/techniques/T0895): deletes
+- [T0851: Rootkit](https://attack.mitre.org/techniques/T0851): deletes
+- [T0853: Scripting](https://attack.mitre.org/techniques/T0853): deletes
+- [T0865: Spearphishing Attachment](https://attack.mitre.org/techniques/T0865): deletes
+- [T0871: Execution through API](https://attack.mitre.org/techniques/T0871): deletes
+- [T0888: Remote System Information Discovery](https://attack.mitre.org/techniques/T0888): deletes
+- [T0893: Data from Local System](https://attack.mitre.org/techniques/T0893): deletes
+- [T0894: System Binary Proxy Execution](https://attack.mitre.org/techniques/T0894): deletes
+- [T0895: Autorun Image](https://attack.mitre.org/techniques/T0895): deletes
 - [T1003.007: Proc Filesystem](/mitre/techniques/T1003-007.md): deletes. Adversaries may gather credentials from the proc filesystem or `/proc`.
 - [T1003.008: /etc/passwd and /etc/shadow](/mitre/techniques/T1003-008.md): deletes. Adversaries may attempt to dump the contents of <code>/etc/passwd</code> and <code>/etc/shadow</code> to enable offline password cracking.
 - [T1005: Data from Local System](/mitre/techniques/T1005.md): deletes. Adversaries may search local system sources, such as file systems, configuration files, local databases, virtual machine files, or process memory, to find files of interest and sensitive data prior to Exfiltration.
@@ -37,14 +37,12 @@ File eviction techniques delete files from system storage.
 - [T1037.004: RC Scripts](/mitre/techniques/T1037-004.md): deletes. Adversaries may establish persistence by modifying RC scripts, which are executed during a Unix-like system’s startup.
 - [T1041: Exfiltration Over C2 Channel](/mitre/techniques/T1041.md): deletes. Adversaries may steal data by exfiltrating it over an existing command and control channel.
 - [T1048.002: Exfiltration Over Asymmetric Encrypted Non-C2 Protocol](/mitre/techniques/T1048-002.md): deletes. Adversaries may steal data by exfiltrating it over an asymmetrically encrypted network protocol other than that of the existing command and control channel.
-- `T1053.004`: deletes
 - [T1055.001: Dynamic-link Library Injection](/mitre/techniques/T1055-001.md): deletes. Adversaries may inject dynamic-link libraries (DLLs) into processes in order to evade process-based defenses as well as possibly elevate privileges.
 - [T1055.002: Portable Executable Injection](/mitre/techniques/T1055-002.md): deletes. Adversaries may inject portable executables (PE) into processes in order to evade process-based defenses as well as possibly elevate privileges.
 - [T1055.003: Thread Execution Hijacking](/mitre/techniques/T1055-003.md): deletes. Adversaries may inject malicious code into hijacked processes in order to evade process-based defenses as well as possibly elevate privileges.
 - [T1055.009: Proc Memory](/mitre/techniques/T1055-009.md): deletes. Adversaries may inject malicious code into processes via the /proc filesystem in order to evade process-based defenses as well as possibly elevate privileges.
 - [T1055.014: VDSO Hijacking](/mitre/techniques/T1055-014.md): deletes. Adversaries may inject malicious code into processes via VDSO hijacking in order to evade process-based defenses as well as possibly elevate privileges.
 - [T1059: Command and Scripting Interpreter](/mitre/techniques/T1059.md): deletes. Adversaries may abuse command and script interpreters to execute commands, scripts, or binaries.
-- [T1070.002: Clear Linux or Mac System Logs](/mitre/techniques/T1070-002.md): deletes. Adversaries may clear system logs to hide evidence of an intrusion.
 - [T1070.004: File Deletion](/mitre/techniques/T1070-004.md): deletes. Adversaries may delete files left behind by the actions of their intrusion activity.
 - [T1071: Application Layer Protocol](/mitre/techniques/T1071.md): deletes. Adversaries may communicate using OSI application layer protocols to avoid detection/network filtering by blending in with existing traffic.
 - [T1071.001: Web Protocols](/mitre/techniques/T1071-001.md): deletes. Adversaries may communicate using application layer protocols associated with web traffic to avoid detection/network filtering by blending in with existing traffic.
@@ -83,7 +81,6 @@ File eviction techniques delete files from system storage.
 - [T1547.007: Re-opened Applications](/mitre/techniques/T1547-007.md): deletes. Adversaries may modify plist files to automatically run an application when a user logs in.
 - [T1547.008: LSASS Driver](/mitre/techniques/T1547-008.md): deletes. Adversaries may modify or add LSASS drivers to obtain persistence on compromised systems.
 - [T1547.009: Shortcut Modification](/mitre/techniques/T1547-009.md): deletes. Adversaries may create or modify shortcuts that can execute a program during system boot or user login.
-- `T1547.011`: deletes
 - [T1548.002: Bypass User Account Control](/mitre/techniques/T1548-002.md): deletes. Adversaries may bypass UAC mechanisms to elevate process privileges on system.
 - [T1548.003: Sudo and Sudo Caching](/mitre/techniques/T1548-003.md): deletes. Adversaries may perform sudo caching and/or use the sudoers file to elevate privileges.
 - [T1552.001: Credentials In Files](/mitre/techniques/T1552-001.md): deletes. Adversaries may search local file systems and remote file shares for files containing insecurely stored credentials.
@@ -96,7 +93,6 @@ File eviction techniques delete files from system storage.
 - [T1560.001: Archive via Utility](/mitre/techniques/T1560-001.md): deletes. Adversaries may use utilities to compress and/or encrypt collected data prior to exfiltration.
 - [T1560.002: Archive via Library](/mitre/techniques/T1560-002.md): deletes. An adversary may compress or encrypt data that is collected prior to exfiltration using 3rd party libraries.
 - [T1560.003: Archive via Custom Method](/mitre/techniques/T1560-003.md): deletes. An adversary may compress or encrypt data that is collected prior to exfiltration using a custom method.
-- [T1562.003: Impair Command History Logging](/mitre/techniques/T1562-003.md): deletes. Adversaries may impair command history logging to hide commands they run on a compromised system.
 - [T1564.002: Hidden Users](/mitre/techniques/T1564-002.md): deletes. Adversaries may use hidden users to hide the presence of user accounts they create or modify.
 - [T1564.003: Hidden Window](/mitre/techniques/T1564-003.md): deletes. Adversaries may use hidden windows to conceal malicious activity from the plain sight of users.
 - [T1564.006: Run Virtual Instance](/mitre/techniques/T1564-006.md): deletes. Adversaries may carry out malicious operations using a virtual instance to avoid detection.
@@ -108,16 +104,18 @@ File eviction techniques delete files from system storage.
 - [T1566.003: Spearphishing via Service](/mitre/techniques/T1566-003.md): deletes. Adversaries may send spearphishing messages via third-party services in an attempt to gain access to victim systems.
 - [T1573.002: Asymmetric Cryptography](/mitre/techniques/T1573-002.md): deletes. Adversaries may employ a known asymmetric encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol.
 - [T1574.001: DLL](/mitre/techniques/T1574-001.md): deletes. Adversaries may abuse dynamic-link library files (DLLs) in order to achieve persistence, escalate privileges, and evade defenses.
-- `T1574.002`: deletes
 - [T1574.004: Dylib Hijacking](/mitre/techniques/T1574-004.md): deletes. Adversaries may execute their own payloads by placing a malicious dynamic library (dylib) with an expected name in a path a victim application searches at runtime.
 - [T1574.006: Dynamic Linker Hijacking](/mitre/techniques/T1574-006.md): deletes. Adversaries may execute their own malicious payloads by hijacking environment variables the dynamic linker uses to load shared libraries.
 - [T1574.007: Path Interception by PATH Environment Variable](/mitre/techniques/T1574-007.md): deletes. Adversaries may execute their own malicious payloads by hijacking environment variables used to load libraries.
 - [T1574.008: Path Interception by Search Order Hijacking](/mitre/techniques/T1574-008.md): deletes. Adversaries may execute their own malicious payloads by hijacking the search order used to load other programs.
 - [T1574.009: Path Interception by Unquoted Path](/mitre/techniques/T1574-009.md): deletes. Adversaries may execute their own malicious payloads by hijacking vulnerable file path references.
 - [T1574.012: COR_PROFILER](/mitre/techniques/T1574-012.md): deletes. Adversaries may leverage the COR_PROFILER environment variable to hijack the execution flow of programs that load the.NET CLR.
+- [T1647: Plist File Modification](/mitre/techniques/T1647.md): deletes (D3FEND maps the revoked predecessor T1547.011). Adversaries may modify property list files (plist files) to enable other malicious activity, while also potentially evading and bypassing system defenses.
 - [T1649: Steal or Forge Authentication Certificates](/mitre/techniques/T1649.md): deletes. Adversaries may steal or forge certificates used for authentication to access remote systems or resources.
 - [T1685.006: Clear Linux or Mac System Logs](/mitre/techniques/T1685-006.md): deletes. Adversaries may clear system logs to hide evidence of an intrusion.
 - [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): deletes. Adversaries may impair command history logging to hide commands they run on a compromised system.
+
+_D3FEND also maps T1053.004, deprecated in ATT&CK with no successor; not counted above._
 
 ---
 

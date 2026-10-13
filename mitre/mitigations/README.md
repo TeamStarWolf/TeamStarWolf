@@ -7,14 +7,14 @@ One page per ATT&CK mitigation (44), each with concrete how-to-implement steps, 
 
 | Mitigation | Techniques addressed |
 |---|---:|
-| [M1018: User Account Management](/mitre/mitigations/M1018.md) | 120 |
+| [M1018: User Account Management](/mitre/mitigations/M1018.md) | 119 |
 | [M1026: Privileged Account Management](/mitre/mitigations/M1026.md) | 112 |
-| [M1047: Audit](/mitre/mitigations/M1047.md) | 109 |
-| [M1056: Pre-compromise](/mitre/mitigations/M1056.md) | 84 |
-| [M1038: Execution Prevention](/mitre/mitigations/M1038.md) | 80 |
+| [M1047: Audit](/mitre/mitigations/M1047.md) | 110 |
+| [M1056: Pre-compromise](/mitre/mitigations/M1056.md) | 88 |
+| [M1038: Execution Prevention](/mitre/mitigations/M1038.md) | 79 |
 | [M1042: Disable or Remove Feature or Program](/mitre/mitigations/M1042.md) | 71 |
-| [M1022: Restrict File and Directory Permissions](/mitre/mitigations/M1022.md) | 61 |
-| [M1017: User Training](/mitre/mitigations/M1017.md) | 59 |
+| [M1017: User Training](/mitre/mitigations/M1017.md) | 60 |
+| [M1022: Restrict File and Directory Permissions](/mitre/mitigations/M1022.md) | 60 |
 | [M1031: Network Intrusion Prevention](/mitre/mitigations/M1031.md) | 59 |
 | [M1040: Behavior Prevention on Endpoint](/mitre/mitigations/M1040.md) | 51 |
 | [M1037: Filter Network Traffic](/mitre/mitigations/M1037.md) | 49 |
@@ -23,7 +23,7 @@ One page per ATT&CK mitigation (44), each with concrete how-to-implement steps, 
 | [M1051: Update Software](/mitre/mitigations/M1051.md) | 42 |
 | [M1028: Operating System Configuration](/mitre/mitigations/M1028.md) | 39 |
 | [M1030: Network Segmentation](/mitre/mitigations/M1030.md) | 37 |
-| [M1054: Software Configuration](/mitre/mitigations/M1054.md) | 37 |
+| [M1054: Software Configuration](/mitre/mitigations/M1054.md) | 36 |
 | [M1041: Encrypt Sensitive Information](/mitre/mitigations/M1041.md) | 33 |
 | [M1021: Restrict Web-Based Content](/mitre/mitigations/M1021.md) | 31 |
 | [M1049: Antivirus/Antimalware](/mitre/mitigations/M1049.md) | 23 |
@@ -38,7 +38,7 @@ One page per ATT&CK mitigation (44), each with concrete how-to-implement steps, 
 | [M1050: Exploit Protection](/mitre/mitigations/M1050.md) | 12 |
 | [M1057: Data Loss Prevention](/mitre/mitigations/M1057.md) | 12 |
 | [M1029: Remote Data Storage](/mitre/mitigations/M1029.md) | 11 |
-| [M1036: Account Use Policies](/mitre/mitigations/M1036.md) | 10 |
+| [M1036: Account Use Policies](/mitre/mitigations/M1036.md) | 11 |
 | [M1043: Credential Access Protection](/mitre/mitigations/M1043.md) | 10 |
 | [M1053: Data Backup](/mitre/mitigations/M1053.md) | 10 |
 | [M1025: Privileged Process Integrity](/mitre/mitigations/M1025.md) | 7 |

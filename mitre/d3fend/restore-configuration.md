@@ -7,10 +7,10 @@ Digital artifacts: Configuration Resource
 
 Restoring an software configuration.
 
-## ATT&CK techniques countered (61)
+## ATT&CK techniques countered (55)
 
-- [T0858](https://attack.mitre.org/techniques/T0858): restores
-- [T0868](https://attack.mitre.org/techniques/T0868): restores
+- [T0858: Change Operating Mode](https://attack.mitre.org/techniques/T0858): restores
+- [T0868: Detect Operating Mode](https://attack.mitre.org/techniques/T0868): restores
 - [T1037.004: RC Scripts](/mitre/techniques/T1037-004.md): restores. Adversaries may establish persistence by modifying RC scripts, which are executed during a Unix-like system’s startup.
 - [T1037.005: Startup Items](/mitre/techniques/T1037-005.md): restores. Adversaries may use startup items automatically executed at boot initialization to establish persistence.
 - [T1114.003: Email Forwarding Rule](/mitre/techniques/T1114-003.md): restores. Adversaries may setup email forwarding rules to collect sensitive information.
@@ -48,12 +48,6 @@ Restoring an software configuration.
 - [T1553.003: SIP and Trust Provider Hijacking](/mitre/techniques/T1553-003.md): restores. Adversaries may tamper with SIP and trust provider components to mislead the operating system and application control tools when conducting signature validation checks.
 - [T1556.002: Password Filter DLL](/mitre/techniques/T1556-002.md): restores. Adversaries may register malicious password filter dynamic link libraries (DLLs) into the authentication process to acquire user credentials as they are validated.
 - [T1556.009: Conditional Access Policies](/mitre/techniques/T1556-009.md): restores. Adversaries may disable or modify conditional access policies to enable persistent access to compromised accounts.
-- [T1562.002: Disable Windows Event Logging](/mitre/techniques/T1562-002.md): restores. Adversaries may disable Windows event logging to limit data that can be leveraged for detections and audits.
-- [T1562.003: Impair Command History Logging](/mitre/techniques/T1562-003.md): restores. Adversaries may impair command history logging to hide commands they run on a compromised system.
-- [T1562.004: Disable or Modify System Firewall](/mitre/techniques/T1562-004.md): restores. Adversaries may disable or modify system firewalls in order to bypass controls limiting network usage.
-- [T1562.007: Disable or Modify Cloud Firewall](/mitre/techniques/T1562-007.md): restores. Adversaries may disable or modify a firewall within a cloud environment to bypass controls that limit access to cloud resources.
-- [T1562.008: Disable or Modify Cloud Logs](/mitre/techniques/T1562-008.md): restores. An adversary may disable or modify cloud logging capabilities and integrations to limit what data is collected on their activities and avoid detection.
-- [T1562.009: Safe Mode Boot](/mitre/techniques/T1562-009.md): restores. Adversaries may abuse Windows safe mode to disable endpoint defenses.
 - [T1564.008: Email Hiding Rules](/mitre/techniques/T1564-008.md): restores. Adversaries may use email rules to hide inbound emails in a compromised user's mailbox.
 - [T1574.011: Services Registry Permissions Weakness](/mitre/techniques/T1574-011.md): restores. Adversaries may execute their own malicious payloads by hijacking the Registry entries used by services.
 - [T1574.012: COR_PROFILER](/mitre/techniques/T1574-012.md): restores. Adversaries may leverage the COR_PROFILER environment variable to hijack the execution flow of programs that load the.NET CLR.
@@ -65,11 +59,11 @@ Restoring an software configuration.
 - [T1615: Group Policy Discovery](/mitre/techniques/T1615.md): restores. Adversaries may gather information on Group Policy settings to identify paths for privilege escalation, security measures applied within a domain, and to discover patterns in domain objects that can be manipulated or used to blend in the environment.
 - [T1666: Modify Cloud Resource Hierarchy](/mitre/techniques/T1666.md): restores. Adversaries may attempt to modify hierarchical structures in infrastructure-as-a-service (IaaS) environments in order to evade defenses.
 - [T1685.001: Disable or Modify Windows Event Log](/mitre/techniques/T1685-001.md): restores. Adversaries may disable or modify the Windows Event Log to limit data that can be leveraged for detections and audits.
-- [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): restores. Adversaries may impair command history logging to hide commands they run on a compromised system.
+- [T1685.002: Disable or Modify Cloud Log](/mitre/techniques/T1685-002.md): restores. An adversary may disable or modify cloud logging capabilities and integrations to limit what data is collected on their activities and avoid detection.
 - [T1686: Disable or Modify System Firewall](/mitre/techniques/T1686.md): restores. Adversaries may disable or modify host-based or network firewalls to impair defensive mechanisms and enable further action.
 - [T1686.001: Cloud Firewall](/mitre/techniques/T1686-001.md): restores. Adversaries may disable or modify a firewall within a cloud environment to bypass controls that limit access to cloud resources.
-- [T1685.002: Disable or Modify Cloud Log](/mitre/techniques/T1685-002.md): restores. An adversary may disable or modify cloud logging capabilities and integrations to limit what data is collected on their activities and avoid detection.
 - [T1688: Safe Mode Boot](/mitre/techniques/T1688.md): restores. Adversaries may abuse Windows safe mode to disable endpoint defenses.
+- [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): restores. Adversaries may impair command history logging to hide commands they run on a compromised system.
 
 ---
 

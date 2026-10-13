@@ -9,24 +9,24 @@ Analyzing application protocol level remote commands to detect unauthorized acti
 
 ## ATT&CK techniques countered (90)
 
-- [T0814](https://attack.mitre.org/techniques/T0814): monitors
-- [T0817](https://attack.mitre.org/techniques/T0817): monitors
-- [T0819](https://attack.mitre.org/techniques/T0819): monitors
-- [T0822](https://attack.mitre.org/techniques/T0822): monitors
-- [T0830](https://attack.mitre.org/techniques/T0830): monitors
-- [T0840](https://attack.mitre.org/techniques/T0840): monitors
-- [T0842](https://attack.mitre.org/techniques/T0842): monitors
-- [T0846](https://attack.mitre.org/techniques/T0846): monitors
-- [T0848](https://attack.mitre.org/techniques/T0848): monitors
-- [T0865](https://attack.mitre.org/techniques/T0865): monitors
-- [T0866](https://attack.mitre.org/techniques/T0866): monitors
-- [T0869](https://attack.mitre.org/techniques/T0869): monitors
-- [T0884](https://attack.mitre.org/techniques/T0884): monitors
-- [T0885](https://attack.mitre.org/techniques/T0885): monitors
-- [T0886](https://attack.mitre.org/techniques/T0886): monitors
-- [T0888](https://attack.mitre.org/techniques/T0888): monitors
-- [T0894](https://attack.mitre.org/techniques/T0894): monitors
-- [T0895](https://attack.mitre.org/techniques/T0895): monitors
+- [T0814: Denial of Service](https://attack.mitre.org/techniques/T0814): monitors
+- [T0817: Drive-by Compromise](https://attack.mitre.org/techniques/T0817): monitors
+- [T0819: Exploit Public-Facing Application](https://attack.mitre.org/techniques/T0819): monitors
+- [T0822: External Remote Services](https://attack.mitre.org/techniques/T0822): monitors
+- [T0830: Adversary-in-the-Middle](https://attack.mitre.org/techniques/T0830): monitors
+- [T0840: Network Connection Enumeration](https://attack.mitre.org/techniques/T0840): monitors
+- [T0842: Network Sniffing](https://attack.mitre.org/techniques/T0842): monitors
+- [T0846: Remote System Discovery](https://attack.mitre.org/techniques/T0846): monitors
+- [T0848: Rogue Master](https://attack.mitre.org/techniques/T0848): monitors
+- [T0865: Spearphishing Attachment](https://attack.mitre.org/techniques/T0865): monitors
+- [T0866: Exploitation of Remote Services](https://attack.mitre.org/techniques/T0866): monitors
+- [T0869: Standard Application Layer Protocol](https://attack.mitre.org/techniques/T0869): monitors
+- [T0884: Connection Proxy](https://attack.mitre.org/techniques/T0884): monitors
+- [T0885: Commonly Used Port](https://attack.mitre.org/techniques/T0885): monitors
+- [T0886: Remote Services](https://attack.mitre.org/techniques/T0886): monitors
+- [T0888: Remote System Information Discovery](https://attack.mitre.org/techniques/T0888): monitors
+- [T0894: System Binary Proxy Execution](https://attack.mitre.org/techniques/T0894): monitors
+- [T0895: Autorun Image](https://attack.mitre.org/techniques/T0895): monitors
 - [T1001: Data Obfuscation](/mitre/techniques/T1001.md): monitors. Adversaries may obfuscate command and control traffic to make it more difficult to detect.
 - [T1003.006: DCSync](/mitre/techniques/T1003-006.md): monitors. Adversaries may attempt to access credentials and other sensitive information by abusing a Windows Domain Controller's application programming interface (API) to simulate the replication process from a remote domain controller using a technique called DCSync.
 - [T1008: Fallback Channels](/mitre/techniques/T1008.md): monitors. Adversaries may use fallback or alternate communication channels if the primary channel is compromised or inaccessible in order to maintain reliable command and control and to avoid data transfer thresholds.

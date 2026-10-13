@@ -9,8 +9,8 @@ Forcefully end all active sessions associated with compromised accounts or devic
 
 ## ATT&CK techniques countered (10)
 
-- [T0807](https://attack.mitre.org/techniques/T0807): deletes
-- [T0822](https://attack.mitre.org/techniques/T0822): deletes
+- [T0807: Command-Line Interface](https://attack.mitre.org/techniques/T0807): deletes
+- [T0822: External Remote Services](https://attack.mitre.org/techniques/T0822): deletes
 - [T1021.001: Remote Desktop Protocol](/mitre/techniques/T1021-001.md): deletes. Adversaries may use [Valid Accounts](https://attack.mitre.org/techniques/T1078) to log into a computer using the Remote Desktop Protocol (RDP).
 - [T1021.004: SSH](/mitre/techniques/T1021-004.md): deletes. Adversaries may use [Valid Accounts](https://attack.mitre.org/techniques/T1078) to log into remote machines using Secure Shell (SSH).
 - [T1133: External Remote Services](/mitre/techniques/T1133.md): deletes. Adversaries may leverage external-facing remote services to initially access and/or persist within a network.

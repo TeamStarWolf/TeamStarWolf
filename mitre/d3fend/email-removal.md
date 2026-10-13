@@ -9,7 +9,7 @@ The email removal technique deletes email files from system storage.
 
 ## ATT&CK techniques countered (7)
 
-- [T0865](https://attack.mitre.org/techniques/T0865): deletes
+- [T0865: Spearphishing Attachment](https://attack.mitre.org/techniques/T0865): deletes
 - [T1114.001: Local Email Collection](/mitre/techniques/T1114-001.md): deletes. Adversaries may target user email on local systems to collect sensitive information.
 - [T1114.002: Remote Email Collection](/mitre/techniques/T1114-002.md): may-access. Adversaries may target an Exchange server, Office 365, or Google Workspace to collect sensitive information.
 - [T1505.002: Transport Agent](/mitre/techniques/T1505-002.md): may-access. Adversaries may abuse Microsoft transport agents to establish persistent access to systems.

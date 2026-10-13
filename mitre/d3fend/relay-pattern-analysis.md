@@ -9,7 +9,7 @@ The detection of an internal host relaying traffic between the internal network 
 
 ## ATT&CK techniques countered (31)
 
-- [T0884](https://attack.mitre.org/techniques/T0884): analyzes
+- [T0884: Connection Proxy](https://attack.mitre.org/techniques/T0884): analyzes
 - [T1001: Data Obfuscation](/mitre/techniques/T1001.md): analyzes. Adversaries may obfuscate command and control traffic to make it more difficult to detect.
 - [T1008: Fallback Channels](/mitre/techniques/T1008.md): analyzes. Adversaries may use fallback or alternate communication channels if the primary channel is compromised or inaccessible in order to maintain reliable command and control and to avoid data transfer thresholds.
 - [T1048.001: Exfiltration Over Symmetric Encrypted Non-C2 Protocol](/mitre/techniques/T1048-001.md): analyzes. Adversaries may steal data by exfiltrating it over a symmetrically encrypted network protocol other than that of the existing command and control channel.

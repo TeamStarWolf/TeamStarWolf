@@ -89,7 +89,7 @@ Watch out: Turning on Enforce attestation with an incomplete AAGUID allow-list w
 
 ## Step 4: Register keys and passkeys with the pilot
 
-Enrollment is where rollouts stall; make the first credential effortless and supervised.
+Enrollment is where rollouts stall; make enrolling the first credential quick and supervised.
 
 1. Self-service with a TAP (the default path). Issue each pilot user a TAP, have them go to [aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) (My Sign-Ins -> Security info), choose Add sign-in method -> Passkey / Security key, and complete the biometric/PIN setup. Run the first wave as a supervised "registration station" session so problems surface immediately.
 2. Admin-provisioned keys (for hardware at scale). Entra's FIDO2 provisioning APIs (public preview) let an admin register a security key on behalf of a user through Microsoft Graph, useful for pre-provisioning YubiKeys before handing them out. It requires the Authentication/Privileged Authentication Administrator role and the `UserAuthenticationMethod.ReadWrite.All` permission ([provisioning APIs announcement](https://techcommunity.microsoft.com/blog/microsoft-entra-blog/public-preview-microsoft-entra-id-fido2-provisioning-apis/4062699)). Vendor sample flows exist (e.g., Yubico's on-behalf-of registration sample); verify the preview's current state and API shape against the live docs before building on it.

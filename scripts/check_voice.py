@@ -567,9 +567,9 @@ SELF_TEST = (
     ("## 140 References", ("count",)),                                               # item 7
     ("**47 Paths** and 12 Guides", ("count", "count")),                              # item 7
     # Marks.
-    ("Done ✓ and starred ★.", ()),
-    ("Done ✅ and ✔.", ("emoji", "emoji")),
-    ("Status ◽ and ◾.", ("emoji", "emoji")),                               # item 9
+    ("Done \u2713 and starred \u2605.", ()),
+    ("Done \u2705 and \u2714.", ("emoji", "emoji")),
+    ("Status \u25FD and \u25FE.", ("emoji", "emoji")),                               # item 9
     ("It works!", ("exclamation",)),
     ("Use `a != b` and ![logo](x.png).", ()),
     # Code blocks and list items.                                                       item 8

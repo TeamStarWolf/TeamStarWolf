@@ -433,7 +433,7 @@ The **"Manage Exceptions in ServiceNow"** option is narrower than the release no
 
 Whether Cloud Exposure View uses Wiz data is settled by the official page. Misconfigurations and issues, including "assets that are involved in toxic combinations," are "imported by the… Wiz Vulnerability Response Integration." The view does not display them unless both Configuration Compliance and the Wiz integration are installed. Its risk filter hides Low and None by default ([official docs](https://github.com/ServiceNow/ServiceNowDocs/blob/brazil/markdown/security-management/vr-cloud-exposure-view-db.md)).
 
-AI posture routing from the Test Results integration is opt-in. It recognizes 14 Wiz AI resource types, but only five map to AI Security asset types: agent, dataset, model, tool, and MCP server. The others are skipped with a warning. ServiceNow notes that Wiz "does not currently include supporting evidence" (official docs).
+AI posture routing from the Test Results integration is opt-in. It recognizes 14 Wiz AI resource types, but only five map to AI Security asset types: agent, dataset, model, tool, and MCP server. The others are skipped with a warning. ServiceNow notes that Wiz "does not currently include supporting evidence" ([official docs, as of commit 754d2a8; the page was later removed upstream](https://github.com/ServiceNow/ServiceNowDocs/blob/754d2a8d66adca6e93d01e9c7b8f12d56f833283/markdown/security-management/configuration-compliance/wiz-ai-sem-integration.md)).
 
 ### The Service Graph Connector for Wiz anchors cloud identity
 

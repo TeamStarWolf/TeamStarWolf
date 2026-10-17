@@ -293,7 +293,6 @@ The references follow the chain from a vulnerability (CVE) to the weakness it ex
     <a class="tsw-swb-l" href="#/WINDOWS_HARDENING">Windows Hardening</a>
     <a class="tsw-swb-l" href="#/WINDOWS_HARDENING_REFERENCE">Windows Hardening Reference</a>
     <a class="tsw-swb-l" href="#/WINDOWS_HARDENING_GPO">Windows Hardening GPO</a>
-    <a class="tsw-swb-l" href="#/LINUX_HARDENING">Linux Hardening</a>
     <a class="tsw-swb-l" href="#/LINUX_HARDENING_REFERENCE">Linux Hardening Reference</a>
     <a class="tsw-swb-l" href="#/MACOS_SECURITY_REFERENCE">macOS Security</a>
     <a class="tsw-swb-l" href="#/MOBILE_SECURITY_REFERENCE">Mobile Security</a>

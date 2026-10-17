@@ -15,7 +15,7 @@ Drafted with an AI assistant from the sources cited; checked against them on 202
 | `validate_jsonl.py` | Validates every JSONL file: JSON per line, unique keys, the edge contract in [data/EDGES.md](/data/EDGES.md), live ATT&CK ids, and counts that match their edge tables | Validate Data Files: JSONL edge tables |
 | `generate_mitre_pages.py` | Generates the `mitre/` framework pages and their indexes from `data/` | Validate Data Files: generated page trees (`--only all --check`) and corpus signal (`--verify-corpus`) |
 | `generate_technique_detail_pages.py` | Generates `techniques/` and `detections/strategies/` | Validate Data Files: generated page trees (`--check`) |
-| `compute_coverage.py` | Writes the four coverage files in `scores/` | Validate Data Files: Navigator layers (`--check`) |
+| `compute_coverage.py` | Writes the coverage files in `scores/` | Validate Data Files: Navigator layers (`--check`) |
 | `build_priority_gaps.py` | Writes the priority-gap page and JSON in `scores/` and the layers in `navigator/analytics/` | Validate Data Files: headline-number drift guard (`--check`) |
 | `build_navigator_layers.py` | Generates the vendor coverage layer, normalizes the curated layers to v19.2, and writes `navigator/index.md` | Validate Data Files: Navigator layers (`--check`) |
 | `validate_navigator.py` | Checks every Navigator layer's shape, domain, ATT&CK version, technique ids, and tactics against the data | Validate Data Files: Navigator layers |

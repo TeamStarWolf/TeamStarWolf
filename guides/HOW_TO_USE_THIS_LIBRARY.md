@@ -33,7 +33,7 @@ The repo is one flat root of reference documents plus a few purposeful folders:
 
 | Location | What lives there |
 |---|---|
-| Root `*.md` files | The 139 reference documents: one deep, self-contained doc per domain (e.g. [Incident Response](/INCIDENT_RESPONSE_REFERENCE.md), [Cloud Security](/CLOUD_SECURITY_REFERENCE.md), [SIEM](/SIEM_REFERENCE.md)) |
+| Root `*.md` files | The reference documents: one deep, self-contained doc per domain (e.g. [Incident Response](/INCIDENT_RESPONSE_REFERENCE.md), [Cloud Security](/CLOUD_SECURITY_REFERENCE.md), [SIEM](/SIEM_REFERENCE.md)) |
 | `disciplines/` | 47 guided learning paths that sequence those references in the right order; hub at [Discipline Paths](/disciplines/README.md) |
 | `guides/` | Step-by-step how-to guides (you are reading one): procedures, where the references are doctrine |
 | `techniques/` | Per-technique ATT&CK detail pages, one file per tactic: hub at [Technique Detail Pages](/techniques/README.md) |
@@ -50,7 +50,7 @@ Checkpoint: Given any question ("how does Kerberoasting detection work", "which 
 ## Step 3: Find anything three ways
 
 1. Search. On the live site, press `/` (or click the search box) and type a term or an ATT&CK technique ID: `T1059` works, and so does `Kerberoasting`. Sub-techniques use dot notation: `T1059.001`. Press `Esc` to clear.
-2. The Reference Index. [INDEX](/INDEX.md) is the complete alphabetical listing of all 139 documents with one-line descriptions: the fastest way to scan what exists.
+2. The Reference Index. [INDEX](/INDEX.md) is the complete alphabetical listing of every reference document with one-line descriptions: the fastest way to scan what exists.
 3. The sidebar and Quick router. The sidebar groups every doc by domain (Coverage & Data, Defense & Detection, Offensive Security, GRC, and so on). The homepage Quick router does the same by *goal*: "Build detections", "Respond now", "Harden", "Map coverage & gaps".
 
 Checkpoint: Searching `T1059` returns hits across the Technique Atlas, detection strategies, and threat group profiles: the same technique seen from several angles.

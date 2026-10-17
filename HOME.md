@@ -1,7 +1,7 @@
 <!--
   HOME.md: the site homepage (docsify renders this at "/"; README.md stays the GitHub face).
-  Keep this page factual and free of headline counts; the README and _coverpage.md
-  follow the same style.
+  Keep this page factual and free of headline counts, as _coverpage.md is. The README's
+  counts are written by scripts/build_stats.py; never hand-type one here.
   Section "Browse by domain" mirrors _sidebar.md groups; section "Discipline paths"
   mirrors disciplines/*.md and disciplines/README.md.
   Link rules: raw-HTML hrefs use hash form (#/FOO, no .md); external links carry

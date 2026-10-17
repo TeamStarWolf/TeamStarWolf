@@ -68,15 +68,22 @@ def _library_counts():
             continue
         refs += 1
 
+    def page(f):
+        """A content page: not a section README and not docsify chrome (_sidebar.md)."""
+        base = f.rsplit("/", 1)[-1]
+        return base != "README.md" and not base.startswith("_")
+
     def folder(prefix):
         return sum(1 for f in files if f.startswith(prefix) and "/" not in f[len(prefix):]
-                   and f != prefix + "README.md")
+                   and page(f))
+    # Framework pages are the object pages in mitre/<kind>/ (techniques, groups, capec,
+    # ...). Pages at the mitre/ root, such as crosswalk.md, are not object pages.
     return {
         "reference_docs": refs,
         "guides": folder("guides/"),
         "learning_paths": folder("disciplines/"),
         "framework_pages": sum(1 for f in files if f.startswith("mitre/")
-                               and not f.endswith("/README.md")),
+                               and f.count("/") >= 2 and page(f)),
     }
 
 
@@ -146,6 +153,11 @@ CHECKS = [
     (r"([\d,]+)\s+mappings? to ATT", "engage_mappings"),
     (r"([\d,]+)\s+(?:MITRE ATT&CK\s+)?(?:intrusion\s+)?campaigns", "campaigns"),
     (r"([\d,]+)\s+(?:workbench\s+|navigator\s+)?layers", "navigator_layers"),
+    # the README "What's inside" nouns, so a hand-typed copy elsewhere cannot disagree
+    (r"([\d,]+)\s+reference documents?\b", "reference_docs"),
+    (r"([\d,]+)\s+(?:step-by-step\s+)?how-to guides?\b", "guides"),
+    (r"([\d,]+)\s+(?:guided\s+|discipline\s+)?learning paths?\b", "learning_paths"),
+    (r"([\d,]+)\s+(?:generated\s+)?framework pages?\b", "framework_pages"),
 ]
 # guides/HOW_TO_USE_THIS_LIBRARY.md is the onboarding walk-through and quotes library-wide
 # totals; the other guides quote relational subsets ("6 groups") the regexes would misread.

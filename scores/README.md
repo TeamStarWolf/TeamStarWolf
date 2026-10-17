@@ -22,7 +22,7 @@ Drafted with an AI assistant from the sources cited; checked against them on 202
 Both scripts read only committed data (`data/attack/technique_profiles.jsonl`, `data/attack/superseded_by.jsonl`, the edge tables, and `data/vendor_to_technique.jsonl`), use only the Python standard library, and produce byte-identical output for the same inputs. Each page records the SHA-256 prefix of every input it was built from.
 
 ```
-python scripts/compute_coverage.py       # rewrites the four coverage files
+python scripts/compute_coverage.py       # rewrites the coverage files
 python scripts/build_priority_gaps.py    # rewrites the priority-gap page, its JSON, and the analytics layers
 ```
 

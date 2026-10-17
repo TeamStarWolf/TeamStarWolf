@@ -14,8 +14,8 @@ Exports (source -> file, size, format):
                                   -> starwolf64-hero-960.webp          960x320  WebP    site cover, small screens
   StarWolf64Version2Banner.png    -> starwolf64-hero-light-960.webp    960x320  WebP    light theme and print (P2)
   StarWolf64BannerTransparent.png -> starwolf64-logotype-480.png       480x160  PNG-8   compact text logotype
-  StarWolf64Version2Banner.png    -> social-1280x640.jpg              1280x640  JPEG    GitHub social preview
-                                  -> og-1200x630.jpg                  1200x630  JPEG    site og:image
+  StarWolf64Version2Banner.png    -> social-1280x640.jpg              1280x640  JPEG    GitHub social preview (art 1150 px wide)
+                                  -> og-1200x630.jpg                  1200x630  JPEG    site og:image (art 1080 px wide)
   StarWolf64BannerTransparent.png -> favicon-16.png, favicon-32.png, apple-touch-icon-180.png,
                                      icon-192.png, icon-512.png       the red "64" star, cut out of the logotype
 
@@ -146,8 +146,10 @@ def main() -> None:
     save_webp(scaled(d4, 960), "starwolf64-hero-960.webp")
     save_webp(scaled(v2, 960), "starwolf64-hero-light-960.webp")
     save_png8(scaled(logo, 480), "starwolf64-logotype-480.png")
-    save_jpeg(on_stage(v2, (1280, 640), 1280, NAVY), "social-1280x640.jpg")
-    save_jpeg(on_stage(v2, (1200, 630), 1200, NAVY), "og-1200x630.jpg")
+    # The art takes 90% of the width: X, LinkedIn and Slack centre-crop link cards to
+    # about 1.91:1 and round the corners, which would clip an edge-to-edge banner.
+    save_jpeg(on_stage(v2, (1280, 640), 1150, NAVY), "social-1280x640.jpg")
+    save_jpeg(on_stage(v2, (1200, 630), 1080, NAVY), "og-1200x630.jpg")
 
     mark = star_mark(logo)
     icon(mark, 16).save(os.path.join(OUT, "favicon-16.png"), optimize=True)

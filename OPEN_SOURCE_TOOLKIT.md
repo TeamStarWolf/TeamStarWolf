@@ -437,3 +437,21 @@
 | [dnsx](https://github.com/projectdiscovery/dnsx) | DNS enumeration and resolution toolkit |
 | [Shodan CLI](https://cli.shodan.io/) | Internet-exposed asset discovery and monitoring |
 | [Censys CLI](https://github.com/censys/censys-python) | Certificate and asset intelligence |
+
+---
+
+## Community Open-Source Stacks and Tooling by ChiefGyk3D
+
+> A curated set of open-source blue-team and lab projects from security creator [ChiefGyk3D](https://github.com/ChiefGyk3D). These are single-maintainer community projects (several self-described as works in progress), useful as study references and home-lab building blocks. Review and harden before any production use; licenses are noted per row.
+
+| Tool | Repo / Link | Discipline | Purpose |
+|------|-------------|------------|---------|
+| siem-docker-stack | [github.com/ChiefGyk3D/siem-docker-stack](https://github.com/ChiefGyk3D/siem-docker-stack) | SIEM / SOC | Dockerized single-server SIEM/SOC: OpenSearch (hot/warm tiering), Logstash, Wazuh, Grafana, Prometheus, InfluxDB, Syslog-ng; home-lab/SMB scale (GPL-2.0) |
+| pfsense-siem-stack | [github.com/ChiefGyk3D/pfsense-siem-stack](https://github.com/ChiefGyk3D/pfsense-siem-stack) | Network / SIEM | Ships pfSense Suricata IDS, pfBlockerNG, and Telegraf telemetry to OpenSearch and Grafana via Logstash, with GeoIP enrichment (MPL-2.0) |
+| jumpcloud-wazuh-bridge | [github.com/ChiefGyk3D/jumpcloud-wazuh-bridge](https://github.com/ChiefGyk3D/jumpcloud-wazuh-bridge) | Identity / Detection | Polls JumpCloud Directory Insights (IdP auth) events into Wazuh as JSONL, with decoder, ruleset, and Grafana dashboard (Apache-2.0) |
+| typo-sniper | [github.com/ChiefGyk3D/typo-sniper](https://github.com/ChiefGyk3D/typo-sniper) | Threat Intel | Typosquatting / lookalike-domain monitor: dnstwist permutations, RDAP, SPF/DKIM/DMARC checks, URLScan/CT enrichment, risk scoring, multi-channel alerting (AGPL-3.0) |
+| Patch-Gremlin | [github.com/ChiefGyk3D/Patch-Gremlin](https://github.com/ChiefGyk3D/Patch-Gremlin) | Patch / Vuln Mgmt | Configures unattended-upgrades/dnf-automatic on Debian/RHEL and reports completed update runs to Discord/Teams/Slack/Matrix/ntfy (MPL-2.0 or commercial) |
+| Clouds-Against-Humanity | [github.com/ChiefGyk3D/Clouds-Against-Humanity](https://github.com/ChiefGyk3D/Clouds-Against-Humanity) | Cloud / Zero Trust | Staged OpenTofu/Spacelift DigitalOcean lab with Twingate zero-trust access (no public inbound), Doppler-managed secrets, and a CI cost gate (MIT) |
+| the-great-infocon-recovery | [github.com/ChiefGyk3D/the-great-infocon-recovery](https://github.com/ChiefGyk3D/the-great-infocon-recovery) | Research Archive | Mirrors and maintains local infocon.org and DEF CON media archives with resumable downloads and SHA-256 manifests (GPL-3.0) |
+
+> Note: siem-docker-stack and jumpcloud-wazuh-bridge each ship their own Wazuh ruleset; load only one to avoid duplicate alerts.

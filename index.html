@@ -57,7 +57,13 @@
         radial-gradient(800px 500px at 100% 0%, rgba(167,139,250,.09), transparent 60%),
         radial-gradient(700px 500px at 50% 110%, rgba(34,211,238,.05), transparent 60%);
     }
-    .sidebar, .content, .app-nav, main { position: relative; z-index: 1; }
+    /* Lift the layout above the wash. Only z-index here: vue.css positions .content
+       absolutely (left: 300px; right: 0), and forcing position: relative on it kept the
+       300px offset but dropped right: 0, which pushed every desktop page 300px past the
+       viewport. The mobile layout keeps its relative .content (see the 768px block). */
+    .sidebar, .content, .app-nav, main { z-index: 1; }
+    main { position: relative; }
+    @media screen and (max-width: 768px) { .content { position: relative; } }
 
     /* ===================== Sidebar ===================== */
     .sidebar {
@@ -168,6 +174,27 @@
     /* dropdown parents are links to their first menu item; caret marks the menu */
     .app-nav li:has(> ul) > a::after { content: ' ▾'; font-size: .72em; opacity: .65; }
     body.close .app-nav { left: 0; }
+    /* Keyboard: a dropdown opens while focus is inside it (vue.css opens it on hover only),
+       or when its parent link is toggled with Space (see the keyboard plugin below). */
+    .app-nav li:focus-within > ul, .app-nav li.tsw-open > ul { display: block; }
+    .app-nav li.tsw-shut > ul { display: none; }
+
+    /* ===================== Keyboard focus and skip link ===================== */
+    a:focus-visible, button:focus-visible, summary:focus-visible,
+    [tabindex]:focus-visible, .sidebar-toggle:focus-visible {
+      outline: 2px solid var(--tsw-accent); outline-offset: 2px; border-radius: 4px;
+    }
+    #main:focus { outline: none; }
+    .tsw-skip {
+      position: fixed; top: 8px; left: 8px; z-index: 100;
+      padding: .55rem 1rem; border-radius: 8px;
+      background: var(--tsw-surface-2); color: var(--tsw-text); border: 1px solid var(--tsw-accent);
+      font-weight: 650; text-decoration: none;
+      transform: translateY(-160%);
+    }
+    .tsw-skip:focus { transform: none; }
+    .tsw-noscript { max-width: 760px; margin: 3rem auto; padding: 0 16px; color: var(--tsw-text); line-height: 1.6; }
+    .tsw-noscript a { color: var(--tsw-accent); }
 
     /* ===================== Content ===================== */
     .content { background: transparent; padding-top: 52px; }
@@ -192,6 +219,14 @@
     .markdown-section h3 { font-size: 1.18rem; margin: 2rem 0 .75rem; color: #e8f0fb; }
     .markdown-section h4 { font-size: 1.02rem; margin: 1.5rem 0 .6rem; color: var(--tsw-text-muted); }
     .markdown-section h2 + h3 { margin-top: 1.1rem; }
+    /* docsify wraps heading text in a.anchor > span and vue.css paints that span #34495e
+       (2.02:1 on the navy field). Let it take the heading's own light colour instead. */
+    .markdown-section h1 .anchor, .markdown-section h2 .anchor, .markdown-section h3 .anchor,
+    .markdown-section h4 .anchor, .markdown-section h5 .anchor, .markdown-section h6 .anchor,
+    .markdown-section h1 .anchor span, .markdown-section h2 .anchor span,
+    .markdown-section h3 .anchor span, .markdown-section h4 .anchor span,
+    .markdown-section h5 .anchor span, .markdown-section h6 .anchor span { color: inherit; }
+    .markdown-section h5, .markdown-section h6 { color: var(--tsw-text-muted); }
 
     .markdown-section a { color: var(--tsw-accent); text-decoration: none; font-weight: 500; }
     .markdown-section a:hover { color: var(--tsw-accent-3); text-decoration: underline; text-underline-offset: 3px; }
@@ -560,6 +595,12 @@
   </style>
 </head>
 <body>
+  <noscript>
+    <div class="tsw-noscript">
+      <p><strong>TeamStarWolf</strong> is a cybersecurity reference library. This site needs JavaScript to display its pages.</p>
+      <p>Every page is plain Markdown, so you can read the whole library on GitHub instead: <a href="https://github.com/TeamStarWolf/TeamStarWolf#readme">start with the README</a>.</p>
+    </div>
+  </noscript>
   <div id="app">Loading</div>
   <button id="tsw-top" title="Back to top" aria-label="Back to top">↑</button>
 
@@ -631,6 +672,61 @@
             onScroll();
             btn.onclick = function () { window.scrollTo({ top: 0, behavior: 'smooth' }); };
           });
+        },
+        // Tab titles: "<page H1> | TeamStarWolf". docsify titles a page after its sidebar
+        // entry, so a page the sidebar does not list (every generated mitre/ page) was "Home".
+        function (hook, vm) {
+          var siteTitle = document.title;
+          hook.doneEach(function () {
+            setTimeout(function () {
+              var path = vm.route.path;
+              if (path === '/' || /^\/HOME(\.md)?$/i.test(path)) { document.title = siteTitle; return; }
+              var h1 = document.querySelector('#main h1');
+              var name = h1 ? h1.textContent.replace(/\s+/g, ' ').trim() : '';
+              if (!name) { name = document.title.split(' | ')[0]; }
+              document.title = name + ' | TeamStarWolf';
+            }, 0);
+          });
+        },
+        // Sidebar: bring the current page's entry into view on load and on each route change
+        function (hook) {
+          hook.doneEach(function () {
+            setTimeout(function () {
+              var sb = document.querySelector('.sidebar');
+              var a = sb && sb.querySelector('.sidebar-nav li.active > a');
+              if (!a) { return; }
+              var sr = sb.getBoundingClientRect(), ar = a.getBoundingClientRect();
+              if (ar.top < sr.top + 80 || ar.bottom > sr.bottom - 40) {
+                sb.scrollTop += ar.top - sr.top - sb.clientHeight / 3;
+              }
+            }, 0);
+          });
+        },
+        // Keyboard and landmarks: skip link first in tab order, labelled navigation,
+        // menu state on the navbar dropdown parents (key handling is below the config)
+        function (hook) {
+          hook.doneEach(function () {
+            var skip = document.querySelector('.tsw-skip');
+            if (!skip) {
+              skip = document.createElement('a');
+              skip.className = 'tsw-skip';
+              skip.href = '#main';
+              skip.textContent = 'Skip to content';
+              skip.addEventListener('click', function (e) {
+                e.preventDefault();
+                var main = document.getElementById('main');
+                if (main) { main.setAttribute('tabindex', '-1'); main.focus(); main.scrollIntoView(); }
+              });
+            }
+            if (document.body.firstElementChild !== skip) { document.body.insertBefore(skip, document.body.firstChild); }
+            document.querySelectorAll('nav.app-nav').forEach(function (n) { n.setAttribute('aria-label', 'Site'); });
+            var sbNav = document.querySelector('.sidebar-nav');
+            if (sbNav) { sbNav.setAttribute('role', 'navigation'); sbNav.setAttribute('aria-label', 'Library contents'); }
+            document.querySelectorAll('.app-nav li').forEach(function (li) {
+              var menu = li.querySelector(':scope > ul'), link = li.querySelector(':scope > a');
+              if (menu && link) { link.setAttribute('aria-haspopup', 'true'); link.setAttribute('aria-expanded', li.classList.contains('tsw-open') ? 'true' : 'false'); }
+            });
+          });
         }
       ]
     };
@@ -648,6 +744,49 @@
         if (i2 && document.activeElement === i2) { i2.value = ''; i2.blur(); }
       }
     });
+
+    // Navbar dropdowns by keyboard. Tab into a menu and it opens (CSS :focus-within);
+    // Enter follows the parent link as before; Space opens or closes the menu without
+    // leaving the page; Escape closes it and returns focus to the parent link.
+    (function () {
+      function menuItem(el) {
+        var li = el && el.closest && el.closest('.app-nav li');
+        while (li && !li.querySelector(':scope > ul')) { li = li.parentElement && li.parentElement.closest('.app-nav li'); }
+        return li;
+      }
+      function setOpen(li, open) {
+        li.classList.toggle('tsw-open', open);
+        li.classList.toggle('tsw-shut', !open);
+        var link = li.querySelector(':scope > a');
+        if (link) { link.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+      }
+      document.addEventListener('keydown', function (e) {
+        var li = menuItem(document.activeElement);
+        if (!li) { return; }
+        var isParent = document.activeElement === li.querySelector(':scope > a');
+        if ((e.key === ' ' || e.key === 'Spacebar') && isParent) {
+          e.preventDefault();
+          setOpen(li, getComputedStyle(li.querySelector(':scope > ul')).display === 'none');
+        } else if (e.key === 'Escape') {
+          setOpen(li, false);
+          li.querySelector(':scope > a').focus();
+        }
+      });
+      document.addEventListener('mouseover', function (e) {
+        var li = menuItem(e.target);
+        if (li && li.classList.contains('tsw-shut')) { li.classList.remove('tsw-shut'); }
+      });
+      document.addEventListener('focusin', function (e) {
+        var li = menuItem(e.target);
+        document.querySelectorAll('.app-nav li.tsw-open, .app-nav li.tsw-shut').forEach(function (o) {
+          if (o !== li) { o.classList.remove('tsw-open', 'tsw-shut'); }
+        });
+        document.querySelectorAll('.app-nav li > a[aria-haspopup]').forEach(function (a) {
+          var owner = a.parentElement;
+          a.setAttribute('aria-expanded', owner === li && !owner.classList.contains('tsw-shut') ? 'true' : 'false');
+        });
+      });
+    })();
   </script>
 
   <!-- Docsify core -->

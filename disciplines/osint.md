@@ -308,8 +308,8 @@ GEOINT and Physical Location
 
 ## Related Disciplines
 
-- [Threat Intelligence](/disciplines/threat-intelligence): OSINT is the primary collection method for threat intelligence; threat intel analysts use OSINT to track threat actors, identify infrastructure, and produce finished intelligence products
-- [Offensive Security](/disciplines/offensive-security): OSINT recon is the mandatory first phase of any penetration test or red team engagement; offensive practitioners use OSINT to map attack surfaces before exploitation
-- [Digital Forensics](/disciplines/digital-forensics): OSINT complements forensic investigation by providing external context about actors, infrastructure, and timelines that internal artifacts alone cannot supply
-- [Incident Response](/disciplines/incident-response): OSINT enriches incident response by enabling rapid external context on attacker infrastructure, malware families, and threat actor groups during active incidents
-- [Bug Bounty](/disciplines/bug-bounty): External attack surface mapping via OSINT is the recon foundation for bug bounty hunting; finding exposed assets, subdomains, and technology stack details drives scope definition
+- [Threat Intelligence](/disciplines/threat-intelligence.md): OSINT is the primary collection method for threat intelligence; threat intel analysts use OSINT to track threat actors, identify infrastructure, and produce finished intelligence products
+- [Offensive Security](/disciplines/offensive-security.md): OSINT recon is the mandatory first phase of any penetration test or red team engagement; offensive practitioners use OSINT to map attack surfaces before exploitation
+- [Digital Forensics](/disciplines/digital-forensics.md): OSINT complements forensic investigation by providing external context about actors, infrastructure, and timelines that internal artifacts alone cannot supply
+- [Incident Response](/disciplines/incident-response.md): OSINT enriches incident response by enabling rapid external context on attacker infrastructure, malware families, and threat actor groups during active incidents
+- [Bug Bounty](/disciplines/bug-bounty.md): External attack surface mapping via OSINT is the recon foundation for bug bounty hunting; finding exposed assets, subdomains, and technology stack details drives scope definition

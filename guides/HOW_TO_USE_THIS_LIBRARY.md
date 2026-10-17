@@ -19,11 +19,11 @@
 The library has two faces backed by the same files:
 
 1. The live site: [teamstarwolf.github.io/TeamStarWolf](https://teamstarwolf.github.io/TeamStarWolf/). It opens on a navigation homepage ([HOME](/HOME.md)) with a Quick router, the How-to guides, and full-text search. Use this for reading and finding things.
-2. The GitHub repo: [github.com/TeamStarWolf/TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf). It opens on the [README](/README.md), which carries the "Where to start" table and the dataset overview. Use this for raw files, datasets, issues, and pull requests.
+2. The GitHub repo: [github.com/TeamStarWolf/TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf). It opens on the [README](/README.md), which carries the "Start here" table and links to [About the Library and Its Data](/ABOUT_THE_DATA.md) for the dataset overview. Use this for raw files, datasets, issues, and pull requests.
 
 Every page on the live site has an "Edit this page on GitHub" link at the top, so you can hop between surfaces from wherever you are.
 
-Checkpoint: You can see the homepage hero ("A cybersecurity reference library cross-referenced to MITRE ATT&CK.") and the Quick router cards (Map coverage & gaps, Build detections, Hunt, Respond now, and so on). Neither the homepage nor the README carries headline counts; the current numbers live in [data/generated/stats.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/generated/stats.json).
+Checkpoint: You can see the homepage hero ("A cybersecurity reference library cross-referenced to MITRE ATT&CK.") and the Quick router cards (Map coverage & gaps, Build detections, Hunt, Respond now, and so on). The homepage carries no headline counts, and the README's "What's inside" counts are written by `scripts/build_stats.py`; the full set of current numbers lives in [data/generated/stats.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/generated/stats.json).
 
 Watch out: Dataset links (the `.jsonl` files) always open on GitHub, not on the site; the site's hash router cannot serve raw data files. That is by design, not a broken link.
 

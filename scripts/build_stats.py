@@ -5,11 +5,27 @@ for hard-coded numbers that must match stats.json and exit non-zero on divergenc
 
 The point of this script (audit Wave 0): headline numbers stop being typed by hand.
 Run it after any data change; CI runs --check to fail the build on drift.
+
+It also writes the "What's inside" table in README.md, between the markers
+`<!-- stats:start ... -->` and `<!-- stats:end -->`. --check fails when that block
+differs from what the current files produce, so the README counts cannot drift.
 """
 from __future__ import annotations
 import json, sys, glob, os, re
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from repo_files import read_text, tracked_files  # noqa: E402
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Root Markdown files that are site chrome, community files or about-the-repo pages,
+# not reference documents. Everything else at the root is a reference, except a
+# superseded stub (a page that only points to its replacement).
+ROOT_META = {
+    "README.md", "HOME.md", "INDEX.md", "ABOUT_THE_DATA.md", "CHANGELOG.md",
+    "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", "SECURITY.md", "THIRD_PARTY_NOTICES.md",
+}
+STUB_MARK = "This document has been superseded."
 
 def _rows(rel):
     p = os.path.join(ROOT, rel)
@@ -37,6 +53,31 @@ def _navigator_layers():
         if isinstance(d, dict) and isinstance(d.get("techniques"), list):
             n += 1
     return n
+
+
+def _library_counts():
+    """Hand-written and generated page counts from the tracked tree (git ls-files), so a
+    local checkout missing a file (antivirus quarantine) counts what CI counts."""
+    files = [f for f in tracked_files() if f.endswith(".md")]
+    refs = 0
+    for f in files:
+        if "/" in f or f.startswith("_") or f in ROOT_META:
+            continue
+        head = (read_text(f) or "")[:600]
+        if STUB_MARK in head:
+            continue
+        refs += 1
+
+    def folder(prefix):
+        return sum(1 for f in files if f.startswith(prefix) and "/" not in f[len(prefix):]
+                   and f != prefix + "README.md")
+    return {
+        "reference_docs": refs,
+        "guides": folder("guides/"),
+        "learning_paths": folder("disciplines/"),
+        "framework_pages": sum(1 for f in files if f.startswith("mitre/")
+                               and not f.endswith("/README.md")),
+    }
 
 
 def _count(rel):
@@ -85,7 +126,8 @@ def compute():
         "techniques_with_d3fend": d3_tech,
         # --- workbench / docs ---
         "navigator_layers": _navigator_layers() or None,
-        "reference_docs": len(glob.glob(os.path.join(ROOT, "*.md"))),
+        # --- hand-written and generated pages (README "What's inside") ---
+        **_library_counts(),
     }
     return {k: v for k, v in stats.items() if v is not None}
 
@@ -130,10 +172,58 @@ def check(stats):
                     problems.append(f"{rel}: '{m.group(0).strip()}' -> {key} should be {stats[key]:,} (found {got:,})")
     return problems
 
+README = os.path.join(ROOT, "README.md")
+BLOCK_RE = re.compile(r"(<!-- stats:start[^>]*-->\n)(.*?)(<!-- stats:end -->)", re.S)
+
+
+def readme_block(stats):
+    """The README "What's inside" table. Wording lives here so the numbers and the
+    nouns they count change together."""
+    rows = [
+        ("Reference documents", "One topic each: its terms, tooling, and the frameworks and guidance that apply",
+         stats["reference_docs"], "[Reference index](INDEX.md)"),
+        ("How-to guides", "One task, step by step, with the time it takes, what you need, and what you produce",
+         stats["guides"], "[Guides](guides/README.md)"),
+        ("Learning paths", "An order of study for one discipline, with training, tools, books, and certifications",
+         stats["learning_paths"], "[Learning paths](disciplines/README.md)"),
+        ("Framework pages", "One page per ATT&CK, CAPEC, D3FEND, ATLAS, and F3 object, generated from MITRE data",
+         stats["framework_pages"], "[Framework pages](mitre/README.md)"),
+    ]
+    out = ["| What | Count | Contents | Start at |", "|---|---:|---|---|"]
+    for name, what, n, link in rows:
+        out.append(f"| {name} | {n:,} | {what} | {link} |")
+    return "\n".join(out) + "\n"
+
+
+def readme_problems(stats):
+    text = read_text("README.md")
+    if text is None:
+        return []
+    m = BLOCK_RE.search(text)
+    if not m:
+        return ["README.md: no <!-- stats:start --> ... <!-- stats:end --> block"]
+    if m.group(2) != readme_block(stats):
+        return ["README.md: the What's inside block is stale; run `python scripts/build_stats.py`"]
+    return []
+
+
+def write_readme(stats):
+    text = read_text("README.md")
+    m = BLOCK_RE.search(text or "")
+    if not m:
+        print("README.md has no stats block; not written")
+        return
+    new = text[:m.start(2)] + readme_block(stats) + text[m.end(2):]
+    if new != text:
+        with open(README, "w", encoding="utf-8", newline="\n") as f:
+            f.write(new)
+        print("wrote README.md What's inside block")
+
+
 def main():
     stats = compute()
     if "--check" in sys.argv:
-        probs = check(stats)
+        probs = check(stats) + readme_problems(stats)
         if probs:
             print("STALE HEADLINE NUMBERS (must match data/generated/stats.json):")
             for p in probs:
@@ -147,6 +237,7 @@ def main():
         json.dump(stats, f, indent=2, sort_keys=True)
         f.write("\n")
     print("wrote data/generated/stats.json")
+    write_readme(stats)
     for k, v in sorted(stats.items()):
         print(f"  {k}: {v:,}" if isinstance(v, int) else f"  {k}: {v}")
 

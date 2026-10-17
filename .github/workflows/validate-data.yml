@@ -167,8 +167,9 @@ jobs:
   stats-drift:
     name: Headline-number drift guard
     # Audit Wave 0: headline numbers compute from data, never hand-typed. Regenerate
-    # stats.json from source data, fail if the committed copy is stale, and fail if any
-    # human-facing doc states a number that diverges from the computed value.
+    # stats.json and the README "What's inside" table from source data, fail if either
+    # committed copy is stale, and fail if any human-facing doc states a number that
+    # diverges from the computed value.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -181,11 +182,11 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Regenerate stats.json from data
+      - name: Regenerate stats.json and the README counts from data
         run: python scripts/build_stats.py
 
-      - name: Fail if committed stats.json is stale
-        run: git diff --exit-code -- data/generated/stats.json
+      - name: Fail if committed stats.json or the README counts are stale
+        run: git diff --exit-code -- data/generated/stats.json README.md
 
       - name: Headline-number drift check (docs vs data)
         run: python scripts/build_stats.py --check

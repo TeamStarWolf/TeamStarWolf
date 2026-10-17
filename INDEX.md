@@ -9,8 +9,10 @@
 | [Active Directory Attack Reference](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md) | Kerberoasting, DCSync, NTLM relay, Golden/Silver tickets, AD CS attacks, lateral movement detection |
 | [Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md) | BloodHound, Kerberoasting, DCSync, Golden/Silver/Diamond tickets, RBCD, ADCS ESC1-8, NTLM relay, lateral movement |
 | [Active Directory Security Reference](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md) | AD architecture, Kerberos attacks (Kerberoasting/Golden Ticket/DCSync), AD CS ESC vulnerabilities, GPO hardening, tiered admin model, MDI detection |
+| [Agentic AI Swarm Attacks](AGENTIC_AI_ATTACK_REFERENCE.md) | An illustrative composite kill chain for intrusions by many autonomous AI agents sharing techniques, mapped to ATT&CK and ATLAS tactics |
 | [AI & MCP Security Reference](AI_MCP_SECURITY_REFERENCE.md) | AI/ML threat models, MCP protocol security, LLM prompt injection, supply chain risks, agentic security, model evaluation |
 | [AI and LLM Learning Path](ai-tooling/AI_LEARNING_PATH.md) | AI Tooling: nine modules from how LLMs work through prompting, RAG, agents and MCP, fine-tuning, evaluation, local models, security and governance |
+| [AI Architecture Reference](AI_ARCHITECTURE_REFERENCE.md) | Designing AI, ML and LLM systems end to end: data pipelines, training and inference planes, model serving, RAG, agents and MCP, MLOps and LLMOps |
 | [AI Labs](ai-tooling/AI_LABS.md) | AI Tooling: six local, defensive labs: run a model with Ollama, build a small RAG, write an MCP server, evaluate prompts, scan your own model, add a guardrail |
 | [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md) | AI-powered offensive security tools, CVE exploitation automation, MITRE ATT&CK mapping, defensive frameworks |
 | [AI Security Reference](AI_SECURITY_REFERENCE.md) | OWASP LLM Top 10, prompt injection attacks, adversarial ML, LLM deployment security, guardrails, and AI in security operations |
@@ -18,6 +20,7 @@
 | [AI Tooling](ai-tooling/README.md) | Practical guide to AI tools and LLMs: a grouped index of 46 tools, a one-page manual for each, a learning path, and hands-on labs |
 | [AI Tools and LLMs Index](ai-tooling/AI_TOOLS_INDEX.md) | AI Tooling: 46 tools and model platforms in 12 categories, each with license, official docs, repository, and a manual covering quick start and security notes |
 | [API Security Reference](API_SECURITY_REFERENCE.md) | OWASP API Top 10, REST and GraphQL attack techniques, JWT attacks, SSRF, BOLA/BFLA, and API security testing methodology |
+| [Architecture Reference (General)](ARCHITECTURE_REFERENCE.md) | Enterprise and solution architecture: the four architecture domains, frameworks, quality attributes, and how to record architecture decisions |
 | [ATT&CK Campaigns Reference](ATTACK_CAMPAIGNS_REFERENCE.md) | 56 MITRE ATT&CK intrusion campaigns with active windows, techniques, software, and group attribution |
 | [ATT&CK Data Components & Log Sources](ATTACK_DATA_COMPONENTS.md) | 106 telemetry categories mapped to the techniques they detect, with concrete log sources and channels |
 | [ATT&CK Detection Strategies](detections/strategies/README.md) | 697 MITRE detection strategies + 1,758 analytics: log sources, detection logic, and tunable parameters per technique |
@@ -37,11 +40,16 @@
 | [Certifications Reference](CERTIFICATIONS.md) | Detailed reference for 40+ security certifications: cost, difficulty, DoD 8570, and who should pursue each |
 | [CEH Domain Crosswalk](CEH_DOMAIN_CROSSWALK.md) | EC-Council CEH v13 exam blueprint (9 domains) mapped onto the library, with study sequence, honest gaps, and legal-practice pointers |
 | [CISSP Domain Crosswalk](CISSP_DOMAIN_CROSSWALK.md) | ISC2 CISSP 8 domains (April 2024 weights) mapped onto the library, with a 12-week plan and honest coverage gaps |
+| [Cloud Architecture Reference](CLOUD_ARCHITECTURE_REFERENCE.md) | Composing managed cloud services into systems: well-architected pillars, landing zones, and the trade-offs between business, operations, security and cost |
 | [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md) | AWS, Azure, and GCP attack techniques, IAM escalation paths, and defensive controls |
+| [Cloud Network Security](CLOUD_NETWORK_SECURITY.md) | Network security controls across AWS, Azure and GCP: architecture, firewall policy, WAF, private connectivity, DDoS protection, flow logs, compliance mappings |
 | [Cloud Security Benchmark](CLOUD_SECURITY_BENCHMARK.md) | CIS Benchmarks for AWS, Azure, and GCP with automated remediation and detection queries |
 | [Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md) | AWS/Azure/GCP security services, IAM attacks, SSRF to IMDS, Pacu/ROADtools/AzureHound, CSPM, K8s security, cloud IR |
 | [Conference Talks & Papers](research/CONFERENCE_TALKS.md) | Black Hat, DEF CON, BSides, CCC, USENIX, and landmark talk archives, with guidance on finding associated research repos |
 | [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md) | Docker/container security, image hardening, runtime protection (Falco/seccomp/AppArmor), container escape defense, registry security, secrets management, SBOM, MITRE ATT&CK containers |
+| [Controls Mapping](CONTROLS_MAPPING.md) | The cross-reference chain from security vendors to the NIST 800-53 controls they implement and on to the ATT&CK techniques those controls mitigate |
+| [Coverage Schema](COVERAGE_SCHEMA.md) | Data model for scoring vendor coverage gaps against ATT&CK techniques through NIST 800-53 controls |
+| [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md) | Cryptographic concepts, algorithms, attacks, and best practices |
 | [CTF Methodology](CTF_METHODOLOGY.md) | Systematic approach to web, forensics, crypto, reverse engineering, binary exploitation, and OSINT challenges |
 | [CAPEC Attack Pattern Reference](CAPEC_REFERENCE.md) | 615 common attack patterns, 177 bridging to ATT&CK techniques, linked to their CWE weaknesses |
 | [CVE Reference](CVE_REFERENCE.md) | CVE program, CVSS v3.1/v4.0, EPSS scoring, CISA KEV catalog, vulnerability databases, patch prioritization |
@@ -108,7 +116,6 @@
 | [Kali Linux Tool Coverage](research/KALI_TOOL_COVERAGE.md) | Coverage analysis comparing the Kali Linux tool catalog against the curated Stars Lists and the starred GitHub repositories index |
 | [Kubernetes Security Reference](KUBERNETES_SECURITY_REFERENCE.md) | K8s RBAC attacks, container escape, Pod Security Standards, NetworkPolicy, secrets management, Falco, kube-bench |
 | [LimeWire](https://github.com/TeamStarWolf/LimeWire) | Python desktop audio studio: download, analysis, editing, stem separation, and batch processing |
-| [Linux Hardening](LINUX_HARDENING.md) | CIS Benchmark, STIG, kernel hardening (sysctl), SELinux/AppArmor, auditd rules, SSH hardening, service sandboxing |
 | [Linux Hardening Reference](LINUX_HARDENING_REFERENCE.md) | Linux system hardening, CIS Benchmarks, SELinux, auditd, firewall configuration, compliance |
 | [LOTL Detection Reference](LOTL_DETECTION_REFERENCE.md) | LOLBAS/GTFOBins/LOOBins/LOLDrivers/LOLRMM/LOTS as defensive inventories, CISA/NSA joint LOTL guidance, per-platform telemetry (4688, auditd, ESF), detection patterns, WDAC/AppLocker/fapolicyd, Volt Typhoon case study |
 | [macOS Security Reference](MACOS_SECURITY_REFERENCE.md) | SIP, Gatekeeper/notarization, XProtect, TCC, FileVault, Endpoint Security framework telemetry, unified log, NIST mSCP/CIS baselines, MDM, ATT&CK macOS coverage |
@@ -122,7 +129,9 @@
 | [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md) | Packet capture, protocol analysis, NetFlow, encrypted traffic analysis, cloud forensics, incident reconstruction |
 | [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md) | Zeek logs/scripts, Suricata rules, JA3/JARM, NetFlow/SiLK, beaconing detection, DGA hunting, Security Onion |
 | [Network Protocols Reference](NETWORK_PROTOCOLS_REFERENCE.md) | TCP/IP, DNS, TLS, HTTP, Kerberos/NTLM, BGP/OSPF, email security protocols, ICS/OT, Wireshark/Zeek analysis |
+| [Network Protocols Security](NETWORK_PROTOCOLS_SECURITY.md) | How attackers exploit the major network protocols: mechanics, TTPs, detection, and defenses, with ATT&CK technique IDs |
 | [Network Security Architecture](NETWORK_SECURITY_ARCHITECTURE.md) | DMZ design, VLAN segmentation, firewall policy, IDS/IPS placement, NAC/802.1X, DDoS protection, and network monitoring |
+| [Networking Architecture Reference](NETWORKING_ARCHITECTURE_REFERENCE.md) | Designing enterprise networks across campus, branch, data center and cloud: addressing plans, fabrics, segmentation, and trust boundaries |
 | [Networking Fundamentals](NETWORKING_FUNDAMENTALS.md) | OSI model, TCP/IP deep dive, subnetting, ARP/VLANs/STP, routing protocols (OSPF/BGP), DNS, and essential troubleshooting commands for security practitioners |
 | [Notable Incidents](NOTABLE_INCIDENTS.md) | Curated reference of significant cyber incidents, nation-state campaigns, ransomware events, and critical vulnerabilities |
 
@@ -155,6 +164,7 @@
 | [Security Gadgets Reference](SECURITY_GADGETS_REFERENCE.md) | Hak5 ecosystem, HackRF/Ubertooth, Samy Kamkar tools, Flipper Zero, Pi-hole, Meshtastic/LoRa, Proxmark3, Alfa/GL.iNet |
 | [Security Glossary](GLOSSARY.md) | 100+ cybersecurity terms, acronyms, and definitions from APT to ZTNA |
 | [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md) | SOC KPIs, vulnerability management SLAs, detection coverage scoring, risk metrics, and executive reporting frameworks |
+| [Security Tool Documentation](SECURITY_TOOL_DOCUMENTATION.md) | Index of official documentation, API docs, GitHub repositories, and learning resources for a representative enterprise security stack |
 | [Security Tools Reference](TOOLS.md) | Quick-reference matrices of 100+ security tools organized by category with OSS/commercial tags |
 | [ServiceNow USEM with Tenable and Wiz](tools-research/SERVICENOW_USEM_TENABLE_WIZ.md) | Tools Research: ServiceNow Unified Security Exposure Management reviewed against official docs (Brazil): data model, risk scoring, Tenable and Wiz integration paths, deduplication, migration, licensing |
 | [ServiceNow VR, CC and CVR with Tenable and Wiz](tools-research/SERVICENOW_VR_CC_CVR_TENABLE_WIZ.md) | Tools Research: how Vulnerability Response, Configuration Compliance and Container Vulnerability Response work and how Tenable and Wiz feed each, from official docs |

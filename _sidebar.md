@@ -179,7 +179,6 @@
   - [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md)
   - [Kubernetes Security Reference](/KUBERNETES_SECURITY_REFERENCE.md)
   - [DevSecOps Reference](/DEVSECOPS_REFERENCE.md)
-  - [Supply Chain Security](/SUPPLY_CHAIN_SECURITY.md)
   - [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
   - [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md)
 
@@ -198,7 +197,6 @@
   - [Windows Hardening](/WINDOWS_HARDENING.md)
   - [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md)
   - [Windows Hardening GPO Reference](/WINDOWS_HARDENING_GPO.md)
-  - [Linux Hardening](/LINUX_HARDENING.md)
   - [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md)
   - [macOS Security Reference](/MACOS_SECURITY_REFERENCE.md)
   - [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md)

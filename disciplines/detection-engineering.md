@@ -261,6 +261,12 @@ Detection engineering directly implements coverage against specific ATT&CK techn
 | [ATT&CK Data Sources](https://attack.mitre.org/datasources/) | Free reference | Official mapping of ATT&CK techniques to required log sources; essential for gap analysis |
 | The Practice of Network Security Monitoring (Bejtlich) | Book | Foundational NSM text; teaches analyst mindset and systematic detection approach |
 | Crafting the InfoSec Playbook (Bollinger et al.) | Book | Practical guide to detection playbooks, hunting hypotheses, and detection content libraries |
+| [Detection.fyi (Sigma search)](https://detection.fyi/) | Free tool | Search across the public Sigma rule corpus by technique or keyword; find existing detections before authoring new ones |
+| [Uncoder.io](https://uncoder.io/) | Free tool | Online Sigma rule translator; convert detection logic to Splunk SPL, Elastic EQL, Microsoft KQL, and other SIEM query languages |
+| [DetectionLab](https://github.com/clong/DetectionLab) | Free lab | Pre-built, instrumented AD lab (Sysmon, Splunk, osquery, Velociraptor) for developing and testing detections safely |
+| [EVTX-ATTACK-SAMPLES](https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES) | Free datasets | Curated EVTX event-log samples mapped to ATT&CK techniques; validate detection logic against real attack telemetry |
+| [Wazuh](https://wazuh.com/) | Free platform | Open-source SIEM/XDR with rule-based detection, log analysis, and built-in MITRE ATT&CK mapping |
+| [YARA](https://virustotal.github.io/yara/) | Free tool | Pattern-matching engine for classifying files and memory; the standard for signature-based malware and artifact detection |
 
 ---
 

@@ -1783,6 +1783,18 @@ PayloadsAllTheThings:
 
 PortSwigger Research Blog:
   https://portswigger.net/research
+
+OWASP Top 10:
+  https://owasp.org/www-project-top-ten/
+
+OWASP Cheat Sheet Series:
+  https://cheatsheetseries.owasp.org/
+
+OWASP SAMM (Software Assurance Maturity Model):
+  https://owaspsamm.org/
+
+OWASP Threat Dragon (threat modeling):
+  https://owasp.org/www-project-threat-dragon/
 ```
 
 ---

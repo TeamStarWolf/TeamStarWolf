@@ -1088,6 +1088,33 @@ KEV membership. It often appears before formal KEV catalog addition.
 
 ---
 
+## Key External Resources
+
+Curated vulnerability databases, exploit intelligence, and PoC sources for CVE research and enrichment.
+
+| Resource | URL |
+|---|---|
+| CVE Details | https://www.cvedetails.com/ |
+| OpenCVE | https://www.opencve.io/ |
+| GitHub Advisory Database | https://github.com/advisories |
+| VulnCheck | https://vulncheck.com/ |
+| Vulners | https://vulners.com/ |
+| VulDB | https://vuldb.com/ |
+| Snyk Vulnerability DB | https://security.snyk.io/ |
+| Mend Vulnerability DB | https://www.mend.io/vulnerability-database/ |
+| Rapid7 Vuln & Exploit DB | https://www.rapid7.com/db/ |
+| Tenable CVE Database | https://www.tenable.com/cve |
+| cvecrowd (trending CVEs) | https://cvecrowd.com/ |
+| Metasploit Modules (Rapid7 DB) | https://www.rapid7.com/db/?type=metasploit |
+| Nuclei Templates | https://github.com/projectdiscovery/nuclei-templates |
+| PoC-in-GitHub (nomi-sec) | https://github.com/nomi-sec/PoC-in-GitHub |
+| Trickest CVE → PoC | https://github.com/trickest/cve |
+| Packet Storm | https://packetstormsecurity.com/ |
+| Sploitus | https://sploitus.com/ |
+| VulnCheck XDB (exploits) | https://vulncheck.com/xdb |
+
+---
+
 *Last updated: 2026-05-07 | Covers CVE program architecture, CVSS v3.1/v4.0,
 EPSS, CISA KEV, vulnerability databases, research methodology, patch management,
 notable case studies, and automation tooling.*

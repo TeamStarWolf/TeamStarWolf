@@ -1696,4 +1696,28 @@ MITRE ATT&CK v19.2 Reconnaissance (TA0043) techniques and OSINT tool mapping:
 
 ---
 
+## Key External Resources
+
+Curated starting points for the infrastructure-intelligence, internet-scanning, and threat/IoC lookup services referenced throughout this document.
+
+| Resource | URL |
+|----------|-----|
+| abuse.ch URLhaus | https://urlhaus.abuse.ch/ |
+| abuse.ch MalwareBazaar | https://bazaar.abuse.ch/ |
+| abuse.ch ThreatFox | https://threatfox.abuse.ch/ |
+| abuse.ch Feodo Tracker | https://feodotracker.abuse.ch/ |
+| abuse.ch YARAify | https://yaraify.abuse.ch/ |
+| AlienVault OTX | https://otx.alienvault.com/ |
+| GreyNoise | https://viz.greynoise.io/ |
+| Shodan | https://www.shodan.io/ |
+| Censys Search | https://search.censys.io/ |
+| Onyphe | https://www.onyphe.io/ |
+| theHarvester | https://github.com/laramies/theHarvester |
+| SpiderFoot | https://github.com/smicallef/spiderfoot |
+| recon-ng | https://github.com/lanmaster53/recon-ng |
+| Sherlock Project (username OSINT) | https://sherlockproject.xyz/ |
+| IntelTechniques Tools | https://inteltechniques.com/tools/ |
+
+---
+
 *Last updated: 2026-04-26 | Maintained by the TeamStarWolf Cybersecurity Reference Library*

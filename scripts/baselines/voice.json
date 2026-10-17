@@ -38,19 +38,8 @@
    "hype:comprehensive": 2
   },
   "ARCHITECTURE_REFERENCE.md": {
-   "em-dash": 76
-  },
-  "ATLAS_REFERENCE.md": {
-   "hype:leverage": 2,
-   "hype:leveraging": 1
-  },
-  "ATTACK_CAMPAIGNS_REFERENCE.md": {
-   "hype:leverage": 2,
-   "hype:leveraging": 1
-  },
-  "ATTACK_MITIGATIONS_REFERENCE.md": {
-   "hype:comprehensive": 1,
-   "hype:leveraging": 3
+   "em-dash": 76,
+   "hype:leverage": 1
   },
   "AUTOMOTIVE_SECURITY_REFERENCE.md": {
    "em-dash": 2,
@@ -63,10 +52,6 @@
   "BROWSER_SECURITY_REFERENCE.md": {
    "em-dash": 10,
    "hype:comprehensive": 1
-  },
-  "CAPEC_REFERENCE.md": {
-   "hype:leverage": 4,
-   "hype:leveraging": 6
   },
   "CAREER_PATHS.md": {
    "hype:comprehensive": 1,
@@ -121,7 +106,7 @@
   },
   "CYBERSECURITY_BOOK_LIST.md": {
    "exclamation": 2,
-   "hype:blazing fast": 1,
+   "hype:blazing-fast": 1,
    "hype:comprehensive": 5,
    "hype:world-class": 1
   },
@@ -134,7 +119,7 @@
    "hype:comprehensive": 2
   },
   "DEEPFAKE_DEFENSE_REFERENCE.md": {
-   "hype:empower": 1
+   "hype:empower": 2
   },
   "DETECTION_RULES_REFERENCE.md": {
    "em-dash": 16,
@@ -162,6 +147,7 @@
    "hype:comprehensive": 1
   },
   "ENTERPRISE_INFRASTRUCTURE.md": {
+   "hype:comprehensive": 1,
    "hype:enterprise-grade": 1
   },
   "EXPLOIT_DEVELOPMENT_REFERENCE.md": {
@@ -174,14 +160,9 @@
   "FRAMEWORKS.md": {
    "hype:comprehensive": 1
   },
-  "FRAUD_FRAMEWORK_REFERENCE.md": {
-   "hype:leverage": 4,
-   "hype:leveraging": 6
-  },
   "FUZZING_VULNERABILITY_RESEARCH.md": {
    "hype:comprehensive": 1,
-   "hype:state of the art": 1,
-   "hype:state-of-the-art": 1
+   "hype:state-of-the-art": 2
   },
   "GRC_COMPLIANCE_REFERENCE.md": {
    "em-dash": 4,
@@ -218,7 +199,8 @@
   },
   "IDENTITY_SECURITY_REFERENCE.md": {
    "em-dash": 6,
-   "hype:comprehensive": 1
+   "hype:comprehensive": 1,
+   "hype:enterprise-grade": 1
   },
   "INCIDENT_RESPONSE_REFERENCE.md": {
    "em-dash": 41,
@@ -248,8 +230,8 @@
    "hype:powerful": 1
   },
   "LOTL_DETECTION_REFERENCE.md": {
-   "hype:comprehensive": 1,
-   "hype:leveraging": 1
+   "hype:comprehensive": 2,
+   "hype:leverage": 1
   },
   "MACOS_SECURITY_REFERENCE.md": {
    "em-dash": 1,
@@ -343,7 +325,7 @@
   "RED_TEAM_REFERENCE.md": {
    "em-dash": 27,
    "exclamation": 1,
-   "hype:comprehensive": 4,
+   "hype:comprehensive": 5,
    "hype:seamless": 1
   },
   "RESOURCES.md": {
@@ -393,6 +375,8 @@
   "SOCIAL_ENGINEERING_REFERENCE.md": {
    "em-dash": 28,
    "emoji": 8,
+   "hype:empower": 1,
+   "hype:leverage": 1,
    "hype:powerful": 1
   },
   "STARRED_REPOS.md": {
@@ -404,11 +388,7 @@
   },
   "SUPPLY_CHAIN_SECURITY_REFERENCE.md": {
    "hype:comprehensive": 2,
-   "hype:leverage": 1,
-   "hype:leveraging": 1
-  },
-  "THREAT_GROUP_PROFILES.md": {
-   "hype:leveraging": 2
+   "hype:leverage": 3
   },
   "THREAT_HUNTING_REFERENCE.md": {
    "hype:comprehensive": 3
@@ -494,6 +474,7 @@
   "disciplines/container-kubernetes-security.md": {
    "em-dash": 8,
    "hype:comprehensive": 1,
+   "hype:leverage": 1,
    "hype:powerful": 1
   },
   "disciplines/cryptography-pki.md": {
@@ -617,25 +598,19 @@
   "emoji",
   "exclamation",
   "hype:battle-tested",
-  "hype:best in class",
   "hype:best-in-class",
-  "hype:blazing fast",
   "hype:blazing-fast",
   "hype:comprehensive",
-  "hype:cutting edge",
   "hype:cutting-edge",
   "hype:effortless",
-  "hype:effortlessly",
   "hype:empower",
   "hype:enterprise-grade",
-  "hype:game changer",
   "hype:game-changer",
   "hype:game-changing",
   "hype:groundbreaking",
   "hype:hack-proof",
   "hype:industry-leading",
   "hype:leverage",
-  "hype:leveraging",
   "hype:lightning-fast",
   "hype:military-grade",
   "hype:must-have",
@@ -645,14 +620,11 @@
   "hype:revolutionary",
   "hype:revolutionize",
   "hype:seamless",
-  "hype:seamlessly",
-  "hype:state of the art",
   "hype:state-of-the-art",
   "hype:supercharge",
   "hype:unbreakable",
   "hype:unhackable",
   "hype:unparalleled",
-  "hype:world class",
   "hype:world-class"
  ]
 }

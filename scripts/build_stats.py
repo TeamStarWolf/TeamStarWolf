@@ -6,9 +6,10 @@ for hard-coded numbers that must match stats.json and exit non-zero on divergenc
 The point of this script (audit Wave 0): headline numbers stop being typed by hand.
 Run it after any data change; CI runs --check to fail the build on drift.
 
-It also writes the "What's inside" table in README.md, between the markers
-`<!-- stats:start ... -->` and `<!-- stats:end -->`. --check fails when that block
-differs from what the current files produce, so the README counts cannot drift.
+It also writes the "What's inside" counts in README.md (a table) and in HOME.md (the
+site homepage's count cards), each between the markers `<!-- stats:start ... -->` and
+`<!-- stats:end -->`. --check fails when either block differs from what the current
+files produce, so the front-door counts cannot drift.
 """
 from __future__ import annotations
 import json, sys, glob, os, re
@@ -107,7 +108,7 @@ def compute():
         # technique_total (file) legitimately exceeds MITRE-active. See docs footnote.
         "mitre_active_enterprise_techniques_ref": 697,
         # Authoritative entity counts come from the *_profiles files (the complete,
-        # v19.2-current sets). All entities are official MITRE ATT&CK v19.2 — including
+        # v19.2-current sets). All entities are official MITRE ATT&CK v19.2, including
         # the S9xxx software block and group G1056 (TeamPCP), which are genuine v19.2
         # additions (verified on attack.mitre.org), not lab/fictional entries.
         "groups": _count("data/attack/group_profiles.jsonl"),
@@ -140,7 +141,7 @@ def compute():
 
 # (regex on the doc, group(1) = the number)  ->  stats key it must equal
 # technique_total (714) = the technique RECORDS/pages the library publishes; 697 are
-# active per MITRE v19.2 (17 superseded records retained for lineage — see docs footnote).
+# active per MITRE v19.2 (17 superseded records retained for lineage; see docs footnote).
 CHECKS = [
     # Skip relational subset claims like "the 426 ATT&CK techniques they counter"
     # (a cross-reference count, not the technique total) via the trailing lookahead.
@@ -184,58 +185,83 @@ def check(stats):
                     problems.append(f"{rel}: '{m.group(0).strip()}' -> {key} should be {stats[key]:,} (found {got:,})")
     return problems
 
-README = os.path.join(ROOT, "README.md")
 BLOCK_RE = re.compile(r"(<!-- stats:start[^>]*-->\n)(.*?)(<!-- stats:end -->)", re.S)
+
+# The four front-door counts: (label, what it holds, stats key, README link, site route).
+# Wording lives here so the numbers and the nouns they count change together, and the
+# README table and the HOME cards say the same thing.
+FRONT_DOOR = [
+    ("Reference documents", "One topic each: its terms, tooling, and the frameworks and guidance that apply",
+     "reference_docs", "[Reference index](INDEX.md)", "#/INDEX"),
+    ("How-to guides", "One task, step by step, with the time it takes, what you need, and what you produce",
+     "guides", "[Guides](guides/README.md)", "#/guides/README"),
+    ("Learning paths", "An order of study for one discipline, with training, tools, books, and certifications",
+     "learning_paths", "[Learning paths](disciplines/README.md)", "#/disciplines/README"),
+    ("Framework pages", "One page per ATT&CK, CAPEC, D3FEND, ATLAS, and F3 object, generated from MITRE data",
+     "framework_pages", "[Framework pages](mitre/README.md)", "#/mitre/README"),
+]
 
 
 def readme_block(stats):
-    """The README "What's inside" table. Wording lives here so the numbers and the
-    nouns they count change together."""
-    rows = [
-        ("Reference documents", "One topic each: its terms, tooling, and the frameworks and guidance that apply",
-         stats["reference_docs"], "[Reference index](INDEX.md)"),
-        ("How-to guides", "One task, step by step, with the time it takes, what you need, and what you produce",
-         stats["guides"], "[Guides](guides/README.md)"),
-        ("Learning paths", "An order of study for one discipline, with training, tools, books, and certifications",
-         stats["learning_paths"], "[Learning paths](disciplines/README.md)"),
-        ("Framework pages", "One page per ATT&CK, CAPEC, D3FEND, ATLAS, and F3 object, generated from MITRE data",
-         stats["framework_pages"], "[Framework pages](mitre/README.md)"),
-    ]
+    """The README "What's inside" table."""
     out = ["| What | Count | Contents | Start at |", "|---|---:|---|---|"]
-    for name, what, n, link in rows:
-        out.append(f"| {name} | {n:,} | {what} | {link} |")
+    for name, what, key, link, _route in FRONT_DOOR:
+        out.append(f"| {name} | {stats[key]:,} | {what} | {link} |")
     return "\n".join(out) + "\n"
 
 
-def readme_problems(stats):
-    text = read_text("README.md")
-    if text is None:
-        return []
-    m = BLOCK_RE.search(text)
-    if not m:
-        return ["README.md: no <!-- stats:start --> ... <!-- stats:end --> block"]
-    if m.group(2) != readme_block(stats):
-        return ["README.md: the What's inside block is stale; run `python scripts/build_stats.py`"]
-    return []
+def _html(s):
+    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def write_readme(stats):
-    text = read_text("README.md")
-    m = BLOCK_RE.search(text or "")
-    if not m:
-        print("README.md has no stats block; not written")
-        return
-    new = text[:m.start(2)] + readme_block(stats) + text[m.end(2):]
-    if new != text:
-        with open(README, "w", encoding="utf-8", newline="\n") as f:
-            f.write(new)
-        print("wrote README.md What's inside block")
+def home_block(stats):
+    """The site homepage's "What's inside" cards (HOME.md): one raw-HTML block with no
+    blank line, so docsify and GitHub both keep it as a single HTML block."""
+    out = ['<div class="tsw-counts">']
+    for name, what, key, _link, route in FRONT_DOOR:
+        out.append(f'  <a class="tsw-count" href="{route}"><span class="tsw-count-n">{stats[key]:,}</span>'
+                   f'<span class="tsw-count-l">{_html(name)}</span>'
+                   f'<span class="tsw-count-d">{_html(what)}</span></a>')
+    out.append("</div>")
+    return "\n".join(out) + "\n"
+
+
+# file -> renderer of its stats block
+BLOCKS = {"README.md": readme_block, "HOME.md": home_block}
+
+
+def block_problems(stats):
+    probs = []
+    for rel, render in BLOCKS.items():
+        text = read_text(rel)
+        if text is None:
+            continue
+        m = BLOCK_RE.search(text)
+        if not m:
+            probs.append(f"{rel}: no <!-- stats:start --> ... <!-- stats:end --> block")
+        elif m.group(2) != render(stats):
+            probs.append(f"{rel}: the What's inside block is stale; run `python scripts/build_stats.py`")
+    return probs
+
+
+def write_blocks(stats):
+    for rel, render in BLOCKS.items():
+        text = read_text(rel)
+        m = BLOCK_RE.search(text or "")
+        if not m:
+            print(f"{rel} has no stats block; not written")
+            continue
+        new = text[:m.start(2)] + render(stats) + text[m.end(2):]
+        if new != text:
+            with open(os.path.join(ROOT, rel), "w", encoding="utf-8", newline="\n") as f:
+                f.write(new)
+            print(f"wrote {rel} What's inside block")
 
 
 def main():
     stats = compute()
     if "--check" in sys.argv:
-        probs = check(stats) + readme_problems(stats)
+        probs = check(stats) + block_problems(stats)
         if probs:
             print("STALE HEADLINE NUMBERS (must match data/generated/stats.json):")
             for p in probs:
@@ -249,7 +275,7 @@ def main():
         json.dump(stats, f, indent=2, sort_keys=True)
         f.write("\n")
     print("wrote data/generated/stats.json")
-    write_readme(stats)
+    write_blocks(stats)
     for k, v in sorted(stats.items()):
         print(f"  {k}: {v:,}" if isinstance(v, int) else f"  {k}: {v}")
 

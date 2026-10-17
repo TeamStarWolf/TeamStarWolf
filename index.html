@@ -25,35 +25,140 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/brand/favicon-16.png">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/brand/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/brand/apple-touch-icon-180.png">
+  <!-- Theme before first paint: a stored choice (this browser only), else the system preference,
+       else dark. The key is namespaced because ATTACK-Navi shares this origin's localStorage. -->
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('tsw-library-theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') {
+        t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/themes/vue.css" integrity="sha384-jCK82M2ExfkqAO/MYBKMjP1qC4AvZ4/Duf2gVWOy3RPn26uz+KW5I+9S39za1Fqv" crossorigin="anonymous">
 
   <style>
-    /* ===================== TeamStarWolf dark theme ===================== */
-    :root {
-      /* Core palette — deep navy field, cyan/violet Star Wolf accents */
+    /* ===================== Brand tokens =====================
+       Colours come from the STARWOLF 64 art: navy stage #0b1220, flame red #fc0604, chrome
+       green #acdf55, cream #fcf6b9, and the blue outline glow for links. Dark is the default;
+       the light theme is chosen by the toggle (stored per browser) or, until a reader picks
+       one, by prefers-color-scheme. Every text/background pair below is measured by
+       scripts/check_contrast.py (WCAG 2.x ratios; CI fails under AA). Components use these
+       tokens only: no colour literals below this block, except the cover banners. */
+    :root, :root[data-theme="dark"] {
+      color-scheme: dark;
       --tsw-bg:            #0b1220;
-      --tsw-bg-alt:        #0f172a;
-      --tsw-surface:       #131d33;
-      --tsw-surface-2:     #18243d;
-      --tsw-border:        #24324e;
-      --tsw-border-soft:   #1b2740;
+      --tsw-bg-alt:        #0d1526;
+      --tsw-surface:       #111a2e;
+      --tsw-surface-2:     #16223b;
+      --tsw-border:        #26334f;
+      --tsw-border-soft:   #1b2741;
+      --tsw-sidebar-bg:    #0a1120;
+      --tsw-nav-bg:        rgba(11, 18, 32, .88);
 
-      --tsw-text:          #e6edf7;
-      --tsw-text-muted:    #9fb0ca;
-      --tsw-text-dim:      #7286a4;
+      --tsw-text:          #e6ebf7;
+      --tsw-text-muted:    #a9b4cd;
+      --tsw-text-dim:      #8b97b1;
+      --tsw-heading:       #f4f7fd;
+      --tsw-link:          #8fb0ff;   /* the banner's blue outline glow */
+      --tsw-link-hover:    #c3d3ff;
 
-      --tsw-accent:        #38bdf8;   /* sky   */
-      --tsw-accent-2:      #a78bfa;   /* violet*/
-      --tsw-accent-3:      #22d3ee;   /* cyan  */
-      --tsw-warn:          #fbbf24;
-      --tsw-danger:        #f87171;
-      --tsw-ok:            #4ade80;
+      --tsw-red:           #fc0604;   /* accents and large text only */
+      --tsw-red-text:      #ff4d4d;   /* red at body-text size */
+      --tsw-green:         #acdf55;   /* chrome green: active and focus */
+      --tsw-cream:         #fcf6b9;   /* hero text */
+      --tsw-focus:         #acdf55;
+      --tsw-btn-bg:        #de0303;   /* primary button; white text */
+      --tsw-btn-bg-hover:  #c40202;
+      --tsw-btn-fg:        #ffffff;
 
-      --theme-color:       var(--tsw-accent);
+      --tsw-tint:          rgba(143, 176, 255, .08);
+      --tsw-tint-strong:   rgba(143, 176, 255, .14);
+      --tsw-row-alt:       rgba(255, 255, 255, .022);
+      --tsw-row-hover:     rgba(143, 176, 255, .07);
+      --tsw-selection:     rgba(172, 223, 85, .30);
+      --tsw-shadow:        rgba(0, 0, 0, .45);
+      --tsw-glow-a:        rgba(31, 72, 200, .12);
+      --tsw-glow-b:        rgba(252, 6, 4, .05);
+
+      --tsw-code-bg:       #172341;
+      --tsw-code-fg:       #c9d7ff;
+      --tsw-code-border:   #24345a;
+      --tsw-pre-bg:        #08101f;
+      --tsw-pre-fg:        #d7e3f4;
+      --tsw-tok-comment:   #8b97b1;
+      --tsw-tok-keyword:   #8fb0ff;
+      --tsw-tok-string:    #acdf55;
+      --tsw-tok-number:    #fcf6b9;
+      --tsw-tok-function:  #ffb4a8;
+      --tsw-tok-tag:       #ff8f85;
+      --tsw-tok-operator:  #c9d7ff;
+
+      --tsw-cover-bg:      radial-gradient(1100px 620px at 50% -10%, #16233d 0%, #0b1220 62%);
+      --tsw-cover-title:   var(--tsw-cream);
+      --tsw-scroll:        #26334f;
+      --tsw-scroll-hover:  #34466c;
+
+      --theme-color:       var(--tsw-link);
       --sidebar-width:     305px;
-
       --tsw-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code", Menlo, Consolas, monospace;
       --tsw-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    /* Light: red on white is 4.06:1, so red stays an accent and red text uses #b80d0d. */
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --tsw-bg:            #f6f7fb;
+      --tsw-bg-alt:        #eef1f7;
+      --tsw-surface:       #ffffff;
+      --tsw-surface-2:     #edf0f6;
+      --tsw-border:        #cdd5e3;
+      --tsw-border-soft:   #e2e7f0;
+      --tsw-sidebar-bg:    #eef1f7;
+      --tsw-nav-bg:        rgba(246, 247, 251, .92);
+
+      --tsw-text:          #141c2e;
+      --tsw-text-muted:    #3f4a63;
+      --tsw-text-dim:      #566079;
+      --tsw-heading:       #0b1220;
+      --tsw-link:          #1f48c8;
+      --tsw-link-hover:    #15338f;
+
+      --tsw-red:           #c40202;
+      --tsw-red-text:      #b80d0d;
+      --tsw-green:         #2f6a12;
+      --tsw-focus:         #1f48c8;
+      --tsw-btn-bg:        #c40202;
+      --tsw-btn-bg-hover:  #a30202;
+      --tsw-btn-fg:        #ffffff;
+
+      --tsw-tint:          rgba(31, 72, 200, .06);
+      --tsw-tint-strong:   rgba(31, 72, 200, .10);
+      --tsw-row-alt:       rgba(20, 28, 46, .03);
+      --tsw-row-hover:     rgba(31, 72, 200, .06);
+      --tsw-selection:     rgba(31, 72, 200, .20);
+      --tsw-shadow:        rgba(20, 28, 46, .14);
+      --tsw-glow-a:        rgba(31, 72, 200, .05);
+      --tsw-glow-b:        rgba(196, 2, 2, .03);
+
+      --tsw-code-bg:       #e8edf8;
+      --tsw-code-fg:       #1b3a99;
+      --tsw-code-border:   #d3dcef;
+      --tsw-pre-bg:        #f1f4fa;
+      --tsw-pre-fg:        #1a2236;
+      --tsw-tok-comment:   #5d6880;
+      --tsw-tok-keyword:   #1f48c8;
+      --tsw-tok-string:    #2f6a12;
+      --tsw-tok-number:    #8a4b00;
+      --tsw-tok-function:  #8f1d1d;
+      --tsw-tok-tag:       #b80d0d;
+      --tsw-tok-operator:  #3f4a63;
+
+      --tsw-cover-bg:      radial-gradient(1100px 620px at 50% -10%, #ffffff 0%, #eef2f9 62%);
+      --tsw-cover-title:   #0b1220;
+      --tsw-scroll:        #c3cbdb;
+      --tsw-scroll-hover:  #a9b3c7;
     }
 
     html, body { background: var(--tsw-bg); }
@@ -64,13 +169,12 @@
       text-rendering: optimizeLegibility;
     }
 
-    /* Subtle starfield/aurora wash so it doesn't read as flat black */
+    /* A faint glow so the navy field does not read as flat black */
     body::before {
       content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
       background:
-        radial-gradient(900px 500px at 12% -8%, rgba(56,189,248,.10), transparent 60%),
-        radial-gradient(800px 500px at 100% 0%, rgba(167,139,250,.09), transparent 60%),
-        radial-gradient(700px 500px at 50% 110%, rgba(34,211,238,.05), transparent 60%);
+        radial-gradient(900px 500px at 12% -8%, var(--tsw-glow-a), transparent 60%),
+        radial-gradient(800px 500px at 100% 0%, var(--tsw-glow-b), transparent 60%);
     }
     /* Lift the layout above the wash. Only z-index here: vue.css positions .content
        absolutely (left: 300px; right: 0), and forcing position: relative on it kept the
@@ -82,25 +186,25 @@
 
     /* ===================== Sidebar ===================== */
     .sidebar {
-      background: linear-gradient(180deg, #0c1526 0%, #0a1120 100%);
+      background: var(--tsw-sidebar-bg);
       border-right: 1px solid var(--tsw-border);
       padding-top: 0;
       /* Pin the sidebar out of document flow on the cover route. Without this, its
          full height (~8,000px of links) stacks between the cover and the homepage,
-         leaving a black void when scrolling. The cover paints above it (z-index below). */
+         leaving a void when scrolling. The cover paints above it (z-index below). */
       position: fixed; top: 0; bottom: 0; z-index: 10;
     }
     section.cover { position: relative; z-index: 20; }
     .sidebar > h1 {
       margin: 0; padding: 20px 22px 14px;
       border-bottom: 1px solid var(--tsw-border-soft);
-      background: rgba(56,189,248,.045);
+      background: var(--tsw-tint);
     }
     .sidebar > h1 .app-name-link {
-      color: var(--tsw-text); font-weight: 800; font-size: 1.18rem;
+      color: var(--tsw-heading); font-weight: 800; font-size: 1.18rem;
       letter-spacing: -.015em; display: inline-flex; align-items: center; gap: .5rem;
     }
-    .sidebar > h1 .app-name-link:hover { color: var(--tsw-accent); }
+    .sidebar > h1 .app-name-link:hover { color: var(--tsw-link); }
 
     .sidebar ul li a {
       color: var(--tsw-text-muted);
@@ -108,13 +212,13 @@
       padding: 4px 0; border: 0;
       transition: color .13s ease, transform .13s ease;
     }
-    .sidebar ul li a:hover { color: var(--tsw-accent); transform: translateX(2px); }
+    .sidebar ul li a:hover { color: var(--tsw-link); transform: translateX(2px); }
     .sidebar ul li.active > a {
-      color: var(--tsw-accent) !important;
+      color: var(--tsw-green) !important;
       font-weight: 650;
-      border-right: 2px solid var(--tsw-accent);
+      border-right: 2px solid var(--tsw-green);
     }
-    /* docsify wraps every sidebar item in <p> — keep those neutral */
+    /* docsify wraps every sidebar item in <p>; keep those neutral */
     .sidebar ul li p {
       margin: 0;
       text-transform: none;
@@ -133,16 +237,17 @@
     }
     .sidebar hr { border-color: var(--tsw-border-soft); margin: 14px 0; }
     .sidebar::-webkit-scrollbar { width: 9px; }
-    .sidebar::-webkit-scrollbar-thumb { background: #24324e; border-radius: 9px; }
-    .sidebar::-webkit-scrollbar-thumb:hover { background: #33456b; }
-    .sidebar-toggle { background: transparent; color: var(--tsw-accent); }
-    .sidebar-toggle span { background-color: var(--tsw-accent); }
+    .sidebar::-webkit-scrollbar-thumb { background: var(--tsw-scroll); border-radius: 9px; }
+    .sidebar::-webkit-scrollbar-thumb:hover { background: var(--tsw-scroll-hover); }
+    .sidebar-toggle { background: var(--tsw-sidebar-bg); color: var(--tsw-link); }
+    .sidebar-toggle span { background-color: var(--tsw-link); }
+    body.close .sidebar-toggle { background-color: transparent; }
 
     /* ===================== Search ===================== */
     .search {
       margin: 0; padding: 14px 16px 12px;
       border-bottom: 1px solid var(--tsw-border-soft);
-      background: rgba(255,255,255,.015);
+      background: transparent;
     }
     .search .input-wrap { background: transparent; }
     .search input {
@@ -154,17 +259,20 @@
       padding: 10px 12px;
       transition: border-color .15s, box-shadow .15s;
     }
-    .search input::placeholder { color: var(--tsw-text-dim); }
+    .search input::placeholder { color: var(--tsw-text-dim); opacity: 1; }
     .search input:focus {
       outline: none;
-      border-color: var(--tsw-accent);
-      box-shadow: 0 0 0 3px rgba(56,189,248,.16);
+      border-color: var(--tsw-focus);
+      box-shadow: 0 0 0 3px var(--tsw-tint-strong);
     }
+    .search .clear-button svg circle { fill: var(--tsw-text-dim); }
     .search .results-panel { background: transparent; color: var(--tsw-text-muted); }
     .search .matching-post { border-bottom: 1px solid var(--tsw-border-soft); padding: 10px 0; }
     .search .matching-post:last-child { border-bottom: 0; }
-    .search p.title { color: var(--tsw-accent); font-weight: 650; font-size: .86rem; }
+    .search p.title { color: var(--tsw-link); font-weight: 650; font-size: .86rem; }
     .search p { font-size: .8rem; color: var(--tsw-text-dim); }
+    .search p.empty { color: var(--tsw-text-muted); }
+    .search .search-keyword { color: var(--tsw-red-text); font-style: normal; font-weight: 650; }
     .search .clear-button { cursor: pointer; }
 
     /* ===================== Top navbar ===================== */
@@ -174,45 +282,70 @@
       /* Above .content (z-index 1, later in the DOM), so the links and their dropdowns
          take the pointer; still below the sidebar (10) and the cover (20). */
       z-index: 5;
-      background: rgba(11,18,32,.82);
+      background: var(--tsw-nav-bg);
       backdrop-filter: saturate(160%) blur(12px);
       -webkit-backdrop-filter: saturate(160%) blur(12px);
       border-bottom: 1px solid var(--tsw-border);
       text-align: right;
       height: 52px; line-height: 52px;
-      padding-right: 22px;
+      padding-right: 64px;   /* room for the theme button (#tsw-theme) */
     }
-    .app-nav li ul { background: var(--tsw-surface); border: 1px solid var(--tsw-border); border-radius: 10px; }
+    .app-nav li ul { background: var(--tsw-surface); border: 1px solid var(--tsw-border); border-radius: 10px; box-shadow: 0 10px 28px var(--tsw-shadow); }
+    .app-nav li ul li { line-height: 1.6; }
     .app-nav a {
       color: var(--tsw-text-muted); font-size: .85rem; font-weight: 550;
       padding: 6px 2px; transition: color .13s;
     }
-    .app-nav a:hover { color: var(--tsw-accent); }
+    .app-nav li ul a { color: var(--tsw-text-muted); }
+    .app-nav a:hover, .app-nav li ul a:hover { color: var(--tsw-link); }
+    .app-nav a.active { color: var(--tsw-heading); border-bottom: 2px solid var(--tsw-red); }
     .app-nav li { margin: 0 10px; }
     /* dropdown parents are links to their first menu item; caret marks the menu */
-    .app-nav li:has(> ul) > a::after { content: ' ▾'; font-size: .72em; opacity: .65; }
+    .app-nav li:has(> ul) > a::after { content: ' \25BE'; font-size: .72em; opacity: .65; }
     body.close .app-nav { left: 0; }
     /* Keyboard: a dropdown opens while focus is inside it (vue.css opens it on hover only),
        or when its parent link is toggled with Space (see the keyboard plugin below). */
     .app-nav li:focus-within > ul, .app-nav li.tsw-open > ul { display: block; }
     .app-nav li.tsw-shut > ul { display: none; }
+    /* The repository is linked from the navbar ("GitHub") and from every page's
+       "Edit this page on GitHub" line; the corner badge sat under the theme button. */
+    .github-corner { display: none; }
+
+    /* ===================== Theme toggle ===================== */
+    #tsw-theme {
+      position: fixed; top: 8px; right: 14px; z-index: 30;
+      width: 36px; height: 36px; padding: 0; border-radius: 9px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--tsw-surface); color: var(--tsw-text);
+      border: 1px solid var(--tsw-border); cursor: pointer;
+      transition: border-color .13s, color .13s;
+    }
+    #tsw-theme:hover { border-color: var(--tsw-link); color: var(--tsw-link); }
+    #tsw-theme svg { width: 18px; height: 18px; display: block; }
+    #tsw-theme .tsw-i-moon { display: none; }
+    :root[data-theme="light"] #tsw-theme .tsw-i-sun { display: none; }
+    :root[data-theme="light"] #tsw-theme .tsw-i-moon { display: block; }
 
     /* ===================== Keyboard focus and skip link ===================== */
     a:focus-visible, button:focus-visible, summary:focus-visible,
-    [tabindex]:focus-visible, .sidebar-toggle:focus-visible {
-      outline: 2px solid var(--tsw-accent); outline-offset: 2px; border-radius: 4px;
+    [tabindex]:focus-visible, .sidebar-toggle:focus-visible, input:focus-visible {
+      outline: 2px solid var(--tsw-focus); outline-offset: 2px; border-radius: 4px;
     }
-    #main:focus { outline: none; }
+    #main:focus, .markdown-section h1:focus, .markdown-section h2:focus { outline: none; }
     .tsw-skip {
       position: fixed; top: 8px; left: 8px; z-index: 100;
       padding: .55rem 1rem; border-radius: 8px;
-      background: var(--tsw-surface-2); color: var(--tsw-text); border: 1px solid var(--tsw-accent);
+      background: var(--tsw-surface-2); color: var(--tsw-text); border: 1px solid var(--tsw-focus);
       font-weight: 650; text-decoration: none;
       transform: translateY(-160%);
     }
     .tsw-skip:focus { transform: none; }
     .tsw-noscript { max-width: 760px; margin: 3rem auto; padding: 0 16px; color: var(--tsw-text); line-height: 1.6; }
-    .tsw-noscript a { color: var(--tsw-accent); }
+    .tsw-noscript a { color: var(--tsw-link); }
+    .tsw-sr-only {
+      position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
 
     /* ===================== Content ===================== */
     .content { background: transparent; padding-top: 52px; }
@@ -227,18 +360,18 @@
 
     .markdown-section h1, .markdown-section h2,
     .markdown-section h3, .markdown-section h4 {
-      color: #f2f7ff; font-weight: 750; letter-spacing: -.018em; line-height: 1.25;
+      color: var(--tsw-heading); font-weight: 750; letter-spacing: -.018em; line-height: 1.25;
     }
     .markdown-section h1 { font-size: 2.05rem; margin: 0 0 1.1rem; }
     .markdown-section h2 {
       font-size: 1.5rem; margin: 2.6rem 0 1rem;
       padding-bottom: .45rem; border-bottom: 1px solid var(--tsw-border);
     }
-    .markdown-section h3 { font-size: 1.18rem; margin: 2rem 0 .75rem; color: #e8f0fb; }
+    .markdown-section h3 { font-size: 1.18rem; margin: 2rem 0 .75rem; }
     .markdown-section h4 { font-size: 1.02rem; margin: 1.5rem 0 .6rem; color: var(--tsw-text-muted); }
     .markdown-section h2 + h3 { margin-top: 1.1rem; }
     /* docsify wraps heading text in a.anchor > span and vue.css paints that span #34495e
-       (2.02:1 on the navy field). Let it take the heading's own light colour instead. */
+       (2.02:1 on the navy field). Let it take the heading's own colour instead. */
     .markdown-section h1 .anchor, .markdown-section h2 .anchor, .markdown-section h3 .anchor,
     .markdown-section h4 .anchor, .markdown-section h5 .anchor, .markdown-section h6 .anchor,
     .markdown-section h1 .anchor span, .markdown-section h2 .anchor span,
@@ -246,17 +379,22 @@
     .markdown-section h5 .anchor span, .markdown-section h6 .anchor span { color: inherit; }
     .markdown-section h5, .markdown-section h6 { color: var(--tsw-text-muted); }
 
-    .markdown-section a { color: var(--tsw-accent); text-decoration: none; font-weight: 500; }
-    .markdown-section a:hover { color: var(--tsw-accent-3); text-decoration: underline; text-underline-offset: 3px; }
+    .markdown-section a { color: var(--tsw-link); text-decoration: none; font-weight: 500; }
+    .markdown-section a:hover { color: var(--tsw-link-hover); text-decoration: underline; text-underline-offset: 3px; }
     .markdown-section p, .markdown-section li { color: var(--tsw-text); }
-    .markdown-section strong { color: #fff; font-weight: 680; }
+    .markdown-section strong { color: var(--tsw-heading); font-weight: 680; }
     .markdown-section em { color: var(--tsw-text-muted); }
     .markdown-section hr { border: 0; border-top: 1px solid var(--tsw-border); margin: 2.4rem 0; }
+    .markdown-section kbd {
+      font-family: var(--tsw-mono); font-size: .8em; padding: .05em .4em;
+      border: 1px solid var(--tsw-border); border-bottom-width: 2px; border-radius: 5px;
+      background: var(--tsw-surface); color: var(--tsw-text);
+    }
 
-    /* Blockquote — used heavily for doc intros */
+    /* Blockquote: used heavily for doc intros */
     .markdown-section blockquote {
-      background: linear-gradient(90deg, rgba(56,189,248,.09), rgba(56,189,248,.02));
-      border-left: 3px solid var(--tsw-accent);
+      background: linear-gradient(90deg, var(--tsw-tint-strong), var(--tsw-tint));
+      border-left: 3px solid var(--tsw-link);
       border-radius: 0 10px 10px 0;
       margin: 1.5rem 0; padding: 1rem 1.2rem;
       color: var(--tsw-text);
@@ -273,7 +411,7 @@
     .markdown-section thead { background: var(--tsw-surface-2); }
     .markdown-section th {
       background: var(--tsw-surface-2);
-      color: #eaf2ff; font-weight: 680; text-align: left;
+      color: var(--tsw-heading); font-weight: 680; text-align: left;
       padding: 10px 14px; white-space: nowrap;
       border: 0; border-bottom: 1px solid var(--tsw-border);
       position: sticky; top: 0; z-index: 2;
@@ -285,26 +423,26 @@
     }
     .markdown-section tr:last-child td { border-bottom: 0; }
     .markdown-section tbody tr { background: transparent; transition: background .12s; }
-    .markdown-section tbody tr:nth-child(even) { background: rgba(255,255,255,.022); }
-    .markdown-section tbody tr:hover { background: rgba(56,189,248,.075); }
+    .markdown-section tbody tr:nth-child(even) { background: var(--tsw-row-alt); }
+    .markdown-section tbody tr:hover { background: var(--tsw-row-hover); }
 
     /* ---------- Code ---------- */
     .markdown-section code {
       font-family: var(--tsw-mono);
-      background: rgba(56,189,248,.11);
-      color: #7dd3fc;
-      border: 1px solid rgba(56,189,248,.16);
+      background: var(--tsw-code-bg);
+      color: var(--tsw-code-fg);
+      border: 1px solid var(--tsw-code-border);
       border-radius: 5px;
       padding: .12em .42em; font-size: .855em;
     }
     .markdown-section pre {
-      background: #08101f;
+      background: var(--tsw-pre-bg);
       border: 1px solid var(--tsw-border);
       border-radius: 11px;
       margin: 1.3rem 0; padding: 0;
     }
     .markdown-section pre > code {
-      background: transparent; border: 0; color: #d7e3f4;
+      background: transparent; border: 0; color: var(--tsw-pre-fg);
       font-size: .845rem; line-height: 1.65; padding: 1.05rem 1.2rem; display: block;
     }
     .markdown-section pre::after { display: none; }
@@ -313,13 +451,13 @@
       font-variant-ligatures: none;
       font-feature-settings: "liga" 0, "calt" 0;
     }
-    .token.comment, .token.prolog, .token.doctype, .token.cdata { color: #64748b; }
-    .token.property, .token.tag, .token.constant, .token.symbol, .token.deleted { color: #f472b6; }
-    .token.boolean, .token.number { color: #fbbf24; }
-    .token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted { color: #86efac; }
-    .token.operator, .token.entity, .token.url, .token.variable { color: #7dd3fc; }
-    .token.atrule, .token.attr-value, .token.function, .token.class-name { color: #a78bfa; }
-    .token.keyword { color: #38bdf8; }
+    .token.comment, .token.prolog, .token.doctype, .token.cdata { color: var(--tsw-tok-comment); }
+    .token.property, .token.tag, .token.constant, .token.symbol, .token.deleted { color: var(--tsw-tok-tag); }
+    .token.boolean, .token.number { color: var(--tsw-tok-number); }
+    .token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted { color: var(--tsw-tok-string); }
+    .token.operator, .token.entity, .token.url, .token.variable, .token.punctuation { color: var(--tsw-tok-operator); }
+    .token.atrule, .token.attr-value, .token.function, .token.class-name { color: var(--tsw-tok-function); }
+    .token.keyword { color: var(--tsw-tok-keyword); }
 
     .docsify-copy-code-button {
       background: var(--tsw-surface-2) !important;
@@ -328,26 +466,28 @@
       border-radius: 0 10px 0 8px !important;
       font-size: .74rem !important;
     }
-    .docsify-copy-code-button:hover { color: var(--tsw-accent) !important; }
+    .docsify-copy-code-button:hover { color: var(--tsw-link) !important; }
 
-    /* ---------- Cover page ---------- */
-    section.cover {
-      background: radial-gradient(1100px 620px at 50% -10%, #16233d 0%, #0b1220 62%) !important;
-    }
+    /* docsify-tabs */
+    .markdown-section .docsify-tabs__tab { color: var(--tsw-text-muted); background: transparent; }
+    .markdown-section .docsify-tabs__tab--active { color: var(--tsw-heading); }
+
+    /* ---------- Cover page (the hero above HOME.md) ---------- */
+    section.cover { background: var(--tsw-cover-bg) !important; color: var(--tsw-text); }
     /* auto side margins centre the column: the cover is a flex row with no justify-content */
     section.cover .cover-main { max-width: 932px; margin-left: auto; margin-right: auto; padding: 0 16px; box-sizing: border-box; }
-    .markdown-section .tsw-lede {
-      max-width: 760px; margin: -.2rem 0 1.6rem;
-      font-size: 1.12rem; line-height: 1.6; color: var(--tsw-text-muted);
-    }
-    /* Hero: the STARWOLF 64 flame banner (transparent WebP) straight on the navy stage.
-       width/height attributes on the <img> reserve its box, so nothing shifts on load. */
+    /* One banner per theme: the flame art (draft-4) is drawn for the dark stage only; the
+       light theme uses the Version2 banner. width/height attributes reserve the box, so
+       nothing shifts on load. */
     section.cover .tsw-cover-banner {
       display: block; margin: 0 auto 1.1rem; width: 100%; max-width: 880px; height: auto;
     }
+    section.cover .tsw-art-light { display: none; }
+    :root[data-theme="light"] section.cover .tsw-art-dark { display: none; }
+    :root[data-theme="light"] section.cover .tsw-art-light { display: block; }
     section.cover h1 {
       font-size: 2.2rem; font-weight: 750; letter-spacing: -.01em;
-      color: #fcf6b9;            /* cream from the logotype, 16.96:1 on #0b1220 */
+      color: var(--tsw-cover-title);
       margin: 0 0 .4rem;
     }
     section.cover h1 a, section.cover h1 a span { color: inherit; }
@@ -360,31 +500,28 @@
       border: 1px solid var(--tsw-border); color: var(--tsw-text); background: var(--tsw-surface);
       transition: transform .13s, box-shadow .18s, border-color .13s, background-color .13s;
     }
-    /* Primary: white on brand red #de0303 is 5.1:1; hover #c40202 is 6.26:1 */
     section.cover .tsw-cover-actions .tsw-cover-btn--primary {
-      background: #de0303; border-color: #de0303; color: #ffffff; font-weight: 700;
+      background: var(--tsw-btn-bg); border-color: var(--tsw-btn-bg); color: var(--tsw-btn-fg); font-weight: 700;
     }
     section.cover .tsw-cover-actions .tsw-cover-btn:hover,
     section.cover .tsw-cover-actions .tsw-cover-btn:focus-visible {
-      transform: translateY(-2px); border-color: #ff4d4d;
-      box-shadow: 0 8px 24px rgba(252,6,4,.18);
+      transform: translateY(-2px); border-color: var(--tsw-red);
+      box-shadow: 0 8px 24px var(--tsw-shadow);
     }
     section.cover .tsw-cover-actions .tsw-cover-btn--primary:hover,
-    section.cover .tsw-cover-actions .tsw-cover-btn--primary:focus-visible { background: #c40202; }
+    section.cover .tsw-cover-actions .tsw-cover-btn--primary:focus-visible { background: var(--tsw-btn-bg-hover); }
     section.cover .tsw-cover-actions kbd {
       font: inherit; font-size: .78em; line-height: 1; padding: .2em .35em;
       border: 1px solid var(--tsw-border); border-radius: 5px; color: var(--tsw-text-muted);
     }
-    section.cover ul { color: var(--tsw-text-muted); }
-    section.cover ul li { margin: .35rem 0; }
 
     /* ---------- Pagination ---------- */
     .pagination-item-title { color: var(--tsw-text-muted) !important; }
-    .pagination-item-label { color: var(--tsw-accent) !important; }
+    .pagination-item-label { color: var(--tsw-link) !important; }
     .docsify-pagination-container { border-top: 1px solid var(--tsw-border); }
 
     /* ---------- Misc ---------- */
-    ::selection { background: rgba(56,189,248,.3); }
+    ::selection { background: var(--tsw-selection); }
     img { max-width: 100%; }
     .markdown-section img[src*="shields.io"] { display: inline-block; margin: 2px 1px; vertical-align: middle; }
 
@@ -394,10 +531,10 @@
       width: 40px; height: 40px; border-radius: 11px;
       display: none; align-items: center; justify-content: center;
       background: var(--tsw-surface-2); border: 1px solid var(--tsw-border);
-      color: var(--tsw-accent); cursor: pointer; font-size: 17px;
+      color: var(--tsw-link); cursor: pointer; font-size: 17px;
       transition: transform .13s, box-shadow .18s;
     }
-    #tsw-top:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.45); }
+    #tsw-top:hover { transform: translateY(-2px); box-shadow: 0 8px 22px var(--tsw-shadow); }
     #tsw-top.show { display: flex; }
 
     /* ---------- Responsive ---------- */
@@ -405,221 +542,247 @@
       .app-nav { left: 0; padding-right: 12px; height: 48px; line-height: 48px; }
       .app-nav li { margin: 0 7px; }
       .app-nav a { font-size: .8rem; }
-      .markdown-section { padding: 26px 18px 64px; font-size: 15px; }
+      .markdown-section { padding: 26px 16px 64px; font-size: 15px; }
       .markdown-section h1 { font-size: 1.7rem; }
       .markdown-section h2 { font-size: 1.3rem; }
       section.cover h1 { font-size: 1.9rem; }
+      /* The cover sizes to its content on a phone (vue.css makes it a full screen, which left
+         an empty band between the buttons and the page below). */
+      section.cover { min-height: 0; padding: 64px 0 24px; }
       .content { padding-top: 48px; }
+      /* Mobile top bar: the menu button sits at its left and the theme button at its
+         right, so neither floats over page content. vue.css put the menu button at the
+         bottom-left corner, where it covered the cover's ATTACK-Navi button. */
+      #tsw-mbar {
+        display: block; position: fixed; top: 0; left: 0; right: 0; height: 48px; z-index: 9;
+        background: var(--tsw-nav-bg); border-bottom: 1px solid var(--tsw-border);
+        backdrop-filter: saturate(160%) blur(12px); -webkit-backdrop-filter: saturate(160%) blur(12px);
+      }
+      .sidebar-toggle, body.close .sidebar-toggle {
+        position: fixed; top: 0; bottom: auto; left: 0; z-index: 30;
+        width: 48px; height: 48px; padding: 0;
+        display: flex; align-items: center; justify-content: center;
+        background: transparent; border: 0;
+      }
+      .sidebar-toggle .sidebar-toggle-button { padding: 14px 13px; }
+      .sidebar { padding-top: 48px; }
+      #tsw-theme { top: 6px; right: 8px; }
+    }
+    #tsw-mbar { display: none; }
+    /* Narrow desktops and tablets (docsify switches to its phone layout at 768px). The nine
+       navbar items fit one row from 1100px when set tighter; below that they wrap, so the
+       bar grows to fit and the page and the anchor offset follow its measured height
+       (--tsw-nav-h, set by the navbar-height plugin below). */
+    @media screen and (min-width: 769px) and (max-width: 1280px) {
+      .app-nav li { margin: 0 6px; }
+      .app-nav a { font-size: .8rem; }
+    }
+    @media screen and (min-width: 769px) and (max-width: 1099px) {
+      .app-nav { height: auto; min-height: 52px; line-height: 30px; padding-top: 6px; padding-bottom: 6px; }
+      .content { padding-top: var(--tsw-nav-h, 52px); }
     }
     @media (prefers-reduced-motion: reduce) {
       * { transition: none !important; animation: none !important; }
     }
 
-    /* ===== tsw-home components (additive) =====
-       Used only by HOME.md (and disciplines/README.md). New .tsw-* classes only —
-       nothing below touches the selectors that style the other 139 docs.
-       All transitions are covered by the prefers-reduced-motion kill-switch above.
-       Every selector is prefixed .markdown-section so these rules out-rank the
-       generic .markdown-section a link styling without touching it. */
+    /* ---------- Print: light colours (set by the beforeprint handler), content only ---------- */
+    @media print {
+      .sidebar, .sidebar-toggle, .app-nav, #tsw-theme, #tsw-top, #tsw-mbar, .tsw-skip,
+      .docsify-copy-code-button, .docsify-pagination-container, body::before { display: none !important; }
+      .content { left: 0 !important; padding-top: 0 !important; position: static !important; }
+      .markdown-section { max-width: none; padding: 0; }
+      .markdown-section a { text-decoration: underline; }
+      section.cover { min-height: 0 !important; height: auto !important; page-break-after: always; }
+    }
 
-    /* --- Hero band --- */
-    .markdown-section .tsw-hero {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 1rem 1.6rem; flex-wrap: wrap;
-      position: relative; padding: .2rem 0 1.35rem; margin: .4rem 0 1.7rem;
-    }
-    .markdown-section .tsw-hero::after {
-      content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
-      border-radius: 2px;
-      background: linear-gradient(90deg, var(--tsw-accent), var(--tsw-accent-2));
-    }
-    .markdown-section .tsw-hero-id { display: flex; align-items: flex-start; gap: .85rem; flex: 1 1 380px; min-width: 0; }
-    .markdown-section .tsw-hero-glyph { font-size: 2.15rem; line-height: 1.15; }
-    .markdown-section .tsw-hero-title {
-      font-size: 1.6rem; font-weight: 850; letter-spacing: -.03em; line-height: 1.2;
-      background: linear-gradient(96deg, #38bdf8 0%, #a78bfa 55%, #22d3ee 100%);
-      -webkit-background-clip: text; background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .markdown-section .tsw-hero-tag { margin: .25rem 0 0; font-size: .92rem; color: var(--tsw-text-muted); line-height: 1.5; }
-    .markdown-section .tsw-hero-actions { display: flex; gap: .6rem; flex-wrap: wrap; align-items: center; }
+    /* ===================== Homepage components (HOME.md) =====================
+       New .tsw-* classes only; nothing here touches the selectors that style the other
+       pages. Every selector is prefixed .markdown-section so these rules out-rank the
+       generic .markdown-section link styling without touching it. */
+    .markdown-section .tsw-lead { color: var(--tsw-text-muted); margin: -.3rem 0 1.1rem; max-width: 72ch; }
+    .markdown-section .tsw-more { margin: .9rem 0 0; font-size: .92rem; }
+    /* Empty targets that keep the previous homepage's #/?id= section links working */
+    .markdown-section .tsw-anchor { height: 0; margin: 0; }
 
-    /* --- Pill buttons --- */
+    /* --- Buttons --- */
     .markdown-section .tsw-btn {
       display: inline-block; border-radius: 10px; padding: .55rem 1.15rem;
-      font-size: .88rem; font-weight: 640; white-space: nowrap;
+      font-size: .9rem; font-weight: 650;
       background: var(--tsw-surface); border: 1px solid var(--tsw-border);
       color: var(--tsw-text); text-decoration: none;
-      transition: transform .13s, box-shadow .18s, border-color .13s;
+      transition: border-color .13s, color .13s;
     }
-    .markdown-section .tsw-btn:hover {
-      transform: translateY(-2px); border-color: var(--tsw-accent);
-      box-shadow: 0 8px 24px rgba(56,189,248,.18);
-      color: var(--tsw-text); text-decoration: none;
-    }
-    .markdown-section .tsw-btn--ghost { background: var(--tsw-surface); }
-    .markdown-section .tsw-btn--primary,
-    .markdown-section .tsw-btn--primary:hover {
-      background: linear-gradient(96deg, var(--tsw-accent), var(--tsw-accent-2));
-      border-color: transparent; color: #08101f; font-weight: 700;
-    }
+    .markdown-section .tsw-btn:hover { border-color: var(--tsw-link); color: var(--tsw-link); text-decoration: none; }
 
-    /* --- Stat strip (8 linked chips) --- */
-    .markdown-section .tsw-stats {
-      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 10px; margin: 1.4rem 0 2rem;
+    /* --- Three doors --- */
+    .markdown-section .tsw-doors { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 0 0 .6rem; }
+    .markdown-section .tsw-door {
+      display: flex; flex-direction: column; gap: .45rem; min-width: 0;
+      background: var(--tsw-surface); border: 1px solid var(--tsw-border);
+      border-top: 4px solid var(--tsw-door, var(--tsw-link)); border-radius: 12px;
+      padding: 1rem 1.1rem 1.05rem; color: var(--tsw-text); text-decoration: none;
+      transition: border-color .13s, transform .13s;
     }
-    .markdown-section .tsw-stat {
-      display: flex; flex-direction: column; gap: 2px;
-      padding: .8rem .95rem; min-width: 0;
+    .markdown-section .tsw-door--learn { --tsw-door: var(--tsw-green); }
+    .markdown-section .tsw-door--task  { --tsw-door: var(--tsw-red); }
+    .markdown-section .tsw-door--data  { --tsw-door: var(--tsw-link); }
+    .markdown-section .tsw-door:hover { border-color: var(--tsw-door); transform: translateY(-2px); text-decoration: none; }
+    .markdown-section .tsw-door-who {
+      font-family: var(--tsw-mono); font-size: .72rem; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--tsw-text-dim);
+    }
+    .markdown-section .tsw-door-t { font-size: 1.2rem; font-weight: 750; color: var(--tsw-heading); line-height: 1.3; }
+    .markdown-section .tsw-door-d { font-size: .9rem; line-height: 1.55; color: var(--tsw-text-muted); flex: 1; }
+    .markdown-section .tsw-door-go { font-size: .88rem; font-weight: 650; color: var(--tsw-link); }
+    .markdown-section .tsw-door-go::after { content: " \203A"; }
+
+    /* --- Start-here guide cards --- */
+    .markdown-section .tsw-guides { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .markdown-section .tsw-guide {
+      display: flex; flex-direction: column; gap: .55rem; min-width: 0;
       background: var(--tsw-surface); border: 1px solid var(--tsw-border); border-radius: 10px;
-      text-decoration: none;
-      transition: border-color .13s, box-shadow .18s;
+      padding: .85rem 1rem; text-decoration: none; color: var(--tsw-text);
+      transition: border-color .13s;
     }
-    .markdown-section .tsw-stat:hover {
-      border-color: var(--tsw-accent);
-      box-shadow: 0 0 0 3px rgba(56,189,248,.13);
-      text-decoration: none;
+    .markdown-section .tsw-guide:hover { border-color: var(--tsw-link); text-decoration: none; }
+    .markdown-section .tsw-guide-t { font-weight: 700; font-size: 1rem; line-height: 1.35; color: var(--tsw-heading); }
+    .markdown-section .tsw-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+    .markdown-section .tsw-pill {
+      font-size: .78rem; line-height: 1.45; padding: .1rem .55rem; border-radius: 999px;
+      background: var(--tsw-surface-2); border: 1px solid var(--tsw-border-soft); color: var(--tsw-text-muted);
     }
-    .markdown-section .tsw-stat-n {
-      font-family: var(--tsw-mono); font-size: 1.4rem; font-weight: 700;
-      color: var(--tsw-accent); line-height: 1.25; overflow-wrap: break-word;
-    }
-    .markdown-section .tsw-stat-l {
-      font-size: .68rem; font-weight: 650; text-transform: uppercase;
-      letter-spacing: .07em; color: var(--tsw-text-dim); line-height: 1.4;
-    }
-    .markdown-section .tsw-stat-s { font-size: .7rem; font-family: var(--tsw-mono); color: var(--tsw-text-dim); }
 
-    /* --- Shared card base (router + flagships) --- */
-    .markdown-section .tsw-card {
+    /* --- What's inside (script-written counts) --- */
+    .markdown-section .tsw-counts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .markdown-section .tsw-count {
+      display: flex; flex-direction: column; gap: .2rem; min-width: 0;
+      background: var(--tsw-surface); border: 1px solid var(--tsw-border); border-radius: 10px;
+      padding: .85rem 1rem; text-decoration: none; transition: border-color .13s;
+    }
+    .markdown-section .tsw-count:hover { border-color: var(--tsw-link); text-decoration: none; }
+    .markdown-section .tsw-count-n {
+      font-family: var(--tsw-mono); font-size: 1.7rem; font-weight: 700; line-height: 1.15;
+      color: var(--tsw-heading); font-variant-numeric: tabular-nums;
+    }
+    .markdown-section .tsw-count-l { font-weight: 650; font-size: .92rem; color: var(--tsw-link); }
+    .markdown-section .tsw-count-d { font-size: .8rem; line-height: 1.5; color: var(--tsw-text-muted); }
+
+    /* --- How it connects: a left-to-right route --- */
+    .markdown-section .tsw-connect { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); margin: 0 0 1.4rem; }
+    .markdown-section .tsw-node {
+      position: relative; min-width: 0; padding: .75rem .85rem .8rem .8rem;
       background: var(--tsw-surface); border: 1px solid var(--tsw-border);
-      border-radius: 12px; padding: .95rem 1.05rem; min-width: 0;
-      transition: border-color .13s, transform .13s, box-shadow .18s;
     }
-    .markdown-section .tsw-card:hover { border-color: var(--tsw-accent); transform: translateY(-2px); }
+    .markdown-section .tsw-node + .tsw-node { border-left: 0; padding-left: 1.05rem; }
+    .markdown-section .tsw-node:first-child { border-radius: 10px 0 0 10px; }
+    .markdown-section .tsw-node:last-child { border-radius: 0 10px 10px 0; }
+    .markdown-section .tsw-node:not(:last-child)::after {
+      content: ""; position: absolute; right: -7px; top: 50%; width: 12px; height: 12px; z-index: 1;
+      background: var(--tsw-surface); border-top: 1px solid var(--tsw-border); border-right: 1px solid var(--tsw-border);
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .markdown-section .tsw-node-k {
+      display: block; font-family: var(--tsw-mono); font-size: .68rem; letter-spacing: .07em;
+      text-transform: uppercase; color: var(--tsw-text-dim);
+    }
+    .markdown-section .tsw-node a { display: block; font-weight: 700; font-size: .9rem; line-height: 1.3; margin: .15rem 0 .35rem; }
+    .markdown-section .tsw-node-d { display: block; font-size: .78rem; line-height: 1.45; color: var(--tsw-text-muted); }
 
-    /* --- Quick router --- */
-    .markdown-section .tsw-router {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-      gap: 14px; margin: 1.2rem 0 .8rem;
-    }
-    .markdown-section .tsw-card-h {
-      font-size: .72rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: .09em; color: var(--tsw-text-dim); margin-bottom: .5rem;
-    }
-    .markdown-section .tsw-card-l {
-      display: block; padding: 3px 0; font-size: .875rem;
-      color: var(--tsw-text-muted); text-decoration: none;
-      transition: color .13s;
-    }
-    .markdown-section .tsw-card-l::before { content: '› '; color: var(--tsw-accent); font-weight: 650; }
-    .markdown-section .tsw-card-l:hover { color: var(--tsw-accent); text-decoration: none; }
-
-    /* --- Pill chips + count badges (chain, beyond-row, disciplines) --- */
+    /* --- Framework chain chips --- */
     .markdown-section .tsw-chip {
       display: inline-flex; align-items: center; gap: .45rem;
-      padding: .34rem .85rem; font-size: .82rem;
+      padding: .34rem .85rem; font-size: .84rem; font-family: var(--tsw-mono);
       background: var(--tsw-surface); border: 1px solid var(--tsw-border); border-radius: 999px;
-      color: var(--tsw-text-muted); text-decoration: none;
+      color: var(--tsw-text); text-decoration: none;
       transition: color .13s, border-color .13s;
     }
-    .markdown-section .tsw-chip:hover { color: var(--tsw-accent); border-color: var(--tsw-accent); text-decoration: none; }
-    .markdown-section .tsw-chip-n {
-      font-family: var(--tsw-mono); font-size: .72rem; font-weight: 700;
-      color: var(--tsw-accent-3); background: var(--tsw-surface-2);
-      border-radius: 6px; padding: .06rem .4rem;
-    }
-    .markdown-section .tsw-chip--all { border-color: var(--tsw-accent); color: var(--tsw-accent); font-weight: 650; }
-
-    /* --- Knowledge-graph chain --- */
+    .markdown-section .tsw-chip:hover { color: var(--tsw-link); border-color: var(--tsw-link); text-decoration: none; }
     .markdown-section .tsw-chain {
       display: flex; flex-wrap: wrap; align-items: center;
-      gap: 12px 32px; margin: 1.1rem 0 1.2rem;
+      gap: 12px 32px; margin: .4rem 0 1.2rem;
     }
     .markdown-section .tsw-chain .tsw-chip { position: relative; }
     .markdown-section .tsw-chain .tsw-chip:not(:last-child)::after {
-      content: '→'; position: absolute; right: -23px; top: 50%;
+      content: '\2192'; position: absolute; right: -23px; top: 50%;
       transform: translateY(-50%); color: var(--tsw-text-dim); font-size: .9rem;
     }
 
-    /* --- Chip fields with block-breaking cluster labels --- */
-    .markdown-section .tsw-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: .8rem 0 1.2rem; }
-    .markdown-section .tsw-chips-label {
-      flex-basis: 100%; margin: .7rem 0 .1rem;
-      font-size: .68rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: .09em; color: var(--tsw-text-dim);
+    /* --- Explore teaser --- */
+    .markdown-section .tsw-explore {
+      background: var(--tsw-surface); border: 1px solid var(--tsw-border); border-radius: 12px;
+      padding: 1rem 1.1rem 1.15rem; display: grid; gap: .9rem; justify-items: start;
     }
-    .markdown-section .tsw-chips-label:first-child { margin-top: 0; }
+    .markdown-section .tsw-explore-lead { margin: 0; color: var(--tsw-text-muted); }
+    .markdown-section .tsw-ids { display: flex; flex-wrap: wrap; gap: 8px; }
+    .markdown-section .tsw-id {
+      display: inline-flex; align-items: baseline; gap: .45rem; padding: .3rem .7rem;
+      border: 1px solid var(--tsw-border); border-radius: 8px; background: var(--tsw-bg-alt);
+      color: var(--tsw-text); font-size: .86rem; text-decoration: none;
+    }
+    .markdown-section .tsw-id:hover { border-color: var(--tsw-link); color: var(--tsw-link); text-decoration: none; }
+    .markdown-section .tsw-id code { border: 0; background: transparent; padding: 0; color: var(--tsw-green); font-size: .86em; }
+    .markdown-section .tsw-families { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; font-size: .9rem; }
+    .markdown-section .tsw-families-label {
+      font-family: var(--tsw-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--tsw-text-dim); margin-right: 4px;
+    }
 
-    /* --- Flagship cards (violet top rule) --- */
-    .markdown-section .tsw-flagship {
-      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px; margin: 1.2rem 0;
+    /* --- Browse by domain --- */
+    .markdown-section .tsw-domains { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .markdown-section .tsw-domain {
+      display: flex; flex-direction: column; gap: .2rem; min-width: 0;
+      background: var(--tsw-surface); border: 1px solid var(--tsw-border); border-radius: 10px;
+      padding: .8rem 1rem .9rem;
     }
-    .markdown-section .tsw-flag { border-top: 2px solid var(--tsw-accent-2); display: flex; flex-direction: column; gap: .45rem; }
-    .markdown-section .tsw-flag-t { font-size: 1.05rem; font-weight: 720; color: var(--tsw-text); text-decoration: none; transition: color .13s; }
-    .markdown-section .tsw-flag-t:hover { color: var(--tsw-accent); text-decoration: none; }
-    .markdown-section .tsw-flag-sub { margin: 0; flex: 1; font-size: .86rem; line-height: 1.55; color: var(--tsw-text-muted); }
-    .markdown-section .tsw-flag-links { display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; margin-top: .3rem; }
-    .markdown-section .tsw-flag-cta { font-size: .85rem; font-weight: 650; color: var(--tsw-accent); text-decoration: none; }
-    .markdown-section .tsw-flag-cta:hover { color: var(--tsw-accent-3); text-decoration: none; }
-    .markdown-section .tsw-flag-2nd { font-size: .85rem; color: var(--tsw-text-dim); text-decoration: none; transition: color .13s; }
-    .markdown-section .tsw-flag-2nd:hover { color: var(--tsw-accent); text-decoration: none; }
+    .markdown-section .tsw-domain a { font-size: .86rem; color: var(--tsw-text-muted); line-height: 1.5; }
+    .markdown-section .tsw-domain a:hover { color: var(--tsw-link); }
+    .markdown-section .tsw-domain a.tsw-domain-t {
+      font-size: .98rem; font-weight: 700; color: var(--tsw-heading); margin-bottom: .25rem; line-height: 1.35;
+    }
+    .markdown-section .tsw-domain a.tsw-domain-t:hover { color: var(--tsw-link); }
 
-    /* --- Domain switchboard (mirrors _sidebar.md) ---
-       `columns: 3 250px` self-degrades to 2 columns near 1024px and 1 near 768px
-       without extra media queries. */
-    .markdown-section .tsw-switchboard { columns: 3 250px; column-gap: 28px; margin: 1.2rem 0; }
-    .markdown-section .tsw-swb-group {
-      break-inside: avoid; -webkit-column-break-inside: avoid; page-break-inside: avoid;
-      margin: 0 0 1.4rem; display: block;
+    /* --- Footer --- */
+    .markdown-section .tsw-footer {
+      margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--tsw-border);
+      display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr); gap: 1.2rem 2rem;
+      font-size: .88rem; color: var(--tsw-text-muted);
     }
-    .markdown-section .tsw-swb-h {
-      font-size: .705rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: .09em; color: var(--tsw-text-dim); margin: 0 0 .45rem;
+    .markdown-section .tsw-footer p { margin: 0 0 .8rem; color: var(--tsw-text-muted); line-height: 1.6; }
+    .markdown-section .tsw-footer-col { display: flex; flex-direction: column; gap: .3rem; align-items: flex-start; min-width: 0; }
+    .markdown-section .tsw-footer-h { font-weight: 700; color: var(--tsw-heading); margin-bottom: .2rem; }
+    .markdown-section .tsw-footer-col > a { color: var(--tsw-text-muted); }
+    .markdown-section .tsw-footer-col > a:hover { color: var(--tsw-link); }
+    .markdown-section .tsw-footer .tsw-btn--navi {
+      color: var(--tsw-btn-fg); background: var(--tsw-btn-bg); border-color: var(--tsw-btn-bg); font-weight: 700;
     }
-    .markdown-section .tsw-swb-l {
-      display: block; padding: 3px 0; font-size: .85rem;
-      color: var(--tsw-text-muted); text-decoration: none;
-      transition: color .13s, transform .13s;
+    .markdown-section .tsw-footer .tsw-btn--navi:hover { background: var(--tsw-btn-bg-hover); color: var(--tsw-btn-fg); }
+    .markdown-section .tsw-footer-small {
+      grid-column: 1 / -1; font-size: .78rem !important; color: var(--tsw-text-dim) !important;
+      border-top: 1px solid var(--tsw-border-soft); padding-top: .9rem; margin: 0 !important;
     }
-    .markdown-section .tsw-swb-l:hover { color: var(--tsw-accent); transform: translateX(2px); text-decoration: none; }
-    .markdown-section .tsw-swb-more {
-      display: block; padding: 4px 0 0; text-align: right;
-      font-size: .78rem; color: var(--tsw-text-dim); text-decoration: none;
-      transition: color .13s;
-    }
-    .markdown-section .tsw-swb-more:hover { color: var(--tsw-accent); text-decoration: none; }
 
-    /* --- Data & Navigator band (2-col) / Learn & grow row --- */
-    .markdown-section .tsw-databand { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 28px; margin: 1.2rem 0; }
-    .markdown-section .tsw-learn .tsw-swb-l { display: inline-block; margin: 0 1.5rem 4px 0; }
-
-    /* --- Footer strip --- */
-    .markdown-section .tsw-footer { margin-top: 3rem; padding-top: 1.4rem; border-top: 1px solid var(--tsw-border); text-align: center; }
-    .markdown-section .tsw-footer-links { font-size: .86rem; color: var(--tsw-text-dim); }
-    .markdown-section .tsw-footer-links a { color: var(--tsw-text-muted); text-decoration: none; font-weight: 500; transition: color .13s; }
-    .markdown-section .tsw-footer-links a:hover { color: var(--tsw-accent); text-decoration: none; }
-    .markdown-section .tsw-footer-sep { margin: 0 .55rem; color: var(--tsw-text-dim); }
-    .markdown-section .tsw-footer-small { margin-top: .7rem; font-size: .78rem; line-height: 1.65; color: var(--tsw-text-dim); }
-
-    /* --- Mobile --- */
+    /* --- Homepage on smaller screens --- */
+    @media screen and (max-width: 1180px) {
+      .markdown-section .tsw-connect { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 10px; }
+      .markdown-section .tsw-node, .markdown-section .tsw-node + .tsw-node { border: 1px solid var(--tsw-border); border-radius: 10px; padding-left: .8rem; }
+      .markdown-section .tsw-node:not(:last-child)::after { display: none; }
+    }
+    @media screen and (max-width: 1024px) {
+      .markdown-section .tsw-counts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .markdown-section .tsw-guides, .markdown-section .tsw-domains { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
     @media screen and (max-width: 768px) {
-      .markdown-section .tsw-hero { flex-direction: column; align-items: stretch; }
-      .markdown-section .tsw-hero-actions { width: 100%; }
-      .markdown-section .tsw-hero-actions .tsw-btn { flex: 1 1 100%; text-align: center; white-space: normal; }
-      .markdown-section .tsw-router { grid-template-columns: 1fr; }
-      .markdown-section .tsw-flagship { grid-template-columns: 1fr; }
-      .markdown-section .tsw-databand { grid-template-columns: 1fr; }
+      .markdown-section .tsw-doors { grid-template-columns: minmax(0, 1fr); }
+      .markdown-section .tsw-connect { grid-template-columns: minmax(0, 1fr); }
+      .markdown-section .tsw-footer { grid-template-columns: minmax(0, 1fr); }
       .markdown-section .tsw-chain { flex-direction: column; align-items: flex-start; gap: 26px; }
       .markdown-section .tsw-chain .tsw-chip:not(:last-child)::after {
-        content: '↓'; right: auto; left: 50%; top: auto; bottom: -22px;
+        content: '\2193'; right: auto; left: 50%; top: auto; bottom: -22px;
         transform: translateX(-50%);
       }
     }
-    @media screen and (max-width: 480px) {
-      .markdown-section .tsw-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    @media screen and (max-width: 560px) {
+      .markdown-section .tsw-guides, .markdown-section .tsw-domains, .markdown-section .tsw-counts { grid-template-columns: minmax(0, 1fr); }
     }
   </style>
 </head>
@@ -632,6 +795,11 @@
   </noscript>
   <div id="app">Loading</div>
   <button id="tsw-top" title="Back to top" aria-label="Back to top">↑</button>
+  <div id="tsw-mbar" aria-hidden="true"></div>
+  <button id="tsw-theme" type="button" aria-label="Switch to light theme" title="Switch to light theme">
+    <svg class="tsw-i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+    <svg class="tsw-i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>
+  </button>
 
   <script>
     window.$docsify = {
@@ -649,14 +817,14 @@
       homepage: 'HOME.md',   // site homepage; README.md stays the GitHub face
       relativePath: false,  // every in-repo link is absolute; see _sidebar.md
       alias: {
-        // navigator/ ships index.md, not README.md — without this, /navigator/ 404s
+        // navigator/ ships index.md, not README.md; without this, /navigator/ 404s
         '/navigator/': '/navigator/index'
       },
       mergeNavbar: true,
       externalLinkTarget: '_blank',
       notFoundPage: true,
 
-      // Index EVERY page reachable from the sidebar — no hardcoded allowlist to go stale.
+      // Index EVERY page reachable from the sidebar, with no hardcoded allowlist to go stale.
       search: {
         maxAge: 3600000,
         paths: 'auto',
@@ -757,9 +925,62 @@
               if (menu && link) { link.setAttribute('aria-haspopup', 'true'); link.setAttribute('aria-expanded', li.classList.contains('tsw-open') ? 'true' : 'false'); }
             });
           });
+        },
+        // Navbar height: between 769px and 1099px the navbar wraps to fit its items. Publish
+        // its height as --tsw-nav-h (the page's top padding there) and keep heading anchors
+        // clear of it (topMargin, 60 when the bar is one 52px row).
+        function (hook, vm) {
+          function measure() {
+            var nav = document.querySelector('nav.app-nav');
+            var h = nav && window.innerWidth > 768 ? nav.offsetHeight : 52;
+            document.documentElement.style.setProperty('--tsw-nav-h', h + 'px');
+            var margin = Math.max(60, h + 8);
+            vm.config.topMargin = margin;
+            window.$docsify.topMargin = margin;
+          }
+          hook.doneEach(measure);
+          window.addEventListener('resize', measure, { passive: true });
         }
       ]
     };
+
+    // Theme toggle. The head script already applied the stored or system theme; this keeps
+    // the button label, the browser theme-color and other open tabs in step, follows a
+    // system change until the reader picks a theme, and prints in the light theme.
+    (function () {
+      var KEY = 'tsw-library-theme';
+      var root = document.documentElement;
+      var btn = document.getElementById('tsw-theme');
+      var mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: light)') : null;
+      function stored() {
+        try { var t = localStorage.getItem(KEY); return (t === 'light' || t === 'dark') ? t : null; } catch (e) { return null; }
+      }
+      function apply(t) {
+        root.setAttribute('data-theme', t);
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) { meta.setAttribute('content', t === 'light' ? '#f6f7fb' : '#0b1220'); }
+        var label = 'Switch to ' + (t === 'light' ? 'dark' : 'light') + ' theme';
+        if (btn) { btn.setAttribute('aria-label', label); btn.setAttribute('title', label); }
+      }
+      apply(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+      if (btn) {
+        btn.addEventListener('click', function () {
+          var t = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+          try { localStorage.setItem(KEY, t); } catch (e) {}
+          apply(t);
+        });
+      }
+      if (mq) {
+        var follow = function (e) { if (!stored()) { apply(e.matches ? 'light' : 'dark'); } };
+        if (mq.addEventListener) { mq.addEventListener('change', follow); } else if (mq.addListener) { mq.addListener(follow); }
+      }
+      window.addEventListener('storage', function (e) {
+        if (e.key === KEY && (e.newValue === 'light' || e.newValue === 'dark')) { apply(e.newValue); }
+      });
+      var beforePrint = null;
+      window.addEventListener('beforeprint', function () { beforePrint = root.getAttribute('data-theme'); root.setAttribute('data-theme', 'light'); });
+      window.addEventListener('afterprint', function () { if (beforePrint) { apply(beforePrint); beforePrint = null; } });
+    })();
 
     // Bring the sidebar search box into view and focus it. On the cover the sidebar sits
     // under the cover, so scroll to the content first; on a narrow screen open the sidebar.
@@ -840,7 +1061,9 @@
     })();
   </script>
 
-  <!-- Docsify core -->
+  <!-- Docsify core. Stays on 4.13.1: 5.0.0 was tried in P2 and not adopted, because it builds
+       heading ids from the raw Markdown without collapsing hyphens ("A & B" gives a--b, not
+       a-amp-b), so existing ?id= links to such headings would stop resolving. -->
   <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/docsify.min.js" integrity="sha384-KaHhgnx/OTLoJ4J33SSJsF4x1pk4I7q3s5ZOfIDHJYl6IG7Oyn2vNDsHiWJe46fD" crossorigin="anonymous"></script>
   <!-- Full-text search -->
   <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/plugins/search.min.js" integrity="sha384-LthJPBJ4RGco78kBY+EmKz5rmISZ5vrtAu3+l2ALQ2mrZHOe6Wyf6knyKjeC4cL6" crossorigin="anonymous"></script>

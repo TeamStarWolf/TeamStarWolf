@@ -18,12 +18,12 @@
 
 The library has two faces backed by the same files:
 
-1. The live site: [teamstarwolf.github.io/TeamStarWolf](https://teamstarwolf.github.io/TeamStarWolf/). It opens on a navigation homepage ([HOME](/HOME.md)) with a Quick router, the How-to guides, and full-text search. Use this for reading and finding things.
+1. The live site: [teamstarwolf.github.io/TeamStarWolf](https://teamstarwolf.github.io/TeamStarWolf/). It opens on the STARWOLF 64 cover and a homepage ([HOME](/HOME.md)) with three ways in (learning paths, how-to guides, and framework pages), the start-here guides, and full-text search. Use this for reading and finding things. The button at the top right switches between the dark and light themes; your choice is kept in this browser.
 2. The GitHub repo: [github.com/TeamStarWolf/TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf). It opens on the [README](/README.md), which carries the "Start here" table and links to [About the Library and Its Data](/ABOUT_THE_DATA.md) for the dataset overview. Use this for raw files, datasets, issues, and pull requests.
 
 Every page on the live site has an "Edit this page on GitHub" link at the top, so you can hop between surfaces from wherever you are.
 
-Checkpoint: You can see the homepage hero ("A cybersecurity reference library cross-referenced to MITRE ATT&CK.") and the Quick router cards (Map coverage & gaps, Build detections, Hunt, Respond now, and so on). The homepage carries no headline counts, and the README's "What's inside" counts are written by `scripts/build_stats.py`; the full set of current numbers lives in [data/generated/stats.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/generated/stats.json).
+Checkpoint: You can see the cover ("An open cybersecurity reference library, cross-referenced to MITRE ATT&CK.") and, below it, the three doors: I'm learning, I have a job to do, and I work with ATT&CK data. The "What's inside" counts on the homepage and in the README are written by `scripts/build_stats.py`, and the guide times and levels by `scripts/build_home_guides.py`; the full set of current numbers lives in [data/generated/stats.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/generated/stats.json).
 
 Watch out: Dataset links (the `.jsonl` files) always open on GitHub, not on the site; the site's hash router cannot serve raw data files. That is by design, not a broken link.
 
@@ -51,7 +51,7 @@ Checkpoint: Given any question ("how does Kerberoasting detection work", "which 
 
 1. Search. On the live site, press `/` (or click the search box) and type a term or an ATT&CK technique ID: `T1059` works, and so does `Kerberoasting`. Sub-techniques use dot notation: `T1059.001`. Press `Esc` to clear.
 2. The Reference Index. [INDEX](/INDEX.md) is the complete alphabetical listing of every reference document with one-line descriptions: the fastest way to scan what exists.
-3. The sidebar and Quick router. The sidebar groups every doc by domain (Coverage & Data, Defense & Detection, Offensive Security, GRC, and so on). The homepage Quick router does the same by *goal*: "Build detections", "Respond now", "Harden", "Map coverage & gaps".
+3. The sidebar and the homepage. The sidebar groups every doc by domain (Coverage & Data, Defense & Detection, Offensive Security, GRC, and so on). The homepage does the same in "Browse by domain", and its doors sort by *goal*: learn a discipline, do a task, or work with the ATT&CK data.
 
 Checkpoint: Searching `T1059` returns hits across the Technique Atlas, detection strategies, and threat group profiles: the same technique seen from several angles.
 

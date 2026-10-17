@@ -3,7 +3,7 @@
 
 # Discipline Learning Paths
 
-47 guided paths take you from zero to working practitioner; each one sequences the right references in the right order.
+Each learning path takes one discipline from first principles to working practice and lists the references to read, in order.
 
 | Cluster | Paths |
 |---|---|

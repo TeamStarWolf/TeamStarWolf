@@ -76,6 +76,10 @@ if `git status` shows the ` D` entry.
 
 ## Content Standards
 
+### Voice
+- Follow the [Voice and Credibility Guide](docs/VOICE.md): plain declarative sentences, precise framework terms, sources for every external claim, and no hand-typed headline counts
+- Check your change locally: `python scripts/check_voice.py` (CI runs the same check)
+
 ### Tools and Repositories
 - Must have a working public URL (GitHub, official site, or documentation)
 - Archived repos should be noted as `(archived)`: not removed, since they may still be useful
@@ -113,6 +117,7 @@ Before submitting, verify:
 - [ ] You haven't introduced duplicate entries
 - [ ] Your change follows the existing table format
 - [ ] If you added a JSONL record, it passes `python scripts/validate_jsonl.py`
+- [ ] `python scripts/check_voice.py` passes (see [docs/VOICE.md](docs/VOICE.md))
 - [ ] Your diff does not delete `MALWARE_ANALYSIS_REFERENCE.md` (see [Cloning on Windows](#cloning-on-windows))
 
 ---

@@ -162,7 +162,7 @@ In the library:
 - [Threat-Informed Defense Reference](/THREAT_INFORMED_DEFENSE_REFERENCE.md): the doctrinal core: the knowledge graph, the data-source stack, and the per-technique coverage-stack model
 - [ATT&CK Matrix Analysis Reference](/ATTACK_MATRIX_ANALYSIS_REFERENCE.md): 24 ways to read an ATT&CK matrix before you make decisions with one
 - [Reference Index](/INDEX.md): the complete document catalog
-- [Discipline Paths hub](/disciplines/README.md): all 47 learning paths
+- [Discipline Paths hub](/disciplines/README.md): every learning path, grouped by cluster
 - [Coverage Schema](/COVERAGE_SCHEMA.md): the data model behind the layers and gap scores
 - [Frameworks](/FRAMEWORKS.md): how NIST CSF, 800-53, CIS, and ISO relate to the MITRE stack
 

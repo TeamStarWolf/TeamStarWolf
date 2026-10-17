@@ -27,7 +27,7 @@ You cannot harden what you have not inventoried. Decide three things and write t
 3. Your CNI, your ingress controller, and whether audit logging / encryption-at-rest already exist. On managed clusters some of Step 9 is a console toggle you may already own.
 
 ```bash
-kubectl version                 # server version — confirm it is in support
+kubectl version                 # server version; confirm it is in support
 kubectl get nodes -o wide       # node count, OS image, container runtime, kernel
 kubectl get ns                  # the namespaces you will label in Step 4
 kubectl get pods -A -o wide     # what is actually running, and where
@@ -108,7 +108,7 @@ Pod Security Admission (PSA) is built into the API server and enabled by default
 Discover violations before you block anything. Apply `warn` and `audit` first, which surface violations without rejecting pods:
 
 ```bash
-# Warn + audit only — nothing is blocked yet; violations show as warnings/events
+# Warn + audit only: nothing is blocked yet; violations show as warnings/events
 kubectl label --overwrite ns production \
   pod-security.kubernetes.io/warn=restricted \
   pod-security.kubernetes.io/audit=restricted
@@ -178,7 +178,7 @@ spec:
   podSelector: {}                      # all pods in the namespace
   policyTypes: ["Ingress", "Egress"]
 ---
-# 2. Allow DNS egress — almost every workload needs this or it breaks immediately
+# 2. Allow DNS egress: almost every workload needs this or it breaks immediately
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -286,7 +286,7 @@ Hardening you cannot observe is hardening you cannot prove or defend.
 Audit logging (self-managed). Point the API server at an audit policy and log sink:
 
 ```yaml
-# Minimal audit policy — log metadata for most calls, request bodies for sensitive ones
+# Minimal audit policy: log metadata for most calls, request bodies for sensitive ones
 apiVersion: audit.k8s.io/v1
 kind: Policy
 rules:

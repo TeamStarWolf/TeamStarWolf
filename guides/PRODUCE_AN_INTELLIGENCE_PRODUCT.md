@@ -89,12 +89,12 @@ This is where data becomes judgment. Resist the pull to pattern-match to the act
 
    ```json
    {
-     "name": "PIR-2026-014 — finance initial access",
+     "name": "PIR-2026-014: finance initial access",
      "domain": "enterprise-attack",
      "description": "Techniques assessed likely against Finance this quarter",
      "techniques": [
-       { "techniqueID": "T1566.001", "score": 3, "comment": "Spearphishing Attachment — B2, seen in two peer reports" },
-       { "techniqueID": "T1078",     "score": 2, "comment": "Valid Accounts — plausible, single-source" }
+       { "techniqueID": "T1566.001", "score": 3, "comment": "Spearphishing Attachment: B2, seen in two peer reports" },
+       { "techniqueID": "T1078",     "score": 2, "comment": "Valid Accounts: plausible, single-source" }
      ]
    }
    ```
@@ -139,7 +139,7 @@ This is the half most CTI programs skip, and it is where intelligence becomes de
 4. Package the handoff as structured data, not prose. A STIX 2.1 bundle linking indicators to the attack patterns they belong to makes the handoff machine-ingestible and unambiguous:
 
    ```python
-   # Illustrative only — confirm object shapes against the current
+   # Illustrative only; confirm object shapes against the current
    # OASIS cti-python-stix2 docs (https://github.com/oasis-open/cti-python-stix2)
    from stix2 import Indicator, AttackPattern, Relationship
 

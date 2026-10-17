@@ -1,6 +1,6 @@
 # Complete Document Index
 
-> Full alphabetical listing of all resources in this library. For a categorized overview, see the [README](README.md). For step-by-step how-to procedures, see the [Guides](guides/README.md).
+> Full alphabetical listing of all resources in this library. For an overview by goal and by domain, and where the data comes from, see [About the Library and Its Data](ABOUT_THE_DATA.md). For step-by-step how-to procedures, see the [Guides](guides/README.md).
 
 ## A-C
 

@@ -8,8 +8,23 @@
   <meta property="og:title" content="TeamStarWolf: Cybersecurity Reference Library">
   <meta property="og:description" content="A cybersecurity reference library cross-referenced to MITRE ATT&CK, with how-to guides, learning paths, and published mapping data.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://teamstarwolf.github.io/TeamStarWolf/">
+  <meta property="og:site_name" content="TeamStarWolf">
+  <!-- One card for every shared link: docsify serves a single index.html for all routes.
+       Exported by scripts/build_brand_assets.py; og:image must be an absolute URL. -->
+  <meta property="og:image" content="https://teamstarwolf.github.io/TeamStarWolf/assets/brand/og-1200x630.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The STARWOLF 64 logotype, with a red and white wolf head, on a dark navy background">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://teamstarwolf.github.io/TeamStarWolf/assets/brand/og-1200x630.jpg">
   <title>TeamStarWolf: Cybersecurity Reference Library</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230b1220'/%3E%3Ctext x='50' y='72' font-family='Arial,sans-serif' font-size='68' font-weight='700' text-anchor='middle' fill='%237aa2f7'%3ET%3C/text%3E%3C/svg%3E">
+  <!-- Interim icon: the red "64" star cut from the STARWOLF 64 logotype (scripts/build_brand_assets.py). -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/brand/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/brand/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/brand/apple-touch-icon-180.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/themes/vue.css" integrity="sha384-jCK82M2ExfkqAO/MYBKMjP1qC4AvZ4/Duf2gVWOy3RPn26uz+KW5I+9S39za1Fqv" crossorigin="anonymous">
 
   <style>
@@ -319,40 +334,46 @@
     section.cover {
       background: radial-gradient(1100px 620px at 50% -10%, #16233d 0%, #0b1220 62%) !important;
     }
-    section.cover .cover-main { max-width: 900px; }
+    /* auto side margins centre the column: the cover is a flex row with no justify-content */
+    section.cover .cover-main { max-width: 932px; margin-left: auto; margin-right: auto; padding: 0 16px; box-sizing: border-box; }
     .markdown-section .tsw-lede {
       max-width: 760px; margin: -.2rem 0 1.6rem;
       font-size: 1.12rem; line-height: 1.6; color: var(--tsw-text-muted);
     }
+    /* Hero: the STARWOLF 64 flame banner (transparent WebP) straight on the navy stage.
+       width/height attributes on the <img> reserve its box, so nothing shifts on load. */
     section.cover .tsw-cover-banner {
-      display: block; margin: 0 auto .7rem; width: 100%; max-width: 560px;
-      border-radius: 14px; box-shadow: 0 12px 44px rgba(0,0,0,.5);
-      border: 1px solid var(--tsw-border);
+      display: block; margin: 0 auto 1.1rem; width: 100%; max-width: 880px; height: auto;
     }
-    @media screen and (max-width: 768px) { section.cover .tsw-cover-banner { max-width: 84%; } }
     section.cover h1 {
-      font-size: 3.4rem; font-weight: 850; letter-spacing: -.035em;
-      background: linear-gradient(96deg, #38bdf8 0%, #a78bfa 55%, #22d3ee 100%);
-      -webkit-background-clip: text; background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: .5rem;
+      font-size: 2.2rem; font-weight: 750; letter-spacing: -.01em;
+      color: #fcf6b9;            /* cream from the logotype, 16.96:1 on #0b1220 */
+      margin: 0 0 .4rem;
     }
-    section.cover h1 a { color: inherit; }
+    section.cover h1 a, section.cover h1 a span { color: inherit; }
     section.cover blockquote p { font-size: 1.16rem; color: var(--tsw-text-muted); }
-    section.cover .cover-main > p:last-child a {
-      border-radius: 10px; font-size: .93rem; font-weight: 640;
-      padding: .62rem 1.5rem; margin: .38rem .3rem;
-      border: 1px solid var(--tsw-border); color: var(--tsw-text);
-      transition: transform .13s, box-shadow .18s, border-color .13s;
+    section.cover .tsw-cover-actions { margin-top: 1.6rem; }
+    section.cover .tsw-cover-actions .tsw-cover-btn {
+      display: inline-flex; align-items: center; gap: .2em; min-height: 44px; box-sizing: border-box;
+      border-radius: 10px; font-size: .95rem; font-weight: 650; line-height: 1.2;
+      padding: .5rem 1.4rem; margin: .38rem .3rem; text-decoration: none; vertical-align: middle;
+      border: 1px solid var(--tsw-border); color: var(--tsw-text); background: var(--tsw-surface);
+      transition: transform .13s, box-shadow .18s, border-color .13s, background-color .13s;
     }
-    section.cover .cover-main > p:last-child a:last-child {
-      background: linear-gradient(96deg, var(--tsw-accent), var(--tsw-accent-2));
-      border-color: transparent; color: #08101f; font-weight: 700;
+    /* Primary: white on brand red #de0303 is 5.1:1; hover #c40202 is 6.26:1 */
+    section.cover .tsw-cover-actions .tsw-cover-btn--primary {
+      background: #de0303; border-color: #de0303; color: #ffffff; font-weight: 700;
     }
-    section.cover .cover-main > p:last-child a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(56,189,248,.22);
-      border-color: var(--tsw-accent);
+    section.cover .tsw-cover-actions .tsw-cover-btn:hover,
+    section.cover .tsw-cover-actions .tsw-cover-btn:focus-visible {
+      transform: translateY(-2px); border-color: #ff4d4d;
+      box-shadow: 0 8px 24px rgba(252,6,4,.18);
+    }
+    section.cover .tsw-cover-actions .tsw-cover-btn--primary:hover,
+    section.cover .tsw-cover-actions .tsw-cover-btn--primary:focus-visible { background: #c40202; }
+    section.cover .tsw-cover-actions kbd {
+      font: inherit; font-size: .78em; line-height: 1; padding: .2em .35em;
+      border: 1px solid var(--tsw-border); border-radius: 5px; color: var(--tsw-text-muted);
     }
     section.cover ul { color: var(--tsw-text-muted); }
     section.cover ul li { margin: .35rem 0; }
@@ -387,7 +408,7 @@
       .markdown-section { padding: 26px 18px 64px; font-size: 15px; }
       .markdown-section h1 { font-size: 1.7rem; }
       .markdown-section h2 { font-size: 1.3rem; }
-      section.cover h1 { font-size: 2.3rem; }
+      section.cover h1 { font-size: 1.9rem; }
       .content { padding-top: 48px; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -740,13 +761,34 @@
       ]
     };
 
-    // "/" focuses search, Esc clears it
+    // Bring the sidebar search box into view and focus it. On the cover the sidebar sits
+    // under the cover, so scroll to the content first; on a narrow screen open the sidebar.
+    function tswFocusSearch() {
+      var input = document.querySelector('.search input');
+      if (!input) { return false; }
+      var cover = document.querySelector('section.cover.show');
+      var main = document.querySelector('section.content');
+      if (cover && main && window.scrollY < cover.offsetHeight) { main.scrollIntoView(); }
+      if (window.innerWidth <= 768 && !document.body.classList.contains('close')) {
+        document.body.classList.add('close');
+      }
+      var sb = input.closest('.sidebar');
+      if (sb) { sb.scrollTop = 0; }   // the box sits at the top of the sidebar
+      input.focus({ preventScroll: true }); input.select();
+      return true;
+    }
+    // The cover's Search button; its href (the reference index) is the fallback
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest && e.target.closest('.tsw-cover-search');
+      if (btn && tswFocusSearch()) { e.preventDefault(); }
+    });
+
+    // "/" or Ctrl+K (Cmd+K on macOS) focuses search, Esc clears it
     document.addEventListener('keydown', function (e) {
       var el = document.activeElement;
       var typing = el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable);
-      if (e.key === '/' && !typing) {
-        var input = document.querySelector('.search input');
-        if (input) { e.preventDefault(); input.focus(); input.select(); }
+      if ((e.key === '/' && !typing) || ((e.ctrlKey || e.metaKey) && !e.altKey && (e.key === 'k' || e.key === 'K'))) {
+        if (tswFocusSearch()) { e.preventDefault(); }
       }
       if (e.key === 'Escape') {
         var i2 = document.querySelector('.search input');

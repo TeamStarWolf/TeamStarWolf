@@ -1,5 +1,5 @@
 {
- "_comment": "Voice-lint hits that predate scripts/check_voice.py (file -> rule -> count). Written by scripts/check_voice.py --update-baseline. Only ever shrink it: fix the copy per docs/VOICE.md, then rewrite.",
+ "_comment": "Voice-lint hits that predate scripts/check_voice.py (file -> rule -> count), and the rules checked when it was written. Written by scripts/check_voice.py --update-baseline, which only lowers counts; CI fails a pull request that raises any rule's total. Fix the copy per docs/VOICE.md, then rewrite.",
  "hits": {
   "ACTIVE_DIRECTORY_ATTACKS.md": {
    "em-dash": 35,
@@ -40,8 +40,17 @@
   "ARCHITECTURE_REFERENCE.md": {
    "em-dash": 76
   },
+  "ATLAS_REFERENCE.md": {
+   "hype:leverage": 2,
+   "hype:leveraging": 1
+  },
+  "ATTACK_CAMPAIGNS_REFERENCE.md": {
+   "hype:leverage": 2,
+   "hype:leveraging": 1
+  },
   "ATTACK_MITIGATIONS_REFERENCE.md": {
-   "hype:comprehensive": 1
+   "hype:comprehensive": 1,
+   "hype:leveraging": 3
   },
   "AUTOMOTIVE_SECURITY_REFERENCE.md": {
    "em-dash": 2,
@@ -55,14 +64,20 @@
    "em-dash": 10,
    "hype:comprehensive": 1
   },
+  "CAPEC_REFERENCE.md": {
+   "hype:leverage": 4,
+   "hype:leveraging": 6
+  },
   "CAREER_PATHS.md": {
-   "hype:comprehensive": 1
+   "hype:comprehensive": 1,
+   "hype:leverage": 1
   },
   "CERTIFICATIONS.md": {
    "hype:comprehensive": 1
   },
   "CLOUD_ARCHITECTURE_REFERENCE.md": {
-   "em-dash": 53
+   "em-dash": 53,
+   "hype:leverage": 1
   },
   "CLOUD_ATTACK_REFERENCE.md": {
    "em-dash": 29,
@@ -93,6 +108,9 @@
    "exclamation": 2,
    "hype:comprehensive": 2
   },
+  "CTEM_REFERENCE.md": {
+   "hype:leverage": 2
+  },
   "CTF_METHODOLOGY.md": {
    "em-dash": 3,
    "hype:comprehensive": 1,
@@ -115,6 +133,9 @@
    "em-dash": 4,
    "hype:comprehensive": 2
   },
+  "DEEPFAKE_DEFENSE_REFERENCE.md": {
+   "hype:empower": 1
+  },
   "DETECTION_RULES_REFERENCE.md": {
    "em-dash": 16,
    "hype:comprehensive": 1
@@ -128,10 +149,14 @@
   },
   "EDGE_DEVICE_SECURITY_REFERENCE.md": {
    "em-dash": 1,
+   "hype:leverage": 3,
    "hype:one-stop": 1
   },
   "EMAIL_SECURITY_REFERENCE.md": {
    "em-dash": 3
+  },
+  "EMB3D_REFERENCE.md": {
+   "hype:leverage": 2
   },
   "ENDPOINT_SECURITY_REFERENCE.md": {
    "hype:comprehensive": 1
@@ -149,8 +174,13 @@
   "FRAMEWORKS.md": {
    "hype:comprehensive": 1
   },
+  "FRAUD_FRAMEWORK_REFERENCE.md": {
+   "hype:leverage": 4,
+   "hype:leveraging": 6
+  },
   "FUZZING_VULNERABILITY_RESEARCH.md": {
    "hype:comprehensive": 1,
+   "hype:state of the art": 1,
    "hype:state-of-the-art": 1
   },
   "GRC_COMPLIANCE_REFERENCE.md": {
@@ -178,7 +208,8 @@
   },
   "ICS_OT_SECURITY_REFERENCE.md": {
    "em-dash": 12,
-   "hype:comprehensive": 1
+   "hype:comprehensive": 1,
+   "hype:leverage": 1
   },
   "IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md": {
    "em-dash": 22,
@@ -195,7 +226,8 @@
   },
   "INSIDER_THREAT_REFERENCE.md": {
    "em-dash": 1,
-   "hype:comprehensive": 1
+   "hype:comprehensive": 1,
+   "hype:leverage": 1
   },
   "INTERVIEW_PREP.md": {
    "hype:comprehensive": 1
@@ -216,10 +248,12 @@
    "hype:powerful": 1
   },
   "LOTL_DETECTION_REFERENCE.md": {
-   "hype:comprehensive": 1
+   "hype:comprehensive": 1,
+   "hype:leveraging": 1
   },
   "MACOS_SECURITY_REFERENCE.md": {
    "em-dash": 1,
+   "hype:leverage": 1,
    "hype:powerful": 1
   },
   "MALWARE_ANALYSIS_REFERENCE.md": {
@@ -260,6 +294,9 @@
   "NETWORK_SECURITY_ARCHITECTURE.md": {
    "em-dash": 25
   },
+  "NOTABLE_INCIDENTS.md": {
+   "hype:leverage": 2
+  },
   "OPEN_SOURCE_TOOLKIT.md": {
    "hype:comprehensive": 3,
    "hype:powerful": 1
@@ -281,7 +318,8 @@
   },
   "PHYSICAL_SECURITY_REFERENCE.md": {
    "em-dash": 1,
-   "hype:comprehensive": 3
+   "hype:comprehensive": 3,
+   "hype:leverage": 1
   },
   "POST_QUANTUM_MIGRATION_REFERENCE.md": {
    "em-dash": 4
@@ -299,6 +337,7 @@
    "hype:comprehensive": 1
   },
   "RANSOMWARE_DEFENSE_REFERENCE.md": {
+   "hype:leverage": 3,
    "hype:one-stop": 1
   },
   "RED_TEAM_REFERENCE.md": {
@@ -333,6 +372,7 @@
   "SECURITY_GADGETS_REFERENCE.md": {
    "em-dash": 1,
    "hype:comprehensive": 2,
+   "hype:leverage": 1,
    "hype:powerful": 1
   },
   "SECURITY_METRICS_REFERENCE.md": {
@@ -347,7 +387,8 @@
   },
   "SOAR_AUTOMATION_REFERENCE.md": {
    "hype:comprehensive": 2,
-   "hype:enterprise-grade": 1
+   "hype:enterprise-grade": 1,
+   "hype:leverage": 1
   },
   "SOCIAL_ENGINEERING_REFERENCE.md": {
    "em-dash": 28,
@@ -362,7 +403,12 @@
    "hype:comprehensive": 1
   },
   "SUPPLY_CHAIN_SECURITY_REFERENCE.md": {
-   "hype:comprehensive": 2
+   "hype:comprehensive": 2,
+   "hype:leverage": 1,
+   "hype:leveraging": 1
+  },
+  "THREAT_GROUP_PROFILES.md": {
+   "hype:leveraging": 2
   },
   "THREAT_HUNTING_REFERENCE.md": {
    "hype:comprehensive": 3
@@ -376,7 +422,8 @@
   },
   "TOOLS.md": {
    "hype:comprehensive": 1,
-   "hype:enterprise-grade": 1
+   "hype:enterprise-grade": 1,
+   "hype:leverage": 1
   },
   "VENDOR_PREVENTION_POLICIES.md": {
    "em-dash": 4
@@ -426,7 +473,8 @@
   },
   "disciplines/ai-llm-security.md": {
    "hype:comprehensive": 7,
-   "hype:cutting-edge": 1
+   "hype:cutting-edge": 1,
+   "hype:leverage": 1
   },
   "disciplines/ai-ml-security.md": {
    "em-dash": 1,
@@ -451,7 +499,8 @@
   "disciplines/cryptography-pki.md": {
    "em-dash": 3,
    "exclamation": 1,
-   "hype:comprehensive": 1
+   "hype:comprehensive": 1,
+   "hype:leverage": 1
   },
   "disciplines/cyber-risk-quantification.md": {
    "em-dash": 2
@@ -551,7 +600,8 @@
   },
   "disciplines/vulnerability-management.md": {
    "hype:comprehensive": 3,
-   "hype:enterprise-grade": 1
+   "hype:enterprise-grade": 1,
+   "hype:leverage": 1
   },
   "tools-research/SERVICENOW_USEM_TENABLE_WIZ.md": {
    "count": 2,
@@ -560,5 +610,49 @@
   "tools-research/SERVICENOW_VR_CC_CVR_TENABLE_WIZ.md": {
    "em-dash": 7
   }
- }
+ },
+ "rules": [
+  "count",
+  "em-dash",
+  "emoji",
+  "exclamation",
+  "hype:battle-tested",
+  "hype:best in class",
+  "hype:best-in-class",
+  "hype:blazing fast",
+  "hype:blazing-fast",
+  "hype:comprehensive",
+  "hype:cutting edge",
+  "hype:cutting-edge",
+  "hype:effortless",
+  "hype:effortlessly",
+  "hype:empower",
+  "hype:enterprise-grade",
+  "hype:game changer",
+  "hype:game-changer",
+  "hype:game-changing",
+  "hype:groundbreaking",
+  "hype:hack-proof",
+  "hype:industry-leading",
+  "hype:leverage",
+  "hype:leveraging",
+  "hype:lightning-fast",
+  "hype:military-grade",
+  "hype:must-have",
+  "hype:next-level",
+  "hype:one-stop",
+  "hype:powerful",
+  "hype:revolutionary",
+  "hype:revolutionize",
+  "hype:seamless",
+  "hype:seamlessly",
+  "hype:state of the art",
+  "hype:state-of-the-art",
+  "hype:supercharge",
+  "hype:unbreakable",
+  "hype:unhackable",
+  "hype:unparalleled",
+  "hype:world class",
+  "hype:world-class"
+ ]
 }

@@ -102,7 +102,9 @@ jobs:
     #   records; the baseline holds the pre-existing citations and may only shrink.
     # voice: hand-written pages follow docs/VOICE.md (no em-dashes, emoji, sentence-ending
     #   exclamation marks, marketing words or hand-typed headline counts) beyond what
-    #   scripts/baselines/voice.json records; that baseline also only shrinks.
+    #   scripts/baselines/voice.json records. That baseline only shrinks: --update-baseline
+    #   refuses a rise, and on a pull request the step below also fails when any rule's
+    #   baselined total is higher than on the base branch.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -125,7 +127,15 @@ jobs:
         run: python scripts/check_repo_hygiene.py --only revoked --report
 
       - name: No new voice-guide violations in hand-written pages (docs/VOICE.md)
-        run: python scripts/check_voice.py
+        # On a pull request, fetch only the base branch tip (no credentials needed for a
+        # public repository) so the baseline can be compared with it.
+        run: |
+          if [ -n "${GITHUB_BASE_REF:-}" ]; then
+            git fetch --no-tags --depth=1 origin "refs/heads/${GITHUB_BASE_REF}"
+            python scripts/check_voice.py --base FETCH_HEAD
+          else
+            python scripts/check_voice.py
+          fi
 
   validate-navigator:
     name: Validate ATT&CK Navigator layers

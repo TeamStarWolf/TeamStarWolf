@@ -18,8 +18,10 @@ Rules (the rule key is what the baseline counts):
   exclamation   A '!' that ends a sentence, in prose. Code, URLs, HTML and comments
                 are not prose; '!=', '![image]' and '<!--' never match.
   hype:<word>   A word from HYPE below, in prose, matched case-insensitively on word
-                boundaries. Proper nouns that contain one of the words are allowed
-                through ALLOW (for example the ATT&CK campaign "Cutting Edge").
+                boundaries, in both the hyphenated and the unhyphenated spelling
+                ("cutting-edge", "cutting edge"). Proper nouns that contain one of the
+                words are allowed through ALLOW (the ATT&CK campaign C0029 "Cutting
+                Edge", Seamless SSO, the Revolutionary Guard).
   count         A hand-typed headline count in prose: "<N> references", "<N> guides",
                 "<N> paths" or "<N> pages", with at most one word between the number
                 and the noun ("140 in-depth references", "47 discipline paths").
@@ -27,18 +29,34 @@ Rules (the rule key is what the baseline counts):
                 pair, `<!-- name:start ... -->` and `<!-- name:end -->`, is skipped.
 
 The baseline (scripts/baselines/voice.json) records the hits that existed when the
-lint was introduced, as file -> rule -> count. The gate fails when a (file, rule) count
-grows past its baseline, so new copy must follow the guide while the existing long
-references are cleaned up in later passes. It reports, but does not fail on, baseline
-entries that have since shrunk; rewrite the baseline with --update-baseline after a
-clean-up so the debt can only go down. The gate also fails when the word list in
-docs/VOICE.md and HYPE below disagree, so the guide and the lint stay in step.
+lint was introduced, as file -> rule -> count, plus the list of rules that were checked
+when it was written. The gate fails when a (file, rule) count grows past its baseline,
+so new copy must follow the guide while the existing long references are cleaned up in
+later passes. It reports, but does not fail on, baseline entries that have since
+shrunk. The gate also fails when the word list in docs/VOICE.md and HYPE below
+disagree, so the guide and the lint stay in step.
+
+The baseline only shrinks, and two checks enforce that:
+
+  --update-baseline   writes min(old, current) for every (file, rule), drops entries
+                      that reached zero, and refuses (exit 1) when a count would rise or
+                      a new (file, rule) entry would appear. --allow-growth overrides
+                      the refusal; it exists for adding a rule (a new word in HYPE),
+                      whose existing hits must be recorded once.
+  --base REF          also compares the baseline with the one at git REF (CI passes the
+                      pull request's base branch) and fails when any rule's total rises.
+                      A rule that REF did not check yet is exempt, so adding a word to
+                      HYPE does not fail; raising an existing rule's debt does, even
+                      with --allow-growth. Totals per rule, not per file, so renaming a
+                      page moves its entries without failing.
 
 Usage:
     python scripts/check_voice.py                    # gate (exit 1 on a new hit)
+    python scripts/check_voice.py --base REF         # gate, plus baseline vs git REF
     python scripts/check_voice.py --report           # also list every hit with its line
     python scripts/check_voice.py --summary          # per-rule totals only
-    python scripts/check_voice.py --update-baseline  # rewrite the baseline file
+    python scripts/check_voice.py --update-baseline  # lower the baseline to the hits left
+    python scripts/check_voice.py --update-baseline --allow-growth  # record a new rule
     python scripts/check_voice.py FILE.md ...        # check only these files, no baseline
 """
 from __future__ import annotations
@@ -48,6 +66,7 @@ import collections
 import json
 import os
 import re
+import subprocess
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -58,20 +77,26 @@ SCOPE_RE = re.compile(r"^(?:[^/]+|(?:guides|disciplines|case-studies|tools-resea
 
 # Marketing and vague-superlative words. Each says how the writer feels about a thing,
 # not what the thing does. docs/VOICE.md lists the same words; keep the two in step.
+# Unhyphenated spellings are listed next to the hyphenated ones; the guide lists each
+# word once. "robust", "unlock" and "ultimate" are left out on purpose: each has a
+# technical sense (adversarial robustness, unlocking a volume or an account) that the
+# guide allows.
 HYPE = (
-    "comprehensive", "powerful", "cutting-edge", "state-of-the-art", "world-class",
-    "best-in-class", "industry-leading", "enterprise-grade", "military-grade",
+    "comprehensive", "powerful", "cutting-edge", "cutting edge", "state-of-the-art",
+    "state of the art", "world-class", "world class", "best-in-class", "best in class",
+    "industry-leading", "enterprise-grade", "military-grade",
     "next-level", "game-changing", "game-changer", "game changer", "revolutionary",
     "revolutionize", "groundbreaking", "unparalleled", "seamless", "seamlessly",
     "effortless", "effortlessly", "supercharge", "blazing-fast", "blazing fast",
     "lightning-fast", "unbreakable", "hack-proof", "unhackable", "one-stop",
-    "must-have", "battle-tested",
+    "must-have", "battle-tested", "leverage", "leveraging", "empower",
 )
 HYPE_RE = re.compile(r"(?<![\w-])(" + "|".join(re.escape(w) for w in
                      sorted(HYPE, key=len, reverse=True)) + r")(?![\w-])", re.I)
 # Proper nouns and product names that contain a hype word. Matched case-sensitively
 # against the text around the hit.
 ALLOW = (
+    re.compile(r"Cutting Edge"),               # ATT&CK campaign C0029 (Ivanti VPN, 2023-24)
     re.compile(r"Seamless SSO"),               # Microsoft Entra Seamless Single Sign-On
     re.compile(r"Revolutionary Guard"),        # Islamic Revolutionary Guard Corps
 )
@@ -244,26 +269,87 @@ def in_scope(files: list[str]) -> list[str]:
     return [f for f in files if SCOPE_RE.match(f)]
 
 
-def load_baseline() -> collections.Counter:
+RULES = ("count", "em-dash", "emoji", "exclamation") + tuple("hype:" + w for w in HYPE)
+
+
+def parse_baseline(doc: dict) -> tuple[collections.Counter, set]:
+    """(counts, rules checked) from a baseline document. A baseline written before the
+    rule list was recorded counts as checking every rule that has an entry."""
+    raw = doc.get("hits", {}) if isinstance(doc, dict) else {}
+    counts = collections.Counter({(f, r): n for f, d in raw.items() for r, n in d.items()})
+    rules = set(doc.get("rules") or {r for _, r in counts}) if isinstance(doc, dict) else set()
+    return counts, rules
+
+
+def load_baseline() -> tuple[collections.Counter, set]:
     try:
         with open(BASELINE, encoding="utf-8") as fh:
-            raw = json.load(fh).get("hits", {})
+            return parse_baseline(json.load(fh))
     except (OSError, ValueError):
-        raw = {}
-    return collections.Counter({(f, r): n for f, d in raw.items() for r, n in d.items()})
+        return collections.Counter(), set()
 
 
 def write_baseline(counts: collections.Counter) -> None:
     base: dict = collections.defaultdict(dict)
     for (f, r), n in sorted(counts.items()):
-        base[f][r] = n
+        if n > 0:
+            base[f][r] = n
     os.makedirs(os.path.dirname(BASELINE), exist_ok=True)
     with open(BASELINE, "w", encoding="utf-8", newline="\n") as fh:
         json.dump({"_comment": "Voice-lint hits that predate scripts/check_voice.py (file -> rule -> "
-                               "count). Written by scripts/check_voice.py --update-baseline. Only ever "
-                               "shrink it: fix the copy per docs/VOICE.md, then rewrite.",
-                   "hits": base}, fh, indent=1, sort_keys=True)
+                               "count), and the rules checked when it was written. Written by "
+                               "scripts/check_voice.py --update-baseline, which only lowers counts; "
+                               "CI fails a pull request that raises any rule's total. Fix the copy "
+                               "per docs/VOICE.md, then rewrite.",
+                   "rules": sorted(RULES), "hits": base}, fh, indent=1, sort_keys=True)
         fh.write("\n")
+
+
+def update_baseline(counts: collections.Counter, allow_growth: bool) -> int:
+    """Lower the baseline to the hits that remain. A rise or a new entry is refused
+    unless allow_growth is set (recording the hits of a newly added rule)."""
+    old, _ = load_baseline()
+    grow = {k: n for k, n in counts.items() if n > old.get(k, 0)}
+    if grow and not allow_growth:
+        print("FAIL voice: --update-baseline only lowers counts; these would rise "
+              "(fix the copy, or pass --allow-growth when adding a rule):")
+        for (f, rule), n in sorted(grow.items()):
+            print("  %s: %s: %d -> %d" % (f, rule, old.get((f, rule), 0), n))
+        return 1
+    if allow_growth:
+        new = collections.Counter(counts)
+    else:
+        new = collections.Counter({k: min(n, counts.get(k, 0)) for k, n in old.items()})
+    write_baseline(new)
+    print("voice: baseline written to %s (%d -> %d hits%s)" % (
+        os.path.relpath(BASELINE, ROOT).replace(os.sep, "/"), sum(old.values()),
+        sum(v for v in new.values() if v > 0), ", growth allowed" if grow else ""))
+    return 0
+
+
+def base_growth(ref: str) -> list[str] | None:
+    """Rules whose baselined total is higher here than at git REF. None when REF has no
+    baseline file (the lint is being introduced). A rule REF did not check is exempt."""
+    rel = os.path.relpath(BASELINE, ROOT).replace(os.sep, "/")
+    try:
+        out = subprocess.run(["git", "show", "%s:%s" % (ref, rel)], cwd=ROOT,
+                             capture_output=True, check=True).stdout
+        then, then_rules = parse_baseline(json.loads(out.decode("utf-8")))
+    except subprocess.CalledProcessError as exc:
+        err = exc.stderr.decode("utf-8", "replace")
+        if "exists on disk, but not in" in err or "does not exist in" in err:
+            return None
+        raise SystemExit("FAIL voice: cannot read %s at %s: %s" % (rel, ref, err.strip()))
+    now, _ = load_baseline()
+
+    def totals(c: collections.Counter) -> collections.Counter:
+        t: collections.Counter = collections.Counter()
+        for (_, r), n in c.items():
+            t[r] += n
+        return t
+    a, b = totals(then), totals(now)
+    return ["%s: %d at %s -> %d" % (r, a.get(r, 0), ref, n) for r, n in sorted(b.items())
+            if r in then_rules and n > a.get(r, 0)]
 
 
 def rule_family(rule: str) -> str:
@@ -279,8 +365,15 @@ def main() -> int:
     ap.add_argument("files", nargs="*", help="check only these files and ignore the baseline")
     ap.add_argument("--report", action="store_true", help="list every hit, baselined or not")
     ap.add_argument("--summary", action="store_true", help="print per-rule totals and exit 0")
-    ap.add_argument("--update-baseline", action="store_true")
+    ap.add_argument("--update-baseline", action="store_true",
+                    help="lower the baseline to the hits that remain; refuses a rise")
+    ap.add_argument("--allow-growth", action="store_true",
+                    help="with --update-baseline: record a rise (only when adding a rule)")
+    ap.add_argument("--base", metavar="REF",
+                    help="also fail when a rule's baselined total is higher than at git REF")
     args = ap.parse_args()
+    if args.allow_growth and not args.update_baseline:
+        ap.error("--allow-growth only applies to --update-baseline")
 
     files = [f.replace(os.sep, "/") for f in args.files] if args.files else in_scope(tracked_files())
     hits = []
@@ -299,26 +392,38 @@ def main() -> int:
             print("  %-26s %d" % (rule, n))
         return 0
     if args.update_baseline:
-        write_baseline(counts)
-        print("voice: baseline written to " + os.path.relpath(BASELINE, ROOT).replace(os.sep, "/"))
-        return 0
+        if args.files:
+            ap.error("--update-baseline scans the whole scope; do not name files")
+        return update_baseline(counts, args.allow_growth)
     if args.report or args.files:
         for h in hits:
             print("  %s:%d: %s: %s" % h)
     if args.files:
         return 1 if hits else 0
 
-    drift = guide_drift()
-    for p in drift:
+    failed = False
+    for p in guide_drift():
         print("FAIL voice: " + p)
-    base = load_baseline()
+        failed = True
+    if args.base:
+        grown = base_growth(args.base)
+        if grown is None:
+            print("voice: %s has no baseline yet; nothing to compare" % args.base)
+        elif grown:
+            print("FAIL voice: the baseline grew against %s (it may only shrink):" % args.base)
+            for g in grown:
+                print("  " + g)
+            failed = True
+        else:
+            print("voice: no rule's baselined total grew against %s" % args.base)
+    base, _ = load_baseline()
     print("voice: baseline allows %d" % sum(base.values()))
     shrunk = sum(base[k] - counts.get(k, 0) for k in base if counts.get(k, 0) < base[k])
     if shrunk:
         print("voice: NOTE %d baselined hits are gone; shrink the baseline with --update-baseline" % shrunk)
     over = {k: n - base.get(k, 0) for k, n in counts.items() if n > base.get(k, 0)}
     if not over:
-        if drift:
+        if failed:
             return 1
         print("OK voice")
         return 0

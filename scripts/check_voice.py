@@ -11,12 +11,14 @@ Rules (the rule key is what the baseline counts):
   em-dash       U+2014 anywhere in the file. Use a colon, a comma, parentheses or a
                 new sentence.
   emoji         A pictographic emoji: U+1F000..U+1FAFF, the emoji code points in
-                U+2300..U+2BFF (warning sign, ballot box with check, heavy check mark
-                and so on) and U+FE0F, the selector that forces emoji presentation.
+                U+2300..U+2BFF (warning sign, ballot box with check, heavy check mark,
+                the small squares U+25FD and U+25FE and so on) and U+FE0F, the selector that forces emoji presentation.
                 Typographic symbols that are not emoji (the check mark U+2713, the
                 star U+2605, arrows, box drawing, (c), (R), TM) pass.
-  exclamation   A '!' that ends a sentence, in prose. Code, URLs, HTML and comments
-                are not prose; '!=', '![image]' and '<!--' never match.
+  exclamation   A '!' that ends a sentence, in prose. Code (fenced, inline, or indented
+                four spaces outside a list item), URLs, HTML tags and comments are not
+                prose, but alt and title attribute values are; '!=', '![image]' and
+                '<!--' never match.
   hype:<word>   A word from HYPE below, in prose, matched case-insensitively on word
                 boundaries with its inflections ("leverages", "leveraged",
                 "empowering", "comprehensively"), each counted under the listed word.
@@ -27,7 +29,8 @@ Rules (the rule key is what the baseline counts):
                 ALLOW (the ATT&CK campaign C0029 "Cutting Edge", Seamless SSO, the
                 Revolutionary Guard).
   count         A hand-typed headline count in prose: "<N> references", "<N> guides",
-                "<N> paths" or "<N> pages", with at most one word between the number
+                "<N> paths" or "<N> pages", the noun in any case ("## 140 References")
+                and not after "Level " (a course level), with at most one word between the number
                 and the noun ("140 in-depth references", "47 discipline paths") and
                 bold or italic markers allowed around the number or that word
                 ("**140** references"). Counts belong in script output: text between
@@ -70,6 +73,7 @@ Usage:
     python scripts/check_voice.py --update-baseline  # lower the baseline to the hits left
     python scripts/check_voice.py --update-baseline --allow-growth  # record a new rule
     python scripts/check_voice.py FILE.md ...        # check only these files, no baseline
+    python scripts/check_voice.py --self-test        # planted cases (SELF_TEST) must hit or pass
 """
 from __future__ import annotations
 
@@ -156,20 +160,22 @@ EMOJI_RE = re.compile(
     "\u26E9\u26EA\u26F0-\u26F5\u26F7-\u26FA\u26FD"
     "\u2702\u2705\u2708-\u270D\u270F\u2712\u2714\u2716\u271D\u2721\u2728\u2733\u2734"
     "\u2744\u2747\u274C\u274E\u2753-\u2755\u2757\u2763\u2764\u2795-\u2797\u27A1\u27B0"
-    "\u27BF\u2B05-\u2B07\u2B1B\u2B1C\u2B50\u2B55\u203C\u2049]")
+    "\u27BF\u2B05-\u2B07\u2B1B\u2B1C\u2B50\u2B55\u203C\u2049\u25FD\u25FE]")
 # A '!' directly after a word or closing bracket, followed by space, end of line or
 # closing punctuation. '!=' and '![' fail the lookahead, '<!--' the lookbehind, and a
 # '!' right before a closing quote belongs to the quotation, which keeps its own
 # punctuation.
 EXCLAIM_RE = re.compile(r"(?<=[\w)\]*_])!+(?=[\s)\]*_|]|$)")
-# Lowercase nouns only ("Level 2 Paths" is a product name); a number that closes a range
-# ("1-2 pages") describes a length, not the library; magnitudes ("3 billion pages") are
-# quoted figures about someone else's corpus.
+# The nouns match in any case, so a title-case headline ("## 140 References") counts. A
+# number after "Level " names a course level (TryHackMe "Level 2 Paths"); a number that
+# closes a range ("1-2 pages") describes a length, not the library; magnitudes ("3
+# billion pages") are quoted figures about someone else's corpus.
 EMPH = r"(?:\*{1,2}|_{1,2})?"                   # bold or italic markers: "**140** references"
-COUNT_RE = re.compile(r"(?<![\w.,\u2013-])" + EMPH + r"(\d+(?:,\d{3})*)(?![\d,])\+?" + EMPH +
+COUNT_RE = re.compile(r"(?<![\w.,\u2013-])(?<![Ll]evel )" + EMPH +
+                      r"(\d+(?:,\d{3})*)(?![\d,])\+?" + EMPH +
                       r"\s+(?!(?:hundred|thousand|million|billion)\b)"
                       r"(?:" + EMPH + r"[A-Za-z][\w-]*" + EMPH + r"\s+)?"
-                      r"(references|guides|paths|pages)\b")
+                      r"((?i:references|guides|paths|pages))\b")
 # CHANGELOG entries are dated records: a count there is true as of its date and does
 # not go stale the way a headline does.
 COUNT_EXEMPT = ("CHANGELOG.md",)
@@ -183,11 +189,24 @@ INLINE_CODE_RE = re.compile(r"(`+)(?:(?!\1).)+?\1")
 LINK_TARGET_RE = re.compile(r"\]\([^)\s]*(?:\s+\"[^\"]*\")?\)")
 URL_RE = re.compile(r"<?https?://[^\s<>)\]|]+>?")
 TAG_RE = re.compile(r"</?[A-Za-z][^<>]*>")
+# alt and title values are text a reader reads (image descriptions, tooltips).
+TAG_TEXT_RE = re.compile(r"""\b(?:alt|title)\s*=\s*(?:"([^"]*)"|'([^']*)')""", re.I)
+LIST_ITEM_RE = re.compile(r"^ *(?:[-*+]|\d{1,9}[.)])( +|$)")
 
 
 def blank(m: re.Match) -> str:
     """Replace a match with spaces, keeping newlines so line numbers survive."""
     return re.sub(r"[^\n]", " ", m.group(0))
+
+
+def blank_tag(m: re.Match) -> str:
+    """Blank an HTML tag but keep its alt and title values, which readers read."""
+    tag = m.group(0)
+    out = [" "] * len(tag)
+    for a in TAG_TEXT_RE.finditer(tag):
+        g = 1 if a.group(1) is not None else 2
+        out[a.start(g):a.end(g)] = tag[a.start(g):a.end(g)]
+    return "".join(out)
 
 
 def strip_fences(text: str) -> str:
@@ -225,19 +244,43 @@ def strip_markers(text: str) -> str:
 
 
 def prose(text: str) -> str:
-    """The text a reader reads as sentences: no code, comments, tags, URLs or link targets."""
+    """The text a reader reads as sentences: no code, comments, URLs or link targets,
+    and of an HTML tag only its alt and title values.
+
+    A line indented four spaces is an indented code block only outside a list item.
+    Inside one it continues the item (a second paragraph, a nested list) and is prose,
+    unless it is indented four columns past the item's text after a blank line, which
+    is a code block inside the item.
+    """
     text = strip_fences(text)
     text = COMMENT_RE.sub(blank, text)
     lines = []
+    content = None                  # column where the open list item's text starts
+    prev_blank, prev_code = True, False
     for line in text.split("\n"):
-        if line.startswith("    ") and not line.lstrip().startswith(("-", "*", "|", ">")) and \
-                not re.match(r"\s*\d+\.", line):
+        if not line.strip():
+            lines.append(line)
+            prev_blank = True
+            continue
+        indent = len(line) - len(line.lstrip(" "))
+        item = LIST_ITEM_RE.match(line)
+        if item and (content is None or indent < content + 4):
+            content = len(item.group(0)) + (0 if item.group(1) else 1)
+        elif content is not None and indent < content and (prev_blank or line.lstrip().startswith("#")):
+            content = None                         # a block after the list ends it
+        if content is None:
+            code = line.startswith("    ") and not line.lstrip().startswith(("-", "*", "|", ">")) \
+                and not re.match(r"\s*\d+\.", line)
+        else:
+            code = not item and indent >= content + 4 and (prev_blank or prev_code)
+        prev_blank, prev_code = False, code
+        if code:
             lines.append("")                       # indented code block
             continue
         line = INLINE_CODE_RE.sub(blank, line)
         line = LINK_TARGET_RE.sub(lambda m: "]" + " " * (len(m.group(0)) - 1), line)
         line = URL_RE.sub(blank, line)
-        line = TAG_RE.sub(blank, line)
+        line = TAG_RE.sub(blank_tag, line)
         lines.append(line)
     return "\n".join(lines)
 
@@ -353,13 +396,14 @@ def scan(rel: str, raw: str) -> list[tuple[str, int, str, str]]:
         for m in EMOJI_RE.finditer(line):
             hits.append((rel, i, "emoji", "U+%04X in: %s" % (ord(m.group(0)), excerpt(i))))
     text = prose(raw)
+    word_list = guide_words(raw) if rel == GUIDE_REL else {}
     for i, line in enumerate(text.split("\n"), 1):
         for m in EXCLAIM_RE.finditer(line):
             if allowed(line, m.start() - 4, m.end(), (EXCLAIM_ALLOW,)):
                 continue
             if not upstream(line, m.start(), m.end(), "!"):
                 hits.append((rel, i, "exclamation", excerpt(i)))
-        for m in HYPE_RE.finditer(line):
+        for m in HYPE_RE.finditer("" if i in word_list else line):
             word = hype_word(m.group(1))
             stem = word[:-1] if word.endswith("e") else word
             if not allowed(line, m.start(), m.end(), ALLOW) and \
@@ -374,7 +418,25 @@ def scan(rel: str, raw: str) -> list[tuple[str, int, str, str]]:
 
 
 GUIDE = os.path.join(ROOT, "docs", "VOICE.md")
-GUIDE_LIST_RE = re.compile(r"^`[a-z-]+`(?:, `[a-z-]+`)*\.$")
+GUIDE_REL = "docs/VOICE.md"
+GUIDE_SECTION = "## Words we do not use"
+GUIDE_ITEM_RE = re.compile(r"^([a-z]+(?:-[a-z]+)*)\\?$")
+
+
+def guide_words(text: str) -> dict[int, str]:
+    """The word list in docs/VOICE.md: line number -> word, one word per line under
+    GUIDE_SECTION, each line but the last ending in a backslash (a hard line break, so
+    the page shows a plain list in which no word breaks at a hyphen). scan() skips
+    these lines for the hype rule, because the guide has to name the words it bans."""
+    words, inside = {}, False
+    for i, line in enumerate(text.split("\n"), 1):
+        if line.startswith("## "):
+            inside = line.strip() == GUIDE_SECTION
+            continue
+        m = GUIDE_ITEM_RE.match(line.strip()) if inside else None
+        if m:
+            words[i] = m.group(1)
+    return words
 
 
 def guide_drift() -> list[str]:
@@ -382,13 +444,9 @@ def guide_drift() -> list[str]:
     and spaced forms are matched by the lint, not listed)."""
     try:
         with open(GUIDE, encoding="utf-8") as fh:
-            lines = [ln.strip() for ln in fh]
+            listed = set(guide_words(fh.read()).values())
     except OSError:
         return ["docs/VOICE.md is missing"]
-    listed = set()
-    for ln in lines:
-        if GUIDE_LIST_RE.match(ln):
-            listed |= set(re.findall(r"`([a-z-]+)`", ln))
     want = set(HYPE)
     problems = []
     if want - listed:
@@ -486,6 +544,61 @@ def base_growth(ref: str) -> list[str] | None:
             if r in then_rules and n > a.get(r, 0)]
 
 
+# Planted cases for --self-test: (Markdown, the rules it must hit). An empty tuple means
+# the text must pass. Each is scanned as a guides/ page, so the baseline plays no part.
+SELF_TEST = (
+    # Words, inflections and spaced forms.
+    ("It leverages, leveraged and is leveraging the API.", ("hype:leverage",) * 3),
+    ("Empowering, supercharged, revolutionizes, seamlessly, comprehensively.",
+     ("hype:empower", "hype:supercharge", "hype:revolutionize", "hype:seamless",
+      "hype:comprehensive")),
+    ("Industry leading, enterprise grade, battle tested, lightning fast tools.",
+     ("hype:industry-leading", "hype:enterprise-grade", "hype:battle-tested",
+      "hype:lightning-fast")),
+    ("One stop on the route; every finding must have an owner; the next level.", ()),
+    ("A one-stop, must-have, next-level page.",
+     ("hype:one-stop", "hype:must-have", "hype:next-level")),
+    ("The C0029 Cutting Edge campaign abused Seamless SSO.", ()),
+    ("Adversaries may leverage the API to read data.", ("hype:leverage",)),
+    # Counts.
+    ("A library of **140** references and 3 learning paths.", ("count", "count")),
+    ("Read 1-2 pages of a site with 3 billion pages.", ()),
+    ("TryHackMe Level 2 Paths and level 3 paths are course levels.", ()),            # item 7
+    ("## 140 References", ("count",)),                                               # item 7
+    ("**47 Paths** and 12 Guides", ("count", "count")),                              # item 7
+    # Marks.
+    ("Done ✓ and starred ★.", ()),
+    ("Done ✅ and ✔.", ("emoji", "emoji")),
+    ("Status ◽ and ◾.", ("emoji", "emoji")),                               # item 9
+    ("It works!", ("exclamation",)),
+    ("Use `a != b` and ![logo](x.png).", ()),
+    # Code blocks and list items.                                                       item 8
+    ("Text.\n\n    leverage = comprehensive()  # indented code\n", ()),
+    ("- First point.\n\n    It leverages the API, a list-continuation paragraph.\n",
+     ("hype:leverage",)),
+    ("1. Step one.\n\n    A comprehensive second paragraph of the step.\n",
+     ("hype:comprehensive",)),
+    ("- Item.\n\n        leverage = 1  # code inside the item\n", ()),
+    ("- Item.\n\nParagraph after the list.\n\n    leverage = 1  # code again\n", ()),
+    # HTML: alt and title values are read, the rest of the tag is not.                 item 9
+    ('<img src="powerful.png" alt="A powerful scanner">', ("hype:powerful",)),
+    ("<abbr title='Works great!'>WG</abbr>", ("exclamation",)),
+    ('<a href="seamless.html" class="cutting-edge">link</a>', ()),
+)
+
+
+def self_test() -> int:
+    """Scan every SELF_TEST case and compare its rules with the expected ones."""
+    failed = 0
+    for text, want in SELF_TEST:
+        got = sorted(h[2] for h in scan("guides/_voice_self_test.md", text))
+        if got != sorted(want):
+            failed += 1
+            print("FAIL self-test: %r\n  want %s\n  got  %s" % (text, sorted(want), got))
+    print("voice self-test: %d of %d cases pass" % (len(SELF_TEST) - failed, len(SELF_TEST)))
+    return 1 if failed else 0
+
+
 def rule_family(rule: str) -> str:
     return "hype" if rule.startswith("hype:") else rule
 
@@ -505,7 +618,11 @@ def main() -> int:
                     help="with --update-baseline: record a rise (only when adding a rule)")
     ap.add_argument("--base", metavar="REF",
                     help="also fail when a rule's baselined total is higher than at git REF")
+    ap.add_argument("--self-test", action="store_true",
+                    help="scan the planted cases in SELF_TEST and exit 1 if any is wrong")
     args = ap.parse_args()
+    if args.self_test:
+        return self_test()
     if args.allow_growth and not args.update_baseline:
         ap.error("--allow-growth only applies to --update-baseline")
 

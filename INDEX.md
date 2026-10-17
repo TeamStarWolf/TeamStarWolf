@@ -122,7 +122,7 @@
 | [Malware Analysis Reference](MALWARE_ANALYSIS_REFERENCE.md) | Static/dynamic analysis, PE structure, process injection, YARA rules, ransomware, memory forensics, Volatility 3 |
 | [Malware Families](MALWARE_FAMILIES.md) | Ransomware, banking trojans, RATs, APT malware, rootkits, and loaders with TTPs and analysis resources |
 | [MITRE Enriched Pages (per-object)](mitre/README.md) | One page per ATT&CK technique, tactic, group, software entry, campaign, and mitigation, and per CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, and F3 technique, plus a cross-framework crosswalk, with mitigation, D3FEND, CAPEC, and NIST SP 800-53 relationships; mitigation pages add how-to-implement guidance |
-| [Mobile ATT&CK Atlas](MOBILE_ATTACK_ATLAS.md) | MITRE ATT&CK for Mobile techniques by tactic (page snapshot: ATT&CK v18.1; sub-techniques not listed), cross-referenced to groups, software, and mitigations |
+| [Mobile ATT&CK Atlas](MOBILE_ATTACK_ATLAS.md) | MITRE ATT&CK for Mobile techniques and sub-techniques by tactic (page snapshot: ATT&CK v18.1), cross-referenced to groups, software, and mitigations |
 | [Mobile Security Reference](MOBILE_SECURITY_REFERENCE.md) | iOS/Android security architecture, mobile app pentesting, OWASP Mobile Top 10, MDM/EMM, mobile malware analysis |
 | [Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md) | ARP poisoning, VLAN hopping, LLMNR poisoning, MITM, network pivoting, tunneling, evasion techniques, and Scapy/Nmap reference |
 | [Network Defense Reference](NETWORK_DEFENSE_REFERENCE.md) | Suricata, Zeek, Security Onion, Arkime, DNS security, nDPI, NAC, DDoS protection, NSM operations |

@@ -61,7 +61,7 @@
        absolutely (left: 300px; right: 0), and forcing position: relative on it kept the
        300px offset but dropped right: 0, which pushed every desktop page 300px past the
        viewport. The mobile layout keeps its relative .content (see the 768px block). */
-    .sidebar, .content, .app-nav, main { z-index: 1; }
+    .sidebar, .content, main { z-index: 1; }
     main { position: relative; }
     @media screen and (max-width: 768px) { .content { position: relative; } }
 
@@ -156,6 +156,9 @@
     .app-nav {
       margin: 0; padding: 0;
       position: fixed; top: 0; right: 0; left: var(--sidebar-width);
+      /* Above .content (z-index 1, later in the DOM), so the links and their dropdowns
+         take the pointer; still below the sidebar (10) and the cover (20). */
+      z-index: 5;
       background: rgba(11,18,32,.82);
       backdrop-filter: saturate(160%) blur(12px);
       -webkit-backdrop-filter: saturate(160%) blur(12px);

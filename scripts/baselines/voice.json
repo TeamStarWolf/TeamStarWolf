@@ -1,0 +1,564 @@
+{
+ "_comment": "Voice-lint hits that predate scripts/check_voice.py (file -> rule -> count). Written by scripts/check_voice.py --update-baseline. Only ever shrink it: fix the copy per docs/VOICE.md, then rewrite.",
+ "hits": {
+  "ACTIVE_DIRECTORY_ATTACKS.md": {
+   "em-dash": 35,
+   "hype:comprehensive": 1
+  },
+  "ACTIVE_DIRECTORY_ATTACK_REFERENCE.md": {
+   "em-dash": 15
+  },
+  "ACTIVE_DIRECTORY_SECURITY_REFERENCE.md": {
+   "em-dash": 4,
+   "hype:comprehensive": 1
+  },
+  "AI_ARCHITECTURE_REFERENCE.md": {
+   "em-dash": 62,
+   "hype:powerful": 1
+  },
+  "AI_INFRASTRUCTURE_SECURITY_REFERENCE.md": {
+   "hype:powerful": 1
+  },
+  "AI_MCP_SECURITY_REFERENCE.md": {
+   "em-dash": 1,
+   "hype:comprehensive": 2,
+   "hype:powerful": 1
+  },
+  "AI_OFFENSIVE_SECURITY_REFERENCE.md": {
+   "hype:comprehensive": 7,
+   "hype:powerful": 1
+  },
+  "AI_SECURITY_REFERENCE.md": {
+   "hype:comprehensive": 1,
+   "hype:powerful": 1
+  },
+  "API_SECURITY_REFERENCE.md": {
+   "em-dash": 12,
+   "hype:battle-tested": 1,
+   "hype:comprehensive": 2
+  },
+  "ARCHITECTURE_REFERENCE.md": {
+   "em-dash": 76
+  },
+  "ATTACK_MITIGATIONS_REFERENCE.md": {
+   "hype:comprehensive": 1
+  },
+  "AUTOMOTIVE_SECURITY_REFERENCE.md": {
+   "em-dash": 2,
+   "hype:comprehensive": 1
+  },
+  "BLOCKCHAIN_SECURITY_REFERENCE.md": {
+   "em-dash": 72,
+   "hype:comprehensive": 1
+  },
+  "BROWSER_SECURITY_REFERENCE.md": {
+   "em-dash": 10,
+   "hype:comprehensive": 1
+  },
+  "CAREER_PATHS.md": {
+   "hype:comprehensive": 1
+  },
+  "CERTIFICATIONS.md": {
+   "hype:comprehensive": 1
+  },
+  "CLOUD_ARCHITECTURE_REFERENCE.md": {
+   "em-dash": 53
+  },
+  "CLOUD_ATTACK_REFERENCE.md": {
+   "em-dash": 29,
+   "hype:comprehensive": 1
+  },
+  "CLOUD_NETWORK_SECURITY.md": {
+   "em-dash": 6,
+   "hype:comprehensive": 1
+  },
+  "CLOUD_SECURITY_BENCHMARK.md": {
+   "hype:comprehensive": 1
+  },
+  "CLOUD_SECURITY_REFERENCE.md": {
+   "em-dash": 8,
+   "hype:comprehensive": 2
+  },
+  "CONTAINER_SECURITY_REFERENCE.md": {
+   "em-dash": 5,
+   "hype:comprehensive": 2
+  },
+  "CONTROLS_MAPPING.md": {
+   "hype:comprehensive": 1
+  },
+  "COVERAGE_SCHEMA.md": {
+   "em-dash": 1
+  },
+  "CRYPTOGRAPHY_REFERENCE.md": {
+   "exclamation": 2,
+   "hype:comprehensive": 2
+  },
+  "CTF_METHODOLOGY.md": {
+   "em-dash": 3,
+   "hype:comprehensive": 1,
+   "hype:powerful": 2
+  },
+  "CVE_REFERENCE.md": {
+   "hype:comprehensive": 1
+  },
+  "CYBERSECURITY_BOOK_LIST.md": {
+   "exclamation": 2,
+   "hype:blazing fast": 1,
+   "hype:comprehensive": 5,
+   "hype:world-class": 1
+  },
+  "DATABASE_SECURITY_REFERENCE.md": {
+   "em-dash": 1,
+   "hype:powerful": 3
+  },
+  "DECEPTION_TECHNOLOGY_REFERENCE.md": {
+   "em-dash": 4,
+   "hype:comprehensive": 2
+  },
+  "DETECTION_RULES_REFERENCE.md": {
+   "em-dash": 16,
+   "hype:comprehensive": 1
+  },
+  "DEVSECOPS_REFERENCE.md": {
+   "em-dash": 26,
+   "hype:comprehensive": 2
+  },
+  "DIGITAL_FORENSICS_REFERENCE.md": {
+   "hype:comprehensive": 1
+  },
+  "EDGE_DEVICE_SECURITY_REFERENCE.md": {
+   "em-dash": 1,
+   "hype:one-stop": 1
+  },
+  "EMAIL_SECURITY_REFERENCE.md": {
+   "em-dash": 3
+  },
+  "ENDPOINT_SECURITY_REFERENCE.md": {
+   "hype:comprehensive": 1
+  },
+  "ENTERPRISE_INFRASTRUCTURE.md": {
+   "hype:enterprise-grade": 1
+  },
+  "EXPLOIT_DEVELOPMENT_REFERENCE.md": {
+   "em-dash": 30
+  },
+  "FIRMWARE_IOT_SECURITY_REFERENCE.md": {
+   "em-dash": 44,
+   "hype:comprehensive": 1
+  },
+  "FRAMEWORKS.md": {
+   "hype:comprehensive": 1
+  },
+  "FUZZING_VULNERABILITY_RESEARCH.md": {
+   "hype:comprehensive": 1,
+   "hype:state-of-the-art": 1
+  },
+  "GRC_COMPLIANCE_REFERENCE.md": {
+   "em-dash": 4,
+   "hype:comprehensive": 2
+  },
+  "GRC_REFERENCE.md": {
+   "hype:comprehensive": 2
+  },
+  "HARDWARE_SECURITY_REFERENCE.md": {
+   "em-dash": 20
+  },
+  "HEALTHCARE_SECURITY_REFERENCE.md": {
+   "em-dash": 3
+  },
+  "HOMELAB_SETUP.md": {
+   "em-dash": 60,
+   "hype:comprehensive": 1,
+   "hype:powerful": 2
+  },
+  "HONEYPOT_DECEPTION_REFERENCE.md": {
+   "hype:best-in-class": 1,
+   "hype:comprehensive": 3,
+   "hype:enterprise-grade": 1
+  },
+  "ICS_OT_SECURITY_REFERENCE.md": {
+   "em-dash": 12,
+   "hype:comprehensive": 1
+  },
+  "IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md": {
+   "em-dash": 22,
+   "emoji": 2,
+   "hype:comprehensive": 1
+  },
+  "IDENTITY_SECURITY_REFERENCE.md": {
+   "em-dash": 6,
+   "hype:comprehensive": 1
+  },
+  "INCIDENT_RESPONSE_REFERENCE.md": {
+   "em-dash": 41,
+   "hype:enterprise-grade": 1
+  },
+  "INSIDER_THREAT_REFERENCE.md": {
+   "em-dash": 1,
+   "hype:comprehensive": 1
+  },
+  "INTERVIEW_PREP.md": {
+   "hype:comprehensive": 1
+  },
+  "KUBERNETES_SECURITY_REFERENCE.md": {
+   "em-dash": 18,
+   "hype:comprehensive": 1
+  },
+  "LABS.md": {
+   "em-dash": 5,
+   "hype:enterprise-grade": 1
+  },
+  "LINUX_HARDENING.md": {
+   "hype:comprehensive": 1
+  },
+  "LINUX_HARDENING_REFERENCE.md": {
+   "hype:comprehensive": 3,
+   "hype:powerful": 1
+  },
+  "LOTL_DETECTION_REFERENCE.md": {
+   "hype:comprehensive": 1
+  },
+  "MACOS_SECURITY_REFERENCE.md": {
+   "em-dash": 1,
+   "hype:powerful": 1
+  },
+  "MALWARE_ANALYSIS_REFERENCE.md": {
+   "em-dash": 47,
+   "hype:powerful": 1
+  },
+  "MALWARE_FAMILIES.md": {
+   "hype:comprehensive": 4
+  },
+  "MOBILE_SECURITY_REFERENCE.md": {
+   "hype:comprehensive": 1
+  },
+  "NETWORKING_ARCHITECTURE_REFERENCE.md": {
+   "em-dash": 47
+  },
+  "NETWORKING_FUNDAMENTALS.md": {
+   "em-dash": 37
+  },
+  "NETWORK_ATTACKS_REFERENCE.md": {
+   "em-dash": 49,
+   "hype:powerful": 1
+  },
+  "NETWORK_DEFENSE_REFERENCE.md": {
+   "em-dash": 23,
+   "hype:comprehensive": 1,
+   "hype:seamless": 1
+  },
+  "NETWORK_FORENSICS_REFERENCE.md": {
+   "em-dash": 1,
+   "hype:comprehensive": 2
+  },
+  "NETWORK_PROTOCOLS_REFERENCE.md": {
+   "em-dash": 38
+  },
+  "NETWORK_PROTOCOLS_SECURITY.md": {
+   "hype:comprehensive": 1
+  },
+  "NETWORK_SECURITY_ARCHITECTURE.md": {
+   "em-dash": 25
+  },
+  "OPEN_SOURCE_TOOLKIT.md": {
+   "hype:comprehensive": 3,
+   "hype:powerful": 1
+  },
+  "OSINT_REFERENCE.md": {
+   "hype:comprehensive": 1
+  },
+  "PACKET_ANALYSIS_REFERENCE.md": {
+   "em-dash": 11,
+   "hype:comprehensive": 1
+  },
+  "PASSWORD_SECURITY_REFERENCE.md": {
+   "em-dash": 37,
+   "hype:battle-tested": 1,
+   "hype:comprehensive": 1
+  },
+  "PENTEST_CHECKLISTS.md": {
+   "hype:comprehensive": 2
+  },
+  "PHYSICAL_SECURITY_REFERENCE.md": {
+   "em-dash": 1,
+   "hype:comprehensive": 3
+  },
+  "POST_QUANTUM_MIGRATION_REFERENCE.md": {
+   "em-dash": 4
+  },
+  "PRIVACY_ENGINEERING_REFERENCE.md": {
+   "em-dash": 12,
+   "hype:comprehensive": 1
+  },
+  "PRIVESC_REFERENCE.md": {
+   "em-dash": 25,
+   "hype:comprehensive": 3
+  },
+  "PURPLE_TEAM_REFERENCE.md": {
+   "em-dash": 15,
+   "hype:comprehensive": 1
+  },
+  "RANSOMWARE_DEFENSE_REFERENCE.md": {
+   "hype:one-stop": 1
+  },
+  "RED_TEAM_REFERENCE.md": {
+   "em-dash": 27,
+   "exclamation": 1,
+   "hype:comprehensive": 4,
+   "hype:seamless": 1
+  },
+  "RESOURCES.md": {
+   "em-dash": 2,
+   "hype:comprehensive": 1
+  },
+  "REVERSE_ENGINEERING_REFERENCE.md": {
+   "em-dash": 1,
+   "hype:comprehensive": 1
+  },
+  "SECRETS_MANAGEMENT_REFERENCE.md": {
+   "em-dash": 19,
+   "hype:comprehensive": 2
+  },
+  "SECURE_CODING_REFERENCE.md": {
+   "em-dash": 77,
+   "hype:comprehensive": 1
+  },
+  "SECURITY_ARCHITECTURE_REFERENCE.md": {
+   "em-dash": 69,
+   "hype:comprehensive": 2
+  },
+  "SECURITY_DATA_ENGINEERING_REFERENCE.md": {
+   "em-dash": 2
+  },
+  "SECURITY_GADGETS_REFERENCE.md": {
+   "em-dash": 1,
+   "hype:comprehensive": 2,
+   "hype:powerful": 1
+  },
+  "SECURITY_METRICS_REFERENCE.md": {
+   "hype:best-in-class": 3,
+   "hype:comprehensive": 2
+  },
+  "SECURITY_PROGRAM_MANAGEMENT_REFERENCE.md": {
+   "em-dash": 1
+  },
+  "SECURITY_TOOL_DOCUMENTATION.md": {
+   "em-dash": 74
+  },
+  "SOAR_AUTOMATION_REFERENCE.md": {
+   "hype:comprehensive": 2,
+   "hype:enterprise-grade": 1
+  },
+  "SOCIAL_ENGINEERING_REFERENCE.md": {
+   "em-dash": 28,
+   "emoji": 8,
+   "hype:powerful": 1
+  },
+  "STARRED_REPOS.md": {
+   "hype:comprehensive": 1,
+   "hype:enterprise-grade": 1
+  },
+  "SUPPLY_CHAIN_SECURITY.md": {
+   "hype:comprehensive": 1
+  },
+  "SUPPLY_CHAIN_SECURITY_REFERENCE.md": {
+   "hype:comprehensive": 2
+  },
+  "THREAT_HUNTING_REFERENCE.md": {
+   "hype:comprehensive": 3
+  },
+  "THREAT_INTELLIGENCE_REFERENCE.md": {
+   "hype:comprehensive": 3
+  },
+  "THREAT_MODELING_REFERENCE.md": {
+   "em-dash": 126,
+   "hype:comprehensive": 4
+  },
+  "TOOLS.md": {
+   "hype:comprehensive": 1,
+   "hype:enterprise-grade": 1
+  },
+  "VENDOR_PREVENTION_POLICIES.md": {
+   "em-dash": 4
+  },
+  "VULNERABILITY_MANAGEMENT_REFERENCE.md": {
+   "hype:comprehensive": 1
+  },
+  "WEB_APPLICATION_PENTESTING.md": {
+   "hype:comprehensive": 1
+  },
+  "WEB_APPLICATION_SECURITY_REFERENCE.md": {
+   "em-dash": 2,
+   "hype:comprehensive": 2
+  },
+  "WINDOWS_HARDENING.md": {
+   "em-dash": 12
+  },
+  "WINDOWS_HARDENING_GPO.md": {
+   "em-dash": 8,
+   "exclamation": 2,
+   "hype:comprehensive": 1,
+   "hype:powerful": 1
+  },
+  "WINDOWS_HARDENING_REFERENCE.md": {
+   "em-dash": 20
+  },
+  "WIRELESS_SECURITY_REFERENCE.md": {
+   "em-dash": 29,
+   "exclamation": 1,
+   "hype:comprehensive": 1,
+   "hype:enterprise-grade": 1
+  },
+  "ZERO_TRUST_REFERENCE.md": {
+   "em-dash": 3,
+   "hype:best-in-class": 1,
+   "hype:comprehensive": 2,
+   "hype:seamless": 1
+  },
+  "disciplines/active-directory.md": {
+   "em-dash": 3,
+   "hype:comprehensive": 2
+  },
+  "disciplines/adversarial-ai-attacks.md": {
+   "hype:comprehensive": 1,
+   "hype:powerful": 3,
+   "hype:state-of-the-art": 1
+  },
+  "disciplines/ai-llm-security.md": {
+   "hype:comprehensive": 7,
+   "hype:cutting-edge": 1
+  },
+  "disciplines/ai-ml-security.md": {
+   "em-dash": 1,
+   "hype:comprehensive": 3
+  },
+  "disciplines/application-security.md": {
+   "hype:comprehensive": 4,
+   "hype:cutting-edge": 2
+  },
+  "disciplines/blockchain-web3-security.md": {
+   "em-dash": 1,
+   "hype:comprehensive": 2
+  },
+  "disciplines/cloud-security.md": {
+   "hype:comprehensive": 1
+  },
+  "disciplines/container-kubernetes-security.md": {
+   "em-dash": 8,
+   "hype:comprehensive": 1,
+   "hype:powerful": 1
+  },
+  "disciplines/cryptography-pki.md": {
+   "em-dash": 3,
+   "exclamation": 1,
+   "hype:comprehensive": 1
+  },
+  "disciplines/cyber-risk-quantification.md": {
+   "em-dash": 2
+  },
+  "disciplines/data-security.md": {
+   "hype:comprehensive": 2
+  },
+  "disciplines/detection-engineering.md": {
+   "em-dash": 5,
+   "hype:powerful": 1
+  },
+  "disciplines/devsecops.md": {
+   "hype:comprehensive": 3
+  },
+  "disciplines/digital-forensics.md": {
+   "hype:comprehensive": 1
+  },
+  "disciplines/exploit-development.md": {
+   "em-dash": 1
+  },
+  "disciplines/hacker-hobbies.md": {
+   "hype:comprehensive": 1,
+   "hype:powerful": 2
+  },
+  "disciplines/ics-ot-security.md": {
+   "hype:comprehensive": 1
+  },
+  "disciplines/identity-access-management.md": {
+   "hype:best-in-class": 1,
+   "hype:comprehensive": 4,
+   "hype:enterprise-grade": 1
+  },
+  "disciplines/incident-response.md": {
+   "hype:comprehensive": 1,
+   "hype:enterprise-grade": 1,
+   "hype:powerful": 1
+  },
+  "disciplines/iot-security.md": {
+   "hype:comprehensive": 1
+  },
+  "disciplines/malware-analysis.md": {
+   "hype:powerful": 2
+  },
+  "disciplines/mobile-security.md": {
+   "hype:comprehensive": 1
+  },
+  "disciplines/network-security.md": {
+   "hype:comprehensive": 1
+  },
+  "disciplines/offensive-security.md": {
+   "hype:comprehensive": 5
+  },
+  "disciplines/osint.md": {
+   "hype:comprehensive": 4,
+   "hype:powerful": 2
+  },
+  "disciplines/physical-security.md": {
+   "hype:comprehensive": 2,
+   "hype:enterprise-grade": 1,
+   "hype:industry-leading": 1
+  },
+  "disciplines/purple-teaming.md": {
+   "hype:comprehensive": 2
+  },
+  "disciplines/red-teaming.md": {
+   "hype:comprehensive": 1
+  },
+  "disciplines/reverse-engineering.md": {
+   "hype:powerful": 1
+  },
+  "disciplines/security-architecture.md": {
+   "hype:powerful": 1
+  },
+  "disciplines/security-awareness.md": {
+   "em-dash": 1
+  },
+  "disciplines/security-operations.md": {
+   "hype:enterprise-grade": 1,
+   "hype:industry-leading": 1
+  },
+  "disciplines/siem-soar.md": {
+   "em-dash": 2,
+   "hype:powerful": 2
+  },
+  "disciplines/supply-chain-security.md": {
+   "hype:comprehensive": 2
+  },
+  "disciplines/threat-hunting.md": {
+   "hype:powerful": 1
+  },
+  "disciplines/threat-intelligence.md": {
+   "hype:comprehensive": 1
+  },
+  "disciplines/threat-modeling.md": {
+   "hype:comprehensive": 2,
+   "hype:enterprise-grade": 1
+  },
+  "disciplines/vulnerability-management.md": {
+   "hype:comprehensive": 3,
+   "hype:enterprise-grade": 1
+  },
+  "tools-research/SERVICENOW_USEM_TENABLE_WIZ.md": {
+   "count": 2,
+   "em-dash": 15
+  },
+  "tools-research/SERVICENOW_VR_CC_CVR_TENABLE_WIZ.md": {
+   "em-dash": 7
+  }
+ }
+}

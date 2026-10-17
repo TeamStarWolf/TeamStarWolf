@@ -121,7 +121,7 @@
 | [macOS Security Reference](MACOS_SECURITY_REFERENCE.md) | SIP, Gatekeeper/notarization, XProtect, TCC, FileVault, Endpoint Security framework telemetry, unified log, NIST mSCP/CIS baselines, MDM, ATT&CK macOS coverage |
 | [Malware Analysis Reference](MALWARE_ANALYSIS_REFERENCE.md) | Static/dynamic analysis, PE structure, process injection, YARA rules, ransomware, memory forensics, Volatility 3 |
 | [Malware Families](MALWARE_FAMILIES.md) | Ransomware, banking trojans, RATs, APT malware, rootkits, and loaders with TTPs and analysis resources |
-| [MITRE Enriched Pages (per-object)](mitre/README.md) | One page per ATT&CK object (714 technique + 44 mitigation + 15 tactic + 156 D3FEND + 615 CAPEC + 205 ATLAS pages, plus a cross-framework crosswalk), with mitigation/D3FEND/CAPEC/NIST 800-53 relationships and Team Star Wolf corpus prevalence; mitigation pages add concrete how-to-implement guidance |
+| [MITRE Enriched Pages (per-object)](mitre/README.md) | One page per ATT&CK technique, tactic, group, software entry, campaign, and mitigation, and per CAPEC, D3FEND, ATLAS, and F3 entry, plus a cross-framework crosswalk, with mitigation, D3FEND, CAPEC, and NIST SP 800-53 relationships; mitigation pages add how-to-implement guidance |
 | [Mobile ATT&CK Atlas](MOBILE_ATTACK_ATLAS.md) | The full MITRE ATT&CK for Mobile matrix (124 techniques) cross-referenced to groups, software, and mitigations |
 | [Mobile Security Reference](MOBILE_SECURITY_REFERENCE.md) | iOS/Android security architecture, mobile app pentesting, OWASP Mobile Top 10, MDM/EMM, mobile malware analysis |
 | [Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md) | ARP poisoning, VLAN hopping, LLMNR poisoning, MITM, network pivoting, tunneling, evasion techniques, and Scapy/Nmap reference |
@@ -139,7 +139,7 @@
 
 | Resource | Description |
 |---|---|
-| [Open Source Toolkit](OPEN_SOURCE_TOOLKIT.md) | Comprehensive open source security tooling reference and bookmarks organized by category across 20+ disciplines |
+| [Open Source Toolkit](OPEN_SOURCE_TOOLKIT.md) | Open source security tools and bookmarks, organized by category and discipline |
 | [OSINT Reference](OSINT_REFERENCE.md) | Passive recon, OSINT frameworks, Maltego, Shodan/Censys/FOFA, social media OSINT, domain/IP investigation |
 | [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md) | Wireshark display filters, tcpdump BPF syntax, Zeek logs and scripting, JA3 fingerprinting, and attack pattern detection in pcaps |
 | [Password Security Reference](PASSWORD_SECURITY_REFERENCE.md) | Hash formats, hashcat/John mastery, Argon2/bcrypt/PBKDF2 storage, NIST 800-63B policy, LAPS, gMSA, HIBP API |

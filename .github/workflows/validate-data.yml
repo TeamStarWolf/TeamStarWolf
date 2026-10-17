@@ -93,13 +93,16 @@ jobs:
         run: python scripts/generate_technique_detail_pages.py --check
 
   repo-hygiene:
-    name: Tracked junk, text encoding, revoked ATT&CK IDs in hand-written pages
+    name: Tracked junk, text encoding, revoked ATT&CK IDs, voice in hand-written pages
     # junk: nothing build/editor/OS-generated is tracked (all of it would be published).
     # encoding: every tracked text file is valid UTF-8 with no U+FFFD and no double-encoded
     #   UTF-8 (the mojibake class PR-15 cleaned up).
     # revoked: hand-written pages may not cite a revoked/deprecated ATT&CK ID (per
     #   data/attack/superseded_by.jsonl) more often than scripts/baselines/revoked_ids.json
     #   records; the baseline holds the pre-existing citations and may only shrink.
+    # voice: hand-written pages follow docs/VOICE.md (no em-dashes, emoji, sentence-ending
+    #   exclamation marks, marketing words or hand-typed headline counts) beyond what
+    #   scripts/baselines/voice.json records; that baseline also only shrinks.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -120,6 +123,9 @@ jobs:
 
       - name: No new revoked/deprecated ATT&CK IDs in hand-written pages
         run: python scripts/check_repo_hygiene.py --only revoked --report
+
+      - name: No new voice-guide violations in hand-written pages (docs/VOICE.md)
+        run: python scripts/check_voice.py
 
   validate-navigator:
     name: Validate ATT&CK Navigator layers

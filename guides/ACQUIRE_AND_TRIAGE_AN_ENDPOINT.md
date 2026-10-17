@@ -163,13 +163,13 @@ With the parsed KAPE/UAC output (Step 4) and the timeline (Step 6), work the que
 Execution (what ran):
 
 ```
-:: Prefetch — last-run times and run counts (evidence of execution)
+:: Prefetch: last-run times and run counts (evidence of execution)
 PECmd.exe -d "D:\evidence\HOST01\triage\C\Windows\Prefetch" --csv D:\out --csvf prefetch.csv
 
-:: ShimCache / AppCompatCache — execution/presence, from the SYSTEM hive
+:: ShimCache / AppCompatCache: execution/presence, from the SYSTEM hive
 AppCompatCacheParser.exe -f "D:\...\config\SYSTEM" --csv D:\out
 
-:: Amcache — SHA-1 hashes of executed binaries
+:: Amcache: SHA-1 hashes of executed binaries
 AmcacheParser.exe -f "D:\...\AppCompat\Programs\Amcache.hve" -i --csv D:\out
 ```
 

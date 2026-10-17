@@ -329,3 +329,4 @@
 ---
 
 - [Contributing](/CONTRIBUTING.md)
+- [Voice and Credibility Guide](/docs/VOICE.md)

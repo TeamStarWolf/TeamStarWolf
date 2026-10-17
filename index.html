@@ -293,6 +293,11 @@
       font-size: .845rem; line-height: 1.65; padding: 1.05rem 1.2rem; display: block;
     }
     .markdown-section pre::after { display: none; }
+    /* Literal text renders as typed: no programming ligatures in code. */
+    .markdown-section code, .markdown-section pre {
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "calt" 0;
+    }
     .token.comment, .token.prolog, .token.doctype, .token.cdata { color: #64748b; }
     .token.property, .token.tag, .token.constant, .token.symbol, .token.deleted { color: #f472b6; }
     .token.boolean, .token.number { color: #fbbf24; }

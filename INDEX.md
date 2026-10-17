@@ -17,8 +17,8 @@
 | [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md) | AI-powered offensive security tools, CVE exploitation automation, MITRE ATT&CK mapping, defensive frameworks |
 | [AI Security Reference](AI_SECURITY_REFERENCE.md) | OWASP LLM Top 10, prompt injection attacks, adversarial ML, LLM deployment security, guardrails, and AI in security operations |
 | [AI Threats: A 2026 Case Study](case-studies/AI_THREATS_2026.md) | Case Studies: six AI threat classes from 2024 to 2026 (agentic intrusions, deepfakes, AI-native malware, prompt injection, AI supply chain, machine-speed vulnerability discovery), each event graded by evidence, with a defensive playbook and roadmap |
-| [AI Tooling](ai-tooling/README.md) | Practical guide to AI tools and LLMs: a grouped index of 46 tools, a one-page manual for each, a learning path, and hands-on labs |
-| [AI Tools and LLMs Index](ai-tooling/AI_TOOLS_INDEX.md) | AI Tooling: 46 tools and model platforms in 12 categories, each with license, official docs, repository, and a manual covering quick start and security notes |
+| [AI Tooling](ai-tooling/README.md) | Practical guide to AI tools and LLMs: a grouped index of tools, a one-page manual for each, a learning path, and hands-on labs |
+| [AI Tools and LLMs Index](ai-tooling/AI_TOOLS_INDEX.md) | AI Tooling: tools and model platforms grouped by category, each with license, official docs, repository, and a manual covering quick start and security notes |
 | [API Security Reference](API_SECURITY_REFERENCE.md) | OWASP API Top 10, REST and GraphQL attack techniques, JWT attacks, SSRF, BOLA/BFLA, and API security testing methodology |
 | [Architecture Reference (General)](ARCHITECTURE_REFERENCE.md) | Enterprise and solution architecture: the four architecture domains, frameworks, quality attributes, and how to record architecture decisions |
 | [ATT&CK Campaigns Reference](ATTACK_CAMPAIGNS_REFERENCE.md) | 56 MITRE ATT&CK intrusion campaigns with active windows, techniques, software, and group attribution |
@@ -30,7 +30,7 @@
 | [ATT&CK Priority Gap Analysis](scores/attack_priority_gaps.md) | Most-used, least-covered ATT&CK techniques ranked for detection/mitigation focus |
 | [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) | All 714 ATT&CK techniques by tactic (697 active per MITRE v19.2; a few superseded records retained), cross-referenced to threat groups, software, mitigations, NIST controls, and detection |
 | [ATT&CK Technique Detail Pages](techniques/README.md) | Full consolidated per-technique write-ups (description, mitigations, NIST controls, detections, groups, software) across 15 tactic files |
-| [ATLAS Reference (AI threats)](/ATLAS_REFERENCE.md) | MITRE ATLAS bundled snapshot: 170 techniques, 16 tactics, and 35 mitigations; tactic/technique labels checked against 2026.09, including AI Model Access and AI Attack Adaptation |
+| [ATLAS Reference (AI threats)](/ATLAS_REFERENCE.md) | MITRE ATLAS bundled snapshot of tactics, techniques, and mitigations; tactic and technique labels checked against 2026.09, including AI Model Access and AI Attack Adaptation |
 | [ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) | MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapping, and threat-intelligence correlation |
 | [Automotive Security Reference](AUTOMOTIVE_SECURITY_REFERENCE.md) | CAN bus attacks, ECU security, OTA update integrity, V2X/DSRC/C-V2X, key fob relay attacks, ADAS sensor spoofing, ISO 21434 |
 | [Blockchain Security Reference](BLOCKCHAIN_SECURITY_REFERENCE.md) | Smart contract auditing, Solidity vulnerabilities, DeFi attacks, Web3 security tools, consensus mechanism security |
@@ -54,7 +54,7 @@
 | [CAPEC Attack Pattern Reference](CAPEC_REFERENCE.md) | 615 common attack patterns, 177 bridging to ATT&CK techniques, linked to their CWE weaknesses |
 | [CVE Reference](CVE_REFERENCE.md) | CVE program, CVSS v3.1/v4.0, EPSS scoring, CISA KEV catalog, vulnerability databases, patch prioritization |
 | [CPE Reference](CPE_REFERENCE.md) | Common Platform Enumeration: the CPE 2.3 name, part a/o/h, NVD dictionary, CVE<->CPE applicability/match ranges, and CPE's role in vuln-mgmt / SBOM / CTEM |
-| [CWE Weakness Reference](CWE_REFERENCE.md) | 969 software/hardware weakness types (10 pillars, 114 classes) with consequences, mitigations, and a most-attacked ranking |
+| [CWE Weakness Reference](CWE_REFERENCE.md) | Software and hardware weakness types, organized by pillar and class, with consequences, mitigations, and a most-attacked ranking |
 | [CTEM Reference](CTEM_REFERENCE.md) | Continuous Threat Exposure Management: Gartner's 5-stage loop in operational depth, attack-path/choke-point analysis, the EASM/CAASM/BAS->AEV/EAP category taxonomy, validation governance, maturity, failure modes, metrics, and a 90-day plan |
 | [Cyber Resilience & BCDR Reference](CYBER_RESILIENCE_BCDR_REFERENCE.md) | NIST SP 800-34 contingency planning, BIA and RTO/RPO/MTD, cyber-broken DR assumptions, ISO 22301, SP 800-160v2 resiliency engineering, AD forest recovery, testing tiers, resilience metrics |
 | [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md) | Books, labs, and companion repos grouped for practical learning, with cert roadmaps and learning paths |
@@ -105,7 +105,7 @@
 | [Honeypot & Deception Reference](HONEYPOT_DECEPTION_REFERENCE.md) | OpenCanary, Cowrie, Dionaea, T-Pot, Canarytokens, MITRE D3FEND/ATT&CK deception mapping |
 | [HTB Learning Tracks](research/HTB_TRACKS.md) | 45 curated HackTheBox learning tracks mapped to disciplines and certification paths |
 | [HTB Machine Index](research/HTB_MACHINE_INDEX.md) | 127 retired HackTheBox machines indexed by difficulty, OS, and skills learned |
-| [ICS ATT&CK Atlas](ICS_ATTACK_ATLAS.md) | The full MITRE ATT&CK for ICS matrix (83 techniques) cross-referenced to groups, software, and mitigations |
+| [ICS ATT&CK Atlas](ICS_ATTACK_ATLAS.md) | MITRE ATT&CK for ICS techniques by tactic (page snapshot: ATT&CK v18.1; sub-techniques not listed), cross-referenced to groups, software, and mitigations |
 | [ICS/OT Security Reference](ICS_OT_SECURITY_REFERENCE.md) | SCADA/ICS threats, Purdue model, IEC 62443, Modbus/DNP3 security, OT network monitoring, incident response |
 | [Identity & Access Management Reference](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md) | FIDO2/WebAuthn, RBAC/ABAC/ReBAC, Entra ID/Okta/CyberArk/Vault, JIT/PAM, SCIM, SPIFFE, Zero Trust identity, IGA |
 | [Identity Security Reference](IDENTITY_SECURITY_REFERENCE.md) | IAM, PAM, MFA bypass techniques, AD attacks, Okta/Entra/CyberArk/Vault vendor controls, identity detection |
@@ -122,7 +122,7 @@
 | [Malware Analysis Reference](MALWARE_ANALYSIS_REFERENCE.md) | Static/dynamic analysis, PE structure, process injection, YARA rules, ransomware, memory forensics, Volatility 3 |
 | [Malware Families](MALWARE_FAMILIES.md) | Ransomware, banking trojans, RATs, APT malware, rootkits, and loaders with TTPs and analysis resources |
 | [MITRE Enriched Pages (per-object)](mitre/README.md) | One page per ATT&CK technique, tactic, group, software entry, campaign, and mitigation, and per CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, and F3 technique, plus a cross-framework crosswalk, with mitigation, D3FEND, CAPEC, and NIST SP 800-53 relationships; mitigation pages add how-to-implement guidance |
-| [Mobile ATT&CK Atlas](MOBILE_ATTACK_ATLAS.md) | The full MITRE ATT&CK for Mobile matrix (124 techniques) cross-referenced to groups, software, and mitigations |
+| [Mobile ATT&CK Atlas](MOBILE_ATTACK_ATLAS.md) | MITRE ATT&CK for Mobile techniques by tactic (page snapshot: ATT&CK v18.1; sub-techniques not listed), cross-referenced to groups, software, and mitigations |
 | [Mobile Security Reference](MOBILE_SECURITY_REFERENCE.md) | iOS/Android security architecture, mobile app pentesting, OWASP Mobile Top 10, MDM/EMM, mobile malware analysis |
 | [Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md) | ARP poisoning, VLAN hopping, LLMNR poisoning, MITM, network pivoting, tunneling, evasion techniques, and Scapy/Nmap reference |
 | [Network Defense Reference](NETWORK_DEFENSE_REFERENCE.md) | Suricata, Zeek, Security Onion, Arkime, DNS security, nDPI, NAC, DDoS protection, NSM operations |

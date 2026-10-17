@@ -37,7 +37,8 @@ Rules (the rule key is what the baseline counts):
 Upstream text is not voice debt. Object names and quoted descriptions from ATT&CK,
 CAPEC, CWE, ATLAS, D3FEND, Engage and F3 are reproduced verbatim (docs/VOICE.md), so an
 em-dash, '!' or hype word is skipped when the words around it match the name,
-description or definition fields of the upstream datasets under data/ (UPSTREAM_DATA).
+description or definition fields of the upstream datasets under data/ (UPSTREAM_DATA):
+six words or more as part of any such value, three to five words only as a whole name.
 
 The baseline (scripts/baselines/voice.json) records the hits that existed when the
 lint was introduced, as file -> rule -> count, plus the list of rules that were checked
@@ -255,14 +256,19 @@ def allowed(line: str, start: int, end: int, patterns) -> bool:
 # (docs/VOICE.md). A word, em-dash or '!' is upstream text when the words around it,
 # inside its table cell, appear in the name, description or definition fields of the
 # upstream datasets under UPSTREAM_DATA, after both sides drop link targets, citations,
-# emphasis and case. Three words of context at least, so a lone word never matches.
+# emphasis and case. Three words of context at least, so a lone word never matches. A
+# match of fewer than SHORT_MATCH words must equal a whole upstream name ("Leverage
+# Alternate Encoding", CAPEC-267): that short a part of a description is stock phrasing
+# ("Adversaries may leverage"), which team-written copy can repeat.
 UPSTREAM_DATA = ("data/attack/", "data/ai/", "data/fraud/", "data/weaknesses/", "data/engage/")
 UPSTREAM_KEYS = ("name", "description", "definition")
 _CITATION_RE = re.compile(r"\(Citation:[^)]*\)")
 _MD_LINK_RE = re.compile(r"\[([^\]]*)\]\([^)]*\)")
 _LEFT_RE = re.compile(r"(?:\S+\s+){0,6}\S*$")
 _RIGHT_RE = re.compile(r"^\S*(?:\s+\S+){0,6}")
+SHORT_MATCH = 6
 _upstream_values: list[str] | None = None
+_upstream_names: set[str] = set()
 _upstream_corpus: dict[str, str] = {}
 
 
@@ -284,8 +290,11 @@ def upstream_values() -> list[str]:
                     rec = json.loads(row)
                 except ValueError:
                     continue
-                vals.extend(rec[k] for k in UPSTREAM_KEYS
-                            if isinstance(rec, dict) and isinstance(rec.get(k), str))
+                if not isinstance(rec, dict):
+                    continue
+                vals.extend(rec[k] for k in UPSTREAM_KEYS if isinstance(rec.get(k), str))
+                if isinstance(rec.get("name"), str):
+                    _upstream_names.add(norm(rec["name"]))
         _upstream_values = vals
     return _upstream_values
 
@@ -309,10 +318,19 @@ def upstream(line: str, start: int, end: int, key: str) -> bool:
     corpus = upstream_corpus(key)
     if not corpus:
         return False
+    # SHORT_MATCH words or more: part of any upstream name, description or definition.
     for a, b in ((left[-60:], right[:60]), (left, ""), ("", right)):
         cand = norm(a + hit + b)
-        if len(cand.split()) >= 3 and cand in corpus:
+        if len(cand.split()) >= SHORT_MATCH and cand in corpus:
             return True
+    # Fewer: the words around the hit, cut at word boundaries, must be a whole name.
+    lefts = [left[m.start():] for m in re.finditer(r"(?<!\S)\S", left)] + [""]
+    rights = [right[:m.end()] for m in re.finditer(r"\S(?!\S)", right)] + [""]
+    for a in lefts:
+        for b in rights:
+            cand = norm(a + hit + b)
+            if 3 <= len(cand.split()) < SHORT_MATCH and cand in _upstream_names:
+                return True
     return False
 
 

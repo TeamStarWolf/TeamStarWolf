@@ -12,7 +12,8 @@ Exports (source -> file, size, format):
   StarWolf64Version2Banner.png    -> starwolf64-banner-1280.png       1280x427  PNG-8   README and profile header
   banner-draft-4.png              -> starwolf64-hero-1600.webp        1600x533  WebP    site cover, dark stage
                                   -> starwolf64-hero-960.webp          960x320  WebP    site cover, small screens
-  StarWolf64Version2Banner.png    -> starwolf64-hero-light-960.webp    960x320  WebP    light theme and print (P2)
+  StarWolf64Version2Banner.png    -> starwolf64-hero-light-1600.webp  1600x533  WebP    site cover, light theme and print
+                                  -> starwolf64-hero-light-960.webp    960x320  WebP    site cover, light theme, small screens
   StarWolf64BannerTransparent.png -> starwolf64-logotype-480.png       480x160  PNG-8   compact text logotype
   StarWolf64Version2Banner.png    -> social-1280x640.jpg              1280x640  JPEG    GitHub social preview (art 1150 px wide)
                                   -> og-1200x630.jpg                  1200x630  JPEG    site og:image (art 1080 px wide)
@@ -144,6 +145,7 @@ def main() -> None:
     save_png8(scaled(v2, 1280), "starwolf64-banner-1280.png")
     save_webp(scaled(d4, 1600), "starwolf64-hero-1600.webp")
     save_webp(scaled(d4, 960), "starwolf64-hero-960.webp")
+    save_webp(scaled(v2, 1600), "starwolf64-hero-light-1600.webp")
     save_webp(scaled(v2, 960), "starwolf64-hero-light-960.webp")
     save_png8(scaled(logo, 480), "starwolf64-logotype-480.png")
     # The art takes 90% of the width: X, LinkedIn and Slack centre-crop link cards to

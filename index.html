@@ -182,7 +182,15 @@
        viewport. The mobile layout keeps its relative .content (see the 768px block). */
     .sidebar, .content, main { z-index: 1; }
     main { position: relative; }
-    @media screen and (max-width: 768px) { .content { position: relative; } }
+    /* On a phone, main must not form a stacking context: docsify puts the menu button inside
+       it, and a context at z-index 1 kept that button (and the opened sidebar) under the
+       cover, so the landing screen showed no menu. The cover drops to z-index 2 there (set in
+       the Responsive block, after the cover rule below), under the sidebar (10), the top bar
+       (11, so an open sidebar scrolls under it) and the menu and theme buttons (30). */
+    @media screen and (max-width: 768px) {
+      main { position: static; z-index: auto; }
+      .content { position: relative; }
+    }
 
     /* ===================== Sidebar ===================== */
     .sidebar {
@@ -226,14 +234,20 @@
       letter-spacing: normal;
       color: inherit;
     }
-    /* Section headings = the bold entries in _sidebar.md */
-    .sidebar ul li > p > strong,
-    .sidebar ul li > strong {
-      display: block;
-      color: var(--tsw-text-dim);
+    /* Group labels: the plain-text items in _sidebar.md ("Guides (How-To)", "Disciplines",
+       "Coverage & Data" ...). docsify renders each as a bare text node in a top-level <li>,
+       with no <p> or <strong> around it, so the label style sits on the <li> itself and the
+       links and nested lists under it are reset. Without the colour here the labels kept
+       vue.css's #364149, which is 1.80:1 on the dark sidebar. */
+    .sidebar ul li { color: var(--tsw-text-dim); }
+    .sidebar-nav > ul > li {
       font-size: .705rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: .09em;
-      margin: 18px 0 6px;
+    }
+    .sidebar-nav > ul > li > a,
+    .sidebar-nav > ul > li > ul {
+      font-size: .875rem; font-weight: 400;
+      text-transform: none; letter-spacing: normal;
     }
     .sidebar hr { border-color: var(--tsw-border-soft); margin: 14px 0; }
     .sidebar::-webkit-scrollbar { width: 9px; }
@@ -538,6 +552,9 @@
     #tsw-top.show { display: flex; }
 
     /* ---------- Responsive ---------- */
+    /* The mobile top bar is off by default; the 768px block below turns it on. This base
+       rule must come first: at equal specificity the later rule wins. */
+    #tsw-mbar { display: none; }
     @media screen and (max-width: 768px) {
       .app-nav { left: 0; padding-right: 12px; height: 48px; line-height: 48px; }
       .app-nav li { margin: 0 7px; }
@@ -548,13 +565,13 @@
       section.cover h1 { font-size: 1.9rem; }
       /* The cover sizes to its content on a phone (vue.css makes it a full screen, which left
          an empty band between the buttons and the page below). */
-      section.cover { min-height: 0; padding: 64px 0 24px; }
+      section.cover { min-height: 0; padding: 64px 0 24px; z-index: 2; }
       .content { padding-top: 48px; }
       /* Mobile top bar: the menu button sits at its left and the theme button at its
          right, so neither floats over page content. vue.css put the menu button at the
          bottom-left corner, where it covered the cover's ATTACK-Navi button. */
       #tsw-mbar {
-        display: block; position: fixed; top: 0; left: 0; right: 0; height: 48px; z-index: 9;
+        display: block; position: fixed; top: 0; left: 0; right: 0; height: 48px; z-index: 11;
         background: var(--tsw-nav-bg); border-bottom: 1px solid var(--tsw-border);
         backdrop-filter: saturate(160%) blur(12px); -webkit-backdrop-filter: saturate(160%) blur(12px);
       }
@@ -568,7 +585,6 @@
       .sidebar { padding-top: 48px; }
       #tsw-theme { top: 6px; right: 8px; }
     }
-    #tsw-mbar { display: none; }
     /* Narrow desktops and tablets (docsify switches to its phone layout at 768px). The nine
        navbar items fit one row from 1100px when set tighter; below that they wrap, so the
        bar grows to fit and the page and the anchor offset follow its measured height
@@ -601,6 +617,9 @@
        generic .markdown-section link styling without touching it. */
     .markdown-section .tsw-lead { color: var(--tsw-text-muted); margin: -.3rem 0 1.1rem; max-width: 72ch; }
     .markdown-section .tsw-more { margin: .9rem 0 0; font-size: .92rem; }
+    /* HOME.md's first paragraph is for readers who open the file on github.com, which drops
+       classes and so shows it; on the site the page itself is the homepage. */
+    .markdown-section .tsw-gh-only { display: none; }
     /* Empty targets that keep the previous homepage's #/?id= section links working */
     .markdown-section .tsw-anchor { height: 0; margin: 0; }
 

@@ -18,7 +18,7 @@
 
 The library has two faces backed by the same files:
 
-1. The live site: [teamstarwolf.github.io/TeamStarWolf](https://teamstarwolf.github.io/TeamStarWolf/). It opens on the STARWOLF 64 cover and a homepage ([HOME](/HOME.md)) with three ways in (learning paths, how-to guides, and framework pages), the start-here guides, and full-text search. Use this for reading and finding things. The button at the top right switches between the dark and light themes; your choice is kept in this browser.
+1. The live site: [teamstarwolf.github.io/TeamStarWolf](https://teamstarwolf.github.io/TeamStarWolf/). It opens on the STARWOLF 64 cover and a [homepage](https://teamstarwolf.github.io/TeamStarWolf/) with three ways in (learning paths, how-to guides, and framework pages), the start-here guides, and full-text search. Use this for reading and finding things. The button at the top right switches between the dark and light themes; your choice is kept in this browser.
 2. The GitHub repo: [github.com/TeamStarWolf/TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf). It opens on the [README](/README.md), which carries the "Start here" table and links to [About the Library and Its Data](/ABOUT_THE_DATA.md) for the dataset overview. Use this for raw files, datasets, issues, and pull requests.
 
 Every page on the live site has an "Edit this page on GitHub" link at the top, so you can hop between surfaces from wherever you are.

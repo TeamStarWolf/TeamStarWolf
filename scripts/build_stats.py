@@ -197,7 +197,11 @@ FRONT_DOOR = [
      "guides", "[Guides](guides/README.md)", "#/guides/README"),
     ("Learning paths", "An order of study for one discipline, with training, tools, books, and certifications",
      "learning_paths", "[Learning paths](disciplines/README.md)", "#/disciplines/README"),
-    ("Framework pages", "One page per ATT&CK, CAPEC, D3FEND, ATLAS, and F3 object, generated from MITRE data",
+    # Only the families that have pages under mitre/: Enterprise ATT&CK (not ICS or Mobile,
+    # whose data has no pages), ATLAS techniques and mitigations, and F3 techniques.
+    ("Framework pages", "One page per Enterprise ATT&CK technique, tactic, group, software entry, campaign, "
+     "and mitigation, CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, "
+     "and F3 technique",
      "framework_pages", "[Framework pages](mitre/README.md)", "#/mitre/README"),
 ]
 
@@ -216,11 +220,12 @@ def _html(s):
 
 def home_block(stats):
     """The site homepage's "What's inside" cards (HOME.md): one raw-HTML block with no
-    blank line, so docsify and GitHub both keep it as a single HTML block."""
+    blank line, so docsify and GitHub both keep it as a single HTML block. The spaces
+    between the spans keep the text readable on github.com, which drops the classes."""
     out = ['<div class="tsw-counts">']
     for name, what, key, _link, route in FRONT_DOOR:
-        out.append(f'  <a class="tsw-count" href="{route}"><span class="tsw-count-n">{stats[key]:,}</span>'
-                   f'<span class="tsw-count-l">{_html(name)}</span>'
+        out.append(f'  <a class="tsw-count" href="{route}"><span class="tsw-count-n">{stats[key]:,}</span> '
+                   f'<span class="tsw-count-l">{_html(name)}</span> '
                    f'<span class="tsw-count-d">{_html(what)}</span></a>')
     out.append("</div>")
     return "\n".join(out) + "\n"

@@ -46,7 +46,7 @@ PAIRS = [
     ("--tsw-text-muted", "--tsw-cover-bg", TEXT, "cover tagline"),
     ("--tsw-text-dim", "--tsw-bg", TEXT, "footer notice, chain arrows"),
     ("--tsw-text-dim", "--tsw-surface", TEXT, "card labels, search placeholder"),
-    ("--tsw-text-dim", "--tsw-sidebar-bg", TEXT, "sidebar section labels"),
+    ("--tsw-text-dim", "--tsw-sidebar-bg", TEXT, "sidebar group labels (plain-text items in _sidebar.md)"),
     ("--tsw-link", "--tsw-bg", TEXT, "links"),
     ("--tsw-link", "--tsw-surface", TEXT, "links on cards"),
     ("--tsw-link", ("--tsw-tint-strong", "--tsw-bg"), TEXT, "links in blockquotes"),

@@ -15,7 +15,11 @@
   #/?id= links to the sections of the previous homepage working. Keep them outside
   headings (docsify copies heading HTML into the sidebar, which would duplicate the id),
   and do not remove them.
+  The first paragraph (.tsw-gh-only) is hidden on the site and shows only on github.com,
+  which strips the classes; spaces between the card parts keep the stripped text readable.
 -->
+
+<p class="tsw-gh-only">This file is the homepage of the TeamStarWolf site, laid out for the site; its links work there, not on GitHub. Read it at <a href="https://teamstarwolf.github.io/TeamStarWolf/" target="_blank" rel="noopener">teamstarwolf.github.io/TeamStarWolf</a>, or start from the <a href="https://github.com/TeamStarWolf/TeamStarWolf#readme" target="_blank" rel="noopener">README</a> on GitHub.</p>
 
 <div class="tsw-anchor" id="quick-router"></div><div class="tsw-anchor" id="learning-paths"></div>
 
@@ -39,7 +43,7 @@
   <a class="tsw-door tsw-door--data" href="#/mitre/README">
     <span class="tsw-door-who">I work with ATT&amp;CK data</span>
     <span class="tsw-door-t">Framework pages and data</span>
-    <span class="tsw-door-d">A page for every ATT&amp;CK technique, group, software, campaign, and mitigation, and for CAPEC, D3FEND, ATLAS, and F3, with the JSONL data and Navigator layers behind them.</span>
+    <span class="tsw-door-d">Pages for Enterprise ATT&amp;CK techniques, tactics, groups, software, campaigns, and mitigations, CAPEC attack patterns, D3FEND countermeasures, ATLAS techniques and mitigations, and F3 techniques, with the JSONL data and Navigator layers behind them.</span>
     <span class="tsw-door-go">Browse the frameworks</span>
   </a>
 </div>
@@ -52,12 +56,12 @@
 
 <!-- guides:start (written by scripts/build_home_guides.py; do not edit) -->
 <div class="tsw-guides">
-  <a class="tsw-guide" href="#/guides/HOW_TO_USE_THIS_LIBRARY"><span class="tsw-guide-t">How to Use This Library</span><span class="tsw-pills"><span class="tsw-pill" title="30-45 min"><span class="tsw-sr-only">Time: </span>30-45 min</span><span class="tsw-pill" title="Beginner"><span class="tsw-sr-only">Level: </span>Beginner</span></span></a>
-  <a class="tsw-guide" href="#/guides/TRIAGE_A_CVE"><span class="tsw-guide-t">Triage a New CVE in 30 Minutes</span><span class="tsw-pills"><span class="tsw-pill" title="~30 minutes"><span class="tsw-sr-only">Time: </span>About 30 minutes</span><span class="tsw-pill" title="Intermediate"><span class="tsw-sr-only">Level: </span>Intermediate</span></span></a>
-  <a class="tsw-guide" href="#/guides/BUILD_YOUR_FIRST_DETECTION"><span class="tsw-guide-t">Build and Deploy Your First Detection</span><span class="tsw-pills"><span class="tsw-pill" title="Half a day hands-on, plus a 1-2 week audit soak"><span class="tsw-sr-only">Time: </span>Half a day hands-on, plus a 1-2 week audit soak</span><span class="tsw-pill" title="Beginner-to-intermediate"><span class="tsw-sr-only">Level: </span>Beginner-to-intermediate</span></span></a>
-  <a class="tsw-guide" href="#/guides/RESPOND_TO_RANSOMWARE"><span class="tsw-guide-t">Respond to a Ransomware Incident</span><span class="tsw-pills"><span class="tsw-pill" title="First 24-72 hours of the incident (steps run in parallel after Step 3)"><span class="tsw-sr-only">Time: </span>First 24-72 hours of the incident</span><span class="tsw-pill" title="High: decisions under pressure, some irreversible"><span class="tsw-sr-only">Level: </span>High</span></span></a>
-  <a class="tsw-guide" href="#/guides/HARDEN_A_WINDOWS_BASELINE"><span class="tsw-guide-t">Harden a Windows Baseline</span><span class="tsw-pills"><span class="tsw-pill" title="Half a day for a pilot; 2-4 weeks to full production"><span class="tsw-sr-only">Time: </span>Half a day for a pilot</span><span class="tsw-pill" title="Intermediate"><span class="tsw-sr-only">Level: </span>Intermediate</span></span></a>
-  <a class="tsw-guide" href="#/guides/START_A_VULN_MGMT_PROGRAM"><span class="tsw-guide-t">Start a Vulnerability Management Program (First 90 Days)</span><span class="tsw-pills"><span class="tsw-pill" title="~90 days elapsed; 2-4 hours to first scan"><span class="tsw-sr-only">Time: </span>About 90 days elapsed</span><span class="tsw-pill" title="Intermediate"><span class="tsw-sr-only">Level: </span>Intermediate</span></span></a>
+  <a class="tsw-guide" href="#/guides/HOW_TO_USE_THIS_LIBRARY"><span class="tsw-guide-t">How to Use This Library</span> <span class="tsw-pills"><span class="tsw-pill" title="30-45 min"><span class="tsw-sr-only">Time: </span>30-45 min</span> <span class="tsw-pill" title="Beginner"><span class="tsw-sr-only">Level: </span>Beginner</span></span></a>
+  <a class="tsw-guide" href="#/guides/TRIAGE_A_CVE"><span class="tsw-guide-t">Triage a New CVE in 30 Minutes</span> <span class="tsw-pills"><span class="tsw-pill" title="~30 minutes"><span class="tsw-sr-only">Time: </span>About 30 minutes</span> <span class="tsw-pill" title="Intermediate"><span class="tsw-sr-only">Level: </span>Intermediate</span></span></a>
+  <a class="tsw-guide" href="#/guides/BUILD_YOUR_FIRST_DETECTION"><span class="tsw-guide-t">Build and Deploy Your First Detection</span> <span class="tsw-pills"><span class="tsw-pill" title="Half a day hands-on, plus a 1-2 week audit soak"><span class="tsw-sr-only">Time: </span>Half a day hands-on, plus a 1-2 week audit soak</span> <span class="tsw-pill" title="Beginner-to-intermediate"><span class="tsw-sr-only">Level: </span>Beginner-to-intermediate</span></span></a>
+  <a class="tsw-guide" href="#/guides/RESPOND_TO_RANSOMWARE"><span class="tsw-guide-t">Respond to a Ransomware Incident</span> <span class="tsw-pills"><span class="tsw-pill" title="First 24-72 hours of the incident (steps run in parallel after Step 3)"><span class="tsw-sr-only">Time: </span>First 24-72 hours of the incident</span> <span class="tsw-pill" title="High: decisions under pressure, some irreversible"><span class="tsw-sr-only">Level: </span>High</span></span></a>
+  <a class="tsw-guide" href="#/guides/HARDEN_A_WINDOWS_BASELINE"><span class="tsw-guide-t">Harden a Windows Baseline</span> <span class="tsw-pills"><span class="tsw-pill" title="Half a day for a pilot; 2-4 weeks to full production"><span class="tsw-sr-only">Time: </span>Half a day for a pilot</span> <span class="tsw-pill" title="Intermediate"><span class="tsw-sr-only">Level: </span>Intermediate</span></span></a>
+  <a class="tsw-guide" href="#/guides/START_A_VULN_MGMT_PROGRAM"><span class="tsw-guide-t">Start a Vulnerability Management Program (First 90 Days)</span> <span class="tsw-pills"><span class="tsw-pill" title="~90 days elapsed; 2-4 hours to first scan"><span class="tsw-sr-only">Time: </span>About 90 days elapsed</span> <span class="tsw-pill" title="Intermediate"><span class="tsw-sr-only">Level: </span>Intermediate</span></span></a>
 </div>
 <!-- guides:end -->
 
@@ -67,10 +71,10 @@
 
 <!-- stats:start (written by scripts/build_stats.py; do not edit) -->
 <div class="tsw-counts">
-  <a class="tsw-count" href="#/INDEX"><span class="tsw-count-n">155</span><span class="tsw-count-l">Reference documents</span><span class="tsw-count-d">One topic each: its terms, tooling, and the frameworks and guidance that apply</span></a>
-  <a class="tsw-count" href="#/guides/README"><span class="tsw-count-n">21</span><span class="tsw-count-l">How-to guides</span><span class="tsw-count-d">One task, step by step, with the time it takes, what you need, and what you produce</span></a>
-  <a class="tsw-count" href="#/disciplines/README"><span class="tsw-count-n">47</span><span class="tsw-count-l">Learning paths</span><span class="tsw-count-d">An order of study for one discipline, with training, tools, books, and certifications</span></a>
-  <a class="tsw-count" href="#/mitre/README"><span class="tsw-count-n">2,930</span><span class="tsw-count-l">Framework pages</span><span class="tsw-count-d">One page per ATT&amp;CK, CAPEC, D3FEND, ATLAS, and F3 object, generated from MITRE data</span></a>
+  <a class="tsw-count" href="#/INDEX"><span class="tsw-count-n">155</span> <span class="tsw-count-l">Reference documents</span> <span class="tsw-count-d">One topic each: its terms, tooling, and the frameworks and guidance that apply</span></a>
+  <a class="tsw-count" href="#/guides/README"><span class="tsw-count-n">21</span> <span class="tsw-count-l">How-to guides</span> <span class="tsw-count-d">One task, step by step, with the time it takes, what you need, and what you produce</span></a>
+  <a class="tsw-count" href="#/disciplines/README"><span class="tsw-count-n">47</span> <span class="tsw-count-l">Learning paths</span> <span class="tsw-count-d">An order of study for one discipline, with training, tools, books, and certifications</span></a>
+  <a class="tsw-count" href="#/mitre/README"><span class="tsw-count-n">2,930</span> <span class="tsw-count-l">Framework pages</span> <span class="tsw-count-d">One page per Enterprise ATT&amp;CK technique, tactic, group, software entry, campaign, and mitigation, CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, and F3 technique</span></a>
 </div>
 <!-- stats:end -->
 
@@ -79,12 +83,12 @@
 <p class="tsw-lead">Pages link to their neighbors. One route through the library, for PowerShell abuse:</p>
 
 <div class="tsw-connect">
-  <div class="tsw-node"><span class="tsw-node-k">Reference</span><a href="#/LOTL_DETECTION_REFERENCE">Living Off the Land Detection</a><span class="tsw-node-d">Telemetry, baselines, and hardening for abuse of built-in tools.</span></div>
-  <div class="tsw-node"><span class="tsw-node-k">Learning path</span><a href="#/disciplines/detection-engineering">Detection Engineering</a><span class="tsw-node-d">An order of study, from log sources to tested rules.</span></div>
-  <div class="tsw-node"><span class="tsw-node-k">Framework page</span><a href="#/mitre/techniques/T1059-001">T1059.001 PowerShell</a><span class="tsw-node-d">Mitigations, detection, data sources, adversary usage, and NIST SP 800-53 controls.</span></div>
-  <div class="tsw-node"><span class="tsw-node-k">Detection</span><a href="#/detections/TECHNIQUE_DETECTION_LIBRARY?id=t1059001">Technique Detection Library</a><span class="tsw-node-d">Example queries for the technique, with data source and confidence.</span></div>
-  <div class="tsw-node"><span class="tsw-node-k">Layer</span><a href="#/navigator/index">Navigator layers</a><span class="tsw-node-d">Heatmaps to load in ATT&amp;CK Navigator.</span></div>
-  <div class="tsw-node"><span class="tsw-node-k">Workbench</span><a href="https://teamstarwolf.github.io/ATTACK-Navi/" target="_blank" rel="noopener">ATTACK-Navi</a><span class="tsw-node-d">The ATT&amp;CK matrices with coverage, threat, and exposure views.</span></div>
+  <div class="tsw-node"><span class="tsw-node-k">Reference</span> <a href="#/LOTL_DETECTION_REFERENCE">Living Off the Land Detection</a> <span class="tsw-node-d">Telemetry, baselines, and hardening for abuse of built-in tools.</span></div>
+  <div class="tsw-node"><span class="tsw-node-k">Learning path</span> <a href="#/disciplines/detection-engineering">Detection Engineering</a> <span class="tsw-node-d">An order of study, from log sources to tested rules.</span></div>
+  <div class="tsw-node"><span class="tsw-node-k">Framework page</span> <a href="#/mitre/techniques/T1059-001">T1059.001 PowerShell</a> <span class="tsw-node-d">Mitigations, detection, data sources, adversary usage, and NIST SP 800-53 controls.</span></div>
+  <div class="tsw-node"><span class="tsw-node-k">Detection</span> <a href="#/detections/TECHNIQUE_DETECTION_LIBRARY?id=t1059001">Technique Detection Library</a> <span class="tsw-node-d">Example queries for the technique, with data source and confidence.</span></div>
+  <div class="tsw-node"><span class="tsw-node-k">Layer</span> <a href="#/navigator/index">Navigator layers</a> <span class="tsw-node-d">Heatmaps to load in ATT&amp;CK Navigator.</span></div>
+  <div class="tsw-node"><span class="tsw-node-k">Workbench</span> <a href="https://teamstarwolf.github.io/ATTACK-Navi/" target="_blank" rel="noopener">ATTACK-Navi</a> <span class="tsw-node-d">The ATT&amp;CK matrices with coverage, threat, and exposure views.</span></div>
 </div>
 
 <p class="tsw-lead">The references also follow the chain from a vulnerability to its countermeasures:</p>
@@ -102,7 +106,7 @@
 ## Explore the frameworks
 
 <div class="tsw-explore">
-  <p class="tsw-explore-lead">Every ATT&amp;CK, CAPEC, D3FEND, ATLAS, and F3 object has its own page, generated from the MITRE data in this repository. Go straight to one:</p>
+  <p class="tsw-explore-lead">Each Enterprise ATT&amp;CK technique, tactic, group, software entry, campaign, and mitigation has its own page, generated from the MITRE data in this repository, and so does each CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, and F3 technique. ICS and Mobile ATT&amp;CK are in the JSONL data only, without pages. Go straight to one:</p>
   <div class="tsw-ids">
     <a class="tsw-id" href="#/mitre/techniques/T1059"><code>T1059</code> Command and Scripting Interpreter</a>
     <a class="tsw-id" href="#/mitre/groups/G0016"><code>G0016</code> APT29</a>
@@ -135,21 +139,25 @@
 ## Browse by domain
 
 <div class="tsw-domains">
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/THREAT_INFORMED_DEFENSE_REFERENCE">Threat-informed defense and ATT&amp;CK</a><a href="#/ATTACK_MATRIX_ANALYSIS_REFERENCE">ATT&amp;CK Matrix Analysis</a><a href="#/ATTACK_TECHNIQUE_ATLAS">ATT&amp;CK Technique Atlas</a><a href="#/scores/attack_priority_gaps">Priority Gap Analysis</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/detections/TECHNIQUE_DETECTION_LIBRARY">Detection and response</a><a href="#/THREAT_HUNTING_REFERENCE">Threat Hunting</a><a href="#/INCIDENT_RESPONSE_REFERENCE">Incident Response</a><a href="#/DIGITAL_FORENSICS_REFERENCE">Digital Forensics</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/THREAT_INTELLIGENCE_REFERENCE">Threat intelligence and adversaries</a><a href="#/THREAT_GROUP_PROFILES">Threat Group Profiles</a><a href="#/MALWARE_FAMILIES">Malware Families</a><a href="#/OSINT_REFERENCE">OSINT</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/PENETRATION_TESTING_METHODOLOGY">Offensive security</a><a href="#/RED_TEAM_REFERENCE">Red Team</a><a href="#/PURPLE_TEAM_REFERENCE">Purple Team</a><a href="#/ACTIVE_DIRECTORY_ATTACKS">Active Directory Attacks</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/NETWORK_SECURITY_ARCHITECTURE">Network security</a><a href="#/NETWORK_DEFENSE_REFERENCE">Network Defense</a><a href="#/PACKET_ANALYSIS_REFERENCE">Packet Analysis</a><a href="#/WIRELESS_SECURITY_REFERENCE">Wireless Security</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/CLOUD_SECURITY_REFERENCE">Cloud and infrastructure</a><a href="#/KUBERNETES_SECURITY_REFERENCE">Kubernetes Security</a><a href="#/CONTAINER_SECURITY_REFERENCE">Container Security</a><a href="#/DEVSECOPS_REFERENCE">DevSecOps</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/WINDOWS_HARDENING_REFERENCE">Platform hardening</a><a href="#/LINUX_HARDENING_REFERENCE">Linux Hardening</a><a href="#/MACOS_SECURITY_REFERENCE">macOS Security</a><a href="#/MOBILE_SECURITY_REFERENCE">Mobile Security</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/WEB_APPLICATION_SECURITY_REFERENCE">Application and supply chain security</a><a href="#/SECURE_CODING_REFERENCE">Secure Coding</a><a href="#/API_SECURITY_REFERENCE">API Security</a><a href="#/SUPPLY_CHAIN_SECURITY_REFERENCE">Supply Chain Security</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/IDENTITY_SECURITY_REFERENCE">Identity and data protection</a><a href="#/ACTIVE_DIRECTORY_SECURITY_REFERENCE">Active Directory Security</a><a href="#/ZERO_TRUST_REFERENCE">Zero Trust</a><a href="#/DATA_SECURITY_REFERENCE">Data Security</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/AI_SECURITY_REFERENCE">AI and emerging tech</a><a href="#/ATLAS_REFERENCE">MITRE ATLAS</a><a href="#/AI_MCP_SECURITY_REFERENCE">AI and MCP Security</a><a href="#/ai-tooling/README">AI Tooling</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/ICS_OT_SECURITY_REFERENCE">ICS, OT, and hardware</a><a href="#/ICS_ATTACK_ATLAS">ICS ATT&amp;CK Atlas</a><a href="#/HARDWARE_SECURITY_REFERENCE">Hardware Security</a><a href="#/FIRMWARE_IOT_SECURITY_REFERENCE">Firmware and IoT Security</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/GRC_REFERENCE">GRC and security program</a><a href="#/VULNERABILITY_MANAGEMENT_REFERENCE">Vulnerability Management</a><a href="#/SECURITY_METRICS_REFERENCE">Security Metrics</a><a href="#/CAREER_PATHS">Career Paths</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/THREAT_INFORMED_DEFENSE_REFERENCE">Threat-informed defense and ATT&amp;CK</a> <a href="#/ATTACK_MATRIX_ANALYSIS_REFERENCE">ATT&amp;CK Matrix Analysis</a> <a href="#/ATTACK_TECHNIQUE_ATLAS">ATT&amp;CK Technique Atlas</a> <a href="#/scores/attack_priority_gaps">Priority Gap Analysis</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/detections/TECHNIQUE_DETECTION_LIBRARY">Detection and response</a> <a href="#/THREAT_HUNTING_REFERENCE">Threat Hunting</a> <a href="#/INCIDENT_RESPONSE_REFERENCE">Incident Response</a> <a href="#/DIGITAL_FORENSICS_REFERENCE">Digital Forensics</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/THREAT_INTELLIGENCE_REFERENCE">Threat intelligence and adversaries</a> <a href="#/THREAT_GROUP_PROFILES">Threat Group Profiles</a> <a href="#/MALWARE_FAMILIES">Malware Families</a> <a href="#/OSINT_REFERENCE">OSINT</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/PENETRATION_TESTING_METHODOLOGY">Offensive security</a> <a href="#/RED_TEAM_REFERENCE">Red Team</a> <a href="#/PURPLE_TEAM_REFERENCE">Purple Team</a> <a href="#/ACTIVE_DIRECTORY_ATTACKS">Active Directory Attacks</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/NETWORK_SECURITY_ARCHITECTURE">Network security</a> <a href="#/NETWORK_DEFENSE_REFERENCE">Network Defense</a> <a href="#/PACKET_ANALYSIS_REFERENCE">Packet Analysis</a> <a href="#/WIRELESS_SECURITY_REFERENCE">Wireless Security</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/CLOUD_SECURITY_REFERENCE">Cloud and infrastructure</a> <a href="#/KUBERNETES_SECURITY_REFERENCE">Kubernetes Security</a> <a href="#/CONTAINER_SECURITY_REFERENCE">Container Security</a> <a href="#/DEVSECOPS_REFERENCE">DevSecOps</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/WINDOWS_HARDENING_REFERENCE">Platform hardening</a> <a href="#/LINUX_HARDENING_REFERENCE">Linux Hardening</a> <a href="#/MACOS_SECURITY_REFERENCE">macOS Security</a> <a href="#/MOBILE_SECURITY_REFERENCE">Mobile Security</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/WEB_APPLICATION_SECURITY_REFERENCE">Application and supply chain security</a> <a href="#/SECURE_CODING_REFERENCE">Secure Coding</a> <a href="#/API_SECURITY_REFERENCE">API Security</a> <a href="#/SUPPLY_CHAIN_SECURITY_REFERENCE">Supply Chain Security</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/IDENTITY_SECURITY_REFERENCE">Identity and data protection</a> <a href="#/ACTIVE_DIRECTORY_SECURITY_REFERENCE">Active Directory Security</a> <a href="#/ZERO_TRUST_REFERENCE">Zero Trust</a> <a href="#/DATA_SECURITY_REFERENCE">Data Security</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/AI_SECURITY_REFERENCE">AI and emerging tech</a> <a href="#/ATLAS_REFERENCE">MITRE ATLAS</a> <a href="#/AI_MCP_SECURITY_REFERENCE">AI and MCP Security</a> <a href="#/ai-tooling/README">AI Tooling</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/ICS_OT_SECURITY_REFERENCE">ICS, OT, and hardware</a> <a href="#/ICS_ATTACK_ATLAS">ICS ATT&amp;CK Atlas</a> <a href="#/HARDWARE_SECURITY_REFERENCE">Hardware Security</a> <a href="#/FIRMWARE_IOT_SECURITY_REFERENCE">Firmware and IoT Security</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/GRC_REFERENCE">GRC and security program</a> <a href="#/VULNERABILITY_MANAGEMENT_REFERENCE">Vulnerability Management</a> <a href="#/SECURITY_METRICS_REFERENCE">Security Metrics</a> <a href="#/CAREER_PATHS">Career Paths</a></div>
 </div>
 
 <p class="tsw-more">Every reference, A to Z: <a href="#/INDEX">the reference index</a>.</p>
+
+## What changed
+
+<p class="tsw-lead">Changes are recorded in the <a href="#/CHANGELOG">changelog</a> as they merge to the main branch. There is no tagged release yet; when the first one is published, this section will link it.</p>
 
 <div class="tsw-footer" id="data-amp-navigator-layers">
   <div class="tsw-footer-col">
@@ -172,5 +180,5 @@
     <a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/SECURITY.md" target="_blank" rel="noopener">Security policy</a>
     <a href="https://github.com/TeamStarWolf/TeamStarWolf/issues" target="_blank" rel="noopener">Open an issue</a>
   </div>
-  <p class="tsw-footer-small">ATT&amp;CK&reg; and MITRE ATT&amp;CK&reg; are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE. Offensive material is provided for authorized security testing, education, and defensive research.</p>
+  <p class="tsw-footer-small">ATT&amp;CK&reg; and MITRE ATT&amp;CK&reg; are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE. The TeamStarWolf name and STARWOLF 64 art are naming and art only, never a claim about people, affiliations, or capability. Star Fox is a Nintendo trademark; this project is not affiliated with or endorsed by Nintendo. Offensive material is provided for authorized security testing, education, and defensive research.</p>
 </div>

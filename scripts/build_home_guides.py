@@ -82,15 +82,17 @@ def esc(s: str) -> str:
 
 
 def block() -> str:
+    # Spaces between the parts keep the card text readable on github.com, which drops the
+    # classes; on the site the cards are flex boxes, so the spaces take no room.
     out = ['<div class="tsw-guides">']
     for name in START_HERE:
         g = header(name)
-        pills = "".join(
+        pills = " ".join(
             f'<span class="tsw-pill" title="{esc(plain(full))}"><span class="tsw-sr-only">{label}: </span>'
             f'{esc(short(plain(full)))}</span>'
             for label, full in (("Time", g["time"]), ("Level", g["level"])))
         out.append(f'  <a class="tsw-guide" href="{g["route"]}"><span class="tsw-guide-t">{esc(plain(g["title"]))}</span>'
-                   f'<span class="tsw-pills">{pills}</span></a>')
+                   f' <span class="tsw-pills">{pills}</span></a>')
     out.append("</div>")
     return "\n".join(out) + "\n"
 

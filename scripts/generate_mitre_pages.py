@@ -1526,7 +1526,7 @@ def main():
         return
 
     # --check renders OUTSIDE the repository (the old mitre/_gen_check/ lived inside the tree
-    # that pages-deploy.yml uploads wholesale, so a stray local check run could be deployed).
+    # that the Pages deploy publishes wholesale, so a stray local check run could be deployed).
     check_dir = Path(tempfile.mkdtemp(prefix="tsw-mitre-check-")) if args.check else None
     out_root = (check_dir / "mitre") if args.check else MITRE
     try:

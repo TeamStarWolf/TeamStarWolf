@@ -56,8 +56,14 @@ yarn-error.log*
 .stix-cache-*.json
 
 # Scratch output of older generate_mitre_pages.py --check runs (the check now renders to a
-# system temp dir). Never commit it: everything tracked is published by pages-deploy.yml.
+# system temp dir). Never commit it: everything tracked is published by the Pages deploy
+# (.github/workflows/pages.yml).
 mitre/_gen_check/
+
+# Local output of the Pages build: the staged site and the search index that
+# scripts/build_search_index.py writes into it (pagefind/, ids.json). Build output only;
+# the deploy workflow rebuilds it, and it is never committed.
+/_site/
 
 # lychee-action report directory (link-check.yml writes it in CI; local runs may too)
 /lychee/

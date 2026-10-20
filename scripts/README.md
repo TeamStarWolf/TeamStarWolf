@@ -25,6 +25,7 @@ Drafted with an AI assistant from the sources cited; checked against them on 202
 | `check_repo_hygiene.py` | Fails on tracked junk, invalid UTF-8 or mojibake, and new citations of revoked ATT&CK ids in hand-written pages | Validate Data Files: repo hygiene |
 | `check_voice.py` | The voice lint for hand-written pages ([docs/VOICE.md](/docs/VOICE.md)) | Validate Data Files: repo hygiene |
 | `build_brand_assets.py` | Exports the web-sized images in `assets/brand/` from the banner masters in `assets/` | Not run in CI (needs Pillow) |
+| `build_search_index.py` | Builds the site search: one [Pagefind](https://pagefind.app/) record per served page (title, kind, section, summary, `#/` route) into `pagefind/`, and `ids.json`, which maps framework IDs and exact technique, group, software, and campaign names to their pages for the ID jump. Build output only, never committed. Needs the pinned, hash-checked packages in `requirements-search.txt` | Deploy site: build job (`.github/workflows/pages.yml`), on every push to main and on pull requests that change the site shell, the builder, any page, or the ATT&CK data it reads |
 | `attack_ids.py`, `plain_markdown.py`, `repo_files.py` | Shared helpers: the ATT&CK id lifecycle rule, plain-text formatting for generated pages, and the tracked-file list | Imported by the scripts above |
 | `baselines/` | The ratchet baselines for the link, voice, and revoked-id checks and the lychee allowlist; each may only shrink | Read by the checks above |
 
@@ -32,7 +33,7 @@ The Link Check workflow also runs lychee on the outbound links a pull request ad
 
 ## How it is generated
 
-These are hand-written. Every script except `build_brand_assets.py` uses only the Python standard library; CI runs them on Python 3.11. `build_attack_core.py` fetches the pinned STIX bundles over the network unless you pass local copies; it verifies each bundle's SHA-256 either way.
+These are hand-written. Every script except `build_brand_assets.py` and `build_search_index.py` uses only the Python standard library; CI runs them on Python 3.11. `build_attack_core.py` fetches the pinned STIX bundles over the network unless you pass local copies; it verifies each bundle's SHA-256 either way.
 
 ## How to use it
 
@@ -56,6 +57,15 @@ python scripts/validate_navigator.py
 python scripts/check_docsify_links.py
 python scripts/check_repo_hygiene.py
 python scripts/check_voice.py
+```
+
+To try site search locally, build the artifact the way the deploy job does, then serve `_site/` with any static file server (`_site/` is in `.gitignore`):
+
+```
+python -m pip install --no-deps --require-hashes -r scripts/requirements-search.txt
+mkdir _site && git archive --format=tar HEAD | tar -x -C _site
+python scripts/build_search_index.py --site _site
+python -m http.server --directory _site 8000
 ```
 
 Each script's docstring (`python scripts/<name>.py --help` where supported) gives its options. Commit what the builders write; the `--check` modes in CI fail on anything left stale.

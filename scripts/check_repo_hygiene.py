@@ -4,7 +4,8 @@
 1. junk     Fail if git tracks build/editor/OS junk (__pycache__/, *.pyc, venv/,
             node_modules/, .vs/, .idea/, .DS_Store, local DBs, the generator's old
             mitre/_gen_check/ scratch tree, the STIX cache). Everything tracked is
-            published by pages-deploy.yml, so junk in git is junk on the site.
+            published by the Pages deploy (.github/workflows/pages.yml), so junk in
+            git is junk on the site.
 
 2. encoding Fail if a tracked text file is not valid UTF-8, contains U+FFFD (a lossy
             decode happened somewhere), or contains double-encoded UTF-8 ("mojibake":

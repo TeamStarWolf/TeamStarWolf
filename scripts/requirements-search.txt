@@ -1,0 +1,13 @@
+# Pinned, hash-checked dependencies for scripts/build_search_index.py, installed by the
+# deploy workflow (.github/workflows/pages.yml) with pip --require-hashes. Pagefind is MIT
+# licensed (https://pagefind.app). pagefind-bin ships the Pagefind binary: one wheel per
+# platform, so each platform's hash is listed (Linux x86_64 is the CI runner).
+pagefind==1.5.2 \
+    --hash=sha256:6c4086ad9eaa7e8f863085652f6b1093549b1737848d946daa0706ee57f778d1
+pagefind-bin==1.5.2 \
+    --hash=sha256:92eb3f492fc7dbf0fc68c18c78f8de44ecfb266ba64cb982e3ccc1b4bbd7203e \
+    --hash=sha256:c33f8019bb21f8b417b847efe2cb8ffbbf03ba6996a233a9bb5c764c56d76f6a \
+    --hash=sha256:40b39a852fac5dfb565ae288d7c44ac0627dd354f154166675e73257a28f8e3c \
+    --hash=sha256:0e83f5823a116166128b35f6c4818f4b5c3c0a9d476c228d137187e772d190cf \
+    --hash=sha256:02512ae24c483487a5d2742ba990a0bb6823c205aa0ce5594f2f641fc0babed3 \
+    --hash=sha256:ee34dac9f83e6c8a15a516f6fecc26b7f4143a6c763544991e2b996f591e0492

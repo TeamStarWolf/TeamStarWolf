@@ -596,3 +596,13 @@ Premium Path (Industry Standard)
 1. OSCP: offensive gold standard
 2. CISSP: management/architecture
 3. GREM or GCFA: specialization
+
+---
+
+## Key External Resources
+
+External tools and services for certification exam preparation.
+
+| Resource | URL |
+|---|---|
+| Boson (ExSim practice exams) | https://www.boson.com/ |

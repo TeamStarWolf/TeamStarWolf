@@ -82,6 +82,7 @@
       --tsw-shadow:        rgba(0, 0, 0, .45);
       --tsw-glow-a:        rgba(31, 72, 200, .12);
       --tsw-glow-b:        rgba(252, 6, 4, .05);
+      --tsw-backdrop:      rgba(3, 6, 12, .72);    /* behind the search overlay */
 
       --tsw-code-bg:       #172341;
       --tsw-code-fg:       #c9d7ff;
@@ -141,6 +142,7 @@
       --tsw-shadow:        rgba(20, 28, 46, .14);
       --tsw-glow-a:        rgba(31, 72, 200, .05);
       --tsw-glow-b:        rgba(196, 2, 2, .03);
+      --tsw-backdrop:      rgba(20, 28, 46, .45);
 
       --tsw-code-bg:       #e8edf8;
       --tsw-code-fg:       #1b3a99;
@@ -257,37 +259,119 @@
     .sidebar-toggle span { background-color: var(--tsw-link); }
     body.close .sidebar-toggle { background-color: transparent; }
 
-    /* ===================== Search ===================== */
-    .search {
-      margin: 0; padding: 14px 16px 12px;
-      border-bottom: 1px solid var(--tsw-border-soft);
-      background: transparent;
+    /* ===================== Search =====================
+       A full-width overlay over the whole library (the search script at the end of this
+       file), opened with "/", Ctrl+K (Cmd+K), the sidebar box, the cover button or the
+       search button in the top bar on small screens. Full screen at 768px and below. */
+    .tsw-search-open {
+      display: flex; align-items: center; gap: .55rem;
+      width: calc(100% - 32px); margin: 14px 16px 12px; box-sizing: border-box;
+      padding: 9px 10px 9px 12px; border-radius: 9px; cursor: pointer;
+      background: var(--tsw-surface); border: 1px solid var(--tsw-border);
+      color: var(--tsw-text-dim); font: inherit; font-size: .875rem; text-align: left;
+      transition: border-color .15s;
     }
-    .search .input-wrap { background: transparent; }
-    .search input {
+    .tsw-search-open:hover { border-color: var(--tsw-link); }
+    .tsw-search-open svg { width: 16px; height: 16px; flex: none; }
+    .tsw-search-open span { flex: 1; }
+    .tsw-search-open kbd, .tsw-search-foot kbd, .tsw-search-close {
+      font-family: var(--tsw-mono); font-size: .72rem; line-height: 1; padding: .25em .4em;
+      border: 1px solid var(--tsw-border); border-radius: 5px; color: var(--tsw-text-muted);
       background: var(--tsw-surface);
-      border: 1px solid var(--tsw-border);
-      border-radius: 9px;
-      color: var(--tsw-text);
-      font-size: .875rem;
-      padding: 10px 12px;
-      transition: border-color .15s, box-shadow .15s;
     }
-    .search input::placeholder { color: var(--tsw-text-dim); opacity: 1; }
-    .search input:focus {
-      outline: none;
-      border-color: var(--tsw-focus);
-      box-shadow: 0 0 0 3px var(--tsw-tint-strong);
+    .sidebar .tsw-search-open { margin-bottom: 12px; }
+
+    .tsw-search[hidden] { display: none; }
+    .tsw-search { position: fixed; inset: 0; z-index: 200; }
+    .tsw-search-backdrop { position: absolute; inset: 0; background: var(--tsw-backdrop); }
+    .tsw-search-dialog {
+      position: relative; margin: 8vh auto 0; width: min(760px, calc(100% - 32px));
+      max-height: 80vh; display: flex; flex-direction: column; box-sizing: border-box;
+      background: var(--tsw-surface); color: var(--tsw-text);
+      border: 1px solid var(--tsw-border); border-radius: 14px;
+      box-shadow: 0 24px 60px var(--tsw-shadow); overflow: hidden;
     }
-    .search .clear-button svg circle { fill: var(--tsw-text-dim); }
-    .search .results-panel { background: transparent; color: var(--tsw-text-muted); }
-    .search .matching-post { border-bottom: 1px solid var(--tsw-border-soft); padding: 10px 0; }
-    .search .matching-post:last-child { border-bottom: 0; }
-    .search p.title { color: var(--tsw-link); font-weight: 650; font-size: .86rem; }
-    .search p { font-size: .8rem; color: var(--tsw-text-dim); }
-    .search p.empty { color: var(--tsw-text-muted); }
-    .search .search-keyword { color: var(--tsw-red-text); font-style: normal; font-weight: 650; }
-    .search .clear-button { cursor: pointer; }
+    .tsw-search-head {
+      display: flex; align-items: center; gap: .6rem; padding: 12px 14px;
+      border-bottom: 1px solid var(--tsw-border);
+    }
+    .tsw-search-head > svg { width: 20px; height: 20px; flex: none; color: var(--tsw-text-dim); }
+    .tsw-search-head input {
+      flex: 1; min-width: 0; border: 0; outline: none; background: transparent;
+      color: var(--tsw-text); font: inherit; font-size: 1.05rem; padding: 6px 0;
+    }
+    .tsw-search-head input::placeholder { color: var(--tsw-text-dim); opacity: 1; }
+    .tsw-search-head input::-webkit-search-cancel-button { display: none; }
+    .tsw-search-head:focus-within { box-shadow: inset 0 -2px 0 var(--tsw-focus); }
+    .tsw-search-close { cursor: pointer; padding: .4em .55em; }
+    .tsw-search-close:hover { color: var(--tsw-link); border-color: var(--tsw-link); }
+    .tsw-search-narrow { display: none; }
+    /* One row that scrolls sideways, so a long list of kinds never pushes the results down */
+    .tsw-search-chips {
+      display: flex; flex-wrap: nowrap; gap: 6px; padding: 10px 14px 2px;
+      overflow-x: auto; scrollbar-width: thin;
+    }
+    .tsw-search-chips button { flex: none; white-space: nowrap; }
+    .tsw-search-chips:empty { display: none; }
+    .tsw-search-chips button {
+      font: inherit; font-size: .76rem; font-weight: 600; cursor: pointer;
+      padding: 4px 10px; border-radius: 999px;
+      background: var(--tsw-surface-2); color: var(--tsw-text-muted); border: 1px solid var(--tsw-border);
+    }
+    .tsw-search-chips button:hover { color: var(--tsw-link); border-color: var(--tsw-link); }
+    .tsw-search-chips button[aria-pressed="true"] {
+      background: var(--tsw-tint-strong); color: var(--tsw-heading); border-color: var(--tsw-focus);
+    }
+    .tsw-search-status { padding: 10px 16px 0; font-size: .82rem; color: var(--tsw-text-muted); }
+    .tsw-search-status:empty { display: none; }
+    .tsw-search-status a { color: var(--tsw-link); }
+    .tsw-search-results { overflow-y: auto; overscroll-behavior: contain; padding: 6px 8px 10px; flex: 1; }
+    .tsw-search-results:empty { display: none; }
+    .tsw-search-group { margin: 6px 0 2px; }
+    .tsw-search-group-label {
+      padding: 8px 8px 4px; font-size: .7rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--tsw-text-dim);
+    }
+    .tsw-search-results a[role="option"] {
+      display: block; padding: 8px 10px; border-radius: 9px; text-decoration: none;
+      color: var(--tsw-text); border: 1px solid transparent;
+    }
+    .tsw-search-results a[role="option"]:hover,
+    .tsw-search-results a[role="option"][aria-selected="true"] {
+      background: var(--tsw-tint-strong); border-color: var(--tsw-border);
+    }
+    .tsw-search-results a[role="option"][aria-selected="true"] { border-color: var(--tsw-focus); }
+    .tsw-search-title { display: block; color: var(--tsw-link); font-weight: 650; font-size: .93rem; line-height: 1.35; }
+    .tsw-search-section { display: block; color: var(--tsw-text-dim); font-size: .76rem; margin-top: 1px; }
+    .tsw-search-excerpt { display: block; color: var(--tsw-text-muted); font-size: .82rem; line-height: 1.5; margin-top: 3px; }
+    .tsw-search-excerpt mark {
+      background: var(--tsw-tint-strong); color: var(--tsw-heading); font-weight: 650;
+      border-radius: 3px; padding: 0 1px;
+    }
+    .tsw-search-more {
+      display: block; margin: 8px auto 2px; font: inherit; font-size: .82rem; cursor: pointer;
+      padding: 6px 14px; border-radius: 8px; color: var(--tsw-link);
+      background: var(--tsw-surface-2); border: 1px solid var(--tsw-border);
+    }
+    .tsw-search-more:hover { border-color: var(--tsw-link); }
+    .tsw-search-foot {
+      display: flex; flex-wrap: wrap; gap: 4px 14px; justify-content: space-between;
+      padding: 9px 14px; border-top: 1px solid var(--tsw-border);
+      font-size: .74rem; color: var(--tsw-text-dim);
+    }
+    .tsw-search-foot a { color: var(--tsw-text-dim); text-decoration: underline; }
+    body.tsw-search-active { overflow: hidden; }
+    @media screen and (max-width: 768px) {
+      .tsw-search-dialog {
+        margin: 0; width: 100%; height: 100%; max-height: none;
+        border: 0; border-radius: 0;
+      }
+      @supports (height: 100dvh) { .tsw-search-dialog { height: 100dvh; } }
+      .tsw-search-head { padding-top: max(12px, env(safe-area-inset-top)); }
+      .tsw-search-foot .tsw-search-keys, .tsw-search-wide { display: none; }
+      .tsw-search-narrow { display: inline; }
+      .tsw-search-close { font-family: var(--tsw-sans); font-size: .82rem; padding: .5em .7em; }
+    }
 
     /* ===================== Top navbar ===================== */
     .app-nav {
@@ -339,6 +423,17 @@
     #tsw-theme .tsw-i-moon { display: none; }
     :root[data-theme="light"] #tsw-theme .tsw-i-sun { display: none; }
     :root[data-theme="light"] #tsw-theme .tsw-i-moon { display: block; }
+    /* Search button beside it, on small screens only (the 768px block shows it); wider
+       screens have the search box at the top of the sidebar. */
+    #tsw-search-btn {
+      display: none; position: fixed; top: 6px; right: 52px; z-index: 30;
+      width: 36px; height: 36px; padding: 0; border-radius: 9px;
+      align-items: center; justify-content: center;
+      background: var(--tsw-surface); color: var(--tsw-text);
+      border: 1px solid var(--tsw-border); cursor: pointer;
+    }
+    #tsw-search-btn:hover { border-color: var(--tsw-link); color: var(--tsw-link); }
+    #tsw-search-btn svg { width: 18px; height: 18px; display: block; }
 
     /* ===================== Keyboard focus and skip link ===================== */
     a:focus-visible, button:focus-visible, summary:focus-visible,
@@ -566,7 +661,7 @@
          height (--tsw-nav-h, set by the navbar-height plugin below). */
       .app-nav {
         left: 0; height: auto; min-height: 48px; line-height: 30px;
-        padding: 3px 56px 3px 48px;
+        padding: 3px 100px 3px 48px;   /* right: the search and theme buttons */
       }
       .app-nav > ul { display: block; margin: 0; padding-left: 0; }
       .app-nav li { margin: 0 6px; }
@@ -598,6 +693,7 @@
       .sidebar-toggle .sidebar-toggle-button { padding: 14px 13px; }
       .sidebar { padding-top: 48px; }
       #tsw-theme { top: 6px; right: 8px; }
+      #tsw-search-btn { display: inline-flex; }
     }
     /* Narrow desktops and tablets (docsify switches to its phone layout at 768px). The nine
        navbar items fit one row from 1100px when set tighter; below that they wrap, so the
@@ -618,6 +714,7 @@
     /* ---------- Print: light colours (set by the beforeprint handler), content only ---------- */
     @media print {
       .sidebar, .sidebar-toggle, .app-nav, #tsw-theme, #tsw-top, #tsw-mbar, .tsw-skip,
+      #tsw-search-btn, .tsw-search,
       .docsify-copy-code-button, .docsify-pagination-container, body::before { display: none !important; }
       .content { left: 0 !important; padding-top: 0 !important; position: static !important; }
       .markdown-section { max-width: none; padding: 0; }
@@ -833,6 +930,30 @@
     <svg class="tsw-i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
     <svg class="tsw-i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>
   </button>
+  <button id="tsw-search-btn" type="button" aria-label="Search the library" title="Search (Ctrl K)" aria-haspopup="dialog">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5l5 5"/></svg>
+  </button>
+
+  <!-- Search overlay. The script at the end of the page drives it with Pagefind's JS API over
+       pagefind/ and ids.json, which the deploy workflow builds into the Pages artifact
+       (scripts/build_search_index.py); neither is committed. -->
+  <div id="tsw-search" class="tsw-search" hidden>
+    <div class="tsw-search-backdrop"></div>
+    <div class="tsw-search-dialog" role="dialog" aria-modal="true" aria-label="Search the library">
+      <div class="tsw-search-head">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5l5 5"/></svg>
+        <input id="tsw-search-input" type="search" role="combobox" aria-label="Search the library" aria-autocomplete="list" aria-expanded="false" aria-controls="tsw-search-results" aria-describedby="tsw-search-hint" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go" placeholder="Search, or type an ID such as T1059 or CAPEC-66">
+        <button type="button" class="tsw-search-close" aria-label="Close search"><span class="tsw-search-wide">Esc</span><span class="tsw-search-narrow">Close</span></button>
+      </div>
+      <div class="tsw-search-chips" role="group" aria-label="Filter results by kind"></div>
+      <div class="tsw-search-status" role="status" aria-live="polite"></div>
+      <div class="tsw-search-results" id="tsw-search-results" role="listbox" aria-label="Search results"></div>
+      <div class="tsw-search-foot" id="tsw-search-hint">
+        <span class="tsw-search-keys"><kbd>Up</kbd> <kbd>Down</kbd> to move, <kbd>Enter</kbd> to open, <kbd>Esc</kbd> to close. An ID such as T1059 or G0016 opens its page.</span>
+        <span>Search by <a href="https://pagefind.app/" target="_blank" rel="noopener">Pagefind</a></span>
+      </div>
+    </div>
+  </div>
 
   <script>
     window.$docsify = {
@@ -857,17 +978,6 @@
       externalLinkTarget: '_blank',
       notFoundPage: true,
 
-      // Index EVERY page reachable from the sidebar, with no hardcoded allowlist to go stale.
-      search: {
-        maxAge: 3600000,
-        paths: 'auto',
-        placeholder: 'Search the library, for example T1059',
-        noData: 'No matches. Try a technique ID (T1059), a tool, a control, or a concept.',
-        depth: 6,
-        hideOtherSidebarContent: false,
-        pathNamespaces: []
-      },
-
       pagination: {
         previousText: 'Previous',
         nextText: 'Next',
@@ -887,6 +997,21 @@
           hook.beforeEach(function (html) {
             var url = 'https://github.com/TeamStarWolf/TeamStarWolf/blob/main/' + vm.route.file;
             return '> [Edit this page on GitHub](' + url + '). Press <kbd>/</kbd> to search.\n\n' + html;
+          });
+        },
+        // The search box at the top of the sidebar: a button that opens the search overlay
+        // (the script at the end of the page)
+        function (hook) {
+          hook.doneEach(function () {
+            var sb = document.querySelector('.sidebar');
+            if (!sb || sb.querySelector('.tsw-search-open')) { return; }
+            var mac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+            var b = document.createElement('button');
+            b.type = 'button'; b.className = 'tsw-search-open'; b.setAttribute('aria-haspopup', 'dialog');
+            b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5l5 5"/></svg>' +
+              '<span>Search the library</span><kbd aria-hidden="true">' + (mac ? 'Cmd K' : 'Ctrl K') + '</kbd>';
+            var h1 = sb.querySelector(':scope > h1');
+            sb.insertBefore(b, h1 ? h1.nextSibling : sb.firstChild);
           });
         },
         // Back-to-top behaviour
@@ -1021,41 +1146,6 @@
       window.addEventListener('afterprint', function () { if (beforePrint) { apply(beforePrint); beforePrint = null; } });
     })();
 
-    // Bring the sidebar search box into view and focus it. On the cover the sidebar sits
-    // under the cover, so scroll to the content first; on a narrow screen open the sidebar.
-    function tswFocusSearch() {
-      var input = document.querySelector('.search input');
-      if (!input) { return false; }
-      var cover = document.querySelector('section.cover.show');
-      var main = document.querySelector('section.content');
-      if (cover && main && window.scrollY < cover.offsetHeight) { main.scrollIntoView(); }
-      if (window.innerWidth <= 768 && !document.body.classList.contains('close')) {
-        document.body.classList.add('close');
-      }
-      var sb = input.closest('.sidebar');
-      if (sb) { sb.scrollTop = 0; }   // the box sits at the top of the sidebar
-      input.focus({ preventScroll: true }); input.select();
-      return true;
-    }
-    // The cover's Search button; its href (the reference index) is the fallback
-    document.addEventListener('click', function (e) {
-      var btn = e.target.closest && e.target.closest('.tsw-cover-search');
-      if (btn && tswFocusSearch()) { e.preventDefault(); }
-    });
-
-    // "/" or Ctrl+K (Cmd+K on macOS) focuses search, Esc clears it
-    document.addEventListener('keydown', function (e) {
-      var el = document.activeElement;
-      var typing = el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable);
-      if ((e.key === '/' && !typing) || ((e.ctrlKey || e.metaKey) && !e.altKey && (e.key === 'k' || e.key === 'K'))) {
-        if (tswFocusSearch()) { e.preventDefault(); }
-      }
-      if (e.key === 'Escape') {
-        var i2 = document.querySelector('.search input');
-        if (i2 && document.activeElement === i2) { i2.value = ''; i2.blur(); }
-      }
-    });
-
     // Navbar dropdowns by keyboard. Tab into a menu and it opens (CSS :focus-within);
     // Enter follows the parent link as before; Space opens or closes the menu without
     // leaving the page; Escape closes it and returns focus to the parent link.
@@ -1104,8 +1194,6 @@
        heading ids from the raw Markdown without collapsing hyphens ("A & B" gives a--b, not
        a-amp-b), so existing ?id= links to such headings would stop resolving. -->
   <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/docsify.min.js" integrity="sha384-KaHhgnx/OTLoJ4J33SSJsF4x1pk4I7q3s5ZOfIDHJYl6IG7Oyn2vNDsHiWJe46fD" crossorigin="anonymous"></script>
-  <!-- Full-text search -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/plugins/search.min.js" integrity="sha384-LthJPBJ4RGco78kBY+EmKz5rmISZ5vrtAu3+l2ALQ2mrZHOe6Wyf6knyKjeC4cL6" crossorigin="anonymous"></script>
   <!-- Copy-code, pagination, tabs -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2.1.1" integrity="sha384-t4d9b4/0dEBkoJ5e77XEPBrqJ790jbFQFmEaTbBqIlTDeGosM1AbZvC1NQwqTg+5" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-pagination@2.10.1/dist/docsify-pagination.min.js" integrity="sha384-uFEp18/1vv2dYlO64J2lOcnbhirAQZPtruqAZZ7PZYoXenm5c+tIs3AqSMjVMRe8" crossorigin="anonymous"></script>
@@ -1117,5 +1205,323 @@
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-yaml.min.js" integrity="sha384-AKAiycghK0jDCjD+aavMHzDkLzRR7Yzcwh3+xL/295cvyVMe+cxQfyQC8xxGGcI8" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-powershell.min.js" integrity="sha384-xbI9krqyYp4npK9Cn94XyNoSR+TYZKddrk0NUVZ44zZ+OVpKz/LL0U1PB0MjR7Vx" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-sql.min.js" integrity="sha384-/MKWdycCDliku23mP5sYXbZNuXrzgmQO/jsVxwPFn99dVOaXRyKsqDjarqpueGAp" crossorigin="anonymous"></script>
+  <!-- Search. Pagefind's JS API (pagefind/pagefind.js, loaded on first use) over one record
+       per served page, and ids.json for the ID jump; scripts/build_search_index.py writes
+       both into the Pages artifact. Results are grouped by kind (technique, group, guide and
+       so on) with each page's section. A copy of the site without the built files (the
+       legacy branch build, a clone served as is) says so and offers the reference index.
+       Its own script element, so a browser that cannot parse import() loses only search. -->
+  <script>
+    (function () {
+      var root = document.getElementById('tsw-search');
+      if (!root) { return; }
+      var dialog = root.querySelector('.tsw-search-dialog');
+      var input = document.getElementById('tsw-search-input');
+      var list = document.getElementById('tsw-search-results');
+      var chips = root.querySelector('.tsw-search-chips');
+      var status = root.querySelector('.tsw-search-status');
+      var BASE = location.href.split('#')[0].split('?')[0].replace(/[^\/]*$/, '');
+      var PAGE = 8;
+      // The kind of a direct match, from the folder of its page
+      var DIR_KIND = {
+        'mitre/techniques/': 'ATT&CK technique', 'mitre/groups/': 'ATT&CK group',
+        'mitre/software/': 'ATT&CK software', 'mitre/campaigns/': 'ATT&CK campaign',
+        'mitre/mitigations/': 'ATT&CK mitigation', 'mitre/capec/': 'CAPEC',
+        'mitre/d3fend/': 'D3FEND', 'mitre/atlas/': 'ATLAS', 'mitre/f3/': 'F3'
+      };
+      var pf = null, pfLoad = null, pfFailed = false, ids = null, idsLoad = null;
+      var opener = null, timer = 0, seq = 0;
+      var st = { q: '', kind: '', results: [], items: [], shown: 0, direct: [], kinds: null, active: -1 };
+
+      // The docsify search plugin cached its index (about 12 MB) in localStorage, which this
+      // origin shares with ATTACK-Navi. The plugin is gone, so free the space.
+      try { localStorage.removeItem('docsify.search.index'); localStorage.removeItem('docsify.search.expires'); } catch (e) {}
+
+      function loadPagefind() {
+        if (!pfLoad) {
+          pfLoad = import(BASE + 'pagefind/pagefind.js').then(function (m) {
+            return Promise.resolve(m.options({ excerptLength: 26 })).then(function () {
+              m.init(); pf = m;
+              m.filters();   // the kind counts behind the filter chips (one small chunk)
+              return m;
+            });
+          }).catch(function () { pfFailed = true; return null; });
+        }
+        return pfLoad;
+      }
+      function loadIds() {
+        if (!idsLoad) {
+          idsLoad = fetch(BASE + 'ids.json').then(function (r) { return r.ok ? r.json() : null; })
+            .then(function (d) { ids = (d && d.ids && d.names) ? d : null; return ids; })
+            .catch(function () { return null; });
+        }
+        return idsLoad;
+      }
+
+      // "t1059/001", "T1059-001", "aml.t0051", "capec 66" give the canonical ID; else null
+      function idKey(q) {
+        var s = q.trim().toUpperCase().replace(/\s+/g, ''), m;
+        if ((m = /^T(\d{4})(?:[.\/\-_](\d{3}))?$/.exec(s))) { return 'T' + m[1] + (m[2] ? '.' + m[2] : ''); }
+        if ((m = /^AML\.?([TM])(\d{4})(?:[.\/\-_](\d{3}))?$/.exec(s))) { return 'AML.' + m[1] + m[2] + (m[3] ? '.' + m[3] : ''); }
+        if ((m = /^CAPEC[-_]?(\d+)$/.exec(s))) { return 'CAPEC-' + m[1]; }
+        if ((m = /^([GSCM])(\d{4})$/.exec(s))) { return m[1] + m[2]; }
+        if ((m = /^F(\d{4})(?:[.\/\-_](\d{3}))?$/.exec(s))) { return 'F' + m[1] + (m[2] ? '.' + m[2] : ''); }
+        if ((m = /^D3-([A-Z0-9]+)$/.exec(s))) { return 'D3-' + m[1]; }
+        return null;
+      }
+      function directMatches(q) {
+        if (!ids) { return []; }
+        var k = idKey(q);
+        if (k && ids.ids[k] != null) { return [{ id: k, route: ids.ids[k] }]; }
+        var name = q.trim().toLowerCase().replace(/\s+/g, ' ');
+        return (ids.names[name] || []).filter(function (i) { return ids.ids[i] != null; })
+          .map(function (i) { return { id: i, route: ids.ids[i], name: q.trim() }; });
+      }
+      function kindOfRoute(route) { return DIR_KIND[route.replace(/[^\/]*$/, '')] || 'Page'; }
+      function routeHref(route) { return '#/' + route; }
+      function esc(s) {
+        return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; });
+      }
+      function setStatus(html) { status.innerHTML = html || ''; }
+      function fallbackHtml(q) {
+        var gh = 'https://github.com/search?type=code&q=' + encodeURIComponent('repo:TeamStarWolf/TeamStarWolf ' + q);
+        return 'Full-text search is not available on this copy of the site: its index is built by the deploy workflow. ' +
+          'Try the <a href="#/INDEX">reference index</a> or <a href="' + esc(gh) + '" target="_blank" rel="noopener">search the repository on GitHub</a>.';
+      }
+      // Pagefind escapes < and > in the indexed text and wraps matches in <mark>; let
+      // nothing else through.
+      function excerptHtml(x) { return String(x || '').replace(/<(?!\/?mark>)/g, '&lt;'); }
+
+      // ---------- open and close
+      function open(from) {
+        if (!root.hidden) { input.focus(); input.select(); return; }
+        opener = from || document.activeElement;
+        root.hidden = false;
+        document.body.classList.add('tsw-search-active');
+        input.focus(); input.select();
+        loadIds().then(function () { if (st.q) { run(); } });
+        loadPagefind();
+        if (input.value.trim()) { run(); }
+      }
+      function close(restore) {
+        if (root.hidden) { return; }
+        root.hidden = true;
+        document.body.classList.remove('tsw-search-active');
+        input.setAttribute('aria-expanded', 'false');
+        input.removeAttribute('aria-activedescendant');
+        if (restore !== false && opener && opener !== document.body && opener.focus && document.contains(opener)) { opener.focus(); }
+        if (document.activeElement && root.contains(document.activeElement)) { document.activeElement.blur(); }
+        opener = null;
+      }
+      function go(hash) {
+        if (!hash) { return; }
+        close(false);
+        if (location.hash === hash) { window.scrollTo(0, 0); return; }
+        location.hash = hash;
+      }
+
+      // ---------- search
+      function run() {
+        var q = input.value.trim(), my = ++seq;
+        st.q = q; st.active = -1;
+        if (!q) { st.results = []; st.items = []; st.shown = 0; st.direct = []; st.kinds = null; render(); setStatus(''); return; }
+        st.direct = directMatches(q);
+        if (!pf) {
+          st.results = []; st.items = []; st.shown = 0; st.kinds = null;
+          render();
+          if (pfFailed) { setStatus(fallbackHtml(q)); }
+          else { setStatus('Loading the search index'); loadPagefind().then(function () { if (my === seq) { run(); } }); }
+          return;
+        }
+        var opts = st.kind ? { filters: { kind: [st.kind] } } : {};
+        pf.search(q, opts).then(function (res) {
+          if (my !== seq || !res) { return; }
+          st.results = res.results; st.items = []; st.shown = 0;
+          st.kinds = res.totalFilters && res.totalFilters.kind ? res.totalFilters.kind : null;
+          return more(my);
+        }).catch(function () { if (my === seq) { setStatus('Search failed. Reload the page and try again.'); } });
+      }
+      function more(my) {
+        var next = st.results.slice(st.shown, st.shown + PAGE);
+        return Promise.all(next.map(function (r) { return r.data(); })).then(function (data) {
+          if (my !== seq) { return; }
+          st.shown += next.length;
+          data.forEach(function (d) {
+            var m = d.meta || {};
+            st.items.push({
+              href: '#' + (d.url.split('#')[1] || '/'),
+              title: m.title || d.url, kind: m.kind || 'Page', section: m.section || '',
+              excerpt: d.excerpt || '', summary: m.summary || ''
+            });
+          });
+          render();
+          setStatus(st.results.length || st.direct.length ? '' :
+            'No pages match "' + esc(st.q) + '". Try a technique ID (T1059), a tool, a control, or a concept.');
+        });
+      }
+
+      // ---------- render: direct matches first, then the loaded results grouped by kind
+      function render() {
+        list.textContent = '';
+        renderChips();
+        var groups = [], byKind = {}, seen = {}, idx = 0;
+        var direct = st.direct.map(function (d) {
+          var it = { href: routeHref(d.route), title: d.id, kind: kindOfRoute(d.route),
+                     section: d.name ? 'Name match: ' + d.name : 'ID match', excerpt: '', summary: '' };
+          st.items.forEach(function (x) {
+            if (x.href === it.href) {
+              it.title = x.title; it.excerpt = x.excerpt; it.summary = x.summary;
+              it.section = x.section + (d.name ? ' (name match: ' + d.name + ')' : '');
+            }
+          });
+          seen[it.href] = true;
+          return it;
+        });
+        if (direct.length) { groups.push({ label: direct.length > 1 ? 'Matching names' : 'Direct match', items: direct }); }
+        st.items.forEach(function (it) {
+          if (seen[it.href]) { return; }
+          if (!byKind[it.kind]) { byKind[it.kind] = { label: it.kind, items: [] }; groups.push(byKind[it.kind]); }
+          byKind[it.kind].items.push(it);
+        });
+        groups.forEach(function (g, gi) {
+          var box = document.createElement('div');
+          box.className = 'tsw-search-group'; box.setAttribute('role', 'group');
+          var lab = document.createElement('div');
+          lab.className = 'tsw-search-group-label'; lab.id = 'tsw-sg-' + gi; lab.setAttribute('role', 'presentation');
+          lab.textContent = g.label;
+          box.setAttribute('aria-labelledby', lab.id);
+          box.appendChild(lab);
+          g.items.forEach(function (it) {
+            var a = document.createElement('a');
+            a.setAttribute('role', 'option'); a.id = 'tsw-so-' + (idx++); a.href = it.href; a.tabIndex = -1;
+            a.setAttribute('aria-selected', 'false');
+            var t = document.createElement('span'); t.className = 'tsw-search-title'; t.textContent = it.title;
+            var s = document.createElement('span'); s.className = 'tsw-search-section';
+            s.textContent = g.label === it.kind ? it.section : it.kind + (it.section ? ' | ' + it.section : '');
+            a.appendChild(t); a.appendChild(s);
+            if (it.excerpt || it.summary) {
+              var x = document.createElement('span'); x.className = 'tsw-search-excerpt';
+              if (it.excerpt.indexOf('<mark>') !== -1) { x.innerHTML = excerptHtml(it.excerpt); }
+              else { x.textContent = it.summary || it.excerpt.replace(/<\/?mark>/g, '').replace(/&lt;/g, '<').replace(/&gt;/g, '>'); }
+              a.appendChild(x);
+            }
+            box.appendChild(a);
+          });
+          list.appendChild(box);
+        });
+        if (st.shown < st.results.length) {
+          var b = document.createElement('button');
+          b.type = 'button'; b.className = 'tsw-search-more';
+          b.textContent = 'Show more results (' + (st.results.length - st.shown) + ' more)';
+          b.addEventListener('click', function () {
+            var keep = st.active;
+            more(seq).then(function () { setActive(Math.max(keep, 0)); input.focus(); });
+          });
+          list.appendChild(b);
+        }
+        var any = list.querySelector('[role="option"]');
+        input.setAttribute('aria-expanded', any ? 'true' : 'false');
+        setActive(any ? 0 : -1);
+      }
+      function renderChips() {
+        chips.textContent = '';
+        if (!st.kinds || !st.q) { return; }
+        var kinds = Object.keys(st.kinds).filter(function (k) { return st.kinds[k] > 0; })
+          .sort(function (a, b) { return st.kinds[b] - st.kinds[a]; });
+        if (kinds.length < 2 && !st.kind) { return; }
+        var all = 0;
+        kinds.forEach(function (k) { all += st.kinds[k]; });
+        [''].concat(kinds).forEach(function (k) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.textContent = (k || 'All') + ' ' + (k ? st.kinds[k] : all);
+          b.setAttribute('aria-pressed', st.kind === k ? 'true' : 'false');
+          b.addEventListener('click', function () { st.kind = (st.kind === k ? '' : k); run(); input.focus(); });
+          chips.appendChild(b);
+        });
+      }
+
+      // ---------- keyboard: focus stays in the input; Up and Down move the active result
+      function options() { return Array.prototype.slice.call(list.querySelectorAll('[role="option"]')); }
+      function setActive(i) {
+        var opts = options();
+        opts.forEach(function (o) { o.setAttribute('aria-selected', 'false'); });
+        st.active = (i >= 0 && i < opts.length) ? i : -1;
+        if (st.active < 0) { input.removeAttribute('aria-activedescendant'); return; }
+        var o = opts[st.active];
+        o.setAttribute('aria-selected', 'true');
+        input.setAttribute('aria-activedescendant', o.id);
+        if (o.scrollIntoView) { o.scrollIntoView({ block: 'nearest' }); }
+      }
+
+      input.addEventListener('input', function () {
+        clearTimeout(timer);
+        var q = input.value.trim();
+        if (pf && q) { pf.preload(q); }
+        timer = setTimeout(run, 120);
+      });
+      input.addEventListener('keydown', function (e) {
+        var opts = options();
+        if (e.key === 'ArrowDown') { e.preventDefault(); if (opts.length) { setActive(st.active < opts.length - 1 ? st.active + 1 : 0); } }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); if (opts.length) { setActive(st.active > 0 ? st.active - 1 : opts.length - 1); } }
+        else if (e.key === 'Enter') {
+          e.preventDefault();
+          clearTimeout(timer);
+          var q = input.value.trim();
+          if (!q) { return; }
+          if (q !== st.q) {
+            // An ID or an exact name opens its page before the results arrive
+            var d = directMatches(q);
+            if (d.length === 1) { go(routeHref(d[0].route)); } else { run(); }
+            return;
+          }
+          var a = opts[st.active] || opts[0];
+          if (a) { go(a.getAttribute('href')); }
+        }
+      });
+      list.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[role="option"]');
+        if (!a || e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) { return; }
+        e.preventDefault(); go(a.getAttribute('href'));
+      });
+      list.addEventListener('mousemove', function (e) {
+        var a = e.target.closest && e.target.closest('a[role="option"]');
+        if (a) { var i = options().indexOf(a); if (i !== st.active) { setActive(i); } }
+      });
+      root.querySelector('.tsw-search-backdrop').addEventListener('click', function () { close(); });
+      root.querySelector('.tsw-search-close').addEventListener('click', function () { close(); });
+      // Escape closes; Tab stays inside the dialog
+      dialog.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); close(); return; }
+        if (e.key !== 'Tab') { return; }
+        var f = Array.prototype.slice.call(dialog.querySelectorAll('input, button, a[href]:not([role="option"])'))
+          .filter(function (el) { return el.offsetParent !== null; });
+        if (!f.length) { return; }
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      });
+      window.addEventListener('hashchange', function () { close(false); });
+
+      // "/" or Ctrl+K (Cmd+K on macOS) opens search from anywhere on the page
+      document.addEventListener('keydown', function (e) {
+        var el = document.activeElement;
+        var typing = el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT' || el.isContentEditable);
+        if ((e.ctrlKey || e.metaKey) && !e.altKey && !e.shiftKey && (e.key === 'k' || e.key === 'K')) {
+          e.preventDefault();
+          if (root.hidden) { open(); } else { close(); }
+        } else if (e.key === '/' && !typing && !e.ctrlKey && !e.metaKey && !e.altKey && root.hidden) {
+          e.preventDefault(); open();
+        }
+      });
+      // The cover's Search button (its href, the reference index, is the fallback without
+      // scripts), the box at the top of the sidebar and the small-screen top-bar button
+      document.addEventListener('click', function (e) {
+        var t = e.target.closest && e.target.closest('.tsw-cover-search, .tsw-search-open, #tsw-search-btn');
+        if (!t) { return; }
+        e.preventDefault(); open(t);
+      });
+    })();
+  </script>
 </body>
 </html>

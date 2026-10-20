@@ -49,13 +49,13 @@ Checkpoint: Given any question ("how does Kerberoasting detection work", "which 
 
 ## Step 3: Find anything three ways
 
-1. Search. On the live site, press `/` (or click the search box) and type a term or an ATT&CK technique ID: `T1059` works, and so does `Kerberoasting`. Sub-techniques use dot notation: `T1059.001`. Press `Esc` to clear.
+1. Search. On the live site, press `/` or `Ctrl K` (`Cmd K` on macOS), or click the search box at the top of the sidebar, and type a term or an ID. An ID opens its page directly when you press `Enter`: `T1059`, `T1059.001`, `G0016`, `S0154`, `C0024`, `M1038`, `CAPEC-66`, `AML.T0051`. So does the exact name or alias of a technique, group, software, or campaign (`APT29`, `Cozy Bear`, `Cobalt Strike`). Anything else searches the text of every page, and the results are grouped by kind (reference, guide, learning path, ATT&CK technique, group, CAPEC pattern and so on) with filters along the top. `Up` and `Down` move through the results, `Enter` opens one, and `Esc` closes search.
 2. The Reference Index. [INDEX](/INDEX.md) is the complete alphabetical listing of every reference document with one-line descriptions: the fastest way to scan what exists.
 3. The sidebar and the homepage. The sidebar groups every doc by domain (Coverage & Data, Defense & Detection, Offensive Security, GRC, and so on). The homepage does the same in "Browse by domain", and its doors sort by *goal*: learn a discipline, do a task, or work with the ATT&CK data.
 
-Checkpoint: Searching `T1059` returns hits across the Technique Atlas, detection strategies, and threat group profiles: the same technique seen from several angles.
+Checkpoint: Typing `T1059` lists the T1059 technique page first, then the tactic, mitigation, sub-technique, and software pages that cite it: the same technique seen from several angles.
 
-Watch out: Site search indexes pages reachable from the sidebar and caches the index for an hour, so the very first search after a page load can take a moment to warm up.
+Watch out: Search runs on an index the site's deploy workflow builds, so it works on the live site but not on a local copy served straight from a clone; there it points you to the reference index instead. A page added in a pull request becomes searchable once that change is deployed.
 
 ## Step 4: Trace the threat-informed data model
 

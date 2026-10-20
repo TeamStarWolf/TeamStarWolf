@@ -13,7 +13,7 @@
 [![Link Check](https://github.com/TeamStarWolf/TeamStarWolf/actions/workflows/link-check.yml/badge.svg?branch=main)](https://github.com/TeamStarWolf/TeamStarWolf/actions/workflows/link-check.yml)
 [![Validate Data Files](https://github.com/TeamStarWolf/TeamStarWolf/actions/workflows/validate-data.yml/badge.svg?branch=main)](https://github.com/TeamStarWolf/TeamStarWolf/actions/workflows/validate-data.yml)
 [![CodeQL](https://github.com/TeamStarWolf/TeamStarWolf/actions/workflows/github-code-scanning/codeql/badge.svg?branch=main)](https://github.com/TeamStarWolf/TeamStarWolf/actions/workflows/github-code-scanning/codeql)
-[![Deploy site](https://github.com/TeamStarWolf/TeamStarWolf/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/TeamStarWolf/TeamStarWolf/actions/workflows/pages/pages-build-deployment)
+[![Deploy site](https://github.com/TeamStarWolf/TeamStarWolf/actions/workflows/pages.yml/badge.svg?branch=main)](https://github.com/TeamStarWolf/TeamStarWolf/actions/workflows/pages.yml)
 
 </div>
 

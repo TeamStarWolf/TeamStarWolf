@@ -141,6 +141,15 @@ jobs:
       - name: Explore page and assets/explore.json match data/
         run: python scripts/build_explore.py --check
 
+      # The cross-links between the hand-written and generated pages are written into the
+      # Markdown by build_crosslinks.py from docs/crosslinks.json and the pages' own links:
+      # each learning path's matching reference, the "Related pages" footer on each root
+      # reference, the "(local)" links after MITRE IDs in the three framework atlases, and
+      # the "Library references" block on each mitre/ page that hand-written pages cite.
+      # Fails when any committed block differs from what the script writes.
+      - name: Cross-link blocks match the pages and docs/crosslinks.json
+        run: python scripts/build_crosslinks.py --check
+
       - name: No new voice-guide violations in hand-written pages (docs/VOICE.md)
         # On a pull request, fetch only the base branch tip (no credentials needed for a
         # public repository) so the baseline can be compared with it.

@@ -2427,3 +2427,16 @@ Section 5 - Commercial
 
 *Reference Library Version: 1.0.0 | Last Updated: 2026-05-06 | Maintained by TeamStarWolf Security Engineering*
 *Classification: INTERNAL USE - SOC Engineering and Incident Response Teams*
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+- Learning path: [SIEM & SOAR](/disciplines/siem-soar.md)
+- [SIEM Reference](/SIEM_REFERENCE.md)
+- [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md)
+- [Threat Hunting Playbooks](/THREAT_HUNTING_PLAYBOOKS.md)
+- [Incident Response](/disciplines/incident-response.md)
+
+<!-- related:end -->

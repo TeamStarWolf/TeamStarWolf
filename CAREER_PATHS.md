@@ -702,6 +702,19 @@ Common and well-worn ways to move between roles as you grow.
 | [IR Playbooks](IR_PLAYBOOKS.md) | Step-by-step response procedures for common incident types |
 | [Threat Actors](THREAT_ACTORS.md) | Nation-state APTs and ransomware groups mapped to ATT&CK TTPs |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Certifications Reference](/CERTIFICATIONS.md)
+- [Hands-On Labs](/LABS.md)
+- [Security Tools Reference](/TOOLS.md)
+- [HTB Learning Tracks](/research/HTB_TRACKS.md)
+- [CISSP Domain Crosswalk](/CISSP_DOMAIN_CROSSWALK.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: April 2026, Maintained by [TeamStarWolf](https://github.com/TeamStarWolf)*

@@ -398,6 +398,14 @@ Use as a scorecard. **Level 1** = reactive/ad hoc, **Level 3** = defined & autom
 
 **Sibling references in this library:** **NETWORK_SECURITY_ARCHITECTURE** (enforcement: firewalls, IDS/IPS, NAC, TLS inspection, DDoS, secure service edge policy), **SECURITY_ARCHITECTURE** (enterprise trust model, identity fabric, data-classification-to-zone mapping), and the **CLOUD_ARCHITECTURE** / **AI_ARCHITECTURE** references for domain-specific network considerations.
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Network security](/hubs/network-security.md)
+
+<!-- related:end -->
+
 ---
 
 *Vendor-neutral reference. Named products are examples, not endorsements. Verify all framework versions, standard numbers, and vendor/market naming against the authoritative source before relying on them — the networking and security framework landscape moves faster than any static document.*

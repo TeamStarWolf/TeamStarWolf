@@ -247,6 +247,14 @@ Cross-reference general defensive tooling in [ENDPOINT_SECURITY_REFERENCE.md](EN
 - [API_SECURITY_REFERENCE.md](API_SECURITY_REFERENCE.md), [IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md): securing FHIR/SMART and OAuth
 - [PRIVACY_ENGINEERING_REFERENCE.md](PRIVACY_ENGINEERING_REFERENCE.md): ePHI minimization, de-identification, and privacy-by-design
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-09-29 | TeamStarWolf Cybersecurity Reference Library*

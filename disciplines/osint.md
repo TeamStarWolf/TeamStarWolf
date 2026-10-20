@@ -4,6 +4,12 @@ Open Source Intelligence (OSINT) is the discipline of collecting, processing, an
 
 OSINT is not passive browsing. Professional OSINT work involves structured collection plans, source validation frameworks, link analysis, and documented intelligence products. The same data that helps a red team map an attack surface also helps a threat intelligence analyst track a criminal actor, a fraud investigator build a case, or a security team identify exposed credentials before attackers do. The discipline underlies all of them.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching reference: [OSINT Reference](/OSINT_REFERENCE.md), the library's in-depth page on this subject.
+
+<!-- path-reference:end -->
+
 ---
 
 ## Where to Start

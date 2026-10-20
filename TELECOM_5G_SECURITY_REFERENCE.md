@@ -407,6 +407,17 @@ Regulatory
 - FCC Declaratory Ruling FCC 25-9 (January 2025; rescinded): https://docs.fcc.gov/public/attachments/FCC-25-9A1.pdf
 - FCC Order on Reconsideration rescinding the ruling (Federal Register, 2025-12-15): https://www.federalregister.gov/documents/2025/12/15/2025-22830/protecting-the-nations-communications-systems-from-cybersecurity-threats
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Network security](/hubs/network-security.md)
+- [SDR & RF Security Reference](/SDR_RF_SECURITY_REFERENCE.md)
+- [Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md)
+- [Wireless Security Reference](/WIRELESS_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *MITRE FiGHT™ and ATT&CK® are trademarks of The MITRE Corporation; 3GPP specifications are the property of the 3GPP Organizational Partners; GSMA documents are the property of the GSM Association; O-RAN specifications are the property of the O-RAN ALLIANCE. FiGHT structural counts were computed from the official v3.1.0 data file and MITRE publishes no official count page; recount from `fight.yaml` if exactness matters. This is an independent practitioner reference summary, not affiliated with or endorsed by any of these organizations; consult the upstream sources for authoritative and current content.*

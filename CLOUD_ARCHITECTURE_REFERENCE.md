@@ -515,6 +515,14 @@ In the cloud, **the architecture is the cost model.** Treat cost as a first-clas
 
 **Within this library:** **[CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md)** (control-level and provider-specific cloud security depth) · the Security, Networking, AI, and general Architecture references for the layers this document references.
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Cloud and infrastructure](/hubs/cloud-and-infrastructure.md)
+
+<!-- related:end -->
+
 ---
 
 *Maintenance note: framework pillar names, standard version numbers, and vendor service/product names drift. Items marked "verify" and all version numbers were accurate at the last review (2026-10-08) — web-verify against primary vendor/standards-body sources before relying on them in an audit or design authority context. Do not assert a version you have not checked.*

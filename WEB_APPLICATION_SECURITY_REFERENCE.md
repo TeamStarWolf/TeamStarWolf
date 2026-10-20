@@ -1,4 +1,4 @@
-﻿# Web Application Security Reference
+# Web Application Security Reference
 
 > Professional cybersecurity reference library for web application penetration testing, secure development, and vulnerability research.
 
@@ -1789,3 +1789,16 @@ PortSwigger Research Blog:
 
 *Last updated: 2026-05-06 | Classification: Professional Security Reference*
 *For authorized security testing and defensive use only. Always obtain proper written authorization before testing.*
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Application and supply chain security](/hubs/application-and-supply-chain.md)
+- Learning path: [Application Security](/disciplines/application-security.md)
+- [Web App Pentesting](/WEB_APPLICATION_PENTESTING.md)
+- [API Security Reference](/API_SECURITY_REFERENCE.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md)
+
+<!-- related:end -->

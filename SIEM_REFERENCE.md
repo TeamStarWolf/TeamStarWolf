@@ -1954,6 +1954,19 @@ Hybrid approach (most enterprises):
 | Exfiltration | TA0010 | T1048 Exfil Over Alt Protocol; T1041 Exfil Over C2; T1567 Web Service |
 | Command and Control | TA0011 | T1071 App Layer Protocol; T1572 Protocol Tunneling; T1008 Fallback Channels |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+- Learning path: [SIEM & SOAR](/disciplines/siem-soar.md)
+- [SIEM Detection Content](/SIEM_DETECTION_CONTENT.md)
+- [SOAR Automation Reference](/SOAR_AUTOMATION_REFERENCE.md)
+- [Threat Hunting Playbooks](/THREAT_HUNTING_PLAYBOOKS.md)
+- [ATT&CK Detection Strategies](/detections/strategies/README.md)
+
+<!-- related:end -->
+
 ---
 
 *SIEM Reference Library, generated 2026-05-06 | TeamStarWolf Security*

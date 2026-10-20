@@ -1663,6 +1663,18 @@ Zero Trust overlay principle:
 | T1205 | Traffic Signaling | Port knocking for firewall bypass | L4 |
 | T1499 | Endpoint Denial of Service | SYN flood, UDP amplification, ICMP flood | L3/L4 |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Network security](/hubs/network-security.md)
+- [Network Attacks Reference](/NETWORK_ATTACKS_REFERENCE.md)
+- [Network Defense Reference](/NETWORK_DEFENSE_REFERENCE.md)
+- [Network Protocols Reference](/NETWORK_PROTOCOLS_REFERENCE.md)
+- [Packet Analysis Reference](/PACKET_ANALYSIS_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Reference built for cybersecurity practitioners. Depth over brevity: understanding the mechanism is what enables both offense and defense.*

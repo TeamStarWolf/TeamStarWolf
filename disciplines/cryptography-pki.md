@@ -4,6 +4,12 @@
 
 Cryptography and Public Key Infrastructure (PKI) underpin nearly every security control in modern computing. Cryptography transforms data so that only authorized parties can read or verify it; PKI provides the trust infrastructure (certificate authorities, digital certificates, and revocation mechanisms) that makes asymmetric cryptography usable at scale. Practitioners span defensive roles (designing TLS configurations, operating CAs, managing HSMs, planning post-quantum migrations) and offensive roles (auditing implementations, attacking weak ciphers, abusing certificate authority trust chains, testing for downgrade vulnerabilities). Without sound cryptography, authentication, data-in-transit protection, code signing, and non-repudiation all fail.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching reference: [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), the library's in-depth page on this subject.
+
+<!-- path-reference:end -->
+
 ---
 
 ## Where to Start

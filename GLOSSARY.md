@@ -426,3 +426,12 @@ Common terms, acronyms, and concepts across cybersecurity disciplines. Use `Ctrl
 - [Security Tools Reference](TOOLS.md): tool quick-reference by category
 - [Enterprise Security Pipeline](SECURITY_PIPELINE.md): pipeline stages and vendor mapping
 - [Disciplines](disciplines/threat-intelligence.md): discipline pages with detailed terminology context
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [CEH Domain Crosswalk](/CEH_DOMAIN_CROSSWALK.md)
+
+<!-- related:end -->

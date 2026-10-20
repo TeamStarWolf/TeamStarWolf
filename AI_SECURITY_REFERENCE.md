@@ -919,6 +919,19 @@ Deployment:
 [ ] Model loaded in isolated environment on first deployment
 ```
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [AI and emerging tech](/hubs/ai-and-emerging-tech.md)
+- Learning path: [AI & LLM Security](/disciplines/ai-llm-security.md)
+- [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md)
+- [AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md)
+- [ATLAS Reference (AI threats)](/ATLAS_REFERENCE.md)
+- [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *References: [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications) | [MITRE ATLAS](https://atlas.mitre.org) | NIST AI RMF | [EU AI Act](https://artificialintelligenceact.eu) | [OWASP AI Exchange](https://owaspai.org)*

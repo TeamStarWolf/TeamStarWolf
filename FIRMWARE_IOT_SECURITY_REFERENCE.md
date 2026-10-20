@@ -2701,6 +2701,19 @@ T0884: Used legitimate Siemens STEP 7 software for persistence
 | CVE-2014-9222 | TR-069 (ISP routers) | 10.0 | Misfortune Cookie |
 | CVE-2016-10174 | Netgear routers | 9.8 | Command injection |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [ICS, OT, and hardware](/hubs/ics-ot-and-hardware.md)
+- Learning path: [IoT Security](/disciplines/iot-security.md)
+- [Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [SDR & RF Security Reference](/SDR_RF_SECURITY_REFERENCE.md)
+- [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-04-26 | Framework versions: OWASP IoT Top 10 (2018), ATT&CK for ICS v19.2, ETSI EN 303 645 v2.1.1, NIST IR 8259A*

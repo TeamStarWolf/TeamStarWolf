@@ -233,6 +233,14 @@ When a cloud/SaaS/identity incident lands and there is no host to seize:
 - [REGULATORY_LANDSCAPE_REFERENCE.md](REGULATORY_LANDSCAPE_REFERENCE.md): breach-notification clocks that run alongside the investigation
 - [IR_PLAYBOOKS.md](IR_PLAYBOOKS.md), [THREAT_HUNTING_REFERENCE.md](THREAT_HUNTING_REFERENCE.md): operational playbooks and hunting hypotheses
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-09-29 | TeamStarWolf Cybersecurity Reference Library*

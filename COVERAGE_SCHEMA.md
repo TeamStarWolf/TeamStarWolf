@@ -462,3 +462,13 @@ result = calculate_rosi(
 ```
 
 ---
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Threat-informed defense and ATT&CK](/hubs/threat-informed-defense.md)
+- [Enterprise Security Pipeline](/SECURITY_PIPELINE.md)
+- [Controls Mapping](/CONTROLS_MAPPING.md)
+
+<!-- related:end -->

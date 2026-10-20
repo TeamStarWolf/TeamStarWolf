@@ -2609,3 +2609,16 @@ api_requests
 *Reference compiled for cybersecurity practitioners. All techniques described for authorized security testing and defensive purposes only. Always obtain proper authorization before conducting security testing.*
 
 *Last updated: 2026-04-26*
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Application and supply chain security](/hubs/application-and-supply-chain.md)
+- [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+- [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md)
+- [Identity & Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)
+- [DevSecOps Reference](/DEVSECOPS_REFERENCE.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+<!-- related:end -->

@@ -25,6 +25,16 @@ An adversary modifies the design of a technology, product, or component to achei
 - Assess design documentation prior to development to ensure that they function as intended and without any malicious functionality.
 - Ensure that design documentation is saved in a secure location and has proper access controls set in place to avoid unnecessary modification.
 
+<!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Library references
+
+Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+
+<!-- library-refs:end -->
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

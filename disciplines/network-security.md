@@ -4,6 +4,12 @@ Network security encompasses the tools, techniques, and disciplines used to moni
 
 The discipline has expanded significantly with the rise of encrypted traffic, cloud networking, and east-west lateral movement that never crosses a perimeter. Modern network security requires understanding TLS inspection, cloud VPC flow logs, DNS-over-HTTPS implications for detection, and the network behavior signatures of sophisticated threat actors who specifically design their tools to blend into normal business traffic.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching references: [Network Defense Reference](/NETWORK_DEFENSE_REFERENCE.md) and [Network Monitoring Reference](/NETWORK_MONITORING_REFERENCE.md), the library's in-depth pages on this subject.
+
+<!-- path-reference:end -->
+
 ---
 
 ## Where to Start

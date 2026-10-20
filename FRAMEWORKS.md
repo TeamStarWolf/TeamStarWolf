@@ -562,3 +562,13 @@ Access Control, Awareness & Training, Audit & Accountability, Configuration Mana
 - [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md): GRC discipline page
 - [Privacy Engineering](disciplines/privacy-engineering.md): GDPR/CCPA technical implementation
 - [ICS / OT Security](disciplines/ics-ot-security.md): IEC 62443 implementation
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Security-Program Management / CISO Handbook](/SECURITY_PROGRAM_MANAGEMENT_REFERENCE.md)
+- [Security Awareness Program](/SECURITY_AWARENESS_REFERENCE.md)
+
+<!-- related:end -->

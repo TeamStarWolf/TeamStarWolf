@@ -245,6 +245,14 @@ Response:
 - [AI_SECURITY_REFERENCE.md](AI_SECURITY_REFERENCE.md), [ATLAS_REFERENCE.md](ATLAS_REFERENCE.md): GenAI risk and MITRE ATLAS technique mapping
 - [REGULATORY_LANDSCAPE_REFERENCE.md](REGULATORY_LANDSCAPE_REFERENCE.md): breach/incident notification clocks that a fraud event may also trip
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [AI and emerging tech](/hubs/ai-and-emerging-tech.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-09-29 | TeamStarWolf Cybersecurity Reference Library*

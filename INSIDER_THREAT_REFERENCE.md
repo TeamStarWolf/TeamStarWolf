@@ -537,6 +537,17 @@ Quarterly, four numbers and one story: KB technique coverage (are we watching wh
 - MITRE ATT&CK: [version history](https://attack.mitre.org/resources/versions/)
 - Ponemon Institute (DTEX-sponsored): [2026 Cost of Insider Risks commentary](https://www.ponemon.org/news-updates/blog/security/lessons-learned-from-the-2026-global-cost-of-insider-risks.html)
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [GRC Reference](/GRC_REFERENCE.md)
+- [Security Metrics Reference](/SECURITY_METRICS_REFERENCE.md)
+- [Security Awareness Program](/SECURITY_AWARENESS_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *The Insider Threat TTP Knowledge Base is a project of the MITRE Center for Threat-Informed Defense (Apache-2.0); ATT&CK® is a trademark of The MITRE Corporation. CISA, ODNI/NCSC, and NIST publications are U.S. Government works; the Common Sense Guide is © Carnegie Mellon University. This is an independent practitioner reference, not affiliated with or endorsed by any of these organizations; consult the upstream sources for authoritative and current content. Technique counts (47/29) are sourced from CTID's official v2.0 release announcement; Ponemon figures are vendor-sponsored survey benchmarks; detection telemetry outside the KB's documented clusters is practitioner guidance, not an official CTID mapping.*

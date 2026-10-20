@@ -1743,3 +1743,15 @@ Set-ExecutionPolicy Unrestricted
 - VMware: Create custom VMnet (host-only) for malware VMs
 - INetSim: Simulate internet services (DNS, HTTP, SMTP) for C2 callout observation
 - FakeNet-NG: Windows-based network simulation; simulates common services
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Hands-On Labs](/LABS.md)
+- [Active Directory Attacks](/ACTIVE_DIRECTORY_ATTACKS.md)
+- [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md)
+- [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md)
+
+<!-- related:end -->

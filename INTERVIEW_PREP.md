@@ -401,3 +401,13 @@ Research compensation thoroughly before any negotiation. Key sources:
 - [Hands-On Labs](LABS.md): HTB, THM, BTLO, and other practice platforms
 - [HTB Learning Tracks](research/HTB_TRACKS.md): structured learning paths on HackTheBox
 - [Security Tools Reference](TOOLS.md): tool matrix by category
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [CISSP Domain Crosswalk](/CISSP_DOMAIN_CROSSWALK.md)
+- [CEH Domain Crosswalk](/CEH_DOMAIN_CROSSWALK.md)
+
+<!-- related:end -->

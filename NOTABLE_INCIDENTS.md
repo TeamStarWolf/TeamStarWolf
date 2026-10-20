@@ -479,6 +479,14 @@ This file is part of the TeamStarWolf cybersecurity reference library. See also:
 | [MALWARE_FAMILIES.md](./MALWARE_FAMILIES.md) | Malware family reference: ransomware, RATs, wipers, banking trojans, rootkits |
 | [DETECTION_RULES_REFERENCE.md](./DETECTION_RULES_REFERENCE.md) | YARA rules, Sigma rules, SIEM queries, and detection strategies by threat category |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Threat intelligence and adversaries](/hubs/threat-intelligence.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2025, Maintained by [TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf), Contributions welcome via pull request*

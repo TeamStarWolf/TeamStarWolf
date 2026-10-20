@@ -2157,3 +2157,16 @@ Target: >70% of techniques relevant to your threat model have active detection
 
 *Document maintained by Security Operations | Classification: Internal | Review cycle: Quarterly*
 *For updates or corrections, submit to the Security Team via the internal security portal*
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+- Learning path: [Incident Response](/disciplines/incident-response.md)
+- [IR Playbooks](/IR_PLAYBOOKS.md)
+- [Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md)
+- [Network Forensics Reference](/NETWORK_FORENSICS_REFERENCE.md)
+- [Notable Incidents](/NOTABLE_INCIDENTS.md)
+
+<!-- related:end -->

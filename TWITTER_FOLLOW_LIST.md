@@ -352,3 +352,13 @@ Scope: about 205 accounts organized into 19 main sections, plus a short Black Ha
 | @IanColdwater | Ian Coldwater | Kubernetes security | K8s security research and hardening |
 | @hakluke | Luke Stephens | Bug bounty methodology | Bug bounty education; high-signal methodology content |
 | @NahamSec | Ben Sadeghipour | Bug bounty, recon | Live hacking events; practical bug bounty |
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Resources](/RESOURCES.md)
+- [Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md)
+
+<!-- related:end -->

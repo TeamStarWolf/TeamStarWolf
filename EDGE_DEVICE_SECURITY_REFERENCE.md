@@ -409,6 +409,16 @@ Three honest caveats, stated by CISA itself: the pledge is voluntary and not leg
 - CISA/FBI/NCSC-UK: Reducing the Attack Surface for End-of-Support Edge Devices (Feb 5, 2026): <https://www.cisa.gov/resources-tools/resources/reducing-attack-surface-end-support-edge-devices>
 - Ivanti: enhanced external Integrity Checker Tool announcement (Feb 2024): <https://www.ivanti.com/blog/enhanced-external-integrity-checking-tool-to-provide-additional-visibility-and-protection-for-customers-against-evolving-threat-actor-techniques-in-relation-to-previously-disclosed-vulnerabilities>
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Network security](/hubs/network-security.md)
+- [Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md)
+- [Networking Fundamentals](/NETWORKING_FUNDAMENTALS.md)
+
+<!-- related:end -->
+
 ---
 
 *This reference summarizes third-party government and framework publications (CISA directives and advisories, the international edge-device guidance series (CCCS, NCSC-UK, ASD ACSC), NSA cybersecurity technical reports, the KEV catalog, and MITRE ATT&CK®) as an independent practitioner summary; it is not affiliated with or endorsed by those organizations. Directives, advisories, KEV entries, and pledge signers change continuously; consult the linked originals for authoritative and current content. The ATT&CK table above is an editorial mapping by this library, not an official MITRE or CISA artifact.*

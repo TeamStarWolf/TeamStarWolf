@@ -1694,6 +1694,19 @@ MITRE ATT&CK v19.2 Reconnaissance (TA0043) techniques and OSINT tool mapping:
 | T1598.002 | Spearphishing Attachment | Weaponized document with tracking | N/A |
 | T1598.003 | Spearphishing Link | Credential harvesting page | N/A |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Threat intelligence and adversaries](/hubs/threat-intelligence.md)
+- Learning path: [OSINT](/disciplines/osint.md)
+- [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md)
+- [Red Team Reference](/RED_TEAM_REFERENCE.md)
+- [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md)
+- [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-04-26 | Maintained by the TeamStarWolf Cybersecurity Reference Library*

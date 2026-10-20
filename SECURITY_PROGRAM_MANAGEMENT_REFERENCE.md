@@ -322,6 +322,14 @@ Run the program on a predictable calendar so nothing lands as a surprise:
 - [CAREER_PATHS.md](CAREER_PATHS.md), [CERTIFICATIONS.md](CERTIFICATIONS.md): the CISO career path and leadership credentials (CISSP, CCISO, CISM)
 - [disciplines/governance-risk-compliance.md](disciplines/governance-risk-compliance.md): GRC discipline overview
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-09-29 | TeamStarWolf Cybersecurity Reference Library*

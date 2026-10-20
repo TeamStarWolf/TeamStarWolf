@@ -1,4 +1,4 @@
-﻿# Browser Security Reference
+# Browser Security Reference
 
 > In one minute: This document explains how a modern browser keeps one website from tampering with another and how servers reinforce those boundaries. It walks through the browser's isolation model, the same-origin policy (the core rule that one site's code cannot read another site's data), and the response headers and cookie settings that harden a web app. Each topic is paired with the misconfigurations that weaken it and the defensive settings that fix them, so a practitioner can both audit and configure.
 
@@ -851,3 +851,15 @@ JSON Schema validation: Reject input containing `__proto__`, `constructor`, or `
 | CRXcavator Extension Analysis | https://web.archive.org/web/20251006164505/https://crxcavator.io/ |
 | Chromium Security Architecture | `https://chromium.googlesource.com/chromium/src/+/main/docs/security/security-architecture.md` |
 | Prototype Pollution Research | https://github.com/BlackFan/client-side-prototype-pollution |
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Application and supply chain security](/hubs/application-and-supply-chain.md)
+- [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+- [API Security Reference](/API_SECURITY_REFERENCE.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+
+<!-- related:end -->

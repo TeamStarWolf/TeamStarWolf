@@ -759,6 +759,19 @@ Finding management workflow:
 | Exception management | PM-9, CA-5 | Clause 6.1.3 (Risk Treatment) | CC3.2 |
 | Policy management | PL-1, PL-2 | Clause 5.2, Annex A 5.1, 5.2 | CC1.3 |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- Learning path: [Governance, Risk & Compliance (GRC)](/disciplines/governance-risk-compliance.md)
+- [GRC Compliance Reference](/GRC_COMPLIANCE_REFERENCE.md)
+- [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Security Metrics Reference](/SECURITY_METRICS_REFERENCE.md)
+- [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-04-21 | TeamStarWolf Cybersecurity Reference Library*

@@ -2082,3 +2082,16 @@ jobs:
 - [Hadolint](https://github.com/hadolint/hadolint)
 - [Grype](https://github.com/anchore/grype)
 - [Syft](https://github.com/anchore/syft)
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Cloud and infrastructure](/hubs/cloud-and-infrastructure.md)
+- Learning path: [Container & Kubernetes Security](/disciplines/container-kubernetes-security.md)
+- [Kubernetes Security Reference](/KUBERNETES_SECURITY_REFERENCE.md)
+- [DevSecOps Reference](/DEVSECOPS_REFERENCE.md)
+- [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md)
+- [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+<!-- related:end -->

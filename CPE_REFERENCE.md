@@ -92,6 +92,14 @@ CPE does not map to ATT&CK techniques: different abstraction (product identity v
 - [Vulnerability Management Reference](VULNERABILITY_MANAGEMENT_REFERENCE.md), [Vulnerability Prioritization Reference](VULNERABILITY_PRIORITIZATION_REFERENCE.md), [CTEM Reference](CTEM_REFERENCE.md)
 - [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [MITRE Enriched Pages](mitre/README.md)
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+
+<!-- related:end -->
+
 ---
 
 *Independent reference summary. CPE, CVE and the NVD are products of NIST/MITRE; consult the upstream specifications (NIST IR 7695) and the NVD for authoritative content.*

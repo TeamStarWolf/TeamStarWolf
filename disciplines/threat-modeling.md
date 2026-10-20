@@ -1,5 +1,11 @@
 # Threat Modeling
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching reference: [Threat Modeling Reference](/THREAT_MODELING_REFERENCE.md), the library's in-depth page on this subject.
+
+<!-- path-reference:end -->
+
 ## Introduction
 
 Threat modeling is a structured approach to identifying threats, attack vectors, and mitigations during the design phase of a system, before code is written. The goal is to answer four key questions:

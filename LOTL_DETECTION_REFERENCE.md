@@ -442,6 +442,19 @@ In this library: [Purple Team](PURPLE_TEAM_REFERENCE.md), [Security Metrics](SEC
 - Apple: Endpoint Security framework: <https://developer.apple.com/documentation/endpointsecurity>
 - NIST SP 800-92 Rev. 1 (initial public draft): <https://csrc.nist.gov/pubs/sp/800/92/r1/ipd>
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+- [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md)
+- [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md)
+- [SIEM Reference](/SIEM_REFERENCE.md)
+- [SIEM Detection Content](/SIEM_DETECTION_CONTENT.md)
+- [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *This reference summarizes public guidance from CISA, NSA, FBI, and partner agencies, MITRE ATT&CK, and Microsoft, Red Hat, and Apple documentation, with community catalogs cited for defensive inventory use. It is an independent practitioner summary; consult the linked primary sources for authoritative detail. Framework facts verified September 2026 against ATT&CK v19; catalog counts, application-control documentation, and advisory facts verified September 2026 against the live sources. Catalog entry counts drift continuously; treat the figures here as a snapshot and the projects' machine-readable feeds as the source of record.*

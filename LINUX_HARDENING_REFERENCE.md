@@ -2566,3 +2566,15 @@ cat /proc/version                    # Kernel build info
 
 *Last updated: 2026-05-04 | Reference library for Linux system hardening, compliance, and security operations.*
 *Maintained by the security engineering team. Validate all commands in a test environment before production use.*
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Platform hardening](/hubs/platform-hardening.md)
+- [Linux Hardening](/LINUX_HARDENING.md)
+- [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md)
+- [Privilege Escalation Reference](/PRIVESC_REFERENCE.md)
+- [Controls Mapping](/CONTROLS_MAPPING.md)
+
+<!-- related:end -->

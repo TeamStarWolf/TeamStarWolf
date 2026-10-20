@@ -2895,6 +2895,19 @@ Post-audit:
   [ ] Emergency pause tested on testnet
 ```
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [AI and emerging tech](/hubs/ai-and-emerging-tech.md)
+- Learning path: [Blockchain & Web3 Security](/disciplines/blockchain-web3-security.md)
+- [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md)
+- [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Fight Fraud Framework (MITRE F3)](/FRAUD_FRAMEWORK_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Part of the TeamStarWolf Cybersecurity Reference Library. For contributions, see [CONTRIBUTING.md](CONTRIBUTING.md).*

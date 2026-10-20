@@ -1814,6 +1814,19 @@ Phase 4 (Lessons Learned):
 3. Update purple team exercise scenarios to include observed TTPs
 4. Review and update this playbook
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Identity and data protection](/hubs/identity-and-data-protection.md)
+- Learning path: [Active Directory Security](/disciplines/active-directory.md)
+- [Active Directory Attacks](/ACTIVE_DIRECTORY_ATTACKS.md)
+- [Active Directory Attack Reference](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md)
+- [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md)
+- [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *This reference is intended as a living document. Update quarterly and after any security incident. Cross-reference with [ACTIVE_DIRECTORY_ATTACKS.md](ACTIVE_DIRECTORY_ATTACKS.md) for offensive technique details.*

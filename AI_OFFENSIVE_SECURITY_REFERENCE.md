@@ -1068,3 +1068,16 @@ For Security Managers
 *This document is maintained as a living reference. Content reflects the state of AI offensive security as of early 2026. The field evolves rapidly; practitioners should supplement this reference with current vendor documentation, academic publications, and community resources.*
 
 *All tools and techniques described are for authorized security testing only. Unauthorized use of offensive security tools is illegal and unethical.*
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [AI and emerging tech](/hubs/ai-and-emerging-tech.md)
+- [AI Security Reference](/AI_SECURITY_REFERENCE.md)
+- [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md)
+- [CVE Reference](/CVE_REFERENCE.md)
+- [Red Team Reference](/RED_TEAM_REFERENCE.md)
+- [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md)
+
+<!-- related:end -->

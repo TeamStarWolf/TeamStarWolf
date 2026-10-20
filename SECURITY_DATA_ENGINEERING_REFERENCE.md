@@ -550,6 +550,18 @@ For a SOC that has a SIEM and "some forwarders" but has never treated the pipeli
 - MITRE ATT&CK: versions: <https://attack.mitre.org/resources/versions/>, v18 release notes (Detection Strategies, Analytics, Data Components v2.0): <https://attack.mitre.org/resources/updates/updates-october-2025/>, v19 release notes: <https://attack.mitre.org/resources/updates/updates-april-2026/>
 - Fluent Bit: <https://fluentbit.io/>, Vector: <https://vector.dev/>
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+- [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md)
+- [SIEM Reference](/SIEM_REFERENCE.md)
+- [SIEM Detection Content](/SIEM_DETECTION_CONTENT.md)
+- [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *This reference summarizes third-party projects and vendor documentation (OCSF (a Linux Foundation project), Elastic ECS, OpenTelemetry, the Splunk Common Information Model, Microsoft Sentinel ASIM, Amazon Security Lake, and MITRE ATT&CK®) as an independent practitioner summary; it is not affiliated with or endorsed by those organizations. Schema versions, model counts, and service capabilities cited here are date-stamped as of September 2026 and change frequently; consult the linked originals before relying on any specific figure. No official cross-schema field mapping exists between OCSF, ECS, CIM, and ASIM; all cross-schema tables in this document are illustrative.*

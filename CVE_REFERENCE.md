@@ -1091,3 +1091,16 @@ KEV membership. It often appears before formal KEV catalog addition.
 *Last updated: 2026-05-07 | Covers CVE program architecture, CVSS v3.1/v4.0,
 EPSS, CISA KEV, vulnerability databases, research methodology, patch management,
 notable case studies, and automation tooling.*
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CTEM Reference](/CTEM_REFERENCE.md)
+- [Fuzzing & Vulnerability Research](/FUZZING_VULNERABILITY_RESEARCH.md)
+- [Exploit Development Reference](/EXPLOIT_DEVELOPMENT_REFERENCE.md)
+- [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+
+<!-- related:end -->

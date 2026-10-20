@@ -1889,6 +1889,19 @@ Communities:
   - SDR-Radio.com forum
 ```
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Network security](/hubs/network-security.md)
+- Learning path: [Radio Frequency (RF) Security](/disciplines/radio-frequency-security.md)
+- [Wireless Security Reference](/WIRELESS_SECURITY_REFERENCE.md)
+- [Automotive Security Reference](/AUTOMOTIVE_SECURITY_REFERENCE.md)
+- [Telecom & 5G Security Reference](/TELECOM_5G_SECURITY_REFERENCE.md)
+- [Security Gadgets Reference](/SECURITY_GADGETS_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-05-04 | This document is for authorized security research and educational purposes only. Always obtain proper authorization before testing. Comply with all applicable laws and regulations.*

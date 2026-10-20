@@ -266,3 +266,13 @@ Intelligence sharing platforms: ISACs (sector-specific), MISP communities, FS-IS
 - [ATT&CK Navigator](navigator/): visualize actor coverage against your controls
 - [Incident Response](disciplines/incident-response.md): responding to APT intrusions
 - [Purple Teaming](disciplines/purple-teaming.md): emulating actor TTPs for detection validation
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Threat intelligence and adversaries](/hubs/threat-intelligence.md)
+- [Threat Report Almanac](/THREAT_REPORT_ALMANAC.md)
+- [Threat Group Profiles](/THREAT_GROUP_PROFILES.md)
+
+<!-- related:end -->

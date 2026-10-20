@@ -4,6 +4,12 @@ Application security encompasses the practices, tools, and disciplines used to d
 
 The attack surface of modern applications has expanded dramatically. APIs now represent the dominant attack vector in web application security: more data is exposed through poorly secured API endpoints than through classic XSS or SQLi vulnerabilities. Supply chain attacks (SolarWinds, XZ Utils, Log4Shell) have made software composition analysis and SBOM generation central to AppSec programs. And the shift-left movement has pushed security earlier into development, with practitioners spending as much time reviewing developer pull requests and configuring SAST pipelines as they do manually testing production applications.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching reference: [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), the library's in-depth page on this subject.
+
+<!-- path-reference:end -->
+
 ---
 
 ## Where to Start

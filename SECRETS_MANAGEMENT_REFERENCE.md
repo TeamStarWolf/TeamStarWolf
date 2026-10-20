@@ -1877,6 +1877,19 @@ pre-commit install
 - [ ] Audit logging for `secrets` API group in K8s audit policy
 - [ ] Regular review of all ServiceAccount token permissions
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Application and supply chain security](/hubs/application-and-supply-chain.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md)
+- [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+- [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
+- [DevSecOps Reference](/DEVSECOPS_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-04-26 | Part of the TeamStarWolf Cybersecurity Reference Library*

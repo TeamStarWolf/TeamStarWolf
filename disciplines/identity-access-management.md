@@ -6,6 +6,12 @@ IAM failures drive a disproportionate share of significant breaches. The Lapsus$
 
 > Ensuring every user, device, and workload can prove who they are, gets only the access they need, and that privileged access is tightly controlled and audited.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching reference: [Identity & Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), the library's in-depth page on this subject.
+
+<!-- path-reference:end -->
+
 ## What IAM Engineers Do
 
 - Design and operate Identity Providers (IdP) and federated identity architectures (SAML, OIDC, OAuth 2.0)

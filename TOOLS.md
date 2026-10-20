@@ -521,3 +521,16 @@ For deeper context on how tools map to NIST 800-53 controls and ATT&CK technique
 | [Azure Entra ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id) | Commercial | Cloud IAM; Conditional Access; PIM; best for Microsoft |
 | [SailPoint IdentityNow](https://www.sailpoint.com/) | Commercial | IGA; access certifications; role management |
 | [Teleport](https://goteleport.com/) | OSS/Commercial | Modern PAM; certificate-based access; K8s/SSH/DB |
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Enterprise Security Pipeline](/SECURITY_PIPELINE.md)
+- [Controls Mapping](/CONTROLS_MAPPING.md)
+- [Hands-On Labs](/LABS.md)
+- [Starred Repositories](/STARRED_REPOS.md)
+- [Open Source Toolkit](/OPEN_SOURCE_TOOLKIT.md)
+
+<!-- related:end -->

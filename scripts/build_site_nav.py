@@ -20,7 +20,8 @@ Writes, from the config and the pages themselves:
 
 Titles come from each page's H1. A reference's summary is its line in INDEX.md, or else
 the first sentence of the page's opening paragraph. Reading time is the page's words
-(code blocks, comments and link targets left out) at 230 words a minute. A guide's time
+(code blocks, comments, script-written blocks and link targets left out) at 230 words a
+minute. A guide's time
 and level come from its own header table, as on the homepage.
 
 Rules the --check run enforces (CI, validate-data.yml):
@@ -158,8 +159,15 @@ def summary(rel: str, descs: dict) -> str:
     return first_sentence(bsi.summary_of(text, bsi.title_of(text, rel)))
 
 
+SCRIPT_BLOCK_RE = re.compile(r"<!--\s*([\w-]+):start\b.*?<!--\s*\1:end\s*-->", re.S)
+LOCAL_ID_LINK_RE = re.compile(r" \(\[local\]\(/mitre/[^()\s]+\.md\)\)")
+
+
 def word_count(text: str) -> int:
-    t = bsi.without_comments(text)
+    # Script-written blocks (the "Related pages" footer from build_crosslinks.py and the
+    # like) and its "(local)" links after MITRE IDs are navigation, not reading, so they
+    # never move a reading time.
+    t = bsi.without_comments(LOCAL_ID_LINK_RE.sub("", SCRIPT_BLOCK_RE.sub(" ", text)))
     t = re.sub(r"^\s*(```|~~~).*?^\s*\1[^\n]*$", " ", t, flags=re.S | re.M)
     t = re.sub(r"!\[([^\]]*)\]\([^)]*\)", " ", t)
     t = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", t)

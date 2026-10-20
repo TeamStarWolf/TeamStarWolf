@@ -15,6 +15,16 @@ An adversary prevents host-generated logs being delivered to a central location 
 - [T1562.006: Indicator Blocking](/mitre/techniques/T1562-006.md): An adversary may attempt to block indicators or events typically captured by sensors from being gathered and analyzed.
 - [T1562.008: Disable or Modify Cloud Logs](/mitre/techniques/T1562-008.md): An adversary may disable or modify cloud logging capabilities and integrations to limit what data is collected on their activities and avoid detection.
 
+<!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Library references
+
+Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+
+<!-- library-refs:end -->
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

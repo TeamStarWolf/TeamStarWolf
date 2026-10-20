@@ -93,8 +93,10 @@ jobs:
         run: python scripts/generate_technique_detail_pages.py --check
 
   repo-hygiene:
-    name: Tracked junk, text encoding, revoked ATT&CK IDs, voice in hand-written pages
+    name: Tracked junk, text encoding, revoked ATT&CK IDs, voice in hand-written pages, theme contrast
     # junk: nothing build/editor/OS-generated is tracked (all of it would be published).
+    # contrast: every text/background pair the site theme uses (index.html --tsw-* tokens,
+    #   dark and light) meets WCAG AA: 4.5:1 for text, 3:1 for focus rings and accent rules.
     # encoding: every tracked text file is valid UTF-8 with no U+FFFD and no double-encoded
     #   UTF-8 (the mojibake class PR-15 cleaned up).
     # revoked: hand-written pages may not cite a revoked/deprecated ATT&CK ID (per
@@ -125,6 +127,9 @@ jobs:
 
       - name: No new revoked/deprecated ATT&CK IDs in hand-written pages
         run: python scripts/check_repo_hygiene.py --only revoked --report
+
+      - name: Site theme colours meet WCAG AA in both themes (index.html tokens)
+        run: python scripts/check_contrast.py
 
       - name: No new voice-guide violations in hand-written pages (docs/VOICE.md)
         # On a pull request, fetch only the base branch tip (no credentials needed for a
@@ -167,9 +172,9 @@ jobs:
   stats-drift:
     name: Headline-number drift guard
     # Audit Wave 0: headline numbers compute from data, never hand-typed. Regenerate
-    # stats.json and the README "What's inside" table from source data, fail if either
-    # committed copy is stale, and fail if any human-facing doc states a number that
-    # diverges from the computed value.
+    # stats.json and the README and HOME "What's inside" blocks from source data, fail if
+    # any committed copy is stale, and fail if any human-facing doc states a number that
+    # diverges from the computed value. The homepage guide cards are checked the same way.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -182,11 +187,14 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Regenerate stats.json and the README counts from data
+      - name: Regenerate stats.json and the README and HOME counts from data
         run: python scripts/build_stats.py
 
-      - name: Fail if committed stats.json or the README counts are stale
-        run: git diff --exit-code -- data/generated/stats.json README.md
+      - name: Fail if committed stats.json or the README or HOME counts are stale
+        run: git diff --exit-code -- data/generated/stats.json README.md HOME.md
+
+      - name: Homepage guide cards match each guide's Time and Difficulty table
+        run: python scripts/build_home_guides.py --check
 
       - name: Headline-number drift check (docs vs data)
         run: python scripts/build_stats.py --check

@@ -38,7 +38,7 @@ New here? [How to use this library](guides/HOW_TO_USE_THIS_LIBRARY.md) shows wha
 | Reference documents | 155 | One topic each: its terms, tooling, and the frameworks and guidance that apply | [Reference index](INDEX.md) |
 | How-to guides | 21 | One task, step by step, with the time it takes, what you need, and what you produce | [Guides](guides/README.md) |
 | Learning paths | 47 | An order of study for one discipline, with training, tools, books, and certifications | [Learning paths](disciplines/README.md) |
-| Framework pages | 2,930 | One page per ATT&CK, CAPEC, D3FEND, ATLAS, and F3 object, generated from MITRE data | [Framework pages](mitre/README.md) |
+| Framework pages | 2,930 | One page per Enterprise ATT&CK technique, tactic, group, software entry, campaign, and mitigation, CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, and F3 technique | [Framework pages](mitre/README.md) |
 <!-- stats:end -->
 
 Where a published mapping exists, a technique page links the NIST SP 800-53 controls, MITRE detection strategies and analytics, CAPEC attack patterns, and D3FEND countermeasures that relate to it. The same relationships ship as JSONL files and ATT&CK Navigator layers. [About the data](ABOUT_THE_DATA.md) gives their sources, the ATT&CK version each part is built from (v19.2 for the data and framework pages), and what CI checks. The library also holds [vendor tool pages](tools/README.md), [AI tooling notes](ai-tooling/README.md), [case studies](case-studies/README.md), [tools research](tools-research/README.md), and [research notes](research/README.md).

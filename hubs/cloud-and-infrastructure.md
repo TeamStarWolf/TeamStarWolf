@@ -26,10 +26,12 @@ Part of the [domain hubs](/hubs/README.md). 8 reference documents in this domain
 
 ## How-to guides
 
-| Guide | Time | Level |
+Time and difficulty are quoted in full from each guide's header table.
+
+| Guide | Time | Difficulty |
 |---|---|---|
-| [Harden a Kubernetes Cluster](/guides/HARDEN_A_KUBERNETES_CLUSTER.md) | A day for a non-prod pilot | Advanced |
-| [Investigate a Cloud Account Compromise](/guides/INVESTIGATE_A_CLOUD_COMPROMISE.md) | First hour is containment | High |
+| [Harden a Kubernetes Cluster](/guides/HARDEN_A_KUBERNETES_CLUSTER.md) | A day for a non-prod pilot; 2-4 weeks to roll a production cluster through every step | Advanced |
+| [Investigate a Cloud Account Compromise](/guides/INVESTIGATE_A_CLOUD_COMPROMISE.md) | First hour is containment; full investigation 1-5 days by scope | Advanced: cross-provider, and the evidence ages by the hour |
 | [Assess Your M365 Tenant with ScubaGear](/guides/ASSESS_M365_WITH_SCUBAGEAR.md) | 2-4 hours for the first full run and report review | Intermediate |
 
 ## See also

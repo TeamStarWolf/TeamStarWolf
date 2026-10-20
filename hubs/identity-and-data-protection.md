@@ -37,9 +37,11 @@ Part of the [domain hubs](/hubs/README.md). 10 reference documents in this domai
 
 ## How-to guides
 
-| Guide | Time | Level |
+Time and difficulty are quoted in full from each guide's header table.
+
+| Guide | Time | Difficulty |
 |---|---|---|
-| [Roll Out Phishing-Resistant MFA and Conditional Access](/guides/ROLL_OUT_PHISHING_RESISTANT_MFA.md) | A week for the admin pilot | Intermediate-Advanced |
+| [Roll Out Phishing-Resistant MFA and Conditional Access](/guides/ROLL_OUT_PHISHING_RESISTANT_MFA.md) | A week for the admin pilot; one to two quarters to full enforcement | Intermediate to advanced: identity changes lock people out when rushed |
 
 ## See also
 

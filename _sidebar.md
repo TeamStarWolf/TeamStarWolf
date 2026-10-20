@@ -8,9 +8,13 @@
 
 ---
 
-- Guides and learning paths
+- Guides
   - [How-to guides](/guides/README.md)
-  - [Learning paths](/disciplines/README.md)
+
+---
+
+- Learning paths
+  - [All learning paths](/disciplines/README.md)
 
 ---
 

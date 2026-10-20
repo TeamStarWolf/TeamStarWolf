@@ -17,7 +17,9 @@ by the date its pull requests merged to `main` rather than by tagged release.
 - Domain hubs (`hubs/`): one page per domain listing its references with a one-line summary
   and a reading time, the matching learning paths and how-to guides, and related framework
   pages. The homepage's "Browse by domain" cards link to them
-- Explore (`explore.md`): every ATT&CK, CAPEC, D3FEND, ATLAS and F3 object that has a page,
+- Explore (`explore.md`): the ATT&CK techniques, groups, software, campaigns and
+  mitigations, CAPEC attack patterns, D3FEND countermeasures, ATLAS techniques and
+  mitigations, and F3 techniques that have a page (tactics are a filter, not rows),
   in one table filterable by kind, tactic, platform, software type and CAPEC abstraction
   and severity, searchable by ID, name or alias, with connection counts. Built from the
   JSONL files in `data/` by `scripts/build_explore.py`

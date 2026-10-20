@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Build the Explore page: one filterable table of every framework object that has a page.
+"""Build the Explore page: one filterable table of the framework objects that have a page.
+
+The rows are the ATT&CK techniques, groups, software, campaigns and mitigations, the CAPEC
+attack patterns, D3FEND countermeasures, ATLAS techniques and mitigations and F3 techniques.
+Tactics are a filter, not rows; the ATT&CK tactic pages are linked from the page text.
 
     assets/explore.json   one row per object (kind, ID, name, tactics or type, platforms,
                           aliases, CAPEC abstraction and severity, connection counts), read
@@ -293,12 +297,18 @@ def render_page(data: dict, meta: dict) -> str:
     deprecated = sum(1 for r in data["rows"] if r.get("dep"))
     out = ["<!-- explore:start (" + GENERATED_BY + ") -->", "",
            "# Explore the frameworks", "",
-           "> Every framework object that has a page in this library, in one table: filter it by "
-           "kind, tactic, platform, software type or CAPEC severity, or type an ID, a name or an "
-           "alias (T1059, APT29, Cozy Bear, CAPEC-66) to find one.", "",
+           "> One table of the framework objects that have a page in this library: ATT&CK "
+           "techniques, groups, software, campaigns and mitigations, CAPEC attack patterns, D3FEND "
+           "countermeasures, ATLAS techniques and mitigations, and F3 techniques. Tactics are a "
+           "filter rather than rows; each ATT&CK tactic has its own page under "
+           "[ATT&CK tactics](/mitre/tactics/README.md).", "",
+           "The table and its filters run on the [website](https://teamstarwolf.github.io/TeamStarWolf/#/explore): filter by kind, "
+           "tactic, platform, software type or CAPEC severity, or type an ID, a name or an alias "
+           "(T1059, APT29, Cozy Bear, CAPEC-66) to find one. Where the table does not load, as on "
+           "GitHub, the family index pages below list the same objects.", "",
            '<div id="tsw-explore" class="tsw-explore-app"></div>', "",
            "## Browse by family", "",
-           "The same " + format(total, ",") + " objects, one index page per family. The table above "
+           "The same " + format(total, ",") + " objects, one index page per family. The website's table "
            "is built from the JSONL files in [data/](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data) "
            "into [assets/explore.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/" + JSON_OUT + ").", "",
            "| Family | Objects | Index | Built from |", "|---|---|---|---|"]

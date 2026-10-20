@@ -45,15 +45,17 @@ Part of the [domain hubs](/hubs/README.md). 16 reference documents in this domai
 
 ## How-to guides
 
-| Guide | Time | Level |
+Time and difficulty are quoted in full from each guide's header table.
+
+| Guide | Time | Difficulty |
 |---|---|---|
-| [Run an ATT&CK Coverage Gap Assessment](/guides/RUN_A_COVERAGE_GAP_ASSESSMENT.md) | 2-4 hours | Intermediate |
+| [Run an ATT&CK Coverage Gap Assessment](/guides/RUN_A_COVERAGE_GAP_ASSESSMENT.md) | 2-4 hours (first run) | Intermediate |
 | [Run Your First Purple-Team Exercise](/guides/RUN_A_PURPLE_TEAM_EXERCISE.md) | Half a day to plan, 2-3 hours to run | Intermediate |
 | [How to Use This Library](/guides/HOW_TO_USE_THIS_LIBRARY.md) | 30-45 min | Beginner |
 
 ## See also
 
-- [Explore every framework object](/explore.md)
+- [Explore: framework objects in one table](/explore.md)
 - [ATT&CK priority gaps](/scores/attack_priority_gaps.md)
 - [Navigator layers](/navigator/)
 - [Cross-framework crosswalk](/mitre/crosswalk.md)

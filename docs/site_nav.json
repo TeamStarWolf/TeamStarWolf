@@ -33,9 +33,11 @@
       ["Search tips", "/guides/HOW_TO_USE_THIS_LIBRARY.md?id=step-3-find-anything-three-ways"],
       ["What changed", "/CHANGELOG.md"]
     ]},
-    {"label": "Guides and learning paths", "links": [
-      ["How-to guides", "/guides/README.md"],
-      ["Learning paths", "/disciplines/README.md"]
+    {"label": "Guides", "links": [
+      ["How-to guides", "/guides/README.md"]
+    ]},
+    {"label": "Learning paths", "links": [
+      ["All learning paths", "/disciplines/README.md"]
     ]},
     {"label": "Domains", "hubs": true},
     {"label": "Frameworks", "links": [
@@ -130,7 +132,7 @@
       "paths": ["detection-engineering", "purple-teaming", "threat-intelligence"],
       "guides": ["RUN_A_COVERAGE_GAP_ASSESSMENT", "RUN_A_PURPLE_TEAM_EXERCISE", "HOW_TO_USE_THIS_LIBRARY"],
       "see_also": [
-        ["Explore every framework object", "/explore.md"],
+        ["Explore: framework objects in one table", "/explore.md"],
         ["ATT&CK priority gaps", "/scores/attack_priority_gaps.md"],
         ["Navigator layers", "/navigator/"],
         ["Cross-framework crosswalk", "/mitre/crosswalk.md"]

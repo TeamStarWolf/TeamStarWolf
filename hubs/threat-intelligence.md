@@ -25,9 +25,11 @@ Part of the [domain hubs](/hubs/README.md). 7 reference documents in this domain
 
 ## How-to guides
 
-| Guide | Time | Level |
+Time and difficulty are quoted in full from each guide's header table.
+
+| Guide | Time | Difficulty |
 |---|---|---|
-| [Produce and Operationalize an Intelligence Product](/guides/PRODUCE_AN_INTELLIGENCE_PRODUCT.md) | A few focused days for the first product end to end | Intermediate |
+| [Produce and Operationalize an Intelligence Product](/guides/PRODUCE_AN_INTELLIGENCE_PRODUCT.md) | A few focused days for the first product end to end; the operationalization loop is ongoing | Intermediate: analytic tradecraft plus cross-team coordination |
 
 ## See also
 

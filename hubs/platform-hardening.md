@@ -24,10 +24,12 @@ Part of the [domain hubs](/hubs/README.md). 6 reference documents in this domain
 
 ## How-to guides
 
-| Guide | Time | Level |
+Time and difficulty are quoted in full from each guide's header table.
+
+| Guide | Time | Difficulty |
 |---|---|---|
-| [Harden a Windows Baseline](/guides/HARDEN_A_WINDOWS_BASELINE.md) | Half a day for a pilot | Intermediate |
-| [Harden a macOS Fleet with mSCP](/guides/HARDEN_A_MACOS_FLEET.md) | 1-2 days for a pilot cohort | Intermediate |
+| [Harden a Windows Baseline](/guides/HARDEN_A_WINDOWS_BASELINE.md) | Half a day for a pilot; 2-4 weeks to full production | Intermediate |
+| [Harden a macOS Fleet with mSCP](/guides/HARDEN_A_MACOS_FLEET.md) | 1-2 days for a pilot cohort; 2-4 weeks to full fleet | Intermediate |
 
 ## See also
 

@@ -54,17 +54,19 @@ Part of the [domain hubs](/hubs/README.md). 24 reference documents in this domai
 
 ## How-to guides
 
-| Guide | Time | Level |
+Time and difficulty are quoted in full from each guide's header table.
+
+| Guide | Time | Difficulty |
 |---|---|---|
-| [Build and Deploy Your First Detection](/guides/BUILD_YOUR_FIRST_DETECTION.md) | Half a day hands-on, plus a 1-2 week audit soak | Beginner-to-intermediate |
+| [Build and Deploy Your First Detection](/guides/BUILD_YOUR_FIRST_DETECTION.md) | Half a day hands-on, plus a 1-2 week audit soak | Beginner to intermediate |
 | [Onboard a Log Source the Right Way](/guides/ONBOARD_A_LOG_SOURCE.md) | 4-8 hours hands-on, plus a shadow-run of at least one business cycle | Intermediate |
 | [Hunt for Living-off-the-Land Activity](/guides/HUNT_FOR_LOTL_ACTIVITY.md) | 3-5 hours of hands-on work, split around a 30-day baseline window | Intermediate |
 | [Build a Detection Home Lab](/guides/BUILD_A_DETECTION_HOMELAB.md) | 6-10 hours over a weekend | Beginner to intermediate |
-| [Respond to a Ransomware Incident](/guides/RESPOND_TO_RANSOMWARE.md) | First 24-72 hours of the incident | High |
-| [Run a Ransomware Tabletop Exercise](/guides/RUN_A_RANSOMWARE_TABLETOP.md) | About 12 weeks part-time planning, one ~4-hour session, after-action closes ~8 weeks later | Moderate |
+| [Respond to a Ransomware Incident](/guides/RESPOND_TO_RANSOMWARE.md) | First 24-72 hours of the incident (steps run in parallel after Step 3) | Advanced: decisions under pressure, some irreversible |
+| [Run a Ransomware Tabletop Exercise](/guides/RUN_A_RANSOMWARE_TABLETOP.md) | ~12 weeks part-time planning, one ~4-hour session, after-action closes ~8 weeks later | Intermediate: no tooling to install; facilitation and follow-through discipline are the hard parts |
 | [Investigate a Phishing Report](/guides/INVESTIGATE_A_PHISHING_EMAIL.md) | 30-90 minutes per report | Intermediate |
-| [Acquire and Triage a Compromised Endpoint](/guides/ACQUIRE_AND_TRIAGE_AN_ENDPOINT.md) | 4-8 hours per host for acquisition + first-pass triage | Advanced |
-| [Investigate a Cloud Account Compromise](/guides/INVESTIGATE_A_CLOUD_COMPROMISE.md) | First hour is containment | High |
+| [Acquire and Triage a Compromised Endpoint](/guides/ACQUIRE_AND_TRIAGE_AN_ENDPOINT.md) | 4-8 hours per host for acquisition + first-pass triage; a full timeline and report can run 1-3 days | Advanced: irreversible collection decisions, evidence-integrity discipline |
+| [Investigate a Cloud Account Compromise](/guides/INVESTIGATE_A_CLOUD_COMPROMISE.md) | First hour is containment; full investigation 1-5 days by scope | Advanced: cross-provider, and the evidence ages by the hour |
 
 ## See also
 

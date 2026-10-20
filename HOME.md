@@ -60,8 +60,8 @@
 <div class="tsw-guides">
   <a class="tsw-guide" href="#/guides/HOW_TO_USE_THIS_LIBRARY"><span class="tsw-guide-t">How to Use This Library</span> <span class="tsw-pills"><span class="tsw-pill" title="30-45 min"><span class="tsw-sr-only">Time: </span>30-45 min</span> <span class="tsw-pill" title="Beginner"><span class="tsw-sr-only">Level: </span>Beginner</span></span></a>
   <a class="tsw-guide" href="#/guides/TRIAGE_A_CVE"><span class="tsw-guide-t">Triage a New CVE in 30 Minutes</span> <span class="tsw-pills"><span class="tsw-pill" title="~30 minutes"><span class="tsw-sr-only">Time: </span>About 30 minutes</span> <span class="tsw-pill" title="Intermediate"><span class="tsw-sr-only">Level: </span>Intermediate</span></span></a>
-  <a class="tsw-guide" href="#/guides/BUILD_YOUR_FIRST_DETECTION"><span class="tsw-guide-t">Build and Deploy Your First Detection</span> <span class="tsw-pills"><span class="tsw-pill" title="Half a day hands-on, plus a 1-2 week audit soak"><span class="tsw-sr-only">Time: </span>Half a day hands-on, plus a 1-2 week audit soak</span> <span class="tsw-pill" title="Beginner-to-intermediate"><span class="tsw-sr-only">Level: </span>Beginner-to-intermediate</span></span></a>
-  <a class="tsw-guide" href="#/guides/RESPOND_TO_RANSOMWARE"><span class="tsw-guide-t">Respond to a Ransomware Incident</span> <span class="tsw-pills"><span class="tsw-pill" title="First 24-72 hours of the incident (steps run in parallel after Step 3)"><span class="tsw-sr-only">Time: </span>First 24-72 hours of the incident</span> <span class="tsw-pill" title="High: decisions under pressure, some irreversible"><span class="tsw-sr-only">Level: </span>High</span></span></a>
+  <a class="tsw-guide" href="#/guides/BUILD_YOUR_FIRST_DETECTION"><span class="tsw-guide-t">Build and Deploy Your First Detection</span> <span class="tsw-pills"><span class="tsw-pill" title="Half a day hands-on, plus a 1-2 week audit soak"><span class="tsw-sr-only">Time: </span>Half a day hands-on, plus a 1-2 week audit soak</span> <span class="tsw-pill" title="Beginner to intermediate"><span class="tsw-sr-only">Level: </span>Beginner to intermediate</span></span></a>
+  <a class="tsw-guide" href="#/guides/RESPOND_TO_RANSOMWARE"><span class="tsw-guide-t">Respond to a Ransomware Incident</span> <span class="tsw-pills"><span class="tsw-pill" title="First 24-72 hours of the incident (steps run in parallel after Step 3)"><span class="tsw-sr-only">Time: </span>First 24-72 hours of the incident</span> <span class="tsw-pill" title="Advanced: decisions under pressure, some irreversible"><span class="tsw-sr-only">Level: </span>Advanced</span></span></a>
   <a class="tsw-guide" href="#/guides/HARDEN_A_WINDOWS_BASELINE"><span class="tsw-guide-t">Harden a Windows Baseline</span> <span class="tsw-pills"><span class="tsw-pill" title="Half a day for a pilot; 2-4 weeks to full production"><span class="tsw-sr-only">Time: </span>Half a day for a pilot</span> <span class="tsw-pill" title="Intermediate"><span class="tsw-sr-only">Level: </span>Intermediate</span></span></a>
   <a class="tsw-guide" href="#/guides/START_A_VULN_MGMT_PROGRAM"><span class="tsw-guide-t">Start a Vulnerability Management Program (First 90 Days)</span> <span class="tsw-pills"><span class="tsw-pill" title="~90 days elapsed; 2-4 hours to first scan"><span class="tsw-sr-only">Time: </span>About 90 days elapsed</span> <span class="tsw-pill" title="Intermediate"><span class="tsw-sr-only">Level: </span>Intermediate</span></span></a>
 </div>
@@ -133,7 +133,7 @@
     <a href="#/mitre/f3/README">F3</a>
     <a href="#/mitre/crosswalk">Crosswalk</a>
   </div>
-  <a class="tsw-btn" href="#/explore">Filter every object in Explore</a>
+  <a class="tsw-btn" href="#/explore">Filter these families in Explore</a>
 </div>
 
 <div class="tsw-anchor" id="study-and-career"></div>

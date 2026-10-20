@@ -76,10 +76,12 @@ Part of the [domain hubs](/hubs/README.md). 35 reference documents in this domai
 
 ## How-to guides
 
-| Guide | Time | Level |
+Time and difficulty are quoted in full from each guide's header table.
+
+| Guide | Time | Difficulty |
 |---|---|---|
-| [Start a Vulnerability Management Program (First 90 Days)](/guides/START_A_VULN_MGMT_PROGRAM.md) | About 90 days elapsed | Intermediate |
-| [Triage a New CVE in 30 Minutes](/guides/TRIAGE_A_CVE.md) | About 30 minutes | Intermediate |
+| [Start a Vulnerability Management Program (First 90 Days)](/guides/START_A_VULN_MGMT_PROGRAM.md) | ~90 days elapsed; 2-4 hours to first scan | Intermediate |
+| [Triage a New CVE in 30 Minutes](/guides/TRIAGE_A_CVE.md) | ~30 minutes | Intermediate |
 
 ## See also
 

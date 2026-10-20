@@ -19,6 +19,6 @@
 | [ICS, OT, and hardware](/hubs/ics-ot-and-hardware.md) | Industrial control systems, embedded and IoT devices, hardware, vehicles, space systems, and physical security. | 9 |
 | [GRC and security program](/hubs/grc-and-security-program.md) | Running a security program: governance, risk, compliance, architecture and controls, vulnerability and exposure management, careers, and reading lists. | 35 |
 
-Every reference A to Z: the [reference index](/INDEX.md). Every framework object in one filterable table: [Explore](/explore.md).
+Every reference A to Z: the [reference index](/INDEX.md). The framework objects that have a page, in one filterable table: [Explore](/explore.md).
 
 <!-- hub:end -->

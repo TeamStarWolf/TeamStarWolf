@@ -254,6 +254,21 @@ def nested_sidebars(cfg: dict) -> dict[str, str]:
     return out
 
 
+# The words a guide's Difficulty cell may open with, so the hub tables read as one scale.
+# A qualifier may follow after a colon ("Advanced: decisions under pressure").
+DIFFICULTY_LEVELS = ("Beginner", "Beginner to intermediate", "Intermediate",
+                     "Intermediate to advanced", "Advanced")
+
+
+def difficulty(guide: str, raw: str) -> str:
+    text = bhg.plain(raw).strip()
+    level = text.split(":", 1)[0].strip()
+    if level not in DIFFICULTY_LEVELS:
+        raise SystemExit("guides/" + guide + ".md: Difficulty '" + text + "' does not open with one of: "
+                         + ", ".join(DIFFICULTY_LEVELS))
+    return text
+
+
 def hub_page(h: dict, descs: dict) -> str:
     docs = [d for g in h["groups"] for d in g["docs"]]
     out = ["<!-- hub:start (" + GENERATED_BY + ") -->", "",
@@ -274,11 +289,12 @@ def hub_page(h: dict, descs: dict) -> str:
         out += ["- " + md_link(title("disciplines/" + p + ".md"), "/disciplines/" + p + ".md") for p in h["paths"]]
         out.append("")
     if h.get("guides"):
-        out += ["## How-to guides", "", "| Guide | Time | Level |", "|---|---|---|"]
+        out += ["## How-to guides", "", "Time and difficulty are quoted in full from each guide's header table.", "",
+                "| Guide | Time | Difficulty |", "|---|---|---|"]
         for g in h["guides"]:
             hd = bhg.header(g)
             out.append("| " + md_link(cell(hd["title"]), "/guides/" + g + ".md") + " | "
-                       + cell(bhg.plain(bhg.short(hd["time"]))) + " | " + cell(bhg.plain(bhg.short(hd["level"]))) + " |")
+                       + cell(bhg.plain(hd["time"])) + " | " + cell(difficulty(g, hd["level"])) + " |")
         out.append("")
     if h.get("see_also"):
         out += ["## See also", ""]
@@ -298,8 +314,8 @@ def hubs_index(cfg: dict) -> str:
     for h in cfg["hubs"]:
         n = sum(len(g["docs"]) for g in h["groups"])
         out.append("| " + md_link(h["title"], hub_target(h)) + " | " + cell(h["summary"]) + " | " + str(n) + " |")
-    out += ["", "Every reference A to Z: the [reference index](/INDEX.md). Every framework object in one "
-            "filterable table: [Explore](/explore.md).", "", "<!-- hub:end -->"]
+    out += ["", "Every reference A to Z: the [reference index](/INDEX.md). The framework objects that have a "
+            "page, in one filterable table: [Explore](/explore.md).", "", "<!-- hub:end -->"]
     return "\n".join(out) + "\n"
 
 

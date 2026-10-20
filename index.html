@@ -931,13 +931,22 @@
     .markdown-section .tsw-crumbs li { margin: 0; color: var(--tsw-text-dim); }
     .markdown-section .tsw-crumbs li + li::before { content: '/'; margin-right: .35rem; color: var(--tsw-text-dim); }
     .markdown-section .tsw-crumbs li[aria-current] { color: var(--tsw-text-muted); }
-    .sidebar .tsw-toc { margin: 0 0 12px; padding: 0 0 10px; border-bottom: 1px solid var(--tsw-border-soft); }
+    /* The 15 px left gutter matches docsify's ".sidebar ul" margin, so the block lines up
+       with the sections below it. The height cap keeps a long reference from pushing the
+       site sections a screen or more down; the list scrolls inside the block instead. */
+    .sidebar .tsw-toc { margin: 0 0 12px 15px; padding: 0 0 10px; border-bottom: 1px solid var(--tsw-border-soft); }
     .sidebar .tsw-toc summary {
       cursor: pointer; padding: 2px 0 4px;
       font-size: .705rem; font-weight: 700; text-transform: uppercase; letter-spacing: .09em; color: var(--tsw-text-dim);
     }
-    .sidebar .tsw-toc ul { margin: 2px 0 0; padding: 0 0 0 2px; list-style: none; }
-    .sidebar .tsw-toc li { margin: 0; }
+    .sidebar .tsw-toc ul {
+      display: block; margin: 2px 0 0; padding: 0 8px 0 2px; list-style: none;
+      max-height: 45vh; overflow-y: auto; overscroll-behavior: contain;
+    }
+    .sidebar .tsw-toc li { margin: 0; float: none; clear: both; }
+    /* docsify's theme puts a floated "-" before every .app-sub-sidebar item; nothing clears
+       those floats, so each entry stepped further right. The block has its own heading. */
+    .sidebar .tsw-toc li::before { content: none; display: none; }
     .sidebar .tsw-toc li a { display: block; font-size: .84rem; line-height: 1.4; padding: 3px 0; }
     .sidebar-nav li.tsw-in-section > a { color: var(--tsw-green); font-weight: 650; }
 
@@ -1273,7 +1282,7 @@
           scripts/build_site_nav.py writes from docs/site_nav.json; in the sidebar, the hub or
           folder link of the open page is marked, and a page the sidebar does not list (a
           reference, a framework page) gets an "On this page" list of its sections.
-       2. Explore (explore.md): the filterable table of every framework object, from
+       2. Explore (explore.md): the filterable table of the framework objects that have a page, from
           assets/explore.json (scripts/build_explore.py). Without the JSON the page still
           shows its family index tables, which is all GitHub shows. -->
   <script>
@@ -1341,6 +1350,11 @@
           // The sections of a page the sidebar does not list, at the top of the sidebar
           if (side.querySelector('.tsw-toc')) { return; }
           var ul = sections && sections.querySelector('li') ? sections : null;
+          // top-level sections only: with every h3 too, a long reference listed 84 entries.
+          // docsify puts each nested list beside its parent item (ul > ul), not inside it.
+          if (ul && ul.querySelectorAll(':scope > li').length >= 2) {
+            Array.prototype.slice.call(ul.querySelectorAll(':scope > ul, :scope > li > ul')).forEach(function (n) { n.remove(); });
+          }
           if (!ul) {
             var heads = Array.prototype.slice.call(document.querySelectorAll('#main h2[id]'));
             if (heads.length < 2) { if (sections) { sections.remove(); } return; }
@@ -1504,6 +1518,24 @@
           var more = el('button', { type: 'button', className: 'tsw-x-btn tsw-x-more' });
           ui.appendChild(more);
           root.appendChild(ui);
+          var facetSels = [[tacticSel, 'tactic'], [platformSel, 'platform'], [typeSel, 'type'], [absSel, 'abs'], [sevSel, 'sev']];
+          // docsify does not re-render when only the query of the open page changes (a shared
+          // link opened from Explore, or the Explore link clicked while filtered), so the
+          // state and the controls are read again from the URL on every hash change.
+          function fromQuery(q1) {
+            st.q = q1.q || ''; st.kind = d.kx[q1.kind] === undefined ? '' : q1.kind;
+            st.sort = /^(id|name|links)$/.test(q1.sort || '') ? q1.sort : 'id';
+            st.sub = q1.sub !== '0'; st.old = q1.old !== '0'; st.shown = PAGE;
+            input.value = st.q;
+            facetSels.forEach(function (f) {
+              var s = f[0].querySelector('select');
+              s.value = q1[f[1]] || '';
+              st[f[1]] = s.value;
+            });
+            sortSel.value = st.sort; subBox.checked = st.sub; oldBox.checked = st.old;
+            update();
+          }
+          exploreSync = { root: root, sync: fromQuery };
 
           var timer = 0;
           input.addEventListener('input', function () {
@@ -1559,6 +1591,17 @@
             if (location.hash !== h && history.replaceState) { history.replaceState(history.state, '', h); }
           }
           function update() {
+            var k = st.kind;
+            tacticSel.hidden = !(k === '' || k === 'technique' || k === 'atlas' || k === 'f3' || k === 'd3fend');
+            platformSel.hidden = !(k === '' || k === 'technique' || k === 'software');
+            typeSel.hidden = !(k === '' || k === 'software');
+            absSel.hidden = sevSel.hidden = !(k === '' || k === 'capec');
+            subBox.parentElement.hidden = !(k === '' || k === 'technique' || k === 'atlas' || k === 'f3');
+            oldBox.parentElement.hidden = !(k === '' || k === 'technique' || k === 'capec');
+            // a facet hidden for this kind is cleared: none of the kind's rows has a value for it
+            facetSels.forEach(function (f) {
+              if (f[0].hidden && st[f[1]]) { st[f[1]] = ''; f[0].querySelector('select').value = ''; }
+            });
             var q = st.q.trim().toLowerCase().replace(/\s+/g, ' '), qk = idKey(st.q);
             var counts = {}, res = [];
             d.rows.forEach(function (r) {
@@ -1584,12 +1627,6 @@
               b.addEventListener('click', function () { st.kind = st.kind === key ? '' : key; st.shown = PAGE; update(); });
               kinds.appendChild(b);
             });
-            var k = st.kind;
-            platformSel.hidden = !(k === '' || k === 'technique' || k === 'software');
-            typeSel.hidden = !(k === '' || k === 'software');
-            absSel.hidden = sevSel.hidden = !(k === '' || k === 'capec');
-            subBox.parentElement.hidden = !(k === '' || k === 'technique' || k === 'atlas' || k === 'f3');
-            oldBox.parentElement.hidden = !(k === '' || k === 'technique' || k === 'capec');
             // rows
             tbody.textContent = '';
             var frag = document.createDocumentFragment();
@@ -1634,6 +1671,23 @@
           update();
         });
       }
+      var exploreSync = null;
+      function hashQuery() {
+        var m = /^#\/explore(?:\.md)?(?:\?(.*))?$/.exec(location.hash);
+        if (!m) { return null; }
+        var out = {};
+        (m[1] || '').split('&').forEach(function (p) {
+          if (!p) { return; }
+          var i = p.indexOf('='), key = i < 0 ? p : p.slice(0, i);
+          try { out[decodeURIComponent(key)] = i < 0 ? '' : decodeURIComponent(p.slice(i + 1).replace(/\+/g, ' ')); } catch (e) { /* skip a malformed pair */ }
+        });
+        return out;
+      }
+      window.addEventListener('hashchange', function () {
+        var q1 = hashQuery();
+        // ?id= is a heading anchor on the Explore page itself, not a filter change
+        if (q1 && !('id' in q1) && exploreSync && document.body.contains(exploreSync.root)) { exploreSync.sync(q1); }
+      });
       window.$docsify.plugins.push(function (hook, vm) {
         hook.doneEach(function () {
           var root = document.getElementById('tsw-explore');

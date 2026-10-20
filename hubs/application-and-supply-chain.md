@@ -28,9 +28,11 @@ Part of the [domain hubs](/hubs/README.md). 8 reference documents in this domain
 
 ## How-to guides
 
-| Guide | Time | Level |
+Time and difficulty are quoted in full from each guide's header table.
+
+| Guide | Time | Difficulty |
 |---|---|---|
-| [Threat Model an Application](/guides/THREAT_MODEL_AN_APPLICATION.md) | 3-4 hours | Intermediate |
+| [Threat Model an Application](/guides/THREAT_MODEL_AN_APPLICATION.md) | 3-4 hours (first pass, one application) | Intermediate |
 
 ## See also
 

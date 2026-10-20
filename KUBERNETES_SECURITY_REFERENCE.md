@@ -1032,6 +1032,19 @@ kubectl get pods --all-namespaces -o json |   jq -r '.items[].spec.containers[].
 kubectl get namespaces -o json |   jq -r '.items[] | select(.metadata.labels["pod-security.kubernetes.io/enforce"] == null) | .metadata.name'
 ```
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Cloud and infrastructure](/hubs/cloud-and-infrastructure.md)
+- Learning path: [Container & Kubernetes Security](/disciplines/container-kubernetes-security.md)
+- [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md)
+- [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md)
+- [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+- [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-04-26 | Part of the [TeamStarWolf Cybersecurity Reference Library](README.md)*

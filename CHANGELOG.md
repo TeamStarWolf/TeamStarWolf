@@ -7,6 +7,16 @@ by the date its pull requests merged to `main` rather than by tagged release.
 ## Unreleased
 
 ### Added
+- Cross-links between the hand-written and generated halves of the library, written into
+  the Markdown by `scripts/build_crosslinks.py` from `docs/crosslinks.json`, so they work on
+  GitHub and on the site: a "Matching reference" line on each learning path that has one,
+  a "Related pages" footer on each root reference (its domain hub, its learning path, the
+  pages in its "Pairs with" row and linked references from the same hub group, less any
+  page the reference's own closing related or see-also section already links), a
+  "(local)" link after each MITRE ID link in the CAPEC, ATT&CK technique and ATT&CK
+  software atlases, and a "Library references" block on each `mitre/` page with a link to
+  the technique's section in the detection strategy and technique detail pages and the
+  hand-written pages that link to it or to its MITRE entry. CI fails when a block is stale
 - Site navigation rebuilt around sections instead of one link per page: a short root
   sidebar (Start, guides and learning paths, domains, frameworks, operate and data, tools,
   case studies and research, about), nested sidebars for the guides, learning paths, vendor

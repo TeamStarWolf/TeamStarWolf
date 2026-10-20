@@ -405,6 +405,16 @@ Frameworks & standards
 - SCIM 2.0: RFC 7643: https://www.rfc-editor.org/rfc/rfc7643.html, RFC 7644: https://www.rfc-editor.org/rfc/rfc7644.html
 - MITRE ATT&CK v19 release notes: https://attack.mitre.org/resources/updates/updates-april-2026/, T1528: https://attack.mitre.org/techniques/T1528/, T1550.001: https://attack.mitre.org/techniques/T1550/001/
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Cloud and infrastructure](/hubs/cloud-and-infrastructure.md)
+- [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md)
+- [Cloud Security Benchmark](/CLOUD_SECURITY_BENCHMARK.md)
+
+<!-- related:end -->
+
 ---
 
 *This reference summarizes third-party frameworks and public vendor disclosures (including CISA's SCuBA project and BOD 25-01, the CSA SSCF, the OWASP NHI Top 10, MITRE ATT&CK®, and the Gartner-defined SSPM category) as an independent practitioner summary. It is not affiliated with or endorsed by any of those organizations; release versions and dates were verified as of September 2026 and will drift. Consult the linked upstream sources for authoritative and current content.*

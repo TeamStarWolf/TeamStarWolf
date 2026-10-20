@@ -53,6 +53,17 @@ The adversary is trying to gather information they can use to plan future operat
 - [T1681: Search Threat Vendor Data](/mitre/techniques/T1681.md)
 - [T1682: Query Public AI Services](/mitre/techniques/T1682.md)
 
+<!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Library references
+
+Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
+
+- [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md)
+- [OSINT](/disciplines/osint.md)
+
+<!-- library-refs:end -->
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

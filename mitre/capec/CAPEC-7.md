@@ -38,6 +38,16 @@ Blind SQL Injection results from an insufficient mitigation for SQL Injection. A
 - Security by Obscurity is not a solution to preventing SQL Injection. Rather than suppress error messages and exceptions, the application must handle them gracefully, returning either a custom error page or redirecting the user to a default page, without revealing any information about the database or the application internals.
 - Strong input validation - All user-controllable input must be validated and filtered for illegal characters as well as SQL content. Keywords such as UNION, SELECT or INSERT must be filtered in addition to characters such as a single-quote(') or SQL-comments (--) based on the context in which they appear.
 
+<!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Library references
+
+Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+
+<!-- library-refs:end -->
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

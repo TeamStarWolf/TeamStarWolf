@@ -2120,6 +2120,19 @@ Annual security conference calendar:
 - NVD CVE Database: `nvd.nist.gov`: vulnerability reference
 - MITRE ATT&CK: `attack.mitre.org`: adversarial tactic reference
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [ICS, OT, and hardware](/hubs/ics-ot-and-hardware.md)
+- [Wireless Security Reference](/WIRELESS_SECURITY_REFERENCE.md)
+- [Red Team Reference](/RED_TEAM_REFERENCE.md)
+- [Radio Frequency (RF) Security](/disciplines/radio-frequency-security.md)
+- [Hardware Security](/disciplines/hardware-security.md)
+- [Physical Security Reference](/PHYSICAL_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *This document is maintained for authorized security research and educational purposes. Always obtain explicit written authorization before conducting any security testing on systems you do not own. Unauthorized use of the tools and techniques described herein may violate applicable law.*

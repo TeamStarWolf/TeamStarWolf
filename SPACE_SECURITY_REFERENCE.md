@@ -539,6 +539,16 @@ The minimum vocabulary for reading space-security guidance without stalling:
 - Viasat hack attribution timeline (May 10, 2022 EU/US/UK statements): [en.wikipedia.org/wiki/Viasat_hack](https://en.wikipedia.org/wiki/Viasat_hack)
 - ESA SPACE-SHIELD: [spaceshield.esa.int](https://spaceshield.esa.int/)
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [ICS, OT, and hardware](/hubs/ics-ot-and-hardware.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [ICS ATT&CK Atlas](/ICS_ATTACK_ATLAS.md)
+
+<!-- related:end -->
+
 ---
 
 *SPARTA is created and maintained by The Aerospace Corporation; MITRE ATT&CK® and D3FEND™ are trademarks of The MITRE Corporation; SPACE-SHIELD is maintained by ESA. This is an independent practitioner reference summary, not affiliated with or endorsed by any of these organizations; consult the upstream sources for authoritative and current content. Technique and countermeasure counts reflect the SPARTA matrix as rendered in September 2026 (v4.0.1) and will drift; re-verify before quoting.*

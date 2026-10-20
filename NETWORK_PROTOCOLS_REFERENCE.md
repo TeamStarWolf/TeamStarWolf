@@ -2374,3 +2374,16 @@ TAP vs SPAN Comparison:
 
 *Document generated: 2026-05-06 | Classification: Internal Security Reference*
 *For updates, vulnerability reports, or corrections: security-docs@teamstarwolf.com*
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Network security](/hubs/network-security.md)
+- [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md)
+- [Network Attacks Reference](/NETWORK_ATTACKS_REFERENCE.md)
+- [Packet Analysis Reference](/PACKET_ANALYSIS_REFERENCE.md)
+- [Network Forensics Reference](/NETWORK_FORENSICS_REFERENCE.md)
+- [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md)
+
+<!-- related:end -->

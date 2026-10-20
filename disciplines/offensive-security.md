@@ -4,6 +4,12 @@ Offensive security encompasses penetration testing, red teaming, adversary emula
 
 The field has evolved rapidly. Modern red teams must contend with EDR platforms that catch commodity tooling instantly, requiring custom implant development and living-off-the-land techniques. Active Directory remains the dominant internal attack surface, and cloud environments have opened entirely new initial access and lateral movement paths. Offensive practitioners who stay current are among the most valued in the industry precisely because the defenders they test are investing heavily to stop them.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching references: [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md) and [Red Team Reference](/RED_TEAM_REFERENCE.md), the library's in-depth pages on this subject.
+
+<!-- path-reference:end -->
+
 ---
 
 ## Where to Start

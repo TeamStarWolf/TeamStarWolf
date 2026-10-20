@@ -1436,6 +1436,18 @@ Revoke-AzureADUserAllRefreshToken -ObjectId "user-object-id"
 | ISO 27001 A.9 | Access control policy; user authentication; privileged access management |
 | FedRAMP / FISMA | NIST SP 800-63B alignment; PIV/CAC for federal systems (AAL3); FIPS 140-3 validated modules |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Identity and data protection](/hubs/identity-and-data-protection.md)
+- [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md)
+- [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md)
+- [Active Directory Security](/disciplines/active-directory.md)
+- [Credential Access: Detection Strategies](/detections/strategies/credential-access.md)
+
+<!-- related:end -->
+
 ---
 
 *Reference compiled from OWASP Password Storage Cheat Sheet (2023), NIST SP 800-63B Rev. 4, CIS Benchmark v8, Microsoft Security Documentation, Hashcat documentation, MITRE ATT&CK v19.2, and community research on password security.*

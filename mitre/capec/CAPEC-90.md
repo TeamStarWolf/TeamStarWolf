@@ -33,6 +33,16 @@ An adversary can abuse an authentication protocol susceptible to reflection atta
 - The use of HMAC to hash the response from the server can also be used to thwart reflection. The server responds by returning its own challenge as well as hashing the client's challenge, its own challenge and the pre-shared secret. Requiring the client to respond with the HMAC of the two challenges ensures that only the possessor of a valid pre-shared secret can successfully hash in the two values.
 - Introducing a random nonce with each new connection ensures that the attacker cannot employ two connections to attack the authentication protocol
 
+<!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Library references
+
+Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+
+<!-- library-refs:end -->
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -476,6 +476,16 @@ A starting cadence for an enterprise program, in the spirit of the [CTEM 90-day 
 - Signal SPQR: <https://signal.org/blog/spqr/>; Apple iMessage PQ3: <https://security.apple.com/blog/imessage-pq3/>
 - CycloneDX CBOM (v1.7 / ECMA-424): <https://cyclonedx.org/capabilities/cbom/>
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Identity and data protection](/hubs/identity-and-data-protection.md)
+- [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md)
+- [Data Security Reference](/DATA_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *This is an independent practitioner summary. FIPS, NIST IR/SP, CNSA, OMB, IETF, and vendor documents cited above are the authoritative sources; NIST IR 8547 remains a draft and its dates are proposals, and CNSA 2.0 FAQ v2.1 details were cross-checked against secondary sources. Verify against the primary PDFs before relying on them for compliance decisions. Not affiliated with or endorsed by NIST, NSA, CISA, or any vendor named.*

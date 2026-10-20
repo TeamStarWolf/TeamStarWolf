@@ -1090,3 +1090,16 @@ find ./http_files/ -name "*.exe" -o -name "*.dll" -o -name "*.ps1"
 | strings | Extract printable strings from binary | `strings capture.pcap \| grep -i 'http\|pass'` | Quick dirty search |
 | Suricata | IDS/IPS with PCAP replay | `suricata -r capture.pcap -l ./logs/` | Rule-based detection on pcap |
 | RITA | Detect beaconing, long connections | `rita analyze --pcap capture.pcap` | Automated C2 detection from Zeek logs |
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Network security](/hubs/network-security.md)
+- [Network Forensics Reference](/NETWORK_FORENSICS_REFERENCE.md)
+- [Network Monitoring Reference](/NETWORK_MONITORING_REFERENCE.md)
+- [Network Protocols Reference](/NETWORK_PROTOCOLS_REFERENCE.md)
+- [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md)
+- [Networking Fundamentals](/NETWORKING_FUNDAMENTALS.md)
+
+<!-- related:end -->

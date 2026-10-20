@@ -4,6 +4,12 @@ Container and Kubernetes security encompasses the practices, tools, and controls
 
 The fundamental challenge of container security is that containers share a kernel with the host. An improperly configured container running as root with unnecessary Linux capabilities is not an isolated workload; it is a privilege escalation path to the underlying node and, from there, to the rest of the cluster. Kubernetes amplifies this: a single misconfigured RBAC binding, an exposed API server, or an unencrypted etcd store can compromise an entire production environment. Container and Kubernetes security is the discipline of systematically reducing this attack surface at every layer of the stack.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching references: [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md) and [Kubernetes Security Reference](/KUBERNETES_SECURITY_REFERENCE.md), the library's in-depth pages on this subject.
+
+<!-- path-reference:end -->
+
 ---
 
 ## Where to Start

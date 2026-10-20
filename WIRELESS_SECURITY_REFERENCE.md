@@ -1861,3 +1861,16 @@ MITRE ATT&CK for Mobile (additional wireless relevance):
 
 *Last updated: 2026-04-26 | TeamStarWolf Cybersecurity Reference Library*
 *Classification: Public Reference | For authorized use in ethical security research and education*
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Network security](/hubs/network-security.md)
+- [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md)
+- [Red Team Reference](/RED_TEAM_REFERENCE.md)
+- [Radio Frequency (RF) Security](/disciplines/radio-frequency-security.md)
+- [IoT Security](/disciplines/iot-security.md)
+- [SDR & RF Security Reference](/SDR_RF_SECURITY_REFERENCE.md)
+
+<!-- related:end -->

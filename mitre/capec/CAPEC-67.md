@@ -33,6 +33,16 @@ This attack targets applications and software that uses the syslog() function in
 
 - The code should be reviewed for misuse of the Syslog function call. Manual or automated code review can be used. The reviewer needs to ensure that all format string functions are passed a static string which cannot be controlled by the user and that the proper number of arguments are always sent to that function as well. If at all possible, do not use the %n operator in format strings. The following code shows a correct usage of Syslog(): syslog(LOG_ERR, "%s", cmdBuf); The following code shows a vulnerable usage of Syslog(): syslog(LOG_ERR, cmdBuf); // the buffer cmdBuff is taking user supplied data.
 
+<!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Library references
+
+Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+
+<!-- library-refs:end -->
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

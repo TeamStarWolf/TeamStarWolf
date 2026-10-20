@@ -660,6 +660,16 @@ RedCurl is a threat actor active since 2018 notable for corporate espionage targ
 
 Notable techniques: [T1003.001](https://attack.mitre.org/techniques/T1003/001) LSASS Memory, [T1005](https://attack.mitre.org/techniques/T1005) Data from Local System, [T1020](https://attack.mitre.org/techniques/T1020) Automated Exfiltration, [T1027](https://attack.mitre.org/techniques/T1027) Obfuscated Files or Information, [T1036.005](https://attack.mitre.org/techniques/T1036/005) Match Legitimate Resource Name or Location, [T1039](https://attack.mitre.org/techniques/T1039) Data from Network Shared Drive, [T1046](https://attack.mitre.org/techniques/T1046) Network Service Discovery, [T1053.005](https://attack.mitre.org/techniques/T1053/005) Scheduled Task, [T1056.002](https://attack.mitre.org/techniques/T1056/002) GUI Input Capture, [T1059.001](https://attack.mitre.org/techniques/T1059/001) PowerShell, [T1059.003](https://attack.mitre.org/techniques/T1059/003) Windows Command Shell, [T1059.005](https://attack.mitre.org/techniques/T1059/005) Visual Basic, [T1059.006](https://attack.mitre.org/techniques/T1059/006) Python, [T1070.004](https://attack.mitre.org/techniques/T1070/004) File Deletion, [T1071.001](https://attack.mitre.org/techniques/T1071/001) Web Protocols, [T1080](https://attack.mitre.org/techniques/T1080) Taint Shared Content, [T1082](https://attack.mitre.org/techniques/T1082) System Information Discovery, [T1083](https://attack.mitre.org/techniques/T1083) File and Directory Discovery _(+23 more)_
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Threat intelligence and adversaries](/hubs/threat-intelligence.md)
+- [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md)
+- [Threat Actors](/THREAT_ACTORS.md)
+
+<!-- related:end -->
+
 ---
 
 *Source: MITRE ATT&CK Enterprise v18.1. Full technique lists for every group are in the machine-readable edge table.*

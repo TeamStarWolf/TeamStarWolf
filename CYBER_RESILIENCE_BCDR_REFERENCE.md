@@ -400,6 +400,17 @@ For executive framing, hang the program on the Recover function of [NIST CSF 2.0
 - Microsoft: AD Forest Recovery Guide: <https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-guide>, Steps for restoring the forest: <https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-steps-for-restoring-the-forest>, Resetting the krbtgt password: <https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-reset-the-krbtgt-password>
 - MITRE ATT&CK: T1490 Inhibit System Recovery: <https://attack.mitre.org/techniques/T1490/>, T1486 Data Encrypted for Impact: <https://attack.mitre.org/techniques/T1486/>
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+- [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)
+- [IR Playbooks](/IR_PLAYBOOKS.md)
+- [Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *This reference summarizes third-party publications (NIST SP 800-34r1, SP 800-84, SP 800-160v2r1, SP 800-53 and CSF 2.0; ISO 22301/22313/22317 (attributed summary only; the standards are copyrighted and paywalled); CISA CRR, CTEP, CPG and #StopRansomware materials; FEMA HSEEP; Microsoft's AD Forest Recovery Guide; and MITRE ATT&CK®) as an independent practitioner summary. It is not affiliated with or endorsed by those organizations. CISA's assessment-program transition was in motion in late 2026; verify the current status of CRR and CTEP resources, and work from the linked originals for anything load-bearing.*

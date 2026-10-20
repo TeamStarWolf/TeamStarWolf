@@ -1627,6 +1627,19 @@ frida -U -f owasp.mstg.uncrackable1 --no-pause -l uncrackable1_solve.js
 - [Project Zero Blog - iOS exploits](https://googleprojectzero.blogspot.com/)
 - [NowSecure Mobile Security Research](https://www.nowsecure.com/blog/)
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Platform hardening](/hubs/platform-hardening.md)
+- Learning path: [Mobile Security](/disciplines/mobile-security.md)
+- [Mobile ATT&CK Atlas](/MOBILE_ATTACK_ATLAS.md)
+- [Telecom & 5G Security Reference](/TELECOM_5G_SECURITY_REFERENCE.md)
+- [Wireless Security Reference](/WIRELESS_SECURITY_REFERENCE.md)
+- [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-04-26 | Part of the [TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf) cybersecurity reference library*

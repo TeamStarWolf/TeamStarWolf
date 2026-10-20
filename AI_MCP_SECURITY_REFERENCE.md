@@ -1639,6 +1639,19 @@ CISA AI Cybersecurity Collaboration Playbook:
 - [ ] Training data provenance documented
 - [ ] AI system technical documentation maintained
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [AI and emerging tech](/hubs/ai-and-emerging-tech.md)
+- [AI Security Reference](/AI_SECURITY_REFERENCE.md)
+- [AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md)
+- [ATLAS Reference (AI threats)](/ATLAS_REFERENCE.md)
+- [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+- [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2025. Sources: MITRE ATLAS (atlas.mitre.org), OWASP Top 10 for LLMs 2025, NIST AI RMF 1.0, NIST AI 100-1, EU AI Act (Regulation 2024/1689), ISO/IEC 42001:2023, CISA AI Guidance, MCP Specification (modelcontextprotocol.io), Anthropic MCP Announcement (November 2024).*

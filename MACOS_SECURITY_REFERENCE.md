@@ -416,6 +416,16 @@ Accessed 2026-09-24. The Apple Platform Security Guide is continuously updated w
 
 Verification notes: "XProtect Remediator" as a name, its 24-module count (Eclectic Light, 2025-01-03; module list unchanged at the 2026-09-18 v163 update), and its scan cadence are third-party observations (Eclectic Light), not Apple documentation; the CloudKit delivery channel for notarization ticket revocation is likewise community-observed, not stated on Apple's malware-protection page. FileVault key length is deliberately omitted; Apple's current page states only AES-XTS. CIS exact version strings were confirmed via a secondary catalog (Tenable), not CIS WorkBench. eslogger's 80-event figure is its macOS 13 introduction count. ATT&CK counts are v19.2; v20 is expected ~October 2026. Technique IDs cited were verified against this library's `technique_profiles.jsonl`, a pre-v19 (v18-era) ATT&CK snapshot, and re-checked against attack.mitre.org v19.2.
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Platform hardening](/hubs/platform-hardening.md)
+- [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md)
+- [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *macOS, Gatekeeper, FileVault, and related marks are trademarks of Apple Inc.; MITRE ATT&CK® is a trademark of The MITRE Corporation; CIS Benchmarks™ are published by the Center for Internet Security. This is an independent practitioner reference, not affiliated with or endorsed by Apple, MITRE, NIST, or CIS; consult the linked primary sources for authoritative and current guidance.*

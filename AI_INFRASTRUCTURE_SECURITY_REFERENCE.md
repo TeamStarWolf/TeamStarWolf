@@ -277,6 +277,15 @@ The model endpoint is an asset to protect (against theft/extraction) and a resou
 - [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md): managed ML platform (SageMaker/Vertex/Databricks) hardening
 - [disciplines/ai-ml-security.md](disciplines/ai-ml-security.md), [disciplines/ai-llm-security.md](disciplines/ai-llm-security.md): discipline learning paths
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [AI and emerging tech](/hubs/ai-and-emerging-tech.md)
+- [AI Architecture Reference](/AI_ARCHITECTURE_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-09-29 | TeamStarWolf Cybersecurity Reference Library*

@@ -2027,6 +2027,19 @@ fi
 - Community ID Spec: https://github.com/corelight/community-id-spec
 - Arkime Wiki: https://github.com/arkime/arkime/wiki
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+- Learning path: [Network Security](/disciplines/network-security.md)
+- [Network Attacks Reference](/NETWORK_ATTACKS_REFERENCE.md)
+- [Network Monitoring Reference](/NETWORK_MONITORING_REFERENCE.md)
+- [Network Forensics Reference](/NETWORK_FORENSICS_REFERENCE.md)
+- [SIEM Reference](/SIEM_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-04-26 | TeamStarWolf Cybersecurity Reference Library*

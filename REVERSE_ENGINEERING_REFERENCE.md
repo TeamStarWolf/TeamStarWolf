@@ -1939,6 +1939,19 @@ MITRE ATT&CK Technique Table
 | Command & Control | T1071.001 | Web Protocols | HTTP POST to /gate.php |
 | Exfiltration | T1041 | Exfiltration Over C2 Channel | Collected data in beacon POST |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+- Learning path: [Reverse Engineering](/disciplines/reverse-engineering.md)
+- [Malware Families](/MALWARE_FAMILIES.md)
+- [Digital Forensics Reference](/DIGITAL_FORENSICS_REFERENCE.md)
+- [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md)
+- [Exploit Development Reference](/EXPLOIT_DEVELOPMENT_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Reference compiled for defensive security analysts. All techniques described are for authorized malware analysis, incident response, and vulnerability research in controlled environments with appropriate legal authorization.*

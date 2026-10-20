@@ -256,3 +256,16 @@ Use AWS Free Tier + CloudGoat + Prowler:
 | CPU | 4 cores | 8+ cores | Virtualization support (VT-x/VT-d) required |
 | Storage | 500GB SSD | 1TB+ NVMe SSD | VMs are IO-intensive; NVMe matters |
 | Network | 1Gbps | 2.5Gbps | Internal lab traffic; host-only networks in hypervisor |
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Career Paths](/CAREER_PATHS.md)
+- [Enterprise Security Pipeline](/SECURITY_PIPELINE.md)
+- [Starred Repositories](/STARRED_REPOS.md)
+- [Certifications Reference](/CERTIFICATIONS.md)
+- [CEH Domain Crosswalk](/CEH_DOMAIN_CROSSWALK.md)
+
+<!-- related:end -->

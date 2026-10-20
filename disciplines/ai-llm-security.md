@@ -4,6 +4,12 @@ AI and Large Language Model security covers two intersecting domains: securing A
 
 This is the fastest-moving field in security. Threat taxonomies like MITRE ATLAS are maturing in public, the OWASP LLM Top 10 has become the reference framework for application-layer LLM risks, and the researchers defining best practices are doing so in real time. Practitioners entering this space need strong security fundamentals combined with enough ML knowledge to reason about model behavior: deep research experience is not required, but understanding what LLMs can and cannot do is essential for building meaningful threat models.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching reference: [AI Security Reference](/AI_SECURITY_REFERENCE.md), the library's in-depth page on this subject.
+
+<!-- path-reference:end -->
+
 ---
 
 ## Where to Start

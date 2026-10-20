@@ -200,6 +200,16 @@ The Class-level weaknesses: the practical taxonomy most secure-coding and testin
 | [CWE-1395](https://cwe.mitre.org/data/definitions/1395.html) | Dependency on Vulnerable Third-Party Component | Varies by Context | In some industries such as healthcare [REF-1320] [REF-1322] or technologies such as the cl |
 | [CWE-1419](https://cwe.mitre.org/data/definitions/1419.html) | Incorrect Initialization of Resource | Gain Privileges or Assume Identity, Read Application Data | Choose the safest-possible initialization for security-related resources. |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Threat-informed defense and ATT&CK](/hubs/threat-informed-defense.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Source: MITRE CWE (CSV export, 969 entries). Consequences/mitigations summarized; see the official CWE pages for full detail.*

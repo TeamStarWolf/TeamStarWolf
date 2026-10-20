@@ -1846,6 +1846,19 @@ Level 5 - Optimizing (Adaptive)
 | Shared Assessments (SIG) | https://sharedassessments.org | Free (registration) |
 | CSA CAIQ | https://cloudsecurityalliance.org/star/registry | Free |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [GRC Reference](/GRC_REFERENCE.md)
+- [Controls Mapping](/CONTROLS_MAPPING.md)
+- [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Security Metrics Reference](/SECURITY_METRICS_REFERENCE.md)
+- [Security-Program Management / CISO Handbook](/SECURITY_PROGRAM_MANAGEMENT_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: April 2026 | Maintained by the TeamStarWolf community*

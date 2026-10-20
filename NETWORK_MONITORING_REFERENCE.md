@@ -1318,6 +1318,19 @@ rita html-report incident-2024-01 --open-browser
 | Scapy | Packet Crafting | Python library for packet construction, capture, replay, and fuzzing | https://scapy.net |
 | FlowBAT | Flow Visualization | Browser-based SiLK / NetFlow analysis frontend | https://web.archive.org/web/20220117215843/http://www.flowbat.com/ |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+- Learning path: [Network Security](/disciplines/network-security.md)
+- [Network Attacks Reference](/NETWORK_ATTACKS_REFERENCE.md)
+- [Packet Analysis Reference](/PACKET_ANALYSIS_REFERENCE.md)
+- [Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md)
+- [SIEM Detection Content](/SIEM_DETECTION_CONTENT.md)
+
+<!-- related:end -->
+
 ---
 
 *See also: [Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md) | [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md) | [Network Security Architecture](NETWORK_SECURITY_ARCHITECTURE.md) | [SIEM Detection Content](SIEM_DETECTION_CONTENT.md)*

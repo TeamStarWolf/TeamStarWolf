@@ -2363,3 +2363,16 @@ RV.2.2            | Risk acceptance with documented business justification
 RV.3.1            | Patch development, upstream coordination, CVE request
 RV.3.2            | VEX document publication, customer notification
 ```
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Application and supply chain security](/hubs/application-and-supply-chain.md)
+- Learning path: [Supply Chain Security](/disciplines/supply-chain-security.md)
+- [Supply Chain Security](/SUPPLY_CHAIN_SECURITY.md)
+- [DevSecOps Reference](/DEVSECOPS_REFERENCE.md)
+- [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md)
+- [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)
+
+<!-- related:end -->

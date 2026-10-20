@@ -42,6 +42,16 @@ An adversary positions a symbolic link in such a manner that the targeted user o
 - Design: Check for the existence of files to be created, if in existence verify they are neither symlinks nor hard links before opening them.
 - Implementation: Use randomly generated file names for temporary files. Give the files restrictive permissions.
 
+<!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Library references
+
+Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+
+<!-- library-refs:end -->
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

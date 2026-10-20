@@ -249,6 +249,16 @@ Verification anchors, September 2026 (publisher announcements for the current ed
 - UK NCSC: [Annual Review 2025](https://www.ncsc.gov.uk/collection/ncsc-annual-review-2025), ASD: [Annual Cyber Threat Report 2024-25 release](https://www.asd.gov.au/news/2025-10-14-australian-signals-directorate-releases-annual-cyber-threat-report-2024-25)
 - World Economic Forum: [Global Cybersecurity Outlook 2026](https://www.weforum.org/publications/global-cybersecurity-outlook-2026/), Health-ISAC: [Annual Threat Report 2026](https://health-isac.org/annual-threat-report-health-sector-2026/)
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Threat intelligence and adversaries](/hubs/threat-intelligence.md)
+- [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md)
+- [Threat Actors](/THREAT_ACTORS.md)
+
+<!-- related:end -->
+
 ---
 
 *This almanac is an original, independent annotated index for a defensive reference library. All report names and trademarks belong to their publishers; none endorses this document. It reproduces no report content (the handful of headline findings quoted above come from the publishers' own public announcements and are attributed by edition year), and links go to official landing pages only. Release windows and access terms were verified in September 2026 and do change; when an edition matters to a decision, confirm against the publisher's page. Read every statistic here with its methodology attached.*

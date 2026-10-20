@@ -868,6 +868,18 @@ jobs:
 | SANS SEC504, SEC540 | Security courses covering threat modeling in penetration testing and DevSecOps context |
 | Adam Shostack's blog | https://shostack.org/blog, commentary from the author of the definitive TM book |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Application and supply chain security](/hubs/application-and-supply-chain.md)
+- Learning path: [Threat Modeling](/disciplines/threat-modeling.md)
+- [Threat-Informed Defense Reference](/THREAT_INFORMED_DEFENSE_REFERENCE.md)
+- [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+- [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-04-24 | TeamStarWolf Cybersecurity Reference Library*

@@ -288,6 +288,19 @@ Sequencing logic: front-load Domains 2, 4, and 3 (56% of the exam combined); bui
 - [MITRE ATT&CK](https://attack.mitre.org/): the technique taxonomy this crosswalk uses to reframe each domain defensively
 - [OWASP](https://owasp.org/): the web-application weakness framing behind Domain 5
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Career Paths](/CAREER_PATHS.md)
+- [Certifications Reference](/CERTIFICATIONS.md)
+- [Interview Prep](/INTERVIEW_PREP.md)
+- [Hands-On Labs](/LABS.md)
+- [CTF Methodology](/CTF_METHODOLOGY.md)
+
+<!-- related:end -->
+
 ---
 
 *Certified Ethical Hacker, CEH, and the CEH logo are trademarks of the EC-Council. This crosswalk is an independent study aid built solely from EC-Council's public exam blueprint and this library's own pages; it is not affiliated with, authorized by, or endorsed by the EC-Council, reproduces no courseware or exam content, and is no substitute for official EC-Council training. Verify the current domains, weights, and exam format against EC-Council's published blueprint before relying on them.*

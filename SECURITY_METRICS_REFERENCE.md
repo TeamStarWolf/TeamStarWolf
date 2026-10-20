@@ -1293,6 +1293,19 @@ Year 4+: Optimize and Innovate
 - Publish subset of metrics to auditors and regulators as evidence of control effectiveness
 - Consider industry working group participation to contribute to benchmark data
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)
+- [SIEM Reference](/SIEM_REFERENCE.md)
+- [SOAR Automation Reference](/SOAR_AUTOMATION_REFERENCE.md)
+- [Security-Program Management / CISO Handbook](/SECURITY_PROGRAM_MANAGEMENT_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Reference compiled for security program management. Benchmarks from IBM Cost of a Data Breach 2024, Verizon DBIR 2024, CIS Controls v8, MITRE ATT&CK v19.2, FAIR Institute, and CISA advisories. Targets are aspirational; adjust based on organization size, industry, and risk appetite.*

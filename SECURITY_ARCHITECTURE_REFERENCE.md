@@ -3332,3 +3332,16 @@ identity the enforcement surface (Section 14.1), and traces every control to a
 measured business risk (Section 11) produces fewer vulnerabilities, fewer that
 are reachable, and fewer still that can spread. Architecture is not downstream
 of the VM program — it is its most durable control.
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- Learning path: [Security Architecture](/disciplines/security-architecture.md)
+- [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
+- [Threat Modeling](/disciplines/threat-modeling.md)
+- [Cloud Security](/disciplines/cloud-security.md)
+- [GRC Reference](/GRC_REFERENCE.md)
+
+<!-- related:end -->

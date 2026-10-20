@@ -1799,3 +1799,16 @@ I need enterprise-grade managed deception -> Thinkst Canary (commercial) or Atti
 I need ICS/SCADA honeypots -> ConPot (included in T-Pot)
 
 I need to detect lateral movement in Windows environments -> OpenCanary with SMB enabled + AD canary accounts in every OU
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+- Learning path: [Active Defense & Deception](/disciplines/active-defense-deception.md)
+- [Deception Technology](/DECEPTION_TECHNOLOGY_REFERENCE.md)
+- [Threat-Informed Defense Reference](/THREAT_INFORMED_DEFENSE_REFERENCE.md)
+- [SIEM Reference](/SIEM_REFERENCE.md)
+- [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md)
+
+<!-- related:end -->

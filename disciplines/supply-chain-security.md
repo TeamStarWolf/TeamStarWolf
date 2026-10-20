@@ -2,6 +2,12 @@
 
 Supply chain security is the practice of protecting the integrity of software and hardware as it flows from developers, vendors, and open-source maintainers into production environments. Every dependency a project pulls, every build system that compiles code, every container image used as a base, and every third-party vendor with privileged access represents a supply chain risk. Adversaries have learned that attacking one well-positioned supplier can compromise thousands of downstream organizations simultaneously, making supply chain attacks one of the highest-leverage offensive techniques available. Supply chain security practitioners include DevSecOps engineers, software engineers, platform security teams, procurement and vendor risk teams, and incident responders. The field sits at the intersection of software development, cryptographic integrity, and risk management.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching reference: [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), the library's in-depth page on this subject.
+
+<!-- path-reference:end -->
+
 ---
 
 ## Where to Start

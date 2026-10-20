@@ -1003,6 +1003,19 @@ Use this checklist when evaluating or designing an enterprise network security a
 | DDoS | T1498/T1499 | Upstream scrubbing, SYN cookies, rate limiting |
 | ARP Spoofing | T1557.002 | Dynamic ARP Inspection, 802.1X |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Network security](/hubs/network-security.md)
+- [Network Defense Reference](/NETWORK_DEFENSE_REFERENCE.md)
+- [Network Monitoring Reference](/NETWORK_MONITORING_REFERENCE.md)
+- [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
+- [Cloud Network Security](/CLOUD_NETWORK_SECURITY.md)
+- [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: April 2026; mapped to NIST 800-53 Rev 5, CIS Controls v8, MITRE ATT&CK v19.2*

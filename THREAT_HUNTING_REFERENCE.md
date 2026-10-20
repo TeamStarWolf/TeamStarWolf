@@ -2155,6 +2155,19 @@ Team Capability:
 | Microsoft-365-Defender-Hunting-Queries | MDE hunting | https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries |
 | YARAify | Community YARA sharing | https://yaraify.abuse.ch/ |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+- Learning path: [Threat Hunting](/disciplines/threat-hunting.md)
+- [Threat Hunting Playbooks](/THREAT_HUNTING_PLAYBOOKS.md)
+- [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)
+- [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md)
+- [Threat Group Profiles](/THREAT_GROUP_PROFILES.md)
+
+<!-- related:end -->
+
 ---
 
 *Last Updated: 2026-04-26 | Maintained by TeamStarWolf | Licensed under MIT*

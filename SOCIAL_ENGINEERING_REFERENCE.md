@@ -1918,6 +1918,19 @@ ALWAYS VERIFY BEFORE ACTING
 - CISA Report Phishing: https://www.cisa.gov/report
 - Anti-Phishing Working Group (APWG): https://apwg.org
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Offensive security](/hubs/offensive-security.md)
+- Learning path: [Social Engineering](/disciplines/social-engineering.md)
+- [Email Security Reference](/EMAIL_SECURITY_REFERENCE.md)
+- [OSINT Reference](/OSINT_REFERENCE.md)
+- [Physical Security Reference](/PHYSICAL_SECURITY_REFERENCE.md)
+- [Red Team Reference](/RED_TEAM_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *This document is part of the TeamStarWolf Cybersecurity Reference Library. For contributions or corrections, open a pull request. All techniques are presented for defensive and educational purposes only.*

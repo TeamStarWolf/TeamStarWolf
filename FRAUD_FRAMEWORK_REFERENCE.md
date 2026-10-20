@@ -302,6 +302,16 @@ The fraud actor's actions to convert assets, often stolen, into usable funds or 
 
 Related: [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Social Engineering](SOCIAL_ENGINEERING_REFERENCE.md), [Identity Security](IDENTITY_SECURITY_REFERENCE.md), [Email Security](EMAIL_SECURITY_REFERENCE.md), [Threat Actors](THREAT_ACTORS.md)
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Threat-informed defense and ATT&CK](/hubs/threat-informed-defense.md)
+- [D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Source: MITRE Fight Fraud Framework™ (F3) v1.1, MITRE Center for Threat-Informed Defense, [ctid.mitre.org/fraud](https://ctid.mitre.org/fraud), [github](https://github.com/center-for-threat-informed-defense/fight-fraud-framework) (Apache-2.0). MITRE F3™ and ATT&CK® are trademarks of The MITRE Corporation. This is an independent reference summary; consult the upstream project for authoritative and current content.*

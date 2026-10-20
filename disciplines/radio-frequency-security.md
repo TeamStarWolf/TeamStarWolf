@@ -4,6 +4,12 @@ Radio frequency security is the discipline of assessing, attacking, and defendin
 
 The security practitioner who understands RF has access to an attack surface that most organizations have never audited. Key areas include: signal interception and analysis, protocol reverse engineering, replay and injection attacks, jamming, credential cloning (RFID/NFC), and GPS manipulation. This discipline bridges hardware, software, and physics; and tools like the RTL-SDR have made entry-level research accessible for under $30.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching reference: [SDR & RF Security Reference](/SDR_RF_SECURITY_REFERENCE.md), the library's in-depth page on this subject.
+
+<!-- path-reference:end -->
+
 ---
 
 ## Where to Start

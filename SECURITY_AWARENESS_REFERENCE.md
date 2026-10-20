@@ -259,6 +259,14 @@ Days 61–90 · Measure & report
 - [REGULATORY_LANDSCAPE_REFERENCE.md](REGULATORY_LANDSCAPE_REFERENCE.md): the statutory/breach-notification regimes behind the training clauses
 - [disciplines/security-awareness.md](disciplines/security-awareness.md): the discipline learning path this reference backs
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-09-29 | TeamStarWolf Cybersecurity Reference Library*

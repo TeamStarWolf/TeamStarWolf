@@ -1190,6 +1190,19 @@ Incident Response:
 - [ ] CISA ICS-CERT contact information posted
 - [ ] Tabletop exercise conducted in last 12 months
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [ICS, OT, and hardware](/hubs/ics-ot-and-hardware.md)
+- Learning path: [ICS/OT Security](/disciplines/ics-ot-security.md)
+- [ICS ATT&CK Atlas](/ICS_ATTACK_ATLAS.md)
+- [EMB3D Reference (Embedded Devices)](/EMB3D_REFERENCE.md)
+- [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md)
+- [Automotive Security Reference](/AUTOMOTIVE_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Reference compiled for cybersecurity professionals. All tool usage against live systems requires explicit authorization. ICS scanning carries risk of operational disruption; always use passive methods first.*

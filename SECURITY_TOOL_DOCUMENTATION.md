@@ -766,3 +766,13 @@ _Learning & reference_
 
 ---
 *Generic reference. No organization or personal data. Confirm all URLs against current vendor sources.*
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Resources](/RESOURCES.md)
+- [Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md)
+
+<!-- related:end -->

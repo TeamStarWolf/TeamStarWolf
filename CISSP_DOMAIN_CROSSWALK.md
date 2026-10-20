@@ -282,6 +282,17 @@ Two rules that matter more than the schedule: take a full-length, timed practice
 - [ISC2 CISSP Exam Refresh FAQ](https://www.isc2.org/certifications/cissp/cissp-exam-refresh-faq): the April 2024 refresh detail
 - [ISC2 Code of Ethics](https://www.isc2.org/ethics): the four professional-ethics canons (Domain 1)
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Career Paths](/CAREER_PATHS.md)
+- [Certifications Reference](/CERTIFICATIONS.md)
+- [Interview Prep](/INTERVIEW_PREP.md)
+
+<!-- related:end -->
+
 ---
 
 *CISSP and ISC2 are trademarks of the International Information System Security Certification Consortium, Inc. (ISC2). This crosswalk is an independent, original study aid built only from ISC2's public exam outline and this library's own documents; it is not affiliated with, authorized, sponsored, or endorsed by ISC2, contains no exam content or brain-dump material, and does not reproduce or paraphrase any third-party courseware or study guide. Consult the Official (ISC2) CISSP Study Guide and official practice tests for authoritative exam preparation.*

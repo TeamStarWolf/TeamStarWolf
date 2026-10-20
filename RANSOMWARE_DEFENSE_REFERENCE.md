@@ -403,6 +403,17 @@ External baseline for context: the FBI IC3 2025 Annual Report (published 2026) r
 - No More Ransom: <https://www.nomoreransom.org/>, Europol six-year milestone (2022): <https://www.europol.europa.eu/media-press/newsroom/news/hit-ransomware-no-more-ransom-now-offers-136-free-tools-to-rescue-your-files>
 - FBI: IC3 2025 Annual Report: <https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf>
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+- [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)
+- [IR Playbooks](/IR_PLAYBOOKS.md)
+- [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *This reference summarizes third-party government and framework publications (CISA's #StopRansomware materials, NIST IR 8374r1/CSF 2.0/SP 800-61r3, MITRE ATT&CK®, OFAC advisories, and the No More Ransom project) as an independent practitioner summary; it is not affiliated with or endorsed by those organizations, and it is not legal advice. Consult the linked originals for authoritative and current content; advisory streams, KEV entries, and decryptor availability change continuously.*

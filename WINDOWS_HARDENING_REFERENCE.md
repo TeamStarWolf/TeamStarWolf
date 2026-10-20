@@ -1814,6 +1814,19 @@ System:
 - [WDAC Policy Wizard](https://webapp-wdac-wizard.azurewebsites.net/)
 - [NSA Event Forwarding Guidance](https://github.com/nsacyber/Event-Forwarding-Guidance)
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Platform hardening](/hubs/platform-hardening.md)
+- [Windows Hardening](/WINDOWS_HARDENING.md)
+- [Windows Hardening GPO Reference](/WINDOWS_HARDENING_GPO.md)
+- [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)
+- [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md)
+- [macOS Security Reference](/MACOS_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *TeamStarWolf Cybersecurity Reference Library: Windows Hardening Reference v1.0*

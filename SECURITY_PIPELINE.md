@@ -365,3 +365,15 @@ Post-incident:
   - Report to leadership
   - Submit to threat intelligence (MISP/ISAC)
 ```
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Threat-informed defense and ATT&CK](/hubs/threat-informed-defense.md)
+- [Controls Mapping](/CONTROLS_MAPPING.md)
+- [Coverage Gap Analysis: TeamStarWolf Vendor Stack](/scores/coverage_gaps.md)
+- [Black Hat Arsenal Crosswalk](/research/BLACK_HAT_ARSENAL_CROSSWALK.md)
+- [Coverage Schema](/COVERAGE_SCHEMA.md)
+
+<!-- related:end -->

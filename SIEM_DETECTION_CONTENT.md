@@ -434,3 +434,16 @@ High-value default rules by category:
 | CIS Benchmarks | cisecurity.org/cis-benchmarks | Hardening benchmarks | CIS license |
 | NSA Advisories | media.defense.gov | Technical hardening guides | Public domain |
 | CISA Advisories | cisa.gov/resources-tools/resources | Threat advisories + controls | Public domain |
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+- [SIEM Reference](/SIEM_REFERENCE.md)
+- [ATT&CK Detection Strategies](/detections/strategies/README.md)
+- [Threat Hunting Playbooks](/THREAT_HUNTING_PLAYBOOKS.md)
+- [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)
+- [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md)
+
+<!-- related:end -->

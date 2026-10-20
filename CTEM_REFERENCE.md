@@ -581,6 +581,18 @@ Three tiers of Gartner material feed any CTEM write-up, and it pays to know whic
 
 One trap worth naming: search engines surface a Wikipedia article for "Continuous Threat Exposure Management" that does not exist (the URL 404s, verified September 2026). Do not cite it.
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)
+- [CVE Reference](/CVE_REFERENCE.md)
+- [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [CPE Reference](/CPE_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *CTEM and the technology categories summarized here (EASM, CAASM, DRPS, VPT, BAS, EAP, and AEV) are Gartner-defined research categories; Gartner, Magic Quadrant, Hype Cycle, and Peer Insights are trademarks of Gartner, Inc. This reference is an independent practitioner summary, is not affiliated with or endorsed by Gartner, quotes only Gartner's public statements, and paraphrases rather than reproduces paywalled research. Vendor category names are used descriptively. Consult Gartner's published research for the authoritative definitions.*

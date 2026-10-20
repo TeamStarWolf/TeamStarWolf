@@ -1,154 +1,97 @@
 <!--
-  HOME.md: the site homepage (docsify renders this at "/"; README.md stays the GitHub face).
-  Keep this page factual and free of headline counts, as _coverpage.md is. The README's
-  counts are written by scripts/build_stats.py; never hand-type one here.
-  Section "Browse by domain" mirrors _sidebar.md groups; section "Discipline paths"
-  mirrors disciplines/*.md and disciplines/README.md.
+  HOME.md: the site homepage (docsify renders it at "/", under the cover in _coverpage.md;
+  README.md stays the GitHub face). The cover carries the title, the one-sentence pitch and
+  the three buttons, so this page starts at the doors and never repeats them.
+  Counts and guide times are script-written, never typed here:
+    - "What's inside" (between the stats markers): scripts/build_stats.py
+    - "Start-here guides" (between the guides markers): scripts/build_home_guides.py, from
+      each guide's own Time and Difficulty table
+  CI fails when either block is stale. Edit the scripts, not the blocks.
   Link rules: raw-HTML hrefs use hash form (#/FOO, no .md); external links carry
   target="_blank" rel="noopener"; JSONL/dataset links are always github.com URLs,
-  never hash routes.
+  never hash routes. Keep each HTML block free of blank lines.
+  Legacy anchors: the empty .tsw-anchor divs (quick-router, learning-paths, how-to-guides,
+  core-references, study-and-career) and the footer's id (data-amp-navigator-layers) keep
+  #/?id= links to the sections of the previous homepage working. Keep them outside
+  headings (docsify copies heading HTML into the sidebar, which would duplicate the id),
+  and do not remove them.
+  The first paragraph (.tsw-gh-only) is hidden on the site and shows only on github.com,
+  which strips the classes; spaces between the card parts keep the stripped text readable.
 -->
 
-<div class="tsw-hero">
-  <div class="tsw-hero-id">
-    <div>
-      <div class="tsw-hero-title">TeamStarWolf</div>
-      <p class="tsw-hero-tag">A cybersecurity reference library cross-referenced to MITRE ATT&amp;CK.</p>
-    </div>
-  </div>
-  <div class="tsw-hero-actions">
-    <a class="tsw-btn tsw-btn--primary" href="#/guides/README">Step-by-Step Guides</a>
-    <a class="tsw-btn tsw-btn--ghost" href="#/INDEX">Reference Index</a>
-    <a class="tsw-btn tsw-btn--ghost" href="#/THREAT_INFORMED_DEFENSE_REFERENCE">Threat-Informed Defense</a>
-    <a class="tsw-btn tsw-btn--ghost" href="https://teamstarwolf.github.io/ATTACK-Navi/" target="_blank" rel="noopener">ATTACK-Navi</a>
-  </div>
-</div>
+<p class="tsw-gh-only">This file is the homepage of the TeamStarWolf site, laid out for the site; its links work there, not on GitHub. Read it at <a href="https://teamstarwolf.github.io/TeamStarWolf/" target="_blank" rel="noopener">teamstarwolf.github.io/TeamStarWolf</a>, or start from the <a href="https://github.com/TeamStarWolf/TeamStarWolf#readme" target="_blank" rel="noopener">README</a> on GitHub.</p>
 
-<p class="tsw-lede">Reference material on offensive testing, defense, cloud, identity, governance, and AI security. Where a published mapping exists, ATT&amp;CK techniques are linked to the NIST SP 800-53 controls, MITRE detection analytics, and D3FEND countermeasures that relate to them.</p>
+<div class="tsw-anchor" id="quick-router"></div><div class="tsw-anchor" id="learning-paths"></div>
 
-## Quick router
+## Where do you want to start?
 
-<div class="tsw-router">
-  <div class="tsw-card">
-    <div class="tsw-card-h">Map coverage &amp; gaps</div>
-    <a class="tsw-card-l" href="#/THREAT_INFORMED_DEFENSE_REFERENCE">Threat-Informed Defense</a>
-    <a class="tsw-card-l" href="#/ATTACK_MATRIX_ANALYSIS_REFERENCE">ATT&amp;CK Matrix Analysis</a>
-    <a class="tsw-card-l" href="#/scores/attack_priority_gaps">Priority Gap Analysis</a>
-    <a class="tsw-card-l" href="#/navigator/index">Navigator Layers</a>
-  </div>
-  <div class="tsw-card">
-    <div class="tsw-card-h">Build detections</div>
-    <a class="tsw-card-l" href="#/detections/TECHNIQUE_DETECTION_LIBRARY">Technique Detection Library</a>
-    <a class="tsw-card-l" href="#/detections/strategies/README">Detection Strategies</a>
-    <a class="tsw-card-l" href="#/DETECTION_RULES_REFERENCE">Detection Rules</a>
-    <a class="tsw-card-l" href="#/SIEM_REFERENCE">SIEM Reference</a>
-  </div>
-  <div class="tsw-card">
-    <div class="tsw-card-h">Hunt</div>
-    <a class="tsw-card-l" href="#/THREAT_HUNTING_REFERENCE">Threat Hunting</a>
-    <a class="tsw-card-l" href="#/THREAT_HUNTING_PLAYBOOKS">Hunting Playbooks</a>
-    <a class="tsw-card-l" href="#/ATTACK_DATA_COMPONENTS">Data Components &amp; Log Sources</a>
-  </div>
-  <div class="tsw-card">
-    <div class="tsw-card-h">Respond now</div>
-    <a class="tsw-card-l" href="#/INCIDENT_RESPONSE_REFERENCE">Incident Response</a>
-    <a class="tsw-card-l" href="#/IR_PLAYBOOKS">IR Playbooks</a>
-    <a class="tsw-card-l" href="#/RANSOMWARE_DEFENSE_REFERENCE">Ransomware Defense</a>
-    <a class="tsw-card-l" href="#/DIGITAL_FORENSICS_REFERENCE">Digital Forensics</a>
-  </div>
-  <div class="tsw-card">
-    <div class="tsw-card-h">Emulate &amp; test</div>
-    <a class="tsw-card-l" href="#/PENETRATION_TESTING_METHODOLOGY">Pentest Methodology</a>
-    <a class="tsw-card-l" href="#/PENTEST_CHECKLISTS">Pentest Checklists</a>
-    <a class="tsw-card-l" href="#/RED_TEAM_REFERENCE">Red Team</a>
-    <a class="tsw-card-l" href="#/PURPLE_TEAM_REFERENCE">Purple Team</a>
-  </div>
-  <div class="tsw-card">
-    <div class="tsw-card-h">Harden</div>
-    <a class="tsw-card-l" href="#/WINDOWS_HARDENING_REFERENCE">Windows Hardening</a>
-    <a class="tsw-card-l" href="#/LINUX_HARDENING_REFERENCE">Linux Hardening</a>
-    <a class="tsw-card-l" href="#/CLOUD_SECURITY_REFERENCE">Cloud Security</a>
-    <a class="tsw-card-l" href="#/ZERO_TRUST_REFERENCE">Zero Trust</a>
-  </div>
-  <div class="tsw-card">
-    <div class="tsw-card-h">Know the adversary</div>
-    <a class="tsw-card-l" href="#/THREAT_GROUP_PROFILES">Threat Group Profiles</a>
-    <a class="tsw-card-l" href="#/THREAT_ACTORS">Threat Actors</a>
-    <a class="tsw-card-l" href="#/MALWARE_FAMILIES">Malware Families</a>
-    <a class="tsw-card-l" href="#/ATTACK_CAMPAIGNS_REFERENCE">Campaigns</a>
-  </div>
-  <div class="tsw-card">
-    <div class="tsw-card-h">Prioritize &amp; govern</div>
-    <a class="tsw-card-l" href="#/VULNERABILITY_MANAGEMENT_REFERENCE">Vulnerability Management</a>
-    <a class="tsw-card-l" href="#/VULNERABILITY_PRIORITIZATION_REFERENCE">Vulnerability Prioritization</a>
-    <a class="tsw-card-l" href="#/CTEM_REFERENCE">CTEM</a>
-    <a class="tsw-card-l" href="#/SECURITY_METRICS_REFERENCE">Security Metrics</a>
-  </div>
-  <div class="tsw-card">
-    <div class="tsw-card-h">Secure AI</div>
-    <a class="tsw-card-l" href="#/ATLAS_REFERENCE">ATLAS</a>
-    <a class="tsw-card-l" href="#/AI_SECURITY_REFERENCE">AI Security</a>
-    <a class="tsw-card-l" href="#/AI_MCP_SECURITY_REFERENCE">AI &amp; MCP Security</a>
-  </div>
-  <div class="tsw-card">
-    <div class="tsw-card-h">Deceive</div>
-    <a class="tsw-card-l" href="#/ENGAGE_REFERENCE">Engage</a>
-    <a class="tsw-card-l" href="#/HONEYPOT_DECEPTION_REFERENCE">Honeypot &amp; Deception</a>
-    <a class="tsw-card-l" href="#/DECEPTION_TECHNOLOGY_REFERENCE">Deception Technology</a>
-  </div>
-  <div class="tsw-card">
-    <div class="tsw-card-h">Fight fraud</div>
-    <a class="tsw-card-l" href="#/FRAUD_FRAMEWORK_REFERENCE">F3 Fraud Framework</a>
-    <a class="tsw-card-l" href="#/SOCIAL_ENGINEERING_REFERENCE">Social Engineering</a>
-    <a class="tsw-card-l" href="#/IDENTITY_SECURITY_REFERENCE">Identity Security</a>
-  </div>
-  <div class="tsw-card">
-    <div class="tsw-card-h">Level up</div>
-    <a class="tsw-card-l" href="#/CAREER_PATHS">Career Paths</a>
-    <a class="tsw-card-l" href="#/CERTIFICATIONS">Certifications</a>
-    <a class="tsw-card-l" href="#/LABS">Hands-On Labs</a>
-    <a class="tsw-card-l" href="#/HOMELAB_SETUP">Home Lab Setup</a>
-  </div>
-</div>
+<p class="tsw-lead">Three ways in, by what you came to do.</p>
 
-Press <kbd>/</kbd> to search, for example for a technique ID such as T1059.
-
-## How-to guides
-
-The [how-to guides](/guides/README.md) are step-by-step procedures with prerequisites, numbered steps, and checks.
-
-<div class="tsw-router">
-  <a class="tsw-card" href="#/guides/HOW_TO_USE_THIS_LIBRARY">
-    <span class="tsw-card-t">Get oriented</span>
-    <span class="tsw-card-d">A map of the library and where to begin</span>
+<div class="tsw-doors">
+  <a class="tsw-door tsw-door--learn" href="#/disciplines/README">
+    <span class="tsw-door-who">I'm learning</span>
+    <span class="tsw-door-t">Learning paths</span>
+    <span class="tsw-door-d">One path per discipline, from detection engineering and incident response to cloud, OT, and AI security: an order of study with training, tools, books, and certifications.</span>
+    <span class="tsw-door-go">Pick a path</span>
   </a>
-  <a class="tsw-card" href="#/guides/TRIAGE_A_CVE">
-    <span class="tsw-card-t">Triage a CVE</span>
-    <span class="tsw-card-d">Use KEV, EPSS, and SSVC to reach a decision and a remediation deadline</span>
+  <a class="tsw-door tsw-door--task" href="#/guides/README">
+    <span class="tsw-door-who">I have a job to do</span>
+    <span class="tsw-door-t">How-to guides</span>
+    <span class="tsw-door-d">Numbered steps with the time, the difficulty, what you need, and what you will produce. Triage a CVE, build a detection, respond to ransomware.</span>
+    <span class="tsw-door-go">Open the guides</span>
   </a>
-  <a class="tsw-card" href="#/guides/BUILD_YOUR_FIRST_DETECTION">
-    <span class="tsw-card-t">Build a detection</span>
-    <span class="tsw-card-d">Write, tune, and deploy a Sigma rule in a SIEM</span>
-  </a>
-  <a class="tsw-card" href="#/guides/RESPOND_TO_RANSOMWARE">
-    <span class="tsw-card-t">Respond to ransomware</span>
-    <span class="tsw-card-d">The first 24 to 72 hours as a numbered procedure</span>
-  </a>
-  <a class="tsw-card" href="#/guides/HARDEN_A_WINDOWS_BASELINE">
-    <span class="tsw-card-t">Harden a baseline</span>
-    <span class="tsw-card-d">Windows with CIS and Microsoft policy, ASR, and audit logging</span>
-  </a>
-  <a class="tsw-card" href="#/guides/START_A_VULN_MGMT_PROGRAM">
-    <span class="tsw-card-t">Start a VM program</span>
-    <span class="tsw-card-d">From asset inventory to remediation targets and metrics</span>
+  <a class="tsw-door tsw-door--data" href="#/mitre/README">
+    <span class="tsw-door-who">I work with ATT&amp;CK data</span>
+    <span class="tsw-door-t">Framework pages and data</span>
+    <span class="tsw-door-d">Pages for Enterprise ATT&amp;CK techniques, tactics, groups, software, campaigns, and mitigations, CAPEC attack patterns, D3FEND countermeasures, ATLAS techniques and mitigations, and F3 techniques, with the JSONL data and Navigator layers behind them.</span>
+    <span class="tsw-door-go">Browse the frameworks</span>
   </a>
 </div>
 
-[All how-to guides](/guides/README.md)
+<div class="tsw-anchor" id="how-to-guides"></div>
+
+## Start-here guides
+
+<p class="tsw-lead">Each guide's time and level come from its own header table.</p>
+
+<!-- guides:start (written by scripts/build_home_guides.py; do not edit) -->
+<div class="tsw-guides">
+  <a class="tsw-guide" href="#/guides/HOW_TO_USE_THIS_LIBRARY"><span class="tsw-guide-t">How to Use This Library</span> <span class="tsw-pills"><span class="tsw-pill" title="30-45 min"><span class="tsw-sr-only">Time: </span>30-45 min</span> <span class="tsw-pill" title="Beginner"><span class="tsw-sr-only">Level: </span>Beginner</span></span></a>
+  <a class="tsw-guide" href="#/guides/TRIAGE_A_CVE"><span class="tsw-guide-t">Triage a New CVE in 30 Minutes</span> <span class="tsw-pills"><span class="tsw-pill" title="~30 minutes"><span class="tsw-sr-only">Time: </span>About 30 minutes</span> <span class="tsw-pill" title="Intermediate"><span class="tsw-sr-only">Level: </span>Intermediate</span></span></a>
+  <a class="tsw-guide" href="#/guides/BUILD_YOUR_FIRST_DETECTION"><span class="tsw-guide-t">Build and Deploy Your First Detection</span> <span class="tsw-pills"><span class="tsw-pill" title="Half a day hands-on, plus a 1-2 week audit soak"><span class="tsw-sr-only">Time: </span>Half a day hands-on, plus a 1-2 week audit soak</span> <span class="tsw-pill" title="Beginner-to-intermediate"><span class="tsw-sr-only">Level: </span>Beginner-to-intermediate</span></span></a>
+  <a class="tsw-guide" href="#/guides/RESPOND_TO_RANSOMWARE"><span class="tsw-guide-t">Respond to a Ransomware Incident</span> <span class="tsw-pills"><span class="tsw-pill" title="First 24-72 hours of the incident (steps run in parallel after Step 3)"><span class="tsw-sr-only">Time: </span>First 24-72 hours of the incident</span> <span class="tsw-pill" title="High: decisions under pressure, some irreversible"><span class="tsw-sr-only">Level: </span>High</span></span></a>
+  <a class="tsw-guide" href="#/guides/HARDEN_A_WINDOWS_BASELINE"><span class="tsw-guide-t">Harden a Windows Baseline</span> <span class="tsw-pills"><span class="tsw-pill" title="Half a day for a pilot; 2-4 weeks to full production"><span class="tsw-sr-only">Time: </span>Half a day for a pilot</span> <span class="tsw-pill" title="Intermediate"><span class="tsw-sr-only">Level: </span>Intermediate</span></span></a>
+  <a class="tsw-guide" href="#/guides/START_A_VULN_MGMT_PROGRAM"><span class="tsw-guide-t">Start a Vulnerability Management Program (First 90 Days)</span> <span class="tsw-pills"><span class="tsw-pill" title="~90 days elapsed; 2-4 hours to first scan"><span class="tsw-sr-only">Time: </span>About 90 days elapsed</span> <span class="tsw-pill" title="Intermediate"><span class="tsw-sr-only">Level: </span>Intermediate</span></span></a>
+</div>
+<!-- guides:end -->
+
+<p class="tsw-more"><a href="#/guides/README">All how-to guides</a></p>
+
+## What's inside
+
+<!-- stats:start (written by scripts/build_stats.py; do not edit) -->
+<div class="tsw-counts">
+  <a class="tsw-count" href="#/INDEX"><span class="tsw-count-n">155</span> <span class="tsw-count-l">Reference documents</span> <span class="tsw-count-d">One topic each: its terms, tooling, and the frameworks and guidance that apply</span></a>
+  <a class="tsw-count" href="#/guides/README"><span class="tsw-count-n">21</span> <span class="tsw-count-l">How-to guides</span> <span class="tsw-count-d">One task, step by step, with the time it takes, what you need, and what you produce</span></a>
+  <a class="tsw-count" href="#/disciplines/README"><span class="tsw-count-n">47</span> <span class="tsw-count-l">Learning paths</span> <span class="tsw-count-d">An order of study for one discipline, with training, tools, books, and certifications</span></a>
+  <a class="tsw-count" href="#/mitre/README"><span class="tsw-count-n">2,930</span> <span class="tsw-count-l">Framework pages</span> <span class="tsw-count-d">One page per Enterprise ATT&amp;CK technique, tactic, group, software entry, campaign, and mitigation, CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, and F3 technique</span></a>
+</div>
+<!-- stats:end -->
 
 ## How it connects
 
-The references follow the chain from a vulnerability (CVE) to the weakness it exploits (CWE), the attack patterns that use it (CAPEC), the ATT&CK techniques involved, and the countermeasures in D3FEND.
+<p class="tsw-lead">Pages link to their neighbors. One route through the library, for PowerShell abuse:</p>
+
+<div class="tsw-connect">
+  <div class="tsw-node"><span class="tsw-node-k">Reference</span> <a href="#/LOTL_DETECTION_REFERENCE">Living Off the Land Detection</a> <span class="tsw-node-d">Telemetry, baselines, and hardening for abuse of built-in tools.</span></div>
+  <div class="tsw-node"><span class="tsw-node-k">Learning path</span> <a href="#/disciplines/detection-engineering">Detection Engineering</a> <span class="tsw-node-d">An order of study, from log sources to tested rules.</span></div>
+  <div class="tsw-node"><span class="tsw-node-k">Framework page</span> <a href="#/mitre/techniques/T1059-001">T1059.001 PowerShell</a> <span class="tsw-node-d">Mitigations, detection, data sources, adversary usage, and NIST SP 800-53 controls.</span></div>
+  <div class="tsw-node"><span class="tsw-node-k">Detection</span> <a href="#/detections/TECHNIQUE_DETECTION_LIBRARY?id=t1059001">Technique Detection Library</a> <span class="tsw-node-d">Example queries for the technique, with data source and confidence.</span></div>
+  <div class="tsw-node"><span class="tsw-node-k">Layer</span> <a href="#/navigator/index">Navigator layers</a> <span class="tsw-node-d">Heatmaps to load in ATT&amp;CK Navigator.</span></div>
+  <div class="tsw-node"><span class="tsw-node-k">Workbench</span> <a href="https://teamstarwolf.github.io/ATTACK-Navi/" target="_blank" rel="noopener">ATTACK-Navi</a> <span class="tsw-node-d">The ATT&amp;CK matrices with coverage, threat, and exposure views.</span></div>
+</div>
+
+<p class="tsw-lead">The references also follow the chain from a vulnerability to its countermeasures:</p>
 
 <div class="tsw-chain">
   <a class="tsw-chip" href="#/CVE_REFERENCE">CVE</a>
@@ -158,329 +101,84 @@ The references follow the chain from a vulnerability (CVE) to the weakness it ex
   <a class="tsw-chip" href="#/D3FEND_REFERENCE">D3FEND</a>
 </div>
 
-<div class="tsw-chips">
-  <span class="tsw-chips-label">Other frameworks</span>
-  <a class="tsw-chip" href="#/ATLAS_REFERENCE">ATLAS (AI)</a>
-  <a class="tsw-chip" href="#/ENGAGE_REFERENCE">Engage (deception)</a>
-  <a class="tsw-chip" href="#/FRAUD_FRAMEWORK_REFERENCE">F3 (fraud)</a>
-  <a class="tsw-chip" href="#/EMB3D_REFERENCE">EMB3D (embedded)</a>
-  <a class="tsw-chip" href="#/TELECOM_5G_SECURITY_REFERENCE">FiGHT (5G)</a>
-  <a class="tsw-chip" href="#/SPACE_SECURITY_REFERENCE">SPARTA (space)</a>
-  <a class="tsw-chip" href="#/CTEM_REFERENCE">CTEM (exposure management)</a>
+<div class="tsw-anchor" id="core-references"></div>
+
+## Explore the frameworks
+
+<div class="tsw-explore">
+  <p class="tsw-explore-lead">Each Enterprise ATT&amp;CK technique, tactic, group, software entry, campaign, and mitigation has its own page, generated from the MITRE data in this repository, and so does each CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, and F3 technique. ICS and Mobile ATT&amp;CK are in the JSONL data only, without pages. Go straight to one:</p>
+  <div class="tsw-ids">
+    <a class="tsw-id" href="#/mitre/techniques/T1059"><code>T1059</code> Command and Scripting Interpreter</a>
+    <a class="tsw-id" href="#/mitre/groups/G0016"><code>G0016</code> APT29</a>
+    <a class="tsw-id" href="#/mitre/software/S0154"><code>S0154</code> Cobalt Strike</a>
+    <a class="tsw-id" href="#/mitre/campaigns/C0024"><code>C0024</code> SolarWinds Compromise</a>
+    <a class="tsw-id" href="#/mitre/mitigations/M1038"><code>M1038</code> Execution Prevention</a>
+    <a class="tsw-id" href="#/mitre/capec/CAPEC-66"><code>CAPEC-66</code> SQL Injection</a>
+    <a class="tsw-id" href="#/mitre/d3fend/process-lineage-analysis">D3FEND Process Lineage Analysis</a>
+    <a class="tsw-id" href="#/mitre/atlas/AML-T0051"><code>AML.T0051</code> LLM Prompt Injection</a>
+  </div>
+  <div class="tsw-families">
+    <span class="tsw-families-label">Browse by family</span>
+    <a href="#/mitre/techniques/README">Techniques</a>
+    <a href="#/mitre/tactics/README">Tactics</a>
+    <a href="#/mitre/groups/README">Groups</a>
+    <a href="#/mitre/software/README">Software</a>
+    <a href="#/mitre/campaigns/README">Campaigns</a>
+    <a href="#/mitre/mitigations/README">Mitigations</a>
+    <a href="#/mitre/capec/README">CAPEC</a>
+    <a href="#/mitre/d3fend/README">D3FEND</a>
+    <a href="#/mitre/atlas/README">ATLAS</a>
+    <a href="#/mitre/f3/README">F3</a>
+    <a href="#/mitre/crosswalk">Crosswalk</a>
+  </div>
+  <a class="tsw-btn" href="#/mitre/README">Open the frameworks overview</a>
 </div>
 
-## Core references
-
-<div class="tsw-flagship">
-  <div class="tsw-card tsw-flag">
-    <a class="tsw-flag-t" href="#/THREAT_INFORMED_DEFENSE_REFERENCE">Threat-Informed Defense Reference</a>
-    <p class="tsw-flag-sub">How CVE, CWE, CAPEC, ATT&amp;CK, and D3FEND relate, and how to use them with NIST SP 800-53 mappings to assess coverage.</p>
-    <div class="tsw-flag-links">
-      <a class="tsw-flag-cta" href="#/THREAT_INFORMED_DEFENSE_REFERENCE">Open the reference</a>
-      <a class="tsw-flag-2nd" href="#/techniques/README">Technique pages</a>
-    </div>
-  </div>
-  <div class="tsw-card tsw-flag">
-    <a class="tsw-flag-t" href="#/detections/strategies/README">Detection Engineering</a>
-    <p class="tsw-flag-sub">MITRE's detection strategies and analytics, with example queries for Splunk, Elastic, Microsoft, Chronicle, and CrowdStrike.</p>
-    <div class="tsw-flag-links">
-      <a class="tsw-flag-cta" href="#/detections/strategies/README">Open the strategies</a>
-      <a class="tsw-flag-2nd" href="#/detections/TECHNIQUE_DETECTION_LIBRARY">Technique Detection Library</a>
-    </div>
-  </div>
-  <div class="tsw-card tsw-flag">
-    <a class="tsw-flag-t" href="https://teamstarwolf.github.io/ATTACK-Navi/" target="_blank" rel="noopener">ATTACK-Navi</a>
-    <p class="tsw-flag-sub">A browser-based ATT&amp;CK workbench with views for detection coverage, threat intelligence, vulnerability exposure, and compliance.</p>
-    <div class="tsw-flag-links">
-      <a class="tsw-flag-cta" href="https://teamstarwolf.github.io/ATTACK-Navi/" target="_blank" rel="noopener">Open ATTACK-Navi</a>
-      <a class="tsw-flag-2nd" href="https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json" target="_blank" rel="noopener">Load the coverage layer in ATT&amp;CK Navigator</a>
-    </div>
-  </div>
-</div>
+<div class="tsw-anchor" id="study-and-career"></div>
 
 ## Browse by domain
 
-<!-- Mirrors _sidebar.md. When the sidebar gains/loses a doc, update this section in the same PR. -->
-<div class="tsw-switchboard">
-  <div class="tsw-swb-group">
-    <div class="tsw-swb-h">Coverage &amp; Data</div>
-    <a class="tsw-swb-l" href="#/THREAT_INFORMED_DEFENSE_REFERENCE">Threat-Informed Defense</a>
-    <a class="tsw-swb-l" href="#/ATTACK_MATRIX_ANALYSIS_REFERENCE">ATT&amp;CK Matrix Analysis</a>
-    <a class="tsw-swb-l" href="#/ATTACK_TECHNIQUE_ATLAS">ATT&amp;CK Technique Atlas</a>
-    <a class="tsw-swb-l" href="#/detections/strategies/README">Detection Strategies</a>
-    <a class="tsw-swb-l" href="#/ATTACK_DATA_COMPONENTS">Data Components</a>
-    <a class="tsw-swb-l" href="#/scores/attack_priority_gaps">Priority Gaps</a>
-    <a class="tsw-swb-l" href="#/ICS_ATTACK_ATLAS">ICS ATT&amp;CK Atlas</a>
-    <a class="tsw-swb-l" href="#/MOBILE_ATTACK_ATLAS">Mobile ATT&amp;CK Atlas</a>
-    <a class="tsw-swb-more" href="#/INDEX">All</a>
-  </div>
-  <div class="tsw-swb-group">
-    <div class="tsw-swb-h">Defense &amp; Detection</div>
-    <a class="tsw-swb-l" href="#/DETECTION_RULES_REFERENCE">Detection Rules</a>
-    <a class="tsw-swb-l" href="#/SIEM_REFERENCE">SIEM Reference</a>
-    <a class="tsw-swb-l" href="#/SIEM_DETECTION_CONTENT">SIEM Detection Content</a>
-    <a class="tsw-swb-l" href="#/THREAT_HUNTING_REFERENCE">Threat Hunting</a>
-    <a class="tsw-swb-l" href="#/THREAT_HUNTING_PLAYBOOKS">Hunting Playbooks</a>
-    <a class="tsw-swb-l" href="#/ENDPOINT_SECURITY_REFERENCE">Endpoint Security</a>
-    <a class="tsw-swb-l" href="#/LOTL_DETECTION_REFERENCE">LOTL Detection</a>
-    <a class="tsw-swb-l" href="#/NETWORK_DEFENSE_REFERENCE">Network Defense</a>
-    <a class="tsw-swb-more" href="#/INDEX">More</a>
-  </div>
-  <div class="tsw-swb-group">
-    <div class="tsw-swb-h">Threat Intelligence &amp; Adversaries</div>
-    <a class="tsw-swb-l" href="#/THREAT_INTELLIGENCE_REFERENCE">Threat Intelligence</a>
-    <a class="tsw-swb-l" href="#/THREAT_ACTORS">Threat Actors</a>
-    <a class="tsw-swb-l" href="#/MALWARE_FAMILIES">Malware Families</a>
-    <a class="tsw-swb-l" href="#/NOTABLE_INCIDENTS">Notable Incidents</a>
-    <a class="tsw-swb-l" href="#/OSINT_REFERENCE">OSINT</a>
-  </div>
-  <div class="tsw-swb-group">
-    <div class="tsw-swb-h">Incident Response &amp; Forensics</div>
-    <a class="tsw-swb-l" href="#/INCIDENT_RESPONSE_REFERENCE">Incident Response</a>
-    <a class="tsw-swb-l" href="#/IR_PLAYBOOKS">IR Playbooks</a>
-    <a class="tsw-swb-l" href="#/RANSOMWARE_DEFENSE_REFERENCE">Ransomware Defense &amp; Resilience</a>
-    <a class="tsw-swb-l" href="#/CYBER_RESILIENCE_BCDR_REFERENCE">Cyber Resilience &amp; BCDR</a>
-    <a class="tsw-swb-l" href="#/DIGITAL_FORENSICS_REFERENCE">Digital Forensics</a>
-    <a class="tsw-swb-l" href="#/NETWORK_FORENSICS_REFERENCE">Network Forensics</a>
-    <a class="tsw-swb-l" href="#/MALWARE_ANALYSIS_REFERENCE">Malware Analysis</a>
-    <a class="tsw-swb-l" href="#/REVERSE_ENGINEERING_REFERENCE">Reverse Engineering</a>
-  </div>
-  <div class="tsw-swb-group">
-    <div class="tsw-swb-h">Offensive Security</div>
-    <a class="tsw-swb-l" href="#/RED_TEAM_REFERENCE">Red Team</a>
-    <a class="tsw-swb-l" href="#/PURPLE_TEAM_REFERENCE">Purple Team</a>
-    <a class="tsw-swb-l" href="#/PENETRATION_TESTING_METHODOLOGY">Pentest Methodology</a>
-    <a class="tsw-swb-l" href="#/PENTEST_CHECKLISTS">Pentest Checklists</a>
-    <a class="tsw-swb-l" href="#/WEB_APPLICATION_PENTESTING">Web App Pentesting</a>
-    <a class="tsw-swb-l" href="#/ACTIVE_DIRECTORY_ATTACKS">AD Attacks</a>
-    <a class="tsw-swb-l" href="#/CLOUD_ATTACK_REFERENCE">Cloud Attack</a>
-    <a class="tsw-swb-l" href="#/PRIVESC_REFERENCE">Privilege Escalation</a>
-    <a class="tsw-swb-more" href="#/INDEX">More</a>
-  </div>
-  <div class="tsw-swb-group">
-    <div class="tsw-swb-h">Network Security</div>
-    <a class="tsw-swb-l" href="#/NETWORKING_FUNDAMENTALS">Networking Fundamentals</a>
-    <a class="tsw-swb-l" href="#/NETWORK_PROTOCOLS_REFERENCE">Network Protocols</a>
-    <a class="tsw-swb-l" href="#/NETWORK_PROTOCOLS_SECURITY">Network Protocols Security</a>
-    <a class="tsw-swb-l" href="#/NETWORK_SECURITY_ARCHITECTURE">Network Security Architecture</a>
-    <a class="tsw-swb-l" href="#/EDGE_DEVICE_SECURITY_REFERENCE">Edge &amp; Network Device Security</a>
-    <a class="tsw-swb-l" href="#/PACKET_ANALYSIS_REFERENCE">Packet Analysis</a>
-    <a class="tsw-swb-l" href="#/WIRELESS_SECURITY_REFERENCE">Wireless Security</a>
-    <a class="tsw-swb-l" href="#/SDR_RF_SECURITY_REFERENCE">SDR &amp; RF Security</a>
-  </div>
-  <div class="tsw-swb-group">
-    <div class="tsw-swb-h">Cloud &amp; Infrastructure</div>
-    <a class="tsw-swb-l" href="#/CLOUD_SECURITY_REFERENCE">Cloud Security</a>
-    <a class="tsw-swb-l" href="#/CLOUD_SECURITY_BENCHMARK">Cloud Security Benchmark</a>
-    <a class="tsw-swb-l" href="#/CLOUD_NETWORK_SECURITY">Cloud Network Security</a>
-    <a class="tsw-swb-l" href="#/SAAS_SECURITY_REFERENCE">SaaS Security</a>
-    <a class="tsw-swb-l" href="#/CONTAINER_SECURITY_REFERENCE">Container Security</a>
-    <a class="tsw-swb-l" href="#/KUBERNETES_SECURITY_REFERENCE">Kubernetes Security</a>
-    <a class="tsw-swb-l" href="#/DEVSECOPS_REFERENCE">DevSecOps</a>
-    <a class="tsw-swb-l" href="#/SECRETS_MANAGEMENT_REFERENCE">Secrets Management</a>
-    <a class="tsw-swb-more" href="#/INDEX">More</a>
-  </div>
-  <div class="tsw-swb-group">
-    <div class="tsw-swb-h">Application Security</div>
-    <a class="tsw-swb-l" href="#/SECURE_CODING_REFERENCE">Secure Coding</a>
-    <a class="tsw-swb-l" href="#/WEB_APPLICATION_SECURITY_REFERENCE">Web Application Security</a>
-    <a class="tsw-swb-l" href="#/API_SECURITY_REFERENCE">API Security</a>
-    <a class="tsw-swb-l" href="#/BROWSER_SECURITY_REFERENCE">Browser Security</a>
-    <a class="tsw-swb-l" href="#/THREAT_MODELING_REFERENCE">Threat Modeling</a>
-  </div>
-  <div class="tsw-swb-group">
-    <div class="tsw-swb-h">Platform Hardening</div>
-    <a class="tsw-swb-l" href="#/WINDOWS_HARDENING">Windows Hardening</a>
-    <a class="tsw-swb-l" href="#/WINDOWS_HARDENING_REFERENCE">Windows Hardening Reference</a>
-    <a class="tsw-swb-l" href="#/WINDOWS_HARDENING_GPO">Windows Hardening GPO</a>
-    <a class="tsw-swb-l" href="#/LINUX_HARDENING_REFERENCE">Linux Hardening Reference</a>
-    <a class="tsw-swb-l" href="#/MACOS_SECURITY_REFERENCE">macOS Security</a>
-    <a class="tsw-swb-l" href="#/MOBILE_SECURITY_REFERENCE">Mobile Security</a>
-  </div>
-  <div class="tsw-swb-group">
-    <div class="tsw-swb-h">Identity &amp; Data Protection</div>
-    <a class="tsw-swb-l" href="#/IDENTITY_SECURITY_REFERENCE">Identity Security</a>
-    <a class="tsw-swb-l" href="#/IDENTITY_ACCESS_MANAGEMENT_REFERENCE">Identity &amp; Access Management</a>
-    <a class="tsw-swb-l" href="#/ACTIVE_DIRECTORY_SECURITY_REFERENCE">Active Directory Security</a>
-    <a class="tsw-swb-l" href="#/PASSWORD_SECURITY_REFERENCE">Password Security</a>
-    <a class="tsw-swb-l" href="#/ZERO_TRUST_REFERENCE">Zero Trust</a>
-    <a class="tsw-swb-l" href="#/CRYPTOGRAPHY_REFERENCE">Cryptography</a>
-    <a class="tsw-swb-l" href="#/POST_QUANTUM_MIGRATION_REFERENCE">Post-Quantum Migration</a>
-    <a class="tsw-swb-l" href="#/DATA_SECURITY_REFERENCE">Data Security</a>
-    <a class="tsw-swb-more" href="#/INDEX">More</a>
-  </div>
-  <div class="tsw-swb-group">
-    <div class="tsw-swb-h">AI &amp; Emerging Tech</div>
-    <a class="tsw-swb-l" href="#/AI_SECURITY_REFERENCE">AI Security</a>
-    <a class="tsw-swb-l" href="#/AI_MCP_SECURITY_REFERENCE">AI &amp; MCP Security</a>
-    <a class="tsw-swb-l" href="#/AI_OFFENSIVE_SECURITY_REFERENCE">AI Offensive Security</a>
-    <a class="tsw-swb-l" href="#/ai-tooling/README">AI Tooling: tools, manuals, learning, labs</a>
-    <a class="tsw-swb-l" href="#/BLOCKCHAIN_SECURITY_REFERENCE">Blockchain Security</a>
-  </div>
-  <div class="tsw-swb-group">
-    <div class="tsw-swb-h">ICS, OT &amp; Hardware</div>
-    <a class="tsw-swb-l" href="#/ICS_OT_SECURITY_REFERENCE">ICS/OT Security</a>
-    <a class="tsw-swb-l" href="#/HARDWARE_SECURITY_REFERENCE">Hardware Security</a>
-    <a class="tsw-swb-l" href="#/FIRMWARE_IOT_SECURITY_REFERENCE">Firmware &amp; IoT Security</a>
-    <a class="tsw-swb-l" href="#/AUTOMOTIVE_SECURITY_REFERENCE">Automotive Security</a>
-    <a class="tsw-swb-l" href="#/PHYSICAL_SECURITY_REFERENCE">Physical Security</a>
-    <a class="tsw-swb-l" href="#/SECURITY_GADGETS_REFERENCE">Security Gadgets</a>
-  </div>
-  <div class="tsw-swb-group">
-    <div class="tsw-swb-h">GRC &amp; Security Program</div>
-    <a class="tsw-swb-l" href="#/GRC_REFERENCE">GRC Reference</a>
-    <a class="tsw-swb-l" href="#/GRC_COMPLIANCE_REFERENCE">GRC Compliance</a>
-    <a class="tsw-swb-l" href="#/FRAMEWORKS">Frameworks</a>
-    <a class="tsw-swb-l" href="#/ENTERPRISE_SECURITY_CONTROLS">Enterprise Security Controls</a>
-    <a class="tsw-swb-l" href="#/SECURITY_ARCHITECTURE_REFERENCE">Security Architecture</a>
-    <a class="tsw-swb-l" href="#/SECURITY_METRICS_REFERENCE">Security Metrics</a>
-    <a class="tsw-swb-l" href="#/VULNERABILITY_MANAGEMENT_REFERENCE">Vulnerability Management</a>
-    <a class="tsw-swb-l" href="#/VULNERABILITY_PRIORITIZATION_REFERENCE">Vulnerability Prioritization</a>
-    <a class="tsw-swb-more" href="#/INDEX">More</a>
-  </div>
-  <div class="tsw-swb-group">
-    <div class="tsw-swb-h">Careers &amp; Learning</div>
-    <a class="tsw-swb-l" href="#/CAREER_PATHS">Career Paths</a>
-    <a class="tsw-swb-l" href="#/CERTIFICATIONS">Certifications</a>
-    <a class="tsw-swb-l" href="#/INTERVIEW_PREP">Interview Prep</a>
-    <a class="tsw-swb-l" href="#/LABS">Hands-On Labs</a>
-    <a class="tsw-swb-l" href="#/HOMELAB_SETUP">Home Lab Setup</a>
-    <a class="tsw-swb-l" href="#/CTF_METHODOLOGY">CTF Methodology</a>
-    <a class="tsw-swb-l" href="#/GLOSSARY">Glossary</a>
-  </div>
-  <div class="tsw-swb-group">
-    <div class="tsw-swb-h">Resources</div>
-    <a class="tsw-swb-l" href="#/STARRED_REPOS">Starred Repositories</a>
-    <a class="tsw-swb-l" href="#/CYBERSECURITY_BOOK_LIST">Book List</a>
-    <a class="tsw-swb-l" href="#/YOUTUBE_CHANNELS">YouTube Channels</a>
-    <a class="tsw-swb-l" href="#/TWITTER_FOLLOW_LIST">X / Twitter List</a>
-    <a class="tsw-swb-l" href="#/RESOURCES">Resources</a>
-    <a class="tsw-swb-l" href="#/OPEN_SOURCE_TOOLKIT">Open Source Toolkit</a>
-    <a class="tsw-swb-l" href="#/TOOLS">Tools Reference</a>
-  </div>
-  <div class="tsw-swb-group">
-    <div class="tsw-swb-h">Tools Research</div>
-    <a class="tsw-swb-l" href="#/tools-research/README">Overview</a>
-    <a class="tsw-swb-l" href="#/tools-research/SERVICENOW_USEM_TENABLE_WIZ">ServiceNow USEM with Tenable &amp; Wiz</a>
-    <a class="tsw-swb-l" href="#/tools-research/SERVICENOW_VR_CC_CVR_TENABLE_WIZ">ServiceNow VR, CC &amp; CVR with Tenable &amp; Wiz</a>
-    <a class="tsw-swb-l" href="#/tools-research/TOOL_MANUALS_AND_REPOSITORIES">Tool Manuals &amp; Repositories</a>
-  </div>
-  <div class="tsw-swb-group">
-    <div class="tsw-swb-h">Case Studies</div>
-    <a class="tsw-swb-l" href="#/case-studies/README">Overview</a>
-    <a class="tsw-swb-l" href="#/case-studies/AI_THREATS_2026">AI Threats: A 2026 Case Study</a>
-  </div>
+<div class="tsw-domains">
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/THREAT_INFORMED_DEFENSE_REFERENCE">Threat-informed defense and ATT&amp;CK</a> <a href="#/ATTACK_MATRIX_ANALYSIS_REFERENCE">ATT&amp;CK Matrix Analysis</a> <a href="#/ATTACK_TECHNIQUE_ATLAS">ATT&amp;CK Technique Atlas</a> <a href="#/scores/attack_priority_gaps">Priority Gap Analysis</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/detections/TECHNIQUE_DETECTION_LIBRARY">Detection and response</a> <a href="#/THREAT_HUNTING_REFERENCE">Threat Hunting</a> <a href="#/INCIDENT_RESPONSE_REFERENCE">Incident Response</a> <a href="#/DIGITAL_FORENSICS_REFERENCE">Digital Forensics</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/THREAT_INTELLIGENCE_REFERENCE">Threat intelligence and adversaries</a> <a href="#/THREAT_GROUP_PROFILES">Threat Group Profiles</a> <a href="#/MALWARE_FAMILIES">Malware Families</a> <a href="#/OSINT_REFERENCE">OSINT</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/PENETRATION_TESTING_METHODOLOGY">Offensive security</a> <a href="#/RED_TEAM_REFERENCE">Red Team</a> <a href="#/PURPLE_TEAM_REFERENCE">Purple Team</a> <a href="#/ACTIVE_DIRECTORY_ATTACKS">Active Directory Attacks</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/NETWORK_SECURITY_ARCHITECTURE">Network security</a> <a href="#/NETWORK_DEFENSE_REFERENCE">Network Defense</a> <a href="#/PACKET_ANALYSIS_REFERENCE">Packet Analysis</a> <a href="#/WIRELESS_SECURITY_REFERENCE">Wireless Security</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/CLOUD_SECURITY_REFERENCE">Cloud and infrastructure</a> <a href="#/KUBERNETES_SECURITY_REFERENCE">Kubernetes Security</a> <a href="#/CONTAINER_SECURITY_REFERENCE">Container Security</a> <a href="#/DEVSECOPS_REFERENCE">DevSecOps</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/WINDOWS_HARDENING_REFERENCE">Platform hardening</a> <a href="#/LINUX_HARDENING_REFERENCE">Linux Hardening</a> <a href="#/MACOS_SECURITY_REFERENCE">macOS Security</a> <a href="#/MOBILE_SECURITY_REFERENCE">Mobile Security</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/WEB_APPLICATION_SECURITY_REFERENCE">Application and supply chain security</a> <a href="#/SECURE_CODING_REFERENCE">Secure Coding</a> <a href="#/API_SECURITY_REFERENCE">API Security</a> <a href="#/SUPPLY_CHAIN_SECURITY_REFERENCE">Supply Chain Security</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/IDENTITY_SECURITY_REFERENCE">Identity and data protection</a> <a href="#/ACTIVE_DIRECTORY_SECURITY_REFERENCE">Active Directory Security</a> <a href="#/ZERO_TRUST_REFERENCE">Zero Trust</a> <a href="#/DATA_SECURITY_REFERENCE">Data Security</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/AI_SECURITY_REFERENCE">AI and emerging tech</a> <a href="#/ATLAS_REFERENCE">MITRE ATLAS</a> <a href="#/AI_MCP_SECURITY_REFERENCE">AI and MCP Security</a> <a href="#/ai-tooling/README">AI Tooling</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/ICS_OT_SECURITY_REFERENCE">ICS, OT, and hardware</a> <a href="#/ICS_ATTACK_ATLAS">ICS ATT&amp;CK Atlas</a> <a href="#/HARDWARE_SECURITY_REFERENCE">Hardware Security</a> <a href="#/FIRMWARE_IOT_SECURITY_REFERENCE">Firmware and IoT Security</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/GRC_REFERENCE">GRC and security program</a> <a href="#/VULNERABILITY_MANAGEMENT_REFERENCE">Vulnerability Management</a> <a href="#/SECURITY_METRICS_REFERENCE">Security Metrics</a> <a href="#/CAREER_PATHS">Career Paths</a></div>
 </div>
 
-## Learning paths
+<p class="tsw-more">Every reference, A to Z: <a href="#/INDEX">the reference index</a>.</p>
 
-Learning paths suggest an order for studying each discipline and collect training, tools, books, and certifications for it.
+## What changed
 
-<div class="tsw-chips">
-  <span class="tsw-chips-label">Defend &amp; respond</span>
-  <a class="tsw-chip" href="#/disciplines/detection-engineering">Detection Engineering</a>
-  <a class="tsw-chip" href="#/disciplines/threat-hunting">Threat Hunting</a>
-  <a class="tsw-chip" href="#/disciplines/incident-response">Incident Response</a>
-  <a class="tsw-chip" href="#/disciplines/digital-forensics">Digital Forensics</a>
-  <a class="tsw-chip" href="#/disciplines/malware-analysis">Malware Analysis</a>
-  <a class="tsw-chip" href="#/disciplines/siem-soar">SIEM &amp; SOAR</a>
-  <a class="tsw-chip" href="#/disciplines/security-operations">Security Operations</a>
-  <a class="tsw-chip" href="#/disciplines/threat-intelligence">Threat Intelligence</a>
-  <a class="tsw-chip" href="#/disciplines/active-defense-deception">Active Defense &amp; Deception</a>
-  <a class="tsw-chip" href="#/disciplines/osint">OSINT</a>
-  <span class="tsw-chips-label">Attack &amp; assess</span>
-  <a class="tsw-chip" href="#/disciplines/offensive-security">Offensive Security</a>
-  <a class="tsw-chip" href="#/disciplines/red-teaming">Red Teaming</a>
-  <a class="tsw-chip" href="#/disciplines/penetration-testing">Penetration Testing</a>
-  <a class="tsw-chip" href="#/disciplines/purple-teaming">Purple Teaming</a>
-  <a class="tsw-chip" href="#/disciplines/exploit-development">Exploit Development</a>
-  <a class="tsw-chip" href="#/disciplines/bug-bounty">Bug Bounty</a>
-  <a class="tsw-chip" href="#/disciplines/social-engineering">Social Engineering</a>
-  <a class="tsw-chip" href="#/disciplines/physical-security">Physical Security</a>
-  <a class="tsw-chip" href="#/disciplines/reverse-engineering">Reverse Engineering</a>
-  <span class="tsw-chips-label">Build &amp; harden</span>
-  <a class="tsw-chip" href="#/disciplines/cloud-security">Cloud Security</a>
-  <a class="tsw-chip" href="#/disciplines/container-kubernetes-security">Container &amp; Kubernetes Security</a>
-  <a class="tsw-chip" href="#/disciplines/devsecops">DevSecOps</a>
-  <a class="tsw-chip" href="#/disciplines/application-security">Application Security</a>
-  <a class="tsw-chip" href="#/disciplines/supply-chain-security">Supply Chain Security</a>
-  <a class="tsw-chip" href="#/disciplines/network-security">Network Security</a>
-  <a class="tsw-chip" href="#/disciplines/identity-access-management">Identity &amp; Access Management</a>
-  <a class="tsw-chip" href="#/disciplines/active-directory">Active Directory</a>
-  <a class="tsw-chip" href="#/disciplines/zero-trust-architecture">Zero Trust Architecture</a>
-  <a class="tsw-chip" href="#/disciplines/data-security">Data Security</a>
-  <a class="tsw-chip" href="#/disciplines/cryptography-pki">Cryptography &amp; PKI</a>
-  <span class="tsw-chips-label">Govern</span>
-  <a class="tsw-chip" href="#/disciplines/governance-risk-compliance">Governance, Risk &amp; Compliance</a>
-  <a class="tsw-chip" href="#/disciplines/vulnerability-management">Vulnerability Management</a>
-  <a class="tsw-chip" href="#/disciplines/cyber-risk-quantification">Cyber Risk Quantification</a>
-  <a class="tsw-chip" href="#/disciplines/threat-modeling">Threat Modeling</a>
-  <a class="tsw-chip" href="#/disciplines/privacy-engineering">Privacy Engineering</a>
-  <a class="tsw-chip" href="#/disciplines/security-awareness">Security Awareness</a>
-  <a class="tsw-chip" href="#/disciplines/security-architecture">Security Architecture</a>
-  <span class="tsw-chips-label">Specialized &amp; emerging</span>
-  <a class="tsw-chip" href="#/disciplines/ai-llm-security">AI &amp; LLM Security</a>
-  <a class="tsw-chip" href="#/disciplines/ai-ml-security">AI/ML Security</a>
-  <a class="tsw-chip" href="#/disciplines/adversarial-ai-attacks">Adversarial AI Attacks</a>
-  <a class="tsw-chip" href="#/disciplines/blockchain-web3-security">Blockchain &amp; Web3 Security</a>
-  <a class="tsw-chip" href="#/disciplines/hardware-security">Hardware Security</a>
-  <a class="tsw-chip" href="#/disciplines/iot-security">IoT Security</a>
-  <a class="tsw-chip" href="#/disciplines/ics-ot-security">ICS/OT Security</a>
-  <a class="tsw-chip" href="#/disciplines/mobile-security">Mobile Security</a>
-  <a class="tsw-chip" href="#/disciplines/radio-frequency-security">RF Security</a>
-  <a class="tsw-chip" href="#/disciplines/hacker-hobbies">Hacker Hobbies</a>
-  <a class="tsw-chip tsw-chip--all" href="#/disciplines/">All learning paths</a>
-</div>
+<p class="tsw-lead">Changes are recorded in the <a href="#/CHANGELOG">changelog</a> as they merge to the main branch. There is no tagged release yet; when the first one is published, this section will link it.</p>
 
-## Data & Navigator layers
-
-<!-- JSONL/dataset links must stay github.com URLs, because docsify's hash router cannot serve raw files. -->
-<div class="tsw-databand">
-  <div class="tsw-swb-group">
-    <div class="tsw-swb-h">Datasets</div>
-    <a class="tsw-swb-l" href="https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack" target="_blank" rel="noopener">ATT&amp;CK core: technique profiles, campaigns, and group, software, and mitigation relationships</a>
-    <a class="tsw-swb-l" href="https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack" target="_blank" rel="noopener">Detections: detection strategies, analytics, and data components</a>
-    <a class="tsw-swb-l" href="https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/weaknesses" target="_blank" rel="noopener">Weaknesses: CWE and CAPEC</a>
-    <a class="tsw-swb-l" href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/technique_to_d3fend.jsonl" target="_blank" rel="noopener">Technique to D3FEND relationships</a>
-    <a class="tsw-swb-l" href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/control_to_technique.jsonl" target="_blank" rel="noopener">Control to technique relationships (CTID)</a>
-    <a class="tsw-swb-l" href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/vendor_to_control.jsonl" target="_blank" rel="noopener">Vendor to control (editorial)</a>
-    <a class="tsw-swb-l" href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/vendor_to_technique.jsonl" target="_blank" rel="noopener">Vendor to technique (derived)</a>
-    <a class="tsw-swb-l" href="https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/ai" target="_blank" rel="noopener">ATLAS datasets (data/ai)</a>
-    <a class="tsw-swb-l" href="https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/engage" target="_blank" rel="noopener">Engage datasets (data/engage)</a>
-    <a class="tsw-swb-l" href="https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/fraud" target="_blank" rel="noopener">F3 fraud datasets (data/fraud)</a>
+<div class="tsw-footer" id="data-amp-navigator-layers">
+  <div class="tsw-footer-col">
+    <div class="tsw-footer-h">TeamStarWolf library</div>
+    <p>Open reference material for defenders, cross-referenced to MITRE ATT&amp;CK v19.2. Original content is released under the <a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>; data and text drawn from MITRE and other sources stay under their owners' terms, listed in the <a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/THIRD_PARTY_NOTICES.md" target="_blank" rel="noopener">third-party notices</a>.</p>
+    <a class="tsw-btn tsw-btn--navi" href="https://teamstarwolf.github.io/ATTACK-Navi/" target="_blank" rel="noopener">Open ATTACK-Navi, the ATT&amp;CK workbench</a>
   </div>
-  <div class="tsw-swb-group">
-    <div class="tsw-swb-h">Layers</div>
-    <a class="tsw-swb-l" href="#/navigator/index">Navigator layers index</a>
-    <a class="tsw-swb-l" href="https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json" target="_blank" rel="noopener">Load the coverage layer</a>
-    <a class="tsw-swb-l" href="https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/analytics/no_nist_coverage.json" target="_blank" rel="noopener">Techniques with no NIST SP 800-53 mapping</a>
-    <a class="tsw-swb-l" href="https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/analytics/group_frequency.json" target="_blank" rel="noopener">Group frequency</a>
-    <a class="tsw-swb-l" href="#/CONTROLS_MAPPING">Controls Mapping</a>
-    <a class="tsw-swb-l" href="#/COVERAGE_SCHEMA">Coverage Schema</a>
+  <div class="tsw-footer-col">
+    <div class="tsw-footer-h">Data</div>
+    <a href="https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data" target="_blank" rel="noopener">JSONL relationship data</a>
+    <a href="#/navigator/index">Navigator layers</a>
+    <a href="#/ABOUT_THE_DATA">About the data</a>
+    <a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/CITATION.cff" target="_blank" rel="noopener">Cite this library</a>
   </div>
-</div>
-
-Control mappings are from the CTID Mappings Explorer (NIST SP 800-53 Rev. 5 to ATT&CK v16.1). Vendor mappings are this library's own editorial assessments.
-
-## Study and career
-
-<div class="tsw-swb-group tsw-learn">
-  <a class="tsw-swb-l" href="#/CAREER_PATHS">Career Paths</a>
-  <a class="tsw-swb-l" href="#/CERTIFICATIONS">Certifications</a>
-  <a class="tsw-swb-l" href="#/INTERVIEW_PREP">Interview Prep</a>
-  <a class="tsw-swb-l" href="#/LABS">Hands-On Labs</a>
-  <a class="tsw-swb-l" href="#/HOMELAB_SETUP">Home Lab Setup</a>
-  <a class="tsw-swb-l" href="#/CYBERSECURITY_BOOK_LIST">Book List</a>
-  <a class="tsw-swb-l" href="#/STARRED_REPOS">Starred Repos</a>
-</div>
-
-Free training platforms such as Antisyphon, PortSwigger, HTB Academy, TryHackMe, and LetsDefend are listed in [Hands-On Labs](/LABS.md) and [Resources](/RESOURCES.md).
-
-<div class="tsw-footer">
-  <div class="tsw-footer-links">
-    <a href="#/CONTRIBUTING">Contribute</a><span class="tsw-footer-sep">|</span><a href="https://github.com/TeamStarWolf/TeamStarWolf/issues" target="_blank" rel="noopener">Open an issue</a><span class="tsw-footer-sep">|</span><a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/LICENSE" target="_blank" rel="noopener">License</a><span class="tsw-footer-sep">|</span><a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/THIRD_PARTY_NOTICES.md" target="_blank" rel="noopener">Third-party notices</a><span class="tsw-footer-sep">|</span><a href="https://github.com/TeamStarWolf/ATTACK-Navi" target="_blank" rel="noopener">ATTACK-Navi repository</a>
+  <div class="tsw-footer-col">
+    <div class="tsw-footer-h">Project</div>
+    <a href="https://github.com/TeamStarWolf/TeamStarWolf" target="_blank" rel="noopener">Source on GitHub</a>
+    <a href="#/CONTRIBUTING">Contributing</a>
+    <a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Changelog</a>
+    <a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/SECURITY.md" target="_blank" rel="noopener">Security policy</a>
+    <a href="https://github.com/TeamStarWolf/TeamStarWolf/issues" target="_blank" rel="noopener">Open an issue</a>
   </div>
-  <div class="tsw-footer-small">
-    Offensive material is provided for authorized security testing, education, and defensive research.
-  </div>
+  <p class="tsw-footer-small">ATT&amp;CK&reg; and MITRE ATT&amp;CK&reg; are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE. The TeamStarWolf name and STARWOLF 64 art are naming and art only, never a claim about people, affiliations, or capability. Star Fox is a Nintendo trademark; this project is not affiliated with or endorsed by Nintendo. Offensive material is provided for authorized security testing, education, and defensive research.</p>
 </div>

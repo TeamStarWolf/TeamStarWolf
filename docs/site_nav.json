@@ -1,0 +1,366 @@
+{
+  "_about": [
+    "The site navigation, read by scripts/build_site_nav.py, which writes _sidebar.md, _navbar.md,",
+    "the nested sidebars (guides/, disciplines/, tools/, ai-tooling/, mitre/), the domain hubs",
+    "(hubs/), assets/site-nav.json (breadcrumbs) and the alias block in index.html.",
+    "Targets are repository paths with a leading slash, as in the pages ('/' is the homepage).",
+    "To move a reference to another hub, move its file name between 'docs' lists and run",
+    "python scripts/build_site_nav.py. Every root reference must sit in exactly one hub; the",
+    "--check run in CI fails otherwise, and fails when a hand-written page is in no nav section.",
+    "A hub's 'home' links are the three shown on its card under 'Browse by domain' in HOME.md;",
+    "each must be one of the hub's references or 'see_also' pages."
+  ],
+  "library_header": [
+    ["Home", "/"],
+    ["Guides", "/guides/README.md"],
+    ["Learning paths", "/disciplines/README.md"],
+    ["Domains", "/hubs/README.md"],
+    ["Explore", "/explore.md"]
+  ],
+  "navbar": [
+    ["Explore", "/explore.md"],
+    ["Guides", "/guides/README.md"],
+    ["Learning paths", "/disciplines/README.md"],
+    ["Domains", "/hubs/README.md"],
+    ["Index", "/INDEX.md"],
+    ["ATTACK-Navi", "https://teamstarwolf.github.io/ATTACK-Navi/"],
+    ["GitHub", "https://github.com/TeamStarWolf/TeamStarWolf"]
+  ],
+  "sections": [
+    {"label": "Start", "links": [
+      ["Home", "/"],
+      ["How to use this library", "/guides/HOW_TO_USE_THIS_LIBRARY.md"],
+      ["Search tips", "/guides/HOW_TO_USE_THIS_LIBRARY.md?id=step-3-find-anything-three-ways"],
+      ["What changed", "/CHANGELOG.md"]
+    ]},
+    {"label": "Guides and learning paths", "links": [
+      ["How-to guides", "/guides/README.md"],
+      ["Learning paths", "/disciplines/README.md"]
+    ]},
+    {"label": "Domains", "hubs": true},
+    {"label": "Frameworks", "links": [
+      ["Explore all objects", "/explore.md"],
+      ["ATT&CK techniques", "/mitre/techniques/README.md"],
+      ["ATT&CK tactics", "/mitre/tactics/README.md"],
+      ["Threat groups", "/mitre/groups/README.md"],
+      ["Software", "/mitre/software/README.md"],
+      ["Campaigns", "/mitre/campaigns/README.md"],
+      ["Mitigations", "/mitre/mitigations/README.md"],
+      ["CAPEC", "/mitre/capec/README.md"],
+      ["D3FEND", "/mitre/d3fend/README.md"],
+      ["ATLAS", "/mitre/atlas/README.md"],
+      ["F3", "/mitre/f3/README.md"],
+      ["Crosswalk", "/mitre/crosswalk.md"]
+    ]},
+    {"label": "Operate and data", "links": [
+      ["Detections", "/detections/README.md"],
+      ["Detection strategies", "/detections/strategies/README.md"],
+      ["Technique detail pages", "/techniques/README.md"],
+      ["Navigator layers", "/navigator/"],
+      ["Coverage scores", "/scores/README.md"],
+      ["Data and edges", "/data/README.md"],
+      ["Scripts and checks", "/scripts/README.md"]
+    ]},
+    {"label": "Tools", "links": [
+      ["Vendor tools", "/tools/README.md"],
+      ["AI tooling", "/ai-tooling/README.md"],
+      ["Tools research", "/tools-research/README.md"]
+    ]},
+    {"label": "Case studies and research", "links": [
+      ["Case studies", "/case-studies/README.md"],
+      ["Research notes", "/research/README.md"]
+    ]},
+    {"label": "About", "links": [
+      ["About the data", "/ABOUT_THE_DATA.md"],
+      ["Third-party notices", "/THIRD_PARTY_NOTICES.md"],
+      ["Contributing", "/CONTRIBUTING.md"],
+      ["Voice and credibility guide", "/docs/VOICE.md"],
+      ["Security policy", "/SECURITY.md"],
+      ["Code of conduct", "/CODE_OF_CONDUCT.md"]
+    ]}
+  ],
+  "nested": [
+    {"folder": "guides", "label": "How-to guides", "landing": "guides/README.md"},
+    {"folder": "disciplines", "label": "Learning paths", "landing": "disciplines/README.md"},
+    {"folder": "tools", "label": "Vendor tools", "landing": "tools/README.md",
+     "lead": [["Overview", "/tools/README.md"]]},
+    {"folder": "ai-tooling", "label": "AI tooling", "landing": "ai-tooling/README.md",
+     "lead": [["Overview", "/ai-tooling/README.md"],
+              ["AI tools and LLMs index", "/ai-tooling/AI_TOOLS_INDEX.md"],
+              ["AI and LLM learning path", "/ai-tooling/AI_LEARNING_PATH.md"],
+              ["AI labs", "/ai-tooling/AI_LABS.md"],
+              ["All tool manuals", "/ai-tooling/tools/README.md"]],
+     "sub": {"folder": "ai-tooling/tools", "label": "Tool manuals", "landing": "ai-tooling/tools/README.md"}},
+    {"folder": "mitre", "label": "Frameworks", "fixed": "Frameworks",
+     "lead": [["Overview", "/mitre/README.md"]]}
+  ],
+  "crumb_parents": {
+    "guides/": ["How-to guides", "/guides/README.md"],
+    "disciplines/": ["Learning paths", "/disciplines/README.md"],
+    "tools/": ["Vendor tools", "/tools/README.md"],
+    "ai-tooling/": ["AI tooling", "/ai-tooling/README.md"],
+    "ai-tooling/tools/": ["Tool manuals", "/ai-tooling/tools/README.md"],
+    "tools-research/": ["Tools research", "/tools-research/README.md"],
+    "case-studies/": ["Case studies", "/case-studies/README.md"],
+    "research/": ["Research notes", "/research/README.md"],
+    "data/": ["Data and edges", "/data/README.md"],
+    "detections/": ["Detections", "/detections/README.md"],
+    "hubs/": ["Domains", "/hubs/README.md"]
+  },
+  "not_in_nav": {
+    "README.md": "The GitHub front door. On the site, HOME.md is the homepage at '/' and covers the same ground."
+  },
+  "hubs": [
+    {
+      "slug": "threat-informed-defense",
+      "title": "Threat-informed defense and ATT&CK",
+      "summary": "Using MITRE ATT&CK and the related MITRE frameworks to decide what to defend, detect, and test first.",
+      "home": [["ATT&CK Matrix Analysis", "/ATTACK_MATRIX_ANALYSIS_REFERENCE.md"], ["ATT&CK Technique Atlas", "/ATTACK_TECHNIQUE_ATLAS.md"], ["Priority Gap Analysis", "/scores/attack_priority_gaps.md"]],
+      "groups": [
+        {"heading": "ATT&CK and threat-informed defense", "docs": [
+          "THREAT_INFORMED_DEFENSE_REFERENCE.md", "ATTACK_TECHNIQUE_ATLAS.md", "ATTACK_MATRIX_ANALYSIS_REFERENCE.md",
+          "ATTACK_DATA_COMPONENTS.md", "ATTACK_SOFTWARE_REFERENCE.md", "ATTACK_CAMPAIGNS_REFERENCE.md",
+          "ATTACK_MITIGATIONS_REFERENCE.md", "MOBILE_ATTACK_ATLAS.md"]},
+        {"heading": "Related MITRE frameworks", "docs": [
+          "D3FEND_REFERENCE.md", "CAPEC_REFERENCE.md", "CWE_REFERENCE.md", "ENGAGE_REFERENCE.md",
+          "FRAUD_FRAMEWORK_REFERENCE.md"]},
+        {"heading": "Mapping and measuring coverage", "docs": [
+          "SECURITY_PIPELINE.md", "CONTROLS_MAPPING.md", "COVERAGE_SCHEMA.md"]}
+      ],
+      "paths": ["detection-engineering", "purple-teaming", "threat-intelligence"],
+      "guides": ["RUN_A_COVERAGE_GAP_ASSESSMENT", "RUN_A_PURPLE_TEAM_EXERCISE", "HOW_TO_USE_THIS_LIBRARY"],
+      "see_also": [
+        ["Explore every framework object", "/explore.md"],
+        ["ATT&CK priority gaps", "/scores/attack_priority_gaps.md"],
+        ["Navigator layers", "/navigator/"],
+        ["Cross-framework crosswalk", "/mitre/crosswalk.md"]
+      ]
+    },
+    {
+      "slug": "detection-and-response",
+      "title": "Detection and response",
+      "summary": "Collecting telemetry, writing and tuning detections, hunting, and responding to and investigating incidents.",
+      "home": [["Threat Hunting", "/THREAT_HUNTING_REFERENCE.md"], ["Incident Response", "/INCIDENT_RESPONSE_REFERENCE.md"], ["Digital Forensics", "/DIGITAL_FORENSICS_REFERENCE.md"]],
+      "groups": [
+        {"heading": "Detection, monitoring, and hunting", "docs": [
+          "DETECTION_RULES_REFERENCE.md", "SIEM_REFERENCE.md", "SIEM_DETECTION_CONTENT.md",
+          "SECURITY_DATA_ENGINEERING_REFERENCE.md", "SOAR_AUTOMATION_REFERENCE.md", "THREAT_HUNTING_REFERENCE.md",
+          "THREAT_HUNTING_PLAYBOOKS.md", "LOTL_DETECTION_REFERENCE.md", "ENDPOINT_SECURITY_REFERENCE.md",
+          "NETWORK_DEFENSE_REFERENCE.md", "NETWORK_MONITORING_REFERENCE.md", "EMAIL_SECURITY_REFERENCE.md",
+          "DECEPTION_TECHNOLOGY_REFERENCE.md", "HONEYPOT_DECEPTION_REFERENCE.md", "VENDOR_PREVENTION_POLICIES.md"]},
+        {"heading": "Incident response and forensics", "docs": [
+          "INCIDENT_RESPONSE_REFERENCE.md", "IR_PLAYBOOKS.md", "RANSOMWARE_DEFENSE_REFERENCE.md",
+          "CYBER_RESILIENCE_BCDR_REFERENCE.md", "DIGITAL_FORENSICS_REFERENCE.md", "NETWORK_FORENSICS_REFERENCE.md",
+          "CLOUD_SAAS_MOBILE_FORENSICS_REFERENCE.md", "MALWARE_ANALYSIS_REFERENCE.md", "REVERSE_ENGINEERING_REFERENCE.md"]}
+      ],
+      "paths": ["detection-engineering", "security-operations", "siem-soar", "threat-hunting", "incident-response",
+                "digital-forensics", "malware-analysis", "reverse-engineering", "active-defense-deception"],
+      "guides": ["BUILD_YOUR_FIRST_DETECTION", "ONBOARD_A_LOG_SOURCE", "HUNT_FOR_LOTL_ACTIVITY", "BUILD_A_DETECTION_HOMELAB",
+                 "RESPOND_TO_RANSOMWARE", "RUN_A_RANSOMWARE_TABLETOP", "INVESTIGATE_A_PHISHING_EMAIL",
+                 "ACQUIRE_AND_TRIAGE_AN_ENDPOINT", "INVESTIGATE_A_CLOUD_COMPROMISE"],
+      "see_also": [
+        ["Technique detection library", "/detections/TECHNIQUE_DETECTION_LIBRARY.md"],
+        ["ATT&CK detection strategies", "/detections/strategies/README.md"],
+        ["Technique detail pages", "/techniques/README.md"]
+      ]
+    },
+    {
+      "slug": "threat-intelligence",
+      "title": "Threat intelligence and adversaries",
+      "summary": "Who attacks, with what, and how: intelligence practice, threat reporting, groups, malware, incidents, and OSINT.",
+      "home": [["Threat Group Profiles", "/THREAT_GROUP_PROFILES.md"], ["Malware Families", "/MALWARE_FAMILIES.md"], ["OSINT", "/OSINT_REFERENCE.md"]],
+      "groups": [
+        {"heading": "References", "docs": [
+          "THREAT_INTELLIGENCE_REFERENCE.md", "THREAT_REPORT_ALMANAC.md", "THREAT_ACTORS.md", "THREAT_GROUP_PROFILES.md",
+          "MALWARE_FAMILIES.md", "NOTABLE_INCIDENTS.md", "OSINT_REFERENCE.md"]}
+      ],
+      "paths": ["threat-intelligence", "osint"],
+      "guides": ["PRODUCE_AN_INTELLIGENCE_PRODUCT"],
+      "see_also": [
+        ["ATT&CK threat groups", "/mitre/groups/README.md"],
+        ["ATT&CK software", "/mitre/software/README.md"],
+        ["ATT&CK campaigns", "/mitre/campaigns/README.md"]
+      ]
+    },
+    {
+      "slug": "offensive-security",
+      "title": "Offensive security",
+      "summary": "Penetration testing, red and purple teaming, exploitation, and the attack techniques defenders need to understand.",
+      "home": [["Red Team", "/RED_TEAM_REFERENCE.md"], ["Purple Team", "/PURPLE_TEAM_REFERENCE.md"], ["Active Directory Attacks", "/ACTIVE_DIRECTORY_ATTACKS.md"]],
+      "groups": [
+        {"heading": "References", "docs": [
+          "PENETRATION_TESTING_METHODOLOGY.md", "PENTEST_CHECKLISTS.md", "RED_TEAM_REFERENCE.md", "PURPLE_TEAM_REFERENCE.md",
+          "WEB_APPLICATION_PENTESTING.md", "EXPLOIT_DEVELOPMENT_REFERENCE.md", "FUZZING_VULNERABILITY_RESEARCH.md",
+          "PRIVESC_REFERENCE.md", "ACTIVE_DIRECTORY_ATTACKS.md", "ACTIVE_DIRECTORY_ATTACK_REFERENCE.md",
+          "CLOUD_ATTACK_REFERENCE.md", "NETWORK_ATTACKS_REFERENCE.md", "SOCIAL_ENGINEERING_REFERENCE.md"]}
+      ],
+      "paths": ["offensive-security", "penetration-testing", "red-teaming", "purple-teaming", "exploit-development",
+                "bug-bounty", "social-engineering", "active-directory", "hacker-hobbies"],
+      "guides": ["RUN_A_PURPLE_TEAM_EXERCISE"],
+      "see_also": [
+        ["Kali Linux tool coverage", "/research/KALI_TOOL_COVERAGE.md"],
+        ["CTF methodology", "/CTF_METHODOLOGY.md"]
+      ]
+    },
+    {
+      "slug": "network-security",
+      "title": "Network security",
+      "summary": "Network fundamentals, protocols, architecture, edge devices, packet analysis, and wireless, RF, and telecom security.",
+      "home": [["Network Defense", "/NETWORK_DEFENSE_REFERENCE.md"], ["Packet Analysis", "/PACKET_ANALYSIS_REFERENCE.md"], ["Wireless Security", "/WIRELESS_SECURITY_REFERENCE.md"]],
+      "groups": [
+        {"heading": "References", "docs": [
+          "NETWORKING_FUNDAMENTALS.md", "NETWORK_PROTOCOLS_REFERENCE.md", "NETWORK_PROTOCOLS_SECURITY.md",
+          "NETWORK_SECURITY_ARCHITECTURE.md", "NETWORKING_ARCHITECTURE_REFERENCE.md", "EDGE_DEVICE_SECURITY_REFERENCE.md",
+          "PACKET_ANALYSIS_REFERENCE.md", "WIRELESS_SECURITY_REFERENCE.md", "SDR_RF_SECURITY_REFERENCE.md",
+          "TELECOM_5G_SECURITY_REFERENCE.md"]}
+      ],
+      "paths": ["network-security", "radio-frequency-security", "zero-trust-architecture"],
+      "guides": [],
+      "see_also": [
+        ["Network defense", "/NETWORK_DEFENSE_REFERENCE.md"],
+        ["Network forensics", "/NETWORK_FORENSICS_REFERENCE.md"]
+      ]
+    },
+    {
+      "slug": "cloud-and-infrastructure",
+      "title": "Cloud and infrastructure",
+      "summary": "Securing cloud platforms, SaaS, containers, Kubernetes, and the virtualization layer under them.",
+      "home": [["Kubernetes Security", "/KUBERNETES_SECURITY_REFERENCE.md"], ["Container Security", "/CONTAINER_SECURITY_REFERENCE.md"], ["SaaS Security", "/SAAS_SECURITY_REFERENCE.md"]],
+      "groups": [
+        {"heading": "References", "docs": [
+          "CLOUD_SECURITY_REFERENCE.md", "CLOUD_SECURITY_BENCHMARK.md", "CLOUD_NETWORK_SECURITY.md",
+          "CLOUD_ARCHITECTURE_REFERENCE.md", "SAAS_SECURITY_REFERENCE.md", "CONTAINER_SECURITY_REFERENCE.md",
+          "KUBERNETES_SECURITY_REFERENCE.md", "HYPERVISOR_SECURITY_REFERENCE.md"]}
+      ],
+      "paths": ["cloud-security", "container-kubernetes-security"],
+      "guides": ["HARDEN_A_KUBERNETES_CLUSTER", "INVESTIGATE_A_CLOUD_COMPROMISE", "ASSESS_M365_WITH_SCUBAGEAR"],
+      "see_also": [
+        ["Cloud attack reference", "/CLOUD_ATTACK_REFERENCE.md"],
+        ["Vendor tool pages", "/tools/README.md"]
+      ]
+    },
+    {
+      "slug": "platform-hardening",
+      "title": "Platform hardening",
+      "summary": "Baselines and hardening for Windows, Linux, macOS, and mobile devices.",
+      "home": [["Linux Hardening", "/LINUX_HARDENING_REFERENCE.md"], ["macOS Security", "/MACOS_SECURITY_REFERENCE.md"], ["Mobile Security", "/MOBILE_SECURITY_REFERENCE.md"]],
+      "groups": [
+        {"heading": "References", "docs": [
+          "WINDOWS_HARDENING_REFERENCE.md", "WINDOWS_HARDENING.md", "WINDOWS_HARDENING_GPO.md",
+          "LINUX_HARDENING_REFERENCE.md", "MACOS_SECURITY_REFERENCE.md", "MOBILE_SECURITY_REFERENCE.md"]}
+      ],
+      "paths": ["mobile-security", "security-architecture"],
+      "guides": ["HARDEN_A_WINDOWS_BASELINE", "HARDEN_A_MACOS_FLEET"],
+      "see_also": [
+        ["Endpoint security", "/ENDPOINT_SECURITY_REFERENCE.md"],
+        ["Active Directory security", "/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md"]
+      ]
+    },
+    {
+      "slug": "application-and-supply-chain",
+      "title": "Application and supply chain security",
+      "summary": "Secure coding, web, API, and browser security, threat modeling, DevSecOps, the software supply chain, and secrets.",
+      "home": [["Secure Coding", "/SECURE_CODING_REFERENCE.md"], ["API Security", "/API_SECURITY_REFERENCE.md"], ["Supply Chain Security", "/SUPPLY_CHAIN_SECURITY_REFERENCE.md"]],
+      "groups": [
+        {"heading": "References", "docs": [
+          "SECURE_CODING_REFERENCE.md", "WEB_APPLICATION_SECURITY_REFERENCE.md", "API_SECURITY_REFERENCE.md",
+          "BROWSER_SECURITY_REFERENCE.md", "THREAT_MODELING_REFERENCE.md", "DEVSECOPS_REFERENCE.md",
+          "SUPPLY_CHAIN_SECURITY_REFERENCE.md", "SECRETS_MANAGEMENT_REFERENCE.md"]}
+      ],
+      "paths": ["application-security", "devsecops", "supply-chain-security", "threat-modeling"],
+      "guides": ["THREAT_MODEL_AN_APPLICATION"],
+      "see_also": [
+        ["Web application pentesting", "/WEB_APPLICATION_PENTESTING.md"],
+        ["CAPEC attack patterns", "/mitre/capec/README.md"]
+      ]
+    },
+    {
+      "slug": "identity-and-data-protection",
+      "title": "Identity and data protection",
+      "summary": "Identity and access, Active Directory, passwords, zero trust, cryptography, and protecting and governing data.",
+      "home": [["Active Directory Security", "/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md"], ["Zero Trust", "/ZERO_TRUST_REFERENCE.md"], ["Data Security", "/DATA_SECURITY_REFERENCE.md"]],
+      "groups": [
+        {"heading": "Identity and access", "docs": [
+          "IDENTITY_SECURITY_REFERENCE.md", "IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md", "ACTIVE_DIRECTORY_SECURITY_REFERENCE.md",
+          "PASSWORD_SECURITY_REFERENCE.md", "ZERO_TRUST_REFERENCE.md"]},
+        {"heading": "Cryptography and data", "docs": [
+          "CRYPTOGRAPHY_REFERENCE.md", "POST_QUANTUM_MIGRATION_REFERENCE.md", "DATA_SECURITY_REFERENCE.md",
+          "DATABASE_SECURITY_REFERENCE.md", "PRIVACY_ENGINEERING_REFERENCE.md"]}
+      ],
+      "paths": ["identity-access-management", "active-directory", "zero-trust-architecture", "cryptography-pki",
+                "data-security", "privacy-engineering"],
+      "guides": ["ROLL_OUT_PHISHING_RESISTANT_MFA"],
+      "see_also": [
+        ["Active Directory attacks", "/ACTIVE_DIRECTORY_ATTACKS.md"]
+      ]
+    },
+    {
+      "slug": "ai-and-emerging-tech",
+      "title": "AI and emerging tech",
+      "summary": "Securing AI and machine learning systems, attacks on and with AI, synthetic media, and blockchain.",
+      "home": [["MITRE ATLAS", "/ATLAS_REFERENCE.md"], ["AI and MCP Security", "/AI_MCP_SECURITY_REFERENCE.md"], ["AI Tooling", "/ai-tooling/README.md"]],
+      "groups": [
+        {"heading": "References", "docs": [
+          "AI_SECURITY_REFERENCE.md", "AI_MCP_SECURITY_REFERENCE.md", "AI_INFRASTRUCTURE_SECURITY_REFERENCE.md",
+          "AI_ARCHITECTURE_REFERENCE.md", "AI_OFFENSIVE_SECURITY_REFERENCE.md", "AGENTIC_AI_ATTACK_REFERENCE.md",
+          "ATLAS_REFERENCE.md", "DEEPFAKE_DEFENSE_REFERENCE.md", "BLOCKCHAIN_SECURITY_REFERENCE.md"]}
+      ],
+      "paths": ["ai-llm-security", "ai-ml-security", "adversarial-ai-attacks", "blockchain-web3-security"],
+      "guides": [],
+      "see_also": [
+        ["AI tooling", "/ai-tooling/README.md"],
+        ["ATLAS pages", "/mitre/atlas/README.md"],
+        ["AI threats: a 2026 case study", "/case-studies/AI_THREATS_2026.md"]
+      ]
+    },
+    {
+      "slug": "ics-ot-and-hardware",
+      "title": "ICS, OT, and hardware",
+      "summary": "Industrial control systems, embedded and IoT devices, hardware, vehicles, space systems, and physical security.",
+      "home": [["ICS ATT&CK Atlas", "/ICS_ATTACK_ATLAS.md"], ["Hardware Security", "/HARDWARE_SECURITY_REFERENCE.md"], ["Firmware and IoT Security", "/FIRMWARE_IOT_SECURITY_REFERENCE.md"]],
+      "groups": [
+        {"heading": "References", "docs": [
+          "ICS_OT_SECURITY_REFERENCE.md", "ICS_ATTACK_ATLAS.md", "EMB3D_REFERENCE.md", "HARDWARE_SECURITY_REFERENCE.md",
+          "FIRMWARE_IOT_SECURITY_REFERENCE.md", "AUTOMOTIVE_SECURITY_REFERENCE.md", "SPACE_SECURITY_REFERENCE.md",
+          "PHYSICAL_SECURITY_REFERENCE.md", "SECURITY_GADGETS_REFERENCE.md"]}
+      ],
+      "paths": ["ics-ot-security", "hardware-security", "iot-security", "physical-security", "radio-frequency-security"],
+      "guides": [],
+      "see_also": [
+        ["SDR and RF security", "/SDR_RF_SECURITY_REFERENCE.md"]
+      ]
+    },
+    {
+      "slug": "grc-and-security-program",
+      "title": "GRC and security program",
+      "summary": "Running a security program: governance, risk, compliance, architecture and controls, vulnerability and exposure management, careers, and reading lists.",
+      "home": [["Vulnerability Management", "/VULNERABILITY_MANAGEMENT_REFERENCE.md"], ["Security Metrics", "/SECURITY_METRICS_REFERENCE.md"], ["Career Paths", "/CAREER_PATHS.md"]],
+      "groups": [
+        {"heading": "Governance, risk, and compliance", "docs": [
+          "SECURITY_PROGRAM_MANAGEMENT_REFERENCE.md", "GRC_REFERENCE.md", "GRC_COMPLIANCE_REFERENCE.md", "FRAMEWORKS.md",
+          "REGULATORY_LANDSCAPE_REFERENCE.md", "HEALTHCARE_SECURITY_REFERENCE.md", "SECURITY_METRICS_REFERENCE.md",
+          "SECURITY_AWARENESS_REFERENCE.md", "INSIDER_THREAT_REFERENCE.md"]},
+        {"heading": "Architecture and controls", "docs": [
+          "SECURITY_ARCHITECTURE_REFERENCE.md", "ARCHITECTURE_REFERENCE.md", "ENTERPRISE_SECURITY_CONTROLS.md",
+          "ENTERPRISE_INFRASTRUCTURE.md"]},
+        {"heading": "Vulnerability and exposure management", "docs": [
+          "VULNERABILITY_MANAGEMENT_REFERENCE.md", "VULNERABILITY_PRIORITIZATION_REFERENCE.md", "CTEM_REFERENCE.md",
+          "CVE_REFERENCE.md", "CPE_REFERENCE.md"]},
+        {"heading": "Careers and learning", "docs": [
+          "CAREER_PATHS.md", "CERTIFICATIONS.md", "CISSP_DOMAIN_CROSSWALK.md", "CEH_DOMAIN_CROSSWALK.md",
+          "INTERVIEW_PREP.md", "LABS.md", "HOMELAB_SETUP.md", "CTF_METHODOLOGY.md", "GLOSSARY.md"]},
+        {"heading": "Reading lists and tool catalogs", "docs": [
+          "RESOURCES.md", "CYBERSECURITY_BOOK_LIST.md", "YOUTUBE_CHANNELS.md", "TWITTER_FOLLOW_LIST.md",
+          "STARRED_REPOS.md", "OPEN_SOURCE_TOOLKIT.md", "TOOLS.md", "SECURITY_TOOL_DOCUMENTATION.md"]}
+      ],
+      "paths": ["governance-risk-compliance", "cyber-risk-quantification", "vulnerability-management",
+                "security-architecture", "security-awareness"],
+      "guides": ["START_A_VULN_MGMT_PROGRAM", "TRIAGE_A_CVE"],
+      "see_also": [
+        ["Vendor tool pages", "/tools/README.md"],
+        ["Tools research", "/tools-research/README.md"],
+        ["Research notes", "/research/README.md"]
+      ]
+    }
+  ]
+}

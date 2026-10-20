@@ -698,12 +698,12 @@
       #tsw-theme { top: 6px; right: 8px; }
       #tsw-search-btn { display: inline-flex; }
     }
-    /* Tablet mode: tighter items, so all nine stay on one row beside the two buttons at 768px */
+    /* Tablet mode: tighter items, so every navbar item stays on one row beside the two buttons at 768px */
     @media screen and (min-width: 601px) and (max-width: 768px) {
       .app-nav li { margin: 0 4px; }
     }
-    /* Narrow desktops and tablets (docsify switches to its phone layout at 768px). The nine
-       navbar items fit one row from 1100px when set tighter; below that they wrap, so the
+    /* Narrow desktops and tablets (docsify switches to its phone layout at 768px). The navbar
+       items fit one row from 1100px when set tighter; below that they wrap, so the
        bar grows to fit and the page and the anchor offset follow its measured height
        (--tsw-nav-h, set by the navbar-height plugin below). */
     @media screen and (min-width: 769px) and (max-width: 1280px) {
@@ -921,6 +921,68 @@
     @media screen and (max-width: 560px) {
       .markdown-section .tsw-guides, .markdown-section .tsw-domains, .markdown-section .tsw-counts { grid-template-columns: minmax(0, 1fr); }
     }
+
+    /* ===================== Library navigation =====================
+       The breadcrumb trail, the "On this page" list and the section highlight in the sidebar
+       (the navigation script below; trails from assets/site-nav.json, which
+       scripts/build_site_nav.py writes). */
+    .markdown-section .tsw-crumbs { margin: 0 0 .8rem; font-size: .82rem; line-height: 1.5; }
+    .markdown-section .tsw-crumbs ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .1rem .35rem; }
+    .markdown-section .tsw-crumbs li { margin: 0; color: var(--tsw-text-dim); }
+    .markdown-section .tsw-crumbs li + li::before { content: '/'; margin-right: .35rem; color: var(--tsw-text-dim); }
+    .markdown-section .tsw-crumbs li[aria-current] { color: var(--tsw-text-muted); }
+    .sidebar .tsw-toc { margin: 0 0 12px; padding: 0 0 10px; border-bottom: 1px solid var(--tsw-border-soft); }
+    .sidebar .tsw-toc summary {
+      cursor: pointer; padding: 2px 0 4px;
+      font-size: .705rem; font-weight: 700; text-transform: uppercase; letter-spacing: .09em; color: var(--tsw-text-dim);
+    }
+    .sidebar .tsw-toc ul { margin: 2px 0 0; padding: 0 0 0 2px; list-style: none; }
+    .sidebar .tsw-toc li { margin: 0; }
+    .sidebar .tsw-toc li a { display: block; font-size: .84rem; line-height: 1.4; padding: 3px 0; }
+    .sidebar-nav li.tsw-in-section > a { color: var(--tsw-green); font-weight: 650; }
+
+    /* ===================== Explore (explore.md, the Explore script below) ===================== */
+    .markdown-section .tsw-x { margin: 1.4rem 0 2rem; }
+    .markdown-section .tsw-x-q { display: block; margin: 0 0 .8rem; }
+    .markdown-section .tsw-x input[type="search"], .markdown-section .tsw-x select {
+      font: inherit; color: var(--tsw-text); background: var(--tsw-surface);
+      border: 1px solid var(--tsw-border); border-radius: 8px; box-sizing: border-box;
+    }
+    .markdown-section .tsw-x input[type="search"] { width: 100%; padding: .6rem .8rem; font-size: .95rem; }
+    .markdown-section .tsw-x input[type="search"]::placeholder { color: var(--tsw-text-dim); opacity: 1; }
+    .markdown-section .tsw-x select { padding: .35rem .5rem; font-size: .86rem; max-width: 100%; }
+    .markdown-section .tsw-x input:focus-visible, .markdown-section .tsw-x select:focus-visible {
+      outline: 2px solid var(--tsw-focus); outline-offset: 2px;
+    }
+    .markdown-section .tsw-x-kinds { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 .8rem; }
+    .markdown-section .tsw-x-kinds button {
+      font: inherit; font-size: .82rem; cursor: pointer; padding: .28rem .65rem; border-radius: 999px;
+      border: 1px solid var(--tsw-border); background: var(--tsw-surface); color: var(--tsw-link);
+    }
+    .markdown-section .tsw-x-kinds button:hover { border-color: var(--tsw-link); }
+    .markdown-section .tsw-x-kinds button[aria-pressed="true"] {
+      background: var(--tsw-tint-strong); border-color: var(--tsw-focus); color: var(--tsw-heading); font-weight: 650;
+    }
+    .markdown-section .tsw-x-kinds button span { color: inherit; opacity: .85; }
+    .markdown-section .tsw-x-filters { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px 14px; margin: 0 0 .6rem; }
+    .markdown-section .tsw-x-filters label { display: flex; flex-direction: column; gap: 3px; font-size: .78rem; color: var(--tsw-text-muted); }
+    .markdown-section .tsw-x-filters label[hidden] { display: none; }
+    .markdown-section .tsw-x-filters .tsw-x-check { flex-direction: row; align-items: center; gap: 6px; font-size: .84rem; padding-bottom: .35rem; }
+    .markdown-section .tsw-x-btn {
+      font: inherit; font-size: .84rem; cursor: pointer; padding: .35rem .8rem; border-radius: 8px;
+      border: 1px solid var(--tsw-border); background: var(--tsw-surface); color: var(--tsw-link);
+    }
+    .markdown-section .tsw-x-btn:hover { border-color: var(--tsw-link); }
+    .markdown-section .tsw-x-status { margin: .4rem 0 .2rem; font-size: .86rem; color: var(--tsw-text-muted); }
+    .markdown-section .tsw-x table { font-size: .86rem; }
+    .markdown-section .tsw-x td code { white-space: nowrap; }
+    .markdown-section .tsw-x-sub { display: block; font-size: .78rem; color: var(--tsw-text-dim); line-height: 1.45; }
+    .markdown-section .tsw-x-flag { color: var(--tsw-red-text); }
+    .markdown-section .tsw-x-more { margin-top: .4rem; }
+    @media screen and (max-width: 600px) {
+      .markdown-section .tsw-x-filters label:not(.tsw-x-check) { flex: 1 1 100%; }
+      .markdown-section .tsw-x select { width: 100%; }
+    }
   </style>
 </head>
 <body>
@@ -978,8 +1040,16 @@
       homepage: 'HOME.md',   // site homepage; README.md stays the GitHub face
       relativePath: false,  // every in-repo link is absolute; see _sidebar.md
       alias: {
+        // nav-aliases:start (written by scripts/build_site_nav.py; do not edit)
         // navigator/ ships index.md, not README.md; without this, /navigator/ 404s
-        '/navigator/': '/navigator/index'
+        '/navigator/': '/navigator/index',
+        // A folder without a sidebar of its own uses the nearest one, without first
+        // requesting (and 404ing on) the missing _sidebar.md and _navbar.md files
+        '/ai-tooling/.+/_sidebar.md': '/ai-tooling/_sidebar.md',
+        '/mitre/.+/_sidebar.md': '/mitre/_sidebar.md',
+        '/(?!guides/|disciplines/|tools/|ai-tooling/|mitre/).+/_sidebar.md': '/_sidebar.md',
+        '/.+/_navbar.md': '/_navbar.md'
+        // nav-aliases:end
       },
       mergeNavbar: true,
       externalLinkTarget: '_blank',
@@ -1192,6 +1262,382 @@
         document.querySelectorAll('.app-nav li > a[aria-haspopup]').forEach(function (a) {
           var owner = a.parentElement;
           a.setAttribute('aria-expanded', owner === li && !owner.classList.contains('tsw-shut') ? 'true' : 'false');
+        });
+      });
+    })();
+  </script>
+
+  <!-- Library navigation. Two docsify plugins, added to the config above:
+       1. Breadcrumbs and orientation: on each hand-written page, a trail (Library, then its
+          domain hub or folder, then the page) from assets/site-nav.json, which
+          scripts/build_site_nav.py writes from docs/site_nav.json; in the sidebar, the hub or
+          folder link of the open page is marked, and a page the sidebar does not list (a
+          reference, a framework page) gets an "On this page" list of its sections.
+       2. Explore (explore.md): the filterable table of every framework object, from
+          assets/explore.json (scripts/build_explore.py). Without the JSON the page still
+          shows its family index tables, which is all GitHub shows. -->
+  <script>
+    (function () {
+      var BASE = location.href.split('#')[0].split('?')[0].replace(/[^\/]*$/, '');
+      var cache = {};
+      function getJson(path) {
+        if (!cache[path]) {
+          cache[path] = fetch(BASE + path).then(function (r) { return r.ok ? r.json() : null; })
+            .catch(function () { return null; });
+        }
+        return cache[path];
+      }
+      function esc(s) {
+        return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; });
+      }
+      function el(tag, attrs, text) {
+        var e = document.createElement(tag);
+        Object.keys(attrs || {}).forEach(function (k) {
+          if (k === 'className') { e.className = attrs[k]; } else { e.setAttribute(k, attrs[k]); }
+        });
+        if (text != null) { e.textContent = text; }
+        return e;
+      }
+
+      // ---------- 1. breadcrumbs, section highlight, "On this page"
+      window.$docsify.plugins.push(function (hook, vm) {
+        hook.init(function () { getJson('assets/site-nav.json'); });
+        hook.afterEach(function (html, next) {
+          getJson('assets/site-nav.json').then(function (nav) {
+            var chain = nav && nav.pages ? nav.pages[vm.route.file] : null;
+            if (!chain) { next(html); return; }
+            var items = ['<li><a href="#/">Library</a></li>'];
+            chain.forEach(function (c) { items.push('<li><a href="#/' + esc(c[1]) + '">' + esc(c[0]) + '</a></li>'); });
+            items.push('<li aria-current="page" class="tsw-crumbs-here"></li>');
+            next('<nav class="tsw-crumbs" aria-label="Breadcrumb"><ol>' + items.join('') + '</ol></nav>' + html);
+          });
+        });
+        hook.doneEach(function () {
+          var h1 = document.querySelector('#main h1');
+          var here = document.querySelector('.tsw-crumbs-here');
+          if (here) { here.textContent = h1 ? h1.textContent.replace(/\s+/g, ' ').trim() : ''; }
+          var side = document.querySelector('.sidebar-nav');
+          if (!side) { return; }
+          // docsify marks the longest sidebar link that prefixes the route, so on a page the
+          // sidebar does not list, "Home" (#/) is marked and the page's sections are put
+          // under it. Unmark it, and keep those sections for the "On this page" list.
+          var act = side.querySelector('li.active'), sections = null;
+          var actLink = act && act.querySelector(':scope > a');
+          if (actLink && actLink.getAttribute('href') === '#/' && vm.route.path !== '/' && !/^\/HOME(\.md)?$/i.test(vm.route.path)) {
+            act.classList.remove('active');
+            sections = act.querySelector(':scope > ul.app-sub-sidebar');
+            act = null;
+          }
+          if (act) { return; }
+          getJson('assets/site-nav.json').then(function (nav) {
+            var chain = nav && nav.pages ? nav.pages[vm.route.file] : null;
+            for (var i = chain ? chain.length - 1 : -1; i >= 0; i--) {
+              var r = chain[i][1];
+              var a = side.querySelector('a[href="#/' + r + '"]') ||
+                (/\/$/.test(r) ? side.querySelector('a[href="#/' + r + 'README"]') : null);
+              if (a && a.parentElement) { a.parentElement.classList.add('tsw-in-section'); break; }
+            }
+          });
+          // The sections of a page the sidebar does not list, at the top of the sidebar
+          if (side.querySelector('.tsw-toc')) { return; }
+          var ul = sections && sections.querySelector('li') ? sections : null;
+          if (!ul) {
+            var heads = Array.prototype.slice.call(document.querySelectorAll('#main h2[id]'));
+            if (heads.length < 2) { if (sections) { sections.remove(); } return; }
+            ul = el('ul', {});
+            heads.forEach(function (h) {
+              var anchor = h.querySelector('a.anchor');
+              var a = el('a', { href: anchor ? anchor.getAttribute('href') : '#' + h.id }, h.textContent.replace(/\s+/g, ' ').trim());
+              var li = el('li', {});
+              li.appendChild(a);
+              ul.appendChild(li);
+            });
+          }
+          // open on wide screens; closed on a phone, where the sidebar is the menu
+          var box = el('details', { className: 'tsw-toc' });
+          if (!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches)) { box.open = true; }
+          box.appendChild(el('summary', {}, 'On this page'));
+          box.appendChild(ul);
+          side.insertBefore(box, side.firstChild);
+        });
+      });
+
+      // ---------- 2. Explore
+      var PAGE = 100;
+      function idKey(q) {
+        var s = q.trim().toUpperCase().replace(/\s+/g, ''), m;
+        if ((m = /^T(\d{4})(?:[.\/\-_](\d{3}))?$/.exec(s))) { return 'T' + m[1] + (m[2] ? '.' + m[2] : ''); }
+        if ((m = /^AML\.?([TM])(\d{4})(?:[.\/\-_](\d{3}))?$/.exec(s))) { return 'AML.' + m[1] + m[2] + (m[3] ? '.' + m[3] : ''); }
+        if ((m = /^CAPEC[-_]?(\d+)$/.exec(s))) { return 'CAPEC-' + m[1]; }
+        if ((m = /^F(\d{4})(?:[.\/\-_](\d{3}))?$/.exec(s))) { return 'F' + m[1] + (m[2] ? '.' + m[2] : ''); }
+        return s;
+      }
+      function idParts(id) {
+        return id.split(/(\d+)/).map(function (p) { return /^\d+$/.test(p) ? ('000000' + p).slice(-6) : p; }).join('');
+      }
+      function routeOf(d, row) {
+        var kind = d.kinds[row.k];
+        var stem = row.s || (row.k === d.kx.technique || row.k === d.kx.atlas || row.k === d.kx['atlas-mitigation']
+          ? row.i.replace(/\./g, '-') : row.k === d.kx.d3fend
+            ? row.n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') : row.i);
+        return '#/' + kind.dir + stem;
+      }
+      function prepare(d) {
+        d.kx = {};
+        d.kinds.forEach(function (k, i) { d.kx[k.key] = i; });
+        d.rows.forEach(function (r) {
+          r._id = idParts(r.i);
+          r._n = r.n.toLowerCase();
+          r._a = (r.a || []).map(function (x) { return x.toLowerCase(); });
+          r._c = (r.r || []).reduce(function (s, v) { return s + v; }, 0);
+        });
+        return d;
+      }
+      function score(r, q, qk) {
+        if (!q) { return 1; }
+        if (r.i.toUpperCase() === qk) { return 100; }
+        if (r._n === q) { return 90; }
+        if (r._a.indexOf(q) !== -1) { return 85; }
+        if (r.i.toUpperCase().indexOf(qk) === 0) { return 80; }
+        if (r._n.indexOf(q) === 0) { return 60; }
+        for (var i = 0; i < r._a.length; i++) { if (r._a[i].indexOf(q) === 0) { return 50; } }
+        if (r._n.indexOf(q) !== -1) { return 40; }
+        for (var j = 0; j < r._a.length; j++) { if (r._a[j].indexOf(q) !== -1) { return 30; } }
+        return 0;
+      }
+      function matchedAlias(r, q) {
+        if (!q || r._n.indexOf(q) !== -1) { return ''; }
+        for (var i = 0; i < r._a.length; i++) { if (r._a[i].indexOf(q) !== -1) { return r.a[i]; } }
+        return '';
+      }
+
+      function mountExplore(root, vm) {
+        if (root.getAttribute('data-ready')) { return; }
+        root.setAttribute('data-ready', '1');
+        getJson('assets/explore.json').then(function (raw) {
+          if (!raw || !raw.rows) { return; }
+          var d = raw.kx ? raw : prepare(raw);
+          var q0 = vm.route.query || {};
+          var st = {
+            q: q0.q || '', kind: q0.kind || '', tactic: q0.tactic || '', platform: q0.platform || '',
+            type: q0.type || '', abs: q0.abs || '', sev: q0.sev || '', sort: q0.sort || 'id',
+            sub: q0.sub !== '0', old: q0.old !== '0', shown: PAGE
+          };
+          var ui = el('div', { className: 'tsw-x' });
+          var qWrap = el('label', { className: 'tsw-x-q' });
+          qWrap.appendChild(el('span', { className: 'tsw-sr-only' }, 'Filter by ID, name or alias'));
+          var input = el('input', { type: 'search', autocomplete: 'off', spellcheck: 'false',
+            placeholder: 'ID, name or alias: T1059, APT29, Cozy Bear, Cobalt Strike, CAPEC-66' });
+          input.value = st.q;
+          qWrap.appendChild(input);
+          ui.appendChild(qWrap);
+          var kinds = el('div', { className: 'tsw-x-kinds', role: 'group', 'aria-label': 'Kind of object' });
+          ui.appendChild(kinds);
+          var filters = el('div', { className: 'tsw-x-filters' });
+          function select(label, key, options) {
+            var lab = el('label', {});
+            lab.appendChild(document.createTextNode(label));
+            var s = el('select', {});
+            s.appendChild(el('option', { value: '' }, 'Any'));
+            options.forEach(function (o) {
+              if (o.group) {
+                var g = el('optgroup', { label: o.group });
+                o.items.forEach(function (it) { g.appendChild(el('option', { value: it[0] }, it[1])); });
+                s.appendChild(g);
+              } else { s.appendChild(el('option', { value: o[0] }, o[1])); }
+            });
+            s.value = st[key];
+            if (s.value !== st[key]) { st[key] = ''; s.value = ''; }
+            s.addEventListener('change', function () { st[key] = s.value; st.shown = PAGE; update(); });
+            lab.appendChild(s);
+            filters.appendChild(lab);
+            return lab;
+          }
+          // Filter values in the URL are names, not positions, so a shared link survives a
+          // data update: tactic=attack:execution, platform=Windows
+          var groups = {}, tacticIdx = {}, platformIdx = {};
+          d.tactics.forEach(function (t, i) {
+            var v = ({ 'ATT&CK': 'attack' }[t[0]] || t[0].toLowerCase()) + ':' + t[1].toLowerCase();
+            tacticIdx[v] = i;
+            (groups[t[0]] = groups[t[0]] || []).push([v, t[2]]);
+          });
+          d.platforms.forEach(function (p, i) { platformIdx[p] = i; });
+          var tacticSel = select('Tactic', 'tactic', Object.keys(groups).map(function (g) { return { group: g, items: groups[g] }; }));
+          var platformSel = select('Platform', 'platform', d.platforms.map(function (p) { return [p, p]; }));
+          var typeSel = select('Software type', 'type', [['malware', 'Malware'], ['tool', 'Tool']]);
+          var absSel = select('CAPEC abstraction', 'abs', d.abstraction.map(function (a) { return [a, a]; }));
+          var sevSel = select('CAPEC severity', 'sev', d.severity.map(function (a) { return [a, a]; }));
+          var sortLab = el('label', {});
+          sortLab.appendChild(document.createTextNode('Sort by'));
+          var sortSel = el('select', {});
+          [['id', 'ID'], ['name', 'Name'], ['links', 'Most connections']].forEach(function (o) { sortSel.appendChild(el('option', { value: o[0] }, o[1])); });
+          sortSel.value = st.sort;
+          sortSel.addEventListener('change', function () { st.sort = sortSel.value; st.shown = PAGE; update(); });
+          sortLab.appendChild(sortSel);
+          filters.appendChild(sortLab);
+          function check(label, key) {
+            var lab = el('label', { className: 'tsw-x-check' });
+            var c = el('input', { type: 'checkbox' });
+            c.checked = st[key];
+            c.addEventListener('change', function () { st[key] = c.checked; st.shown = PAGE; update(); });
+            lab.appendChild(c);
+            lab.appendChild(document.createTextNode(label));
+            filters.appendChild(lab);
+            return c;
+          }
+          var subBox = check('Sub-techniques', 'sub');
+          var oldBox = check('Revoked and deprecated', 'old');
+          var reset = el('button', { type: 'button', className: 'tsw-x-btn' }, 'Clear filters');
+          filters.appendChild(reset);
+          ui.appendChild(filters);
+          var status = el('p', { className: 'tsw-x-status', role: 'status', 'aria-live': 'polite' });
+          ui.appendChild(status);
+          var table = el('table', {});
+          table.appendChild(el('caption', { className: 'tsw-sr-only' }, 'Framework objects matching the filters'));
+          var thead = el('thead', {}), tr = el('tr', {});
+          ['ID', 'Name', 'Kind', 'Tactics or type', 'Platforms', 'Connections'].forEach(function (h) { tr.appendChild(el('th', { scope: 'col' }, h)); });
+          thead.appendChild(tr);
+          table.appendChild(thead);
+          var tbody = el('tbody', {});
+          table.appendChild(tbody);
+          ui.appendChild(table);
+          var more = el('button', { type: 'button', className: 'tsw-x-btn tsw-x-more' });
+          ui.appendChild(more);
+          root.appendChild(ui);
+
+          var timer = 0;
+          input.addEventListener('input', function () {
+            clearTimeout(timer);
+            timer = setTimeout(function () { st.q = input.value; st.shown = PAGE; update(); }, 120);
+          });
+          input.addEventListener('keydown', function (e) {
+            if (e.key !== 'Enter') { return; }
+            e.preventDefault();
+            clearTimeout(timer);
+            st.q = input.value;
+            var res = update();
+            if (res.length && (res.length === 1 || res[0]._s >= 85)) { location.hash = routeOf(d, res[0]); }
+          });
+          reset.addEventListener('click', function () {
+            st.q = ''; st.kind = ''; st.tactic = ''; st.platform = ''; st.type = ''; st.abs = ''; st.sev = '';
+            st.sort = 'id'; st.sub = true; st.old = true; st.shown = PAGE;
+            input.value = ''; [tacticSel, platformSel, typeSel, absSel, sevSel].forEach(function (l) { l.querySelector('select').value = ''; });
+            sortSel.value = 'id'; subBox.checked = true; oldBox.checked = true;
+            update(); input.focus();
+          });
+          more.addEventListener('click', function () { st.shown += PAGE; update(); });
+
+          function passes(r, ignoreKind) {
+            if (!ignoreKind && st.kind !== '' && r.k !== d.kx[st.kind]) { return false; }
+            if (st.tactic !== '' && (!r.t || r.t.indexOf(tacticIdx[st.tactic]) === -1)) { return false; }
+            if (st.platform !== '' && (!r.p || r.p.indexOf(platformIdx[st.platform]) === -1)) { return false; }
+            if (st.type && (r.k !== d.kx.software || r.x !== st.type)) { return false; }
+            if (st.abs && (r.k !== d.kx.capec || r.x !== st.abs)) { return false; }
+            if (st.sev && (r.k !== d.kx.capec || r.sev !== st.sev)) { return false; }
+            if (!st.sub && r.sub) { return false; }
+            if (!st.old && (r.rev || r.dep)) { return false; }
+            return true;
+          }
+          function detail(r) {
+            if (r.t && r.t.length) { return r.t.map(function (i) { return d.tactics[i][2]; }).join(', '); }
+            if (r.k === d.kx.software) { return r.x === 'tool' ? 'Tool' : 'Malware'; }
+            if (r.k === d.kx.capec) { return (r.x || '') + (r.sev ? ', severity ' + r.sev : ''); }
+            return '';
+          }
+          function reach(r) {
+            var labels = d.kinds[r.k].reach || [];
+            return (r.r || []).map(function (v, i) { return v ? v.toLocaleString('en-US') + ' ' + labels[i][v === 1 ? 0 : 1] : ''; })
+              .filter(Boolean).join(', ');
+          }
+          function writeUrl() {
+            var p = [];
+            ['q', 'kind', 'tactic', 'platform', 'type', 'abs', 'sev'].forEach(function (k) { if (st[k]) { p.push(k + '=' + encodeURIComponent(st[k])); } });
+            if (st.sort !== 'id') { p.push('sort=' + st.sort); }
+            if (!st.sub) { p.push('sub=0'); }
+            if (!st.old) { p.push('old=0'); }
+            var h = '#/explore' + (p.length ? '?' + p.join('&') : '');
+            if (location.hash !== h && history.replaceState) { history.replaceState(history.state, '', h); }
+          }
+          function update() {
+            var q = st.q.trim().toLowerCase().replace(/\s+/g, ' '), qk = idKey(st.q);
+            var counts = {}, res = [];
+            d.rows.forEach(function (r) {
+              r._s = score(r, q, qk);
+              if (!r._s || !passes(r, true)) { return; }
+              counts[r.k] = (counts[r.k] || 0) + 1;
+              if (passes(r, false)) { res.push(r); }
+            });
+            var cmp = st.sort === 'name' ? function (a, b) { return a._n < b._n ? -1 : a._n > b._n ? 1 : 0; }
+              : st.sort === 'links' ? function (a, b) { return b._c - a._c || (a._id < b._id ? -1 : 1); }
+                : function (a, b) { return a.k - b.k || (a._id < b._id ? -1 : a._id > b._id ? 1 : 0); };
+            res.sort(function (a, b) { return (q ? b._s - a._s : 0) || cmp(a, b); });
+            // kind buttons with live counts
+            kinds.textContent = '';
+            var all = 0;
+            Object.keys(counts).forEach(function (k) { all += counts[k]; });
+            [''].concat(d.kinds.map(function (k) { return k.key; })).forEach(function (key) {
+              var n = key ? (counts[d.kx[key]] || 0) : all;
+              if (key && !n && st.kind !== key) { return; }
+              var b = el('button', { type: 'button', 'aria-pressed': st.kind === key ? 'true' : 'false' });
+              b.appendChild(document.createTextNode((key ? d.kinds[d.kx[key]].plural : 'All') + ' '));
+              b.appendChild(el('span', {}, n.toLocaleString('en-US')));
+              b.addEventListener('click', function () { st.kind = st.kind === key ? '' : key; st.shown = PAGE; update(); });
+              kinds.appendChild(b);
+            });
+            var k = st.kind;
+            platformSel.hidden = !(k === '' || k === 'technique' || k === 'software');
+            typeSel.hidden = !(k === '' || k === 'software');
+            absSel.hidden = sevSel.hidden = !(k === '' || k === 'capec');
+            subBox.parentElement.hidden = !(k === '' || k === 'technique' || k === 'atlas' || k === 'f3');
+            oldBox.parentElement.hidden = !(k === '' || k === 'technique' || k === 'capec');
+            // rows
+            tbody.textContent = '';
+            var frag = document.createDocumentFragment();
+            res.slice(0, st.shown).forEach(function (r) {
+              var row = el('tr', {});
+              var idCell = el('td', {}), a = el('a', { href: routeOf(d, r) });
+              a.appendChild(el('code', {}, r.i));
+              idCell.appendChild(a);
+              row.appendChild(idCell);
+              var nameCell = el('td', {}, r.n);
+              var alias = matchedAlias(r, q);
+              if (alias) { nameCell.appendChild(el('span', { className: 'tsw-x-sub' }, 'Also known as ' + alias)); }
+              else if (r.a && r.a.length && !q) {
+                nameCell.appendChild(el('span', { className: 'tsw-x-sub' },
+                  'Also known as ' + r.a.slice(0, 3).join(', ') + (r.a.length > 3 ? ' and ' + (r.a.length - 3) + ' more' : '')));
+              }
+              if (r.rev) {
+                var f = el('span', { className: 'tsw-x-sub tsw-x-flag' }, 'Revoked or deprecated in ATT&CK v' + d.attack + '; see ');
+                var ra = d.rows.filter(function (x) { return x.k === r.k && x.i === r.rev; })[0];
+                if (ra) { var l = el('a', { href: routeOf(d, ra) }, r.rev); f.appendChild(l); } else { f.appendChild(document.createTextNode(r.rev)); }
+                nameCell.appendChild(f);
+              }
+              if (r.dep) { nameCell.appendChild(el('span', { className: 'tsw-x-sub tsw-x-flag' }, 'Deprecated or obsolete in CAPEC')); }
+              row.appendChild(nameCell);
+              row.appendChild(el('td', {}, d.kinds[r.k].label));
+              row.appendChild(el('td', {}, detail(r)));
+              row.appendChild(el('td', {}, (r.p || []).map(function (i) { return d.platforms[i]; }).join(', ')));
+              row.appendChild(el('td', {}, reach(r)));
+              frag.appendChild(row);
+            });
+            tbody.appendChild(frag);
+            var shown = Math.min(st.shown, res.length);
+            status.textContent = res.length ? 'Showing ' + shown.toLocaleString('en-US') + ' of ' +
+              res.length.toLocaleString('en-US') + ' matching objects (' + d.rows.length.toLocaleString('en-US') + ' in all).'
+              : 'Nothing matches. Clear a filter, or try an ID such as T1059 or a name such as APT29.';
+            table.hidden = !res.length;
+            more.hidden = res.length <= st.shown;
+            more.textContent = 'Show ' + Math.min(PAGE, res.length - st.shown).toLocaleString('en-US') + ' more';
+            writeUrl();
+            return res;
+          }
+          update();
+        });
+      }
+      window.$docsify.plugins.push(function (hook, vm) {
+        hook.doneEach(function () {
+          var root = document.getElementById('tsw-explore');
+          if (root && vm.route.file === 'explore.md') { mountExplore(root, vm); }
         });
       });
     })();

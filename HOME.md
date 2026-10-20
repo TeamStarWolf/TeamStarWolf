@@ -6,7 +6,9 @@
     - "What's inside" (between the stats markers): scripts/build_stats.py
     - "Start-here guides" (between the guides markers): scripts/build_home_guides.py, from
       each guide's own Time and Difficulty table
-  CI fails when either block is stale. Edit the scripts, not the blocks.
+    - "Browse by domain" (between the domains markers): scripts/build_site_nav.py, from the
+      hubs in docs/site_nav.json
+  CI fails when any of these blocks is stale. Edit the scripts, not the blocks.
   Link rules: raw-HTML hrefs use hash form (#/FOO, no .md); external links carry
   target="_blank" rel="noopener"; JSONL/dataset links are always github.com URLs,
   never hash routes. Keep each HTML block free of blank lines.
@@ -131,29 +133,31 @@
     <a href="#/mitre/f3/README">F3</a>
     <a href="#/mitre/crosswalk">Crosswalk</a>
   </div>
-  <a class="tsw-btn" href="#/mitre/README">Open the frameworks overview</a>
+  <a class="tsw-btn" href="#/explore">Filter every object in Explore</a>
 </div>
 
 <div class="tsw-anchor" id="study-and-career"></div>
 
 ## Browse by domain
 
+<!-- domains:start (written by scripts/build_site_nav.py from docs/site_nav.json; do not edit) -->
 <div class="tsw-domains">
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/THREAT_INFORMED_DEFENSE_REFERENCE">Threat-informed defense and ATT&amp;CK</a> <a href="#/ATTACK_MATRIX_ANALYSIS_REFERENCE">ATT&amp;CK Matrix Analysis</a> <a href="#/ATTACK_TECHNIQUE_ATLAS">ATT&amp;CK Technique Atlas</a> <a href="#/scores/attack_priority_gaps">Priority Gap Analysis</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/detections/TECHNIQUE_DETECTION_LIBRARY">Detection and response</a> <a href="#/THREAT_HUNTING_REFERENCE">Threat Hunting</a> <a href="#/INCIDENT_RESPONSE_REFERENCE">Incident Response</a> <a href="#/DIGITAL_FORENSICS_REFERENCE">Digital Forensics</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/THREAT_INTELLIGENCE_REFERENCE">Threat intelligence and adversaries</a> <a href="#/THREAT_GROUP_PROFILES">Threat Group Profiles</a> <a href="#/MALWARE_FAMILIES">Malware Families</a> <a href="#/OSINT_REFERENCE">OSINT</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/PENETRATION_TESTING_METHODOLOGY">Offensive security</a> <a href="#/RED_TEAM_REFERENCE">Red Team</a> <a href="#/PURPLE_TEAM_REFERENCE">Purple Team</a> <a href="#/ACTIVE_DIRECTORY_ATTACKS">Active Directory Attacks</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/NETWORK_SECURITY_ARCHITECTURE">Network security</a> <a href="#/NETWORK_DEFENSE_REFERENCE">Network Defense</a> <a href="#/PACKET_ANALYSIS_REFERENCE">Packet Analysis</a> <a href="#/WIRELESS_SECURITY_REFERENCE">Wireless Security</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/CLOUD_SECURITY_REFERENCE">Cloud and infrastructure</a> <a href="#/KUBERNETES_SECURITY_REFERENCE">Kubernetes Security</a> <a href="#/CONTAINER_SECURITY_REFERENCE">Container Security</a> <a href="#/DEVSECOPS_REFERENCE">DevSecOps</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/WINDOWS_HARDENING_REFERENCE">Platform hardening</a> <a href="#/LINUX_HARDENING_REFERENCE">Linux Hardening</a> <a href="#/MACOS_SECURITY_REFERENCE">macOS Security</a> <a href="#/MOBILE_SECURITY_REFERENCE">Mobile Security</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/WEB_APPLICATION_SECURITY_REFERENCE">Application and supply chain security</a> <a href="#/SECURE_CODING_REFERENCE">Secure Coding</a> <a href="#/API_SECURITY_REFERENCE">API Security</a> <a href="#/SUPPLY_CHAIN_SECURITY_REFERENCE">Supply Chain Security</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/IDENTITY_SECURITY_REFERENCE">Identity and data protection</a> <a href="#/ACTIVE_DIRECTORY_SECURITY_REFERENCE">Active Directory Security</a> <a href="#/ZERO_TRUST_REFERENCE">Zero Trust</a> <a href="#/DATA_SECURITY_REFERENCE">Data Security</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/AI_SECURITY_REFERENCE">AI and emerging tech</a> <a href="#/ATLAS_REFERENCE">MITRE ATLAS</a> <a href="#/AI_MCP_SECURITY_REFERENCE">AI and MCP Security</a> <a href="#/ai-tooling/README">AI Tooling</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/ICS_OT_SECURITY_REFERENCE">ICS, OT, and hardware</a> <a href="#/ICS_ATTACK_ATLAS">ICS ATT&amp;CK Atlas</a> <a href="#/HARDWARE_SECURITY_REFERENCE">Hardware Security</a> <a href="#/FIRMWARE_IOT_SECURITY_REFERENCE">Firmware and IoT Security</a></div>
-  <div class="tsw-domain"><a class="tsw-domain-t" href="#/GRC_REFERENCE">GRC and security program</a> <a href="#/VULNERABILITY_MANAGEMENT_REFERENCE">Vulnerability Management</a> <a href="#/SECURITY_METRICS_REFERENCE">Security Metrics</a> <a href="#/CAREER_PATHS">Career Paths</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/hubs/threat-informed-defense">Threat-informed defense and ATT&amp;CK</a> <a href="#/ATTACK_MATRIX_ANALYSIS_REFERENCE">ATT&amp;CK Matrix Analysis</a> <a href="#/ATTACK_TECHNIQUE_ATLAS">ATT&amp;CK Technique Atlas</a> <a href="#/scores/attack_priority_gaps">Priority Gap Analysis</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/hubs/detection-and-response">Detection and response</a> <a href="#/THREAT_HUNTING_REFERENCE">Threat Hunting</a> <a href="#/INCIDENT_RESPONSE_REFERENCE">Incident Response</a> <a href="#/DIGITAL_FORENSICS_REFERENCE">Digital Forensics</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/hubs/threat-intelligence">Threat intelligence and adversaries</a> <a href="#/THREAT_GROUP_PROFILES">Threat Group Profiles</a> <a href="#/MALWARE_FAMILIES">Malware Families</a> <a href="#/OSINT_REFERENCE">OSINT</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/hubs/offensive-security">Offensive security</a> <a href="#/RED_TEAM_REFERENCE">Red Team</a> <a href="#/PURPLE_TEAM_REFERENCE">Purple Team</a> <a href="#/ACTIVE_DIRECTORY_ATTACKS">Active Directory Attacks</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/hubs/network-security">Network security</a> <a href="#/NETWORK_DEFENSE_REFERENCE">Network Defense</a> <a href="#/PACKET_ANALYSIS_REFERENCE">Packet Analysis</a> <a href="#/WIRELESS_SECURITY_REFERENCE">Wireless Security</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/hubs/cloud-and-infrastructure">Cloud and infrastructure</a> <a href="#/KUBERNETES_SECURITY_REFERENCE">Kubernetes Security</a> <a href="#/CONTAINER_SECURITY_REFERENCE">Container Security</a> <a href="#/SAAS_SECURITY_REFERENCE">SaaS Security</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/hubs/platform-hardening">Platform hardening</a> <a href="#/LINUX_HARDENING_REFERENCE">Linux Hardening</a> <a href="#/MACOS_SECURITY_REFERENCE">macOS Security</a> <a href="#/MOBILE_SECURITY_REFERENCE">Mobile Security</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/hubs/application-and-supply-chain">Application and supply chain security</a> <a href="#/SECURE_CODING_REFERENCE">Secure Coding</a> <a href="#/API_SECURITY_REFERENCE">API Security</a> <a href="#/SUPPLY_CHAIN_SECURITY_REFERENCE">Supply Chain Security</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/hubs/identity-and-data-protection">Identity and data protection</a> <a href="#/ACTIVE_DIRECTORY_SECURITY_REFERENCE">Active Directory Security</a> <a href="#/ZERO_TRUST_REFERENCE">Zero Trust</a> <a href="#/DATA_SECURITY_REFERENCE">Data Security</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/hubs/ai-and-emerging-tech">AI and emerging tech</a> <a href="#/ATLAS_REFERENCE">MITRE ATLAS</a> <a href="#/AI_MCP_SECURITY_REFERENCE">AI and MCP Security</a> <a href="#/ai-tooling/">AI Tooling</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/hubs/ics-ot-and-hardware">ICS, OT, and hardware</a> <a href="#/ICS_ATTACK_ATLAS">ICS ATT&amp;CK Atlas</a> <a href="#/HARDWARE_SECURITY_REFERENCE">Hardware Security</a> <a href="#/FIRMWARE_IOT_SECURITY_REFERENCE">Firmware and IoT Security</a></div>
+  <div class="tsw-domain"><a class="tsw-domain-t" href="#/hubs/grc-and-security-program">GRC and security program</a> <a href="#/VULNERABILITY_MANAGEMENT_REFERENCE">Vulnerability Management</a> <a href="#/SECURITY_METRICS_REFERENCE">Security Metrics</a> <a href="#/CAREER_PATHS">Career Paths</a></div>
 </div>
+<!-- domains:end -->
 
-<p class="tsw-more">Every reference, A to Z: <a href="#/INDEX">the reference index</a>.</p>
+<p class="tsw-more">Each domain has a hub page listing its references, with a summary and reading time for each: <a href="#/hubs/README">all domains</a>. Every reference, A to Z: <a href="#/INDEX">the reference index</a>.</p>
 
 ## What changed
 

@@ -131,6 +131,16 @@ jobs:
       - name: Site theme colours meet WCAG AA in both themes (index.html tokens)
         run: python scripts/check_contrast.py
 
+      # The sidebars, navbar, domain hubs, breadcrumbs, homepage domain cards and docsify
+      # aliases are written by build_site_nav.py from docs/site_nav.json. Fails when any
+      # of them is stale, when a root reference is in no hub or in two, or when a
+      # hand-written page is in no nav section.
+      - name: Site navigation matches docs/site_nav.json; every hand-written page is in a nav section
+        run: python scripts/build_site_nav.py --check
+
+      - name: Explore page and assets/explore.json match data/
+        run: python scripts/build_explore.py --check
+
       - name: No new voice-guide violations in hand-written pages (docs/VOICE.md)
         # On a pull request, fetch only the base branch tip (no credentials needed for a
         # public repository) so the baseline can be compared with it.

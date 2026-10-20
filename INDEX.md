@@ -69,6 +69,7 @@
 | [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) | Sigma, YARA, and Suricata rule writing with examples and conversion to Splunk, Elastic, and Sentinel |
 | [DevSecOps Reference](DEVSECOPS_REFERENCE.md) | SAST/DAST/SCA tools, GitHub Actions security, Semgrep/CodeQL/Trivy/Snyk, secrets detection, IaC scanning, pipeline security gates |
 | [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md) | Order of volatility, chain of custody, disk acquisition, Windows/Linux artifacts, Volatility 3 memory forensics, and log analysis |
+| [Domain Hubs](hubs/README.md) | The reference documents grouped by domain, each with a one-line summary and a reading time, with the learning paths, how-to guides and framework pages that go with them |
 | [Edge & Network Device Security Reference](EDGE_DEVICE_SECURITY_REFERENCE.md) | BOD 23-02 management-interface isolation, BOD 26-04 KEV patch tiers, 2023-2026 edge exploitation record, Feb 2025 joint edge-device guidance, appliance integrity checking and forensic readiness, egress monitoring |
 | [Email Security Reference](EMAIL_SECURITY_REFERENCE.md) | SPF/DKIM/DMARC deep dive, phishing analysis, HTML smuggling, BEC, M365 Defender config, SMTP hardening, email forensics |
 | [EMB3D Reference (Embedded Devices)](EMB3D_REFERENCE.md) | MITRE EMB3D threat model: device properties -> threats -> tiered Foundational/Intermediate/Leading mitigations, IEC 62443-4-2 alignment, device threat-exposure reviews |
@@ -77,6 +78,7 @@
 | [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md) | Every OS, server role, and network component encountered in enterprise environments, with security context and ATT&CK relevance |
 | [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md) | Vendor-specific config, policy tuning, and detection guidance for major enterprise security platforms |
 | [Enterprise Security Pipeline](SECURITY_PIPELINE.md) | End-to-end security lifecycle with vendor mapping across all 6 stages |
+| [Explore the Frameworks](explore.md) | Every ATT&CK technique, group, software entry, campaign and mitigation, CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, and F3 technique that has a page, in one table filterable by kind, tactic, platform, software type and CAPEC severity, with aliases and connection counts |
 | [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md) | Buffer overflows, ROP chains, heap exploitation, format strings, shellcode, pwntools, Windows exploit dev, CTF resources |
 | [Field Notes](research/FIELD_NOTES.md) | Writeups and lessons learned from building, reviewing, and hardening projects in public: what changed, what it surfaced, and what may help others doing similar work |
 | [Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE.md) | IoT/Firmware attack surface, extraction, analysis, UEFI/BIOS, protocols, hardware interfaces, standards |

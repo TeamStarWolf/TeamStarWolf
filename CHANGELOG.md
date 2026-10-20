@@ -7,6 +7,20 @@ by the date its pull requests merged to `main` rather than by tagged release.
 ## Unreleased
 
 ### Added
+- Site navigation rebuilt around sections instead of one link per page: a short root
+  sidebar (Start, guides and learning paths, domains, frameworks, operate and data, tools,
+  case studies and research, about), nested sidebars for the guides, learning paths, vendor
+  tools, AI tooling and framework folders, and a breadcrumb trail on hand-written pages.
+  All of it is written by `scripts/build_site_nav.py` from `docs/site_nav.json`, and CI
+  fails when a hand-written page is in no nav section. The changelog, security policy, code
+  of conduct and third-party notices are now reachable from the site
+- Domain hubs (`hubs/`): one page per domain listing its references with a one-line summary
+  and a reading time, the matching learning paths and how-to guides, and related framework
+  pages. The homepage's "Browse by domain" cards link to them
+- Explore (`explore.md`): every ATT&CK, CAPEC, D3FEND, ATLAS and F3 object that has a page,
+  in one table filterable by kind, tactic, platform, software type and CAPEC abstraction
+  and severity, searchable by ID, name or alias, with connection counts. Built from the
+  JSONL files in `data/` by `scripts/build_explore.py`
 - Tools Research section (`tools-research/`): documentation-verified studies of security
   products and their integrations, with confidence labels, original figures, and PDF
   downloads. First two studies: ServiceNow Unified Security Exposure Management (USEM)

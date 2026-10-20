@@ -552,12 +552,24 @@
     #tsw-top.show { display: flex; }
 
     /* ---------- Responsive ---------- */
-    /* The mobile top bar is off by default; the 768px block below turns it on. This base
-       rule must come first: at equal specificity the later rule wins. */
+    /* The mobile top bar is off by default; the 768px block below turns it on in docsify's
+       phone mode only. This base rule must come first: at equal specificity the later rule
+       wins. */
     #tsw-mbar { display: none; }
     @media screen and (max-width: 768px) {
-      .app-nav { left: 0; padding-right: 12px; height: 48px; line-height: 48px; }
-      .app-nav li { margin: 0 7px; }
+      /* Two layouts share this block. docsify picks one when the page loads: at 600px or
+         narrower (phone mode) it moves the navbar into the sidebar, and the mobile top bar
+         (#tsw-mbar) holds the menu and theme buttons; from 601px to 768px (tablet mode) the
+         navbar stays a fixed bar at the top and is itself the top bar, with the menu button
+         at its left and the theme button at its right. Its items wrap to a second row where
+         they do not fit, and the page, the cover and the anchor offset follow its measured
+         height (--tsw-nav-h, set by the navbar-height plugin below). */
+      .app-nav {
+        left: 0; height: auto; min-height: 48px; line-height: 30px;
+        padding: 3px 56px 3px 48px;
+      }
+      .app-nav > ul { display: block; margin: 0; padding-left: 0; }
+      .app-nav li { margin: 0 6px; }
       .app-nav a { font-size: .8rem; }
       .markdown-section { padding: 26px 16px 64px; font-size: 15px; }
       .markdown-section h1 { font-size: 1.7rem; }
@@ -565,12 +577,14 @@
       section.cover h1 { font-size: 1.9rem; }
       /* The cover sizes to its content on a phone (vue.css makes it a full screen, which left
          an empty band between the buttons and the page below). */
-      section.cover { min-height: 0; padding: 64px 0 24px; z-index: 2; }
-      .content { padding-top: 48px; }
-      /* Mobile top bar: the menu button sits at its left and the theme button at its
-         right, so neither floats over page content. vue.css put the menu button at the
-         bottom-left corner, where it covered the cover's ATTACK-Navi button. */
-      #tsw-mbar {
+      section.cover { min-height: 0; padding: calc(var(--tsw-nav-h, 48px) + 16px) 0 24px; z-index: 2; }
+      .content { padding-top: var(--tsw-nav-h, 48px); }
+      /* Mobile top bar: the menu button sits at its left and the theme button at its right,
+         so neither floats over page content. vue.css put the menu button at the bottom-left
+         corner, where it covered the cover's ATTACK-Navi button. It shows in phone mode,
+         and in tablet mode only while the sidebar is open (body.close), when vue.css hides
+         the navbar; it never covers the tablet navbar. */
+      body:not(:has(> nav.app-nav)) > #tsw-mbar, body.close > #tsw-mbar {
         display: block; position: fixed; top: 0; left: 0; right: 0; height: 48px; z-index: 11;
         background: var(--tsw-nav-bg); border-bottom: 1px solid var(--tsw-border);
         backdrop-filter: saturate(160%) blur(12px); -webkit-backdrop-filter: saturate(160%) blur(12px);
@@ -945,13 +959,19 @@
             });
           });
         },
-        // Navbar height: between 769px and 1099px the navbar wraps to fit its items. Publish
-        // its height as --tsw-nav-h (the page's top padding there) and keep heading anchors
-        // clear of it (topMargin, 60 when the bar is one 52px row).
+        // Navbar height: from 601px to 768px (docsify's tablet mode) and from 769px to 1099px
+        // the navbar wraps to fit its items. Publish its height as --tsw-nav-h (the page's top
+        // padding there) and keep heading anchors clear of it (topMargin, 60 when the bar is
+        // one row). In phone mode the navbar sits in the sidebar and the 48px mobile bar is
+        // the top bar. While the tablet sidebar is open, vue.css hides the navbar; the last
+        // height is kept then.
         function (hook, vm) {
+          var watched = null;
           function measure() {
             var nav = document.querySelector('nav.app-nav');
-            var h = nav && window.innerWidth > 768 ? nav.offsetHeight : 52;
+            if (nav && !nav.offsetHeight) { return; }
+            var h = nav ? nav.offsetHeight : 48;
+            if (nav && nav !== watched && window.ResizeObserver) { watched = nav; new ResizeObserver(measure).observe(nav); }
             document.documentElement.style.setProperty('--tsw-nav-h', h + 'px');
             var margin = Math.max(60, h + 8);
             vm.config.topMargin = margin;

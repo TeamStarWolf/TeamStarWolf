@@ -1483,9 +1483,6 @@ Get-AzRoleAssignment | Where-Object {$_.RoleDefinitionName -eq "Owner"}
 ## Related pages
 
 - Domain: [Offensive security](/hubs/offensive-security.md)
-- [Pentest Checklists](/PENTEST_CHECKLISTS.md)
-- [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md)
-- [HTB Machine Index](/research/HTB_MACHINE_INDEX.md)
 - [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md)
 - [Exploit Development Reference](/EXPLOIT_DEVELOPMENT_REFERENCE.md)
 

@@ -13,10 +13,11 @@ and on the site alike. Four kinds:
                      links to or that link to it (both ways first), filled from the same
                      group in hub order up to "related_min"; at most "related_max" lines.
                      When the page ends with its own related, see-also or further-reading
-                     section, the footer leaves out every page that section links (the
-                     domain hub and learning path included) and is not filled up to
-                     "related_min", since the page has its own list; when nothing is left
-                     the page gets no footer
+                     section (its last heading or a heading enclosing it, up to the H2,
+                     subsections included), the footer leaves out every page that
+                     section links (the domain hub and learning path included) and is
+                     not filled up to "related_min", since the page has its own list;
+                     when nothing is left the page gets no footer
     local-id-links   on each page in "local_id_pages": a "(local)" link after every
                      link to attack.mitre.org, capec.mitre.org, atlas.mitre.org or the
                      F3 site whose object has a page under mitre/
@@ -87,8 +88,8 @@ LOCAL_LINK_RE = re.compile(r" \(\[local\]\(/mitre/[^()\s]+\.md\)\)")
 SIGNOFF_RE = re.compile(r"\n---[ \t]*\n\n\*[^\n]*\*[ \t]*\n*\Z")
 # The mitre/ page footer ("---" then the italic source and trademark line).
 MITRE_FOOTER_RE = re.compile(r"\n---[ \t]*\n\n\*Source:[^\n]*\n*\Z")
-# A heading, and the heading text that makes a page's last section its own related list.
-HEADING_RE = re.compile(r"^#{2,6}[ \t]+(.*?)[ \t#]*$")
+# A heading, and the heading text that makes a page's trailing section its own related list.
+HEADING_RE = re.compile(r"^(#{2,6})[ \t]+(.*?)[ \t#]*$")
 OWN_RELATED_RE = re.compile(r"\b(related|see also|further reading)\b", re.I)
 
 # The generated pages with a section per ATT&CK technique (an <a id> under each heading),
@@ -480,11 +481,15 @@ def build() -> tuple[dict[str, str], dict]:
 
 def own_related(text: str, aliases: dict) -> tuple[str | None, set[str]]:
     """The page's own trailing related section: (its heading, the pages it links). The
-    section counts when the page's last heading names related pages, a see-also list or
-    further reading; a trailing sign-off line does not end it."""
+    trailing section is the one that holds the page's last heading: that heading and each
+    heading that encloses it, up to its H2. The outermost of those whose text names related
+    pages, a see-also list or further reading is the page's own list, and its links are
+    collected from the whole section, subsections included ("## Related Resources" with
+    "### Internal" and "### External" under it counts). A trailing sign-off line does not
+    end it."""
     body = SIGNOFF_RE.sub("\n", text)
     lines = body.split("\n")
-    last = None
+    heads: list[tuple[int, int, str]] = []
     in_fence = False
     for i, line in enumerate(lines):
         if line.lstrip().startswith(("```", "~~~")):
@@ -492,17 +497,26 @@ def own_related(text: str, aliases: dict) -> tuple[str | None, set[str]]:
             continue
         m = None if in_fence else HEADING_RE.match(line)
         if m:
-            last = (i, m.group(1))
-    if not last or not OWN_RELATED_RE.search(last[1]):
+            heads.append((i, len(m.group(1)), m.group(2)))
+    if not heads:
+        return None, set()
+    chain = [heads[-1]]
+    for h in reversed(heads[:-1]):
+        if chain[-1][1] == 2:
+            break
+        if h[1] < chain[-1][1]:
+            chain.append(h)
+    own = next((h for h in reversed(chain) if OWN_RELATED_RE.search(h[2])), None)
+    if not own:
         return None, set()
     linked = set()
-    for _i, _s, _e, href in links_of("\n".join(lines[last[0] + 1:])):
+    for _i, _s, _e, href in links_of("\n".join(lines[own[0] + 1:])):
         if cdl.SCHEME_RE.match(href):
             continue
         t = local_target(href, aliases)
         if t:
             linked.add(t)
-    return last[1], linked
+    return own[2], linked
 
 
 def section_pages(files: list[str]) -> dict[str, list[tuple[str, str, str]]]:

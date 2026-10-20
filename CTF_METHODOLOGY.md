@@ -1097,6 +1097,19 @@ grep -oE '[A-Z0-9]{2,10}\{[^}]+\}' file   # Generic format
 tshark -r capture.pcap -Y "frame contains \"flag{\"" -T fields -e data.text
 ```
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Hands-On Labs](/LABS.md)
+- [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md)
+- [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md)
+- [OSINT Reference](/OSINT_REFERENCE.md)
+- [CEH Domain Crosswalk](/CEH_DOMAIN_CROSSWALK.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: April 2026 | Maintained by TeamStarWolf*

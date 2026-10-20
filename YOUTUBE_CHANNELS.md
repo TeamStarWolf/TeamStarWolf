@@ -260,3 +260,14 @@ The Arsenal source material only exposes a handful of direct YouTube links, so t
 ## Suggesting Additions
 
 Open a PR to suggest additional channels. Aim for active channels (uploaded in the last 12 months) with substantive technical content.
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md)
+- [Starred Repositories](/STARRED_REPOS.md)
+- [Black Hat Arsenal Crosswalk](/research/BLACK_HAT_ARSENAL_CROSSWALK.md)
+
+<!-- related:end -->

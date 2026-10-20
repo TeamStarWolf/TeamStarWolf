@@ -239,3 +239,16 @@ in this repo are built to support.
 *All systems referenced here are public, authoritative knowledge bases (MITRE, NIST, CISA, FIRST, CTID) or
 open-source projects. Mappings between NIST 800-53 and ATT&CK are sourced from the
 [CTID Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/).*
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Threat-informed defense and ATT&CK](/hubs/threat-informed-defense.md)
+- [ATT&CK Matrix Analysis Reference](/ATTACK_MATRIX_ANALYSIS_REFERENCE.md)
+- [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)
+- [Controls Mapping](/CONTROLS_MAPPING.md)
+- [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md)
+
+<!-- related:end -->

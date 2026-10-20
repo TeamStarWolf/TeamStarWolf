@@ -1971,6 +1971,19 @@ Shortlist: top 3 vendors → proof of concept in lab environment
 | HIPAA Security Rule | HHS | hhs.gov/hipaa/for-professionals/security |
 | ISO 27001:2022 | ISO | iso.org/standard/82875.html |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Identity and data protection](/hubs/identity-and-data-protection.md)
+- Learning path: [Identity & Access Management](/disciplines/identity-access-management.md)
+- [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md)
+- [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
+- [Active Directory Security Reference](/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md)
+- [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-05-06 | TeamStarWolf Cybersecurity Reference Library*

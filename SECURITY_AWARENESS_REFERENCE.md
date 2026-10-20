@@ -259,6 +259,19 @@ Days 61–90 · Measure & report
 - [REGULATORY_LANDSCAPE_REFERENCE.md](REGULATORY_LANDSCAPE_REFERENCE.md): the statutory/breach-notification regimes behind the training clauses
 - [disciplines/security-awareness.md](disciplines/security-awareness.md): the discipline learning path this reference backs
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- Learning path: [Security Awareness](/disciplines/security-awareness.md)
+- [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md)
+- [Email Security Reference](/EMAIL_SECURITY_REFERENCE.md)
+- [Insider Threat Program Reference](/INSIDER_THREAT_REFERENCE.md)
+- [Security Metrics Reference](/SECURITY_METRICS_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-09-29 | TeamStarWolf Cybersecurity Reference Library*

@@ -152,3 +152,16 @@ your team.
 - [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md): CVSS/EPSS/KEV prioritization
 - [Controls Mapping](CONTROLS_MAPPING.md), [Coverage Schema](COVERAGE_SCHEMA.md), [Navigator layers](navigator/)
 - [ATTACK-Navi workbench](https://github.com/TeamStarWolf/ATTACK-Navi): reference implementation of all 24 lenses
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Threat-informed defense and ATT&CK](/hubs/threat-informed-defense.md)
+- [Threat-Informed Defense Reference](/THREAT_INFORMED_DEFENSE_REFERENCE.md)
+- [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)
+- [Security Metrics Reference](/SECURITY_METRICS_REFERENCE.md)
+- [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md)
+
+<!-- related:end -->

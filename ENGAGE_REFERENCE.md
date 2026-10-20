@@ -238,6 +238,16 @@ For these techniques, Engage offers the widest choice of deception/denial respon
 | [T1114](https://attack.mitre.org/techniques/T1114/) | Email Collection | Burn-In, Email Manipulation, Information Manipulation, Lures, Pocket Litter |
 | [T1133](https://attack.mitre.org/techniques/T1133/) | External Remote Services | Burn-In, Lures, Network Diversity, Pocket Litter, System Activity Monitoring |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Threat-informed defense and ATT&CK](/hubs/threat-informed-defense.md)
+- [D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Source: [MITRE Engage](https://engage.mitre.org/) via [mitre/engage](https://github.com/mitre/engage) published data. Engage™ and ATT&CK® are trademarks of The MITRE Corporation. Independent reference summary: consult the upstream project for authoritative content.*

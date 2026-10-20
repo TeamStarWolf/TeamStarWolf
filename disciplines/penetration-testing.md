@@ -2,6 +2,12 @@
 
 > Authorized, simulated cyberattack on a system to identify exploitable vulnerabilities before real adversaries do. Governed by a scope document and Rules of Engagement (RoE), covering external/internal/web app/mobile/wireless/social engineering, and more.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching reference: [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md), the library's in-depth page on this subject.
+
+<!-- path-reference:end -->
+
 ## What Penetration Testers Do
 
 - Conduct authorized attacks against client systems to discover and exploit vulnerabilities

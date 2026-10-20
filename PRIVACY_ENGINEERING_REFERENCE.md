@@ -987,6 +987,19 @@ Payment card data?
   └─ Yes → PCI DSS → tokenize PAN; no storage of CVV; annual QSA audit
 ```
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Identity and data protection](/hubs/identity-and-data-protection.md)
+- Learning path: [Privacy Engineering](/disciplines/privacy-engineering.md)
+- [Data Security Reference](/DATA_SECURITY_REFERENCE.md)
+- [GRC Compliance Reference](/GRC_COMPLIANCE_REFERENCE.md)
+- [Threat Modeling Reference](/THREAT_MODELING_REFERENCE.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Reference compiled for TeamStarWolf cybersecurity library. Verify regulatory details against primary sources and qualified legal counsel: regulations evolve.*

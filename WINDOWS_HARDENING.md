@@ -1460,3 +1460,15 @@ Test-WindowsHardening
 - Microsoft Baseline Security Analyzer (deprecated: use SCT)
 - [ATT&CK Mitigations index](https://attack.mitre.org/mitigations/enterprise/)
 - [NIST SP 800-53 Rev 5](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Platform hardening](/hubs/platform-hardening.md)
+- [Windows Hardening GPO Reference](/WINDOWS_HARDENING_GPO.md)
+- [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md)
+- [Linux Hardening](/LINUX_HARDENING.md)
+- [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md)
+
+<!-- related:end -->

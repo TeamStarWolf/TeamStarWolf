@@ -1985,6 +1985,19 @@ aws cloudtrail describe-trails --include-shadow-trails \
   --query 'trailList[*].{Name:Name,MultiRegion:IsMultiRegionTrail,Validation:LogFileValidationEnabled}'
 ```
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Offensive security](/hubs/offensive-security.md)
+- [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md)
+- [Kubernetes Security Reference](/KUBERNETES_SECURITY_REFERENCE.md)
+- [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md)
+- [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)
+- [Privilege Escalation Reference](/PRIVESC_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Reference built for cloud security engineers and incident responders. All techniques documented for defensive understanding and detection engineering. Always obtain written authorization before testing cloud environments.*

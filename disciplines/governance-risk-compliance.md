@@ -2,6 +2,12 @@
 
 GRC is the backbone of every mature security program. Governance defines policies and accountability structures. Risk management identifies, assesses, and prioritizes threats to the business. Compliance maps those risks to regulatory and contractual obligations: NIST CSF, ISO 27001, SOC 2, HIPAA, PCI DSS, FedRAMP, and more. A GRC practitioner translates between the language of risk and the language of technical security controls, enabling the organization to make informed, documented decisions about acceptable risk.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching reference: [GRC Reference](/GRC_REFERENCE.md), the library's in-depth page on this subject.
+
+<!-- path-reference:end -->
+
 ---
 
 ## Where to Start

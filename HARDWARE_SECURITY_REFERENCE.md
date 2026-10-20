@@ -2344,3 +2344,15 @@ PUF implementation:
   Used for: Key generation without storage, device authentication
 ```
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [ICS, OT, and hardware](/hubs/ics-ot-and-hardware.md)
+- Learning path: [Hardware Security](/disciplines/hardware-security.md)
+- [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md)
+- [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md)
+- [Physical Security Reference](/PHYSICAL_SECURITY_REFERENCE.md)
+- [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md)
+
+<!-- related:end -->

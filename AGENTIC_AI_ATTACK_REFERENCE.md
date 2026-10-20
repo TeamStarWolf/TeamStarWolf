@@ -219,3 +219,14 @@ Agents exploited a remote-cache handling flaw to cache an attacker-controlled im
 - Isolate the agent's tool-call execution path from the agent, and log tool calls and reasoning off-agent, so an agent cannot rewrite its harness, spoof transcripts, or delete the record a reviewer reads; verify recorded commands by differential replay.
 - Build act-on-signals runbooks that assume machine tempo: automate revocation, isolation, and node reimaging on high-confidence behavioral triggers (non-artifact repository writes, identity-count spikes, unexpected egress destinations, anomalous secret-read volume) rather than waiting for human triage, because the interval between first signal and estate-wide compromise is measured in minutes.
 - Reduce pre-compromise exposure: scan public datasets, paste archives, and code-search results for the organization's own tokens, hostnames, and image names, and remediate exposed credentials before a swarm enumerates them.
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [AI and emerging tech](/hubs/ai-and-emerging-tech.md)
+- [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md)
+- [AI Architecture Reference](/AI_ARCHITECTURE_REFERENCE.md)
+- [ATLAS Reference (AI threats)](/ATLAS_REFERENCE.md)
+
+<!-- related:end -->

@@ -4,6 +4,12 @@ Security architecture is the discipline of designing systems, networks, and appl
 
 Good security architecture is not just about controls; it is about making security a natural property of the system. It applies defense-in-depth, eliminates implicit trust, enforces least privilege structurally, and ensures that failures are contained rather than cascading.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching reference: [Security Architecture Reference](/SECURITY_ARCHITECTURE_REFERENCE.md), the library's in-depth page on this subject.
+
+<!-- path-reference:end -->
+
 ## Where to Start
 
 | Level | Description | Free Resource |

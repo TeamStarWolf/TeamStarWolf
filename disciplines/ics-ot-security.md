@@ -4,6 +4,12 @@ Protecting industrial control systems, operational technology, and critical infr
 
 The consequences of a security failure in OT are measured in physical damage, production loss, safety incidents, and human harm, not just data breaches. Sandworm's INDUSTROYER malware blacked out a portion of Kyiv in December 2016 following the 2015 Ukraine power grid attacks. XENOTIME deployed TRITON/TRISIS to attack Schneider Electric safety instrumented systems at a Saudi petrochemical plant, attempting to disable the last line of protection before a physical catastrophe. Volt Typhoon pre-positioned inside US critical infrastructure networks for years. Stuxnet physically destroyed Iranian centrifuges at Natanz, the first confirmed cyber weapon to cause kinetic damage. Unlike IT security, where patches can be deployed rapidly, OT environments often run decades-old systems that cannot be patched, rebooted during production, or tested with security tools that could cause physical process disruption.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching reference: [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), the library's in-depth page on this subject.
+
+<!-- path-reference:end -->
+
 ---
 
 ## Where to Start

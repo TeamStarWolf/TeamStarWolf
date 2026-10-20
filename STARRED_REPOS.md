@@ -1682,3 +1682,15 @@ Supplemental threat intelligence feeds and IOC repositories.
 | [firehol/blocklist-ipsets](https://github.com/firehol/blocklist-ipsets) | FireHOL | ★★★★ | Aggregated blocklists from 300+ sources |
 | [stamparm/ipsum](https://github.com/stamparm/ipsum) | stamparm | ★★★★ | Daily updated IP blacklist (threat intelligence) |
 | [Neo23x0/signature-base](https://github.com/Neo23x0/signature-base) | Neo23x0 | ★★★★★ | YARA rules from Florian Roth: most comprehensive public collection |
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Curated GitHub Stars Lists](/research/CURATED_STARS_LISTS.md)
+- [Black Hat Arsenal Crosswalk](/research/BLACK_HAT_ARSENAL_CROSSWALK.md)
+- [YouTube Channel Library](/YOUTUBE_CHANNELS.md)
+- [Security Tools Reference](/TOOLS.md)
+
+<!-- related:end -->

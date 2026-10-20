@@ -6,6 +6,12 @@ IoT Security is distinct from Hardware Security (which focuses on chip-level and
 
 The discipline encompasses firmware security, hardware interface analysis, network protocol security (MQTT, CoAP, Zigbee, Z-Wave, BLE), cloud API security for IoT backends, mobile companion app security, and supply chain integrity. Practitioners must be comfortable operating across all these layers simultaneously.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching reference: [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md), the library's in-depth page on this subject.
+
+<!-- path-reference:end -->
+
 ---
 
 ## Where to Start

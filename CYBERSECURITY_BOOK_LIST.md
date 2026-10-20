@@ -1156,6 +1156,18 @@ Read next: [Darknet Diaries Podcast](https://darknetdiaries.com) | [2600: The Ha
 | Certifications | 6 | Free-Certifications, Security-101 | Professor Messer (free) |
 | Career | - | GitHub portfolio, CTF writeups | TryHackMe learning paths |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Resources](/RESOURCES.md)
+- [Hands-On Labs](/LABS.md)
+- [Black Hat Arsenal Crosswalk](/research/BLACK_HAT_ARSENAL_CROSSWALK.md)
+- [YouTube Channel Library](/YOUTUBE_CHANNELS.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026. Maintained by [@TeamStarWolf](https://github.com/TeamStarWolf).*

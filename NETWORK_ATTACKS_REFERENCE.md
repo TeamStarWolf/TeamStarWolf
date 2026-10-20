@@ -1717,6 +1717,18 @@ The following table maps this reference to ATT&CK techniques and recommended det
 | Coercion (PetitPotam) | Machine account NTLM auth | Patch, disable EFS, EPA |
 | Memcached Amplification | UDP 11211 to spoofed IPs | Bind to 127.0.0.1, disable UDP |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Offensive security](/hubs/offensive-security.md)
+- [Network Defense Reference](/NETWORK_DEFENSE_REFERENCE.md)
+- [Network Monitoring Reference](/NETWORK_MONITORING_REFERENCE.md)
+- [Active Directory Attack Reference](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md)
+- [Wireless Security Reference](/WIRELESS_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *This reference is maintained for defensive research and operational security purposes. All techniques described are documented to enable detection, prevention, and incident response, not for unauthorized use.*

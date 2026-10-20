@@ -400,6 +400,18 @@ Full log: [version history](https://emb3d.mitre.org/subtabs/version-history.html
 - CISA Secure by Design: https://www.cisa.gov/securebydesign
 - CISA Secure by Design Pledge: https://www.cisa.gov/securebydesign/pledge
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [ICS, OT, and hardware](/hubs/ics-ot-and-hardware.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [ICS ATT&CK Atlas](/ICS_ATTACK_ATLAS.md)
+- [Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md)
+- [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *EMB3D™ and ATT&CK® are trademarks of The MITRE Corporation; EMB3D content is © The MITRE Corporation and provided under MITRE's Terms of Use (see the footer at [emb3d.mitre.org](https://emb3d.mitre.org/)). This is an independent practitioner reference summary, not affiliated with or endorsed by MITRE or CISA; consult the upstream model for authoritative and current content.*

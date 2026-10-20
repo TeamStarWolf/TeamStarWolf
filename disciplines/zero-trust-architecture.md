@@ -1,5 +1,11 @@
 # Zero Trust Architecture
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching reference: [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md), the library's in-depth page on this subject.
+
+<!-- path-reference:end -->
+
 ## Introduction
 
 Zero Trust Architecture (ZTA) is a security paradigm that eliminates implicit trust and enforces continuous verification for every user, device, and workload, regardless of whether they are inside or outside the traditional network perimeter. The foundational principle, coined by John Kindervag at Forrester Research in 2010, is "never trust, always verify."

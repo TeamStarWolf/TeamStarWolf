@@ -197,6 +197,19 @@ Map coverage with [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md) a
 - [CVE_REFERENCE.md](CVE_REFERENCE.md): KEV status for the CVEs above; [THREAT_GROUP_PROFILES.md](THREAT_GROUP_PROFILES.md): UNC3886, Scattered Spider (UNC3944)
 - [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [ZERO_TRUST_REFERENCE.md](ZERO_TRUST_REFERENCE.md), [mitre/techniques/T1675.md](mitre/techniques/T1675.md)
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Cloud and infrastructure](/hubs/cloud-and-infrastructure.md)
+- [Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md)
+- [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md)
+- [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md)
+- [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md)
+- [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-09-29 | TeamStarWolf Cybersecurity Reference Library*

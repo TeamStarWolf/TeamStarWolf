@@ -4,6 +4,12 @@ AI systems occupy a unique position in the modern threat landscape: they are sim
 
 Understanding how AI systems are attacked is essential knowledge for defenders who need to anticipate novel failure modes, red teamers who must evaluate AI deployments against realistic adversarial pressure, and AI engineers who need to build systems that are robust by design rather than by assumption. The attacks covered in this discipline are not theoretical: prompt injection has been demonstrated against deployed production systems, adversarial examples defeat real biometric authentication, and data poisoning has been executed against models trained on live web data. Every organization deploying AI systems needs practitioners who understand this attack surface.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching reference: [ATLAS Reference (AI threats)](/ATLAS_REFERENCE.md), the library's in-depth page on this subject.
+
+<!-- path-reference:end -->
+
 ---
 
 ## Attack Categories

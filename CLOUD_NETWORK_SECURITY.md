@@ -1435,6 +1435,16 @@ LIMIT 25;
 | T1110 | Brute Force | WAF rate limiting + Shield Advanced | WAF rate limit rules | Cloud Armor rate-based ban |
 | T1572 | Protocol Tunneling | Network Firewall IDS rules | Azure Firewall IDPS | Cloud IDS (Palo Alto signatures) |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Cloud and infrastructure](/hubs/cloud-and-infrastructure.md)
+- [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md)
+- [Cloud Security Benchmark](/CLOUD_SECURITY_BENCHMARK.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-04-24 | Covers AWS (us-east-1), Azure (eastus), GCP (us-east1) regional examples*

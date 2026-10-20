@@ -2107,6 +2107,19 @@ ELSE:
 | NIST CSF 2.0 | https://www.nist.gov/cyberframework |
 | SLSA Supply Chain Security Framework | https://slsa.dev/ |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Identity and data protection](/hubs/identity-and-data-protection.md)
+- Learning path: [Zero Trust Architecture](/disciplines/zero-trust-architecture.md)
+- [Identity & Access Management](/disciplines/identity-access-management.md)
+- [Cloud Network Security](/CLOUD_NETWORK_SECURITY.md)
+- [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md)
+- [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *This reference is maintained as part of the TeamStarWolf cybersecurity library. For contributions or corrections, open a pull request.*

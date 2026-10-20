@@ -298,6 +298,18 @@ For each ATT&CK technique, the D3FEND defensive techniques that counter it. Full
 | [T1204.002](https://attack.mitre.org/techniques/T1204/002/) | Malicious File | Content Filtering, Content Modification, Content Quarantine, Decoy File, Dynamic Analysis, Emulated File Analysis +9 |
 | [T1574.009](https://attack.mitre.org/techniques/T1574/009/) | Path Interception by Unquoted Path | Content Filtering, Content Modification, Content Quarantine, Decoy File, Dynamic Analysis, Emulated File Analysis +9 |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Threat-informed defense and ATT&CK](/hubs/threat-informed-defense.md)
+- [Threat-Informed Defense Reference](/THREAT_INFORMED_DEFENSE_REFERENCE.md)
+- [CVE Reference](/CVE_REFERENCE.md)
+- [Engage Reference (deception)](/ENGAGE_REFERENCE.md)
+- [Controls Mapping](/CONTROLS_MAPPING.md)
+
+<!-- related:end -->
+
 ---
 
 *Source: MITRE D3FEND ontology (full inferred ATT&CK<->D3FEND mappings). D3FEND is a complement to, not a replacement for, environment-specific defensive design.*

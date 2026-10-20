@@ -263,3 +263,13 @@ Email Security
 | Impact | T1486 Data Encrypted for Impact | CP-9, SC-28, SI-3 |
 
 ---
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Threat-informed defense and ATT&CK](/hubs/threat-informed-defense.md)
+- [Enterprise Security Pipeline](/SECURITY_PIPELINE.md)
+- [Coverage Schema](/COVERAGE_SCHEMA.md)
+
+<!-- related:end -->

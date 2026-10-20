@@ -1262,6 +1262,16 @@ Tools: BGPmon, RIPE BGPlay, Cloudflare Radar BGP, Team Cymru BGP routing securit
 - [Responder: LLMNR/NBT-NS/MDNS Poisoner](https://github.com/lgandx/Responder)
 - [BloodHound: AD Attack Path Analysis](https://github.com/BloodHoundAD/BloodHound)
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Network security](/hubs/network-security.md)
+- [Network Protocols Reference](/NETWORK_PROTOCOLS_REFERENCE.md)
+- [Wireless Security Reference](/WIRELESS_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Part of the [TeamStarWolf Security Reference](README.md) | ATT&CK technique IDs reference [MITRE ATT&CK v19.2](https://attack.mitre.org/) | All tool commands for authorized security testing only*

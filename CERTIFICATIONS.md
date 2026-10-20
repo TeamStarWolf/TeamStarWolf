@@ -596,3 +596,16 @@ Premium Path (Industry Standard)
 1. OSCP: offensive gold standard
 2. CISSP: management/architecture
 3. GREM or GCFA: specialization
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Career Paths](/CAREER_PATHS.md)
+- [Hands-On Labs](/LABS.md)
+- [Security Tools Reference](/TOOLS.md)
+- [CISSP Domain Crosswalk](/CISSP_DOMAIN_CROSSWALK.md)
+- [CEH Domain Crosswalk](/CEH_DOMAIN_CROSSWALK.md)
+
+<!-- related:end -->

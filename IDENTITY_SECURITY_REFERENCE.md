@@ -1614,6 +1614,19 @@ CAT I (High) Findings, Admin Account Controls:
 - [Windows Hardening](WINDOWS_HARDENING.md)
 - [Privilege Escalation Reference](PRIVESC_REFERENCE.md)
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Identity and data protection](/hubs/identity-and-data-protection.md)
+- [Identity & Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)
+- [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
+- [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md)
+- [Privilege Escalation Reference](/PRIVESC_REFERENCE.md)
+- [GRC Reference](/GRC_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-04-24 | MITRE ATT&CK v19.2 | NIST SP 800-63B-4 (Digital Identity Guidelines, Rev 4, July 2025)*

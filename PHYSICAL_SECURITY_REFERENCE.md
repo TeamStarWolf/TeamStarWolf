@@ -1245,3 +1245,16 @@ CPTED (Crime Prevention Through Environmental Design):
 
 *Last updated: 2026-04-24*
 *Category: Physical Security | Tags: physical pentest, lock picking, RFID, badge cloning, Proxmark3, Flipper Zero, social engineering, surveillance, NIST PE controls, PCI DSS, physical security assessment*
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [ICS, OT, and hardware](/hubs/ics-ot-and-hardware.md)
+- Learning path: [Physical Security](/disciplines/physical-security.md)
+- [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md)
+- [OSINT Reference](/OSINT_REFERENCE.md)
+- [SDR & RF Security Reference](/SDR_RF_SECURITY_REFERENCE.md)
+- [Security Gadgets Reference](/SECURITY_GADGETS_REFERENCE.md)
+
+<!-- related:end -->

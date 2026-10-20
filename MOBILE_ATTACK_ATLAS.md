@@ -268,6 +268,16 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md), [Thre
 | [T1643 Generate Traffic from Victim](https://attack.mitre.org/techniques/T1643) | Android, iOS | 0 | 16 | 1 |  |
 | [T1662 Data Destruction](https://attack.mitre.org/techniques/T1662) | Android | 0 | 3 | 1 |  |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Threat-informed defense and ATT&CK](/hubs/threat-informed-defense.md)
+- [Threat-Informed Defense Reference](/THREAT_INFORMED_DEFENSE_REFERENCE.md)
+- [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md)
+
+<!-- related:end -->
+
 ---
 
 *Source: MITRE ATT&CK for Mobile v18.1 (STIX). Counts reflect non-deprecated objects.*

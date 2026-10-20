@@ -361,3 +361,16 @@ scout gcp --user-account --report-dir /tmp/scoutsuite-report/
 - [Controls Mapping](CONTROLS_MAPPING.md): Wiz, Orca, Lacework -> NIST 800-53 controls
 
 ---
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Cloud and infrastructure](/hubs/cloud-and-infrastructure.md)
+- [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md)
+- [Cloud Security](/disciplines/cloud-security.md)
+- [Frameworks Reference](/FRAMEWORKS.md)
+- [Controls Mapping](/CONTROLS_MAPPING.md)
+- [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md)
+
+<!-- related:end -->

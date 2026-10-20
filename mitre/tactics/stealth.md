@@ -160,6 +160,17 @@ New name in ATT&CK v19.2 (TA0005): formerly _Defense Evasion_, renamed to Stealt
 - [T1684.001: Impersonation](/mitre/techniques/T1684-001.md)
 - [T1684.002: Email Spoofing](/mitre/techniques/T1684-002.md)
 
+<!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Library references
+
+Pages in this library that link to this page or to this object's entry on the MITRE site:
+
+- [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md)
+- [Incident Response](/disciplines/incident-response.md)
+
+<!-- library-refs:end -->
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

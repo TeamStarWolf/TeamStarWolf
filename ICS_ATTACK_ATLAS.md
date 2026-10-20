@@ -218,6 +218,16 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md), [Thre
 | [T0880 Loss of Safety](https://attack.mitre.org/techniques/T0880) | None | 0 | 1 | 2 |  |
 | [T0882 Theft of Operational Information](https://attack.mitre.org/techniques/T0882) | None | 0 | 4 | 4 |  |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [ICS, OT, and hardware](/hubs/ics-ot-and-hardware.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [EMB3D Reference (Embedded Devices)](/EMB3D_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Source: MITRE ATT&CK for ICS v18.1 (STIX). Counts reflect non-deprecated objects.*

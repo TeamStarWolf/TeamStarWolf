@@ -530,3 +530,15 @@ ZPA Integration with IdP
 - [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md): enterprise environment components
 - [Security Operations](disciplines/security-operations.md): SOC operations and tooling
 - [Zero Trust Architecture](disciplines/zero-trust-architecture.md): ZT principles and vendor implementation
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Windows Hardening GPO Reference](/WINDOWS_HARDENING_GPO.md)
+- [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md)
+- [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md)
+- [Security Operations (SOC / SecOps)](/disciplines/security-operations.md)
+
+<!-- related:end -->

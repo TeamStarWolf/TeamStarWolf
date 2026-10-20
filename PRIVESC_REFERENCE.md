@@ -1477,3 +1477,16 @@ Get-AzRoleAssignment | Where-Object {$_.RoleDefinitionName -eq "Owner"}
 | AWS IAM Privesc Methods | [rhinosecuritylabs.com/aws/aws-privilege-escalation-methods-mitigation](https://rhinosecuritylabs.com/aws/aws-privilege-escalation-methods-mitigation/) |
 | MicroBurst (Azure) | [github.com/NetSPI/MicroBurst](https://github.com/NetSPI/MicroBurst) |
 | GCP Privesc: Rhino Security | [rhinosecuritylabs.com/gcp/privilege-escalation-google-cloud-platform-part-1](https://rhinosecuritylabs.com/gcp/privilege-escalation-google-cloud-platform-part-1/) |
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Offensive security](/hubs/offensive-security.md)
+- [Pentest Checklists](/PENTEST_CHECKLISTS.md)
+- [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md)
+- [HTB Machine Index](/research/HTB_MACHINE_INDEX.md)
+- [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md)
+- [Exploit Development Reference](/EXPLOIT_DEVELOPMENT_REFERENCE.md)
+
+<!-- related:end -->

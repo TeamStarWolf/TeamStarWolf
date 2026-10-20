@@ -2,6 +2,12 @@
 
 > Going beyond passive monitoring to actively mislead, detect, and study adversaries using deceptive environments, honeypots, honeytokens, and adversary engagement techniques.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching references: [Deception Technology](/DECEPTION_TECHNOLOGY_REFERENCE.md) and [Honeypot & Deception Reference](/HONEYPOT_DECEPTION_REFERENCE.md), the library's in-depth pages on this subject.
+
+<!-- path-reference:end -->
+
 ## What Active Defense Engineers Do
 
 - Design and deploy deception layers: honeypots, honeynets, and deceptive credentials

@@ -112,6 +112,11 @@ if `git status` shows the ` D` entry.
 - A new page in a folder (a guide, a learning path, a tool page) is listed by that folder's README.md; link it there and run the script again.
 - CI runs `python scripts/build_site_nav.py --check`, which fails when a generated file is stale or when a hand-written page is in no nav section.
 
+### Cross-Links Written by a Script
+- Some blocks inside pages are written by `scripts/build_crosslinks.py` and sit between `<!-- name:start -->` and `<!-- name:end -->` markers: the "Matching reference" line under a learning path's introduction, the "Related pages" footer on each root reference, and the "Library references" block on `mitre/` pages. The "(local)" links after MITRE IDs in CAPEC_REFERENCE.md, ATTACK_TECHNIQUE_ATLAS.md and ATTACK_SOFTWARE_REFERENCE.md are written the same way. Do not edit them by hand.
+- To pair a learning path with its reference, or to change the size of the "Related pages" lists, edit `docs/crosslinks.json`. A footer also picks up the pages in the reference's own "Pairs with" row and the references in the same hub group that it links to or that link to it.
+- After adding or removing links between pages, run `python scripts/build_crosslinks.py`. CI runs it with `--check`, which fails when a committed block differs from what the script writes.
+
 ---
 
 ## Pull Request Checklist
@@ -125,6 +130,7 @@ Before submitting, verify:
 - [ ] If you added a JSONL record, it passes `python scripts/validate_jsonl.py`
 - [ ] `python scripts/check_voice.py` passes (see [docs/VOICE.md](docs/VOICE.md))
 - [ ] If you added, renamed or moved a page, `python scripts/build_site_nav.py --check` passes
+- [ ] If you added or removed links between pages, `python scripts/build_crosslinks.py --check` passes
 - [ ] Your diff does not delete `MALWARE_ANALYSIS_REFERENCE.md` (see [Cloning on Windows](#cloning-on-windows))
 
 ---

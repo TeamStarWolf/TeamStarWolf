@@ -428,6 +428,19 @@ For an organization starting from "we have an AV, a firewall, and a vague sense 
 - PreVeil: CMMC 48 CFR final acquisition rule analysis (published Sept 10, 2025; effective Nov 10, 2025): <https://www.preveil.com/blog/cmmc-final-rule-published/>
 - MITRE ATT&CK: version list (v19.2 current as of this writing): <https://attack.mitre.org/resources/versions/>, Exfiltration tactic TA0010: <https://attack.mitre.org/tactics/TA0010/>
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Identity and data protection](/hubs/identity-and-data-protection.md)
+- Learning path: [Data Security](/disciplines/data-security.md)
+- [Privacy Engineering Reference](/PRIVACY_ENGINEERING_REFERENCE.md)
+- [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md)
+- [Post-Quantum Migration Reference](/POST_QUANTUM_MIGRATION_REFERENCE.md)
+- [Database Security](/DATABASE_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *This reference summarizes third-party frameworks and publications (NIST CSF 2.0, SP 800-171/171A/188/800-57, FIPS 197, the NIST Privacy Framework, MITRE ATT&CK®, CISA guidance, DOJ/CISA rulemaking under EO 14117, Gartner market categories, the Confidential Computing Consortium's terminology, and Microsoft Purview documentation) as an independent practitioner summary; it is not affiliated with or endorsed by those organizations, and it is not legal advice. Product capabilities, tenant limits, and rulemaking status change; consult the linked originals before relying on a specific number or date.*

@@ -2750,6 +2750,19 @@ def mac_abs_to_dt(t):
     return datetime.datetime(2001, 1, 1) + datetime.timedelta(seconds=t)
 ```
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+- Learning path: [Digital Forensics](/disciplines/digital-forensics.md)
+- [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)
+- [Network Forensics Reference](/NETWORK_FORENSICS_REFERENCE.md)
+- [IR Playbooks](/IR_PLAYBOOKS.md)
+- [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *This reference library is maintained for professional use in lawful digital forensics investigations. All techniques should be applied within the bounds of applicable law, proper legal authority, and ethical guidelines. Last updated: 2026.*

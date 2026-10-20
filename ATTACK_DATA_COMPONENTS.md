@@ -4090,3 +4090,12 @@ The process of listing or retrieving metadata about existing snapshots in a clou
 
 ---
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Threat-informed defense and ATT&CK](/hubs/threat-informed-defense.md)
+- [ATT&CK Detection Strategies](/detections/strategies/README.md)
+- [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)
+
+<!-- related:end -->

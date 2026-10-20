@@ -2412,6 +2412,18 @@ HSM certifications: Hardware Security Modules (HSMs) used for key storage typica
 - Use: TLS 1.3 (TLS 1.2 minimum), ECDHE, AES-256-GCM or ChaCha20-Poly1305
 - Avoid: SSLv3, TLS 1.0/1.1, RC4, DES, MD5, export ciphers, NULL ciphers
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Identity and data protection](/hubs/identity-and-data-protection.md)
+- Learning path: [Cryptography & PKI](/disciplines/cryptography-pki.md)
+- [Post-Quantum Migration Reference](/POST_QUANTUM_MIGRATION_REFERENCE.md)
+- [Data Security Reference](/DATA_SECURITY_REFERENCE.md)
+- [Database Security](/DATABASE_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2024. Standards and recommendations evolve: always verify against current NIST, IETF, and vendor guidance.*

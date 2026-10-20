@@ -463,6 +463,19 @@ Mitigation-name refresh: AML.M0002, AML.M0003, AML.M0004, AML.M0006, AML.M0009, 
 | [AML.M0030 Restrict AI Agent Tool Invocation on Untrusted Data](https://atlas.mitre.org/mitigations/AML.M0030) | 3 | Untrusted data can contain prompt injections that invoke an AI agent's tools, potentially causing confidentiality, integrity or availability violations. It is recommended that tool invocatio... |
 | [AML.M0031 Memory Hardening](https://atlas.mitre.org/mitigations/AML.M0031) | 2 | Memory Hardening involves developing trust boundaries and secure processes for how an AI agent stores and accesses memory and context. This may be implemented using a combination of strategi... |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [AI and emerging tech](/hubs/ai-and-emerging-tech.md)
+- Learning path: [Adversarial AI Attacks](/disciplines/adversarial-ai-attacks.md)
+- [AI Security Reference](/AI_SECURITY_REFERENCE.md)
+- [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md)
+- [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md)
+- [AI Architecture Reference](/AI_ARCHITECTURE_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Source: [MITRE ATLAS](https://atlas.mitre.org/) via [mitre-atlas/atlas-navigator-data](https://github.com/mitre-atlas/atlas-navigator-data) STIX export. ATLAS™ and ATT&CK® are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream project for authoritative content.*

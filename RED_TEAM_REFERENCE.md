@@ -1399,6 +1399,19 @@ Key Reading & Research Sources:
 - ired.team notes: practical red team technique documentation
 - Sektor7 courses: malware development and evasion tradecraft
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Offensive security](/hubs/offensive-security.md)
+- Learning path: [Offensive Security](/disciplines/offensive-security.md)
+- Learning path: [Red Teaming](/disciplines/red-teaming.md)
+- [Purple Team Reference](/PURPLE_TEAM_REFERENCE.md)
+- [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md)
+- [Threat-Informed Defense Reference](/THREAT_INFORMED_DEFENSE_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *This reference is maintained for authorized red team operators. Content reflects tradecraft knowledge as of the document version date. Frameworks, tool detection rates, and defensive capabilities evolve continuously: verify currency of specific techniques before use in engagements. All engagements require explicit written authorization.*

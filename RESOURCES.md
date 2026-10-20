@@ -236,3 +236,15 @@ A curated reference of books, courses, platforms, communities, and standards for
 | Exploit-DB | Database | CVE and exploit database | exploit-db.com |
 | Packet Storm | Database | Security news, exploits, tools | packetstormsecurity.com |
 | TryHackMe Discord | Discord | Learning community | tryhackme.com community |
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Certifications Reference](/CERTIFICATIONS.md)
+- [Career Paths](/CAREER_PATHS.md)
+- [Hands-On Labs](/LABS.md)
+- [Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md)
+
+<!-- related:end -->

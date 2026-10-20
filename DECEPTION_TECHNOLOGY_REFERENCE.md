@@ -902,6 +902,19 @@ index=incident_management source=ticketing
 > practices to detect, identify, and analyze attacker tactics, techniques, and procedures."
 > Deception technology directly satisfies SC-26.
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+- Learning path: [Active Defense & Deception](/disciplines/active-defense-deception.md)
+- [Engage Reference (deception)](/ENGAGE_REFERENCE.md)
+- [Honeypot & Deception Reference](/HONEYPOT_DECEPTION_REFERENCE.md)
+- [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md)
+- [SIEM Detection Content](/SIEM_DETECTION_CONTENT.md)
+
+<!-- related:end -->
+
 ---
 
 *Part of the [TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf) cybersecurity reference library.*

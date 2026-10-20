@@ -4,6 +4,12 @@ Cloud security encompasses the practices, tools, and governance required to secu
 
 The shared responsibility model is the foundational concept every cloud security practitioner must internalize: the cloud provider secures the infrastructure, but the customer owns the configuration, identity management, data protection, and workload security. The vast majority of cloud security incidents are not the result of cloud provider failures; they are the result of misconfigured S3 buckets, overprivileged IAM roles, exposed secrets in environment variables, and SSRF vulnerabilities that reach cloud metadata APIs. These are customer-owned failure modes, and cloud security is the discipline of systematically finding and eliminating them.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching reference: [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), the library's in-depth page on this subject.
+
+<!-- path-reference:end -->
+
 ---
 
 ## Where to Start

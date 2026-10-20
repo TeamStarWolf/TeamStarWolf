@@ -563,3 +563,13 @@ DDD is the discipline that makes service/module boundaries principled rather tha
 8. Enforce            fitness functions in CI (layering, security policy, supply chain)
 9. Review & evolve    well-architected review per pillar; log debt/risk; supersede ADRs
 ```
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Security Architecture Reference](/SECURITY_ARCHITECTURE_REFERENCE.md)
+- [Enterprise Security Controls](/ENTERPRISE_SECURITY_CONTROLS.md)
+
+<!-- related:end -->

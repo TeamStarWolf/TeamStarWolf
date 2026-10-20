@@ -4,6 +4,12 @@
 
 Red teaming differs fundamentally from penetration testing. A pentest is scoped, time-boxed, and delivers a list of vulnerabilities. A red team engagement simulates a persistent Advanced Persistent Threat (APT): it is stealth-first, objective-driven, and measures the blue team's detection and response capability, not just the attack surface. Engagements typically run weeks to months, avoid detection as a primary constraint, and conclude with a findings debrief that includes defender performance metrics alongside technical findings. Understanding this distinction is essential before approaching the tooling or tradecraft.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching reference: [Red Team Reference](/RED_TEAM_REFERENCE.md), the library's in-depth page on this subject.
+
+<!-- path-reference:end -->
+
 ---
 
 ## Red Team vs Penetration Test vs Bug Bounty

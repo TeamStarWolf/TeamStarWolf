@@ -2169,6 +2169,19 @@ Enterprise (5+ FTE, $1.5M+ total):
 | Exfiltration | T1041 Exfil over C2, T1048 Exfil over Alt Protocol, T1567 Exfil to Web Service |
 | Command & Control | T1071 App Layer Protocol, T1090 Proxy, T1095 Non-App Layer, T1102 Web Service |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Threat intelligence and adversaries](/hubs/threat-intelligence.md)
+- Learning path: [Threat Intelligence](/disciplines/threat-intelligence.md)
+- [Threat Group Profiles](/THREAT_GROUP_PROFILES.md)
+- [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md)
+- [Threat-Informed Defense Reference](/THREAT_INFORMED_DEFENSE_REFERENCE.md)
+- [Threat Report Almanac](/THREAT_REPORT_ALMANAC.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-05-06 | Maintained by CTI Team | TLP:GREEN (for internal use and trusted community sharing)*

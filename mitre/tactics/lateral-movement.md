@@ -35,6 +35,17 @@ The adversary is trying to move through your environment.
 - [T1563.002: RDP Hijacking](/mitre/techniques/T1563-002.md)
 - [T1570: Lateral Tool Transfer](/mitre/techniques/T1570.md)
 
+<!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Library references
+
+Pages in this library that link to this page or to this object's entry on the MITRE site:
+
+- [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md)
+- [Incident Response](/disciplines/incident-response.md)
+
+<!-- library-refs:end -->
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -902,6 +902,19 @@ Default indicators (operators should change these):
 - Windows Security Audit Events: `docs.microsoft.com/en-us/windows/security/threat-protection/auditing/`
 - NSA Endpoint Security guidance: `media.defense.gov`
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+- [SIEM Detection Content](/SIEM_DETECTION_CONTENT.md)
+- [Threat Hunting Playbooks](/THREAT_HUNTING_PLAYBOOKS.md)
+- [LOTL Detection Reference](/LOTL_DETECTION_REFERENCE.md)
+- [Vendor Prevention Policies](/VENDOR_PREVENTION_POLICIES.md)
+- [Security Data Engineering Reference](/SECURITY_DATA_ENGINEERING_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-04-24 | Category: Endpoint Security | Framework: MITRE ATT&CK v19.2*

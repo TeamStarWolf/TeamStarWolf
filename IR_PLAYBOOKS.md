@@ -669,3 +669,16 @@ Reporting ransomware to the FBI does NOT mean you cannot pay the ransom. However
 - [Threat Intelligence](disciplines/threat-intelligence.md): IOC collection and actor tracking
 - [Security Operations](disciplines/security-operations.md): SOC procedures and SOAR playbooks
 - [Detection Engineering](disciplines/detection-engineering.md): detection rules for each incident type
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+- [Incident Response](/disciplines/incident-response.md)
+- [Digital Forensics](/disciplines/digital-forensics.md)
+- [Detection Engineering](/disciplines/detection-engineering.md)
+- [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)
+- [Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md)
+
+<!-- related:end -->

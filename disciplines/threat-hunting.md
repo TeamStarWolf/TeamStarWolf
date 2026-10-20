@@ -4,6 +4,12 @@ Threat hunting is the proactive, iterative search through networks, endpoints, a
 
 The discipline exists because no detection stack is complete. Advanced adversaries deliberately operate below alert thresholds, abuse legitimate tools, and move slowly enough that automated correlation misses them. Threat hunters close this gap by forming hypotheses grounded in threat intelligence and the MITRE ATT&CK framework, collecting and analyzing the telemetry those hypotheses require, and systematically ruling in or ruling out adversary presence. When a hunt succeeds, the finding feeds back into the detection stack as a new automated rule, turning manual discovery into durable coverage.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching references: [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md) and [Threat Hunting Playbooks](/THREAT_HUNTING_PLAYBOOKS.md), the library's in-depth pages on this subject.
+
+<!-- path-reference:end -->
+
 ---
 
 ## The Threat Hunting Process

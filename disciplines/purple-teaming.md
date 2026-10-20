@@ -2,6 +2,12 @@
 
 Purple teaming is a structured security methodology that unites offensive (red) and defensive (blue) teams in a real-time, collaborative feedback loop. Unlike traditional red team engagements where attackers operate in isolation and defenders discover findings after the fact, purple teaming means both teams are present simultaneously: the red team executes adversary techniques while the blue team monitors detection tools in real time, validates alert firing, and tunes detections on the spot. Purple teaming is not a standalone team; it is a methodology, a mindset, and a process that any organization with red and blue capabilities can adopt. Security engineers, detection engineers, threat hunters, and incident responders all practice purple teaming techniques. Its value is highest when an organization already has a SIEM/EDR and wants to systematically validate that their investments catch real-world adversary behavior.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching reference: [Purple Team Reference](/PURPLE_TEAM_REFERENCE.md), the library's in-depth page on this subject.
+
+<!-- path-reference:end -->
+
 ---
 
 ## Where to Start

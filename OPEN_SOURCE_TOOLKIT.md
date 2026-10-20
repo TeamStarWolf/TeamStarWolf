@@ -437,3 +437,13 @@
 | [dnsx](https://github.com/projectdiscovery/dnsx) | DNS enumeration and resolution toolkit |
 | [Shodan CLI](https://cli.shodan.io/) | Internet-exposed asset discovery and monitoring |
 | [Censys CLI](https://github.com/censys/censys-python) | Certificate and asset intelligence |
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Security Tools Reference](/TOOLS.md)
+- [Controls Mapping](/CONTROLS_MAPPING.md)
+
+<!-- related:end -->

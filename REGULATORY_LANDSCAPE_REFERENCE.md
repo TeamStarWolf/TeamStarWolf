@@ -161,6 +161,19 @@ These carry their own reporting or attestation duties but are covered in depth e
 - [disciplines/governance-risk-compliance.md](disciplines/governance-risk-compliance.md): GRC discipline page
 - [CVE_REFERENCE.md](CVE_REFERENCE.md): CISA KEV, BOD 26-04, and vulnerability-prioritization pipeline
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Frameworks Reference](/FRAMEWORKS.md)
+- [GRC Reference](/GRC_REFERENCE.md)
+- [GRC Compliance Reference](/GRC_COMPLIANCE_REFERENCE.md)
+- [Governance, Risk & Compliance (GRC)](/disciplines/governance-risk-compliance.md)
+- [CVE Reference](/CVE_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-09-29 | TeamStarWolf Cybersecurity Reference Library*

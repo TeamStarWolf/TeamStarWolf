@@ -1546,6 +1546,19 @@ Reference repositories:
 | Stratus Red Team | github.com/DataDog/stratus-red-team | Cloud emulation |
 | VECTR | github.com/SecurityRiskAdvisors/VECTR | Purple team tracking |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Offensive security](/hubs/offensive-security.md)
+- Learning path: [Purple Teaming & Adversary Simulation](/disciplines/purple-teaming.md)
+- [Red Team Reference](/RED_TEAM_REFERENCE.md)
+- [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md)
+- [Threat-Informed Defense Reference](/THREAT_INFORMED_DEFENSE_REFERENCE.md)
+- [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *End of PURPLE_TEAM_REFERENCE.md (TeamStarWolf Security Engineering)*

@@ -1912,3 +1912,16 @@ alert http any any -> any any (
 5. Tune: Reduce FPs via allow-listing, thresholds
 6. Deploy: Push to SIEM with severity and response runbook
 7. Review: Measure FP rate, detection rate, MTTD
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+- Learning path: [Detection Engineering](/disciplines/detection-engineering.md)
+- [SIEM Detection Content](/SIEM_DETECTION_CONTENT.md)
+- [SIEM Reference](/SIEM_REFERENCE.md)
+- [Threat Hunting Playbooks](/THREAT_HUNTING_PLAYBOOKS.md)
+- [Purple Team Reference](/PURPLE_TEAM_REFERENCE.md)
+
+<!-- related:end -->

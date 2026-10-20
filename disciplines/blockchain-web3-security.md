@@ -4,6 +4,12 @@ Blockchain and Web3 security encompasses the practices, tools, and controls requ
 
 The discipline sits at the intersection of cryptography, distributed systems, and software security. Practitioners must understand not only code-level vulnerabilities like reentrancy and integer overflow, but also protocol-level attack surfaces including flash loans, oracle manipulation, bridge exploits, and MEV (Miner/Maximum Extractable Value). The historical record is stark: The DAO hack ($60M, 2016), Ronin bridge ($625M, 2022), and Wormhole bridge ($320M, 2022) represent a pattern of high-consequence exploits against systems securing real economic value with no recovery mechanism.
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching reference: [Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md), the library's in-depth page on this subject.
+
+<!-- path-reference:end -->
+
 ---
 
 ## Where to Start

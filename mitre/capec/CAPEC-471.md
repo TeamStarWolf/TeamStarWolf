@@ -31,6 +31,16 @@ An adversary exploits a weakness in an application's specification of external l
 - Design: Fix the Windows loading process to eliminate the preferential search order by looking for DLLs in the precise location where they are expected
 - Design: Sign system DLLs so that unauthorized DLLs can be detected.
 
+<!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Library references
+
+Pages in this library that link to this page or to this object's entry on the MITRE site:
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+
+<!-- library-refs:end -->
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

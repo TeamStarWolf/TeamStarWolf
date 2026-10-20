@@ -1402,3 +1402,16 @@ PAW hardening checklist:
 
 *Last updated: 2026-05-06. Covers techniques through 2025/2026 threat landscape.*  
 *Reference sources: Microsoft Security documentation, Impacket/Certipy/Rubeus documentation (for defender awareness), MITRE ATT&CK Enterprise Matrix, SpecterOps research, MDI detection documentation.*
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Offensive security](/hubs/offensive-security.md)
+- Learning path: [Active Directory Security](/disciplines/active-directory.md)
+- [Active Directory Attacks](/ACTIVE_DIRECTORY_ATTACKS.md)
+- [Active Directory Security Reference](/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md)
+- [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md)
+- [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md)
+
+<!-- related:end -->

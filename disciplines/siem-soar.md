@@ -1,5 +1,11 @@
 # SIEM & SOAR
 
+<!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
+
+> Matching references: [SIEM Reference](/SIEM_REFERENCE.md) and [SOAR Automation Reference](/SOAR_AUTOMATION_REFERENCE.md), the library's in-depth pages on this subject.
+
+<!-- path-reference:end -->
+
 ## Introduction
 
 Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) are the operational backbone of a modern Security Operations Center (SOC). SIEM aggregates and correlates security telemetry from across the environment to detect threats. SOAR automates the response workflow: enriching alerts, making decisions, and taking actions at machine speed.

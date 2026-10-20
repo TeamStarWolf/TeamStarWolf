@@ -1303,3 +1303,15 @@ Get-ADObject -SearchBase "CN=Shadow Principal Configuration,CN=Services,CN=Confi
 - [Impacket Examples](https://github.com/fortra/impacket/tree/master/examples)
 - [adsecurity.org: Sean Metcalf's AD Security Research](https://adsecurity.org/)
 - [dirkjanm.io: Kerberos, NTLM, and AD Research](https://dirkjanm.io/)
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Offensive security](/hubs/offensive-security.md)
+- [Active Directory Attack Reference](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md)
+- [Active Directory Security Reference](/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md)
+- [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md)
+- [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md)
+
+<!-- related:end -->

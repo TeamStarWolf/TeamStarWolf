@@ -896,3 +896,16 @@ Content Hub: Sentinel UI > Content Hub > browse 200+ vendor solutions and commun
 | MITRE | ATT&CK Mitigations | attack.mitre.org/mitigations |
 | CIS | CIS Controls v8 | cisecurity.org/controls |
 | DISA | STIGs | public.cyber.mil/stigs |
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+- [Windows Hardening](/WINDOWS_HARDENING.md)
+- [Windows Hardening GPO Reference](/WINDOWS_HARDENING_GPO.md)
+- [Controls Mapping](/CONTROLS_MAPPING.md)
+- [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)
+- [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md)
+
+<!-- related:end -->

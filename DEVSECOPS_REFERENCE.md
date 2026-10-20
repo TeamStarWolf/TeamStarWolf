@@ -2595,6 +2595,19 @@ Champion recognition:
 | bsimm.com | Building Security In Maturity Model |
 | owaspsamm.org | OWASP Software Assurance Maturity Model |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Application and supply chain security](/hubs/application-and-supply-chain.md)
+- Learning path: [DevSecOps](/disciplines/devsecops.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+- [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md)
+- [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-05-04 | Maintained by the DevSecOps Practice*

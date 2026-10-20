@@ -2187,6 +2187,18 @@ CVD (Coordinated Vulnerability Disclosure) for automotive (ISO/SAE 21434 referen
 | HIS SHE | Secure Hardware Extension | Automotive HSM spec |
 | EVITA | Vehicle HSM levels | Security hardware |
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [ICS, OT, and hardware](/hubs/ics-ot-and-hardware.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md)
+- [Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md)
+- [SDR & RF Security Reference](/SDR_RF_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026 | Maintained as part of TeamStarWolf cybersecurity reference library*

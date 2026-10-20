@@ -1800,6 +1800,19 @@ with open('/logs/conn.log') as f:
             print(json.dumps(enrichment))
 ```
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+- [Packet Analysis Reference](/PACKET_ANALYSIS_REFERENCE.md)
+- [Digital Forensics Reference](/DIGITAL_FORENSICS_REFERENCE.md)
+- [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)
+- [Network Monitoring Reference](/NETWORK_MONITORING_REFERENCE.md)
+- [Cloud, SaaS & Mobile Forensics](/CLOUD_SAAS_MOBILE_FORENSICS_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Reference compiled for incident responders and network forensics analysts. Verify tool versions and legal applicability for your jurisdiction before use in legal proceedings. Hash all evidence immediately upon collection and maintain strict chain of custody.*

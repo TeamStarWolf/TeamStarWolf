@@ -1539,6 +1539,19 @@ def add_security_headers(response):
 - [ ] SSRF protection: URL allow-list, no fetch to internal/169.254.x.x ranges
 - [ ] Security headers set on all responses (HSTS, CSP, X-Content-Type-Options)
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Application and supply chain security](/hubs/application-and-supply-chain.md)
+- [API Security Reference](/API_SECURITY_REFERENCE.md)
+- [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md)
+- [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md)
+- [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+- [Browser Security Reference](/BROWSER_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Mapped to OWASP SAMM v2.0, NIST SSDF SP 800-218, CWE Top 25 (2025), and MITRE ATT&CK Enterprise v19.2. See also [API Security Reference](API_SECURITY_REFERENCE.md), [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md), and [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md).*

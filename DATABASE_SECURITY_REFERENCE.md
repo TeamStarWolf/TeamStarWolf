@@ -262,6 +262,19 @@ Threat context: Redis scripting RCE (RediShell, CVE-2025-49844). In October 2025
 - [INSIDER_THREAT_REFERENCE.md](INSIDER_THREAT_REFERENCE.md): DBA/insider misuse detection
 - [GRC_COMPLIANCE_REFERENCE.md](GRC_COMPLIANCE_REFERENCE.md), [REGULATORY_LANDSCAPE_REFERENCE.md](REGULATORY_LANDSCAPE_REFERENCE.md): PCI/HIPAA/SOX drivers and breach-notification duties
 
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Identity and data protection](/hubs/identity-and-data-protection.md)
+- [Data Security Reference](/DATA_SECURITY_REFERENCE.md)
+- [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md)
+- [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md)
+- [Identity & Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)
+- [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
+
 ---
 
 *Last updated: 2026-09-29 | TeamStarWolf Cybersecurity Reference Library*

@@ -4,7 +4,7 @@
 
 | Time | Difficulty | You need | You'll produce |
 |---|---|---|---|
-| First 24-72 hours of the incident (steps run in parallel after Step 3) | High: decisions under pressure, some irreversible | EDR/SIEM access, out-of-band comms, printed contact card, your IR plan | Contained systems, preserved evidence, filed law-enforcement and insurer reports, an OFAC-screened payment decision, restoration underway in tested order |
+| First 24-72 hours of the incident (steps run in parallel after Step 3) | Advanced: decisions under pressure, some irreversible | EDR/SIEM access, out-of-band comms, printed contact card, your IR plan | Contained systems, preserved evidence, filed law-enforcement and insurer reports, an OFAC-screened payment decision, restoration underway in tested order |
 
 This guide operationalizes the response checklist in Part 2 of the [#StopRansomware Guide](https://www.cisa.gov/stopransomware/ransomware-guide) (CISA/MS-ISAC/NSA/FBI, October 2023). The full NIST-lifecycle procedure with investigation tables, negotiation guidance, and AD-rebuild detail is the library's [IR Playbooks: Ransomware](/IR_PLAYBOOKS.md); the program you should have built before today is the [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md). This guide sequences those two documents for the first three days; it does not replace them.
 

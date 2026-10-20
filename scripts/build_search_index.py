@@ -91,6 +91,7 @@ FOLDER_KINDS = {
     "navigator": ("Data", "Navigator layers"),
     "scores": ("Data", "Coverage scores"),
     "docs": ("About", "Maintaining the library"),
+    "hubs": ("Domain hub", "Domain hubs"),
     "scripts": ("About", "Maintaining the library"),
 }
 
@@ -280,6 +281,8 @@ def tactic_names() -> dict[str, str]:
 def classify(rel: str, text: str, tactics: dict[str, str]) -> tuple[str, str]:
     parts = rel.split("/")
     if len(parts) == 1:
+        if rel == "explore.md":
+            return "Framework index", "MITRE frameworks"
         if rel in ROOT_ABOUT:
             return "About", "About the library"
         return "Reference", "Reference library"

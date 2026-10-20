@@ -36,7 +36,7 @@ It can be read on GitHub or on the [website](https://teamstarwolf.github.io/Team
 | Counter fraud | [MITRE F3](/FRAUD_FRAMEWORK_REFERENCE.md), [Social Engineering](/SOCIAL_ENGINEERING_REFERENCE.md), [Identity Security](/IDENTITY_SECURITY_REFERENCE.md) |
 | Build a career | [Career Paths](/CAREER_PATHS.md), [Certifications](/CERTIFICATIONS.md), [Home Lab Setup](/HOMELAB_SETUP.md), [Hands-On Labs](/LABS.md) |
 
-The [reference index](/INDEX.md) lists the reference documents alphabetically. The website's sidebar groups them by domain.
+The [reference index](/INDEX.md) lists the reference documents alphabetically. The [domain hubs](/hubs/README.md) group them by domain, with a one-line summary and a reading time for each.
 
 ## Library by domain
 

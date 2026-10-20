@@ -106,6 +106,12 @@ if `git status` shows the ` D` entry.
 - Validate your additions locally: `python scripts/validate_jsonl.py`
 - Include a source reference for vendor-to-control mappings where possible
 
+### New Pages and the Site Navigation
+- The sidebars, the navbar, the domain hubs in `hubs/`, the "Browse by domain" cards on the homepage and the breadcrumbs are written by `scripts/build_site_nav.py` from `docs/site_nav.json`. Edit the JSON, not the generated files.
+- A new root reference goes in exactly one hub: add its file name to that hub's `docs` list in `docs/site_nav.json`, add its row to [INDEX.md](INDEX.md) (the hub shows the INDEX description), then run `python scripts/build_site_nav.py`.
+- A new page in a folder (a guide, a learning path, a tool page) is listed by that folder's README.md; link it there and run the script again.
+- CI runs `python scripts/build_site_nav.py --check`, which fails when a generated file is stale or when a hand-written page is in no nav section.
+
 ---
 
 ## Pull Request Checklist
@@ -118,6 +124,7 @@ Before submitting, verify:
 - [ ] Your change follows the existing table format
 - [ ] If you added a JSONL record, it passes `python scripts/validate_jsonl.py`
 - [ ] `python scripts/check_voice.py` passes (see [docs/VOICE.md](docs/VOICE.md))
+- [ ] If you added, renamed or moved a page, `python scripts/build_site_nav.py --check` passes
 - [ ] Your diff does not delete `MALWARE_ANALYSIS_REFERENCE.md` (see [Cloning on Windows](#cloning-on-windows))
 
 ---

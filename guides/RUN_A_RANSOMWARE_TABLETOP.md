@@ -4,7 +4,7 @@
 
 | Time | Difficulty | You need | You'll produce |
 |---|---|---|---|
-| ~12 weeks part-time planning, one ~4-hour session, after-action closes ~8 weeks later | Moderate: no tooling to install; facilitation and follow-through discipline are the hard parts | The free CISA CTEP package, your current IR/DR/BC plans, an executive sponsor, a facilitator, a room with A/V | A customized situation manual, a facilitated tabletop, and an HSEEP-style After-Action Report / Improvement Plan (AAR/IP) with owners and dates |
+| ~12 weeks part-time planning, one ~4-hour session, after-action closes ~8 weeks later | Intermediate: no tooling to install; facilitation and follow-through discipline are the hard parts | The free CISA CTEP package, your current IR/DR/BC plans, an executive sponsor, a facilitator, a room with A/V | A customized situation manual, a facilitated tabletop, and an HSEEP-style After-Action Report / Improvement Plan (AAR/IP) with owners and dates |
 
 ## Before you start
 

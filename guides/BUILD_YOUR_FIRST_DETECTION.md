@@ -6,7 +6,7 @@
 
 | Time | Difficulty | You need | You'll produce |
 |---|---|---|---|
-| Half a day hands-on, plus a 1-2 week audit soak | Beginner-to-intermediate | A Windows endpoint you administer, Splunk or Microsoft Sentinel, Python 3.10+, local admin rights | A tuned, ATT&CK-tagged Sigma rule deployed as SPL and KQL, with a written false-positive baseline |
+| Half a day hands-on, plus a 1-2 week audit soak | Beginner to intermediate | A Windows endpoint you administer, Splunk or Microsoft Sentinel, Python 3.10+, local admin rights | A tuned, ATT&CK-tagged Sigma rule deployed as SPL and KQL, with a written false-positive baseline |
 
 The workflow you practice here (pick, research, write, convert, audit, baseline, tune, promote) is the same lifecycle you will reuse for every detection after this one. Only the technique changes.
 

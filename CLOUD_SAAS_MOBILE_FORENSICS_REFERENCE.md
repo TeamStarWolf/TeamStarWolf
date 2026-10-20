@@ -238,11 +238,6 @@ When a cloud/SaaS/identity incident lands and there is no host to seize:
 ## Related pages
 
 - Domain: [Detection and response](/hubs/detection-and-response.md)
-- [Digital Forensics Reference](/DIGITAL_FORENSICS_REFERENCE.md)
-- [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)
-- [SaaS Security Reference](/SAAS_SECURITY_REFERENCE.md)
-- [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md)
-- [Network Forensics Reference](/NETWORK_FORENSICS_REFERENCE.md)
 
 <!-- related:end -->
 

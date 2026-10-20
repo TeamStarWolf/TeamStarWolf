@@ -33,7 +33,7 @@ An adversary tampers with a DLL and embeds a computer virus into gaps between le
 
 ## Library references
 
-Pages in this library that link to this page or to this object's entry on the MITRE site:
+Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 

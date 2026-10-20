@@ -407,9 +407,6 @@ Research compensation thoroughly before any negotiation. Key sources:
 ## Related pages
 
 - Domain: [GRC and security program](/hubs/grc-and-security-program.md)
-- [Career Paths](/CAREER_PATHS.md)
-- [Certifications Reference](/CERTIFICATIONS.md)
-- [Hands-On Labs](/LABS.md)
 - [CISSP Domain Crosswalk](/CISSP_DOMAIN_CROSSWALK.md)
 - [CEH Domain Crosswalk](/CEH_DOMAIN_CROSSWALK.md)
 

@@ -252,11 +252,6 @@ Cross-reference general defensive tooling in [ENDPOINT_SECURITY_REFERENCE.md](EN
 ## Related pages
 
 - Domain: [GRC and security program](/hubs/grc-and-security-program.md)
-- [Regulatory Landscape Reference](/REGULATORY_LANDSCAPE_REFERENCE.md)
-- [GRC Reference](/GRC_REFERENCE.md)
-- [GRC Compliance Reference](/GRC_COMPLIANCE_REFERENCE.md)
-- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
-- [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md)
 
 <!-- related:end -->
 

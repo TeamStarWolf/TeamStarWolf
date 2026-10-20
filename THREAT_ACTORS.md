@@ -272,10 +272,7 @@ Intelligence sharing platforms: ISACs (sector-specific), MISP communities, FS-IS
 ## Related pages
 
 - Domain: [Threat intelligence and adversaries](/hubs/threat-intelligence.md)
-- [Notable Incidents](/NOTABLE_INCIDENTS.md)
-- [Malware Families](/MALWARE_FAMILIES.md)
-- [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md)
-- [IR Playbooks](/IR_PLAYBOOKS.md)
 - [Threat Report Almanac](/THREAT_REPORT_ALMANAC.md)
+- [Threat Group Profiles](/THREAT_GROUP_PROFILES.md)
 
 <!-- related:end -->

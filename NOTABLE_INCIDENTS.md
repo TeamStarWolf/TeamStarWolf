@@ -484,10 +484,6 @@ This file is part of the TeamStarWolf cybersecurity reference library. See also:
 ## Related pages
 
 - Domain: [Threat intelligence and adversaries](/hubs/threat-intelligence.md)
-- [Threat Actors](/THREAT_ACTORS.md)
-- [IR Playbooks](/IR_PLAYBOOKS.md)
-- [Malware Families](/MALWARE_FAMILIES.md)
-- [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md)
 
 <!-- related:end -->
 

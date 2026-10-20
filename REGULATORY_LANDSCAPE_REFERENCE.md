@@ -166,11 +166,9 @@ These carry their own reporting or attestation duties but are covered in depth e
 ## Related pages
 
 - Domain: [GRC and security program](/hubs/grc-and-security-program.md)
-- [Frameworks Reference](/FRAMEWORKS.md)
-- [GRC Reference](/GRC_REFERENCE.md)
-- [GRC Compliance Reference](/GRC_COMPLIANCE_REFERENCE.md)
-- [Governance, Risk & Compliance (GRC)](/disciplines/governance-risk-compliance.md)
-- [CVE Reference](/CVE_REFERENCE.md)
+- [Security-Program Management / CISO Handbook](/SECURITY_PROGRAM_MANAGEMENT_REFERENCE.md)
+- [Healthcare & Medical-Device Security](/HEALTHCARE_SECURITY_REFERENCE.md)
+- [Security Awareness Program](/SECURITY_AWARENESS_REFERENCE.md)
 
 <!-- related:end -->
 

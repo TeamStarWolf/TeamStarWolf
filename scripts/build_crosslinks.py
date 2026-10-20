@@ -11,13 +11,21 @@ and on the site alike. Four kinds:
                      hub, the learning path that names it, then the pages in its own
                      "Pairs with" row, then references in the same hub group that it
                      links to or that link to it (both ways first), filled from the same
-                     group in hub order up to "related_min"; at most "related_max" lines
+                     group in hub order up to "related_min"; at most "related_max" lines.
+                     When the page ends with its own related, see-also or further-reading
+                     section, the footer leaves out every page that section links (the
+                     domain hub and learning path included) and is not filled up to
+                     "related_min", since the page has its own list; when nothing is left
+                     the page gets no footer
     local-id-links   on each page in "local_id_pages": a "(local)" link after every
                      link to attack.mitre.org, capec.mitre.org, atlas.mitre.org or the
                      F3 site whose object has a page under mitre/
     library-refs     on each mitre/ object page that has any: a "Library references"
-                     block listing the hand-written pages that link to the object's page
-                     here or to its MITRE entry (pages with none get no block)
+                     block with a line to the technique's section in the generated
+                     detection strategy and technique detail pages
+                     (detections/strategies/<tactic>.md, techniques/<tactic>.md) where it
+                     has one, then the hand-written pages that link to the object's page
+                     here or to its MITRE entry (pages with neither get no block)
 
 The library-refs block on a mitre/ page sits above the page footer. generate_mitre_pages.py
 carries a committed block over when it rewrites a page, so this script is the only writer
@@ -79,6 +87,14 @@ LOCAL_LINK_RE = re.compile(r" \(\[local\]\(/mitre/[^()\s]+\.md\)\)")
 SIGNOFF_RE = re.compile(r"\n---[ \t]*\n\n\*[^\n]*\*[ \t]*\n*\Z")
 # The mitre/ page footer ("---" then the italic source and trademark line).
 MITRE_FOOTER_RE = re.compile(r"\n---[ \t]*\n\n\*Source:[^\n]*\n*\Z")
+# A heading, and the heading text that makes a page's last section its own related list.
+HEADING_RE = re.compile(r"^#{2,6}[ \t]+(.*?)[ \t#]*$")
+OWN_RELATED_RE = re.compile(r"\b(related|see also|further reading)\b", re.I)
+
+# The generated pages with a section per ATT&CK technique (an <a id> under each heading),
+# linked from the technique's Library references block: (folder, line label).
+SECTION_PAGES = (("detections/strategies/", "Detection strategy"), ("techniques/", "Technique detail"))
+SECTION_ID_RE = re.compile(r'^<a id="t(\d{4})(\d{3})?"></a>[ \t]*$', re.M)
 
 # Root pages that are not content: chrome, the front door and the about-the-repo pages.
 NOT_CITING = set(bsn.ROOT_META)
@@ -242,11 +258,17 @@ def related_block(lines: list[str]) -> str:
     return REL_START + "\n\n## Related pages\n\n" + "\n".join("- " + x for x in lines) + "\n\n" + REL_END
 
 
-def library_block(citers: list[str], descs: dict) -> str:
-    items = sorted(((label(c, descs), c) for c in citers), key=lambda x: (x[0].lower(), x[1]))
-    return (LIB_START + "\n\n## Library references\n\n"
-            "Pages in this library that link to this page or to this object's entry on the MITRE site:\n\n"
-            + "\n".join("- " + bsn.md_link(lab, "/" + c) for lab, c in items) + "\n\n" + LIB_END)
+def library_block(obj_id: str, sections: list[tuple[str, str, str]], citers: list[str], descs: dict) -> str:
+    parts = []
+    if sections:
+        parts.append("\n".join("- " + kind + ": " + bsn.md_link(obj_id + " in " + h1, href)
+                               for kind, h1, href in sections))
+    if citers:
+        items = sorted(((label(c, descs), c) for c in citers), key=lambda x: (x[0].lower(), x[1]))
+        parts.append("Hand-written pages in this library that link to this page or to this object's "
+                     "entry on the MITRE site:\n\n"
+                     + "\n".join("- " + bsn.md_link(lab, "/" + c) for lab, c in items))
+    return LIB_START + "\n\n## Library references\n\n" + "\n\n".join(parts) + "\n\n" + LIB_END
 
 
 def with_local_links(text: str, tracked: set[str]) -> tuple[str, int]:
@@ -374,12 +396,22 @@ def build() -> tuple[dict[str, str], dict]:
         if r not in hub_of:
             raise SystemExit(r + ": in no hub (run build_site_nav.py --check)")
         h, g = hub_of[r]
-        fixed = ["Domain: " + bsn.md_link(h["title"], "/hubs/" + h["slug"] + ".md")]
-        fixed += ["Learning path: " + bsn.md_link(bsn.title(p), "/" + p) for p in paths_of_ref.get(r, [])]
+        own_heading, own_links = own_related(strip_generated(current[r]), aliases)
+        dropped: set[str] = set()
+        fixed = []
+        for kind, name, c in ([("Domain", h["title"], "hubs/" + h["slug"] + ".md")]
+                              + [("Learning path", bsn.title(p), p) for p in paths_of_ref.get(r, [])]):
+            if c in own_links:
+                dropped.add(c)
+            else:
+                fixed.append(kind + ": " + bsn.md_link(name, "/" + c))
         room = cfg["related_max"] - len(fixed)
         picks: list[str] = []
 
         def add(c: str) -> None:
+            if c in own_links:
+                dropped.add(c)
+                return
             if len(picks) < room and c != r and c not in picks and c in tracked and c.endswith(".md") \
                     and not posixpath.basename(c).startswith("_") and c not in paths_of_ref.get(r, []):
                 picks.append(c)
@@ -392,12 +424,21 @@ def build() -> tuple[dict[str, str], dict]:
         for c in both + one:
             add(c)
         fill = group + [d for gg in h["groups"] if gg is not g for d in gg["docs"]]
-        for c in fill:
+        for c in ([] if own_heading else fill):
             if len(fixed) + len(picks) >= cfg["related_min"]:
                 break
             add(c)
+        if own_heading:
+            stats["related footers under the page's own related section"] += 1
+            stats["related footers under the page's own related section: links"] += len(fixed) + len(picks)
+            stats["related footers under the page's own related section: domain and path only"] += bool(fixed) and not picks
+            stats["related footers under the page's own related section: none left, no footer"] += not (fixed or picks)
+            stats["related candidates left out because the page's own section links them"] += len(dropped)
         lines = fixed + [bsn.md_link(label(c, descs), "/" + c) for c in picks]
         body = REL_RE.sub("\n", current[r])
+        if not lines:                     # the page's own section already links every one
+            current[r] = body
+            continue
         current[r] = place_footer(body, related_block(lines), SIGNOFF_RE)
         stats["related footers"] += 1
         stats["related links"] += len(lines)
@@ -412,17 +453,74 @@ def build() -> tuple[dict[str, str], dict]:
     objects = [f for f in files if f.startswith("mitre/") and f.endswith(".md")
                and posixpath.basename(f) not in ("README.md", "_sidebar.md") and f != "mitre/crosswalk.md"]
     stats["mitre/ object pages"] = len(objects)
+    sections = section_pages(files)
     for f in objects:
         text = bsn.page_text(f)
         body = strip_library_refs(text)
         citers = sorted(cites.get(f, set()))
-        if citers:
-            body = place_footer(body, library_block(citers, descs), MITRE_FOOTER_RE)
+        secs = sections.get(f, [])
+        if citers or secs:
+            obj_id = posixpath.basename(f)[:-3]
+            if f.startswith("mitre/techniques/"):
+                obj_id = obj_id.replace("-", ".")
+            body = place_footer(body, library_block(obj_id, secs, citers, descs), MITRE_FOOTER_RE)
             stats["library-refs blocks"] += 1
-            stats["library-refs links"] += len(citers)
+            stats["library-refs links"] += len(citers) + len(secs)
+            stats["library-refs links to hand-written pages"] += len(citers)
+            stats["library-refs links to detection strategy or technique detail sections"] += len(secs)
+            stats["library-refs blocks with a detection strategy line"] += any(
+                k == "Detection strategy" for k, _h, _l in secs)
+            stats["library-refs blocks with a technique detail line"] += any(
+                k == "Technique detail" for k, _h, _l in secs)
+            stats["library-refs blocks with no hand-written page"] += not citers
         out[f] = body
     stats["hand-written pages that cite a mitre/ object"] = len({c for cs in cites.values() for c in cs})
     return out, stats
+
+
+def own_related(text: str, aliases: dict) -> tuple[str | None, set[str]]:
+    """The page's own trailing related section: (its heading, the pages it links). The
+    section counts when the page's last heading names related pages, a see-also list or
+    further reading; a trailing sign-off line does not end it."""
+    body = SIGNOFF_RE.sub("\n", text)
+    lines = body.split("\n")
+    last = None
+    in_fence = False
+    for i, line in enumerate(lines):
+        if line.lstrip().startswith(("```", "~~~")):
+            in_fence = not in_fence
+            continue
+        m = None if in_fence else HEADING_RE.match(line)
+        if m:
+            last = (i, m.group(1))
+    if not last or not OWN_RELATED_RE.search(last[1]):
+        return None, set()
+    linked = set()
+    for _i, _s, _e, href in links_of("\n".join(lines[last[0] + 1:])):
+        if cdl.SCHEME_RE.match(href):
+            continue
+        t = local_target(href, aliases)
+        if t:
+            linked.add(t)
+    return last[1], linked
+
+
+def section_pages(files: list[str]) -> dict[str, list[tuple[str, str, str]]]:
+    """mitre/techniques/<id>.md -> [(line label, page H1, link to the section)] for each
+    generated tactic page that has a section on that technique."""
+    out: dict[str, list[tuple[str, str, str]]] = collections.defaultdict(list)
+    for folder, kind in SECTION_PAGES:
+        for f in files:
+            if not (f.startswith(folder) and f.count("/") == folder.count("/") and f.endswith(".md")
+                    and posixpath.basename(f) not in ("README.md", "_sidebar.md")):
+                continue
+            text = bsn.page_text(f) or ""
+            h1 = next((ln[2:].strip() for ln in text.split("\n") if ln.startswith("# ")), bsn.title(f))
+            for m in SECTION_ID_RE.finditer(text):
+                tid = "T" + m.group(1) + ("-" + m.group(2) if m.group(2) else "")
+                anchor = "t" + m.group(1) + (m.group(2) or "")
+                out["mitre/techniques/" + tid + ".md"].append((kind, h1, "/" + f + "#" + anchor))
+    return out
 
 
 def pairs_with(text: str, aliases: dict) -> list[str]:

@@ -568,10 +568,7 @@ Access Control, Awareness & Training, Audit & Accountability, Configuration Mana
 ## Related pages
 
 - Domain: [GRC and security program](/hubs/grc-and-security-program.md)
-- [Controls Mapping](/CONTROLS_MAPPING.md)
-- [Enterprise Security Pipeline](/SECURITY_PIPELINE.md)
-- [Governance, Risk & Compliance (GRC)](/disciplines/governance-risk-compliance.md)
-- [Regulatory Landscape Reference](/REGULATORY_LANDSCAPE_REFERENCE.md)
 - [Security-Program Management / CISO Handbook](/SECURITY_PROGRAM_MANAGEMENT_REFERENCE.md)
+- [Security Awareness Program](/SECURITY_AWARENESS_REFERENCE.md)
 
 <!-- related:end -->

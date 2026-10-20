@@ -536,9 +536,5 @@ ZPA Integration with IdP
 ## Related pages
 
 - Domain: [GRC and security program](/hubs/grc-and-security-program.md)
-- [Windows Hardening GPO Reference](/WINDOWS_HARDENING_GPO.md)
-- [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md)
-- [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md)
-- [Security Operations (SOC / SecOps)](/disciplines/security-operations.md)
 
 <!-- related:end -->

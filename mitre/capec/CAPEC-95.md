@@ -39,7 +39,7 @@ This attack targets the WSDL interface made available by a web service. The atta
 
 ## Library references
 
-Pages in this library that link to this page or to this object's entry on the MITRE site:
+Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 

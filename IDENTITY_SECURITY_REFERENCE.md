@@ -1620,10 +1620,7 @@ CAT I (High) Findings, Admin Account Controls:
 
 - Domain: [Identity and data protection](/hubs/identity-and-data-protection.md)
 - [Identity & Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)
-- [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
-- [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md)
-- [Privilege Escalation Reference](/PRIVESC_REFERENCE.md)
-- [GRC Reference](/GRC_REFERENCE.md)
+- [Active Directory Security Reference](/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md)
 
 <!-- related:end -->
 

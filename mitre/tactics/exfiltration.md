@@ -30,7 +30,7 @@ The adversary is trying to steal data.
 
 ## Library references
 
-Pages in this library that link to this page or to this object's entry on the MITRE site:
+Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md)
 - [Data Security Reference](/DATA_SECURITY_REFERENCE.md)

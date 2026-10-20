@@ -42,7 +42,7 @@ Generally these are manually edited files that are not in the preview of the sys
 
 ## Library references
 
-Pages in this library that link to this page or to this object's entry on the MITRE site:
+Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 

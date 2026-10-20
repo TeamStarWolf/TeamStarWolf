@@ -231,10 +231,10 @@ index=network sourcetype=dns
 ## Related pages
 
 - Domain: [Detection and response](/hubs/detection-and-response.md)
-- Learning path: [Threat Hunting](/disciplines/threat-hunting.md)
-- [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md)
 - [SIEM Reference](/SIEM_REFERENCE.md)
 - [SIEM Detection Content](/SIEM_DETECTION_CONTENT.md)
 - [SOAR Automation Reference](/SOAR_AUTOMATION_REFERENCE.md)
+- [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md)
+- [LOTL Detection Reference](/LOTL_DETECTION_REFERENCE.md)
 
 <!-- related:end -->

@@ -202,11 +202,6 @@ Map coverage with [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md) a
 ## Related pages
 
 - Domain: [Cloud and infrastructure](/hubs/cloud-and-infrastructure.md)
-- [Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md)
-- [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md)
-- [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md)
-- [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md)
-- [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md)
 
 <!-- related:end -->
 

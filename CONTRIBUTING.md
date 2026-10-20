@@ -114,7 +114,7 @@ if `git status` shows the ` D` entry.
 
 ### Cross-Links Written by a Script
 - Some blocks inside pages are written by `scripts/build_crosslinks.py` and sit between `<!-- name:start -->` and `<!-- name:end -->` markers: the "Matching reference" line under a learning path's introduction, the "Related pages" footer on each root reference, and the "Library references" block on `mitre/` pages. The "(local)" links after MITRE IDs in CAPEC_REFERENCE.md, ATTACK_TECHNIQUE_ATLAS.md and ATTACK_SOFTWARE_REFERENCE.md are written the same way. Do not edit them by hand.
-- To pair a learning path with its reference, or to change the size of the "Related pages" lists, edit `docs/crosslinks.json`. A footer also picks up the pages in the reference's own "Pairs with" row and the references in the same hub group that it links to or that link to it.
+- To pair a learning path with its reference, or to change the size of the "Related pages" lists, edit `docs/crosslinks.json`. A footer also picks up the pages in the reference's own "Pairs with" row and the references in the same hub group that it links to or that link to it. When a reference ends with its own related, see-also or further-reading section, the footer leaves out every page that section links, so the two lists never repeat each other.
 - After adding or removing links between pages, run `python scripts/build_crosslinks.py`. CI runs it with `--check`, which fails when a committed block differs from what the script writes.
 
 ---

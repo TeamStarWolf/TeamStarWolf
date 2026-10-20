@@ -403,8 +403,6 @@ Use as a scorecard. **Level 1** = reactive/ad hoc, **Level 3** = defined & autom
 ## Related pages
 
 - Domain: [Network security](/hubs/network-security.md)
-- [Networking Fundamentals](/NETWORKING_FUNDAMENTALS.md)
-- [Network Protocols Reference](/NETWORK_PROTOCOLS_REFERENCE.md)
 
 <!-- related:end -->
 

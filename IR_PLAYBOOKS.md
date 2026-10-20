@@ -675,10 +675,10 @@ Reporting ransomware to the FBI does NOT mean you cannot pay the ransom. However
 ## Related pages
 
 - Domain: [Detection and response](/hubs/detection-and-response.md)
-- [Incident Response](/disciplines/incident-response.md)
-- [Digital Forensics](/disciplines/digital-forensics.md)
-- [Detection Engineering](/disciplines/detection-engineering.md)
 - [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)
 - [Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md)
+- [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md)
+- [Digital Forensics Reference](/DIGITAL_FORENSICS_REFERENCE.md)
+- [Cloud, SaaS & Mobile Forensics](/CLOUD_SAAS_MOBILE_FORENSICS_REFERENCE.md)
 
 <!-- related:end -->

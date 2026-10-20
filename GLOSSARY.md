@@ -432,9 +432,6 @@ Common terms, acronyms, and concepts across cybersecurity disciplines. Use `Ctrl
 ## Related pages
 
 - Domain: [GRC and security program](/hubs/grc-and-security-program.md)
-- [Frameworks Reference](/FRAMEWORKS.md)
-- [Security Tools Reference](/TOOLS.md)
-- [Enterprise Security Pipeline](/SECURITY_PIPELINE.md)
 - [CEH Domain Crosswalk](/CEH_DOMAIN_CROSSWALK.md)
 
 <!-- related:end -->

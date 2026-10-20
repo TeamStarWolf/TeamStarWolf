@@ -282,11 +282,7 @@ The model endpoint is an asset to protect (against theft/extraction) and a resou
 ## Related pages
 
 - Domain: [AI and emerging tech](/hubs/ai-and-emerging-tech.md)
-- [AI Security Reference](/AI_SECURITY_REFERENCE.md)
-- [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
-- [Agentic AI Swarm Attacks](/AGENTIC_AI_ATTACK_REFERENCE.md)
-- [DevSecOps Reference](/DEVSECOPS_REFERENCE.md)
-- [Kubernetes Security Reference](/KUBERNETES_SECURITY_REFERENCE.md)
+- [AI Architecture Reference](/AI_ARCHITECTURE_REFERENCE.md)
 
 <!-- related:end -->
 

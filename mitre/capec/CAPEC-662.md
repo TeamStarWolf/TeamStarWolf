@@ -48,7 +48,7 @@ An adversary exploits security vulnerabilities or inherent functionalities of a 
 
 ## Library references
 
-Pages in this library that link to this page or to this object's entry on the MITRE site:
+Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 

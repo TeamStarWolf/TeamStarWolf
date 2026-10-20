@@ -264,11 +264,6 @@ Days 61–90 · Measure & report
 ## Related pages
 
 - Domain: [GRC and security program](/hubs/grc-and-security-program.md)
-- Learning path: [Security Awareness](/disciplines/security-awareness.md)
-- [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md)
-- [Email Security Reference](/EMAIL_SECURITY_REFERENCE.md)
-- [Insider Threat Program Reference](/INSIDER_THREAT_REFERENCE.md)
-- [Security Metrics Reference](/SECURITY_METRICS_REFERENCE.md)
 
 <!-- related:end -->
 

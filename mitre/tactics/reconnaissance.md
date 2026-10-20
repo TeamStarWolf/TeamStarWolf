@@ -57,7 +57,7 @@ The adversary is trying to gather information they can use to plan future operat
 
 ## Library references
 
-Pages in this library that link to this page or to this object's entry on the MITRE site:
+Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md)
 - [OSINT](/disciplines/osint.md)

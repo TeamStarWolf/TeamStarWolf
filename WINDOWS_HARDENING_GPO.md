@@ -539,8 +539,5 @@ Workstations — GPO Deny Logon:
 - Domain: [Platform hardening](/hubs/platform-hardening.md)
 - [Windows Hardening](/WINDOWS_HARDENING.md)
 - [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md)
-- [Enterprise Security Controls](/ENTERPRISE_SECURITY_CONTROLS.md)
-- [Active Directory Security](/disciplines/active-directory.md)
-- [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md)
 
 <!-- related:end -->

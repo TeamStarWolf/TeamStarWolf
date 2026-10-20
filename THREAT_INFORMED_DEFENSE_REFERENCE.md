@@ -245,10 +245,7 @@ open-source projects. Mappings between NIST 800-53 and ATT&CK are sourced from t
 ## Related pages
 
 - Domain: [Threat-informed defense and ATT&CK](/hubs/threat-informed-defense.md)
-- [ATT&CK Matrix Analysis Reference](/ATTACK_MATRIX_ANALYSIS_REFERENCE.md)
-- [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)
-- [Controls Mapping](/CONTROLS_MAPPING.md)
-- [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
 - [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md)
+- [Mobile ATT&CK Atlas](/MOBILE_ATTACK_ATLAS.md)
 
 <!-- related:end -->

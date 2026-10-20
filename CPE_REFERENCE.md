@@ -97,10 +97,6 @@ CPE does not map to ATT&CK techniques: different abstraction (product identity v
 ## Related pages
 
 - Domain: [GRC and security program](/hubs/grc-and-security-program.md)
-- [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
-- [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)
-- [CTEM Reference](/CTEM_REFERENCE.md)
-- [CVE Reference](/CVE_REFERENCE.md)
 
 <!-- related:end -->
 

@@ -520,8 +520,6 @@ In the cloud, **the architecture is the cost model.** Treat cost as a first-clas
 ## Related pages
 
 - Domain: [Cloud and infrastructure](/hubs/cloud-and-infrastructure.md)
-- [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md)
-- [Cloud Security Benchmark](/CLOUD_SECURITY_BENCHMARK.md)
 
 <!-- related:end -->
 

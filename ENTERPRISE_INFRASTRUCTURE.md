@@ -403,10 +403,6 @@ Quick security reference:
 ## Related pages
 
 - Domain: [GRC and security program](/hubs/grc-and-security-program.md)
-- [Privilege Escalation Reference](/PRIVESC_REFERENCE.md)
-- [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md)
-- [Active Directory Security](/disciplines/active-directory.md)
-- [Home Lab Setup](/HOMELAB_SETUP.md)
 - [Enterprise Security Controls](/ENTERPRISE_SECURITY_CONTROLS.md)
 
 <!-- related:end -->

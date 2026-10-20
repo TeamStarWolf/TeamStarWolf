@@ -250,11 +250,6 @@ Response:
 ## Related pages
 
 - Domain: [AI and emerging tech](/hubs/ai-and-emerging-tech.md)
-- [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md)
-- [Fight Fraud Framework (MITRE F3)](/FRAUD_FRAMEWORK_REFERENCE.md)
-- [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)
-- [Email Security Reference](/EMAIL_SECURITY_REFERENCE.md)
-- [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md)
 
 <!-- related:end -->
 

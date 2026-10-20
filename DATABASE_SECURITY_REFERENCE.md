@@ -267,11 +267,6 @@ Threat context: Redis scripting RCE (RediShell, CVE-2025-49844). In October 2025
 ## Related pages
 
 - Domain: [Identity and data protection](/hubs/identity-and-data-protection.md)
-- [Data Security Reference](/DATA_SECURITY_REFERENCE.md)
-- [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md)
-- [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md)
-- [Identity & Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)
-- [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md)
 
 <!-- related:end -->
 

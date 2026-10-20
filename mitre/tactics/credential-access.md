@@ -85,7 +85,7 @@ The adversary is trying to steal account names and passwords.
 
 ## Library references
 
-Pages in this library that link to this page or to this object's entry on the MITRE site:
+Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [Active Directory Attacks](/ACTIVE_DIRECTORY_ATTACKS.md)
 - [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md)

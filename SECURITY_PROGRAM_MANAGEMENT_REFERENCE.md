@@ -327,11 +327,6 @@ Run the program on a predictable calendar so nothing lands as a surprise:
 ## Related pages
 
 - Domain: [GRC and security program](/hubs/grc-and-security-program.md)
-- [GRC Reference](/GRC_REFERENCE.md)
-- [Security Metrics Reference](/SECURITY_METRICS_REFERENCE.md)
-- [Regulatory Landscape Reference](/REGULATORY_LANDSCAPE_REFERENCE.md)
-- [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)
-- [Career Paths](/CAREER_PATHS.md)
 
 <!-- related:end -->
 

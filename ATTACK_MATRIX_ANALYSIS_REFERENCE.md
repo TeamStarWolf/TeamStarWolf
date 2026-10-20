@@ -158,10 +158,6 @@ your team.
 ## Related pages
 
 - Domain: [Threat-informed defense and ATT&CK](/hubs/threat-informed-defense.md)
-- [Threat-Informed Defense Reference](/THREAT_INFORMED_DEFENSE_REFERENCE.md)
-- [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)
-- [Security Metrics Reference](/SECURITY_METRICS_REFERENCE.md)
-- [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
 - [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md)
 
 <!-- related:end -->

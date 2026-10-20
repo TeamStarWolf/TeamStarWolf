@@ -53,6 +53,12 @@ ROOT_ABOUT = {
 STUB_MARK = "This document has been superseded."
 SUMMARY_MAX = 220
 AI_NOTE = "Drafted with an AI assistant"    # the provenance line under some H1s; not a summary
+# Blocks the site hides (index.html CSS) but GitHub shows: not part of the page as read on
+# the site, so neither searchable nor a summary. HOME.md opens with one.
+SITE_HIDDEN_CLASSES = ("tsw-gh-only",)
+# A metadata line at the top of a generated page: "Platforms: ...", "Type: tool",
+# "Tactics (pre-v19, legacy): ...", "Successor's tactics (v19.2): ...". Not a summary.
+META_LINE = re.compile(r"^[A-Z][A-Za-z0-9 &/'-]{0,40}(?:\([^()\n]{1,40}\))?:\s")
 
 # The IDs the overlay must open directly; the build fails if any one is missing.
 REQUIRED_IDS = ["T1059", "T1059.001", "G0016", "S0154", "C0024", "M1038", "CAPEC-66", "AML.T0051"]
@@ -142,8 +148,30 @@ def strip_inline(s: str) -> str:
     return re.sub(r"\s+", " ", html.unescape(s)).strip()
 
 
+def without_hidden(text: str) -> str:
+    """Drop every element whose class is in SITE_HIDDEN_CLASSES, with its content. Nested
+    elements of the same tag are matched by depth. Applied to the raw Markdown, so it
+    covers the HTML blocks pages embed, which is where these classes appear."""
+    open_re = re.compile(r"<([a-zA-Z][a-zA-Z0-9]*)\b[^>]*\bclass=\"[^\"]*\b(?:"
+                         + "|".join(map(re.escape, SITE_HIDDEN_CLASSES)) + r")(?=[\s\"])[^\"]*\"[^>]*>")
+    while True:
+        m = open_re.search(text)
+        if not m:
+            return text
+        tag = m.group(1).lower()
+        tag_re = re.compile(r"<(/?)" + tag + r"\b[^>]*>", re.I)
+        depth, end = 1, m.end()       # no closing tag: drop the opening tag only
+        for t in tag_re.finditer(text, m.end()):
+            depth += -1 if t.group(1) else 1
+            if depth == 0:
+                end = t.end()
+                break
+        text = text[:m.start()] + " " + text[end:]
+
+
 def without_comments(text: str) -> str:
-    return re.sub(r"<!--.*?-->", " ", text, flags=re.S)
+    """The page as the site shows it: no HTML comments, no site-hidden blocks."""
+    return without_hidden(re.sub(r"<!--.*?-->", " ", text, flags=re.S))
 
 
 def h1_of(text: str) -> str | None:
@@ -220,7 +248,7 @@ def summary_of(text: str, title: str) -> str:
         if s.startswith("<p") and strip_inline(s) and not para:
             s = strip_inline(s)                      # README.md centres its tagline in <p>
         if (s.startswith(("#", "|", "<", "---", "***", "- ", "* ", "+ ", "[![")) or " | " in s
-                or re.match(r"^\d+[.)]\s", s) or re.match(r"^[A-Z][A-Za-z0-9 &/()-]{1,40}:\s", s)
+                or re.match(r"^\d+[.)]\s", s) or META_LINE.match(s)
                 or s.startswith(AI_NOTE)):
             if para:
                 break
@@ -264,9 +292,15 @@ def classify(rel: str, text: str, tactics: dict[str, str]) -> tuple[str, str]:
             return kind, prefix + " > Index"
         folder = parts[1]
         if folder == "techniques":
+            # A technique revoked in v19.2 lists its own tactics as legacy, and its
+            # successor's separately: show its own, marked as pre-v19.
+            own, legacy = field(text, "Tactics"), field(text, "Tactics (pre-v19, legacy)")
             names = [tactics.get(s.strip(), s.strip().replace("-", " ").title())
-                     for s in field(text, "Tactics").split(",") if s.strip()]
-            return kind, prefix + (" > " + ", ".join(names) if names else "")
+                     for s in (own or legacy).split(",") if s.strip()]
+            if not own:     # "Defense Evasion (renamed)" -> "Defense Evasion (pre-v19)"
+                names = [re.sub(r"\s*\([^)]*\)$", "", n) for n in names]
+            label = ", ".join(names) + (" (pre-v19)" if names and not own else "")
+            return kind, prefix + (" > " + label if names else "")
         if folder == "tactics":
             return kind, prefix + " > Tactics"
         if folder == "groups":

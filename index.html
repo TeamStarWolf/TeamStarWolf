@@ -306,10 +306,12 @@
     .tsw-search-close { cursor: pointer; padding: .4em .55em; }
     .tsw-search-close:hover { color: var(--tsw-link); border-color: var(--tsw-link); }
     .tsw-search-narrow { display: none; }
-    /* One row that scrolls sideways, so a long list of kinds never pushes the results down */
+    /* The kind filters wrap onto as many rows as they need. flex: none keeps the row at its
+       full height when the results fill the dialog; as a shrinkable flex item it collapsed
+       and clipped the chips. On a phone they stay one row that scrolls sideways. */
     .tsw-search-chips {
-      display: flex; flex-wrap: nowrap; gap: 6px; padding: 10px 14px 2px;
-      overflow-x: auto; scrollbar-width: thin;
+      display: flex; flex: none; flex-wrap: wrap; align-items: center; gap: 6px;
+      padding: 10px 14px 2px;
     }
     .tsw-search-chips button { flex: none; white-space: nowrap; }
     .tsw-search-chips:empty { display: none; }
@@ -371,6 +373,7 @@
       .tsw-search-foot .tsw-search-keys, .tsw-search-wide { display: none; }
       .tsw-search-narrow { display: inline; }
       .tsw-search-close { font-family: var(--tsw-sans); font-size: .82rem; padding: .5em .7em; }
+      .tsw-search-chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; padding-bottom: 6px; }
     }
 
     /* ===================== Top navbar ===================== */
@@ -426,7 +429,7 @@
     /* Search button beside it, on small screens only (the 768px block shows it); wider
        screens have the search box at the top of the sidebar. */
     #tsw-search-btn {
-      display: none; position: fixed; top: 6px; right: 52px; z-index: 30;
+      display: none; position: fixed; top: 6px; right: 48px; z-index: 30;
       width: 36px; height: 36px; padding: 0; border-radius: 9px;
       align-items: center; justify-content: center;
       background: var(--tsw-surface); color: var(--tsw-text);
@@ -661,7 +664,7 @@
          height (--tsw-nav-h, set by the navbar-height plugin below). */
       .app-nav {
         left: 0; height: auto; min-height: 48px; line-height: 30px;
-        padding: 3px 100px 3px 48px;   /* right: the search and theme buttons */
+        padding: 3px 92px 3px 48px;   /* right: the search and theme buttons */
       }
       .app-nav > ul { display: block; margin: 0; padding-left: 0; }
       .app-nav li { margin: 0 6px; }
@@ -694,6 +697,10 @@
       .sidebar { padding-top: 48px; }
       #tsw-theme { top: 6px; right: 8px; }
       #tsw-search-btn { display: inline-flex; }
+    }
+    /* Tablet mode: tighter items, so all nine stay on one row beside the two buttons at 768px */
+    @media screen and (min-width: 601px) and (max-width: 768px) {
+      .app-nav li { margin: 0 4px; }
     }
     /* Narrow desktops and tablets (docsify switches to its phone layout at 768px). The nine
        navbar items fit one row from 1100px when set tighter; below that they wrap, so the
@@ -1469,10 +1476,16 @@
           clearTimeout(timer);
           var q = input.value.trim();
           if (!q) { return; }
-          if (q !== st.q) {
-            // An ID or an exact name opens its page before the results arrive
-            var d = directMatches(q);
-            if (d.length === 1) { go(routeHref(d[0].route)); } else { run(); }
+          if (q !== st.q || !ids) {
+            // An ID or an exact name opens its page before the results arrive. On the first
+            // open, wait for ids.json, so Enter right after typing T1059 still opens T1059.
+            loadIds().then(function () {
+              if (root.hidden || input.value.trim() !== q) { return; }
+              var d = directMatches(q);
+              if (d.length === 1) { go(routeHref(d[0].route)); return; }
+              var o = options();
+              if (q === st.q && o.length) { go((o[st.active] || o[0]).getAttribute('href')); } else { run(); }
+            });
             return;
           }
           var a = opts[st.active] || opts[0];

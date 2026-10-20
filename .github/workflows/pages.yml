@@ -4,8 +4,9 @@ name: Deploy site
 #
 #   push to main         build, then deploy when the Pages source is "GitHub Actions"
 #   workflow_dispatch    the same; dry_run: true builds and uploads the artifact only
-#   pull_request         build only, when the site shell, the index builder or this file
-#                        changes; nothing is deployed
+#   pull_request         build only, when anything the build reads changes: the site shell,
+#                        the index builder, this file, any page (.md) or the ATT&CK data the
+#                        ID map reads; nothing is deployed
 #
 # The search index (pagefind/ and ids.json, from scripts/build_search_index.py) exists only
 # in the artifact and is never committed. While the Pages source is still "Deploy from a
@@ -28,6 +29,11 @@ on:
       - 'scripts/requirements-search.txt'
       - 'scripts/repo_files.py'
       - '.github/workflows/pages.yml'
+      # The builder fails on content too: a required ID missing, one ID on two pages, an
+      # unreadable page. Build every page and data change before it reaches main.
+      - '**.md'
+      - 'mitre/**'
+      - 'data/attack/**'
   workflow_dispatch:
     inputs:
       dry_run:

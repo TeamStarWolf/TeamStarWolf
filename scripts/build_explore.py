@@ -302,15 +302,14 @@ def render_page(data: dict, meta: dict) -> str:
            "countermeasures, ATLAS techniques and mitigations, and F3 techniques. Tactics are a "
            "filter rather than rows; each ATT&CK tactic has its own page under "
            "[ATT&CK tactics](/mitre/tactics/README.md).", "",
-           "The table and its filters run on the [website](https://teamstarwolf.github.io/TeamStarWolf/#/explore): filter by kind, "
-           "tactic, platform, software type or CAPEC severity, or type an ID, a name or an alias "
-           "(T1059, APT29, Cozy Bear, CAPEC-66) to find one. Where the table does not load, as on "
-           "GitHub, the family index pages below list the same objects.", "",
+           "Type an ID, a name or an alias (T1059, APT29, Cozy Bear, CAPEC-66), or filter by kind, "
+           "tactic, platform, software type or CAPEC severity.", "",
            '<div id="tsw-explore" class="tsw-explore-app"></div>', "",
            "## Browse by family", "",
-           "The same " + format(total, ",") + " objects, one index page per family. The website's table "
-           "is built from the JSONL files in [data/](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data) "
-           "into [assets/explore.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/" + JSON_OUT + ").", "",
+           "On GitHub, the table does not load; the family index pages below list the same objects. "
+           "The table is built from the JSONL files in [data/](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data) "
+           "into [assets/explore.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/" + JSON_OUT + "): "
+           + format(total, ",") + " objects, one index page per family.", "",
            "| Family | Objects | Index | Built from |", "|---|---|---|---|"]
     for i, (key, _lab, plural, _d, srcs, _reach) in enumerate(KINDS):
         n = format(counts[i], ",")

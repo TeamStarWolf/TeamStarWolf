@@ -1448,10 +1448,8 @@
           var kinds = el('div', { className: 'tsw-x-kinds', role: 'group', 'aria-label': 'Kind of object' });
           ui.appendChild(kinds);
           var filters = el('div', { className: 'tsw-x-filters' });
-          function select(label, key, options) {
-            var lab = el('label', {});
-            lab.appendChild(document.createTextNode(label));
-            var s = el('select', {});
+          function fillOptions(s, options) {
+            s.textContent = '';
             s.appendChild(el('option', { value: '' }, 'Any'));
             options.forEach(function (o) {
               if (o.group) {
@@ -1460,6 +1458,12 @@
                 s.appendChild(g);
               } else { s.appendChild(el('option', { value: o[0] }, o[1])); }
             });
+          }
+          function select(label, key, options) {
+            var lab = el('label', {});
+            lab.appendChild(document.createTextNode(label));
+            var s = el('select', {});
+            fillOptions(s, options);
             s.value = st[key];
             if (s.value !== st[key]) { st[key] = ''; s.value = ''; }
             s.addEventListener('change', function () { st[key] = s.value; st.shown = PAGE; update(); });
@@ -1476,7 +1480,15 @@
             (groups[t[0]] = groups[t[0]] || []).push([v, t[2]]);
           });
           d.platforms.forEach(function (p, i) { platformIdx[p] = i; });
-          var tacticSel = select('Tactic', 'tactic', Object.keys(groups).map(function (g) { return { group: g, items: groups[g] }; }));
+          function tacticGroups(only) {
+            return Object.keys(groups).filter(function (g) { return !only || g === only; })
+              .map(function (g) { return { group: g, items: groups[g] }; });
+          }
+          var tacticSel = select('Tactic', 'tactic', tacticGroups(''));
+          // a kind's tactics come from its own framework, so the Tactic list shows only that
+          // framework's group: technique ATT&CK, atlas ATLAS, f3 F3, d3fend D3FEND, All every group
+          var TACTIC_FW = { technique: 'ATT&CK', atlas: 'ATLAS', f3: 'F3', d3fend: 'D3FEND' };
+          var tacticShown = '';
           var platformSel = select('Platform', 'platform', d.platforms.map(function (p) { return [p, p]; }));
           var typeSel = select('Software type', 'type', [['malware', 'Malware'], ['tool', 'Tool']]);
           var absSel = select('CAPEC abstraction', 'abs', d.abstraction.map(function (a) { return [a, a]; }));
@@ -1527,11 +1539,7 @@
             st.sort = /^(id|name|links)$/.test(q1.sort || '') ? q1.sort : 'id';
             st.sub = q1.sub !== '0'; st.old = q1.old !== '0'; st.shown = PAGE;
             input.value = st.q;
-            facetSels.forEach(function (f) {
-              var s = f[0].querySelector('select');
-              s.value = q1[f[1]] || '';
-              st[f[1]] = s.value;
-            });
+            facetSels.forEach(function (f) { st[f[1]] = q1[f[1]] || ''; });
             sortSel.value = st.sort; subBox.checked = st.sub; oldBox.checked = st.old;
             update();
           }
@@ -1598,9 +1606,15 @@
             absSel.hidden = sevSel.hidden = !(k === '' || k === 'capec');
             subBox.parentElement.hidden = !(k === '' || k === 'technique' || k === 'atlas' || k === 'f3');
             oldBox.parentElement.hidden = !(k === '' || k === 'technique' || k === 'capec');
-            // a facet hidden for this kind is cleared: none of the kind's rows has a value for it
+            var fw = TACTIC_FW[k] || '';
+            if (fw !== tacticShown) { fillOptions(tacticSel.querySelector('select'), tacticGroups(fw)); tacticShown = fw; }
+            // a facet hidden for this kind is cleared (none of the kind's rows has a value for it),
+            // and so is a value its list does not offer, such as an ATLAS tactic with ATT&CK techniques
             facetSels.forEach(function (f) {
-              if (f[0].hidden && st[f[1]]) { st[f[1]] = ''; f[0].querySelector('select').value = ''; }
+              var s = f[0].querySelector('select');
+              if (f[0].hidden) { st[f[1]] = ''; }
+              s.value = st[f[1]];
+              if (s.value !== st[f[1]]) { st[f[1]] = ''; s.value = ''; }
             });
             var q = st.q.trim().toLowerCase().replace(/\s+/g, ' '), qk = idKey(st.q);
             var counts = {}, res = [];

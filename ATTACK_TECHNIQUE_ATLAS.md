@@ -10,10 +10,49 @@ Want the full write-up per technique? Browse the [Technique Detail Pages](techni
 
 Related: [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Matrix Analysis](ATTACK_MATRIX_ANALYSIS_REFERENCE.md), [Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md), [Threat Group Profiles](THREAT_GROUP_PROFILES.md), [ATT&CK Mitigations](ATTACK_MITIGATIONS_REFERENCE.md)
 
-| | |
-|---|---|
-| Read this when | you need to look up any ATT&CK technique fast, you want to see which techniques are heavily used by groups but light on mitigations or detections, you are prioritizing coverage across a whole tactic |
-| Start at | [Tactics](#tactics) for the per-tactic index, [Initial Access](#initial-access) or [Defense Evasion](#defense-evasion) to see the scoring columns in action |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Detection engineers, threat-informed defense analysts, and anyone looking up an ATT&CK technique
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Length</th><td>
+
+Lookup page: 11,695 words, 97% in tables; look entries up from Start at or the search (about 51 min end to end at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need to look up any ATT&CK technique fast, you want to see which techniques are heavily used by groups but light on mitigations or detections, or you are prioritizing coverage across a whole tactic
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Tactics](#tactics) for the per-tactic index, [Initial Access](#initial-access) or [Defense Evasion](#defense-evasion) to see the scoring columns in action
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 ## Tactics
 
@@ -1048,4 +1087,4 @@ Related: [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Matri
 
 ---
 
-*Source: MITRE ATT&CK Enterprise v18.1 (STIX) + CTID NIST 800-53 R5 mappings. Counts reflect non-deprecated ATT&CK objects at time of generation.*
+*Source: MITRE ATT&CK Enterprise v18.1 (STIX) + CTID NIST 800-53 R5 mappings. Counts reflect non-deprecated ATT&CK objects at time of generation. © 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*

@@ -9,6 +9,8 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 ### T1485: Data Destruction
 <a id="t1485"></a>
 
+<details class="tsw-fold"><summary>Show the detection strategy and its 6 analytics</summary>
+
 Detection strategy: Detection of Data Destruction Across Platforms via Mass Overwrite and Deletion Patterns (`DET0146`)  
 Platforms: Containers, ESXi, IaaS, Linux, Windows, macOS  
 ATT&CK: [T1485](https://attack.mitre.org/techniques/T1485/), [detail page](/techniques/impact.md#t1485)
@@ -38,10 +40,14 @@ ATT&CK: [T1485](https://attack.mitre.org/techniques/T1485/), [detail page](/tech
   - *Log sources:* `auditd:SYSCALL (unlink, unlinkat, rmdir)`; `docker:events (container exec rm|container stop --force)`
   - *Tune:* `MountPoint`: Identify when deletions occur inside persistent or shared volume paths.; `ContainerImage`: Correlate destructive behavior with unknown or untrusted container sources.
 
+</details>
+
 ---
 
 ### T1485.001: Lifecycle-Triggered Deletion
 <a id="t1485001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Lifecycle Policy Modifications for Triggered Deletion in IaaS Cloud Storage (`DET0041`)  
 Platforms: IaaS  
@@ -52,10 +58,14 @@ ATT&CK: [T1485.001](https://attack.mitre.org/techniques/T1485/001/), [detail pag
   - *Log sources:* `AWS:CloudTrail (PutBucketLifecycle, PutLifecycleConfiguration, SetBucketLifecycle, storage.buckets.update)`
   - *Tune:* `LifecycleExpirationDays`: Policy values setting Expiration in fewer than N days (e.g., 0-1) are highly suspicious.; `TargetBucket`: Filter by bucket types (e.g., log storage, production DB snapshots) to prioritize detection.; `Principal`: Correlate rare or anomalous IAM principals making destructive lifecycle changes.; `TimeWindow`: Link lifecycle policy change with API activity suggesting staged deletion or extortion attempt.
 
+</details>
+
 ---
 
 ### T1486: Data Encrypted for Impact
 <a id="t1486"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection of Multi-Platform File Encryption for Impact (`DET0215`)  
 Platforms: ESXi, IaaS, Linux, Windows, macOS  
@@ -82,10 +92,14 @@ ATT&CK: [T1486](https://attack.mitre.org/techniques/T1486/), [detail page](/tech
   - *Log sources:* `AWS:CloudTrail (PutObject (with SSE-C), UploadPart (SSE-C))`
   - *Tune:* `SSEHeader`: SSE-C headers indicate attacker-controlled encryption keys.; `AffectedBucket`: Prioritize logs, backups, or shared document storage buckets.; `UserAgent`: Detect scripted automation vs console-based API behavior.
 
+</details>
+
 ---
 
 ### T1489: Service Stop
 <a id="t1489"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Behavioral Detection for Service Stop across Platforms (`DET0021`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -108,10 +122,14 @@ ATT&CK: [T1489](https://attack.mitre.org/techniques/T1489/), [detail page](/tech
   - *Log sources:* `esxi:hostd (Stop VM or disable service events via vim-cmd)`; `esxi:hostd (Log entries indicating VM powered off or forcibly terminated)`
   - *Tune:* `VMName`: Targeted virtual machine name; `InitiatorUser`: User who issued stop or disable command
 
+</details>
+
 ---
 
 ### T1490: Inhibit System Recovery
 <a id="t1490"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Behavioral Detection for T1490 - Inhibit System Recovery (`DET0329`)  
 Platforms: ESXi, IaaS, Linux, Network Devices, Windows  
@@ -138,10 +156,14 @@ ATT&CK: [T1490](https://attack.mitre.org/techniques/T1490/), [detail page](/tech
   - *Log sources:* `AWS:CloudTrail (DeleteSnapshot)`; `AWS:CloudTrail (DeleteBucket, DeleteDBCluster, DeleteSnapshot, TerminateInstances)`
   - *Tune:* `UserAgent`: Tune for legitimate backup automation vs unknown tools; `ResourceType`: Filter only on production images or vaults
 
+</details>
+
 ---
 
 ### T1491: Defacement
 <a id="t1491"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Defacement via File and Web Content Modification Across Platforms (`DET0238`)  
 Platforms: ESXi, IaaS, Linux, Windows, macOS  
@@ -168,10 +190,14 @@ ATT&CK: [T1491](https://attack.mitre.org/techniques/T1491/), [detail page](/tech
   - *Log sources:* `CloudTrail:PutObject (PutObject)`; `AWS:CloudTrail (GetObject, CopyObject)`
   - *Tune:* `BucketNameRegex`: Patterns of S3 or GCP buckets used for static website hosting may vary by organization.; `IAMRoleContext`: Some uploads may appear benign unless enriched with user/role metadata.
 
+</details>
+
 ---
 
 ### T1491.001: Internal Defacement
 <a id="t1491001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Internal Website and System Content Defacement via UI or Messaging Modifications (`DET0082`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -194,10 +220,14 @@ ATT&CK: [T1491.001](https://attack.mitre.org/techniques/T1491/001/), [detail pag
   - *Log sources:* `ESXiLogs:messages (changes to /etc/motd or /etc/vmware/welcome)`; `esxi:hostd (modification of config files or shell command execution)`
   - *Tune:* `LoginBannerFilePath`: Target file paths (e.g., /etc/motd) may be changed via symbolic link or override; `AccessOrigin`: ESXi hostd vs. SSH-based defacement origin may affect visibility
 
+</details>
+
 ---
 
 ### T1491.002: External Defacement
 <a id="t1491002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Behavioral Detection of External Website Defacement across Platforms (`DET0590`)  
 Platforms: IaaS, Linux, Windows, macOS  
@@ -220,10 +250,14 @@ ATT&CK: [T1491.002](https://attack.mitre.org/techniques/T1491/002/), [detail pag
   - *Log sources:* `AWS:CloudTrail (PutObject)`; `AWS:CloudTrail (ListBuckets)`; `AWS:CloudTrail (GetObject, CopyObject)`
   - *Tune:* `bucket_name`: Website bucket name varies per org; `region`: Adversary may target multi-region failover setups; `IAMRole`: Attack may leverage stolen cross-account roles or elevated policies
 
+</details>
+
 ---
 
 ### T1495: Firmware Corruption
 <a id="t1495"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Firmware Modification via Flash Tool or Corrupted Firmware Upload (`DET0167`)  
 Platforms: Linux, Network Devices, Windows, macOS  
@@ -246,10 +280,14 @@ ATT&CK: [T1495](https://attack.mitre.org/techniques/T1495/), [detail page](/tech
   - *Log sources:* `NSM:Flow (large upload to firmware interface port or path)`; `networkdevice:firmware (Firmware update initiated or bootloader tampering detected)`
   - *Tune:* `UploadSizeThreshold`: Size of firmware images varies by vendor; `RebootWindow`: Reboots outside of patch maintenance may be suspicious
 
+</details>
+
 ---
 
 ### T1496: Resource Hijacking
 <a id="t1496"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 6 analytics</summary>
 
 Detection strategy: Resource Hijacking Detection Strategy (`DET0267`)  
 Platforms: Containers, IaaS, Linux, SaaS, Windows, macOS  
@@ -280,10 +318,14 @@ ATT&CK: [T1496](https://attack.mitre.org/techniques/T1496/), [detail page](/tech
   - *Log sources:* `m365:unified (SendMessage)`; `saas:application (High-volume API calls or traffic via messaging or webhook service)`
   - *Tune:* `MessageRateThreshold`: Max allowable outbound message rate per user/account; `APIKeyList`: Known authorized API clients for messaging usage
 
+</details>
+
 ---
 
 ### T1496.001: Compute Hijacking
 <a id="t1496001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Multi-Platform Behavioral Detection for Compute Hijacking (`DET0540`)  
 Platforms: Containers, IaaS, Linux, Windows, macOS  
@@ -310,10 +352,14 @@ ATT&CK: [T1496.001](https://attack.mitre.org/techniques/T1496/001/), [detail pag
   - *Log sources:* `AWS:CloudTrail (RunInstances)`; `AWS:CloudWatch (Unusual CPU burst or metric anomalies)`
   - *Tune:* `Region`: Adversaries may deploy resources in rarely used or misconfigured regions.; `TagKey`: Used to evade detection with benign-looking tags or names.
 
+</details>
+
 ---
 
 ### T1496.002: Bandwidth Hijacking
 <a id="t1496002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detect Excessive or Unauthorized Bandwidth Usage for Botnet, Proxyjacking, or Scanning Purposes (`DET0028`)  
 Platforms: Containers, IaaS, Linux, Windows, macOS  
@@ -340,10 +386,14 @@ ATT&CK: [T1496.002](https://attack.mitre.org/techniques/T1496/002/), [detail pag
   - *Log sources:* `AWS:CloudTrail (StartInstances)`; `AWS:VPCFlowLogs (egress > 90th percentile or frequent connection reuse)`
   - *Tune:* `InstanceType`: High-throughput instance types are more likely to be targeted for hijacking.; `TrafficEgressThreshold`: Customize detection thresholds based on cloud provider quotas or billing alerts.
 
+</details>
+
 ---
 
 ### T1496.003: SMS Pumping
 <a id="t1496003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Resource Hijacking: SMS Pumping via SaaS Application Logs (`DET0156`)  
 Platforms: SaaS  
@@ -354,10 +404,14 @@ ATT&CK: [T1496.003](https://attack.mitre.org/techniques/T1496/003/), [detail pag
   - *Log sources:* `saas:application (High-frequency invocation of SMS-related API endpoints from publicly accessible OTP or verification forms (e.g., Twilio: SendMessage, Cognito: AdminCreateUser) with irregular destination patterns.)`; `saas:audit (Repeated requests to SMS-generating endpoints using anomalous or new user agents, IP ranges, or geographies.)`
   - *Tune:* `TimeWindow`: Defines the rolling window over which SMS API invocation frequency is measured. Tunable based on average platform traffic.; `SMSFrequencyThreshold`: Number of SMS requests per endpoint or per user that should trigger investigation. Should align with business logic and user behavior.; `DestinationCountryCodeFilter`: Monitors if requests target known high-risk, revenue-sharing regions. Tunable to reflect SMS tariff rates or abuse history.; `UserAgentAnomalyThreshold`: Defines outlier score or list of unknown/automated user agents submitting forms.; `IPGeoVarianceScore`: Tracks abnormal geographic spread of traffic sourcing OTP triggers.
 
+</details>
+
 ---
 
 ### T1496.004: Cloud Service Hijacking
 <a id="t1496004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Cloud Service Hijacking via SaaS Abuse (`DET0147`)  
 Platforms: SaaS  
@@ -368,10 +422,14 @@ ATT&CK: [T1496.004](https://attack.mitre.org/techniques/T1496/004/), [detail pag
   - *Log sources:* `AWS:CloudTrail (PutIdentityPolicy)`; `AWS:CloudTrail (SendEmail)`; `AWS:CloudTrail (AssumeRole)`
   - *Tune:* `TimeWindow`: Define threshold period over which request spikes are measured. E.g., 10 min or 1 hour windows.; `UserContext`: Alert only if role/user is outside expected automation identity list.; `RequestVolumeThreshold`: Customize the number of emails/SMS or API calls considered anomalous.; `GeoVelocityThreshold`: Tune geolocation jump logic (e.g., login from US, then use service in Asia within minutes).; `ModelUsageQuotaSpike`: Set maximum allowable deviation from past 7-day average OpenAI/GPT token usage.
 
+</details>
+
 ---
 
 ### T1498: Network Denial of Service
 <a id="t1498"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Behavioral Detection of T1498 – Network Denial of Service Across Platforms (`DET0518`)  
 Platforms: Linux, Windows  
@@ -386,10 +444,14 @@ ATT&CK: [T1498](https://attack.mitre.org/techniques/T1498/), [detail page](/tech
   - *Log sources:* `auditd:SYSCALL (Execution of network stress tools or anomalies in socket/syscall behavior)`; `NSM:Flow (High volume flows with incomplete TCP sessions or single-packet bursts)`
   - *Tune:* `PacketRateThreshold`: Packets per second beyond normal behavior
 
+</details>
+
 ---
 
 ### T1498.001: Direct Network Flood
 <a id="t1498001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Direct Network Flood Detection across IaaS, Linux, Windows, and macOS (`DET0343`)  
 Platforms: IaaS, Linux, Windows, macOS  
@@ -412,10 +474,14 @@ ATT&CK: [T1498.001](https://attack.mitre.org/techniques/T1498/001/), [detail pag
   - *Log sources:* `AWS:VPCFlowLogs (source instance sends large volume of traffic in short window)`; `AWS:CloudWatch (NetworkOut spike beyond baseline)`
   - *Tune:* `InstanceTrafficThreshold`: Alert when egress exceeds normal usage by X%.; `ProtocolType`: Prioritize alerts on stateless protocols such as UDP and ICMP.
 
+</details>
+
 ---
 
 ### T1498.002: Reflection Amplification
 <a id="t1498002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Reflection Amplification DoS (T1498.002) (`DET0408`)  
 Platforms: IaaS, Linux, Windows, macOS  
@@ -438,10 +504,14 @@ ATT&CK: [T1498.002](https://attack.mitre.org/techniques/T1498/002/), [detail pag
   - *Log sources:* `AWS:CloudTrail (Create egress rule allowing UDP to port 53, 123, 11211)`; `AWS:VPCFlowLogs (Large outbound UDP traffic to multiple public reflector IPs)`; `AWS:CloudWatch (Sudden spike in network output without a corresponding inbound request ratio)`
   - *Tune:* `EgressRulePorts`: Cloud security group rules permitting UDP to reflector protocols; `OutboundToInboundRatio`: Ratio threshold to flag traffic as potential reflection behavior; `VMInstanceTagContext`: Cloud metadata that can help scope anomalous behavior to development, testing, or external-facing services
 
+</details>
+
 ---
 
 ### T1499: Endpoint Denial of Service
 <a id="t1499"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Endpoint Resource Saturation and Crash Pattern Detection Across Platforms (`DET0208`)  
 Platforms: Containers, IaaS, Linux, Windows, macOS  
@@ -468,10 +538,14 @@ ATT&CK: [T1499](https://attack.mitre.org/techniques/T1499/), [detail page](/tech
   - *Log sources:* `kubernetes:events (CrashLoopBackOff, OOMKilled, container restart count exceeds threshold)`; `docker:events (Container exited with non-zero code repeatedly in short period)`
   - *Tune:* `RestartCountThreshold`: Number of container restarts within a time window; `ContainerImageEntropy`: Payload entropy of container image as an anomaly factor
 
+</details>
+
 ---
 
 ### T1499.001: OS Exhaustion Flood
 <a id="t1499001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Endpoint DoS via OS Exhaustion Flood Detection Strategy (`DET0356`)  
 Platforms: Linux, Windows, macOS  
@@ -490,10 +564,14 @@ ATT&CK: [T1499.001](https://attack.mitre.org/techniques/T1499/001/), [detail pag
   - *Log sources:* `macos:unifiedlog (network stack resource exhaustion, tcp_accept queue overflow, repeated resets)`; `macos:osquery (Execution of flooding tools or compiled packet generators)`; `NSM:Firewall (Anomalous TCP SYN or ACK spikes from specific source or interface)`
   - *Tune:* `SystemLoadThreshold`: Observed CPU/network degradation level that triggers response; `ToolExecutionPath`: Where DoS tools are commonly dropped or compiled
 
+</details>
+
 ---
 
 ### T1499.002: Service Exhaustion Flood
 <a id="t1499002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Endpoint DoS via Service Exhaustion Flood (`DET0173`)  
 Platforms: IaaS, Linux, Windows, macOS  
@@ -516,10 +594,14 @@ ATT&CK: [T1499.002](https://attack.mitre.org/techniques/T1499/002/), [detail pag
   - *Log sources:* `AWS:CloudTrail (AuthorizeSecurityGroupIngress)`; `AWS:VPCFlowLogs (Unusual volume of inbound packets from single source across short time interval)`; `AWS:CloudWatch (Sustained spike in CPU usage on EC2 instance with web service role)`
   - *Tune:* `VPCFlowBurstRate`: Threshold for traffic burst on target service port; `EC2CPUThreshold`: Compute saturation level for alerting (e.g., >90% for 3 minutes)
 
+</details>
+
 ---
 
 ### T1499.003: Application Exhaustion Flood
 <a id="t1499003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Application Exhaustion Flood Detection Across Platforms (`DET0415`)  
 Platforms: IaaS, Linux, Windows, macOS  
@@ -542,10 +624,14 @@ ATT&CK: [T1499.003](https://attack.mitre.org/techniques/T1499/003/), [detail pag
   - *Log sources:* `AWS:CloudWatch (Elevated 5xx response rates in application logs or gateway layer)`; `AWS:CloudTrail (InvokeFunction)`; `AWS:CloudMetrics (Autoscaling, memory/cpu alarms, or instance unhealthiness)`
   - *Tune:* `HTTP5xxRateThreshold`: Ratio of 5xx error codes over requests indicating resource exhaustion.; `FunctionInvocationRate`: Spike in lambda/API gateway executions indicating scripted behavior.; `AutoscaleEventCount`: Triggers linked to app DoS where legitimate scaling is mimicked.
 
+</details>
+
 ---
 
 ### T1499.004: Application or System Exploitation
 <a id="t1499004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Endpoint DoS via Application or System Exploitation (`DET0304`)  
 Platforms: IaaS, Linux, Windows, macOS  
@@ -568,10 +654,14 @@ ATT&CK: [T1499.004](https://attack.mitre.org/techniques/T1499/004/), [detail pag
   - *Log sources:* `AWS:CloudTrail (TerminateInstances)`; `AWS:CloudWatch (Repeated crash pattern within container or instance logs)`; `AWS:VPCFlowLogs (Large volume of malformed or synthetic payloads to application endpoints prior to failure)`
   - *Tune:* `CrashThreshold`: Number of repeated crashes or terminations observed before triggering alert; `ServiceID`: Cloud service name, workload, or container ID to scope alerting
 
+</details>
+
 ---
 
 ### T1529: System Shutdown/Reboot
 <a id="t1529"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Multi-Platform Shutdown or Reboot Detection via Execution and Host Status Events (`DET0559`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -598,10 +688,14 @@ ATT&CK: [T1529](https://attack.mitre.org/techniques/T1529/), [detail page](/tech
   - *Log sources:* `networkdevice:syslog (reload command issued)`; `networkdevice:syslog (System reboot scheduled or performed)`
   - *Tune:* `PrivilegeLevel`: TACACS+/AAA role thresholds for command execution.; `ChangeTicketCorrelation`: Track change control windows or ITSM integration.
 
+</details>
+
 ---
 
 ### T1531: Account Access Removal
 <a id="t1531"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 6 analytics</summary>
 
 Detection strategy: Account Access Removal via Multi-Platform Audit Correlation (`DET0120`)  
 Platforms: ESXi, Linux, Office Suite, SaaS, Windows, macOS  
@@ -632,10 +726,14 @@ ATT&CK: [T1531](https://attack.mitre.org/techniques/T1531/), [detail page](/tech
   - *Log sources:* `saas:okta (user.lifecycle.delete, user.account.lock)`
   - *Tune:* `BulkActionThreshold`: Trigger if multiple deletions occur within a short period; `SessionDeviceType`: Alert on deletions initiated from unfamiliar device contexts
 
+</details>
+
 ---
 
 ### T1561: Disk Wipe
 <a id="t1561"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Disk Wipe via Direct Disk Access and Destructive Commands (`DET0137`)  
 Platforms: Linux, Network Devices, Windows, macOS  
@@ -658,10 +756,14 @@ ATT&CK: [T1561](https://attack.mitre.org/techniques/T1561/), [detail page](/tech
   - *Log sources:* `networkdevice:cli (erase flash:, erase startup-config, format disk)`; `networkdevice:syslog (User privilege escalation to level 15/root prior to destructive commands)`
   - *Tune:* `PrivilegedUsers`: Tune to exclude approved maintenance sessions by known administrators.; `CommandPatterns`: Adjust monitored destructive command list depending on device vendor and OS.
 
+</details>
+
 ---
 
 ### T1561.001: Disk Content Wipe
 <a id="t1561001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Disk Content Wipe via Direct Access and Overwrite (`DET0316`)  
 Platforms: Linux, Network Devices, Windows, macOS  
@@ -684,10 +786,14 @@ ATT&CK: [T1561.001](https://attack.mitre.org/techniques/T1561/001/), [detail pag
   - *Log sources:* `networkdevice:cli (erase flash:, erase nvram:, format disk)`; `networkdevice:syslog (Privileged login followed by destructive command sequence)`
   - *Tune:* `PrivilegedUsers`: Tune to exclude approved maintenance performed by authorized administrators.; `CommandPatterns`: Expand or narrow destructive command coverage depending on vendor-specific syntax.
 
+</details>
+
 ---
 
 ### T1561.002: Disk Structure Wipe
 <a id="t1561002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Disk Structure Wipe via Boot/Partition Overwrite (`DET0297`)  
 Platforms: Linux, Network Devices, Windows, macOS  
@@ -710,10 +816,14 @@ ATT&CK: [T1561.002](https://attack.mitre.org/techniques/T1561/002/), [detail pag
   - *Log sources:* `networkdevice:cli (format flash:, format disk, reformat commands)`; `networkdevice:syslog (Privileged login followed by destructive format command)`
   - *Tune:* `CommandPatterns`: Expand detection to cover vendor-specific destructive commands.; `PrivilegedUsers`: Whitelist authorized maintenance sessions to reduce false positives.
 
+</details>
+
 ---
 
 ### T1565: Data Manipulation
 <a id="t1565"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection Strategy for Data Manipulation (`DET0059`)  
 Platforms: Linux, Windows, macOS  
@@ -732,10 +842,14 @@ ATT&CK: [T1565](https://attack.mitre.org/techniques/T1565/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (Anomalous plist modifications or sensitive file overwrites by non-standard processes)`; `macos:osquery (open, execve: Unexpected processes accessing or modifying critical files)`
   - *Tune:* `AllowedPlistEditors`: Whitelisted processes authorized to modify plist or configuration files.; `FileIntegrityBaseline`: Baseline hash values for key files to support integrity validation.
 
+</details>
+
 ---
 
 ### T1565.001: Stored Data Manipulation
 <a id="t1565001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection Strategy for Stored Data Manipulation across OS Platforms. (`DET0193`)  
 Platforms: Linux, Windows, macOS  
@@ -754,10 +868,14 @@ ATT&CK: [T1565.001](https://attack.mitre.org/techniques/T1565/001/), [detail pag
   - *Log sources:* `macos:unifiedlog (Unexpected creation or modification of stored data files in protected directories)`; `macos:osquery (CREATE, DELETE, WRITE: Stored data manipulation attempts by unauthorized processes)`
   - *Tune:* `FileIntegrityBaseline`: Baseline hash values or metadata for stored data files to detect manipulation.; `AllowedEditors`: Whitelisted applications permitted to update stored data (e.g., Outlook, MySQL).
 
+</details>
+
 ---
 
 ### T1565.002: Transmitted Data Manipulation
 <a id="t1565002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection Strategy of Transmitted Data Manipulation (`DET0254`)  
 Platforms: Linux, Windows, macOS  
@@ -776,10 +894,14 @@ ATT&CK: [T1565.002](https://attack.mitre.org/techniques/T1565/002/), [detail pag
   - *Log sources:* `macos:unifiedlog (Suspicious anomalies in transmitted data integrity during application network operations)`; `macos:osquery (CALCULATE: Integrity validation of transmitted data via hash checks)`
   - *Tune:* `TLSValidationRules`: Custom rules for enforcing HTTPS/TLS integrity checks to prevent downgrade manipulation.; `AllowedApps`: Whitelisted macOS apps permitted to transmit critical data.
 
+</details>
+
 ---
 
 ### T1565.003: Runtime Data Manipulation
 <a id="t1565003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection Strategy for Runtime Data Manipulation. (`DET0391`)  
 Platforms: Linux, Windows, macOS  
@@ -798,10 +920,14 @@ ATT&CK: [T1565.003](https://attack.mitre.org/techniques/T1565/003/), [detail pag
   - *Log sources:* `macos:unifiedlog (Unexpected application binary modifications or altered signing status)`; `macos:osquery (CALCULATE: Mismatch in file integrity of critical macOS applications)`
   - *Tune:* `AllowedApps`: Whitelisted applications expected to handle sensitive runtime data.; `SignatureEnforcement`: Policy enforcement for validating application code signing integrity.
 
+</details>
+
 ---
 
 ### T1657: Financial Theft
 <a id="t1657"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection Strategy for Financial Theft (`DET0495`)  
 Platforms: Linux, Office Suite, SaaS, Windows, macOS  
@@ -828,10 +954,14 @@ ATT&CK: [T1657](https://attack.mitre.org/techniques/T1657/), [detail page](/tech
   - *Log sources:* `m365:unified (MailSend: Outlook messages with suspicious subject/body terms (e.g., urgent payment, wire transfer) targeting finance teams)`; `m365:office (Anomalous editing of invoice or payment document templates)`
   - *Tune:* `FraudTerms`: Adjustable keyword list for email and document fraud detection.
 
+</details>
+
 ---
 
 ### T1667: Email Bombing
 <a id="t1667"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Email Bombing (`DET0355`)  
 Platforms: Linux, Office Suite, Windows, macOS  
@@ -854,4 +984,8 @@ ATT&CK: [T1667](https://attack.mitre.org/techniques/T1667/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (Repetitive inbound email delivery activity logged within a short time window)`; `fs:fsusage (create: Attachment file creation in ~/Library/Mail directories)`
   - *Tune:* `FileCountThreshold`: Threshold for repetitive attachment files created within a defined interval.
 
+</details>
+
 ---
+
+*© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*

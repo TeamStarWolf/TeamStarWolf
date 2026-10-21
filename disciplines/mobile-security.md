@@ -4,6 +4,55 @@
 
 Mobile security encompasses the protection of smartphones, tablets, and the applications running on them across iOS and Android platforms. The discipline bridges application security (static/dynamic analysis of APKs and IPAs), network security (certificate pinning, TLS inspection), endpoint management (MDM/EMM policy enforcement), and threat intelligence (mobile malware, zero-click exploits, stalkerware). Practitioners analyze apps for MASVS compliance, conduct runtime hooking with Frida to bypass security controls, investigate spyware campaigns, and configure mobile threat defense (MTD) platforms. Understanding both the offensive perspective (how attackers abuse exported Android components, bypass jailbreak detection on iOS, or deliver zero-click exploits) and the defensive controls is essential for comprehensive mobile security programs.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Practitioners learning iOS and Android app testing and enterprise mobility security
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 8 min (1,918 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are testing Android or iOS applications, or you are studying the OWASP Mobile Top 10 and MASVS
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [Android Security Deep Dive](#android-security-deep-dive), [iOS Security Deep Dive](#ios-security-deep-dive)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked mobile IDs re-keyed: T1446 to T1629.002, T1447 to T1630.002, T1448 to T1643; T1444 row removed and T1437 renamed Application Layer Protocol ([#83](https://github.com/TeamStarWolf/TeamStarWolf/pull/83), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md), the library's in-depth page on this subject.

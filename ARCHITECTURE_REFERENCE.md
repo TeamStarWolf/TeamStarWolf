@@ -11,6 +11,49 @@
 | You are a security reviewer looking at a design | [Security-by-design integration](#_6-security-by-design-integration), [Anti-patterns & pitfalls](#_7-anti-patterns-amp-pitfalls) |
 | You want to score maturity or run a review | [Maturity & checklist](#_9-maturity-amp-checklist) |
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Solution and enterprise architects, and security reviewers who assess system designs
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 23 min (5,350 words at 230 words a minute)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 2 on architecture.</summary>
+
+| Page | Read it for |
+|---|---|
+| Architecture Reference (General) (this page) | General enterprise and solution architecture: domains, frameworks, decision records, and patterns, each read as an attack-surface decision. |
+| [Security Architecture Reference](/SECURITY_ARCHITECTURE_REFERENCE.md) | Security architecture itself: SABSA, TOGAF, defense in depth, Zero Trust, and architecture reviews. |
+
+</details>
+
+<!-- meta:end -->
+
 ---
 
 ## 1. Principles & drivers

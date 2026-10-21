@@ -2,11 +2,54 @@
 
 > In one minute: A curated catalog of the learning and reference material worth your time: books, training platforms, YouTube channels, podcasts, news and threat-intel sources, CTF platforms, lab environments, conferences, standards bodies, and communities. Instead of wading through the internet's noise, you get vetted picks with notes on cost, focus, and skill level. Useful whether you are picking your first course or filling a gap in an established practice.
 
-| | |
-|---|---|
-| Read this when | you want a book or course for a specific skill (red team, DFIR, malware analysis), you need hands-on practice via CTFs or vulnerable labs, you are building a daily news and podcast rotation |
-| Start at | [Books](#books), [Online Courses & Training Platforms](#online-courses-amp-training-platforms), [CTF Platforms](#ctf-platforms) |
-| Pairs with | [CERTIFICATIONS.md](CERTIFICATIONS.md), [CAREER_PATHS.md](CAREER_PATHS.md), [LABS.md](LABS.md), [CYBERSECURITY_BOOK_LIST.md](CYBERSECURITY_BOOK_LIST.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Learners and practitioners choosing books, courses, and communities
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Length</th><td>
+
+Lookup page: 1,723 words, 92% in tables; look entries up from Start at or the search (about 7 min end to end at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You want a book or course for a specific skill (red team, DFIR, malware analysis), you need hands-on practice via CTFs or vulnerable labs, or you are building a daily news and podcast rotation
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Books](#books), [Online Courses & Training Platforms](#online-courses-amp-training-platforms), [CTF Platforms](#ctf-platforms)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Certifications Reference](CERTIFICATIONS.md), [Career Paths](CAREER_PATHS.md), [Hands-On Labs](LABS.md), [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 A curated reference of books, courses, platforms, communities, and standards for cybersecurity practitioners at every level.
 

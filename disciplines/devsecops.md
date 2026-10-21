@@ -2,6 +2,55 @@
 
 DevSecOps is the practice of integrating security controls, testing, and culture directly into the software development lifecycle and CI/CD pipeline, shifting security left so vulnerabilities are found and fixed at the point of code creation rather than after deployment. Where traditional security was a gate at release time, DevSecOps embeds security into every sprint: developers run static analysis on every commit, pipelines block deployments with critical dependency CVEs, and infrastructure-as-code is scanned before it is provisioned. The discipline matters because modern software ships continuously: weekly or daily releases mean there is no longer time for a separate security review cycle. It is practiced by security engineers embedded in product teams, platform engineers building secure golden paths, and AppSec teams automating controls at scale. Understanding DevSecOps offensively is equally critical: attackers now target CI/CD pipelines, dependency ecosystems, and container registries as primary attack vectors, making pipeline security as important as application security.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers, DevOps engineers, and security engineers building security into CI/CD
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (1,998 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are adding security to CI/CD pipelines, you are learning SBOM and SLSA, or you are moving from development or operations into DevSecOps
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [CI/CD Security](#cicd-security-offensive-amp-defensive-perspectives), [SLSA Framework Levels](#slsa-framework-levels)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-27, tactic of T1078 and T1036 changed from Defense Evasion to Stealth ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [DevSecOps Reference](/DEVSECOPS_REFERENCE.md), the library's in-depth page on this subject.

@@ -1,0 +1,1051 @@
+# Key takeaways: DRAFTS, owner review pending. Never rendered on any page.
+#
+# Drafted with an AI assistant from each page's own text on 2026-10-20. Each takeaway is one
+# line ("text"), names the section it comes from ("from", a heading anchor on the page), and
+# quotes the page ("quote", the passage that supports it). scripts/build_doc_meta.py
+# --check validates every draft: 3 to 5 per page, one sentence, the docs/VOICE.md rules, and
+# a quote that is still in its section. When a page changes so a quote no longer appears,
+# the check fails and the takeaway needs another look.
+#
+# To approve a page: move its entry to data/doc_takeaways.yaml, replace batch: with
+# reviewed: "YYYY-MM-DD", edit or drop items as needed, and run
+# python scripts/build_doc_meta.py. Only data/doc_takeaways.yaml is rendered.
+#
+# Batches hold about 20 pages each; batch 1 is the references other hand-written pages
+# link to most, so the first review covers the pages readers reach most often.
+
+status: "owner review pending"
+drafted: "2026-10-20"
+pages:
+  AI_SECURITY_REFERENCE.md:
+    batch: 1
+    items:
+      - {"text": "Indirect prompt injection hides instructions in content the model retrieves, such as email bodies, web pages, documents, and calendar events.", "from": "#prompt-injection-deep-dive", "quote": "Malicious instructions embedded in content that the LLM retrieves and processes (email bodies, web pages, documents, calendar events) without the user knowing."}
+      - {"text": "LLM output passed straight to downstream systems without sanitization turns the model into a channel for classic injection attacks.", "from": "#owasp-llm-top-10-2025", "quote": "LLM-generated output passed directly to downstream systems without sanitization enables classic injection attacks via LLM intermediary."}
+      - {"text": "Agents with too much autonomy or with irreversible actions widen the blast radius of a prompt injection.", "from": "#owasp-llm-top-10-2025", "quote": "Agents with too much autonomy or irreversible action capabilities amplify the blast radius of prompt injection or misalignment."}
+      - {"text": "Never hardcode API keys in prompts, source code, or configuration files.", "from": "#securing-aillm-deployments", "quote": "Never hardcode API keys in prompts, source code, or configuration files"}
+  AI_MCP_SECURITY_REFERENCE.md:
+    batch: 1
+    items:
+      - {"text": "In indirect prompt injection through MCP, an attacker plants instructions in content the AI later reads through a tool.", "from": "#_2-mcp-security-threat-model", "quote": "An attacker embeds malicious LLM instructions inside content that the AI will later read via MCP tools."}
+      - {"text": "Tool descriptions are natural language the model reads to choose and use a tool, which makes them a place to hide instructions.", "from": "#_2-mcp-security-threat-model", "quote": "MCP tool descriptions are natural language text that the LLM reads to decide which tool to use and how."}
+      - {"text": "MCP servers on HTTP+SSE often listen on localhost ports, which exposes them to DNS rebinding.", "from": "#_2-mcp-security-threat-model", "quote": "MCP servers using HTTP+SSE transport often listen on localhost ports"}
+      - {"text": "Validate every MCP tool input against a strict JSON Schema before execution.", "from": "#_3-mcp-security-hardening", "quote": "All MCP tool inputs must be validated against strict JSON Schemas before execution."}
+  SUPPLY_CHAIN_SECURITY_REFERENCE.md:
+    batch: 1
+    items:
+      - {"text": "Dependency confusion exploits package-manager resolution when both public and private registries are configured.", "from": "#_1-software-supply-chain-threat-landscape", "quote": "Dependency confusion attacks exploit the resolution logic of package managers when both public and private registries are configured."}
+      - {"text": "Build system injection compromises the build infrastructure itself rather than the source code.", "from": "#_1-software-supply-chain-threat-landscape", "quote": "Attackers compromise the build infrastructure itself rather than source code."}
+      - {"text": "The 3CX attack was a double supply chain compromise: a trojanized third-party installer compromised a 3CX developer's machine.", "from": "#_1-software-supply-chain-threat-landscape", "quote": "The 3CX attack is notable as a double supply chain compromise"}
+      - {"text": "The EU Cyber Resilience Act phases in: vulnerability and incident reporting from 11 September 2026, and full manufacturer obligations from 11 December 2027.", "from": "#_2-software-bill-of-materials-sbom", "quote": "the Article 14 vulnerability/incident reporting duties (below) apply from 11 September 2026, and the main manufacturer obligations apply in full from 11 December 2027."}
+  THREAT_INFORMED_DEFENSE_REFERENCE.md:
+    batch: 1
+    items:
+      - {"text": "Threat-informed defense prioritizes security work by what adversaries actually do, with ATT&CK as the organizing spine.", "from": "#threat-informed-defense-reference", "quote": "Threat-informed defense is the discipline of prioritizing security work by what adversaries actually do"}
+      - {"text": "Keep ATT&CK as the base graph and normalize every other knowledge base into one of six node roles.", "from": "#_1-the-attampck-centric-knowledge-graph", "quote": "Keep ATT&CK as the base graph and normalize every other source into one of six node roles."}
+      - {"text": "Treat KEV as a priority multiplier on technique risk, not just another badge.", "from": "#_2-the-threat-informed-data-source-stack", "quote": "KEV should be treated as a priority multiplier on technique risk, not just another badge."}
+      - {"text": "For any technique, ask five coverage questions: mitigated, detected, validated, intel-relevant, and exposed.", "from": "#_3-coverage-types-the-per-technique-quotcoverage-stackquot", "quote": "For any technique, ask five questions."}
+  SECURITY_METRICS_REFERENCE.md:
+    batch: 1
+    items:
+      - {"text": "A count like millions of threats blocked tells the board nothing about risk; avoid vanity metrics.", "from": "#s1-security-metrics-fundamentals", "quote": "\"We blocked 4.7 million threats last month\" tells the board nothing about risk."}
+      - {"text": "Alert fatigue is the primary driver of analyst burnout and missed detections.", "from": "#s2-soc-amp-detection-metrics", "quote": "Alert fatigue is the primary driver of analyst burnout and missed detections."}
+      - {"text": "Pure CVSS-based prioritization is increasingly inadequate.", "from": "#s3-vulnerability-management-metrics", "quote": "Pure CVSS-based prioritization is increasingly inadequate."}
+      - {"text": "Vulnerability data is only as good as scanning coverage and recency.", "from": "#s3-vulnerability-management-metrics", "quote": "Vulnerability data is only as good as scanning coverage and recency."}
+  DETECTION_RULES_REFERENCE.md:
+    batch: 1
+    items:
+      - {"text": "Sigma lets you write detection logic once and convert it to any SIEM query language.", "from": "#_2-sigma-rules", "quote": "allows security analysts to write detection logic once and convert it to any SIEM query language."}
+      - {"text": "sigmac is end-of-life; use pySigma to convert Sigma rules.", "from": "#_2-sigma-rules", "quote": "is end-of-life and no longer maintained"}
+      - {"text": "Broad CommandLine contains matches generate false positives, so match on specific fields.", "from": "#_2-sigma-rules", "quote": "Broad CommandLine|contains matches generate false positives."}
+      - {"text": "The Pass-the-Hash query is a hunt, not a production alert.", "from": "#_5-splunk-spl-detection-queries", "quote": "Hunt, not a production alert."}
+  ATLAS_REFERENCE.md:
+    batch: 1
+    items:
+      - {"text": "ATLAS mirrors the ATT&CK structure and adds two tactics unique to attacking AI: AI Model Access and AI Attack Adaptation.", "from": "#mitre-atlas-reference-adversarial-threats-to-ai-systems", "quote": "ATLAS deliberately mirrors the ATT&CK structure and reuses its tactic names where behavior is the same, then adds the two tactics unique to attacking AI"}
+      - {"text": "Inclusion of a technique in ATLAS does not by itself establish that it was observed in a real incident; check its evidence and maturity.", "from": "#mitre-atlas-reference-adversarial-threats-to-ai-systems", "quote": "Check each technique's evidence and maturity; inclusion does not by itself establish observation in a real incident."}
+      - {"text": "AI Model Access, some level of access to the model itself, is a prerequisite for most AI attacks.", "from": "#mitre-atlas-reference-adversarial-threats-to-ai-systems", "quote": "which is a prerequisite for most AI attacks"}
+      - {"text": "Autonomous agents can share discoveries and tasks through artifacts that persist across otherwise independent runs.", "from": "#agentic-ai-amp-ai-agent-swarms", "quote": "Autonomous agents can exchange discoveries, tasks, and results, including through shared artifacts that persist across otherwise independent runs."}
+  ATTACK_TECHNIQUE_ATLAS.md:
+    batch: 1
+    items:
+      - {"text": "Every technique is scored by the groups and software that use it, the mitigations and NIST 800-53 controls that address it, and whether ATT&CK ships a detection strategy for it.", "from": "#attampck-technique-atlas", "quote": "Every technique is scored by how many threat groups and pieces of software use it, how many ATT&CK mitigations and NIST 800-53 controls address it, and whether ATT&CK ships a detection strategy for it"}
+      - {"text": "In the tables, Grp counts groups, SW counts software, Mit counts mitigations, NIST counts 800-53 controls through CTID, and Det marks a detection strategy.", "from": "#attampck-technique-atlas", "quote": "Grp = threat groups observed using it, SW = software (malware/tools) implementing it, Mit = ATT&CK mitigations, NIST = NIST 800-53 R5 controls (via CTID), Det = ATT&CK detection strategy exists."}
+      - {"text": "The Technique Detail Pages carry the full write-up for each technique: description, mitigations, NIST controls, detections, groups, and software.", "from": "#attampck-technique-atlas", "quote": "consolidated with its description, mitigations, NIST controls, detections, and the groups and software that use it."}
+  CONTROLS_MAPPING.md:
+    batch: 1
+    items:
+      - {"text": "The page chains security vendors to the NIST 800-53 controls they implement, and those controls to the ATT&CK techniques they mitigate.", "from": "#controls-mapping-vendor-to-nist-800-53-to-attampck", "quote": "This page provides the cross-reference chain connecting security vendors to the NIST 800-53 controls they implement, and from those controls to the ATT&CK techniques they mitigate."}
+      - {"text": "The bridge between NIST 800-53 and ATT&CK comes from the CTID Mappings Explorer.", "from": "#controls-mapping-vendor-to-nist-800-53-to-attampck", "quote": "The bridge between NIST 800-53 and ATT&CK is provided by the CTID Mappings Explorer."}
+      - {"text": "The CTID Mappings Explorer provides downloadable STIX and JSON data for each framework mapping, which feeds gap scoring.", "from": "#using-ctid-data-for-gap-scoring", "quote": "The CTID Mappings Explorer provides downloadable STIX/JSON data for each framework mapping."}
+  SIEM_REFERENCE.md:
+    batch: 1
+    items:
+      - {"text": "The page's value is copy-ready queries in SPL, KQL, AQL, and EQL, plus concrete sizing numbers.", "from": "#siem-reference-library", "quote": "Its value is copy-ready queries (SPL, KQL, AQL, EQL) and concrete numbers"}
+      - {"text": "Capturing process command lines needs both the Audit Process Creation policy and the Include Command Line in Process Creation Events GPO.", "from": "#_6-log-collection-amp-normalization", "quote": "Requires \"Audit Process Creation\" + \"Include Command Line in Process Creation Events\" GPO"}
+      - {"text": "A QRadar NEW rule fires when a value has not been seen in the past N days, such as a new external IP or user agent.", "from": "#_4-ibm-qradar", "quote": "fires when value not seen in past N days (new external IP, new user-agent)"}
+      - {"text": "In Sentinel, a single workspace is recommended for most deployments because it gives one query plane.", "from": "#_3-microsoft-sentinel", "quote": "Single workspace (recommended for most): unified query plane; cross-table KQL"}
+  CTEM_REFERENCE.md:
+    batch: 1
+    items:
+      - {"text": "CTEM is a program, not a product: a five-stage loop of scoping, discovery, prioritization, validation, and mobilization.", "from": "#continuous-threat-exposure-management-ctem-reference", "quote": "is a five-stage operating loop that replaces periodic, scan-and-patch vulnerability management with a continuous cycle of scoping, discovery, prioritization, validation, and mobilization"}
+      - {"text": "An exposure is anything that creates a viable attack path: an over-permissioned identity, a public bucket, or an MFA gap, not only an unpatched CVE.", "from": "#why-ctem-exists", "quote": "An exposure is anything that creates a viable attack path"}
+      - {"text": "Stages 1 to 3 diagnose and produce decisions; stages 4 and 5 act and produce risk reduction, and each half needs a different owner and budget.", "from": "#the-five-stages", "quote": "diagnose stages produce decisions; action stages produce risk reduction, and each half needs a different kind of owner and a different kind of budget."}
+      - {"text": "Gartner's prediction that CTEM programs cut breaches threefold exists in three public wordings, and no public retrospective has validated it.", "from": "#continuous-threat-exposure-management-ctem-reference", "quote": "The prediction exists in three public wordings, and no public retrospective has validated it"}
+      - {"text": "Fix the choke points where attack paths intersect rather than every road.", "from": "#attack-path-management-and-choke-points", "quote": "Fix the intersection, not every road."}
+  IR_PLAYBOOKS.md:
+    batch: 1
+    items:
+      - {"text": "Each playbook follows the NIST SP 800-61 lifecycle from preparation through post-incident activity.", "from": "#incident-response-playbooks", "quote": "Each playbook follows the NIST SP 800-61 lifecycle"}
+      - {"text": "In a ransomware incident, isolate affected systems from the network but do not power them off, to preserve forensic state.", "from": "#ransomware", "quote": "disconnect from network (do not power off; preserve forensic state)"}
+      - {"text": "Restore from clean, offline backups and verify their integrity first.", "from": "#ransomware", "quote": "Restore from clean, offline backups (verify integrity first)"}
+      - {"text": "The playbooks are generic templates to adapt to your environment, tools, and escalation paths.", "from": "#incident-response-playbooks", "quote": "These are generic templates. Adapt them to your environment, tools, and escalation paths."}
+  INCIDENT_RESPONSE_REFERENCE.md:
+    batch: 1
+    items:
+      - {"text": "NIST SP 800-61 Revision 2 defines four incident response phases, and Revision 3 (April 2025) supersedes it; the six-step PICERL model comes from SANS.", "from": "#_1-ir-frameworks-amp-preparation", "quote": "(SP 800-61 Revision 2) defines the authoritative lifecycle for federal and private-sector incident response as four phases"}
+      - {"text": "Complete a set triage checklist within the first five minutes of an alert or report.", "from": "#_2-detection-amp-initial-triage", "quote": "Upon receiving an alert or report, complete the following within the first 5 minutes:"}
+      - {"text": "During ransomware recovery, restore in dependency order and never reconnect compromised systems to clean networks.", "from": "#_3-ransomware-response", "quote": "Recover in dependency order; never reconnect compromised systems to clean networks:"}
+      - {"text": "File a law enforcement complaint for ransomware incidents whether or not you pay.", "from": "#_3-ransomware-response", "quote": "File a complaint for ransomware incidents regardless of whether you pay"}
+  AI_INFRASTRUCTURE_SECURITY_REFERENCE.md:
+    batch: 1
+    items:
+      - {"text": "Most real AI compromises reported in 2024-2025 were plain infrastructure attacks, such as unauthenticated inference servers and RCE on model load.", "from": "#_1-the-ai-infrastructure-attack-surface", "quote": "most real AI compromises reported in 2024-2025 were plain infrastructure attacks"}
+      - {"text": "The most exploited AI-infrastructure weakness is a model file that executes arbitrary code the moment it is loaded.", "from": "#_2-model-serialization-amp-unsafe-deserialization", "quote": "The single most exploited AI-infra weakness: model files that execute arbitrary code the moment they are loaded."}
+      - {"text": "In PyTorch 2.5.1 and earlier, torch.load with weights_only=True, the setting long described as safe, still reached RCE (CVE-2025-32434).", "from": "#_2-model-serialization-amp-unsafe-deserialization", "quote": "the setting everyone was told was safe, still reached RCE on PyTorch ≤ 2.5.1"}
+      - {"text": "Scan model artifacts at ingest, before they are written to the registry, and again at promotion from dev to prod.", "from": "#_2-model-serialization-amp-unsafe-deserialization", "quote": "scan at ingest (before an artifact is written to the registry) and again at promotion (dev->prod)"}
+  AI_OFFENSIVE_SECURITY_REFERENCE.md:
+    batch: 1
+    items:
+      - {"text": "The page argues that AI tools change the economics and scale of attacks more than they raise the capability ceiling.", "from": "#section-1-the-ai-security-revolution", "quote": "The significance of AI-powered offensive security tools lies not merely in their capability at the frontier, but in what they do to the economics and scaling dynamics of attacks."}
+      - {"text": "Its defensive playbook pairs tighter patch SLAs with detection rules and containment controls.", "from": "#ai-offensive-security-reference", "quote": "a concrete defensive playbook of patch SLAs, detection rules, and containment controls"}
+      - {"text": "The autonomous testing systems it describes put human approval checkpoints before destructive or irreversible actions.", "from": "#section-2-glasswing-anthropic39s-internal-penetration-testing-ai", "quote": "incorporates mandatory human approval checkpoints before executing potentially destructive or irreversible actions."}
+  CLOUD_SECURITY_REFERENCE.md:
+    batch: 1
+    items:
+      - {"text": "A permission boundary sets the maximum permissions that identity-based policies can grant an IAM entity.", "from": "#_1-aws-security-fundamentals", "quote": "sets the maximum permissions that identity-based policies can grant."}
+      - {"text": "iam:PassRole is required to assign a role to an AWS service, which makes it a common privilege-escalation path.", "from": "#_2-aws-attack-techniques", "quote": "is required to assign a role to an AWS service."}
+      - {"text": "IMDSv2 hardens instance metadata against SSRF by requiring a session-oriented token.", "from": "#_2-aws-attack-techniques", "quote": "Requires a session-oriented token."}
+      - {"text": "Conditional Access is the policy engine for Zero Trust access control in Entra ID.", "from": "#_3-azure-security", "quote": "Conditional Access is the policy engine for Zero Trust access control in Entra ID."}
+  CVE_REFERENCE.md:
+    batch: 1
+    items:
+      - {"text": "Only 5 to 7 percent of all published CVEs are ever exploited, which is why exploit likelihood matters for prioritization.", "from": "#_4-epss-exploit-prediction-scoring-system", "quote": "Only 5-7% of all published CVEs are ever exploited."}
+      - {"text": "EPSS has limits: new CVEs lack exploitation history, so it may underestimate targeted 0-days.", "from": "#_4-epss-exploit-prediction-scoring-system", "quote": "New CVEs lack exploitation history; may underestimate targeted 0-days"}
+      - {"text": "CVSS v4.0 was officially published by FIRST on November 1, 2023.", "from": "#_3-cvss-v40", "quote": "Officially published by FIRST on November 1, 2023"}
+  IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md:
+    batch: 1
+    items:
+      - {"text": "The page covers the controls side of identity: authentication, authorization models, identity providers, PAM, IGA, and machine identity.", "from": "#identity-amp-access-management-iam-reference", "quote": "Reference covering IAM fundamentals, authentication technologies, authorization models, identity providers, PAM, IGA, Zero Trust identity, machine identity, security monitoring, and governance/compliance."}
+      - {"text": "The page cites the Verizon DBIR 2024 for credential-based attacks remaining the top initial access vector.", "from": "#_1-iam-fundamentals", "quote": "credential-based attacks remain the top initial access vector."}
+      - {"text": "Orphaned accounts that were not disabled at offboarding get used for re-entry months after the person leaves.", "from": "#_1-iam-fundamentals", "quote": "Orphaned accounts: Accounts not disabled after offboarding. Exploited for re-entry months after departure."}
+      - {"text": "Service account sprawl builds up static application credentials that are rarely rotated or inventoried.", "from": "#_1-iam-fundamentals", "quote": "Accumulation of static credentials for applications; rarely rotated or inventoried."}
+  VULNERABILITY_MANAGEMENT_REFERENCE.md:
+    batch: 1
+    items:
+      - {"text": "Remediation SLAs start from the date a finding is verified, not when it was first detected.", "from": "#_1-vm-lifecycle-amp-kpis", "quote": "SLAs start from the date the finding is verified (not first detected)."}
+      - {"text": "EPSS gives the probability, from 0 to 1, that a CVE will be exploited in the next 30 days.", "from": "#_4-prioritization-epss-kev-cvss", "quote": "EPSS provides a probability (0-1) that a CVE will be exploited in the next 30 days."}
+      - {"text": "Virtual patching uses WAF rules, IPS signatures, or network ACLs to block exploitation while a permanent patch is prepared.", "from": "#_9-patch-management-windows-linux-oob-virtual-patching", "quote": "Virtual patching applies compensating controls (WAF rules, IPS signatures, network ACLs)"}
+      - {"text": "VEX documents travel with SBOMs to say whether a product is actually affected, which cuts alert fatigue when a vulnerable function is never called.", "from": "#overview", "quote": "component contains a vulnerable function that the product never calls."}
+  AGENTIC_AI_ATTACK_REFERENCE.md:
+    batch: 1
+    items:
+      - {"text": "The kill chain here is an illustrative composite mapped to ATT&CK Enterprise and ATLAS, not an account of any single named event.", "from": "#overview", "quote": "It is presented as a tactics pattern mapped to MITRE ATT&CK (Enterprise) and MITRE ATLAS, not as an account of any single named event."}
+      - {"text": "A swarm keeps no durable implant: footholds are rebuilt on every stateless run, so implant hunting misses it.", "from": "#overview", "quote": "the swarm has no durable implant; footholds are rebuilt from scratch on every stateless run by re-fetching tooling and re-minting short-lived credentials, so implant-hunting misses it."}
+      - {"text": "Give every agent and workload its own scoped, short-lived identity; one credential shared by every member is a swarm's main force multiplier.", "from": "#defensive-playbook-for-agent-swarm-threats", "quote": "A swarm's primary force-multiplier is a single credential that works for all of its members."}
+      - {"text": "A repository never legitimately receives directory-creation requests from a workload, so an MKCOL request returning 201 against a cache namespace is worth an alert.", "from": "#detection-opportunities", "quote": "a repository never legitimately receives directory-creation requests from a workload"}
+  THREAT_GROUP_PROFILES.md:
+    batch: 2
+    items:
+      - {"text": "The table of all tracked groups is sorted by the breadth of each group's attributed ATT&CK techniques.", "from": "#all-tracked-groups", "quote": "Sorted by breadth of attributed ATT&CK techniques."}
+      - {"text": "Each profile lists the group's aliases and the count of techniques and software attributed to it.", "from": "#threat-group-profiles", "quote": "each with its aliases, the count of techniques and software attributed to it"}
+      - {"text": "The most active groups get their signature ATT&CK techniques listed for threat-informed defense.", "from": "#threat-group-profiles", "quote": "(for the most active) its signature ATT&CK techniques."}
+  ENDPOINT_SECURITY_REFERENCE.md:
+    batch: 2
+    items:
+      - {"text": "Roll out ASR rules in Audit mode, watch for false positives for 2 to 4 weeks, then move them to Block one rule at a time.", "from": "#_2-microsoft-defender-for-endpoint-mde", "quote": "Start all rules in Audit mode, monitor for false positives for 2-4 weeks, then promote to Block one rule at a time."}
+      - {"text": "Every antivirus exclusion is a detection gap, so use them sparingly.", "from": "#_2-microsoft-defender-for-endpoint-mde", "quote": "Every exclusion is a detection gap."}
+      - {"text": "Always enable Tamper Protection so Defender cannot be disabled through the registry, PowerShell, or local policy.", "from": "#_2-microsoft-defender-for-endpoint-mde", "quote": "Always enable: prevents disabling Defender via registry, PowerShell, or local policy."}
+      - {"text": "Defenders need to understand common EDR bypass techniques to build detections that survive them.", "from": "#_9-endpoint-detection-bypass-techniques-know-your-enemy", "quote": "Defenders must understand common bypass techniques to build effective detections."}
+  GRC_REFERENCE.md:
+    batch: 2
+    items:
+      - {"text": "The board sets risk appetite, the audit committee provides oversight, and the CISO translates risk into program priorities.", "from": "#security-governance", "quote": "The board sets risk appetite; the audit committee provides oversight; the CISO translates risk into program priorities"}
+      - {"text": "Policies are technology-agnostic and durable, while standards and procedures change as technology evolves.", "from": "#security-governance", "quote": "Policies are technology-agnostic and durable (3-5 year lifecycle); standards and procedures change more frequently as technology evolves."}
+      - {"text": "Board-level metrics focus on business impact and strategic posture, not technical detail.", "from": "#security-governance", "quote": "Board-level metrics focus on business impact and strategic posture, not technical detail."}
+  RANSOMWARE_DEFENSE_REFERENCE.md:
+    batch: 2
+    items:
+      - {"text": "Ransomware is the incident class where recovery architecture decides the outcome before the incident starts.", "from": "#ransomware-defense-amp-resilience-reference", "quote": "Ransomware is the one incident class where recovery architecture decides the outcome before the incident starts."}
+      - {"text": "The deciding factor is usually whether an offline, tested, attacker-unreachable copy of the data existed and whether anyone had rehearsed restoring it.", "from": "#ransomware-defense-amp-resilience-reference", "quote": "whether an offline, tested, attacker-unreachable copy of the data existed, and whether anyone had rehearsed restoring it."}
+      - {"text": "The #StopRansomware Guide groups prevention guidance by initial access vector, so you can prioritize by your own exposure.", "from": "#the-stopransomware-guide-prevention-and-response-structure", "quote": "prevention guidance is grouped by how ransomware actors get in, so you can prioritize by your own exposure rather than reading a flat control list."}
+      - {"text": "Every KEV catalog entry carries a field saying whether the vulnerability is known to be used in ransomware campaigns.", "from": "#the-authoritative-advisory-stream-cisa-stopransomware", "quote": "carries a \"Known to be Used in Ransomware Campaigns\" field on every entry"}
+  DIGITAL_FORENSICS_REFERENCE.md:
+    batch: 2
+    items:
+      - {"text": "Collect evidence from the most volatile, shortest-lived source to the least volatile, following RFC 3227.", "from": "#_1-digital-forensics-fundamentals", "quote": "Evidence must be collected from most volatile (shortest-lived) to least volatile:"}
+      - {"text": "The chain of custody is a chronological record of every person who had access to evidence and every action taken.", "from": "#_1-digital-forensics-fundamentals", "quote": "The chain of custody is a chronological record documenting every person who had access to evidence, and every action taken."}
+      - {"text": "Shellbags reveal folder browsing history, even for deleted folders, network shares, and removable media.", "from": "#_2-windows-forensics-artifacts", "quote": "but forensically reveal folder browsing history, even for deleted folders, network shares, and removable media."}
+      - {"text": "Windows Prefetch records program execution, a side effect of its job of speeding up later launches.", "from": "#_2-windows-forensics-artifacts", "quote": "Windows Prefetch records program execution to speed subsequent launches."}
+  GRC_COMPLIANCE_REFERENCE.md:
+    batch: 2
+    items:
+      - {"text": "Organizations that silo governance, risk, and compliance end up with duplicated effort, inconsistent control testing, and gaps between teams.", "from": "#_1-grc-fundamentals", "quote": "Organizations that silo governance, risk, and compliance end up with duplicated effort, inconsistent control testing, and gaps where risks fall between teams."}
+      - {"text": "NIST CSF 2.0, released February 2024, expands the framework beyond critical infrastructure to all organizations.", "from": "#_2-nist-cybersecurity-framework-csf-20", "quote": "Released February 2024, CSF 2.0 expands the framework beyond critical infrastructure to all organizations."}
+      - {"text": "OSCAL expresses control catalogs, profiles, system security plans, and assessment results in machine-readable XML, JSON, or YAML.", "from": "#_3-oscal-open-security-controls-assessment-language", "quote": "is a NIST-developed standard for expressing security control catalogs, profiles, system security plans, assessment plans, assessment results, and plans of action and milestones in a machine-readable format (XML, JSON, or YAML)."}
+      - {"text": "Tie risk appetite statements to business objectives.", "from": "#_1-grc-fundamentals", "quote": "Risk appetite statements should be tied to business objectives."}
+  PURPLE_TEAM_REFERENCE.md:
+    batch: 2
+    items:
+      - {"text": "In a purple team, red and blue work together in real time so a missed detection can be tuned the same day it is tested.", "from": "#_1-purple-team-fundamentals", "quote": "a missed detection can be diagnosed and tuned on the same day it is tested, not weeks later when a red team report is delivered."}
+      - {"text": "ATT&CK is the shared vocabulary that makes purple teaming tractable at scale.", "from": "#_1-purple-team-fundamentals", "quote": "ATT&CK provides the shared vocabulary that makes purple teaming tractable at scale."}
+      - {"text": "Each Atomic Red Team test maps one-to-one to an ATT&CK technique or sub-technique.", "from": "#_3-atomic-red-team", "quote": "is an open-source library of small, focused tests that each map 1:1 to a MITRE ATT&CK technique or sub-technique."}
+      - {"text": "Put baseline capabilities in place before launching a purple team program.", "from": "#_1-purple-team-fundamentals", "quote": "Before launching a purple team program, the following baseline capabilities should be in place:"}
+  ZERO_TRUST_REFERENCE.md:
+    batch: 2
+    items:
+      - {"text": "In Zero Trust, identity replaces the network perimeter as the primary trust boundary.", "from": "#_2-identity-pillar", "quote": "In a Zero Trust architecture, identity replaces the network perimeter as the primary trust boundary."}
+      - {"text": "NIST SP 800-207 defines three logical components: the policy engine, the policy administrator, and the policy enforcement point.", "from": "#_1-zero-trust-fundamentals", "quote": "NIST 800-207 defines three core logical components that make up a ZTA control plane:"}
+      - {"text": "Continuous Access Evaluation lets applications revoke a session on critical events without waiting for the access token to expire.", "from": "#_2-identity-pillar", "quote": "enabling session revocation without waiting for the OAuth access token to expire."}
+      - {"text": "A device must prove its identity and health before it can talk to enterprise resources.", "from": "#_3-device-pillar", "quote": "a device must prove its identity and health before it can participate in network communication with enterprise resources."}
+  D3FEND_REFERENCE.md:
+    batch: 2
+    items:
+      - {"text": "D3FEND is the defensive counterpart to ATT&CK: a knowledge base of cybersecurity countermeasures.", "from": "#mitre-d3fend-countermeasure-reference", "quote": "is the defensive counterpart to ATT&CK: a knowledge base of cybersecurity countermeasures."}
+      - {"text": "D3FEND techniques map to the ATT&CK techniques they counter through the digital artifacts each acts on.", "from": "#mitre-d3fend-countermeasure-reference", "quote": "(via the digital artifacts each acts on)"}
+      - {"text": "Work backward from a threat: start at the ATT&CK technique and read the D3FEND techniques that counter it.", "from": "#attampck-technique-to-d3fend-countermeasures-most-covered", "quote": "For each ATT&CK technique, the D3FEND defensive techniques that counter it."}
+  THREAT_HUNTING_REFERENCE.md:
+    batch: 2
+    items:
+      - {"text": "Threat hunting is the proactive, human-led search for adversary activity that has evaded automated detections.", "from": "#_1-threat-hunting-fundamentals", "quote": "Threat Hunting is the proactive, human-led search for adversary activity that has evaded existing automated detections."}
+      - {"text": "A hypothesis states what you would expect to see if an attacker did a specific thing.", "from": "#_1-threat-hunting-fundamentals", "quote": "Start with a structured \"if an attacker did X, we would expect to see Y\" statement."}
+      - {"text": "TTP-based hunting looks for adversary techniques regardless of specific indicators of compromise.", "from": "#_1-threat-hunting-fundamentals", "quote": "Hunt for adversary techniques regardless of specific IOCs."}
+  ATTACK_DATA_COMPONENTS.md:
+    batch: 2
+    items:
+      - {"text": "If a data component is dark in your environment, every technique that depends on it is a blind spot.", "from": "#attampck-data-components-amp-log-sources", "quote": "if a data component is dark in your environment, every technique that depends on it is a blind spot."}
+      - {"text": "Each data component lists the concrete log sources and channels that populate it and the number of techniques its analytics help detect.", "from": "#attampck-data-components-amp-log-sources", "quote": "each with the concrete log sources and channels that populate it and the number of techniques its analytics help detect."}
+      - {"text": "Network Traffic Flow is session-level summary data that does not store full packet payloads.", "from": "#detail", "quote": "without storing full packet payloads."}
+  CWE_REFERENCE.md:
+    batch: 2
+    items:
+      - {"text": "CWE catalogs the weakness types that CVEs are instances of, and answers why an exploit works.", "from": "#cwe-weakness-reference", "quote": "catalogs the 969 software and hardware weakness types that vulnerabilities (CVEs) are instances of."}
+      - {"text": "CWE is a hierarchy that runs from Pillars, the most abstract, through Classes and Bases to Variants, the most specific.", "from": "#cwe-weakness-reference", "quote": "CWE is a hierarchy: 10 Pillars (most abstract) -> 114 Classes -> 539 Base -> 299 Variants (most specific)"}
+      - {"text": "Ranking weaknesses by the CAPEC attack patterns that target them shows which have the richest known exploit tradecraft.", "from": "#most-attacked-weaknesses", "quote": "Ranked by the number of CAPEC attack patterns that target them: a data-driven view of which weaknesses have the richest known exploit tradecraft."}
+  FRAMEWORKS.md:
+    batch: 2
+    items:
+      - {"text": "For each framework the page gives the publisher, whether it is mandatory, who it applies to, and its core structure.", "from": "#security-frameworks-reference", "quote": "it tells you who publishes it, whether it is mandatory, who it applies to, and its core structure"}
+      - {"text": "The NIST RMF is the US federal authorization process.", "from": "#nist-risk-management-framework-rmf", "quote": "The RMF is the US federal authorization process."}
+      - {"text": "PCI DSS applies to any entity that stores, processes, or transmits payment card data.", "from": "#pci-dss-v401", "quote": "Required for any entity that stores, processes, or transmits payment card data."}
+      - {"text": "A SOC 2 Type II report covers a period of time, usually 6 to 12 months, and tests that controls operate effectively.", "from": "#soc-2", "quote": "Period of time (usually 6-12 months): controls operating effectively"}
+  IDENTITY_SECURITY_REFERENCE.md:
+    batch: 2
+    items:
+      - {"text": "Modern infrastructure has dissolved the traditional network perimeter, which makes identity the perimeter.", "from": "#_1-identity-attack-surface", "quote": "Modern infrastructure has dissolved the traditional network perimeter."}
+      - {"text": "Password spraying tests one or a few common passwords against many accounts to avoid lockout.", "from": "#_2-authentication-deep-dive", "quote": "Tests one or few common passwords against many accounts to avoid lockout"}
+      - {"text": "An AiTM reverse proxy such as EvilGinx2 sits between the victim and the real identity provider.", "from": "#_3-multi-factor-authentication-bypass-techniques-amp-defenses", "quote": "Reverse proxy (EvilGinx2) sits between victim and legitimate IdP"}
+      - {"text": "An attacker who controls a victim's email can use email-based MFA recovery to bypass MFA.", "from": "#_3-multi-factor-authentication-bypass-techniques-amp-defenses", "quote": "Email-based MFA recovery: attacker who controls victim's email can bypass MFA"}
+  REGULATORY_LANDSCAPE_REFERENCE.md:
+    batch: 2
+    items:
+      - {"text": "A single incident can start several notification clocks at once, because the regimes differ in what triggers them.", "from": "#obligation-amp-deadline-matrix", "quote": "but the trigger differs (network incident vs. financial ICT incident vs. exploited product vulnerability vs. personal-data breach), so a single event can start several clocks at once."}
+      - {"text": "All 50 US states have breach-notification statutes, and their definitions, timing, and attorney general thresholds vary.", "from": "#regime-detail", "quote": "All 50 states have breach-notification statutes; requirements vary by definition of personal information, timing, and AG-notification thresholds."}
+      - {"text": "The page is a defender's operational reference, not legal advice; confirm obligations with qualified counsel.", "from": "#global-cyber-regulation-amp-breach-notification-reference", "quote": "This is a defender's operational reference, not legal counsel."}
+  SECRETS_MANAGEMENT_REFERENCE.md:
+    batch: 2
+    items:
+      - {"text": "Secrets sprawl is secrets duplicated across many locations without central governance.", "from": "#_1-secrets-management-fundamentals", "quote": "Secrets sprawl occurs when secrets are duplicated and distributed across multiple locations without central governance."}
+      - {"text": ".env files were built for local development convenience, not for secrets management.", "from": "#_1-secrets-management-fundamentals", "quote": "files were designed as developer convenience tools for local development, not as secrets management solutions:"}
+      - {"text": "Vault dynamic secrets are generated on demand with a time to live.", "from": "#_2-hashicorp-vault", "quote": "Dynamic secrets are generated on-demand with a TTL."}
+      - {"text": "detect-secrets keeps a baseline of known false positives so teams can remove secrets gradually without alert fatigue.", "from": "#_4-secret-detection-in-code", "quote": "works by maintaining a baseline file of known false positives, enabling teams to gradually eliminate secrets without alert fatigue."}
+  CERTIFICATIONS.md:
+    batch: 2
+    items:
+      - {"text": "Certifications are grouped by domain, each with cost, difficulty, exam format, renewal rules, and who it suits.", "from": "#cybersecurity-certifications-reference", "quote": "with each cert's cost, difficulty, exam format, renewal rules, and who it's best for."}
+      - {"text": "The page maps progressions from entry level to senior level.", "from": "#cybersecurity-certifications-reference", "quote": "It also maps progressions from entry to senior level"}
+      - {"text": "It flags which certifications satisfy DoD 8570, the US Department of Defense baseline certification requirement.", "from": "#cybersecurity-certifications-reference", "quote": "flags which certs satisfy DoD 8570"}
+  CONTAINER_SECURITY_REFERENCE.md:
+    batch: 2
+    items:
+      - {"text": "Containers are isolated processes that share the host kernel; they are not VMs.", "from": "#_1-container-security-fundamentals", "quote": "Containers are not VMs; they are isolated processes that share the host kernel."}
+      - {"text": "Anyone with access to the Docker daemon socket is effectively root on the host.", "from": "#_1-container-security-fundamentals", "quote": "Docker daemon Unix socket; anyone with access = root on host"}
+      - {"text": "Docker Bench for Security automates checks of common production practices against the CIS Docker Benchmark.", "from": "#_2-docker-bench-for-security", "quote": "is an automated script that checks dozens of common best practices in deploying Docker in production, based on the CIS Docker Benchmark."}
+  KUBERNETES_SECURITY_REFERENCE.md:
+    batch: 2
+    items:
+      - {"text": "etcd stores all cluster state, including Secrets, RBAC rules, and certificates, so compromising it compromises the whole cluster.", "from": "#_1-kubernetes-attack-surface", "quote": "etcd stores all cluster state: Secrets, ConfigMaps, pod specs, RBAC rules, certificates."}
+      - {"text": "By default every pod can talk to every other pod: there is no network segmentation until NetworkPolicies are applied.", "from": "#_6-network-policies", "quote": "By default, all pods in a Kubernetes cluster can communicate with all other pods: there is zero"}
+      - {"text": "Pod Security Standards replaced PodSecurityPolicy in Kubernetes 1.25 and later.", "from": "#_5-pod-security-standards-pss", "quote": "Replaced PodSecurityPolicy (PSP) in Kubernetes 1.25+."}
+      - {"text": "Native Kubernetes Secrets are base64-encoded, not encrypted, by default.", "from": "#_7-secrets-management-in-kubernetes", "quote": "Native K8s Secrets (Base64, NOT Encrypted by Default)"}
+  LABS.md:
+    batch: 2
+    items:
+      - {"text": "Every platform listed has a free tier or is fully open source.", "from": "#hands-on-labs-amp-practice-environments", "quote": "All platforms listed here offer a free tier or are fully open source."}
+      - {"text": "Labs are organized by discipline, so you can go straight to practice for the skill you are building.", "from": "#hands-on-labs-amp-practice-environments", "quote": "so you can jump straight to labs for the skill you are building."}
+      - {"text": "A minimum viable SOC lab for detection practice runs on a single host with 16 GB of RAM.", "from": "#home-lab-builds", "quote": "A detection-focused lab that runs on a single host with 16 GB RAM:"}
+  MALWARE_FAMILIES.md:
+    batch: 3
+    items:
+      - {"text": "Loaders and droppers are the initial delivery layer that fetches or deploys second-stage payloads such as ransomware and RATs.", "from": "#_7-loaders-and-droppers", "quote": "Loaders and droppers form the initial delivery layer, fetching or deploying second-stage payloads such as ransomware, RATs, and banking trojans."}
+      - {"text": "Wipers are built for maximum damage: they destroy data, overwrite the MBR or VBR, or brick systems.", "from": "#_11-wiper-and-destructive-malware", "quote": "Wipers are designed to cause maximum damage: they destroy data, overwrite MBR/VBR, or brick systems."}
+      - {"text": "Malleable C2 profiles in Cobalt Strike and Sliver shape beacon traffic to mimic legitimate software such as Gmail, OneDrive, or Slack.", "from": "#_12-c2-protocol-reference", "quote": "to mimic legitimate software (Gmail, OneDrive, Slack)."}
+  VULNERABILITY_PRIORITIZATION_REFERENCE.md:
+    batch: 3
+    items:
+      - {"text": "Severity is not priority; prioritization is a decision, and SSVC, KEV, and EPSS make that decision defensible.", "from": "#vulnerability-prioritization-reference-ssvc-kev-epss", "quote": "Severity is not priority; prioritization is a decision"}
+      - {"text": "CVSS answers how bad a flaw could be in the abstract; a prioritization policy has to say what you do about this one, and by when.", "from": "#why-cvss-alone-is-not-a-prioritization-policy", "quote": "CVSS answers \"how bad could this be, in the abstract?\""}
+      - {"text": "SSVC replaces scores with role-specific decision models whose outputs are actions, not numbers.", "from": "#vulnerability-prioritization-reference-ssvc-kev-epss", "quote": "replaces scores with role-specific decision models whose outputs are actions, not numbers"}
+      - {"text": "KEV-listed, known ransomware use, and internet-facing together is the strongest patch-now signal available from public data.", "from": "#cisa-kev-catalog-semantics", "quote": "is the strongest patch-now signal available from public data"}
+  CAREER_PATHS.md:
+    batch: 3
+    items:
+      - {"text": "Each career path covers salary ranges, key skills, certifications, tools, and typical job titles at every level.", "from": "#cybersecurity-career-paths", "quote": "Each path includes salary ranges, key skills, certifications, HTB tracks, tools, and typical job titles at every level."}
+      - {"text": "Threat hunters search proactively for attacker activity that has evaded automated detections.", "from": "#career-path-3-threat-hunter", "quote": "Threat Hunters proactively search for attacker activity that has evaded automated detections."}
+      - {"text": "Red team operators emulate specific threat actors against mature organizations to test detection, response, and resilience.", "from": "#career-path-5-red-team-operator", "quote": "Red Team Operators emulate specific advanced persistent threat (APT) actors against mature organizations to test detection, response, and resilience."}
+  CLOUD_ATTACK_REFERENCE.md:
+    batch: 3
+    items:
+      - {"text": "ATT&CK for Cloud spans three matrices: IaaS, SaaS, and Containers.", "from": "#_1-cloud-attack-taxonomy-amp-initial-access", "quote": "ATT&CK for Cloud spans three matrices: IaaS (covering AWS, Azure, GCP, OCI), SaaS (Microsoft 365, Google Workspace, Salesforce), and Containers (Kubernetes, Docker)."}
+      - {"text": "Adversary-in-the-middle proxies such as evilginx2 capture session cookies after MFA, so the session can be replayed without triggering MFA again.", "from": "#_1-cloud-attack-taxonomy-amp-initial-access", "quote": "intercepts authentication flow and captures session cookies post-MFA, enabling replay attacks without re-triggering MFA."}
+      - {"text": "Attackers continuously scan public repositories and code hosting platforms for committed cloud credentials.", "from": "#_1-cloud-attack-taxonomy-amp-initial-access", "quote": "Attackers continuously scan public repositories and code hosting platforms for committed cloud credentials"}
+  CRYPTOGRAPHY_REFERENCE.md:
+    batch: 3
+    items:
+      - {"text": "Reusing a nonce with the same key in AES-GCM completely breaks both confidentiality and integrity.", "from": "#_1-symmetric-cryptography", "quote": "If the same nonce is ever used with the same key in AES-GCM, confidentiality AND integrity are completely broken"}
+      - {"text": "No practical attack better than brute force exists against full AES.", "from": "#_1-symmetric-cryptography", "quote": "No practical attack better than brute force exists against full AES"}
+      - {"text": "ChaCha20-Poly1305 is preferred on devices without AES hardware acceleration.", "from": "#_1-symmetric-cryptography", "quote": "ChaCha20-Poly1305 is preferred on devices without AES hardware acceleration"}
+      - {"text": "A padding oracle is any system that reveals whether decrypted data has valid padding, even through different error messages or timing.", "from": "#_1-symmetric-cryptography", "quote": "A padding oracle is any system that reveals whether decrypted data has valid PKCS#7 padding, even just through different error messages or timing."}
+  EMAIL_SECURITY_REFERENCE.md:
+    batch: 3
+    items:
+      - {"text": "Read the Received header chain from bottom to top to see the actual delivery path.", "from": "#phishing-analysis", "quote": "read Received: chain bottom to top = actual delivery path"}
+      - {"text": "DMARC tells receiving mail servers what to do when SPF or DKIM alignment fails.", "from": "#email-authentication-protocols", "quote": "tells receiving mail servers what to do when SPF/DKIM alignment fails"}
+      - {"text": "HTML smuggling embeds a malicious file as base64 inside HTML and assembles it in the browser with the JavaScript Blob API.", "from": "#email-based-attack-techniques", "quote": "Embeds malicious file as base64 inside HTML; assembled client-side in browser memory via JavaScript Blob API"}
+      - {"text": "New inbox forwarding or redirect rules are a business email compromise indicator: they exfiltrate mail silently.", "from": "#email-based-attack-techniques", "quote": "New inbox rules created (forwarding/redirect): exfiltrates email silently"}
+  ICS_OT_SECURITY_REFERENCE.md:
+    batch: 3
+    items:
+      - {"text": "OT follows different rules from IT: a scan that crashes a PLC can stop a turbine, and safety comes before containment.", "from": "#icsot-security-reference", "quote": "a scan that crashes a PLC can stop a turbine, and safety comes before containment."}
+      - {"text": "Passive monitoring should always be the first choice for ICS reconnaissance.", "from": "#ics-network-reconnaissance-amp-tools", "quote": "Passive monitoring should always be the first choice."}
+      - {"text": "TRITON targeted Safety Instrumented Systems, the last line of defense against physical disasters.", "from": "#tritontrisis-analysis", "quote": "it specifically targeted Safety Instrumented Systems (SIS), the last line of defense preventing physical disasters."}
+      - {"text": "Air-gapping a SIS from the engineering network is not enough if the engineering workstation is compromised.", "from": "#tritontrisis-analysis", "quote": "Air-gapping SIS from engineering network is insufficient if EWS is compromised"}
+  NETWORK_SECURITY_ARCHITECTURE.md:
+    batch: 3
+    items:
+      - {"text": "802.1X port authentication means a device cannot send or receive traffic until it authenticates.", "from": "#network-access-control-nac", "quote": "802.1X provides port-based authentication: a device cannot send or receive traffic until"}
+      - {"text": "Audit firewall rules quarterly and remove rules that have not matched in 90 days or more.", "from": "#firewall-architecture-and-policy", "quote": "Audit rules quarterly: remove rules that have not matched in 90+ days"}
+      - {"text": "IKEv2 is the current VPN standard; IKEv1 is deprecated.", "from": "#secure-remote-access", "quote": "IKEv2 is the current standard (IKEv1 is deprecated per RFC 9395)."}
+      - {"text": "Use certificate-based VPN authentication, not pre-shared keys, in production.", "from": "#secure-remote-access", "quote": "Certificate-based authentication (no PSK in production)"}
+  SECURITY_PIPELINE.md:
+    batch: 3
+    items:
+      - {"text": "The pipeline models enterprise security controls stage by stage, each stage building on the one before.", "from": "#pipeline-overview", "quote": "Each stage builds on the previous."}
+      - {"text": "Each stage maps to NIST 800-53 control families, vendor tooling, and ATT&CK coverage.", "from": "#enterprise-security-pipeline", "quote": "Each stage maps to NIST 800-53 control families, vendor tooling, and ATT&CK coverage."}
+      - {"text": "Stage 1, governance, risk, and compliance, sets the policy and risk baseline every other stage operates within.", "from": "#stage-1-governance-risk-amp-compliance", "quote": "Establish the policy, risk management, and compliance baseline that all other stages operate within."}
+  SIEM_DETECTION_CONTENT.md:
+    batch: 3
+    items:
+      - {"text": "You rarely need to write detections from scratch: vendor-maintained repositories hold thousands of rules you can convert and deploy.", "from": "#siem-detection-content-reference", "quote": "you rarely need to write detections from scratch"}
+      - {"text": "Sigma is a platform-agnostic YAML detection rule format.", "from": "#sigma-universal-detection-rule-format", "quote": "Platform-agnostic detection rule format (YAML)"}
+      - {"text": "Each Microsoft Sentinel Content Hub solution bundles rules, workbooks, and playbooks.", "from": "#microsoft-sentinel-analytics-rules", "quote": "each with rules + workbooks + playbooks"}
+  SOCIAL_ENGINEERING_REFERENCE.md:
+    batch: 3
+    items:
+      - {"text": "Social engineering exploits human psychology rather than technical vulnerabilities.", "from": "#_1-psychology-of-social-engineering", "quote": "Social engineering exploits human psychology rather than technical vulnerabilities."}
+      - {"text": "Quishing hides malicious URLs in QR codes, which email scanners that check text and URLs do not read.", "from": "#_2-phishing-attack-types", "quote": "bypassing email security scanners that analyze text and URLs but not image content."}
+      - {"text": "Clone phishing copies a legitimate email and swaps its attachments or links for malicious ones.", "from": "#_2-phishing-attack-types", "quote": "replacing benign attachments or links with malicious ones."}
+  STARRED_REPOS.md:
+    batch: 3
+    items:
+      - {"text": "The index groups starred GitHub repositories by the job they do, such as detection engineering, DFIR, red team tooling, and vulnerability management.", "from": "#starred-repositories-index", "quote": "you get every tool, framework, and learning resource grouped by the job it does."}
+      - {"text": "Use it when you know roughly what kind of tool you need but not its name.", "from": "#starred-repositories-index", "quote": "Use it as the master index when you know roughly what kind of tool you need but not its name."}
+      - {"text": "The Black Hat Arsenal review queue is kept separate from the starred index.", "from": "#black-hat-arsenal-review-queue", "quote": "These are not part of the starred index below."}
+  API_SECURITY_REFERENCE.md:
+    batch: 3
+    items:
+      - {"text": "Broken Object Level Authorization (BOLA, formerly IDOR) is the most prevalent and impactful API vulnerability.", "from": "#_2-owasp-api-security-top-10-2023", "quote": "is the most prevalent and impactful API vulnerability."}
+      - {"text": "BOLA is about reaching other users' data objects; BFLA is about invoking administrative functions a lower-privileged user should not reach.", "from": "#_2-owasp-api-security-top-10-2023", "quote": "BFLA is about accessing administrative or privileged functions that a lower-privileged user should not be able to invoke."}
+      - {"text": "Shadow APIs are production endpoints the security team does not know about.", "from": "#_1-api-security-landscape", "quote": "Shadow APIs are endpoints that exist in production but are unknown to the security team."}
+      - {"text": "SSRF arises when an API fetches a caller-supplied URL or hostname without validating the destination.", "from": "#_2-owasp-api-security-top-10-2023", "quote": "SSRF occurs when an API accepts a URL or hostname as input and makes a server-side HTTP request to that URL without validating the destination."}
+  CAPEC_REFERENCE.md:
+    batch: 3
+    items:
+      - {"text": "CAPEC is the attack-pattern bridge between CWE (the weakness) and ATT&CK (the adversary behavior).", "from": "#capec-attack-pattern-reference", "quote": "CAPEC is the attack-pattern bridge between CWE (the weakness) and ATT&CK (the adversary behavior)"}
+      - {"text": "The ATT&CK-mapped section is the direct bridge from a CAPEC pattern to an ATT&CK technique.", "from": "#attack-patterns-mapped-to-attampck", "quote": "Patterns with an explicit ATT&CK technique mapping: the direct CAPEC -> ATT&CK bridge."}
+      - {"text": "CAPEC patterns come at three levels of abstraction: Meta, Standard, and Detailed.", "from": "#capec-attack-pattern-reference", "quote": "Meta, 197 Standard, 341 Detailed."}
+  CYBER_RESILIENCE_BCDR_REFERENCE.md:
+    batch: 3
+    items:
+      - {"text": "In a cyber disaster, identity recovers first or nothing does, so the DR plan has to cover Active Directory forest recovery.", "from": "#cyber-resilience-amp-bcdr-reference", "quote": "because in a cyber disaster, identity recovers first or nothing does."}
+      - {"text": "NIST SP 800-34 dates to 2010 and does not discuss ransomware, encrypted backups, or the loss of Active Directory.", "from": "#how-cyber-scenarios-break-classical-dr-assumptions", "quote": "SP 800-34 dates to 2010 and is scoped to federal information systems; it does not discuss ransomware, encrypted backups, or the loss of Active Directory."}
+      - {"text": "Write the cyber scenario into the DR plan explicitly, such as total loss of the primary data center, primary identity, and online backups, and derive requirements from it.", "from": "#how-cyber-scenarios-break-classical-dr-assumptions", "quote": "Write the cyber scenario into the DR plan explicitly: \"total loss of primary data center and primary identity and online backups\", and derive requirements from it."}
+      - {"text": "The business impact analysis is the load-bearing wall of everything downstream in contingency planning.", "from": "#core-concepts-bia-mtd-rto-rpo", "quote": "The BIA is step 2 of SP 800-34's process and the load-bearing wall of everything downstream"}
+  SAAS_SECURITY_REFERENCE.md:
+    batch: 3
+    items:
+      - {"text": "SaaS is someone else's software but your security problem: you own the identities, sharing settings, integrations, and audit-log configuration.", "from": "#saas-security-reference", "quote": "SaaS is someone else's software but your security problem."}
+      - {"text": "The recent SaaS incidents were abused trust, not exploitation of vendor code.", "from": "#saas-security-reference", "quote": "The defining pattern of 2023-2025 SaaS incidents is not exploitation of vendor code. It is abused trust"}
+      - {"text": "In the Storm-0558 case, the customer who could see the attack was the one paying for the right log tier.", "from": "#case-studies-from-public-advisories", "quote": "the customer who could see the attack was the one paying for the right log tier."}
+      - {"text": "HAR files carry live session cookies, so scrub them before uploading them to a vendor.", "from": "#case-studies-from-public-advisories", "quote": "HAR files carry live session cookies; scrub them before upload"}
+  THREAT_ACTORS.md:
+    batch: 3
+    items:
+      - {"text": "Each group is mapped to its ATT&CK ID, aliases, targets, and signature TTPs.", "from": "#threat-actor-reference", "quote": "Each group is mapped to its MITRE ATT&CK ID, aliases, targets, and signature TTPs"}
+      - {"text": "Attribution here is based on publicly reported intelligence and is subject to revision.", "from": "#threat-actor-reference", "quote": "Attribution is based on publicly reported intelligence and is subject to revision."}
+      - {"text": "Ransomware groups commonly exfiltrate data before encrypting it.", "from": "#ransomware-groups", "quote": "data exfiltration before encryption (T1048)"}
+  ACTIVE_DIRECTORY_SECURITY_REFERENCE.md:
+    batch: 3
+    items:
+      - {"text": "FSMO roles should reside only on Tier 0 domain controllers.", "from": "#_1-ad-architecture-amp-security-fundamentals", "quote": "Defensive control: FSMO roles should reside exclusively on Tier 0 DCs."}
+      - {"text": "NTDS.dit is the database that stores all AD objects, including password hashes.", "from": "#_1-ad-architecture-amp-security-fundamentals", "quote": "is the Jet Blue ESE database that stores all AD objects, including password hashes."}
+      - {"text": "BloodHound's ACL collection shows up as LDAP queries that carry the LDAP_SERVER_SD_FLAGS_OID control, which reads the security descriptor of every object.", "from": "#_2-reconnaissance-amp-enumeration-detection", "quote": "(objectCategory=*) base filter, which queries the security descriptor of every AD object"}
+      - {"text": "To spot domain enumeration, baseline normal LDAP query rates per source IP over a 30-day rolling window.", "from": "#_2-reconnaissance-amp-enumeration-detection", "quote": "Establish normal LDAP query rates per source IP using a 30-day rolling window."}
+  ATTACK_MITIGATIONS_REFERENCE.md:
+    batch: 3
+    items:
+      - {"text": "ATT&CK mitigations (M-codes) are the defensive measures ATT&CK maps to adversary techniques.", "from": "#attampck-mitigations-reference", "quote": "the defensive measures ATT&CK maps to adversary techniques."}
+      - {"text": "Use the mitigations alongside the NIST 800-53 control mappings and D3FEND for a fuller defensive picture.", "from": "#attampck-mitigations-reference", "quote": "Use it alongside the NIST 800-53 control mappings and D3FEND for a full defensive picture."}
+      - {"text": "Each mitigation lists how many techniques it addresses and the behaviors it counters.", "from": "#attampck-mitigations-reference", "quote": "Each mitigation lists how many techniques it addresses and the behaviors it counters."}
+  COVERAGE_SCHEMA.md:
+    batch: 3
+    items:
+      - {"text": "The data model scores vendor coverage against ATT&CK techniques through NIST 800-53 controls.", "from": "#vendor-coverage-gap-scoring-data-model-amp-schema", "quote": "This page defines the data model for scoring vendor coverage against ATT&CK techniques through NIST 800-53 controls."}
+      - {"text": "In the CI-enforced on-disk schema, attack_technique must be an ATT&CK ID (T#### with an optional .###).", "from": "#coverage-edge-schema-graph-model", "quote": "must be an ATT&CK ID (T####, optionally .###)."}
+      - {"text": "ATTACK-Navi custom heatmap layers can show the resulting coverage scores directly on the ATT&CK matrix.", "from": "#connecting-to-attack-navi", "quote": "ATTACK-Navi supports custom heatmap layers that can visualize coverage scores directly on the ATT&CK matrix."}
+  INSIDER_THREAT_REFERENCE.md:
+    batch: 4
+    items:
+      - {"text": "The insider is the one adversary who never needs initial access.", "from": "#insider-threat-program-reference", "quote": "The insider is the one adversary who never needs initial access."}
+      - {"text": "The CTID Insider Threat TTP Knowledge Base is built from real insider case files, not hypothetical scenarios or red-team guesses.", "from": "#the-ctid-insider-threat-ttp-knowledge-base", "quote": "not hypothetical scenarios or red-team guesses."}
+      - {"text": "The Knowledge Base is pinned to ATT&CK v14, so its technique IDs need checking against the current release.", "from": "#the-ctid-insider-threat-ttp-knowledge-base", "quote": "The KB is pinned to ATT&CK v14"}
+      - {"text": "Hunt playbooks written for external actors miss insiders: there is no beacon, no persistence implant, and no privilege escalation to catch.", "from": "#how-insider-ttps-differ-from-external-adversary-attampck-usage", "quote": "there is no beacon, no persistence implant, no privilege escalation to catch."}
+  NETWORK_DEFENSE_REFERENCE.md:
+    batch: 4
+    items:
+      - {"text": "No single network control is sufficient; layered, overlapping controls compensate when one fails.", "from": "#_1-network-defense-architecture", "quote": "no single control is sufficient; multiple overlapping controls are required so that when one fails, others compensate."}
+      - {"text": "Baseline normal traffic patterns over a 2 to 4 week period before hunting for anomalies.", "from": "#_1-network-defense-architecture", "quote": "Capture \"normal\" traffic patterns (protocols, top talkers, bytes/sec, connection frequency) over a 2-4 week period."}
+      - {"text": "Zeek is a passive analysis framework that turns raw packets into structured, high-level logs.", "from": "#_3-zeek-network-analysis-framework", "quote": "is a passive network analysis framework that transforms raw packet data into structured, high-level logs."}
+      - {"text": "Community ID is a standard flow hash for correlating the same event across Zeek, Suricata, Arkime, and EDR tools.", "from": "#_3-zeek-network-analysis-framework", "quote": "is a standardized flow hash enabling correlation across Zeek, Suricata, Arkime, and EDR tools on the same event."}
+  NETWORK_MONITORING_REFERENCE.md:
+    batch: 4
+    items:
+      - {"text": "Use hardware TAPs for critical perimeter monitoring where dropped packets are not acceptable.", "from": "#_1-network-monitoring-architecture", "quote": "Use hardware TAPs for critical perimeter monitoring where you cannot afford to drop packets."}
+      - {"text": "JA3S fingerprints the server-side TLS stack, which helps detect C2 frameworks regardless of IP address or certificate.", "from": "#_4-ja3ja3s-tls-fingerprinting", "quote": "JA3S identifies the server-side TLS stack, which is useful for detecting C2 frameworks by their server configuration regardless of IP address or certificate."}
+      - {"text": "JARM actively fingerprints a TLS server by sending crafted ClientHello packets and recording the responses.", "from": "#_4-ja3ja3s-tls-fingerprinting", "quote": "JARM sends 10 specially crafted TLS ClientHello packets and records server responses"}
+  PENTEST_CHECKLISTS.md:
+    batch: 4
+    items:
+      - {"text": "Define every in-scope IP range, hostname, domain, and URL in writing before testing.", "from": "#_1-pre-engagement", "quote": "Define all in-scope IP ranges, hostnames, domains, and URLs in writing"}
+      - {"text": "Get written authorization signed by an appropriate authority such as the CISO, CTO, or a legal signatory.", "from": "#_1-pre-engagement", "quote": "Written authorization signed by appropriate authority (CISO, CTO, legal signatory)"}
+      - {"text": "Confirm whether the target is production or staging before testing starts.", "from": "#_1-pre-engagement", "quote": "Is the target production or staging?"}
+  PRIVACY_ENGINEERING_REFERENCE.md:
+    batch: 4
+    items:
+      - {"text": "Security is a necessary but not sufficient condition for privacy.", "from": "#_1-privacy-fundamentals", "quote": "Security is a necessary but not sufficient condition for privacy."}
+      - {"text": "Privacy by Design is codified in GDPR Recital 78 and Article 25, data protection by design and by default.", "from": "#_5-privacy-by-design-7-principles", "quote": "codified in GDPR Recital 78 and Art. 25 (data protection by design and by default)."}
+      - {"text": "Pseudonymization replaces directly identifying data with an artificial identifier.", "from": "#_7-technical-privacy-controls", "quote": "Pseudonymization replaces directly identifying data with an artificial identifier."}
+  SECURE_CODING_REFERENCE.md:
+    batch: 4
+    items:
+      - {"text": "Each OWASP Top 10 category comes with a vulnerable code sample, a secure rewrite, and the tooling that detects the flaw.", "from": "#secure-coding-reference", "quote": "each OWASP Top 10 category comes with a vulnerable code sample, a secure rewrite, and the tooling that detects the flaw."}
+      - {"text": "Validate input against an allow-list: define exactly what is permitted and reject everything else.", "from": "#input-validation-amp-output-encoding", "quote": "Allow-list over deny-list: Define exactly what is permitted; reject everything else."}
+      - {"text": "Output encoding must match the context where the data is rendered.", "from": "#input-validation-amp-output-encoding", "quote": "Output encoding must match the context where data is rendered:"}
+      - {"text": "For PBKDF2-HMAC-SHA256 password hashing the page gives at least 600,000 iterations, per NIST 2023 guidance.", "from": "#authentication-amp-session-management", "quote": "PBKDF2-HMAC-SHA256 (NIST SP 800-132, ≥600,000 iterations per NIST 2023):"}
+  THREAT_MODELING_REFERENCE.md:
+    batch: 4
+    items:
+      - {"text": "Threat modeling identifies threats, quantifies their risk, and designs mitigations before they reach production.", "from": "#why-threat-modeling", "quote": "Threat modeling is a structured approach to identifying security threats, quantifying their risk, and designing mitigations before those threats are realized in production systems."}
+      - {"text": "Threat modeling is triggered by changes that alter a system's security posture.", "from": "#why-threat-modeling", "quote": "Threat modeling is triggered by changes that alter the security posture of a system:"}
+      - {"text": "STRIDE-per-interaction applies all six STRIDE categories to every data flow that crosses a trust boundary.", "from": "#stride-methodology-microsoft", "quote": "applies all six STRIDE categories to every interaction (data flow crossing a trust boundary) in the DFD"}
+      - {"text": "LINDDUN is a privacy-focused threat modeling framework analogous to STRIDE.", "from": "#linddun-privacy-threat-modeling", "quote": "LINDDUN is a privacy-focused threat modeling framework analogous to STRIDE for security."}
+  TOOLS.md:
+    batch: 4
+    items:
+      - {"text": "Each tool entry says whether it is open source or commercial, what it is mainly used for, and links to its homepage.", "from": "#security-tools-reference", "quote": "Each entry says whether the tool is open source (OSS) or commercial (COM), what it is primarily used for, and links to its homepage."}
+      - {"text": "Tools are organized by function, such as EDR, SIEM, threat intelligence, red teaming, forensics, cloud, and AppSec.", "from": "#security-tools-reference", "quote": "organized by function: EDR, SIEM, threat intel, red teaming, forensics, cloud, AppSec, and more."}
+      - {"text": "For how tools map to NIST 800-53 controls and ATT&CK techniques, use the Controls Mapping page and the Navigator layers.", "from": "#security-tools-reference", "quote": "For deeper context on how tools map to NIST 800-53 controls and ATT&CK techniques"}
+  WINDOWS_HARDENING_REFERENCE.md:
+    batch: 4
+    items:
+      - {"text": "The built-in Administrator account (RID 500) cannot be locked out by account lockout policy, a brute-force risk.", "from": "#_2-account-and-authentication-hardening", "quote": "cannot be locked out by account lockout policy, a significant brute-force risk."}
+      - {"text": "Credential Guard moves NTLM hashes and Kerberos TGTs into Virtual Secure Mode, managed by the hypervisor.", "from": "#_1-windows-security-architecture", "quote": "Credential Guard moves NTLM hashes and Kerberos TGTs into VSM (Virtual Secure Mode)"}
+      - {"text": "Windows Event Forwarding collects event logs centrally without third-party agents.", "from": "#_5-windows-event-forwarding-wef", "quote": "WEF enables centralized collection of Windows Event Logs from source computers to one or more collector servers without third-party agents."}
+      - {"text": "NTLM is a legacy protocol vulnerable to pass-the-hash, relay attacks, and offline cracking.", "from": "#_2-account-and-authentication-hardening", "quote": "NTLM is a legacy authentication protocol vulnerable to pass-the-hash, relay attacks, and brute-force offline cracking."}
+  ATTACK_MATRIX_ANALYSIS_REFERENCE.md:
+    batch: 4
+    items:
+      - {"text": "Each lens recolors the same ATT&CK matrix by a different security dimension, so one matrix answers different questions.", "from": "#attampck-matrix-analysis-reference", "quote": "so a different question gets answered by the same matrix."}
+      - {"text": "Counts are availability, not proof: mitigation and control counts show what could cover a technique, not what does.", "from": "#reading-the-scores-safely", "quote": "Counts are availability, not proof."}
+      - {"text": "Filter the matrix by threat group, platform, or data source before you color it.", "from": "#an-analysis-workflow", "quote": "Filter first."}
+  DATA_SECURITY_REFERENCE.md:
+    batch: 4
+    items:
+      - {"text": "A data security program starts from what data exists, where it lives, and what its loss costs, rather than from the systems around it.", "from": "#data-security-reference", "quote": "it starts from what data exists, where it lives, and what its loss costs"}
+      - {"text": "You cannot protect what you have not found, and you cannot prioritize what you have not classified.", "from": "#the-data-security-program-model", "quote": "You cannot protect what you have not found, and you cannot prioritize what you have not classified."}
+      - {"text": "DLP programs die of false positives, not of missed leaks.", "from": "#dlp-architecture", "quote": "DLP programs die of false positives, not of missed leaks."}
+      - {"text": "Minimization works before the incident: data that was deleted, never collected, or de-identified cannot be stolen or leaked.", "from": "#retention-minimization-amp-de-identification", "quote": "Minimization is the control that works before the incident"}
+  DEVSECOPS_REFERENCE.md:
+    batch: 4
+    items:
+      - {"text": "Start with guardrails, tune false-positive rates, then promote categories to gates as confidence grows.", "from": "#_1-devsecops-fundamentals", "quote": "Start with guardrails to build data, tune false positive rates, then progressively promote categories to gates as confidence grows."}
+      - {"text": "Security champions should be volunteers, not assigned.", "from": "#_1-devsecops-fundamentals", "quote": "Volunteer (not assigned)"}
+      - {"text": "Direct dependencies are typically only 10 to 20 percent of the total dependency tree.", "from": "#_3-sca-amp-dependency-security", "quote": "Direct dependencies typically represent only 10-20% of the total dependency tree."}
+      - {"text": "New SAST findings should enter a triage queue rather than be assigned directly as bugs.", "from": "#_2-sast-amp-code-analysis", "quote": "All new findings enter a triage queue (not directly assigned as bugs)"}
+  ENTERPRISE_SECURITY_CONTROLS.md:
+    batch: 4
+    items:
+      - {"text": "Run a WAF in detection mode first to baseline false positives before enabling blocking.", "from": "#_1-web-application-firewall-waf-rules", "quote": "Log only (no blocking); use to baseline false positives before enabling block mode"}
+      - {"text": "ASR rules block behaviors commonly used by malware, independent of signature detection.", "from": "#_2-microsoft-defender-attack-surface-reduction-asr-rules", "quote": "ASR rules block specific behaviors commonly used by malware, independent of signature detection."}
+      - {"text": "Exclude specific paths only; never use broad wildcard exclusions.", "from": "#_3-crowdstrike-falcon-prevention-policies", "quote": "Only exclude specific paths, not broad wildcard exclusions"}
+      - {"text": "In SPF, -all is a hard fail, ~all a soft fail, and ?all neutral, which should be avoided.", "from": "#_5-proofpoint-email-security", "quote": "-all = hard fail (reject); ~all = soft fail (mark); ?all = neutral (no action; avoid)"}
+  FIRMWARE_IOT_SECURITY_REFERENCE.md:
+    batch: 4
+    items:
+      - {"text": "UART is the most commonly exposed debug interface on IoT hardware.", "from": "#_1-iotfirmware-attack-surface", "quote": "Universal Asynchronous Receiver-Transmitter (UART) is the most commonly exposed debug interface."}
+      - {"text": "binwalk is the primary firmware analysis tool: it finds file signatures, compression boundaries, encrypted regions, and embedded filesystems.", "from": "#_3-firmware-analysis-tools", "quote": "binwalk is the primary tool for firmware analysis: it identifies file signatures, compression boundaries, encrypted regions, and embedded filesystems."}
+      - {"text": "MQTT, the dominant IoT messaging protocol, runs on port 1883 in plain text and 8883 with TLS.", "from": "#_5-iot-protocol-security", "quote": "is the dominant IoT messaging protocol, running on port 1883 (plain) or 8883 (TLS)."}
+      - {"text": "SMM rootkits run from SMRAM, a memory region locked from the operating system.", "from": "#_4-uefibios-security", "quote": "Executes from SMRAM (memory region locked from OS)"}
+  MOBILE_SECURITY_REFERENCE.md:
+    batch: 4
+    items:
+      - {"text": "Each installed Android app receives its own Linux UID, which is the basis of the application sandbox.", "from": "#_2-android-security-architecture", "quote": "Each installed app receives a unique Linux UID (10000-19999 range)"}
+      - {"text": "Android Keystore keys never leave secure hardware (TEE or StrongBox).", "from": "#_2-android-security-architecture", "quote": "Keys never leave secure hardware (TEE or StrongBox)"}
+      - {"text": "Exported broadcast receivers without permission restrictions accept intents from any app.", "from": "#_5-common-mobile-vulnerabilities", "quote": "Exported broadcast receivers without permission restrictions receive any intent from any app"}
+      - {"text": "Use App Links over HTTPS with assetlinks.json instead of custom URL schemes to prevent deep link hijacking.", "from": "#_5-common-mobile-vulnerabilities", "quote": "Defense: Use App Links (HTTPS + assetlinks.json) instead of custom schemes:"}
+  NOTABLE_INCIDENTS.md:
+    batch: 4
+    items:
+      - {"text": "The early incidents covered here established the legal, technical, and geopolitical frameworks of modern cybersecurity.", "from": "#_1-early-hacking-history-1986-2009", "quote": "The incidents below established the legal, technical, and geopolitical frameworks that define modern cybersecurity."}
+      - {"text": "The Colonial Pipeline attack began with a VPN account that had no MFA and a password from a dark web dump.", "from": "#_3-recent-events-2020-2025", "quote": "Compromised VPN account (no MFA) using a leaked password found in a dark web dump"}
+      - {"text": "The Target breach started with a phishing email to an HVAC vendor whose VPN credentials were used to reach the point-of-sale systems.", "from": "#_2-nation-state-campaigns-2010-2020", "quote": "Phishing email to Fazio Mechanical (HVAC vendor); used vendor VPN credentials to pivot to Target POS systems"}
+  SECURITY_TOOL_DOCUMENTATION.md:
+    batch: 4
+    items:
+      - {"text": "The index lists official documentation, API docs, GitHub organizations, and learning resources for each platform in the stack.", "from": "#security-tool-documentation-amp-repositories", "quote": "Reference index of official documentation, developer/API docs, GitHub organizations and repositories, notable community/integration repos, and learning resources"}
+      - {"text": "URLs were collected by web-assisted research and some deep links were not re-verified, so confirm the current URL before relying on it.", "from": "#security-tool-documentation-amp-repositories", "quote": "some deep links were not live-re-verified."}
+      - {"text": "Vendor products are referenced descriptively, not endorsed.", "from": "#security-tool-documentation-amp-repositories", "quote": "Vendor products are referenced descriptively, not endorsed."}
+  THREAT_INTELLIGENCE_REFERENCE.md:
+    batch: 4
+    items:
+      - {"text": "Intelligence comes in four levels, strategic, operational, tactical, and technical, each with different consumers and decision horizons.", "from": "#_1-cti-fundamentals", "quote": "Intelligence is classified into four distinct levels, each serving different consumers and decision horizons:"}
+      - {"text": "The Pyramid of Pain ranks indicator types by how hard they are for adversaries to change.", "from": "#_1-cti-fundamentals", "quote": "describes the relative difficulty for adversaries to change different IOC types"}
+      - {"text": "MISP automatically correlates attributes across events when their values match.", "from": "#_2-threat-intelligence-platforms", "quote": "MISP automatically correlates attributes across events when values match."}
+      - {"text": "OpenCTI stores all objects natively as STIX 2.1.", "from": "#_2-threat-intelligence-platforms", "quote": "Native STIX 2.1: All objects stored as STIX SDOs/SCOs/SROs"}
+  DEEPFAKE_DEFENSE_REFERENCE.md:
+    batch: 4
+    items:
+      - {"text": "No single control stops deepfakes; process controls such as dual approval and out-of-band verification carry the load.", "from": "#defense-in-depth-model", "quote": "No single control stops deepfakes."}
+      - {"text": "Design so that no synthetic media, however perfect, can move money or grant access on its own.", "from": "#layer-1-process-amp-policy-controls-the-strongest-layer", "quote": "Design so that no synthetic media, however perfect, can move money or grant access on its own."}
+      - {"text": "When a call feels like an executive making an unusual request, hang up and call back on a known-good number.", "from": "#layer-2-out-of-band-verification-amp-the-live-call-playbook", "quote": "Hang up and call back on a known-good number"}
+      - {"text": "Automated deepfake detectors are a triage and monitoring layer, not a verdict engine.", "from": "#layer-4-detection-tooling-and-its-limits", "quote": "Automated detectors are a useful triage/monitoring layer, not a verdict engine."}
+  ENTERPRISE_INFRASTRUCTURE.md:
+    batch: 4
+    items:
+      - {"text": "Understanding what a system is and does is a prerequisite for both attacking and defending it.", "from": "#enterprise-infrastructure-reference", "quote": "Understanding what you are working with, and what it does, is a prerequisite for both attacking and defending it effectively."}
+      - {"text": "The domain controller is the most critical server in a Windows Active Directory environment.", "from": "#_2-server-roles-amp-functions", "quote": "The Domain Controller is the most critical server in a Windows Active Directory environment."}
+      - {"text": "Windows workstations are the most common end-user platform in enterprises and the primary initial access target.", "from": "#_1-enterprise-operating-systems", "quote": "Windows workstations represent the most common end-user computing platform in enterprise environments and are the primary initial access target."}
+  FRAUD_FRAMEWORK_REFERENCE.md:
+    batch: 5
+    items:
+      - {"text": "F3 is a behavior-based model of cyber-enabled financial fraud, the ATT&CK-style counterpart for fraud actor tradecraft.", "from": "#mitre-fight-fraud-framework-f3-reference", "quote": "is a behavior-based model of cyber-enabled financial fraud, the ATT&CK-style counterpart for fraud actor tradecraft."}
+      - {"text": "ATT&CK coverage stops at the intrusion, while fraud loss usually happens after it; F3 extends the model through Monetization.", "from": "#mitre-fight-fraud-framework-f3-reference", "quote": "Traditional ATT&CK coverage stops at the intrusion. Fraud loss usually happens after it"}
+      - {"text": "F3 gives fraud teams and cyber teams one shared vocabulary for the same behavior chain.", "from": "#mitre-fight-fraud-framework-f3-reference", "quote": "It gives fraud teams and cyber teams one shared vocabulary"}
+      - {"text": "F3's first three tactics, Reconnaissance, Resource Development, and Initial Access, mirror ATT&CK.", "from": "#the-f3-kill-chain", "quote": "Tactics 1-3 (Reconnaissance, Resource Development, Initial Access) mirror ATT&CK."}
+  HARDWARE_SECURITY_REFERENCE.md:
+    batch: 5
+    items:
+      - {"text": "Measured Boot extends each stage of the boot chain into TPM PCRs before the next stage runs.", "from": "#_1-tpm-20-deep-dive", "quote": "Measured Boot extends each stage of the boot chain into TPM PCRs before executing the next stage:"}
+      - {"text": "BitLocker seals its Volume Master Key to TPM PCR values.", "from": "#_1-tpm-20-deep-dive", "quote": "BitLocker seals the VMK (Volume Master Key) to PCR values."}
+      - {"text": "A key ceremony is the formal, audited process for generating and distributing a high-value key such as a root CA key.", "from": "#_2-hsm-amp-fips-140-3", "quote": "A key ceremony is the formal, audited process of generating and distributing a high-value key (e.g., Root CA key):"}
+      - {"text": "Voltage glitching causes a CPU or MCU to skip instructions, mis-execute conditionals, or corrupt registers.", "from": "#_5-fault-injection-amp-physical-attacks", "quote": "Voltage glitching introduces brief power supply disturbances to cause CPU/MCU to skip instructions, mis-execute conditionals, or corrupt registers."}
+  HOMELAB_SETUP.md:
+    batch: 5
+    items:
+      - {"text": "A lab lets you break things freely and reset to a snapshot, which you cannot do on production systems.", "from": "#home-lab-setup-guide", "quote": "you cannot safely learn offense or detection on production systems, and this doc lets you break things freely and reset to a snapshot."}
+      - {"text": "For a dedicated server, Proxmox VE is the page's pick for its balance of features, cost, and community support.", "from": "#_2-hypervisor-options", "quote": "Proxmox VE (best balance of features, cost, and community support)"}
+      - {"text": "Commando VM is an offensive Windows distribution, not a malware-analysis box.", "from": "#_8-malware-analysis-lab", "quote": "Commando VM (§3) is Mandiant's offensive Windows distro, not a malware-analysis box."}
+      - {"text": "Snapshot the clean VM state before touching a malware sample.", "from": "#_8-malware-analysis-lab", "quote": "Snapshot the clean VM state before touching the sample."}
+  LINUX_HARDENING_REFERENCE.md:
+    batch: 5
+    items:
+      - {"text": "Servers should never have a graphical desktop environment installed.", "from": "#_1-linux-hardening-fundamentals-amp-cis-benchmarks", "quote": "Servers should never have a graphical desktop environment (GUI)."}
+      - {"text": "Separate partitions with restrictive mount options are a core CIS Benchmark requirement.", "from": "#_3-filesystem-security", "quote": "Separate partitions with restrictive mount options are a core CIS Benchmark requirement."}
+      - {"text": "Setuid and setgid binaries run with elevated privileges and are a significant attack surface worth auditing.", "from": "#_3-filesystem-security", "quote": "Setuid and setgid binaries run with elevated privileges and represent a significant attack surface."}
+      - {"text": "When SELinux blocks a legitimate application, write a custom policy module rather than disabling SELinux.", "from": "#_5-selinux-configuration", "quote": "When a legitimate application is being blocked by SELinux, create a custom policy module:"}
+  NETWORK_PROTOCOLS_REFERENCE.md:
+    batch: 5
+    items:
+      - {"text": "DNS over HTTPS bypasses traditional DNS monitoring such as Zeek dns.log and DNS firewalls.", "from": "#_2-dns-security", "quote": "DoH bypasses traditional DNS monitoring (Zeek dns.log, DNS firewall)."}
+      - {"text": "Ephemeral key exchange (ECDHE or DHE) keeps session keys from being derived from the long-term private key.", "from": "#_3-tlsssl-security", "quote": "Ephemeral keys (ECDHE/DHE) ensure session keys not derivable from long-term private key."}
+      - {"text": "BCP 38 ingress filtering, where ISPs drop packets with spoofed source addresses, is the control against UDP amplification.", "from": "#_1-tcpip-fundamentals", "quote": "BCP 38 (RFC 2827): Ingress filtering: ISPs drop spoofed source IP packets."}
+      - {"text": "Subdomain entropy above 3.5 bits per character suggests a DGA domain.", "from": "#_2-dns-security", "quote": "Shannon entropy of subdomain > 3.5 bits/char suggests DGA."}
+  OSINT_REFERENCE.md:
+    batch: 5
+    items:
+      - {"text": "Every technique on the page is for use only within explicitly authorized engagements and legal frameworks.", "from": "#osint-reference", "quote": "All techniques are for use only within explicitly authorized engagements and legal frameworks."}
+      - {"text": "LinkedIn is the most valuable social media source for corporate targets.", "from": "#_4-social-media-osint-socmint", "quote": "LinkedIn is the most valuable SOCMINT source for corporate targets."}
+      - {"text": "CDN IP addresses geolocate to the CDN point of presence, not the origin server.", "from": "#_3-domain-and-ip-intelligence", "quote": "CDN IPs (Cloudflare, Akamai, Fastly) geo-locate to CDN PoP, not origin server"}
+      - {"text": "Age sock-puppet accounts for weeks or months with organic activity before operational use.", "from": "#_1-osint-fundamentals-and-legal-framework", "quote": "Age accounts weeks/months with organic activity before operational use"}
+  PASSWORD_SECURITY_REFERENCE.md:
+    batch: 5
+    items:
+      - {"text": "Fast hash algorithms are catastrophically unsuitable for password storage because they are designed for speed.", "from": "#secure-password-storage-developer-reference", "quote": "The following algorithms are cryptographically fast, designed for speed, which makes them catastrophically unsuitable for password storage:"}
+      - {"text": "Argon2id is OWASP's first-choice password hashing algorithm, with bcrypt second for wide compatibility.", "from": "#secure-password-storage-developer-reference", "quote": "Argon2id: First Choice (OWASP Primary Recommendation)"}
+      - {"text": "A pepper is a secret added before hashing and stored separately from the database.", "from": "#secure-password-storage-developer-reference", "quote": "A pepper is a secret value added to the password before hashing, stored separately from the database"}
+      - {"text": "Password spraying tests a few common passwords across many accounts to stay under lockout thresholds.", "from": "#password-attack-types", "quote": "Password spraying tests one or a few common passwords across many accounts to avoid account lockout thresholds"}
+  PRIVESC_REFERENCE.md:
+    batch: 5
+    items:
+      - {"text": "A SUID binary runs with its owner's privileges, typically root, which makes misplaced SUID bits an escalation path.", "from": "#_1-linux-privilege-escalation", "quote": "When a binary has the SUID bit set, it runs with the file owner's privileges (typically root)."}
+      - {"text": "An unquoted Windows service path containing spaces lets Windows try to execute intermediate path segments.", "from": "#_2-windows-privilege-escalation", "quote": "When a service binary path contains spaces and is not quoted, Windows may try to execute intermediate path segments."}
+      - {"text": "SeImpersonatePrivilege, common for service accounts and IIS app pools, can be used to impersonate SYSTEM.", "from": "#_2-windows-privilege-escalation", "quote": "(common for service accounts, IIS app pools), you can impersonate SYSTEM."}
+      - {"text": "Cloud privilege escalation abuses over-permissioned IAM identities and role trust rather than binaries or kernel flaws.", "from": "#_4-cloud-privilege-escalation", "quote": "instead of exploiting binaries or kernel flaws, attackers abuse over-permissioned IAM identities, misconfigured role trust relationships, service account keys, and metadata service access."}
+  SECURITY_ARCHITECTURE_REFERENCE.md:
+    batch: 5
+    items:
+      - {"text": "A threat-driven design starts with adversary capabilities and designs controls against them.", "from": "#_1-security-architecture-fundamentals", "quote": "A threat-driven approach starts with adversary capabilities and designs"}
+      - {"text": "Architecture decision records capture the context, options considered, and rationale for significant security decisions.", "from": "#_1-security-architecture-fundamentals", "quote": "ADRs document the context, options considered, and rationale for significant"}
+      - {"text": "SABSA is a risk-driven enterprise security architecture framework.", "from": "#_1-security-architecture-fundamentals", "quote": "SABSA is a risk-driven enterprise security architecture framework."}
+      - {"text": "DNS is exploited for C2, data exfiltration, and lateral movement.", "from": "#_3-network-security-architecture", "quote": "DNS is exploited for C2, data exfiltration, and lateral movement."}
+  SOAR_AUTOMATION_REFERENCE.md:
+    batch: 5
+    items:
+      - {"text": "SIEM detects and raises alerts; SOAR consumes those alerts and drives automated or guided response.", "from": "#_1-soar-fundamentals", "quote": "SIEM detects and generates alerts; SOAR consumes those alerts and drives automated or guided response."}
+      - {"text": "Not every response action should be fully automated; approval gates keep a human in the loop.", "from": "#_2-playbook-design", "quote": "Not all response actions should be fully automated."}
+      - {"text": "For actions with side effects, such as account disables and firewall blocks, keep a rollback log.", "from": "#_2-playbook-design", "quote": "For actions with side effects (account disables, firewall blocks), maintain a rollback log."}
+      - {"text": "Store playbook definitions in Git.", "from": "#_2-playbook-design", "quote": "Store all playbook definitions (YAML, JSON, or exported formats) in Git."}
+  WEB_APPLICATION_SECURITY_REFERENCE.md:
+    batch: 5
+    items:
+      - {"text": "Broken Access Control is the number one web application risk.", "from": "#_1-owasp-top-10-2021", "quote": "Broken Access Control is the number one web application risk."}
+      - {"text": "Any user-controlled URL that the server fetches is a potential SSRF vector.", "from": "#_1-owasp-top-10-2021", "quote": "Any user-controlled URL the server fetches is a potential SSRF vector"}
+      - {"text": "An ORM does not protect raw queries: string-built raw SQL is still injectable.", "from": "#_2-sql-injection-deep-dive", "quote": "vulnerable despite ORM"}
+      - {"text": "Issue a new session ID after login to prevent session fixation.", "from": "#_4-authentication-and-session-security", "quote": "New session ID issued after login (prevent fixation)"}
+  CYBERSECURITY_BOOK_LIST.md:
+    batch: 5
+    items:
+      - {"text": "Each section pairs books with repositories, channels, certifications, and practice platforms, so you read and lab in parallel.", "from": "#cybersecurity-book-and-resource-list", "quote": "Each section pairs the best books with the repos, YouTube channels, certifications, and practice platforms that let you apply them"}
+      - {"text": "Pick the role or skill area you care about first, then work through its section.", "from": "#how-to-use-this-file", "quote": "Pick the role or skill area you care about first."}
+      - {"text": "Role-based learning paths give a starting sequence when you do not know where to begin.", "from": "#cybersecurity-book-and-resource-list", "quote": "learning paths give you a starting sequence when you don't know where to begin."}
+  DECEPTION_TECHNOLOGY_REFERENCE.md:
+    batch: 5
+    items:
+      - {"text": "Honeytokens are fake credentials, files, records, or tokens that have no legitimate use and raise an alert when touched.", "from": "#honeytokens", "quote": "that have no legitimate use and generate an alert when touched."}
+      - {"text": "The page recommends at least one decoy for every 10 real assets.", "from": "#deception-deployment-strategy", "quote": "Recommended ratio: 1 decoy per 10 real assets (minimum)"}
+      - {"text": "Deception alerts should bypass normal SOC triage queues and escalate immediately.", "from": "#deception-deployment-strategy", "quote": "Deception events should bypass normal SOC triage queues and escalate immediately"}
+      - {"text": "Decoys should match the real environment's fingerprint, for example the same Windows Server version as production.", "from": "#deception-deployment-strategy", "quote": "Match OS fingerprint to real environment"}
+  EMB3D_REFERENCE.md:
+    batch: 5
+    items:
+      - {"text": "EMB3D describes a device by its properties and returns the threats that property set attracts and the mitigations the vendor must build in.", "from": "#mitre-emb3d-reference-embedded-devices", "quote": "describe a device by its properties"}
+      - {"text": "EMB3D mitigations are device-internal engineering mechanisms, not deployment advice; network isolation is explicitly not an EMB3D mitigation.", "from": "#mitre-emb3d-reference-embedded-devices", "quote": "is that EMB3D mitigations are device-internal engineering mechanisms, not deployment advice."}
+      - {"text": "Its one official standards mapping is to ISA/IEC 62443-4-2.", "from": "#alignment-with-isaiec-62443-4-2", "quote": "This is EMB3D's one official standards mapping"}
+      - {"text": "The relationship between EMB3D and CISA Secure by Design is thematic; no MITRE and CISA crosswalk exists.", "from": "#emb3d-and-cisa-secure-by-design", "quote": "The relationship is thematic, not a formal mapping; no MITRE/CISA crosswalk document exists."}
+  FUZZING_VULNERABILITY_RESEARCH.md:
+    batch: 5
+    items:
+      - {"text": "Sanitizers are compiler-inserted runtime checks that catch bugs which would not crash on their own.", "from": "#_2-fuzzing-fundamentals", "quote": "Sanitizers are compiler-inserted runtime checks that detect bugs that don't crash normally:"}
+      - {"text": "The standard coordinated disclosure window is 90 days, the Google Project Zero standard.", "from": "#_1-vulnerability-research-overview", "quote": "Standard coordinated disclosure window: 90 days (Google Project Zero standard)"}
+      - {"text": "AFL++ persistent mode avoids fork overhead by running many test cases in one process.", "from": "#_3-afl-advanced-fuzzing-framework", "quote": "Avoids fork overhead by running multiple test cases in the same process:"}
+      - {"text": "Taint analysis tracks how user-controlled input flows through a program to find when it reaches dangerous sinks.", "from": "#_9-taint-analysis", "quote": "Taint analysis tracks how \"tainted\" data (user-controlled input) flows through a program to detect when it reaches dangerous sinks."}
+  HONEYPOT_DECEPTION_REFERENCE.md:
+    batch: 5
+    items:
+      - {"text": "No legitimate traffic touches a decoy, so every decoy alert is a true positive.", "from": "#honeypot-amp-deception-technology-reference", "quote": "Because no legitimate traffic ever touches a decoy, every alert is a true positive"}
+      - {"text": "Defenders need only one alert from any decoy, while attackers must avoid all of them.", "from": "#part-1-deception-technology-fundamentals", "quote": "defenders need only one alert (any honeypot access) while attackers must successfully avoid ALL decoys."}
+      - {"text": "Deploy one OpenCanary instance per VLAN or network segment.", "from": "#part-2-thinkst-opencanary-open-source-honeypot-framework", "quote": "Deploy one OpenCanary instance per VLAN/network segment."}
+      - {"text": "In most jurisdictions honeypots are not entrapment.", "from": "#part-1-deception-technology-fundamentals", "quote": "In most jurisdictions, honeypots are NOT entrapment."}
+  ICS_ATTACK_ATLAS.md:
+    batch: 5
+    items:
+      - {"text": "The atlas cross-references each ATT&CK for ICS technique to the groups and software that use it and the mitigations that address it.", "from": "#ics-attampck-technique-atlas", "quote": "cross-referenced to the threat groups and software that use them and the ATT&CK mitigations that address them."}
+      - {"text": "In the tables, Grp counts threat groups, SW counts software, Mit counts ATT&CK mitigations, and Det marks existing detection guidance.", "from": "#ics-attampck-technique-atlas", "quote": "Legend: Grp = threat groups, SW = software, Mit = ATT&CK mitigations, Det = ATT&CK detection guidance exists."}
+      - {"text": "The machine-readable source for the atlas is data/attack/ics/technique_profiles.jsonl.", "from": "#ics-attampck-technique-atlas", "quote": "Machine-readable source: data/attack/ics/technique_profiles.jsonl."}
+  LOTL_DETECTION_REFERENCE.md:
+    batch: 5
+    items:
+      - {"text": "Living off the land is not a signature problem; it is a baseline problem.", "from": "#the-detection-problem-stated-honestly", "quote": "LOTL is not a signature problem; it is a baseline problem."}
+      - {"text": "There is no official LOTL technique list in ATT&CK; living off the land is a style that cuts across tactics.", "from": "#where-lotl-lands-in-attampck", "quote": "There is no official \"LOTL technique list\" in MITRE ATT&CK; living off the land is a style that cuts across tactics, not a technique."}
+      - {"text": "You cannot baseline what you never record, so telemetry comes first.", "from": "#telemetry-foundation", "quote": "You cannot baseline what you never record."}
+      - {"text": "Pull community catalogs such as LOLBAS and GTFOBins on a schedule and diff each pull, so new entries open review tickets.", "from": "#the-community-catalogs-as-defensive-inventories", "quote": "Pull the machine-readable feed (JSON/CSV/YAML) on a schedule; diff against the last pull so new entries open review tickets rather than silently widening a list."}
+  MOBILE_ATTACK_ATLAS.md:
+    batch: 5
+    items:
+      - {"text": "The atlas cross-references each ATT&CK for Mobile technique to the groups and software that use it and the mitigations that address it.", "from": "#mobile-attampck-technique-atlas", "quote": "cross-referenced to the threat groups and software that use them and the ATT&CK mitigations that address them."}
+      - {"text": "In the tables, Grp counts threat groups, SW counts software, Mit counts ATT&CK mitigations, and Det marks existing detection guidance.", "from": "#mobile-attampck-technique-atlas", "quote": "Legend: Grp = threat groups, SW = software, Mit = ATT&CK mitigations, Det = ATT&CK detection guidance exists."}
+      - {"text": "Read it with the Enterprise Technique Atlas, Threat Group Profiles, and the Mobile Security Reference.", "from": "#mobile-attampck-technique-atlas", "quote": "Related: ATT&CK Technique Atlas (Enterprise), Threat Group Profiles, Threat-Informed Defense, Mobile Security Reference"}
+  NETWORK_ATTACKS_REFERENCE.md:
+    batch: 5
+    items:
+      - {"text": "Knowing which OSI layer an attack targets guides both where to detect it and how to mitigate it.", "from": "#_1-network-attack-taxonomy-amp-threat-landscape", "quote": "Understanding which OSI layer an attack targets guides both detection placement and mitigation strategy:"}
+      - {"text": "Dynamic ARP Inspection validates ARP packets against the DHCP snooping binding table.", "from": "#_2-arp-amp-layer-2-attacks", "quote": "DAI is a Cisco IOS / NX-OS switch feature that validates ARP packets against a DHCP snooping binding table."}
+      - {"text": "DNS tunneling encodes data in DNS queries and responses to use DNS as a covert channel for C2 or exfiltration.", "from": "#_3-dns-attacks", "quote": "DNS tunneling encodes arbitrary data into DNS queries and responses, using the DNS protocol as a covert channel for C2 communication or data exfiltration."}
+      - {"text": "DNS rebinding bypasses the browser same-origin policy.", "from": "#_3-dns-attacks", "quote": "DNS rebinding bypasses the browser same-origin policy (SOP)."}
+  NETWORK_FORENSICS_REFERENCE.md:
+    batch: 6
+    items:
+      - {"text": "Document every person who handles network evidence: name, role, date and time of access, and purpose.", "from": "#_1-network-forensics-fundamentals-amp-evidence-collection", "quote": "Document every person who handles the evidence: name, role, date/time of access, purpose."}
+      - {"text": "Unusually low DNS TTLs, under 30 seconds on non-CDN domains, suggest fast-flux C2 infrastructure.", "from": "#_3-protocol-analysis-amp-decoding", "quote": "unusually low TTLs (< 30s) on non-CDN domains suggest fast-flux C2 infrastructure."}
+      - {"text": "Most implants check in at regular intervals, from 15 seconds to an hour, which makes beaconing detectable.", "from": "#_5-malware-traffic-analysis", "quote": "Most implants check in at regular intervals (15s to 1h) to receive commands."}
+      - {"text": "JA3 is an MD5 hash of TLS ClientHello fields used to fingerprint clients.", "from": "#_3-protocol-analysis-amp-decoding", "quote": "JA3 generates an MD5 hash from the TLS ClientHello fields"}
+  PENETRATION_TESTING_METHODOLOGY.md:
+    batch: 6
+    items:
+      - {"text": "The Rules of Engagement document is the foundational legal agreement for any penetration test.", "from": "#_1-engagement-scoping-and-legal-framework", "quote": "A Rules of Engagement document is the foundational legal agreement for any penetration test."}
+      - {"text": "Under the CFAA, authorization must be explicit and documented; implied authorization is not a defense.", "from": "#_1-engagement-scoping-and-legal-framework", "quote": "Authorization must be explicit and documented: implied authorization is not a defense"}
+      - {"text": "Carry the authorization letter during all testing.", "from": "#_1-engagement-scoping-and-legal-framework", "quote": "The authorization letter must be carried during all testing:"}
+      - {"text": "Every phase maps to PTES, OWASP, NIST SP 800-115, and MITRE ATT&CK so the work stays defensible and traceable.", "from": "#penetration-testing-methodology-reference", "quote": "every phase maps to PTES, OWASP, NIST SP 800-115, and MITRE ATT&CK, so your work stays defensible and traceable."}
+  POST_QUANTUM_MIGRATION_REFERENCE.md:
+    batch: 6
+    items:
+      - {"text": "The post-quantum migration is a multi-year program, not a patch.", "from": "#post-quantum-cryptography-migration-reference", "quote": "The post-quantum migration is a multi-year program, not a patch."}
+      - {"text": "Traffic recorded today can be decrypted later, so for data that must stay confidential past the arrival of a quantum computer the deadline has passed.", "from": "#post-quantum-cryptography-migration-reference", "quote": "encrypted traffic recorded today can be decrypted later"}
+      - {"text": "You cannot migrate cryptography you cannot find; discovery and a cryptographic bill of materials come first.", "from": "#step-1-cryptographic-discovery-and-the-cbom", "quote": "You cannot migrate what you cannot find"}
+      - {"text": "Crypto-agility is the ability to swap algorithms, parameters, and certificates without redesigning the systems that use them.", "from": "#step-2-crypto-agility-architecture", "quote": "Crypto-agility is the ability to swap algorithms, parameters, and certificates without redesigning the systems that use them."}
+  SDR_RF_SECURITY_REFERENCE.md:
+    batch: 6
+    items:
+      - {"text": "HackRF One transmits and receives from 1 MHz to 6 GHz.", "from": "#_4-hackrf-one", "quote": "capable of transmission and reception from 1 MHz to 6 GHz."}
+      - {"text": "The Zigbee Trust Center link key can be sniffed over the air at join time.", "from": "#_5-wireless-protocol-analysis", "quote": "Over-the-air key transport (Trust Center link key) can be sniffed at join time"}
+      - {"text": "RF fingerprinting identifies specific hardware devices from subtle characteristics of their signals.", "from": "#_5-wireless-protocol-analysis", "quote": "RF fingerprinting identifies specific hardware devices based on subtle RF characteristics:"}
+  THREAT_HUNTING_PLAYBOOKS.md:
+    batch: 6
+    items:
+      - {"text": "Each playbook starts from a hypothesis and gives the data sources, a Splunk or KQL query, investigation steps, and response actions.", "from": "#threat-hunting-playbooks", "quote": "Every playbook hands you the data sources to check, a copy-paste Splunk or KQL query, step-by-step investigation guidance, and concrete response actions."}
+      - {"text": "An RC4 (0x17) ticket encryption request points to Kerberoasting aimed at offline cracking.", "from": "#hp-002-kerberoasting-detection", "quote": "Check if RC4 (0x17) encryption was requested (indicates targeting for offline cracking)"}
+      - {"text": "Enforce AES256 for service account tickets as a Kerberoasting response.", "from": "#hp-002-kerberoasting-detection", "quote": "Enforce AES256 for service account tickets (msDS-SupportedEncryptionTypes = 24)"}
+  WINDOWS_HARDENING_GPO.md:
+    batch: 6
+    items:
+      - {"text": "GPOs apply in Local, Site, Domain, OU order, and the last writer wins a conflict.", "from": "#_1-gpo-hardening-fundamentals", "quote": "Local -> Site -> Domain -> OU (last writer wins for conflicts)"}
+      - {"text": "Script Block Logging records full script content, including decoded blocks, which matters for detecting AMSI bypass.", "from": "#_5-powershell-and-script-execution-controls", "quote": "logs full script content including decoded blocks; critical for AMSI bypass detection"}
+      - {"text": "Requiring Network Level Authentication for RDP prevents unauthenticated RDP access.", "from": "#_4-network-hardening-via-gpo", "quote": "prevents unauthenticated RDP access, reduces attack surface"}
+      - {"text": "In the tiered model, Tier 0 accounts log on only to Tier 0 assets such as domain controllers and PKI.", "from": "#_9-mitigation-strategy-reference", "quote": "accounts ONLY log into Tier 0 assets"}
+  WIRELESS_SECURITY_REFERENCE.md:
+    batch: 6
+    items:
+      - {"text": "WPA3 addresses WPA2's main weakness, dictionary attacks against pre-shared key networks.", "from": "#_1-wi-fi-security-protocols", "quote": "WPA3 addresses key WPA2 weaknesses, primarily dictionary attacks against PSK networks."}
+      - {"text": "Before 802.11w, all management frames, including deauthentication, were unauthenticated and unencrypted.", "from": "#_1-wi-fi-security-protocols", "quote": "all management frames (deauth, disassoc, beacon, probe) were unauthenticated and unencrypted."}
+      - {"text": "WPA3 transition mode lets WPA2 and WPA3 clients coexist, which opens the door to downgrade attacks.", "from": "#_2-wi-fi-attack-techniques", "quote": "When a network is configured in WPA3 transition mode or accepts multiple EAP methods, attackers can force weaker authentication:"}
+      - {"text": "An evil twin mimics a legitimate access point's SSID to lure clients into associating with it.", "from": "#_2-wi-fi-attack-techniques", "quote": "An evil twin AP mimics a legitimate AP (same SSID, similar BSSID) to lure clients to associate with it."}
+  ACTIVE_DIRECTORY_ATTACK_REFERENCE.md:
+    batch: 6
+    items:
+      - {"text": "Long random service account passwords (25 or more characters) make offline Kerberoast cracking computationally infeasible, even with RC4 tickets.", "from": "#_2-kerberoasting", "quote": "Long random service account passwords (25+ characters): Makes offline cracking computationally infeasible even with RC4 tickets."}
+      - {"text": "Enforcing Kerberos preauthentication on every account is the primary mitigation for AS-REP Roasting.", "from": "#_3-as-rep-roasting", "quote": "Enforce Kerberos preauthentication for all accounts: This is the primary mitigation."}
+      - {"text": "A Silver Ticket is a forged service ticket encrypted with a service account's NT hash rather than the krbtgt key.", "from": "#_4-kerberos-ticket-attacks", "quote": "A Silver Ticket is a forged TGS (service ticket) encrypted with a service account's NT hash rather than the krbtgt key."}
+      - {"text": "NTLM relay forces a victim to authenticate to an attacker-controlled server and relays those credentials to a target service such as SMB or LDAP.", "from": "#_5-pass-the-hash-amp-ntlm-relay", "quote": "Attackers force victims to authenticate to an attacker-controlled server, then relay those credentials to a target service (SMB -> SMB, NTLM -> LDAP, etc.)."}
+  AI_ARCHITECTURE_REFERENCE.md:
+    batch: 6
+    items:
+      - {"text": "Most real-world AI compromises exploit infrastructure weaknesses, so the layout of planes, trust boundaries, and provenance is the first security control.", "from": "#ai-ml-system-architecture", "quote": "most real-world AI compromises exploit infrastructure weaknesses"}
+      - {"text": "Keep the training and build plane architecturally distinct from the inference and serving plane.", "from": "#_1-principles-amp-drivers", "quote": "Keep the training/build plane (experimentation, data prep, training, registration) architecturally distinct from the inference/serving plane"}
+      - {"text": "The model registry is the single hand-off between planes: nothing serves that has not been registered, signed, scanned, and approved.", "from": "#_2-reference-architectures-amp-patterns", "quote": "nothing serves that has not been registered, signed, scanned, and approved"}
+      - {"text": "Start with a managed API, and fine-tune or pre-train only when retrieval and prompting provably cannot meet the need.", "from": "#_2-reference-architectures-amp-patterns", "quote": "fine-tune/pre-train only when retrieval + prompting provably cannot meet the need"}
+  BROWSER_SECURITY_REFERENCE.md:
+    batch: 6
+    items:
+      - {"text": "Two URLs share an origin only when scheme, host, and port are all identical.", "from": "#_2-same-origin-policy-sop", "quote": "All three components must be identical for two URLs to share the same origin."}
+      - {"text": "The same-origin policy does not stop a page from loading cross-origin resources such as images, scripts, and iframes.", "from": "#_2-same-origin-policy-sop", "quote": "Loading cross-origin resources:"}
+      - {"text": "A server that copies the Origin header straight into Access-Control-Allow-Origin is a critical CORS misconfiguration.", "from": "#_3-cors-cross-origin-resource-sharing", "quote": "Origin Reflection (Critical): Server copies the Origin header directly into ACAO."}
+      - {"text": "HSTS is only effective when delivered over HTTPS; browsers ignore it on HTTP responses.", "from": "#_5-security-headers-reference", "quote": "Only effective when delivered over HTTPS (HTTP responses ignore HSTS)"}
+  CLOUD_NETWORK_SECURITY.md:
+    batch: 6
+    items:
+      - {"text": "AWS security groups are stateful; network ACLs are stateless, so both inbound and return traffic must be allowed explicitly.", "from": "#aws-network-security", "quote": "Network ACLs are stateless: you must explicitly allow both inbound and return (outbound) traffic."}
+      - {"text": "GCP VPCs are global while their subnets are regional.", "from": "#gcp-network-security", "quote": "GCP VPCs are global (not regional), but subnets are regional."}
+      - {"text": "VPC Service Controls put a perimeter around Google Cloud services to prevent data exfiltration, even with compromised credentials.", "from": "#gcp-network-security", "quote": "to prevent data exfiltration, even from compromised credentials."}
+  CLOUD_SAAS_MOBILE_FORENSICS_REFERENCE.md:
+    batch: 6
+    items:
+      - {"text": "Forensic readiness is the control that matters most: evidence you did not configure to retain does not exist later.", "from": "#why-this-discipline-is-different", "quote": "forensic readiness is the control that matters most; evidence you did not configure to retain simply does not exist later"}
+      - {"text": "GCP Data Access logs and AWS S3 and Lambda data events are off by default, so who read a bucket is often unrecoverable after the fact.", "from": "#cloud-forensic-readiness", "quote": "GCP Data Access logs and AWS S3/Lambda data events are off by default, so \"who read the bucket\" is often unrecoverable after the fact."}
+      - {"text": "In a cloud or SaaS incident with no host to seize, preserve first and analyze second.", "from": "#incident-quick-start-checklist", "quote": "Preserve first, analyze second."}
+      - {"text": "For mobile devices, choose the least invasive acquisition method that yields the needed data, and document why.", "from": "#mobile-acquisition-workflows", "quote": "Choose the least-invasive method that yields the needed data, and document why."}
+  CTF_METHODOLOGY.md:
+    batch: 6
+    items:
+      - {"text": "Before diving in, spend 5 to 10 minutes reading every challenge title and description.", "from": "#_1-general-ctf-strategy", "quote": "Before diving deep, spend 5-10 minutes reading every challenge title and description."}
+      - {"text": "Verify what a file really is before trusting its extension.", "from": "#_3-forensics-challenges", "quote": "Before assuming a file is what its extension says, always verify:"}
+      - {"text": "Return-oriented programming chains small gadgets ending in ret, and is used when NX prevents an executable stack.", "from": "#_6-binary-exploitation-pwn", "quote": "Used when NX is enabled (no executable stack): chain small \"gadgets\" ending in ret."}
+  EDGE_DEVICE_SECURITY_REFERENCE.md:
+    batch: 6
+    items:
+      - {"text": "Edge devices are internet-facing, unable to run EDR, opaque to their owners, and positioned where traffic and credentials flow, so the fixes are architectural.", "from": "#edge-amp-network-device-security-reference", "quote": "internet-facing by definition, unable to run EDR, opaque to their owners, and positioned where all the traffic and credentials flow."}
+      - {"text": "Shrink what is exposed, isolate the management plane, patch to KEV on a real SLA, log off-box, and replace what is end-of-support.", "from": "#edge-amp-network-device-security-reference", "quote": "shrink what is exposed, isolate the management plane, patch to KEV on a real SLA, demand integrity evidence, log off-box, replace what is end-of-support"}
+      - {"text": "You cannot isolate, patch, or replace what you have not enumerated, so keep a dedicated edge inventory.", "from": "#program-inventory-and-attack-surface-management-of-the-edge", "quote": "You cannot isolate, patch, or replace what you have not enumerated"}
+      - {"text": "An appliance cannot host your EDR, so integrity comes from vendor tooling, off-box forensics, and behavioral evidence from the surrounding network.", "from": "#program-integrity-checking-and-compromise-assessment", "quote": "has exactly three answer sources: vendor integrity tooling, off-box forensics, and behavioral evidence from the surrounding network."}
+  GLOSSARY.md:
+    batch: 6
+    items:
+      - {"text": "Each entry is a one-line plain-English definition, organized A to Z.", "from": "#security-glossary", "quote": "Each entry is a one-line plain-English definition, organized A-Z in tables you can search with Ctrl+F."}
+      - {"text": "Keep it open while reading any other page so an unfamiliar acronym never stops you.", "from": "#security-glossary", "quote": "Keep it open while reading any other doc here so an unfamiliar acronym never stops you."}
+      - {"text": "Use Ctrl+F or the site search to find a specific term.", "from": "#security-glossary", "quote": "Use Ctrl+F (or the search bar) to find specific terms."}
+  INTERVIEW_PREP.md:
+    batch: 6
+    items:
+      - {"text": "Each question comes with the key points an interviewer expects to hear.", "from": "#cybersecurity-interview-preparation", "quote": "Each question comes with the key points an interviewer expects to hear"}
+      - {"text": "Know the fundamentals cold: networking, operating system internals, and the CIA triad.", "from": "#general-preparation-strategy", "quote": "Know the fundamentals cold: networking (TCP/IP, DNS, TLS), OS internals (Windows/Linux), and the CIA triad"}
+      - {"text": "Get the offer in writing before you negotiate.", "from": "#salary-negotiation-amp-offer-evaluation", "quote": "Get the offer in writing first."}
+  MACOS_SECURITY_REFERENCE.md:
+    batch: 6
+    items:
+      - {"text": "Apple's layers are strong but opaque and Apple-operated; defenders manage, observe, and know where they stop.", "from": "#how-macos-defense-fits-together", "quote": "layers 1-4 are strong but opaque and Apple-operated."}
+      - {"text": "System Integrity Protection restricts even the root user from modifying protected system locations.", "from": "#execution-control-sip-gatekeeper-notarization-quarantine", "quote": "restricts the root user itself"}
+      - {"text": "Gatekeeper checks that downloaded software is from an identified developer, notarized by Apple, and unaltered.", "from": "#execution-control-sip-gatekeeper-notarization-quarantine", "quote": "verifies that downloaded software is from an identified (Developer ID) developer, is notarized by Apple, and has not been altered."}
+      - {"text": "TCC is the consent subsystem behind macOS privacy prompts, and fleets manage it with the PPPC MDM payload.", "from": "#privacy-and-access-control-tcc-and-pppc", "quote": "In fleets, TCC is managed with the Privacy Preferences Policy Control (PPPC) MDM payload"}
+  MALWARE_ANALYSIS_REFERENCE.md:
+    batch: 6
+    items:
+      - {"text": "A malware analysis lab needs strict isolation to prevent accidental infection or C2 connectivity.", "from": "#_1-malware-analysis-overview", "quote": "A proper malware analysis lab requires strict isolation to prevent accidental infection or C2 connectivity."}
+      - {"text": "The import address table reveals a sample's capabilities without executing it.", "from": "#_2-static-analysis-windows-pe-files", "quote": "The Import Address Table (IAT) reveals capabilities without executing the sample."}
+      - {"text": "Non-standard section names such as .UPX0 or random strings are a sign of packing.", "from": "#_2-static-analysis-windows-pe-files", "quote": "Section names not matching standards"}
+      - {"text": "Process injection runs code inside a legitimate process, evading process-based detection and inheriting that process's permissions.", "from": "#_7-common-malware-techniques-with-attampck-mappings", "quote": "Process injection allows malware to execute code in the context of a legitimate process, evading process-based detection and inheriting the target's permissions and network context."}
+  NETWORKING_FUNDAMENTALS.md:
+    batch: 6
+    items:
+      - {"text": "Layer 2 is the most dangerous and least monitored layer in most enterprise networks.", "from": "#ethernet-amp-layer-2", "quote": "Layer 2 is the most dangerous and least monitored layer in most enterprise networks."}
+      - {"text": "ARP has no authentication: any host can send replies claiming any IP-to-MAC mapping.", "from": "#ethernet-amp-layer-2", "quote": "ARP has no authentication: any host can send ARP replies claiming any IP-to-MAC mapping."}
+      - {"text": "An operating system's initial TTL is predictable, which makes it useful for passive fingerprinting.", "from": "#tcpip-deep-dive", "quote": "The initial TTL set by an OS is predictable and useful for passive fingerprinting:"}
+      - {"text": "UDP's connectionless design is what enables amplification and reflection DDoS.", "from": "#tcpip-deep-dive", "quote": "UDP's connectionless nature enables reflection attacks."}
+  PACKET_ANALYSIS_REFERENCE.md:
+    batch: 6
+    items:
+      - {"text": "Modern TLS is unreadable without session keys; SSLKEYLOGFILE lets Wireshark decrypt it.", "from": "#wireshark-mastery", "quote": "Modern TLS is unreadable without session keys."}
+      - {"text": "A Cobalt Strike beacon shows regular callbacks, small request bodies, and larger response bodies that carry tasking.", "from": "#detecting-attacks-in-pcaps", "quote": "small request bodies, larger response bodies (tasking)."}
+      - {"text": "DNS tunneling shows as high query volume from one host, long encoded subdomains, and queries to the same parent domain.", "from": "#detecting-attacks-in-pcaps", "quote": "High query volume from single host, unusually long subdomains (base32/base64 encoded data), TXT/NULL/CNAME record types, consistent timing, queries to same parent domain."}
+  SPACE_SECURITY_REFERENCE.md:
+    batch: 7
+    items:
+      - {"text": "A satellite cannot be touched after launch; it is reachable only over RF and commanded from a ground network that looks like enterprise IT.", "from": "#space-systems-security-reference", "quote": "A satellite is a computer you can never touch again after launch, reachable only over an RF link"}
+      - {"text": "The ground network is where most real-world space system compromises start.", "from": "#space-systems-security-reference", "quote": "that ground network is where most real-world compromises start."}
+      - {"text": "SPARTA gives defenders an ATT&CK-style taxonomy of tactics and countermeasures for spacecraft.", "from": "#space-systems-security-reference", "quote": "framework gives defenders an ATT&CK-style taxonomy"}
+  WINDOWS_HARDENING.md:
+    batch: 7
+    items:
+      - {"text": "Every control comes with the registry path, GPO path, or PowerShell command to apply and verify it.", "from": "#windows-hardening-reference", "quote": "Every control comes with the exact registry path, GPO path, or PowerShell command to apply and verify it"}
+      - {"text": "CIS Level 1 is basic hygiene with minimal impact; Level 2 is defense in depth that may affect functionality.", "from": "#cis-windows-server-2022-benchmark", "quote": "is organized into Level 1 (basic hygiene, minimal impact) and Level 2 (defense-in-depth, may affect functionality)."}
+      - {"text": "With LSA protection, LSASS runs as a Protected Process Light, so non-PPL processes cannot read its memory.", "from": "#credential-guard-amp-lsa-protection", "quote": "preventing non-PPL processes (including unsigned tools) from reading LSASS memory."}
+      - {"text": "WDAC is the preferred application control solution for modern Windows.", "from": "#applocker-wdac-application-control", "quote": "is the preferred application control solution for modern Windows."}
+  YOUTUBE_CHANNELS.md:
+    batch: 7
+    items:
+      - {"text": "Watching a practitioner work through a lab, tool, or attack path is often faster than reading docs alone.", "from": "#cybersecurity-youtube-channel-library", "quote": "watching a practitioner work through a lab, tool, or attack path is often faster than reading docs alone."}
+      - {"text": "Channels listed are active within roughly the last 12 months or are still the clearest reference for their topic.", "from": "#how-to-use-this-file", "quote": "Channels listed here are either active within roughly the last 12 months or still the clearest reference for the topic."}
+      - {"text": "Pair the videos with the book list and the starred repositories to combine watching with tools and reading.", "from": "#how-to-use-this-file", "quote": "to pair videos with tools and reading."}
+  ACTIVE_DIRECTORY_ATTACKS.md:
+    batch: 7
+    items:
+      - {"text": "Kerberoasting works because any domain user can request a service ticket for any account that has an SPN.", "from": "#kerberoasting-t1558003", "quote": "Any domain user can request a TGS for any service account with an SPN."}
+      - {"text": "When Tier 0 admins log on to Tier 2 machines their credentials are cached there, which is how a flattened tier model creates attack paths.", "from": "#tiered-access-model-tier-012", "quote": "When Tier 0 admins log into Tier 2 machines, their credentials cache on those machines."}
+      - {"text": "With the krbtgt NTLM hash an attacker can forge a TGT (a Golden Ticket) for any user with any group membership.", "from": "#golden-ticket-t1558001", "quote": "With the krbtgt NTLM hash, forge a Ticket-Granting Ticket (TGT) for any user with any group membership."}
+      - {"text": "NTLM relay forwards a captured authentication attempt to another machine instead of cracking the NTLMv2 hash.", "from": "#ntlm-relay-attack-t1557001", "quote": "Instead of cracking the captured NTLMv2 hash, relay the authentication attempt to another machine."}
+  AUTOMOTIVE_SECURITY_REFERENCE.md:
+    batch: 7
+    items:
+      - {"text": "CAN has no authentication, and its frames carry no sequence numbers, timestamps, or nonces, so replay works.", "from": "#_2-can-bus-security", "quote": "CAN frames contain no sequence numbers, timestamps, or nonces."}
+      - {"text": "Every message on a CAN bus segment is received by every node on that segment.", "from": "#_2-can-bus-security", "quote": "Every message sent on a CAN bus is received by every node on that bus segment."}
+      - {"text": "The OBD-II port, mandated in US vehicles since 1996 and EU vehicles since 2001, gives direct access to the internal CAN network.", "from": "#_1-automotive-attack-surface", "quote": "mandated in all US vehicles since 1996 and EU vehicles since 2001, provides direct access to the vehicle's internal CAN bus network."}
+      - {"text": "The central gateway ECU bridges vehicle network domains and should enforce firewall rules between them.", "from": "#_1-automotive-attack-surface", "quote": "it bridges domains and should enforce firewall rules between segments."}
+  CLOUD_SECURITY_BENCHMARK.md:
+    batch: 7
+    items:
+      - {"text": "Each CIS Benchmark control comes with its severity, the CLI command or console step that fixes it, and audit scripts.", "from": "#cloud-security-benchmark-reference", "quote": "each with its severity, the exact CLI command or console step to fix it, and ready-to-run audit scripts."}
+      - {"text": "CSPM tools check cloud environments against these benchmarks continuously.", "from": "#cspm-tool-reference", "quote": "Cloud Security Posture Management tools continuously check cloud environments against benchmarks."}
+      - {"text": "In Azure, require MFA through Conditional Access rather than relying on Security Defaults alone.", "from": "#cloud-security-quickstart-checklist", "quote": "MFA required via Conditional Access (not Security Defaults alone)"}
+  ENGAGE_REFERENCE.md:
+    batch: 7
+    items:
+      - {"text": "Engage describes what you do to expose, affect, and learn from an adversary already in your environment.", "from": "#mitre-engage-reference-denial-deception-amp-adversary-engagement", "quote": "Engage describes what you do to expose, affect, and learn from an adversary already in your environment"}
+      - {"text": "Deception is a detection strategy, not a trap for its own sake: each Engage activity ties back to an ATT&CK technique and a defensive outcome.", "from": "#mitre-engage-reference-denial-deception-amp-adversary-engagement", "quote": "Deception is a detection strategy, not a trap for its own sake."}
+      - {"text": "Goals set intent, approaches group tactics, and activities are what you actually deploy.", "from": "#the-engage-matrix", "quote": "Goals set intent, approaches group tactics, activities are what you actually deploy."}
+  NETWORK_PROTOCOLS_SECURITY.md:
+    batch: 7
+    items:
+      - {"text": "This page is the attacker view of each protocol; the Network Protocols Reference is the engineering view.", "from": "#network-protocols-security-reference", "quote": "This file is the attacker view; that one is the engineering view."}
+      - {"text": "CNAME records that point to deprovisioned cloud services can be claimed by an attacker who registers the same service name.", "from": "#dns-53-udptcp", "quote": "CNAME records pointing to deprovisioned cloud services (AWS S3, Azure App Service, GitHub Pages, Heroku) can be claimed by attackers who register the same service name."}
+      - {"text": "HTTP request smuggling exploits disagreement between front-end and back-end servers about where one request ends.", "from": "#httphttps-80443", "quote": "Exploits disagreement between front-end (load balancer/CDN) and back-end servers about where one HTTP request ends and the next begins."}
+      - {"text": "Disabling SMBv1 removes the EternalBlue attack surface.", "from": "#smb-445-tcp", "quote": "eliminates EternalBlue attack surface."}
+  OPEN_SOURCE_TOOLKIT.md:
+    batch: 7
+    items:
+      - {"text": "Tools are organized by discipline and are free to use unless marked as a free tier or commercial.", "from": "#open-source-security-toolkit", "quote": "All tools listed here are free to use unless noted as [free tier] or [commercial, listed for reference]."}
+      - {"text": "It is the open-source companion to TOOLS.md, which covers enterprise and commercial tools.", "from": "#open-source-security-toolkit", "quote": "Companion to TOOLS.md (enterprise/commercial coverage)"}
+      - {"text": "Always obtain written authorization before any security testing.", "from": "#online-resources-amp-bookmarks", "quote": "Always obtain proper written authorization before conducting any security testing."}
+  PHYSICAL_SECURITY_REFERENCE.md:
+    batch: 7
+    items:
+      - {"text": "Physical access to a system bypasses nearly all technical controls.", "from": "#_1-physical-security-fundamentals", "quote": "Physical access to a system bypasses nearly all technical controls."}
+      - {"text": "Physical penetration testing carries serious legal risk.", "from": "#_2-physical-penetration-testing-overview", "quote": "Physical penetration testing carries serious legal risk."}
+      - {"text": "Many doors open without picking the lock, through under-door tools, latch shims, or crash bar bypass.", "from": "#_3-lock-picking", "quote": "These techniques open doors without picking the lock mechanism:"}
+      - {"text": "The Proxmark3 RDV4 is the standard tool for RFID research and badge testing.", "from": "#_4-badge-access-card-attacks", "quote": "The Proxmark3 RDV4 is the industry standard for RFID research and physical security testing."}
+  RED_TEAM_REFERENCE.md:
+    batch: 7
+    items:
+      - {"text": "Red teaming is a structured adversarial simulation discipline, distinct from penetration testing and purple teaming.", "from": "#_1-red-team-program-design-amp-rules-of-engagement", "quote": "Red teaming is a structured, adversarial simulation discipline distinct from penetration testing and purple teaming."}
+      - {"text": "Every engagement must have a documented emergency stop procedure.", "from": "#_1-red-team-program-design-amp-rules-of-engagement", "quote": "Every engagement must have a documented emergency stop procedure."}
+      - {"text": "Exposed secrets in public code repositories are among the highest-value passive reconnaissance findings.", "from": "#_2-reconnaissance-amp-osint", "quote": "Exposed secrets in public code repositories represent one of the highest-value passive reconnaissance findings."}
+      - {"text": "Vishing is often the fastest way in where email filtering is strong but phone-based verification is weak.", "from": "#_3-initial-access-techniques", "quote": "Vishing is often the fastest path to initial access in organizations with strong email filtering but weaker phone-based verification processes."}
+  RESOURCES.md:
+    batch: 7
+    items:
+      - {"text": "Picks come with notes on cost, focus, and skill level.", "from": "#resources", "quote": "you get vetted picks with notes on cost, focus, and skill level."}
+      - {"text": "The catalog spans books, training platforms, channels, podcasts, news and threat-intel sources, CTF platforms, labs, conferences, and communities.", "from": "#resources", "quote": "books, training platforms, YouTube channels, podcasts, news and threat-intel sources, CTF platforms, lab environments, conferences, standards bodies, and communities."}
+      - {"text": "The catalog is meant for practitioners at every level.", "from": "#resources", "quote": "for cybersecurity practitioners at every level."}
+  SECURITY_DATA_ENGINEERING_REFERENCE.md:
+    batch: 7
+    items:
+      - {"text": "Detection engineering is downstream of data engineering.", "from": "#security-data-engineering-reference", "quote": "Detection engineering is downstream of data engineering."}
+      - {"text": "A missed detection is rarely a bad rule; far more often a log source was never onboarded, a parser broke, or a filter dropped a field.", "from": "#security-data-engineering-reference", "quote": "A missed detection is rarely a bad rule."}
+      - {"text": "Every pipeline decision is a detection decision.", "from": "#scope-amp-how-to-use-this-reference", "quote": "every pipeline decision is a detection decision."}
+      - {"text": "There is no official crosswalk between OCSF, Elastic ECS, Splunk CIM, and Microsoft ASIM.", "from": "#security-data-schemas-the-normalization-landscape", "quote": "There is no official crosswalk between these schemas."}
+  TELECOM_5G_SECURITY_REFERENCE.md:
+    batch: 7
+    items:
+      - {"text": "A telecom operator concentrates call records, subscriber location, communications content, and lawful-intercept systems, which is why it is an espionage target.", "from": "#why-telecom-infrastructure-is-a-target-the-salt-typhoon-wake-up-call", "quote": "A telecom operator concentrates everything an espionage service wants in one place"}
+      - {"text": "Every FiGHT technique carries an evidentiary status label, something ATT&CK does not do.", "from": "#mitre-fight-structure-technique-types-and-how-it-extends-attampck", "quote": "Every FiGHT technique carries a status label, something ATT&CK does not do."}
+      - {"text": "5G non-standalone rides on the 4G core, and downgrades to 2G or 3G re-expose subscribers to SS7-era weaknesses.", "from": "#legacy-signaling-interconnect-risk-ss7-diameter-and-sip", "quote": "downgrade to 2G/3G re-exposes subscribers to SS7-era weaknesses."}
+      - {"text": "The authoritative 5G security specification is 3GPP TS 33.501.", "from": "#_5g-core-security-architecture-sba-sucisupi-sepp-and-ts-33501", "quote": "The authoritative 5G security specification is 3GPP TS 33.501"}
+  THREAT_REPORT_ALMANAC.md:
+    batch: 7
+    items:
+      - {"text": "The most important attribute of a threat report is its methodology basis: casework, telemetry, surveys, and official statistics support different conclusions.", "from": "#annual-threat-report-almanac", "quote": "The most important column in every table below is the methodology basis"}
+      - {"text": "A report's cover year is a marketing label; its data window is a methodology fact, and the two rarely match.", "from": "#cover-year-versus-data-window", "quote": "A report's cover year is a marketing label; its data window is a methodology fact, and the two rarely match."}
+      - {"text": "Triangulate across reports rather than trusting one instrument.", "from": "#methodology-determines-meaning", "quote": "The practical rule: triangulate."}
+      - {"text": "Every report indexed is free; a form means an email registration gate, never payment.", "from": "#annual-threat-report-almanac", "quote": "Every report indexed here is free; \"form\" in the access column means an email-registration gate, never payment."}
+  TWITTER_FOLLOW_LIST.md:
+    batch: 7
+    items:
+      - {"text": "The list is meant as a signal-focused reference, not a popularity ranking.", "from": "#cybersecurity-x-twitter-follow-list", "quote": "This is meant to be a signal-focused reference list, not a popularity ranking."}
+      - {"text": "Start with the section closest to your work and build a small reading list rather than following everything.", "from": "#how-to-use-this-file", "quote": "Use it to build a smaller reading list rather than following everything at once."}
+      - {"text": "The enriched tables add names, focus areas, and a short note on why to follow key accounts.", "from": "#cybersecurity-x-twitter-follow-list", "quote": "Enriched tables at the end add real names, focus areas, and a short \"why follow\" note for key accounts."}
+  WEB_APPLICATION_PENTESTING.md:
+    batch: 7
+    items:
+      - {"text": "The playbook follows a real engagement from recon to reporting and is cross-mapped to the OWASP Testing Guide and ATT&CK.", "from": "#web-application-penetration-testing-reference", "quote": "it is organized the way a real test runs, cross-mapped to the OWASP Testing Guide and MITRE ATT&CK."}
+      - {"text": "Second-order SQL injection stores input safely and then uses it in a query without parameterization when it is read back.", "from": "#sql-injection", "quote": "input stored safely, then used in a query without parameterization on retrieval."}
+      - {"text": "For IDOR testing, first map every object ID: user, order, document, and message IDs.", "from": "#idor-and-authorization-testing", "quote": "Map all object IDs: user IDs, order IDs, document IDs, message IDs"}
+  ARCHITECTURE_REFERENCE.md:
+    batch: 7
+    items:
+      - {"text": "Architecture is the set of decisions that are expensive to change: boundaries, the contracts across them, and the quality attributes they protect.", "from": "#general-enterprise-amp-solution-architecture", "quote": "Architecture is the set of decisions that are expensive to change"}
+      - {"text": "The default advice is to start with a well-structured modular monolith.", "from": "#_2-reference-architectures-amp-patterns", "quote": "Default advice: start with a well-structured modular monolith."}
+      - {"text": "Data classification is the single most important architectural input to security.", "from": "#_3-building-blocks-amp-domains", "quote": "is the single most leveraged architectural input to security."}
+      - {"text": "A non-functional requirement that cannot be measured cannot be met, so quality attributes need testable scenarios.", "from": "#_4-quality-attributes-nfrs-amp-trade-off-analysis", "quote": "An NFR that cannot be measured cannot be met."}
+  ATTACK_CAMPAIGNS_REFERENCE.md:
+    batch: 7
+    items:
+      - {"text": "An ATT&CK campaign is a time-bounded set of adversary activity with a shared objective.", "from": "#attampck-campaigns-reference", "quote": "time-bounded sets of adversary activity with a shared objective"}
+      - {"text": "Each campaign profile gives its active window, the techniques observed, the software used, and the groups it is attributed to.", "from": "#attampck-campaigns-reference", "quote": "Each lists its active window, the techniques observed, the software used, and the threat group(s) it is attributed to."}
+      - {"text": "Read it with Threat Group Profiles and Notable Incidents for the groups and the incident narratives.", "from": "#attampck-campaigns-reference", "quote": "Pair with Threat Group Profiles and Notable Incidents."}
+  ATTACK_SOFTWARE_REFERENCE.md:
+    batch: 7
+    items:
+      - {"text": "Each ATT&CK software entry lists how many techniques it implements and which threat groups are known to use it.", "from": "#attampck-software-reference", "quote": "Each entry lists the number of ATT&CK techniques it implements and the threat groups known to use it."}
+      - {"text": "Read it with Threat Group Profiles, the Technique Atlas, and Malware Families.", "from": "#attampck-software-reference", "quote": "Pair with Threat Group Profiles, the Technique Atlas, and Malware Families."}
+      - {"text": "The machine-readable source is data/attack/software.jsonl, with the edges in data/attack/software_to_technique.jsonl.", "from": "#attampck-software-reference", "quote": "Machine-readable: data/attack/software.jsonl, data/attack/software_to_technique.jsonl"}
+  BLOCKCHAIN_SECURITY_REFERENCE.md:
+    batch: 8
+    items:
+      - {"text": "Reentrancy is the best-known smart contract vulnerability class; the DAO hack of June 2016 is the classic case.", "from": "#_2-smart-contract-vulnerabilities", "quote": "Reentrancy is the most famous smart contract vulnerability class."}
+      - {"text": "Before Solidity 0.8.0 all arithmetic was unchecked, which is what made integer overflow and underflow exploitable.", "from": "#_2-smart-contract-vulnerabilities", "quote": "Prior to Solidity 0.8.0, all arithmetic was unchecked."}
+      - {"text": "Flash loans let an attacker borrow any amount with no collateral as long as it is repaid in the same transaction.", "from": "#_2-smart-contract-vulnerabilities", "quote": "Flash loans allow borrowing arbitrary amounts with zero collateral, provided the loan is repaid within the same transaction."}
+      - {"text": "Ethereum uses Keccak-256, which is not standard SHA-3: the two differ in padding.", "from": "#_1-blockchain-security-fundamentals", "quote": "Ethereum uses Keccak-256 (NOT standard SHA-3, which differs in padding)."}
+  CEH_DOMAIN_CROSSWALK.md:
+    batch: 8
+    items:
+      - {"text": "The crosswalk is built only from EC-Council's public CEH Exam Blueprint v5.0 and this library's own pages; it is not courseware.", "from": "#ceh-domain-crosswalk", "quote": "It is an original study map built only from the official public blueprint and this library's own pages, not courseware, not a brain dump, and not a substitute for EC-Council's iLabs."}
+      - {"text": "Network and Perimeter Hacking is the heaviest domain, nearly a quarter of the exam.", "from": "#the-domain-crosswalk", "quote": "This is the single heaviest domain, nearly a quarter of the exam."}
+      - {"text": "The recurring gap is tool recognition: CEH tests breadth of attacker tooling, while this library teaches concepts and defenses.", "from": "#honest-gaps", "quote": "CEH is a tool-and-terminology exam layered on top of concepts, and this library teaches the concepts and their defenses, not the tool-recognition drills."}
+      - {"text": "Front-load Domains 2, 4, and 3, which together make up 56% of the exam.", "from": "#study-plan-skeleton", "quote": "front-load Domains 2, 4, and 3 (56% of the exam combined)"}
+  CISSP_DOMAIN_CROSSWALK.md:
+    batch: 8
+    items:
+      - {"text": "This library supplements the Official Study Guide for the CISSP; it does not replace it.", "from": "#cissp-domain-crosswalk", "quote": "This library is a supplement to the Official Study Guide, not a replacement for it."}
+      - {"text": "The library is deepest where the exam is easiest for a practitioner (D4, D5, D7) and shallowest where it is hardest (D1, D2, and the theory half of D3).", "from": "#the-eight-domains-at-a-glance", "quote": "the library is deepest exactly where the exam is easiest for a practitioner (D4, D5, D7) and shallowest where the exam is hardest for one (D1, D2, and the theory half of D3)."}
+      - {"text": "The CISSP CAT is adaptive: you cannot go back and change an answer, and difficulty rises as you answer correctly.", "from": "#exam-format", "quote": "Because it is adaptive, you cannot go back and change an answer, and the engine escalates difficulty as you answer correctly"}
+      - {"text": "Take a full-length, timed practice exam before week 11 so you know your real baseline early.", "from": "#a-twelve-week-study-plan", "quote": "take a full-length, timed practice exam before week 11 so you know your real baseline early"}
+  CLOUD_ARCHITECTURE_REFERENCE.md:
+    batch: 8
+    items:
+      - {"text": "A landing zone is a governed multi-account, multi-subscription, or multi-project environment that workloads land in with security, networking, identity, logging, and guardrails already wired.", "from": "#_2-reference-architectures-amp-patterns", "quote": "is a pre-configured, governed, multi-account (AWS) / multi-subscription (Azure) / multi-project (GCP) environment that new workloads land in with security, networking, identity, logging, and guardrails already wired."}
+      - {"text": "Default to private endpoints for managed services, and use public endpoints only for genuinely public content behind a WAF or CDN.", "from": "#key-design-decisions-amp-trade-offs-adr-style", "quote": "to managed services as the default; public endpoints only for genuinely public content, fronted by WAF/CDN."}
+      - {"text": "For compute, start at the highest-abstraction option that fits: functions, then containers as a service, then Kubernetes.", "from": "#key-design-decisions-amp-trade-offs-adr-style", "quote": "Start at the highest-abstraction option that fits (functions → CaaS → K8s)."}
+      - {"text": "Prefer the managed service for databases, queues, caches, and search unless a hard requirement forces self-hosting.", "from": "#key-design-decisions-amp-trade-offs-adr-style", "quote": "Prefer the managed service (database, queue, cache, search) unless a hard requirement"}
+  CPE_REFERENCE.md:
+    batch: 8
+    items:
+      - {"text": "CPE is the product-identity layer that ties a CVE to the actual products in your environment; it is not an adversary-behavior model.", "from": "#cpe-reference-common-platform-enumeration", "quote": "the standardized name that ties a CVE to the actual products in your environment"}
+      - {"text": "An NVD CVE carries a configurations block of CPE match criteria, not a single CPE.", "from": "#cpe-applicability-how-cves-map-to-products", "quote": "An NVD CVE carries a configurations block of CPE match criteria, not a single CPE."}
+      - {"text": "KEV, EPSS, and CVE say what is dangerous; CPE says whether you run it.", "from": "#why-it-matters-to-this-program-vulnerability-management", "quote": "KEV/EPSS/CVE tell you what's dangerous; CPE tells you whether you run it."}
+      - {"text": "CPE does not map to ATT&CK techniques, because product identity and adversary behavior are different abstractions.", "from": "#relationship-to-attampck", "quote": "CPE does not map to ATT&CK techniques: different abstraction (product identity vs adversary behavior)."}
+  DATABASE_SECURITY_REFERENCE.md:
+    batch: 8
+    items:
+      - {"text": "A DBMS is a network service, an authentication authority, a scripting host, and a file-system client at once, not only a place data rests.", "from": "#the-database-attack-surface", "quote": "A DBMS is not just a place data rests; it is a network service, an authentication authority, a scripting host, and a file-system client all at once."}
+      - {"text": "Standing DBA credentials are a top-tier risk: broad blast radius, rarely rotated, and hard to attribute.", "from": "#privileged-database-access-amp-just-in-time", "quote": "Standing DBA credentials are a top-tier risk: broad blast radius, rarely rotated, hard to attribute."}
+      - {"text": "Ransomware crews now delete or encrypt backups first, so encrypt every backup with keys managed separately from the database.", "from": "#backup-recovery-amp-resilience", "quote": "ransomware crews now delete or encrypt backups first"}
+      - {"text": "A small set of misconfigurations causes most real database incidents, and unauthenticated data stores are found and abused automatically.", "from": "#common-misconfigurations-amp-the-exposure-problem", "quote": "A small set of misconfigurations causes most real database incidents."}
+  EXPLOIT_DEVELOPMENT_REFERENCE.md:
+    batch: 8
+    items:
+      - {"text": "The page turns vulnerability classes into working recipes with pwntools, GDB, and WinDBG commands, and shows how modern mitigations get bypassed.", "from": "#exploit-development-reference", "quote": "it turns abstract vulnerability classes into working recipes with real pwntools, GDB, and WinDBG commands."}
+      - {"text": "strcpy copies until a null byte with no destination size check, which is the root of the classic stack overflow.", "from": "#_1-memory-corruption-fundamentals", "quote": "copies until null byte, no destination size check"}
+      - {"text": "Use a De Bruijn cyclic pattern to find the exact offset at which EIP is overwritten.", "from": "#_2-classic-buffer-overflow-x86-no-protections", "quote": "Use a De Bruijn cyclic pattern to find the exact offset at which EIP is overwritten"}
+  HEALTHCARE_SECURITY_REFERENCE.md:
+    batch: 8
+    items:
+      - {"text": "In healthcare, patient safety is the impact, not just confidentiality.", "from": "#why-healthcare-is-different", "quote": "Patient safety is the impact, not just confidentiality."}
+      - {"text": "HL7 v2, FHIR, and DICOM were designed for trusted, closed networks and ship with little or no built-in security.", "from": "#clinical-data-protocols-amp-their-security", "quote": "The three protocols that carry clinical data were designed for trusted, closed networks and ship with little or no built-in security."}
+      - {"text": "You will not patch your way to safety with medical devices: know every device, isolate it to what it needs, and watch it.", "from": "#iomt-medical-device-segmentation-amp-lifecycle", "quote": "You will not patch your way to safety with medical devices; the strategy is know every device, isolate it to only what it needs, and watch it."}
+      - {"text": "Use passive, agentless discovery for medical devices, because they break under active scanning.", "from": "#iomt-medical-device-segmentation-amp-lifecycle", "quote": "Deploy passive, agentless device discovery (medical devices break under active scanning)"}
+  HYPERVISOR_SECURITY_REFERENCE.md:
+    batch: 8
+    items:
+      - {"text": "One compromised ESXi host or vCenter can encrypt every VM at once, below the guest OS where EDR cannot see.", "from": "#hypervisor-amp-virtualization-hardening-reference", "quote": "one compromised ESXi host or vCenter can encrypt every VM at once, below the guest OS where EDR cannot see."}
+      - {"text": "Set ESXi hosts to lockdown mode so they are managed only through vCenter and direct host access is denied.", "from": "#vmware-esxi-vsphere-hardening", "quote": "set hosts to Strict (or at minimum Normal) so hosts are managed only through vCenter"}
+      - {"text": "Disable OpenSLP wherever it is not required; the OpenSLP flaws drove the first wave of ESXi ransomware.", "from": "#exploited-hypervisor-cves-2019-2026", "quote": "the OpenSLP trio (2019/2020/2021) drove the first wave of ESXi ransomware"}
+      - {"text": "Forward hypervisor logs to a SIEM, because attackers wipe local logs.", "from": "#detection-amp-logging", "quote": "local logs are wiped by attackers."}
+  NETWORKING_ARCHITECTURE_REFERENCE.md:
+    batch: 8
+    items:
+      - {"text": "Design for flows, not for boxes: start from a flow matrix of who talks to whom, then choose the topology.", "from": "#_1-principles-amp-drivers", "quote": "Design for flows, not for boxes."}
+      - {"text": "Segmentation is the single highest-leverage security property of a network design.", "from": "#_3-building-blocks-domains", "quote": "Segmentation is the single highest-leverage security property of a network design."}
+      - {"text": "Keep layer 2 domains small: a large layer 2 domain is a large failure domain and a large attack surface for ARP and MAC abuse.", "from": "#_3-building-blocks-domains", "quote": "large L2 = large failure/flood domain = large attack surface for ARP/MAC abuse"}
+      - {"text": "Zero-trust network access is a logical pattern, not a topology: no implicit trust comes from network location.", "from": "#_2-reference-architectures-amp-patterns", "quote": "A logical pattern, not a topology: no implicit trust from network location."}
+  REVERSE_ENGINEERING_REFERENCE.md:
+    batch: 8
+    items:
+      - {"text": "Understand the legal frameworks that cover reverse engineering before starting any engagement.", "from": "#section-1-re-fundamentals-amp-architectures", "quote": "Reverse engineering for security research operates under several legal frameworks that analysts should understand before beginning any engagement."}
+      - {"text": "TLS callbacks in a PE file are function pointers the Windows loader runs before the entry point.", "from": "#section-2-binary-formats", "quote": "points to an array of function pointers executed before the entry point by the Windows loader."}
+      - {"text": "Ghidra lifts every supported architecture to PCode, one intermediate representation for analysis.", "from": "#section-3-static-analysis-tools", "quote": "Ghidra compiles all supported architectures to PCode"}
+      - {"text": "On x86-64 System V, integer and pointer arguments pass in RDI, RSI, RDX, RCX, R8, and R9, in that order.", "from": "#section-1-re-fundamentals-amp-architectures", "quote": "Integer/pointer arguments: RDI, RSI, RDX, RCX, R8, R9 (in order)"}
+  SECURITY_AWARENESS_REFERENCE.md:
+    batch: 8
+    items:
+      - {"text": "Traditional awareness computer-based training achieves compliance but does not durably change behavior.", "from": "#from-awareness-to-human-risk-management", "quote": "achieves compliance but does not durably change behavior."}
+      - {"text": "Climb the phishing-simulation difficulty ladder deliberately; do not open with a spear-phish and then punish the organization for failing.", "from": "#phishing-simulation-methodology-metrics-amp-ethics", "quote": "climb it deliberately; do not open with a spear-phish and then punish the org for failing."}
+      - {"text": "Track behavioral metrics, not just training completion.", "from": "#measuring-human-risk", "quote": "Track behavioral metrics, not just completion."}
+      - {"text": "A healthy reporting culture is the most effective human defense: one report of a live campaign can trigger containment for everyone.", "from": "#reporting-culture-amp-positive-reinforcement", "quote": "A healthy reporting culture is the single most impactful human defense: one employee who reports a live campaign can trigger containment for everyone."}
+  SECURITY_GADGETS_REFERENCE.md:
+    batch: 8
+    items:
+      - {"text": "Always obtain explicit written authorization before testing any system you do not own.", "from": "#security-gadgets-reference", "quote": "Always obtain explicit written authorization before testing on any systems you do not own."}
+      - {"text": "The USB Rubber Ducky presents as a USB keyboard and types scripted payloads at machine speed the moment it is plugged in.", "from": "#_1-hak5-ecosystem", "quote": "is a keystroke injection tool that presents as a USB HID keyboard, executing scripted payloads at machine speed the moment it is plugged in."}
+      - {"text": "The O.MG Cable hides a WiFi-enabled microcontroller in a cable that looks like a standard charging cable.", "from": "#_1-hak5-ecosystem", "quote": "is a USB cable with an embedded WiFi-enabled microcontroller, visually indistinguishable from standard charging cables."}
+      - {"text": "Flipper Zero's Sub-GHz radio can receive, decode, save, and replay fixed-code signals from 300 to 928 MHz.", "from": "#_3-flipper-zero", "quote": "to receive, decode, save, and replay fixed-code radio signals in the 300-928 MHz range."}
+  SECURITY_PROGRAM_MANAGEMENT_REFERENCE.md:
+    batch: 8
+    items:
+      - {"text": "Moving from senior practitioner to security leader changes the unit of work; it is not a promotion in the same job.", "from": "#the-security-leader39s-job", "quote": "The step from senior practitioner to security leader is a change of unit of work, not a promotion in the same job."}
+      - {"text": "Outsource commodity, 24x7, or scarce-skill functions, and keep strategy, risk ownership, and architecture in-house.", "from": "#organizational-design-amp-reporting-lines", "quote": "keep strategy, risk ownership, and architecture in-house."}
+      - {"text": "A security strategy that does not fit on one page will not survive contact with a board.", "from": "#security-strategy-amp-roadmap", "quote": "A security strategy that doesn't fit on one page won't survive contact with a board."}
+      - {"text": "Disclosure is a legal determination made with counsel and the business, not a call security makes alone.", "from": "#incident-escalation-amp-disclosure-duties", "quote": "Disclosure is a legal determination made with counsel and the business, informed by security facts, not a call security makes alone:"}
+  VENDOR_PREVENTION_POLICIES.md:
+    batch: 8
+    items:
+      - {"text": "Every setting is sourced from official vendor security guidance, with links to the source.", "from": "#vendor-prevention-policy-reference", "quote": "All settings are sourced from vendor security guidance and best-practice documentation."}
+      - {"text": "CrowdStrike prevention policies are assigned to host groups.", "from": "#crowdstrike-falcon-prevention-policies", "quote": "Prevention Policies are assigned to Host Groups."}
+      - {"text": "Exclude by path and certificate together, not by path alone.", "from": "#sentinelone-prevention-policies", "quote": "Exclude by path + certificate combination, not by path alone"}
+      - {"text": "ScubaGear is CISA's official open-source assessment tool for Microsoft 365 tenants.", "from": "#cisa-scuba-secure-cloud-business-applications-policies", "quote": "ScubaGear is CISA's official open-source assessment tool for M365 tenants."}

@@ -1,14 +1,75 @@
 # SIEM Reference Library
 
-> Professional Cybersecurity Reference | SIEM, Detection Engineering, SOC Operations, Threat Hunting
-
 > In one minute: This is a working reference for SIEM platforms (Security Information and Event Management: the systems that collect logs from across an environment, correlate them, and raise alerts). It covers the fundamentals (architecture, sizing, and vendor landscape), then goes deep on the query languages and detection workflows of Splunk, Microsoft Sentinel, QRadar, and Elastic, plus log collection, detection engineering, SOC triage, threat hunting, and performance tuning. Its value is copy-ready queries (SPL, KQL, AQL, EQL) and concrete numbers: EPS estimates, storage tiers, magnitude formulas, and quality targets.
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+SOC analysts, detection engineers, and SIEM administrators
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 14 min (3,313 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or converting a detection query for Splunk/Sentinel/QRadar/Elastic, you are sizing or tuning a SIEM deployment, you are standing up a detection engineering or triage process, or you are deciding which Windows/Sysmon events to collect
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[SIEM Fundamentals](#_1-siem-fundamentals) for architecture and sizing, [Detection Engineering](#_7-detection-engineering) for the rule lifecycle and Sigma, [Quick Reference Cheat Sheet](#quick-reference-cheat-sheet) for common SPL/KQL patterns
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[SIEM Detection Content](SIEM_DETECTION_CONTENT.md), [SOAR Automation Reference](SOAR_AUTOMATION_REFERENCE.md), [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md), [ATT&CK Detection Strategies](detections/strategies/README.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[SIEM & SOAR](/disciplines/siem-soar.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-27, Defense Evasion (TA0005) row of the tactic table renamed Stealth ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on SIEM and detection content.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | writing or converting a detection query for Splunk/Sentinel/QRadar/Elastic, sizing or tuning a SIEM deployment, standing up a detection engineering or triage process, deciding which Windows/Sysmon events to collect |
-| Start at | [SIEM Fundamentals](#_1-siem-fundamentals) for architecture and sizing, [Detection Engineering](#_7-detection-engineering) for the rule lifecycle and Sigma, [Quick Reference Cheat Sheet](#quick-reference-cheat-sheet) for common SPL/KQL patterns |
-| Pairs with | [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md), [SOAR_AUTOMATION_REFERENCE.md](SOAR_AUTOMATION_REFERENCE.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [detections/strategies/README.md](detections/strategies/README.md) |
+| SIEM Reference (this page) | SIEM platforms: architecture and sizing, and the query languages and detection workflows of Splunk, Sentinel, QRadar, and Elastic. |
+| [SIEM Detection Content](/SIEM_DETECTION_CONTENT.md) | Where to get vendor-maintained, ready-made detection content and how to deploy it. |
+| [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md) | Writing your own rules in Sigma, YARA, Suricata, SPL, and KQL, then testing and tuning them. |
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

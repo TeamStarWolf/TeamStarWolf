@@ -2,10 +2,63 @@
 
 > Authoritative profiles for the 168 tracked adversary groups in MITRE ATT&CK Enterprise (v18.1) that have observed technique usage (nation-state APTs, eCrime crews, and intrusion sets), each with its aliases, the count of techniques and software attributed to it, and (for the most active) its signature ATT&CK techniques. Pair this with [Threat Actors](THREAT_ACTORS.md) for narrative context and the [Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) for the behaviors.
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Threat intelligence analysts and threat-informed defense practitioners
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 30 min (6,821 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need a group's aliases resolved to one ATT&CK ID, you are scoping which adversaries have the broadest technique coverage, or you want a group's signature techniques for threat-informed defense
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[All tracked groups](#all-tracked-groups) for the alias-and-counts table, [Detailed profiles](#detailed-profiles-most-active-groups) for the most active groups' signature techniques
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-13, revoked IDs re-keyed: T1070.001 to T1685.005, T1070.002 to T1685.006 ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 2 on threat actors.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | you need a group's aliases resolved to one ATT&CK ID, you're scoping which adversaries have the broadest technique coverage, you want a group's signature techniques for threat-informed defense |
-| Start at | [All tracked groups](#all-tracked-groups) for the alias-and-counts table, [Detailed profiles](#detailed-profiles-most-active-groups) for the most active groups' signature techniques |
+| Threat Group Profiles (this page) | Profiles built from ATT&CK group data: aliases, technique and software counts, and signature techniques. |
+| [Threat Actors](/THREAT_ACTORS.md) | A narrative quick reference to notable groups by nation and type, with aliases, targets, and signature TTPs. |
+
+</details>
+
+<!-- meta:end -->
 
 Machine-readable: [`data/attack/groups.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/groups.jsonl), [`data/attack/group_to_technique.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/group_to_technique.jsonl)
 

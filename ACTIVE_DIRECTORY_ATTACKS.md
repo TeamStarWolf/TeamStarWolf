@@ -2,11 +2,69 @@
 
 > Audience: Penetration testers and red teamers. Every major AD attack with exact tool commands, ATT&CK mappings, detection event IDs, and defenses.
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Penetration testers and red teamers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 12 min (2,780 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are scoping an internal AD pentest or red team op, you are mapping a path to Domain Admins, or you are building detections and defenses for a specific AD attack
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[AD Fundamentals for Attackers](#_1-ad-fundamentals-for-attackers), [Enumeration & Reconnaissance](#_2-enumeration-amp-reconnaissance), [Tools Quick Reference](#_10-tools-quick-reference)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Active Directory Attack Reference](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), [Active Directory Security Reference](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md), [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, CrackMapExec tool row marked archived, with NetExec named as its successor ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on Active Directory attack and defense.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | Scoping an internal AD pentest or red team op, mapping a path to Domain Admins, or building detections and defenses for a specific AD attack |
-| Start at | [AD Fundamentals for Attackers](#_1-ad-fundamentals-for-attackers), [Enumeration & Reconnaissance](#_2-enumeration-amp-reconnaissance), [Tools Quick Reference](#_10-tools-quick-reference) |
-| Pairs with | [ACTIVE_DIRECTORY_ATTACK_REFERENCE.md](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), [ACTIVE_DIRECTORY_SECURITY_REFERENCE.md](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md) |
+| Active Directory Attacks (this page) | The offensive playbook for penetration testers and red teamers: each major attack with tool commands, ATT&CK mappings, detection event IDs, and defenses. |
+| [Active Directory Attack Reference](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md) | The same attacks from the defender's side: what each looks like on the wire, the telemetry it generates, and how to detect and prevent it. |
+| [Active Directory Security Reference](/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md) | The defensive companion: detection guidance, hardening controls, and response playbooks, including domain controller, Group Policy, and AD CS security. |
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

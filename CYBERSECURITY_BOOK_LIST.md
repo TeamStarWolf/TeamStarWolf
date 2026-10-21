@@ -2,11 +2,54 @@
 
 > In one minute: A curated reading and lab guide for every major cybersecurity specialty, from pentesting and malware analysis to blue team, cloud, and OSINT. Each section pairs the best books with the repos, YouTube channels, certifications, and practice platforms that let you apply them, so you read and lab in parallel instead of just collecting titles. Six role-based learning paths give you a starting sequence when you don't know where to begin.
 
-| | |
-|---|---|
-| Read this when | you are choosing what to study next for a role or skill area, building a lab-first study plan, or looking for the standard book plus hands-on repos in a domain |
-| Start at | [Learning Paths](#learning-paths), [How To Use This File](#how-to-use-this-file), [Core / Must-Read](#core-must-read-high-signal) |
-| Pairs with | [RESOURCES.md](RESOURCES.md), [LABS.md](LABS.md), [Black Hat Arsenal crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Learners and practitioners choosing what to read and practice next
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 35 min (8,104 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are choosing what to study next for a role or skill area, you are building a lab-first study plan, or you are looking for the standard book plus hands-on repos in a domain
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Learning Paths](#learning-paths), [How To Use This File](#how-to-use-this-file), [Core / Must-Read](#core-must-read-high-signal)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Resources](RESOURCES.md), [Hands-On Labs](LABS.md), [Black Hat Arsenal crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 A practical reading and lab guide for people learning or working in cybersecurity. Each section pairs books with repositories, channels, certifications, and practice environments so the material is easier to apply.
 

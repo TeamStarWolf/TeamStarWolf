@@ -4,6 +4,55 @@ AI and Large Language Model security covers two intersecting domains: securing A
 
 This is the fastest-moving field in security. Threat taxonomies like MITRE ATLAS are maturing in public, the OWASP LLM Top 10 has become the reference framework for application-layer LLM risks, and the researchers defining best practices are doing so in real time. Practitioners entering this space need strong security fundamentals combined with enough ML knowledge to reason about model behavior: deep research experience is not required, but understanding what LLMs can and cannot do is essential for building meaningful threat models.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Practitioners moving into AI and LLM security, offensive or defensive
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 19 min (4,398 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are weighing whether to attack or defend AI systems, you are mapping LLM threats to MITRE ATLAS, or you are looking for free training and tools
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [LLM Security Threat Landscape](#llm-security-threat-landscape), [Securing LLM Applications](#securing-llm-applications)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, note added on the 2026 OWASP Top 10 for LLM Applications ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [AI Security Reference](/AI_SECURITY_REFERENCE.md), the library's in-depth page on this subject.

@@ -2,6 +2,55 @@
 
 > Active Directory is the backbone of enterprise identity, controlling authentication, authorization, and access for millions of organizations worldwide. Attackers target AD for persistence and privilege escalation; a compromised domain controller is effectively a full organizational compromise. Defenders must understand both the attack and defense sides of AD to protect their environments effectively.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Administrators, defenders, and testers who attack or protect Active Directory
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (1,983 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning how AD authentication works and how attackers get from a foothold to domain dominance, or you are building AD detections and hardening
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[AD Architecture Review](#ad-architecture-review), [Kerberoasting](#kerberoasting), [Detection Strategies](#detection-strategies)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, CrackMapExec row replaced by NetExec ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching references: [Active Directory Attack Reference](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md) and [Active Directory Security Reference](/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), the library's in-depth pages on this subject.

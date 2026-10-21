@@ -6,6 +6,50 @@ Modern targets range from packed Windows PE binaries and Linux ELF files to firm
 
 Security applications of RE include: malware analysis, vulnerability research, firmware security, CTF challenges, anti-cheat bypass research, and intellectual property protection audits.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Analysts and researchers learning to reverse engineer compiled software
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 15 min (3,443 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working through crackmes and CTF reversing challenges, or you are learning static and dynamic analysis workflows and anti-analysis bypasses
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [Static Analysis Workflow](#static-analysis-workflow), [Dynamic Analysis Workflow](#dynamic-analysis-workflow)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md), the library's in-depth page on this subject.

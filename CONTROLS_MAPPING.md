@@ -21,6 +21,65 @@ Additional cloud-native control mappings from CTID:
 For the gap scoring data model, see [COVERAGE_SCHEMA.md](COVERAGE_SCHEMA.md).
 For the full pipeline context, see [SECURITY_PIPELINE.md](SECURITY_PIPELINE.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security architects, GRC analysts, and engineers building control-coverage maps
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Length</th><td>
+
+Lookup page: 1,954 words, 80% in tables; look entries up from Start at or the search (about 8 min end to end at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are tracing a security product to the NIST 800-53 controls it implements and on to the ATT&CK techniques those controls mitigate, or you are downloading CTID mapping data for gap scoring
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vendor to NIST Control to ATT&CK Coverage](#vendor-to-nist-control-to-attampck-coverage), [Key ATT&CK Technique to NIST Control Reference](#key-attampck-technique-to-nist-control-reference), [Using CTID Data for Gap Scoring](#using-ctid-data-for-gap-scoring)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1562 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on security controls and vendor settings.</summary>
+
+| Page | Read it for |
+|---|---|
+| Controls Mapping (this page) | The chain from security vendors to the NIST 800-53 controls they implement and the ATT&CK techniques those controls mitigate. |
+| [Enterprise Security Controls](/ENTERPRISE_SECURITY_CONTROLS.md) | Configuration, policy tuning, and detection guidance for specific enterprise platforms. |
+| [Vendor Prevention Policies](/VENDOR_PREVENTION_POLICIES.md) | Recommended prevention settings from official vendor documentation and the CISA SCuBA baselines. |
+
+</details>
+
+<!-- meta:end -->
+
 ---
 
 ## NIST 800-53 Control Families and ATT&CK Coverage

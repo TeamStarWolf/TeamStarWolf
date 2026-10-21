@@ -14,6 +14,8 @@ detections/strategies/README.md + detections/strategies/<tactic>.md (x15).
 Links: every in-repo link is root-absolute (/X.md). The site is docsify with relativePath:
 false, which routes every Markdown link from the site root, so a '../X.md' link escapes it and
 404s (scripts/check_docsify_links.py); GitHub resolves '/X.md' from the repository root too.
+Each technique's body is folded into a <details> element under its visible heading.
+Every page ends with the MITRE notice for reproduced ATT&CK content (docs/VOICE.md).
 Run from the repo root: python scripts/generate_technique_detail_pages.py
 CI drift gate:          python scripts/generate_technique_detail_pages.py --check
   (renders into a temporary directory, writes nothing in the repo, and exits 1 if a
@@ -92,6 +94,40 @@ for r in load("detection_strategies.jsonl"):
 an_by_id = {r["analytic_id"]: r for r in load("analytics.jsonl")}
 
 
+# Each technique's body is folded under its heading. The heading and its <a id> anchor stay
+# visible, so links, the page's table of contents and search land on them, and the site
+# opens the fold when a link targets that technique (index.html). The opening line matches
+# the fold format scripts/build_doc_meta.py writes, so reading times leave the summary out.
+FOLD_OPEN = '<details class="tsw-fold"><summary>{}</summary>'
+FOLD_CLOSE = "</details>"
+
+# Every page reproduces ATT&CK text (names, descriptions, mitigations, detection
+# strategies), so each ends with the notice docs/VOICE.md and THIRD_PARTY_NOTICES.md give
+# for reproduced ATT&CK content.
+ATTACK_NOTICE = ("*\N{COPYRIGHT SIGN} 2026 The MITRE Corporation. This work is reproduced and distributed with "
+                 "the permission of The MITRE Corporation. License: [ATT&CK Terms of Use]"
+                 "(https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). "
+                 "ATT&CK\N{REGISTERED SIGN} and MITRE ATT&CK\N{REGISTERED SIGN} are registered trademarks of "
+                 "The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*")
+
+
+def with_notice(lines):
+    """The page's lines with the ATT&CK notice last, after a rule."""
+    while lines and not lines[-1].strip():
+        lines = lines[:-1]
+    if lines and lines[-1].strip() != "---":
+        lines = lines + ["", "---"]
+    return lines + ["", ATTACK_NOTICE, ""]
+
+
+def count(n, noun, plural=None):
+    if n == 1:
+        return "1 " + noun
+    if plural is None:
+        plural = noun[:-1] + "ies" if noun.endswith("y") else noun + "s"
+    return str(n) + " " + plural
+
+
 def dedup(seq):
     seen, out = set(), []
     for x in seq:
@@ -114,6 +150,17 @@ def tech_block(tid):
     out.append(head + "**Tactics:** " + tacs + " · **Platforms:** " + plats +
                " · [ATT&CK ↗](" + att_url(tid) + ")  ")
     out.append("")
+    migs, nist = p.get("mitigations") or [], p.get("nist_800_53_controls") or []
+    strat = p.get("detection_strategies") or []
+    grps, sw = dedup(groups_by_t.get(tid) or []), dedup(sw_by_t.get(tid) or [])
+    # A short label to scan down a page of folds: the description is implied by "details",
+    # NIST means NIST SP 800-53, and "software" is ATT&CK's own plural.
+    parts = [count(len(migs), "mitigation")] if migs else []
+    parts += [count(len(nist), "NIST control")] if nist else []
+    parts += [("detection strategy" if len(strat) == 1 else count(len(strat), "detection strategy"))] if strat else []
+    parts += [count(len(grps), "group")] if grps else []
+    parts += [count(len(sw), "software", "software")] if sw else []
+    out += [FOLD_OPEN.format("Show details" + (": " + ", ".join(parts) if parts else "")), ""]
     if p.get("description"):
         out.append(p["description"].strip())
         out.append("")
@@ -149,9 +196,7 @@ def tech_block(tid):
         sw = dedup(sw)
         out.append("**Implemented by " + str(len(sw)) + " software:** " +
                    ", ".join("[" + s + " " + n + "](https://attack.mitre.org/software/" + s + ")" for s, n in sw) + "  ")
-    out.append("")
-    out.append("---")
-    out.append("")
+    out += ["", FOLD_CLOSE, "", "---", ""]
     return "\n".join(out)
 
 
@@ -167,7 +212,7 @@ def render_tech_tactic(slug):
            "[all techniques index](/techniques/README.md).", "", "---", ""]
     for t in ts:
         out.append(tech_block(t))
-    return "\n".join(out)
+    return "\n".join(with_notice("\n".join(out).split("\n")))
 
 
 def render_tech_readme():
@@ -185,8 +230,7 @@ def render_tech_readme():
         s = primary[t]
         out.append("| `" + t + "` | " + prof[t]["name"] + " | [" + TAC_NAME[s] + "](/techniques/" + s +
                    ".md#" + anchor(t) + ") |")
-    out.append("")
-    return "\n".join(out)
+    return "\n".join(with_notice(out))
 
 
 # ---------------------------------------------------------------- detection-strategy pages
@@ -197,6 +241,12 @@ def det_block(tid):
     p = prof[tid]
     out = ["### " + tid + " — " + p["name"], '<a id="' + anchor(tid) + '"></a>', ""]
     slug = primary.get(tid, "")
+    n_an = sum(1 for st in strategies for aid in st.get("analytic_ids", []) if aid in an_by_id)
+    what = "the detection strategy" if len(strategies) == 1 else count(len(strategies), "detection strategy")
+    if n_an:
+        what += (" and its " if len(strategies) == 1 else " and their ") + (
+            "analytic" if n_an == 1 else count(n_an, "analytic"))
+    out += [FOLD_OPEN.format("Show " + what), ""]
     for st in strategies:
         plats = ", ".join(st.get("platforms") or []) or "—"
         out.append("**Detection strategy:** " + st.get("name", "") + " (`" + st.get("strategy_id", "") + "`)  ")
@@ -227,8 +277,7 @@ def det_block(tid):
                 out.append("  - *Tune:* " + "; ".join("`" + m.get("field", "") + "`: " + (m.get("description", "") or "")
                                                        for m in tune))
         out.append("")
-    out.append("---")
-    out.append("")
+    out += [FOLD_CLOSE, "", "---", ""]
     return "\n".join(out)
 
 
@@ -246,7 +295,7 @@ def render_det_tactic(slug):
            "[Technique Detail Pages](/techniques/README.md)", "", "---", ""]
     for t in ts:
         out.append(det_block(t))
-    return "\n".join(out)
+    return "\n".join(with_notice("\n".join(out).split("\n")))
 
 
 def render_det_readme():
@@ -258,8 +307,8 @@ def render_det_readme():
            ") — the authoritative, MITRE-authored guidance for detecting each technique, with concrete log "
            "sources, channels, detection logic, and tunable parameters. Complements the "
            "[ready-to-run Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md).", "",
-           "**By tactic:** " + navs, ""]
-    return "\n".join(out)
+           "**By tactic:** " + navs]
+    return "\n".join(with_notice(out))
 
 
 TREES = ("techniques", "detections/strategies")

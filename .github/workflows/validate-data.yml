@@ -161,6 +161,33 @@ jobs:
             python scripts/check_voice.py
           fi
 
+  doc-meta:
+    name: Header cards match data/doc_meta.yaml; every takeaway quotes its page
+    # The header card at the top of each root reference and learning path, the folds and the
+    # "Which page should I read?" tables are written by build_doc_meta.py from
+    # data/doc_meta.yaml; it fails on any difference, on a reference or path with no entry,
+    # and on a draft or reviewed takeaway whose quote is no longer in its section. "Due for
+    # review" compares a page's last recorded review with the date its text last changed,
+    # which needs the full git history, so this job checks out with fetch-depth: 0.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (full history)
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: '3.11'
+
+      - name: Planted cases (YAML reader, folds, card placement, due rule, voice rules)
+        run: python scripts/build_doc_meta.py --self-test
+
+      - name: Header cards and folds match data/doc_meta.yaml; takeaways quote their sections
+        run: python scripts/build_doc_meta.py --check
+
   validate-navigator:
     name: Validate ATT&CK Navigator layers
     # Every layer under navigator/ (not just one): JSON shape, domain, versions.attack == 19 for

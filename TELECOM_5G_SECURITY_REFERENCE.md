@@ -15,10 +15,49 @@ This reference covers the FiGHT framework's structure and how it extends ATT&CK,
 
 Related: [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Mobile ATT&CK Atlas](MOBILE_ATTACK_ATLAS.md), [Wireless Security](WIRELESS_SECURITY_REFERENCE.md), [SDR & RF Security](SDR_RF_SECURITY_REFERENCE.md), [Network Security Architecture](NETWORK_SECURITY_ARCHITECTURE.md), [Zero Trust](ZERO_TRUST_REFERENCE.md), [Fight Fraud Framework (F3)](FRAUD_FRAMEWORK_REFERENCE.md)
 
-| | |
-|---|---|
-| Read this when | You defend or assess a telecom operator or private 5G estate, you need to scope FiGHT techniques or GSMA signaling defenses into a threat-informed program, or you are responding to the Salt Typhoon advisory record and hardening guidance |
-| Start at | [Why telecom infrastructure is a target](#why-telecom-infrastructure-is-a-target-the-salt-typhoon-wake-up-call), [Case study: Salt Typhoon and AA25-239A](#case-study-salt-typhoon-and-the-advisory-record-aa25-239a), [Hardening communications infrastructure](#hardening-communications-infrastructure-the-december-2024-joint-guidance-distilled) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Telecom and private 5G security engineers, and threat intelligence analysts covering telecom
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 20 min (4,534 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You defend or assess a telecom operator or private 5G estate, you need to scope FiGHT techniques or GSMA signaling defenses into a threat-informed program, or you are responding to the Salt Typhoon advisory record and hardening guidance
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Why telecom infrastructure is a target](#why-telecom-infrastructure-is-a-target-the-salt-typhoon-wake-up-call), [Case study: Salt Typhoon and AA25-239A](#case-study-salt-typhoon-and-the-advisory-record-aa25-239a), [Hardening communications infrastructure](#hardening-communications-infrastructure-the-december-2024-joint-guidance-distilled)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

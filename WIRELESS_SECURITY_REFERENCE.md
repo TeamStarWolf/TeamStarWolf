@@ -1,12 +1,60 @@
 # Wireless Security Reference
 
-> Comprehensive technical reference for wireless security protocols, attack techniques, detection, and hardening. Part of the TeamStarWolf cybersecurity reference library.
+> Technical reference for wireless security protocols, attack techniques, detection, and hardening.
 
-| | |
-|---|---|
-| Read this when | Assessing the security of a Wi-Fi, Bluetooth, cellular, RFID/NFC, or IoT wireless deployment, planning or running a wireless penetration test, hardening a wireless network against real attacks |
-| Start at | [Wi-Fi Security Protocols](#_1-wi-fi-security-protocols), [Wi-Fi Attack Techniques](#_2-wi-fi-attack-techniques), [Wireless Hardening](#_9-wireless-hardening) |
-| Pairs with | [NETWORK_PROTOCOLS_SECURITY.md](NETWORK_PROTOCOLS_SECURITY.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md), [disciplines/radio-frequency-security.md](disciplines/radio-frequency-security.md), [disciplines/iot-security.md](disciplines/iot-security.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Wireless penetration testers and network engineers who secure Wi-Fi, Bluetooth, and other wireless links
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 30 min (6,962 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are assessing the security of a Wi-Fi, Bluetooth, cellular, RFID/NFC, or IoT wireless deployment, you are planning or running a wireless penetration test, or you are hardening a wireless network against real attacks
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Wi-Fi Security Protocols](#_1-wi-fi-security-protocols), [Wi-Fi Attack Techniques](#_2-wi-fi-attack-techniques), [Wireless Hardening](#_9-wireless-hardening)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Network Protocols Security](NETWORK_PROTOCOLS_SECURITY.md), [Red Team Reference](RED_TEAM_REFERENCE.md), [Radio Frequency (RF) Security](disciplines/radio-frequency-security.md), [IoT Security](disciplines/iot-security.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked mobile IDs re-keyed: T1465, T1466 and T1467 to T1638, T1468 to T1430.001 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 ---
 
@@ -1811,6 +1859,8 @@ MITRE ATT&CK for Mobile (additional wireless relevance):
 
 ## Glossary
 
+<details class="tsw-fold"><summary>Show this section (371 words and a table of 43 rows)</summary>
+
 | Term | Definition |
 |---|---|
 | BSSID | Basic Service Set Identifier: 6-byte MAC address of an AP |
@@ -1856,6 +1906,8 @@ MITRE ATT&CK for Mobile (additional wireless relevance):
 | NOC | Node Operational Certificate: Matter per-session identity |
 | PASE | Passcode-Authenticated Session Establishment: Matter commissioning |
 | CASE | Certificate-Authenticated Session Establishment: Matter post-commissioning |
+
+</details>
 
 ---
 

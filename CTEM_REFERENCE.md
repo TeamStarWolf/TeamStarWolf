@@ -8,10 +8,60 @@ This reference maps each CTEM stage to the concrete data, tooling, and reference
 
 Related: [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md), [Vulnerability Prioritization (SSVC, KEV, EPSS)](VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Purple Team](PURPLE_TEAM_REFERENCE.md), [ATT&CK Priority Gaps](scores/attack_priority_gaps.md), [Security Metrics](SECURITY_METRICS_REFERENCE.md), [Fight Fraud Framework (F3)](FRAUD_FRAMEWORK_REFERENCE.md)
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, security program managers, and CISOs
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 28 min (6,530 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are standing up or rebooting an exposure-management program, your vulnerability queue is ranked by CVSS alone and nobody trusts it, or you need to explain to leadership what CTEM is and why the loop beats scan-and-patch
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[The five stages](#the-five-stages) for the loop itself, [A 90-day starting plan](#a-90-day-starting-plan) to run a first cycle, [Free and open tooling by stage](#free-and-open-tooling-by-stage) to start without procurement
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 4 on vulnerability prioritization and management.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | you are standing up or rebooting an exposure-management program, your vulnerability queue is ranked by CVSS alone and nobody trusts it, or you need to explain to leadership what CTEM is and why the loop beats scan-and-patch |
-| Start at | [The five stages](#the-five-stages) for the loop itself, [A 90-day starting plan](#a-90-day-starting-plan) to run a first cycle, [Free and open tooling by stage](#free-and-open-tooling-by-stage) to start without procurement |
+| CTEM Reference (this page) | The program loop prioritization runs inside: scoping, discovery, prioritization, validation, and mobilization. |
+| [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md) | The decision layer: which signal outranks which (SSVC, KEV, EPSS) and how the result becomes an SLA. |
+| [CVE Reference](/CVE_REFERENCE.md) | The scoring mechanics: CVE records, CVSS, EPSS, and the KEV catalog, with automation code. |
+| [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md) | Operational tooling: scanners, DefectDojo, SCA and SBOM, and patching. |
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

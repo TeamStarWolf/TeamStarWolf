@@ -12,6 +12,50 @@
 | You want to score an existing network | [Maturity / checklist](#_8-maturity-checklist) |
 | You need the authoritative sources | [Standards](#_6-standards-amp-frameworks) · [Tools & further reading](#_9-tools-amp-further-reading) |
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Network architects and engineers, and security architects reviewing network designs
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 19 min (4,291 words at 230 words a minute)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on how networks work and how to design them.</summary>
+
+| Page | Read it for |
+|---|---|
+| Networking Architecture Reference (this page) | Designing networks: topologies, overlays, segmentation, SD-WAN and SASE, and core services. |
+| [Networking Fundamentals](/NETWORKING_FUNDAMENTALS.md) | How networking works, from OSI layers to routing and DNS, explained for reasoning about attacks and detections. |
+| [Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md) | Building a segmented enterprise network: zones, firewall and IPS placement, 802.1X, and VPNs, with configuration examples. |
+
+</details>
+
+<!-- meta:end -->
+
 ---
 
 ## 1. Principles & drivers

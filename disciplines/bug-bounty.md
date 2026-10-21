@@ -2,6 +2,55 @@
 
 Bug bounty programs are structured arrangements where organizations invite external security researchers to identify and responsibly disclose vulnerabilities in exchange for recognition or financial rewards. Practitioners, called hunters or researchers, operate within a defined scope and rules of engagement, applying offensive security techniques to real production targets. The discipline sits at the intersection of web application security, network reconnaissance, reverse engineering, and technical writing. It matters because it surfaces vulnerabilities that internal teams miss, incentivizes responsible disclosure over black-market exploitation, and creates a continuous, community-driven security testing layer. Hunters range from students using free platforms to elite researchers earning millions annually through private programs. Defenders benefit equally: understanding hunter methodology reveals which controls to harden, which logs to monitor, and how exploitation chains actually assemble in the wild.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Aspiring and working bug bounty hunters and vulnerability researchers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (1,966 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are running recon for a bug bounty program, you are studying vulnerability classes from both sides, or you are learning to write reports that get triaged
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [Recon Methodology](#recon-methodology), [Writing a High-Quality Bug Report](#writing-a-high-quality-bug-report)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-27, tactic of T1078 Valid Accounts changed from Defense Evasion to Stealth ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ---
 
 ## Where to Start

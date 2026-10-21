@@ -15,7 +15,7 @@ Part of the [domain hubs](/hubs/README.md). 6 reference documents in this domain
 | [Windows Hardening GPO Reference](/WINDOWS_HARDENING_GPO.md) | Windows Group Policy hardening, attack surface reduction, service management, and enterprise mitigation strategies | 8 min |
 | [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md) | Linux system hardening, CIS Benchmarks, SELinux, auditd, firewall configuration, compliance | 7 min |
 | [macOS Security Reference](/MACOS_SECURITY_REFERENCE.md) | SIP, Gatekeeper/notarization, XProtect, TCC, FileVault, Endpoint Security framework telemetry, unified log, NIST mSCP/CIS baselines, MDM, ATT&CK macOS coverage | 22 min |
-| [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md) | iOS/Android security architecture, mobile app pentesting, OWASP Mobile Top 10, MDM/EMM, mobile malware analysis | 21 min |
+| [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md) | iOS/Android security architecture, mobile app pentesting, OWASP Mobile Top 10, MDM/EMM, mobile malware analysis | 20 min |
 
 ## Learning paths
 

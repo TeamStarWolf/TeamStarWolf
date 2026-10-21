@@ -4,6 +4,50 @@ Network security encompasses the tools, techniques, and disciplines used to moni
 
 The discipline has expanded significantly with the rise of encrypted traffic, cloud networking, and east-west lateral movement that never crosses a perimeter. Modern network security requires understanding TLS inspection, cloud VPC flow logs, DNS-over-HTTPS implications for detection, and the network behavior signatures of sophisticated threat actors who specifically design their tools to blend into normal business traffic.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Practitioners learning network security monitoring, IDS and IPS, and traffic analysis
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,271 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning how network protocols work at the packet level and how they are attacked and monitored
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [Network Attack Techniques](#network-attack-techniques), [Network Monitoring and Defense](#network-monitoring-and-defense)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching references: [Network Defense Reference](/NETWORK_DEFENSE_REFERENCE.md) and [Network Monitoring Reference](/NETWORK_MONITORING_REFERENCE.md), the library's in-depth pages on this subject.

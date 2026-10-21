@@ -4,6 +4,50 @@ Open Source Intelligence (OSINT) is the discipline of collecting, processing, an
 
 OSINT is not passive browsing. Professional OSINT work involves structured collection plans, source validation frameworks, link analysis, and documented intelligence products. The same data that helps a red team map an attack surface also helps a threat intelligence analyst track a criminal actor, a fraud investigator build a case, or a security team identify exposed credentials before attackers do. The discipline underlies all of them.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Analysts and testers learning open-source intelligence collection and analysis
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 14 min (3,130 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building an OSINT collection workflow with OPSEC first, or you are choosing OSINT tools and techniques
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [Core Methodology](#core-methodology), [OpSec for OSINT Analysts](#opsec-for-osint-analysts)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [OSINT Reference](/OSINT_REFERENCE.md), the library's in-depth page on this subject.

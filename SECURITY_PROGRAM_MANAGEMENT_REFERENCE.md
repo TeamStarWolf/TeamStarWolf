@@ -2,11 +2,59 @@
 
 > In one minute: This is the leader's field manual for *building and running* a security program, not for operating any single control. It picks up where the practitioner references leave off: your first 90 days, where the CISO should report, how much to budget and how to defend it, how to turn a risk register into a funded roadmap, how to brief a board that now has statutory oversight duties, and how to make the disclosure and escalation calls that carry personal legal weight. Everything technical (metrics formulas, GRC control detail, breach clocks, TPRM questionnaires) lives in sibling docs; this doc cross-links to them and adds the management layer on top.
 
-| | |
-|---|---|
-| Read this when | you just took (or are interviewing for) a security-leadership role, standing up a program from zero, rebuilding one after an incident or a failed audit, defending or cutting a security budget, prepping a board deck, or deciding who declares an incident "material" |
-| Start at | [The First 90 Days](#the-first-90-days), [Organizational Design & Reporting Lines](#organizational-design-amp-reporting-lines), [Budgeting & Headcount](#budgeting-amp-headcount), [Board & Executive Reporting](#board-amp-executive-reporting) |
-| Pairs with | [GRC_REFERENCE.md](GRC_REFERENCE.md), [SECURITY_METRICS_REFERENCE.md](SECURITY_METRICS_REFERENCE.md), [REGULATORY_LANDSCAPE_REFERENCE.md](REGULATORY_LANDSCAPE_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [CAREER_PATHS.md](CAREER_PATHS.md), [FRAMEWORKS.md](FRAMEWORKS.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+CISOs and security leaders, and practitioners stepping into leadership
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 15 min (3,425 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You have just taken, or are interviewing for, a security-leadership role, you are standing up a program from zero or rebuilding one after an incident or a failed audit, you are defending or cutting a security budget, you are preparing a board deck, or you must decide who declares an incident "material"
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[The First 90 Days](#the-first-90-days), [Organizational Design & Reporting Lines](#organizational-design-amp-reporting-lines), [Board & Executive Reporting](#board-amp-executive-reporting)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, added, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[GRC Reference](GRC_REFERENCE.md), [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md), [Regulatory Landscape Reference](REGULATORY_LANDSCAPE_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md), [Career Paths](CAREER_PATHS.md), [Frameworks Reference](FRAMEWORKS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Added</th><td>
+
+2026-09-29 ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 > Not legal advice. Disclosure, materiality, and personal-liability topics below are operational guidance for a security leader, not legal counsel. Materiality determinations, breach-notification duties, and director/officer exposure turn on specific facts and jurisdictions; decide them with qualified counsel and your general counsel in the room. Regulatory specifics were verified as of 2026-09-29; confirm current text before relying on any clock or rule.
 

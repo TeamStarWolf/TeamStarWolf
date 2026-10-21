@@ -20,9 +20,11 @@ Writes, from the config and the pages themselves:
 
 Titles come from each page's H1. A reference's summary is its line in INDEX.md, or else
 the first sentence of the page's opening paragraph. Reading time is the page's words
-(code blocks, comments, script-written blocks and link targets left out) at 230 words a
-minute. A guide's time
-and level come from its own header table, as on the homepage.
+(code blocks, comments, script-written blocks, fold summaries and link targets left out)
+at 230 words a minute, the same count the page's own header card shows
+(scripts/build_doc_meta.py); a reference with more than three quarters of its words in
+tables shows "Lookup page (N min end to end)", as its card does. A guide's time and level come from its own header table, as
+on the homepage.
 
 Rules the --check run enforces (CI, validate-data.yml):
   * the committed files match what this script writes;
@@ -163,21 +165,64 @@ SCRIPT_BLOCK_RE = re.compile(r"<!--\s*([\w-]+):start\b.*?<!--\s*\1:end\s*-->", r
 LOCAL_ID_LINK_RE = re.compile(r" \(\[local\]\(/mitre/[^()\s]+\.md\)\)")
 
 
-def word_count(text: str) -> int:
-    # Script-written blocks (the "Related pages" footer from build_crosslinks.py and the
-    # like) and its "(local)" links after MITRE IDs are navigation, not reading, so they
-    # never move a reading time.
-    t = bsi.without_comments(LOCAL_ID_LINK_RE.sub("", SCRIPT_BLOCK_RE.sub(" ", text)))
+# The opening line of a fold that scripts/build_doc_meta.py wraps around a long appendix or
+# table. Its summary ("Show this section ...") is a button label, not reading.
+FOLD_OPEN_RE = re.compile(r'^<details class="tsw-fold"><summary>[^<>\n]*</summary>[ \t]*$', re.M)
+
+# One row of the header card scripts/build_doc_meta.py writes: an HTML row whose label is a
+# row header (<th scope="row">) and whose value is a Markdown paragraph between blank lines,
+# so GitHub and docsify both render its links.
+CARD_ROW_HTML_RE = re.compile(r'^<tr><th scope="row" align="left" valign="top">([^<>\n]+)</th><td>\n\n'
+                              r'([^\n]*)\n\n</td></tr>$', re.M)
+
+
+def card_rows(block: str) -> list[tuple[str, str]]:
+    """(label, value) of every row in a header card block."""
+    return CARD_ROW_HTML_RE.findall(block)
+
+
+def words(text: str) -> list[str]:
+    """The words a reader reads on the page, in order. Script-written blocks (the header
+    card from build_doc_meta.py, the "Related pages" footer from build_crosslinks.py and
+    the like), the "(local)" links after MITRE IDs, fold summaries, comments, code blocks
+    and link targets are navigation, not reading, so they never move a reading time."""
+    t = FOLD_OPEN_RE.sub(" ", LOCAL_ID_LINK_RE.sub("", SCRIPT_BLOCK_RE.sub(" ", text)))
+    t = bsi.without_comments(t)
     t = re.sub(r"^\s*(```|~~~).*?^\s*\1[^\n]*$", " ", t, flags=re.S | re.M)
     t = re.sub(r"!\[([^\]]*)\]\([^)]*\)", " ", t)
     t = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", t)
     t = re.sub(r"https?://\S+", " ", t)
     t = re.sub(r"<[^>\n]+>", " ", t)
-    return len(re.findall(r"[A-Za-z0-9][\w'.-]*", t))
+    return re.findall(r"[A-Za-z0-9][\w'.-]*", t)
+
+
+def word_count(text: str) -> int:
+    return len(words(text))
+
+
+# A reference with more than this share of its words in table rows (a catalogue, a matrix,
+# a glossary) is a lookup page: it is looked up, not read through, so the hubs and its
+# header card say so before giving the end-to-end time. Learning paths are always read.
+LOOKUP_SHARE = 0.75
+
+
+def table_words(text: str) -> int:
+    """Words in the page's Markdown table rows, outside code and script-written blocks,
+    counted the way word_count counts the whole page."""
+    t = SCRIPT_BLOCK_RE.sub(" ", text)
+    t = re.sub(r"^\s*(```|~~~).*?^\s*\1[^\n]*$", " ", t, flags=re.S | re.M)
+    return word_count("\n".join(ln for ln in t.split("\n") if ln.lstrip().startswith("|")))
+
+
+def is_lookup(rel: str, text: str) -> bool:
+    n = word_count(text)
+    return not rel.startswith("disciplines/") and n > 0 and table_words(text) / n > LOOKUP_SHARE
 
 
 def reading_time(rel: str) -> str:
-    return str(max(1, round(word_count(page_text(rel)) / WPM))) + " min"
+    text = page_text(rel)
+    mins = str(max(1, round(word_count(text) / WPM))) + " min"
+    return "Lookup page (" + mins + " end to end)" if is_lookup(rel, text) else mins
 
 
 def cell(s: str) -> str:

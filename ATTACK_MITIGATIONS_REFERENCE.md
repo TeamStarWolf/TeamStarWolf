@@ -2,11 +2,59 @@
 
 > The 44 MITRE ATT&CK Enterprise mitigations (M-codes, v19.2): the defensive measures ATT&CK maps to adversary techniques. Each mitigation lists how many techniques it addresses and the behaviors it counters. Use it alongside the [NIST 800-53 control mappings](CONTROLS_MAPPING.md) and [D3FEND](https://d3fend.mitre.org/) for a full defensive picture.
 
-| | |
-|---|---|
-| Read this when | prioritizing which defensive measures buy the most technique coverage, translating an ATT&CK technique into concrete hardening steps, building or reviewing a mitigation-to-control mapping |
-| Start at | [Mitigations by coverage](#mitigations-by-coverage) for the ranked table, [Detail](#detail) for per-mitigation descriptions and example techniques |
-| Pairs with | [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md), [D3FEND_REFERENCE.md](D3FEND_REFERENCE.md), [ATTACK_TECHNIQUE_ATLAS.md](ATTACK_TECHNIQUE_ATLAS.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security architects and engineers turning ATT&CK techniques into hardening work
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 22 min (5,026 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are prioritizing which defensive measures buy the most technique coverage, you are translating an ATT&CK technique into concrete hardening steps, or you are building or reviewing a mitigation-to-control mapping
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Mitigations by coverage](#mitigations-by-coverage) for the ranked table, [Detail](#detail) for per-mitigation descriptions and example techniques
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Controls Mapping](CONTROLS_MAPPING.md), [D3FEND Countermeasure Reference](D3FEND_REFERENCE.md), [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-13, revoked T1562, T1070.001, T1070.002 and T1656 IDs re-keyed to their successors (T1685 and its sub-techniques, T1686, T1688, T1690, T1684.001), each marked with the ID it replaces ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 Machine-readable: [`data/attack/mitigations.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/mitigations.jsonl), [`data/attack/mitigation_to_technique.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/mitigation_to_technique.jsonl)
 

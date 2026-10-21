@@ -2,11 +2,59 @@
 
 > Scope: This document is a cybersecurity reference for defenders, penetration testers, security awareness trainers, and researchers. All techniques are presented in the context of understanding threats so they can be detected, prevented, and defended against. Offensive use against systems or individuals without explicit written authorization is illegal and unethical.
 
-| | |
-|---|---|
-| Read this when | Designing a phishing simulation or awareness program, investigating a suspected phishing/BEC/vishing incident, or scoping an authorized social engineering engagement |
-| Start at | [Psychology of Social Engineering](#_1-psychology-of-social-engineering), [Phishing Attack Types](#_2-phishing-attack-types), [Quick Reference Checklists](#_12-quick-reference-checklists) |
-| Pairs with | [EMAIL_SECURITY_REFERENCE.md](EMAIL_SECURITY_REFERENCE.md), [OSINT_REFERENCE.md](OSINT_REFERENCE.md), [PHYSICAL_SECURITY_REFERENCE.md](PHYSICAL_SECURITY_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Defenders, awareness trainers, and authorized social engineering testers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 32 min (7,299 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are designing a phishing simulation or awareness program, you are investigating a suspected phishing/BEC/vishing incident, or you are scoping an authorized social engineering engagement
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Psychology of Social Engineering](#_1-psychology-of-social-engineering), [Phishing Attack Types](#_2-phishing-attack-types), [Quick Reference Checklists](#_12-quick-reference-checklists)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Email Security Reference](EMAIL_SECURITY_REFERENCE.md), [OSINT Reference](OSINT_REFERENCE.md), [Physical Security Reference](PHYSICAL_SECURITY_REFERENCE.md), [Red Team Reference](RED_TEAM_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Social Engineering](/disciplines/social-engineering.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

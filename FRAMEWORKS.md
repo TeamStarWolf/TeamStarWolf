@@ -2,11 +2,69 @@
 
 > In one minute: This is a quick-reference guide to the major cybersecurity and privacy frameworks: NIST CSF and 800-53, ISO 27001, SOC 2, PCI DSS, HIPAA, CMMC, CIS Controls, GDPR/CCPA, NIST AI RMF, and IEC 62443. For each one it tells you who publishes it, whether it is mandatory, who it applies to, and its core structure (functions, control families, levels, or requirements). Use it to pick the right framework for a situation and to see how they map to each other before diving into any single standard.
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+GRC analysts, security managers, and engineers who need a fast framework refresher
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 14 min (3,255 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need to pick a framework for a compliance or sales requirement, someone asks how two frameworks relate or overlap, or you need a fast refresher on a framework's structure before a meeting or assessment
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Framework Comparison Overview](#framework-comparison-overview), [Framework Mapping Quick Reference](#framework-mapping-quick-reference), [Framework Selection Guide](#framework-selection-guide)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Controls Mapping](CONTROLS_MAPPING.md), [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-01, PCI DSS sections updated to v4.0.1; CMMC Level 1 count and rule citations updated ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on governance, risk, and compliance.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | you need to pick a framework for a compliance or sales requirement, someone asks how two frameworks relate or overlap, you need a fast refresher on a framework's structure before a meeting or assessment |
-| Start at | [Framework Comparison Overview](#framework-comparison-overview), [Framework Mapping Quick Reference](#framework-mapping-quick-reference), [Framework Selection Guide](#framework-selection-guide) |
-| Pairs with | [Controls Mapping](CONTROLS_MAPPING.md), [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md) |
+| Frameworks Reference (this page) | A quick reference to each major framework: who publishes it, whether it is mandatory, who it applies to, and its structure. |
+| [GRC Compliance Reference](/GRC_COMPLIANCE_REFERENCE.md) | Frameworks in depth, with compliance automation tooling such as OSCAL and ComplianceAsCode. |
+| [GRC Reference](/GRC_REFERENCE.md) | Running the program: governance structure, risk quantification, compliance programs, third-party risk, and audits. |
+
+</details>
+
+<!-- meta:end -->
 
 A quick-reference guide to major cybersecurity and privacy frameworks: what they cover, who they apply to, and how they relate to each other.
 

@@ -9,6 +9,8 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 ### T1005: Data from Local System
 <a id="t1005"></a>
 
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
+
 Detection strategy: Detection of Local Data Collection Prior to Exfiltration (`DET0380`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
 ATT&CK: [T1005](https://attack.mitre.org/techniques/T1005/), [detail page](/techniques/collection.md#t1005)
@@ -34,10 +36,14 @@ ATT&CK: [T1005](https://attack.mitre.org/techniques/T1005/), [detail page](/tech
   - *Log sources:* `esxis:vmkernel (Datastore Access)`; `esxi:hostd (Command Execution)`
   - *Tune:* `AccessPathRegex`: Regex for filtering targeted VM paths or files like *.vmdk, *.vmx.; `InteractiveShellUsage`: Tune to distinguish between interactive and script-driven data access.
 
+</details>
+
 ---
 
 ### T1025: Data from Removable Media
 <a id="t1025"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection of Data Access and Collection from Removable Media (`DET0511`)  
 Platforms: Linux, Windows, macOS  
@@ -56,10 +62,14 @@ ATT&CK: [T1025](https://attack.mitre.org/techniques/T1025/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (log stream --predicate 'eventMessage contains "USBMSC"')`; `fs:fsusage (file reads/writes from /Volumes/)`; `macos:osquery (process_events)`
   - *Tune:* `VolumePath`: Tune by filtering removable media mounted under /Volumes; `UserContext`: Correlate activity to admin or service accounts for priority
 
+</details>
+
 ---
 
 ### T1039: Data from Network Shared Drive
 <a id="t1039"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection Strategy for Data from Network Shared Drive (`DET0410`)  
 Platforms: Linux, Windows, macOS  
@@ -78,10 +88,14 @@ ATT&CK: [T1039](https://attack.mitre.org/techniques/T1039/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (filesystem and process events)`; `fs:fsusage (open/read/mount operations)`
   - *Tune:* `ProcessPath`: Script interpreters may vary (e.g., zsh, bash, python, osascript).; `SharePath`: Network drive mount points may differ across enterprises.
 
+</details>
+
 ---
 
 ### T1056: Input Capture
 <a id="t1056"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Behavioral Detection of Input Capture Across Platforms (`DET0102`)  
 Platforms: Linux, Network Devices, Windows, macOS  
@@ -104,10 +118,14 @@ ATT&CK: [T1056](https://attack.mitre.org/techniques/T1056/), [detail page](/tech
   - *Log sources:* `NSM:Flow (http.log)`; `NSM:Firewall (proxy or TLS inspection logs)`
   - *Tune:* `UserAgent`: Mismatched browser identifiers used by phishing kits; `URL_Path`: Paths resembling known login forms but hosted on unknown domains
 
+</details>
+
 ---
 
 ### T1056.001: Keylogging
 <a id="t1056001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Behavioral Detection of Keylogging Activity Across Platforms (`DET0089`)  
 Platforms: Linux, Network Devices, Windows, macOS  
@@ -130,10 +148,14 @@ ATT&CK: [T1056.001](https://attack.mitre.org/techniques/T1056/001/), [detail pag
   - *Log sources:* `networkdevice:syslog (Image Upgrade / Configuration Change)`; `NSM:Flow (packet capture or DPI logs)`
   - *Tune:* `FirmwareVersion`: Baseline hash or expected version for config/image integrity; `Protocol`: Scope to plaintext channels or low-assurance SSH versions
 
+</details>
+
 ---
 
 ### T1056.002: GUI Input Capture
 <a id="t1056002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Behavioral Detection of Spoofed GUI Credential Prompts (`DET0521`)  
 Platforms: Linux, Windows, macOS  
@@ -152,10 +174,14 @@ ATT&CK: [T1056.002](https://attack.mitre.org/techniques/T1056/002/), [detail pag
   - *Log sources:* `macos:unifiedlog (subsystem=com.apple.Security or com.apple.applescript)`; `macos:osquery (process_events)`
   - *Tune:* `ScriptContent`: AppleScript snippets like 'display dialog' or 'with hidden answer'; `ProcessPath`: Tune out Apple-signed and expected automation tasks
 
+</details>
+
 ---
 
 ### T1056.003: Web Portal Capture
 <a id="t1056003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection of Credential Harvesting via Web Portal Modification (`DET0480`)  
 Platforms: Linux, Windows, macOS  
@@ -174,10 +200,14 @@ ATT&CK: [T1056.003](https://attack.mitre.org/techniques/T1056/003/), [detail pag
   - *Log sources:* `fs:fsusage (Filesystem Access Logging)`; `macos:unifiedlog (subsystem=com.apple.WebKit)`
   - *Tune:* `WebRootPath`: Specify custom web service directories (e.g., /Library/WebServer/Documents/); `AnomalousProcess`: Alert on web root changes from non-web processes or scripts
 
+</details>
+
 ---
 
 ### T1056.004: Credential API Hooking
 <a id="t1056004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection of Credential Harvesting via API Hooking (`DET0139`)  
 Platforms: Linux, Windows, macOS  
@@ -196,10 +226,14 @@ ATT&CK: [T1056.004](https://attack.mitre.org/techniques/T1056/004/), [detail pag
   - *Log sources:* `macos:unifiedlog (DYLD event subsystem)`; `fs:fsusage (File Access Monitor)`; `macos:osquery (Memory Mappings)`
   - *Tune:* `DYLDInjectedPath`: Tunable based on naming patterns or location of malicious dylibs; `ParentProcessName`: Hooking attempts may stem from terminal.app, bash, or AppleScript-based launchers
 
+</details>
+
 ---
 
 ### T1074: Data Staged
 <a id="t1074"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection of Data Staging Prior to Exfiltration (`DET0014`)  
 Platforms: ESXi, IaaS, Linux, Windows, macOS  
@@ -226,10 +260,14 @@ ATT&CK: [T1074](https://attack.mitre.org/techniques/T1074/), [detail page](/tech
   - *Log sources:* `esxi:vmkernel (VMFS access logs)`; `esxi:shell (snapshot create/copy, esxcli)`
   - *Tune:* `SnapshotFrequency`: Number of snapshots in short time period; `AccessUserList`: Non-admins or automation accounts writing to datastores; `CLIContext`: Manual or unexpected API calls triggering snapshots
 
+</details>
+
 ---
 
 ### T1074.001: Local Data Staging
 <a id="t1074001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection of Local Data Staging Prior to Exfiltration (`DET0261`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -252,10 +290,14 @@ ATT&CK: [T1074.001](https://attack.mitre.org/techniques/T1074/001/), [detail pag
   - *Log sources:* `esxi:vmkernel (snapshot create/write events)`; `esxi:shell (CLI usage logs)`
   - *Tune:* `SnapshotThreshold`: Rapid creation or deletion of snapshots; `CLIInvoker`: Unexpected CLI/script invocation outside maintenance windows; `VMFSWriteRate`: Volume of data written locally in short time
 
+</details>
+
 ---
 
 ### T1074.002: Remote Data Staging
 <a id="t1074002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection of Remote Data Staging Prior to Exfiltration (`DET0071`)  
 Platforms: ESXi, IaaS, Linux, Windows, macOS  
@@ -282,10 +324,14 @@ ATT&CK: [T1074.002](https://attack.mitre.org/techniques/T1074/002/), [detail pag
   - *Log sources:* `AWS:CloudTrail (GetObject, CopyObject)`; `AWS:VPCFlowLogs (Traffic between instances)`; `esxi:hostd (process execution across cloud VM)`
   - *Tune:* `BucketNamePatterns`: Destination naming convention used for staging (e.g., temp-store); `IAMContext`: IAM role or user performing multi-host write ops; `TransferWindow`: Burst of high-volume inter-VM transfers indicating staging
 
+</details>
+
 ---
 
 ### T1113: Screen Capture
 <a id="t1113"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detect Screen Capture via Commands and API Calls (`DET0346`)  
 Platforms: Linux, Windows, macOS  
@@ -304,10 +350,14 @@ ATT&CK: [T1113](https://attack.mitre.org/techniques/T1113/), [detail page](/tech
   - *Log sources:* `auditd:SYSCALL (execve)`
   - *Tune:* `TerminalSession`: Filter based on TTY sessions or remote terminal usage; `ExecutablePath`: Match against known location of xwd/import binaries or renamed variants
 
+</details>
+
 ---
 
 ### T1114: Email Collection
 <a id="t1114"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Email Collection via Local Email Access and Auto-Forwarding Behavior (`DET0476`)  
 Platforms: Linux, Office Suite, Windows, macOS  
@@ -330,10 +380,14 @@ ATT&CK: [T1114](https://attack.mitre.org/techniques/T1114/), [detail page](/tech
   - *Log sources:* `m365:unified (Set-Mailbox, New-InboxRule)`; `m365:exchange (MessageTrace logs)`; `azure:ad (SignInEvents)`
   - *Tune:* `UserAgentList`: Restrict rules from non-browser agents; `ExternalSMTPDomainList`: Allow listing for org-sanctioned forwarding domains; `TimeWindow`: Time delta between rule creation and suspicious sign-in
 
+</details>
+
 ---
 
 ### T1114.001: Local Email Collection
 <a id="t1114001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Local Email Collection via Outlook Data File Access and Command Line Tooling (`DET0047`)  
 Platforms: Windows  
@@ -344,10 +398,14 @@ ATT&CK: [T1114.001](https://attack.mitre.org/techniques/T1114/001/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4663, 4670, 4656)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=3, 22)`
   - *Tune:* `TargetFilePathPattern`: Regex or wildcard patterns for sensitive Outlook file paths (.ost/.pst) depending on organizational deployment.; `TimeWindow`: Timeframe used to correlate related file access, process creation, and exfiltration events.; `UserContext`: Limit detection to user accounts not normally interacting with Outlook file locations (e.g., service accounts, low-privileged users).; `ProcessAllowList`: Filter known legitimate Outlook-accessing processes to reduce false positives.
 
+</details>
+
 ---
 
 ### T1114.002: Remote Email Collection
 <a id="t1114002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detect Remote Email Collection via Abnormal Login and Programmatic Access (`DET0048`)  
 Platforms: Office Suite, Windows  
@@ -362,10 +420,14 @@ ATT&CK: [T1114.002](https://attack.mitre.org/techniques/T1114/002/), [detail pag
   - *Log sources:* `m365:purview (MailItemsAccessed, Search-Mailbox events)`; `azure:signinlogs (Suspicious login to cloud mailbox system)`; `m365:unified (Search-Mailbox, Get-MessageTrace, eDiscovery requests)`
   - *Tune:* `MailAccessVolumeThreshold`: Number of emails accessed within time window to flag anomaly.; `OAuthClientIDAllowList`: Allows tuning based on known app registrations.; `KeywordSearchFrequency`: Flag high volumes of message searches using suspicious patterns.; `LoginGeolocationVariance`: Trigger when IP geolocation varies significantly from user's historical profile.
 
+</details>
+
 ---
 
 ### T1114.003: Email Forwarding Rule
 <a id="t1114003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Email Forwarding Rule Abuse Detection Across Platforms (`DET0576`)  
 Platforms: Linux, Office Suite, Windows, macOS  
@@ -388,10 +450,14 @@ ATT&CK: [T1114.003](https://attack.mitre.org/techniques/T1114/003/), [detail pag
   - *Log sources:* `auditd:SYSCALL (write)`; `linux:cli (/home/*/.bash_history)`
   - *Tune:* `.forwardPath`: User-based home directories; tune for specific user patterns.; `ExecContext`: Expected email client behavior may trigger similar file edits.
 
+</details>
+
 ---
 
 ### T1115: Clipboard Data
 <a id="t1115"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Clipboard Data Access with Anomalous Context (`DET0341`)  
 Platforms: Linux, Windows, macOS  
@@ -410,10 +476,14 @@ ATT&CK: [T1115](https://attack.mitre.org/techniques/T1115/), [detail page](/tech
   - *Log sources:* `auditd:SYSCALL (execve)`
   - *Tune:* `ClipboardCommand`: Tool used (xclip, xsel, custom clipboard-read binary).; `CorrelationWindow`: Temporal window to chain staging or network activity with clipboard access.; `TTYLinked`: Was access linked to interactive user TTY?
 
+</details>
+
 ---
 
 ### T1119: Automated Collection
 <a id="t1119"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Automated File and API Collection Detection Across Platforms (`DET0186`)  
 Platforms: Linux, SaaS, Windows, macOS  
@@ -436,10 +506,14 @@ ATT&CK: [T1119](https://attack.mitre.org/techniques/T1119/), [detail page](/tech
   - *Log sources:* `azure:signinlogs (Operation=UserLogin)`
   - *Tune:* `UserAgentFilter`: Filter for scripting agents (e.g., Python, PowerShell) which may vary by org.; `ExpectedClientIPList`: Set of known internal or managed IPs to filter benign automation.; `DeviceProperties`: Expected managed device profiles used to detect unmanaged devices.
 
+</details>
+
 ---
 
 ### T1123: Audio Capture
 <a id="t1123"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Behavioral Detection Strategy for T1123 Audio Capture Across Windows, Linux, macOS (`DET0221`)  
 Platforms: Linux, Windows, macOS  
@@ -458,10 +532,14 @@ ATT&CK: [T1123](https://attack.mitre.org/techniques/T1123/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (audio APIs)`; `Apple TCC Logs (Microphone Access Events)`; `fs:fsusage (File IO)`
   - *Tune:* `FrameworkCall`: CoreAudio vs. AVFoundation vs. lower-level device access APIs.; `TargetDirectory`: Suspicious file drops (e.g., ~/Library/Caches/, /tmp/, nonstandard user folders).; `AnomalousParent`: Unexpected parent-child relationship between non-media apps and AV capture.
 
+</details>
+
 ---
 
 ### T1125: Video Capture
 <a id="t1125"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Behavior-chain, platform-aware detection strategy for T1125 Video Capture (`DET0197`)  
 Platforms: Linux, Windows, macOS  
@@ -480,10 +558,14 @@ ATT&CK: [T1125](https://attack.mitre.org/techniques/T1125/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (Access decisions to kTCCServiceCamera for unexpected binaries)`; `macos:endpointsecurity (open: Process opens AppleCamera/IOUSB device nodes or AVFoundation frameworks)`; `macos:endpointsecurity (exec: Exec of ffmpeg, avfoundation-based binaries, or custom signed apps accessing camera)`; `macos:unifiedlog (Process wrote large .mov/.mp4 in user temp/hidden dirs)`
   - *Tune:* `TCCAllowList`: Legitimate apps (Zoom, Teams, FaceTime) that are permitted to camera.; `VideoExtensions`: Mov/mp4/mkv/yuv etc., tuned to environment workloads.; `TimeWindow`: Correlation between TCC grant -> file write -> network egress.; `MinFileSizeMB`: Reduce FP from thumbnails/snapshots.; `LaunchAgentPaths`: Allowed persistence paths to reduce false positives when correlating with persistence.
 
+</details>
+
 ---
 
 ### T1185: Browser Session Hijacking
 <a id="t1185"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect browser session hijacking via privilege, handle access, and remote thread into browsers (`DET0507`)  
 Platforms: Windows  
@@ -494,10 +576,14 @@ ATT&CK: [T1185](https://attack.mitre.org/techniques/T1185/), [detail page](/tech
   - *Log sources:* `WinEventLog:Security (EventCode=4672)`; `WinEventLog:Security (EventCode=4673)`; `WinEventLog:Security (EventCode=4624, 4648)`; `WinEventLog:Sysmon (EventCode=10)`; `WinEventLog:Sysmon (EventCode=8)`; `WinEventLog:Sysmon (EventCode=7)`; `WinEventLog:Sysmon (EventCode=3, 22)`
   - *Tune:* `BrowserList`: Set of monitored browsers (chrome.exe, msedge.exe, firefox.exe, iexplore.exe). Adjust per fleet.; `AccessMaskSet`: Access rights implying injection (e.g., 0x1FFFFF, 0x1F3FF, VM_WRITE, VM_OPERATION, CREATE_THREAD). Tune by EDR mapping.; `SignerAllowList`: Allowed module signers within browser processes (e.g., Microsoft, Google). Helps flag unsigned/unknown ImageLoad into browsers.; `InternalCIDR`: Enterprise internal ranges or DNS suffixes to identify intranet pivoting via the browser.; `TimeWindow`: Correlation interval (e.g., 10-20 minutes) linking privilege gain -> access -> modification -> network usage.; `ParentAllowList`: Legitimate tools that may automate browsers (e.g., Selenium drivers). Reduce FPs by allowlisting.; `UserContext`: Scope analytics to high-value users, admin workstations, or servers where browsers shouldn’t be automated.
 
+</details>
+
 ---
 
 ### T1213: Data from Information Repositories
 <a id="t1213"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Abuse of Information Repositories for Data Collection (`DET0413`)  
 Platforms: Linux, SaaS, Windows, macOS  
@@ -520,10 +606,14 @@ ATT&CK: [T1213](https://attack.mitre.org/techniques/T1213/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (access to /Volumes/SharePoint or network mount)`; `macos:osquery (curl, python scripts, rsync with internal share URLs)`
   - *Tune:* `AccessedMountPath`: Paths to sensitive volumes may differ based on org setup.; `UserGroup`: Expected user groups that typically access shared data.
 
+</details>
+
 ---
 
 ### T1213.001: Confluence
 <a id="t1213001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Programmatic and Excessive Access to Confluence Documentation (`DET0358`)  
 Platforms: SaaS  
@@ -534,10 +624,14 @@ ATT&CK: [T1213.001](https://attack.mitre.org/techniques/T1213/001/), [detail pag
   - *Log sources:* `saas:confluence (access.content)`; `saas:confluence (logon)`; `saas:confluence (REST API access from non-browser agents)`
   - *Tune:* `TimeWindow`: Defines the time span (e.g., 5m, 1h) in which excessive access behavior becomes suspicious.; `UserContext`: Privileged user roles (e.g., domain admins) should be excluded or flagged if found accessing documentation repositories.; `AccessThreshold`: The number of pages viewed or exported by a single user before triggering detection logic.; `AgentFilter`: User agent strings that may indicate scripted, automated, or non-interactive access methods.
 
+</details>
+
 ---
 
 ### T1213.002: Sharepoint
 <a id="t1213002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detecting Abnormal SharePoint Data Mining by Privileged or Rare Users (`DET0500`)  
 Platforms: Windows  
@@ -548,10 +642,14 @@ ATT&CK: [T1213.002](https://attack.mitre.org/techniques/T1213/002/), [detail pag
   - *Log sources:* `m365:unified (FileAccessed, FileDownloaded, SearchQueried)`; `azure:signinlogs (UserLogin, ConditionalAccessPolicyEvaluated)`; `m365:sharepoint (Multiple file download operations on a site by a privileged account in a short time window)`
   - *Tune:* `UserContext`: Can be adjusted to focus on specific high-privilege or rarely-used service accounts; `TimeWindow`: Defines the aggregation period for multiple download events (e.g., 10 minutes); `DownloadThreshold`: Minimum number of documents accessed/downloaded to trigger alert; `SiteScope`: Limit detection to sensitive SharePoint sites such as HR, Finance, Engineering
 
+</details>
+
 ---
 
 ### T1213.003: Code Repositories
 <a id="t1213003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detecting Bulk or Anomalous Access to Private Code Repositories via SaaS Platforms (`DET0263`)  
 Platforms: SaaS  
@@ -562,10 +660,14 @@ ATT&CK: [T1213.003](https://attack.mitre.org/techniques/T1213/003/), [detail pag
   - *Log sources:* `saas:github (repo.download, repo.clone, oauth.authorize, repo.getContent)`; `saas:github (Login from unusual IP, device fingerprint, or location; access token creation from new client)`; `saas:github (Bulk access to multiple files or large volume of repo requests within short time window)`
   - *Tune:* `TimeWindow`: Threshold for file access volume over short duration (e.g., 10+ repos accessed in <5 min); `UserContext`: Role or permission profile expected to interact with repositories (e.g., developers vs. admins); `GeoAnomalyThreshold`: Distance or variance allowed before a login is flagged as anomalous; `RepoSensitivityTag`: Whether a repository is labeled sensitive or restricted
 
+</details>
+
 ---
 
 ### T1213.004: Customer Relationship Management Software
 <a id="t1213004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detecting Suspicious Access to CRM Data in SaaS Environments (`DET0550`)  
 Platforms: SaaS  
@@ -576,10 +678,14 @@ ATT&CK: [T1213.004](https://attack.mitre.org/techniques/T1213/004/), [detail pag
   - *Log sources:* `saas:salesforce (DataExport, RestAPI, Login, ReportExport)`; `m365:signinlogs (UserLoggedIn)`
   - *Tune:* `TimeWindow`: Duration over which bulk CRM queries occur (e.g., 1 minute, 5 minutes); varies by organization usage pattern; `UserContext`: User's CRM role, department, or job function (e.g., non-sales user accessing customer PII); `AnomalousExportThreshold`: Number of CRM objects (contacts, deals, logs) accessed or exported above normal; `SourceLocation`: Rare or impossible geolocation/IP address for legitimate CRM user access
 
+</details>
+
 ---
 
 ### T1213.005: Messaging Applications
 <a id="t1213005"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detecting Unauthorized Collection from Messaging Applications in SaaS and Office Environments (`DET0567`)  
 Platforms: Office Suite, SaaS  
@@ -594,10 +700,14 @@ ATT&CK: [T1213.005](https://attack.mitre.org/techniques/T1213/005/), [detail pag
   - *Log sources:* `m365:unified (TeamsMessagesAccessedViaEDiscovery, TeamsGraphMessageExport)`; `m365:signinlogs (UserLoggedIn)`
   - *Tune:* `UserRole`: Whether user is part of InfoSec, Legal, or expected to use Teams eDiscovery tools; `GeoRiskScore`: Unusual country/IP sign-in patterns prior to Teams data export; `AccessVolume`: Message or file threshold for triggering alert
 
+</details>
+
 ---
 
 ### T1213.006: Databases
 <a id="t1213006"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Suspicious Database Access and Dump Activity Across Environments (T1213.006) (`DET0242`)  
 Platforms: IaaS, Linux, SaaS, Windows, macOS  
@@ -624,10 +734,14 @@ ATT&CK: [T1213.006](https://attack.mitre.org/techniques/T1213/006/), [detail pag
   - *Log sources:* `saas:Snowflake (QUERY: Large or repeated SELECT * queries to sensitive tables)`; `m365:unified (Bulk downloads or API extractions from Microsoft-hosted data repositories (e.g., Dynamics 365))`
   - *Tune:* `BaselineQueryTemplates`: Query hash or shape for common BI/ETL jobs to reduce false positives; `OffHoursAccessWindow`: Window to define after-hours activity thresholds for DB access
 
+</details>
+
 ---
 
 ### T1530: Data from Cloud Storage
 <a id="t1530"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Multi-Platform Cloud Storage Exfiltration Behavior Chain (`DET0484`)  
 Platforms: IaaS, Office Suite, SaaS  
@@ -646,10 +760,14 @@ ATT&CK: [T1530](https://attack.mitre.org/techniques/T1530/), [detail page](/tech
   - *Log sources:* `m365:sharepoint (AnonymousLinkCreated, FileDownloaded)`; `azure:signinlogs (SigninSuccess)`
   - *Tune:* `LinkVisibilityScope`: Whether links allow anonymous/external access; `DownloadBurstThreshold`: # of files downloaded within <5 mins (e.g., >50 files)
 
+</details>
+
 ---
 
 ### T1560: Archive Collected Data
 <a id="t1560"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detect Archiving and Encryption of Collected Data (T1560) (`DET0526`)  
 Platforms: Linux, Windows, macOS  
@@ -668,10 +786,14 @@ ATT&CK: [T1560](https://attack.mitre.org/techniques/T1560/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (Execution of zip, ditto, hdiutil, or openssl by non-terminal parent processes)`; `macos:unifiedlog (Creation of .zip or .dmg files in user-accessible or temporary directories)`
   - *Tune:* `AllowedArchiveUtilities`: Business-approved applications (e.g., Time Machine, backup agents) that generate archives.; `UserContext`: Threshold for flagging archive creation under privileged or service accounts.; `PayloadEntropyThreshold`: Entropy threshold for detecting encrypted archives versus standard compressed files.
 
+</details>
+
 ---
 
 ### T1560.001: Archive via Utility
 <a id="t1560001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detect Archiving via Utility (T1560.001) (`DET0298`)  
 Platforms: Linux, Windows, macOS  
@@ -690,10 +812,14 @@ ATT&CK: [T1560.001](https://attack.mitre.org/techniques/T1560/001/), [detail pag
   - *Log sources:* `macos:unifiedlog (Execution of zip, ditto, hdiutil, or openssl by processes not normally associated with archiving)`; `macos:unifiedlog (Creation of .zip, .dmg, .tar.gz files in /Users, /tmp, or application directories)`
   - *Tune:* `AllowedArchivers`: Business-approved applications permitted to create archives (e.g., backup agents).; `UserContext`: Flag archiving under privileged or service accounts as higher risk.; `PayloadEntropyThreshold`: Entropy threshold for detecting encrypted archives versus normal compression.
 
+</details>
+
 ---
 
 ### T1560.002: Archive via Library
 <a id="t1560002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detect Archiving via Library (T1560.002) (`DET0268`)  
 Platforms: Linux, Windows, macOS  
@@ -712,10 +838,14 @@ ATT&CK: [T1560.002](https://attack.mitre.org/techniques/T1560/002/), [detail pag
   - *Log sources:* `macos:unifiedlog (Execution of Python, Swift, or other binaries invoking archiving libraries)`; `macos:unifiedlog (Loading of libz.dylib, libarchive.dylib by non-standard applications)`; `macos:unifiedlog (Creation of .zip, .gz, .dmg archives in /Users, /tmp, or application directories)`
   - *Tune:* `AllowedProcesses`: Applications allowed to load compression libraries (e.g., backup agents).; `UserContext`: Flag archiving under privileged or system accounts as suspicious.; `FileExtensionFilter`: Targeted monitoring of sensitive file formats or compressed containers.
 
+</details>
+
 ---
 
 ### T1560.003: Archive via Custom Method
 <a id="t1560003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detect Archiving via Custom Method (T1560.003) (`DET0438`)  
 Platforms: Linux, Windows, macOS  
@@ -734,10 +864,14 @@ ATT&CK: [T1560.003](https://attack.mitre.org/techniques/T1560/003/), [detail pag
   - *Log sources:* `macos:unifiedlog (Suspicious Swift/Objective-C or scripting processes writing archive-like outputs)`; `macos:unifiedlog (Creation of files with anomalous headers and entropy values)`; `macos:unifiedlog (Abnormal memory operations (XOR/bitwise loops) during archive generation)`
   - *Tune:* `UserContext`: Flag if archiving occurs under privileged/system accounts.; `EntropyThreshold`: Entropy score cutoff for identifying custom compressed or encrypted files.; `AllowedApps`: Applications legitimately using custom archiving for business purposes.
 
+</details>
+
 ---
 
 ### T1602: Data from Configuration Repository
 <a id="t1602"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Data from Configuration Repository on Network Devices (`DET0592`)  
 Platforms: Network Devices  
@@ -748,10 +882,14 @@ ATT&CK: [T1602](https://attack.mitre.org/techniques/T1602/), [detail page](/tech
   - *Log sources:* `NSM:Flow (Unexpected or unauthorized inbound connections to SNMP, NETCONF, or RESTCONF services)`; `networkdevice:syslog (Authentication failures or unusual community string usage in SNMP queries)`
   - *Tune:* `AuthorizedAdminIPs`: Expected IP ranges or hosts permitted to query configuration repositories; deviations may indicate compromise.; `NormalAccessTimeWindow`: Time periods when configuration queries normally occur; anomalies outside these windows may be suspicious.; `QueryVolumeThreshold`: Number of queries allowed within a given period before an anomaly is triggered.; `ProtocolUsageBaseline`: Expected usage of SNMP, NETCONF, or RESTCONF; deviations from baseline patterns may indicate misuse.
 
+</details>
+
 ---
 
 ### T1602.001: SNMP (MIB Dump)
 <a id="t1602001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for SNMP (MIB Dump) on Network Devices (`DET0453`)  
 Platforms: Network Devices  
@@ -762,10 +900,14 @@ ATT&CK: [T1602.001](https://attack.mitre.org/techniques/T1602/001/), [detail pag
   - *Log sources:* `networkdevice:syslog (Authentication failures, unexpected community string usage, or unauthorized SNMPv1/v2 requests)`; `NSM:Flow (High-volume or repeated SNMP GETBULK/GETNEXT queries from untrusted or external IPs)`; `networkdevice:audit (SNMP configuration changes, such as enabling read/write access or modifying community strings)`
   - *Tune:* `AuthorizedAdminIPs`: Expected IP ranges allowed to query SNMP. Deviation indicates possible misuse.; `NormalSNMPQueryRate`: Baseline frequency and volume of SNMP queries; anomalies above threshold may indicate dumping.; `CommunityStringPatterns`: Expected community strings (e.g., hashed or custom values). Unrecognized strings may signal abuse.; `TimeWindow`: Time periods during which SNMP queries are authorized. Queries outside these hours may be malicious.
 
+</details>
+
 ---
 
 ### T1602.002: Network Device Configuration Dump
 <a id="t1602002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Network Device Configuration Dump via Config Repositories (`DET0233`)  
 Platforms: Network Devices  
@@ -776,4 +918,8 @@ ATT&CK: [T1602.002](https://attack.mitre.org/techniques/T1602/002/), [detail pag
   - *Log sources:* `networkdevice:syslog (Failed and successful logins to network devices outside approved admin IP ranges)`; `networkdevice:cli (Execution of commands like 'show running-config', 'copy running-config', or 'export config')`; `NSM:Flow (Outbound SCP, TFTP, or FTP sessions carrying configuration file content)`; `snmp:access (GETBULK/GETNEXT requests for OIDs associated with configuration parameters)`
   - *Tune:* `AuthorizedAdminIPs`: Known trusted IP addresses permitted to execute configuration dump commands.; `NormalConfigExportRate`: Baseline frequency of legitimate configuration exports; anomalies above threshold may indicate malicious activity.; `AllowedTransferProtocols`: Expected transfer methods (e.g., SCP vs. TFTP). Unexpected use of weak protocols may indicate exfiltration.; `TimeWindow`: Normal maintenance windows for authorized configuration exports; activity outside these windows may be suspicious.
 
+</details>
+
 ---
+
+*© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*

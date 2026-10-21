@@ -2,11 +2,73 @@
 
 > In one minute: This is the end-to-end playbook for running an authorized penetration test, from the signed legal paperwork through recon, scanning, exploitation, post-exploitation, and the final client report. A practitioner cares because it puts the RoE templates, the exact tool commands (nmap, nuclei, sqlmap, impacket, cloud CLIs), and the reporting/CVSS/ATT&CK scaffolding in one place. What makes it useful is that every phase maps to PTES, OWASP, NIST SP 800-115, and MITRE ATT&CK, so your work stays defensible and traceable.
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Penetration testers and engagement leads
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,345 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are kicking off a new engagement and drafting the Rules of Engagement, you are mid-test and need the right command for recon/scanning/exploitation, or you are writing up findings with CVSS/EPSS/ATT&CK mappings
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Engagement Scoping and Legal Framework](#_1-engagement-scoping-and-legal-framework), [Reconnaissance](#_2-reconnaissance), [Professional Reporting](#_8-professional-reporting)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning paths, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Pentest Checklists](PENTEST_CHECKLISTS.md), [Web App Pentesting](WEB_APPLICATION_PENTESTING.md), [Privilege Escalation Reference](PRIVESC_REFERENCE.md), [Red Team Reference](RED_TEAM_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning paths</th><td>
+
+[Offensive Security](/disciplines/offensive-security.md), [Penetration Testing](/disciplines/penetration-testing.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-13, ATT&CK version pin in an example Navigator layer updated ([#120](https://github.com/TeamStarWolf/TeamStarWolf/pull/120), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 2 on running a penetration test.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | Kicking off a new engagement and drafting the Rules of Engagement, mid-test and needing the right command for recon/scanning/exploitation, writing up findings with CVSS/EPSS/ATT&CK mappings |
-| Start at | [Engagement Scoping and Legal Framework](#_1-engagement-scoping-and-legal-framework), [Reconnaissance](#_2-reconnaissance), [Professional Reporting](#_8-professional-reporting) |
-| Pairs with | [PENTEST_CHECKLISTS.md](PENTEST_CHECKLISTS.md), [WEB_APPLICATION_PENTESTING.md](WEB_APPLICATION_PENTESTING.md), [PRIVESC_REFERENCE.md](PRIVESC_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md) |
+| Penetration Testing Methodology (this page) | The end-to-end engagement playbook: legal paperwork, recon, exploitation, post-exploitation, and reporting. |
+| [Pentest Checklists](/PENTEST_CHECKLISTS.md) | Task checklists for each phase, from pre-engagement through external, internal, Active Directory, web, cloud, and reporting. |
+
+</details>
+
+<!-- meta:end -->
 
 > Classification: Internal Use, Authorized Security Personnel Only
 > Standard: PTES, OWASP Testing Guide v4.2, NIST SP 800-115, MITRE ATT&CK v19.2

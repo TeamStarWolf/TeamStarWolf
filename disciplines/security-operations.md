@@ -2,6 +2,55 @@
 
 Security Operations is the continuous practice of monitoring, detecting, analyzing, and responding to cybersecurity threats across an organization's environment. It is carried out by Security Operations Centers (SOCs) staffed by analysts working in tiered roles, from alert triage through advanced threat hunting and incident response. The discipline matters because prevention alone fails: sophisticated adversaries get through defenses, and the difference between a contained incident and a breach is how quickly the SOC detects, understands, and neutralizes the threat. SOC practitioners work with SIEM platforms, SOAR orchestration, endpoint telemetry, network logs, and threat intelligence feeds. The offensive perspective is equally critical: defenders must understand SOC evasion techniques (log flooding, timestomping, LOLBAS abuse, and living-off-the-land binaries) because adversaries specifically craft tradecraft to blind detection tooling. A mature SOC is built on the principle that attackers and defenders use the same tools; knowing how attackers evade detection is what makes detections resilient.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Aspiring and working SOC analysts and security operations staff
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,474 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning SOC analyst tiers and the alert triage process, or you are setting up SOC metrics and SOAR playbooks
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [SOC Analyst Tiers](#soc-analyst-tiers), [Alert Triage Process](#alert-triage-process)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1562 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ---
 
 ## Where to Start

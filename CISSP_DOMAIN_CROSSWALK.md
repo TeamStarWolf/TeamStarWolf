@@ -4,10 +4,49 @@
 
 Related: [Certifications Reference](CERTIFICATIONS.md), [Career Paths & Cert Roadmap](CAREER_PATHS.md), [Interview Prep](INTERVIEW_PREP.md), [Frameworks Reference](FRAMEWORKS.md), [GRC Reference](GRC_REFERENCE.md), [Security Architecture Reference](SECURITY_ARCHITECTURE_REFERENCE.md)
 
-| | |
-|---|---|
-| Read this when | You are planning a CISSP study campaign and want to reuse what this library already teaches, or you are a strong engineer trying to find the *management* and *theory* blind spots the exam punishes |
-| Start at | [The eight domains at a glance](#the-eight-domains-at-a-glance) for the weight-and-coverage map, [Exam format](#exam-format) for how the CAT actually behaves, [A twelve-week study plan](#a-twelve-week-study-plan) to run the campaign |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Practitioners planning a CISSP study campaign
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 17 min (3,912 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are planning a CISSP study campaign and want to reuse what this library already teaches, or you are a strong engineer trying to find the *management* and *theory* blind spots the exam punishes
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[The eight domains at a glance](#the-eight-domains-at-a-glance) for the weight-and-coverage map, [Exam format](#exam-format) for how the CAT actually behaves, [A twelve-week study plan](#a-twelve-week-study-plan) to run the campaign
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

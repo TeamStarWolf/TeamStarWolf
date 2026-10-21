@@ -10,14 +10,14 @@ Part of the [domain hubs](/hubs/README.md). 8 reference documents in this domain
 
 | Reference | What it covers | Reading time |
 |---|---|---|
-| [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md) | AWS/Azure/GCP security services, IAM attacks, SSRF to IMDS, Pacu/ROADtools/AzureHound, CSPM, K8s security, cloud IR | 33 min |
+| [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md) | AWS/Azure/GCP security services, IAM attacks, SSRF to IMDS, Pacu/ROADtools/AzureHound, CSPM, K8s security, cloud IR | 32 min |
 | [Cloud Security Benchmark](/CLOUD_SECURITY_BENCHMARK.md) | CIS Benchmarks for AWS, Azure, and GCP with automated remediation and detection queries | 8 min |
 | [Cloud Network Security](/CLOUD_NETWORK_SECURITY.md) | Network security controls across AWS, Azure and GCP: architecture, firewall policy, WAF, private connectivity, DDoS protection, flow logs, compliance mappings | 11 min |
 | [Cloud Architecture Reference](/CLOUD_ARCHITECTURE_REFERENCE.md) | Composing managed cloud services into systems: well-architected pillars, landing zones, and the trade-offs between business, operations, security and cost | 20 min |
 | [SaaS Security Reference](/SAAS_SECURITY_REFERENCE.md) | OAuth consent abuse, token theft, shadow SaaS, Midnight Blizzard/Storm-0558/Okta case studies, CISA SCuBA (ScubaGear/ScubaGoggles), SSPM, M365/GWS/Salesforce/GitHub hardening | 21 min |
 | [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md) | Docker/container security, image hardening, runtime protection (Falco/seccomp/AppArmor), container escape defense, registry security, secrets management, SBOM, MITRE ATT&CK containers | 11 min |
 | [Kubernetes Security Reference](/KUBERNETES_SECURITY_REFERENCE.md) | K8s RBAC attacks, container escape, Pod Security Standards, NetworkPolicy, secrets management, Falco, kube-bench | 4 min |
-| [Hypervisor & Virtualization Hardening](/HYPERVISOR_SECURITY_REFERENCE.md) | ESXi/vCenter/Hyper-V/Proxmox hardening; the ESXi ransomware kill chain; exploited hypervisor CVEs; management-plane isolation & immutable backups | 11 min |
+| [Hypervisor & Virtualization Hardening](/HYPERVISOR_SECURITY_REFERENCE.md) | ESXi/vCenter/Hyper-V/Proxmox hardening; the ESXi ransomware kill chain; exploited hypervisor CVEs; management-plane isolation & immutable backups | 10 min |
 
 ## Learning paths
 

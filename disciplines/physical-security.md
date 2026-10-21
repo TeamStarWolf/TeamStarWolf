@@ -4,6 +4,55 @@ Physical security is the discipline of protecting physical assets, facilities, p
 
 Physical security underpins every other security domain. Strong network segmentation means nothing if an attacker can unplug a server, and encryption is irrelevant if a drive can be physically removed. Understanding physical security is essential for penetration testers, red teamers, facility managers, and enterprise security architects alike.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Practitioners learning physical security assessment and physical penetration testing
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (2,182 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are planning a physical penetration test, or you are learning RFID and NFC, lock, badge and access-control bypass and how to report the findings
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [Physical Penetration Testing Methodology](#physical-penetration-testing-methodology), [RFID/NFC Attack Detail](#rfidnfc-attack-detail)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-27, tactic of T1078 and T1601 changed from Defense Evasion to Stealth ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Physical Security Reference](/PHYSICAL_SECURITY_REFERENCE.md), the library's in-depth page on this subject.

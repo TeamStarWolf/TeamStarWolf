@@ -2,6 +2,55 @@
 
 Social engineering is the practice of exploiting human psychology rather than technical vulnerabilities to gain unauthorized access, extract sensitive information, or manipulate individuals into taking actions that serve an attacker's objectives. Where technical attacks target software flaws, social engineering targets cognitive biases, authority deference, urgency response, and trust, making it effective regardless of how well-patched an organization's infrastructure is. Social engineering underpins the majority of real-world breaches: phishing remains the leading initial access vector according to every major incident response data report. The discipline spans both offensive practice (used by red teamers and adversaries) and defensive programs (security awareness training, phishing simulation, human risk management). Security awareness trainers, penetration testers, red team operators, threat intelligence analysts, and GRC professionals all work within this domain.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Defenders, awareness staff, and testers learning social engineering attack and defense
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,350 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning social engineering attack types, you are running phishing or vishing assessments, or you are designing defenses against them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [Attack Types and Techniques](#attack-types-and-techniques), [Defensive Countermeasures](#defensive-countermeasures)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1656 re-keyed to T1684.001 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md), the library's in-depth page on this subject.

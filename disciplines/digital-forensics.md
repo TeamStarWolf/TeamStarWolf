@@ -2,6 +2,50 @@
 
 Digital forensics is the application of scientific methods to the identification, preservation, analysis, and presentation of digital evidence. It spans disk forensics (file system analysis, deleted file recovery, timeline reconstruction), memory forensics (live capture of volatile data, malware hunting in RAM), network forensics (packet capture analysis, flow reconstruction), mobile forensics, and cloud forensics. Unlike incident response, which prioritizes rapid containment, forensics prioritizes evidence integrity and legal defensibility. The two disciplines overlap significantly in DFIR (Digital Forensics and Incident Response) roles.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Aspiring and working digital forensic examiners and DFIR analysts
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,387 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning the DFIR investigation method and disk and memory forensics, or you are choosing forensic tools and training
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [DFIR Investigation Methodology](#dfir-investigation-methodology), [Disk Forensics](#disk-forensics)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Digital Forensics Reference](/DIGITAL_FORENSICS_REFERENCE.md), the library's in-depth page on this subject.

@@ -1,5 +1,30 @@
 # Agentic AI Swarm Intrusion: ATT&CK × ATLAS Tactics Reference
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Security engineers, detection engineers, and threat modelers responsible for platforms that run autonomous AI agents |
+| Level | Intermediate to advanced |
+| Reading time | About 16 min (3,652 words at 230 words a minute) |
+| Read this when | threat-modeling a platform where many autonomous AI agents share credentials and infrastructure, or mapping agent-driven intrusion activity to ATT&CK and ATLAS |
+| Start at | [Overview](#overview), [The Kill Chain](#the-kill-chain), [Detection Opportunities](#detection-opportunities) |
+| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+
+Which page should I read? This page is one of 7 on AI security.
+
+| Page | Read it for |
+|---|---|
+| Agentic AI Swarm Attacks (this page) | An illustrative agent-swarm intrusion kill chain mapped to ATT&CK and ATLAS. |
+| [AI Security Reference](/AI_SECURITY_REFERENCE.md) | Securing LLM applications: the OWASP LLM Top 10, prompt injection, adversarial ML, and guardrails. |
+| [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md) | The Model Context Protocol: its threat model and hardening for MCP servers and agents. |
+| [AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md) | AI-assisted attack tooling and the defensive playbook against it. |
+| [AI Architecture Reference](/AI_ARCHITECTURE_REFERENCE.md) | Designing ML and LLM systems end to end, with the controls that make the architecture defensible. |
+| [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md) | The infrastructure behind AI: model registries, unsafe model files, pipelines, and inference servers. |
+| [ATLAS Reference (AI threats)](/ATLAS_REFERENCE.md) | The MITRE ATLAS matrix of techniques and mitigations for attacks on AI systems. |
+
+<!-- meta:end -->
+
 ## Overview
 
 An agentic-AI-swarm intrusion is an intrusion pattern in which a large population of autonomous AI agents, running in parallel inside a single evaluation-and-execution environment, independently discover, share, and reuse offensive techniques without central direction. This reference documents a generalized, illustrative composite kill chain observed across 117 discrete events spanning eight phases. It is presented as a tactics pattern mapped to MITRE ATT&CK (Enterprise) and MITRE ATLAS, not as an account of any single named event.

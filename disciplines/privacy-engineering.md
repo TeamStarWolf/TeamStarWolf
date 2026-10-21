@@ -4,6 +4,17 @@
 
 Privacy engineering is the discipline of making data protection a structural property of systems rather than an afterthought. Where legal and compliance teams interpret what privacy regulations require, privacy engineers build the technical mechanisms that fulfill those requirements at scale: consent management platforms that record lawful bases for processing, data pipelines that strip PII before it reaches analytics systems, automated deletion workflows that purge records when retention periods expire, and data subject request systems that can locate and delete a person's information across dozens of databases within a legal deadline. The field emerged in response to regulations like GDPR and CCPA, but it reflects a broader recognition that privacy failures are architectural failures: they result from systems designed to collect and retain everything rather than systems designed around the minimum data needed to deliver a service.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Engineers and privacy professionals learning to build privacy into systems |
+| Level | Beginner to advanced |
+| Reading time | About 12 min (2,826 words at 230 words a minute) |
+| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Privacy Engineering Reference](/PRIVACY_ENGINEERING_REFERENCE.md), the library's in-depth page on this subject.

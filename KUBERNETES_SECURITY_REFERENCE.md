@@ -4,11 +4,20 @@
 > container escape techniques, Pod Security Standards, NetworkPolicy, secrets management,
 > supply chain security, etcd hardening, and a full security checklist.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Platform engineers, Kubernetes administrators, and cloud security engineers |
+| Level | Intermediate to advanced |
+| Reading time | About 4 min (987 words at 230 words a minute) |
 | Read this when | Hardening a production cluster, investigating a suspected container escape or stolen SA token, or auditing RBAC and Pod Security before a deployment goes live |
 | Start at | [Kubernetes Attack Surface](#_1-kubernetes-attack-surface), [K8s Security Hardening Checklist](#_10-k8s-security-hardening-checklist), [Kubernetes Security Scanning Tools](#_4-kubernetes-security-scanning-tools) |
 | Pairs with | [CONTAINER_SECURITY_REFERENCE.md](CONTAINER_SECURITY_REFERENCE.md), [SECRETS_MANAGEMENT_REFERENCE.md](SECRETS_MANAGEMENT_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md) |
+| Matching learning path | [Container & Kubernetes Security](/disciplines/container-kubernetes-security.md) |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
 
 ---
 

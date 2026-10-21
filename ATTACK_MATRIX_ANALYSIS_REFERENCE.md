@@ -7,11 +7,19 @@
 > 24 heatmap modes implemented in [ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi); the model
 > generalizes to any Navigator-style workflow.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Threat-informed defense analysts and ATTACK-Navi users |
+| Level | Intermediate |
+| Reading time | About 5 min (1,127 words at 230 words a minute) |
 | Read this when | choosing which heatmap mode answers your coverage question, prioritizing techniques by threat activity or exploitation urgency, sanity-checking what a gradient score does and does not prove |
 | Start at | [An analysis workflow](#an-analysis-workflow), [Lens family 1 - Mitigation & control coverage](#lens-family-1-mitigation-amp-control-coverage), [Reading the scores safely](#reading-the-scores-safely) |
 | Pairs with | [Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md), [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md), [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md) |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
 
 A single coverage view answers one question. Real coverage analysis means switching lenses: *are we
 mitigated?* -> *are we detected?* -> *have we validated?* -> *is this under active exploitation?* -> *what is

@@ -2,11 +2,27 @@
 
 > A comprehensive cybersecurity reference covering IAM fundamentals, authentication technologies, authorization models, identity providers, PAM, IGA, Zero Trust identity, machine identity, security monitoring, and governance/compliance.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | IAM architects and engineers, and security teams writing identity controls and detections |
+| Level | Intermediate |
+| Reading time | About 13 min (2,953 words at 230 words a minute) |
 | Read this when | choosing or hardening MFA and passwordless auth, designing RBAC/ABAC or PAM controls, building IAM detections (credential stuffing, MFA fatigue, impossible travel), mapping IAM to SOC 2 / PCI / NIST / HIPAA |
 | Start at | [IAM Fundamentals](#_1-iam-fundamentals), [Authentication Technologies](#_2-authentication-technologies), [IAM Security Monitoring](#_9-iam-security-monitoring) |
 | Pairs with | [Identity Security](IDENTITY_SECURITY_REFERENCE.md), [Zero Trust](ZERO_TRUST_REFERENCE.md), [Active Directory Security](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [Secrets Management](SECRETS_MANAGEMENT_REFERENCE.md) |
+| Matching learning path | [Identity & Access Management](/disciplines/identity-access-management.md) |
+| Last reviewed | No review recorded yet |
+
+Which page should I read? This page is one of 2 on identity security.
+
+| Page | Read it for |
+|---|---|
+| Identity & Access Management Reference (this page) | Controls and architecture: authentication technologies, authorization models, PAM, IGA, and compliance mapping. |
+| [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md) | Attacks and vendor controls: MFA bypass, Entra ID, Okta, CyberArk, and identity detection and response. |
+
+<!-- meta:end -->
 
 ---
 

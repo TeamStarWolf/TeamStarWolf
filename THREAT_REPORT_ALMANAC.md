@@ -6,6 +6,19 @@ Every report indexed here is free; "form" in the access column means an email-re
 
 Related: [Threat Intelligence](THREAT_INTELLIGENCE_REFERENCE.md), [CTEM](CTEM_REFERENCE.md), [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Security Metrics](SECURITY_METRICS_REFERENCE.md), [Threat Actors](THREAT_ACTORS.md), [ATT&CK Priority Gaps](scores/attack_priority_gaps.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Threat intelligence analysts, security leaders, and anyone citing annual threat reports |
+| Level | Intermediate |
+| Reading time | About 17 min (3,865 words at 230 words a minute) |
+| Read this when | choosing which annual threat reports to read, checking what a report's evidence can and cannot support before citing it, or planning a reading calendar by role |
+| Start at | [Methodology determines meaning](#methodology-determines-meaning), [The majors](#the-majors), [How to read a threat report critically](#how-to-read-a-threat-report-critically) |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
+
 ---
 
 ## Methodology determines meaning

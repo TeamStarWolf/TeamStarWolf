@@ -2,11 +2,19 @@
 
 > The 44 MITRE ATT&CK Enterprise mitigations (M-codes, v19.2): the defensive measures ATT&CK maps to adversary techniques. Each mitigation lists how many techniques it addresses and the behaviors it counters. Use it alongside the [NIST 800-53 control mappings](CONTROLS_MAPPING.md) and [D3FEND](https://d3fend.mitre.org/) for a full defensive picture.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Security architects and engineers turning ATT&CK techniques into hardening work |
+| Level | Intermediate |
+| Reading time | About 22 min (5,026 words at 230 words a minute) |
 | Read this when | prioritizing which defensive measures buy the most technique coverage, translating an ATT&CK technique into concrete hardening steps, building or reviewing a mitigation-to-control mapping |
 | Start at | [Mitigations by coverage](#mitigations-by-coverage) for the ranked table, [Detail](#detail) for per-mitigation descriptions and example techniques |
 | Pairs with | [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md), [D3FEND_REFERENCE.md](D3FEND_REFERENCE.md), [ATTACK_TECHNIQUE_ATLAS.md](ATTACK_TECHNIQUE_ATLAS.md) |
+| Last reviewed | 2026-10-13 (ATT&CK v19.2): revoked and deprecated ATT&CK citations re-keyed to their current IDs ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118)) |
+
+<!-- meta:end -->
 
 Machine-readable: [`data/attack/mitigations.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/mitigations.jsonl), [`data/attack/mitigation_to_technique.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/mitigation_to_technique.jsonl)
 

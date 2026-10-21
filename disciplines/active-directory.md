@@ -2,6 +2,17 @@
 
 > Active Directory is the backbone of enterprise identity, controlling authentication, authorization, and access for millions of organizations worldwide. Attackers target AD for persistence and privilege escalation; a compromised domain controller is effectively a full organizational compromise. Defenders must understand both the attack and defense sides of AD to protect their environments effectively.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Administrators, defenders, and testers who attack or protect Active Directory |
+| Level | Intermediate to advanced |
+| Reading time | About 9 min (1,983 words at 230 words a minute) |
+| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching references: [Active Directory Attack Reference](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md) and [Active Directory Security Reference](/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), the library's in-depth pages on this subject.

@@ -2,6 +2,17 @@
 
 Bug bounty programs are structured arrangements where organizations invite external security researchers to identify and responsibly disclose vulnerabilities in exchange for recognition or financial rewards. Practitioners, called hunters or researchers, operate within a defined scope and rules of engagement, applying offensive security techniques to real production targets. The discipline sits at the intersection of web application security, network reconnaissance, reverse engineering, and technical writing. It matters because it surfaces vulnerabilities that internal teams miss, incentivizes responsible disclosure over black-market exploitation, and creates a continuous, community-driven security testing layer. Hunters range from students using free platforms to elite researchers earning millions annually through private programs. Defenders benefit equally: understanding hunter methodology reveals which controls to harden, which logs to monitor, and how exploitation chains actually assemble in the wild.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Aspiring and working bug bounty hunters and vulnerability researchers |
+| Level | Beginner to advanced |
+| Reading time | About 9 min (1,966 words at 230 words a minute) |
+| Last reviewed | 2026-09-27 (ATT&CK v19.2): tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51)) |
+
+<!-- meta:end -->
+
 ---
 
 ## Where to Start

@@ -14,10 +14,26 @@
 
 Related: [Honeypot & Deception Reference](HONEYPOT_DECEPTION_REFERENCE.md), [Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md), [D3FEND](D3FEND_REFERENCE.md), [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Purple Team](PURPLE_TEAM_REFERENCE.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Deception program leads, threat hunters, and purple teams |
+| Level | Intermediate |
+| Reading time | About 9 min (2,039 words at 230 words a minute) |
 | Read this when | planning a deception or adversary engagement operation, deciding which honeypot/lure activities cover the most ATT&CK techniques, picking a denial/deception response for a specific adversary technique |
 | Start at | [The Engage matrix](#the-engage-matrix), [Activities by ATT&CK coverage](#activities-by-attampck-coverage), [ATT&CK techniques with the most engagement options](#attampck-techniques-with-the-most-engagement-options) |
+| Last reviewed | No review recorded yet |
+
+Which page should I read? This page is one of 3 on deception and adversary engagement.
+
+| Page | Read it for |
+|---|---|
+| Engage Reference (deception) (this page) | The MITRE Engage framework for planning adversary engagement, mapped to ATT&CK techniques. |
+| [Deception Technology](/DECEPTION_TECHNOLOGY_REFERENCE.md) | Deception program strategy and detection engineering: honeytokens, decoy placement, alert pipelines, and metrics. |
+| [Honeypot & Deception Reference](/HONEYPOT_DECEPTION_REFERENCE.md) | Hands-on install, configuration, and SIEM integration for honeypot and honeytoken tools such as OpenCanary, Canarytokens, and T-Pot. |
+
+<!-- meta:end -->
 
 ---
 

@@ -4,11 +4,20 @@
 
 > In one minute: This is the methodology reference for running an authorized red team engagement end to end: how to scope and govern it, how adversaries are emulated across the attack lifecycle, and how the results get turned into defensive improvements. It exists so defenders and operators share one vocabulary for what an assessment covers and how findings feed detection and hardening.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Red team operators and program leads, and blue teams preparing for an assessment |
+| Level | Intermediate to advanced |
+| Reading time | About 30 min (6,854 words at 230 words a minute) |
 | Read this when | you are standing up a red team program or writing rules of engagement, you are planning an authorized engagement and need a lifecycle checklist, or you are on the blue side and want to understand what an assessment will exercise |
 | Start at | [Program Design & Rules of Engagement](#_1-red-team-program-design-amp-rules-of-engagement) for governance, [Reporting & Purple Team Integration](#_9-reporting-amp-purple-team-integration) for turning results into defense |
 | Pairs with | [PURPLE_TEAM_REFERENCE.md](PURPLE_TEAM_REFERENCE.md), [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md), [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [ATTACK_MITIGATIONS_REFERENCE.md](ATTACK_MITIGATIONS_REFERENCE.md) |
+| Matching learning paths | [Offensive Security](/disciplines/offensive-security.md), [Red Teaming](/disciplines/red-teaming.md) |
+| Last reviewed | 2026-10-13 (ATT&CK v19.2): stale gap figures, a false gap claim, and revoked-ID wording corrected ([#120](https://github.com/TeamStarWolf/TeamStarWolf/pull/120)) |
+
+<!-- meta:end -->
 
 ---
 

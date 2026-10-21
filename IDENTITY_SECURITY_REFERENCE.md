@@ -5,11 +5,26 @@
 > compliance, covering Microsoft Entra ID, Okta, Active Directory, CyberArk,
 > HashiCorp Vault, SailPoint, and more.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Identity engineers, SOC analysts, and incident responders handling identity attacks |
+| Level | Intermediate |
+| Reading time | About 15 min (3,480 words at 230 words a minute) |
 | Read this when | You're hardening an IdP (Entra, Okta, AD), investigating a credential or MFA-bypass incident, or writing identity detections and CA/PAM/IGA policy |
 | Start at | [Identity Attack Surface](#_1-identity-attack-surface), [MFA Bypass Techniques & Defenses](#_3-multi-factor-authentication-bypass-techniques-amp-defenses), [Identity Detection & Response](#_10-identity-detection-amp-response) |
 | Pairs with | [Identity & Access Management (IAM) Reference](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md) (controls/architecture counterpart: authorization models, IGA/PAM design, compliance mapping), [Zero Trust Reference](ZERO_TRUST_REFERENCE.md), [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [Privilege Escalation Reference](PRIVESC_REFERENCE.md), [GRC Reference](GRC_REFERENCE.md) |
+| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+
+Which page should I read? This page is one of 2 on identity security.
+
+| Page | Read it for |
+|---|---|
+| Identity Security Reference (this page) | Attacks and vendor controls: MFA bypass, Entra ID, Okta, CyberArk, and identity detection and response. |
+| [Identity & Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md) | Controls and architecture: authentication technologies, authorization models, PAM, IGA, and compliance mapping. |
+
+<!-- meta:end -->
 
 ---
 

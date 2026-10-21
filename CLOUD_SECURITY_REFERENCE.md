@@ -2,11 +2,30 @@
 
 > Comprehensive cybersecurity reference for AWS, Azure, GCP, multi-cloud attack tooling, IAM, data security, CNAPP, and compliance. Maintained by TeamStarWolf.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Cloud security engineers and cloud penetration testers |
+| Level | Intermediate to advanced |
+| Reading time | About 32 min (7,440 words at 230 words a minute) |
 | Read this when | You need to look up an AWS/Azure/GCP security control or its configuration, you are chasing a cloud privilege-escalation or metadata-service (IMDS/SSRF) attack path, or you are picking the right offensive/CSPM tool (Pacu, ROADtools, PMapper, Prowler) for a cloud engagement |
 | Start at | [AWS Security Fundamentals](#_1-aws-security-fundamentals), [Multi-Cloud Attack Tools](#_6-multi-cloud-attack-tools), [Cloud IAM Security & Least Privilege](#_7-cloud-iam-security-amp-least-privilege) |
 | Pairs with | [CLOUD_ATTACK_REFERENCE.md](CLOUD_ATTACK_REFERENCE.md), [CLOUD_SECURITY_BENCHMARK.md](CLOUD_SECURITY_BENCHMARK.md), [KUBERNETES_SECURITY_REFERENCE.md](KUBERNETES_SECURITY_REFERENCE.md), [CONTAINER_SECURITY_REFERENCE.md](CONTAINER_SECURITY_REFERENCE.md) |
+| Matching learning path | [Cloud Security](/disciplines/cloud-security.md) |
+| Last reviewed | 2026-10-01 (ATT&CK v19.2): regulatory references checked against live sources ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63)) |
+
+Which page should I read? This page is one of 5 on cloud security.
+
+| Page | Read it for |
+|---|---|
+| Cloud Security Reference (this page) | Controls and their configuration across AWS, Azure, and GCP, plus privilege-escalation paths and cloud attack tools. |
+| [Cloud Architecture Reference](/CLOUD_ARCHITECTURE_REFERENCE.md) | Designing cloud systems: landing zones, hub-and-spoke networking, and architecture decisions with their trade-offs. |
+| [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md) | Attacker techniques per cloud and for Kubernetes, aligned to ATT&CK, for building detections and running incident response. |
+| [Cloud Security Benchmark](/CLOUD_SECURITY_BENCHMARK.md) | CIS Benchmark hardening checks with fix commands, audit scripts, and CSPM tools. |
+| [Cloud Network Security](/CLOUD_NETWORK_SECURITY.md) | Network controls across the three clouds: VPC design, firewalls, WAF, private connectivity, DDoS protection, and flow logs. |
+
+<!-- meta:end -->
 
 ---
 

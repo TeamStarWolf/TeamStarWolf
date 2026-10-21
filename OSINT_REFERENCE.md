@@ -4,11 +4,20 @@
 > penetration testers, and threat intelligence analysts. All techniques are for
 > use only within explicitly authorized engagements and legal frameworks.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Threat intelligence analysts and authorized penetration testers |
+| Level | Intermediate |
+| Reading time | About 16 min (3,669 words at 230 words a minute) |
 | Read this when | Scoping an authorized reconnaissance engagement, mapping a target's external attack surface before a pentest, running passive collection without touching target systems |
 | Start at | [OSINT Fundamentals and Legal Framework](#_1-osint-fundamentals-and-legal-framework), [OSINT Investigation Methodology](#_10-osint-investigation-methodology), [OSINT Tools Reference Table](#_11-osint-tools-reference-table) |
 | Pairs with | [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md), [THREAT_INTELLIGENCE_REFERENCE.md](THREAT_INTELLIGENCE_REFERENCE.md), [SOCIAL_ENGINEERING_REFERENCE.md](SOCIAL_ENGINEERING_REFERENCE.md) |
+| Matching learning path | [OSINT](/disciplines/osint.md) |
+| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+
+<!-- meta:end -->
 
 ---
 

@@ -2,11 +2,30 @@
 
 > Comprehensive reference for network defense, monitoring, and security operations.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Network defenders, NSM engineers, and SOC analysts |
+| Level | Intermediate |
+| Reading time | About 17 min (3,900 words at 230 words a minute) |
 | Read this when | standing up or tuning an NSM sensor stack (Suricata, Zeek, Security Onion, Arkime), hunting for beaconing or DNS tunneling in network logs, designing segmentation, NAC, or DDoS defenses |
 | Start at | [Network Defense Architecture](#_1-network-defense-architecture), [Suricata IDS/IPS](#_2-suricata-idsips), [Network Defense Operations](#_10-network-defense-operations) |
 | Pairs with | [NETWORK_ATTACKS_REFERENCE.md](NETWORK_ATTACKS_REFERENCE.md), [NETWORK_MONITORING_REFERENCE.md](NETWORK_MONITORING_REFERENCE.md), [NETWORK_FORENSICS_REFERENCE.md](NETWORK_FORENSICS_REFERENCE.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md) |
+| Matching learning path | [Network Security](/disciplines/network-security.md) |
+| Last reviewed | No review recorded yet |
+
+Which page should I read? This page is one of 5 on network attack, defense, and monitoring.
+
+| Page | Read it for |
+|---|---|
+| Network Defense Reference (this page) | Defense architecture and NSM operations: Suricata, Zeek, Security Onion, segmentation, and DDoS defense. |
+| [Network Attacks Reference](/NETWORK_ATTACKS_REFERENCE.md) | How network attacks work layer by layer, each paired with the control that detects or blocks it. |
+| [Network Monitoring Reference](/NETWORK_MONITORING_REFERENCE.md) | The monitoring stack and hunting workflows: sensor placement, Zeek, Suricata rules, JA3, and flow data. |
+| [Network Forensics Reference](/NETWORK_FORENSICS_REFERENCE.md) | Collecting and preserving network evidence and reconstructing an incident from it. |
+| [Packet Analysis Reference](/PACKET_ANALYSIS_REFERENCE.md) | Reading raw traffic in Wireshark, tcpdump, and Zeek, and spotting attacks in packet captures. |
+
+<!-- meta:end -->
 
 ---
 

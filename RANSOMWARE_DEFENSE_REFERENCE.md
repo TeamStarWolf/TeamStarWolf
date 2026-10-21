@@ -8,10 +8,18 @@ Family-by-family profiles (LockBit, ALPHV, Conti lineage, etc.) live in [Malware
 
 Related: [Malware Families](MALWARE_FAMILIES.md), [IR Playbooks](IR_PLAYBOOKS.md), [Incident Response](INCIDENT_RESPONSE_REFERENCE.md), [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md), [Security Metrics](SECURITY_METRICS_REFERENCE.md), [Threat Group Profiles](THREAT_GROUP_PROFILES.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Security program leads, infrastructure owners, and incident response planners |
+| Level | Intermediate |
+| Reading time | About 21 min (4,844 words at 230 words a minute) |
 | Read this when | you are building or gap-assessing a ransomware defense program, a new #StopRansomware advisory lands and you need to turn it into work, or you must decide backup architecture, restore order, or payment policy before an incident |
 | Start at | [Scope & how to use this reference](#scope-amp-how-to-use-this-reference), [Backup & recovery architecture](#backup-amp-recovery-architecture), [A 90-day program bootstrap](#a-90-day-program-bootstrap) |
+| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+
+<!-- meta:end -->
 
 ---
 

@@ -2,10 +2,18 @@
 
 > In one minute: A curated, categorized list of about 205 X/Twitter accounts that consistently share useful security research, tooling, threat reporting, detection work, and community commentary. It is organized into 19 sections by specialty (threat intel, detection engineering, red team, DFIR, and more) so you can build a focused reading list for your own area of work instead of following everything. Enriched tables at the end add real names, focus areas, and a short "why follow" note for key accounts.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Practitioners building a focused security reading feed |
+| Level | Beginner |
+| Reading time | About 7 min (1,671 words at 230 words a minute) |
 | Read this when | you are building or pruning a security-focused feed, you want high-signal accounts for a specific specialty like DFIR or bug bounty, you need to know who publishes on a topic you are ramping up on |
 | Start at | [How To Use This File](#how-to-use-this-file), [Category Index](#category-index), [Enriched Reference Tables](#enriched-reference-tables) |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
 
 A categorized list of X and Twitter accounts that regularly share useful research, tooling, threat reporting, detection work, and community commentary. This is meant to be a signal-focused reference list, not a popularity ranking.
 

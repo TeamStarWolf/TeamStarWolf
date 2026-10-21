@@ -10,7 +10,7 @@ Part of the [domain hubs](/hubs/README.md). 7 reference documents in this domain
 
 | Reference | What it covers | Reading time |
 |---|---|---|
-| [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md) | Intel lifecycle, STIX/TAXII, threat actor profiles, IOC enrichment, TIP platforms, and intelligence-driven detection | 23 min |
+| [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md) | Intel lifecycle, STIX/TAXII, threat actor profiles, IOC enrichment, TIP platforms, and intelligence-driven detection | 22 min |
 | [Threat Report Almanac](/THREAT_REPORT_ALMANAC.md) | Annotated index of the 15 major annual threat reports (DBIR, M-Trends, CrowdStrike GTR, MDDR, X-Force, ENISA, IC3, Dragos, etc.) organized by methodology basis, with a critical-reading method and a quarterly reading calendar | 17 min |
 | [Threat Actors](/THREAT_ACTORS.md) | Nation-state APTs, ransomware groups, and eCrime actors mapped to ATT&CK TTPs | 9 min |
 | [Threat Group Profiles](/THREAT_GROUP_PROFILES.md) | 176 MITRE ATT&CK adversary groups with aliases, attributed techniques, and tooling (authoritative STIX-derived) | 30 min |

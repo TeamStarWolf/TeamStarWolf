@@ -5,6 +5,26 @@
 >
 > Pairs with [NETWORK_PROTOCOLS_REFERENCE.md](NETWORK_PROTOCOLS_REFERENCE.md), the engineering/defender companion: protocol internals, hardening configs (Cisco IOS / sshd_config), the TLS/OAuth/SAML chapters, OT-ICS / VoIP / MQTT coverage, and the packet-analysis tooling chapter (Wireshark, tshark, Zeek). This file is the attacker view; that one is the engineering view.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Penetration testers, detection engineers, and network defenders |
+| Level | Intermediate |
+| Reading time | About 22 min (5,002 words at 230 words a minute) |
+| Read this when | researching how attackers abuse a specific protocol (DNS, HTTP, SMB, Kerberos, and others), finding the ATT&CK technique for protocol abuse, or writing a detection or defensive control for it |
+| Start at | [DNS (53 UDP/TCP)](#dns-53-udptcp), [HTTP/HTTPS (80/443)](#httphttps-80443), [SMB (445 TCP)](#smb-445-tcp) |
+| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+
+Which page should I read? This page is one of 2 on network protocols.
+
+| Page | Read it for |
+|---|---|
+| Network Protocols Security (this page) | The attacker view: how each protocol is exploited, with ATT&CK IDs, detection, and defenses. |
+| [Network Protocols Reference](/NETWORK_PROTOCOLS_REFERENCE.md) | The engineering view: protocol internals, hardening configurations, and packet-analysis tooling. |
+
+<!-- meta:end -->
+
 ---
 
 ## Table of Contents

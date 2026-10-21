@@ -4,11 +4,19 @@
 >
 > All information is provided for authorized security research, penetration testing, and educational purposes only. Always obtain explicit written authorization before testing on any systems you do not own. Unauthorized use of these tools may violate the Computer Fraud and Abuse Act (18 U.S.C. § 1030), FCC regulations, and other applicable laws.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Red teamers, physical and wireless testers, and hardware hobbyists |
+| Level | Intermediate |
+| Reading time | About 28 min (6,550 words at 230 words a minute) |
 | Read this when | Scoping an authorized wireless, RF, RFID, or hardware assessment and choosing the right gadget, standing up an isolated home lab or RF test bench, confirming the legal boundaries before you power on a transmitter |
 | Start at | [Hak5 Ecosystem](#_1-hak5-ecosystem), [Flipper Zero](#_3-flipper-zero), [Lab Setup, Legal & Community](#_10-lab-setup-legal-amp-community) |
 | Pairs with | [WIRELESS_SECURITY_REFERENCE.md](WIRELESS_SECURITY_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md), [disciplines/radio-frequency-security.md](disciplines/radio-frequency-security.md), [disciplines/hardware-security.md](disciplines/hardware-security.md) |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
 
 ---
 

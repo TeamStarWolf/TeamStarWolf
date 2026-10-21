@@ -9,6 +9,8 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 ### T1003: OS Credential Dumping
 <a id="t1003"></a>
 
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
+
 Detection strategy: Credential Dumping via Sensitive Memory and Registry Access Correlation (`DET0234`)  
 Platforms: Linux, Windows, macOS  
 ATT&CK: [T1003](https://attack.mitre.org/techniques/T1003/), [detail page](/techniques/credential-access.md#t1003)
@@ -26,10 +28,14 @@ ATT&CK: [T1003](https://attack.mitre.org/techniques/T1003/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (Code Execution & Entitlement Access)`; `macos:keychain (Access to Keychain DB or system.keychain)`; `macos:osquery (Invocation of osascript or dylib injection)`
   - *Tune:* `KeychainAccessPath`: Path to watch for abnormal access, e.g., /Library/Keychains/; `SignedBinaryStatus`: Filter out signed/trusted binaries.
 
+</details>
+
 ---
 
 ### T1003.001: LSASS Memory
 <a id="t1003001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Credential Dumping from LSASS Memory via Access and Dump Sequence (`DET0363`)  
 Platforms: Windows  
@@ -40,10 +46,14 @@ ATT&CK: [T1003.001](https://attack.mitre.org/techniques/T1003/001/), [detail pag
   - *Log sources:* `WinEventLog:Sysmon (EventCode=10)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Security (EventCode=4673)`; `WinEventLog:Sysmon (EventCode=13, 14)`
   - *Tune:* `AccessMask`: Set to 0x1F0FFF to detect full memory access attempts; can be scoped down to reduce noise.; `TimeWindow`: Defines time between LSASS access and dump file creation or registry modification (e.g., 5 minutes).; `ParentProcessName`: Allowlist known legitimate tools (e.g., AV/EDR) accessing lsass.exe.; `DumpFilePath`: Paths where memory dumps are written, e.g., %TEMP%, C:\Windows\Temp.; `CommandLinePattern`: Common dumping syntax like rundll32, procdump, comsvcs.dll, Invoke-Mimikatz.
 
+</details>
+
 ---
 
 ### T1003.002: Security Account Manager
 <a id="t1003002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Credential Dumping from SAM via Registry Dump and Local File Access (`DET0085`)  
 Platforms: Windows  
@@ -54,10 +64,14 @@ ATT&CK: [T1003.002](https://attack.mitre.org/techniques/T1003/002/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4688)`; `WinEventLog:Sysmon (EventCode=13, 14)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=2)`
   - *Tune:* `CommandLinePattern`: Detectable variations include `reg save`, `reg.exe save`, or PowerShell equivalents for dumping SAM/SYSTEM hives.; `TargetFilePath`: Defenders can tune based on dump file path patterns (e.g., `%TEMP%\sam.save`, `C:\Users\Public\*.dmp`).; `RegistryPath`: Tune for HKLM\SAM, HKLM\SYSTEM or access via direct \Device\Harddisk paths.; `TimeWindow`: Temporal gap between SAM and SYSTEM hive dumping can be tuned (e.g., 3 minutes).; `ParentProcessName`: Useful for suppressing known-good access (e.g., backup tools).
 
+</details>
+
 ---
 
 ### T1003.003: NTDS
 <a id="t1003003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of NTDS.dit Credential Dumping from Domain Controllers (`DET0586`)  
 Platforms: Windows  
@@ -68,10 +82,14 @@ ATT&CK: [T1003.003](https://attack.mitre.org/techniques/T1003/003/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4688)`; `WinEventLog:Sysmon (EventCode=2)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Microsoft-Windows-VSS (Volume Shadow Copy Creation)`
   - *Tune:* `TargetFilePath`: Tunable for NTDS file location or backup paths if organization uses custom domain controller storage structure.; `ParentProcessName`: Can suppress backup-related parent processes to reduce false positives.; `TimeWindow`: Temporal correlation between shadow copy creation and NTDS file access (e.g., 5 min window).; `UserContext`: Tune based on expected privileged user/service account behavior.
 
+</details>
+
 ---
 
 ### T1003.004: LSA Secrets
 <a id="t1003004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of LSA Secrets Dumping via Registry and Memory Extraction (`DET0437`)  
 Platforms: Windows  
@@ -82,10 +100,14 @@ ATT&CK: [T1003.004](https://attack.mitre.org/techniques/T1003/004/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4663, 4670, 4656)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=10)`; `WinEventLog:Sysmon (EventCode=7)`
   - *Tune:* `TargetObject`: Target registry paths like HKLM\SECURITY\Policy\Secrets or variants can be tuned depending on OS version or registry redirection settings.; `ImageLoaded`: Module names such as `lsasrv.dll`, `sechost.dll`, or suspicious DLLs loaded by user processes may require tuning for known-good service operations.; `AccessMask`: Tuning based on whether processes are using specific sensitive access rights (e.g., 0x2 or 0x4).; `TimeWindow`: Temporal window between registry access and command-line tool execution.
 
+</details>
+
 ---
 
 ### T1003.005: Cached Domain Credentials
 <a id="t1003005"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detection of Cached Domain Credential Dumping via Local Hash Cache Access (`DET0513`)  
 Platforms: Linux, Windows  
@@ -100,10 +122,14 @@ ATT&CK: [T1003.005](https://attack.mitre.org/techniques/T1003/005/), [detail pag
   - *Log sources:* `auditd:SYSCALL (file)`; `auditd:EXECVE (EXECVE)`; `linux:osquery (process_events)`
   - *Tune:* `filepath`: SSSD and Quest cache paths differ by deployment and OS variant.; `CommandLine`: Tunable to capture specific tools (e.g., tdbdump, cat) or scripts accessing cache files.; `TimeWindow`: Time between elevation and file access can be adjusted to account for legitimate system behavior.
 
+</details>
+
 ---
 
 ### T1003.006: DCSync
 <a id="t1003006"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Unauthorized DCSync Operations via Replication API Abuse (`DET0594`)  
 Platforms: Windows  
@@ -114,10 +140,14 @@ ATT&CK: [T1003.006](https://attack.mitre.org/techniques/T1003/006/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4662)`; `WinEventLog:Security (EventCode=4929)`; `NSM:Content (Traffic on RPC DRSUAPI)`
   - *Tune:* `TimeWindow`: Defines the correlation window for unusual account access followed by DRSUAPI traffic.; `UserContext`: Allows tuning for specific accounts known to legitimately request replication.; `SourceIP`: Expected replication should only come from known DCs; this field allows excluding trusted DCs.
 
+</details>
+
 ---
 
 ### T1003.007: Proc Filesystem
 <a id="t1003007"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detecting OS Credential Dumping via /proc Filesystem Access on Linux (`DET0593`)  
 Platforms: Linux  
@@ -128,10 +158,14 @@ ATT&CK: [T1003.007](https://attack.mitre.org/techniques/T1003/007/), [detail pag
   - *Log sources:* `auditd:SYSCALL (open, read)`; `auditd:SYSCALL (write)`; `auditd:SYSCALL (ptrace or process_vm_readv)`; `linux:Sysmon (EventCode=1)`
   - *Tune:* `AccessedFilePath`: Monitored paths such as /proc/[pid]/mem or /proc/[pid]/maps may need to be scoped based on environment; `ProcessName`: Command-line or binary names associated with credential scraping tools may vary; `UserContext`: Elevated user or unexpected user context accessing other process memory may indicate malicious activity; `TimeWindow`: Correlating memory access with process creation or ptrace activity within a specific time range
 
+</details>
+
 ---
 
 ### T1003.008: /etc/passwd and /etc/shadow
 <a id="t1003008"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Credential Access via /etc/passwd and /etc/shadow Parsing (`DET0446`)  
 Platforms: Linux  
@@ -142,10 +176,14 @@ ATT&CK: [T1003.008](https://attack.mitre.org/techniques/T1003/008/), [detail pag
   - *Log sources:* `auditd:SYSCALL (open, read)`; `auditd:SYSCALL (execve)`
   - *Tune:* `exe`: Executable name used to access credentials (e.g., cat, cp, awk); can vary across environments; `user`: User context under which the access occurs; typically root, but can be non-standard in attacks; `PATH`: Target file paths (e.g., /etc/passwd, /etc/shadow); may vary in containerized or customized systems; `TimeWindow`: Time correlation threshold for chaining access and execution events
 
+</details>
+
 ---
 
 ### T1040: Network Sniffing
 <a id="t1040"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection Strategy for Network Sniffing Across Platforms (`DET0314`)  
 Platforms: IaaS, Linux, Network Devices, Windows, macOS  
@@ -172,10 +210,14 @@ ATT&CK: [T1040](https://attack.mitre.org/techniques/T1040/), [detail page](/tech
   - *Log sources:* `networkdevice:syslog (admin login events)`; `networkdevice:syslog (exec command='monitor capture')`; `networkdevice:syslog (config change (e.g., logging buffered, pcap buffers))`
   - *Tune:* `AdminSessionDuration`: Tunable alerting threshold for interactive CLI sessions.; `CaptureCommandList`: Define set of known capture/debug commands per vendor to flag unexpected usage.
 
+</details>
+
 ---
 
 ### T1110: Brute Force
 <a id="t1110"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Brute Force Authentication Failures with Multi-Platform Log Correlation (`DET0463`)  
 Platforms: Identity Provider, Linux, SaaS, Windows, macOS  
@@ -202,10 +244,14 @@ ATT&CK: [T1110](https://attack.mitre.org/techniques/T1110/), [detail page](/tech
   - *Log sources:* `m365:unified (Sign-in logs)`
   - *Tune:* `AppName`: Detect brute force attempts targeting specific apps; `UserGroup`: Limit alert scope to high-value user groups
 
+</details>
+
 ---
 
 ### T1110.001: Password Guessing
 <a id="t1110001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 6 analytics</summary>
 
 Detection strategy: Password Guessing via Multi-Source Authentication Failure Correlation (`DET0551`)  
 Platforms: Identity Provider, Linux, Network Devices, SaaS, Windows, macOS  
@@ -236,10 +282,14 @@ ATT&CK: [T1110.001](https://attack.mitre.org/techniques/T1110/001/), [detail pag
   - *Log sources:* `GCPAuditLogs:login.googleapis.com (Failed sign-in events)`
   - *Tune:* `AppContext`: Which SaaS apps should be monitored for brute force attempts; `EmailPattern`: Limit scope to enterprise domains or service accounts
 
+</details>
+
 ---
 
 ### T1110.002: Password Cracking
 <a id="t1110002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Post-Credential Dump Password Cracking Detection via Suspicious File Access and Hash Analysis Tools (`DET0105`)  
 Platforms: Identity Provider, Linux, Network Devices, Windows, macOS  
@@ -266,10 +316,14 @@ ATT&CK: [T1110.002](https://attack.mitre.org/techniques/T1110/002/), [detail pag
   - *Log sources:* `networkdevice:syslog (config access, authentication logs)`
   - *Tune:* `LogonTimeCorrelation`: Window to link credential theft and reuse; `SourceDeviceTag`: Filters based on where cracking may have occurred externally
 
+</details>
+
 ---
 
 ### T1110.003: Password Spraying
 <a id="t1110003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 8 analytics</summary>
 
 Detection strategy: Distributed Password Spraying via Authentication Failures Across Multiple Accounts (`DET0487`)  
 Platforms: Containers, Identity Provider, Linux, Network Devices, Office Suite, SaaS, Windows, macOS  
@@ -308,10 +362,14 @@ ATT&CK: [T1110.003](https://attack.mitre.org/techniques/T1110/003/), [detail pag
   - *Log sources:* `saas:auth (signin_failed)`
   - *Tune:* `CloudAppScope`: Restrict detection to identity providers or select high-risk SaaS platforms; `UserPopulationSensitivity`: Adjust based on size and role of account pool
 
+</details>
+
 ---
 
 ### T1110.004: Credential Stuffing
 <a id="t1110004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 9 analytics</summary>
 
 Detection strategy: Credential Stuffing Detection via Reused Breached Credentials Across Services (`DET0460`)  
 Platforms: Containers, IaaS, Identity Provider, Linux, Network Devices, Office Suite, SaaS, Windows, macOS  
@@ -354,10 +412,14 @@ ATT&CK: [T1110.004](https://attack.mitre.org/techniques/T1110/004/), [detail pag
   - *Log sources:* `AWS:CloudTrail (eventName=ConsoleLogin | eventType=AwsConsoleSignIn)`
   - *Tune:* `InstanceIDScope`: Define if detection should group logins per host or across cluster; `IPBehaviorHistory`: Correlate against past IP reputation or behavioral profiles
 
+</details>
+
 ---
 
 ### T1111: Multi-Factor Authentication Interception
 <a id="t1111"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection Strategy for MFA Interception via Input Capture and Smart Card Proxying (`DET0246`)  
 Platforms: Linux, Windows, macOS  
@@ -376,10 +438,14 @@ ATT&CK: [T1111](https://attack.mitre.org/techniques/T1111/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (com.apple.securityd, com.apple.tccd)`; `macos:osquery (query: process_events, launchd, and tcc.db access)`
   - *Tune:* `AccessibilityAPIUsage`: Detection of programs requesting access to input monitoring (e.g., CGEventTap); `TCCBypassAttempt`: Alert if TCC settings are altered or bypassed; `SignedBinaryCheck`: Tunable based on developer signing status (legitimate software vs unsigned)
 
+</details>
+
 ---
 
 ### T1187: Forced Authentication
 <a id="t1187"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Forced SMB/WebDAV Authentication via lure files and outbound NTLM (`DET0022`)  
 Platforms: Windows  
@@ -390,10 +456,14 @@ ATT&CK: [T1187](https://attack.mitre.org/techniques/T1187/), [detail page](/tech
   - *Log sources:* `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Security (EventCode=4663, 4670, 4656)`; `NSM:Flow (HTTP/WebDAV requests that contain NTLMSSP or PROPFIND/MOVE/OPTIONS with Authorization: NTLM)`; `NSM:Flow (Outbound connections to TCP 139,445 and HTTP/HTTPS to WebDAV endpoints from workstation subnets)`
   - *Tune:* `UserLocations`: Folders where lures are most effective (Desktop, Public, Downloads, Temp, Cache, Start Menu, Startup). Adjust to enterprise layout.; `LureExtensions`: File types commonly abused (.lnk, .scf, .url, .doc/.xls/.ppt/.pdf/.html). Extend for your tooling and languages.; `UntrustedCIDR/DNS`: Org-specific list of external/unknown networks or domains; used to suppress sanctioned file servers and WebDAV gateways.; `TimeWindow`: Correlation horizon (e.g., 15-30 minutes) between file access and outbound NTLM attempt.; `WorkstationZones`: Asset/zone tags that distinguish workstations from servers; helps flag workstation->workstation SMB, which is often abnormal.; `OfficeTemplatePaths`: Paths to Office templates to catch template injection references and abnormal loads.
 
+</details>
+
 ---
 
 ### T1212: Exploitation for Credential Access
 <a id="t1212"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Exploitation for Credential Access (`DET0174`)  
 Platforms: Identity Provider, Linux, Windows, macOS  
@@ -416,10 +486,14 @@ ATT&CK: [T1212](https://attack.mitre.org/techniques/T1212/), [detail page](/tech
   - *Log sources:* `azure:signinlogs (TokenIssued, TokenRenewed: Unexpected or anomalous token issuance events)`; `m365:unified (ConsentGranted: Abuse of application integrations to mint tokens bypassing MFA)`
   - *Tune:* `TokenAnomalyThreshold`: Threshold for anomalous token creation or renewal before alerting.; `MonitoredAppIntegrations`: Applications with privileged access that should be tightly monitored for misuse.
 
+</details>
+
 ---
 
 ### T1528: Steal Application Access Token
 <a id="t1528"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection Strategy for T1528 - Steal Application Access Token (`DET0515`)  
 Platforms: Containers, IaaS, Identity Provider, Office Suite, SaaS  
@@ -446,10 +520,14 @@ ATT&CK: [T1528](https://attack.mitre.org/techniques/T1528/), [detail page](/tech
   - *Log sources:* `saas:googleworkspace (Access via OAuth credentials with unusual scopes or from anomalous IPs)`; `saas:slack (OAuth token use by unknown app client_id accessing private channels or files)`
   - *Tune:* `GeoVelocity`: Flag when token use appears across geographically distant logins; `OAuthScopeSensitivity`: Weight certain scopes (admin, file.read) as higher risk
 
+</details>
+
 ---
 
 ### T1539: Steal Web Session Cookie
 <a id="t1539"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection of Web Session Cookie Theft via File, Memory, and Network Artifacts (`DET0509`)  
 Platforms: Linux, Office Suite, SaaS, Windows, macOS  
@@ -476,10 +554,14 @@ ATT&CK: [T1539](https://attack.mitre.org/techniques/T1539/), [detail page](/tech
   - *Log sources:* `saas:googleworkspace (login with reused session token and mismatched user agent or IP)`; `saas:okta (session.token.reuse)`
   - *Tune:* `TokenReuseTimeWindow`: Max allowed delta between token issuance and second use; `UserAgentAnomalyScore`: Deviation score from normal browser/device fingerprint; `GeoLocationAnomalyScore`: Deviation in IP region or ASN per user profile
 
+</details>
+
 ---
 
 ### T1552: Unsecured Credentials
 <a id="t1552"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 7 analytics</summary>
 
 Detection strategy: Detect Access or Search for Unsecured Credentials Across Platforms (`DET0412`)  
 Platforms: Containers, Identity Provider, Linux, Network Devices, SaaS, Windows, macOS  
@@ -514,10 +596,14 @@ ATT&CK: [T1552](https://attack.mitre.org/techniques/T1552/), [detail page](/tech
   - *Log sources:* `linux:syslog (CLI access to 'show running-config', 'show password', or 'cat config.txt')`; `NSM:Flow (large transfer from management IPs to unauthorized host)`
   - *Tune:* `ManagementInterfaceIPs`: IP ranges authorized to perform credential dumps; `CommandPattern`: Regex patterns for suspicious CLI commands
 
+</details>
+
 ---
 
 ### T1552.001: Credentials In Files
 <a id="t1552001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detect Access to Unsecured Credential Files Across Platforms (`DET0307`)  
 Platforms: Containers, IaaS, Linux, Windows, macOS  
@@ -544,10 +630,14 @@ ATT&CK: [T1552.001](https://attack.mitre.org/techniques/T1552/001/), [detail pag
   - *Log sources:* `CloudTrail:GetObject (sensitive credential files in buckets or local image storage)`; `AWS:CloudTrail (command-line execution invoking credential enumeration)`; `AWS:CloudTrail (sudden role assumption after credential file access)`
   - *Tune:* `CredentialFilePattern`: Regex to match common credential files (e.g., *.aws/credentials, token.txt); `RoleAssumptionScope`: Adjust scope of roles monitored (e.g., admin, service accounts); `TimeWindow`: Correlation timing between file access and AssumeRole
 
+</details>
+
 ---
 
 ### T1552.002: Credentials in Registry
 <a id="t1552002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Credential Discovery via Windows Registry Enumeration (`DET0250`)  
 Platforms: Windows  
@@ -558,10 +648,14 @@ ATT&CK: [T1552.002](https://attack.mitre.org/techniques/T1552/002/), [detail pag
   - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=13, 14)`; `EDR:hunting (Behavioral rule for registry enumeration under credential-related paths)`
   - *Tune:* `KeywordMatch`: List of strings searched in registry queries (e.g., password, credential, login). May need to expand for localized OS or app-specific terms.; `ParentProcessFilter`: Parent process used for registry access. Can tune for suspicious ancestry (e.g., cmd.exe > reg.exe vs. services.exe > reg.exe).; `TimeWindow`: Time-based correlation window for detecting chained activity between registry reads and subsequent credential use or exfiltration.; `RegistryHiveScope`: HKLM vs. HKCU vs. others. May limit scope to user or system context depending on risk appetite.
 
+</details>
+
 ---
 
 ### T1552.003: Shell History
 <a id="t1552003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detect Access and Parsing of .bash_history Files for Credential Harvesting (`DET0385`)  
 Platforms: Linux, macOS  
@@ -576,10 +670,14 @@ ATT&CK: [T1552.003](https://attack.mitre.org/techniques/T1552/003/), [detail pag
   - *Log sources:* `macos:endpointsecurity (open or read syscall to ~/.bash_history)`; `macos:unifiedlog (non-shell process tree accessing bash history)`
   - *Tune:* `ParentProcessCheck`: Scope access to .bash_history only if parent is not Terminal.app or bash/zsh; `AccessFrequency`: Raise priority if .bash_history is accessed multiple times in short window
 
+</details>
+
 ---
 
 ### T1552.004: Private Keys
 <a id="t1552004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detect Suspicious Access to Private Key Files and Export Attempts Across Platforms (`DET0549`)  
 Platforms: Linux, Network Devices, Windows, macOS  
@@ -602,10 +700,14 @@ ATT&CK: [T1552.004](https://attack.mitre.org/techniques/T1552/004/), [detail pag
   - *Log sources:* `networkdevice:syslog (Detected CLI command to export key material)`
   - *Tune:* `CLICommandMatch`: Regex for export commands (e.g., crypto pki export, export ssh-key); `AAAUserContext`: Source username or role performing export — may tune for known admins
 
+</details>
+
 ---
 
 ### T1552.005: Cloud Instance Metadata API
 <a id="t1552005"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Access to Cloud Instance Metadata API (IaaS) (`DET0001`)  
 Platforms: IaaS  
@@ -616,10 +718,14 @@ ATT&CK: [T1552.005](https://attack.mitre.org/techniques/T1552/005/), [detail pag
   - *Log sources:* `AWS:VPCFlowLogs (Outbound connection to 169.254.169.254 from EC2 workload)`; `AWS:CloudTrail (GetInstanceIdentityDocument)`; `ebpf:syscalls (Process within container accesses link-local address 169.254.169.254)`
   - *Tune:* `TimeWindow`: Adjust temporal window for correlation of access attempts and SSRF triggers; `UserContext`: Tune based on expected roles that access metadata APIs (e.g., root, service accounts); `RequestHeaderMatch`: Customize detection for HTTP Host headers indicating SSRF
 
+</details>
+
 ---
 
 ### T1552.006: Group Policy Preferences
 <a id="t1552006"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Access and Decryption of Group Policy Preference (GPP) Credentials in SYSVOL (`DET0381`)  
 Platforms: Windows  
@@ -630,10 +736,14 @@ ATT&CK: [T1552.006](https://attack.mitre.org/techniques/T1552/006/), [detail pag
   - *Log sources:* `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Security (EventCode=5145)`; `WinEventLog:PowerShell (Scripts with references to XML parsing, AES decryption, or gpprefdecrypt logic)`
   - *Tune:* `UserContext`: Tune to exclude authorized admin users or domain controllers accessing SYSVOL; `TimeWindow`: Adjust for correlation timing between file access and script execution; `KnownToolsSignature`: Extend to include known GPP parsing tool names or script hashes; `HostType`: Distinguish between expected access from DCs vs. lateral movement from workstations
 
+</details>
+
 ---
 
 ### T1552.007: Container API
 <a id="t1552007"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Abuse of Container APIs for Credential Access (`DET0198`)  
 Platforms: Containers  
@@ -644,10 +754,14 @@ ATT&CK: [T1552.007](https://attack.mitre.org/techniques/T1552/007/), [detail pag
   - *Log sources:* `docker:api (docker logs access or container inspect commands from non-administrative users)`; `kubernetes:apiserver (get/list requests to /api/v1/secrets or /api/v1/namespaces/*/serviceaccounts)`; `kubernetes:apiserver (exec into pod followed by secret retrieval via API)`; `kubernetes:orchestrator (Access to orchestrator logs containing credentials (Docker/Kubernetes logs))`
   - *Tune:* `UserContext`: Tune to exclude known orchestrator admin service accounts or CI/CD pipelines that legitimately access secrets; `NamespaceScope`: Restrict detection to sensitive namespaces (e.g., kube-system, production apps); `TimeWindow`: Adjust correlation timing between pod execution and subsequent API secret retrieval; `SourceIP`: Filter based on allowed internal API calls vs anomalous external or cross-cluster access
 
+</details>
+
 ---
 
 ### T1552.008: Chat Messages
 <a id="t1552008"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detect Unsecured Credentials Shared in Chat Messages (`DET0111`)  
 Platforms: Office Suite, SaaS  
@@ -662,10 +776,14 @@ ATT&CK: [T1552.008](https://attack.mitre.org/techniques/T1552/008/), [detail pag
   - *Log sources:* `saas:slack (chat.postMessage, files.upload, or discovery API calls involving token/credential regex)`; `saas:okta (Unusual OAuth app requesting message-read scopes for Slack/Teams/Jira)`
   - *Tune:* `IntegrationScope`: Tune to ignore known enterprise bots with message-read access (e.g., DLP scanners); `RegexPatterns`: Customizable regex for detecting secret formats (JWT, OAuth tokens, SSH keys); `UserContext`: Correlate with user role to filter developers vs standard users
 
+</details>
+
 ---
 
 ### T1555: Credentials from Password Stores
 <a id="t1555"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detect Credentials Access from Password Stores (`DET0430`)  
 Platforms: IaaS, Linux, Windows, macOS  
@@ -688,10 +806,14 @@ ATT&CK: [T1555](https://attack.mitre.org/techniques/T1555/), [detail page](/tech
   - *Log sources:* `AWS:CloudTrail (GetSecretValue)`; `AWS:CloudTrail (Decrypt)`
   - *Tune:* `UserContext`: Correlate cloud API calls with IAM role, user, or service account context; `AccessThreshold`: Number of secret retrievals within a time window before flagging
 
+</details>
+
 ---
 
 ### T1555.001: Keychain
 <a id="t1555001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Access to macOS Keychain for Credential Theft (`DET0396`)  
 Platforms: macOS  
@@ -702,10 +824,14 @@ ATT&CK: [T1555.001](https://attack.mitre.org/techniques/T1555/001/), [detail pag
   - *Log sources:* `macos:unifiedlog (execution of security or osascript)`; `macos:unifiedlog (access or unlock attempt to keychain database)`; `macos:unifiedlog (read access to ~/Library/Keychains/login.keychain-db)`
   - *Tune:* `AllowedApplications`: Whitelist of applications (e.g., Safari, Mail) normally permitted to access Keychain; `AlertThreshold`: Number of failed keychain unlock attempts before raising an alert; `ParentProcessContext`: Legitimate parent-child process relationships for security tool invocations
 
+</details>
+
 ---
 
 ### T1555.002: Securityd Memory
 <a id="t1555002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detect Suspicious Access to securityd Memory for Credential Extraction (`DET0057`)  
 Platforms: Linux, macOS  
@@ -720,10 +846,14 @@ ATT&CK: [T1555.002](https://attack.mitre.org/techniques/T1555/002/), [detail pag
   - *Log sources:* `auditd:SYSCALL (ptrace attach)`; `auditd:FILE (/proc/*/mem read attempt)`; `auditd:EXECVE (gcore, gdb, strings, hexdump execution)`
   - *Tune:* `MonitoredProcesses`: List of credential storage daemons (e.g., securityd, gnome-keyring, kwallet) monitored for memory access attempts; `CorrelationDepth`: Defines how many chained events (process execution + syscall + file read) to correlate before raising an alert; `PrivilegeContext`: Expected user/group context for processes allowed to access protected memory
 
+</details>
+
 ---
 
 ### T1555.003: Credentials from Web Browsers
 <a id="t1555003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detect Suspicious Access to Browser Credential Stores (`DET0037`)  
 Platforms: Linux, Windows, macOS  
@@ -742,10 +872,14 @@ ATT&CK: [T1555.003](https://attack.mitre.org/techniques/T1555/003/), [detail pag
   - *Log sources:* `macos:unifiedlog (execution of security, sqlite3, or unauthorized binaries)`; `macos:unifiedlog (~/Library/Application Support/Google/Chrome/*/Login Data OR ~/Library/Application Support/Firefox/*/logins.json)`
   - *Tune:* `PrivilegedUsers`: Expected user context authorized to unlock Keychain or browser databases; `TimeWindow`: Correlation window for process execution and credential file access
 
+</details>
+
 ---
 
 ### T1555.004: Windows Credential Manager
 <a id="t1555004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Suspicious Access to Windows Credential Manager (`DET0134`)  
 Platforms: Windows  
@@ -756,10 +890,14 @@ ATT&CK: [T1555.004](https://attack.mitre.org/techniques/T1555/004/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4688)`; `WinEventLog:Sysmon (EventCode=10)`; `WinEventLog:Sysmon (EventCode=15)`
   - *Tune:* `MonitoredPaths`: Credential Locker paths such as %Systemdrive%\Users\*\AppData\Local\Microsoft\Credentials and %Systemdrive%\Users\*\AppData\Local\Microsoft\Vault; `TimeWindow`: Correlation window between process execution, file access, and API calls; `PrivilegedUsers`: Baseline of expected administrative/service accounts with legitimate Credential Manager access
 
+</details>
+
 ---
 
 ### T1555.005: Password Managers
 <a id="t1555005"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detect Unauthorized Access to Password Managers (`DET0597`)  
 Platforms: Linux, Windows, macOS  
@@ -778,10 +916,14 @@ ATT&CK: [T1555.005](https://attack.mitre.org/techniques/T1555/005/), [detail pag
   - *Log sources:* `macos:unifiedlog (security OR injection attempts into 1Password OR LastPass)`; `macos:unifiedlog (*.opvault OR *.ldb OR *.kdbx)`; `macos:osquery (unexpected memory inspection)`
   - *Tune:* `VaultFileExtensions`: Password manager file extensions (.opvault, .kdbx, .ldb) to monitor for anomalous access.; `ParentProcessWhitelist`: Expected parent processes that normally access password manager files, for filtering false positives.
 
+</details>
+
 ---
 
 ### T1555.006: Cloud Secrets Management Stores
 <a id="t1555006"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Unauthorized Access to Cloud Secrets Management Stores (`DET0130`)  
 Platforms: IaaS  
@@ -792,10 +934,14 @@ ATT&CK: [T1555.006](https://attack.mitre.org/techniques/T1555/006/), [detail pag
   - *Log sources:* `AWS:CloudTrail (GetSecretValue)`
   - *Tune:* `PrivilegedRoles`: Set of accounts or roles allowed to retrieve secrets; deviations may indicate misuse.; `TimeWindow`: Temporal window to correlate secret access with authentication and anomalous context.; `AccessPatterns`: Expected frequency and volume of secret retrievals per user/service; anomalies may indicate exfiltration.; `RegionConstraints`: Regions in which secret access is expected; access from unusual geographies may indicate compromise.
 
+</details>
+
 ---
 
 ### T1557: Adversary-in-the-Middle
 <a id="t1557"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detect Adversary-in-the-Middle via Network and Configuration Anomalies (`DET0296`)  
 Platforms: Linux, Network Devices, Windows, macOS  
@@ -818,10 +964,14 @@ ATT&CK: [T1557](https://attack.mitre.org/techniques/T1557/), [detail page](/tech
   - *Log sources:* `NSM:Flow (Unexpected route changes or duplicate gateway advertisements)`; `networkdevice:config (Configuration file modified or replaced on network device)`
   - *Tune:* `RoutingPolicyBaseline`: Expected routing and BGP/OSPF paths for validation.; `FirmwareChecksum`: Baseline image checksum per device type used to detect tampering.
 
+</details>
+
 ---
 
 ### T1557.001: Name Resolution Poisoning and SMB Relay
 <a id="t1557001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect LLMNR/NBT-NS Poisoning and SMB Relay on Windows (`DET0462`)  
 Platforms: Windows  
@@ -832,10 +982,14 @@ ATT&CK: [T1557.001](https://attack.mitre.org/techniques/T1557/001/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4697)`; `WinEventLog:Security (Registry key modification HKLM\Software\Policies\Microsoft\Windows NT\DNSClient\EnableMulticast)`; `NSM:Flow (Unusual responses to LLMNR (UDP 5355) or NBT-NS (UDP 137) queries from unauthorized hosts)`; `NSM:Flow (Abnormal SMB authentication attempts correlated with poisoned LLMNR/NBT-NS sessions)`
   - *Tune:* `TrustedResponderList`: Defines expected LLMNR/NBT-NS responders to tune out legitimate services.; `TimeWindow`: Correlation period for linking poisoned name resolution with SMB relay attempts.; `SMBServiceBaseline`: Normal services and SMB relay patterns in the enterprise environment.
 
+</details>
+
 ---
 
 ### T1557.002: ARP Cache Poisoning
 <a id="t1557002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detect ARP Cache Poisoning Across Linux, Windows, and macOS (`DET0387`)  
 Platforms: Linux, Windows, macOS  
@@ -854,10 +1008,14 @@ ATT&CK: [T1557.002](https://attack.mitre.org/techniques/T1557/002/), [detail pag
   - *Log sources:* `macos:unifiedlog (ARP table updates inconsistent with expected gateway or DHCP lease assignments)`; `NSM:Flow (Excessive gratuitous ARP replies on local subnet)`
   - *Tune:* `GatewayMACBaseline`: Known MAC addresses for gateways or DHCP servers; used to detect spoofed ARP entries.; `CorrelationDepth`: How many ARP inconsistencies to tolerate before escalating detection.
 
+</details>
+
 ---
 
 ### T1557.003: DHCP Spoofing
 <a id="t1557003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detect DHCP Spoofing Across Linux, Windows, and macOS (`DET0468`)  
 Platforms: Linux, Windows, macOS  
@@ -876,10 +1034,14 @@ ATT&CK: [T1557.003](https://attack.mitre.org/techniques/T1557/003/), [detail pag
   - *Log sources:* `macos:unifiedlog (new DHCP configuration with anomalous DNS or router values)`; `NSM:Flow (Multiple DHCP OFFER responses for a single DISCOVER)`
   - *Tune:* `BaselineDNS`: Expected DNS server list; deviations may indicate spoofing.; `AlertSensitivity`: Threshold for number of anomalous DHCP responses before alerting.
 
+</details>
+
 ---
 
 ### T1557.004: Evil Twin
 <a id="t1557004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Evil Twin Wi-Fi Access Points on Network Devices (`DET0379`)  
 Platforms: Network Devices  
@@ -890,10 +1052,14 @@ ATT&CK: [T1557.004](https://attack.mitre.org/techniques/T1557/004/), [detail pag
   - *Log sources:* `WLANLogs:Association (Multiple APs advertising the same SSID but with different BSSID/MAC or encryption type)`; `NSM:Flow (Probe responses from unauthorized APs responding to client probe requests)`; `networkdevice:syslog (Failed authentication requests redirected to non-standard portals)`
   - *Tune:* `KnownSSIDs`: Baseline of authorized SSIDs; deviations may indicate rogue AP.; `AllowedBSSIDs`: Whitelist of BSSID/MAC addresses mapped to corporate SSIDs.; `SignalStrengthThreshold`: Used to flag unusually strong signals from unexpected APs.; `CaptivePortalDomains`: Trusted login domains; unrecognized portals may be malicious.
 
+</details>
+
 ---
 
 ### T1558: Steal or Forge Kerberos Tickets
 <a id="t1558"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detect Kerberos Ticket Theft or Forgery (T1558) (`DET0522`)  
 Platforms: Linux, Windows, macOS  
@@ -912,10 +1078,14 @@ ATT&CK: [T1558](https://attack.mitre.org/techniques/T1558/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (Unusual Kerberos TGS-REQ without TGT or anomalous ticket lifetime)`
   - *Tune:* `TicketRequestPatterns`: Expected sequence of TGT followed by TGS requests; deviations may indicate forgery.; `TicketLifetime`: Expected ticket lifetimes; anomalies may indicate Golden or Silver Tickets.
 
+</details>
+
 ---
 
 ### T1558.001: Golden Ticket
 <a id="t1558001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Forged Kerberos Golden Tickets (T1558.001) (`DET0144`)  
 Platforms: Windows  
@@ -926,10 +1096,14 @@ ATT&CK: [T1558.001](https://attack.mitre.org/techniques/T1558/001/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4672, 4634)`; `WinEventLog:Security (EventCode=4769)`; `WinEventLog:Sysmon (EventCode=10)`
   - *Tune:* `TicketLifetimeThreshold`: Kerberos TGT ticket lifetime exceeding default domain duration; tunable to environment-specific policies.; `AllowedEncryptionTypes`: Valid encryption algorithms for Kerberos tickets; anomalies (e.g., RC4) may indicate forgery.; `PrivilegedAccountPatterns`: Baseline of privileged accounts expected to perform Kerberos operations; deviations indicate suspicious activity.; `ProcessAllowlist`: Expected processes interacting with lsass.exe; deviations may indicate credential dumping.
 
+</details>
+
 ---
 
 ### T1558.002: Silver Ticket
 <a id="t1558002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Forged Kerberos Silver Tickets (T1558.002) (`DET0241`)  
 Platforms: Windows  
@@ -940,10 +1114,14 @@ ATT&CK: [T1558.002](https://attack.mitre.org/techniques/T1558/002/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4672, 4634)`; `WinEventLog:Kerberos (Kerberos TGS-REQ anomalies without KDC validation (Silver Ticket behavior))`; `WinEventLog:Sysmon (EventCode=10)`
   - *Tune:* `ServiceAccountScope`: Expected mapping of service accounts to specific resources; deviations may indicate Silver Ticket use.; `TicketValidationBaseline`: Expected TGS issuance patterns including KDC validation; anomalies may signal forged tickets.; `ProcessAllowlist`: Known processes that legitimately interact with LSASS; others may indicate dumping attempts.; `TimeWindow`: Correlate Kerberos requests within a tunable timeframe to reduce false positives.
 
+</details>
+
 ---
 
 ### T1558.003: Kerberoasting
 <a id="t1558003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Kerberoasting Attempts (T1558.003) (`DET0157`)  
 Platforms: Windows  
@@ -954,10 +1132,14 @@ ATT&CK: [T1558.003](https://attack.mitre.org/techniques/T1558/003/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4769)`; `WinEventLog:Sysmon (EventCode=10)`; `WinEventLog:Security (EventCode=4624, 4648)`; `WinEventLog:Security (EventCode=4672)`
   - *Tune:* `TGSRequestThreshold`: Number of TGS requests per account within a defined window; higher than baseline may indicate Kerberoasting.; `AllowedEncryptionTypes`: Permitted Kerberos encryption algorithms; RC4 (etype 0x17) usage in modern environments is suspicious.; `ServiceAccountBaselines`: Expected SPNs requested by specific accounts; anomalies may indicate adversarial targeting.; `TimeWindow`: Correlation window for bursts of TGS requests; adjustable to reduce false positives.
 
+</details>
+
 ---
 
 ### T1558.004: AS-REP Roasting
 <a id="t1558004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect AS-REP Roasting Attempts (T1558.004) (`DET0113`)  
 Platforms: Windows  
@@ -968,10 +1150,14 @@ ATT&CK: [T1558.004](https://attack.mitre.org/techniques/T1558/004/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4768)`; `WinEventLog:Sysmon (EventCode=1)`
   - *Tune:* `PreAuthDisabledAccountsBaseline`: Baseline of accounts legitimately configured without Kerberos preauthentication; deviations may indicate adversary enumeration.; `TGTRequestThreshold`: Number of AS-REQ/AS-REP exchanges per account within a short timeframe; higher counts may indicate AS-REP roasting.; `AllowedEncryptionTypes`: Permitted Kerberos encryption algorithms; RC4 usage (etype 0x17) should be closely monitored.; `TimeWindow`: Correlation window for linking AS-REQs, AS-REPs, and subsequent service ticket requests.
 
+</details>
+
 ---
 
 ### T1558.005: Ccache Files
 <a id="t1558005"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detect Kerberos Ccache File Theft or Abuse (T1558.005) (`DET0024`)  
 Platforms: Linux, macOS  
@@ -986,10 +1172,14 @@ ATT&CK: [T1558.005](https://attack.mitre.org/techniques/T1558/005/), [detail pag
   - *Log sources:* `macos:unifiedlog (Kerberos framework calls to API:{uuid} cache outside normal process lineage)`; `macos:osquery (Execution of non-standard binaries accessing Kerberos APIs)`
   - *Tune:* `KerberosAPIProcessBaseline`: Expected processes using the Kerberos framework (e.g., loginwindow, kinit).; `SuspiciousBinaryList`: List of tools or binaries not normally expected to query Kerberos ccache entries.; `TimeWindow`: Window to link suspicious process activity with Kerberos authentication anomalies.
 
+</details>
+
 ---
 
 ### T1606: Forge Web Credentials
 <a id="t1606"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 7 analytics</summary>
 
 Detection strategy: Detection Strategy for Forged Web Credentials (`DET0260`)  
 Platforms: IaaS, Identity Provider, Linux, Office Suite, SaaS, Windows, macOS  
@@ -1024,10 +1214,14 @@ ATT&CK: [T1606](https://attack.mitre.org/techniques/T1606/), [detail page](/tech
   - *Log sources:* `m365:oauth (OAuth grants or tokens issued without expected user consent)`; `m365:signinlogs (Token usage events with device/user mismatch)`
   - *Tune:* `OAuthAppAllowlist`: Approved OAuth apps and flows; flag unapproved or unexpected token grants.
 
+</details>
+
 ---
 
 ### T1606.001: Web Cookies
 <a id="t1606001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection Strategy for Forged Web Cookies (`DET0171`)  
 Platforms: IaaS, Linux, SaaS, Windows, macOS  
@@ -1054,10 +1248,14 @@ ATT&CK: [T1606.001](https://attack.mitre.org/techniques/T1606/001/), [detail pag
   - *Log sources:* `m365:unified (Session activity without correlated login event)`; `saas:access (Multiple concurrent logins using same cookie from different locations)`
   - *Tune:* `TokenReplayThreshold`: Number of concurrent uses of a cookie that should trigger an alert.; `GeoLocationAlerts`: Unusual SaaS logins from geographically distant locations in short timeframes.
 
+</details>
+
 ---
 
 ### T1606.002: SAML Tokens
 <a id="t1606002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection Strategy for Forged SAML Tokens (`DET0148`)  
 Platforms: IaaS, Identity Provider, Office Suite, SaaS, Windows  
@@ -1084,10 +1282,14 @@ ATT&CK: [T1606.002](https://attack.mitre.org/techniques/T1606/002/), [detail pag
   - *Log sources:* `m365:exchange (Mailbox access using SAML token without corresponding MFA event)`; `m365:sharepoint (File access with forged or anomalous SAML claims)`
   - *Tune:* `ReplayDetectionThreshold`: Number of times a token is reused within short timeframe.
 
+</details>
+
 ---
 
 ### T1621: Multi-Factor Authentication Request Generation
 <a id="t1621"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 6 analytics</summary>
 
 Detection strategy: Detection Strategy for Multi-Factor Authentication Request Generation (T1621) (`DET0160`)  
 Platforms: IaaS, Identity Provider, Linux, SaaS, Windows, macOS  
@@ -1118,10 +1320,14 @@ ATT&CK: [T1621](https://attack.mitre.org/techniques/T1621/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (authd generating multiple MFA token requests)`
   - *Tune:* `DeviceEnrollmentStatus`: Exclude unmanaged macOS devices that use different MFA providers
 
+</details>
+
 ---
 
 ### T1649: Steal or Forge Authentication Certificates
 <a id="t1649"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Steal or Forge Authentication Certificates (`DET0240`)  
 Platforms: Identity Provider, Linux, Windows, macOS  
@@ -1143,5 +1349,7 @@ ATT&CK: [T1649](https://attack.mitre.org/techniques/T1649/), [detail page](/tech
   Monitor for abnormal certificate enrollment events in identity platforms, unexpected use of token-signing certificates, and unusual CA configuration modifications.
   - *Log sources:* `azure:signinlogs (Add certificate credential, Update certificate credential)`; `m365:unified (certificate added or modified in application credentials)`
   - *Tune:* `GeoContext`: Detect certificate-related changes occurring from unusual geographic locations.; `Thresholds`: Adjust enrollment/issuance request volume thresholds per tenant size.
+
+</details>
 
 ---

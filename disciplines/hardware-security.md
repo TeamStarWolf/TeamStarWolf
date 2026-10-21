@@ -4,6 +4,17 @@
 
 Hardware security addresses the lowest layers of the computing stack: firmware, bootloaders, microcontrollers, debug interfaces, and physical silicon. Practitioners analyze firmware for embedded vulnerabilities, test hardware interfaces (JTAG, UART, SPI), perform side-channel attacks to extract cryptographic secrets, and harden platforms against physical-access adversaries. The field spans both offensive disciplines (fault injection, cold boot attacks, PCIe DMA exploitation) and defensive engineering (measured boot chains, firmware signing, TPM attestation, and memory encryption). As hardware supply chain attacks and firmware-resident implants become increasingly relevant to nation-state and advanced threat actor playbooks, hardware security has moved from a niche specialization to a critical component of enterprise and government security programs.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Practitioners learning firmware, secure boot, side-channel, and hardware attack and defense |
+| Level | Beginner to advanced |
+| Reading time | About 8 min (1,949 words at 230 words a minute) |
+| Last reviewed | 2026-09-27 (ATT&CK v19.2): tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51)) |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md), the library's in-depth page on this subject.

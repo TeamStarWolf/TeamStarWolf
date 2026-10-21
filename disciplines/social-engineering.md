@@ -2,6 +2,17 @@
 
 Social engineering is the practice of exploiting human psychology rather than technical vulnerabilities to gain unauthorized access, extract sensitive information, or manipulate individuals into taking actions that serve an attacker's objectives. Where technical attacks target software flaws, social engineering targets cognitive biases, authority deference, urgency response, and trust, making it effective regardless of how well-patched an organization's infrastructure is. Social engineering underpins the majority of real-world breaches: phishing remains the leading initial access vector according to every major incident response data report. The discipline spans both offensive practice (used by red teamers and adversaries) and defensive programs (security awareness training, phishing simulation, human risk management). Security awareness trainers, penetration testers, red team operators, threat intelligence analysts, and GRC professionals all work within this domain.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Defenders, awareness staff, and testers learning social engineering attack and defense |
+| Level | Beginner to advanced |
+| Reading time | About 10 min (2,350 words at 230 words a minute) |
+| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md), the library's in-depth page on this subject.

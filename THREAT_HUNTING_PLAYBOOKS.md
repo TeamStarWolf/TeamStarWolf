@@ -2,11 +2,27 @@
 
 > In one minute: Five ready-to-run threat hunting playbooks, each built around a hypothesis (a specific guess about what an attacker might be doing, like dumping credentials from LSASS or beaconing over DNS) and mapped to a MITRE ATT&CK technique. Every playbook hands you the data sources to check, a copy-paste Splunk or KQL query, step-by-step investigation guidance, and concrete response actions. Instead of staring at a SIEM wondering where to start, you pick a playbook and follow the procedure.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Threat hunters and SOC analysts starting a proactive hunt |
+| Level | Intermediate |
+| Reading time | About 4 min (917 words at 230 words a minute) |
 | Read this when | you want to run a proactive hunt but need a starting hypothesis, an alert or incident suggests credential theft or lateral movement, you are deciding which ATT&CK tactics to hunt first |
 | Start at | [How to Use These Playbooks](#how-to-use-these-playbooks), [HP-001: LSASS Credential Dumping](#hp-001-lsass-credential-dumping), [Hunt Prioritization Matrix](#hunt-prioritization-matrix) |
 | Pairs with | [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Threat Hunting Discipline](disciplines/threat-hunting.md) |
+| Matching learning path | [Threat Hunting](/disciplines/threat-hunting.md) |
+| Last reviewed | 2026-09-27 (ATT&CK v19.2): tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51)) |
+
+Which page should I read? This page is one of 2 on threat hunting.
+
+| Page | Read it for |
+|---|---|
+| Threat Hunting Playbooks (this page) | Ready-to-run hunts, each with a hypothesis, data sources, a query, and response steps. |
+| [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md) | Hunting fundamentals, query languages, rule authoring, and hunt tracking. |
+
+<!-- meta:end -->
 
 Hypothesis-driven hunting procedures mapped to MITRE ATT&CK. Each playbook includes data sources, detection logic, investigation steps, and response actions.
 

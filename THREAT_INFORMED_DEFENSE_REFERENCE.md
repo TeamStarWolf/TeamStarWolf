@@ -6,11 +6,19 @@
 > [ATT&CK Navigator layers](navigator/), [control/technique edge tables](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data), and the
 > [ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) workbench.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Detection engineers, vulnerability managers, and security architects who prioritize with ATT&CK |
+| Level | Intermediate |
+| Reading time | About 7 min (1,589 words at 230 words a minute) |
 | Read this when | turning a long CVE list into root-cause weakness groupings, deciding which detection or mitigation to build next for a technique, wiring ATT&CK to CWE/CAPEC/D3FEND/NIST controls |
 | Start at | [The ATT&CK-centric knowledge graph](#_1-the-attampck-centric-knowledge-graph), [The canonical chain](#the-canonical-chain), [Getting started](#_6-getting-started-recommended-order) |
 | Pairs with | [ATT&CK Matrix Analysis](ATTACK_MATRIX_ANALYSIS_REFERENCE.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md), [Controls Mapping](CONTROLS_MAPPING.md), [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md) |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
 
 Threat-informed defense is the discipline of prioritizing security work by what adversaries actually do,
 using a shared model of adversary behavior (ATT&CK) as the organizing spine and enriching it with the

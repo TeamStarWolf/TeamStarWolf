@@ -20,9 +20,10 @@ Writes, from the config and the pages themselves:
 
 Titles come from each page's H1. A reference's summary is its line in INDEX.md, or else
 the first sentence of the page's opening paragraph. Reading time is the page's words
-(code blocks, comments, script-written blocks and link targets left out) at 230 words a
-minute. A guide's time
-and level come from its own header table, as on the homepage.
+(code blocks, comments, script-written blocks, fold summaries and link targets left out)
+at 230 words a minute, the same count the page's own header card shows
+(scripts/build_doc_meta.py). A guide's time and level come from its own header table, as
+on the homepage.
 
 Rules the --check run enforces (CI, validate-data.yml):
   * the committed files match what this script writes;
@@ -163,17 +164,28 @@ SCRIPT_BLOCK_RE = re.compile(r"<!--\s*([\w-]+):start\b.*?<!--\s*\1:end\s*-->", r
 LOCAL_ID_LINK_RE = re.compile(r" \(\[local\]\(/mitre/[^()\s]+\.md\)\)")
 
 
-def word_count(text: str) -> int:
-    # Script-written blocks (the "Related pages" footer from build_crosslinks.py and the
-    # like) and its "(local)" links after MITRE IDs are navigation, not reading, so they
-    # never move a reading time.
-    t = bsi.without_comments(LOCAL_ID_LINK_RE.sub("", SCRIPT_BLOCK_RE.sub(" ", text)))
+# The opening line of a fold that scripts/build_doc_meta.py wraps around a long appendix or
+# table. Its summary ("Show this section ...") is a button label, not reading.
+FOLD_OPEN_RE = re.compile(r'^<details class="tsw-fold"><summary>[^<>\n]*</summary>[ \t]*$', re.M)
+
+
+def words(text: str) -> list[str]:
+    """The words a reader reads on the page, in order. Script-written blocks (the header
+    card from build_doc_meta.py, the "Related pages" footer from build_crosslinks.py and
+    the like), the "(local)" links after MITRE IDs, fold summaries, comments, code blocks
+    and link targets are navigation, not reading, so they never move a reading time."""
+    t = FOLD_OPEN_RE.sub(" ", LOCAL_ID_LINK_RE.sub("", SCRIPT_BLOCK_RE.sub(" ", text)))
+    t = bsi.without_comments(t)
     t = re.sub(r"^\s*(```|~~~).*?^\s*\1[^\n]*$", " ", t, flags=re.S | re.M)
     t = re.sub(r"!\[([^\]]*)\]\([^)]*\)", " ", t)
     t = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", t)
     t = re.sub(r"https?://\S+", " ", t)
     t = re.sub(r"<[^>\n]+>", " ", t)
-    return len(re.findall(r"[A-Za-z0-9][\w'.-]*", t))
+    return re.findall(r"[A-Za-z0-9][\w'.-]*", t)
+
+
+def word_count(text: str) -> int:
+    return len(words(text))
 
 
 def reading_time(rel: str) -> str:

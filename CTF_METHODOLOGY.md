@@ -2,11 +2,19 @@
 
 > A comprehensive Capture The Flag (CTF) methodology guide for cybersecurity practitioners and competitors.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | CTF players and practitioners sharpening offensive and forensic skills |
+| Level | Beginner to intermediate |
+| Reading time | About 14 min (3,131 words at 230 words a minute) |
 | Read this when | You are prepping for or mid-competition in a CTF, you need the standard attack playbook and tooling for a specific category (web, forensics, crypto, RE, pwn, OSINT, stego), or you want ready-to-paste one-liners and platform recommendations to practice on |
 | Start at | [General CTF Strategy](#_1-general-ctf-strategy), [CTF Platform Quick Reference](#_9-ctf-platform-quick-reference), [Useful One-Liners and Quick Reference](#_10-useful-one-liners-and-quick-reference) |
 | Pairs with | [LABS.md](LABS.md), [REVERSE_ENGINEERING_REFERENCE.md](REVERSE_ENGINEERING_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [OSINT_REFERENCE.md](OSINT_REFERENCE.md) |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
 
 ---
 

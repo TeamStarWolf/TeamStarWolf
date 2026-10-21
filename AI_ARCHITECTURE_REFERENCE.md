@@ -2,11 +2,31 @@
 
 > In one minute: This is the builder's reference for designing AI/ML and LLM systems end to end: data and feature pipelines, the split between the training plane and the inference plane, the model registry and versioning backbone, model-serving topologies (batch, online, streaming), Retrieval-Augmented Generation (RAG), agentic architectures and the Model Context Protocol (MCP), MLOps/LLMOps, the evaluation and guardrail layers, and GPU/accelerator scaling and cost. It pairs each design choice with its trade-offs and — because this is a security library — with the threat-informed controls that make the architecture defensible. Good architecture here is not a luxury: most real-world AI compromises exploit *infrastructure* weaknesses (exposed inference servers, code-executing model loads, poisoned corpora), so the way you lay out planes, trust boundaries, and provenance *is* your first security control. Defensive deep-dives live in [AI_INFRASTRUCTURE_SECURITY_REFERENCE.md](AI_INFRASTRUCTURE_SECURITY_REFERENCE.md), [AI_MCP_SECURITY_REFERENCE.md](AI_MCP_SECURITY_REFERENCE.md), and [ATLAS_REFERENCE.md](ATLAS_REFERENCE.md); this page is the blueprint they protect.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Architects and engineers designing ML platforms and LLM, RAG, or agent applications |
+| Level | Intermediate |
+| Reading time | About 19 min (4,448 words at 230 words a minute) |
 | Read this when | designing a new ML platform or LLM/RAG/agent application, reviewing an AI reference architecture, deciding train-vs-buy / serving topology / RAG vs fine-tune, standing up MLOps/LLMOps, or preparing an AI architecture review board |
 | Start at | [Principles & Drivers](#_1-principles-amp-drivers), [Reference Architectures & Patterns](#_2-reference-architectures-amp-patterns), [Key Design Decisions & Trade-offs](#_4-key-design-decisions-amp-trade-offs), [Maturity & Checklist](#_8-maturity-amp-checklist) |
 | Pairs with | [AI_INFRASTRUCTURE_SECURITY_REFERENCE.md](AI_INFRASTRUCTURE_SECURITY_REFERENCE.md), [AI_MCP_SECURITY_REFERENCE.md](AI_MCP_SECURITY_REFERENCE.md), [AI_SECURITY_REFERENCE.md](AI_SECURITY_REFERENCE.md), [AGENTIC_AI_ATTACK_REFERENCE.md](AGENTIC_AI_ATTACK_REFERENCE.md), [ATLAS_REFERENCE.md](ATLAS_REFERENCE.md), [SECURITY_ARCHITECTURE_REFERENCE.md](SECURITY_ARCHITECTURE_REFERENCE.md), [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md) |
+| Last reviewed | No review recorded yet |
+
+Which page should I read? This page is one of 7 on AI security.
+
+| Page | Read it for |
+|---|---|
+| AI Architecture Reference (this page) | Designing ML and LLM systems end to end, with the controls that make the architecture defensible. |
+| [AI Security Reference](/AI_SECURITY_REFERENCE.md) | Securing LLM applications: the OWASP LLM Top 10, prompt injection, adversarial ML, and guardrails. |
+| [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md) | The Model Context Protocol: its threat model and hardening for MCP servers and agents. |
+| [AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md) | AI-assisted attack tooling and the defensive playbook against it. |
+| [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md) | The infrastructure behind AI: model registries, unsafe model files, pipelines, and inference servers. |
+| [Agentic AI Swarm Attacks](/AGENTIC_AI_ATTACK_REFERENCE.md) | An illustrative agent-swarm intrusion kill chain mapped to ATT&CK and ATLAS. |
+| [ATLAS Reference (AI threats)](/ATLAS_REFERENCE.md) | The MITRE ATLAS matrix of techniques and mitigations for attacks on AI systems. |
+
+<!-- meta:end -->
 
 *Standards and tool names verified against primary sources on 2026-10-08: MCP spec current revision **2025-11-25** ([modelcontextprotocol.io](https://modelcontextprotocol.io/)); OWASP Top 10 for LLM Applications **2025 (v2.0)** ([genai.owasp.org](https://genai.owasp.org/)); OWASP Top 10 for Agentic Applications **2026**; NIST AI RMF (AI 100-1) + Generative AI Profile **NIST AI 600-1** (July 2024); ISO/IEC 42001:2023; MITRE ATLAS (16 tactics). Where a version may have moved since, the text says "verify".*
 

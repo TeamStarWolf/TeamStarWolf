@@ -2,11 +2,19 @@
 
 > In one minute: This is the single "who must report what, to whom, by when, in which jurisdiction" map for the major cyber-incident and breach-notification regimes a defender or GRC lead has to track: EU (NIS2, DORA, Cyber Resilience Act, AI Act), UK (Cyber Security & Resilience Bill), and US federal and state (SEC Item 1.05, CIRCIA, NYDFS Part 500, HIPAA, California). It leads with a jurisdiction × obligation × deadline matrix, then gives a concise per-regime section (scope, obligations, clocks, penalties, effective dates, source). Use it to answer "we just had an incident: which clocks are now running?" without reading ten statutes. For control frameworks (NIST, ISO, SOC 2, PCI, CMMC) see [FRAMEWORKS.md](FRAMEWORKS.md); for how to operationalize compliance see the GRC references.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | GRC leads, legal and privacy partners, and incident commanders |
+| Level | Intermediate |
+| Reading time | About 13 min (3,076 words at 230 words a minute) |
 | Read this when | an incident just triggered notification duties and you need every clock in one place; scoping which regimes apply to a new market or product; briefing legal/board on cross-border reporting exposure; building an incident-response runbook's notification matrix |
 | Start at | [Obligation & Deadline Matrix](#obligation-amp-deadline-matrix), [Conflicting Clocks](#conflicting-clocks-practical-guidance), [Regime Detail](#regime-detail) |
 | Pairs with | [FRAMEWORKS.md](FRAMEWORKS.md), [GRC_REFERENCE.md](GRC_REFERENCE.md), [GRC_COMPLIANCE_REFERENCE.md](GRC_COMPLIANCE_REFERENCE.md), [disciplines/governance-risk-compliance.md](disciplines/governance-risk-compliance.md), [CVE_REFERENCE.md](CVE_REFERENCE.md) |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
 
 > Not legal advice. This is a defender's operational reference, not legal counsel. Notification duties turn on facts, definitions, and national transpositions that change; confirm the current text and your specific obligations with qualified counsel before acting. Every date below carries a source or a "status to confirm" marker, verified as of 2026-09-29.
 

@@ -2,11 +2,19 @@
 
 > In one minute: Step-by-step response procedures for ten common incident types, from ransomware to supply chain compromise, each organized around the NIST SP 800-61 lifecycle (the standard prepare-detect-contain-recover model for handling security incidents). When an incident hits, you look up the matching playbook and follow its timed immediate actions, investigation steps, and recovery guidance instead of improvising. It also carries the reference tables you need under pressure: escalation timing, regulatory notification deadlines, and how to contact the FBI, CISA, and international authorities.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Incident responders and teams writing IR runbooks |
+| Level | Intermediate |
+| Reading time | About 15 min (3,439 words at 230 words a minute) |
 | Read this when | an active incident needs a structured response right now, you are drafting or adapting IR runbooks for your environment, you need regulatory notification deadlines or law-enforcement contacts fast |
 | Start at | [Playbook Index](#playbook-index), [Ransomware Response Playbook (Detailed)](#ransomware-response-playbook-detailed), [Regulatory Notification Deadlines](#regulatory-notification-deadlines) |
 | Pairs with | [Incident Response](disciplines/incident-response.md), [Digital Forensics](disciplines/digital-forensics.md), [Detection Engineering](disciplines/detection-engineering.md) |
+| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+
+<!-- meta:end -->
 
 Structured response procedures for the most common incident types. Each playbook follows the NIST SP 800-61 lifecycle: Preparation -> Detection & Analysis -> Containment -> Eradication -> Recovery -> Post-Incident Activity. (NIST SP 800-61 Rev 3, April 2025, reframes this around the CSF 2.0 Functions; the phased flow is retained here as a practical mental model.)
 

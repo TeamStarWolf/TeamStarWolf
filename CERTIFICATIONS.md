@@ -2,11 +2,19 @@
 
 > In one minute: A catalog of cybersecurity certifications organized by domain (entry-level, offensive, blue team, DFIR, cloud, management, and more), with each cert's cost, difficulty, exam format, renewal rules, and who it's best for. Use it to pick the right cert for your goal and budget without wading through vendor marketing. It also maps progressions from entry to senior level and flags which certs satisfy DoD 8570 (the US Department of Defense's baseline certification requirement).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | People choosing a first or next security certification |
+| Level | Beginner |
+| Reading time | About 11 min (2,445 words at 230 words a minute) |
 | Read this when | Choosing your first or next security cert, comparing costs before asking for training budget, checking a cert's renewal or DoD 8570 status |
 | Start at | [Quick Selection Guide](#quick-selection-guide), [Certification Progression Map](#certification-progression-map), [Exam Preparation Tips](#exam-preparation-tips) |
 | Pairs with | [Career Paths & Cert Roadmap](CAREER_PATHS.md), [Hands-On Labs](LABS.md), [Security Tools Reference](TOOLS.md) |
+| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+
+<!-- meta:end -->
 
 A comprehensive reference for cybersecurity certifications, organized by domain, with cost, difficulty, renewal requirements, and who should pursue each. For career-progression roadmaps, see [Career Paths & Cert Roadmap](CAREER_PATHS.md).
 

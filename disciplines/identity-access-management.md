@@ -6,6 +6,17 @@ IAM failures drive a disproportionate share of significant breaches. The Lapsus$
 
 > Ensuring every user, device, and workload can prove who they are, gets only the access they need, and that privileged access is tightly controlled and audited.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Practitioners learning identity, authentication, authorization, and privileged access |
+| Level | Beginner to advanced |
+| Reading time | About 11 min (2,428 words at 230 words a minute) |
+| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Identity & Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), the library's in-depth page on this subject.

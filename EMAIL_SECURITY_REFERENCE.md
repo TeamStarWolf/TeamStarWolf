@@ -3,11 +3,19 @@
 > Scope: Email authentication protocols (SPF/DKIM/DMARC), email encryption, phishing analysis, email-based attack techniques, Microsoft 365 Defender configuration, Email Security Gateway (SEG) configuration, SMTP protocol security, and email forensics.
 > Mapped to MITRE ATT&CK T1566 (Phishing), T1566.001 (Spear Phishing Attachment), T1027.006 (HTML Smuggling), and NIST SP 800-177 (Trustworthy Email).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Email administrators, SOC analysts, and phishing responders |
+| Level | Intermediate |
+| Reading time | About 12 min (2,773 words at 230 words a minute) |
 | Read this when | Standing up or hardening SPF/DKIM/DMARC for a domain, triaging a suspicious email or phishing report, or tuning M365/Proofpoint/Mimecast defenses against BEC and credential harvesting |
 | Start at | [Email Authentication Protocols](#email-authentication-protocols), [Phishing Analysis](#phishing-analysis), [Email-Based Attack Techniques](#email-based-attack-techniques) |
 | Pairs with | [SOCIAL_ENGINEERING_REFERENCE.md](SOCIAL_ENGINEERING_REFERENCE.md), [FRAUD_FRAMEWORK_REFERENCE.md](FRAUD_FRAMEWORK_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md) |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
 
 ---
 

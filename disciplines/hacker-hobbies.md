@@ -2,6 +2,17 @@
 
 Hacker culture extends far beyond professional security work. At its core, hacking is a mindset: curiosity, creativity, and a drive to understand how things work at a fundamental level. DEF CON, the world's largest hacker conference, organizes this curiosity into villages: dedicated spaces where practitioners teach hands-on skills in everything from lockpicking to car hacking to radio communications. These hobbies are not just fun; they build the foundational intuition that separates a skilled security practitioner from someone who only knows tool syntax. Understanding *why* a lock pin sets, *why* a radio signal leaks information, or *why* a CAN bus has no authentication directly informs how you think about attack surfaces and defenses.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Curious people exploring hacker culture: lock picking, radio, hardware, and conference villages |
+| Level | Beginner to advanced |
+| Reading time | About 18 min (4,074 words at 230 words a minute) |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
+
 ---
 
 ## Locksport & Physical Bypass

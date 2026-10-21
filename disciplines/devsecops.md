@@ -2,6 +2,17 @@
 
 DevSecOps is the practice of integrating security controls, testing, and culture directly into the software development lifecycle and CI/CD pipeline, shifting security left so vulnerabilities are found and fixed at the point of code creation rather than after deployment. Where traditional security was a gate at release time, DevSecOps embeds security into every sprint: developers run static analysis on every commit, pipelines block deployments with critical dependency CVEs, and infrastructure-as-code is scanned before it is provisioned. The discipline matters because modern software ships continuously: weekly or daily releases mean there is no longer time for a separate security review cycle. It is practiced by security engineers embedded in product teams, platform engineers building secure golden paths, and AppSec teams automating controls at scale. Understanding DevSecOps offensively is equally critical: attackers now target CI/CD pipelines, dependency ecosystems, and container registries as primary attack vectors, making pipeline security as important as application security.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Developers, DevOps engineers, and security engineers building security into CI/CD |
+| Level | Beginner to advanced |
+| Reading time | About 9 min (1,998 words at 230 words a minute) |
+| Last reviewed | 2026-09-27 (ATT&CK v19.2): tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51)) |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [DevSecOps Reference](/DEVSECOPS_REFERENCE.md), the library's in-depth page on this subject.

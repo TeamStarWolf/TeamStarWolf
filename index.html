@@ -950,6 +950,47 @@
     .sidebar .tsw-toc li a { display: block; font-size: .84rem; line-height: 1.4; padding: 3px 0; }
     .sidebar-nav li.tsw-in-section > a { color: var(--tsw-green); font-weight: 650; }
 
+    /* ===================== Header card and folds =====================
+       scripts/build_doc_meta.py writes a header card between meta:start and meta:end comments
+       at the top of each reference and learning path; the card script below wraps that block
+       in section.tsw-meta and marks its first table. On GitHub the same block is a plain
+       table. Folds are <details class="tsw-fold"> around a long appendix or table, and around
+       each technique's body on the generated techniques/ and detections/strategies/ pages. */
+    .markdown-section .tsw-meta {
+      margin: 1.2rem 0 1.8rem; padding: .35rem 1.1rem .7rem;
+      background: var(--tsw-surface); border: 1px solid var(--tsw-border); border-radius: 12px;
+    }
+    .markdown-section .tsw-meta table { margin: .3rem 0 .5rem; border-radius: 8px; }
+    .markdown-section .tsw-meta tbody tr,
+    .markdown-section .tsw-meta tbody tr:nth-child(even),
+    .markdown-section .tsw-meta tbody tr:hover { background: transparent; }
+    .markdown-section .tsw-meta table.tsw-meta-card { display: table; width: 100%; border: 0; font-size: .9rem; }
+    .markdown-section .tsw-meta table.tsw-meta-card thead { display: none; }
+    .markdown-section .tsw-meta table.tsw-meta-card td { padding: 7px 12px 7px 0; }
+    .markdown-section .tsw-meta table.tsw-meta-card td:first-child {
+      width: 11rem; white-space: nowrap; color: var(--tsw-text-dim); font-weight: 650;
+    }
+    .markdown-section .tsw-meta > p { margin: 1rem 0 .4rem; color: var(--tsw-text); }
+    @media (max-width: 600px) {
+      .markdown-section .tsw-meta { padding: .2rem .85rem .55rem; }
+      .markdown-section .tsw-meta table.tsw-meta-card,
+      .markdown-section .tsw-meta table.tsw-meta-card tbody,
+      .markdown-section .tsw-meta table.tsw-meta-card tr,
+      .markdown-section .tsw-meta table.tsw-meta-card td { display: block; width: auto; }
+      .markdown-section .tsw-meta table.tsw-meta-card tr { padding: 7px 0; border-bottom: 1px solid var(--tsw-border-soft); }
+      .markdown-section .tsw-meta table.tsw-meta-card tr:last-child { border-bottom: 0; }
+      .markdown-section .tsw-meta table.tsw-meta-card td { padding: 0; border: 0; }
+      .markdown-section .tsw-meta table.tsw-meta-card td:first-child { white-space: normal; font-size: .78rem; margin-bottom: 2px; }
+    }
+    .markdown-section details.tsw-fold { margin: .8rem 0 1.2rem; border: 1px solid var(--tsw-border); border-radius: 10px; }
+    .markdown-section details.tsw-fold > summary {
+      cursor: pointer; padding: .55rem .9rem; color: var(--tsw-link); font-weight: 600; font-size: .9rem;
+    }
+    .markdown-section details.tsw-fold > summary:hover { color: var(--tsw-link-hover); }
+    .markdown-section details.tsw-fold[open] > summary { border-bottom: 1px solid var(--tsw-border-soft); }
+    .markdown-section details.tsw-fold > :not(summary) { margin-left: .9rem; margin-right: .9rem; }
+    @media print { .markdown-section details.tsw-fold > summary { display: none; } }
+
     /* ===================== Explore (explore.md, the Explore script below) ===================== */
     .markdown-section .tsw-x { margin: 1.4rem 0 2rem; }
     .markdown-section .tsw-x-q { display: block; margin: 0 0 .8rem; }
@@ -1707,6 +1748,75 @@
           var root = document.getElementById('tsw-explore');
           if (root && vm.route.file === 'explore.md') { mountExplore(root, vm); }
         });
+      });
+    })();
+  </script>
+
+  <!-- Header card and folds (scripts/build_doc_meta.py). The card: the block between a page's
+       meta:start and meta:end comments becomes section.tsw-meta, its first table the card.
+       The folds: a link to an anchor inside a closed <details class="tsw-fold">, or to the
+       heading a fold sits under (a technique on the generated techniques/ and
+       detections/strategies/ pages), opens it; printing opens every fold. -->
+  <script>
+    (function () {
+      function main() { return document.getElementById('main'); }
+      function card() {
+        var root = main();
+        if (!root || root.querySelector('.tsw-meta')) { return; }
+        var walker = document.createTreeWalker(root, NodeFilter.SHOW_COMMENT, null), c;
+        while ((c = walker.nextNode())) {
+          if (!/^\s*meta:start\b/.test(c.nodeValue)) { continue; }
+          var box = document.createElement('section');
+          box.className = 'tsw-meta';
+          box.setAttribute('aria-label', 'About this page');
+          var n = c.nextSibling;
+          c.parentNode.insertBefore(box, n);
+          while (n && !(n.nodeType === 8 && /^\s*meta:end\b/.test(n.nodeValue))) {
+            var next = n.nextSibling;
+            box.appendChild(n);
+            n = next;
+          }
+          var t = box.querySelector('table');
+          if (t) { t.classList.add('tsw-meta-card'); }
+          return;
+        }
+      }
+      function routeId() {
+        var m = /[?&]id=([^&]*)/.exec(location.hash);
+        return m ? decodeURIComponent(m[1]) : '';
+      }
+      function openFor(id, topMargin) {
+        var root = main(), t = id && document.getElementById(id);
+        if (!root || !t || !root.contains(t)) { return; }
+        var hidden = false;
+        for (var p = t.parentElement; p && p !== root; p = p.parentElement) {
+          if (p.tagName === 'DETAILS' && !p.open) { p.open = true; hidden = true; }
+        }
+        // the fold that follows the target's heading, before the next heading
+        var b = t;
+        while (b.parentElement && b.parentElement !== root) { b = b.parentElement; }
+        for (var s = b.nextElementSibling; s && !/^H[1-6]$/.test(s.tagName); s = s.nextElementSibling) {
+          if (s.tagName === 'DETAILS' && s.classList.contains('tsw-fold')) { s.open = true; break; }
+        }
+        if (hidden) { window.scrollTo(0, t.getBoundingClientRect().top + window.pageYOffset - (topMargin || 60)); }
+      }
+      window.$docsify.plugins.push(function (hook, vm) {
+        hook.doneEach(function () {
+          card();
+          setTimeout(function () { openFor(routeId(), vm.config.topMargin); }, 0);
+        });
+        window.addEventListener('hashchange', function () {
+          setTimeout(function () { openFor(routeId(), vm.config.topMargin); }, 0);
+        });
+      });
+      var printed = [];
+      window.addEventListener('beforeprint', function () {
+        printed = Array.prototype.filter.call(document.querySelectorAll('details.tsw-fold'), function (d) { return !d.open; });
+        printed.forEach(function (d) { d.open = true; });
+      });
+      window.addEventListener('afterprint', function () {
+        printed.forEach(function (d) { d.open = false; });
+        printed = [];
       });
     })();
   </script>

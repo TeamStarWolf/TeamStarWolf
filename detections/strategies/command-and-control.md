@@ -9,6 +9,8 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 ### T1001: Data Obfuscation
 <a id="t1001"></a>
 
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
+
 Detection strategy: Detect Obfuscated C2 via Network Traffic Analysis (`DET0053`)  
 Platforms: Linux, Windows, macOS  
 ATT&CK: [T1001](https://attack.mitre.org/techniques/T1001/), [detail page](/techniques/command-and-control.md#t1001)
@@ -26,10 +28,14 @@ ATT&CK: [T1001](https://attack.mitre.org/techniques/T1001/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (network flow)`; `macos:unifiedlog (process)`
   - *Tune:* `SessionDuration`: Session length that exceeds average per-user expectations
 
+</details>
+
 ---
 
 ### T1001.001: Junk Data
 <a id="t1001001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detecting Junk Data in C2 Channels via Behavioral Analysis (`DET0011`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -52,10 +58,14 @@ ATT&CK: [T1001.001](https://attack.mitre.org/techniques/T1001/001/), [detail pag
   - *Log sources:* `esxi:vmkernel (Network activity)`; `esxi:hostd (System service interactions)`
   - *Tune:* `TLSFingerprintMismatch`: Detects mismatched TLS client behavior vs expected for hostd/vpxa.; `UnusualDestinationPorts`: Highlight traffic from ESXi hosts to uncommon ports outside vCenter ranges.
 
+</details>
+
 ---
 
 ### T1001.002: Steganography
 <a id="t1001002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detecting Steganographic Command and Control via File + Network Correlation (`DET0235`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -78,10 +88,14 @@ ATT&CK: [T1001.002](https://attack.mitre.org/techniques/T1001/002/), [detail pag
   - *Log sources:* `esxi:vmkernel (Storage access and file ops)`; `esxi:hostd (Service initiated connections)`; `NSM:Flow (Transferred file observations)`
   - *Tune:* `FilenamePattern`: Tune for likely stego file names (e.g., wallpaper.jpg, template.iso).; `UnusualDestinationIP`: Destination outside vCenter management subnet.
 
+</details>
+
 ---
 
 ### T1001.003: Protocol or Service Impersonation
 <a id="t1001003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detecting Protocol or Service Impersonation via Anomalous TLS, HTTP Header, and Port Mismatch Correlation (`DET0470`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -104,10 +118,14 @@ ATT&CK: [T1001.003](https://attack.mitre.org/techniques/T1001/003/), [detail pag
   - *Log sources:* `esxi:hostd (Service-Based Network Connection)`; `NSM:Content (TLS Fingerprint and Certificate Analysis)`
   - *Tune:* `TLSFingerprintMatch`: Allows matching against known-good or known-bad JA3/JA3S hashes.; `AllowedServicePorts`: Tune for expected network ports per ESXi role.
 
+</details>
+
 ---
 
 ### T1008: Fallback Channels
 <a id="t1008"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Behavioral Detection of Fallback or Alternate C2 Channels (`DET0499`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -130,10 +148,14 @@ ATT&CK: [T1008](https://attack.mitre.org/techniques/T1008/), [detail page](/tech
   - *Log sources:* `esxi:vmkernel`; `esxi:vpxd`
   - *Tune:* `InterfaceName`: May vary based on ESXi build and should be filtered to suppress known interfaces.; `FallbackIPRanges`: Environment-specific ranges to ignore (e.g., DR tunnels or out-of-band mgmt).
 
+</details>
+
 ---
 
 ### T1071: Application Layer Protocol
 <a id="t1071"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection of Command and Control Over Application Layer Protocols (`DET0444`)  
 Platforms: Linux, Network Devices, Windows, macOS  
@@ -156,10 +178,14 @@ ATT&CK: [T1071](https://attack.mitre.org/techniques/T1071/), [detail page](/tech
   - *Log sources:* `NSM:Flow (conn.log, http.log, dns.log, ssl.log)`
   - *Tune:* `AppProtocolAbusePattern`: Detects DNS tunneling, encrypted HTTP C2, or malformed headers; `NorthSouthEgressFilter`: Monitor internal hosts talking externally using internal protocols (e.g., SMB)
 
+</details>
+
 ---
 
 ### T1071.001: Web Protocols
 <a id="t1071001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection of Web Protocol-Based C2 Over HTTP, HTTPS, or WebSockets (`DET0027`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -186,10 +212,14 @@ ATT&CK: [T1071.001](https://attack.mitre.org/techniques/T1071/001/), [detail pag
   - *Log sources:* `NSM:Flow (http.log, ssl.log, websocket.log)`
   - *Tune:* `HeaderEncodingPattern`: Base64, hex, or UTF-16 encoding in URI, cookie, or host; `TLSFingerprintMismatch`: JA3 hash deviation from known clients
 
+</details>
+
 ---
 
 ### T1071.002: File Transfer Protocols
 <a id="t1071002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection of File Transfer Protocol-Based C2 (FTP, FTPS, SMB, TFTP) (`DET0416`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -216,10 +246,14 @@ ATT&CK: [T1071.002](https://attack.mitre.org/techniques/T1071/002/), [detail pag
   - *Log sources:* `NSM:Flow (ftp.log, conn.log, smb_files.log)`
   - *Tune:* `AppLayerProtocolMatch`: e.g., FTP/SMB observed over uncommon ports; `OutboundDataRateThreshold`: Bytes transferred outside trusted subnets >100MB
 
+</details>
+
 ---
 
 ### T1071.003: Mail Protocols
 <a id="t1071003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection of Mail Protocol-Based C2 Activity (SMTP, IMAP, POP3) (`DET0135`)  
 Platforms: Linux, Network Devices, Windows, macOS  
@@ -242,10 +276,14 @@ ATT&CK: [T1071.003](https://attack.mitre.org/techniques/T1071/003/), [detail pag
   - *Log sources:* `NSM:Flow (smtp.log, conn.log)`
   - *Tune:* `ExternalMailRelayFilter`: Dest IPs not matching sanctioned SMTP/IMAP relays; `OutflowToInflowRatio`: Outbound email bytes vastly exceed response
 
+</details>
+
 ---
 
 ### T1071.004: DNS
 <a id="t1071004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Behavioral Detection of DNS Tunneling and Application Layer Abuse (`DET0400`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -272,10 +310,14 @@ ATT&CK: [T1071.004](https://attack.mitre.org/techniques/T1071/004/), [detail pag
   - *Log sources:* `esxi:syslog (/var/log/syslog.log)`; `NSM:FLow (dns.log)`
   - *Tune:* `OutboundDNSVolume`: Threshold for data volume and frequency from ESXi IPs; `KnownGoodVIBs`: Baseline known packages for allowlist comparison
 
+</details>
+
 ---
 
 ### T1071.005: Publish/Subscribe Protocols
 <a id="t1071005"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Behavioral Detection of Publish/Subscribe Protocol Misuse for C2 (`DET0002`)  
 Platforms: Linux, Network Devices, Windows, macOS  
@@ -298,10 +340,14 @@ ATT&CK: [T1071.005](https://attack.mitre.org/techniques/T1071/005/), [detail pag
   - *Log sources:* `NSM:Flow (mqtt.log, xmpp.log, amqp.log)`
   - *Tune:* `BrokerReputationList`: Dynamic blocklist or threat intel feed for C2 brokers; `PayloadLengthThreshold`: Exfil-style long topic messages vs telemetry-style short messages
 
+</details>
+
 ---
 
 ### T1090: Proxy
 <a id="t1090"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection of Proxy Infrastructure Setup and Traffic Bridging (`DET0445`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -328,10 +374,14 @@ ATT&CK: [T1090](https://attack.mitre.org/techniques/T1090/), [detail page](/tech
   - *Log sources:* `NSM:Firewall (Policy Change / Rule Update)`; `NSM:Flow (Flow Creation (NetFlow/sFlow))`; `networkdevice:cli (Interface commands)`
   - *Tune:* `RuleType`: Focus on new allow/permit rules with dynamic NAT or port forwarders.; `ChangeUser`: Flag any non-admins initiating proxy config changes.; `FlowVolumeDelta`: Detect sharp changes in bi-directional traffic patterns.
 
+</details>
+
 ---
 
 ### T1090.001: Internal Proxy
 <a id="t1090001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Internal Proxy Behavior via Lateral Host-to-Host C2 Relay (`DET0075`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -358,10 +408,14 @@ ATT&CK: [T1090.001](https://attack.mitre.org/techniques/T1090/001/), [detail pag
   - *Log sources:* `Firewall Audit Logs (Config Change)`; `NSM:Flow (Inter-segment traffic)`; `networkdevice:cli (Policy Update)`
   - *Tune:* `ProxyTarget`: Internal subnets or endpoint roles allowed for port forwarding.; `ConfigChangeUser`: Detect changes made outside scheduled or authorized windows.; `FlowThreshold`: Volume of data relayed through proxy exceeds historical norms.
 
+</details>
+
 ---
 
 ### T1090.002: External Proxy
 <a id="t1090002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: External Proxy Behavior via Outbound Relay to Intermediate Infrastructure (`DET0325`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -388,10 +442,14 @@ ATT&CK: [T1090.002](https://attack.mitre.org/techniques/T1090/002/), [detail pag
   - *Log sources:* `Firewall Audit Logs (Outbound NAT Rule Changes)`; `NSM:Flow (Outbound flow records)`; `networkdevice:syslog (Dynamic route changes)`
   - *Tune:* `FlowThreshold`: Number of flows or bytes transferred per minute—flag surges to unrecognized ASNs.; `DestinationIPCategory`: Proxy destination categories: CDN, TOR exit node, anonymous hosting.; `ConfigChangeUser`: Track if unexpected user or automation changed NAT/forwarding rules.
 
+</details>
+
 ---
 
 ### T1090.003: Multi-hop Proxy
 <a id="t1090003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Multi-hop Proxy Behavior via Relay Node Chaining, Onion Routing, and Network Tunneling (`DET0359`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -418,10 +476,14 @@ ATT&CK: [T1090.003](https://attack.mitre.org/techniques/T1090/003/), [detail pag
   - *Log sources:* `NSM:Flow (Relayed session pathing (multi-hop))`; `NSM:Firewall (Outbound encrypted traffic)`; `networkdevice:syslog (Custom firmware or routing changes)`
   - *Tune:* `VPNConfigWhitelist`: Define allowed internal router communication paths.; `ICMPPayloadEntropy`: High entropy ICMP payloads may indicate tunneling activity.; `RelayChainSignature`: Track known multi-hop pattern signatures or port hopping techniques.
 
+</details>
+
 ---
 
 ### T1090.004: Domain Fronting
 <a id="t1090004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Domain Fronting Behavior via Mismatched TLS SNI and HTTP Host Headers (`DET0196`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -444,10 +506,14 @@ ATT&CK: [T1090.004](https://attack.mitre.org/techniques/T1090/004/), [detail pag
   - *Log sources:* `NSM:Firewall (TLS/HTTP inspection)`; `esxi:shell (/var/log/vmkernel.log, /var/log/vmkwarning.log)`
   - *Tune:* `AdminPortAccess`: ESXi hosts should rarely initiate external HTTPS—threshold to alert.; `TLSHandshakeOutliers`: Define entropy or timing anomalies for TLS handshake.; `DomainMismatchThreshold`: SNI/Host mismatch occurrence tolerance.
 
+</details>
+
 ---
 
 ### T1092: Communication Through Removable Media
 <a id="t1092"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Cross-host C2 via Removable Media Relay (`DET0090`)  
 Platforms: Linux, Windows, macOS  
@@ -466,10 +532,14 @@ ATT&CK: [T1092](https://attack.mitre.org/techniques/T1092/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (com.apple.diskarbitration)`; `fs:fsusage (open/write/exec calls)`
   - *Tune:* `VolumeNameFilter`: Known suspicious USB volume labels or types (e.g., NO NAME, SECUREDATA).; `ProcessContext`: Unusual processes accessing USB drives (e.g., bash, Python, unsigned binaries).
 
+</details>
+
 ---
 
 ### T1095: Non-Application Layer Protocol
 <a id="t1095"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection of Non-Application Layer Protocols for C2 (`DET0457`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -496,10 +566,14 @@ ATT&CK: [T1095](https://attack.mitre.org/techniques/T1095/), [detail page](/tech
   - *Log sources:* `NSM:Firewall (ICMP/UDP protocol anomaly)`; `NSM:Flow (conn.log, icmp.log)`
   - *Tune:* `ProtocolEntropyThreshold`: ICMP/UDP packet content entropy filter to identify encoded payloads.; `SessionDurationThreshold`: Long ICMP/UDP sessions beyond expected limits (e.g., >5min).
 
+</details>
+
 ---
 
 ### T1102: Web Service
 <a id="t1102"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Suspicious Use of Web Services for C2 (`DET0425`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -522,10 +596,14 @@ ATT&CK: [T1102](https://attack.mitre.org/techniques/T1102/), [detail page](/tech
   - *Log sources:* `esxi:vmkernel (network activity)`; `vpxd.log (API communication)`
   - *Tune:* `RemoteIPRange`: Filter to detect only external/public destinations; `VMContext`: Exclude known backup or patch automation services
 
+</details>
+
 ---
 
 ### T1102.001: Dead Drop Resolver
 <a id="t1102001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Web Service: Dead Drop Resolver (`DET0058`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -548,10 +626,14 @@ ATT&CK: [T1102.001](https://attack.mitre.org/techniques/T1102/001/), [detail pag
   - *Log sources:* `esxi:vobd (Network Events)`; `NSM:Firewall (Outbound Connections)`
   - *Tune:* `DestinationIP`: Identifies unusual IP destinations embedded in traffic; `Protocol`: Used to detect uncommon protocols (e.g., DNS over HTTPS); `TimeWindow`: Used to correlate outbound web requests with process execution
 
+</details>
+
 ---
 
 ### T1102.002: Bidirectional Communication
 <a id="t1102002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detect Bidirectional Web Service C2 Channels via Process & Network Correlation (`DET0035`)  
 Platforms: Linux, Windows, macOS  
@@ -570,10 +652,14 @@ ATT&CK: [T1102.002](https://attack.mitre.org/techniques/T1102/002/), [detail pag
   - *Log sources:* `macos:unifiedlog (log stream --info --predicate 'subsystem == "com.apple.cfprefsd"')`; `NSM:Connections (web domain alerts)`
   - *Tune:* `ScriptEngineList`: Scripting interpreters to monitor for unusual HTTP traffic (e.g., osascript, ruby, bash); `SocialMediaDomainPatterns`: Patterns or domains used for C2 dead drops and responses (e.g., pastebin.com, twitter.com); `BurstConnectionRate`: Threshold for number of short-lived HTTPS connections in a short window
 
+</details>
+
 ---
 
 ### T1102.003: One-Way Communication
 <a id="t1102003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detect One-Way Web Service Command Channels (`DET0581`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -596,10 +682,14 @@ ATT&CK: [T1102.003](https://attack.mitre.org/techniques/T1102/003/), [detail pag
   - *Log sources:* `esxi:hostd (CLI network calls)`
   - *Tune:* `ScheduledTaskName`: Can tune for task names used to execute curl-based outbound requests; `DestinationIP`: Scoped by environment to exclude known legitimate CDNs
 
+</details>
+
 ---
 
 ### T1104: Multi-Stage Channels
 <a id="t1104"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detect Multi-Stage Command and Control Channels (`DET0228`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -622,10 +712,14 @@ ATT&CK: [T1104](https://attack.mitre.org/techniques/T1104/), [detail page](/tech
   - *Log sources:* `esxi:hostd (CLI network calls)`; `esxi:cron (process or cron activity)`
   - *Tune:* `ScheduledTaskName`: Detect unknown or obfuscated task names launching follow-up stages; `DestinationIP`: Scope multiple IP destinations outside corporate ranges in short sequence
 
+</details>
+
 ---
 
 ### T1105: Ingress Tool Transfer
 <a id="t1105"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detect Ingress Tool Transfers via Behavioral Chain (`DET0060`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -652,10 +746,14 @@ ATT&CK: [T1105](https://attack.mitre.org/techniques/T1105/), [detail page](/tech
   - *Log sources:* `NSM:Flow (connection metadata)`; `snmp:syslog (firmware write/log event)`
   - *Tune:* `PayloadVolumeThreshold`: Tune based on expected update size vs anomalous bulk data transfers; `ProtocolUsed`: Flag unexpected protocols like TFTP, FTP, HTTP
 
+</details>
+
 ---
 
 ### T1132: Data Encoding
 <a id="t1132"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Data Encoding in C2 Channels (`DET0108`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -678,10 +776,14 @@ ATT&CK: [T1132](https://attack.mitre.org/techniques/T1132/), [detail page](/tech
   - *Log sources:* `esxi:shell (base64 or gzip use within shell session)`; `esxi:vmkernel (Outbound traffic using encoded payloads post-login)`; `ESXiLogs:authlog (Unexpected login followed by encoding commands)`
   - *Tune:* `AuthSourceTrustLevel`: Use to scope encoded traffic suspicion to accounts that should not initiate transfers; `ExfilBurstThreshold`: Threshold for bursty outbound traffic size deviation from baseline
 
+</details>
+
 ---
 
 ### T1132.001: Standard Encoding
 <a id="t1132001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Behavior-chain detection for T1132.001 Data Encoding: Standard Encoding (Base64/Hex/MIME) across Windows, Linux, macOS, ESXi (`DET0124`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -704,10 +806,14 @@ ATT&CK: [T1132.001](https://attack.mitre.org/techniques/T1132/001/), [detail pag
   - *Log sources:* `esxi:shell (commands containing base64, openssl enc -base64, xxd -p)`; `esxi:hostd (unexpected script/command invocations via hostd)`; `NSX:FlowLogs (network_flow: bytes_out >> bytes_in to external)`; `NSM:Flow (http: Base64/MIME looking payloads from ESXi host IP)`
   - *Tune:* `MgmtCIDRs`: CIDRs for legitimate vCenter/NSX/backup endpoints.; `BytesRatio`: Out:In ratio deemed suspicious (e.g., ≥3 on ESXi).; `TimeWindow`: Correlation window between shell command and egress.
 
+</details>
+
 ---
 
 ### T1132.002: Non-Standard Encoding
 <a id="t1132002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Behavior-chain detection for T1132.002 Data Encoding: Non-Standard Encoding across Windows, Linux, macOS, ESXi (`DET0326`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -730,10 +836,14 @@ ATT&CK: [T1132.002](https://attack.mitre.org/techniques/T1132/002/), [detail pag
   - *Log sources:* `esxi:shell (commands containing long non-standard tokens or custom lookup tables)`; `esxi:hostd (unexpected script invocations producing long encoded strings)`; `NSM:Flow (network_flow: bytes_out >> bytes_in, fixed packet sizes/intervals to non-approved CIDRs)`; `NSM:Flow (http: HTTP bodies from ESXi host IPs containing long, non-standard tokens)`
   - *Tune:* `MgmtCIDRs`: CIDRs allowed for normal ESXi mgmt/backup.; `BytesOutToInRatio`: Asymmetry cutoff (e.g., ≥3).; `TokenLengthThreshold`: Minimum token length.; `TimeWindow`: Correlation window.
 
+</details>
+
 ---
 
 ### T1219: Remote Access Tools
 <a id="t1219"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Behavior-Chain Detection for Remote Access Tools (Tool-Agnostic) (`DET0496`)  
 Platforms: Linux, Windows, macOS  
@@ -752,10 +862,14 @@ ATT&CK: [T1219](https://attack.mitre.org/techniques/T1219/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (Process exec of remote-control apps or binaries with headless/connect flags)`; `macos:osquery (CREATE/MODIFY: Creation of LaunchAgents/Daemons plists in user/system locations)`; `macos:osquery (CONNECT: Long-lived connections from remote-control parents to external IPs/domains)`
   - *Tune:* `AllowedAppBundlePaths`: Legitimate remote-support apps under /Applications.; `LaunchdAllowlist`: Known-good LaunchAgents/Daemons identifiers.; `TimeWindow`: Window for correlating exec->launchd->egress events.; `EgressHeuristics`: Duration/volume thresholds for persistent sessions.
 
+</details>
+
 ---
 
 ### T1219.001: IDE Tunneling
 <a id="t1219001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: IDE Tunneling Detection via Process, File, and Network Behaviors (`DET0133`)  
 Platforms: Linux, Windows, macOS  
@@ -774,10 +888,14 @@ ATT&CK: [T1219.001](https://attack.mitre.org/techniques/T1219/001/), [detail pag
   - *Log sources:* `macos:unifiedlog (process: code or jetbrains-gateway launching with --tunnel or --remote)`; `macos:unifiedlog (creation of ~/.vscode-cli/code_tunnel.json)`; `NSM:Flow (HTTPs connection to tunnels.api.visualstudio.com)`
   - *Tune:* `ParentProcessName`: Helps scope tunnel launch context to non-interactive or suspicious parent processes.; `RemoteTunnelPersistence`: Allows tracking of tunnel re-establishment across reboots for persistence.; `RemoteFlag`: May include values like --remote, -R, or embedded ssh arguments passed by IDEs; `LaunchAgentPath`: If the IDE uses persistence via LaunchAgents, defenders may choose where to monitor for tunnel auto-launching; `TunnelReconnectInterval`: Frequency of retry attempts for tunnel reconnection can affect correlation window
 
+</details>
+
 ---
 
 ### T1219.002: Remote Desktop Software
 <a id="t1219002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Remote Desktop Software Execution and Beaconing Detection (`DET0259`)  
 Platforms: Linux, Windows, macOS  
@@ -796,10 +914,14 @@ ATT&CK: [T1219.002](https://attack.mitre.org/techniques/T1219/002/), [detail pag
   - *Log sources:* `macos:unifiedlog (launch of remote desktop app or helper binary)`; `macos:unifiedlog (network sessions initiated by remote desktop apps)`
   - *Tune:* `process_signature`: App may be notarized and signed differently depending on distribution method (App Store vs .pkg); `sandbox_exception`: If the remote desktop tool circumvents sandbox, it may produce additional telemetry in local TCC logs
 
+</details>
+
 ---
 
 ### T1219.003: Remote Access Hardware
 <a id="t1219003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detect Remote Access via USB Hardware (TinyPilot, PiKVM) (`DET0159`)  
 Platforms: Linux, Windows, macOS  
@@ -818,10 +940,14 @@ ATT&CK: [T1219.003](https://attack.mitre.org/techniques/T1219/003/), [detail pag
   - *Log sources:* `macos:unifiedlog (Hardware enumeration events via IOKit or USBMuxd showing TinyPilot or unknown keyboard/mouse)`
   - *Tune:* `DeviceClass`: Input or HID devices may be benign or malicious depending on context; tune based on environment (e.g., BYOD/dev stations).; `SerialCorrelationDepth`: Correlating serials across multiple device insertions may reduce noise but requires tuning.
 
+</details>
+
 ---
 
 ### T1568: Dynamic Resolution
 <a id="t1568"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Dynamic Resolution across OS Platforms (`DET0039`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -844,10 +970,14 @@ ATT&CK: [T1568](https://attack.mitre.org/techniques/T1568/), [detail page](/tech
   - *Log sources:* `esxi:syslog (esxcli network vswitch or DNS resolver configuration updates)`
   - *Tune:* `ResolverConfigPaths`: Expected resolvers or DNS forwarders in ESXi configurations; `ExternalDomainWhitelist`: Set of trusted external domains expected for ESXi host activity
 
+</details>
+
 ---
 
 ### T1568.001: Fast Flux DNS
 <a id="t1568001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Dynamic Resolution using Fast Flux DNS (`DET0485`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -870,10 +1000,14 @@ ATT&CK: [T1568.001](https://attack.mitre.org/techniques/T1568/001/), [detail pag
   - *Log sources:* `esxi:syslog (Frequent DNS resolution of same domain with rotating IPs)`
   - *Tune:* `ResolverConfigPaths`: Whitelist of expected DNS resolvers configured on ESXi; `ExternalDomainWhitelist`: Known trusted external domains for hypervisor services
 
+</details>
+
 ---
 
 ### T1568.002: Domain Generation Algorithms
 <a id="t1568002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Dynamic Resolution using Domain Generation Algorithms. (`DET0419`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -896,10 +1030,14 @@ ATT&CK: [T1568.002](https://attack.mitre.org/techniques/T1568/002/), [detail pag
   - *Log sources:* `esxi:syslog (Frequent DNS queries with high entropy names or NXDOMAIN results)`
   - *Tune:* `ResolverConfigPaths`: Expected resolver settings for ESXi hosts; `DomainWhitelist`: Trusted external domains for hypervisor operations
 
+</details>
+
 ---
 
 ### T1568.003: DNS Calculation
 <a id="t1568003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Dynamic Resolution through DNS Calculation (`DET0262`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -922,10 +1060,14 @@ ATT&CK: [T1568.003](https://attack.mitre.org/techniques/T1568/003/), [detail pag
   - *Log sources:* `esxi:syslog (DNS resolution events leading to outbound traffic on unexpected ports)`
   - *Tune:* `ManagementPlaneIPs`: Known trusted ESXi management plane IPs to exclude from alerts; `DomainReputationFeed`: Integrate external feeds for reputation context on DNS-derived domains
 
+</details>
+
 ---
 
 ### T1571: Non-Standard Port
 <a id="t1571"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Non-Standard Ports (`DET0227`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -948,10 +1090,14 @@ ATT&CK: [T1571](https://attack.mitre.org/techniques/T1571/), [detail page](/tech
   - *Log sources:* `esxi:vpxd (ESXi service connections on unexpected ports)`; `esxcli:network (listening sockets bound to non-standard ports)`
   - *Tune:* `ESXiAllowedPorts`: Default VMware service ports that should not be flagged.
 
+</details>
+
 ---
 
 ### T1572: Protocol Tunneling
 <a id="t1572"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Protocol Tunneling accross OS platforms. (`DET0538`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -974,10 +1120,14 @@ ATT&CK: [T1572](https://attack.mitre.org/techniques/T1572/), [detail page](/tech
   - *Log sources:* `esxi:vpxd (ESXi processes relaying traffic via SSH or unexpected ports)`; `esxcli:network (listening sockets bound with non-standard encapsulated protocols)`
   - *Tune:* `ESXiServiceProfiles`: Baseline allowed services and expected ports for ESXi management.
 
+</details>
+
 ---
 
 ### T1573: Encrypted Channel
 <a id="t1573"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection Strategy for Encrypted Channel across OS Platforms (`DET0273`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -1004,10 +1154,14 @@ ATT&CK: [T1573](https://attack.mitre.org/techniques/T1573/), [detail page](/tech
   - *Log sources:* `NSM:Flow (Session records with TLS-like byte patterns)`; `NSM:Connections (Abnormal certificate chains or non-standard ports carrying TLS)`
   - *Tune:* `PortProfiles`: Define expected TLS port usage to flag anomalies.; `TrafficAsymmetryRatio`: Sent/received byte thresholds to catch hidden C2.
 
+</details>
+
 ---
 
 ### T1573.001: Symmetric Cryptography
 <a id="t1573001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection Strategy for Encrypted Channel via Symmetric Cryptography across OS Platforms (`DET0143`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -1034,10 +1188,14 @@ ATT&CK: [T1573.001](https://attack.mitre.org/techniques/T1573/001/), [detail pag
   - *Log sources:* `NSM:Flow (Flow records with entropy signatures resembling symmetric encryption)`; `NSM:Connections (Symmetric encryption detected without TLS handshake sequence)`
   - *Tune:* `PortProfiles`: Baseline expected encryption by port/protocol.; `TrafficVolumeThreshold`: Volume thresholds for distinguishing benign VPN traffic from hidden C2.
 
+</details>
+
 ---
 
 ### T1573.002: Asymmetric Cryptography
 <a id="t1573002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection Strategy for Encrypted Channel via Asymmetric Cryptography across OS Platforms (`DET0543`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -1064,10 +1222,14 @@ ATT&CK: [T1573.002](https://attack.mitre.org/techniques/T1573/002/), [detail pag
   - *Log sources:* `NSM:Flow (Flow records with RSA key exchange on unexpected port)`; `IDS:TLSInspection (Malformed certs, incomplete asymmetric handshakes, or invalid CAs)`
   - *Tune:* `PortProfiles`: Define expected ports for asymmetric cryptography (e.g., 443, 993).; `CertValidationPolicy`: Thresholds for rejecting untrusted/self-signed certs.
 
+</details>
+
 ---
 
 ### T1665: Hide Infrastructure
 <a id="t1665"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection Strategy for Hide Infrastructure (`DET0411`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -1093,5 +1255,7 @@ ATT&CK: [T1665](https://attack.mitre.org/techniques/T1665/), [detail page](/tech
   Monitor VM-level DNS and network traffic logs for adversary-controlled domains or selective response behavior (e.g., dropped requests from security scanners).
   - *Log sources:* `esxi:vmkernel (DNS lookups resolving to domains with rapid changes in registration metadata)`; `esxi:vmkernel (Suspicious traffic filtered or redirected by VM networking stack)`
   - *Tune:* `MonitoredVMs`: Targeted virtual machines where adversaries may attempt to hide C2 traffic.
+
+</details>
 
 ---

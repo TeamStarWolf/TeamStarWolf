@@ -2,11 +2,20 @@
 
 > Threat Modeling: comprehensive reference covering STRIDE, PASTA, LINDDUN, attack trees, DREAD, MITRE ATT&CK integration, Data Flow Diagrams, cloud/microservices threats, and practical SDLC integration for software and infrastructure security.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Software architects, application security engineers, and privacy engineers |
+| Level | Intermediate |
+| Reading time | About 26 min (5,948 words at 230 words a minute) |
 | Read this when | Designing a new system or major feature, reviewing an architecture or cloud migration before code is written, picking a methodology (STRIDE vs PASTA vs LINDDUN) for a threat modeling session |
 | Start at | [Why Threat Modeling](#why-threat-modeling), [STRIDE Methodology (Microsoft)](#stride-methodology-microsoft), [Practical Threat Modeling Workflow](#practical-threat-modeling-workflow) |
 | Pairs with | [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Web Application Security](WEB_APPLICATION_SECURITY_REFERENCE.md), [Zero Trust](ZERO_TRUST_REFERENCE.md), [Threat Modeling discipline](disciplines/threat-modeling.md) |
+| Matching learning path | [Threat Modeling](/disciplines/threat-modeling.md) |
+| Last reviewed | 2026-09-27 (ATT&CK v19.2): tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51)) |
+
+<!-- meta:end -->
 
 ---
 

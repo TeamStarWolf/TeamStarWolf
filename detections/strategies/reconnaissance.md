@@ -9,6 +9,8 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 ### T1589: Gather Victim Identity Information
 <a id="t1589"></a>
 
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
+
 Detection strategy: Detection of Gather Victim Identity Information (`DET0841`)  
 Platforms: PRE  
 ATT&CK: [T1589](https://attack.mitre.org/techniques/T1589/), [detail page](/techniques/reconnaissance.md#t1589)
@@ -17,10 +19,14 @@ ATT&CK: [T1589](https://attack.mitre.org/techniques/T1589/), [detail page](/tech
   Monitor for suspicious network traffic that could be indicative of probing for user information, such as large/iterative quantities of authentication requests originating from a single source (especially if the source is known to be associated with an adversary/botnet). Analyzing web metadata may also reveal artifacts that can be attributed to potentially malicious activity, such as referer or user-agent string HTTP/S fields.
   - *Log sources:* `Network Traffic`
 
+</details>
+
 ---
 
 ### T1589.001: Credentials
 <a id="t1589001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Credentials (`DET0813`)  
 Platforms: PRE  
@@ -31,10 +37,14 @@ ATT&CK: [T1589.001](https://attack.mitre.org/techniques/T1589/001/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1589.002: Email Addresses
 <a id="t1589002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Email Addresses (`DET0814`)  
 Platforms: PRE  
@@ -44,10 +54,14 @@ ATT&CK: [T1589.002](https://attack.mitre.org/techniques/T1589/002/), [detail pag
   Monitor for suspicious network traffic that could be indicative of probing for email addresses and/or usernames, such as large/iterative quantities of authentication requests originating from a single source (especially if the source is known to be associated with an adversary/botnet). Analyzing web metadata may also reveal artifacts that can be attributed to potentially malicious activity, such as referer or user-agent string HTTP/S fields.
   - *Log sources:* `Network Traffic`
 
+</details>
+
 ---
 
 ### T1589.003: Employee Names
 <a id="t1589003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Employee Names (`DET0857`)  
 Platforms: PRE  
@@ -58,10 +72,14 @@ ATT&CK: [T1589.003](https://attack.mitre.org/techniques/T1589/003/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1590: Gather Victim Network Information
 <a id="t1590"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Gather Victim Network Information (`DET0869`)  
 Platforms: PRE  
@@ -72,10 +90,14 @@ ATT&CK: [T1590](https://attack.mitre.org/techniques/T1590/), [detail page](/tech
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1590.001: Domain Properties
 <a id="t1590001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Domain Properties (`DET0847`)  
 Platforms: PRE  
@@ -86,10 +108,14 @@ ATT&CK: [T1590.001](https://attack.mitre.org/techniques/T1590/001/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1590.002: DNS
 <a id="t1590002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of DNS (`DET0843`)  
 Platforms: PRE  
@@ -100,10 +126,14 @@ ATT&CK: [T1590.002](https://attack.mitre.org/techniques/T1590/002/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1590.003: Network Trust Dependencies
 <a id="t1590003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Network Trust Dependencies (`DET0828`)  
 Platforms: PRE  
@@ -114,10 +144,14 @@ ATT&CK: [T1590.003](https://attack.mitre.org/techniques/T1590/003/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1590.004: Network Topology
 <a id="t1590004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Network Topology (`DET0819`)  
 Platforms: PRE  
@@ -128,10 +162,14 @@ ATT&CK: [T1590.004](https://attack.mitre.org/techniques/T1590/004/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1590.005: IP Addresses
 <a id="t1590005"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of IP Addresses (`DET0815`)  
 Platforms: PRE  
@@ -142,10 +180,14 @@ ATT&CK: [T1590.005](https://attack.mitre.org/techniques/T1590/005/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1590.006: Network Security Appliances
 <a id="t1590006"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Network Security Appliances (`DET0889`)  
 Platforms: PRE  
@@ -156,10 +198,14 @@ ATT&CK: [T1590.006](https://attack.mitre.org/techniques/T1590/006/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1591: Gather Victim Org Information
 <a id="t1591"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Gather Victim Org Information (`DET0890`)  
 Platforms: PRE  
@@ -170,10 +216,14 @@ ATT&CK: [T1591](https://attack.mitre.org/techniques/T1591/), [detail page](/tech
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1591.001: Determine Physical Locations
 <a id="t1591001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Determine Physical Locations (`DET0806`)  
 Platforms: PRE  
@@ -184,10 +234,14 @@ ATT&CK: [T1591.001](https://attack.mitre.org/techniques/T1591/001/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1591.002: Business Relationships
 <a id="t1591002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Business Relationships (`DET0855`)  
 Platforms: PRE  
@@ -198,10 +252,14 @@ ATT&CK: [T1591.002](https://attack.mitre.org/techniques/T1591/002/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1591.003: Identify Business Tempo
 <a id="t1591003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Identify Business Tempo (`DET0849`)  
 Platforms: PRE  
@@ -212,10 +270,14 @@ ATT&CK: [T1591.003](https://attack.mitre.org/techniques/T1591/003/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1591.004: Identify Roles
 <a id="t1591004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Identify Roles (`DET0807`)  
 Platforms: PRE  
@@ -226,10 +288,14 @@ ATT&CK: [T1591.004](https://attack.mitre.org/techniques/T1591/004/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1592: Gather Victim Host Information
 <a id="t1592"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Gather Victim Host Information (`DET0826`)  
 Platforms: PRE  
@@ -240,10 +306,14 @@ ATT&CK: [T1592](https://attack.mitre.org/techniques/T1592/), [detail page](/tech
 Much of this activity may have a very high occurrence and associated false positive rate, as well as potentially taking place outside the visibility of the target organization, making detection difficult for defenders. Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
   - *Log sources:* `Internet Scan`
 
+</details>
+
 ---
 
 ### T1592.001: Hardware
 <a id="t1592001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Hardware (`DET0887`)  
 Platforms: PRE  
@@ -254,10 +324,14 @@ ATT&CK: [T1592.001](https://attack.mitre.org/techniques/T1592/001/), [detail pag
 Much of this activity may have a very high occurrence and associated false positive rate, as well as potentially taking place outside the visibility of the target organization, making detection difficult for defenders. Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
   - *Log sources:* `Internet Scan`
 
+</details>
+
 ---
 
 ### T1592.002: Software
 <a id="t1592002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Software (`DET0888`)  
 Platforms: PRE  
@@ -268,10 +342,14 @@ ATT&CK: [T1592.002](https://attack.mitre.org/techniques/T1592/002/), [detail pag
 Much of this activity may have a very high occurrence and associated false positive rate, as well as potentially taking place outside the visibility of the target organization, making detection difficult for defenders. Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
   - *Log sources:* `Internet Scan`
 
+</details>
+
 ---
 
 ### T1592.003: Firmware
 <a id="t1592003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Firmware (`DET0818`)  
 Platforms: PRE  
@@ -282,10 +360,14 @@ ATT&CK: [T1592.003](https://attack.mitre.org/techniques/T1592/003/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1592.004: Client Configurations
 <a id="t1592004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Client Configurations (`DET0820`)  
 Platforms: PRE  
@@ -296,10 +378,14 @@ ATT&CK: [T1592.004](https://attack.mitre.org/techniques/T1592/004/), [detail pag
 Much of this activity may have a very high occurrence and associated false positive rate, as well as potentially taking place outside the visibility of the target organization, making detection difficult for defenders. Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
   - *Log sources:* `Internet Scan`
 
+</details>
+
 ---
 
 ### T1593: Search Open Websites/Domains
 <a id="t1593"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Search Open Websites/Domains (`DET0856`)  
 Platforms: PRE  
@@ -310,10 +396,14 @@ ATT&CK: [T1593](https://attack.mitre.org/techniques/T1593/), [detail page](/tech
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1593.001: Social Media
 <a id="t1593001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Social Media (`DET0812`)  
 Platforms: PRE  
@@ -324,10 +414,14 @@ ATT&CK: [T1593.001](https://attack.mitre.org/techniques/T1593/001/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1593.002: Search Engines
 <a id="t1593002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Search Engines (`DET0811`)  
 Platforms: PRE  
@@ -338,10 +432,14 @@ ATT&CK: [T1593.002](https://attack.mitre.org/techniques/T1593/002/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1593.003: Code Repositories
 <a id="t1593003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Code Repositories (`DET0805`)  
 Platforms: PRE  
@@ -352,10 +450,14 @@ ATT&CK: [T1593.003](https://attack.mitre.org/techniques/T1593/003/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1594: Search Victim-Owned Websites
 <a id="t1594"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Search Victim-Owned Websites (`DET0810`)  
 Platforms: PRE  
@@ -365,10 +467,14 @@ ATT&CK: [T1594](https://attack.mitre.org/techniques/T1594/), [detail page](/tech
   Monitor for suspicious network traffic that could be indicative of adversary reconnaissance, such as rapid successions of requests indicative of web crawling and/or large quantities of requests originating from a single source (especially if the source is known to be associated with an adversary). Analyzing web metadata may also reveal artifacts that can be attributed to potentially malicious activity, such as referer or user-agent string HTTP/S fields.
   - *Log sources:* `Application Log`
 
+</details>
+
 ---
 
 ### T1595: Active Scanning
 <a id="t1595"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Active Scanning (`DET0830`)  
 Platforms: PRE  
@@ -379,10 +485,14 @@ ATT&CK: [T1595](https://attack.mitre.org/techniques/T1595/), [detail page](/tech
 Monitor and analyze traffic patterns and packet inspection associated to protocol(s) that do not follow the expected protocol standards and traffic flows (e.g extraneous packets that do not belong to established flows, gratuitous or anomalous traffic patterns, anomalous syntax, or structure). Consider correlation with process monitoring and command line to detect anomalous processes execution and command line arguments associated to traffic patterns (e.g. monitor anomalies in use of files that do not normally initiate connections for respective protocol(s)).
   - *Log sources:* `Network Traffic`; `Network Traffic`
 
+</details>
+
 ---
 
 ### T1595.001: Scanning IP Blocks
 <a id="t1595001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Scanning IP Blocks (`DET0817`)  
 Platforms: PRE  
@@ -393,10 +503,14 @@ ATT&CK: [T1595.001](https://attack.mitre.org/techniques/T1595/001/), [detail pag
 Monitor network data for uncommon data flows. Processes utilizing the network that do not normally have network communication or have never been seen before are suspicious.
   - *Log sources:* `Network Traffic`; `Network Traffic`
 
+</details>
+
 ---
 
 ### T1595.002: Vulnerability Scanning
 <a id="t1595002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Vulnerability Scanning (`DET0867`)  
 Platforms: PRE  
@@ -407,10 +521,14 @@ ATT&CK: [T1595.002](https://attack.mitre.org/techniques/T1595/002/), [detail pag
 Monitor network data for uncommon data flows. Processes utilizing the network that do not normally have network communication or have never been seen before are suspicious.
   - *Log sources:* `Network Traffic`; `Network Traffic`
 
+</details>
+
 ---
 
 ### T1595.003: Wordlist Scanning
 <a id="t1595003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Wordlist Scanning (`DET0868`)  
 Platforms: PRE  
@@ -420,10 +538,14 @@ ATT&CK: [T1595.003](https://attack.mitre.org/techniques/T1595/003/), [detail pag
   Monitor for suspicious network traffic that could be indicative of scanning, such as large quantities originating from a single source (especially if the source is known to be associated with an adversary/botnet).
   - *Log sources:* `Network Traffic`
 
+</details>
+
 ---
 
 ### T1596: Search Open Technical Databases
 <a id="t1596"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Search Open Technical Databases (`DET0860`)  
 Platforms: PRE  
@@ -434,10 +556,14 @@ ATT&CK: [T1596](https://attack.mitre.org/techniques/T1596/), [detail page](/tech
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1596.001: DNS/Passive DNS
 <a id="t1596001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of DNS/Passive DNS (`DET0877`)  
 Platforms: PRE  
@@ -448,10 +574,14 @@ ATT&CK: [T1596.001](https://attack.mitre.org/techniques/T1596/001/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1596.002: WHOIS
 <a id="t1596002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of WHOIS (`DET0832`)  
 Platforms: PRE  
@@ -462,10 +592,14 @@ ATT&CK: [T1596.002](https://attack.mitre.org/techniques/T1596/002/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1596.003: Digital Certificates
 <a id="t1596003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Digital Certificates (`DET0831`)  
 Platforms: PRE  
@@ -476,10 +610,14 @@ ATT&CK: [T1596.003](https://attack.mitre.org/techniques/T1596/003/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1596.004: CDNs
 <a id="t1596004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of CDNs (`DET0809`)  
 Platforms: PRE  
@@ -490,10 +628,14 @@ ATT&CK: [T1596.004](https://attack.mitre.org/techniques/T1596/004/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1596.005: Scan Databases
 <a id="t1596005"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Scan Databases (`DET0858`)  
 Platforms: PRE  
@@ -504,10 +646,14 @@ ATT&CK: [T1596.005](https://attack.mitre.org/techniques/T1596/005/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1597: Search Closed Sources
 <a id="t1597"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Search Closed Sources (`DET0822`)  
 Platforms: PRE  
@@ -518,10 +664,14 @@ ATT&CK: [T1597](https://attack.mitre.org/techniques/T1597/), [detail page](/tech
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1597.001: Threat Intel Vendors
 <a id="t1597001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Threat Intel Vendors (`DET0816`)  
 Platforms: PRE  
@@ -532,10 +682,14 @@ ATT&CK: [T1597.001](https://attack.mitre.org/techniques/T1597/001/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1597.002: Purchase Technical Data
 <a id="t1597002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Purchase Technical Data (`DET0880`)  
 Platforms: PRE  
@@ -546,10 +700,14 @@ ATT&CK: [T1597.002](https://attack.mitre.org/techniques/T1597/002/), [detail pag
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
+</details>
+
 ---
 
 ### T1598: Phishing for Information
 <a id="t1598"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Phishing for Information (`DET0823`)  
 Platforms: PRE  
@@ -565,10 +723,14 @@ Monitor call logs from corporate devices to identify patterns of potential voice
 Monitor network data for uncommon data flows. Processes utilizing the network that do not normally have network communication or have never been seen before are suspicious.
   - *Log sources:* `Network Traffic`; `Application Log`; `Network Traffic`
 
+</details>
+
 ---
 
 ### T1598.001: Spearphishing Service
 <a id="t1598001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Spearphishing Service (`DET0821`)  
 Platforms: PRE  
@@ -582,10 +744,14 @@ Monitor network data for uncommon data flows. Processes utilizing the network th
 Monitor and analyze traffic patterns and packet inspection associated to protocol(s) that do not follow the expected protocol standards and traffic flows (e.g extraneous packets that do not belong to established flows, gratuitous or anomalous traffic patterns, anomalous syntax, or structure). Consider correlation with process monitoring and command line to detect anomalous processes execution and command line arguments associated to traffic patterns (e.g. monitor anomalies in use of files that do not normally initiate connections for respective protocol(s)).
   - *Log sources:* `Application Log`; `Network Traffic`; `Network Traffic`
 
+</details>
+
 ---
 
 ### T1598.002: Spearphishing Attachment
 <a id="t1598002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Spearphishing Attachment (`DET0865`)  
 Platforms: PRE  
@@ -597,10 +763,14 @@ Monitor for suspicious email activity, such as numerous accounts receiving messa
 Monitor and analyze traffic patterns and packet inspection associated to protocol(s) that do not follow the expected protocol standards and traffic flows (e.g extraneous packets that do not belong to established flows, gratuitous or anomalous traffic patterns, anomalous syntax, or structure). Consider correlation with process monitoring and command line to detect anomalous processes execution and command line arguments associated to traffic patterns (e.g. monitor anomalies in use of files that do not normally initiate connections for respective protocol(s)).
   - *Log sources:* `Network Traffic`; `Application Log`; `Network Traffic`
 
+</details>
+
 ---
 
 ### T1598.003: Spearphishing Link
 <a id="t1598003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Spearphishing Link (`DET0878`)  
 Platforms: PRE  
@@ -616,10 +786,14 @@ Monitor and analyze traffic patterns and packet inspection associated to protoco
 Furthermore, monitor network traffic for homographs via the use of internationalized domain names abusing different character sets (e.g. Cyrillic vs Latin versions of trusted sites). Also monitor and analyze traffic patterns and packet inspection for indicators of cloned websites. For example, if adversaries use HTTrack to clone websites, <code> Mirrored from (victim URL)</code> may be visible in the HTML section of packets.
   - *Log sources:* `Application Log`; `Network Traffic`; `Network Traffic`
 
+</details>
+
 ---
 
 ### T1598.004: Spearphishing Voice
 <a id="t1598004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Spearphishing Voice (`DET0886`)  
 Platforms: PRE  
@@ -629,10 +803,14 @@ ATT&CK: [T1598.004](https://attack.mitre.org/techniques/T1598/004/), [detail pag
   Monitor call logs from corporate devices to identify patterns of potential voice phishing, such as calls to/from known malicious phone numbers.
   - *Log sources:* `Application Log`
 
+</details>
+
 ---
 
 ### T1681: Search Threat Vendor Data
 <a id="t1681"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Search Threat Vendor Data (`DET0866`)  
 Platforms: PRE  
@@ -641,10 +819,14 @@ ATT&CK: [T1681](https://attack.mitre.org/techniques/T1681/), [detail page](/tech
 - `AN1998` Analytic 1998, PRE
   Much of this activity may have a very high occurrence and associated false positive rate, as well as potentially taking place outside the visibility of the target organization, making detection difficult for defenders.
 
+</details>
+
 ---
 
 ### T1682: Query Public AI Services
 <a id="t1682"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Query Public AI Services (`DET0919`)  
 Platforms: PRE  
@@ -654,5 +836,7 @@ ATT&CK: [T1682](https://attack.mitre.org/techniques/T1682/), [detail page](/tech
   Much of this takes place outside the visibility of the target organization, making detection difficult for defenders.
 
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
+
+</details>
 
 ---

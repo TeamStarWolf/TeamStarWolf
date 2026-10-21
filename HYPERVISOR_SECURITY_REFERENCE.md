@@ -2,11 +2,19 @@
 
 > In one minute: The hypervisor is the single most valuable ransomware pivot in the modern enterprise: one compromised ESXi host or vCenter can encrypt every VM at once, below the guest OS where EDR cannot see. This reference maps the virtualization attack surface (VMware ESXi/vSphere, Microsoft Hyper-V, Proxmox VE, KVM/QEMU), walks the ESXi ransomware kill chain end to end, catalogs the CVEs actually exploited in the wild (2019-2026), and gives concrete, defender-framed hardening: lockdown mode, management-plane isolation, MFA/RBAC, Secure Boot/TPM, VM encryption, patch/lifecycle, and backup/recovery for virtual estates. Use it to harden a virtual estate before an incident and to answer "is our hypervisor a soft target?"
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Virtualization administrators, infrastructure security engineers, and ransomware responders |
+| Level | Intermediate to advanced |
+| Reading time | About 10 min (2,385 words at 230 words a minute) |
 | Read this when | you are hardening a VMware/Hyper-V/Proxmox estate, a ransomware IR touched the hypervisor layer, you are scoping vCenter/ESXi patch exposure, or you are designing management-plane isolation and backup immutability for virtual infrastructure |
 | Start at | [Why the Hypervisor Is the Bullseye](#why-the-hypervisor-is-the-bullseye), [The ESXi Ransomware Kill Chain](#the-esxi-ransomware-kill-chain), [Exploited Hypervisor CVEs](#exploited-hypervisor-cves-2019-2026), [ESXi / vSphere Hardening](#vmware-esxi-vsphere-hardening) |
 | Pairs with | [RANSOMWARE_DEFENSE_REFERENCE.md](RANSOMWARE_DEFENSE_REFERENCE.md), [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md), [ENTERPRISE_INFRASTRUCTURE.md](ENTERPRISE_INFRASTRUCTURE.md), [CYBER_RESILIENCE_BCDR_REFERENCE.md](CYBER_RESILIENCE_BCDR_REFERENCE.md), [CONTAINER_SECURITY_REFERENCE.md](CONTAINER_SECURITY_REFERENCE.md) |
+| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+
+<!-- meta:end -->
 
 ---
 

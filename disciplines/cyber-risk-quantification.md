@@ -4,6 +4,17 @@ Cyber risk quantification (CRQ) is the practice of translating cybersecurity ris
 
 The central problem CRQ solves is comparability. A "high" risk in one security program cannot be compared to a "high" risk in another. A score of 7/10 conveys no information about how much to spend on remediation. CRQ replaces these subjective scales with a common currency, expected financial loss, that makes it possible to compare risks across business units, prioritize control investments by return on security investment (ROSI), size cyber insurance coverage rationally, and communicate residual risk to boards in language they already use to govern other enterprise risks. The FAIR framework has become the dominant open standard for structured CRQ, and it underpins most commercial and practitioner-grade quantification programs.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Risk, GRC, and security leaders learning to express cyber risk in financial terms |
+| Level | Beginner to advanced |
+| Reading time | About 15 min (3,347 words at 230 words a minute) |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
+
 ---
 
 ## Where to Start

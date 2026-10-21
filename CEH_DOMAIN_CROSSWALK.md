@@ -4,10 +4,18 @@
 
 Related: [Certifications Reference](CERTIFICATIONS.md), [Career Paths & Cert Roadmap](CAREER_PATHS.md), [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md), [Hands-On Labs](LABS.md), [HackTheBox Learning Tracks](research/HTB_TRACKS.md), [CTF Methodology](CTF_METHODOLOGY.md), [Interview Prep](INTERVIEW_PREP.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Candidates preparing for the CEH v13 knowledge exam |
+| Level | Beginner to intermediate |
+| Reading time | About 12 min (2,863 words at 230 words a minute) |
 | Read this when | you are studying for the CEH knowledge exam, deciding where in this library to prepare each domain, or checking which topics this library covers versus what needs official EC-Council courseware |
 | Start at | [At a glance](#at-a-glance) for the domain-and-weight table, [The domain crosswalk](#the-domain-crosswalk) for the per-domain mapping, [Study-plan skeleton](#study-plan-skeleton) to sequence the work |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
 
 ---
 

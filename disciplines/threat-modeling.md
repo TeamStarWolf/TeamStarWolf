@@ -1,5 +1,16 @@
 # Threat Modeling
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Developers, architects, and security engineers learning threat modeling |
+| Level | Beginner to advanced |
+| Reading time | About 10 min (2,317 words at 230 words a minute) |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Threat Modeling Reference](/THREAT_MODELING_REFERENCE.md), the library's in-depth page on this subject.

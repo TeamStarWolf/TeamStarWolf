@@ -2,11 +2,19 @@
 
 > A practical reference for security practitioners covering the operating systems, server roles, networking components, and technology stacks present in enterprise environments. Understanding what you are working with, and what it does, is a prerequisite for both attacking and defending it effectively.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Penetration testers, defenders, and analysts new to enterprise environments |
+| Level | Beginner to intermediate |
+| Reading time | About 14 min (3,309 words at 230 words a minute) |
 | Read this when | You land in an unfamiliar environment and need to identify what a server or OS actually does, you are scoping a pentest or hardening effort and want the attack surface of each component, you need default ports or key CVEs for a system you just found |
 | Start at | [Server Roles & Functions](#_2-server-roles-amp-functions), [Enterprise Operating Systems](#_1-enterprise-operating-systems), [Security Relevance by Component](#_8-security-relevance-by-component) |
 | Pairs with | [PRIVESC_REFERENCE.md](PRIVESC_REFERENCE.md), [CLOUD_ATTACK_REFERENCE.md](CLOUD_ATTACK_REFERENCE.md), [disciplines/active-directory.md](disciplines/active-directory.md), [HOMELAB_SETUP.md](HOMELAB_SETUP.md) |
+| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+
+<!-- meta:end -->
 
 ---
 

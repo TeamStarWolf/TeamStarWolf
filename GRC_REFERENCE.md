@@ -2,11 +2,28 @@
 
 > Governance, Risk, and Compliance: comprehensive operational reference for security program management, risk quantification, regulatory compliance, third-party risk, and audit management.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Security program managers, GRC leads, and CISOs |
+| Level | Intermediate |
+| Reading time | About 18 min (4,079 words at 230 words a minute) |
 | Read this when | standing up or maturing a security governance program, quantifying a risk for the register or board reporting, prepping for a SOC 2 / ISO 27001 / PCI DSS / HIPAA / CMMC audit, tiering and assessing a new vendor |
 | Start at | [Risk Management](#risk-management), [Compliance Programs](#compliance-programs), [Third-Party Risk Management (TPRM)](#third-party-risk-management-tprm) |
 | Pairs with | [GRC_COMPLIANCE_REFERENCE.md](GRC_COMPLIANCE_REFERENCE.md), [VULNERABILITY_MANAGEMENT_REFERENCE.md](VULNERABILITY_MANAGEMENT_REFERENCE.md), [SECURITY_METRICS_REFERENCE.md](SECURITY_METRICS_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md) |
+| Matching learning path | [Governance, Risk & Compliance (GRC)](/disciplines/governance-risk-compliance.md) |
+| Last reviewed | 2026-10-01 (ATT&CK v19.2): regulatory references checked against live sources ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63)) |
+
+Which page should I read? This page is one of 3 on governance, risk, and compliance.
+
+| Page | Read it for |
+|---|---|
+| GRC Reference (this page) | Running the program: governance structure, risk quantification, compliance programs, third-party risk, and audits. |
+| [Frameworks Reference](/FRAMEWORKS.md) | A quick reference to each major framework: who publishes it, whether it is mandatory, who it applies to, and its structure. |
+| [GRC Compliance Reference](/GRC_COMPLIANCE_REFERENCE.md) | Frameworks in depth, with compliance automation tooling such as OSCAL and ComplianceAsCode. |
+
+<!-- meta:end -->
 
 NIST 800-53 families: PM (Program Management), CA (Assessment & Authorization), RA (Risk Assessment), SA (System & Services Acquisition)
 ISO 27001:2022: Clause 6 (Planning), Annex A Organizational/People/Physical/Technological controls

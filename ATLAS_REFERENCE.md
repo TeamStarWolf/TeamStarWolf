@@ -19,10 +19,31 @@ ATLAS deliberately mirrors the ATT&CK structure and reuses its tactic names wher
 
 Related in this library: [AI Security Reference](AI_SECURITY_REFERENCE.md) (OWASP LLM Top 10, prompt injection, guardrails), [AI & MCP Security](AI_MCP_SECURITY_REFERENCE.md), [AI Offensive Security](AI_OFFENSIVE_SECURITY_REFERENCE.md), [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Security engineers, threat modelers, and red teams working on AI and ML systems |
+| Level | Intermediate |
+| Reading time | About 43 min (9,783 words at 230 words a minute) |
 | Read this when | you need to map an attack on an AI/ML system to a named technique ID, you are threat-modeling an LLM, RAG, or AI-agent deployment, you want the mitigations ATLAS pairs with a given AI attack technique |
 | Start at | [The ATLAS matrix](#the-atlas-matrix) for the 16-tactic overview, [Execution](#execution) for prompt injection and agent-tool techniques, [ATLAS mitigations](#atlas-mitigations) for the defensive side |
+| Matching learning path | [Adversarial AI Attacks](/disciplines/adversarial-ai-attacks.md) |
+| Last reviewed | No review recorded yet |
+
+Which page should I read? This page is one of 7 on AI security.
+
+| Page | Read it for |
+|---|---|
+| ATLAS Reference (AI threats) (this page) | The MITRE ATLAS matrix of techniques and mitigations for attacks on AI systems. |
+| [AI Security Reference](/AI_SECURITY_REFERENCE.md) | Securing LLM applications: the OWASP LLM Top 10, prompt injection, adversarial ML, and guardrails. |
+| [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md) | The Model Context Protocol: its threat model and hardening for MCP servers and agents. |
+| [AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md) | AI-assisted attack tooling and the defensive playbook against it. |
+| [AI Architecture Reference](/AI_ARCHITECTURE_REFERENCE.md) | Designing ML and LLM systems end to end, with the controls that make the architecture defensible. |
+| [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md) | The infrastructure behind AI: model registries, unsafe model files, pipelines, and inference servers. |
+| [Agentic AI Swarm Attacks](/AGENTIC_AI_ATTACK_REFERENCE.md) | An illustrative agent-swarm intrusion kill chain mapped to ATT&CK and ATLAS. |
+
+<!-- meta:end -->
 
 ---
 

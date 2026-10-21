@@ -2,11 +2,31 @@
 
 > In one minute: This is a field guide to how AI (large language models) has turned exploit writing from a specialist craft into something a moderately skilled attacker can direct at scale, and what defenders should do about it. It walks through the tools (Anthropic's internal Glasswing, the open-source Clearwing, EscalateGPT, PentestGPT and more), the benchmarks proving AI can exploit most known 1-day CVEs, and a concrete defensive playbook of patch SLAs, detection rules, and containment controls. Read it to understand the new attacker economics and to borrow the specific defenses and safe-use rules it lays out.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Security leaders, vulnerability managers, and red teams sizing AI-assisted attack risk |
+| Level | Intermediate |
+| Reading time | About 36 min (8,312 words at 230 words a minute) |
 | Read this when | You are sizing up AI-assisted attack risk, tightening patch SLAs to match AI exploitation speed, or planning an authorized AI red team engagement |
 | Start at | [The AI Security Revolution](#section-1-the-ai-security-revolution), [Defending Against AI Attackers](#section-6-defending-against-ai-attackers), [Getting Started: Safe AI Security Assessment](#getting-started-safe-ai-security-assessment) |
 | Pairs with | [AI_SECURITY_REFERENCE.md](AI_SECURITY_REFERENCE.md), [AI_MCP_SECURITY_REFERENCE.md](AI_MCP_SECURITY_REFERENCE.md), [CVE_REFERENCE.md](CVE_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md) |
+| Last reviewed | No review recorded yet |
+
+Which page should I read? This page is one of 7 on AI security.
+
+| Page | Read it for |
+|---|---|
+| AI Offensive Security Reference (this page) | AI-assisted attack tooling and the defensive playbook against it. |
+| [AI Security Reference](/AI_SECURITY_REFERENCE.md) | Securing LLM applications: the OWASP LLM Top 10, prompt injection, adversarial ML, and guardrails. |
+| [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md) | The Model Context Protocol: its threat model and hardening for MCP servers and agents. |
+| [AI Architecture Reference](/AI_ARCHITECTURE_REFERENCE.md) | Designing ML and LLM systems end to end, with the controls that make the architecture defensible. |
+| [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md) | The infrastructure behind AI: model registries, unsafe model files, pipelines, and inference servers. |
+| [Agentic AI Swarm Attacks](/AGENTIC_AI_ATTACK_REFERENCE.md) | An illustrative agent-swarm intrusion kill chain mapped to ATT&CK and ATLAS. |
+| [ATLAS Reference (AI threats)](/ATLAS_REFERENCE.md) | The MITRE ATLAS matrix of techniques and mitigations for attacks on AI systems. |
+
+<!-- meta:end -->
 
 ## Section 1: The AI Security Revolution
 

@@ -2,11 +2,28 @@
 
 > In one minute: This is a quick-reference matrix of security tools, defensive and offensive, organized by function: EDR, SIEM, threat intel, red teaming, forensics, cloud, AppSec, and more. Each entry says whether the tool is open source (OSS) or commercial (COM), what it is primarily used for, and links to its homepage. Reach for it when you need to name candidate tools for a category fast, without researching each one from scratch.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Practitioners shortlisting tools for a security function |
+| Level | Beginner to intermediate |
+| Reading time | About 14 min (3,263 words at 230 words a minute) |
 | Read this when | you need to shortlist tools for a security function, you are comparing open source vs commercial options in a category, you saw a tool name and want to know what it does |
 | Start at | [Endpoint & Detection](#endpoint-amp-detection), [Threat Intelligence](#threat-intelligence), [Offensive Security & Red Teaming](#offensive-security-amp-red-teaming) |
 | Pairs with | [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Controls Mapping](CONTROLS_MAPPING.md), [Hands-On Labs](LABS.md), [Starred Repositories](STARRED_REPOS.md) |
+| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+
+Which page should I read? This page is one of 4 on finding a tool.
+
+| Page | Read it for |
+|---|---|
+| Security Tools Reference (this page) | A matrix of tools by function, each marked open source or commercial. |
+| [Open Source Toolkit](/OPEN_SOURCE_TOOLKIT.md) | Free and open-source tools organized by discipline, with practice platforms and bookmarks. |
+| [Starred Repositories](/STARRED_REPOS.md) | The full index of starred GitHub repositories, grouped by the job they do. |
+| [Security Tool Documentation](/SECURITY_TOOL_DOCUMENTATION.md) | Official documentation, API references, and GitHub organizations for the platforms in an enterprise security stack. |
+
+<!-- meta:end -->
 
 A quick-reference matrix of commonly used security tools organized by function. Each entry links to the project homepage. OSS = open source; COM = commercial.
 

@@ -3,11 +3,26 @@
 > Scope: Operational reference for security engineers, penetration testers, and blue-teamers.
 > All configuration examples target Linux/Cisco IOS unless noted.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Security engineers, penetration testers, and blue teams working at the protocol level |
+| Level | Intermediate |
+| Reading time | About 24 min (5,627 words at 230 words a minute) |
 | Read this when | Decoding a packet capture in Wireshark/tshark/tcpdump, hardening or reviewing a specific protocol (DNS, TLS, SSH, SNMP, BGP, SMTP, and more), investigating amplification DDoS, spoofing, or C2-over-DNS |
 | Start at | [TCP/IP Fundamentals](#_1-tcpip-fundamentals), [Protocol Analysis Tools](#_10-protocol-analysis-tools), [Appendix: Quick Reference Commands](#appendix-quick-reference-commands) |
 | Pairs with | [NETWORK_PROTOCOLS_SECURITY.md](NETWORK_PROTOCOLS_SECURITY.md) (attacker-view TTPs + ATT&CK IDs + detection), [NETWORK_ATTACKS_REFERENCE.md](NETWORK_ATTACKS_REFERENCE.md), [PACKET_ANALYSIS_REFERENCE.md](PACKET_ANALYSIS_REFERENCE.md), [NETWORK_FORENSICS_REFERENCE.md](NETWORK_FORENSICS_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md) |
+| Last reviewed | No review recorded yet |
+
+Which page should I read? This page is one of 2 on network protocols.
+
+| Page | Read it for |
+|---|---|
+| Network Protocols Reference (this page) | The engineering view: protocol internals, hardening configurations, and packet-analysis tooling. |
+| [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md) | The attacker view: how each protocol is exploited, with ATT&CK IDs, detection, and defenses. |
+
+<!-- meta:end -->
 
 ---
 

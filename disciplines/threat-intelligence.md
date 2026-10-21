@@ -4,6 +4,17 @@ Threat intelligence is the discipline of collecting, analyzing, and acting on in
 
 The discipline spans four tiers: strategic intelligence informs executive decisions and long-term resource allocation; operational intelligence tracks adversary campaigns and intent; tactical intelligence details specific techniques, tools, and infrastructure; and technical intelligence covers indicators (IP addresses, domains, file hashes, and signatures) that can be directly ingested into security controls. Most practitioners work across all four tiers simultaneously, and the best CTI programs feed directly into detection engineering, vulnerability management, and incident response rather than existing as standalone reporting functions.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Analysts learning to collect, analyze, and act on threat intelligence |
+| Level | Beginner to advanced |
+| Reading time | About 12 min (2,772 words at 230 words a minute) |
+| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md), the library's in-depth page on this subject.

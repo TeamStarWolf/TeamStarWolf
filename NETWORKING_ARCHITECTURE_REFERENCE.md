@@ -12,6 +12,25 @@
 | You want to score an existing network | [Maturity / checklist](#_8-maturity-checklist) |
 | You need the authoritative sources | [Standards](#_6-standards-amp-frameworks) · [Tools & further reading](#_9-tools-amp-further-reading) |
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Network architects and engineers, and security architects reviewing network designs |
+| Level | Intermediate |
+| Reading time | About 19 min (4,291 words at 230 words a minute) |
+| Last reviewed | No review recorded yet |
+
+Which page should I read? This page is one of 3 on how networks work and how to design them.
+
+| Page | Read it for |
+|---|---|
+| Networking Architecture Reference (this page) | Designing networks: topologies, overlays, segmentation, SD-WAN and SASE, and core services. |
+| [Networking Fundamentals](/NETWORKING_FUNDAMENTALS.md) | How networking works, from OSI layers to routing and DNS, explained for reasoning about attacks and detections. |
+| [Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md) | Building a segmented enterprise network: zones, firewall and IPS placement, 802.1X, and VPNs, with configuration examples. |
+
+<!-- meta:end -->
+
 ---
 
 ## 1. Principles & drivers

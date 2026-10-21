@@ -6,10 +6,18 @@ Legend: Grp = threat groups, SW = software, Mit = ATT&CK mitigations, Det = ATT&
 
 Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md), [Threat Group Profiles](THREAT_GROUP_PROFILES.md), [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [ICS/OT Security Reference](ICS_OT_SECURITY_REFERENCE.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | ICS and OT defenders and threat intelligence analysts |
+| Level | Intermediate |
+| Reading time | About 4 min (982 words at 230 words a minute) |
 | Read this when | You need to look up an ICS ATT&CK technique by tactic, check which threat groups or software use a technique, or find the ATT&CK mitigations that address it |
 | Start at | [Tactics](#tactics) for the full tactic index, then jump to ICS-specific tactics like [Inhibit Response Function](#inhibit-response-function) or [Impair Process Control](#impair-process-control) |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
 
 ## Tactics
 

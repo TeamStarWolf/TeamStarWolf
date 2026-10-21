@@ -6,10 +6,18 @@ A missed detection is rarely a bad rule. It is far more often a log source that 
 
 Related: [ATT&CK Data Components & Log Sources](ATTACK_DATA_COMPONENTS.md), [SIEM Reference](SIEM_REFERENCE.md), [SIEM Detection Content](SIEM_DETECTION_CONTENT.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md), [Endpoint Security](ENDPOINT_SECURITY_REFERENCE.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Detection engineers, SIEM and log pipeline engineers, and security data architects |
+| Level | Intermediate to advanced |
+| Reading time | About 32 min (7,283 words at 230 words a minute) |
 | Read this when | onboarding a new log source, choosing or reconciling a normalization schema (OCSF/ECS/CIM/ASIM), cutting SIEM ingest cost without breaking detections, designing retention or investigating why a rule silently sees nothing |
 | Start at | [Scope & how to use this reference](#scope-amp-how-to-use-this-reference), [Why the data layer decides what you can detect](#why-the-data-layer-decides-what-you-can-detect), [Onboarding a new log source: the runbook](#onboarding-a-new-log-source-the-runbook) |
+| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+
+<!-- meta:end -->
 
 ---
 

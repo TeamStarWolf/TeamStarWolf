@@ -4,6 +4,17 @@ AI/ML security addresses the attack surface introduced by machine learning syste
 
 AI/ML security practitioners must understand both how to attack ML systems (poisoning training data, extracting model parameters, generating adversarial examples) and how to defend them (adversarial training, differential privacy, model monitoring, supply chain controls for ML artifacts). This discipline connects deeply with application security, cloud security, MLOps, and the emerging field of AI governance.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Engineers and security practitioners securing ML pipelines, models, and inference APIs |
+| Level | Beginner to advanced |
+| Reading time | About 9 min (1,972 words at 230 words a minute) |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
+
 ## Where to Start
 
 | Level | Description | Free Resource |

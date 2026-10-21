@@ -4,10 +4,18 @@
 
 Related: [Certifications Reference](CERTIFICATIONS.md), [Career Paths & Cert Roadmap](CAREER_PATHS.md), [Interview Prep](INTERVIEW_PREP.md), [Frameworks Reference](FRAMEWORKS.md), [GRC Reference](GRC_REFERENCE.md), [Security Architecture Reference](SECURITY_ARCHITECTURE_REFERENCE.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Practitioners planning a CISSP study campaign |
+| Level | Intermediate |
+| Reading time | About 17 min (3,912 words at 230 words a minute) |
 | Read this when | You are planning a CISSP study campaign and want to reuse what this library already teaches, or you are a strong engineer trying to find the *management* and *theory* blind spots the exam punishes |
 | Start at | [The eight domains at a glance](#the-eight-domains-at-a-glance) for the weight-and-coverage map, [Exam format](#exam-format) for how the CAT actually behaves, [A twelve-week study plan](#a-twelve-week-study-plan) to run the campaign |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
 
 ---
 

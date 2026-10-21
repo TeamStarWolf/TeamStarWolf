@@ -3,6 +3,20 @@
 > A comprehensive reference for cryptographic concepts, algorithms, attacks, and best practices.
 > Maintained as part of the TeamStarWolf cybersecurity reference library.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Security engineers, developers, and penetration testers who choose or review cryptography |
+| Level | Intermediate to advanced |
+| Reading time | About 38 min (8,635 words at 230 words a minute) |
+| Read this when | choosing a cipher, mode, key size, or password-hashing function, reviewing a cryptographic design or implementation, or explaining a cryptographic attack |
+| Start at | [Symmetric Cryptography](#_1-symmetric-cryptography), [AES-GCM Deep Dive](#_13-aes-gcm-deep-dive), [Key Derivation Functions (KDFs)](#_16-key-derivation-functions-kdfs) |
+| Matching learning path | [Cryptography & PKI](/disciplines/cryptography-pki.md) |
+| Last reviewed | 2026-09-29 (ATT&CK v19.2): detection queries and framework facts corrected in an audit ([#56](https://github.com/TeamStarWolf/TeamStarWolf/pull/56)) |
+
+<!-- meta:end -->
+
 ---
 
 ## Table of Contents

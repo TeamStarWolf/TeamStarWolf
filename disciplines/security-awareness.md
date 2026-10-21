@@ -4,6 +4,17 @@ Security awareness is the discipline of designing, implementing, and measuring p
 
 The human layer remains the highest-leverage attack surface for adversaries. Phishing drives the majority of initial access events (T1566). Credential reuse enables credential stuffing at scale. Employees who fail to report anomalies extend dwell time. Security awareness programs exist to systematically reduce each of these risk vectors, not by making employees security experts, but by building habitual behaviors: recognizing phishing, using MFA, reporting suspicious activity, and escalating to the security team without fear of blame. The discipline requires expertise in adult learning principles, organizational psychology, and measurement design, not just security knowledge.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | People who run or are building security awareness and human-risk programs |
+| Level | Beginner to advanced |
+| Reading time | About 8 min (1,779 words at 230 words a minute) |
+| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Security Awareness Program](/SECURITY_AWARENESS_REFERENCE.md), the library's in-depth page on this subject.

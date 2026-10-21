@@ -3,11 +3,19 @@
 > Scope: Password hash formats, cracking tools (Hashcat, John the Ripper), attack techniques, secure storage algorithms, enterprise password policies, LAPS, gMSA, MFA, and detection.
 > Mapped to NIST SP 800-63B, OWASP Password Storage Cheat Sheet, CIS Benchmarks, and MITRE ATT&CK credential-access techniques (T1110.x).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Penetration testers, application developers, and identity administrators |
+| Level | Intermediate |
+| Reading time | About 14 min (3,218 words at 230 words a minute) |
 | Read this when | You need to identify or crack a captured hash, you are choosing how an application should store passwords, or you are setting enterprise password policy and lockout thresholds |
 | Start at | [Password Hash Formats](#password-hash-formats), [Secure Password Storage](#secure-password-storage-developer-reference), [Enterprise Password Policies](#enterprise-password-policies) |
 | Pairs with | [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [SECRETS_MANAGEMENT_REFERENCE.md](SECRETS_MANAGEMENT_REFERENCE.md), [disciplines/active-directory.md](disciplines/active-directory.md), [detections/strategies/credential-access.md](detections/strategies/credential-access.md) |
+| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+
+<!-- meta:end -->
 
 ---
 

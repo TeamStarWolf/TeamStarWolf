@@ -2,11 +2,19 @@
 
 > The database is where the loss actually happens. Nearly every breach that matters ends at a data store: a SQL Server holding cardholder data, a PostgreSQL cluster of PII, an unauthenticated MongoDB indexed by a scanner, a Redis instance one Lua script away from host code execution. This reference is the defensive baseline for hardening the database management systems themselves: authentication, least-privilege roles, encryption at rest and in transit, activity monitoring, privileged access, audit logging, backup, and the handful of misconfigurations that cause most database incidents. It covers SQL Server, PostgreSQL, MySQL/MariaDB, Oracle, MongoDB, Redis/Valkey, and Elasticsearch. It is not a SQL-injection guide; application-layer injection lives in [WEB_APPLICATION_SECURITY_REFERENCE.md](WEB_APPLICATION_SECURITY_REFERENCE.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Database administrators, data platform engineers, and security engineers who harden data stores |
+| Level | Intermediate |
+| Reading time | About 13 min (2,961 words at 230 words a minute) |
 | Read this when | hardening a new or existing DBMS, writing a database baseline/benchmark, scoping DAM or audit-log coverage, responding to an exposed-database finding, reviewing least-privilege on a DB, or building the data-tier controls of a Zero Trust or PCI/HIPAA program |
 | Start at | [The database attack surface](#the-database-attack-surface), [Universal hardening baseline](#universal-hardening-baseline), [Per-engine hardening](#per-engine-hardening-quick-reference), then the [Defender checklist](#defender-checklist) |
 | Pairs with | [DATA_SECURITY_REFERENCE.md](DATA_SECURITY_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [SECRETS_MANAGEMENT_REFERENCE.md](SECRETS_MANAGEMENT_REFERENCE.md), [IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md), [WEB_APPLICATION_SECURITY_REFERENCE.md](WEB_APPLICATION_SECURITY_REFERENCE.md) |
+| Last reviewed | 2026-09-29 (ATT&CK v19.2): written and checked against live sources ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68)) |
+
+<!-- meta:end -->
 
 > Version note. Product versions, editions, and CVE facts below were live-verified on 2026-09-29 and carry inline sources. Databases move fast; confirm the linked original before pinning a control to a specific version or feature name.
 

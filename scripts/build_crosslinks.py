@@ -83,6 +83,9 @@ REL_RE = re.compile(r"\n*<!-- related:start[^\n]*\n.*?<!-- related:end -->\n", r
 LIB_RE = re.compile(r"\n*<!-- library-refs:start[^\n]*\n.*?<!-- library-refs:end -->\n", re.S)
 LOCAL_MARK_RE = re.compile(r"^<!-- local-id-links [^\n]*-->\n(?:\n)?", re.M)
 LOCAL_LINK_RE = re.compile(r" \(\[local\]\(/mitre/[^()\s]+\.md\)\)")
+# The header card build_doc_meta.py writes; of it, only the orientation rows are read.
+META_RE = re.compile(r"<!-- meta:start[^\n]*\n(.*?)<!-- meta:end -->", re.S)
+CARD_ROW_RE = re.compile(r"^\|\s*(Read this when|Start at|Pairs with)\s*\|")
 
 # A trailing sign-off ("---" then one italic line) stays last; the footer goes above it.
 SIGNOFF_RE = re.compile(r"\n---[ \t]*\n\n\*[^\n]*\*[ \t]*\n*\Z")
@@ -185,10 +188,14 @@ def links_of(text: str):
 
 
 def strip_generated(text: str) -> str:
-    """The page without the blocks this script writes (the link graph's input)."""
+    """The page without the blocks this script writes (the link graph's input). The header
+    card (scripts/build_doc_meta.py) keeps only its hand-written orientation rows (Read this
+    when, Start at, Pairs with): its learning-path, review and "Which page should I read?"
+    links are navigation that script writes, not the page's own links."""
     text = PATH_RE.sub("", text)
     text = REL_RE.sub("\n", text)
     text = LIB_RE.sub("\n", text)
+    text = META_RE.sub(lambda m: "\n".join(ln for ln in m.group(1).split("\n") if CARD_ROW_RE.match(ln)), text)
     return text
 
 

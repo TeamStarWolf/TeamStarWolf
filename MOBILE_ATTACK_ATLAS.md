@@ -6,10 +6,18 @@ Legend: Grp = threat groups, SW = software, Mit = ATT&CK mitigations, Det = ATT&
 
 Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md), [Threat Group Profiles](THREAT_GROUP_PROFILES.md), [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Mobile Security Reference](MOBILE_SECURITY_REFERENCE.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Mobile security engineers and threat intelligence analysts |
+| Level | Intermediate |
+| Reading time | About 7 min (1,575 words at 230 words a minute) |
 | Read this when | Assessing Android/iOS threat coverage, mapping a mobile malware finding to ATT&CK, checking which mitigations address a mobile technique |
 | Start at | [Tactics](#tactics) for the 12-tactic index, [Initial Access](#initial-access) for how devices get compromised, [Collection](#collection) for what spyware harvests |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
 
 ## Tactics
 

@@ -2,11 +2,27 @@
 
 > In one minute: A practitioner's handbook for designing and reviewing security architectures: layered frameworks (SABSA, TOGAF, defense-in-depth), Zero Trust, network, cloud, application, data, identity, operations, and resilience architecture. It matters because it turns abstract security principles into concrete designs: diagrams, policy examples, migration roadmaps, and review checklists you can apply directly. Each section pairs the "why" (threat-driven design) with the "how" (reference architectures and tool examples).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Security architects and architecture review boards |
+| Level | Intermediate to advanced |
+| Reading time | About 42 min (9,589 words at 230 words a minute) |
 | Read this when | designing or reviewing a system's security architecture, planning a Zero Trust migration, preparing for or running an architecture review board (SARB) |
 | Start at | [Security Architecture Fundamentals](#_1-security-architecture-fundamentals), [Architecture Review Process](#_10-architecture-review-process), [Quick Reference: Framework Decision Guide](#quick-reference-architecture-framework-decision-guide) |
 | Pairs with | [Zero Trust Reference](ZERO_TRUST_REFERENCE.md), [Threat Modeling](disciplines/threat-modeling.md), [Cloud Security](disciplines/cloud-security.md), [GRC Reference](GRC_REFERENCE.md) |
+| Matching learning path | [Security Architecture](/disciplines/security-architecture.md) |
+| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+
+Which page should I read? This page is one of 2 on architecture.
+
+| Page | Read it for |
+|---|---|
+| Security Architecture Reference (this page) | Security architecture itself: SABSA, TOGAF, defense in depth, Zero Trust, and architecture reviews. |
+| [Architecture Reference (General)](/ARCHITECTURE_REFERENCE.md) | General enterprise and solution architecture: domains, frameworks, decision records, and patterns, each read as an attack-surface decision. |
+
+<!-- meta:end -->
 
 A comprehensive reference for security architects, covering frameworks, design
 patterns, cloud security, application security, identity, operations, and

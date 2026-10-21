@@ -7,6 +7,18 @@ by the date its pull requests merged to `main` rather than by tagged release.
 ## Unreleased
 
 ### Added
+- Header cards on every root reference and learning path, written into the page by
+  `scripts/build_doc_meta.py` from `data/doc_meta.yaml`, so GitHub and the site show the
+  same card: who the page is for, its level, its reading time (its words at 230 a minute),
+  the existing "Read this when", "Start at" and "Pairs with" rows, the matching learning
+  path, and the last recorded review with its date, ATT&CK release and pull request ("Due
+  for review" when the text changed more than 90 days after it). Pages that overlap get a
+  "Which page should I read?" table. Long appendices and tables fold into `<details>`, and
+  the generated technique detail and detection strategy pages fold each technique's body
+  under its heading; on the site a link into a fold opens it. Key takeaways are drafted in
+  `data/doc_takeaways.draft.yaml` for owner review and appear on a page only once moved to
+  `data/doc_takeaways.yaml`. CI fails when a card is stale or a takeaway's quote is no
+  longer in its section
 - Cross-links between the hand-written and generated halves of the library, written into
   the Markdown by `scripts/build_crosslinks.py` from `docs/crosslinks.json`, so they work on
   GitHub and on the site: a "Matching reference" line on each learning path that has one,

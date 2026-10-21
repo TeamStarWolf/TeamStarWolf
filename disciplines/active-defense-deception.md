@@ -2,6 +2,17 @@
 
 > Going beyond passive monitoring to actively mislead, detect, and study adversaries using deceptive environments, honeypots, honeytokens, and adversary engagement techniques.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Defenders adding honeypots, honeytokens, and adversary engagement to their detection program |
+| Level | Intermediate |
+| Reading time | About 7 min (1,556 words at 230 words a minute) |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching references: [Deception Technology](/DECEPTION_TECHNOLOGY_REFERENCE.md) and [Honeypot & Deception Reference](/HONEYPOT_DECEPTION_REFERENCE.md), the library's in-depth pages on this subject.

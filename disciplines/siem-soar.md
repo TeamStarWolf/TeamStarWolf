@@ -1,5 +1,16 @@
 # SIEM & SOAR
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | SOC analysts and engineers learning SIEM and SOAR platforms |
+| Level | Beginner to advanced |
+| Reading time | About 8 min (1,843 words at 230 words a minute) |
+| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching references: [SIEM Reference](/SIEM_REFERENCE.md) and [SOAR Automation Reference](/SOAR_AUTOMATION_REFERENCE.md), the library's in-depth pages on this subject.

@@ -2,11 +2,28 @@
 
 > In one minute: This is a hands-on guide to writing detection rules in the five languages defenders actually use: Sigma (write once, convert to any SIEM), YARA (file and memory patterns for malware), Suricata/Snort (network traffic), Splunk SPL, and Microsoft Sentinel KQL. Every format gets a structure breakdown, copy-ready example rules mapped to MITRE ATT&CK techniques, and the tooling to convert, run, and tune them. It closes with detection engineering practice: testing rules with Atomic Red Team, managing false positives, and tracking coverage.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Detection engineers and SOC analysts who write and tune rules |
+| Level | Intermediate |
+| Reading time | About 11 min (2,634 words at 230 words a minute) |
 | Read this when | you need to author a detection for a new technique or CVE, you are converting Sigma rules to your SIEM's query language, you are tuning a noisy rule or validating that a deployed rule actually fires |
 | Start at | [Overview of Detection Rule Formats](#_1-overview-of-detection-rule-formats) to pick the right format, [Sigma Rules](#_2-sigma-rules) for the vendor-agnostic starting point, [Best Practices for Detection Engineering](#_7-best-practices-for-detection-engineering) for the lifecycle and testing workflow |
 | Pairs with | [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [PURPLE_TEAM_REFERENCE.md](PURPLE_TEAM_REFERENCE.md) |
+| Matching learning path | [Detection Engineering](/disciplines/detection-engineering.md) |
+| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+
+Which page should I read? This page is one of 3 on SIEM and detection content.
+
+| Page | Read it for |
+|---|---|
+| Detection Rules Reference (this page) | Writing your own rules in Sigma, YARA, Suricata, SPL, and KQL, then testing and tuning them. |
+| [SIEM Reference](/SIEM_REFERENCE.md) | SIEM platforms: architecture and sizing, and the query languages and detection workflows of Splunk, Sentinel, QRadar, and Elastic. |
+| [SIEM Detection Content](/SIEM_DETECTION_CONTENT.md) | Where to get vendor-maintained, ready-made detection content and how to deploy it. |
+
+<!-- meta:end -->
 
 A comprehensive reference for writing detection rules in Sigma, YARA, Suricata/Snort, Splunk SPL, and Microsoft Sentinel KQL, covering rule structure, example detections, conversion workflows, and detection engineering best practices.
 

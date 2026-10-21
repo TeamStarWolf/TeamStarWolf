@@ -5,6 +5,19 @@ This page defines the data model for scoring vendor coverage against ATT&CK tech
 For the control-to-technique reference table, see [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md).
 For pipeline context, see [SECURITY_PIPELINE.md](SECURITY_PIPELINE.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Engineers and analysts who build or query the vendor coverage gap data |
+| Level | Intermediate |
+| Reading time | About 2 min (555 words at 230 words a minute) |
+| Read this when | building or querying the vendor-to-control-to-technique edge tables, or scoring coverage gaps against ATT&CK through NIST 800-53 controls |
+| Start at | [Data Model Overview](#data-model-overview), [Canonical on-disk schema (CI-enforced)](#canonical-on-disk-schema-ci-enforced), [Gap Scoring Logic](#gap-scoring-logic) |
+| Last reviewed | 2026-10-13 (ATT&CK v19.2): stale gap figures, a false gap claim, and revoked-ID wording corrected ([#120](https://github.com/TeamStarWolf/TeamStarWolf/pull/120)) |
+
+<!-- meta:end -->
+
 ---
 
 ## Data Model Overview

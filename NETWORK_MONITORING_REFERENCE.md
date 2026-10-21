@@ -2,11 +2,30 @@
 
 > Audience: Security practitioners (SOC analysts, detection engineers, and network defenders). This reference covers the full NSM (Network Security Monitoring) stack: sensors, log sources, detection logic, and threat hunting workflows.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | SOC analysts, detection engineers, and network defenders |
+| Level | Intermediate |
+| Reading time | About 8 min (1,773 words at 230 words a minute) |
 | Read this when | standing up or placing network sensors (TAP vs SPAN), hunting C2 beaconing or DNS tunneling in Zeek/flow logs, writing or tuning Suricata rules, triaging an NSM alert down to the packet |
 | Start at | [Network Monitoring Architecture](#_1-network-monitoring-architecture), [Zeek (formerly Bro)](#_2-zeek-formerly-bro), [Network Threat Hunting](#_6-network-threat-hunting) |
 | Pairs with | [Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md), [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md), [Network Security Architecture](NETWORK_SECURITY_ARCHITECTURE.md), [SIEM Detection Content](SIEM_DETECTION_CONTENT.md) |
+| Matching learning path | [Network Security](/disciplines/network-security.md) |
+| Last reviewed | No review recorded yet |
+
+Which page should I read? This page is one of 5 on network attack, defense, and monitoring.
+
+| Page | Read it for |
+|---|---|
+| Network Monitoring Reference (this page) | The monitoring stack and hunting workflows: sensor placement, Zeek, Suricata rules, JA3, and flow data. |
+| [Network Attacks Reference](/NETWORK_ATTACKS_REFERENCE.md) | How network attacks work layer by layer, each paired with the control that detects or blocks it. |
+| [Network Defense Reference](/NETWORK_DEFENSE_REFERENCE.md) | Defense architecture and NSM operations: Suricata, Zeek, Security Onion, segmentation, and DDoS defense. |
+| [Network Forensics Reference](/NETWORK_FORENSICS_REFERENCE.md) | Collecting and preserving network evidence and reconstructing an incident from it. |
+| [Packet Analysis Reference](/PACKET_ANALYSIS_REFERENCE.md) | Reading raw traffic in Wireshark, tcpdump, and Zeek, and spotting attacks in packet captures. |
+
+<!-- meta:end -->
 
 ---
 

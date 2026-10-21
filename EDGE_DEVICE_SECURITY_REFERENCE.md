@@ -8,10 +8,18 @@ Attacker behavior here is described in the language public advisories use; defen
 
 Related: [Network Security Architecture](NETWORK_SECURITY_ARCHITECTURE.md), [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](CVE_REFERENCE.md), [Zero Trust](ZERO_TRUST_REFERENCE.md), [Network Monitoring](NETWORK_MONITORING_REFERENCE.md), [Digital Forensics](DIGITAL_FORENSICS_REFERENCE.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Network and security engineers who run VPNs, firewalls, and gateways, and the vulnerability teams who patch them |
+| Level | Intermediate |
+| Reading time | About 25 min (5,724 words at 230 words a minute) |
 | Read this when | a KEV entry or emergency directive hits your VPN/firewall/gateway fleet, you are designing management-plane isolation or off-box logging for appliances, you need to assess or rebuild a possibly compromised edge device |
 | Start at | [Scope & how to use this reference](#scope-amp-how-to-use-this-reference), [The guidance stack](#the-guidance-stack), [Why edge devices are structurally attractive targets](#why-edge-devices-are-structurally-attractive-targets) |
+| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+
+<!-- meta:end -->
 
 ---
 

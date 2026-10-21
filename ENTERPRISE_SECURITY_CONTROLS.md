@@ -2,11 +2,27 @@
 
 > Vendor-specific configuration, policy tuning, and detection guidance for major enterprise security platforms.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Security engineers who configure and tune enterprise security platforms |
+| Level | Intermediate |
+| Reading time | About 11 min (2,504 words at 230 words a minute) |
 | Read this when | tuning WAF rules that are throwing false positives, rolling out Defender ASR or CrowdStrike prevention policies to a fleet, configuring Proofpoint email defenses or SPF/DKIM/DMARC, building Zscaler ZIA/ZPA policies |
 | Start at | [WAF rules](#_1-web-application-firewall-waf-rules), [Defender ASR rules](#_2-microsoft-defender-attack-surface-reduction-asr-rules), [CrowdStrike prevention policies](#_3-crowdstrike-falcon-prevention-policies) |
 | Pairs with | [Windows Hardening and GPO Reference](WINDOWS_HARDENING_GPO.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md), [Security Operations](disciplines/security-operations.md) |
+| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+
+Which page should I read? This page is one of 3 on security controls and vendor settings.
+
+| Page | Read it for |
+|---|---|
+| Enterprise Security Controls (this page) | Configuration, policy tuning, and detection guidance for specific enterprise platforms. |
+| [Controls Mapping](/CONTROLS_MAPPING.md) | The chain from security vendors to the NIST 800-53 controls they implement and the ATT&CK techniques those controls mitigate. |
+| [Vendor Prevention Policies](/VENDOR_PREVENTION_POLICIES.md) | Recommended prevention settings from official vendor documentation and the CISA SCuBA baselines. |
+
+<!-- meta:end -->
 
 ## Table of Contents
 - [1. Web Application Firewall (WAF) Rules](#_1-web-application-firewall-waf-rules)

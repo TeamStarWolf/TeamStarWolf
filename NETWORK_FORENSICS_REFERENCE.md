@@ -2,11 +2,29 @@
 
 > Comprehensive reference for incident responders and network forensics analysts covering evidence collection, packet analysis, protocol decoding, traffic anomaly detection, malware traffic patterns, incident reconstruction, encrypted traffic analysis, wireless forensics, cloud forensics, and reporting standards.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Network forensics analysts and incident responders |
+| Level | Intermediate to advanced |
+| Reading time | About 15 min (3,563 words at 230 words a minute) |
 | Read this when | you need to capture or preserve network evidence that may end up in court, you are reconstructing an incident timeline from PCAP/flow/log data, you suspect C2 beaconing or data exfiltration and need to prove it from traffic |
 | Start at | [Network Forensics Fundamentals & Evidence Collection](#_1-network-forensics-fundamentals-amp-evidence-collection), [Malware Traffic Analysis](#_5-malware-traffic-analysis), [Forensic Reporting & Tools Reference](#_10-forensic-reporting-amp-tools-reference) |
 | Pairs with | [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md), [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md) |
+| Last reviewed | No review recorded yet |
+
+Which page should I read? This page is one of 5 on network attack, defense, and monitoring.
+
+| Page | Read it for |
+|---|---|
+| Network Forensics Reference (this page) | Collecting and preserving network evidence and reconstructing an incident from it. |
+| [Network Attacks Reference](/NETWORK_ATTACKS_REFERENCE.md) | How network attacks work layer by layer, each paired with the control that detects or blocks it. |
+| [Network Defense Reference](/NETWORK_DEFENSE_REFERENCE.md) | Defense architecture and NSM operations: Suricata, Zeek, Security Onion, segmentation, and DDoS defense. |
+| [Network Monitoring Reference](/NETWORK_MONITORING_REFERENCE.md) | The monitoring stack and hunting workflows: sensor placement, Zeek, Suricata rules, JA3, and flow data. |
+| [Packet Analysis Reference](/PACKET_ANALYSIS_REFERENCE.md) | Reading raw traffic in Wireshark, tcpdump, and Zeek, and spotting attacks in packet captures. |
+
+<!-- meta:end -->
 
 ---
 

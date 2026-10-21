@@ -2,11 +2,19 @@
 
 > In one minute: A single lookup page for the security terms, acronyms, and attack/defense concepts used throughout this library, from everyday abbreviations like CVE and SIEM to specialist techniques like Kerberoasting and Golden Ticket. Each entry is a one-line plain-English definition, organized A-Z in tables you can search with Ctrl+F. Keep it open while reading any other doc here so an unfamiliar acronym never stops you.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Anyone reading this library who meets an unfamiliar term or acronym |
+| Level | Beginner |
+| Reading time | About 13 min (3,043 words at 230 words a minute) |
 | Read this when | you hit an acronym or term you don't recognize in another doc, you need a quick one-line definition to drop into a report, you want to check the difference between similar terms (IOC vs IOA, Golden vs Silver Ticket) |
 | Start at | [A](#a) to browse alphabetically, [Common Acronym Reference](#common-acronym-reference) for acronym expansions only, [Additional Terms](#additional-terms) for offensive and blue-team specialist terms |
 | Pairs with | [FRAMEWORKS.md](FRAMEWORKS.md) for framework comparisons, [TOOLS.md](TOOLS.md) for tool quick-reference, [SECURITY_PIPELINE.md](SECURITY_PIPELINE.md) for pipeline stages |
+| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+
+<!-- meta:end -->
 
 Common terms, acronyms, and concepts across cybersecurity disciplines. Use `Ctrl+F` (or the search bar) to find specific terms.
 

@@ -9,6 +9,8 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 ### T1037: Boot or Logon Initialization Scripts
 <a id="t1037"></a>
 
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
+
 Detection strategy: Boot or Logon Initialization Scripts Detection Strategy (`DET0112`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
 ATT&CK: [T1037](https://attack.mitre.org/techniques/T1037/), [detail page](/techniques/persistence.md#t1037)
@@ -34,10 +36,14 @@ ATT&CK: [T1037](https://attack.mitre.org/techniques/T1037/), [detail page](/tech
   - *Log sources:* `networkdevice:syslog (config)`
   - *Tune:* `Interface`: Affected interface or subsystem; varies per device.; `CommandPattern`: Patterns of authorized config changes differ by vendor or policy.
 
+</details>
+
 ---
 
 ### T1037.001: Logon Script (Windows)
 <a id="t1037001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Logon Script Modifications and Execution (`DET0072`)  
 Platforms: Windows  
@@ -48,10 +54,14 @@ ATT&CK: [T1037.001](https://attack.mitre.org/techniques/T1037/001/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4663, 4670, 4656)`; `WinEventLog:System (EventCode=1502, 1503)`; `WinEventLog:Security (EventCode=4624, 4648)`; `WinEventLog:Security (EventCode=4688)`
   - *Tune:* `script_path_keywords`: Defenders may tune for known script locations such as NETLOGON, SYSVOL, or \domain\sysvol\*.bat/.ps1; `execution_time_window`: May be scoped to user logon hours or first X minutes post-authentication; `user_context`: Organizations may focus on specific users/groups with high privilege or remote access
 
+</details>
+
 ---
 
 ### T1037.002: Login Hook
 <a id="t1037002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Login Hook Persistence on macOS (`DET0244`)  
 Platforms: macOS  
@@ -62,10 +72,14 @@ ATT&CK: [T1037.002](https://attack.mitre.org/techniques/T1037/002/), [detail pag
   - *Log sources:* `macos:unifiedlog (loginwindow or tccd-related entries)`; `fs:plist (/var/root/Library/Preferences/com.apple.loginwindow.plist)`
   - *Tune:* `login_hook_path`: Path of script or binary assigned to login hook; may vary by environment; `user_context`: Login hook may be applied to specific user accounts; tune by privilege level; `time_window`: Correlate plist file modification to execution within a short timeframe; `parent_process_name`: Expected parent process (e.g., loginwindow); anomalies can indicate masquerading
 
+</details>
+
 ---
 
 ### T1037.003: Network Logon Script
 <a id="t1037003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Network Logon Script Abuse via Multi-Event Correlation on Windows (`DET0367`)  
 Platforms: Windows  
@@ -76,10 +90,14 @@ ATT&CK: [T1037.003](https://attack.mitre.org/techniques/T1037/003/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=5145)`; `WinEventLog:Security (EventCode=4688)`; `WinEventLog:System (EventCode=4016, 5312)`
   - *Tune:* `TargetObject`: Path to network-based script execution; tuning required for environment-specific network shares.; `ParentProcessName`: Initial execution process that launches the script; may vary depending on script language or user context.; `TimeWindow`: Acceptable time window to correlate Group Policy update with script execution (e.g., 2-10 minutes).; `UserContext`: Account initiating execution; useful for filtering known administrative activity.
 
+</details>
+
 ---
 
 ### T1037.004: RC Scripts
 <a id="t1037004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Boot or Logon Initialization Scripts: RC Scripts (`DET0237`)  
 Platforms: ESXi, Linux, Network Devices, macOS  
@@ -102,10 +120,14 @@ ATT&CK: [T1037.004](https://attack.mitre.org/techniques/T1037/004/), [detail pag
   - *Log sources:* `networkdevice:syslog (startup-config)`; `networkdevice:syslog (system boot logs)`
   - *Tune:* `firmware_family`: Device type or OS determines specific init script location; `config_line_pattern`: Regex or pattern matching approach to detect suspicious CLI; `reboot_time_window`: Time window between config change and first boot post-modification
 
+</details>
+
 ---
 
 ### T1037.005: Startup Items
 <a id="t1037005"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Modification of macOS Startup Items (`DET0429`)  
 Platforms: macOS  
@@ -116,10 +138,14 @@ ATT&CK: [T1037.005](https://attack.mitre.org/techniques/T1037/005/), [detail pag
   - *Log sources:* `macos:unifiedlog (launchservices or loginwindow events)`; `macos:fsevents (/Library/StartupItems/, ~/Library/LaunchAgents/)`
   - *Tune:* `directory_path`: Specific paths to monitor may differ across macOS versions or enterprise baselines.; `user_context`: Different users may have unique LaunchAgents folders—tuning may be required.; `time_window`: The correlation time between file creation and process execution may need to be adjusted for boot persistence.; `process_name`: Specific startup binaries (e.g., bash, osascript) may vary across implementations.
 
+</details>
+
 ---
 
 ### T1098: Account Manipulation
 <a id="t1098"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 6 analytics</summary>
 
 Detection strategy: Account Manipulation Behavior Chain Detection (`DET0096`)  
 Platforms: ESXi, Identity Provider, Linux, SaaS, Windows, macOS  
@@ -150,10 +176,14 @@ ATT&CK: [T1098](https://attack.mitre.org/techniques/T1098/), [detail page](/tech
   - *Log sources:* `m365:unified (Admin Activity > Role Change or Sharing Change)`
   - *Tune:* `SharingSensitivityLabel`: Threshold for labeling sensitive document access escalation.; `CrossOrgChanges`: Track changes made across organizational boundaries (e.g., guest users).
 
+</details>
+
 ---
 
 ### T1098.001: Additional Cloud Credentials
 <a id="t1098001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection Strategy for Additional Cloud Credentials in IaaS/IdP/SaaS (`DET0531`)  
 Platforms: IaaS, Identity Provider, SaaS  
@@ -172,10 +202,14 @@ ATT&CK: [T1098.001](https://attack.mitre.org/techniques/T1098/001/), [detail pag
   - *Log sources:* `gcp:audit (API Key Created, OAuth Client Registered)`; `m365:unified (Set-Mailbox, Set-AppPassword, Add-MailboxPermission)`
   - *Tune:* `OAuthClientRedirectURIBaseline`: Detect suspicious redirect URI mismatches in new clients.; `TokenScopeSensitivity`: Highlight credentials granting excessive read/write org-wide.
 
+</details>
+
 ---
 
 ### T1098.002: Additional Email Delegate Permissions
 <a id="t1098002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detection Strategy for Addition of Email Delegate Permissions (`DET0373`)  
 Platforms: Office Suite, Windows  
@@ -190,10 +224,14 @@ ATT&CK: [T1098.002](https://attack.mitre.org/techniques/T1098/002/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4688)`; `m365:unified (PowerShell: Add-MailboxPermission)`
   - *Tune:* `PowerShellCmdletFilter`: Exchange cmdlets to include or exclude based on scope (e.g., Add-MailboxPermission, Set-MailboxFolderPermission).; `ExecutionParent`: Flag suspicious script or interactive shell launch by non-admins.; `TimeWindow`: Window in which Add-MailboxPermission is followed by anomalous usage (e.g., SendAs events).
 
+</details>
+
 ---
 
 ### T1098.003: Additional Cloud Roles
 <a id="t1098003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection Strategy for Role Addition to Cloud Accounts (`DET0277`)  
 Platforms: IaaS, Identity Provider, Office Suite  
@@ -212,10 +250,14 @@ ATT&CK: [T1098.003](https://attack.mitre.org/techniques/T1098/003/), [detail pag
   - *Log sources:* `m365:unified (Add member to role, Set-Mailbox)`
   - *Tune:* `OfficeRoleType`: Admin role type or application role granted; `TimeWindow`: Time between initial login and privilege change; `ActionOrigin`: Was the role assignment local or via federated SSO account
 
+</details>
+
 ---
 
 ### T1098.004: SSH Authorized Keys
 <a id="t1098004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection Strategy for SSH Key Injection in Authorized Keys (`DET0126`)  
 Platforms: ESXi, IaaS, Linux, Network Devices, macOS  
@@ -242,10 +284,14 @@ ATT&CK: [T1098.004](https://attack.mitre.org/techniques/T1098/004/), [detail pag
   - *Log sources:* `networkdevice:cli (ip ssh pubkey-chain)`
   - *Tune:* `CLIUserRole`: Was the role allowed to push persistent config changes?; `DeviceModel`: Variations in syntax or log behavior across device OS
 
+</details>
+
 ---
 
 ### T1098.005: Device Registration
 <a id="t1098005"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Suspicious Device Registration via Entra ID or MFA Platform (`DET0036`)  
 Platforms: Identity Provider, Windows  
@@ -260,10 +306,14 @@ ATT&CK: [T1098.005](https://attack.mitre.org/techniques/T1098/005/), [detail pag
   - *Log sources:* `WinEventLog:Security (Device Object Creation)`; `ApplicationLog:Intune/MDM Logs (Enrollment events (e.g., MDMDeviceRegistration))`
   - *Tune:* `DeviceNamePattern`: Adjust pattern matching logic for unusual or non-corporate device names; `UserContext`: Correlate with prior logon location or device usage behavior; `EnrollmentMethod`: Distinguish between MDM vs manual onboarding vs automated scripts
 
+</details>
+
 ---
 
 ### T1098.006: Additional Container Cluster Roles
 <a id="t1098006"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Suspicious RoleBinding or ClusterRoleBinding Assignment in Kubernetes (`DET0572`)  
 Platforms: Containers  
@@ -274,10 +324,14 @@ ATT&CK: [T1098.006](https://attack.mitre.org/techniques/T1098/006/), [detail pag
   - *Log sources:* `kubernetes:audit (create or update events for RoleBinding or ClusterRoleBinding objects)`
   - *Tune:* `UserAgent`: Filter expected sources of automated role assignment (e.g., CI/CD tooling); `RoleName`: Scope to privileged roles like cluster-admin, edit, admin; `TimeWindow`: Detect after-hours or irregular-time assignments; `UserContext`: Define known service accounts and privileged operators to reduce noise
 
+</details>
+
 ---
 
 ### T1098.007: Additional Local or Domain Groups
 <a id="t1098007"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Suspicious Addition to Local or Domain Groups (`DET0310`)  
 Platforms: Linux, Windows, macOS  
@@ -296,10 +350,14 @@ ATT&CK: [T1098.007](https://attack.mitre.org/techniques/T1098/007/), [detail pag
   - *Log sources:* `macos:unifiedlog (Process execution or directory service changes)`
   - *Tune:* `GroupName`: Focus on 'admin' or 'com.apple.access_ssh'; `UserContext`: Detect unknown or transient users making group changes; `TimeWindow`: Detect group modifications at suspicious times
 
+</details>
+
 ---
 
 ### T1133: External Remote Services
 <a id="t1133"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Behavior-chain detection for T1133 External Remote Services across Windows, Linux, macOS, Containers (`DET0354`)  
 Platforms: Containers, Linux, Windows, macOS  
@@ -322,10 +380,14 @@ ATT&CK: [T1133](https://attack.mitre.org/techniques/T1133/), [detail page](/tech
   - *Log sources:* `ApplicationLog:API (Docker/Kubernetes API access from external sources)`; `kubernetes:audit (Unauthorized container creation or kubelet exec logs)`; `NSM:Flow (External access to container ports (2375, 6443))`
   - *Tune:* `AllowedCIDRs`: Approved external IP ranges for container APIs.; `TimeWindow`: Correlation window for API calls and container starts.
 
+</details>
+
 ---
 
 ### T1136: Create Account
 <a id="t1136"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection Strategy for T1136 - Create Account across platforms (`DET0583`)  
 Platforms: IaaS, Identity Provider, Linux, Windows, macOS  
@@ -352,10 +414,14 @@ ATT&CK: [T1136](https://attack.mitre.org/techniques/T1136/), [detail page](/tech
   - *Log sources:* `AWS:CloudTrail (CreateUser)`; `AWS:CloudTrail (AttachUserPolicy)`
   - *Tune:* `Region`: Alert on account creation outside expected geographies; `ServiceScope`: Filter on creation of users scoped to sensitive services
 
+</details>
+
 ---
 
 ### T1136.001: Local Account
 <a id="t1136001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 6 analytics</summary>
 
 Detection strategy: T1136.001 Detection Strategy - Local Account Creation Across Platforms (`DET0447`)  
 Platforms: Containers, ESXi, Linux, Network Devices, Windows, macOS  
@@ -386,10 +452,14 @@ ATT&CK: [T1136.001](https://attack.mitre.org/techniques/T1136/001/), [detail pag
   - *Log sources:* `networkdevice:syslog (username <user> privilege <level>)`
   - *Tune:* `PrivilegeLevel`: Some devices allow unprivileged user creation—adjust based on role risk; `RemoteSessionFlag`: Creation via Telnet, SSH, or serial console affects detection priority
 
+</details>
+
 ---
 
 ### T1136.002: Domain Account
 <a id="t1136002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: T1136.002 Detection Strategy - Domain Account Creation Across Platforms (`DET0003`)  
 Platforms: Linux, Windows, macOS  
@@ -408,10 +478,14 @@ ATT&CK: [T1136.002](https://attack.mitre.org/techniques/T1136/002/), [detail pag
   - *Log sources:* `macos:unifiedlog (dsconfigad or dscl with create or append options for AD-bound users)`; `macos:unifiedlog (UserLoggedIn)`
   - *Tune:* `EnrollmentStatus`: Only flag on AD-bound systems with valid LDAP context; `AccountType`: Distinguish between user accounts and computer accounts
 
+</details>
+
 ---
 
 ### T1136.003: Cloud Account
 <a id="t1136003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for T1136.003 - Cloud Account Creation across IaaS, IdP, SaaS, Office (`DET0319`)  
 Platforms: IaaS, Identity Provider, Office Suite, SaaS  
@@ -434,10 +508,14 @@ ATT&CK: [T1136.003](https://attack.mitre.org/techniques/T1136/003/), [detail pag
   - *Log sources:* `m365:unified (Add user)`; `m365:unified (Add member to group)`
   - *Tune:* `GroupSensitivity`: Only alert on additions to high-value groups (e.g., Domain Admins); `GuestFlag`: Tune alerts based on guest vs internal user creation
 
+</details>
+
 ---
 
 ### T1137: Office Application Startup
 <a id="t1137"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detect Office Startup-Based Persistence via Macros, Forms, and Registry Hooks (`DET0398`)  
 Platforms: Office Suite, Windows  
@@ -452,10 +530,14 @@ ATT&CK: [T1137](https://attack.mitre.org/techniques/T1137/), [detail page](/tech
   - *Log sources:* `m365:unified (Set-Mailbox, Set-InboxRule, Set-MailboxFolderPermission)`; `m365:mailboxaudit (Outlook rule creation or custom form deployment)`
   - *Tune:* `RuleAction`: Identify rule actions that execute scripts, forward emails externally, or start external content; `MailboxTarget`: Focus on users with sensitive roles or shared mailboxes; `TimeWindow`: Detect persistence artifacts created shortly after credential access or login from an unusual location
 
+</details>
+
 ---
 
 ### T1137.001: Office Template Macros
 <a id="t1137001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detect Persistence via Office Template Macro Injection or Registry Hijack (`DET0519`)  
 Platforms: Office Suite, Windows  
@@ -470,10 +552,14 @@ ATT&CK: [T1137.001](https://attack.mitre.org/techniques/T1137/001/), [detail pag
   - *Log sources:* `m365:unified (Set-Mailbox, Set-MailboxPolicy, Set-TrustedLocation)`
   - *Tune:* `TemplateSource`: Macros may be embedded in local user templates or retrieved from shared network paths; `MacroSecurityLevel`: Macro execution policy (disabled, warn, enabled) varies by tenant or user configuration
 
+</details>
+
 ---
 
 ### T1137.002: Office Test
 <a id="t1137002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detect Persistence via Office Test Registry DLL Injection (`DET0315`)  
 Platforms: Office Suite, Windows  
@@ -488,10 +574,14 @@ ATT&CK: [T1137.002](https://attack.mitre.org/techniques/T1137/002/), [detail pag
   - *Log sources:* `m365:unified (Non-standard Office startup component detected (e.g., unexpected DLL path))`; `m365:office (Startup execution includes non-default component)`
   - *Tune:* `TrustedLocationBypass`: DLL may be placed in location trusted by Office configuration or signed to evade alerts; `AuditPolicyScope`: Only specific tenants or users may have Office auditing enabled at granular DLL load level
 
+</details>
+
 ---
 
 ### T1137.003: Outlook Forms
 <a id="t1137003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detect Persistence via Outlook Custom Forms Triggered by Malicious Email (`DET0029`)  
 Platforms: Office Suite, Windows  
@@ -506,10 +596,14 @@ ATT&CK: [T1137.003](https://attack.mitre.org/techniques/T1137/003/), [detail pag
   - *Log sources:* `m365:unified (Unusual form activity within Outlook client, including load of non-default forms)`; `m365:messagetrace (Inbound email triggers execution of mailbox-stored custom form)`
   - *Tune:* `AuditPolicyScope`: Not all tenants may enable audit logs of custom form activity or COM component usage in Office; `MessageSenderAnomalyThreshold`: Ruler-style delivery may come from external accounts with forged headers or low reputation; `FormExecutionRate`: Frequency of form triggers may be anomalously high compared to baseline Outlook usage
 
+</details>
+
 ---
 
 ### T1137.004: Outlook Home Page
 <a id="t1137004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detect Persistence via Outlook Home Page Exploitation (`DET0177`)  
 Platforms: Office Suite, Windows  
@@ -524,10 +618,14 @@ ATT&CK: [T1137.004](https://attack.mitre.org/techniques/T1137/004/), [detail pag
   - *Log sources:* `m365:unified (Folder configuration updated with external or HTML-formatted Home Page via Set-MailboxFolder)`; `m365:messagetrace (Inbound email triggering Outlook to auto-access folder tied to malicious Home Page)`
   - *Tune:* `AuditPolicyScope`: Home Page customization may not be audited unless detailed message or folder auditing is enabled; `FolderAccessRate`: Anomalous access to folders not usually interacted with can signal triggering of malicious view; `ExternalURLAllowlist`: Mail clients may restrict remote Home Page content unless domain is explicitly allowed
 
+</details>
+
 ---
 
 ### T1137.005: Outlook Rules
 <a id="t1137005"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detect Persistence via Malicious Outlook Rules (`DET0095`)  
 Platforms: Office Suite, Windows  
@@ -542,10 +640,14 @@ ATT&CK: [T1137.005](https://attack.mitre.org/techniques/T1137/005/), [detail pag
   - *Log sources:* `m365:unified (Creation or modification of inbox rule outside of normal user behavior)`; `m365:messagetrace (Inbound email matches crafted rule trigger pattern tied to persistence logic)`
   - *Tune:* `AuditPolicyScope`: Mailbox rule changes may not be captured unless advanced audit logging is enabled; `RuleProviderName`: Malicious rules may use spoofed or non-standard PR_RULE_MSG_PROVIDER values; `TriggerSubjectKeywords`: Triggering emails may contain uncommon but benign-looking subjects; `UserContext`: Target user account may be inactive or high-value (e.g., VIP, service account)
 
+</details>
+
 ---
 
 ### T1137.006: Add-ins
 <a id="t1137006"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detect Persistence via Malicious Office Add-ins (`DET0050`)  
 Platforms: Office Suite, Windows  
@@ -560,10 +662,14 @@ ATT&CK: [T1137.006](https://attack.mitre.org/techniques/T1137/006/), [detail pag
   - *Log sources:* `WinEventLog:Application (Office Add-in load errors, abnormal loading context, or unsigned add-in warnings)`; `WinEventLog:Microsoft-Office/OutlookAddinMonitor (Outlook loading add-in via unexpected load path or non-default profile context)`
   - *Tune:* `UnsignedAddInBehavior`: Admins may allow or block unsigned add-ins depending on GPO configuration; `OfficeProductVersion`: Different Office versions store trusted paths and add-in configs in version-specific locations; `AddInTrigger`: Some add-ins only load on specific actions (new document, open file, etc.)
 
+</details>
+
 ---
 
 ### T1176: Software Extensions
 <a id="t1176"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection of Malicious or Unauthorized Software Extensions (`DET0092`)  
 Platforms: Linux, Windows, macOS  
@@ -582,10 +688,14 @@ ATT&CK: [T1176](https://attack.mitre.org/techniques/T1176/), [detail page](/tech
   - *Log sources:* `auditd:SYSCALL (execve)`; `fs:fileevents (creat)`; `NSM:Flow (Abnormal browser traffic volume or destination)`
   - *Tune:* `DirectoryPath`: Common plugin or extension directories may vary by distro or browser (e.g., ~/.config/google-chrome/Default/Extensions); `ExecPath`: Path to scripting tools used in installation (e.g., bash, curl, unzip); `TimeWindow`: Tunable interval between install and first network beacon
 
+</details>
+
 ---
 
 ### T1176.001: Browser Extensions
 <a id="t1176001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detecting Malicious Browser Extensions Across Platforms (`DET0044`)  
 Platforms: Linux, Windows, macOS  
@@ -604,10 +714,14 @@ ATT&CK: [T1176.001](https://attack.mitre.org/techniques/T1176/001/), [detail pag
   - *Log sources:* `auditd:SYSCALL (open)`; `NSM:Flow (Browser connections to known C2 or dynamic DNS domains)`; `auditd:SYSCALL (execve)`
   - *Tune:* `ExtensionDir`: Location of Chrome/Chromium extensions under user profile may vary; `DomainWatchlist`: Custom list of suspicious destination domains for browser traffic
 
+</details>
+
 ---
 
 ### T1176.002: IDE Extensions
 <a id="t1176002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detect malicious IDE extension install/usage and IDE tunneling (`DET0561`)  
 Platforms: Linux, Windows, macOS  
@@ -626,10 +740,14 @@ ATT&CK: [T1176.002](https://attack.mitre.org/techniques/T1176/002/), [detail pag
   - *Log sources:* `macos:unifiedlog (Execution of Code.app, idea, JetBrainsToolbox, eclipse with install/extension flags)`; `macos:unifiedlog (Writes under ~/Library/Application Support/Code*/extensions or JetBrains plugins)`; `macos:unifiedlog (Outbound connections from IDE processes to marketplace/tunnel domains)`
   - *Tune:* `PlistLocations`: Per-app preference domains and plugin directories vary by version.; `MDMProfiles`: If MDM installs extensions, allowlist those events to avoid FPs.; `TimeWindow`: Correlation range between install and first beacon.
 
+</details>
+
 ---
 
 ### T1505: Server Software Component
 <a id="t1505"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for T1505 - Server Software Component (`DET0547`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -652,10 +770,14 @@ ATT&CK: [T1505](https://attack.mitre.org/techniques/T1505/), [detail page](/tech
   - *Log sources:* `esxi:hostd (New extension/module install with unknown vendor ID)`; `esxi:vmkernel (Unexpected restarts of management agents or shell access)`
   - *Tune:* `PluginVendorName`: Whitelist known vendor plug-in names for extension correlation; `AccessVector`: Limit exposure of plugin installation via HTTPS or SSH
 
+</details>
+
 ---
 
 ### T1505.001: SQL Stored Procedures
 <a id="t1505001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detection Strategy for SQL Stored Procedures Abuse via T1505.001 (`DET0181`)  
 Platforms: Linux, Windows  
@@ -670,10 +792,14 @@ ATT&CK: [T1505.001](https://attack.mitre.org/techniques/T1505/001/), [detail pag
   - *Log sources:* `auditd:SYSCALL (execve)`; `ApplicationLogs:SQL (Stored procedure creation or modification with shell invocation (e.g., system(), exec()))`
   - *Tune:* `CommandRegex`: Regex used to detect suspicious OS commands via SQL; `TimeWindow`: Window for correlating procedure creation and command execution
 
+</details>
+
 ---
 
 ### T1505.002: Transport Agent
 <a id="t1505002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detection Strategy for T1505.002 - Transport Agent Abuse (Windows/Linux) (`DET0166`)  
 Platforms: Linux, Windows  
@@ -688,10 +814,14 @@ ATT&CK: [T1505.002](https://attack.mitre.org/techniques/T1505/002/), [detail pag
   - *Log sources:* `auditd:SYSCALL (write)`; `linux:syslog (milter configuration updated, transport rule initialized, unexpected script execution)`; `auditd:EXECVE (/usr/sbin/postfix, /usr/sbin/exim, /usr/sbin/sendmail)`; `auditd:SYSCALL (write)`; `linux:Sysmon (EventCode=7)`
   - *Tune:* `MailTransportScriptPath`: Path to custom scripts or filters depends on mail daemon (e.g., /etc/postfix/milter/, /etc/exim4/).; `UserContext`: Mail agents may run under different service users (postfix, exim, etc.), which should be scoped.; `ExecFrequencyThreshold`: Frequency of filter script re-execution per daemon restart or reload may vary.
 
+</details>
+
 ---
 
 ### T1505.003: Web Shell
 <a id="t1505003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Web Shell Detection via Server Behavior and File Execution Chains (`DET0394`)  
 Platforms: Linux, Windows, macOS  
@@ -710,10 +840,14 @@ ATT&CK: [T1505.003](https://attack.mitre.org/techniques/T1505/003/), [detail pag
   - *Log sources:* `macos:unifiedlog (httpd spawning bash, zsh, python, or osascript)`; `auditd:SYSCALL (file write operations in /Library/WebServer/Documents)`
   - *Tune:* `InterpreterName`: Adversary may use different scripting environments; `ExecutionParent`: Not all web servers are named httpd; may differ in custom deployments
 
+</details>
+
 ---
 
 ### T1505.004: IIS Components
 <a id="t1505004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for T1505.004 - Malicious IIS Components (`DET0068`)  
 Platforms: Windows  
@@ -724,10 +858,14 @@ ATT&CK: [T1505.004](https://attack.mitre.org/techniques/T1505/004/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4663, 4670, 4656)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=7)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:System (Changes to applicationhost.config or DLLs loaded by w3wp.exe)`; `WinEventLog:Microsoft-IIS-Configuration (Module or ISAPI filter registration events)`
   - *Tune:* `TimeWindow`: Adjustable time frame for detecting chained events (e.g., config change + module load); `UserContext`: Scope detection to specific users or roles allowed to modify IIS components; `WatchedPaths`: Specific directories such as %windir%\System32\inetsrv\ for DLL monitoring; `DLLNameEntropyThreshold`: Entropy or name patterns to flag suspicious DLLs registered as components; `ParentProcessName`: Restrict to DLLs loaded by w3wp.exe or invoked via AppCmd.exe
 
+</details>
+
 ---
 
 ### T1505.005: Terminal Services DLL
 <a id="t1505005"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for T1505.005 – Terminal Services DLL Modification (Windows) (`DET0212`)  
 Platforms: Windows  
@@ -738,10 +876,14 @@ ATT&CK: [T1505.005](https://attack.mitre.org/techniques/T1505/005/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4657)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=7)`; `WinEventLog:Sysmon (EventCode=1)`
   - *Tune:* `TargetDLLPath`: Defenders may tune for non-standard DLLs loaded by svchost.exe or termsrv.exe processes.; `RegistryKeyTarget`: Environment-specific variations in the path to `ServiceDll` registry key (e.g., nested group policies).; `TimeWindow`: Correlation time window for registry change followed by DLL load or svchost restart.; `ParentProcessName`: Some environments may spawn registry changes from automation tools or administrative scripts.
 
+</details>
+
 ---
 
 ### T1505.006: vSphere Installation Bundles
 <a id="t1505006"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Abuse of vSphere Installation Bundles (VIBs) for Persistent Access (`DET0535`)  
 Platforms: ESXi  
@@ -752,10 +894,14 @@ ATT&CK: [T1505.006](https://attack.mitre.org/techniques/T1505/006/), [detail pag
   - *Log sources:* `esxi:esxupdate (/var/log/esxupdate.log contains VIB installed with `--force` or `--no-sig-check` and non-standard acceptance levels)`; `esxi:shell (`esxcli software vib install` with `--force` or `--no-sig-check` from shell history or `shell.log`)`; `linux:fim (Changes to /etc/rc.local.d/local.sh or creation of unexpected startup files in persistent partitions (/etc/init.d, /store, /locker))`
   - *Tune:* `AcceptanceLevel`: Some environments may intentionally permit CommunitySupported or unsigned VIBs—filter by known allowed publishers.; `InstallCommandThreshold`: Set alerting thresholds for frequency of VIB install attempts per host/user/time window.; `StartupPathRegex`: Tune regex for monitoring startup file locations based on ESXi image customization.
 
+</details>
+
 ---
 
 ### T1525: Implant Internal Image
 <a id="t1525"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detection Strategy for T1525 – Implant Internal Image (`DET0334`)  
 Platforms: Containers, IaaS  
@@ -770,10 +916,14 @@ ATT&CK: [T1525](https://attack.mitre.org/techniques/T1525/), [detail page](/tech
   - *Log sources:* `AWS:CloudTrail (RegisterImage)`; `AWS:CloudTrail (ModifyImageAttribute)`; `AWS:CloudTrail (RunInstances)`
   - *Tune:* `IAMRole`: Roles that are allowed to register and modify images should be scoped narrowly.; `ImageTagRegex`: Expected tags or naming patterns for images (e.g., 'golden-image', 'base-image').; `LaunchWindow`: Time interval between image creation and instance launch.
 
+</details>
+
 ---
 
 ### T1543: Create or Modify System Process
 <a id="t1543"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection of System Process Creation or Modification Across Platforms (`DET0571`)  
 Platforms: Containers, Linux, Windows, macOS  
@@ -796,10 +946,14 @@ ATT&CK: [T1543](https://attack.mitre.org/techniques/T1543/), [detail page](/tech
   - *Log sources:* `docker:events (docker run with restart=always or modifying init)`; `auditd:SYSCALL (modification of entrypoint scripts or init containers)`
   - *Tune:* `EntrypointOverridePattern`: Patterns used to detect modified container start scripts; `RestartPolicyMatch`: Policy values triggering alert (e.g., always, on-failure); `KubeInitModPath`: Path filters for `/etc/init.d/`-like behaviors inside containers
 
+</details>
+
 ---
 
 ### T1543.001: Launch Agent
 <a id="t1543001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Launch Agent Creation or Modification on macOS (`DET0434`)  
 Platforms: macOS  
@@ -810,10 +964,14 @@ ATT&CK: [T1543.001](https://attack.mitre.org/techniques/T1543/001/), [detail pag
   - *Log sources:* `macos:unifiedlog (launchctl load or boot-time plist registration)`; `fs:fsusage (write or chmod to ~/Library/LaunchAgents/*.plist)`; `fs:fsusage (modification of existing LaunchAgents plist)`; `macos:osquery (detection of new launch agents with suspicious paths or unsigned binaries)`
   - *Tune:* `PlistDirectoryList`: Monitored directories (e.g., `/Library/LaunchAgents`, `~/Library/LaunchAgents`) for plist drops; `PlistKeyMonitor`: Monitored keys such as `RunAtLoad`, `KeepAlive`, or `ProgramArguments` for policy alignment; `ExecutablePathPattern`: Patterns used to detect execution from non-standard or suspicious locations like `/tmp`, `/var`, or `/Users/Shared`; `UnsignedBinaryAlert`: Raise alerts if the binary referenced in the Launch Agent is unsigned or unverified; `UserContextScope`: List of users whose LaunchAgents are considered high-sensitivity (e.g., admins)
 
+</details>
+
 ---
 
 ### T1543.002: Systemd Service
 <a id="t1543002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Systemd Service Creation or Modification on Linux (`DET0253`)  
 Platforms: Linux  
@@ -824,10 +982,14 @@ ATT&CK: [T1543.002](https://attack.mitre.org/techniques/T1543/002/), [detail pag
   - *Log sources:* `auditd:SYSCALL (write, open, or rename to /etc/systemd/system/*.service)`; `auditd:SYSCALL (modification of existing .service file)`; `auditd:SYSCALL (execution of systemctl or service with enable/start parameters)`; `auditd:SYSCALL (fork/exec of service via PID 1 (systemd))`; `linux:osquery (newly registered unit file with ExecStart pointing to unknown binary)`
   - *Tune:* `ServicePathRegex`: Regex filters for systemd unit locations (e.g., `/etc/systemd/system/*.service`, `/lib/systemd/system/`); `ExecStartPathAllowlist`: Allowlist of trusted `ExecStart` binary paths (e.g., `/usr/bin/`, `/bin/`); `UserContextFilter`: List of usernames that are authorized to define user-level services; `FileEntropyThreshold`: Entropy level of binaries referenced in `ExecStart` to detect packed or obfuscated payloads; `SystemctlOperationSet`: Flags suspicious combinations such as `systemctl enable` + `systemctl start` within short interval
 
+</details>
+
 ---
 
 ### T1543.003: Windows Service
 <a id="t1543003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Windows Service Creation or Modification (`DET0552`)  
 Platforms: Windows  
@@ -838,10 +1000,14 @@ ATT&CK: [T1543.003](https://attack.mitre.org/techniques/T1543/003/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4697)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=13, 14)`; `WinEventLog:Sysmon (EventCode=6)`
   - *Tune:* `ServiceNamePattern`: Regex for suspicious or uncommon service names (e.g., `svhostx`, `winhelp`, etc.); `ImagePathFilter`: Flag services whose image path resides in uncommon directories (e.g., `C:\Users\`, `C:\Temp\`); `DriverExtensionList`: Watch for `.sys` files loaded by `sc`, Registry, or `ZwLoadDriver` APIs; `StartupTypeChangeWindow`: Temporal window to correlate Registry `Start` key changes with service creation; `UnsignedBinaryAlert`: Raise alerts for unsigned binaries registered as services
 
+</details>
+
 ---
 
 ### T1543.004: Launch Daemon
 <a id="t1543004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Launch Daemon Creation or Modification (macOS) (`DET0401`)  
 Platforms: macOS  
@@ -852,10 +1018,14 @@ ATT&CK: [T1543.004](https://attack.mitre.org/techniques/T1543/004/), [detail pag
   - *Log sources:* `macos:unifiedlog (launchd spawning processes tied to new or modified LaunchDaemon .plist entries)`; `fs:launchdaemons (file_create)`; `fs:launchdaemons (file_modify)`; `macos:unifiedlog (launchd loading new LaunchDaemon or changes to existing daemon configuration)`
   - *Tune:* `ProgramPathRegex`: Regex patterns to match anomalous executable paths or names in .plist files; `TimeWindow`: Correlation window between file modification and launchd process execution; `UserContext`: Admin or root context used during daemon installation; `UnsignedBinaryFlag`: Whether the binary associated with the LaunchDaemon is signed or trusted
 
+</details>
+
 ---
 
 ### T1543.005: Container Service
 <a id="t1543005"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect persistent or elevated container services via container runtime or cluster manipulation (`DET0473`)  
 Platforms: Containers  
@@ -866,10 +1036,14 @@ ATT&CK: [T1543.005](https://attack.mitre.org/techniques/T1543/005/), [detail pag
   - *Log sources:* `auditd:SYSCALL (execve)`; `systemd:unit (container run with restart policy set to 'always' or 'unless-stopped')`; `kubernetes:audit (create)`; `kubernetes:audit (create)`
   - *Tune:* `restartPolicy`: Tune for environments that legitimately use 'always' or 'unless-stopped' in trusted containers; `targetNamespace`: Scope detection to high-risk namespaces (e.g., kube-system); `nodeSelector|nodeName`: Adjust if targeting known cluster configurations or test environments; `unitFilePath`: Adapt to your OS/systemd hierarchy and container binary references; `TimeWindow`: Adjust temporal correlation (e.g., container launch -> privilege escalation)
 
+</details>
+
 ---
 
 ### T1546.017: Udev Rules
 <a id="t1546017"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for T1546.017 - Udev Rules (Linux) (`DET0375`)  
 Platforms: Linux  
@@ -880,10 +1054,14 @@ ATT&CK: [T1546.017](https://attack.mitre.org/techniques/T1546/017/), [detail pag
   - *Log sources:* `auditd:SYSCALL (chmod, write, create, open)`; `auditd:SYSCALL (execve)`; `auditd:CONFIG_CHANGE (udev rule reload or trigger command executed)`
   - *Tune:* `UdevRulePath`: Path to udev rules (may vary by distro or user configuration); `SuspiciousRunPattern`: Regex or string pattern to flag suspicious command executions in RUN+=; `TimeWindow`: Max interval between rule change and execution to correlate activity; `ParentProcess`: Expected parent of RUN-invoked commands (e.g., systemd-udevd)
 
+</details>
+
 ---
 
 ### T1546.018: Python Startup Hooks
 <a id="t1546018"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Linux Python Startup Hook Persistence via .pth and Customize Files (T1546.018) (`DET0258`)  
 Platforms: Linux  
@@ -894,10 +1072,14 @@ ATT&CK: [T1546.018](https://attack.mitre.org/techniques/T1546/018/), [detail pag
   - *Log sources:* `auditd:SYSCALL (execve: execve where exe=/usr/bin/python3 or similar interpreter)`; `auditd:PATH (write or create events on *.pth, sitecustomize.py, usercustomize.py in site-packages or dist-packages)`; `auditd:CONFIG_CHANGE (chmod or chown of hook files indicating privilege escalation or execution permission change)`; `NSM:Flow (http::request: Outbound HTTP initiated by Python interpreter)`
   - *Tune:* `HookFilePathPatterns`: Absolute or regex paths to Python startup files (.pth, customize.py); vary by distro or virtual environment location; `UserContext`: Restrict alerts to non-root users, service accounts, or interactive shell sessions; `TimeWindow`: Correlate file modification and Python execution within short time span (default: 2-5 minutes); `InterpreterWhitelist`: Filter out known legitimate Python executions tied to expected cron jobs or automation
 
+</details>
+
 ---
 
 ### T1547: Boot or Logon Autostart Execution
 <a id="t1547"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Boot or Logon Autostart Execution Detection Strategy (`DET0274`)  
 Platforms: Linux, Windows, macOS  
@@ -916,10 +1098,14 @@ ATT&CK: [T1547](https://attack.mitre.org/techniques/T1547/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (Observed loading of new LaunchAgent or LaunchDaemon plist)`; `macos:unifiedlog (write)`; `macos:unifiedlog (Execution of binary listed in newly modified LaunchAgent plist)`
   - *Tune:* `PlistKey`: Organizations may use specific keys or additional payload parameters; `TimeWindow`: Tunable based on expected delay between plist write and execution
 
+</details>
+
 ---
 
 ### T1547.001: Registry Run Keys / Startup Folder
 <a id="t1547001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Registry and Startup Folder Persistence (Windows) (`DET0365`)  
 Platforms: Windows  
@@ -930,10 +1116,14 @@ ATT&CK: [T1547.001](https://attack.mitre.org/techniques/T1547/001/), [detail pag
   - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=13, 14)`; `WinEventLog:Microsoft-Windows-Shell-Core (New startup folder shortcut or binary placed in Startup directory)`
   - *Tune:* `ImagePath`: Full path of the binary/script being registered in Run keys. Tunable to exclude known software baselines.; `RegistryKeyPath`: Tunable list of startup-related registry keys to monitor more/less aggressively based on enterprise software context.; `TimeWindow`: Correlate registry key creation and process execution within this window. Defaults between 5-10 minutes.; `UserContext`: Filter for specific user SIDs or exclude known admin/script accounts.
 
+</details>
+
 ---
 
 ### T1547.002: Authentication Package
 <a id="t1547002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect LSA Authentication Package Persistence via Registry and LSASS DLL Load (`DET0207`)  
 Platforms: Windows  
@@ -944,10 +1134,14 @@ ATT&CK: [T1547.002](https://attack.mitre.org/techniques/T1547/002/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4657)`; `WinEventLog:Sysmon (EventCode=7)`
   - *Tune:* `TimeWindow`: Time between registry write and DLL load; tune based on reboot cycles or scheduled maintenance; `ImageSignatureStatus`: Allow listing of known signed LSASS-authenticated DLLs versus unknown/untrusted ones; `RegistryPathScope`: Allow tuning for subkeys beyond just `Authentication Packages` (e.g., `Security Packages`, `Notification Packages`); `UserContext`: Correlate user responsible for registry edit; tune for expected administrative/service accounts; `ParentProcess`: Validate process lineage for registry modification; expected tools like `reg.exe` or `powershell.exe`
 
+</details>
+
 ---
 
 ### T1547.003: Time Providers
 <a id="t1547003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Abuse of Windows Time Providers for Persistence (`DET0122`)  
 Platforms: Windows  
@@ -958,10 +1152,14 @@ ATT&CK: [T1547.003](https://attack.mitre.org/techniques/T1547/003/), [detail pag
   - *Log sources:* `WinEventLog:Sysmon (EventCode=13, 14)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=7)`; `WinEventLog:Sysmon (EventCode=1)`
   - *Tune:* `RegistryPathScope`: May need to be tuned to only monitor `W32Time\TimeProviders` subkey path for performance optimization; `UserContext`: Should focus on activity from administrative or SYSTEM accounts; `TimeWindow`: Controls correlation window between registry modification and DLL drop; `DllPathEntropyThreshold`: Used for anomaly scoring on DLL path patterns (e.g., random names or temp directories)
 
+</details>
+
 ---
 
 ### T1547.004: Winlogon Helper DLL
 <a id="t1547004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Winlogon Helper DLL Abuse via Registry and Process Artifacts on Windows (`DET0404`)  
 Platforms: Windows  
@@ -972,10 +1170,14 @@ ATT&CK: [T1547.004](https://attack.mitre.org/techniques/T1547/004/), [detail pag
   - *Log sources:* `WinEventLog:Sysmon (EventCode=7)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Security (modification to Winlogon registry keys such as Shell, Notify, or Userinit)`; `Autoruns:RegistryScan (Enumerate Winlogon subkeys for unknown or unsigned binaries)`
   - *Tune:* `TimeWindow`: Time correlation between registry modification and malicious module load or process creation; `UserContext`: Privilege level or user context under which registry changes or process executions occur; `BinarySignatureValidation`: Whether to validate binary signatures when DLLs are loaded via Winlogon helper paths; `ExecutablePathScope`: Scope of directories considered suspicious for helper DLLs (e.g., temp paths, non-System32 locations)
 
+</details>
+
 ---
 
 ### T1547.005: Security Support Provider
 <a id="t1547005"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Registry and LSASS Monitoring for Security Support Provider Abuse (`DET0542`)  
 Platforms: Windows  
@@ -986,10 +1188,14 @@ ATT&CK: [T1547.005](https://attack.mitre.org/techniques/T1547/005/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4657)`; `WinEventLog:Sysmon (EventCode=7)`; `WinEventLog:Sysmon (EventCode=1)`
   - *Tune:* `TimeWindow`: Controls how long after registry modification to expect a DLL load into LSASS (e.g., after reboot); `DLLSignatureValidation`: Use to detect unsigned DLLs or those not matching known trusted publisher certificates; `CustomSSPNameList`: Define allowed SSP values for your org to reduce false positives; `BootContextCorrelation`: Whether detection should correlate boot-time registry and process events
 
+</details>
+
 ---
 
 ### T1547.006: Kernel Modules and Extensions
 <a id="t1547006"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detection Strategy for Kernel Modules and Extensions Autostart Execution (`DET0450`)  
 Platforms: Linux, macOS  
@@ -1004,10 +1210,14 @@ ATT&CK: [T1547.006](https://attack.mitre.org/techniques/T1547/006/), [detail pag
   - *Log sources:* `macos:unifiedlog (kextload execution from Terminal or suspicious paths)`; `macos:osquery (Processes executing kextload, spctl, or modifying kernel extension directories)`; `macos:osquery (New kext entries not signed by Apple or outside standard identifier prefix)`; `macos:osquery (Modifications to /var/db/SystemPolicyConfiguration/KextPolicy or kext_policy table)`
   - *Tune:* `DeveloperIDAllowlist`: Approved developer IDs whose kexts should not trigger alerts; `KextLoadTimeWindow`: Threshold for detecting kext loads outside standard install/update operations; `SignatureCheckFlag`: Flag to enforce strict signing checks depending on SIP status
 
+</details>
+
 ---
 
 ### T1547.007: Re-opened Applications
 <a id="t1547007"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect persistence via reopened application plist modification (macOS) (`DET0125`)  
 Platforms: macOS  
@@ -1018,10 +1228,14 @@ ATT&CK: [T1547.007](https://attack.mitre.org/techniques/T1547/007/), [detail pag
   - *Log sources:* `macos:unifiedlog (Execution of process launched via loginwindow session restore)`; `fs:filesystem (Modification or creation of files matching 'com.apple.loginwindow.*.plist' in ~/Library/Preferences/ByHost)`; `macos:unifiedlog (LoginWindow context with associated PID linked to reopened plist paths)`; `macos:endpointsecurity (es_event_file_rename_t or es_event_file_write_t)`
   - *Tune:* `UserContext`: Restrict to targeted users or unexpected users writing to plist; `FilePathPattern`: Allow tuning for alternative persistence paths or directory redirection; `TimeWindow`: Correlate plist write and process execution within logon window; `BinaryAnomalyScore`: Optional scoring of launched binary based on code signing, entropy, and known safe apps
 
+</details>
+
 ---
 
 ### T1547.008: LSASS Driver
 <a id="t1547008"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect unauthorized LSASS driver persistence via LSA plugin abuse (Windows) (`DET0225`)  
 Platforms: Windows  
@@ -1032,10 +1246,14 @@ ATT&CK: [T1547.008](https://attack.mitre.org/techniques/T1547/008/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=3033)`; `WinEventLog:Sysmon (EventCode=6)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=2)`; `WinEventLog:Sysmon (EventCode=12)`; `WinEventLog:Sysmon (EventCode=13, 14)`
   - *Tune:* `TimeWindow`: Correlate DLL file creation/modification with LSASS execution within a configurable timeframe (e.g., 5 min); `ImagePathPattern`: Tune based on known legitimate LSASS plugin DLL paths; `SignatureValidation`: Flag unsigned DLLs loaded into lsass.exe or those signed by unexpected publishers; `RegistryKeyScope`: Scope to specific registry keys: HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Authentication Packages; `FileHashAllowList`: Exclude known-good LSASS plugin DLLs based on cryptographic hash
 
+</details>
+
 ---
 
 ### T1547.009: Shortcut Modification
 <a id="t1547009"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for T1547.009 – Shortcut Modification (Windows) (`DET0180`)  
 Platforms: Windows  
@@ -1046,10 +1264,14 @@ ATT&CK: [T1547.009](https://attack.mitre.org/techniques/T1547/009/), [detail pag
   - *Log sources:* `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=2)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=15)`
   - *Tune:* `TargetPathRegex`: Tunable regex to flag suspicious shortcut target paths (e.g., temp folder, base64 in target, unusual executable names); `TimeWindow`: Time window used to correlate shortcut creation with process execution (e.g., 5-minute window); `UserContextScope`: Filter for expected administrative installs versus end-user initiated shortcut creation; `ZoneIdentifierThreshold`: Configurable value to filter LNK files tagged with external source markers (e.g., ZoneId=3 for Internet)
 
+</details>
+
 ---
 
 ### T1547.010: Port Monitors
 <a id="t1547010"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for T1547.010 – Port Monitor DLL Persistence via spoolsv.exe (Windows) (`DET0204`)  
 Platforms: Windows  
@@ -1060,10 +1282,14 @@ ATT&CK: [T1547.010](https://attack.mitre.org/techniques/T1547/010/), [detail pag
   - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=7)`; `WinEventLog:Sysmon (EventCode=13)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Application (API call to AddMonitor invoked by non-installer process)`
   - *Tune:* `TargetDLLDirectory`: Expected directory path for legitimate monitor DLLs (e.g., C:\Windows\System32); `SignedImageValidation`: Enable/disable signature validation on DLLs loaded by spoolsv.exe; `UserContextScope`: Define whether only SYSTEM/user installs are expected to make changes to the port monitor registry keys; `TimeWindow`: Timeframe between registry modification and subsequent spoolsv.exe DLL load; `AddMonitorCallContext`: Filter on calling process of AddMonitor API to detect anomalies outside installer/updater
 
+</details>
+
 ---
 
 ### T1547.012: Print Processors
 <a id="t1547012"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Windows Detection Strategy for T1547.012 - Print Processor DLL Persistence (`DET0026`)  
 Platforms: Windows  
@@ -1074,10 +1300,14 @@ ATT&CK: [T1547.012](https://attack.mitre.org/techniques/T1547/012/), [detail pag
   - *Log sources:* `WinEventLog:Sysmon (EventCode=13, 14)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=7)`; `WinEventLog:Sysmon (EventCode=10)`
   - *Tune:* `TimeWindow`: Correlate Registry + DLL Write + Module Load within a short boot or spooler restart window (e.g., 5 minutes).; `PrintProcessorDirectory`: System-specific path derived from GetPrintProcessorDirectory API call; may differ across Windows versions or configurations.; `DLLNamePattern`: Some environments may use custom or non-standard DLL naming conventions for print processors. Allowlist known values.; `SignedImageValidation`: Check Authenticode signature and issuer chain for loaded DLLs to reduce false positives.; `ServiceRestartTrigger`: Monitor for spoolsv.exe restart events that trigger malicious print processor loading.
 
+</details>
+
 ---
 
 ### T1547.013: XDG Autostart Entries
 <a id="t1547013"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Linux Detection Strategy for T1547.013 - XDG Autostart Entries (`DET0390`)  
 Platforms: Linux  
@@ -1088,10 +1318,14 @@ ATT&CK: [T1547.013](https://attack.mitre.org/techniques/T1547/013/), [detail pag
   - *Log sources:* `auditd:SYSCALL (creat)`; `auditd:SYSCALL (open)`; `auditd:EXECVE (Process execution via .desktop Exec path from /etc/xdg/autostart or ~/.config/autostart)`; `linux:osquery (Write or modify .desktop file in XDG autostart path)`; `linux:auth (User login event followed by unexpected process tree)`
   - *Tune:* `ExecCommandPattern`: Regex or allowlist of expected Exec paths within .desktop files. Deviations may be suspicious.; `AutostartDirectory`: May vary by user config (e.g., $XDG_CONFIG_HOME). Must enumerate actual values per system.; `TimeWindow`: Correlate file creation/mod + exec within login window (e.g., 0-5 min of user logon).; `UserContext`: Should filter to non-system users, as XDG persistence typically targets interactive sessions.; `PackageOriginBaseline`: Compare .desktop entries to known package sources (e.g., `dpkg -S`). Unexpected origins may be suspicious.
 
+</details>
+
 ---
 
 ### T1547.014: Active Setup
 <a id="t1547014"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Active Setup Persistence via StubPath Execution (`DET0312`)  
 Platforms: Windows  
@@ -1102,10 +1336,14 @@ ATT&CK: [T1547.014](https://attack.mitre.org/techniques/T1547/014/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4672)`; `WinEventLog:Security (EventCode=4688)`; `WinEventLog:Sysmon (EventCode=13, 14)`; `WinEventLog:Sysmon (EventCode=12)`
   - *Tune:* `TimeWindow`: Correlate registry change and process execution within a specific user logon session (e.g., 5-10 minutes); `ParentProcessName`: Expected parent processes for Active Setup launched binaries (e.g., explorer.exe). Deviations may indicate abuse.; `StubPathValueEntropy`: Degree of randomness/uncommonness in StubPath values. High entropy may indicate obfuscation.; `SignedBinaryStatus`: Flag if launched binary in StubPath is unsigned or uncommon for baseline; `RegistryKeyOwner`: Check which user/context added the Active Setup key to detect privilege abuse
 
+</details>
+
 ---
 
 ### T1547.015: Login Items
 <a id="t1547015"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for T1547.015 – Login Items on macOS (`DET0121`)  
 Platforms: macOS  
@@ -1116,10 +1354,14 @@ ATT&CK: [T1547.015](https://attack.mitre.org/techniques/T1547/015/), [detail pag
   - *Log sources:* `macos:unifiedlog (Post-login execution of unrecognized child process from launchd or loginwindow)`; `macos:unifiedlog (Modification of backgrounditems.btm or creation of LoginItems subdirectory in .app bundle)`; `macos:unifiedlog (Invocation of SMLoginItemSetEnabled by non-system or recently installed application)`; `macos:unifiedlog (AppleScript creating login item via 'System Events' dictionary)`
   - *Tune:* `TimeWindow`: Correlate file and process activity within a defined interval post-login (e.g., 0-5 minutes); `UserContext`: Distinguish between system users, interactive users, and daemon contexts; `ExecutableAllowlist`: Define known-good login items to suppress false positives; `PathRegexExclusion`: Exclude common enterprise paths (e.g., Jamf, MDM-managed apps)
 
+</details>
+
 ---
 
 ### T1554: Compromise Host Software Binary
 <a id="t1554"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detect Compromise of Host Software Binaries (`DET0336`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -1142,10 +1384,14 @@ ATT&CK: [T1554](https://attack.mitre.org/techniques/T1554/), [detail page](/tech
   - *Log sources:* `esxi:hostd (binary or module replacement event)`; `esxi:vmkernel (unexpected module load)`
   - *Tune:* `MonitoredModules`: Define critical ESXi binaries and kernel modules requiring integrity validation; `CorrelationWindow`: Adjust timing correlation between binary modification and module/service anomalies
 
+</details>
+
 ---
 
 ### T1653: Power Settings
 <a id="t1653"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection Strategy for Power Settings Abuse (`DET0417`)  
 Platforms: Linux, Windows, macOS  
@@ -1164,10 +1410,14 @@ ATT&CK: [T1653](https://attack.mitre.org/techniques/T1653/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (Process creation events where command line = pmset with arguments affecting sleep, hibernatemode, displaysleep)`; `macos:unifiedlog (write: File modification to com.apple.PowerManagement.plist or related system preference files)`
   - *Tune:* `AdminWhitelists`: Allowlist expected pmset invocations by IT administrators for power policy enforcement.
 
+</details>
+
 ---
 
 ### T1668: Exclusive Control
 <a id="t1668"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection Strategy for Exclusive Control (`DET0015`)  
 Platforms: Linux, Windows, macOS  
@@ -1186,10 +1436,14 @@ ATT&CK: [T1668](https://attack.mitre.org/techniques/T1668/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (launchctl unload, kill, or pkill commands affecting daemons or background services)`; `macos:osquery (process_termination: Unexpected termination of processes tied to vulnerable or high-value services)`
   - *Tune:* `ProtectedServiceList`: Defines macOS services (e.g., securityd, keychain-related daemons) that should never be disabled.
 
+</details>
+
 ---
 
 ### T1671: Cloud Application Integration
 <a id="t1671"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detection Strategy for Cloud Application Integration (`DET0539`)  
 Platforms: Office Suite, SaaS  
@@ -1203,5 +1457,7 @@ ATT&CK: [T1671](https://attack.mitre.org/techniques/T1671/), [detail page](/tech
   Detects anomalous SaaS application integration activity across environments such as Slack, Salesforce, or other enterprise SaaS services. Focus is on unauthorized app additions, unusual permission grants, and persistence through service principal tokens.
   - *Log sources:* `saas:integration (New or modified third-party application integrations with elevated permissions)`; `saas:audit (Application added or consent granted: Integration persisting after original user disabled)`
   - *Tune:* `AppWhitelist`: Defines approved SaaS integrations for the enterprise; deviations indicate suspicious persistence.; `ConsentDelegationPolicy`: Threshold for which users can self-consent integrations; lowering this may reduce false positives.
+
+</details>
 
 ---

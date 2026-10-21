@@ -4,6 +4,17 @@ Incident response is the structured process of detecting, containing, investigat
 
 Modern IR increasingly means cloud IR, where traditional forensic tools have no foothold and evidence is ephemeral, volatile, or gated behind cloud provider APIs. Practitioners who can only do Windows disk forensics will find themselves blocked in the environments where attackers operate most freely today. Building fluency in at least one cloud provider's logging and forensic capability is now a baseline expectation for IR practitioners entering the job market.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Aspiring and working incident responders |
+| Level | Beginner to advanced |
+| Reading time | About 15 min (3,395 words at 230 words a minute) |
+| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), the library's in-depth page on this subject.

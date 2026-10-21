@@ -2,11 +2,19 @@
 
 > In one minute: This document explains how a modern browser keeps one website from tampering with another and how servers reinforce those boundaries. It walks through the browser's isolation model, the same-origin policy (the core rule that one site's code cannot read another site's data), and the response headers and cookie settings that harden a web app. Each topic is paired with the misconfigurations that weaken it and the defensive settings that fix them, so a practitioner can both audit and configure.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Web developers, application security engineers, and penetration testers |
+| Level | Intermediate |
+| Reading time | About 11 min (2,519 words at 230 words a minute) |
 | Read this when | Hardening a web app's response headers and cookies, reviewing a CORS or CSP configuration, or explaining why a browser boundary (same-origin, framing, storage) blocks or allows a request |
 | Start at | [Same-Origin Policy (SOP)](#_2-same-origin-policy-sop), [Security Headers Reference](#_5-security-headers-reference), [Browser Security Configuration Checklist](#_12-browser-security-configuration-checklist) |
 | Pairs with | [WEB_APPLICATION_SECURITY_REFERENCE.md](WEB_APPLICATION_SECURITY_REFERENCE.md), [API_SECURITY_REFERENCE.md](API_SECURITY_REFERENCE.md), [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md), [CWE_REFERENCE.md](CWE_REFERENCE.md) |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
 
 A comprehensive reference for browser security architecture, web security policies, attack techniques, and defensive configurations for security practitioners, developers, and penetration testers.
 

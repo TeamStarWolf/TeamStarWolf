@@ -2,11 +2,19 @@
 
 > Comprehensive technical reference for wireless security protocols, attack techniques, detection, and hardening. Part of the TeamStarWolf cybersecurity reference library.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Wireless penetration testers and network engineers who secure Wi-Fi, Bluetooth, and other wireless links |
+| Level | Intermediate to advanced |
+| Reading time | About 30 min (6,970 words at 230 words a minute) |
 | Read this when | Assessing the security of a Wi-Fi, Bluetooth, cellular, RFID/NFC, or IoT wireless deployment, planning or running a wireless penetration test, hardening a wireless network against real attacks |
 | Start at | [Wi-Fi Security Protocols](#_1-wi-fi-security-protocols), [Wi-Fi Attack Techniques](#_2-wi-fi-attack-techniques), [Wireless Hardening](#_9-wireless-hardening) |
 | Pairs with | [NETWORK_PROTOCOLS_SECURITY.md](NETWORK_PROTOCOLS_SECURITY.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md), [disciplines/radio-frequency-security.md](disciplines/radio-frequency-security.md), [disciplines/iot-security.md](disciplines/iot-security.md) |
+| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+
+<!-- meta:end -->
 
 ---
 
@@ -1811,6 +1819,8 @@ MITRE ATT&CK for Mobile (additional wireless relevance):
 
 ## Glossary
 
+<details class="tsw-fold"><summary>Show this section (371 words and a table of 43 rows)</summary>
+
 | Term | Definition |
 |---|---|
 | BSSID | Basic Service Set Identifier: 6-byte MAC address of an AP |
@@ -1856,6 +1866,8 @@ MITRE ATT&CK for Mobile (additional wireless relevance):
 | NOC | Node Operational Certificate: Matter per-session identity |
 | PASE | Passcode-Authenticated Session Establishment: Matter commissioning |
 | CASE | Certificate-Authenticated Session Establishment: Matter post-commissioning |
+
+</details>
 
 ---
 

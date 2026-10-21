@@ -4,6 +4,17 @@
 
 Red teaming differs fundamentally from penetration testing. A pentest is scoped, time-boxed, and delivers a list of vulnerabilities. A red team engagement simulates a persistent Advanced Persistent Threat (APT): it is stealth-first, objective-driven, and measures the blue team's detection and response capability, not just the attack surface. Engagements typically run weeks to months, avoid detection as a primary constraint, and conclude with a findings debrief that includes defender performance metrics alongside technical findings. Understanding this distinction is essential before approaching the tooling or tradecraft.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Penetration testers and operators moving into red teaming |
+| Level | Intermediate to advanced |
+| Reading time | About 10 min (2,237 words at 230 words a minute) |
+| Last reviewed | 2026-09-27 (ATT&CK v19.2): tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51)) |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Red Team Reference](/RED_TEAM_REFERENCE.md), the library's in-depth page on this subject.

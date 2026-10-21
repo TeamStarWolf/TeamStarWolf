@@ -6,6 +6,17 @@ Modern targets range from packed Windows PE binaries and Linux ELF files to firm
 
 Security applications of RE include: malware analysis, vulnerability research, firmware security, CTF challenges, anti-cheat bypass research, and intellectual property protection audits.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Analysts and researchers learning to reverse engineer compiled software |
+| Level | Beginner to advanced |
+| Reading time | About 15 min (3,443 words at 230 words a minute) |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md), the library's in-depth page on this subject.

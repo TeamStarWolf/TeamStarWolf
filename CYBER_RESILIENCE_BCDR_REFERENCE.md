@@ -6,10 +6,18 @@ Ransomware is the scenario that forced the merger. When encryption of production
 
 Related: [Ransomware Defense & Resilience](RANSOMWARE_DEFENSE_REFERENCE.md), [Incident Response](INCIDENT_RESPONSE_REFERENCE.md), [IR Playbooks](IR_PLAYBOOKS.md), [Active Directory Security](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [GRC Compliance](GRC_COMPLIANCE_REFERENCE.md), [Security Metrics](SECURITY_METRICS_REFERENCE.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Business continuity, disaster recovery, and security leaders planning for cyber scenarios |
+| Level | Intermediate |
+| Reading time | About 24 min (5,555 words at 230 words a minute) |
 | Read this when | writing or overhauling a DR/BC plan for cyber scenarios, setting or defending RTO/RPO/MTD targets, planning an AD forest recovery or a DR exercise program |
 | Start at | [Scope & how to use this reference](#scope-amp-how-to-use-this-reference), [How cyber scenarios break classical DR assumptions](#how-cyber-scenarios-break-classical-dr-assumptions), [Identity recovery first](#identity-recovery-first) |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
 
 ---
 

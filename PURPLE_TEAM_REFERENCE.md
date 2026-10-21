@@ -2,11 +2,20 @@
 
 > In one minute: Purple teaming is red (attack) and blue (defense) working side by side so that every attack technique tested immediately becomes a tuned detection, instead of a finding buried in a report weeks later. This library is the practitioner's playbook for running that loop: how to structure a program, execute atomic tests and adversary emulation, measure ATT&CK coverage, and feed the gaps back to detection engineering. Reach for it when you need to prove, and improve, what your SIEM and EDR actually catch.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Purple team leads, detection engineers, and red team operators |
+| Level | Intermediate |
+| Reading time | About 20 min (4,691 words at 230 words a minute) |
 | Read this when | Standing up a purple team program, planning an ATT&CK-mapped emulation campaign, validating whether a technique is actually detected, or triaging a detection gap into a remediation ticket |
 | Start at | [Purple Team Fundamentals](#_1-purple-team-fundamentals), [Atomic Red Team](#_3-atomic-red-team), [Detection Validation Methodology](#_5-detection-validation-methodology) |
 | Pairs with | [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [THREAT_INTELLIGENCE_REFERENCE.md](THREAT_INTELLIGENCE_REFERENCE.md) |
+| Matching learning path | [Purple Teaming & Adversary Simulation](/disciplines/purple-teaming.md) |
+| Last reviewed | 2026-09-27 (ATT&CK v19.2): tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51)) |
+
+<!-- meta:end -->
 
 Version: 1.0 | Classification: Internal Use | Maintained by: Security Engineering
 

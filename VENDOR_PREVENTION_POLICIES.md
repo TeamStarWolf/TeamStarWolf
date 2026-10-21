@@ -2,11 +2,27 @@
 
 > This reference catalogs recommended settings from official vendor documentation for endpoint, network, identity, and email security controls. All settings are sourced from vendor security guidance and best-practice documentation. Links to authoritative sources are included throughout.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Endpoint, email, and network security engineers rolling out vendor controls |
+| Level | Intermediate |
+| Reading time | About 15 min (3,430 words at 230 words a minute) |
 | Read this when | rolling out or tuning an EDR/email/web-proxy product and you need the vendor-recommended settings, hardening an M365 or Google Workspace tenant against CISA SCuBA baselines, deciding which policies to set to Block vs Audit during a phased deployment |
 | Start at | [Microsoft Defender for Endpoint Prevention Policies](#microsoft-defender-for-endpoint-prevention-policies), [NSA/CISA Hardening Guidance](#nsacisa-hardening-guidance), [Official Source Directory](#official-source-directory) |
 | Pairs with | [WINDOWS_HARDENING.md](WINDOWS_HARDENING.md), [WINDOWS_HARDENING_GPO.md](WINDOWS_HARDENING_GPO.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md), [TECHNIQUE_DETECTION_LIBRARY.md](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
+| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+
+Which page should I read? This page is one of 3 on security controls and vendor settings.
+
+| Page | Read it for |
+|---|---|
+| Vendor Prevention Policies (this page) | Recommended prevention settings from official vendor documentation and the CISA SCuBA baselines. |
+| [Controls Mapping](/CONTROLS_MAPPING.md) | The chain from security vendors to the NIST 800-53 controls they implement and the ATT&CK techniques those controls mitigate. |
+| [Enterprise Security Controls](/ENTERPRISE_SECURITY_CONTROLS.md) | Configuration, policy tuning, and detection guidance for specific enterprise platforms. |
+
+<!-- meta:end -->
 
 ---
 

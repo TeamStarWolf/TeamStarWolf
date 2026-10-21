@@ -4,6 +4,17 @@ Security architecture is the discipline of designing systems, networks, and appl
 
 Good security architecture is not just about controls; it is about making security a natural property of the system. It applies defense-in-depth, eliminates implicit trust, enforces least privilege structurally, and ensures that failures are contained rather than cascading.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Engineers moving into security architecture roles |
+| Level | Beginner to advanced |
+| Reading time | About 8 min (1,954 words at 230 words a minute) |
+| Last reviewed | 2026-09-27 (ATT&CK v19.2): tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51)) |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Security Architecture Reference](/SECURITY_ARCHITECTURE_REFERENCE.md), the library's in-depth page on this subject.

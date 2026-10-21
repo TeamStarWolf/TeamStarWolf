@@ -4,11 +4,28 @@
 > breadcrumb strategies, detection rules, and metrics. Maintained as part of the
 > [TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf) cybersecurity reference library.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Detection engineers and SOC teams adding deception to their detection stack |
+| Level | Intermediate |
+| Reading time | About 10 min (2,266 words at 230 words a minute) |
 | Read this when | You are planning your first honeypot or honeytoken deployment, you need near-zero false-positive detection for lateral movement or credential theft, you are evaluating deception platforms or writing SIEM rules for decoy assets |
 | Start at | [Deception Technology Fundamentals](#deception-technology-fundamentals) for why deception works, [Honeytokens](#honeytokens) for the fastest wins (CanaryTokens, AWS keys, AD honey users), [Deception Deployment Strategy](#deception-deployment-strategy) for breadcrumbs and alert pipelines |
 | Pairs with | [ENGAGE_REFERENCE.md](ENGAGE_REFERENCE.md), [HONEYPOT_DECEPTION_REFERENCE.md](HONEYPOT_DECEPTION_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md) |
+| Matching learning path | [Active Defense & Deception](/disciplines/active-defense-deception.md) |
+| Last reviewed | No review recorded yet |
+
+Which page should I read? This page is one of 3 on deception and adversary engagement.
+
+| Page | Read it for |
+|---|---|
+| Deception Technology (this page) | Deception program strategy and detection engineering: honeytokens, decoy placement, alert pipelines, and metrics. |
+| [Honeypot & Deception Reference](/HONEYPOT_DECEPTION_REFERENCE.md) | Hands-on install, configuration, and SIEM integration for honeypot and honeytoken tools such as OpenCanary, Canarytokens, and T-Pot. |
+| [Engage Reference (deception)](/ENGAGE_REFERENCE.md) | The MITRE Engage framework for planning adversary engagement, mapped to ATT&CK techniques. |
+
+<!-- meta:end -->
 
 ---
 

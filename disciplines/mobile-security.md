@@ -4,6 +4,17 @@
 
 Mobile security encompasses the protection of smartphones, tablets, and the applications running on them across iOS and Android platforms. The discipline bridges application security (static/dynamic analysis of APKs and IPAs), network security (certificate pinning, TLS inspection), endpoint management (MDM/EMM policy enforcement), and threat intelligence (mobile malware, zero-click exploits, stalkerware). Practitioners analyze apps for MASVS compliance, conduct runtime hooking with Frida to bypass security controls, investigate spyware campaigns, and configure mobile threat defense (MTD) platforms. Understanding both the offensive perspective (how attackers abuse exported Android components, bypass jailbreak detection on iOS, or deliver zero-click exploits) and the defensive controls is essential for comprehensive mobile security programs.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Practitioners learning iOS and Android app testing and enterprise mobility security |
+| Level | Beginner to advanced |
+| Reading time | About 8 min (1,918 words at 230 words a minute) |
+| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#83](https://github.com/TeamStarWolf/TeamStarWolf/pull/83)) |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md), the library's in-depth page on this subject.

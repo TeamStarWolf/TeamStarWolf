@@ -2,11 +2,28 @@
 
 > In one minute: This document is a field guide to deception technology: honeypots (decoy systems whose only visitors are attackers), honeytokens (fake credentials and files that alert when touched), and honeynets (whole decoy networks). Because no legitimate traffic ever touches a decoy, every alert is a true positive, which makes deception the cheapest high-fidelity detection a defender can deploy. It covers the fundamentals plus hands-on install, config, and SIEM integration for OpenCanary, Canarytokens, Dionaea, T-Pot, and Cowrie, and maps it all to MITRE ENGAGE, D3FEND, and ATT&CK.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Detection engineers and network defenders deploying honeypots and honeytokens |
+| Level | Intermediate |
+| Reading time | About 27 min (6,150 words at 230 words a minute) |
 | Read this when | you're planning honeypot or honeytoken coverage for a network segment, you need to pick and deploy a specific tool (SSH, SMB, web, IoT, ICS), you're wiring decoy alerts into a SIEM as P1 incidents |
 | Start at | [Part 1: Deception Technology Fundamentals](#part-1-deception-technology-fundamentals), [8.6 Quick Reference: Honeypot Selection Guide](#_86-quick-reference-honeypot-selection-guide), [8.5 Deployment Checklist](#_85-deployment-checklist) |
 | Pairs with | [DECEPTION_TECHNOLOGY_REFERENCE.md](DECEPTION_TECHNOLOGY_REFERENCE.md) (deception-program strategy + detection engineering: honeytokens, honey SPNs, cloud decoy IaC, NIST 800-53 mapping), [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [THREAT_INTELLIGENCE_REFERENCE.md](THREAT_INTELLIGENCE_REFERENCE.md), [THREAT_HUNTING_REFERENCE.md](THREAT_HUNTING_REFERENCE.md) |
+| Matching learning path | [Active Defense & Deception](/disciplines/active-defense-deception.md) |
+| Last reviewed | No review recorded yet |
+
+Which page should I read? This page is one of 3 on deception and adversary engagement.
+
+| Page | Read it for |
+|---|---|
+| Honeypot & Deception Reference (this page) | Hands-on install, configuration, and SIEM integration for honeypot and honeytoken tools such as OpenCanary, Canarytokens, and T-Pot. |
+| [Deception Technology](/DECEPTION_TECHNOLOGY_REFERENCE.md) | Deception program strategy and detection engineering: honeytokens, decoy placement, alert pipelines, and metrics. |
+| [Engage Reference (deception)](/ENGAGE_REFERENCE.md) | The MITRE Engage framework for planning adversary engagement, mapped to ATT&CK techniques. |
+
+<!-- meta:end -->
 
 ## Part 1: Deception Technology Fundamentals
 

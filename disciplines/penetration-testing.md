@@ -2,6 +2,17 @@
 
 > Authorized, simulated cyberattack on a system to identify exploitable vulnerabilities before real adversaries do. Governed by a scope document and Rules of Engagement (RoE), covering external/internal/web app/mobile/wireless/social engineering, and more.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Aspiring and working penetration testers |
+| Level | Intermediate |
+| Reading time | About 10 min (2,338 words at 230 words a minute) |
+| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md), the library's in-depth page on this subject.

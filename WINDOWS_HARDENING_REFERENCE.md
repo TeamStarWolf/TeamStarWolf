@@ -3,11 +3,27 @@
 > Scope: Windows 10/11 endpoints and Windows Server 2019/2022, from architecture foundations through monitoring pipelines.
 > Last updated: 2026-04-26
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Windows security engineers and detection engineers deploying Sysmon and WEF |
+| Level | Intermediate to advanced |
+| Reading time | About 18 min (4,166 words at 230 words a minute) |
 | Read this when | you are locking down a new Windows fleet or server build, you need the exact GPO/registry paths for a CIS/STIG/Microsoft-baseline setting, or you are standing up Sysmon/WEF and need the event IDs to watch |
 | Start at | [Windows Security Architecture](#_1-windows-security-architecture), [Sysmon Deployment and Configuration](#_4-sysmon-deployment-and-configuration), [Audit Policy and Monitoring](#_10-audit-policy-and-monitoring) |
 | Pairs with | [WINDOWS_HARDENING.md](WINDOWS_HARDENING.md), [WINDOWS_HARDENING_GPO.md](WINDOWS_HARDENING_GPO.md), [detections/TECHNIQUE_DETECTION_LIBRARY.md](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
+| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+
+Which page should I read? This page is one of 3 on Windows hardening.
+
+| Page | Read it for |
+|---|---|
+| Windows Hardening Reference (this page) | From security architecture foundations to monitoring: Credential Guard, LAPS, Sysmon, and Windows Event Forwarding. |
+| [Windows Hardening](/WINDOWS_HARDENING.md) | Hands-on apply-and-verify commands for each control, built from CIS Benchmarks, Microsoft baselines, and DISA STIGs. |
+| [Windows Hardening GPO Reference](/WINDOWS_HARDENING_GPO.md) | Group Policy baselines: disabling dangerous services, credential and network hardening, and the attacks GPO misconfigurations enable. |
+
+<!-- meta:end -->
 
 ---
 

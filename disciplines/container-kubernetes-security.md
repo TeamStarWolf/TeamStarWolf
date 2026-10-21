@@ -4,6 +4,17 @@ Container and Kubernetes security encompasses the practices, tools, and controls
 
 The fundamental challenge of container security is that containers share a kernel with the host. An improperly configured container running as root with unnecessary Linux capabilities is not an isolated workload; it is a privilege escalation path to the underlying node and, from there, to the rest of the cluster. Kubernetes amplifies this: a single misconfigured RBAC binding, an exposed API server, or an unencrypted etcd store can compromise an entire production environment. Container and Kubernetes security is the discipline of systematically reducing this attack surface at every layer of the stack.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Platform engineers and security practitioners learning container and Kubernetes security |
+| Level | Beginner to advanced |
+| Reading time | About 19 min (4,284 words at 230 words a minute) |
+| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching references: [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md) and [Kubernetes Security Reference](/KUBERNETES_SECURITY_REFERENCE.md), the library's in-depth pages on this subject.

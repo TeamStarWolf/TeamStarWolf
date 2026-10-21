@@ -2,11 +2,27 @@
 
 > Audience: Penetration testers and red teamers. Every major AD attack with exact tool commands, ATT&CK mappings, detection event IDs, and defenses.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Penetration testers and red teamers |
+| Level | Intermediate to advanced |
+| Reading time | About 12 min (2,780 words at 230 words a minute) |
 | Read this when | Scoping an internal AD pentest or red team op, mapping a path to Domain Admins, or building detections and defenses for a specific AD attack |
 | Start at | [AD Fundamentals for Attackers](#_1-ad-fundamentals-for-attackers), [Enumeration & Reconnaissance](#_2-enumeration-amp-reconnaissance), [Tools Quick Reference](#_10-tools-quick-reference) |
 | Pairs with | [ACTIVE_DIRECTORY_ATTACK_REFERENCE.md](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), [ACTIVE_DIRECTORY_SECURITY_REFERENCE.md](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md) |
+| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+
+Which page should I read? This page is one of 3 on Active Directory attack and defense.
+
+| Page | Read it for |
+|---|---|
+| Active Directory Attacks (this page) | The offensive playbook for penetration testers and red teamers: each major attack with tool commands, ATT&CK mappings, detection event IDs, and defenses. |
+| [Active Directory Attack Reference](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md) | The same attacks from the defender's side: what each looks like on the wire, the telemetry it generates, and how to detect and prevent it. |
+| [Active Directory Security Reference](/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md) | The defensive companion: detection guidance, hardening controls, and response playbooks, including domain controller, Group Policy, and AD CS security. |
+
+<!-- meta:end -->
 
 ---
 

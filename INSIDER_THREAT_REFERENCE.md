@@ -6,10 +6,18 @@ An insider threat program is different from every other security program in this
 
 Related: [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Fight Fraud Framework (F3)](FRAUD_FRAMEWORK_REFERENCE.md), [ATT&CK Mitigations](ATTACK_MITIGATIONS_REFERENCE.md), [Identity Security](IDENTITY_SECURITY_REFERENCE.md), [Security Metrics](SECURITY_METRICS_REFERENCE.md), [Privacy Engineering](PRIVACY_ENGINEERING_REFERENCE.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Insider risk program leads, SOC teams, and HR, legal, and privacy partners |
+| Level | Intermediate |
+| Reading time | About 28 min (6,496 words at 230 words a minute) |
 | Read this when | standing up or maturing an insider threat/risk program, designing detections for departing-employee or fraud scenarios, mapping insider TTPs onto ATT&CK coverage |
 | Start at | [The CTID Insider Threat TTP Knowledge Base](#the-ctid-insider-threat-ttp-knowledge-base), [Detection approaches](#detection-approaches), [A 90-day starting plan](#a-90-day-starting-plan) |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
 
 ---
 

@@ -2,10 +2,25 @@
 
 > Authoritative profiles for the 168 tracked adversary groups in MITRE ATT&CK Enterprise (v18.1) that have observed technique usage (nation-state APTs, eCrime crews, and intrusion sets), each with its aliases, the count of techniques and software attributed to it, and (for the most active) its signature ATT&CK techniques. Pair this with [Threat Actors](THREAT_ACTORS.md) for narrative context and the [Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) for the behaviors.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Threat intelligence analysts and threat-informed defense practitioners |
+| Level | Intermediate |
+| Reading time | About 30 min (6,821 words at 230 words a minute) |
 | Read this when | you need a group's aliases resolved to one ATT&CK ID, you're scoping which adversaries have the broadest technique coverage, you want a group's signature techniques for threat-informed defense |
 | Start at | [All tracked groups](#all-tracked-groups) for the alias-and-counts table, [Detailed profiles](#detailed-profiles-most-active-groups) for the most active groups' signature techniques |
+| Last reviewed | 2026-10-13 (ATT&CK v19.2): revoked and deprecated ATT&CK citations re-keyed to their current IDs ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118)) |
+
+Which page should I read? This page is one of 2 on threat actors.
+
+| Page | Read it for |
+|---|---|
+| Threat Group Profiles (this page) | Profiles built from ATT&CK group data: aliases, technique and software counts, and signature techniques. |
+| [Threat Actors](/THREAT_ACTORS.md) | A narrative quick reference to notable groups by nation and type, with aliases, targets, and signature TTPs. |
+
+<!-- meta:end -->
 
 Machine-readable: [`data/attack/groups.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/groups.jsonl), [`data/attack/group_to_technique.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/group_to_technique.jsonl)
 

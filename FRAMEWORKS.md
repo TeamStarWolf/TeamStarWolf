@@ -2,11 +2,27 @@
 
 > In one minute: This is a quick-reference guide to the major cybersecurity and privacy frameworks: NIST CSF and 800-53, ISO 27001, SOC 2, PCI DSS, HIPAA, CMMC, CIS Controls, GDPR/CCPA, NIST AI RMF, and IEC 62443. For each one it tells you who publishes it, whether it is mandatory, who it applies to, and its core structure (functions, control families, levels, or requirements). Use it to pick the right framework for a situation and to see how they map to each other before diving into any single standard.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | GRC analysts, security managers, and engineers who need a fast framework refresher |
+| Level | Beginner to intermediate |
+| Reading time | About 14 min (3,255 words at 230 words a minute) |
 | Read this when | you need to pick a framework for a compliance or sales requirement, someone asks how two frameworks relate or overlap, you need a fast refresher on a framework's structure before a meeting or assessment |
 | Start at | [Framework Comparison Overview](#framework-comparison-overview), [Framework Mapping Quick Reference](#framework-mapping-quick-reference), [Framework Selection Guide](#framework-selection-guide) |
 | Pairs with | [Controls Mapping](CONTROLS_MAPPING.md), [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md) |
+| Last reviewed | 2026-10-01 (ATT&CK v19.2): regulatory references checked against live sources ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63)) |
+
+Which page should I read? This page is one of 3 on governance, risk, and compliance.
+
+| Page | Read it for |
+|---|---|
+| Frameworks Reference (this page) | A quick reference to each major framework: who publishes it, whether it is mandatory, who it applies to, and its structure. |
+| [GRC Compliance Reference](/GRC_COMPLIANCE_REFERENCE.md) | Frameworks in depth, with compliance automation tooling such as OSCAL and ComplianceAsCode. |
+| [GRC Reference](/GRC_REFERENCE.md) | Running the program: governance structure, risk quantification, compliance programs, third-party risk, and audits. |
+
+<!-- meta:end -->
 
 A quick-reference guide to major cybersecurity and privacy frameworks: what they cover, who they apply to, and how they relate to each other.
 

@@ -117,6 +117,14 @@ if `git status` shows the ` D` entry.
 - To pair a learning path with its reference, or to change the size of the "Related pages" lists, edit `docs/crosslinks.json`. A footer also picks up the pages in the reference's own "Pairs with" row and the references in the same hub group that it links to or that link to it. When a reference ends with its own related, see-also or further-reading section (its subsections included, such as Internal and External lists under a Related Resources heading), the footer leaves out every page that section links, so the two lists never repeat each other.
 - After adding or removing links between pages, run `python scripts/build_crosslinks.py`. CI runs it with `--check`, which fails when a committed block differs from what the script writes.
 
+### Header Cards, Reviews and Takeaways
+- Every root reference and learning path opens with a header card that `scripts/build_doc_meta.py` writes between `<!-- meta:start -->` and `<!-- meta:end -->` markers: who the page is for, its level, its reading time (the page's words at 230 words a minute, the same count the domain hubs show), its "Read this when", "Start at" and "Pairs with" rows, the matching learning path, and the last recorded review. Do not edit the card in the page; edit the page's entry in `data/doc_meta.yaml` and run `python scripts/build_doc_meta.py`.
+- A new reference or learning path needs an entry in `data/doc_meta.yaml`, with at least `audience` and `level`; the check fails without one. A "Read this when" table written into a page outside its card also fails the check: put those rows in the page's entry instead.
+- To record a review, add it under `reviews:` (the date, the ATT&CK release the library was on, the pull request, and what was checked) and set `reviewed:` on each page it covered. The card shows "Due for review" when the page's text changed more than 90 days after its last review. That date comes from git history, so CI runs this check with the full history.
+- Pages that overlap share a `clusters:` entry, and each of them gets a "Which page should I read?" table naming the others with a one-line focus.
+- A page's `fold:` list puts a long appendix (`section:<anchor>`) or every table of more than 40 rows in a section (`tables:<anchor>`) into a `<details>` fold under its heading. `python scripts/build_doc_meta.py --report` lists appendix and glossary sections over two screens that are not folded yet.
+- Key takeaways appear on a page only from `data/doc_takeaways.yaml`, which holds the ones the owner has reviewed. Drafts wait in `data/doc_takeaways.draft.yaml`. Every takeaway names the section it comes from and quotes the page, and the check fails when the quote is no longer in that section, so a takeaway cannot outlive its source.
+
 ---
 
 ## Pull Request Checklist
@@ -131,6 +139,7 @@ Before submitting, verify:
 - [ ] `python scripts/check_voice.py` passes (see [docs/VOICE.md](docs/VOICE.md))
 - [ ] If you added, renamed or moved a page, `python scripts/build_site_nav.py --check` passes
 - [ ] If you added or removed links between pages, `python scripts/build_crosslinks.py --check` passes
+- [ ] If you added a reference or learning path, changed one's text, or edited `data/doc_meta.yaml`, `python scripts/build_doc_meta.py --check` passes
 - [ ] Your diff does not delete `MALWARE_ANALYSIS_REFERENCE.md` (see [Cloning on Windows](#cloning-on-windows))
 
 ---

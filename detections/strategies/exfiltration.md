@@ -9,6 +9,8 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 ### T1011: Exfiltration Over Other Network Medium
 <a id="t1011"></a>
 
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
+
 Detection strategy: Detection of Exfiltration Over Alternate Network Interfaces (`DET0077`)  
 Platforms: Linux, Windows, macOS  
 ATT&CK: [T1011](https://attack.mitre.org/techniques/T1011/), [detail page](/techniques/exfiltration.md#t1011)
@@ -26,10 +28,14 @@ ATT&CK: [T1011](https://attack.mitre.org/techniques/T1011/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog`; `macos:osquery (process_events)`; `macos:osquery (interface_details )`
   - *Tune:* `Protocol`: Protocol used for exfil (e.g., AirDrop, mDNS, Apple File Service).; `InterfaceActivityWindow`: Time period between interface activation and transfer.
 
+</details>
+
 ---
 
 ### T1011.001: Exfiltration Over Bluetooth
 <a id="t1011001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection of Bluetooth-Based Data Exfiltration (`DET0554`)  
 Platforms: Linux, Windows, macOS  
@@ -48,10 +54,14 @@ ATT&CK: [T1011.001](https://attack.mitre.org/techniques/T1011/001/), [detail pag
   - *Log sources:* `macos:unifiedlog`; `macos:osquery`; `macos:osquery`
   - *Tune:* `ProcessContext`: Limit to background processes or scripts with no GUI interaction.; `PayloadType`: Focus on specific sensitive file types (e.g., zip, docx, keychain db).
 
+</details>
+
 ---
 
 ### T1020: Automated Exfiltration
 <a id="t1020"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Automated Exfiltration Detection Strategy (`DET0397`)  
 Platforms: Linux, Windows, macOS  
@@ -70,10 +80,14 @@ ATT&CK: [T1020](https://attack.mitre.org/techniques/T1020/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (process: exec)`; `macos:unifiedlog (network)`; `macos:cron (cron/launchd)`
   - *Tune:* `LaunchInterval`: Frequency of task recurrence linked to external communication.; `DestinationPort`: Port number used for detection filtering.
 
+</details>
+
 ---
 
 ### T1020.001: Traffic Duplication
 <a id="t1020001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detection Strategy for Traffic Duplication via Mirroring in IaaS and Network Devices (`DET0403`)  
 Platforms: IaaS, Network Devices  
@@ -88,10 +102,14 @@ ATT&CK: [T1020.001](https://attack.mitre.org/techniques/T1020/001/), [detail pag
   - *Log sources:* `networkdevice:syslog (Config change: CLI/NETCONF/SNMP – 'monitor session', 'mirror port')`; `networkdevice:Flow (Traffic from mirrored interface to mirror target IP)`
   - *Tune:* `ConfigChangeType`: Tune based on accepted interface config changes (e.g., audit only mirror session creation); `MirrorDestinationPort`: Define high-risk ports used for exfil (e.g., 4443, 8443, 2055); `DeviceRole`: Define whether mirroring is expected on edge vs core vs distribution devices
 
+</details>
+
 ---
 
 ### T1029: Scheduled Transfer
 <a id="t1029"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection Strategy for Scheduled Transfer and Recurrent Exfiltration Patterns (`DET0399`)  
 Platforms: Linux, Windows, macOS  
@@ -110,10 +128,14 @@ ATT&CK: [T1029](https://attack.mitre.org/techniques/T1029/), [detail page](/tech
   - *Log sources:* `macos:endpointsecurity (ES_EVENT_TYPE_NOTIFY_EXEC)`; `macos:launchd (launchd.plist and logs)`; `macos:unifiedlog (networkd or com.apple.network)`
   - *Tune:* `AgentPathPatterns`: Regex for job locations like ~/Library/LaunchAgents/; `RepeatIntervalDelta`: Time-based logic to determine schedule (e.g., ~24h ± 5m); `UserHomeJobs`: Transfers originating from non-admin user context
 
+</details>
+
 ---
 
 ### T1030: Data Transfer Size Limits
 <a id="t1030"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection Strategy for Data Transfer Size Limits and Chunked Exfiltration (`DET0213`)  
 Platforms: Linux, Windows, macOS  
@@ -132,10 +154,14 @@ ATT&CK: [T1030](https://attack.mitre.org/techniques/T1030/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (com.apple.network)`; `macos:endpointsecurity (ES_EVENT_TYPE_NOTIFY_CONNECT)`
   - *Tune:* `LaunchdJobContext`: Agent context in which transfer occurs (e.g., user/privileged); `TransferSizeMedian`: Used to define what constitutes 'fixed size' chunks; `TransferProtocolOutlier`: Detect if protocol usage deviates from common apps for given destination
 
+</details>
+
 ---
 
 ### T1041: Exfiltration Over C2 Channel
 <a id="t1041"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Exfiltration Over C2 Channel (`DET0348`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -158,10 +184,14 @@ ATT&CK: [T1041](https://attack.mitre.org/techniques/T1041/), [detail page](/tech
   - *Log sources:* `esxi:vpxa (connection attempts and data transmission logs)`; `esxi:vmkernel (network stack module logs)`; `esxi:syslog (guest OS outbound transfer logs)`
   - *Tune:* `GuestOSAllowList`: Limit detection to sensitive or externally-exposed VMs handling confidential data.; `TransferSizeThresholdMB`: Minimum outbound transfer size before flagging anomalous C2-based exfiltration.; `ProtocolAllowList`: Define expected protocols for outbound data (e.g., disallow FTP/SCP over high ports).
 
+</details>
+
 ---
 
 ### T1048: Exfiltration Over Alternative Protocol
 <a id="t1048"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Behavioral Detection Strategy for Exfiltration Over Alternative Protocol (`DET0131`)  
 Platforms: ESXi, IaaS, Linux, Windows, macOS  
@@ -188,10 +218,14 @@ ATT&CK: [T1048](https://attack.mitre.org/techniques/T1048/), [detail page](/tech
   - *Log sources:* `esxi:hostd (logline inspection)`; `esxi:vmkernel (protocol egress)`
   - *Tune:* `GuestTrafficBaseline`: Expected protocols used by VMs attached to host interfaces.; `ServiceAccountProfile`: Unexpected network activity from hypervisor processes or monitoring agents.
 
+</details>
+
 ---
 
 ### T1048.001: Exfiltration Over Symmetric Encrypted Non-C2 Protocol
 <a id="t1048001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Behavioral Detection Strategy for Exfiltration Over Symmetric Encrypted Non-C2 Protocol (`DET0503`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -214,10 +248,14 @@ ATT&CK: [T1048.001](https://attack.mitre.org/techniques/T1048/001/), [detail pag
   - *Log sources:* `esxi:vmkernel (egress log analysis)`; `esxi:hostd (execution + payload hints)`; `NSM:Flow (host switch egress data)`
   - *Tune:* `GuestVMExfilWatchlist`: VMs with data sensitivity labels or outside normal behavior.; `ServiceEgressProfile`: Expected egress destinations and volume for core services.
 
+</details>
+
 ---
 
 ### T1048.002: Exfiltration Over Asymmetric Encrypted Non-C2 Protocol
 <a id="t1048002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection of Exfiltration Over Asymmetric Encrypted Non-C2 Protocol (`DET0512`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -240,10 +278,14 @@ ATT&CK: [T1048.002](https://attack.mitre.org/techniques/T1048/002/), [detail pag
   - *Log sources:* `esxi:hostd (event stream)`; `esxi:vmkernel (egress logs)`
   - *Tune:* `VMToEgressPathWatchlist`: Expected traffic routes for monitored VMs.; `TLSClientAppIdentifier`: Applications allowed to initiate TLS sessions from hypervisor level.
 
+</details>
+
 ---
 
 ### T1048.003: Exfiltration Over Unencrypted Non-C2 Protocol
 <a id="t1048003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection of Exfiltration Over Unencrypted Non-C2 Protocol (`DET0149`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -270,10 +312,14 @@ ATT&CK: [T1048.003](https://attack.mitre.org/techniques/T1048/003/), [detail pag
   - *Log sources:* `networkdevice:cli (CLI command logs)`; `networkdevice:syslog (flow records)`; `NSM:Flow (PCAP inspection)`
   - *Tune:* `ProtocolCommandWatchlist`: Flag commands like `copy`, `archive tar`, or `upload` directed at external hosts.; `DestinationIPBlocklist`: Define external IP ranges unauthorized to receive router/switch configs.
 
+</details>
+
 ---
 
 ### T1052: Exfiltration Over Physical Medium
 <a id="t1052"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection of Data Exfiltration via Removable Media (`DET0123`)  
 Platforms: Linux, Windows, macOS  
@@ -292,10 +338,14 @@ ATT&CK: [T1052](https://attack.mitre.org/techniques/T1052/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (Volume Mount + File Read)`; `macos:osquery (file_events)`; `fs:fsusage (file system activity monitor)`
   - *Tune:* `VolumeNamePattern`: Detect suspicious or unrecognized drive labels (e.g., UNTITLED, BACKUP_VOL).; `ProcessOrigin`: Detect CLI-based copy operations vs. expected GUI usage.; `UserSessionCheck`: Alert if process and session context are mismatched (e.g., script from screensaver context).
 
+</details>
+
 ---
 
 ### T1052.001: Exfiltration over USB
 <a id="t1052001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection of USB-Based Data Exfiltration (`DET0220`)  
 Platforms: Linux, Windows, macOS  
@@ -314,10 +364,14 @@ ATT&CK: [T1052.001](https://attack.mitre.org/techniques/T1052/001/), [detail pag
   - *Log sources:* `macos:unifiedlog (Volume Mount + Process Trace + File Read)`; `fs:fsusage (Disk Activity Tracing)`; `macos:osquery (process_events)`
   - *Tune:* `DriveLabelFilter`: Flag removable volumes with suspicious or default names (e.g., NO NAME, BACKUP_01).; `ScriptExecutionContext`: Watch for shell or AppleScript execution tied to USB copy.; `VolumeMountFrequency`: Detect repeated or abnormal device mounts during work hours.
 
+</details>
+
 ---
 
 ### T1537: Transfer Data to Cloud Account
 <a id="t1537"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Cross-Platform Detection of Data Transfer to Cloud Account (`DET0573`)  
 Platforms: IaaS, Office Suite, SaaS  
@@ -336,10 +390,14 @@ ATT&CK: [T1537](https://attack.mitre.org/techniques/T1537/), [detail page](/tech
   - *Log sources:* `saas:googledrive (drive.permission.add)`; `saas:box (collaboration.invite)`
   - *Tune:* `UserContext`: Whether the user is in a high-privileged or VIP group; `DomainReputationList`: Allowlist or blocklist of external SaaS domains; `PayloadVolumeThreshold`: Size or number of shared files triggering alert
 
+</details>
+
 ---
 
 ### T1567: Exfiltration Over Web Service
 <a id="t1567"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection Strategy for Exfiltration Over Web Service (`DET0548`)  
 Platforms: ESXi, Linux, SaaS, Windows, macOS  
@@ -366,10 +424,14 @@ ATT&CK: [T1567](https://attack.mitre.org/techniques/T1567/), [detail page](/tech
   - *Log sources:* `esxi:vmkernel (network session initiation with external HTTPS services)`; `esxi:hostd (file copy or datastore upload via HTTPS)`
   - *Tune:* `DatastoreTransferThreshold`: Threshold for outbound transfers from ESXi datastores.
 
+</details>
+
 ---
 
 ### T1567.001: Exfiltration to Code Repository
 <a id="t1567001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Exfiltration to Code Repository (`DET0318`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -392,10 +454,14 @@ ATT&CK: [T1567.001](https://attack.mitre.org/techniques/T1567/001/), [detail pag
   - *Log sources:* `esxi:hostd (datastore file access)`; `esxi:vmkernel (HTTPS traffic to repository domains)`
   - *Tune:* `DatastoreTransferThreshold`: Amount of data moved from datastore to external services before raising alert.
 
+</details>
+
 ---
 
 ### T1567.002: Exfiltration to Cloud Storage
 <a id="t1567002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Exfiltration to Cloud Storage (`DET0570`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -418,10 +484,14 @@ ATT&CK: [T1567.002](https://attack.mitre.org/techniques/T1567/002/), [detail pag
   - *Log sources:* `esxi:hostd (datastore file access)`; `esxi:vmkernel (network flows to external cloud services)`
   - *Tune:* `DatastoreTransferThreshold`: Threshold for outbound data exfiltration from ESXi datastore files.; `ApprovedStorageServices`: Whitelist of sanctioned storage providers used by admins for backup operations.
 
+</details>
+
 ---
 
 ### T1567.003: Exfiltration to Text Storage Sites
 <a id="t1567003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Exfiltration to Text Storage Sites (`DET0284`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -444,10 +514,14 @@ ATT&CK: [T1567.003](https://attack.mitre.org/techniques/T1567/003/), [detail pag
   - *Log sources:* `esxi:hostd (datastore/log file access)`; `esxi:vmkernel (HTTPS POST connections to pastebin-like domains)`
   - *Tune:* `DatastoreExfilThreshold`: Threshold of bytes exfiltrated from ESXi datastore files.; `ApprovedDestinations`: Whitelist of domains approved for API communication to prevent false positives.
 
+</details>
+
 ---
 
 ### T1567.004: Exfiltration Over Webhook
 <a id="t1567004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection Strategy for Exfiltration Over Webhook (`DET0153`)  
 Platforms: ESXi, Linux, SaaS, Windows, macOS  
@@ -473,5 +547,7 @@ ATT&CK: [T1567.004](https://attack.mitre.org/techniques/T1567/004/), [detail pag
   Suspicious SaaS tenant activity involving webhook configurations pointing to external or untrusted domains. Defender perspective: repeated automated exports or suspicious webhook endpoint registrations.
   - *Log sources:* `m365:unified (Set-Mailbox, Add-InboxRule, RegisterWebhook)`; `saas:api (Webhook registrations or repeated POST activity)`
   - *Tune:* `WebhookRegistrations`: Monitor new webhook creation events in SaaS environments.; `ExternalDomains`: Flag webhooks pointing to domains not owned by the enterprise.
+
+</details>
 
 ---

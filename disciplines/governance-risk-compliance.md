@@ -2,6 +2,17 @@
 
 GRC is the backbone of every mature security program. Governance defines policies and accountability structures. Risk management identifies, assesses, and prioritizes threats to the business. Compliance maps those risks to regulatory and contractual obligations: NIST CSF, ISO 27001, SOC 2, HIPAA, PCI DSS, FedRAMP, and more. A GRC practitioner translates between the language of risk and the language of technical security controls, enabling the organization to make informed, documented decisions about acceptable risk.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | People entering GRC roles and practitioners building governance, risk, and compliance programs |
+| Level | Beginner to advanced |
+| Reading time | About 7 min (1,668 words at 230 words a minute) |
+| Last reviewed | 2026-10-01 (ATT&CK v19.2): regulatory references checked against live sources ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63)) |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [GRC Reference](/GRC_REFERENCE.md), the library's in-depth page on this subject.

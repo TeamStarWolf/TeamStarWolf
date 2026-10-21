@@ -4,6 +4,17 @@
 
 Data security is the set of technical and operational practices that ensure sensitive information is only accessible to authorized parties, remains unaltered by unauthorized processes, and is available when needed. As organizations migrate data to cloud platforms and third-party SaaS tools, the attack surface for data exposure has grown dramatically: a single misconfigured S3 bucket or overly permissive database role can expose millions of records. Data security engineers build the controls that prevent, detect, and respond to data breaches: they classify what matters, encrypt what is sensitive, monitor who touches what, and automate the deletion of data that should no longer exist. The discipline sits at the intersection of cryptography, identity, cloud architecture, and regulatory compliance, making it central to nearly every security program.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Practitioners learning data classification, encryption, DLP, and data posture management |
+| Level | Beginner to advanced |
+| Reading time | About 12 min (2,737 words at 230 words a minute) |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Data Security Reference](/DATA_SECURITY_REFERENCE.md), the library's in-depth page on this subject.

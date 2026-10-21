@@ -6,10 +6,18 @@
 
 Machine-readable: [`data/weaknesses/capec.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/weaknesses/capec.jsonl). Related: [CWE Weaknesses](CWE_REFERENCE.md), [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Application security engineers, threat modelers, and vulnerability analysts |
+| Level | Intermediate |
+| Reading time | About 17 min (4,020 words at 230 words a minute) |
 | Read this when | you have a CWE weakness and need the attack patterns that exploit it, you need to pivot from an attack pattern to the ATT&CK techniques it maps to, you are triaging which high-severity patterns touch your stack |
 | Start at | [Attack patterns mapped to ATT&CK](#attack-patterns-mapped-to-attampck) for the direct CAPEC-to-ATT&CK bridge, [High-severity attack patterns](#high-severity-attack-patterns) for severity-first triage |
+| Last reviewed | 2026-10-13 (ATT&CK v19.2): revoked and deprecated ATT&CK citations re-keyed to their current IDs ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118)) |
+
+<!-- meta:end -->
 
 Abstraction: 77 Meta, 197 Standard, 341 Detailed.
 

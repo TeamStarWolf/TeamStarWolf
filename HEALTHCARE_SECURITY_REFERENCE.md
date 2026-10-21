@@ -2,11 +2,19 @@
 
 > In one minute: Healthcare is the highest-stakes, most-breached regulated sector; a compromise can stop cancer treatment, corrupt a lab result, or leak 190 million records at once. This is the defender's reference for the parts of the estate that are unlike anything in a normal enterprise: the clinical data protocols (HL7 v2 / FHIR / DICOM), the fleet of unpatchable, FDA-regulated connected devices (IoMT), and the standards and regulators (FDA Section 524B, IEC 62304/81001-5-1, AAMI SW96, the HIPAA Security Rule) that govern them. It leads with the sector threat profile, then works protocol-by-protocol and device-lifecycle stage-by-stage with concrete hardening. For the HIPAA breach-notification *clock* and the wider regulatory map see [REGULATORY_LANDSCAPE_REFERENCE.md](REGULATORY_LANDSCAPE_REFERENCE.md); for administrative HIPAA safeguards and audit prep see the GRC references.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Hospital security teams, biomedical and clinical engineering, and medical-device vendors |
+| Level | Intermediate |
+| Reading time | About 13 min (3,104 words at 230 words a minute) |
 | Read this when | segmenting a hospital network and its biomedical devices; scoping an IoMT/HTM security program; assessing a medical-device vendor or an FDA premarket submission; hardening an HL7 interface engine, a FHIR API, or a PACS; briefing clinical/biomed leadership on ransomware and patient-safety risk |
 | Start at | [Sector Threat Profile](#sector-threat-profile), [Clinical Data Protocols](#clinical-data-protocols-amp-their-security), [IoMT: Segmentation & Lifecycle](#iomt-medical-device-segmentation-amp-lifecycle), [FDA Cybersecurity Requirements](#fda-medical-device-cybersecurity-requirements) |
 | Pairs with | [REGULATORY_LANDSCAPE_REFERENCE.md](REGULATORY_LANDSCAPE_REFERENCE.md), [GRC_REFERENCE.md](GRC_REFERENCE.md), [GRC_COMPLIANCE_REFERENCE.md](GRC_COMPLIANCE_REFERENCE.md), [ICS_OT_SECURITY_REFERENCE.md](ICS_OT_SECURITY_REFERENCE.md), [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md), [EMB3D_REFERENCE.md](EMB3D_REFERENCE.md), [ZERO_TRUST_REFERENCE.md](ZERO_TRUST_REFERENCE.md), [RANSOMWARE_DEFENSE_REFERENCE.md](RANSOMWARE_DEFENSE_REFERENCE.md) |
+| Last reviewed | 2026-09-29 (ATT&CK v19.2): written and checked against live sources ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68)) |
+
+<!-- meta:end -->
 
 > Not legal advice. This is a defender's operational reference, not legal or regulatory counsel. HIPAA obligations, FDA requirements, and standards conformance turn on facts and definitions that change; confirm current text and your specific obligations with qualified counsel and your regulatory-affairs team. Time-sensitive facts are marked with a source and were verified 2026-09-29.
 

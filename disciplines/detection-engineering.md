@@ -4,6 +4,17 @@ Detection engineering is the practice of building, testing, validating, and main
 
 Good detection programs are hypothesis-driven, not signature-collection exercises. The goal is behavioral coverage of adversary TTPs mapped to the threats most relevant to your organization, not maximizing alert volume. The Pyramid of Pain illustrates this: IOC-based detections (hashes, IPs, domains) are trivially bypassed by adversaries, while TTP-based detections (process injection, LOLBAS abuse, credential dumping behaviors) remain durable even when tooling changes. Every detection should have a documented data source requirement, a validation test, and a clear suppression policy. This engineering rigor separates mature detection programs from collections of vendor-default rules that fire constantly and get ignored.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | SOC analysts and engineers moving into detection engineering |
+| Level | Beginner to advanced |
+| Reading time | About 11 min (2,471 words at 230 words a minute) |
+| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#83](https://github.com/TeamStarWolf/TeamStarWolf/pull/83)) |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md), the library's in-depth page on this subject.

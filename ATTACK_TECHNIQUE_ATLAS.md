@@ -10,10 +10,18 @@ Want the full write-up per technique? Browse the [Technique Detail Pages](techni
 
 Related: [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Matrix Analysis](ATTACK_MATRIX_ANALYSIS_REFERENCE.md), [Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md), [Threat Group Profiles](THREAT_GROUP_PROFILES.md), [ATT&CK Mitigations](ATTACK_MITIGATIONS_REFERENCE.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Detection engineers, threat-informed defense analysts, and anyone looking up an ATT&CK technique |
+| Level | Intermediate |
+| Reading time | About 51 min (11,649 words at 230 words a minute) |
 | Read this when | you need to look up any ATT&CK technique fast, you want to see which techniques are heavily used by groups but light on mitigations or detections, you are prioritizing coverage across a whole tactic |
 | Start at | [Tactics](#tactics) for the per-tactic index, [Initial Access](#initial-access) or [Defense Evasion](#defense-evasion) to see the scoring columns in action |
+| Last reviewed | No review recorded yet |
+
+<!-- meta:end -->
 
 ## Tactics
 

@@ -2,11 +2,27 @@
 
 > Comprehensive reference for Governance, Risk & Compliance (GRC), covering foundational concepts, major frameworks, automation tooling, and practical implementation guidance.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | GRC analysts, compliance engineers, and security program managers |
+| Level | Intermediate |
+| Reading time | About 32 min (7,436 words at 230 words a minute) |
 | Read this when | standing up or maturing a GRC program, preparing for an audit or certification (PCI DSS, HIPAA, SOC 2, ISO 27001), building a risk register, or automating compliance evidence and scanning |
 | Start at | [GRC Fundamentals](#_1-grc-fundamentals) for definitions and risk scoring, [Control Frameworks Comparison](#_17-control-frameworks-comparison) to pick a framework, [GRC Tools and Automation](#_10-grc-tools-and-automation) for tooling |
 | Pairs with | [GRC_REFERENCE.md](GRC_REFERENCE.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md), [VULNERABILITY_MANAGEMENT_REFERENCE.md](VULNERABILITY_MANAGEMENT_REFERENCE.md), [SECURITY_METRICS_REFERENCE.md](SECURITY_METRICS_REFERENCE.md) |
+| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+
+Which page should I read? This page is one of 3 on governance, risk, and compliance.
+
+| Page | Read it for |
+|---|---|
+| GRC Compliance Reference (this page) | Frameworks in depth, with compliance automation tooling such as OSCAL and ComplianceAsCode. |
+| [Frameworks Reference](/FRAMEWORKS.md) | A quick reference to each major framework: who publishes it, whether it is mandatory, who it applies to, and its structure. |
+| [GRC Reference](/GRC_REFERENCE.md) | Running the program: governance structure, risk quantification, compliance programs, third-party risk, and audits. |
+
+<!-- meta:end -->
 
 ---
 

@@ -2,11 +2,19 @@
 
 > The 51 intrusion campaigns tracked in MITRE ATT&CK Enterprise (v19.2): time-bounded sets of adversary activity with a shared objective. Each lists its active window, the techniques observed, the software used, and the threat group(s) it is attributed to. Pair with [Threat Group Profiles](THREAT_GROUP_PROFILES.md) and [Notable Incidents](NOTABLE_INCIDENTS.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Threat intelligence analysts and incident responders |
+| Level | Intermediate |
+| Reading time | About 29 min (6,783 words at 230 words a minute) |
 | Read this when | You need the technique set or timeline of a named intrusion campaign, you are checking whether activity you are investigating matches a tracked campaign, you want the campaigns attributed to a specific group |
 | Start at | [All campaigns](#all-campaigns) for the sortable index, [Detailed profiles](#detailed-profiles) for per-campaign technique lists |
 | Pairs with | [Threat Group Profiles](THREAT_GROUP_PROFILES.md), [Notable Incidents](NOTABLE_INCIDENTS.md) |
+| Last reviewed | 2026-10-13 (ATT&CK v19.2): revoked and deprecated ATT&CK citations re-keyed to their current IDs ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118)) |
+
+<!-- meta:end -->
 
 Machine-readable: [`data/attack/campaigns.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/campaigns.jsonl)
 

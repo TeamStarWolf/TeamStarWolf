@@ -2,6 +2,17 @@
 
 Security Operations is the continuous practice of monitoring, detecting, analyzing, and responding to cybersecurity threats across an organization's environment. It is carried out by Security Operations Centers (SOCs) staffed by analysts working in tiered roles, from alert triage through advanced threat hunting and incident response. The discipline matters because prevention alone fails: sophisticated adversaries get through defenses, and the difference between a contained incident and a breach is how quickly the SOC detects, understands, and neutralizes the threat. SOC practitioners work with SIEM platforms, SOAR orchestration, endpoint telemetry, network logs, and threat intelligence feeds. The offensive perspective is equally critical: defenders must understand SOC evasion techniques (log flooding, timestomping, LOLBAS abuse, and living-off-the-land binaries) because adversaries specifically craft tradecraft to blind detection tooling. A mature SOC is built on the principle that attackers and defenders use the same tools; knowing how attackers evade detection is what makes detections resilient.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Aspiring and working SOC analysts and security operations staff |
+| Level | Beginner to advanced |
+| Reading time | About 11 min (2,474 words at 230 words a minute) |
+| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+
+<!-- meta:end -->
+
 ---
 
 ## Where to Start

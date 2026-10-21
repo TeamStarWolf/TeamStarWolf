@@ -4,6 +4,17 @@ Physical security is the discipline of protecting physical assets, facilities, p
 
 Physical security underpins every other security domain. Strong network segmentation means nothing if an attacker can unplug a server, and encryption is irrelevant if a drive can be physically removed. Understanding physical security is essential for penetration testers, red teamers, facility managers, and enterprise security architects alike.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Practitioners learning physical security assessment and physical penetration testing |
+| Level | Beginner to advanced |
+| Reading time | About 9 min (2,182 words at 230 words a minute) |
+| Last reviewed | 2026-09-27 (ATT&CK v19.2): tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51)) |
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Physical Security Reference](/PHYSICAL_SECURITY_REFERENCE.md), the library's in-depth page on this subject.

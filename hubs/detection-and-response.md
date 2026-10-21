@@ -10,8 +10,8 @@ Part of the [domain hubs](/hubs/README.md). 24 reference documents in this domai
 
 | Reference | What it covers | Reading time |
 |---|---|---|
-| [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md) | Sigma, YARA, and Suricata rule writing with examples and conversion to Splunk, Elastic, and Sentinel | 12 min |
-| [SIEM Reference](/SIEM_REFERENCE.md) | Splunk ES/SPL, Microsoft Sentinel/KQL, IBM QRadar/AQL, Elastic SIEM, log normalization, detection engineering, SOC operations, threat hunting | 15 min |
+| [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md) | Sigma, YARA, and Suricata rule writing with examples and conversion to Splunk, Elastic, and Sentinel | 11 min |
+| [SIEM Reference](/SIEM_REFERENCE.md) | Splunk ES/SPL, Microsoft Sentinel/KQL, IBM QRadar/AQL, Elastic SIEM, log normalization, detection engineering, SOC operations, threat hunting | 14 min |
 | [SIEM Detection Content](/SIEM_DETECTION_CONTENT.md) | Official detection rules from Sigma, Elastic, Splunk ESCU, Microsoft Sentinel, MITRE ATT&CK mitigations, CIS Controls, and DISA STIGs | 6 min |
 | [Security Data Engineering Reference](/SECURITY_DATA_ENGINEERING_REFERENCE.md) | OCSF/ECS/CIM/ASIM normalization schemas, log pipeline architecture, security data lakes, cost-driven routing, schema-on-read vs schema-on-write, telemetry quality, retention design, ATT&CK data-component mapping | 32 min |
 | [SOAR Automation Reference](/SOAR_AUTOMATION_REFERENCE.md) | SOAR platforms, playbook design, Splunk SOAR/Phantom, XSOAR, Sentinel, QRadar SOAR, phishing/malware triage, threat intel automation, IR playbooks, metrics | 21 min |
@@ -30,15 +30,15 @@ Part of the [domain hubs](/hubs/README.md). 24 reference documents in this domai
 
 | Reference | What it covers | Reading time |
 |---|---|---|
-| [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md) | NIST/SANS IR frameworks, live response commands, Velociraptor/KAPE, ransomware playbook, BEC response, AD compromise | 25 min |
+| [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md) | NIST/SANS IR frameworks, live response commands, Velociraptor/KAPE, ransomware playbook, BEC response, AD compromise | 24 min |
 | [IR Playbooks](/IR_PLAYBOOKS.md) | Step-by-step response procedures for ransomware, BEC, data exfiltration, DDoS, cloud incidents, and more | 15 min |
 | [Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md) | CISA #StopRansomware program, NIST IR 8374r1, RaaS/IAB ecosystem literacy, 3-2-1 immutable backups and restore testing, OFAC payment policy, tabletops, resilience metrics | 21 min |
 | [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md) | NIST SP 800-34 contingency planning, BIA and RTO/RPO/MTD, cyber-broken DR assumptions, ISO 22301, SP 800-160v2 resiliency engineering, AD forest recovery, testing tiers, resilience metrics | 24 min |
 | [Digital Forensics Reference](/DIGITAL_FORENSICS_REFERENCE.md) | Order of volatility, chain of custody, disk acquisition, Windows/Linux artifacts, Volatility 3 memory forensics, and log analysis | 28 min |
-| [Network Forensics Reference](/NETWORK_FORENSICS_REFERENCE.md) | Packet capture, protocol analysis, NetFlow, encrypted traffic analysis, cloud forensics, incident reconstruction | 16 min |
+| [Network Forensics Reference](/NETWORK_FORENSICS_REFERENCE.md) | Packet capture, protocol analysis, NetFlow, encrypted traffic analysis, cloud forensics, incident reconstruction | 15 min |
 | [Cloud, SaaS & Mobile Forensics](/CLOUD_SAAS_MOBILE_FORENSICS_REFERENCE.md) | CloudTrail/GuardDuty/EBS-snapshot acquisition, M365 UAL & Graph, Google Workspace logs, SaaS logs, iLEAPP/ALEAPP-class mobile workflows | 11 min |
 | [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md) | Static/dynamic analysis, PE structure, process injection, YARA rules, ransomware, memory forensics, Volatility 3 | 9 min |
-| [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md) | Ghidra/IDA/Binary Ninja, dynamic analysis, anti-analysis techniques, firmware RE, malware-focused RE workflow | 32 min |
+| [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md) | Ghidra/IDA/Binary Ninja, dynamic analysis, anti-analysis techniques, firmware RE, malware-focused RE workflow | 31 min |
 
 ## Learning paths
 

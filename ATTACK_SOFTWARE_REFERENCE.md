@@ -4,11 +4,19 @@
 
 > The 784 software entries in MITRE ATT&CK Enterprise (v19.2), 693 malware families and 91 tools, that adversaries use to carry out techniques. Each entry lists the number of ATT&CK techniques it implements and the threat groups known to use it. Pair with [Threat Group Profiles](THREAT_GROUP_PROFILES.md), the [Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md), and [Malware Families](MALWARE_FAMILIES.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
 | | |
 |---|---|
+| Who this is for | Threat intelligence analysts, malware analysts, and detection engineers |
+| Level | Intermediate |
+| Reading time | About 46 min (10,579 words at 230 words a minute) |
 | Read this when | you need to identify what a named malware or tool can do, you are scoping detections around the software a threat group deploys, you want the most technique-rich software to prioritize coverage against |
 | Start at | [All software by technique breadth](#all-software-by-technique-breadth), [Detailed profiles - most capable software](#detailed-profiles-most-capable-software) |
 | Pairs with | [Threat Group Profiles](THREAT_GROUP_PROFILES.md), [Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md), [Malware Families](MALWARE_FAMILIES.md) |
+| Last reviewed | 2026-10-13 (ATT&CK v19.2): revoked and deprecated ATT&CK citations re-keyed to their current IDs ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118)) |
+
+<!-- meta:end -->
 
 Machine-readable: [`data/attack/software.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/software.jsonl), [`data/attack/software_to_technique.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/software_to_technique.jsonl)
 

@@ -14,6 +14,27 @@
 | You want a go/no-go checklist before production | [Maturity & checklist](#maturity-amp-checklist) |
 | You inherited a mess and want to name the smells | [Anti-patterns & pitfalls](#anti-patterns-amp-pitfalls) |
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+| | |
+|---|---|
+| Who this is for | Cloud architects, platform engineers, and security reviewers of cloud designs |
+| Level | Intermediate |
+| Reading time | About 20 min (4,665 words at 230 words a minute) |
+| Last reviewed | No review recorded yet |
+
+Which page should I read? This page is one of 5 on cloud security.
+
+| Page | Read it for |
+|---|---|
+| Cloud Architecture Reference (this page) | Designing cloud systems: landing zones, hub-and-spoke networking, and architecture decisions with their trade-offs. |
+| [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md) | Controls and their configuration across AWS, Azure, and GCP, plus privilege-escalation paths and cloud attack tools. |
+| [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md) | Attacker techniques per cloud and for Kubernetes, aligned to ATT&CK, for building detections and running incident response. |
+| [Cloud Security Benchmark](/CLOUD_SECURITY_BENCHMARK.md) | CIS Benchmark hardening checks with fix commands, audit scripts, and CSPM tools. |
+| [Cloud Network Security](/CLOUD_NETWORK_SECURITY.md) | Network controls across the three clouds: VPC design, firewalls, WAF, private connectivity, DDoS protection, and flow logs. |
+
+<!-- meta:end -->
+
 ---
 
 ## 1. Principles & drivers

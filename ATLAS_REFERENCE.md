@@ -21,20 +21,48 @@ Related in this library: [AI Security Reference](AI_SECURITY_REFERENCE.md) (OWAS
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Security engineers, threat modelers, and red teams working on AI and ML systems |
-| Level | Intermediate |
-| Reading time | About 43 min (9,783 words at 230 words a minute) |
-| Read this when | You need to map an attack on an AI/ML system to a named technique ID, you are threat-modeling an LLM, RAG, or AI-agent deployment, you want the mitigations ATLAS pairs with a given AI attack technique |
-| Start at | [The ATLAS matrix](#the-atlas-matrix) for the 16-tactic overview, [Execution](#execution) for prompt injection and agent-tool techniques, [ATLAS mitigations](#atlas-mitigations) for the defensive side |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security engineers, threat modelers, and red teams working on AI and ML systems
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Length</th><td>
+
+Lookup page: 9,783 words, 84% in tables; look entries up from Start at or the search (about 43 min end to end at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need to map an attack on an AI/ML system to a named technique ID, you are threat-modeling an LLM, RAG, or AI-agent deployment, or you want the mitigations ATLAS pairs with a given AI attack technique
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[The ATLAS matrix](#the-atlas-matrix) for the 16-tactic overview, [Execution](#execution) for prompt injection and agent-tool techniques, [ATLAS mitigations](#atlas-mitigations) for the defensive side
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (matching learning path, last reviewed)</summary>
 
-| | |
-|---|---|
-| Matching learning path | [Adversarial AI Attacks](/disciplines/adversarial-ai-attacks.md) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Adversarial AI Attacks](/disciplines/adversarial-ai-attacks.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

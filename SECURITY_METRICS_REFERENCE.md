@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | CISOs, security program managers, and SOC and vulnerability management leads |
-| Level | Intermediate |
-| Reading time | About 38 min (8,822 words at 230 words a minute) |
-| Read this when | You are building or overhauling a metrics program, preparing a CISO/board report and need dollar framing and benchmarks, defining SLA targets or RAG thresholds for a specific domain (SOC, vuln, IAM, cloud) |
-| Start at | [S1: Security Metrics Fundamentals](#s1-security-metrics-fundamentals) for the KPI/KRI groundwork, [S4: Risk Quantification](#s4-risk-quantification) for FAIR and dollar estimates, [S10: Executive Reporting & Dashboard Design](#s10-executive-reporting-amp-dashboard-design) for board translation |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+CISOs, security program managers, and SOC and vulnerability management leads
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 38 min (8,822 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or overhauling a metrics program, you are preparing a CISO/board report and need dollar framing and benchmarks, or you are defining SLA targets or RAG thresholds for a specific domain (SOC, vuln, IAM, cloud)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[S1: Security Metrics Fundamentals](#s1-security-metrics-fundamentals) for the KPI/KRI groundwork, [S4: Risk Quantification](#s4-risk-quantification) for FAIR and dollar estimates, [S10: Executive Reporting & Dashboard Design](#s10-executive-reporting-amp-dashboard-design) for board translation
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [VULNERABILITY_MANAGEMENT_REFERENCE.md](VULNERABILITY_MANAGEMENT_REFERENCE.md), [VULNERABILITY_PRIORITIZATION_REFERENCE.md](VULNERABILITY_PRIORITIZATION_REFERENCE.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [SOAR_AUTOMATION_REFERENCE.md](SOAR_AUTOMATION_REFERENCE.md) |
-| Last corrected | 2026-09-29, Windows 10 end-of-support row, one Entra ID rename and the ATT&CK version in the footer updated ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md), [Vulnerability Prioritization Reference](VULNERABILITY_PRIORITIZATION_REFERENCE.md), [SIEM Reference](SIEM_REFERENCE.md), [SOAR Automation Reference](SOAR_AUTOMATION_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, Windows 10 end-of-support row, one Entra ID rename and the ATT&CK version in the footer updated ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

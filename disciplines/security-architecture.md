@@ -6,20 +6,48 @@ Good security architecture is not just about controls; it is about making securi
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Engineers moving into security architecture roles |
-| Level | Beginner to advanced |
-| Reading time | About 8 min (1,954 words at 230 words a minute) |
-| Read this when | Moving into security architecture, or learning defense in depth and common architecture patterns |
-| Start at | [Where to Start](#where-to-start), [Security Architecture Patterns](#security-architecture-patterns), [Free Training](#free-training) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Engineers moving into security architecture roles
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 8 min (1,954 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are moving into security architecture, or you are learning defense in depth and common architecture patterns
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [Security Architecture Patterns](#security-architecture-patterns), [Free Training](#free-training)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Last corrected | 2026-09-27, tactic of T1078 changed from Defense Evasion to Stealth, and of T1550 to Lateral Movement ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-27, tactic of T1078 changed from Defense Evasion to Stealth, and of T1550 to Lateral Movement ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

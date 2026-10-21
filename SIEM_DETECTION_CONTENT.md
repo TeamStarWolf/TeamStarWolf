@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Detection engineers and SIEM administrators expanding detection coverage |
-| Level | Intermediate |
-| Reading time | About 6 min (1,390 words at 230 words a minute) |
-| Read this when | You are standing up or expanding detection coverage in a SIEM, you need a maintained rule for a specific technique before writing your own, you want to convert Sigma rules to your platform's query language |
-| Start at | [Sigma: Universal Detection Rule Format](#sigma-universal-detection-rule-format), [Splunk Security Content (ESCU)](#splunk-security-content-escu), [Authoritative Detection Content Sources Summary](#authoritative-detection-content-sources-summary) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Detection engineers and SIEM administrators expanding detection coverage
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,390 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are standing up or expanding detection coverage in a SIEM, you need a maintained rule for a specific technique before writing your own, or you want to convert Sigma rules to your platform's query language
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Sigma: Universal Detection Rule Format](#sigma-universal-detection-rule-format), [Splunk Security Content (ESCU)](#splunk-security-content-escu), [Authoritative Detection Content Sources Summary](#authoritative-detection-content-sources-summary)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [detections/strategies/README.md](detections/strategies/README.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [detections/TECHNIQUE_DETECTION_LIBRARY.md](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
-| Last corrected | 2026-09-29, Chronicle heading renamed Google Security Operations ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[SIEM Reference](SIEM_REFERENCE.md), [ATT&CK Detection Strategies](detections/strategies/README.md), [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, Chronicle heading renamed Google Security Operations ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

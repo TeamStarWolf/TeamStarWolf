@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Network and security architects, and engineers designing segmentation and access control |
-| Level | Intermediate |
-| Reading time | About 15 min (3,563 words at 230 words a minute) |
-| Read this when | Designing or reviewing network segmentation and firewall policy, deploying IDS/IPS or 802.1X/NAC, hardening VPNs or planning DDoS protection |
-| Start at | [Defense-in-Depth Network Architecture](#defense-in-depth-network-architecture), [Network Segmentation Implementation](#network-segmentation-implementation), [Architecture Evaluation Checklist](#architecture-evaluation-checklist) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Network and security architects, and engineers designing segmentation and access control
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 15 min (3,563 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are designing or reviewing network segmentation and firewall policy, you are deploying IDS/IPS or 802.1X/NAC, or you are hardening VPNs or planning DDoS protection
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Defense-in-Depth Network Architecture](#defense-in-depth-network-architecture), [Network Segmentation Implementation](#network-segmentation-implementation), [Architecture Evaluation Checklist](#architecture-evaluation-checklist)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [NETWORK_DEFENSE_REFERENCE.md](NETWORK_DEFENSE_REFERENCE.md), [NETWORK_MONITORING_REFERENCE.md](NETWORK_MONITORING_REFERENCE.md), [ZERO_TRUST_REFERENCE.md](ZERO_TRUST_REFERENCE.md), [CLOUD_NETWORK_SECURITY.md](CLOUD_NETWORK_SECURITY.md) |
-| Last corrected | 2026-09-29, ATT&CK version in the footer updated from v15 to v19.2 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Network Defense Reference](NETWORK_DEFENSE_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md), [Zero Trust Reference](ZERO_TRUST_REFERENCE.md), [Cloud Network Security](CLOUD_NETWORK_SECURITY.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, ATT&CK version in the footer updated from v15 to v19.2 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

@@ -2,20 +2,48 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Security engineers, detection engineers, and threat modelers responsible for platforms that run autonomous AI agents |
-| Level | Intermediate to advanced |
-| Reading time | About 16 min (3,652 words at 230 words a minute) |
-| Read this when | Threat-modeling a platform where many autonomous AI agents share credentials and infrastructure, or mapping agent-driven intrusion activity to ATT&CK and ATLAS |
-| Start at | [Overview](#overview), [The Kill Chain](#the-kill-chain), [Detection Opportunities](#detection-opportunities) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security engineers, detection engineers, and threat modelers responsible for platforms that run autonomous AI agents
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 16 min (3,652 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are threat-modeling a platform where many autonomous AI agents share credentials and infrastructure, or you are mapping agent-driven intrusion activity to ATT&CK and ATLAS
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Overview](#overview), [The Kill Chain](#the-kill-chain), [Detection Opportunities](#detection-opportunities)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Last corrected | 2026-10-12, revoked T1562.001 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1562.001 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

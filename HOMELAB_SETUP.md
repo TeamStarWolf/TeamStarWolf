@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Learners and practitioners building a personal security lab |
-| Level | Beginner to intermediate |
-| Reading time | About 27 min (6,252 words at 230 words a minute) |
-| Read this when | You are setting up your first lab from scratch, you need to choose a hypervisor or size hardware, or you want a ready-made vulnerable AD/cloud target to attack and detect |
-| Start at | [Suggested Progression](#suggested-progression), [Hardware Options](#_1-hardware-options), [Hypervisor Options](#_2-hypervisor-options) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Learners and practitioners building a personal security lab
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 27 min (6,252 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are setting up your first lab from scratch, you need to choose a hypervisor or size hardware, or you want a ready-made vulnerable AD/cloud target to attack and detect
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Suggested Progression](#suggested-progression), [Hardware Options](#_1-hardware-options), [Hypervisor Options](#_2-hypervisor-options)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [LABS.md](LABS.md), [ACTIVE_DIRECTORY_ATTACKS.md](ACTIVE_DIRECTORY_ATTACKS.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [CLOUD_ATTACK_REFERENCE.md](CLOUD_ATTACK_REFERENCE.md) |
-| Last corrected | 2026-10-13, Azure free-tier limits, the budget command and Sentinel licensing corrected ([#120](https://github.com/TeamStarWolf/TeamStarWolf/pull/120)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Hands-On Labs](LABS.md), [Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-13, Azure free-tier limits, the budget command and Sentinel licensing corrected ([#120](https://github.com/TeamStarWolf/TeamStarWolf/pull/120))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

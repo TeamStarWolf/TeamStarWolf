@@ -15,6 +15,7 @@ Links: every in-repo link is root-absolute (/X.md). The site is docsify with rel
 false, which routes every Markdown link from the site root, so a '../X.md' link escapes it and
 404s (scripts/check_docsify_links.py); GitHub resolves '/X.md' from the repository root too.
 Each technique's body is folded into a <details> element under its visible heading.
+Every page ends with the MITRE notice for reproduced ATT&CK content (docs/VOICE.md).
 Run from the repo root: python scripts/generate_technique_detail_pages.py
 CI drift gate:          python scripts/generate_technique_detail_pages.py --check
   (renders into a temporary directory, writes nothing in the repo, and exits 1 if a
@@ -99,6 +100,24 @@ an_by_id = {r["analytic_id"]: r for r in load("analytics.jsonl")}
 # the fold format scripts/build_doc_meta.py writes, so reading times leave the summary out.
 FOLD_OPEN = '<details class="tsw-fold"><summary>{}</summary>'
 FOLD_CLOSE = "</details>"
+
+# Every page reproduces ATT&CK text (names, descriptions, mitigations, detection
+# strategies), so each ends with the notice docs/VOICE.md and THIRD_PARTY_NOTICES.md give
+# for reproduced ATT&CK content.
+ATTACK_NOTICE = ("*\N{COPYRIGHT SIGN} 2026 The MITRE Corporation. This work is reproduced and distributed with "
+                 "the permission of The MITRE Corporation. License: [ATT&CK Terms of Use]"
+                 "(https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). "
+                 "ATT&CK\N{REGISTERED SIGN} and MITRE ATT&CK\N{REGISTERED SIGN} are registered trademarks of "
+                 "The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*")
+
+
+def with_notice(lines):
+    """The page's lines with the ATT&CK notice last, after a rule."""
+    while lines and not lines[-1].strip():
+        lines = lines[:-1]
+    if lines and lines[-1].strip() != "---":
+        lines = lines + ["", "---"]
+    return lines + ["", ATTACK_NOTICE, ""]
 
 
 def count(n, noun, plural=None):
@@ -193,7 +212,7 @@ def render_tech_tactic(slug):
            "[all techniques index](/techniques/README.md).", "", "---", ""]
     for t in ts:
         out.append(tech_block(t))
-    return "\n".join(out)
+    return "\n".join(with_notice("\n".join(out).split("\n")))
 
 
 def render_tech_readme():
@@ -211,8 +230,7 @@ def render_tech_readme():
         s = primary[t]
         out.append("| `" + t + "` | " + prof[t]["name"] + " | [" + TAC_NAME[s] + "](/techniques/" + s +
                    ".md#" + anchor(t) + ") |")
-    out.append("")
-    return "\n".join(out)
+    return "\n".join(with_notice(out))
 
 
 # ---------------------------------------------------------------- detection-strategy pages
@@ -277,7 +295,7 @@ def render_det_tactic(slug):
            "[Technique Detail Pages](/techniques/README.md)", "", "---", ""]
     for t in ts:
         out.append(det_block(t))
-    return "\n".join(out)
+    return "\n".join(with_notice("\n".join(out).split("\n")))
 
 
 def render_det_readme():
@@ -289,8 +307,8 @@ def render_det_readme():
            ") — the authoritative, MITRE-authored guidance for detecting each technique, with concrete log "
            "sources, channels, detection logic, and tunable parameters. Complements the "
            "[ready-to-run Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md).", "",
-           "**By tactic:** " + navs, ""]
-    return "\n".join(out)
+           "**By tactic:** " + navs]
+    return "\n".join(with_notice(out))
 
 
 TREES = ("techniques", "detections/strategies")

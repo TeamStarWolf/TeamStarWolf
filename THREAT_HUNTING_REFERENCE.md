@@ -4,22 +4,58 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Threat hunters and detection engineers |
-| Level | Intermediate |
-| Reading time | About 12 min (2,646 words at 230 words a minute) |
-| Read this when | You are planning or running a hypothesis-driven hunt, you need a ready KQL/SPL query for a technique like LSASS access or Kerberoasting, or you are turning a hunt finding into a Sigma or YARA rule |
-| Start at | [Threat Hunting Fundamentals](#_1-threat-hunting-fundamentals), [ATT&CK-Aligned Hunting Playbooks](#_6-attampck-aligned-hunting-playbooks), [Hunt Tracking and Reporting](#_10-hunt-tracking-and-reporting) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Threat hunters and detection engineers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 12 min (2,646 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are planning or running a hypothesis-driven hunt, you need a ready KQL/SPL query for a technique like LSASS access or Kerberoasting, or you are turning a hunt finding into a Sigma or YARA rule
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Threat Hunting Fundamentals](#_1-threat-hunting-fundamentals), [ATT&CK-Aligned Hunting Playbooks](#_6-attampck-aligned-hunting-playbooks), [Hunt Tracking and Reporting](#_10-hunt-tracking-and-reporting)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md), [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md), [Threat Group Profiles](THREAT_GROUP_PROFILES.md) |
-| Matching learning path | [Threat Hunting](/disciplines/threat-hunting.md) |
-| Last corrected | 2026-10-13, ATT&CK version pin and name of an example Navigator layer updated ([#120](https://github.com/TeamStarWolf/TeamStarWolf/pull/120), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md), [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md), [Threat Group Profiles](THREAT_GROUP_PROFILES.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Threat Hunting](/disciplines/threat-hunting.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-13, ATT&CK version pin and name of an example Navigator layer updated ([#120](https://github.com/TeamStarWolf/TeamStarWolf/pull/120), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

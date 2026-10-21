@@ -8,19 +8,43 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md), [Thre
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Mobile security engineers and threat intelligence analysts |
-| Level | Intermediate |
-| Reading time | About 7 min (1,575 words at 230 words a minute) |
-| Read this when | Assessing Android/iOS threat coverage, mapping a mobile malware finding to ATT&CK, checking which mitigations address a mobile technique |
-| Start at | [Tactics](#tactics) for the 12-tactic index, [Initial Access](#initial-access) for how devices get compromised, [Collection](#collection) for what spyware harvests |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Mobile security engineers and threat intelligence analysts
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Length</th><td>
+
+Lookup page: 1,575 words, 88% in tables; look entries up from Start at or the search (about 7 min end to end at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are assessing Android/iOS threat coverage, you are mapping a mobile malware finding to ATT&CK, or you are checking which mitigations address a mobile technique
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Tactics](#tactics) for the 12-tactic index, [Initial Access](#initial-access) for how devices get compromised, [Collection](#collection) for what spyware harvests
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
 
-| | |
-|---|---|
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

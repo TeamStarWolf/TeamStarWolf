@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Endpoint security engineers, SOC analysts, and threat hunters |
-| Level | Intermediate |
-| Reading time | About 9 min (2,014 words at 230 words a minute) |
-| Read this when | You are configuring or hardening Defender/CrowdStrike/SentinelOne, deploying Sysmon or Windows audit policy, or hunting for LSASS access, LOLBin abuse, or persistence on hosts |
-| Start at | [Endpoint Security Architecture](#_1-endpoint-security-architecture), [Sysmon deployment](#_5-sysmon-windows-system-monitor), [Endpoint Hardening Checklist](#_8-endpoint-hardening-checklist) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Endpoint security engineers, SOC analysts, and threat hunters
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (2,014 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are configuring or hardening Defender/CrowdStrike/SentinelOne, you are deploying Sysmon or Windows audit policy, or you are hunting for LSASS access, LOLBin abuse, or persistence on hosts
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Endpoint Security Architecture](#_1-endpoint-security-architecture), [Sysmon deployment](#_5-sysmon-windows-system-monitor), [Endpoint Hardening Checklist](#_8-endpoint-hardening-checklist)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [LOTL_DETECTION_REFERENCE.md](LOTL_DETECTION_REFERENCE.md), [VENDOR_PREVENTION_POLICIES.md](VENDOR_PREVENTION_POLICIES.md) |
-| Last corrected | 2026-10-12, revoked T1562.004 re-keyed to T1686 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[SIEM Detection Content](SIEM_DETECTION_CONTENT.md), [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md), [LOTL Detection Reference](LOTL_DETECTION_REFERENCE.md), [Vendor Prevention Policies](VENDOR_PREVENTION_POLICIES.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1562.004 re-keyed to T1686 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

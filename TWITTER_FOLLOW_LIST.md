@@ -4,19 +4,43 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Practitioners building a focused security reading feed |
-| Level | Beginner |
-| Reading time | About 7 min (1,671 words at 230 words a minute) |
-| Read this when | You are building or pruning a security-focused feed, you want high-signal accounts for a specific specialty like DFIR or bug bounty, you need to know who publishes on a topic you are ramping up on |
-| Start at | [How To Use This File](#how-to-use-this-file), [Category Index](#category-index), [Enriched Reference Tables](#enriched-reference-tables) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Practitioners building a focused security reading feed
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,671 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or pruning a security-focused feed, you want high-signal accounts for a specific specialty like DFIR or bug bounty, or you need to know who publishes on a topic you are ramping up on
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[How To Use This File](#how-to-use-this-file), [Category Index](#category-index), [Enriched Reference Tables](#enriched-reference-tables)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
 
-| | |
-|---|---|
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

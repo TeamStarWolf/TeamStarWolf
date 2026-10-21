@@ -16,19 +16,43 @@ Related: [Honeypot & Deception Reference](HONEYPOT_DECEPTION_REFERENCE.md), [Dec
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Deception program leads, threat hunters, and purple teams |
-| Level | Intermediate |
-| Reading time | About 9 min (2,039 words at 230 words a minute) |
-| Read this when | Planning a deception or adversary engagement operation, deciding which honeypot/lure activities cover the most ATT&CK techniques, picking a denial/deception response for a specific adversary technique |
-| Start at | [The Engage matrix](#the-engage-matrix), [Activities by ATT&CK coverage](#activities-by-attampck-coverage), [ATT&CK techniques with the most engagement options](#attampck-techniques-with-the-most-engagement-options) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Deception program leads, threat hunters, and purple teams
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Length</th><td>
+
+Lookup page: 2,039 words, 80% in tables; look entries up from Start at or the search (about 9 min end to end at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are planning a deception or adversary engagement operation, you are deciding which honeypot/lure activities cover the most ATT&CK techniques, or you are picking a denial/deception response for a specific adversary technique
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[The Engage matrix](#the-engage-matrix), [Activities by ATT&CK coverage](#activities-by-attampck-coverage), [ATT&CK techniques with the most engagement options](#attampck-techniques-with-the-most-engagement-options)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
 
-| | |
-|---|---|
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

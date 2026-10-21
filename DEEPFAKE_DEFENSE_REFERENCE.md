@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Finance, fraud, security awareness, and incident response teams |
-| Level | Beginner to intermediate |
-| Reading time | About 12 min (2,849 words at 230 words a minute) |
-| Read this when | Building controls so an impersonated executive cannot authorize a payment; a suspected voice/video deepfake just hit Finance, the SOC, or a KYC flow; writing a wire-transfer approval policy, an awareness module, or an IR runbook for BEC/vishing; evaluating deepfake-detection or liveness vendors |
-| Start at | [Anatomy of the finance-approval scam](#anatomy-of-the-finance-approval-video-call-scam), [Layer 1: Process & policy controls](#layer-1-process-amp-policy-controls-the-strongest-layer), [Deepfake-defense checklist](#deepfake-defense-checklist) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Finance, fraud, security awareness, and incident response teams
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 12 min (2,849 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building controls so an impersonated executive cannot authorize a payment; a suspected voice/video deepfake just hit Finance, the SOC, or a KYC flow; you are writing a wire-transfer approval policy, an awareness module, or an IR runbook for BEC/vishing; or you are evaluating deepfake-detection or liveness vendors
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Anatomy of the finance-approval scam](#anatomy-of-the-finance-approval-video-call-scam), [Layer 1: Process & policy controls](#layer-1-process-amp-policy-controls-the-strongest-layer), [Deepfake-defense checklist](#deepfake-defense-checklist)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, added, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [SOCIAL_ENGINEERING_REFERENCE.md](SOCIAL_ENGINEERING_REFERENCE.md), [FRAUD_FRAMEWORK_REFERENCE.md](FRAUD_FRAMEWORK_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [EMAIL_SECURITY_REFERENCE.md](EMAIL_SECURITY_REFERENCE.md), [IDENTITY_SECURITY_REFERENCE.md](IDENTITY_SECURITY_REFERENCE.md), [AI_SECURITY_REFERENCE.md](AI_SECURITY_REFERENCE.md) |
-| Added | 2026-09-29 ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md), [Fight Fraud Framework (MITRE F3)](FRAUD_FRAMEWORK_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md), [Email Security Reference](EMAIL_SECURITY_REFERENCE.md), [Identity Security Reference](IDENTITY_SECURITY_REFERENCE.md), [AI Security Reference](AI_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Added</th><td>
+
+2026-09-29 ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

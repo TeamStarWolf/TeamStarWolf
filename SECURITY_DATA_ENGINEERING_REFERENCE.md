@@ -8,20 +8,48 @@ Related: [ATT&CK Data Components & Log Sources](ATTACK_DATA_COMPONENTS.md), [SIE
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Detection engineers, SIEM and log pipeline engineers, and security data architects |
-| Level | Intermediate to advanced |
-| Reading time | About 32 min (7,283 words at 230 words a minute) |
-| Read this when | Onboarding a new log source, choosing or reconciling a normalization schema (OCSF/ECS/CIM/ASIM), cutting SIEM ingest cost without breaking detections, designing retention or investigating why a rule silently sees nothing |
-| Start at | [Scope & how to use this reference](#scope-amp-how-to-use-this-reference), [Why the data layer decides what you can detect](#why-the-data-layer-decides-what-you-can-detect), [Onboarding a new log source: the runbook](#onboarding-a-new-log-source-the-runbook) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Detection engineers, SIEM and log pipeline engineers, and security data architects
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 32 min (7,283 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are onboarding a new log source, you are choosing or reconciling a normalization schema (OCSF/ECS/CIM/ASIM), you are cutting SIEM ingest cost without breaking detections, or you are designing retention or investigating why a rule silently sees nothing
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Scope & how to use this reference](#scope-amp-how-to-use-this-reference), [Why the data layer decides what you can detect](#why-the-data-layer-decides-what-you-can-detect), [Onboarding a new log source: the runbook](#onboarding-a-new-log-source-the-runbook)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Last corrected | 2026-10-12, revoked T1562.001 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1562.001 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

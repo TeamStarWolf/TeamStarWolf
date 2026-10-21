@@ -6,19 +6,43 @@ Data security is the set of technical and operational practices that ensure sens
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Practitioners learning data classification, encryption, DLP, and data posture management |
-| Level | Beginner to advanced |
-| Reading time | About 12 min (2,737 words at 230 words a minute) |
-| Read this when | Finding out what data security engineers do, or working on classification, data loss prevention, encryption and access governance for data |
-| Start at | [Where to Start](#where-to-start), [Data Classification Reference](#data-classification-reference), [Free & Open-Source Tools](#free-amp-open-source-tools) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Practitioners learning data classification, encryption, DLP, and data posture management
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 12 min (2,737 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are finding out what data security engineers do, or you are working on classification, data loss prevention, encryption and access governance for data
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [Data Classification Reference](#data-classification-reference), [Free & Open-Source Tools](#free-amp-open-source-tools)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
 
-| | |
-|---|---|
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

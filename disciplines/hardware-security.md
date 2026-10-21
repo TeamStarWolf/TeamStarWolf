@@ -6,20 +6,48 @@ Hardware security addresses the lowest layers of the computing stack: firmware, 
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Practitioners learning firmware, secure boot, side-channel, and hardware attack and defense |
-| Level | Beginner to advanced |
-| Reading time | About 8 min (1,949 words at 230 words a minute) |
-| Read this when | Attacking a device through its debug interfaces, extracting firmware, or studying side channels, fault injection and TPMs |
-| Start at | [Where to Start](#where-to-start), [Offensive Techniques](#offensive-techniques), [Hardware Security Tools Reference](#hardware-security-tools-reference) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Practitioners learning firmware, secure boot, side-channel, and hardware attack and defense
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 8 min (1,949 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are attacking a device through its debug interfaces, you are extracting firmware, or you are studying side channels, fault injection and TPMs
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [Offensive Techniques](#offensive-techniques), [Hardware Security Tools Reference](#hardware-security-tools-reference)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Last corrected | 2026-09-27, tactic of T1542 and T1601 and their sub-techniques changed from Defense Evasion to Stealth ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-27, tactic of T1542 and T1601 and their sub-techniques changed from Defense Evasion to Stealth ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Threat intelligence analysts, SOC analysts, and security leaders who brief on adversaries |
-| Level | Beginner to intermediate |
-| Reading time | About 9 min (1,966 words at 230 words a minute) |
-| Read this when | An intel report or news story names an actor you need context on, you are building detections or emulation plans around a specific group's TTPs, you are briefing leadership on who targets your sector |
-| Start at | [Nation-State APTs](#nation-state-apts), [Ransomware Groups](#ransomware-groups), [Threat Intelligence Tools for Actor Tracking](#threat-intelligence-tools-for-actor-tracking) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Threat intelligence analysts, SOC analysts, and security leaders who brief on adversaries
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (1,966 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+An intel report or news story names an actor you need context on, you are building detections or emulation plans around a specific group's TTPs, or you are briefing leadership on who targets your sector
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Nation-State APTs](#nation-state-apts), [Ransomware Groups](#ransomware-groups), [Threat Intelligence Tools for Actor Tracking](#threat-intelligence-tools-for-actor-tracking)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [NOTABLE_INCIDENTS.md](NOTABLE_INCIDENTS.md), [MALWARE_FAMILIES.md](MALWARE_FAMILIES.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [IR_PLAYBOOKS.md](IR_PLAYBOOKS.md) |
-| Last corrected | 2026-09-29, TLP:WHITE row renamed TLP:CLEAR ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Notable Incidents](NOTABLE_INCIDENTS.md), [Malware Families](MALWARE_FAMILIES.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [IR Playbooks](IR_PLAYBOOKS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, TLP:WHITE row renamed TLP:CLEAR ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

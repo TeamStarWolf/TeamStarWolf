@@ -7,20 +7,48 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Penetration testers, detection engineers, and network defenders |
-| Level | Intermediate |
-| Reading time | About 22 min (5,002 words at 230 words a minute) |
-| Read this when | Researching how attackers abuse a specific protocol (DNS, HTTP, SMB, Kerberos, and others), finding the ATT&CK technique for protocol abuse, or writing a detection or defensive control for it |
-| Start at | [DNS (53 UDP/TCP)](#dns-53-udptcp), [HTTP/HTTPS (80/443)](#httphttps-80443), [SMB (445 TCP)](#smb-445-tcp) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Penetration testers, detection engineers, and network defenders
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 22 min (5,002 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are researching how attackers abuse a specific protocol (DNS, HTTP, SMB, Kerberos, and others), you are finding the ATT&CK technique for protocol abuse, or you are writing a detection or defensive control for it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[DNS (53 UDP/TCP)](#dns-53-udptcp), [HTTP/HTTPS (80/443)](#httphttps-80443), [SMB (445 TCP)](#smb-445-tcp)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Last corrected | 2026-09-29, Azure AD MFA renamed Microsoft Entra MFA; ATT&CK version in the footer updated to v19.2 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, Azure AD MFA renamed Microsoft Entra MFA; ATT&CK version in the footer updated to v19.2 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

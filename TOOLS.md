@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Practitioners shortlisting tools for a security function |
-| Level | Beginner to intermediate |
-| Reading time | About 14 min (3,263 words at 230 words a minute) |
-| Read this when | You need to shortlist tools for a security function, you are comparing open source vs commercial options in a category, you saw a tool name and want to know what it does |
-| Start at | [Endpoint & Detection](#endpoint-amp-detection), [Threat Intelligence](#threat-intelligence), [Offensive Security & Red Teaming](#offensive-security-amp-red-teaming) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Practitioners shortlisting tools for a security function
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Length</th><td>
+
+Lookup page: 3,263 words, 91% in tables; look entries up from Start at or the search (about 14 min end to end at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need to shortlist tools for a security function, you are comparing open source vs commercial options in a category, or you saw a tool name and want to know what it does
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Endpoint & Detection](#endpoint-amp-detection), [Threat Intelligence](#threat-intelligence), [Offensive Security & Red Teaming](#offensive-security-amp-red-teaming)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Controls Mapping](CONTROLS_MAPPING.md), [Hands-On Labs](LABS.md), [Starred Repositories](STARRED_REPOS.md) |
-| Last corrected | 2026-09-29, TheHive, CrackMapExec and SharpHound rows updated, with NetExec added as CrackMapExec's successor ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Controls Mapping](CONTROLS_MAPPING.md), [Hands-On Labs](LABS.md), [Starred Repositories](STARRED_REPOS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, TheHive, CrackMapExec and SharpHound rows updated, with NetExec added as CrackMapExec's successor ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

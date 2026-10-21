@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Linux administrators and security engineers hardening servers |
-| Level | Intermediate |
-| Reading time | About 7 min (1,583 words at 230 words a minute) |
-| Read this when | Building or auditing a Linux server against CIS/STIG baselines, locking down SSH/sudo/PAM before exposing a host, chasing an SELinux denial or standing up auditd/FIM monitoring |
-| Start at | [Hardening Fundamentals & CIS Benchmarks](#_1-linux-hardening-fundamentals-amp-cis-benchmarks), [User & Authentication Hardening](#_2-user-amp-authentication-hardening), [Hardening Verification Checklist](#_104-hardening-verification-checklist) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Linux administrators and security engineers hardening servers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,583 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or auditing a Linux server against CIS/STIG baselines, you are locking down SSH/sudo/PAM before exposing a host, or you are chasing an SELinux denial or standing up auditd/FIM monitoring
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Hardening Fundamentals & CIS Benchmarks](#_1-linux-hardening-fundamentals-amp-cis-benchmarks), [User & Authentication Hardening](#_2-user-amp-authentication-hardening), [Hardening Verification Checklist](#_104-hardening-verification-checklist)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [LINUX_HARDENING.md](LINUX_HARDENING.md), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md), [PRIVESC_REFERENCE.md](PRIVESC_REFERENCE.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md) |
-| Last corrected | 2026-09-29, CIS Ubuntu 22.04 benchmark version updated in one row ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Linux Hardening](LINUX_HARDENING.md), [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE.md), [Privilege Escalation Reference](PRIVESC_REFERENCE.md), [Controls Mapping](CONTROLS_MAPPING.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, CIS Ubuntu 22.04 benchmark version updated in one row ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

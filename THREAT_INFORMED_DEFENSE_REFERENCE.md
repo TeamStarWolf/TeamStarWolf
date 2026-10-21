@@ -8,20 +8,48 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Detection engineers, vulnerability managers, and security architects who prioritize with ATT&CK |
-| Level | Intermediate |
-| Reading time | About 7 min (1,589 words at 230 words a minute) |
-| Read this when | Turning a long CVE list into root-cause weakness groupings, deciding which detection or mitigation to build next for a technique, wiring ATT&CK to CWE/CAPEC/D3FEND/NIST controls |
-| Start at | [The ATT&CK-centric knowledge graph](#_1-the-attampck-centric-knowledge-graph), [The canonical chain](#the-canonical-chain), [Getting started](#_6-getting-started-recommended-order) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Detection engineers, vulnerability managers, and security architects who prioritize with ATT&CK
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,589 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are turning a long CVE list into root-cause weakness groupings, you are deciding which detection or mitigation to build next for a technique, or you are wiring ATT&CK to CWE/CAPEC/D3FEND/NIST controls
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[The ATT&CK-centric knowledge graph](#_1-the-attampck-centric-knowledge-graph), [The canonical chain](#the-canonical-chain), [Getting started](#_6-getting-started-recommended-order)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [ATT&CK Matrix Analysis](ATTACK_MATRIX_ANALYSIS_REFERENCE.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md), [Controls Mapping](CONTROLS_MAPPING.md), [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[ATT&CK Matrix Analysis](ATTACK_MATRIX_ANALYSIS_REFERENCE.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md), [Controls Mapping](CONTROLS_MAPPING.md), [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

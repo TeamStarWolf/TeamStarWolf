@@ -4,22 +4,58 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Security awareness and human risk program owners |
-| Level | Intermediate |
-| Reading time | About 11 min (2,539 words at 230 words a minute) |
-| Read this when | Standing up or overhauling a security-awareness/human-risk program, designing a defensible phishing-simulation cadence, choosing metrics that survive board scrutiny, mapping training obligations across NIST/ISO/PCI/HIPAA/NIS2/DORA, or briefing executives on why annual training alone does not move risk |
-| Start at | [Program Maturity Model](#program-maturity-model), [Phishing Simulation: Methodology, Metrics & Ethics](#phishing-simulation-methodology-metrics-amp-ethics), [Measuring Human Risk](#measuring-human-risk) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security awareness and human risk program owners
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,539 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are standing up or overhauling a security-awareness/human-risk program, you are designing a defensible phishing-simulation cadence, you are choosing metrics that survive board scrutiny, you are mapping training obligations across NIST/ISO/PCI/HIPAA/NIS2/DORA, or you are briefing executives on why annual training alone does not move risk
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Program Maturity Model](#program-maturity-model), [Phishing Simulation: Methodology, Metrics & Ethics](#phishing-simulation-methodology-metrics-amp-ethics), [Measuring Human Risk](#measuring-human-risk)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [SOCIAL_ENGINEERING_REFERENCE.md](SOCIAL_ENGINEERING_REFERENCE.md), [EMAIL_SECURITY_REFERENCE.md](EMAIL_SECURITY_REFERENCE.md), [INSIDER_THREAT_REFERENCE.md](INSIDER_THREAT_REFERENCE.md), [SECURITY_METRICS_REFERENCE.md](SECURITY_METRICS_REFERENCE.md), [GRC_REFERENCE.md](GRC_REFERENCE.md) |
-| Matching learning path | [Security Awareness](/disciplines/security-awareness.md) |
-| Last corrected | 2026-10-12, revoked T1656 re-keyed to T1684.001 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md), [Email Security Reference](EMAIL_SECURITY_REFERENCE.md), [Insider Threat Program Reference](INSIDER_THREAT_REFERENCE.md), [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md), [GRC Reference](GRC_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Security Awareness](/disciplines/security-awareness.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1656 re-keyed to T1684.001 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

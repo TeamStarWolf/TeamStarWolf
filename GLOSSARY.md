@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Anyone reading this library who meets an unfamiliar term or acronym |
-| Level | Beginner |
-| Reading time | About 13 min (3,043 words at 230 words a minute) |
-| Read this when | You hit an acronym or term you don't recognize in another doc, you need a quick one-line definition to drop into a report, you want to check the difference between similar terms (IOC vs IOA, Golden vs Silver Ticket) |
-| Start at | [A](#a) to browse alphabetically, [Common Acronym Reference](#common-acronym-reference) for acronym expansions only, [Additional Terms](#additional-terms) for offensive and blue-team specialist terms |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Anyone reading this library who meets an unfamiliar term or acronym
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Length</th><td>
+
+Lookup page: 3,043 words, 94% in tables; look entries up from Start at or the search (about 13 min end to end at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You hit an acronym or term you don't recognize in another doc, you need a quick one-line definition to drop into a report, or you want to check the difference between similar terms (IOC vs IOA, Golden vs Silver Ticket)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[A](#a) to browse alphabetically, [Common Acronym Reference](#common-acronym-reference) for acronym expansions only, [Additional Terms](#additional-terms) for offensive and blue-team specialist terms
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [FRAMEWORKS.md](FRAMEWORKS.md) for framework comparisons, [TOOLS.md](TOOLS.md) for tool quick-reference, [SECURITY_PIPELINE.md](SECURITY_PIPELINE.md) for pipeline stages |
-| Last corrected | 2026-09-29, TLP entry updated to TLP 2.0 (TLP:CLEAR, TLP:AMBER+STRICT) ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Frameworks Reference](FRAMEWORKS.md) for framework comparisons, [Security Tools Reference](TOOLS.md) for tool quick-reference, [Enterprise Security Pipeline](SECURITY_PIPELINE.md) for pipeline stages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, TLP entry updated to TLP 2.0 (TLP:CLEAR, TLP:AMBER+STRICT) ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

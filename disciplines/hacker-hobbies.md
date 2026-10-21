@@ -4,19 +4,43 @@ Hacker culture extends far beyond professional security work. At its core, hacki
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Curious people exploring hacker culture: lock picking, radio, hardware, and conference villages |
-| Level | Beginner to advanced |
-| Reading time | About 18 min (4,074 words at 230 words a minute) |
-| Read this when | Looking for hobbies that build security skills (locksport, SDR, ham radio, badges, car hacking) or getting into hacker conferences and CTF culture |
-| Start at | [Locksport & Physical Bypass](#locksport-amp-physical-bypass), [Software Defined Radio (SDR)](#software-defined-radio-sdr), [DEF CON Villages Reference](#def-con-villages-reference) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Curious people exploring hacker culture: lock picking, radio, hardware, and conference villages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 18 min (4,074 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are looking for hobbies that build security skills (locksport, SDR, ham radio, badges, car hacking), or you are getting into hacker conferences and CTF culture
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Locksport & Physical Bypass](#locksport-amp-physical-bypass), [Software Defined Radio (SDR)](#software-defined-radio-sdr), [DEF CON Villages Reference](#def-con-villages-reference)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
 
-| | |
-|---|---|
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

@@ -2,29 +2,32 @@
 """Write the header card at the top of every root reference and learning path, and fold
 long appendices.
 
-The card is a two-column table between markers, written into the page itself so it reads
-the same on GitHub and on the site. The first table is what fits one screen; the rest sits
-in two closed <details> folds (on the site, the "More about this page" fold opens by itself
-on screens wider than 600 px):
+The card is a table of labelled rows between markers, written into the page itself so it
+reads the same on GitHub and on the site. Each label is a row header (<th scope="row">), so
+a screen reader reads "Level, Intermediate" and GitHub draws no empty header row; each value
+is a Markdown paragraph inside its cell, so its links work on both. The first table is what
+fits one screen; the rest sits in two closed <details> folds (on the site, the "More about
+this page" fold opens by itself on screens wider than 600 px):
 
     <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-    | | |
-    |---|---|
-    | Who this is for | ... |
-    | Level | ... |
-    | Reading time | About 13 min (2,963 words at 230 words a minute) |
-    | Read this when | ... |
-    | Start at | ... (at most 3 links) |
+    <table class="tsw-meta-card">
+    <tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+    ...
+
+    </td></tr>
+    ...                                    Level, then Reading time ("About 13 min (2,963
+                                           words at 230 words a minute)") or, on a lookup
+                                           page, Length; Read this when; Start at (at most
+                                           3 links)
+    </table>
 
     <details class="tsw-meta-more"><summary>More about this page (pairs with, ...)</summary>
 
-    | | |
-    |---|---|
-    | Pairs with | ... |
-    | Matching learning path | ... |
-    | Last corrected | 2026-10-12, what the edit changed on this page ([#PR](...), ATT&CK v19.2) |
-    | Last reviewed | No review recorded yet |
+    <table class="tsw-meta-card">          Pairs with, Matching learning path, Last
+    ...                                    corrected ("2026-10-12, what the edit changed
+    </table>                               on this page (#PR, ATT&CK v19.2)"), Last reviewed
 
     </details>
 
@@ -56,7 +59,10 @@ Where each part comes from:
                                 library here and any YAML tool reads it the same.
     the page                    the word count and reading time: the page's words
                                 (build_site_nav.word_count, the same count the domain hubs
-                                show) at 230 words a minute
+                                show) at 230 words a minute. A reference with more than
+                                three quarters of its words in table rows is a lookup page
+                                (a catalogue, a matrix, a glossary): its row is "Length"
+                                and says to find an entry rather than read it end to end
     git history                 the date the page's text last changed (commits that only
                                 touch script-written blocks, link targets or the card do
                                 not count). "Due for review" is added to the last-reviewed
@@ -84,7 +90,9 @@ Rules the --check run enforces (CI, validate-data.yml):
   * each committed card and fold matches what this script writes;
   * no "Read this when", "Start at" or "Pairs with" row outside the card (they live in
     doc_meta.yaml now);
-  * level is one of LEVELS, "Read this when" starts with a capital letter, "Start at"
+  * level is one of LEVELS, "Read this when" starts with a capital letter and every part of
+    it is a clause with its subject (no part opens with a bare "-ing" verb), no card link
+    text is a file name, "Start at"
     has at most 3 links, a correction or review id
     exists, a fold names a real heading, a learning path matches docs/crosslinks.json, a
     page sits in at most one cluster;
@@ -135,6 +143,7 @@ WHICH_OPEN = '<details class="tsw-meta-which"><summary>{}</summary>'
 CORRECTED_LABEL = "Last corrected"
 
 WPM = bsn.WPM
+LOOKUP_SHARE = bsn.LOOKUP_SHARE  # more than three quarters of the words in tables: a lookup page
 DUE_DAYS = 90
 FOLD_ROWS = 40                  # table rows in about two screens at 1440 x 900
 FOLD_OPEN = '<details class="tsw-fold"><summary>{}</summary>'
@@ -397,6 +406,37 @@ def due(reviewed: str, changed: str) -> bool:
 # ----------------------------------------------------------------------------- validation
 
 
+NOT_GERUNDS = {"during", "nothing", "something", "anything", "everything", "string", "thing"}
+
+
+def gerund_parts(s: str) -> list[str]:
+    """The parts of a "Read this when" row (split at a comma or semicolon outside brackets)
+    that open with a verb ending in -ing ("deciding which ...") rather than a clause with a
+    subject ("you are deciding which ..."). Every row is a list of clauses, so the row reads
+    the same way from its first part to its last ("Read this when you are planning ...,
+    you need ..., or an advisory lands ..."). A hyphenated word ("password-hashing") is
+    an adjective, not the start of a part."""
+    parts, depth, cur = [], 0, ""
+    for i, c in enumerate(s):
+        if c in "([":
+            depth += 1
+        elif c in ")]":
+            depth -= 1
+        if depth == 0 and c in ",;" and s[i + 1:i + 2] == " ":
+            parts.append(cur)
+            cur = ""
+            continue
+        cur += c
+    parts.append(cur)
+    out = []
+    for p in parts:
+        w = re.sub(r"^(?:or|and)\s+", "", p.strip()).split()
+        word = w[0].strip("(*\"'").lower() if w else ""
+        if word.endswith("ing") and "-" not in word and len(word) > 4 and word not in NOT_GERUNDS:
+            out.append(p.strip())
+    return out
+
+
 def validate(meta: dict, refs: list[str], paths: list[str]) -> list[str]:
     problems = []
     corrections = meta.get("corrections") or {}
@@ -446,6 +486,15 @@ def validate(meta: dict, refs: list[str], paths: list[str]) -> list[str]:
         rw = str(e.get("read_when") or "")
         if rw[:1].islower():
             problems.append(where + "read_when starts with a lower-case letter; start every row with a capital")
+        for part in gerund_parts(rw):
+            problems.append(where + "read_when part '" + part + "' starts with a verb ending in -ing; write "
+                            "every part as a clause with its subject (\"you are "
+                            + re.sub(r"^(?:or|and)\s+", "", part).split()[0].lower() + " ...\")")
+        for field, _ in CARD_FIELDS:
+            for t, _ in re.findall(r"\[([^\]]*)\]\(([^)\s]*)\)", str(e.get(field) or "")):
+                if re.search(r"\.md$", t.strip(), re.I):
+                    problems.append(where + field + " link text '" + t + "' is a file name; use the page's "
+                                    "title, as the \"Which page should I read?\" table does")
         n_start = len(LINK_RE.findall(str(e.get("start_at") or "")))
         if n_start > START_AT_MAX:
             problems.append(where + "start_at has " + str(n_start) + " links; plan section 5 allows at most "
@@ -559,13 +608,24 @@ def label(rel: str, descs: dict) -> str:
     return descs[rel][0] if rel in descs and descs[rel][0] else bsn.title(rel)
 
 
-def reading_row(text: str) -> tuple[str, int]:
-    """The page's words as the domain hubs count them (build_site_nav.word_count), with a
-    hand-written card row left out too, so a page reads the same before and after its card
-    moves into the header block."""
-    n = bsn.word_count("\n".join(ln for ln in text.split("\n") if not CARD_ROW_RE.match(ln)))
-    return "About " + str(max(1, round(n / WPM))) + " min (" + format(n, ",") + " words at " + str(WPM) \
-        + " words a minute)", n
+def reading_row(text: str, start_at: bool = True, lookup: bool = True) -> tuple[str, str, int]:
+    """(label, value, words) of the card's length row. The words are the page's words as the
+    domain hubs count them (build_site_nav.word_count), with a hand-written card row left
+    out too, so a page reads the same before and after its card moves into the header
+    block. A lookup page (more than LOOKUP_SHARE of its words in table rows: a catalogue,
+    a matrix, a glossary) is looked up, not read through, so its row says that first and
+    gives the end-to-end time only in passing. A learning path is followed, not looked up,
+    so it always shows its reading time (lookup=False)."""
+    body = "\n".join(ln for ln in text.split("\n") if not CARD_ROW_RE.match(ln))
+    n = bsn.word_count(body)
+    mins = "about " + str(max(1, round(n / WPM))) + " min end to end at " + str(WPM) + " words a minute"
+    share = bsn.table_words(body) / n if n else 0
+    if lookup and share > LOOKUP_SHARE:
+        return ("Length", "Lookup page: " + format(n, ",") + " words, " + str(int(share * 100))
+                + "% in tables; look entries up from " + ("Start at or " if start_at else "")
+                + "the search (" + mins + ")", n)
+    return ("Reading time", "About " + str(max(1, round(n / WPM))) + " min (" + format(n, ",") + " words at "
+            + str(WPM) + " words a minute)", n)
 
 
 def pr_link(n: int) -> str:
@@ -634,10 +694,25 @@ def takeaway_lines(rel: str, reviewed: dict, text: str) -> list[str]:
     return out
 
 
+def card_table(rows: list[tuple[str, str]]) -> list[str]:
+    """A card table: each label is a row header (<th scope="row">), so a screen reader reads
+    "Level, Intermediate" and GitHub draws no empty header row. Each value is a Markdown
+    paragraph between blank lines inside its cell, so its links render on GitHub and on the
+    site alike. align and valign are the attributes GitHub keeps; the site styles the table
+    by its class (index.html), which GitHub drops."""
+    out = ['<table class="tsw-meta-card">']
+    for k, v in rows:
+        out += ['<tr><th scope="row" align="left" valign="top">' + k + "</th><td>", "", v, "", "</td></tr>"]
+    out.append("</table>")
+    if bsn.card_rows("\n".join(out)) != list(rows):
+        raise Invalid("card row does not round-trip through build_site_nav.card_rows: " + repr(rows))
+    return out
+
+
 def card(rel: str, text: str, meta: dict, reviewed: dict, descs: dict, hist: History | None) -> str:
     e = meta["pages"][rel]
     rows = [("Who this is for", e["audience"]), ("Level", e["level"]),
-            ("Reading time", reading_row(text)[0])]
+            reading_row(text, bool(e.get("start_at")), lookup=not rel.startswith("disciplines/"))[:2]]
     rows += [(lab, e[f]) for f, lab in CARD_FIELDS if f in FIRST_SCREEN and e.get(f)]
     more = [(lab, e[f]) for f, lab in CARD_FIELDS if f not in FIRST_SCREEN and e.get(f)]
     lp = e.get("learning_path") or []
@@ -649,10 +724,9 @@ def card(rel: str, text: str, meta: dict, reviewed: dict, descs: dict, hist: His
         more.append(fixed)
     changed = hist.last_changed(rel, text) if (hist and e.get("reviewed")) else None
     more.append(("Last reviewed", review_row(e, meta.get("reviews") or {}, changed)))
-    table = ["| | |", "|---|---|"]
-    out = [START, ""] + table + ["| " + k + " | " + v + " |" for k, v in rows]
+    out = [START, ""] + card_table(rows)
     out += ["", MORE_OPEN.format("More about this page (" + ", ".join(k[:1].lower() + k[1:] for k, _ in more)
-                                 + ")"), ""] + table + ["| " + k + " | " + v + " |" for k, v in more]
+                                 + ")"), ""] + card_table(more)
     out += ["", "</details>"]
     for part in (cluster_note(rel, meta, descs), takeaway_lines(rel, reviewed, text)):
         if part:
@@ -874,6 +948,11 @@ def report(current: dict[str, str], expected: dict[str, str], hist: History) -> 
     for name, group in (("references", refs), ("learning paths", paths)):
         w = sorted(bsn.word_count(current[r]) for r in group)
         mins = sorted(max(1, round(x / WPM)) for x in w)
+        if name == "references":
+            look = [r for r in group if reading_row(current[r])[0] == "Length"]
+            print("Lookup pages (more than " + str(int(LOOKUP_SHARE * 100)) + "% of words in tables; "
+                  "the card says Length, not Reading time): " + str(len(look)) + ": "
+                  + ", ".join(r[:-3] for r in look))
         print("Reading time, " + name + ": words median " + format(int(statistics.median(w)), ",")
               + ", p90 " + format(w[int(0.9 * (len(w) - 1))], ",") + ", max " + format(w[-1], ",")
               + "; minutes median " + str(statistics.median(mins)) + ", max " + str(mins[-1]))
@@ -947,13 +1026,22 @@ def self_test() -> int:
     tabled = apply_folds(page, ["tables:appendix-a"], "P")
     if "Show the table (45 rows)" not in tabled or unfold(tabled) != page:
         fails.append("table fold")
-    block = START + "\n\n| | |\n|---|---|\n| Level | Beginner |\n\n" + END
+    block = "\n".join([START, ""] + card_table([("Level", "Beginner")]) + ["", END])
     p1 = place("# T\n\n> s\n\n| | |\n|---|---|\n| Read this when | x |\n\n---\n\n## A\n", block)
     if p1 != place(p1, block) or "Read this when" in META_RE.sub("", p1):
         fails.append("card placement")
     raw = "# T\n\n> s\n\n| | |\n|---|---|\n| Read this when | three more words |\n\nBody text here.\n"
     if reading_row(raw) != reading_row(place(raw, block)):
         fails.append("reading time moves when the card rows move into the block")
+    rows = [("Pairs with", "[A page](/A.md), x \\| y"), ("Level", "Beginner")]
+    if bsn.card_rows("\n".join(card_table(rows))) != rows or '<th scope="row"' not in block \
+            or "<thead" in block or "| |" in block:
+        fails.append("card rows are row headers (th scope=row) with no empty header row, and round-trip")
+    lookup = "# L\n\nOne line of prose.\n\n| Term | Meaning |\n|---|---|\n" + "".join(
+        "| term%d | what the term means in a few words |\n" % i for i in range(40))
+    if reading_row(lookup)[0] != "Length" or not reading_row(lookup)[1].startswith("Lookup page: ") \
+            or reading_row(raw)[0] != "Reading time":
+        fails.append("a page with most of its words in tables is a lookup page")
     if not due("2026-01-01", "2026-04-02") or due("2026-01-01", "2026-04-01"):
         fails.append("due rule (more than 90 days)")
     m = {"corrections": {"c1": {"date": "2026-01-02", "pr": 5, "what": "a tool renamed"},
@@ -973,7 +1061,17 @@ def self_test() -> int:
     e["read_when"] = "starting out"
     if not any("read_when starts with a lower-case letter" in p for p in validate(m, ["A.md"], [])):
         fails.append("read_when capital letter not enforced")
+    e["read_when"] = "You are planning a hunt, deciding which logs to keep, or you need a query"
+    if not any("read_when part 'deciding which logs to keep'" in p for p in validate(m, ["A.md"], [])):
+        fails.append("a gerund part after a clause is not caught")
+    e["read_when"] = "You are choosing a cipher, mode, key size, or password-hashing function, or you need a query"
+    if any("read_when part" in p for p in validate(m, ["A.md"], [])):
+        fails.append("a list inside a clause, or a hyphenated adjective, read as a gerund part")
     del e["read_when"]
+    e["pairs_with"] = "[A.md](A.md), [A page](A.md)"
+    if sum("is a file name" in p for p in validate(m, ["A.md"], [])) != 1:
+        fails.append("a file name as link text is not caught")
+    del e["pairs_with"]
     if review_row(e, {}, "2027-06-01") != "No review recorded yet":
         fails.append("a correction must not count as a review or start the due clock")
     if voice_hits("A seamless tool.") != ["hype:seamless"] or voice_hits("Plain words."):

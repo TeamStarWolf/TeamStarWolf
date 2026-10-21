@@ -8,20 +8,48 @@ The discipline encompasses firmware security, hardware interface analysis, netwo
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Practitioners learning to test and secure connected and embedded devices |
-| Level | Beginner to advanced |
-| Reading time | About 11 min (2,542 words at 230 words a minute) |
-| Read this when | Testing an IoT device: firmware analysis, MQTT attack scenarios, device identity and the OWASP IoT Top 10 |
-| Start at | [Where to Start](#where-to-start), [OWASP IoT Top 10](#owasp-iot-top-10), [Firmware Analysis](#firmware-analysis) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Practitioners learning to test and secure connected and embedded devices
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,542 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are testing an IoT device: firmware analysis, MQTT attack scenarios, device identity and the OWASP IoT Top 10
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [OWASP IoT Top 10](#owasp-iot-top-10), [Firmware Analysis](#firmware-analysis)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Last corrected | 2026-10-12, revoked T0839 re-keyed to T1693.002 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T0839 re-keyed to T1693.002 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

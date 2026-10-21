@@ -2,19 +2,43 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Developers, architects, and security engineers learning threat modeling |
-| Level | Beginner to advanced |
-| Reading time | About 10 min (2,317 words at 230 words a minute) |
-| Read this when | Threat-modeling a system design for the first time, or choosing between STRIDE, PASTA, LINDDUN and attack trees |
-| Start at | [Where to Start](#where-to-start), [STRIDE Methodology](#stride-methodology-microsoft), [When to Threat Model](#when-to-threat-model) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers, architects, and security engineers learning threat modeling
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,317 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are threat-modeling a system design for the first time, or you are choosing between STRIDE, PASTA, LINDDUN and attack trees
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [STRIDE Methodology](#stride-methodology-microsoft), [When to Threat Model](#when-to-threat-model)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
 
-| | |
-|---|---|
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

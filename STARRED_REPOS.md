@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Practitioners looking for a tool or project by the job it does |
-| Level | Beginner |
-| Reading time | About 14 min (3,326 words at 230 words a minute) |
-| Read this when | You need a tool for a specific security task and want to browse by discipline, you remember starring something but not what it was called, you want a broad map of the whole collection before diving into curated lists |
-| Start at | [Category Index](#category-index), [How To Use This File](#how-to-use-this-file), [Black Hat Arsenal Review Queue](#black-hat-arsenal-review-queue) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Practitioners looking for a tool or project by the job it does
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 14 min (3,326 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need a tool for a specific security task and want to browse by discipline, you remember starring something but not what it was called, or you want a broad map of the whole collection before diving into curated lists
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Category Index](#category-index), [How To Use This File](#how-to-use-this-file), [Black Hat Arsenal Review Queue](#black-hat-arsenal-review-queue)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [research/CURATED_STARS_LISTS.md](research/CURATED_STARS_LISTS.md), [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWALK.md) |
-| Last corrected | 2026-09-29, AlienVault heading now also names LevelBlue ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Curated GitHub Stars Lists](research/CURATED_STARS_LISTS.md), [Black Hat Arsenal Crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, AlienVault heading now also names LevelBlue ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

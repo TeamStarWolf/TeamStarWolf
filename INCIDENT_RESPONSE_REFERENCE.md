@@ -4,22 +4,58 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Incident responders, SOC leads, and incident commanders |
-| Level | Intermediate |
-| Reading time | About 24 min (5,622 words at 230 words a minute) |
-| Read this when | An alert or user report needs triage in the next five minutes, ransomware or a suspicious wire request just landed, you are building or testing an IR plan and tabletop program |
-| Start at | [Detection & Initial Triage](#_2-detection-amp-initial-triage), [Ransomware Response](#_3-ransomware-response), [IR Frameworks & Preparation](#_1-ir-frameworks-amp-preparation) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Incident responders, SOC leads, and incident commanders
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 24 min (5,622 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+An alert or user report needs triage in the next five minutes, ransomware or a suspicious wire request just landed, or you are building or testing an IR plan and tabletop program
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Detection & Initial Triage](#_2-detection-amp-initial-triage), [Ransomware Response](#_3-ransomware-response), [IR Frameworks & Preparation](#_1-ir-frameworks-amp-preparation)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [IR Playbooks](IR_PLAYBOOKS.md), [Ransomware Defense Reference](RANSOMWARE_DEFENSE_REFERENCE.md), [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md), [Notable Incidents](NOTABLE_INCIDENTS.md) |
-| Matching learning path | [Incident Response](/disciplines/incident-response.md) |
-| Last corrected | 2026-09-29, TheHive line updated (now commercial; DFIR-IRIS named as the open-source alternative) ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[IR Playbooks](IR_PLAYBOOKS.md), [Ransomware Defense Reference](RANSOMWARE_DEFENSE_REFERENCE.md), [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md), [Notable Incidents](NOTABLE_INCIDENTS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Incident Response](/disciplines/incident-response.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, TheHive line updated (now commercial; DFIR-IRIS named as the open-source alternative) ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Security engineers who configure and tune enterprise security platforms |
-| Level | Intermediate |
-| Reading time | About 11 min (2,504 words at 230 words a minute) |
-| Read this when | Tuning WAF rules that are throwing false positives, rolling out Defender ASR or CrowdStrike prevention policies to a fleet, configuring Proofpoint email defenses or SPF/DKIM/DMARC, building Zscaler ZIA/ZPA policies |
-| Start at | [WAF rules](#_1-web-application-firewall-waf-rules), [Defender ASR rules](#_2-microsoft-defender-attack-surface-reduction-asr-rules), [CrowdStrike prevention policies](#_3-crowdstrike-falcon-prevention-policies) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security engineers who configure and tune enterprise security platforms
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,504 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are tuning WAF rules that are throwing false positives, you are rolling out Defender ASR or CrowdStrike prevention policies to a fleet, you are configuring Proofpoint email defenses or SPF/DKIM/DMARC, or you are building Zscaler ZIA/ZPA policies
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[WAF rules](#_1-web-application-firewall-waf-rules), [Defender ASR rules](#_2-microsoft-defender-attack-surface-reduction-asr-rules), [CrowdStrike prevention policies](#_3-crowdstrike-falcon-prevention-policies)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [Windows Hardening and GPO Reference](WINDOWS_HARDENING_GPO.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md), [Security Operations](disciplines/security-operations.md) |
-| Last corrected | 2026-09-29, Office 365 renamed Microsoft 365 in one line ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Windows Hardening and GPO Reference](WINDOWS_HARDENING_GPO.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md), [Security Operations](disciplines/security-operations.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, Office 365 renamed Microsoft 365 in one line ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

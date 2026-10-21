@@ -5,21 +5,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Windows security engineers and detection engineers deploying Sysmon and WEF |
-| Level | Intermediate to advanced |
-| Reading time | About 18 min (4,166 words at 230 words a minute) |
-| Read this when | You are locking down a new Windows fleet or server build, you need the exact GPO/registry paths for a CIS/STIG/Microsoft-baseline setting, or you are standing up Sysmon/WEF and need the event IDs to watch |
-| Start at | [Windows Security Architecture](#_1-windows-security-architecture), [Sysmon Deployment and Configuration](#_4-sysmon-deployment-and-configuration), [Audit Policy and Monitoring](#_10-audit-policy-and-monitoring) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Windows security engineers and detection engineers deploying Sysmon and WEF
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 18 min (4,166 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are locking down a new Windows fleet or server build, you need the exact GPO/registry paths for a CIS/STIG/Microsoft-baseline setting, or you are standing up Sysmon/WEF and need the event IDs to watch
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Windows Security Architecture](#_1-windows-security-architecture), [Sysmon Deployment and Configuration](#_4-sysmon-deployment-and-configuration), [Audit Policy and Monitoring](#_10-audit-policy-and-monitoring)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [WINDOWS_HARDENING.md](WINDOWS_HARDENING.md), [WINDOWS_HARDENING_GPO.md](WINDOWS_HARDENING_GPO.md), [detections/TECHNIQUE_DETECTION_LIBRARY.md](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
-| Last corrected | 2026-10-12, revoked T1070.001 re-keyed to T1685.005 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Windows Hardening](WINDOWS_HARDENING.md), [Windows Hardening GPO Reference](WINDOWS_HARDENING_GPO.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1070.001 re-keyed to T1685.005 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

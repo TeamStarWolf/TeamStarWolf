@@ -4,22 +4,58 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Security program managers, GRC leads, and CISOs |
-| Level | Intermediate |
-| Reading time | About 18 min (4,078 words at 230 words a minute) |
-| Read this when | Standing up or maturing a security governance program, quantifying a risk for the register or board reporting, prepping for a SOC 2 / ISO 27001 / PCI DSS / HIPAA / CMMC audit, tiering and assessing a new vendor |
-| Start at | [Risk Management](#risk-management), [Compliance Programs](#compliance-programs), [Third-Party Risk Management (TPRM)](#third-party-risk-management-tprm) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security program managers, GRC leads, and CISOs
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 18 min (4,078 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are standing up or maturing a security governance program, you are quantifying a risk for the register or board reporting, you are prepping for a SOC 2 / ISO 27001 / PCI DSS / HIPAA / CMMC audit, or you are tiering and assessing a new vendor
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Risk Management](#risk-management), [Compliance Programs](#compliance-programs), [Third-Party Risk Management (TPRM)](#third-party-risk-management-tprm)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [GRC_COMPLIANCE_REFERENCE.md](GRC_COMPLIANCE_REFERENCE.md), [VULNERABILITY_MANAGEMENT_REFERENCE.md](VULNERABILITY_MANAGEMENT_REFERENCE.md), [SECURITY_METRICS_REFERENCE.md](SECURITY_METRICS_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md) |
-| Matching learning path | [Governance, Risk & Compliance (GRC)](/disciplines/governance-risk-compliance.md) |
-| Last corrected | 2026-10-01, CMMC Level 1 row updated to 15 requirements ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[GRC Compliance Reference](GRC_COMPLIANCE_REFERENCE.md), [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md), [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md), [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Governance, Risk & Compliance (GRC)](/disciplines/governance-risk-compliance.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-01, CMMC Level 1 row updated to 15 requirements ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

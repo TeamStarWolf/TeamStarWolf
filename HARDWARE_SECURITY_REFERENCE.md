@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Hardware and embedded security engineers, and engineers who run HSMs or harden boot chains |
-| Level | Advanced |
-| Reading time | About 9 min (2,167 words at 230 words a minute) |
-| Read this when | Hardening a device's boot chain or disk encryption, standing up or auditing an HSM and its key ceremony, assessing side-channel, fault-injection, or debug-port exposure on embedded hardware |
-| Start at | [TPM 2.0 Deep Dive](#_1-tpm-20-deep-dive), [HSM & FIPS 140-3](#_2-hsm-amp-fips-140-3), [Hardware Security Testing Tools](#_9-hardware-security-testing-tools) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Hardware and embedded security engineers, and engineers who run HSMs or harden boot chains
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (2,167 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are hardening a device's boot chain or disk encryption, you are standing up or auditing an HSM and its key ceremony, or you are assessing side-channel, fault-injection, or debug-port exposure on embedded hardware
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[TPM 2.0 Deep Dive](#_1-tpm-20-deep-dive), [HSM & FIPS 140-3](#_2-hsm-amp-fips-140-3), [Hardware Security Testing Tools](#_9-hardware-security-testing-tools)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [PHYSICAL_SECURITY_REFERENCE.md](PHYSICAL_SECURITY_REFERENCE.md), [REVERSE_ENGINEERING_REFERENCE.md](REVERSE_ENGINEERING_REFERENCE.md) |
-| Matching learning path | [Hardware Security](/disciplines/hardware-security.md) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE.md), [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md), [Physical Security Reference](PHYSICAL_SECURITY_REFERENCE.md), [Reverse Engineering Reference](REVERSE_ENGINEERING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Hardware Security](/disciplines/hardware-security.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

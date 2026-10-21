@@ -6,20 +6,48 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Red teamers, physical and wireless testers, and hardware hobbyists |
-| Level | Intermediate |
-| Reading time | About 28 min (6,548 words at 230 words a minute) |
-| Read this when | Scoping an authorized wireless, RF, RFID, or hardware assessment and choosing the right gadget, standing up an isolated home lab or RF test bench, confirming the legal boundaries before you power on a transmitter |
-| Start at | [Hak5 Ecosystem](#_1-hak5-ecosystem), [Flipper Zero](#_3-flipper-zero), [Lab Setup, Legal & Community](#_10-lab-setup-legal-amp-community) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Red teamers, physical and wireless testers, and hardware hobbyists
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 28 min (6,548 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are scoping an authorized wireless, RF, RFID, or hardware assessment and choosing the right gadget, you are standing up an isolated home lab or RF test bench, or you are confirming the legal boundaries before you power on a transmitter
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Hak5 Ecosystem](#_1-hak5-ecosystem), [Flipper Zero](#_3-flipper-zero), [Lab Setup, Legal & Community](#_10-lab-setup-legal-amp-community)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [WIRELESS_SECURITY_REFERENCE.md](WIRELESS_SECURITY_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md), [disciplines/radio-frequency-security.md](disciplines/radio-frequency-security.md), [disciplines/hardware-security.md](disciplines/hardware-security.md) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Wireless Security Reference](WIRELESS_SECURITY_REFERENCE.md), [Red Team Reference](RED_TEAM_REFERENCE.md), [Radio Frequency (RF) Security](disciplines/radio-frequency-security.md), [Hardware Security](disciplines/hardware-security.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

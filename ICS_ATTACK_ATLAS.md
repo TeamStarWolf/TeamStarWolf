@@ -8,19 +8,43 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md), [Thre
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | ICS and OT defenders and threat intelligence analysts |
-| Level | Intermediate |
-| Reading time | About 4 min (982 words at 230 words a minute) |
-| Read this when | You need to look up an ICS ATT&CK technique by tactic, check which threat groups or software use a technique, or find the ATT&CK mitigations that address it |
-| Start at | [Tactics](#tactics) for the full tactic index, then jump to ICS-specific tactics like [Inhibit Response Function](#inhibit-response-function) or [Impair Process Control](#impair-process-control) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+ICS and OT defenders and threat intelligence analysts
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Length</th><td>
+
+Lookup page: 982 words, 80% in tables; look entries up from Start at or the search (about 4 min end to end at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need to look up an ICS ATT&CK technique by tactic, you want to check which threat groups or software use a technique, or you need the ATT&CK mitigations that address it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Tactics](#tactics) for the full tactic index, then jump to ICS-specific tactics like [Inhibit Response Function](#inhibit-response-function) or [Impair Process Control](#impair-process-control)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
 
-| | |
-|---|---|
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

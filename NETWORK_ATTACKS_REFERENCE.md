@@ -4,20 +4,48 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Network security engineers, incident responders, and SOC analysts |
-| Level | Intermediate |
-| Reading time | About 22 min (5,097 words at 230 words a minute) |
-| Read this when | You are placing detection controls across the OSI layers, investigating a suspected MitM/relay/DNS-tunnel/BGP-hijack event, or hardening a network segment against Layer 2 and routing attacks |
-| Start at | [Network Attack Taxonomy & Threat Landscape](#_1-network-attack-taxonomy-amp-threat-landscape) for the OSI/ATT&CK map, [SMB & Windows Network Attacks](#_5-smb-amp-windows-network-attacks) for the NTLM relay chain, [Network Attack Detection & Hunting](#_10-network-attack-detection-amp-hunting) for the hunting playbook |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Network security engineers, incident responders, and SOC analysts
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 22 min (5,097 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are placing detection controls across the OSI layers, you are investigating a suspected MitM/relay/DNS-tunnel/BGP-hijack event, or you are hardening a network segment against Layer 2 and routing attacks
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Network Attack Taxonomy & Threat Landscape](#_1-network-attack-taxonomy-amp-threat-landscape) for the OSI/ATT&CK map, [SMB & Windows Network Attacks](#_5-smb-amp-windows-network-attacks) for the NTLM relay chain, [Network Attack Detection & Hunting](#_10-network-attack-detection-amp-hunting) for the hunting playbook
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [NETWORK_DEFENSE_REFERENCE.md](NETWORK_DEFENSE_REFERENCE.md), [NETWORK_MONITORING_REFERENCE.md](NETWORK_MONITORING_REFERENCE.md), [ACTIVE_DIRECTORY_ATTACK_REFERENCE.md](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), [WIRELESS_SECURITY_REFERENCE.md](WIRELESS_SECURITY_REFERENCE.md) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Network Defense Reference](NETWORK_DEFENSE_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md), [Active Directory Attack Reference](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), [Wireless Security Reference](WIRELESS_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

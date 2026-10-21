@@ -8,20 +8,48 @@ Related: [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md), [Hardware Security
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Security architects, PKI owners, and program leaders planning the post-quantum migration |
-| Level | Intermediate |
-| Reading time | About 26 min (6,005 words at 230 words a minute) |
-| Read this when | Scoping or chartering a PQC migration program, prioritizing which systems and data stores move to post-quantum crypto first, answering an auditor or executive about the 2030/2035 deadlines, or writing PQC questions into a vendor questionnaire |
-| Start at | [Why this matters now: harvest now, decrypt later](#why-this-matters-now-harvest-now-decrypt-later), [Step 1: Cryptographic discovery and the CBOM](#step-1-cryptographic-discovery-and-the-cbom), [Key dates quick reference](#key-dates-quick-reference) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security architects, PKI owners, and program leaders planning the post-quantum migration
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 26 min (6,005 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are scoping or chartering a PQC migration program, you are prioritizing which systems and data stores move to post-quantum crypto first, you are answering an auditor or executive about the 2030/2035 deadlines, or you are writing PQC questions into a vendor questionnaire
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Why this matters now: harvest now, decrypt later](#why-this-matters-now-harvest-now-decrypt-later), [Step 1: Cryptographic discovery and the CBOM](#step-1-cryptographic-discovery-and-the-cbom), [Key dates quick reference](#key-dates-quick-reference)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Last corrected | 2026-09-29, CycloneDX version updated from 1.6 to 1.7 in three places ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, CycloneDX version updated from 1.6 to 1.7 in three places ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

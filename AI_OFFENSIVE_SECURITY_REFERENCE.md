@@ -4,20 +4,48 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Security leaders, vulnerability managers, and red teams sizing AI-assisted attack risk |
-| Level | Intermediate |
-| Reading time | About 36 min (8,312 words at 230 words a minute) |
-| Read this when | You are sizing up AI-assisted attack risk, tightening patch SLAs to match AI exploitation speed, or planning an authorized AI red team engagement |
-| Start at | [The AI Security Revolution](#section-1-the-ai-security-revolution), [Defending Against AI Attackers](#section-6-defending-against-ai-attackers), [Getting Started: Safe AI Security Assessment](#getting-started-safe-ai-security-assessment) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security leaders, vulnerability managers, and red teams sizing AI-assisted attack risk
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 36 min (8,312 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are sizing up AI-assisted attack risk, you are tightening patch SLAs to match AI exploitation speed, or you are planning an authorized AI red team engagement
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[The AI Security Revolution](#section-1-the-ai-security-revolution), [Defending Against AI Attackers](#section-6-defending-against-ai-attackers), [Getting Started: Safe AI Security Assessment](#getting-started-safe-ai-security-assessment)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [AI_SECURITY_REFERENCE.md](AI_SECURITY_REFERENCE.md), [AI_MCP_SECURITY_REFERENCE.md](AI_MCP_SECURITY_REFERENCE.md), [CVE_REFERENCE.md](CVE_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[AI Security Reference](AI_SECURITY_REFERENCE.md), [AI & MCP Security Reference](AI_MCP_SECURITY_REFERENCE.md), [CVE Reference](CVE_REFERENCE.md), [Red Team Reference](RED_TEAM_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

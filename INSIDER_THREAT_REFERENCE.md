@@ -8,19 +8,43 @@ Related: [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Fight
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Insider risk program leads, SOC teams, and HR, legal, and privacy partners |
-| Level | Intermediate |
-| Reading time | About 28 min (6,496 words at 230 words a minute) |
-| Read this when | Standing up or maturing an insider threat/risk program, designing detections for departing-employee or fraud scenarios, mapping insider TTPs onto ATT&CK coverage |
-| Start at | [The CTID Insider Threat TTP Knowledge Base](#the-ctid-insider-threat-ttp-knowledge-base), [Detection approaches](#detection-approaches), [A 90-day starting plan](#a-90-day-starting-plan) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Insider risk program leads, SOC teams, and HR, legal, and privacy partners
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 28 min (6,496 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are standing up or maturing an insider threat/risk program, you are designing detections for departing-employee or fraud scenarios, or you are mapping insider TTPs onto ATT&CK coverage
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[The CTID Insider Threat TTP Knowledge Base](#the-ctid-insider-threat-ttp-knowledge-base), [Detection approaches](#detection-approaches), [A 90-day starting plan](#a-90-day-starting-plan)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
 
-| | |
-|---|---|
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

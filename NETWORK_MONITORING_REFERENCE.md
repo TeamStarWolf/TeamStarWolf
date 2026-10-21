@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | SOC analysts, detection engineers, and network defenders |
-| Level | Intermediate |
-| Reading time | About 8 min (1,773 words at 230 words a minute) |
-| Read this when | Standing up or placing network sensors (TAP vs SPAN), hunting C2 beaconing or DNS tunneling in Zeek/flow logs, writing or tuning Suricata rules, triaging an NSM alert down to the packet |
-| Start at | [Network Monitoring Architecture](#_1-network-monitoring-architecture), [Zeek (formerly Bro)](#_2-zeek-formerly-bro), [Network Threat Hunting](#_6-network-threat-hunting) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+SOC analysts, detection engineers, and network defenders
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 8 min (1,773 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are standing up or placing network sensors (TAP vs SPAN), you are hunting C2 beaconing or DNS tunneling in Zeek/flow logs, you are writing or tuning Suricata rules, or you are triaging an NSM alert down to the packet
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Network Monitoring Architecture](#_1-network-monitoring-architecture), [Zeek (formerly Bro)](#_2-zeek-formerly-bro), [Network Threat Hunting](#_6-network-threat-hunting)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md), [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md), [Network Security Architecture](NETWORK_SECURITY_ARCHITECTURE.md), [SIEM Detection Content](SIEM_DETECTION_CONTENT.md) |
-| Matching learning path | [Network Security](/disciplines/network-security.md) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md), [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md), [Network Security Architecture](NETWORK_SECURITY_ARCHITECTURE.md), [SIEM Detection Content](SIEM_DETECTION_CONTENT.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Network Security](/disciplines/network-security.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

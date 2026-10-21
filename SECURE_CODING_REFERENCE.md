@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Developers, code reviewers, and application security engineers |
-| Level | Intermediate |
-| Reading time | About 10 min (2,378 words at 230 words a minute) |
-| Read this when | Reviewing a pull request for security flaws, fixing a scanner finding (SQL injection, weak hashing, unsafe deserialization, SSRF), or setting up SAST/SCA/secrets scanning in CI |
-| Start at | [OWASP Top 10 (2021)](#owasp-top-10-2021), [Security Testing in SDLC](#security-testing-in-sdlc), [Quick Reference Checklist](#quick-reference-checklist) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers, code reviewers, and application security engineers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,378 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are reviewing a pull request for security flaws, you are fixing a scanner finding (SQL injection, weak hashing, unsafe deserialization, SSRF), or you are setting up SAST/SCA/secrets scanning in CI
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[OWASP Top 10 (2021)](#owasp-top-10-2021), [Security Testing in SDLC](#security-testing-in-sdlc), [Quick Reference Checklist](#quick-reference-checklist)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [API Security Reference](API_SECURITY_REFERENCE.md), [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md), [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md) |
-| Last corrected | 2026-09-29, note added on OWASP Top 10:2025; CWE Top 25 and ATT&CK versions in the footer updated ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[API Security Reference](API_SECURITY_REFERENCE.md), [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md), [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, note added on OWASP Top 10:2025; CWE Top 25 and ATT&CK versions in the footer updated ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

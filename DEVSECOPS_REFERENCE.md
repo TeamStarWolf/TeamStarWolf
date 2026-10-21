@@ -4,22 +4,58 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Application security engineers, platform engineers, and security champions |
-| Level | Intermediate |
-| Reading time | About 19 min (4,445 words at 230 words a minute) |
-| Read this when | You are adding security scanning (SAST, SCA, secrets, container, IaC, DAST) to a CI/CD pipeline, hardening the pipeline itself, or standing up a DevSecOps program with maturity models, KPIs, and a champions culture |
-| Start at | [DevSecOps Fundamentals](#_1-devsecops-fundamentals), [SAST & Code Analysis](#_2-sast-amp-code-analysis), [CI/CD Pipeline Security](#_5-cicd-pipeline-security) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Application security engineers, platform engineers, and security champions
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 19 min (4,445 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are adding security scanning (SAST, SCA, secrets, container, IaC, DAST) to a CI/CD pipeline, you are hardening the pipeline itself, or you are standing up a DevSecOps program with maturity models, KPIs, and a champions culture
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[DevSecOps Fundamentals](#_1-devsecops-fundamentals), [SAST & Code Analysis](#_2-sast-amp-code-analysis), [CI/CD Pipeline Security](#_5-cicd-pipeline-security)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [Secure Coding](SECURE_CODING_REFERENCE.md), [Supply Chain Security](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Secrets Management](SECRETS_MANAGEMENT_REFERENCE.md), [Container Security](CONTAINER_SECURITY_REFERENCE.md) |
-| Matching learning path | [DevSecOps](/disciplines/devsecops.md) |
-| Last corrected | 2026-09-29, one CVSS heading now names v3.1 and v4.0 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding](SECURE_CODING_REFERENCE.md), [Supply Chain Security](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Secrets Management](SECRETS_MANAGEMENT_REFERENCE.md), [Container Security](CONTAINER_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[DevSecOps](/disciplines/devsecops.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, one CVSS heading now names v3.1 and v4.0 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

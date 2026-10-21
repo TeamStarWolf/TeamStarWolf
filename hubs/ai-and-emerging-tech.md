@@ -16,7 +16,7 @@ Part of the [domain hubs](/hubs/README.md). 9 reference documents in this domain
 | [AI Architecture Reference](/AI_ARCHITECTURE_REFERENCE.md) | Designing AI, ML and LLM systems end to end: data pipelines, training and inference planes, model serving, RAG, agents and MCP, MLOps and LLMOps | 19 min |
 | [AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md) | AI-powered offensive security tools, CVE exploitation automation, MITRE ATT&CK mapping, defensive frameworks | 36 min |
 | [Agentic AI Swarm Attacks](/AGENTIC_AI_ATTACK_REFERENCE.md) | An illustrative composite kill chain for intrusions by many autonomous AI agents sharing techniques, mapped to ATT&CK and ATLAS tactics | 16 min |
-| [ATLAS Reference (AI threats)](/ATLAS_REFERENCE.md) | MITRE ATLAS bundled snapshot of tactics, techniques, and mitigations; tactic and technique labels checked against 2026.09, including AI Model Access and AI Attack Adaptation | 43 min |
+| [ATLAS Reference (AI threats)](/ATLAS_REFERENCE.md) | MITRE ATLAS bundled snapshot of tactics, techniques, and mitigations; tactic and technique labels checked against 2026.09, including AI Model Access and AI Attack Adaptation | Lookup page (43 min end to end) |
 | [Deepfake & Synthetic-Media Defense](/DEEPFAKE_DEFENSE_REFERENCE.md) | Voice-clone & video-call ('finance-approval') fraud defense, verification callbacks, liveness, C2PA/Content Credentials provenance, detection and its limits | 12 min |
 | [Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md) | Smart contract auditing, Solidity vulnerabilities, DeFi attacks, Web3 security tools, consensus mechanism security | 13 min |
 

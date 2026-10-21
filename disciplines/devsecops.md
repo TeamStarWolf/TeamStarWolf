@@ -4,20 +4,48 @@ DevSecOps is the practice of integrating security controls, testing, and culture
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Developers, DevOps engineers, and security engineers building security into CI/CD |
-| Level | Beginner to advanced |
-| Reading time | About 9 min (1,998 words at 230 words a minute) |
-| Read this when | Adding security to CI/CD pipelines, learning SBOM and SLSA, or moving from development or operations into DevSecOps |
-| Start at | [Where to Start](#where-to-start), [CI/CD Security](#cicd-security-offensive-amp-defensive-perspectives), [SLSA Framework Levels](#slsa-framework-levels) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers, DevOps engineers, and security engineers building security into CI/CD
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (1,998 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are adding security to CI/CD pipelines, you are learning SBOM and SLSA, or you are moving from development or operations into DevSecOps
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [CI/CD Security](#cicd-security-offensive-amp-defensive-perspectives), [SLSA Framework Levels](#slsa-framework-levels)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Last corrected | 2026-09-27, tactic of T1078 and T1036 changed from Defense Evasion to Stealth ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-27, tactic of T1078 and T1036 changed from Defense Evasion to Stealth ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

@@ -2,19 +2,43 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Architects and engineers learning to plan and implement Zero Trust |
-| Level | Beginner to advanced |
-| Reading time | About 9 min (2,084 words at 230 words a minute) |
-| Read this when | Learning zero trust architecture from NIST SP 800-207 and the CISA maturity model, or planning a migration pillar by pillar |
-| Start at | [Where to Start](#where-to-start), [NIST SP 800-207](#nist-sp-800-207-zero-trust-architecture), [CISA Zero Trust Maturity Model](#cisa-zero-trust-maturity-model-ztmm) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Architects and engineers learning to plan and implement Zero Trust
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (2,084 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning zero trust architecture from NIST SP 800-207 and the CISA maturity model, or you are planning a migration pillar by pillar
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [NIST SP 800-207](#nist-sp-800-207-zero-trust-architecture), [CISA Zero Trust Maturity Model](#cisa-zero-trust-maturity-model-ztmm)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
 
-| | |
-|---|---|
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

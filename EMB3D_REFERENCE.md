@@ -20,19 +20,43 @@ Related: [Firmware & IoT Security](FIRMWARE_IOT_SECURITY_REFERENCE.md), [ICS/OT 
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Embedded and OT security engineers, device vendors, and asset owners writing procurement requirements |
-| Level | Intermediate to advanced |
-| Reading time | About 21 min (4,816 words at 230 words a minute) |
-| Read this when | Assessing or pen-testing an embedded device (PLC, controller, medical device, ECU, IoT endpoint), writing procurement or vendor-questionnaire language for device security, deciding whether a vendor claim counts as a real built-in mitigation or just deployment advice |
-| Start at | [Running a device threat-exposure review with EMB3D](#running-a-device-threat-exposure-review-with-emb3d), [The properties-to-threats mapping](#the-properties-to-threats-mapping), [Program guidance: procurement, vendor questionnaires, and gap tracking](#program-guidance-procurement-vendor-questionnaires-and-gap-tracking) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Embedded and OT security engineers, device vendors, and asset owners writing procurement requirements
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 21 min (4,816 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are assessing or pen-testing an embedded device (PLC, controller, medical device, ECU, IoT endpoint), you are writing procurement or vendor-questionnaire language for device security, or you are deciding whether a vendor claim counts as a real built-in mitigation or just deployment advice
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Running a device threat-exposure review with EMB3D](#running-a-device-threat-exposure-review-with-emb3d), [The properties-to-threats mapping](#the-properties-to-threats-mapping), [Program guidance: procurement, vendor questionnaires, and gap tracking](#program-guidance-procurement-vendor-questionnaires-and-gap-tracking)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
 
-| | |
-|---|---|
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

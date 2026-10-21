@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Security architects and program leads building an enterprise control stack |
-| Level | Intermediate |
-| Reading time | About 6 min (1,473 words at 230 words a minute) |
-| Read this when | Planning or maturing an enterprise security stack stage by stage, picking open-source vs commercial tooling for a control area, mapping vendors to NIST 800-53 controls and ATT&CK techniques |
-| Start at | [Pipeline Overview](#pipeline-overview), [Enterprise Security Tool Integration Map](#enterprise-security-tool-integration-map), [Incident Response Pipeline Integration](#incident-response-pipeline-integration) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security architects and program leads building an enterprise control stack
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,473 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are planning or maturing an enterprise security stack stage by stage, you are picking open-source vs commercial tooling for a control area, or you are mapping vendors to NIST 800-53 controls and ATT&CK techniques
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Pipeline Overview](#pipeline-overview), [Enterprise Security Tool Integration Map](#enterprise-security-tool-integration-map), [Incident Response Pipeline Integration](#incident-response-pipeline-integration)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [Controls Mapping](CONTROLS_MAPPING.md), [Coverage Gap Analysis](scores/coverage_gaps.md), [Black Hat Arsenal Crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md), [Coverage Schema](COVERAGE_SCHEMA.md) |
-| Last corrected | 2026-10-13, tactic coverage table replaced with the figures of the generated coverage report ([#120](https://github.com/TeamStarWolf/TeamStarWolf/pull/120), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Controls Mapping](CONTROLS_MAPPING.md), [Coverage Gap Analysis](scores/coverage_gaps.md), [Black Hat Arsenal Crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md), [Coverage Schema](COVERAGE_SCHEMA.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-13, tactic coverage table replaced with the figures of the generated coverage report ([#120](https://github.com/TeamStarWolf/TeamStarWolf/pull/120), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

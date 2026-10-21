@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Endpoint, email, and network security engineers rolling out vendor controls |
-| Level | Intermediate |
-| Reading time | About 15 min (3,430 words at 230 words a minute) |
-| Read this when | Rolling out or tuning an EDR/email/web-proxy product and you need the vendor-recommended settings, hardening an M365 or Google Workspace tenant against CISA SCuBA baselines, deciding which policies to set to Block vs Audit during a phased deployment |
-| Start at | [Microsoft Defender for Endpoint Prevention Policies](#microsoft-defender-for-endpoint-prevention-policies), [NSA/CISA Hardening Guidance](#nsacisa-hardening-guidance), [Official Source Directory](#official-source-directory) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Endpoint, email, and network security engineers rolling out vendor controls
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 15 min (3,430 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are rolling out or tuning an EDR/email/web-proxy product and you need the vendor-recommended settings, you are hardening an M365 or Google Workspace tenant against CISA SCuBA baselines, or you are deciding which policies to set to Block vs Audit during a phased deployment
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Microsoft Defender for Endpoint Prevention Policies](#microsoft-defender-for-endpoint-prevention-policies), [NSA/CISA Hardening Guidance](#nsacisa-hardening-guidance), [Official Source Directory](#official-source-directory)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [WINDOWS_HARDENING.md](WINDOWS_HARDENING.md), [WINDOWS_HARDENING_GPO.md](WINDOWS_HARDENING_GPO.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md), [TECHNIQUE_DETECTION_LIBRARY.md](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
-| Last corrected | 2026-10-12, revoked T1562.009 re-keyed to T1688 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Windows Hardening](WINDOWS_HARDENING.md), [Windows Hardening GPO Reference](WINDOWS_HARDENING_GPO.md), [Controls Mapping](CONTROLS_MAPPING.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1562.009 re-keyed to T1688 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

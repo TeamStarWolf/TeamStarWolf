@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Detection engineers and network defenders deploying honeypots and honeytokens |
-| Level | Intermediate |
-| Reading time | About 27 min (6,150 words at 230 words a minute) |
-| Read this when | You're planning honeypot or honeytoken coverage for a network segment, you need to pick and deploy a specific tool (SSH, SMB, web, IoT, ICS), you're wiring decoy alerts into a SIEM as P1 incidents |
-| Start at | [Part 1: Deception Technology Fundamentals](#part-1-deception-technology-fundamentals), [8.6 Quick Reference: Honeypot Selection Guide](#_86-quick-reference-honeypot-selection-guide), [8.5 Deployment Checklist](#_85-deployment-checklist) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Detection engineers and network defenders deploying honeypots and honeytokens
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 27 min (6,150 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are planning honeypot or honeytoken coverage for a network segment, you need to pick and deploy a specific tool (SSH, SMB, web, IoT, ICS), or you are wiring decoy alerts into a SIEM as P1 incidents
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Part 1: Deception Technology Fundamentals](#part-1-deception-technology-fundamentals), [8.6 Quick Reference: Honeypot Selection Guide](#_86-quick-reference-honeypot-selection-guide), [8.5 Deployment Checklist](#_85-deployment-checklist)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [DECEPTION_TECHNOLOGY_REFERENCE.md](DECEPTION_TECHNOLOGY_REFERENCE.md) (deception-program strategy + detection engineering: honeytokens, honey SPNs, cloud decoy IaC, NIST 800-53 mapping), [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [THREAT_INTELLIGENCE_REFERENCE.md](THREAT_INTELLIGENCE_REFERENCE.md), [THREAT_HUNTING_REFERENCE.md](THREAT_HUNTING_REFERENCE.md) |
-| Matching learning path | [Active Defense & Deception](/disciplines/active-defense-deception.md) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md) (deception-program strategy + detection engineering: honeytokens, honey SPNs, cloud decoy IaC, NIST 800-53 mapping), [Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md), [SIEM Reference](SIEM_REFERENCE.md), [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md), [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Active Defense & Deception](/disciplines/active-defense-deception.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

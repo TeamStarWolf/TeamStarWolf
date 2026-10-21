@@ -10,20 +10,48 @@ Related: [Network Security Architecture](NETWORK_SECURITY_ARCHITECTURE.md), [Vul
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Network and security engineers who run VPNs, firewalls, and gateways, and the vulnerability teams who patch them |
-| Level | Intermediate |
-| Reading time | About 25 min (5,724 words at 230 words a minute) |
-| Read this when | A KEV entry or emergency directive hits your VPN/firewall/gateway fleet, you are designing management-plane isolation or off-box logging for appliances, you need to assess or rebuild a possibly compromised edge device |
-| Start at | [Scope & how to use this reference](#scope-amp-how-to-use-this-reference), [The guidance stack](#the-guidance-stack), [Why edge devices are structurally attractive targets](#why-edge-devices-are-structurally-attractive-targets) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Network and security engineers who run VPNs, firewalls, and gateways, and the vulnerability teams who patch them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 25 min (5,724 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+A KEV entry or emergency directive hits your VPN/firewall/gateway fleet, you are designing management-plane isolation or off-box logging for appliances, or you need to assess or rebuild a possibly compromised edge device
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Scope & how to use this reference](#scope-amp-how-to-use-this-reference), [The guidance stack](#the-guidance-stack), [Why edge devices are structurally attractive targets](#why-edge-devices-are-structurally-attractive-targets)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Last corrected | 2026-10-12, revoked T1562 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1562 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

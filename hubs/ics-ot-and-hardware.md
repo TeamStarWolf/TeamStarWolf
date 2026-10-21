@@ -11,7 +11,7 @@ Part of the [domain hubs](/hubs/README.md). 9 reference documents in this domain
 | Reference | What it covers | Reading time |
 |---|---|---|
 | [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md) | SCADA/ICS threats, Purdue model, IEC 62443, Modbus/DNP3 security, OT network monitoring, incident response | 23 min |
-| [ICS ATT&CK Atlas](/ICS_ATTACK_ATLAS.md) | MITRE ATT&CK for ICS techniques by tactic (page snapshot: ATT&CK v18.1; sub-techniques not listed), cross-referenced to groups, software, and mitigations | 4 min |
+| [ICS ATT&CK Atlas](/ICS_ATTACK_ATLAS.md) | MITRE ATT&CK for ICS techniques by tactic (page snapshot: ATT&CK v18.1; sub-techniques not listed), cross-referenced to groups, software, and mitigations | Lookup page (4 min end to end) |
 | [EMB3D Reference (Embedded Devices)](/EMB3D_REFERENCE.md) | MITRE EMB3D threat model: device properties -> threats -> tiered Foundational/Intermediate/Leading mitigations, IEC 62443-4-2 alignment, device threat-exposure reviews | 21 min |
 | [Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md) | TPM 2.0, HSM/FIPS 140-3, Secure Boot/UEFI, side-channel attacks, fault injection, JTAG, confidential computing (SGX/TDX/SEV) | 9 min |
 | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) | IoT/Firmware attack surface, extraction, analysis, UEFI/BIOS, protocols, hardware interfaces, standards | 14 min |

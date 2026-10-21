@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Security architects and identity and network engineers planning a Zero Trust rollout |
-| Level | Intermediate |
-| Reading time | About 37 min (8,460 words at 230 words a minute) |
-| Read this when | You are planning or assessing a Zero Trust rollout, you need to replace a VPN or bastion host with identity-aware access, you want config examples for Conditional Access, Istio mTLS, Teleport, Boundary, or Cloudflare |
-| Start at | [Zero Trust Fundamentals](#_1-zero-trust-fundamentals), [Identity Pillar](#_2-identity-pillar), [ZTA Implementation Roadmap](#_10-zta-implementation-roadmap) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security architects and identity and network engineers planning a Zero Trust rollout
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 37 min (8,460 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are planning or assessing a Zero Trust rollout, you need to replace a VPN or bastion host with identity-aware access, or you want config examples for Conditional Access, Istio mTLS, Teleport, Boundary, or Cloudflare
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Zero Trust Fundamentals](#_1-zero-trust-fundamentals), [Identity Pillar](#_2-identity-pillar), [ZTA Implementation Roadmap](#_10-zta-implementation-roadmap)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [Zero Trust Architecture discipline](disciplines/zero-trust-architecture.md), [Identity and Access Management](disciplines/identity-access-management.md), [Cloud Network Security](CLOUD_NETWORK_SECURITY.md), [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE.md) |
-| Matching learning path | [Zero Trust Architecture](/disciplines/zero-trust-architecture.md) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Zero Trust Architecture discipline](disciplines/zero-trust-architecture.md), [Identity and Access Management](disciplines/identity-access-management.md), [Cloud Network Security](CLOUD_NETWORK_SECURITY.md), [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Zero Trust Architecture](/disciplines/zero-trust-architecture.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

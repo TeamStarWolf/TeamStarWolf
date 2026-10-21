@@ -4,22 +4,58 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Software architects, application security engineers, and privacy engineers |
-| Level | Intermediate |
-| Reading time | About 26 min (5,947 words at 230 words a minute) |
-| Read this when | Designing a new system or major feature, reviewing an architecture or cloud migration before code is written, picking a methodology (STRIDE vs PASTA vs LINDDUN) for a threat modeling session |
-| Start at | [Why Threat Modeling](#why-threat-modeling), [STRIDE Methodology (Microsoft)](#stride-methodology-microsoft), [Practical Threat Modeling Workflow](#practical-threat-modeling-workflow) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Software architects, application security engineers, and privacy engineers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 26 min (5,947 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are designing a new system or major feature, you are reviewing an architecture or cloud migration before code is written, or you are picking a methodology (STRIDE vs PASTA vs LINDDUN) for a threat modeling session
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Why Threat Modeling](#why-threat-modeling), [STRIDE Methodology (Microsoft)](#stride-methodology-microsoft), [Practical Threat Modeling Workflow](#practical-threat-modeling-workflow)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Web Application Security](WEB_APPLICATION_SECURITY_REFERENCE.md), [Zero Trust](ZERO_TRUST_REFERENCE.md), [Threat Modeling discipline](disciplines/threat-modeling.md) |
-| Matching learning path | [Threat Modeling](/disciplines/threat-modeling.md) |
-| Last corrected | 2026-09-27, Defense Evasion renamed Stealth in the STRIDE Repudiation row, the kill chain sequence and a Navigator layer example ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Web Application Security](WEB_APPLICATION_SECURITY_REFERENCE.md), [Zero Trust](ZERO_TRUST_REFERENCE.md), [Threat Modeling discipline](disciplines/threat-modeling.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Threat Modeling](/disciplines/threat-modeling.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-27, Defense Evasion renamed Stealth in the STRIDE Repudiation row, the kill chain sequence and a Navigator layer example ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

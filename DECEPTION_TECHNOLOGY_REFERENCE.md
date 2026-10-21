@@ -5,21 +5,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Detection engineers and SOC teams adding deception to their detection stack |
-| Level | Intermediate |
-| Reading time | About 10 min (2,256 words at 230 words a minute) |
-| Read this when | You are planning your first honeypot or honeytoken deployment, you need near-zero false-positive detection for lateral movement or credential theft, you are evaluating deception platforms or writing SIEM rules for decoy assets |
-| Start at | [Deception Technology Fundamentals](#deception-technology-fundamentals) for why deception works, [Honeytokens](#honeytokens) for the fastest wins (CanaryTokens, AWS keys, AD honey users), [Deception Deployment Strategy](#deception-deployment-strategy) for breadcrumbs and alert pipelines |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Detection engineers and SOC teams adding deception to their detection stack
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,256 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are planning your first honeypot or honeytoken deployment, you need near-zero false-positive detection for lateral movement or credential theft, or you are evaluating deception platforms or writing SIEM rules for decoy assets
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Deception Technology Fundamentals](#deception-technology-fundamentals) for why deception works, [Honeytokens](#honeytokens) for the fastest wins (CanaryTokens, AWS keys, AD honey users), [Deception Deployment Strategy](#deception-deployment-strategy) for breadcrumbs and alert pipelines
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [ENGAGE_REFERENCE.md](ENGAGE_REFERENCE.md), [HONEYPOT_DECEPTION_REFERENCE.md](HONEYPOT_DECEPTION_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md) |
-| Matching learning path | [Active Defense & Deception](/disciplines/active-defense-deception.md) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Engage Reference (deception)](ENGAGE_REFERENCE.md), [Honeypot & Deception Reference](HONEYPOT_DECEPTION_REFERENCE.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [SIEM Detection Content](SIEM_DETECTION_CONTENT.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Active Defense & Deception](/disciplines/active-defense-deception.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

@@ -4,22 +4,58 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | CTI analysts, SOC analysts, incident responders, and security leaders who consume intelligence |
-| Level | Intermediate |
-| Reading time | About 22 min (5,145 words at 230 words a minute) |
-| Read this when | Standing up or maturing a CTI program, enriching and scoring IOCs before pushing them to your SIEM or firewall, trying to attribute activity to a known threat actor |
-| Start at | [CTI Fundamentals](#_1-cti-fundamentals), [IOC Management & Enrichment](#_4-ioc-management-amp-enrichment), [Threat Actor Tracking & Attribution](#_5-threat-actor-tracking-amp-attribution) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+CTI analysts, SOC analysts, incident responders, and security leaders who consume intelligence
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 22 min (5,145 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are standing up or maturing a CTI program, you are enriching and scoring IOCs before pushing them to your SIEM or firewall, or you are trying to attribute activity to a known threat actor
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[CTI Fundamentals](#_1-cti-fundamentals), [IOC Management & Enrichment](#_4-ioc-management-amp-enrichment), [Threat Actor Tracking & Attribution](#_5-threat-actor-tracking-amp-attribution)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [THREAT_GROUP_PROFILES.md](THREAT_GROUP_PROFILES.md), [THREAT_HUNTING_REFERENCE.md](THREAT_HUNTING_REFERENCE.md), [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [disciplines/threat-intelligence.md](disciplines/threat-intelligence.md) |
-| Matching learning path | [Threat Intelligence](/disciplines/threat-intelligence.md) |
-| Last corrected | 2026-10-12, revoked T1562 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Threat Group Profiles](THREAT_GROUP_PROFILES.md), [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md), [Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Threat Intelligence](disciplines/threat-intelligence.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Threat Intelligence](/disciplines/threat-intelligence.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1562 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

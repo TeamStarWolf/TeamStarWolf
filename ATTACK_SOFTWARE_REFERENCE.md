@@ -6,21 +6,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Threat intelligence analysts, malware analysts, and detection engineers |
-| Level | Intermediate |
-| Reading time | About 46 min (10,579 words at 230 words a minute) |
-| Read this when | You need to identify what a named malware or tool can do, you are scoping detections around the software a threat group deploys, you want the most technique-rich software to prioritize coverage against |
-| Start at | [All software by technique breadth](#all-software-by-technique-breadth), [Detailed profiles - most capable software](#detailed-profiles-most-capable-software) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Threat intelligence analysts, malware analysts, and detection engineers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 46 min (10,625 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need to identify what a named malware or tool can do, you are scoping detections around the software a threat group deploys, or you want the most technique-rich software to prioritize coverage against
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[All software by technique breadth](#all-software-by-technique-breadth), [Detailed profiles - most capable software](#detailed-profiles-most-capable-software)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [Threat Group Profiles](THREAT_GROUP_PROFILES.md), [Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md), [Malware Families](MALWARE_FAMILIES.md) |
-| Last corrected | 2026-10-13, revoked T1070.001 re-keyed to T1685.005 ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Threat Group Profiles](THREAT_GROUP_PROFILES.md), [Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md), [Malware Families](MALWARE_FAMILIES.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-13, revoked T1070.001 re-keyed to T1685.005 ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 
@@ -1463,3 +1495,7 @@ Techniques: [T1005](https://attack.mitre.org/techniques/T1005) ([local](/mitre/t
 - [Malware Families](/MALWARE_FAMILIES.md)
 
 <!-- related:end -->
+
+---
+
+*© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*

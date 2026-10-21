@@ -6,20 +6,48 @@ The consequences of a security failure in OT are measured in physical damage, pr
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | IT security practitioners and engineers moving into industrial and OT security |
-| Level | Beginner to advanced |
-| Reading time | About 10 min (2,414 words at 230 words a minute) |
-| Read this when | Moving from IT security into ICS/OT, or studying industrial protocols, the Purdue model and past ICS incidents |
-| Start at | [Where to Start](#where-to-start), [The Purdue Reference Model](#the-purdue-reference-model), [ICS Protocols](#ics-protocols-authentication-and-encryption-gaps) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+IT security practitioners and engineers moving into industrial and OT security
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,414 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are moving from IT security into ICS/OT, or you are studying industrial protocols, the Purdue model and past ICS incidents
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [The Purdue Reference Model](#the-purdue-reference-model), [ICS Protocols](#ics-protocols-authentication-and-encryption-gaps)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Last corrected | 2026-10-13, T0833 Modify Control Logic marked deprecated, with no successor ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-13, T0833 Modify Control Logic marked deprecated, with no successor ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

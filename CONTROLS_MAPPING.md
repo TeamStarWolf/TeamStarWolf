@@ -23,20 +23,48 @@ For the full pipeline context, see [SECURITY_PIPELINE.md](SECURITY_PIPELINE.md).
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Security architects, GRC analysts, and engineers building control-coverage maps |
-| Level | Intermediate |
-| Reading time | About 8 min (1,954 words at 230 words a minute) |
-| Read this when | Tracing a security product to the NIST 800-53 controls it implements and on to the ATT&CK techniques those controls mitigate, or downloading CTID mapping data for gap scoring |
-| Start at | [Vendor to NIST Control to ATT&CK Coverage](#vendor-to-nist-control-to-attampck-coverage), [Key ATT&CK Technique to NIST Control Reference](#key-attampck-technique-to-nist-control-reference), [Using CTID Data for Gap Scoring](#using-ctid-data-for-gap-scoring) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security architects, GRC analysts, and engineers building control-coverage maps
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Length</th><td>
+
+Lookup page: 1,954 words, 80% in tables; look entries up from Start at or the search (about 8 min end to end at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are tracing a security product to the NIST 800-53 controls it implements and on to the ATT&CK techniques those controls mitigate, or you are downloading CTID mapping data for gap scoring
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vendor to NIST Control to ATT&CK Coverage](#vendor-to-nist-control-to-attampck-coverage), [Key ATT&CK Technique to NIST Control Reference](#key-attampck-technique-to-nist-control-reference), [Using CTID Data for Gap Scoring](#using-ctid-data-for-gap-scoring)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Last corrected | 2026-10-12, revoked T1562 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1562 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

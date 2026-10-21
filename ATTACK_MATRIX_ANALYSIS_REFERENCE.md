@@ -9,20 +9,48 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Threat-informed defense analysts and ATTACK-Navi users |
-| Level | Intermediate |
-| Reading time | About 5 min (1,127 words at 230 words a minute) |
-| Read this when | Choosing which heatmap mode answers your coverage question, prioritizing techniques by threat activity or exploitation urgency, sanity-checking what a gradient score does and does not prove |
-| Start at | [An analysis workflow](#an-analysis-workflow), [Lens family 1 - Mitigation & control coverage](#lens-family-1-mitigation-amp-control-coverage), [Reading the scores safely](#reading-the-scores-safely) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Threat-informed defense analysts and ATTACK-Navi users
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,127 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are choosing which heatmap mode answers your coverage question, you are prioritizing techniques by threat activity or exploitation urgency, or you are sanity-checking what a gradient score does and does not prove
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[An analysis workflow](#an-analysis-workflow), [Lens family 1 - Mitigation & control coverage](#lens-family-1-mitigation-amp-control-coverage), [Reading the scores safely](#reading-the-scores-safely)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md), [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md), [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md), [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md), [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

@@ -44,26 +44,26 @@ Part of the [domain hubs](/hubs/README.md). 35 reference documents in this domai
 | Reference | What it covers | Reading time |
 |---|---|---|
 | [Career Paths](/CAREER_PATHS.md) | 15+ cybersecurity roles with skill maps, salary ranges, cert roadmaps, and career transition paths | 19 min |
-| [Certifications Reference](/CERTIFICATIONS.md) | Detailed reference for 40+ security certifications: cost, difficulty, DoD 8570, and who should pursue each | 11 min |
+| [Certifications Reference](/CERTIFICATIONS.md) | Detailed reference for 40+ security certifications: cost, difficulty, DoD 8570, and who should pursue each | Lookup page (11 min end to end) |
 | [CISSP Domain Crosswalk](/CISSP_DOMAIN_CROSSWALK.md) | ISC2 CISSP 8 domains (April 2024 weights) mapped onto the library, with a 12-week plan and honest coverage gaps | 17 min |
 | [CEH Domain Crosswalk](/CEH_DOMAIN_CROSSWALK.md) | EC-Council CEH v13 exam blueprint (9 domains) mapped onto the library, with study sequence, honest gaps, and legal-practice pointers | 12 min |
-| [Interview Prep](/INTERVIEW_PREP.md) | Common interview questions by role: SOC analyst, pentester, DFIR, cloud security, AppSec | 20 min |
-| [Hands-On Labs](/LABS.md) | Free lab environments, CTF platforms, and home lab builds mapped to each security discipline | 6 min |
+| [Interview Prep](/INTERVIEW_PREP.md) | Common interview questions by role: SOC analyst, pentester, DFIR, cloud security, AppSec | Lookup page (20 min end to end) |
+| [Hands-On Labs](/LABS.md) | Free lab environments, CTF platforms, and home lab builds mapped to each security discipline | Lookup page (6 min end to end) |
 | [Home Lab Setup](/HOMELAB_SETUP.md) | Hardware, hypervisors, network architecture, and detection stacks for building a security lab | 27 min |
 | [CTF Methodology](/CTF_METHODOLOGY.md) | Systematic approach to web, forensics, crypto, reverse engineering, binary exploitation, and OSINT challenges | 14 min |
-| [Security Glossary](/GLOSSARY.md) | 100+ cybersecurity terms, acronyms, and definitions from APT to ZTNA | 13 min |
+| [Security Glossary](/GLOSSARY.md) | 100+ cybersecurity terms, acronyms, and definitions from APT to ZTNA | Lookup page (13 min end to end) |
 
 ## Reading lists and tool catalogs
 
 | Reference | What it covers | Reading time |
 |---|---|---|
-| [Resources](/RESOURCES.md) | Books, courses, YouTube channels, podcasts, CTF platforms, and communities | 7 min |
+| [Resources](/RESOURCES.md) | Books, courses, YouTube channels, podcasts, CTF platforms, and communities | Lookup page (7 min end to end) |
 | [Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md) | Books, labs, and companion repos grouped for practical learning, with cert roadmaps and learning paths | 35 min |
 | [YouTube Channel Library](/YOUTUBE_CHANNELS.md) | Active channels across multiple security disciplines | 7 min |
 | [X / Twitter Follow List](/TWITTER_FOLLOW_LIST.md) | Vetted accounts that regularly share original research, tooling, or operational insight | 7 min |
 | [Starred Repositories](/STARRED_REPOS.md) | Curated repos structured around Cybersecurity Technology | 14 min |
-| [Open Source Toolkit](/OPEN_SOURCE_TOOLKIT.md) | Open source security tools and bookmarks, organized by category and discipline | 13 min |
-| [Security Tools Reference](/TOOLS.md) | Quick-reference matrices of 100+ security tools organized by category with OSS/commercial tags | 14 min |
+| [Open Source Toolkit](/OPEN_SOURCE_TOOLKIT.md) | Open source security tools and bookmarks, organized by category and discipline | Lookup page (13 min end to end) |
+| [Security Tools Reference](/TOOLS.md) | Quick-reference matrices of 100+ security tools organized by category with OSS/commercial tags | Lookup page (14 min end to end) |
 | [Security Tool Documentation](/SECURITY_TOOL_DOCUMENTATION.md) | Index of official documentation, API docs, GitHub repositories, and learning resources for a representative enterprise security stack | 21 min |
 
 ## Learning paths

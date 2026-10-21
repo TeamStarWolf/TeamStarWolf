@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Detection engineers, SOC leads, and logging and SIEM owners |
-| Level | Intermediate |
-| Reading time | About 134 min (30,915 words at 230 words a minute) |
-| Read this when | Planning or auditing logging coverage, deciding which log sources to onboard for a detection, checking whether a technique's required telemetry exists in your environment |
-| Start at | [Process Creation](#process-creation), [Command Execution](#command-execution), [Detail](#detail) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Detection engineers, SOC leads, and logging and SIEM owners
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Length</th><td>
+
+Lookup page: 30,961 words, 79% in tables; look entries up from Start at or the search (about 135 min end to end at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are planning or auditing logging coverage, you are deciding which log sources to onboard for a detection, or you are checking whether a technique's required telemetry exists in your environment
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Process Creation](#process-creation), [Command Execution](#command-execution), [Detail](#detail)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [Detection Strategies](detections/strategies/README.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
-| Last corrected | 2026-09-29, ATT&CK version in the introduction updated from v18.1 to v19.2 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Detection Strategies](detections/strategies/README.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, ATT&CK version in the introduction updated from v18.1 to v19.2 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 
@@ -4175,3 +4207,7 @@ The process of listing or retrieving metadata about existing snapshots in a clou
 - [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)
 
 <!-- related:end -->
+
+---
+
+*© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*

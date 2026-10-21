@@ -6,20 +6,48 @@ The discipline spans four tiers: strategic intelligence informs executive decisi
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Analysts learning to collect, analyze, and act on threat intelligence |
-| Level | Beginner to advanced |
-| Reading time | About 12 min (2,772 words at 230 words a minute) |
-| Read this when | Learning the intelligence cycle and how CTI uses ATT&CK, or choosing CTI tools and sources |
-| Start at | [Where to Start](#where-to-start), [Free Training](#free-training), [Tools & Repositories](#tools-amp-repositories) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Analysts learning to collect, analyze, and act on threat intelligence
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 12 min (2,772 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning the intelligence cycle and how CTI uses ATT&CK, or you are choosing CTI tools and sources
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [Free Training](#free-training), [Tools & Repositories](#tools-amp-repositories)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Last corrected | 2026-09-29, TheHive entry updated (now commercial; DFIR-IRIS named as the alternative) ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, TheHive entry updated (now commercial; DFIR-IRIS named as the alternative) ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

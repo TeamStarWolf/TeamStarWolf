@@ -958,9 +958,10 @@
        which the script opens, without its summary line, on screens wider than 600 px, and the
        "Which page should I read?" table sits in a closed details.tsw-meta-which. At 600 px
        and below the script moves the card up to sit directly under the page title. On GitHub
-       the same block is plain tables and two closed folds. Folds are
-       <details class="tsw-fold"> around a long appendix or table, and around each
-       technique's body on the generated techniques/ and detections/strategies/ pages. */
+       the same block is the same tables (a row header per label) and two closed folds. Folds
+       are <details class="tsw-fold"> around a long appendix or table, and around each
+       technique's body on the generated techniques/ and detections/strategies/ pages; an
+       open fold's label reads "Hide ..." instead of "Show ..." (the folds script below). */
     .markdown-section .tsw-meta {
       margin: 1.2rem 0 1.8rem; padding: .35rem 1.1rem .7rem;
       background: var(--tsw-surface); border: 1px solid var(--tsw-border); border-radius: 12px;
@@ -973,11 +974,15 @@
     .markdown-section .tsw-meta tbody tr:nth-child(even),
     .markdown-section .tsw-meta tbody tr:hover { background: transparent; }
     .markdown-section .tsw-meta table.tsw-meta-card { display: table; width: 100%; border: 0; font-size: .9rem; }
-    .markdown-section .tsw-meta table.tsw-meta-card thead { display: none; }
-    .markdown-section .tsw-meta table.tsw-meta-card td { padding: 7px 12px 7px 0; }
-    .markdown-section .tsw-meta table.tsw-meta-card td:first-child {
-      width: 11rem; white-space: nowrap; color: var(--tsw-text-dim); font-weight: 650;
+    /* Each label is a row header (th scope="row"); the value is a paragraph in its cell. */
+    .markdown-section .tsw-meta table.tsw-meta-card th,
+    .markdown-section .tsw-meta table.tsw-meta-card td { padding: 7px 12px 7px 0; vertical-align: top; }
+    .markdown-section .tsw-meta table.tsw-meta-card th {
+      width: 11rem; white-space: nowrap; color: var(--tsw-text-dim); font-weight: 650; font-size: inherit;
+      background: transparent; position: static; border-bottom: 1px solid var(--tsw-border-soft);
     }
+    .markdown-section .tsw-meta table.tsw-meta-card tr:last-child th { border-bottom: 0; }
+    .markdown-section .tsw-meta table.tsw-meta-card td > p { margin: 0; line-height: inherit; }
     .markdown-section .tsw-meta > p { margin: 1rem 0 .4rem; color: var(--tsw-text); }
     .markdown-section .tsw-meta > details { margin: .1rem 0 .2rem; border-top: 1px solid var(--tsw-border-soft); }
     .markdown-section .tsw-meta > details > summary {
@@ -995,11 +1000,13 @@
       .markdown-section .tsw-meta table.tsw-meta-card,
       .markdown-section .tsw-meta table.tsw-meta-card tbody,
       .markdown-section .tsw-meta table.tsw-meta-card tr,
+      .markdown-section .tsw-meta table.tsw-meta-card th,
       .markdown-section .tsw-meta table.tsw-meta-card td { display: block; width: auto; }
-      .markdown-section .tsw-meta table.tsw-meta-card tr { padding: 7px 0; border-bottom: 1px solid var(--tsw-border-soft); }
+      .markdown-section .tsw-meta table.tsw-meta-card tr { padding: 5px 0; border-bottom: 1px solid var(--tsw-border-soft); }
       .markdown-section .tsw-meta table.tsw-meta-card tr:last-child { border-bottom: 0; }
+      .markdown-section .tsw-meta table.tsw-meta-card th,
       .markdown-section .tsw-meta table.tsw-meta-card td { padding: 0; border: 0; }
-      .markdown-section .tsw-meta table.tsw-meta-card td:first-child { white-space: normal; font-size: .78rem; margin-bottom: 2px; }
+      .markdown-section .tsw-meta table.tsw-meta-card th { white-space: normal; font-size: .78rem; line-height: 1.35; margin-bottom: 1px; }
       /* The "Edit this page on GitHub" line takes one short line on a phone: the "/" key
          hint is for keyboards, so the card starts higher on the first screen. */
       .markdown-section .tsw-keyhint { display: none; }
@@ -1782,7 +1789,9 @@
        the card sits directly under the page title.
        The folds: a link to an anchor inside a closed <details class="tsw-fold">, or to the
        heading a fold sits under (a technique on the generated techniques/ and
-       detections/strategies/ pages), opens it; printing opens every fold. -->
+       detections/strategies/ pages), opens it; an open fold's label starts "Hide" and a
+       closed one's "Show", so a reader scanning a page of folds sees which are open;
+       printing opens every fold. -->
   <script>
     (function () {
       function main() { return document.getElementById('main'); }
@@ -1861,6 +1870,18 @@
           setTimeout(function () { openFor(routeId(), vm.config.topMargin); }, 0);
         });
       });
+      // "Show details: ..." while closed, "Hide details: ..." while open. The label is plain
+      // text (build_site_nav.FOLD_OPEN_RE), so only its first word changes. toggle does not
+      // bubble, so listen in the capture phase; it fires for clicks, links and print alike.
+      document.addEventListener('toggle', function (e) {
+        var d = e.target;
+        if (!d || d.tagName !== 'DETAILS' || !d.classList.contains('tsw-fold')) { return; }
+        var s = d.querySelector(':scope > summary');
+        if (!s) { return; }
+        var t = s.textContent;
+        if (d.open && /^Show\b/.test(t)) { s.textContent = 'Hide' + t.slice(4); }
+        else if (!d.open && /^Hide\b/.test(t)) { s.textContent = 'Show' + t.slice(4); }
+      }, true);
       var printed = [];
       window.addEventListener('beforeprint', function () {
         printed = Array.prototype.filter.call(document.querySelectorAll('details.tsw-fold, .tsw-meta > details'), function (d) { return !d.open; });

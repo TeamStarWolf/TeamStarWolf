@@ -3,22 +3,58 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | SOC engineers and automation developers building playbooks |
-| Level | Intermediate |
-| Reading time | About 20 min (4,713 words at 230 words a minute) |
-| Read this when | You are designing or hardening a playbook (triggers, error handling, approval gates), you need the API or SDK pattern for a specific SOAR platform, you are automating phishing/malware/ransomware/BEC response, you are measuring SOAR ROI or playbook effectiveness |
-| Start at | [SOAR Fundamentals](#_1-soar-fundamentals), [Playbook Design](#_2-playbook-design), [IR Automation by Incident Type](#_9-ir-automation-by-incident-type) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+SOC engineers and automation developers building playbooks
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 20 min (4,713 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are designing or hardening a playbook (triggers, error handling, approval gates), you need the API or SDK pattern for a specific SOAR platform, you are automating phishing/malware/ransomware/BEC response, or you are measuring SOAR ROI or playbook effectiveness
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[SOAR Fundamentals](#_1-soar-fundamentals), [Playbook Design](#_2-playbook-design), [IR Automation by Incident Type](#_9-ir-automation-by-incident-type)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [THREAT_INTELLIGENCE_REFERENCE.md](THREAT_INTELLIGENCE_REFERENCE.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [disciplines/incident-response.md](disciplines/incident-response.md) |
-| Matching learning path | [SIEM & SOAR](/disciplines/siem-soar.md) |
-| Last corrected | 2026-09-29, Azure AD renamed Microsoft Entra ID in two places ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[SIEM Reference](SIEM_REFERENCE.md), [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md), [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md), [Incident Response](disciplines/incident-response.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[SIEM & SOAR](/disciplines/siem-soar.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, Azure AD renamed Microsoft Entra ID in two places ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

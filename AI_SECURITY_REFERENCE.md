@@ -4,22 +4,58 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Engineers and security reviewers building or assessing LLM applications, and SOC teams using LLMs |
-| Level | Intermediate |
-| Reading time | About 14 min (3,305 words at 230 words a minute) |
-| Read this when | You are threat-modeling or reviewing an LLM application before deployment, investigating a suspected prompt injection or model extraction attempt, choosing guardrails or PII controls for an AI pipeline, mapping AI risks to compliance frameworks |
-| Start at | [OWASP LLM Top 10 (2025)](#owasp-llm-top-10-2025), [Prompt Injection Deep Dive](#prompt-injection-deep-dive), [Quick Reference: AI Security Checklist](#quick-reference-ai-security-checklist) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Engineers and security reviewers building or assessing LLM applications, and SOC teams using LLMs
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 14 min (3,305 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are threat-modeling or reviewing an LLM application before deployment, you are investigating a suspected prompt injection or model extraction attempt, you are choosing guardrails or PII controls for an AI pipeline, or you are mapping AI risks to compliance frameworks
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[OWASP LLM Top 10 (2025)](#owasp-llm-top-10-2025), [Prompt Injection Deep Dive](#prompt-injection-deep-dive), [Quick Reference: AI Security Checklist](#quick-reference-ai-security-checklist)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [AI_MCP_SECURITY_REFERENCE.md](AI_MCP_SECURITY_REFERENCE.md), [AI_OFFENSIVE_SECURITY_REFERENCE.md](AI_OFFENSIVE_SECURITY_REFERENCE.md), [ATLAS_REFERENCE.md](ATLAS_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md) |
-| Matching learning path | [AI & LLM Security](/disciplines/ai-llm-security.md) |
-| Last corrected | 2026-09-29, note added on the 2026 OWASP Top 10 for LLM Applications ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[AI & MCP Security Reference](AI_MCP_SECURITY_REFERENCE.md), [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md), [ATLAS Reference (AI threats)](ATLAS_REFERENCE.md), [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[AI & LLM Security](/disciplines/ai-llm-security.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, note added on the 2026 OWASP Top 10 for LLM Applications ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

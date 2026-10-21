@@ -4,22 +4,58 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | OT and ICS security engineers, plant engineers, and incident responders |
-| Level | Intermediate to advanced |
-| Reading time | About 23 min (5,373 words at 230 words a minute) |
-| Read this when | You are segmenting or assessing an OT/SCADA network, investigating an ICS intrusion, or need protocol/threat-actor/standards facts (Modbus, IEC 62443, NERC CIP) fast |
-| Start at | [ICS/OT Fundamentals](#icsot-fundamentals), [ICS Attack Methodology](#ics-attack-methodology-mitre-attampck-for-ics), [Quick Reference Checklists](#quick-reference-checklists) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+OT and ICS security engineers, plant engineers, and incident responders
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 23 min (5,373 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are segmenting or assessing an OT/SCADA network, you are investigating an ICS intrusion, or you need protocol, threat-actor or standards facts (Modbus, IEC 62443, NERC CIP) fast
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[ICS/OT Fundamentals](#icsot-fundamentals), [ICS Attack Methodology](#ics-attack-methodology-mitre-attampck-for-ics), [Quick Reference Checklists](#quick-reference-checklists)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [ICS_ATTACK_ATLAS.md](ICS_ATTACK_ATLAS.md), [EMB3D_REFERENCE.md](EMB3D_REFERENCE.md), [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md) |
-| Matching learning path | [ICS/OT Security](/disciplines/ics-ot-security.md) |
-| Last corrected | 2026-10-13, T0824 I/O Module Discovery marked deprecated, with no successor ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[ICS ATT&CK Atlas](ICS_ATTACK_ATLAS.md), [EMB3D Reference (Embedded Devices)](EMB3D_REFERENCE.md), [Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[ICS/OT Security](/disciplines/ics-ot-security.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-13, T0824 I/O Module Discovery marked deprecated, with no successor ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

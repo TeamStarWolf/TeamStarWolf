@@ -4,22 +4,58 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Application security, DevSecOps, and platform engineers who own build and release pipelines |
-| Level | Intermediate |
-| Reading time | About 24 min (5,612 words at 230 words a minute) |
-| Read this when | You need to vet or scan a project's dependencies, you're adding SBOM generation or artifact signing to a pipeline, you're hardening GitHub Actions/CI workflows, or you suspect a compromised package and need containment steps |
-| Start at | [Threat landscape](#_1-software-supply-chain-threat-landscape) for how the attacks work, [Artifact signing & verification](#_4-artifact-signing-amp-verification) for cosign/signing workflows, [Incident response](#_10-supply-chain-incident-response) when something is already on fire |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Application security, DevSecOps, and platform engineers who own build and release pipelines
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 24 min (5,612 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need to vet or scan a project's dependencies, you are adding SBOM generation or artifact signing to a pipeline, you are hardening GitHub Actions/CI workflows, or you suspect a compromised package and need containment steps
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Threat landscape](#_1-software-supply-chain-threat-landscape) for how the attacks work, [Artifact signing & verification](#_4-artifact-signing-amp-verification) for cosign/signing workflows, [Incident response](#_10-supply-chain-incident-response) when something is already on fire
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [SUPPLY_CHAIN_SECURITY.md](SUPPLY_CHAIN_SECURITY.md), [DEVSECOPS_REFERENCE.md](DEVSECOPS_REFERENCE.md), [CONTAINER_SECURITY_REFERENCE.md](CONTAINER_SECURITY_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md) |
-| Matching learning path | [Supply Chain Security](/disciplines/supply-chain-security.md) |
-| Last corrected | 2026-10-12, revoked T1574.002 (DLL side-loading) folded into T1574.001 in the Hijack Execution Flow note ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Supply Chain Security](SUPPLY_CHAIN_SECURITY.md), [DevSecOps Reference](DEVSECOPS_REFERENCE.md), [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Supply Chain Security](/disciplines/supply-chain-security.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1574.002 (DLL side-loading) folded into T1574.001 in the Hijack Execution Flow note ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

@@ -4,22 +4,58 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Web application testers, secure developers, and application security engineers |
-| Level | Intermediate |
-| Reading time | About 16 min (3,752 words at 230 words a minute) |
-| Read this when | Testing a web app or API against the OWASP Top 10, writing an SQLi/XSS/SSRF payload or its fix, hardening auth, sessions, headers, or a WAF |
-| Start at | [OWASP Top 10 2021](#_1-owasp-top-10-2021), [Web App Testing Methodology](#_5-web-app-testing-methodology), [Business Logic and API Security](#_7-business-logic-and-api-security) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Web application testers, secure developers, and application security engineers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 16 min (3,752 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are testing a web app or API against the OWASP Top 10, you are writing an SQLi/XSS/SSRF payload or its fix, or you are hardening auth, sessions, headers, or a WAF
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[OWASP Top 10 2021](#_1-owasp-top-10-2021), [Web App Testing Methodology](#_5-web-app-testing-methodology), [Business Logic and API Security](#_7-business-logic-and-api-security)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [WEB_APPLICATION_PENTESTING.md](WEB_APPLICATION_PENTESTING.md), [API_SECURITY_REFERENCE.md](API_SECURITY_REFERENCE.md), [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md), [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md) |
-| Matching learning path | [Application Security](/disciplines/application-security.md) |
-| Last corrected | 2026-09-29, note added on OWASP Top 10:2025 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Web App Pentesting](WEB_APPLICATION_PENTESTING.md), [API Security Reference](API_SECURITY_REFERENCE.md), [Secure Coding Reference](SECURE_CODING_REFERENCE.md), [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Application Security](/disciplines/application-security.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, note added on OWASP Top 10:2025 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

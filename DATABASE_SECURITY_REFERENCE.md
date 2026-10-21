@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Database administrators, data platform engineers, and security engineers who harden data stores |
-| Level | Intermediate |
-| Reading time | About 13 min (2,961 words at 230 words a minute) |
-| Read this when | Hardening a new or existing DBMS, writing a database baseline/benchmark, scoping DAM or audit-log coverage, responding to an exposed-database finding, reviewing least-privilege on a DB, or building the data-tier controls of a Zero Trust or PCI/HIPAA program |
-| Start at | [The database attack surface](#the-database-attack-surface), [Universal hardening baseline](#universal-hardening-baseline), then the [Defender checklist](#defender-checklist) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Database administrators, data platform engineers, and security engineers who harden data stores
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 13 min (2,961 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are hardening a new or existing DBMS, you are writing a database baseline/benchmark, you are scoping DAM or audit-log coverage, you are responding to an exposed-database finding, you are reviewing least-privilege on a DB, or you are building the data-tier controls of a Zero Trust or PCI/HIPAA program
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[The database attack surface](#the-database-attack-surface), [Universal hardening baseline](#universal-hardening-baseline), then the [Defender checklist](#defender-checklist)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, added, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [DATA_SECURITY_REFERENCE.md](DATA_SECURITY_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [SECRETS_MANAGEMENT_REFERENCE.md](SECRETS_MANAGEMENT_REFERENCE.md), [IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md), [WEB_APPLICATION_SECURITY_REFERENCE.md](WEB_APPLICATION_SECURITY_REFERENCE.md) |
-| Added | 2026-09-29 ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Data Security Reference](DATA_SECURITY_REFERENCE.md), [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md), [Secrets Management Reference](SECRETS_MANAGEMENT_REFERENCE.md), [Identity & Access Management Reference](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md), [Web Application Security Reference](WEB_APPLICATION_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Added</th><td>
+
+2026-09-29 ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

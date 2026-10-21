@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Candidates preparing for security job interviews |
-| Level | Beginner to intermediate |
-| Reading time | About 20 min (4,620 words at 230 words a minute) |
-| Read this when | You have an interview scheduled and need to rehearse likely questions, you are switching security roles and need the role-specific question set, you received an offer and want negotiation scripts |
-| Start at | [General Preparation Strategy](#general-preparation-strategy), [Role-Specific Questions](#role-specific-questions), [Salary Negotiation & Offer Evaluation](#salary-negotiation-amp-offer-evaluation) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Candidates preparing for security job interviews
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Length</th><td>
+
+Lookup page: 4,620 words, 81% in tables; look entries up from Start at or the search (about 20 min end to end at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You have an interview scheduled and need to rehearse likely questions, you are switching security roles and need the role-specific question set, or you received an offer and want negotiation scripts
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[General Preparation Strategy](#general-preparation-strategy), [Role-Specific Questions](#role-specific-questions), [Salary Negotiation & Offer Evaluation](#salary-negotiation-amp-offer-evaluation)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [Career Paths](CAREER_PATHS.md), [Certifications Reference](CERTIFICATIONS.md), [Hands-On Labs](LABS.md) |
-| Last corrected | 2026-09-29, one answer updated for Volatility 3 and the archived Rekall ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Career Paths](CAREER_PATHS.md), [Certifications Reference](CERTIFICATIONS.md), [Hands-On Labs](LABS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, one answer updated for Volatility 3 and the archived Rekall ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

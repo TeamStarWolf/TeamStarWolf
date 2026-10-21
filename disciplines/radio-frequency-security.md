@@ -6,20 +6,48 @@ The security practitioner who understands RF has access to an attack surface tha
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Practitioners learning RF and wireless assessment with software-defined radio |
-| Level | Beginner to advanced |
-| Reading time | About 11 min (2,473 words at 230 words a minute) |
-| Read this when | Picking up software-defined radio, studying wireless attack techniques, or checking the legal limits on transmitting |
-| Start at | [Where to Start](#where-to-start), [RF Attack Techniques](#rf-attack-techniques), [Legal & Ethical Considerations](#legal-amp-ethical-considerations) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Practitioners learning RF and wireless assessment with software-defined radio
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,473 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are picking up software-defined radio, you are studying wireless attack techniques, or you are checking the legal limits on transmitting
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [RF Attack Techniques](#rf-attack-techniques), [Legal & Ethical Considerations](#legal-amp-ethical-considerations)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Last corrected | 2026-10-12, revoked T1465 re-keyed to T1638 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1465 re-keyed to T1638 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

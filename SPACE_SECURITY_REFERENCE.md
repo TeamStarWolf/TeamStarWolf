@@ -10,19 +10,43 @@ Related: [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [D3FEN
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Space and satellite security engineers, and SATCOM and mission program owners |
-| Level | Intermediate to advanced |
-| Reading time | About 29 min (6,627 words at 230 words a minute) |
-| Read this when | Scoping security for a satellite or SATCOM program, mapping SPARTA coverage or countermeasures for a mission, investigating GNSS jamming/spoofing or a suspected hostile-commanding event |
-| Start at | [Why space systems security is different](#why-space-systems-security-is-different), [The SPARTA framework](#the-sparta-framework), [Standing up the program](#standing-up-the-program) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Space and satellite security engineers, and SATCOM and mission program owners
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 29 min (6,627 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are scoping security for a satellite or SATCOM program, you are mapping SPARTA coverage or countermeasures for a mission, or you are investigating GNSS jamming/spoofing or a suspected hostile-commanding event
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Why space systems security is different](#why-space-systems-security-is-different), [The SPARTA framework](#the-sparta-framework), [Standing up the program](#standing-up-the-program)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
 
-| | |
-|---|---|
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

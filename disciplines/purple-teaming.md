@@ -4,20 +4,48 @@ Purple teaming is a structured security methodology that unites offensive (red) 
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Red and blue team practitioners learning to run purple team exercises |
-| Level | Beginner to advanced |
-| Reading time | About 8 min (1,785 words at 230 words a minute) |
-| Read this when | Planning a purple team exercise, measuring detection coverage against ATT&CK, or choosing adversary emulation and BAS tools |
-| Start at | [Where to Start](#where-to-start), [Purple Team Exercise Structure](#purple-team-exercise-structure), [Detection Outcome Matrix](#detection-outcome-matrix) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Red and blue team practitioners learning to run purple team exercises
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 8 min (1,785 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are planning a purple team exercise, you are measuring detection coverage against ATT&CK, or you are choosing adversary emulation and BAS tools
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [Purple Team Exercise Structure](#purple-team-exercise-structure), [Detection Outcome Matrix](#detection-outcome-matrix)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Last corrected | 2026-10-12, revoked T1562 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1562 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

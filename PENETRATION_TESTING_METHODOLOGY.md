@@ -4,22 +4,58 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Penetration testers and engagement leads |
-| Level | Intermediate |
-| Reading time | About 10 min (2,345 words at 230 words a minute) |
-| Read this when | Kicking off a new engagement and drafting the Rules of Engagement, mid-test and needing the right command for recon/scanning/exploitation, writing up findings with CVSS/EPSS/ATT&CK mappings |
-| Start at | [Engagement Scoping and Legal Framework](#_1-engagement-scoping-and-legal-framework), [Reconnaissance](#_2-reconnaissance), [Professional Reporting](#_8-professional-reporting) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Penetration testers and engagement leads
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,345 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are kicking off a new engagement and drafting the Rules of Engagement, you are mid-test and need the right command for recon/scanning/exploitation, or you are writing up findings with CVSS/EPSS/ATT&CK mappings
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Engagement Scoping and Legal Framework](#_1-engagement-scoping-and-legal-framework), [Reconnaissance](#_2-reconnaissance), [Professional Reporting](#_8-professional-reporting)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning paths, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [PENTEST_CHECKLISTS.md](PENTEST_CHECKLISTS.md), [WEB_APPLICATION_PENTESTING.md](WEB_APPLICATION_PENTESTING.md), [PRIVESC_REFERENCE.md](PRIVESC_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md) |
-| Matching learning paths | [Offensive Security](/disciplines/offensive-security.md), [Penetration Testing](/disciplines/penetration-testing.md) |
-| Last corrected | 2026-10-13, ATT&CK version pin in an example Navigator layer updated ([#120](https://github.com/TeamStarWolf/TeamStarWolf/pull/120), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Pentest Checklists](PENTEST_CHECKLISTS.md), [Web App Pentesting](WEB_APPLICATION_PENTESTING.md), [Privilege Escalation Reference](PRIVESC_REFERENCE.md), [Red Team Reference](RED_TEAM_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning paths</th><td>
+
+[Offensive Security](/disciplines/offensive-security.md), [Penetration Testing](/disciplines/penetration-testing.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-13, ATT&CK version pin in an example Navigator layer updated ([#120](https://github.com/TeamStarWolf/TeamStarWolf/pull/120), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

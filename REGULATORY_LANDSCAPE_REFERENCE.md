@@ -4,20 +4,48 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | GRC leads, legal and privacy partners, and incident commanders |
-| Level | Intermediate |
-| Reading time | About 13 min (3,076 words at 230 words a minute) |
-| Read this when | An incident just triggered notification duties and you need every clock in one place; scoping which regimes apply to a new market or product; briefing legal/board on cross-border reporting exposure; building an incident-response runbook's notification matrix |
-| Start at | [Obligation & Deadline Matrix](#obligation-amp-deadline-matrix), [Conflicting Clocks](#conflicting-clocks-practical-guidance), [Regime Detail](#regime-detail) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+GRC leads, legal and privacy partners, and incident commanders
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 13 min (3,076 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+An incident just triggered notification duties and you need every clock in one place; you are scoping which regimes apply to a new market or product; you are briefing legal counsel or the board on cross-border reporting exposure; or you are building the notification matrix of an incident-response runbook
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Obligation & Deadline Matrix](#obligation-amp-deadline-matrix), [Conflicting Clocks](#conflicting-clocks-practical-guidance), [Regime Detail](#regime-detail)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [FRAMEWORKS.md](FRAMEWORKS.md), [GRC_REFERENCE.md](GRC_REFERENCE.md), [GRC_COMPLIANCE_REFERENCE.md](GRC_COMPLIANCE_REFERENCE.md), [disciplines/governance-risk-compliance.md](disciplines/governance-risk-compliance.md), [CVE_REFERENCE.md](CVE_REFERENCE.md) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Frameworks Reference](FRAMEWORKS.md), [GRC Reference](GRC_REFERENCE.md), [GRC Compliance Reference](GRC_COMPLIANCE_REFERENCE.md), [Governance, Risk & Compliance (GRC)](disciplines/governance-risk-compliance.md), [CVE Reference](CVE_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

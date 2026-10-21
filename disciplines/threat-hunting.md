@@ -6,19 +6,43 @@ The discipline exists because no detection stack is complete. Advanced adversari
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | SOC analysts and detection engineers moving into threat hunting |
-| Level | Intermediate to advanced |
-| Reading time | About 14 min (3,234 words at 230 words a minute) |
-| Read this when | Developing hunt hypotheses, or looking for ATT&CK-mapped hunt procedures and SPL or KQL queries |
-| Start at | [The Threat Hunting Process](#the-threat-hunting-process), [Hunt Procedures](#hunt-procedures), [Splunk SPL Hunting Queries](#splunk-spl-hunting-queries) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+SOC analysts and detection engineers moving into threat hunting
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 14 min (3,234 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are developing hunt hypotheses, or you are looking for ATT&CK-mapped hunt procedures and SPL or KQL queries
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[The Threat Hunting Process](#the-threat-hunting-process), [Hunt Procedures](#hunt-procedures), [Splunk SPL Hunting Queries](#splunk-spl-hunting-queries)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
 
-| | |
-|---|---|
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

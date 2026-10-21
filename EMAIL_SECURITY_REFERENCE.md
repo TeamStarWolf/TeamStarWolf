@@ -5,20 +5,48 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Email administrators, SOC analysts, and phishing responders |
-| Level | Intermediate |
-| Reading time | About 12 min (2,773 words at 230 words a minute) |
-| Read this when | Standing up or hardening SPF/DKIM/DMARC for a domain, triaging a suspicious email or phishing report, or tuning M365/Proofpoint/Mimecast defenses against BEC and credential harvesting |
-| Start at | [Email Authentication Protocols](#email-authentication-protocols), [Phishing Analysis](#phishing-analysis), [Email-Based Attack Techniques](#email-based-attack-techniques) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Email administrators, SOC analysts, and phishing responders
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 12 min (2,773 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are standing up or hardening SPF/DKIM/DMARC for a domain, you are triaging a suspicious email or phishing report, or you are tuning M365/Proofpoint/Mimecast defenses against BEC and credential harvesting
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Email Authentication Protocols](#email-authentication-protocols), [Phishing Analysis](#phishing-analysis), [Email-Based Attack Techniques](#email-based-attack-techniques)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [SOCIAL_ENGINEERING_REFERENCE.md](SOCIAL_ENGINEERING_REFERENCE.md), [FRAUD_FRAMEWORK_REFERENCE.md](FRAUD_FRAMEWORK_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md), [Fight Fraud Framework (MITRE F3)](FRAUD_FRAMEWORK_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md), [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

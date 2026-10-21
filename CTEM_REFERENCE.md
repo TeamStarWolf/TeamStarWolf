@@ -10,19 +10,43 @@ Related: [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Vulne
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Vulnerability management leads, security program managers, and CISOs |
-| Level | Intermediate |
-| Reading time | About 28 min (6,530 words at 230 words a minute) |
-| Read this when | You are standing up or rebooting an exposure-management program, your vulnerability queue is ranked by CVSS alone and nobody trusts it, or you need to explain to leadership what CTEM is and why the loop beats scan-and-patch |
-| Start at | [The five stages](#the-five-stages) for the loop itself, [A 90-day starting plan](#a-90-day-starting-plan) to run a first cycle, [Free and open tooling by stage](#free-and-open-tooling-by-stage) to start without procurement |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, security program managers, and CISOs
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 28 min (6,530 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are standing up or rebooting an exposure-management program, your vulnerability queue is ranked by CVSS alone and nobody trusts it, or you need to explain to leadership what CTEM is and why the loop beats scan-and-patch
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[The five stages](#the-five-stages) for the loop itself, [A 90-day starting plan](#a-90-day-starting-plan) to run a first cycle, [Free and open tooling by stage](#free-and-open-tooling-by-stage) to start without procurement
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
 
-| | |
-|---|---|
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

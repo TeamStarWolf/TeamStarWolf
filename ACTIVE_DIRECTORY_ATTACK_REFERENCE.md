@@ -6,21 +6,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Blue teamers, detection engineers, SOC analysts, and AD administrators |
-| Level | Intermediate |
-| Reading time | About 31 min (7,186 words at 230 words a minute) |
-| Read this when | Writing detections for an AD attack (Kerberoasting, DCSync, Golden Ticket, NTLM relay, AD CS/ESC), triaging a suspicious Kerberos/LDAP/replication event, or hardening a domain against escalation and persistence |
-| Start at | [AD Reconnaissance & Enumeration](#_1-ad-reconnaissance-amp-enumeration-defender-view), [Detection & Hardening Summary](#_10-detection-amp-hardening-summary), [Kerberoasting](#_2-kerberoasting) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Blue teamers, detection engineers, SOC analysts, and AD administrators
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 31 min (7,186 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing detections for an AD attack (Kerberoasting, DCSync, Golden Ticket, NTLM relay, AD CS/ESC), you are triaging a suspicious Kerberos/LDAP/replication event, or you are hardening a domain against escalation and persistence
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[AD Reconnaissance & Enumeration](#_1-ad-reconnaissance-amp-enumeration-defender-view), [Detection & Hardening Summary](#_10-detection-amp-hardening-summary), [Kerberoasting](#_2-kerberoasting)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [ACTIVE_DIRECTORY_ATTACKS.md](ACTIVE_DIRECTORY_ATTACKS.md) (red-team offensive playbook: exact exploit chains, trust attacks, tool table), [ACTIVE_DIRECTORY_SECURITY_REFERENCE.md](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md), [IDENTITY_SECURITY_REFERENCE.md](IDENTITY_SECURITY_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md) |
-| Matching learning path | [Active Directory Security](/disciplines/active-directory.md) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md) (red-team offensive playbook: exact exploit chains, trust attacks, tool table), [Active Directory Security Reference](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE.md), [Identity Security Reference](IDENTITY_SECURITY_REFERENCE.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Active Directory Security](/disciplines/active-directory.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

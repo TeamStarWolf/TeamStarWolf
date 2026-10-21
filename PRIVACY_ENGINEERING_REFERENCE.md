@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Privacy engineers, developers, and privacy and GRC teams |
-| Level | Intermediate |
-| Reading time | About 19 min (4,377 words at 230 words a minute) |
-| Read this when | Scoping GDPR/CCPA obligations for a new system or market, building privacy controls into an API or data pipeline, preparing a DPIA or answering a DSAR/breach-notification question |
-| Start at | [GDPR Deep Dive](#_2-gdpr-deep-dive), [Technical Privacy Controls](#_7-technical-privacy-controls), [Privacy by Design - 7 Principles](#_5-privacy-by-design-7-principles) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Privacy engineers, developers, and privacy and GRC teams
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 19 min (4,377 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are scoping GDPR/CCPA obligations for a new system or market, you are building privacy controls into an API or data pipeline, or you are preparing a DPIA or answering a DSAR/breach-notification question
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[GDPR Deep Dive](#_2-gdpr-deep-dive), [Technical Privacy Controls](#_7-technical-privacy-controls), [Privacy by Design - 7 Principles](#_5-privacy-by-design-7-principles)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [Data Security Reference](DATA_SECURITY_REFERENCE.md), [GRC Compliance Reference](GRC_COMPLIANCE_REFERENCE.md), [Threat Modeling Reference](THREAT_MODELING_REFERENCE.md), [Secure Coding Reference](SECURE_CODING_REFERENCE.md) |
-| Matching learning path | [Privacy Engineering](/disciplines/privacy-engineering.md) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Data Security Reference](DATA_SECURITY_REFERENCE.md), [GRC Compliance Reference](GRC_COMPLIANCE_REFERENCE.md), [Threat Modeling Reference](THREAT_MODELING_REFERENCE.md), [Secure Coding Reference](SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Privacy Engineering](/disciplines/privacy-engineering.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

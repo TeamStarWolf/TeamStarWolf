@@ -4,20 +4,48 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Threat intelligence analysts and threat-informed defense practitioners |
-| Level | Intermediate |
-| Reading time | About 30 min (6,821 words at 230 words a minute) |
-| Read this when | You need a group's aliases resolved to one ATT&CK ID, you're scoping which adversaries have the broadest technique coverage, you want a group's signature techniques for threat-informed defense |
-| Start at | [All tracked groups](#all-tracked-groups) for the alias-and-counts table, [Detailed profiles](#detailed-profiles-most-active-groups) for the most active groups' signature techniques |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Threat intelligence analysts and threat-informed defense practitioners
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 30 min (6,821 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need a group's aliases resolved to one ATT&CK ID, you are scoping which adversaries have the broadest technique coverage, or you want a group's signature techniques for threat-informed defense
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[All tracked groups](#all-tracked-groups) for the alias-and-counts table, [Detailed profiles](#detailed-profiles-most-active-groups) for the most active groups' signature techniques
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Last corrected | 2026-10-13, revoked IDs re-keyed: T1070.001 to T1685.005, T1070.002 to T1685.006 ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-13, revoked IDs re-keyed: T1070.001 to T1685.005, T1070.002 to T1685.006 ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

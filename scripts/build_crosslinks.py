@@ -195,8 +195,14 @@ def strip_generated(text: str) -> str:
     text = PATH_RE.sub("", text)
     text = REL_RE.sub("\n", text)
     text = LIB_RE.sub("\n", text)
-    text = META_RE.sub(lambda m: "\n".join(ln for ln in m.group(1).split("\n") if CARD_ROW_RE.match(ln)), text)
+    text = META_RE.sub(lambda m: "\n".join(ln for ln in card_lines(m.group(1)) if CARD_ROW_RE.match(ln)), text)
     return text
+
+
+def card_lines(block: str) -> list[str]:
+    """The header card's rows as "| label | value |" lines (the card itself writes HTML rows
+    with a row header, build_site_nav.card_rows)."""
+    return ["| " + k + " | " + v + " |" for k, v in bsn.card_rows(block)]
 
 
 # ----------------------------------------------------------------------------- placement

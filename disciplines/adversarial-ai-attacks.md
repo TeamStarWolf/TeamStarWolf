@@ -6,19 +6,43 @@ Understanding how AI systems are attacked is essential knowledge for defenders w
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Security practitioners learning to attack and defend AI and ML systems |
-| Level | Beginner to advanced |
-| Reading time | About 20 min (4,668 words at 230 words a minute) |
-| Read this when | Learning how attacks on ML models and LLM applications work (evasion, poisoning, extraction, prompt injection) and how MITRE ATLAS catalogs them |
-| Start at | [Attack Categories](#attack-categories), [MITRE ATLAS Techniques](#mitre-atlas-techniques), [Hands-On Practice](#hands-on-practice) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security practitioners learning to attack and defend AI and ML systems
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 20 min (4,668 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning how attacks on ML models and LLM applications work (evasion, poisoning, extraction, prompt injection) and how MITRE ATLAS catalogs them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Attack Categories](#attack-categories), [MITRE ATLAS Techniques](#mitre-atlas-techniques), [Hands-On Practice](#hands-on-practice)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
 
-| | |
-|---|---|
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

@@ -4,22 +4,58 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | SOC analysts, detection engineers, and SIEM administrators |
-| Level | Intermediate |
-| Reading time | About 14 min (3,313 words at 230 words a minute) |
-| Read this when | Writing or converting a detection query for Splunk/Sentinel/QRadar/Elastic, sizing or tuning a SIEM deployment, standing up a detection engineering or triage process, deciding which Windows/Sysmon events to collect |
-| Start at | [SIEM Fundamentals](#_1-siem-fundamentals) for architecture and sizing, [Detection Engineering](#_7-detection-engineering) for the rule lifecycle and Sigma, [Quick Reference Cheat Sheet](#quick-reference-cheat-sheet) for common SPL/KQL patterns |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+SOC analysts, detection engineers, and SIEM administrators
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 14 min (3,313 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or converting a detection query for Splunk/Sentinel/QRadar/Elastic, you are sizing or tuning a SIEM deployment, you are standing up a detection engineering or triage process, or you are deciding which Windows/Sysmon events to collect
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[SIEM Fundamentals](#_1-siem-fundamentals) for architecture and sizing, [Detection Engineering](#_7-detection-engineering) for the rule lifecycle and Sigma, [Quick Reference Cheat Sheet](#quick-reference-cheat-sheet) for common SPL/KQL patterns
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md), [SOAR_AUTOMATION_REFERENCE.md](SOAR_AUTOMATION_REFERENCE.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [detections/strategies/README.md](detections/strategies/README.md) |
-| Matching learning path | [SIEM & SOAR](/disciplines/siem-soar.md) |
-| Last corrected | 2026-09-27, Defense Evasion (TA0005) row of the tactic table renamed Stealth ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[SIEM Detection Content](SIEM_DETECTION_CONTENT.md), [SOAR Automation Reference](SOAR_AUTOMATION_REFERENCE.md), [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md), [ATT&CK Detection Strategies](detections/strategies/README.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[SIEM & SOAR](/disciplines/siem-soar.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-27, Defense Evasion (TA0005) row of the tactic table renamed Stealth ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

@@ -6,20 +6,48 @@ The fundamental challenge of container security is that containers share a kerne
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Platform engineers and security practitioners learning container and Kubernetes security |
-| Level | Beginner to advanced |
-| Reading time | About 19 min (4,284 words at 230 words a minute) |
-| Read this when | Learning how containers isolate workloads and how attackers escape them, or hardening a Kubernetes cluster |
-| Start at | [Where to Start](#where-to-start), [Container Escape Techniques](#container-escape-techniques-structured-reference), [Kubernetes Hardening](#kubernetes-hardening-prescriptive) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Platform engineers and security practitioners learning container and Kubernetes security
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 19 min (4,284 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning how containers isolate workloads and how attackers escape them, or you are hardening a Kubernetes cluster
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [Container Escape Techniques](#container-escape-techniques-structured-reference), [Kubernetes Hardening](#kubernetes-hardening-prescriptive)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Last corrected | 2026-10-12, revoked T1562.001 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1562.001 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

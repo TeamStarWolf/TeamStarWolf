@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Blue teamers, SOC analysts, detection engineers, and AD administrators |
-| Level | Intermediate |
-| Reading time | About 33 min (7,641 words at 230 words a minute) |
-| Read this when | Triaging an AD attack alert (Kerberoasting, DCSync, Golden Ticket) and need the event IDs and hunting queries, hardening a domain or its DCs, or building AD detection coverage in your SIEM |
-| Start at | [Critical Event IDs Reference Table](#_9-detection-engineering-for-ad), [Kerberos Attack Detection](#_3-kerberos-attack-detection), [AD Architecture & Security Fundamentals](#_1-ad-architecture-amp-security-fundamentals) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Blue teamers, SOC analysts, detection engineers, and AD administrators
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 33 min (7,641 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are triaging an AD attack alert (Kerberoasting, DCSync, Golden Ticket) and need the event IDs and hunting queries, you are hardening a domain or its DCs, or you are building AD detection coverage in your SIEM
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Critical Event IDs Reference Table](#_9-detection-engineering-for-ad), [Kerberos Attack Detection](#_3-kerberos-attack-detection), [AD Architecture & Security Fundamentals](#_1-ad-architecture-amp-security-fundamentals)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [ACTIVE_DIRECTORY_ATTACKS.md](ACTIVE_DIRECTORY_ATTACKS.md), [ACTIVE_DIRECTORY_ATTACK_REFERENCE.md](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [IDENTITY_SECURITY_REFERENCE.md](IDENTITY_SECURITY_REFERENCE.md) |
-| Matching learning path | [Active Directory Security](/disciplines/active-directory.md) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md), [Active Directory Attack Reference](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Identity Security Reference](IDENTITY_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Active Directory Security](/disciplines/active-directory.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

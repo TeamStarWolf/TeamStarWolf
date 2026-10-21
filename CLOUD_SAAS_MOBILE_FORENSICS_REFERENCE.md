@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Incident responders and forensic examiners handling cloud, SaaS, identity, and mobile evidence |
-| Level | Intermediate to advanced |
-| Reading time | About 11 min (2,559 words at 230 words a minute) |
-| Read this when | You are responding to a cloud/SaaS/identity incident and there is no server to image, you need to acquire logs before a retention window closes, you are collecting an iOS/Android device for exam, or you must preserve cloud evidence defensibly for legal hold |
-| Start at | [Cloud forensic readiness](#cloud-forensic-readiness), [Mobile acquisition workflows](#mobile-acquisition-workflows), [Incident quick-start checklist](#incident-quick-start-checklist) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Incident responders and forensic examiners handling cloud, SaaS, identity, and mobile evidence
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,559 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are responding to a cloud/SaaS/identity incident and there is no server to image, you need to acquire logs before a retention window closes, you are collecting an iOS/Android device for exam, or you must preserve cloud evidence defensibly for legal hold
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Cloud forensic readiness](#cloud-forensic-readiness), [Mobile acquisition workflows](#mobile-acquisition-workflows), [Incident quick-start checklist](#incident-quick-start-checklist)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, added, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [DIGITAL_FORENSICS_REFERENCE.md](DIGITAL_FORENSICS_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [SAAS_SECURITY_REFERENCE.md](SAAS_SECURITY_REFERENCE.md), [MOBILE_SECURITY_REFERENCE.md](MOBILE_SECURITY_REFERENCE.md), [NETWORK_FORENSICS_REFERENCE.md](NETWORK_FORENSICS_REFERENCE.md) |
-| Added | 2026-09-29 ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md), [SaaS Security Reference](SAAS_SECURITY_REFERENCE.md), [Mobile Security Reference](MOBILE_SECURITY_REFERENCE.md), [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Added</th><td>
+
+2026-09-29 ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

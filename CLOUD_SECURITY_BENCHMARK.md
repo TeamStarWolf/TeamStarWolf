@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Cloud engineers and auditors hardening AWS, Azure, and GCP accounts |
-| Level | Intermediate |
-| Reading time | About 8 min (1,840 words at 230 words a minute) |
-| Read this when | You inherit or stand up a cloud account and need to harden it fast, an audit asks for CIS Benchmark evidence, you are picking or running a CSPM scanner like Prowler or ScoutSuite |
-| Start at | [Cloud Security Quickstart Checklist](#cloud-security-quickstart-checklist), [AWS CIS Benchmark (v3.0; current release v7.0.0)](#aws-cis-benchmark-v30), [CSPM Tool Reference](#cspm-tool-reference) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Cloud engineers and auditors hardening AWS, Azure, and GCP accounts
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 8 min (1,840 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You inherit or stand up a cloud account and need to harden it fast, an audit asks for CIS Benchmark evidence, or you are picking or running a CSPM scanner like Prowler or ScoutSuite
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Cloud Security Quickstart Checklist](#cloud-security-quickstart-checklist), [AWS CIS Benchmark (v3.0; current release v7.0.0)](#aws-cis-benchmark-v30), [CSPM Tool Reference](#cspm-tool-reference)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [Cloud Security Discipline](disciplines/cloud-security.md), [FRAMEWORKS.md](FRAMEWORKS.md), [Controls Mapping](CONTROLS_MAPPING.md) |
-| Last corrected | 2026-09-29, notes added on the current CIS AWS, Azure and GCP benchmark releases; Lacework renamed FortiCNAPP ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [Cloud Security Discipline](disciplines/cloud-security.md), [Frameworks Reference](FRAMEWORKS.md), [Controls Mapping](CONTROLS_MAPPING.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, notes added on the current CIS AWS, Azure and GCP benchmark releases; Lacework renamed FortiCNAPP ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

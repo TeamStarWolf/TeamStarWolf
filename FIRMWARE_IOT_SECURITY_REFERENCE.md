@@ -4,22 +4,58 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Hardware and IoT security testers, embedded engineers, and OT defenders |
-| Level | Intermediate to advanced |
-| Reading time | About 14 min (3,260 words at 230 words a minute) |
-| Read this when | You are assessing a router, camera, PLC, or other connected device; you need to pull and analyze firmware off a chip; you are hardening an IoT/OT network or mapping it to a compliance standard (ETSI EN 303 645, NIST IR 8259, IEC 62443) |
-| Start at | [IoT Security Testing Methodology](#_8-iot-security-testing-methodology) for the end-to-end assessment process, [Firmware Extraction](#_2-firmware-extraction) to get the bits off the device, [Firmware Analysis Tools](#_3-firmware-analysis-tools) to tear them apart |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Hardware and IoT security testers, embedded engineers, and OT defenders
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 14 min (3,260 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are assessing a router, camera, PLC, or other connected device; you need to pull and analyze firmware off a chip; or you are hardening an IoT/OT network or mapping it to a compliance standard (ETSI EN 303 645, NIST IR 8259, IEC 62443)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[IoT Security Testing Methodology](#_8-iot-security-testing-methodology) for the end-to-end assessment process, [Firmware Extraction](#_2-firmware-extraction) to get the bits off the device, [Firmware Analysis Tools](#_3-firmware-analysis-tools) to tear them apart
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [HARDWARE_SECURITY_REFERENCE.md](HARDWARE_SECURITY_REFERENCE.md), [ICS_OT_SECURITY_REFERENCE.md](ICS_OT_SECURITY_REFERENCE.md), [SDR_RF_SECURITY_REFERENCE.md](SDR_RF_SECURITY_REFERENCE.md), [REVERSE_ENGINEERING_REFERENCE.md](REVERSE_ENGINEERING_REFERENCE.md) |
-| Matching learning path | [IoT Security](/disciplines/iot-security.md) |
-| Last corrected | 2026-10-12, revoked IDs re-keyed: T0839 to T1693.002, T0857 to T1693.001, T0812 to T1694.001, T0803 to T1691.001, T0804 to T1691.002 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Hardware Security Reference](HARDWARE_SECURITY_REFERENCE.md), [ICS/OT Security Reference](ICS_OT_SECURITY_REFERENCE.md), [SDR & RF Security Reference](SDR_RF_SECURITY_REFERENCE.md), [Reverse Engineering Reference](REVERSE_ENGINEERING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[IoT Security](/disciplines/iot-security.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked IDs re-keyed: T0839 to T1693.002, T0857 to T1693.001, T0812 to T1694.001, T0803 to T1691.001, T0804 to T1691.002 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

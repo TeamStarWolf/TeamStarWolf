@@ -4,20 +4,48 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Aspiring and working penetration testers |
-| Level | Intermediate |
-| Reading time | About 10 min (2,338 words at 230 words a minute) |
-| Read this when | Learning how a penetration test is scoped, run and reported, or choosing tools for each phase |
-| Start at | [Testing Methodology: Phases](#testing-methodology-phases), [Scoping and Rules of Engagement Checklist](#scoping-and-rules-of-engagement-checklist), [Report Structure](#report-structure) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Aspiring and working penetration testers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,338 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning how a penetration test is scoped, run and reported, or you are choosing tools for each phase
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Testing Methodology: Phases](#testing-methodology-phases), [Scoping and Rules of Engagement Checklist](#scoping-and-rules-of-engagement-checklist), [Report Structure](#report-structure)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Last corrected | 2026-09-29, CVSS v4.0 row and note added ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, CVSS v4.0 row and note added ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

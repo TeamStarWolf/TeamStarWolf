@@ -6,19 +6,43 @@ The field has evolved rapidly. Modern red teams must contend with EDR platforms 
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | People moving into penetration testing, red teaming, and adversary emulation |
-| Level | Beginner to advanced |
-| Reading time | About 10 min (2,298 words at 230 words a minute) |
-| Read this when | Choosing labs and certifications for offensive work, or learning the attack lifecycle, LOLBAS and the vulnerability research process |
-| Start at | [Where to Start](#where-to-start), [Attack Lifecycle Overview](#attack-lifecycle-overview), [LOLBAS Reference](#lolbas-reference-living-off-the-land-binaries-and-scripts) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+People moving into penetration testing, red teaming, and adversary emulation
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,298 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are choosing labs and certifications for offensive work, or you are learning the attack lifecycle, LOLBAS and the vulnerability research process
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [Attack Lifecycle Overview](#attack-lifecycle-overview), [LOLBAS Reference](#lolbas-reference-living-off-the-land-binaries-and-scripts)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
 
-| | |
-|---|---|
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

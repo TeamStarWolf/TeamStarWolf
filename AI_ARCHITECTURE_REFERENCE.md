@@ -4,20 +4,48 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Architects and engineers designing ML platforms and LLM, RAG, or agent applications |
-| Level | Intermediate |
-| Reading time | About 19 min (4,448 words at 230 words a minute) |
-| Read this when | Designing a new ML platform or LLM/RAG/agent application, reviewing an AI reference architecture, deciding train-vs-buy / serving topology / RAG vs fine-tune, standing up MLOps/LLMOps, or preparing an AI architecture review board |
-| Start at | [Principles & Drivers](#_1-principles-amp-drivers), [Reference Architectures & Patterns](#_2-reference-architectures-amp-patterns), [Maturity & Checklist](#_8-maturity-amp-checklist) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Architects and engineers designing ML platforms and LLM, RAG, or agent applications
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 19 min (4,448 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are designing a new ML platform or LLM/RAG/agent application, you are reviewing an AI reference architecture, you are deciding train-vs-buy / serving topology / RAG vs fine-tune, you are standing up MLOps/LLMOps, or you are preparing an AI architecture review board
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Principles & Drivers](#_1-principles-amp-drivers), [Reference Architectures & Patterns](#_2-reference-architectures-amp-patterns), [Maturity & Checklist](#_8-maturity-amp-checklist)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [AI_INFRASTRUCTURE_SECURITY_REFERENCE.md](AI_INFRASTRUCTURE_SECURITY_REFERENCE.md), [AI_MCP_SECURITY_REFERENCE.md](AI_MCP_SECURITY_REFERENCE.md), [AI_SECURITY_REFERENCE.md](AI_SECURITY_REFERENCE.md), [AGENTIC_AI_ATTACK_REFERENCE.md](AGENTIC_AI_ATTACK_REFERENCE.md), [ATLAS_REFERENCE.md](ATLAS_REFERENCE.md), [SECURITY_ARCHITECTURE_REFERENCE.md](SECURITY_ARCHITECTURE_REFERENCE.md), [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[AI Infrastructure & MLOps Security](AI_INFRASTRUCTURE_SECURITY_REFERENCE.md), [AI & MCP Security Reference](AI_MCP_SECURITY_REFERENCE.md), [AI Security Reference](AI_SECURITY_REFERENCE.md), [Agentic AI Swarm Attacks](AGENTIC_AI_ATTACK_REFERENCE.md), [ATLAS Reference (AI threats)](ATLAS_REFERENCE.md), [Security Architecture Reference](SECURITY_ARCHITECTURE_REFERENCE.md), [Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

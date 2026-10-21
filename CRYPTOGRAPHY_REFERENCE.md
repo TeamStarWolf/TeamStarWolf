@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Security engineers, developers, and penetration testers who choose or review cryptography |
-| Level | Intermediate to advanced |
-| Reading time | About 38 min (8,625 words at 230 words a minute) |
-| Read this when | Choosing a cipher, mode, key size, or password-hashing function, reviewing a cryptographic design or implementation, or explaining a cryptographic attack |
-| Start at | [Symmetric Cryptography](#_1-symmetric-cryptography), [AES-GCM Deep Dive](#_13-aes-gcm-deep-dive), [Key Derivation Functions (KDFs)](#_16-key-derivation-functions-kdfs) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security engineers, developers, and penetration testers who choose or review cryptography
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 38 min (8,625 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are choosing a cipher, mode, key size, or password-hashing function, you are reviewing a cryptographic design or implementation, or you are explaining a cryptographic attack
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Symmetric Cryptography](#_1-symmetric-cryptography), [AES-GCM Deep Dive](#_13-aes-gcm-deep-dive), [Key Derivation Functions (KDFs)](#_16-key-derivation-functions-kdfs)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (matching learning path, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Matching learning path | [Cryptography & PKI](/disciplines/cryptography-pki.md) |
-| Last corrected | 2026-09-29, TLS 1.3 cipher-suite requirement and the list of hashes open to length extension corrected ([#56](https://github.com/TeamStarWolf/TeamStarWolf/pull/56)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Cryptography & PKI](/disciplines/cryptography-pki.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, TLS 1.3 cipher-suite requirement and the list of hashes open to length extension corrected ([#56](https://github.com/TeamStarWolf/TeamStarWolf/pull/56))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

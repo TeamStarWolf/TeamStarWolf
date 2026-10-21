@@ -8,20 +8,48 @@ IAM failures drive a disproportionate share of significant breaches. The Lapsus$
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Practitioners learning identity, authentication, authorization, and privileged access |
-| Level | Beginner to advanced |
-| Reading time | About 11 min (2,428 words at 230 words a minute) |
-| Read this when | Learning the protocols and standards identity and access management relies on (SAML, OIDC, OAuth 2.0, NIST SP 800-63) |
-| Start at | [What IAM Engineers Do](#what-iam-engineers-do), [Where to Start](#where-to-start), [Core Frameworks & Standards](#core-frameworks-amp-standards) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Practitioners learning identity, authentication, authorization, and privileged access
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,428 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning the protocols and standards identity and access management relies on (SAML, OIDC, OAuth 2.0, NIST SP 800-63)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[What IAM Engineers Do](#what-iam-engineers-do), [Where to Start](#where-to-start), [Core Frameworks & Standards](#core-frameworks-amp-standards)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Last corrected | 2026-09-29, NIST SP 800-63 links and notes updated to Revision 4 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, NIST SP 800-63 links and notes updated to Revision 4 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

@@ -4,21 +4,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | GRC analysts, security managers, and engineers who need a fast framework refresher |
-| Level | Beginner to intermediate |
-| Reading time | About 14 min (3,255 words at 230 words a minute) |
-| Read this when | You need to pick a framework for a compliance or sales requirement, someone asks how two frameworks relate or overlap, you need a fast refresher on a framework's structure before a meeting or assessment |
-| Start at | [Framework Comparison Overview](#framework-comparison-overview), [Framework Mapping Quick Reference](#framework-mapping-quick-reference), [Framework Selection Guide](#framework-selection-guide) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+GRC analysts, security managers, and engineers who need a fast framework refresher
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 14 min (3,255 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need to pick a framework for a compliance or sales requirement, someone asks how two frameworks relate or overlap, or you need a fast refresher on a framework's structure before a meeting or assessment
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Framework Comparison Overview](#framework-comparison-overview), [Framework Mapping Quick Reference](#framework-mapping-quick-reference), [Framework Selection Guide](#framework-selection-guide)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [Controls Mapping](CONTROLS_MAPPING.md), [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md) |
-| Last corrected | 2026-10-01, PCI DSS sections updated to v4.0.1; CMMC Level 1 count and rule citations updated ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Controls Mapping](CONTROLS_MAPPING.md), [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-01, PCI DSS sections updated to v4.0.1; CMMC Level 1 count and rule citations updated ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

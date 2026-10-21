@@ -5,21 +5,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Vulnerability analysts, patch managers, and engineers automating CVE enrichment |
-| Level | Intermediate |
-| Reading time | About 20 min (4,513 words at 230 words a minute) |
-| Read this when | Deciding which vulnerabilities to patch first, scoring a new CVE with CVSS v3.1 or v4.0, building automated CVE/EPSS/KEV enrichment pipelines |
-| Start at | [CVSS v3.1 Deep Dive](#_2-cvss-v31-deep-dive), [EPSS: Exploit Prediction Scoring System](#_4-epss-exploit-prediction-scoring-system), [CISA KEV Catalog](#_5-cisa-kev-catalog) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability analysts, patch managers, and engineers automating CVE enrichment
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 20 min (4,513 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are deciding which vulnerabilities to patch first, you are scoring a new CVE with CVSS v3.1 or v4.0, or you are building automated CVE/EPSS/KEV enrichment pipelines
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[CVSS v3.1 Deep Dive](#_2-cvss-v31-deep-dive), [EPSS: Exploit Prediction Scoring System](#_4-epss-exploit-prediction-scoring-system), [CISA KEV Catalog](#_5-cisa-kev-catalog)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [CWE Reference](CWE_REFERENCE.md), [CTEM Reference](CTEM_REFERENCE.md), [Fuzzing & Vulnerability Research](FUZZING_VULNERABILITY_RESEARCH.md), [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md) |
-| Last corrected | 2026-10-01, BOD 22-01 paragraph rewritten for BOD 26-04 ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63)) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[CWE Reference](CWE_REFERENCE.md), [CTEM Reference](CTEM_REFERENCE.md), [Fuzzing & Vulnerability Research](FUZZING_VULNERABILITY_RESEARCH.md), [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-01, BOD 22-01 paragraph rewritten for BOD 26-04 ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

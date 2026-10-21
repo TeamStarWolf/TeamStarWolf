@@ -8,19 +8,43 @@ Related: [Threat Intelligence](THREAT_INTELLIGENCE_REFERENCE.md), [CTEM](CTEM_RE
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Threat intelligence analysts, security leaders, and anyone citing annual threat reports |
-| Level | Intermediate |
-| Reading time | About 17 min (3,865 words at 230 words a minute) |
-| Read this when | Choosing which annual threat reports to read, checking what a report's evidence can and cannot support before citing it, or planning a reading calendar by role |
-| Start at | [Methodology determines meaning](#methodology-determines-meaning), [The majors](#the-majors), [How to read a threat report critically](#how-to-read-a-threat-report-critically) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Threat intelligence analysts, security leaders, and anyone citing annual threat reports
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 17 min (3,865 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are choosing which annual threat reports to read, you are checking what a report's evidence can and cannot support before citing it, or you are planning a reading calendar by role
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Methodology determines meaning](#methodology-determines-meaning), [The majors](#the-majors), [How to read a threat report critically](#how-to-read-a-threat-report-critically)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
 
-| | |
-|---|---|
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

@@ -4,20 +4,48 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Security leaders, analysts, and responders who need incident facts fast |
-| Level | Beginner to intermediate |
-| Reading time | About 22 min (5,102 words at 230 words a minute) |
-| Read this when | You need the facts on a specific breach or campaign fast, you are advising an org mid-ransomware-incident, you are briefing leadership on why a vulnerability class or threat actor matters |
-| Start at | [Recent Events (2020-2025)](#_3-recent-events-2020-2025) for current threats, [Ransomware Incident Response - Negotiation Guide](#_5-ransomware-incident-response-negotiation-guide) for an active incident, [Critical Vulnerability Classes to Watch](#_7-critical-vulnerability-classes-to-watch) for patching priorities |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security leaders, analysts, and responders who need incident facts fast
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 22 min (5,102 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the facts on a specific breach or campaign fast, you are advising an org mid-ransomware-incident, or you are briefing leadership on why a vulnerability class or threat actor matters
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Recent Events (2020-2025)](#_3-recent-events-2020-2025) for current threats, [Ransomware Incident Response - Negotiation Guide](#_5-ransomware-incident-response-negotiation-guide) for an active incident, [Critical Vulnerability Classes to Watch](#_7-critical-vulnerability-classes-to-watch) for patching priorities
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [THREAT_ACTORS.md](./THREAT_ACTORS.md), [IR_PLAYBOOKS.md](./IR_PLAYBOOKS.md), [MALWARE_FAMILIES.md](./MALWARE_FAMILIES.md), [DETECTION_RULES_REFERENCE.md](./DETECTION_RULES_REFERENCE.md) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Threat Actor Reference](./THREAT_ACTORS.md), [Incident Response Playbooks](./IR_PLAYBOOKS.md), [Malware Families Reference](./MALWARE_FAMILIES.md), [Detection Rule Writing Reference](./DETECTION_RULES_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

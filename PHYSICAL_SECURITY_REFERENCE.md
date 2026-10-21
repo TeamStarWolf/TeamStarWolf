@@ -5,21 +5,53 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Physical penetration testers, red teamers, and facility security assessors |
-| Level | Intermediate |
-| Reading time | About 25 min (5,821 words at 230 words a minute) |
-| Read this when | Scoping or running an authorized physical penetration test, assessing a facility's or server room's physical controls, building a remediation checklist after a walkthrough |
-| Start at | [Physical Penetration Testing Overview](#_2-physical-penetration-testing-overview), [Physical Security Controls Assessment Checklist](#_11-physical-security-controls-assessment-checklist), [Lock Picking](#_3-lock-picking) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Physical penetration testers, red teamers, and facility security assessors
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 25 min (5,821 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are scoping or running an authorized physical penetration test, you are assessing a facility's or server room's physical controls, or you are building a remediation checklist after a walkthrough
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Physical Penetration Testing Overview](#_2-physical-penetration-testing-overview), [Physical Security Controls Assessment Checklist](#_11-physical-security-controls-assessment-checklist), [Lock Picking](#_3-lock-picking)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [SOCIAL_ENGINEERING_REFERENCE.md](SOCIAL_ENGINEERING_REFERENCE.md), [OSINT_REFERENCE.md](OSINT_REFERENCE.md), [SDR_RF_SECURITY_REFERENCE.md](SDR_RF_SECURITY_REFERENCE.md), [SECURITY_GADGETS_REFERENCE.md](SECURITY_GADGETS_REFERENCE.md) |
-| Matching learning path | [Physical Security](/disciplines/physical-security.md) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md), [OSINT Reference](OSINT_REFERENCE.md), [SDR & RF Security Reference](SDR_RF_SECURITY_REFERENCE.md), [Security Gadgets Reference](SECURITY_GADGETS_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Physical Security](/disciplines/physical-security.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

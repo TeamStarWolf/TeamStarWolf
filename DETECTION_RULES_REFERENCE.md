@@ -4,22 +4,58 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Detection engineers and SOC analysts who write and tune rules |
-| Level | Intermediate |
-| Reading time | About 11 min (2,634 words at 230 words a minute) |
-| Read this when | You need to author a detection for a new technique or CVE, you are converting Sigma rules to your SIEM's query language, you are tuning a noisy rule or validating that a deployed rule actually fires |
-| Start at | [Overview of Detection Rule Formats](#_1-overview-of-detection-rule-formats) to pick the right format, [Sigma Rules](#_2-sigma-rules) for the vendor-agnostic starting point, [Best Practices for Detection Engineering](#_7-best-practices-for-detection-engineering) for the lifecycle and testing workflow |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Detection engineers and SOC analysts who write and tune rules
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,634 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need to author a detection for a new technique or CVE, you are converting Sigma rules to your SIEM's query language, or you are tuning a noisy rule or validating that a deployed rule actually fires
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Overview of Detection Rule Formats](#_1-overview-of-detection-rule-formats) to pick the right format, [Sigma Rules](#_2-sigma-rules) for the vendor-agnostic starting point, [Best Practices for Detection Engineering](#_7-best-practices-for-detection-engineering) for the lifecycle and testing workflow
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [PURPLE_TEAM_REFERENCE.md](PURPLE_TEAM_REFERENCE.md) |
-| Matching learning path | [Detection Engineering](/disciplines/detection-engineering.md) |
-| Last corrected | 2026-10-12, revoked T1070.001 re-keyed to T1685.005 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[SIEM Detection Content](SIEM_DETECTION_CONTENT.md), [SIEM Reference](SIEM_REFERENCE.md), [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md), [Purple Team Reference](PURPLE_TEAM_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Detection Engineering](/disciplines/detection-engineering.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1070.001 re-keyed to T1685.005 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

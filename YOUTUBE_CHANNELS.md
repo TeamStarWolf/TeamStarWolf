@@ -4,20 +4,48 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Learners who prefer watching practitioners work through labs, tools, and attacks |
-| Level | Beginner |
-| Reading time | About 7 min (1,644 words at 230 words a minute) |
-| Read this when | You want to learn a discipline by watching workflows instead of reading, you need conference or BSides talk sources, you are building a Black Hat Arsenal watch queue |
-| Start at | [Category Index](#category-index), [How To Use This File](#how-to-use-this-file), [Black Hat Arsenal Companion Videos](#black-hat-arsenal-companion-videos) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Learners who prefer watching practitioners work through labs, tools, and attacks
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,644 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You want to learn a discipline by watching workflows instead of reading, you need conference or BSides talk sources, or you are building a Black Hat Arsenal watch queue
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Category Index](#category-index), [How To Use This File](#how-to-use-this-file), [Black Hat Arsenal Companion Videos](#black-hat-arsenal-companion-videos)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [CYBERSECURITY_BOOK_LIST.md](CYBERSECURITY_BOOK_LIST.md), [STARRED_REPOS.md](STARRED_REPOS.md), [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWALK.md) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md), [Starred Repositories](STARRED_REPOS.md), [Black Hat Arsenal Crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

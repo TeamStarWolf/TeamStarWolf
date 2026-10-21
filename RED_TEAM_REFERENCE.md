@@ -6,22 +6,58 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Red team operators and program leads, and blue teams preparing for an assessment |
-| Level | Intermediate to advanced |
-| Reading time | About 30 min (6,854 words at 230 words a minute) |
-| Read this when | You are standing up a red team program or writing rules of engagement, you are planning an authorized engagement and need a lifecycle checklist, or you are on the blue side and want to understand what an assessment will exercise |
-| Start at | [Program Design & Rules of Engagement](#_1-red-team-program-design-amp-rules-of-engagement) for governance, [Reporting & Purple Team Integration](#_9-reporting-amp-purple-team-integration) for turning results into defense |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Red team operators and program leads, and blue teams preparing for an assessment
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 30 min (6,854 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are standing up a red team program or writing rules of engagement, you are planning an authorized engagement and need a lifecycle checklist, or you are on the blue side and want to understand what an assessment will exercise
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Program Design & Rules of Engagement](#_1-red-team-program-design-amp-rules-of-engagement) for governance, [Reporting & Purple Team Integration](#_9-reporting-amp-purple-team-integration) for turning results into defense
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning paths, last corrected, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [PURPLE_TEAM_REFERENCE.md](PURPLE_TEAM_REFERENCE.md), [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md), [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [ATTACK_MITIGATIONS_REFERENCE.md](ATTACK_MITIGATIONS_REFERENCE.md) |
-| Matching learning paths | [Offensive Security](/disciplines/offensive-security.md), [Red Teaming](/disciplines/red-teaming.md) |
-| Last corrected | 2026-10-13, ATT&CK version pin and name of an example Navigator layer updated ([#120](https://github.com/TeamStarWolf/TeamStarWolf/pull/120), ATT&CK v19.2) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Purple Team Reference](PURPLE_TEAM_REFERENCE.md), [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md), [Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md), [ATT&CK Mitigations Reference](ATTACK_MITIGATIONS_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning paths</th><td>
+
+[Offensive Security](/disciplines/offensive-security.md), [Red Teaming](/disciplines/red-teaming.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-13, ATT&CK version pin and name of an example Navigator layer updated ([#120](https://github.com/TeamStarWolf/TeamStarWolf/pull/120), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

@@ -4,20 +4,48 @@
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
-| | |
-|---|---|
-| Who this is for | Learners and practitioners choosing what to read and practice next |
-| Level | Beginner |
-| Reading time | About 35 min (8,104 words at 230 words a minute) |
-| Read this when | You are choosing what to study next for a role or skill area, building a lab-first study plan, or looking for the standard book plus hands-on repos in a domain |
-| Start at | [Learning Paths](#learning-paths), [How To Use This File](#how-to-use-this-file), [Core / Must-Read](#core-must-read-high-signal) |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Learners and practitioners choosing what to read and practice next
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 35 min (8,104 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are choosing what to study next for a role or skill area, you are building a lab-first study plan, or you are looking for the standard book plus hands-on repos in a domain
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Learning Paths](#learning-paths), [How To Use This File](#how-to-use-this-file), [Core / Must-Read](#core-must-read-high-signal)
+
+</td></tr>
+</table>
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
 
-| | |
-|---|---|
-| Pairs with | [RESOURCES.md](RESOURCES.md), [LABS.md](LABS.md), [Black Hat Arsenal crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md) |
-| Last reviewed | No review recorded yet |
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Resources](RESOURCES.md), [Hands-On Labs](LABS.md), [Black Hat Arsenal crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
 
 </details>
 

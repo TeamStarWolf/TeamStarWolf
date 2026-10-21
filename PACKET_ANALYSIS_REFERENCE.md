@@ -2,11 +2,66 @@
 
 > In one minute: This is a hands-on reference for reading raw network traffic: decoding packets field by field, driving Wireshark, tcpdump, and Zeek, and spotting attacks (scans, C2 beaconing, DNS tunneling, ARP spoofing, exfiltration) directly in packet captures. Every section pairs the concept with copy-paste filters and queries, so you can go from "here's a pcap" to "here's what happened" without hunting through vendor docs. It also covers TLS decryption with session keys, JA3 fingerprinting of malware TLS clients, and a step-by-step pcap investigation workflow.
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+SOC analysts, network forensics analysts, and threat hunters
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (2,097 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You have a pcap to investigate and need a repeatable workflow, you need the exact Wireshark/tcpdump/zq filter for a suspicious behavior, or you are learning to read TCP handshakes and packet fields at the byte level
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Reading Network Packets](#reading-network-packets), [Detecting Attacks in PCAPs](#detecting-attacks-in-pcaps), [PCAP Investigation Workflow](#pcap-investigation-workflow)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md), [Network Protocols Reference](NETWORK_PROTOCOLS_REFERENCE.md), [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 5 on network attack, defense, and monitoring.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | you have a pcap to investigate and need a repeatable workflow, you need the exact Wireshark/tcpdump/zq filter for a suspicious behavior, you are learning to read TCP handshakes and packet fields at the byte level |
-| Start at | [Reading Network Packets](#reading-network-packets), [Detecting Attacks in PCAPs](#detecting-attacks-in-pcaps), [PCAP Investigation Workflow](#pcap-investigation-workflow) |
-| Pairs with | [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md), [Network Protocols Reference](NETWORK_PROTOCOLS_REFERENCE.md), [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md) |
+| Packet Analysis Reference (this page) | Reading raw traffic in Wireshark, tcpdump, and Zeek, and spotting attacks in packet captures. |
+| [Network Attacks Reference](/NETWORK_ATTACKS_REFERENCE.md) | How network attacks work layer by layer, each paired with the control that detects or blocks it. |
+| [Network Defense Reference](/NETWORK_DEFENSE_REFERENCE.md) | Defense architecture and NSM operations: Suricata, Zeek, Security Onion, segmentation, and DDoS defense. |
+| [Network Monitoring Reference](/NETWORK_MONITORING_REFERENCE.md) | The monitoring stack and hunting workflows: sensor placement, Zeek, Suricata rules, JA3, and flow data. |
+| [Network Forensics Reference](/NETWORK_FORENSICS_REFERENCE.md) | Collecting and preserving network evidence and reconstructing an incident from it. |
+
+</details>
+
+<!-- meta:end -->
 
 A practitioner-level reference for reading raw network traffic, mastering Wireshark, tcpdump, and Zeek, and detecting attacks directly in packet captures.
 

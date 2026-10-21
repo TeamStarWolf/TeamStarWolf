@@ -4,11 +4,64 @@
 > penetration testers, and threat intelligence analysts. All techniques are for
 > use only within explicitly authorized engagements and legal frameworks.
 
-| | |
-|---|---|
-| Read this when | Scoping an authorized reconnaissance engagement, mapping a target's external attack surface before a pentest, running passive collection without touching target systems |
-| Start at | [OSINT Fundamentals and Legal Framework](#_1-osint-fundamentals-and-legal-framework), [OSINT Investigation Methodology](#_10-osint-investigation-methodology), [OSINT Tools Reference Table](#_11-osint-tools-reference-table) |
-| Pairs with | [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md), [THREAT_INTELLIGENCE_REFERENCE.md](THREAT_INTELLIGENCE_REFERENCE.md), [SOCIAL_ENGINEERING_REFERENCE.md](SOCIAL_ENGINEERING_REFERENCE.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Threat intelligence analysts and authorized penetration testers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 16 min (3,669 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are scoping an authorized reconnaissance engagement, you are mapping a target's external attack surface before a pentest, or you are running passive collection without touching target systems
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[OSINT Fundamentals and Legal Framework](#_1-osint-fundamentals-and-legal-framework), [OSINT Investigation Methodology](#_10-osint-investigation-methodology), [OSINT Tools Reference Table](#_11-osint-tools-reference-table)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md), [Red Team Reference](RED_TEAM_REFERENCE.md), [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md), [Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[OSINT](/disciplines/osint.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, AlienVault OTX owner updated to LevelBlue; one ATT&CK version reference updated to v19.2 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

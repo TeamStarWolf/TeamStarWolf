@@ -2,11 +2,59 @@
 
 > The 51 intrusion campaigns tracked in MITRE ATT&CK Enterprise (v19.2): time-bounded sets of adversary activity with a shared objective. Each lists its active window, the techniques observed, the software used, and the threat group(s) it is attributed to. Pair with [Threat Group Profiles](THREAT_GROUP_PROFILES.md) and [Notable Incidents](NOTABLE_INCIDENTS.md).
 
-| | |
-|---|---|
-| Read this when | You need the technique set or timeline of a named intrusion campaign, you are checking whether activity you are investigating matches a tracked campaign, you want the campaigns attributed to a specific group |
-| Start at | [All campaigns](#all-campaigns) for the sortable index, [Detailed profiles](#detailed-profiles) for per-campaign technique lists |
-| Pairs with | [Threat Group Profiles](THREAT_GROUP_PROFILES.md), [Notable Incidents](NOTABLE_INCIDENTS.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Threat intelligence analysts and incident responders
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 29 min (6,783 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the technique set or timeline of a named intrusion campaign, you are checking whether activity you are investigating matches a tracked campaign, or you want the campaigns attributed to a specific group
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[All campaigns](#all-campaigns) for the sortable index, [Detailed profiles](#detailed-profiles) for per-campaign technique lists
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Threat Group Profiles](THREAT_GROUP_PROFILES.md), [Notable Incidents](NOTABLE_INCIDENTS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-13, revoked T1562 sub-techniques and T1656 re-keyed to their successors (T1684.001, T1685, T1685.001, T1686, T1689, T1690), each marked with the ID it replaces ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 Machine-readable: [`data/attack/campaigns.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/campaigns.jsonl)
 

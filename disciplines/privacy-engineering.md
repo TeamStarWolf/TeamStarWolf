@@ -4,6 +4,55 @@
 
 Privacy engineering is the discipline of making data protection a structural property of systems rather than an afterthought. Where legal and compliance teams interpret what privacy regulations require, privacy engineers build the technical mechanisms that fulfill those requirements at scale: consent management platforms that record lawful bases for processing, data pipelines that strip PII before it reaches analytics systems, automated deletion workflows that purge records when retention periods expire, and data subject request systems that can locate and delete a person's information across dozens of databases within a legal deadline. The field emerged in response to regulations like GDPR and CCPA, but it reflects a broader recognition that privacy failures are architectural failures: they result from systems designed to collect and retain everything rather than systems designed around the minimum data needed to deliver a service.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Engineers and privacy professionals learning to build privacy into systems
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 12 min (2,826 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are moving into privacy engineering, you are running privacy impact assessments, or you are applying privacy-by-design patterns
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[What Privacy Engineers Do](#what-privacy-engineers-do), [Where to Start](#where-to-start), [Privacy-by-Design Patterns](#privacy-by-design-patterns)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, ISO/IEC 27701 row updated to the 2025 edition ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Privacy Engineering Reference](/PRIVACY_ENGINEERING_REFERENCE.md), the library's in-depth page on this subject.

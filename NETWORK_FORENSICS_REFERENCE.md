@@ -1,12 +1,67 @@
 # Network Forensics Reference
 
-> Comprehensive reference for incident responders and network forensics analysts covering evidence collection, packet analysis, protocol decoding, traffic anomaly detection, malware traffic patterns, incident reconstruction, encrypted traffic analysis, wireless forensics, cloud forensics, and reporting standards.
+> Reference for incident responders and network forensics analysts covering evidence collection, packet analysis, protocol decoding, traffic anomaly detection, malware traffic patterns, incident reconstruction, encrypted traffic analysis, wireless forensics, cloud forensics, and reporting standards.
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Network forensics analysts and incident responders
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 15 min (3,562 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need to capture or preserve network evidence that may end up in court, you are reconstructing an incident timeline from PCAP/flow/log data, or you suspect C2 beaconing or data exfiltration and need to prove it from traffic
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Network Forensics Fundamentals & Evidence Collection](#_1-network-forensics-fundamentals-amp-evidence-collection), [Malware Traffic Analysis](#_5-malware-traffic-analysis), [Forensic Reporting & Tools Reference](#_10-forensic-reporting-amp-tools-reference)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md), [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 5 on network attack, defense, and monitoring.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | you need to capture or preserve network evidence that may end up in court, you are reconstructing an incident timeline from PCAP/flow/log data, you suspect C2 beaconing or data exfiltration and need to prove it from traffic |
-| Start at | [Network Forensics Fundamentals & Evidence Collection](#_1-network-forensics-fundamentals-amp-evidence-collection), [Malware Traffic Analysis](#_5-malware-traffic-analysis), [Forensic Reporting & Tools Reference](#_10-forensic-reporting-amp-tools-reference) |
-| Pairs with | [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md), [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md) |
+| Network Forensics Reference (this page) | Collecting and preserving network evidence and reconstructing an incident from it. |
+| [Network Attacks Reference](/NETWORK_ATTACKS_REFERENCE.md) | How network attacks work layer by layer, each paired with the control that detects or blocks it. |
+| [Network Defense Reference](/NETWORK_DEFENSE_REFERENCE.md) | Defense architecture and NSM operations: Suricata, Zeek, Security Onion, segmentation, and DDoS defense. |
+| [Network Monitoring Reference](/NETWORK_MONITORING_REFERENCE.md) | The monitoring stack and hunting workflows: sensor placement, Zeek, Suricata rules, JA3, and flow data. |
+| [Packet Analysis Reference](/PACKET_ANALYSIS_REFERENCE.md) | Reading raw traffic in Wireshark, tcpdump, and Zeek, and spotting attacks in packet captures. |
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

@@ -1,12 +1,55 @@
 # CTF Methodology Reference
 
-> A comprehensive Capture The Flag (CTF) methodology guide for cybersecurity practitioners and competitors.
+> A Capture The Flag (CTF) methodology guide for cybersecurity practitioners and competitors.
 
-| | |
-|---|---|
-| Read this when | You are prepping for or mid-competition in a CTF, you need the standard attack playbook and tooling for a specific category (web, forensics, crypto, RE, pwn, OSINT, stego), or you want ready-to-paste one-liners and platform recommendations to practice on |
-| Start at | [General CTF Strategy](#_1-general-ctf-strategy), [CTF Platform Quick Reference](#_9-ctf-platform-quick-reference), [Useful One-Liners and Quick Reference](#_10-useful-one-liners-and-quick-reference) |
-| Pairs with | [LABS.md](LABS.md), [REVERSE_ENGINEERING_REFERENCE.md](REVERSE_ENGINEERING_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [OSINT_REFERENCE.md](OSINT_REFERENCE.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+CTF players and practitioners sharpening offensive and forensic skills
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 14 min (3,130 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are prepping for or mid-competition in a CTF, you need the standard attack playbook and tooling for a specific category (web, forensics, crypto, RE, pwn, OSINT, stego), or you want ready-to-paste one-liners and platform recommendations to practice on
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[General CTF Strategy](#_1-general-ctf-strategy), [CTF Platform Quick Reference](#_9-ctf-platform-quick-reference), [Useful One-Liners and Quick Reference](#_10-useful-one-liners-and-quick-reference)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Hands-On Labs](LABS.md), [Reverse Engineering Reference](REVERSE_ENGINEERING_REFERENCE.md), [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md), [OSINT Reference](OSINT_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

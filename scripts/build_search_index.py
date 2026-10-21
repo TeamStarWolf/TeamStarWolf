@@ -225,9 +225,13 @@ def plain_text(text: str) -> str:
     return re.sub(r"\s+", " ", t).strip()
 
 
+META_BLOCK_RE = re.compile(r"<!--\s*meta:start\b.*?<!--\s*meta:end\s*-->", re.S)
+
+
 def summary_of(text: str, title: str) -> str:
-    """The first prose paragraph or blockquote after the H1, cut at a word boundary."""
-    body = without_comments(text)
+    """The first prose paragraph or blockquote after the H1, cut at a word boundary. The
+    header card (scripts/build_doc_meta.py) is about the page, not its summary."""
+    body = without_comments(META_BLOCK_RE.sub(" ", text))
     m = re.search(r"^#\s+.+$", body, flags=re.M)
     if m:
         body = body[m.end():]

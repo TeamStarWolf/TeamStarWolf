@@ -2,11 +2,69 @@
 
 > In one minute: This document shows how to build an enterprise network that limits the damage of a breach: split the network into zones (DMZ, user, server, database, management), put firewalls and intrusion prevention at the right choke points, and control who gets on the wire with 802.1X port authentication. It pairs each pattern with real configuration examples (Cisco IOS-XE, Suricata, Calico, IKEv2 VPN) so you can implement rather than just read, and maps every control to NIST 800-53, CIS Controls 12-13, and MITRE ATT&CK.
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Network and security architects, and engineers designing segmentation and access control
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 15 min (3,563 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are designing or reviewing network segmentation and firewall policy, you are deploying IDS/IPS or 802.1X/NAC, or you are hardening VPNs or planning DDoS protection
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Defense-in-Depth Network Architecture](#defense-in-depth-network-architecture), [Network Segmentation Implementation](#network-segmentation-implementation), [Architecture Evaluation Checklist](#architecture-evaluation-checklist)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Network Defense Reference](NETWORK_DEFENSE_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md), [Zero Trust Reference](ZERO_TRUST_REFERENCE.md), [Cloud Network Security](CLOUD_NETWORK_SECURITY.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, ATT&CK version in the footer updated from v15 to v19.2 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on how networks work and how to design them.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | designing or reviewing network segmentation and firewall policy, deploying IDS/IPS or 802.1X/NAC, hardening VPNs or planning DDoS protection |
-| Start at | [Defense-in-Depth Network Architecture](#defense-in-depth-network-architecture), [Network Segmentation Implementation](#network-segmentation-implementation), [Architecture Evaluation Checklist](#architecture-evaluation-checklist) |
-| Pairs with | [NETWORK_DEFENSE_REFERENCE.md](NETWORK_DEFENSE_REFERENCE.md), [NETWORK_MONITORING_REFERENCE.md](NETWORK_MONITORING_REFERENCE.md), [ZERO_TRUST_REFERENCE.md](ZERO_TRUST_REFERENCE.md), [CLOUD_NETWORK_SECURITY.md](CLOUD_NETWORK_SECURITY.md) |
+| Network Security Architecture (this page) | Building a segmented enterprise network: zones, firewall and IPS placement, 802.1X, and VPNs, with configuration examples. |
+| [Networking Fundamentals](/NETWORKING_FUNDAMENTALS.md) | How networking works, from OSI layers to routing and DNS, explained for reasoning about attacks and detections. |
+| [Networking Architecture Reference](/NETWORKING_ARCHITECTURE_REFERENCE.md) | Designing networks: topologies, overlays, segmentation, SD-WAN and SASE, and core services. |
+
+</details>
+
+<!-- meta:end -->
 
 A practitioner reference for designing, evaluating, and defending enterprise networks.
 Covers defense-in-depth architecture patterns with real configuration examples, mapped to

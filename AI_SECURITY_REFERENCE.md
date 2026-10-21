@@ -2,11 +2,78 @@
 
 > In one minute: This document is a field guide to securing AI and LLM systems: the OWASP LLM Top 10 risks, prompt injection (crafted input that overrides a model's instructions) in depth, adversarial machine learning attacks, and hardening patterns for LLM deployments. Each risk comes with concrete attack examples, detection approaches, and mitigations, plus working Python for guardrails, PII anonymization, and injection detection. It also covers the flip side (using LLMs inside the SOC for triage, detection rule generation, and threat intel) and the regulatory landscape (EU AI Act, NIST AI RMF, MITRE ATLAS).
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Engineers and security reviewers building or assessing LLM applications, and SOC teams using LLMs
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 14 min (3,305 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are threat-modeling or reviewing an LLM application before deployment, you are investigating a suspected prompt injection or model extraction attempt, you are choosing guardrails or PII controls for an AI pipeline, or you are mapping AI risks to compliance frameworks
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[OWASP LLM Top 10 (2025)](#owasp-llm-top-10-2025), [Prompt Injection Deep Dive](#prompt-injection-deep-dive), [Quick Reference: AI Security Checklist](#quick-reference-ai-security-checklist)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[AI & MCP Security Reference](AI_MCP_SECURITY_REFERENCE.md), [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md), [ATLAS Reference (AI threats)](ATLAS_REFERENCE.md), [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[AI & LLM Security](/disciplines/ai-llm-security.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, note added on the 2026 OWASP Top 10 for LLM Applications ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 7 on AI security.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | you are threat-modeling or reviewing an LLM application before deployment, investigating a suspected prompt injection or model extraction attempt, choosing guardrails or PII controls for an AI pipeline, mapping AI risks to compliance frameworks |
-| Start at | [OWASP LLM Top 10 (2025)](#owasp-llm-top-10-2025), [Prompt Injection Deep Dive](#prompt-injection-deep-dive), [Quick Reference: AI Security Checklist](#quick-reference-ai-security-checklist) |
-| Pairs with | [AI_MCP_SECURITY_REFERENCE.md](AI_MCP_SECURITY_REFERENCE.md), [AI_OFFENSIVE_SECURITY_REFERENCE.md](AI_OFFENSIVE_SECURITY_REFERENCE.md), [ATLAS_REFERENCE.md](ATLAS_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md) |
+| AI Security Reference (this page) | Securing LLM applications: the OWASP LLM Top 10, prompt injection, adversarial ML, and guardrails. |
+| [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md) | The Model Context Protocol: its threat model and hardening for MCP servers and agents. |
+| [AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md) | AI-assisted attack tooling and the defensive playbook against it. |
+| [AI Architecture Reference](/AI_ARCHITECTURE_REFERENCE.md) | Designing ML and LLM systems end to end, with the controls that make the architecture defensible. |
+| [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md) | The infrastructure behind AI: model registries, unsafe model files, pipelines, and inference servers. |
+| [Agentic AI Swarm Attacks](/AGENTIC_AI_ATTACK_REFERENCE.md) | An illustrative agent-swarm intrusion kill chain mapped to ATT&CK and ATLAS. |
+| [ATLAS Reference (AI threats)](/ATLAS_REFERENCE.md) | The MITRE ATLAS matrix of techniques and mitigations for attacks on AI systems. |
+
+</details>
+
+<!-- meta:end -->
 
 A comprehensive reference covering OWASP LLM Top 10 (2025), prompt injection attacks, adversarial machine learning, securing AI deployments, and using AI in security operations.
 

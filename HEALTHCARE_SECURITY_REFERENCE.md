@@ -2,11 +2,59 @@
 
 > In one minute: Healthcare is the highest-stakes, most-breached regulated sector; a compromise can stop cancer treatment, corrupt a lab result, or leak 190 million records at once. This is the defender's reference for the parts of the estate that are unlike anything in a normal enterprise: the clinical data protocols (HL7 v2 / FHIR / DICOM), the fleet of unpatchable, FDA-regulated connected devices (IoMT), and the standards and regulators (FDA Section 524B, IEC 62304/81001-5-1, AAMI SW96, the HIPAA Security Rule) that govern them. It leads with the sector threat profile, then works protocol-by-protocol and device-lifecycle stage-by-stage with concrete hardening. For the HIPAA breach-notification *clock* and the wider regulatory map see [REGULATORY_LANDSCAPE_REFERENCE.md](REGULATORY_LANDSCAPE_REFERENCE.md); for administrative HIPAA safeguards and audit prep see the GRC references.
 
-| | |
-|---|---|
-| Read this when | segmenting a hospital network and its biomedical devices; scoping an IoMT/HTM security program; assessing a medical-device vendor or an FDA premarket submission; hardening an HL7 interface engine, a FHIR API, or a PACS; briefing clinical/biomed leadership on ransomware and patient-safety risk |
-| Start at | [Sector Threat Profile](#sector-threat-profile), [Clinical Data Protocols](#clinical-data-protocols-amp-their-security), [IoMT: Segmentation & Lifecycle](#iomt-medical-device-segmentation-amp-lifecycle), [FDA Cybersecurity Requirements](#fda-medical-device-cybersecurity-requirements) |
-| Pairs with | [REGULATORY_LANDSCAPE_REFERENCE.md](REGULATORY_LANDSCAPE_REFERENCE.md), [GRC_REFERENCE.md](GRC_REFERENCE.md), [GRC_COMPLIANCE_REFERENCE.md](GRC_COMPLIANCE_REFERENCE.md), [ICS_OT_SECURITY_REFERENCE.md](ICS_OT_SECURITY_REFERENCE.md), [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md), [EMB3D_REFERENCE.md](EMB3D_REFERENCE.md), [ZERO_TRUST_REFERENCE.md](ZERO_TRUST_REFERENCE.md), [RANSOMWARE_DEFENSE_REFERENCE.md](RANSOMWARE_DEFENSE_REFERENCE.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Hospital security teams, biomedical and clinical engineering, and medical-device vendors
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 13 min (3,104 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are segmenting a hospital network and its biomedical devices; you are scoping an IoMT/HTM security program; you are assessing a medical-device vendor or an FDA premarket submission; you are hardening an HL7 interface engine, a FHIR API, or a PACS; or you are briefing clinical/biomed leadership on ransomware and patient-safety risk
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Sector Threat Profile](#sector-threat-profile), [IoMT: Segmentation & Lifecycle](#iomt-medical-device-segmentation-amp-lifecycle), [FDA Cybersecurity Requirements](#fda-medical-device-cybersecurity-requirements)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, added, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Regulatory Landscape Reference](REGULATORY_LANDSCAPE_REFERENCE.md), [GRC Reference](GRC_REFERENCE.md), [GRC Compliance Reference](GRC_COMPLIANCE_REFERENCE.md), [ICS/OT Security Reference](ICS_OT_SECURITY_REFERENCE.md), [Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE.md), [EMB3D Reference (Embedded Devices)](EMB3D_REFERENCE.md), [Zero Trust Reference](ZERO_TRUST_REFERENCE.md), [Ransomware Defense & Resilience](RANSOMWARE_DEFENSE_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Added</th><td>
+
+2026-09-29 ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 > Not legal advice. This is a defender's operational reference, not legal or regulatory counsel. HIPAA obligations, FDA requirements, and standards conformance turn on facts and definitions that change; confirm current text and your specific obligations with qualified counsel and your regulatory-affairs team. Time-sensitive facts are marked with a source and were verified 2026-09-29.
 

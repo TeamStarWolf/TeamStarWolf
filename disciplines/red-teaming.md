@@ -4,6 +4,55 @@
 
 Red teaming differs fundamentally from penetration testing. A pentest is scoped, time-boxed, and delivers a list of vulnerabilities. A red team engagement simulates a persistent Advanced Persistent Threat (APT): it is stealth-first, objective-driven, and measures the blue team's detection and response capability, not just the attack surface. Engagements typically run weeks to months, avoid detection as a primary constraint, and conclude with a findings debrief that includes defender performance metrics alongside technical findings. Understanding this distinction is essential before approaching the tooling or tradecraft.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Penetration testers and operators moving into red teaming
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,237 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning how a red team engagement differs from a penetration test, or you are planning C2, infrastructure and OPSEC for an operation
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Red Team vs Penetration Test vs Bug Bounty](#red-team-vs-penetration-test-vs-bug-bounty), [Red Team Kill Chain / Methodology](#red-team-kill-chain-methodology), [Infrastructure OPSEC](#infrastructure-opsec)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-27, kill-chain phase 7 renamed from Defense Evasion to Stealth (TA0005) ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Red Team Reference](/RED_TEAM_REFERENCE.md), the library's in-depth page on this subject.

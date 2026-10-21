@@ -3,11 +3,64 @@
 > Defensive analyst reference for malware analysis, firmware analysis, and vulnerability research.
 > All techniques described are for authorized security research, incident response, and defensive purposes.
 
-| | |
-|---|---|
-| Read this when | You are triaging an unknown malware sample, tearing apart router or IoT firmware, or hunting a vulnerability in a compiled binary |
-| Start at | [RE Fundamentals & Architectures](#section-1-re-fundamentals-amp-architectures), [Static Analysis Tools](#section-3-static-analysis-tools), [Dynamic Analysis & Debugging](#section-4-dynamic-analysis-amp-debugging) |
-| Pairs with | [MALWARE_FAMILIES.md](MALWARE_FAMILIES.md), [DIGITAL_FORENSICS_REFERENCE.md](DIGITAL_FORENSICS_REFERENCE.md), [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md), [EXPLOIT_DEVELOPMENT_REFERENCE.md](EXPLOIT_DEVELOPMENT_REFERENCE.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Malware analysts, firmware researchers, and vulnerability researchers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 31 min (7,207 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are triaging an unknown malware sample, you are tearing apart router or IoT firmware, or you are hunting a vulnerability in a compiled binary
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[RE Fundamentals & Architectures](#section-1-re-fundamentals-amp-architectures), [Static Analysis Tools](#section-3-static-analysis-tools), [Dynamic Analysis & Debugging](#section-4-dynamic-analysis-amp-debugging)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Malware Families](MALWARE_FAMILIES.md), [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md), [Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE.md), [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Reverse Engineering](/disciplines/reverse-engineering.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-27, Defense Evasion row for T1027 renamed Stealth ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

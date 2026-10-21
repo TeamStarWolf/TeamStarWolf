@@ -9,6 +9,8 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 ### T1007: System Service Discovery
 <a id="t1007"></a>
 
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
+
 Detection strategy: Detection of System Service Discovery Commands Across OS Platforms (`DET0483`)  
 Platforms: Linux, Windows, macOS  
 ATT&CK: [T1007](https://attack.mitre.org/techniques/T1007/), [detail page](/techniques/discovery.md#t1007)
@@ -26,10 +28,14 @@ ATT&CK: [T1007](https://attack.mitre.org/techniques/T1007/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog`; `macos:osquery (process_events)`
   - *Tune:* `CommandLineContent`: Tune to recognize `launchctl list`, `launchctl print`, or service grep strings.; `ProcessParent`: Filter known benign automation or MDM agent invocations.
 
+</details>
+
 ---
 
 ### T1010: Application Window Discovery
 <a id="t1010"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection of Application Window Enumeration via API or Scripting (`DET0097`)  
 Platforms: Linux, Windows, macOS  
@@ -48,10 +54,14 @@ ATT&CK: [T1010](https://attack.mitre.org/techniques/T1010/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog`; `macos:osquery (process_events)`
   - *Tune:* `AppleScriptTarget`: Tunable to ignore benign scripting like automation by known apps.; `ParentProcess`: Useful to suppress expected automation processes.
 
+</details>
+
 ---
 
 ### T1012: Query Registry
 <a id="t1012"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Registry Query for Environmental Discovery (`DET0209`)  
 Platforms: Windows  
@@ -62,10 +72,14 @@ ATT&CK: [T1012](https://attack.mitre.org/techniques/T1012/), [detail page](/tech
   - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=13, 14)`; `WinEventLog:PowerShell (EventCode=4103, 4104, 4105, 4106)`
   - *Tune:* `TargetRegistryPath`: Focus detection on registry hives or keys likely to reveal environment info (e.g., HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion).; `ParentProcess`: May tune for suspicious parent processes such as cmd.exe, wscript.exe, or mshta.exe.; `TimeWindow`: Controls how closely registry access must follow process creation for correlation.
 
+</details>
+
 ---
 
 ### T1016: System Network Configuration Discovery
 <a id="t1016"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Behavioral Detection of System Network Configuration Discovery (`DET0195`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -92,10 +106,14 @@ ATT&CK: [T1016](https://attack.mitre.org/techniques/T1016/), [detail page](/tech
   - *Log sources:* `networkdevice:cli`
   - *Tune:* `Username`: Highlight low-privileged or non-routine users performing discovery; `CommandString`: Allow for tuning based on command regex or frequency; `TransportType`: SSH vs Telnet vs Console session logging scope
 
+</details>
+
 ---
 
 ### T1016.001: Internet Connection Discovery
 <a id="t1016001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Behavioral Detection of Internet Connection Discovery (`DET0357`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -118,10 +136,14 @@ ATT&CK: [T1016.001](https://attack.mitre.org/techniques/T1016/001/), [detail pag
   - *Log sources:* `esxi:shell`; `esxi:hostd (process)`
   - *Tune:* `SSHSessionOrigin`: Distinguish external SSH sessions from internal admin maintenance; `TargetIP`: Egress test destination may be filtered to known CDNs/test nodes
 
+</details>
+
 ---
 
 ### T1016.002: Wi-Fi Discovery
 <a id="t1016002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Behavioral Detection of Wi-Fi Discovery Activity (`DET0464`)  
 Platforms: Linux, Windows, macOS  
@@ -140,10 +162,14 @@ ATT&CK: [T1016.002](https://attack.mitre.org/techniques/T1016/002/), [detail pag
   - *Log sources:* `macos:unifiedlog (process)`
   - *Tune:* `WiFiNetworkFilter`: Match suspicious SSIDs being queried via `security find-generic-password -wa`; `ExecutionUser`: Monitor root/admin usage of credential tools not linked to UI/system processes
 
+</details>
+
 ---
 
 ### T1018: Remote System Discovery
 <a id="t1018"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection Strategy for Remote System Enumeration Behavior (`DET0574`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -170,10 +196,14 @@ ATT&CK: [T1018](https://attack.mitre.org/techniques/T1018/), [detail page](/tech
   - *Log sources:* `networkdevice:syslog (syslog facility LOCAL7 or trap messages)`
   - *Tune:* `CommandList`: Device-specific recon commands to monitor based on make/model; `PrivLevel`: Trigger detection for privilege escalation prior to recon commands
 
+</details>
+
 ---
 
 ### T1033: System Owner/User Discovery
 <a id="t1033"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Behavioral Detection of User Discovery via Local and Remote Enumeration (`DET0093`)  
 Platforms: Linux, Network Devices, Windows, macOS  
@@ -196,10 +226,14 @@ ATT&CK: [T1033](https://attack.mitre.org/techniques/T1033/), [detail page](/tech
   - *Log sources:* `networkdevice:syslog (aaa privilege_exec)`; `networkdevice:syslog (eventlog)`
   - *Tune:* `CLICommandBaseline`: Expected command set per device role/user role combination; `DeviceRoleSensitivity`: Correlate access with core vs. edge vs. management plane sensitivity; `CommandFrequencyThreshold`: Detect burst usage of `show` or `debug` commands by non-admin users
 
+</details>
+
 ---
 
 ### T1046: Network Service Discovery
 <a id="t1046"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Behavioral Detection Strategy for Network Service Discovery Across Platforms (`DET0376`)  
 Platforms: Containers, Linux, Windows, macOS  
@@ -222,10 +256,14 @@ ATT&CK: [T1046](https://attack.mitre.org/techniques/T1046/), [detail page](/tech
   - *Log sources:* `ebpf:syscalls (socket connect)`; `ebpf:syscalls (execve)`; `containerd:runtime (container-level outbound traffic events)`
   - *Tune:* `ExecutablePath`: Custom or renamed versions of tools may use different paths; `TimeWindow`: Aggregation interval for identifying anomalous traffic; `NetworkDestinationCount`: Tunable count of unique destinations to classify discovery
 
+</details>
+
 ---
 
 ### T1049: System Network Connections Discovery
 <a id="t1049"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 6 analytics</summary>
 
 Detection strategy: Detection of System Network Connections Discovery Across Platforms (`DET0320`)  
 Platforms: ESXi, IaaS, Linux, Network Devices, Windows, macOS  
@@ -256,10 +294,14 @@ ATT&CK: [T1049](https://attack.mitre.org/techniques/T1049/), [detail page](/tech
   - *Log sources:* `AWS:CloudTrail (Describe* or List* API calls)`; `azure:activity (networkInsightsLogs)`
   - *Tune:* `ServicePrincipalAllowlist`: Allow certain automation roles to perform discovery during provisioning.; `BurstQueryThreshold`: Unusual number of Describe* or List* network API calls in a short timeframe.
 
+</details>
+
 ---
 
 ### T1057: Process Discovery
 <a id="t1057"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection of Adversarial Process Discovery Behavior (`DET0034`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -286,10 +328,14 @@ ATT&CK: [T1057](https://attack.mitre.org/techniques/T1057/), [detail page](/tech
   - *Log sources:* `networkdevice:cli (CLI command)`; `networkdevice:syslog (Admin activity)`
   - *Tune:* `Username`: Tunable based on authorized operators for network infrastructure; `CommandString`: Pattern match or regex scope for discovery commands
 
+</details>
+
 ---
 
 ### T1069: Permission Groups Discovery
 <a id="t1069"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Behavioral Detection of Permission Groups Discovery (`DET0179`)  
 Platforms: Linux, Windows, macOS  
@@ -308,10 +354,14 @@ ATT&CK: [T1069](https://attack.mitre.org/techniques/T1069/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (process:launch)`
   - *Tune:* `CommandLine`: Filters for suspicious execution of 'dscl . -read /Groups', etc.; `ParentProcess`: Flag group enumeration from automation tools (e.g., LaunchAgents or suspicious apps).
 
+</details>
+
 ---
 
 ### T1069.001: Local Groups
 <a id="t1069001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Behavioral Detection of Local Group Enumeration Across OS Platforms (`DET0114`)  
 Platforms: Linux, Windows, macOS  
@@ -330,10 +380,14 @@ ATT&CK: [T1069.001](https://attack.mitre.org/techniques/T1069/001/), [detail pag
   - *Log sources:* `macos:unifiedlog (process:exec)`
   - *Tune:* `CommandLineContains`: Match on specific dscl paths like '/Groups' or known enumeration options.; `InteractiveSession`: Used to scope out enumeration from user terminals versus background utilities.
 
+</details>
+
 ---
 
 ### T1069.002: Domain Groups
 <a id="t1069002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Behavioral Detection of Domain Group Discovery (`DET0360`)  
 Platforms: Linux, Windows, macOS  
@@ -352,10 +406,14 @@ ATT&CK: [T1069.002](https://attack.mitre.org/techniques/T1069/002/), [detail pag
   - *Log sources:* `macos:unifiedlog (process events)`
   - *Tune:* `CommandSignatureThreshold`: Defines how strictly command patterns must match known enumeration syntax.; `TimeWindow`: Adjustable window to correlate chained behavior such as group enumeration followed by user targeting.
 
+</details>
+
 ---
 
 ### T1069.003: Cloud Groups
 <a id="t1069003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Behavioral Detection of Cloud Group Enumeration via API and CLI Access (`DET0251`)  
 Platforms: IaaS, Office Suite, SaaS  
@@ -374,10 +432,14 @@ ATT&CK: [T1069.003](https://attack.mitre.org/techniques/T1069/003/), [detail pag
   - *Log sources:* `saas:salesforce (GET /services/data/vXX.X/groups)`
   - *Tune:* `OrgScope`: Scope to cross-team access or unfamiliar org enumeration.; `RequestRate`: Tuning for excessive group-list API calls.
 
+</details>
+
 ---
 
 ### T1082: System Information Discovery
 <a id="t1082"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 6 analytics</summary>
 
 Detection strategy: System Discovery via Native and Remote Utilities (`DET0525`)  
 Platforms: ESXi, IaaS, Linux, Network Devices, Windows, macOS  
@@ -408,10 +470,14 @@ ATT&CK: [T1082](https://attack.mitre.org/techniques/T1082/), [detail page](/tech
   - *Log sources:* `networkdevice:syslog (Privilege-level command execution)`
   - *Tune:* `Username`: Highlight unexpected users issuing diagnostic commands.; `CommandList`: Tailor to vendor-specific command syntax.
 
+</details>
+
 ---
 
 ### T1083: File and Directory Discovery
 <a id="t1083"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Recursive Enumeration of Files and Directories Across Privilege Contexts (`DET0370`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -438,10 +504,14 @@ ATT&CK: [T1083](https://attack.mitre.org/techniques/T1083/), [detail page](/tech
   - *Log sources:* `networkdevice:syslog (CLI Command Logging)`
   - *Tune:* `CommandWhitelist`: Filter allowed commands by account or IP; `SessionOrigin`: Tunable to restrict detection to remote terminal or Telnet/SSH
 
+</details>
+
 ---
 
 ### T1087: Account Discovery
 <a id="t1087"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 8 analytics</summary>
 
 Detection strategy: Enumeration of User or Account Information Across Platforms (`DET0587`)  
 Platforms: ESXi, IaaS, Identity Provider, Linux, Office Suite, SaaS, Windows, macOS  
@@ -480,10 +550,14 @@ ATT&CK: [T1087](https://attack.mitre.org/techniques/T1087/), [detail page](/tech
   - *Log sources:* `m365:unified (Scripted Activity)`
   - *Tune:* `MacroName`: Alert on auto-running macros accessing directory or user info.; `ExecutionScope`: Focus on macros invoking LDAP, ADODB, or WMI queries.
 
+</details>
+
 ---
 
 ### T1087.001: Local Account
 <a id="t1087001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Local Account Enumeration Across Host Platforms (`DET0303`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -506,10 +580,14 @@ ATT&CK: [T1087.001](https://attack.mitre.org/techniques/T1087/001/), [detail pag
   - *Log sources:* `vpxd.log (vCenter Management)`; `esxi:shell (Shell Execution)`
   - *Tune:* `CommandPattern`: Look for 'esxcli system account list' and API calls from unusual sources.; `SessionType`: Restrict detection to interactive sessions vs. maintenance/automation jobs.
 
+</details>
+
 ---
 
 ### T1087.002: Domain Account
 <a id="t1087002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Domain Account Enumeration Across Platforms (`DET0129`)  
 Platforms: Linux, Windows, macOS  
@@ -528,10 +606,14 @@ ATT&CK: [T1087.002](https://attack.mitre.org/techniques/T1087/002/), [detail pag
   - *Log sources:* `macos:unifiedlog (Process Execution)`; `macos:unifiedlog (DS daemon log entries)`
   - *Tune:* `CommandPattern`: Match patterns such as 'dscl /Active\ Directory/All\ Domains -list /Users'.; `EndpointRole`: Flag this activity only on non-directory hosts or non-admin accounts.
 
+</details>
+
 ---
 
 ### T1087.003: Email Account
 <a id="t1087003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Enumeration of Global Address Lists via Email Account Discovery (`DET0229`)  
 Platforms: Office Suite, Windows  
@@ -546,10 +628,14 @@ ATT&CK: [T1087.003](https://attack.mitre.org/techniques/T1087/003/), [detail pag
   - *Log sources:* `gcp:audit (Directory API Access: users.list or groups.list)`; `m365:unified (GAL Lookup or Address Book download)`; `azure:signinlogs (Unusual Token Usage or Application Consent)`
   - *Tune:* `APIQueryVolume`: Set thresholds for excessive use of 'users.list' or recursive group enumerations.; `UserContext`: Flag non-admin or previously unseen user agents requesting directory information.; `AppSource`: Distinguish between sanctioned sync tools and unauthorized scripts or OAuth tokens.
 
+</details>
+
 ---
 
 ### T1087.004: Cloud Account
 <a id="t1087004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Cloud Account Enumeration via API, CLI, and Scripting Interfaces (`DET0386`)  
 Platforms: IaaS, Identity Provider, Office Suite, SaaS  
@@ -572,10 +658,14 @@ ATT&CK: [T1087.004](https://attack.mitre.org/techniques/T1087/004/), [detail pag
   - *Log sources:* `Google Admin Audit (users.list, groups.list)`; `saas:okta (System API Call: user.read, group.read)`
   - *Tune:* `APIRequestRate`: Detect rapid enumeration attempts or recursive group expansion.; `AppIntegrationID`: Tag expected SCIM clients and suppress false positives from enterprise sync tools.; `GeoContext`: Trigger alerts if enumeration occurs from anomalous IPs or regions.
 
+</details>
+
 ---
 
 ### T1120: Peripheral Device Discovery
 <a id="t1120"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Peripheral Device Enumeration via System Utilities and API Calls (`DET0491`)  
 Platforms: Linux, Windows, macOS  
@@ -594,10 +684,14 @@ ATT&CK: [T1120](https://attack.mitre.org/techniques/T1120/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (process exec)`; `macos:osquery (usb_devices)`
   - *Tune:* `BinaryList`: Commands like 'system_profiler SPUSBDataType', 'ioreg -p IOUSB' that may indicate enumeration; `TimeWindow`: Temporal grouping of enumeration with follow-on activity (e.g., clipboard capture, exfiltration)
 
+</details>
+
 ---
 
 ### T1124: System Time Discovery
 <a id="t1124"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Behavior-chain, platform-aware detection strategy for T1124 System Time Discovery (`DET0151`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -624,10 +718,14 @@ ATT&CK: [T1124](https://attack.mitre.org/techniques/T1124/), [detail page](/tech
   - *Log sources:* `networkdevice:syslog (command-exec: CLI commands containing "show clock", "show clock detail", "show timezone" executed by suspicious user/source)`; `networkdevice:config (config-change: timezone or ntp server configuration change after a time query command)`
   - *Tune:* `AllowedAdminSubnets`: Only alert on access from outside the NOC/management subnets.; `KnownMaintenanceUsers`: Whitelist known automation/orchestration accounts.; `TimeWindow`: Correlation window between time query and config change.
 
+</details>
+
 ---
 
 ### T1135: Network Share Discovery
 <a id="t1135"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Behavior-chain detection for T1135 Network Share Discovery across Windows, Linux, and macOS (`DET0182`)  
 Platforms: Linux, Windows, macOS  
@@ -646,10 +744,14 @@ ATT&CK: [T1135](https://attack.mitre.org/techniques/T1135/), [detail page](/tech
   - *Log sources:* `macos:endpointsecurity (ES_EVENT_TYPE_NOTIFY_EXEC: Process execution of "sharing -l", "smbutil view", "mount_smbfs")`; `macos:unifiedlog (Command line contains smbutil view //, mount_smbfs //)`; `NSM:Firewall (Outbound connections to 139/445 to multiple destinations)`; `NSM:Flow (connection: SMB connections to multiple internal hosts)`
   - *Tune:* `BurstHostThreshold`: Minimum unique SMB destinations (e.g., ≥3-5 in smaller mac fleets).; `TimeWindow`: Correlation window between exec and SMB connections (default 10m).; `AllowedMgmtTools`: Jamf/IT scripts legitimately running smbutil/mount_smbfs.
 
+</details>
+
 ---
 
 ### T1201: Password Policy Discovery
 <a id="t1201"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 7 analytics</summary>
 
 Detection strategy: Password Policy Discovery – cross-platform behavior-chain analytics (`DET0161`)  
 Platforms: IaaS, Identity Provider, Linux, Network Devices, SaaS, Windows, macOS  
@@ -684,10 +786,14 @@ ATT&CK: [T1201](https://attack.mitre.org/techniques/T1201/), [detail page](/tech
   - *Log sources:* `networkdevice:syslog (cmd='show aaa*' OR 'show running-config | include password|aaa' OR 'show aaa common-criteria policy all')`
   - *Tune:* `ApprovedNOCSources`: Jump hosts permitted to run show commands.; `DeviceTier`: Higher risk weight on edge/critical devices.
 
+</details>
+
 ---
 
 ### T1217: Browser Information Discovery
 <a id="t1217"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection of Local Browser Artifact Access for Reconnaissance (`DET0013`)  
 Platforms: Linux, Windows, macOS  
@@ -706,10 +812,14 @@ ATT&CK: [T1217](https://attack.mitre.org/techniques/T1217/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (Access to ~/Library/*/Safari or Chrome directories by non-browser processes)`; `macos:osquery (process reading browser configuration paths)`
   - *Tune:* `BrowserDBPath`: System-specific paths to browser databases in user Library folders; `NonBrowserProcessList`: Processes not expected to touch browser DBs (e.g., curl, bash, python)
 
+</details>
+
 ---
 
 ### T1482: Domain Trust Discovery
 <a id="t1482"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Domain Trust Discovery via API, Script, and CLI Enumeration (`DET0007`)  
 Platforms: Windows  
@@ -720,10 +830,14 @@ ATT&CK: [T1482](https://attack.mitre.org/techniques/T1482/), [detail page](/tech
   - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=7)`; `WinEventLog:Sysmon (EventCode=10)`; `WinEventLog:PowerShell (Get-ADTrust|GetAllTrustRelationships)`; `WinEventLog:Security (EventCode=4662)`
   - *Tune:* `ParentImage`: Tune based on expected script hosts or authorized administrators invoking trust enumeration.; `TimeWindow`: Correlate enumeration + subsequent Kerberos activity or DC interaction within a bounded window.; `UserContext`: Prioritize detection for non-admin or unexpected user accounts performing enumeration.; `API_Name`: Flag uncommon or low-prevalence API calls like DSEnumerateDomainTrusts for inspection.
 
+</details>
+
 ---
 
 ### T1518: Software Discovery
 <a id="t1518"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Multi-Platform Software Discovery Behavior Chain (`DET0392`)  
 Platforms: ESXi, IaaS, Linux, Windows, macOS  
@@ -750,10 +864,14 @@ ATT&CK: [T1518](https://attack.mitre.org/techniques/T1518/), [detail page](/tech
   - *Log sources:* `esxi:shell (esxcli software vib list)`; `esxi:hostd (Host daemon command log entries related to vib enumeration)`
   - *Tune:* `HostAccessMode`: Detection may vary based on whether enumeration is local or remote.; `ScriptChain`: Presence of enumeration in broader scripted sequence.
 
+</details>
+
 ---
 
 ### T1518.001: Security Software Discovery
 <a id="t1518001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Security Software Discovery Across Platforms (`DET0016`)  
 Platforms: Linux, Windows, macOS  
@@ -772,10 +890,14 @@ ATT&CK: [T1518.001](https://attack.mitre.org/techniques/T1518/001/), [detail pag
   - *Log sources:* `macos:unifiedlog (execution of security-agent detection or enumeration commands)`; `auditd:SYSCALL (execve)`
   - *Tune:* `ToolNameMatch`: Adversary may search for specific software names; defenders can tune based on local deployments
 
+</details>
+
 ---
 
 ### T1518.002: Backup Software Discovery
 <a id="t1518002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Backup Software Discovery via CLI, Registry, and Process Inspection (T1518.002) (`DET0088`)  
 Platforms: Linux, Windows, macOS  
@@ -794,10 +916,14 @@ ATT&CK: [T1518.002](https://attack.mitre.org/techniques/T1518/002/), [detail pag
   - *Log sources:* `macos:unifiedlog (Process execution logs showing discovery commands like mdfind, system_profiler, or launchctl list)`; `macos:unifiedlog (Read access to Time Machine plist files or CCC configurations in ~/Library/Preferences/)`
   - *Tune:* `InstallLocationScope`: Directories or bundles where backup tools are commonly installed; `KnownAppPlistPaths`: Plist files related to backup software configurations
 
+</details>
+
 ---
 
 ### T1526: Cloud Service Discovery
 <a id="t1526"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Cloud Service Discovery (`DET0402`)  
 Platforms: IaaS, Identity Provider, Office Suite, SaaS  
@@ -820,10 +946,14 @@ ATT&CK: [T1526](https://attack.mitre.org/techniques/T1526/), [detail page](/tech
   - *Log sources:* `saas:adminapi (ListIntegrations, ListServices: Repeated service discovery requests from accounts without administrative responsibilities)`; `saas:auth (Login, TokenGranted: Discovery actions tied to anomalous login sessions or tokens)`
   - *Tune:* `IntegrationDiscoveryThreshold`: Number of SaaS integrations enumerated before triggering detection.; `ServiceAccountScope`: Expected permissions for service accounts to distinguish benign from malicious discovery.
 
+</details>
+
 ---
 
 ### T1538: Cloud Service Dashboard
 <a id="t1538"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection of Cloud Service Dashboard Usage via GUI-Based Cloud Access (`DET0291`)  
 Platforms: IaaS, Identity Provider, Office Suite, SaaS  
@@ -846,10 +976,14 @@ ATT&CK: [T1538](https://attack.mitre.org/techniques/T1538/), [detail page](/tech
   - *Log sources:* `saas:zoom (Zoom Admin Dashboard accessed from unfamiliar IP/device)`; `saas:salesforce (Login)`; `saas:box (User navigated to admin interface)`
   - *Tune:* `SaaSDashboardViewList`: List of GUI pages or endpoints considered sensitive; `IPReputationThreshold`: Reputation score or allowlist of source IPs; `LoginBehaviorBaseline`: Typical user/device login pairings or login frequency
 
+</details>
+
 ---
 
 ### T1580: Cloud Infrastructure Discovery
 <a id="t1580"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Cloud Infrastructure Discovery (`DET0169`)  
 Platforms: IaaS  
@@ -860,10 +994,14 @@ ATT&CK: [T1580](https://attack.mitre.org/techniques/T1580/), [detail page](/tech
   - *Log sources:* `AWS:CloudTrail (DescribeInstances)`; `AWS:CloudTrail (ListBuckets)`; `AWS:CloudTrail (DescribeDBInstances)`
   - *Tune:* `UserContext`: Identity performing the discovery operation; tuned to filter known administrative or inventory accounts.; `GeoLocation`: Source region or IP of discovery requests; tuned to expected operational regions to detect unusual access.; `TimeWindow`: Correlation period to link enumeration calls with subsequent provisioning or exfiltration activity.; `APIThreshold`: Rate or volume of discovery calls; tuned to suppress noise from inventory management tools.
 
+</details>
+
 ---
 
 ### T1613: Container and Resource Discovery
 <a id="t1613"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Container and Resource Discovery (`DET0490`)  
 Platforms: Containers  
@@ -874,10 +1012,14 @@ ATT&CK: [T1613](https://attack.mitre.org/techniques/T1613/), [detail page](/tech
   - *Log sources:* `kubernetes:apiserver (list or get requests against pods, deployments, or nodes)`; `docker:daemon (docker ps, docker inspect, or docker images commands)`
   - *Tune:* `UserAllowList`: Defines which service accounts and admin roles are expected to perform discovery actions. Activity by non-allowlisted identities may indicate adversary discovery.; `TimeWindow`: Specifies correlation period (e.g., 10m) for linking multiple discovery attempts across API and daemon logs.; `PodQueryThreshold`: Defines threshold for number of pod/node enumeration requests by a single user. Excessive queries may indicate scanning activity.
 
+</details>
+
 ---
 
 ### T1614: System Location Discovery
 <a id="t1614"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for System Location Discovery (`DET0043`)  
 Platforms: IaaS, Linux, Windows, macOS  
@@ -900,10 +1042,14 @@ ATT&CK: [T1614](https://attack.mitre.org/techniques/T1614/), [detail page](/tech
   - *Log sources:* `AWS:CloudTrail (GetMetadata, DescribeInstanceIdentity)`; `azure:vpcflow (HTTP requests to 169.254.169.254 or Azure Metadata endpoints)`
   - *Tune:* `MetadataQueryAllowList`: Expected services that query cloud metadata APIs. Any additional sources may be malicious.
 
+</details>
+
 ---
 
 ### T1614.001: System Language Discovery
 <a id="t1614001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection Strategy for System Language Discovery (`DET0565`)  
 Platforms: Linux, Windows, macOS  
@@ -922,10 +1068,14 @@ ATT&CK: [T1614.001](https://attack.mitre.org/techniques/T1614/001/), [detail pag
   - *Log sources:* `macos:unifiedlog (defaults read -g AppleLocale or systemsetup -gettimezone)`; `macos:osquery (execve)`
   - *Tune:* `ExecutionPath`: Restrict or monitor processes outside of system utilities that query AppleLocale or system language settings.
 
+</details>
+
 ---
 
 ### T1615: Group Policy Discovery
 <a id="t1615"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection strategy for Group Policy Discovery on Windows (`DET0055`)  
 Platforms: Windows  
@@ -936,10 +1086,14 @@ ATT&CK: [T1615](https://attack.mitre.org/techniques/T1615/), [detail page](/tech
   - *Log sources:* `WinEventLog:Security (EventCode=4661)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:PowerShell (EventCode=4103, 4104, 4105, 4106)`; `NSM:Flow (query: High-volume LDAP traffic with filters targeting groupPolicyContainer attributes)`
   - *Tune:* `TimeWindow`: Defines the correlation window to link suspicious PowerShell activity, gpresult execution, and LDAP enumeration.; `UserContext`: Identifies accounts expected to perform GPO enumeration (administrators vs. standard users).; `CommandLinePatterns`: Patterns for detecting suspicious gpresult or PowerShell cmdlets; tunable to reduce noise in environments where these tools are common.
 
+</details>
+
 ---
 
 ### T1619: Cloud Storage Object Discovery
 <a id="t1619"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Cloud Storage Object Discovery (`DET0578`)  
 Platforms: IaaS  
@@ -950,10 +1104,14 @@ ATT&CK: [T1619](https://attack.mitre.org/techniques/T1619/), [detail page](/tech
   - *Log sources:* `AWS:CloudTrail (ListObjectsV2)`; `AWS:CloudTrail (GetObject, CopyObject)`
   - *Tune:* `TimeWindow`: Correlation window (e.g., multiple enumeration calls within 5 minutes) may indicate automated discovery versus normal user activity.; `UserContext`: Expected service accounts and IAM roles that regularly enumerate storage; deviations may indicate suspicious activity.; `RegionScope`: Unusual enumeration of buckets across multiple geographic regions in short succession may indicate adversary reconnaissance.
 
+</details>
+
 ---
 
 ### T1652: Device Driver Discovery
 <a id="t1652"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection Strategy for Device Driver Discovery (`DET0579`)  
 Platforms: Linux, Windows, macOS  
@@ -972,10 +1130,14 @@ ATT&CK: [T1652](https://attack.mitre.org/techniques/T1652/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (exec: Execution of kextstat, kextfind, or ioreg targeting driver information)`; `macos:unifiedlog (read: File access to /System/Library/Extensions/ or related kernel extension paths)`
   - *Tune:* `AllowedMaintenanceTasks`: Tune detection by excluding expected system diagnostic or patch-related invocations of kext utilities.
 
+</details>
+
 ---
 
 ### T1654: Log Enumeration
 <a id="t1654"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection Strategy for Log Enumeration (`DET0255`)  
 Platforms: ESXi, IaaS, Linux, Windows, macOS  
@@ -1002,10 +1164,14 @@ ATT&CK: [T1654](https://attack.mitre.org/techniques/T1654/), [detail page](/tech
   - *Log sources:* `esxi:shell (Execution of cat, tail, grep targeting /var/log/vmkernel.log or /var/log/hostd.log)`; `esxi:hostd (read: Access to sensitive log files by non-admin users)`
   - *Tune:* `AdminSessions`: Correlate with legitimate administrator access sessions to reduce noise.
 
+</details>
+
 ---
 
 ### T1673: Virtual Machine Discovery
 <a id="t1673"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Virtual Machine Discovery (`DET0199`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -1028,10 +1194,14 @@ ATT&CK: [T1673](https://attack.mitre.org/techniques/T1673/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (process_name IN ("VBoxManage", "prlctl") AND command CONTAINS ("list", "show"))`
   - *Tune:* `UserContext`: Adjust sensitivity depending on whether the command is executed by admin or non-admin users.; `ExecutionTimeWindow`: Restrict alerts to unusual times when VM management is not expected.
 
+</details>
+
 ---
 
 ### T1680: Local Storage Discovery
 <a id="t1680"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Local Storage Discovery via Drive Enumeration and Filesystem Probing (`DET0188`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -1054,4 +1224,8 @@ ATT&CK: [T1680](https://attack.mitre.org/techniques/T1680/), [detail page](/tech
   - *Log sources:* `esxi:hostd (execution of esxcli with args matching 'storage', 'filesystem', 'core device list')`; `esxi:auth (interactive shell or SSH access preceding storage enumeration)`
   - *Tune:* `ssh_source_ip`: Restrict alerts to unexpected remote sessions accessing host storage commands; `esxcli_command_scope`: Tailor detection based on subcommands more likely to be abused
 
+</details>
+
 ---
+
+*© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*

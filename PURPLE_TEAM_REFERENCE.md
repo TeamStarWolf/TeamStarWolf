@@ -2,11 +2,64 @@
 
 > In one minute: Purple teaming is red (attack) and blue (defense) working side by side so that every attack technique tested immediately becomes a tuned detection, instead of a finding buried in a report weeks later. This library is the practitioner's playbook for running that loop: how to structure a program, execute atomic tests and adversary emulation, measure ATT&CK coverage, and feed the gaps back to detection engineering. Reach for it when you need to prove, and improve, what your SIEM and EDR actually catch.
 
-| | |
-|---|---|
-| Read this when | Standing up a purple team program, planning an ATT&CK-mapped emulation campaign, validating whether a technique is actually detected, or triaging a detection gap into a remediation ticket |
-| Start at | [Purple Team Fundamentals](#_1-purple-team-fundamentals), [Atomic Red Team](#_3-atomic-red-team), [Detection Validation Methodology](#_5-detection-validation-methodology) |
-| Pairs with | [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [THREAT_INTELLIGENCE_REFERENCE.md](THREAT_INTELLIGENCE_REFERENCE.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Purple team leads, detection engineers, and red team operators
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 20 min (4,691 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are standing up a purple team program, you are planning an ATT&CK-mapped emulation campaign, you are validating whether a technique is actually detected, or you are triaging a detection gap into a remediation ticket
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Purple Team Fundamentals](#_1-purple-team-fundamentals), [Atomic Red Team](#_3-atomic-red-team), [Detection Validation Methodology](#_5-detection-validation-methodology)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Red Team Reference](RED_TEAM_REFERENCE.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Purple Teaming & Adversary Simulation](/disciplines/purple-teaming.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-27, Enterprise tactic table: Defense Evasion renamed Stealth and a Defense Impairment (TA0112) row added; one coverage-target row updated to match ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 Version: 1.0 | Classification: Internal Use | Maintained by: Security Engineering
 

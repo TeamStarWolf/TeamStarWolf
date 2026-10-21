@@ -6,6 +6,50 @@ Every report indexed here is free; "form" in the access column means an email-re
 
 Related: [Threat Intelligence](THREAT_INTELLIGENCE_REFERENCE.md), [CTEM](CTEM_REFERENCE.md), [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Security Metrics](SECURITY_METRICS_REFERENCE.md), [Threat Actors](THREAT_ACTORS.md), [ATT&CK Priority Gaps](scores/attack_priority_gaps.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Threat intelligence analysts, security leaders, and anyone citing annual threat reports
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 17 min (3,865 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are choosing which annual threat reports to read, you are checking what a report's evidence can and cannot support before citing it, or you are planning a reading calendar by role
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Methodology determines meaning](#methodology-determines-meaning), [The majors](#the-majors), [How to read a threat report critically](#how-to-read-a-threat-report-critically)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ---
 
 ## Methodology determines meaning

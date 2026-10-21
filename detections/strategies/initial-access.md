@@ -9,6 +9,8 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 ### T1189: Drive-by Compromise
 <a id="t1189"></a>
 
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
+
 Detection strategy: Drive-by Compromise — Behavior-based, Multi-platform Detection Strategy (T1189) (`DET0176`)  
 Platforms: Identity Provider, Linux, Windows, macOS  
 ATT&CK: [T1189](https://attack.mitre.org/techniques/T1189/), [detail page](/techniques/initial-access.md#t1189)
@@ -30,10 +32,14 @@ ATT&CK: [T1189](https://attack.mitre.org/techniques/T1189/), [detail page](/tech
   - *Log sources:* `azure:signinlogs (SignIn: Sign-ins flagged as atypical (new geographic region, unfamiliar device id) shortly after correlated endpoint/browser compromise times)`; `m365:unified (Application Consent grants, new OAuth client registrations, or unusual admin-level activities executed by a user account shortly after suspected drive-by compromise)`; `saas:auth (Refresh token issuance or refresh token usage from new IPs or user agents)`; `AWS:CloudTrail (ConsoleLogin: If IdP backed by cloud provider, Console login from new IP/agent after correlated endpoint compromise)`
   - *Tune:* `IdpAlertWindow`: Time window to correlate IdP events to endpoint compromise alerts (default 30 minutes to 2 hours).; `HighRiskCountryList`: List of countries/IP zones considered high risk for sign-ins; used to tune geo-anomalies.; `DeviceTrustLevel`: Device trust scoring thresholds that influence whether a sign-in is considered suspicious.
 
+</details>
+
 ---
 
 ### T1190: Exploit Public-Facing Application
 <a id="t1190"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 7 analytics</summary>
 
 Detection strategy: Exploit Public-Facing Application – multi-signal correlation (request -> error -> post-exploit process/egress) (`DET0080`)  
 Platforms: Containers, ESXi, IaaS, Linux, Network Devices, Windows, macOS  
@@ -68,10 +74,14 @@ ATT&CK: [T1190](https://attack.mitre.org/techniques/T1190/), [detail page](/tech
   - *Log sources:* `networkdevice:controlplane (Syslog from edge devices with HTTP 500s on mgmt portal, SmartInstall events, unexpected CLI commands)`; `NSM:Flow (NetFlow/sFlow for odd egress to Internet from mgmt plane)`
   - *Tune:* `MgmtPorts`: List of admin services to watch (8443, 443, 161/udp, 4786, 22).; `TrustedAdmins`: Admin source ranges to allow.
 
+</details>
+
 ---
 
 ### T1195: Supply Chain Compromise
 <a id="t1195"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Behavioral detection for Supply Chain Compromise (package/update tamper -> install -> first-run) (`DET0537`)  
 Platforms: Linux, Windows, macOS  
@@ -90,10 +100,14 @@ ATT&CK: [T1195](https://attack.mitre.org/techniques/T1195/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (installer or system_installd 'PackageKit: install succeeded/failed' with non-notarized or unknown signer)`; `macos:osquery (launchd, processes)`; `macos:endpointsecurity (write, rename)`; `NSM:Flow (New egress from app just installed to unknown update endpoints)`
   - *Tune:* `AllowedTeamIDs`: Apple Developer Team IDs permitted in your fleet.; `TrustedDMGs`: Known DMG/Pkg sources and hashes.; `TimeWindow`: Install->first-run correlation window (default 2h).; `RiskScoreThreshold`: Adjust alert sensitivity based on org tolerance.
 
+</details>
+
 ---
 
 ### T1195.001: Compromise Software Dependencies and Development Tools
 <a id="t1195001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Supply-chain tamper in dependencies/dev-tools (manager->write/install->first-run->egress) (`DET0009`)  
 Platforms: Linux, Windows, macOS  
@@ -112,10 +126,14 @@ ATT&CK: [T1195.001](https://attack.mitre.org/techniques/T1195/001/), [detail pag
   - *Log sources:* `macos:unifiedlog (softwareupdated/homebrew/install logs, pkginstalld events)`; `macos:endpointsecurity (exec)`; `NSM:Flow (First-time egress to non-approved registries after dependency install)`
   - *Tune:* `AllowedTeamIDs`: Apple Developer Team IDs for approved dev tools (Xcode, JetBrains, etc.).; `BrewTapsAllowList`: Homebrew taps allowed in your environment.; `TimeWindow`: Default 90 minutes.
 
+</details>
+
 ---
 
 ### T1195.002: Compromise Software Supply Chain
 <a id="t1195002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Compromised software/update chain (installer/write -> first-run/child -> egress/signature anomaly) (`DET0309`)  
 Platforms: Linux, Windows, macOS  
@@ -134,10 +152,14 @@ ATT&CK: [T1195.002](https://attack.mitre.org/techniques/T1195/002/), [detail pag
   - *Log sources:* `macos:unifiedlog (pkginstalld/softwareupdated/Homebrew install transactions)`; `macos:endpointsecurity (exec)`; `NSM:Flow (New/rare egress to non-approved update hosts after install)`
   - *Tune:* `AllowedTeamIDs`: Apple Developer Team IDs allowed for enterprise.; `BrewTapsAllowList`: Trusted Homebrew taps.; `TimeWindow`: Default 90 minutes.
 
+</details>
+
 ---
 
 ### T1195.003: Compromise Hardware Supply Chain
 <a id="t1195003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Hardware Supply Chain Compromise Detection via Host Status & Boot Integrity Checks (`DET0368`)  
 Platforms: Linux, Windows, macOS  
@@ -156,10 +178,14 @@ ATT&CK: [T1195.003](https://attack.mitre.org/techniques/T1195/003/), [detail pag
   - *Log sources:* `macos:unifiedlog (EFI firmware integrity check failed)`; `macos:endpointsecurity (es_event_authentication)`
   - *Tune:* `AllowedTeamIDs`: Developer Team IDs approved for kext/system extension loads.; `FirmwareVersionBaseline`: Expected EFI/firmware version for Mac model.
 
+</details>
+
 ---
 
 ### T1199: Trusted Relationship
 <a id="t1199"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 7 analytics</summary>
 
 Detection strategy: Detect abuse of Trusted Relationships (third-party and delegated admin access) (`DET0488`)  
 Platforms: IaaS, Identity Provider, Linux, Office Suite, SaaS, Windows, macOS  
@@ -194,10 +220,14 @@ ATT&CK: [T1199](https://attack.mitre.org/techniques/T1199/), [detail page](/tech
   - *Log sources:* `m365:unified (Add-DelegatedAdmin, Set-PartnerOfRecord, Add-MailboxPermission, Set-OrganizationRelationship)`; `azure:signinlogs (InteractiveUser, NonInteractiveUser)`
   - *Tune:* `MailboxDelegateAllowList`: Specific mailboxes third-parties may manage.
 
+</details>
+
 ---
 
 ### T1200: Hardware Additions
 <a id="t1200"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detect unauthorized or suspicious Hardware Additions (USB/Thunderbolt/Network) (`DET0069`)  
 Platforms: Linux, Windows, macOS  
@@ -216,10 +246,14 @@ ATT&CK: [T1200](https://attack.mitre.org/techniques/T1200/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (Device attached|enumerated VID/PID)`; `macos:unifiedlog (mounted|appeared|DA: disk* attached)`; `NSM:Flow (MAC not in allow-list acquiring IP (DHCP))`
   - *Tune:* `ManagedUSBPolicy`: MDM profile expectations for external media and Thunderbolt mode; deviations alert.; `KnownAppleAccessories`: VID/PID for corporate-issued docks/keyboards.
 
+</details>
+
 ---
 
 ### T1566: Phishing
 <a id="t1566"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 6 analytics</summary>
 
 Detection strategy: Detection Strategy for Phishing across platforms. (`DET0070`)  
 Platforms: Identity Provider, Linux, Office Suite, SaaS, Windows, macOS  
@@ -250,10 +284,14 @@ ATT&CK: [T1566](https://attack.mitre.org/techniques/T1566/), [detail page](/tech
   - *Log sources:* `saas:collaboration (MessagePosted: Suspicious links or attachment delivery via collaboration tools (Slack, Teams, Zoom))`
   - *Tune:* `MonitoredSaaSApps`: Scope of SaaS platforms under phishing monitoring.; `LinkInspectionPolicy`: Threshold for auto-expansion and detonation of URLs sent in SaaS messages.
 
+</details>
+
 ---
 
 ### T1566.001: Spearphishing Attachment
 <a id="t1566001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection Strategy for Spearphishing Attachment across OS Platforms (`DET0236`)  
 Platforms: Linux, Windows, macOS  
@@ -272,10 +310,14 @@ ATT&CK: [T1566.001](https://attack.mitre.org/techniques/T1566/001/), [detail pag
   - *Log sources:* `macos:unifiedlog (Inbound messages with attachments from suspicious domains)`; `macos:unifiedlog (Execution of Terminal, osascript, or other interpreters originating from Mail or Preview)`; `macos:unifiedlog (Attachment files written to ~/Downloads or temporary folders)`
   - *Tune:* `ExecutionDelayThreshold`: Time delay between attachment download and execution considered suspicious.; `SuspiciousParentApps`: Parent processes expected to rarely spawn child processes (e.g., Mail.app, Preview.app).
 
+</details>
+
 ---
 
 ### T1566.002: Spearphishing Link
 <a id="t1566002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Spearphishing Links (`DET0107`)  
 Platforms: Identity Provider, Linux, Windows, macOS  
@@ -298,10 +340,14 @@ ATT&CK: [T1566.002](https://attack.mitre.org/techniques/T1566/002/), [detail pag
   - *Log sources:* `azure:signinlogs (ConsentGrant: Suspicious consent grants to non-approved or unknown applications)`
   - *Tune:* `AllowedApps`: Whitelisted apps permitted for OAuth consent grants.; `AnomalousConsentPatterns`: Patterns of consent from unusual geographies, devices, or unapproved applications.
 
+</details>
+
 ---
 
 ### T1566.003: Spearphishing via Service
 <a id="t1566003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection Strategy for Spearphishing via a Service across OS Platforms (`DET0115`)  
 Platforms: Linux, Windows, macOS  
@@ -320,10 +366,14 @@ ATT&CK: [T1566.003](https://attack.mitre.org/techniques/T1566/003/), [detail pag
   - *Log sources:* `macos:unifiedlog (Received messages containing embedded links or attachments from non-enterprise services)`; `macos:unifiedlog (Execution of osascript, bash, or Terminal initiated from Mail.app or Safari)`; `macos:unifiedlog (Suspicious outbound HTTPS requests to domains flagged as newly registered or untrusted after spearphishing message interaction)`
   - *Tune:* `CertificateChecks`: Flagging mismatched or self-signed certificates during outbound connections initiated after spearphishing messages.; `ExecutionDelay`: Window of time between attachment download and subsequent suspicious execution.
 
+</details>
+
 ---
 
 ### T1566.004: Spearphishing Voice
 <a id="t1566004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Spearphishing Voice across OS platforms (`DET0245`)  
 Platforms: Identity Provider, Linux, Windows, macOS  
@@ -346,10 +396,14 @@ ATT&CK: [T1566.004](https://attack.mitre.org/techniques/T1566/004/), [detail pag
   - *Log sources:* `m365:unified (Unusual MFA requests or OAuth consent events temporally aligned with user-reported vishing call)`
   - *Tune:* `MFARequestThreshold`: Number of MFA push requests within a timeframe aligned to a suspicious call; `ConsentGrantPatterns`: Unusual OAuth consent URLs or delegated scopes
 
+</details>
+
 ---
 
 ### T1659: Content Injection
 <a id="t1659"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection Strategy for Content Injection (`DET0349`)  
 Platforms: Linux, Windows, macOS  
@@ -368,10 +422,14 @@ ATT&CK: [T1659](https://attack.mitre.org/techniques/T1659/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (Child processes of Safari, Chrome, or Firefox executing scripting interpreters)`; `macos:unifiedlog (File creation of unsigned binaries/scripts in user cache or download directories)`; `NSM:Flow (Content injection observed in HTTPS responses with mismatched certificates or altered payloads)`
   - *Tune:* `MonitoredDirectories`: macOS-specific directories where malicious payloads may be written.
 
+</details>
+
 ---
 
 ### T1669: Wi-Fi Networks
 <a id="t1669"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Wi-Fi Networks (`DET0536`)  
 Platforms: Linux, Network Devices, Windows, macOS  
@@ -394,4 +452,8 @@ ATT&CK: [T1669](https://attack.mitre.org/techniques/T1669/), [detail page](/tech
   - *Log sources:* `NSM:Firewall (rule_modification: New or modified firewall rules related to wireless interfaces)`; `WIDS:AssociationLogs (Unauthorized AP or anomalous MAC address connection attempts)`
   - *Tune:* `AuthorizedAPList`: Defines known access points and MAC addresses; deviations highlight rogue or unauthorized devices.
 
+</details>
+
 ---
+
+*© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*

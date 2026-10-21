@@ -2,11 +2,59 @@
 
 > A practical reference for security practitioners covering the operating systems, server roles, networking components, and technology stacks present in enterprise environments. Understanding what you are working with, and what it does, is a prerequisite for both attacking and defending it effectively.
 
-| | |
-|---|---|
-| Read this when | You land in an unfamiliar environment and need to identify what a server or OS actually does, you are scoping a pentest or hardening effort and want the attack surface of each component, you need default ports or key CVEs for a system you just found |
-| Start at | [Server Roles & Functions](#_2-server-roles-amp-functions), [Enterprise Operating Systems](#_1-enterprise-operating-systems), [Security Relevance by Component](#_8-security-relevance-by-component) |
-| Pairs with | [PRIVESC_REFERENCE.md](PRIVESC_REFERENCE.md), [CLOUD_ATTACK_REFERENCE.md](CLOUD_ATTACK_REFERENCE.md), [disciplines/active-directory.md](disciplines/active-directory.md), [HOMELAB_SETUP.md](HOMELAB_SETUP.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Penetration testers, defenders, and analysts new to enterprise environments
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 14 min (3,309 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You land in an unfamiliar environment and need to identify what a server or OS actually does, you are scoping a pentest or hardening effort and want the attack surface of each component, or you need default ports or key CVEs for a system you just found
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Server Roles & Functions](#_2-server-roles-amp-functions), [Enterprise Operating Systems](#_1-enterprise-operating-systems), [Security Relevance by Component](#_8-security-relevance-by-component)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Privilege Escalation Reference](PRIVESC_REFERENCE.md), [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [Active Directory Security](disciplines/active-directory.md), [Home Lab Setup](HOMELAB_SETUP.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1562.001 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

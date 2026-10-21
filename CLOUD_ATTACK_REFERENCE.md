@@ -1,13 +1,73 @@
 # Cloud Attack Reference
 
-> Comprehensive cloud attack techniques for AWS, Azure, and GCP, aligned to MITRE ATT&CK for Cloud.  
+> Cloud attack techniques for AWS, Azure, and GCP, aligned to MITRE ATT&CK for Cloud.  
 > For defensive security engineers and incident responders: understand attacker techniques to build better detections and controls.
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Defensive security engineers and incident responders working in AWS, Azure, GCP, and Kubernetes
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,541 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or tuning cloud detections, you are running IR on a suspected AWS/Azure/GCP or Kubernetes compromise, or you are planning a red/purple-team cloud engagement
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Cloud Attack Taxonomy & Initial Access](#_1-cloud-attack-taxonomy-amp-initial-access), [AWS Attack Techniques](#_2-aws-attack-techniques), [Cloud Security Posture & Detection](#_10-cloud-security-posture-amp-detection)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md), [Kubernetes Security Reference](KUBERNETES_SECURITY_REFERENCE.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1562 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 5 on cloud security.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | Building or tuning cloud detections, running IR on a suspected AWS/Azure/GCP or Kubernetes compromise, planning a red/purple-team cloud engagement |
-| Start at | [Cloud Attack Taxonomy & Initial Access](#_1-cloud-attack-taxonomy-amp-initial-access), [AWS Attack Techniques](#_2-aws-attack-techniques), [Cloud Security Posture & Detection](#_10-cloud-security-posture-amp-detection) |
-| Pairs with | [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md), [KUBERNETES_SECURITY_REFERENCE.md](KUBERNETES_SECURITY_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md) |
+| Cloud Attack Reference (this page) | Attacker techniques per cloud and for Kubernetes, aligned to ATT&CK, for building detections and running incident response. |
+| [Cloud Architecture Reference](/CLOUD_ARCHITECTURE_REFERENCE.md) | Designing cloud systems: landing zones, hub-and-spoke networking, and architecture decisions with their trade-offs. |
+| [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md) | Controls and their configuration across AWS, Azure, and GCP, plus privilege-escalation paths and cloud attack tools. |
+| [Cloud Security Benchmark](/CLOUD_SECURITY_BENCHMARK.md) | CIS Benchmark hardening checks with fix commands, audit scripts, and CSPM tools. |
+| [Cloud Network Security](/CLOUD_NETWORK_SECURITY.md) | Network controls across the three clouds: VPC design, firewalls, WAF, private connectivity, DDoS protection, and flow logs. |
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

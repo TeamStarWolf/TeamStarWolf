@@ -2,6 +2,55 @@
 
 GRC is the backbone of every mature security program. Governance defines policies and accountability structures. Risk management identifies, assesses, and prioritizes threats to the business. Compliance maps those risks to regulatory and contractual obligations: NIST CSF, ISO 27001, SOC 2, HIPAA, PCI DSS, FedRAMP, and more. A GRC practitioner translates between the language of risk and the language of technical security controls, enabling the organization to make informed, documented decisions about acceptable risk.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+People entering GRC roles and practitioners building governance, risk, and compliance programs
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,668 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are picking which frameworks and standards to learn first for governance, risk and compliance work, and the certifications that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [Frameworks & Standards Reference](#frameworks-amp-standards-reference), [Free Training](#free-training)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-01, CMMC Level 1 count updated in one row ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [GRC Reference](/GRC_REFERENCE.md), the library's in-depth page on this subject.

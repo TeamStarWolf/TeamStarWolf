@@ -4,6 +4,55 @@ Detection engineering is the practice of building, testing, validating, and main
 
 Good detection programs are hypothesis-driven, not signature-collection exercises. The goal is behavioral coverage of adversary TTPs mapped to the threats most relevant to your organization, not maximizing alert volume. The Pyramid of Pain illustrates this: IOC-based detections (hashes, IPs, domains) are trivially bypassed by adversaries, while TTP-based detections (process injection, LOLBAS abuse, credential dumping behaviors) remain durable even when tooling changes. Every detection should have a documented data source requirement, a validation test, and a clear suppression policy. This engineering rigor separates mature detection programs from collections of vendor-default rules that fire constantly and get ignored.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+SOC analysts and engineers moving into detection engineering
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,471 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing Sigma rules, or you are learning the log sources and event IDs detections depend on
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [Critical Windows Event IDs](#critical-windows-event-ids), [Sigma Rule Structure](#sigma-rule-structure)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1070.001 re-keyed to T1685.005 ([#83](https://github.com/TeamStarWolf/TeamStarWolf/pull/83), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md), the library's in-depth page on this subject.

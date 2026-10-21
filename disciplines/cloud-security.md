@@ -4,6 +4,50 @@ Cloud security encompasses the practices, tools, and governance required to secu
 
 The shared responsibility model is the foundational concept every cloud security practitioner must internalize: the cloud provider secures the infrastructure, but the customer owns the configuration, identity management, data protection, and workload security. The vast majority of cloud security incidents are not the result of cloud provider failures; they are the result of misconfigured S3 buckets, overprivileged IAM roles, exposed secrets in environment variables, and SSRF vulnerabilities that reach cloud metadata APIs. These are customer-owned failure modes, and cloud security is the discipline of systematically finding and eliminating them.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Engineers and security practitioners moving into AWS, Azure, and GCP security
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 13 min (3,081 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are moving into cloud security from infrastructure or IT, or you are studying attacks and misconfigurations in AWS, Azure and GCP
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [Cloud Attack Techniques (AWS)](#cloud-attack-techniques-aws), [Common Cloud Misconfigurations](#common-cloud-misconfigurations-all-platforms)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), the library's in-depth page on this subject.

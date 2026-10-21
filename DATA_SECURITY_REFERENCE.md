@@ -8,10 +8,54 @@ This reference is the program layer for the data-security discipline path: taxon
 
 Related: [Insider Threat Program](INSIDER_THREAT_REFERENCE.md), [Privacy Engineering](PRIVACY_ENGINEERING_REFERENCE.md), [Cryptography](CRYPTOGRAPHY_REFERENCE.md), [GRC Compliance](GRC_COMPLIANCE_REFERENCE.md), [Zero Trust](ZERO_TRUST_REFERENCE.md), [Security Metrics](SECURITY_METRICS_REFERENCE.md)
 
-| | |
-|---|---|
-| Read this when | standing up or maturing a data protection program, tuning a noisy DLP deployment, choosing between DSPM/DLP/DDR vendor categories, scoping classification tiers or egress controls |
-| Start at | [Scope & how to use this reference](#scope-amp-how-to-use-this-reference) to route yourself, [The data security program model](#the-data-security-program-model) for the five-capability loop, [A 90-day program bootstrap](#a-90-day-program-bootstrap) if starting from scratch |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Data protection, privacy, and security program leads
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 24 min (5,479 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are standing up or maturing a data protection program, you are tuning a noisy DLP deployment, you are choosing between DSPM/DLP/DDR vendor categories, or you are scoping classification tiers or egress controls
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Scope & how to use this reference](#scope-amp-how-to-use-this-reference) to route yourself, [The data security program model](#the-data-security-program-model) for the five-capability loop, [A 90-day program bootstrap](#a-90-day-program-bootstrap) if starting from scratch
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (matching learning path, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Data Security](/disciplines/data-security.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

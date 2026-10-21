@@ -2,11 +2,59 @@
 
 > [MITRE D3FEND](https://d3fend.mitre.org/) is the defensive counterpart to ATT&CK: a knowledge base of cybersecurity countermeasures. This reference maps 156 D3FEND defensive techniques to the 426 ATT&CK techniques they counter (via the digital artifacts each acts on), completing the *defense* node of the [threat-informed knowledge graph](THREAT_INFORMED_DEFENSE_REFERENCE.md): CVE -> CWE -> CAPEC -> ATT&CK -> D3FEND.
 
-| | |
-|---|---|
-| Read this when | you know which ATT&CK technique threatens you and need the countermeasures that blunt it, you are planning defensive coverage across Model/Harden/Detect/Isolate/Deceive/Evict/Restore, you want the machine-readable ATT&CK-to-D3FEND mapping for tooling |
-| Start at | [The 7 defensive tactics](#the-7-defensive-tactics) for the lay of the land, [Detect](#detect) for the largest tactic (56 techniques), [ATT&CK technique to D3FEND countermeasures](#attampck-technique-to-d3fend-countermeasures-most-covered) to work backward from a threat |
-| Pairs with | [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [CVE_REFERENCE.md](CVE_REFERENCE.md), [ENGAGE_REFERENCE.md](ENGAGE_REFERENCE.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Defensive engineers and threat-informed defense analysts choosing countermeasures
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Length</th><td>
+
+Lookup page: 3,260 words, 94% in tables; look entries up from Start at or the search (about 14 min end to end at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You know which ATT&CK technique threatens you and need the countermeasures that blunt it, you are planning defensive coverage across Model/Harden/Detect/Isolate/Deceive/Evict/Restore, or you want the machine-readable ATT&CK-to-D3FEND mapping for tooling
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[The 7 defensive tactics](#the-7-defensive-tactics) for the lay of the land, [Detect](#detect) for the largest tactic (56 techniques), [ATT&CK technique to D3FEND countermeasures](#attampck-technique-to-d3fend-countermeasures-most-covered) to work backward from a threat
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md), [CVE Reference](CVE_REFERENCE.md), [Engage Reference (deception)](ENGAGE_REFERENCE.md), [Controls Mapping](CONTROLS_MAPPING.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-13, revoked ICS IDs (T0803, T0805, T0812, T0839, T0857, T0891) and Enterprise T1562 and T1070 sub-techniques re-keyed to their successors, each marked with the ID it replaces ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 Machine-readable: [`data/attack/technique_to_d3fend.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/technique_to_d3fend.jsonl). Source: D3FEND ontology full inferred mappings.
 

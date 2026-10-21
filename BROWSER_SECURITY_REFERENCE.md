@@ -2,11 +2,54 @@
 
 > In one minute: This document explains how a modern browser keeps one website from tampering with another and how servers reinforce those boundaries. It walks through the browser's isolation model, the same-origin policy (the core rule that one site's code cannot read another site's data), and the response headers and cookie settings that harden a web app. Each topic is paired with the misconfigurations that weaken it and the defensive settings that fix them, so a practitioner can both audit and configure.
 
-| | |
-|---|---|
-| Read this when | Hardening a web app's response headers and cookies, reviewing a CORS or CSP configuration, or explaining why a browser boundary (same-origin, framing, storage) blocks or allows a request |
-| Start at | [Same-Origin Policy (SOP)](#_2-same-origin-policy-sop), [Security Headers Reference](#_5-security-headers-reference), [Browser Security Configuration Checklist](#_12-browser-security-configuration-checklist) |
-| Pairs with | [WEB_APPLICATION_SECURITY_REFERENCE.md](WEB_APPLICATION_SECURITY_REFERENCE.md), [API_SECURITY_REFERENCE.md](API_SECURITY_REFERENCE.md), [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md), [CWE_REFERENCE.md](CWE_REFERENCE.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Web developers, application security engineers, and penetration testers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,519 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are hardening a web app's response headers and cookies, you are reviewing a CORS or CSP configuration, or you are explaining why a browser boundary (same-origin, framing, storage) blocks or allows a request
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Same-Origin Policy (SOP)](#_2-same-origin-policy-sop), [Security Headers Reference](#_5-security-headers-reference), [Browser Security Configuration Checklist](#_12-browser-security-configuration-checklist)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Web Application Security Reference](WEB_APPLICATION_SECURITY_REFERENCE.md), [API Security Reference](API_SECURITY_REFERENCE.md), [Secure Coding Reference](SECURE_CODING_REFERENCE.md), [CWE Weakness Reference](CWE_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 A comprehensive reference for browser security architecture, web security policies, attack techniques, and defensive configurations for security practitioners, developers, and penetration testers.
 

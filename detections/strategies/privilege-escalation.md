@@ -9,6 +9,8 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 ### T1068: Exploitation for Privilege Escalation
 <a id="t1068"></a>
 
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
+
 Detection strategy: Detection Strategy for Exploitation for Privilege Escalation (`DET0514`)  
 Platforms: Containers, Linux, Windows, macOS  
 ATT&CK: [T1068](https://attack.mitre.org/techniques/T1068/), [detail page](/techniques/privilege-escalation.md#t1068)
@@ -30,10 +32,14 @@ ATT&CK: [T1068](https://attack.mitre.org/techniques/T1068/), [detail page](/tech
   - *Log sources:* `auditd:SYSCALL (capset or setns)`; `containerd:runtime (e.g., containerd, Docker events)`
   - *Tune:* `NamespaceEscapePattern`: May vary with CVE technique or custom syscall wrapper.; `TimeWindow`: Controls correlation of breakout -> host interaction.
 
+</details>
+
 ---
 
 ### T1546: Event Triggered Execution
 <a id="t1546"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 6 analytics</summary>
 
 Detection strategy: Behavioral Detection of Event Triggered Execution Across Platforms (`DET0010`)  
 Platforms: IaaS, Linux, Office Suite, SaaS, Windows, macOS  
@@ -64,10 +70,14 @@ ATT&CK: [T1546](https://attack.mitre.org/techniques/T1546/), [detail page](/tech
   - *Log sources:* `m365:office (VBA auto_open, auto_close, or document_open events)`; `m365:office (External HTTP/DNS connection from Office binary shortly after macro trigger)`
   - *Tune:* `MacroFunctionNames`: Names of event-bound functions like Auto_Open that initiate execution; `TimeDeltaMacroToC2`: Time threshold to correlate macro execution with outbound connections
 
+</details>
+
 ---
 
 ### T1546.001: Change Default File Association
 <a id="t1546001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Default File Association Hijack via Registry & Execution Correlation on Windows (`DET0061`)  
 Platforms: Windows  
@@ -78,10 +88,14 @@ ATT&CK: [T1546.001](https://attack.mitre.org/techniques/T1546/001/), [detail pag
   - *Log sources:* `WinEventLog:Sysmon (EventCode=13, 14)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Security (EventCode=4672)`
   - *Tune:* `TimeWindow`: Defines how long after the registry modification to correlate a suspicious process execution; `UserContext`: Tune to ignore known admin or installer behavior in specific user profiles; `SuspiciousHandlerPathRegex`: Pattern match for suspicious handler paths (e.g., powershell.exe, rundll32.exe)
 
+</details>
+
 ---
 
 ### T1546.002: Screensaver
 <a id="t1546002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Screensaver-Based Persistence via Registry and Execution Chains (`DET0154`)  
 Platforms: Windows  
@@ -92,10 +106,14 @@ ATT&CK: [T1546.002](https://attack.mitre.org/techniques/T1546/002/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4688)`; `WinEventLog:Sysmon (EventCode=13, 14)`
   - *Tune:* `TimeWindow`: Adjust the user inactivity threshold that defines 'screensaver trigger window'; shorter timeouts may increase sensitivity.; `SuspiciousPathRegex`: Allow tuning based on expected paths for legitimate .scr files vs suspicious locations (e.g., user temp directories).; `ParentProcessAllowList`: Allowlisting known legitimate initiators of .scr files (e.g., user32.dll context) to reduce false positives.; `RegistryEditorProcessName`: Monitor for registry modification performed by unusual processes (e.g., powershell.exe, reg.exe).
 
+</details>
+
 ---
 
 ### T1546.003: Windows Management Instrumentation Event Subscription
 <a id="t1546003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect WMI Event Subscription for Persistence via WmiPrvSE Process and MOF Compilation (`DET0086`)  
 Platforms: Windows  
@@ -106,10 +124,14 @@ ATT&CK: [T1546.003](https://attack.mitre.org/techniques/T1546/003/), [detail pag
   - *Log sources:* `WinEventLog:WMI (EventCode=5857, 5858, 5860, 5861)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=7)`
   - *Tune:* `TimeWindow`: Defines temporal correlation range between WMI creation and child process execution; `UserContext`: Tune for specific accounts (e.g., SYSTEM or attacker-controlled users); `ProcessNameAllowlist`: Used to exclude known benign consumers triggered via WMI (e.g., backup tools); `ParentProcessAnomalyThreshold`: Defines what constitutes anomalous spawning from WmiPrvSE.exe
 
+</details>
+
 ---
 
 ### T1546.004: Unix Shell Configuration Modification
 <a id="t1546004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detect Shell Configuration Modification for Persistence via Event-Triggered Execution (`DET0020`)  
 Platforms: Linux, macOS  
@@ -124,10 +146,14 @@ ATT&CK: [T1546.004](https://attack.mitre.org/techniques/T1546/004/), [detail pag
   - *Log sources:* `macos:unifiedlog (launch of Terminal.app or shell with non-standard environment setup)`; `macos:endpointsecurity (ES_EVENT_TYPE_NOTIFY_WRITE, targeting .zshrc, .zlogin, .zprofile)`
   - *Tune:* `FileTargetList`: Customizable list of shell config files considered sensitive for detection.; `PayloadEntropyThreshold`: Used to distinguish benign from potentially obfuscated commands written to config files.; `UserContext`: Scoping based on user login class, e.g., administrative vs standard users.
 
+</details>
+
 ---
 
 ### T1546.005: Trap
 <a id="t1546005"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detection Strategy for Event Triggered Execution via Trap (T1546.005) (`DET0369`)  
 Platforms: Linux, macOS  
@@ -142,10 +168,14 @@ ATT&CK: [T1546.005](https://attack.mitre.org/techniques/T1546/005/), [detail pag
   - *Log sources:* `macos:unifiedlog (Command line containing `trap` or `echo 'trap` written to login shell files)`; `macos:unifiedlog (File write or append to .zshrc, .bash_profile, .zprofile, etc.)`
   - *Tune:* `LoginShellConfigPaths`: Startup files vary by shell (.bash_profile, .zshrc, etc.); `TrapCommandLengthThreshold`: Short benign traps may differ from longer/multi-command malicious traps; `ParentProcessAnomalyThreshold`: Score or detect if new child process deviates from shell’s typical behavior
 
+</details>
+
 ---
 
 ### T1546.006: LC_LOAD_DYLIB Addition
 <a id="t1546006"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for LC_LOAD_DYLIB Modification in Mach-O Binaries on macOS (`DET0216`)  
 Platforms: macOS  
@@ -156,10 +186,14 @@ ATT&CK: [T1546.006](https://attack.mitre.org/techniques/T1546/006/), [detail pag
   - *Log sources:* `macos:unifiedlog (Process memory maps new dylib (dylib_load event))`; `macos:unifiedlog (Mach-O binary modified or LC_LOAD_DYLIB segment inserted)`; `macos:unifiedlog (Code signature validation fails or is absent post-binary modification)`
   - *Tune:* `TimeWindow`: Correlates binary modification and dylib load within a defined time interval (e.g., 1 hour); `DylibPathRegex`: Regular expression to match known malicious or uncommon library paths; `UnsignedDylibThreshold`: Number of unsigned or unrecognized dylibs mapped into memory per process; `UserContext`: Scope monitoring to non-admin users or sensitive system directories
 
+</details>
+
 ---
 
 ### T1546.007: Netsh Helper DLL
 <a id="t1546007"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Netsh Helper DLL Persistence via Registry and Child Process Monitoring (Windows) (`DET0575`)  
 Platforms: Windows  
@@ -170,10 +204,14 @@ ATT&CK: [T1546.007](https://attack.mitre.org/techniques/T1546/007/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4657)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=7)`
   - *Tune:* `TimeWindow`: Defines the time window in which correlated registry and execution events are considered suspicious (e.g., within 10 minutes); `NetshChildProcessWhitelist`: List of expected or approved child processes spawned by netsh.exe in the enterprise environment; `DLLLoadPath`: Directory or filename heuristics to distinguish benign DLLs from malicious helper DLLs
 
+</details>
+
 ---
 
 ### T1546.008: Accessibility Features
 <a id="t1546008"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Accessibility Feature Hijacking via Binary Replacement or Registry Modification (`DET0033`)  
 Platforms: Windows  
@@ -184,10 +222,14 @@ ATT&CK: [T1546.008](https://attack.mitre.org/techniques/T1546/008/), [detail pag
   - *Log sources:* `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=13, 14)`; `WinEventLog:Sysmon (EventCode=15)`
   - *Tune:* `TimeWindow`: Time between registry modification and suspicious binary execution (e.g., < 1 hour) can be tuned.; `TargetBinaryNames`: Specific binaries monitored (e.g., utilman.exe, sethc.exe) can be adjusted per OS version and risk tolerance.; `ParentProcess`: Parent process of cmd.exe (e.g., winlogon.exe) may vary across legitimate and adversarial cases.; `UserContext`: Context of SYSTEM account execution vs. administrative sessions may influence tuning.; `CommandLineContains`: Tunable patterns such as launching cmd.exe, powershell, or LOLBins from accessibility binaries.
 
+</details>
+
 ---
 
 ### T1546.009: AppCert DLLs
 <a id="t1546009"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for AppCert DLLs Persistence via Registry Injection (`DET0362`)  
 Platforms: Windows  
@@ -198,10 +240,14 @@ ATT&CK: [T1546.009](https://attack.mitre.org/techniques/T1546/009/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4657)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=7)`
   - *Tune:* `TargetObject`: Registry path for AppCertDLLs may vary by control set or group policy context; `ImageLoaded`: Loaded DLLs may differ by malware family or environment; `ParentImage`: Parent processes to monitor for DLL injection can be tuned to exclude known-good cases; `TimeWindow`: Time correlation between registry modification and DLL load events may vary
 
+</details>
+
 ---
 
 ### T1546.010: AppInit DLLs
 <a id="t1546010"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Event Triggered Execution: AppInit DLLs (Windows) (`DET0557`)  
 Platforms: Windows  
@@ -212,10 +258,14 @@ ATT&CK: [T1546.010](https://attack.mitre.org/techniques/T1546/010/), [detail pag
   - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=7)`; `WinEventLog:Sysmon (EventCode=13, 14)`
   - *Tune:* `ImagePathWhitelist`: Paths or filenames of known-good DLLs to exclude from alerting; `UserContext`: Context of the user modifying the registry key (e.g., admin vs standard user); `TimeWindow`: Temporal threshold for correlating registry modification and DLL load; `DLLSignatureStatus`: Filter or flag unsigned or suspiciously signed DLLs
 
+</details>
+
 ---
 
 ### T1546.011: Application Shimming
 <a id="t1546011"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Application Shimming via sdbinst.exe and Registry Artifacts (Windows) (`DET0017`)  
 Platforms: Windows  
@@ -226,10 +276,14 @@ ATT&CK: [T1546.011](https://attack.mitre.org/techniques/T1546/011/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4657)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=7)`; `WinEventLog:Sysmon (EventCode=11)`
   - *Tune:* `CustomShimPathAllowlist`: Filter out known-good .sdb paths in AppPatch\Custom folders; `TimeWindow`: Tunable window for correlating registry modification and sdbinst.exe execution; `DLLInjectionTarget`: Expected target applications or binaries for injected DLLs; `UserContext`: Limit alerting to admin or SYSTEM-context initiated shim installations; `ShimCommandLinePattern`: Expected or benign sdbinst.exe command-line patterns to exclude
 
+</details>
+
 ---
 
 ### T1546.012: Image File Execution Options Injection
 <a id="t1546012"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for IFEO Injection on Windows (`DET0422`)  
 Platforms: Windows  
@@ -240,10 +294,14 @@ ATT&CK: [T1546.012](https://attack.mitre.org/techniques/T1546/012/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4657)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=10)`; `WinEventLog:Sysmon (EventCode=12)`
   - *Tune:* `TimeWindow`: Time delta for correlating registry modification and debugger-triggered execution; `TargetBinary`: Specific executables that trigger defenders’ alerts when IFEO values are set; `ParentProcessAnomaly`: Tunable logic for detecting parent-child anomalies (e.g., non-standard parent processes); `TokenElevationContext`: May require tuning based on normal SYSTEM or admin process elevation patterns
 
+</details>
+
 ---
 
 ### T1546.013: PowerShell Profile
 <a id="t1546013"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for PowerShell Profile Persistence via profile.ps1 Modification (`DET0451`)  
 Platforms: Windows  
@@ -254,10 +312,14 @@ ATT&CK: [T1546.013](https://attack.mitre.org/techniques/T1546/013/), [detail pag
   - *Log sources:* `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=2)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:PowerShell (Execution of PowerShell without -NoProfile flag)`
   - *Tune:* `ProfilePathList`: Custom PowerShell host profiles or redirection to alternate profile paths; `ExecutionContext`: Whether profile execution occurs under elevated user (e.g., Administrator, SYSTEM); `ModuleOrScriptName`: Specific modules or external programs loaded within profile; `TimeWindow`: Correlation time between profile modification and PowerShell process start
 
+</details>
+
 ---
 
 ### T1546.014: Emond
 <a id="t1546014"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Event Triggered Execution via emond on macOS (`DET0555`)  
 Platforms: macOS  
@@ -268,10 +330,14 @@ ATT&CK: [T1546.014](https://attack.mitre.org/techniques/T1546/014/), [detail pag
   - *Log sources:* `macos:unifiedlog (file create or modify in /etc/emond.d/rules or /private/var/db/emondClients)`; `macos:unifiedlog (execution of /sbin/emond with child processes launched)`; `macos:unifiedlog (rule definitions written to emond rule plists)`; `macos:unifiedlog (command execution triggered by emond (e.g., shell, curl, python))`
   - *Tune:* `PathPrefix`: Paths such as `/etc/emond.d/rules/` and `/private/var/db/emondClients` may vary slightly or be symlinked in some setups; `TimeWindow`: The time range for correlating rule file creation to emond execution may be tuned based on system performance and usage; `ParentProcessFilter`: Defenders may wish to restrict alerts to emond processes not spawned from trusted system update or provisioning tools; `CommandPatternList`: List of known suspicious commands or binaries used by adversaries (e.g., reverse shells, persistence scripts)
 
+</details>
+
 ---
 
 ### T1546.015: Component Object Model Hijacking
 <a id="t1546015"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Windows COM Hijacking Detection via Registry and DLL Load Correlation (`DET0481`)  
 Platforms: Windows  
@@ -282,10 +348,14 @@ ATT&CK: [T1546.015](https://attack.mitre.org/techniques/T1546/015/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4657)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=7)`
   - *Tune:* `RegistryPathScope`: Defenders may tune specific monitored CLSIDs depending on known-good application behavior.; `BinaryPathAnomalyThreshold`: May require tuning based on environment to distinguish rare-but-legit COM DLLs vs suspicious ones.; `TimeWindow`: Correlating registry changes to DLL load or process execution may require configurable time window.; `UserContextFilter`: Tuning detection by isolating activity to specific user SIDs or admin-level activity may reduce false positives.
 
+</details>
+
 ---
 
 ### T1546.016: Installer Packages
 <a id="t1546016"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection Strategy for T1546.016 - Event Triggered Execution via Installer Packages (`DET0330`)  
 Platforms: Linux, Windows, macOS  
@@ -304,10 +374,14 @@ ATT&CK: [T1546.016](https://attack.mitre.org/techniques/T1546/016/), [detail pag
   - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=11)`
   - *Tune:* `InstallerParent`: Could be msiexec.exe or third-party wrapper like setup.exe.; `ChildImagePath`: Payload paths vary based on where installer extracts to (e.g., %TEMP%, C:\Users\Public).; `ExecutionTimeWindow`: Threshold for how soon a payload must run after msiexec to be considered related.
 
+</details>
+
 ---
 
 ### T1548: Abuse Elevation Control Mechanism
 <a id="t1548"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection Strategy for Abuse Elevation Control Mechanism (T1548) (`DET0345`)  
 Platforms: IaaS, Identity Provider, Linux, Windows, macOS  
@@ -334,10 +408,14 @@ ATT&CK: [T1548](https://attack.mitre.org/techniques/T1548/), [detail page](/tech
   - *Log sources:* `AWS:CloudTrail (role privilege expansion detected)`; `AWS:CloudTrail (cross-account or unexpected assume role)`
   - *Tune:* `PermittedRoleTransitions`: Define valid transitions between IAM roles; `CrossAccountBoundary`: Should flag if assumption crosses trust boundary
 
+</details>
+
 ---
 
 ### T1548.001: Setuid and Setgid
 <a id="t1548001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Setuid/Setgid Privilege Abuse Detection (Linux/macOS) (`DET0110`)  
 Platforms: Linux, macOS  
@@ -352,10 +430,14 @@ ATT&CK: [T1548.001](https://attack.mitre.org/techniques/T1548/001/), [detail pag
   - *Log sources:* `macos:unifiedlog (chmod command with arguments including '+s', 'u+s', or numeric values 4000–6777)`; `macos:unifiedlog (exec of binary with setuid/setgid and EUID != UID)`
   - *Tune:* `UserContext`: Monitor execution chains where UID != EUID or child process inherits root without known sudo context; `ExecutionPath`: Focus on binaries in user-writable locations or abnormal directories; `ChmodPattern`: Tailor detection to chmod commands that imply privilege elevation via numeric mode or symbolic mode
 
+</details>
+
 ---
 
 ### T1548.002: Bypass User Account Control
 <a id="t1548002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for T1548.002 – Bypass User Account Control (UAC) (`DET0388`)  
 Platforms: Windows  
@@ -366,10 +448,14 @@ ATT&CK: [T1548.002](https://attack.mitre.org/techniques/T1548/002/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4688)`; `WinEventLog:Security (EventCode=4672)`; `WinEventLog:Sysmon (EventCode=13, 14)`; `WinEventLog:Sysmon (EventCode=10)`; `WinEventLog:Sysmon (EventCode=7)`
   - *Tune:* `TimeWindow`: Correlate registry tampering and elevation within a tunable time window (e.g., 30 seconds) to reduce noise from benign admin activity.; `ElevatedProcessNameList`: Tunable list of suspicious elevated binaries (e.g., sdclt.exe, eventvwr.exe, computerdefaults.exe) known to support UAC bypass.; `ParentProcessAnomalyThreshold`: Define logic for parent-child mismatch (e.g., non-elevated process spawning auto-elevated one) to flag uncommon elevation paths.
 
+</details>
+
 ---
 
 ### T1548.003: Sudo and Sudo Caching
 <a id="t1548003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Behavioral Detection Strategy for Abuse of Sudo and Sudo Caching (`DET0052`)  
 Platforms: Linux, macOS  
@@ -384,10 +470,14 @@ ATT&CK: [T1548.003](https://attack.mitre.org/techniques/T1548/003/), [detail pag
   - *Log sources:* `macos:unifiedlog (exec or sudo usage with NOPASSWD context or echo modifying sudoers)`; `macos:unifiedlog (Terminal process killed (killall Terminal) immediately after sudoers modification)`
   - *Tune:* `admin_user_context`: Define allowed users who may modify sudoers without investigation; `terminal_restart_window`: Time window after sudoers file change to monitor for Terminal restarts
 
+</details>
+
 ---
 
 ### T1548.004: Elevated Execution with Prompt
 <a id="t1548004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: macOS AuthorizationExecuteWithPrivileges Elevation Prompt Detection (`DET0395`)  
 Platforms: macOS  
@@ -398,10 +488,14 @@ ATT&CK: [T1548.004](https://attack.mitre.org/techniques/T1548/004/), [detail pag
   - *Log sources:* `macos:unifiedlog (Execution of /usr/libexec/security_authtrampoline or child processes originating from non-trusted binaries triggering credential prompts)`; `macos:unifiedlog (Calls to AuthorizationExecuteWithPrivileges() observed via Apple System Logger or security_auditing tools)`; `macos:unifiedlog (User credential prompt events without associated trusted installer package)`
   - *Tune:* `BinaryReputationList`: Allow list of trusted binaries invoking elevation prompts; `TimeWindow`: Temporal correlation threshold between API call and credential prompt; `PromptContextValidation`: Heuristic filters to determine whether a prompt context matches known legitimate installers
 
+</details>
+
 ---
 
 ### T1548.005: Temporary Elevated Cloud Access
 <a id="t1548005"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection Strategy for Temporary Elevated Cloud Access Abuse (T1548.005) (`DET0393`)  
 Platforms: IaaS, Identity Provider, Office Suite  
@@ -420,10 +514,14 @@ ATT&CK: [T1548.005](https://attack.mitre.org/techniques/T1548/005/), [detail pag
   - *Log sources:* `m365:unified (Add-MailboxPermission or Set-ManagementRoleAssignment)`; `m365:signinlogs (Unusual sign-in from service principal to user mailbox)`
   - *Tune:* `TargetMailbox`: Mailbox of interest where impersonation or access delegation occurs.; `UserAgent`: Tune based on expected application or script-based mailbox access.; `GeoLocation`: Restrict based on corporate geography or travel expectations.
 
+</details>
+
 ---
 
 ### T1548.006: TCC Manipulation
 <a id="t1548006"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: TCC Database Manipulation via Launchctl and Unprotected SIP (`DET0534`)  
 Platforms: macOS  
@@ -434,10 +532,14 @@ ATT&CK: [T1548.006](https://attack.mitre.org/techniques/T1548/006/), [detail pag
   - *Log sources:* `macos:unifiedlog (Execution of binaries with TCC protected access under unexpected parent processes such as Finder.app, SystemUIServer, or nsurlsessiond)`; `macos:unifiedlog (Modification or replacement of /Library/Application Support/com.apple.TCC/TCC.db or ~/Library/Application Support/com.apple.TCC/TCC.db)`; `macos:unifiedlog (Execution of launchctl with setenv or bootout targeting TCC.db or AppleScript under Finder context)`; `macos:unifiedlog (System Integrity Protection (SIP) state reported as disabled)`
   - *Tune:* `ParentProcessName`: May vary across macOS versions and user contexts; defenders can tune for known benign cases.; `TCCModificationPath`: Custom user paths or redirected SQLite DBs may require alternate matching logic.; `TimeWindow`: Temporal proximity between launchctl setenv and subsequent privileged access can be tuned.; `SIPStateCheckInterval`: Frequency of SIP integrity checks may vary based on system hardening policies.
 
+</details>
+
 ---
 
 ### T1611: Escape to Host
 <a id="t1611"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Escape to Host (`DET0219`)  
 Platforms: Containers, ESXi, Linux, Windows  
@@ -460,4 +562,8 @@ ATT&CK: [T1611](https://attack.mitre.org/techniques/T1611/), [detail page](/tech
   - *Log sources:* `esxi:vmkernel (VM exit/entry anomalies, unexpected hypercalls, or kernel module loading)`
   - *Tune:* `AllowedKernelModules`: Modules permitted in the hypervisor. Loading any module outside of this list may indicate compromise.
 
+</details>
+
 ---
+
+*© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*

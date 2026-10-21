@@ -19,10 +19,68 @@ ATLAS deliberately mirrors the ATT&CK structure and reuses its tactic names wher
 
 Related in this library: [AI Security Reference](AI_SECURITY_REFERENCE.md) (OWASP LLM Top 10, prompt injection, guardrails), [AI & MCP Security](AI_MCP_SECURITY_REFERENCE.md), [AI Offensive Security](AI_OFFENSIVE_SECURITY_REFERENCE.md), [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md)
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security engineers, threat modelers, and red teams working on AI and ML systems
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Length</th><td>
+
+Lookup page: 9,783 words, 84% in tables; look entries up from Start at or the search (about 43 min end to end at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need to map an attack on an AI/ML system to a named technique ID, you are threat-modeling an LLM, RAG, or AI-agent deployment, or you want the mitigations ATLAS pairs with a given AI attack technique
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[The ATLAS matrix](#the-atlas-matrix) for the 16-tactic overview, [Execution](#execution) for prompt injection and agent-tool techniques, [ATLAS mitigations](#atlas-mitigations) for the defensive side
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (matching learning path, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Adversarial AI Attacks](/disciplines/adversarial-ai-attacks.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 7 on AI security.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | you need to map an attack on an AI/ML system to a named technique ID, you are threat-modeling an LLM, RAG, or AI-agent deployment, you want the mitigations ATLAS pairs with a given AI attack technique |
-| Start at | [The ATLAS matrix](#the-atlas-matrix) for the 16-tactic overview, [Execution](#execution) for prompt injection and agent-tool techniques, [ATLAS mitigations](#atlas-mitigations) for the defensive side |
+| ATLAS Reference (AI threats) (this page) | The MITRE ATLAS matrix of techniques and mitigations for attacks on AI systems. |
+| [AI Security Reference](/AI_SECURITY_REFERENCE.md) | Securing LLM applications: the OWASP LLM Top 10, prompt injection, adversarial ML, and guardrails. |
+| [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md) | The Model Context Protocol: its threat model and hardening for MCP servers and agents. |
+| [AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md) | AI-assisted attack tooling and the defensive playbook against it. |
+| [AI Architecture Reference](/AI_ARCHITECTURE_REFERENCE.md) | Designing ML and LLM systems end to end, with the controls that make the architecture defensible. |
+| [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md) | The infrastructure behind AI: model registries, unsafe model files, pipelines, and inference servers. |
+| [Agentic AI Swarm Attacks](/AGENTIC_AI_ATTACK_REFERENCE.md) | An illustrative agent-swarm intrusion kill chain mapped to ATT&CK and ATLAS. |
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

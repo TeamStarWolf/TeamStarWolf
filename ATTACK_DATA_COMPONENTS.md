@@ -2,11 +2,59 @@
 
 > The 106 MITRE ATT&CK data components (v19.2), the telemetry categories that feed detection, each with the concrete log sources and channels that populate it and the number of techniques its analytics help detect. Use this to plan logging coverage: if a data component is dark in your environment, every technique that depends on it is a blind spot.
 
-| | |
-|---|---|
-| Read this when | planning or auditing logging coverage, deciding which log sources to onboard for a detection, checking whether a technique's required telemetry exists in your environment |
-| Start at | [Process Creation](#process-creation), [Command Execution](#command-execution), [Detail](#detail) |
-| Pairs with | [Detection Strategies](detections/strategies/README.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Detection engineers, SOC leads, and logging and SIEM owners
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Length</th><td>
+
+Lookup page: 30,961 words, 79% in tables; look entries up from Start at or the search (about 135 min end to end at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are planning or auditing logging coverage, you are deciding which log sources to onboard for a detection, or you are checking whether a technique's required telemetry exists in your environment
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Process Creation](#process-creation), [Command Execution](#command-execution), [Detail](#detail)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Detection Strategies](detections/strategies/README.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, ATT&CK version in the introduction updated from v18.1 to v19.2 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 Machine-readable: [`data/attack/data_components.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/data_components.jsonl). See also: [Detection Strategies](detections/strategies/README.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md).
 
@@ -126,6 +174,8 @@ Machine-readable: [`data/attack/data_components.jsonl`](https://github.com/TeamS
 ### Process Creation
 Feeds detection for 452 techniques.  
 Refers to the event in which a new process (executable) is initialized by an operating system. This can involve parent-child process relationships, process arguments, and environmental variables. Monitoring process creation is crucial for detecting malicious behaviors, such as execution of unauthorized binaries, scripting abuse, or privilege escalation attempts..  
+
+<details class="tsw-fold"><summary>Show the table (320 rows)</summary>
 
 | Log source | Channel |
 |---|---|
@@ -450,6 +500,8 @@ Refers to the event in which a new process (executable) is initialized by an ope
 | `macos:osquery` | execve: Unsigned or unnotarized processes launched with high privileges |
 | `macos:unifiedlog` | security OR injection attempts into 1Password OR LastPass |
 
+</details>
+
 ---
 
 ### Command Execution
@@ -460,6 +512,8 @@ Command Execution involves monitoring and capturing the execution of textual com
  - dir: Lists directory contents.
  - net user: Queries or manipulates user accounts.
  - tasklist: Lists runn  
+
+<details class="tsw-fold"><summary>Show the table (283 rows)</summary>
 
 | Log source | Channel |
 |---|---|
@@ -747,11 +801,15 @@ Command Execution involves monitoring and capturing the execution of textual com
 | `macos:unifiedlog` | Execution of commands like `ls -l@`, `xattr -l`, or custom tools interacting with resource forks |
 | `esxi:vpxd` | vCenter Management |
 
+</details>
+
 ---
 
 ### File Creation
 Feeds detection for 174 techniques.  
 A new file is created on a system or network storage. This action often signifies an operation such as saving a document, writing data, or deploying a file. Logging these events helps identify legitimate or potentially malicious file creation activities. Examples include logging file creation events (e.g., Sysmon Event ID 11 or Linux auditd logs).  
+
+<details class="tsw-fold"><summary>Show the table (89 rows)</summary>
 
 | Log source | Channel |
 |---|---|
@@ -845,6 +903,8 @@ A new file is created on a system or network storage. This action often signifie
 | `macos:unifiedlog` | Writes under ~/Library/Application Support/Code*/extensions or JetBrains plugins |
 | `AWS:CloudTrail` | PutObject |
 
+</details>
+
 ---
 
 ### Network Connection Creation
@@ -855,6 +915,8 @@ The initial establishment of a network session, where a system or process initia
 
 - Windows:
  - Event ID 5156: Filtering Platform Connection - Logs network connections permitted by Windows  
+
+<details class="tsw-fold"><summary>Show the table (95 rows)</summary>
 
 | Log source | Channel |
 |---|---|
@@ -954,6 +1016,8 @@ The initial establishment of a network session, where a system or process initia
 | `NSM:Flow` | Unexpected inbound/outbound TFTP traffic for device image files |
 | `NSM:Flow` | Unexpected or unauthorized inbound connections to SNMP, NETCONF, or RESTCONF services |
 
+</details>
+
 ---
 
 ### Network Traffic Content
@@ -965,6 +1029,8 @@ The full packet capture (PCAP) or session data that logs both protocol headers a
 - Network Packet Capture (Full Content Logging)
  - Wireshark / tcpdump / tshark
  - Full packet c  
+
+<details class="tsw-fold"><summary>Show the table (239 rows)</summary>
 
 | Log source | Channel |
 |---|---|
@@ -1208,6 +1274,8 @@ The full packet capture (PCAP) or session data that logs both protocol headers a
 | `NSM:Content` | Traffic on RPC DRSUAPI |
 | `macos:unifiedlog` | process = 'ssh' OR eventMessage CONTAINS 'ssh' |
 
+</details>
+
 ---
 
 ### File Modification
@@ -1216,6 +1284,8 @@ Changes made to a file, including updates to its contents, metadata, access perm
 
 - Content Modifications: Changes to the content of a configuration file, such as modifying `/etc/ssh/sshd_config` on Linux or `C:\Windows\System32\drivers\etc\hosts` on Windows.
 - Permission Changes: Altering file permiss  
+
+<details class="tsw-fold"><summary>Show the table (144 rows)</summary>
 
 | Log source | Channel |
 |---|---|
@@ -1364,6 +1434,8 @@ Changes made to a file, including updates to its contents, metadata, access perm
 | `macos:unifiedlog` | Terminal/Editor processes modifying web folder |
 | `esxi:vmkernel` | /var/log/vmkernel.log |
 
+</details>
+
 ---
 
 ### Module Load
@@ -1419,6 +1491,8 @@ Feeds detection for 98 techniques.
 Application Log Content refers to logs generated by applications or services, providing a record of their activity. These logs may include metrics, errors, performance data, and operational alerts from web, mail, or other applications. These logs are vital for monitoring application behavior and detecting malicious activities or anomalies. Examples: 
 
 - Web Application Logs: These logs include information about requests, responses, errors, and security events (e.g., unauthorized access attempts)  
+
+<details class="tsw-fold"><summary>Show the table (206 rows)</summary>
 
 | Log source | Channel |
 |---|---|
@@ -1629,11 +1703,15 @@ Application Log Content refers to logs generated by applications or services, pr
 | `AWS:CloudTrail` | StopLogging, DeleteTrail, UpdateTrail: API calls that disable or modify logging services |
 | `m365:unified` | ApplicationModified, ConsentGranted: Unexpected app consent or modification events linked to security evasion |
 
+</details>
+
 ---
 
 ### Network Traffic Flow
 Feeds detection for 92 techniques.  
 Summarized network packet data that captures session-level details such as source/destination IPs, ports, protocol types, timestamps, and data volume, without storing full packet payloads. This is commonly used for traffic analysis, anomaly detection, and network performance monitoring.  
+
+<details class="tsw-fold"><summary>Show the table (155 rows)</summary>
 
 | Log source | Channel |
 |---|---|
@@ -1793,6 +1871,8 @@ Summarized network packet data that captures session-level details such as sourc
 | `NSM:Flow` | TCP port 22 traffic |
 | `esxi:vmkernel` | port 22 access |
 
+</details>
+
 ---
 
 ### File Access
@@ -1801,6 +1881,8 @@ To events where a file is opened or accessed, making its contents available to t
 
 - File Read Operations: A user opens a sensitive document (e.g., financial_report.xlsx) on a shared drive.
 - File Execution: A script or executable file  
+
+<details class="tsw-fold"><summary>Show the table (102 rows)</summary>
 
 | Log source | Channel |
 |---|---|
@@ -1907,6 +1989,8 @@ To events where a file is opened or accessed, making its contents available to t
 | `auditd:SYSCALL` | open/read on ~/.local/share/keepassxc/* OR ~/.password-store/* |
 | `macos:unifiedlog` | *.opvault OR *.ldb OR *.kdbx |
 
+</details>
+
 ---
 
 ### Windows Registry Key Modification
@@ -1976,6 +2060,8 @@ Feeds detection for 64 techniques.
 contextual information about a file, including attributes such as the file's name, size, type, content (e.g., signatures, headers, media), user/owner, permissions, timestamps, and other related properties. File metadata provides insights into a file's characteristics and can be used to detect malicious activity, unauthorized modifications, or other anomalies. Examples: 
 
 - File Ownership and Permissions: Checking the owner and permissions of a critical configuration file like /etc/passwd on Linu  
+
+<details class="tsw-fold"><summary>Show the table (89 rows)</summary>
 
 | Log source | Channel |
 |---|---|
@@ -2069,6 +2155,8 @@ contextual information about a file, including attributes such as the file's nam
 | `networkdevice:syslog` | OS version query results inconsistent with expected or approved version list |
 | `macos:unifiedlog` | File creation or modification with com.apple.ResourceFork extended attribute |
 
+</details>
+
 ---
 
 ### Logon Session Creation
@@ -2079,6 +2167,8 @@ The successful establishment of a new user session following a successful authen
  - Event ID: 4624
  - Logon Type: 2 (Interactive) or 10 (Remote Interactive via RDP).
  - Account Name:  
+
+<details class="tsw-fold"><summary>Show the table (67 rows)</summary>
 
 | Log source | Channel |
 |---|---|
@@ -2150,11 +2240,15 @@ The successful establishment of a new user session following a successful authen
 | `WinEventLog:Security` | EventCode=4624 |
 | `linux:syslog` |  |
 
+</details>
+
 ---
 
 ### OS API Execution
 Feeds detection for 54 techniques.  
 Calls made by a process to operating system-provided Application Programming Interfaces (APIs). These calls are essential for interacting with system resources such as memory, files, and hardware, or for performing system-level tasks. Monitoring these calls can provide insight into a process's intent, especially if the process is malicious.  
+
+<details class="tsw-fold"><summary>Show the table (69 rows)</summary>
 
 | Log source | Channel |
 |---|---|
@@ -2228,11 +2322,15 @@ Calls made by a process to operating system-provided Application Programming Int
 | `etw:Microsoft-Windows-Kernel-Process` | WriteProcessMemory: WriteProcessMemory targeting regions containing KernelCallbackTable addresses |
 | `EDR:file` | SetFileTime |
 
+</details>
+
 ---
 
 ### User Account Authentication
 Feeds detection for 53 techniques.  
 An attempt (successful and failed login attempts) by a user, service, or application to gain access to a network, system, or cloud-based resource. This typically involves credentials such as passwords, tokens, multi-factor authentication (MFA), or biometric validation.  
+
+<details class="tsw-fold"><summary>Show the table (106 rows)</summary>
 
 | Log source | Channel |
 |---|---|
@@ -2343,6 +2441,8 @@ An attempt (successful and failed login attempts) by a user, service, or applica
 | `WinEventLog:Security` | EventCode=4648 |
 | `linux:syslog` | authentication and authorization events during environmental validation phase |
 
+</details>
+
 ---
 
 ### Logon Session Metadata
@@ -2392,6 +2492,8 @@ Contextual data about a logon session, such as username, logon type, access toke
 Feeds detection for 30 techniques.  
 Contextual data about a running process, which may include information such as environment variables, image name, user/owner, etc.  
 
+<details class="tsw-fold"><summary>Show the table (44 rows)</summary>
+
 | Log source | Channel |
 |---|---|
 | `Process` |  |
@@ -2438,6 +2540,8 @@ Contextual data about a running process, which may include information such as e
 | `WinEventLog:Microsoft-Windows-DeviceGuard/Operational` | WDAC policy audit/block affecting msbuild.exe spawned payloads |
 | `WinEventLog:Microsoft-Windows-SmartAppControl/Operational` | Smart App Control decisions (audit/block) for msbuild.exe-launched executables |
 | `WinEventLog:Microsoft-Windows-CodeIntegrity/Operational` | Unsigned or untrusted modules loaded during JamPlus.exe runtime |
+
+</details>
 
 ---
 
@@ -2562,6 +2666,8 @@ Changes made to a running process, such as writing data into memory, modifying e
 Feeds detection for 21 techniques.  
 Changes made to an existing user, service, or machine account, including alterations to attributes, permissions, roles, authentication methods, or group memberships.  
 
+<details class="tsw-fold"><summary>Show the table (41 rows)</summary>
+
 | Log source | Channel |
 |---|---|
 | `azure:audit` | Operation IN ("Add device", "Add registered users to device", "Add registered owner to device") |
@@ -2605,6 +2711,8 @@ Changes made to an existing user, service, or machine account, including alterat
 | `gcp:audit` | iam.serviceAccounts.keys.create, os-login.sshPublicKeys.add |
 | `gcp:audit` | API Key Created, OAuth Client Registered |
 | `kubernetes:audit` | create or update events for RoleBinding or ClusterRoleBinding objects |
+
+</details>
 
 ---
 
@@ -4099,3 +4207,7 @@ The process of listing or retrieving metadata about existing snapshots in a clou
 - [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)
 
 <!-- related:end -->
+
+---
+
+*© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*

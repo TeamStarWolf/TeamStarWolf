@@ -1,12 +1,65 @@
 # Windows Hardening and GPO Reference
 
-> Comprehensive guide to Windows Group Policy hardening, attack surface reduction, service management, and enterprise mitigation strategies.
+> Guide to Windows Group Policy hardening, attack surface reduction, service management, and enterprise mitigation strategies.
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Windows and Active Directory administrators building GPO baselines
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 8 min (1,751 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or reviewing a GPO security baseline, you are hardening a new domain or OU, or you are closing a finding tied to a Windows misconfiguration (LLMNR, SMBv1, WDigest)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Disabling Dangerous Services via GPO](#_2-disabling-dangerous-services-via-gpo), [Common Attack Techniques Enabled by GPO Misconfigurations](#_7-common-attack-techniques-enabled-by-gpo-misconfigurations), [Mitigation Strategy Reference](#_9-mitigation-strategy-reference)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Windows Hardening](WINDOWS_HARDENING.md) (hands-on apply/verify commands), [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE.md) (architecture + Sysmon/WEF monitoring), [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md), [Active Directory Security](disciplines/active-directory.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on Windows hardening.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | Building or reviewing a GPO security baseline, hardening a new domain or OU, closing a finding tied to a Windows misconfiguration (LLMNR, SMBv1, WDigest) |
-| Start at | [Disabling Dangerous Services via GPO](#_2-disabling-dangerous-services-via-gpo), [Common Attack Techniques Enabled by GPO Misconfigurations](#_7-common-attack-techniques-enabled-by-gpo-misconfigurations), [Mitigation Strategy Reference](#_9-mitigation-strategy-reference) |
-| Pairs with | [WINDOWS_HARDENING.md](WINDOWS_HARDENING.md) (hands-on apply/verify commands), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md) (architecture + Sysmon/WEF monitoring), [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md), [Active Directory Security](disciplines/active-directory.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) |
+| Windows Hardening GPO Reference (this page) | Group Policy baselines: disabling dangerous services, credential and network hardening, and the attacks GPO misconfigurations enable. |
+| [Windows Hardening](/WINDOWS_HARDENING.md) | Hands-on apply-and-verify commands for each control, built from CIS Benchmarks, Microsoft baselines, and DISA STIGs. |
+| [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md) | From security architecture foundations to monitoring: Credential Guard, LAPS, Sysmon, and Windows Event Forwarding. |
+
+</details>
+
+<!-- meta:end -->
 
 ## Table of Contents
 1. [GPO Hardening Fundamentals](#_1-gpo-hardening-fundamentals)

@@ -2,11 +2,73 @@
 
 > In one minute: This is the defender's reference for the *infrastructure* behind AI systems: model registries and artifact provenance, unsafe model deserialization (pickle/PyTorch/Keras/joblib) and the scanners that catch it, training-data and RAG-corpus poisoning, vector-store and feature-store security, the ML CI/CD supply chain, GPU and inference-server hardening, model access control and rate-limiting, and secrets in notebooks. It is deliberately *not* about prompt injection or model-level adversarial ML; those live in [AI_SECURITY_REFERENCE.md](AI_SECURITY_REFERENCE.md) and [ATLAS_REFERENCE.md](ATLAS_REFERENCE.md). This doc covers the pipes, servers, stores, and build systems an attacker takes over to steal models, poison outputs, or get RCE on the platform. Every section pairs concepts with concrete hardening steps, real tooling (named and current), and the CVEs that make the risk non-theoretical.
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security and platform engineers hardening ML platforms, model registries, and inference servers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 14 min (3,163 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are threat-modeling or hardening an ML platform (registry, feature store, inference tier), you are reviewing whether it is safe to load a third-party model artifact, you are standing up model signing or SBOM-for-models, you are securing a Jupyter/Kubeflow environment, or you are triaging a CVE in an AI-serving component
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[The AI Infrastructure Attack Surface](#_1-the-ai-infrastructure-attack-surface), [Unsafe Model Deserialization](#_2-model-serialization-amp-unsafe-deserialization), [Consolidated Hardening Checklist](#_10-consolidated-hardening-checklist)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, added, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[AI Security Reference](AI_SECURITY_REFERENCE.md), [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Agentic AI Swarm Attacks](AGENTIC_AI_ATTACK_REFERENCE.md), [DevSecOps Reference](DEVSECOPS_REFERENCE.md), [Kubernetes Security Reference](KUBERNETES_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Added</th><td>
+
+2026-09-29 ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 7 on AI security.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | you are threat-modeling or hardening an ML platform (registry, feature store, inference tier), reviewing whether it is safe to load a third-party model artifact, standing up model signing or SBOM-for-models, securing a Jupyter/Kubeflow environment, or triaging a CVE in an AI-serving component |
-| Start at | [The AI Infrastructure Attack Surface](#_1-the-ai-infrastructure-attack-surface), [Unsafe Model Deserialization](#_2-model-serialization-amp-unsafe-deserialization), [GPU & Inference-Server Hardening](#_8-gpu-amp-inference-server-hardening), [Consolidated Hardening Checklist](#_10-consolidated-hardening-checklist) |
-| Pairs with | [AI_SECURITY_REFERENCE.md](AI_SECURITY_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [AGENTIC_AI_ATTACK_REFERENCE.md](AGENTIC_AI_ATTACK_REFERENCE.md), [DEVSECOPS_REFERENCE.md](DEVSECOPS_REFERENCE.md), [KUBERNETES_SECURITY_REFERENCE.md](KUBERNETES_SECURITY_REFERENCE.md) |
+| AI Infrastructure & MLOps Security (this page) | The infrastructure behind AI: model registries, unsafe model files, pipelines, and inference servers. |
+| [AI Security Reference](/AI_SECURITY_REFERENCE.md) | Securing LLM applications: the OWASP LLM Top 10, prompt injection, adversarial ML, and guardrails. |
+| [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md) | The Model Context Protocol: its threat model and hardening for MCP servers and agents. |
+| [AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md) | AI-assisted attack tooling and the defensive playbook against it. |
+| [AI Architecture Reference](/AI_ARCHITECTURE_REFERENCE.md) | Designing ML and LLM systems end to end, with the controls that make the architecture defensible. |
+| [Agentic AI Swarm Attacks](/AGENTIC_AI_ATTACK_REFERENCE.md) | An illustrative agent-swarm intrusion kill chain mapped to ATT&CK and ATLAS. |
+| [ATLAS Reference (AI threats)](/ATLAS_REFERENCE.md) | The MITRE ATLAS matrix of techniques and mitigations for attacks on AI systems. |
+
+</details>
+
+<!-- meta:end -->
 
 *Sources: [NIST SP 800-218A](https://csrc.nist.gov/pubs/sp/800/218/a/final), [CISA/NSA AI Data Security CSI (2025)](https://www.cisa.gov/news-events/alerts/2025/05/22/new-best-practices-guide-securing-ai-data-released), [OWASP GenAI Security Project](https://genai.owasp.org/), [Coalition for Secure AI (CoSAI)](https://www.coalitionforsecureai.org/), [sigstore/model-transparency](https://github.com/sigstore/model-transparency). Facts verified 2026-09-29.*
 

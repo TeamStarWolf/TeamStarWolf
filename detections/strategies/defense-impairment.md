@@ -9,6 +9,8 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 ### T1112: Modify Registry
 <a id="t1112"></a>
 
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
+
 Detection strategy: Behavior-Based Registry Modification Detection on Windows (`DET0280`)  
 Platforms: Windows  
 ATT&CK: [T1112](https://attack.mitre.org/techniques/T1112/), [detail page](/techniques/defense-impairment.md#t1112)
@@ -18,10 +20,14 @@ ATT&CK: [T1112](https://attack.mitre.org/techniques/T1112/), [detail page](/tech
   - *Log sources:* `WinEventLog:Sysmon (EventCode=13, 14)`; `WinEventLog:Sysmon (EventCode=1)`
   - *Tune:* `RegistryKeyPathPatterns`: Environment-specific list of monitored or critical registry keys, e.g., Run, Services, Security Settings, LSASS; `ParentProcessAllowList`: Allowlist of legitimate registry tools (e.g., regedit.exe, msiexec.exe); used to filter known safe writes; `TimeWindow`: Correlate registry change with nearby process/service execution within a defined timeframe; `SignatureCheck`: Flag unsigned executables or abnormal parent-child lineage performing registry modification
 
+</details>
+
 ---
 
 ### T1207: Rogue Domain Controller
 <a id="t1207"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Rogue Domain Controller (DCShadow) Registration and Replication Abuse (`DET0276`)  
 Platforms: Windows  
@@ -32,10 +38,14 @@ ATT&CK: [T1207](https://attack.mitre.org/techniques/T1207/), [detail page](/tech
   - *Log sources:* `WinEventLog:Security (EventCode=4928)`; `WinEventLog:Security (EventCode=4929)`; `WinEventLog:Security (EventCode=4662)`; `m365:dirsync (Replication cookie changes involving Configuration partition with new server/nTDSDSA objects.)`; `NSM:Flow (DrsAddEntry, DrsReplicaAdd, GetNCChanges calls between non-DC and DCs.)`
   - *Tune:* `TimeWindow`: Window (seconds) between nTDSDSA object creation and subsequent replication traffic from same host (default 300s).; `AllowedReplicationPartners`: List of legitimate DCs authorized for replication to reduce false positives.; `SuspiciousSPNs`: SPNs indicating replication service usage (GC/, GUID E3514235-4B06-11D1-AB04-00C04FC2DCD2).; `NonDCObjectCreationAlert`: Trigger alerts only when AD object creation is by accounts not in Domain Admins or Enterprise Admins groups.
 
+</details>
+
 ---
 
 ### T1222: File and Directory Permissions Modification
 <a id="t1222"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Multi-Platform File and Directory Permissions Modification Detection Strategy (`DET0299`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -58,10 +68,14 @@ ATT&CK: [T1222](https://attack.mitre.org/techniques/T1222/), [detail page](/tech
   - *Log sources:* `esxi:shell (shell command execution for chmod, chown, or file permission modification on VMFS or system files)`; `esxi:hostd (host daemon events related to file or VM permission changes)`; `esxi:vpxd (permission change operations on datastores or VMs)`
   - *Tune:* `AuthorizedSSHUsers`: ESXi user accounts authorized for shell access and file system operations; `CriticalVMFSPaths`: VMFS datastore paths requiring permission change monitoring; `ShellAccessTimeWindow`: Time correlation window for linking SSH access with permission modifications; `vCenterIntegrationScope`: Scope of vCenter audit event correlation with ESXi host activities
 
+</details>
+
 ---
 
 ### T1222.001: Windows Permissions
 <a id="t1222001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Windows DACL Manipulation Behavioral Chain Detection Strategy (`DET0418`)  
 Platforms: Windows  
@@ -72,10 +86,14 @@ ATT&CK: [T1222.001](https://attack.mitre.org/techniques/T1222/001/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4688)`; `WinEventLog:Security (EventCode=4663, 4670, 4656)`; `WinEventLog:Security (EventCode=4663, 4656, 4658)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:PowerShell (EventCode=4103, 4104, 4105, 4106)`; `WinEventLog:WMI (EventCode=5857, 5858, 5860, 5861)`
   - *Tune:* `TemporalCorrelationWindow`: Time window for correlating process creation (4688/sysmon 1) with DACL changes (4670) and subsequent access (4663) - default 300 seconds, adjust based on system performance and network latency; `SensitivePathWhitelist`: Environment-specific critical directories requiring enhanced monitoring (e.g., C:\Windows\System32, C:\Program Files, %USERPROFILE%\AppData) - customize per organizational security requirements; `AuthorizedAdministratorAccounts`: User accounts and service accounts authorized to perform legitimate DACL modifications - update to reflect current administrative staff and automated processes; `SuspiciousCommandLinePatterns`: Regex patterns for detecting malicious intent in permission modification commands - tune to reduce false positives while maintaining detection efficacy; `BusinessHoursThreshold`: Time-based risk scoring modifier for permission changes occurring outside standard business hours - adjust based on organizational work patterns; `PowerShellScriptBlockSizeThreshold`: Minimum PowerShell script block size for ACL-related content analysis - balance between detection coverage and log volume; `FileAccessFrequencyBaseline`: Statistical baseline for normal file access patterns post-permission change - establish through historical analysis and update periodically; `WMIMethodInvocationWhitelist`: Approved WMI classes and methods for legitimate permission operations (e.g., Win32_SecurityDescriptor) - maintain based on authorized management tools
 
+</details>
+
 ---
 
 ### T1222.002: Linux and Mac Permissions
 <a id="t1222002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Unix-like File Permission Manipulation Behavioral Chain Detection Strategy (`DET0351`)  
 Platforms: Linux, macOS  
@@ -90,10 +108,14 @@ ATT&CK: [T1222.002](https://attack.mitre.org/techniques/T1222/002/), [detail pag
   - *Log sources:* `macos:unifiedlog (process execution events for chmod, chown, chflags with parameter analysis and target path examination)`; `fs:fsevents (file system events indicating permission, ownership, or extended attribute changes on critical paths. File system modification events with kFSEventStreamEventFlagItemChangeOwner, kFSEventStreamEventFlagItemXattrMod flags)`; `OpenBSM:AuditTrail (BSM audit events for file permission, ownership, and attribute modifications with user context)`
   - *Tune:* `SIPProtectedPaths`: macOS system paths protected by SIP that should never have permission modifications - maintain current list based on macOS version (/System, /usr, /bin, /sbin); `SuspiciousFileFlags`: chflags parameter combinations indicating potential evasive behavior - customize based on security requirements (uchg, schg, hidden, archived); `CriticalExtendedAttributes`: Extended attributes requiring monitoring for unauthorized removal or modification (com.apple.quarantine, com.apple.metadata, com.apple.FinderInfo); `GatekeeperBypassIndicators`: Patterns in permission/attribute changes that may indicate Gatekeeper bypass attempts; `ApplicationBundleMonitoring`: Scope of .app directory monitoring for internal permission modifications indicating bundle tampering; `UnifiedLogRetentionPeriod`: Log retention period for correlating permission changes with subsequent access patterns - balance storage with detection capability; `FSEventsFilteringThreshold`: File system event filtering threshold to manage high-volume environments while maintaining detection coverage
 
+</details>
+
 ---
 
 ### T1484: Domain or Tenant Policy Modification
 <a id="t1484"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detection of Domain or Tenant Policy Modifications via AD and Identity Provider (`DET0270`)  
 Platforms: Identity Provider, Windows  
@@ -108,10 +130,14 @@ ATT&CK: [T1484](https://attack.mitre.org/techniques/T1484/), [detail page](/tech
   - *Log sources:* `m365:unified (Set federation settings on domain|Set domain authentication|Add federated identity provider)`; `azure:signinlogs (OperationName=SetDomainAuthentication OR Set-FederatedDomain)`
   - *Tune:* `OperationName`: Identify rare modification operations that are not part of standard admin lifecycle.; `InitiatedBy`: Filter by known administrators or service principals. Flag unknown initiators.; `UserAgent`: Detect scripted modifications (e.g., PowerShell/Graph API vs Azure Portal).; `TimeWindow`: Correlate tenant policy changes with new sign-ins or token forgery attempts.
 
+</details>
+
 ---
 
 ### T1484.001: Group Policy Modification
 <a id="t1484001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Group Policy Modifications via AD Object Changes and File Activity (`DET0305`)  
 Platforms: Windows  
@@ -122,10 +148,14 @@ ATT&CK: [T1484.001](https://attack.mitre.org/techniques/T1484/001/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=5136)`; `WinEventLog:Security (EventCode=4663, 4670, 4656)`; `WinEventLog:Security (EventCode=4704)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=11)`
   - *Tune:* `ObjectDN`: Focus detection on AD paths like CN=Policies,CN=System,DC=domain,DC=com.; `TargetFilename`: Target specific files like ScheduledTasks.xml or GptTmpl.inf in SYSVOL.; `TimeWindow`: Correlate GPO object change and SYSVOL file modification within N seconds.; `UserContext`: Alert on unexpected modification by non-admins or uncommon accounts.; `CommandLine`: Flag usage of GPO manipulation tools like Set-GPRegistryValue, New-GPOImmediateTask.
 
+</details>
+
 ---
 
 ### T1484.002: Trust Modification
 <a id="t1484002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detection of Trust Relationship Modifications in Domain or Tenant Policies (`DET0458`)  
 Platforms: Identity Provider, Windows  
@@ -140,10 +170,14 @@ ATT&CK: [T1484.002](https://attack.mitre.org/techniques/T1484/002/), [detail pag
   - *Log sources:* `m365:unified (Set federation settings on domain|Set domain authentication|Add federated identity provider)`; `azure:signinlogs (OperationName=SetDomainAuthentication OR Update-MsolFederatedDomain)`
   - *Tune:* `OperationName`: Identify rare trust-modification operations (SetDomainAuthentication, Update-MsolFederatedDomain).; `InitiatedBy`: Flag federated trust changes performed by unknown users, service principals, or tokens.; `UserAgent`: Separate scripted/API interactions from GUI-based administrative changes.; `TimeWindow`: Correlate trust change to federated login or SAML token injection within short window.
 
+</details>
+
 ---
 
 ### T1553: Subvert Trust Controls
 <a id="t1553"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detect Subversion of Trust Controls via Certificate, Registry, and Attribute Manipulation (`DET0452`)  
 Platforms: Linux, Windows, macOS  
@@ -162,10 +196,14 @@ ATT&CK: [T1553](https://attack.mitre.org/techniques/T1553/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (New certificate trust settings added by unexpected process)`; `macos:unifiedlog (xattr -d com.apple.quarantine or similar removal commands)`; `macos:osquery (Unsigned or ad-hoc signed process executions in user contexts)`
   - *Tune:* `QuarantineBypassAllowList`: List of enterprise apps where quarantine flag removal is expected; `CertificateAuthorityList`: Baseline trusted root and intermediate CAs for comparison
 
+</details>
+
 ---
 
 ### T1553.001: Gatekeeper Bypass
 <a id="t1553001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Gatekeeper Bypass via Quarantine Flag and Trust Control Manipulation (`DET0288`)  
 Platforms: macOS  
@@ -176,10 +214,14 @@ ATT&CK: [T1553.001](https://attack.mitre.org/techniques/T1553/001/), [detail pag
   - *Log sources:* `macos:unifiedlog (xattr -d com.apple.quarantine or similar attribute removal commands)`; `macos:unifiedlog (Trust validation failures or bypass attempts during notarization and code signing checks)`; `macos:osquery (Changes to LSFileQuarantineEnabled field in Info.plist)`
   - *Tune:* `QuarantineBypassAllowList`: Legitimate enterprise update tools or deployment frameworks that may strip quarantine flags; `CertificateAuthorityList`: Baseline trusted Apple Developer IDs and enterprise certs used for code signing; `TimeWindow`: Time correlation window for xattr modification followed by suspicious process execution
 
+</details>
+
 ---
 
 ### T1553.002: Code Signing
 <a id="t1553002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detect Suspicious or Malicious Code Signing Abuse (`DET0230`)  
 Platforms: Windows, macOS  
@@ -194,10 +236,14 @@ ATT&CK: [T1553.002](https://attack.mitre.org/techniques/T1553/002/), [detail pag
   - *Log sources:* `macos:unifiedlog (Code signing verification failures or bypassed trust decisions)`; `macos:unifiedlog (Execution of binaries with unsigned or anomalously signed certificates)`
   - *Tune:* `DeveloperIDAllowList`: Maintain list of expected Developer IDs to minimize false positives from enterprise apps; `TimeWindow`: Correlates file signature changes with subsequent executions
 
+</details>
+
 ---
 
 ### T1553.003: SIP and Trust Provider Hijacking
 <a id="t1553003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Subvert Trust Controls using SIP and Trust Provider Hijacking. (`DET0442`)  
 Platforms: Windows  
@@ -208,10 +254,14 @@ ATT&CK: [T1553.003](https://attack.mitre.org/techniques/T1553/003/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4657)`; `WinEventLog:Sysmon (EventCode=7)`; `WinEventLog:CodeIntegrity (EventCode=3033)`
   - *Tune:* `RegistryPathBaselines`: Monitor for changes in Registry paths.; `TimeWindow`: Correlate between changes in Registry values, system files, and modules loaded.
 
+</details>
+
 ---
 
 ### T1553.004: Install Root Certificate
 <a id="t1553004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection Strategy for Subvert Trust Controls via Install Root Certificate. (`DET0056`)  
 Platforms: Linux, Windows, macOS  
@@ -230,10 +280,14 @@ ATT&CK: [T1553.004](https://attack.mitre.org/techniques/T1553/004/), [detail pag
   - *Log sources:* `macos:unifiedlog (Execution of /usr/bin/security add-trusted-cert or keychain modifications to System.keychain)`; `macos:osquery (query: Enumeration of root certificates showing unexpected additions)`
   - *Tune:* `MonitoredCommands`: Commands related to certificate management (e.g., security, profiles) that can be tuned per environment.; `KeychainBaseline`: Baseline of expected certificates in System.keychain to reduce false positives from legitimate enterprise certificates.
 
+</details>
+
 ---
 
 ### T1553.005: Mark-of-the-Web Bypass
 <a id="t1553005"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Mark-of-the-Web (MOTW) Bypass via Container and Disk Image Files (`DET0257`)  
 Platforms: Windows  
@@ -244,10 +298,14 @@ ATT&CK: [T1553.005](https://attack.mitre.org/techniques/T1553/005/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4663, 4670, 4656)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=15)`
   - *Tune:* `WatchedExtensions`: Adjust monitored file types (e.g., .iso, .vhd, .zip, .gz, .rar) based on enterprise usage; `TimeWindow`: Defines correlation window between extraction/mount and first execution of inner files; `TrustedExtractionTools`: Whitelist known enterprise archivers and deployment mechanisms to reduce false positives
 
+</details>
+
 ---
 
 ### T1553.006: Code Signing Policy Modification
 <a id="t1553006"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detect Code Signing Policy Modification (Windows & macOS) (`DET0523`)  
 Platforms: Windows, macOS  
@@ -262,10 +320,14 @@ ATT&CK: [T1553.006](https://attack.mitre.org/techniques/T1553/006/), [detail pag
   - *Log sources:* `macos:unifiedlog (csrutil disable)`; `macos:unifiedlog (g_CiOptions modification or SIP state change)`; `macos:unifiedlog (Unsigned binary execution following SIP change)`
   - *Tune:* `PolicyPaths`: Track configuration files and kernel extensions tied to SIP enforcement; `AllowedUsers`: Restrict or expand which privileged accounts are monitored for SIP/CSRUTIL changes; `TimeWindow`: Define correlation between csrutil execution and unsigned process activity
 
+</details>
+
 ---
 
 ### T1556: Modify Authentication Process
 <a id="t1556"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detect Modification of Authentication Processes Across Platforms (`DET0104`)  
 Platforms: IaaS, Identity Provider, Linux, Windows, macOS  
@@ -292,10 +354,14 @@ ATT&CK: [T1556](https://attack.mitre.org/techniques/T1556/), [detail page](/tech
   - *Log sources:* `AWS:CloudTrail (UpdateLoginProfile)`; `AWS:CloudTrail (UpdateAccountPasswordPolicy)`
   - *Tune:* `ApprovedAccounts`: Baseline list of service accounts expected to modify IAM authentication policies.
 
+</details>
+
 ---
 
 ### T1556.001: Domain Controller Authentication
 <a id="t1556001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Domain Controller Authentication Process Modification (Skeleton Key) (`DET0271`)  
 Platforms: Windows  
@@ -306,10 +372,14 @@ ATT&CK: [T1556.001](https://attack.mitre.org/techniques/T1556/001/), [detail pag
   - *Log sources:* `WinEventLog:Sysmon (EventCode=10)`; `WinEventLog:Sysmon (EventCode=7)`; `WinEventLog:Security (EventCode=4624, 4648)`; `WinEventLog:System (Unexpected modification to lsass.exe or cryptdll.dll)`
   - *Tune:* `MonitoredDLLs`: Specific authentication DLLs such as cryptdll.dll and samsrv.dll monitored for tampering.; `TimeWindow`: Correlation window between LSASS memory access, module load, and suspicious logons.; `UserContext`: Baseline expected accounts performing domain controller logon operations.
 
+</details>
+
 ---
 
 ### T1556.002: Password Filter DLL
 <a id="t1556002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Malicious Password Filter DLL Registration (`DET0472`)  
 Platforms: Windows  
@@ -320,10 +390,14 @@ ATT&CK: [T1556.002](https://attack.mitre.org/techniques/T1556/002/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4657)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=7)`
   - *Tune:* `RegistryPath`: Specific registry path monitored for modification (e.g., HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Notification Packages).; `AllowedDLLs`: Known and approved password filter DLLs; deviations from baseline may indicate malicious injection.; `TimeWindow`: Time window for correlating registry modification, file creation, and module load events.; `FilePathPatterns`: Expected directories for legitimate password filter DLLs; anomalous paths may signal compromise.
 
+</details>
+
 ---
 
 ### T1556.003: Pluggable Authentication Modules
 <a id="t1556003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detect Malicious Modification of Pluggable Authentication Modules (PAM) (`DET0454`)  
 Platforms: Linux, macOS  
@@ -338,10 +412,14 @@ ATT&CK: [T1556.003](https://attack.mitre.org/techniques/T1556/003/), [detail pag
   - *Log sources:* `macos:unifiedlog (authentication plugin load or modification events)`; `macos:osquery (write)`
   - *Tune:* `WatchedPlugins`: Expected set of PAM and authorization plugins; unknown additions may indicate malicious insertion.; `CorrelatedSources`: Cross-correlation with VPN/physical access logs to identify impossible or anomalous login patterns.
 
+</details>
+
 ---
 
 ### T1556.004: Network Device Authentication
 <a id="t1556004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Modification of Network Device Authentication via Patched System Images (`DET0272`)  
 Platforms: Network Devices  
@@ -352,10 +430,14 @@ ATT&CK: [T1556.004](https://attack.mitre.org/techniques/T1556/004/), [detail pag
   - *Log sources:* `networkconfig (unexpected OS image file upload or modification events)`; `network:auth (repeated successful authentications with previously unknown accounts or anomalous password acceptance)`
   - *Tune:* `BaselineChecksums`: Trusted baseline cryptographic hashes for OS images, used to detect unauthorized modifications.; `AuthFailureThreshold`: Threshold for correlating unusual authentication successes following failed attempts or unknown account use.; `VerificationInterval`: Frequency of runtime OS image and memory integrity checks.
 
+</details>
+
 ---
 
 ### T1556.005: Reversible Encryption
 <a id="t1556005"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Modification of Authentication Process via Reversible Encryption (`DET0589`)  
 Platforms: Windows  
@@ -366,10 +448,14 @@ ATT&CK: [T1556.005](https://attack.mitre.org/techniques/T1556/005/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4739)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:PowerShell (EventCode=4103, 4104, 4105, 4106)`
   - *Tune:* `MonitoredOUs`: Scope of Organizational Units where reversible encryption property monitoring is enabled.; `TimeWindow`: Time window in which to correlate Group Policy modification and subsequent user property changes.; `SuspiciousCmdletList`: List of PowerShell cmdlets to monitor for account configuration changes.
 
+</details>
+
 ---
 
 ### T1556.006: Multi-Factor Authentication
 <a id="t1556006"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 7 analytics</summary>
 
 Detection strategy: Detect MFA Modification or Disabling Across Platforms (`DET0190`)  
 Platforms: IaaS, Identity Provider, Linux, Office Suite, SaaS, Windows, macOS  
@@ -404,10 +490,14 @@ ATT&CK: [T1556.006](https://attack.mitre.org/techniques/T1556/006/), [detail pag
   - *Log sources:* `m365:unified (Set-CsOnlineUser or UpdateAuthPolicy)`
   - *Tune:* `MonitoredPolicies`: Specific tenant or suite policies tied to MFA enforcement.
 
+</details>
+
 ---
 
 ### T1556.007: Hybrid Identity
 <a id="t1556007"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detect Hybrid Identity Authentication Process Modification (`DET0293`)  
 Platforms: IaaS, Identity Provider, Office Suite, SaaS, Windows  
@@ -434,10 +524,14 @@ ATT&CK: [T1556.007](https://attack.mitre.org/techniques/T1556/007/), [detail pag
   - *Log sources:* `saas:okta (Federation configuration update or signing certificate change)`
   - *Tune:* `FederationEndpoints`: Federation/SAML endpoints monitored for modification.
 
+</details>
+
 ---
 
 ### T1556.008: Network Provider DLL
 <a id="t1556008"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Network Provider DLL Registration and Credential Capture (`DET0580`)  
 Platforms: Windows  
@@ -448,10 +542,14 @@ ATT&CK: [T1556.008](https://attack.mitre.org/techniques/T1556/008/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4657)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=10)`; `WinEventLog:Sysmon (EventCode=7)`
   - *Tune:* `MonitoredRegistryKeys`: Specific registry keys to monitor for DLL registration (e.g., NetworkProvider Order).; `SuspiciousDLLPaths`: Directories or file name patterns outside of normal system DLL locations.; `TimeWindow`: Window correlating registry modification, DLL creation, and subsequent logon activity.
 
+</details>
+
 ---
 
 ### T1556.009: Conditional Access Policies
 <a id="t1556009"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detect Conditional Access Policy Modification in Identity and Cloud Platforms (`DET0030`)  
 Platforms: IaaS, Identity Provider  
@@ -466,10 +564,14 @@ ATT&CK: [T1556.009](https://attack.mitre.org/techniques/T1556/009/), [detail pag
   - *Log sources:* `azure:activity (Update conditionalAccessPolicy)`; `saas:okta (Conditional Access policy rule modified or MFA requirement disabled)`
   - *Tune:* `TargetedApplications`: Specific SaaS or cloud apps most sensitive to conditional access changes.; `RiskThresholds`: Risk scores or signals that may be tuned for anomaly detection in login behavior.; `UserContext`: Business roles or expected MFA patterns per user/group to reduce false positives.
 
+</details>
+
 ---
 
 ### T1578: Modify Cloud Compute Infrastructure
 <a id="t1578"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Modify Cloud Compute Infrastructure (`DET0308`)  
 Platforms: IaaS  
@@ -480,10 +582,14 @@ ATT&CK: [T1578](https://attack.mitre.org/techniques/T1578/), [detail page](/tech
   - *Log sources:* `AWS:CloudTrail (RunInstances)`; `AWS:CloudTrail (TerminateInstances)`; `AWS:CloudTrail (ModifyVolume)`; `AWS:CloudTrail (DeleteVolume, ModifyVolume)`; `AWS:CloudTrail (CreateVolume)`; `AWS:CloudTrail (CreateSnapshot)`; `AWS:CloudTrail (DeleteSnapshot)`; `AWS:CloudTrail (ModifySnapshotAttribute)`; `AWS:CloudWatch (unexpected IAM user or role assuming privileges for instance/snapshot operations)`
   - *Tune:* `ChangeWindow`: Approved maintenance or deployment windows. Helps reduce false positives by distinguishing scheduled activity.; `UserContext`: IAM user, role, or service account performing the operation. Tunable to allowlist known automation services.; `RateThreshold`: Number of infrastructure changes (e.g., snapshot creations) in a defined period. Adjusted based on workload scale.; `GeoLocation`: Region or source IP where changes originate. Useful for tuning alerts to account for multi-region deployments.
 
+</details>
+
 ---
 
 ### T1578.001: Create Snapshot
 <a id="t1578001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Modify Cloud Compute Infrastructure: Create Snapshot (`DET0423`)  
 Platforms: IaaS  
@@ -494,10 +600,14 @@ ATT&CK: [T1578.001](https://attack.mitre.org/techniques/T1578/001/), [detail pag
   - *Log sources:* `AWS:CloudTrail (CreateSnapshot)`; `AWS:CloudTrail (DescribeSnapshots)`
   - *Tune:* `UserContext`: IAM user, service account, or role performing snapshot creation. Tuned to allowlist known backup automation services.; `TimeWindow`: Frequency of snapshot creation in a defined period. Adjusted for environments with frequent automated backups.; `GeoLocation`: Unusual regions or IPs from which snapshot creation API calls originate. Helps identify cross-region snapshot abuse.; `VolumeSensitivity`: Tagging or classification of volumes being snapshotted. Tuned to prioritize alerts when sensitive volumes are copied.
 
+</details>
+
 ---
 
 ### T1578.002: Create Cloud Instance
 <a id="t1578002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Modify Cloud Compute Infrastructure: Create Cloud Instance (`DET0449`)  
 Platforms: IaaS  
@@ -508,10 +618,14 @@ ATT&CK: [T1578.002](https://attack.mitre.org/techniques/T1578/002/), [detail pag
   - *Log sources:* `AWS:CloudTrail (RunInstances)`; `AWS:CloudTrail (DescribeInstances)`; `azure:activity (MICROSOFT.COMPUTE/VIRTUALMACHINES/WRITE)`
   - *Tune:* `UserContext`: IAM user, service account, or role creating the instance. Tuned to allowlist known automation services.; `GeoLocation`: Region or source IP where the creation request originates. Helps detect cross-region or unusual location abuse.; `RateThreshold`: Number of instances created per user or account in a time window. Tuned for environments with elastic scaling.; `TaggingPolicy`: Expected tags (e.g., owner, purpose, cost center) for new instances. Deviations may indicate adversarial creation.
 
+</details>
+
 ---
 
 ### T1578.003: Delete Cloud Instance
 <a id="t1578003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Modify Cloud Compute Infrastructure: Delete Cloud Instance (`DET0084`)  
 Platforms: IaaS  
@@ -522,10 +636,14 @@ ATT&CK: [T1578.003](https://attack.mitre.org/techniques/T1578/003/), [detail pag
   - *Log sources:* `AWS:CloudTrail (TerminateInstances)`; `AWS:CloudTrail (DescribeInstances)`; `azure:activity (MICROSOFT.COMPUTE/VIRTUALMACHINES/DELETE)`
   - *Tune:* `UserContext`: Identity of the user/service account performing deletions; tuned to exclude automation or known administrative workflows.; `TimeWindow`: Threshold for detecting rapid instance lifecycle events (e.g., creation and deletion within minutes).; `GeoLocation`: Region or source IP where the delete request originated; can be tuned to align with enterprise cloud geography.; `RateThreshold`: Number of deletions per user/account in a defined window; tuned for organizations with high elasticity.
 
+</details>
+
 ---
 
 ### T1578.004: Revert Cloud Instance
 <a id="t1578004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Modify Cloud Compute Infrastructure: Revert Cloud Instance (`DET0337`)  
 Platforms: IaaS  
@@ -536,10 +654,14 @@ ATT&CK: [T1578.004](https://attack.mitre.org/techniques/T1578/004/), [detail pag
   - *Log sources:* `AWS:CloudTrail (RevertSnapshot)`; `AWS:CloudTrail (StartInstances)`; `AWS:CloudTrail (StopInstances)`
   - *Tune:* `UserContext`: Identity of the user or service account performing rollback actions; tuned to exclude automation or approved workflows.; `TimeWindow`: Threshold for correlating snapshot creation followed by reversion within minutes; tuned to environment activity norms.; `GeoLocation`: Region or source IP where the revert request originated; tuned to align with enterprise cloud geography.; `ChangeTags`: Use of administrative tags or headers to distinguish legitimate restores from malicious activity.
 
+</details>
+
 ---
 
 ### T1578.005: Modify Cloud Compute Configurations
 <a id="t1578005"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Modify Cloud Compute Infrastructure: Modify Cloud Compute Configurations (`DET0492`)  
 Platforms: IaaS  
@@ -550,10 +672,14 @@ ATT&CK: [T1578.005](https://attack.mitre.org/techniques/T1578/005/), [detail pag
   - *Log sources:* `AWS:CloudTrail (RequestServiceQuotaIncrease)`
   - *Tune:* `UserContext`: Identity performing the quota or configuration change; tuned to filter known admins or automation accounts.; `TimeWindow`: Correlation period for configuration change followed by resource creation; tuned to environment norms.; `ChangeType`: Type of configuration being modified (quota, policy, region); tuned to organization-specific risk thresholds.; `GeoLocation`: Region where the configuration change originates; tuned to enterprise’s expected operational geography.
 
+</details>
+
 ---
 
 ### T1599: Network Boundary Bridging
 <a id="t1599"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Network Boundary Bridging (`DET0006`)  
 Platforms: Network Devices  
@@ -564,10 +690,14 @@ ATT&CK: [T1599](https://attack.mitre.org/techniques/T1599/), [detail page](/tech
   - *Log sources:* `NSM:Flow (Unexpected flows between segmented networks or prohibited ports)`; `networkdevice:syslog (ACL/Firewall rule modification or new route injection)`
   - *Tune:* `TimeWindow`: Correlation window between configuration changes and abnormal traffic; tuned to match expected administrative change cycles.; `ApprovedChangeList`: Known authorized ACL/firewall changes; suppresses noise from legitimate maintenance.; `GeoLocation`: Geographic origin of new traffic patterns; helps distinguish benign remote offices from suspicious foreign access.; `TrafficVolumeThreshold`: Volume of cross-segment traffic; tuned to detect large-scale lateral flows without flagging small test connections.
 
+</details>
+
 ---
 
 ### T1599.001: Network Address Translation Traversal
 <a id="t1599001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Network Address Translation Traversal (`DET0163`)  
 Platforms: Network Devices  
@@ -578,10 +708,14 @@ ATT&CK: [T1599.001](https://attack.mitre.org/techniques/T1599/001/), [detail pag
   - *Log sources:* `networkdevice:config (NAT table modification (add/update/delete rule))`; `NSM:Flow (Source/destination IP translation inconsistent with intended policy)`
   - *Tune:* `TimeWindow`: Time correlation window between NAT rule change and unexpected traffic; adjustable to align with change management practices.; `AuthorizedNATRules`: Whitelist of approved NAT policies and rules; prevents false positives from legitimate operations.; `TrafficVolumeThreshold`: Threshold for abnormal traffic across NAT; tuned to differentiate testing from large-scale exfiltration or bridging.; `InterfaceScope`: Specific interfaces or zones monitored for NAT translation; allows tuning for internal vs. external-facing boundaries.
 
+</details>
+
 ---
 
 ### T1600: Weaken Encryption
 <a id="t1600"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Weaken Encryption on Network Devices (`DET0339`)  
 Platforms: Network Devices  
@@ -592,10 +726,14 @@ ATT&CK: [T1600](https://attack.mitre.org/techniques/T1600/), [detail page](/tech
   - *Log sources:* `networkdevice:config (Configuration change events referencing encryption, TLS/SSL, or IPSec settings)`; `NSM:Flow (Traffic patterns showing downgrade from strong encryption (AES-256) to weaker or plaintext protocols)`; `snmp:status (Status change in cryptographic hardware modules (enabled -> disabled))`
   - *Tune:* `CipherSuiteWhitelist`: List of approved encryption algorithms and key lengths; customizable to organizational policy.; `TimeWindow`: Correlation period between configuration changes and abnormal traffic; adjustable to reduce false positives.; `AuthorizedFirmwareSources`: Known trusted sources of firmware updates; deviations indicate possible compromise.; `TrafficEntropyThreshold`: Baseline entropy measurements of encrypted traffic; deviations may reveal weakening of encryption.
 
+</details>
+
 ---
 
 ### T1600.001: Reduce Key Space
 <a id="t1600001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Weaken Encryption: Reduce Key Space on Network Devices (`DET0243`)  
 Platforms: Network Devices  
@@ -606,10 +744,14 @@ ATT&CK: [T1600.001](https://attack.mitre.org/techniques/T1600/001/), [detail pag
   - *Log sources:* `networkdevice:config (Configuration changes referencing 'crypto', 'key length', 'cipher', or downgrade of encryption settings)`; `networkdevice:cli (Execution of CLI commands altering crypto parameters (e.g., 'crypto key generate rsa modulus 512'))`; `NSM:Flow (Observed downgrade in negotiated cipher suites or TLS/SSH versions across sessions)`
   - *Tune:* `AllowedKeyLengths`: Defines the minimum acceptable encryption key sizes; tunable to organizational policy.; `CipherSuiteBaseline`: Baseline list of approved cipher suites for network sessions; deviations may indicate tampering.; `AuthorizedAdminAccounts`: Whitelisted accounts for executing crypto configuration changes; ensures alerts only trigger on unauthorized actions.; `TimeWindow`: Time correlation period between configuration change and anomalous traffic downgrade; adjustable to reduce noise.
 
+</details>
+
 ---
 
 ### T1600.002: Disable Crypto Hardware
 <a id="t1600002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Weaken Encryption: Disable Crypto Hardware on Network Devices (`DET0494`)  
 Platforms: Network Devices  
@@ -620,10 +762,14 @@ ATT&CK: [T1600.002](https://attack.mitre.org/techniques/T1600/002/), [detail pag
   - *Log sources:* `networkdevice:cli (Execution of commands disabling crypto hardware acceleration (e.g., 'no crypto engine enable'))`; `networkdevice:config (Configuration changes referencing cryptographic hardware modules or disabling hardware acceleration)`; `NSM:Flow (Degraded encryption throughput or switch to weaker cipher suites compared to historical baselines)`
   - *Tune:* `AuthorizedAdminAccounts`: Defines trusted administrator accounts allowed to modify encryption hardware settings; deviations trigger alerts.; `BaselineThroughput`: Expected performance metrics with hardware acceleration enabled; drops may indicate tampering.; `ApprovedFirmwareVersions`: Whitelist of vendor-signed firmware versions; unexpected updates could signal malicious modification.; `TimeWindow`: Period of correlation between configuration change and observed traffic downgrade; tunable to reduce false positives.
 
+</details>
+
 ---
 
 ### T1601: Modify System Image
 <a id="t1601"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Modify System Image on Network Devices (`DET0170`)  
 Platforms: Network Devices  
@@ -634,10 +780,14 @@ ATT&CK: [T1601](https://attack.mitre.org/techniques/T1601/), [detail page](/tech
   - *Log sources:* `networkdevice:cli (Execution of commands to load, copy, or replace system images (e.g., 'copy tftp flash', 'boot system'))`; `networkdevice:config (Configuration changes to boot variables, startup image paths, or checksum verification failures)`
   - *Tune:* `AuthorizedAdminAccounts`: Defines trusted administrator accounts allowed to modify system images; deviations indicate possible malicious modification.; `ApprovedFirmwareVersions`: Whitelist of validated vendor OS images; unexpected versions may suggest adversarial tampering.; `TimeWindow`: Correlation window for detecting config changes followed by firmware updates or reboots.; `ChecksumBaseline`: Baseline cryptographic hashes of approved system images; deviations may indicate compromise.
 
+</details>
+
 ---
 
 ### T1601.001: Patch System Image
 <a id="t1601001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Patch System Image on Network Devices (`DET0469`)  
 Platforms: Network Devices  
@@ -648,10 +798,14 @@ ATT&CK: [T1601.001](https://attack.mitre.org/techniques/T1601/001/), [detail pag
   - *Log sources:* `networkdevice:cli (Execution of privileged commands such as 'copy tftp flash', 'boot system', or 'debug memory')`; `networkdevice:config (Configuration changes to startup image paths, boot loader parameters, or debug flags)`; `firmware:runtime (Debug or memory access commands indicating attempts to alter OS instructions in memory)`
   - *Tune:* `ApprovedFirmwareVersions`: Whitelist of validated vendor OS versions; deviations may indicate tampering.; `AuthorizedAdminAccounts`: Trusted admin accounts permitted to update images; anomalies suggest compromise.; `ChecksumBaseline`: Baseline hash of approved images; used for detecting file tampering.; `TimeWindow`: Correlation period for detecting chained behaviors (file upload -> boot config change -> reboot).
 
+</details>
+
 ---
 
 ### T1601.002: Downgrade System Image
 <a id="t1601002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Downgrade System Image on Network Devices (`DET0569`)  
 Platforms: Network Devices  
@@ -662,10 +816,14 @@ ATT&CK: [T1601.002](https://attack.mitre.org/techniques/T1601/002/), [detail pag
   - *Log sources:* `networkdevice:cli (Execution of commands such as 'copy tftp flash', 'boot system <image>', 'reload')`; `networkdevice:config (Configuration changes referencing older image versions or unexpected boot parameters)`; `networkdevice:syslog (OS version query results inconsistent with expected or approved version list)`
   - *Tune:* `ApprovedFirmwareVersions`: Whitelist of supported and validated OS versions for devices; helps reduce false positives.; `ChecksumBaseline`: Baseline cryptographic hashes of valid OS images; deviations indicate possible downgrade or tampering.; `TimeWindow`: Correlation period to detect the chain of file transfer -> boot config change -> reboot event.; `AuthorizedAdminAccounts`: Accounts authorized to perform OS upgrades/downgrades; anomalies suggest misuse or compromise.
 
+</details>
+
 ---
 
 ### T1647: Plist File Modification
 <a id="t1647"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Plist File Modification (T1647) (`DET0109`)  
 Platforms: macOS  
@@ -676,10 +834,14 @@ ATT&CK: [T1647](https://attack.mitre.org/techniques/T1647/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (write: File modifications to *.plist within LaunchAgents, LaunchDaemons, Application Support, or Preferences directories)`; `macos:unifiedlog (exec: Execution of defaults, plutil, or common editors (vim/nano) targeting plist files)`; `macos:unifiedlog (exec: Invocation of /usr/bin/defaults write or /usr/bin/plutil modifying plist keys)`
   - *Tune:* `MonitoredDirectories`: Set of directories where plist modifications are considered suspicious (e.g., ~/Library/LaunchAgents, /Library/LaunchDaemons); `SuspiciousKeys`: List of plist keys associated with evasion or persistence (e.g., LSUIElement, LSEnvironment, ProgramArguments); `TimeWindow`: Temporal correlation window to link plist file modifications with subsequent suspicious process launches
 
+</details>
+
 ---
 
 ### T1666: Modify Cloud Resource Hierarchy
 <a id="t1666"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Modify Cloud Resource Hierarchy (`DET0155`)  
 Platforms: IaaS  
@@ -690,10 +852,14 @@ ATT&CK: [T1666](https://attack.mitre.org/techniques/T1666/), [detail page](/tech
   - *Log sources:* `AWS:CloudTrail (LeaveOrganization: API calls severing accounts from AWS Organizations)`
   - *Tune:* `TimeWindow`: Threshold for correlating role elevation with hierarchy modification events.; `PrivilegedRoleList`: List of high-privilege roles (e.g., Global Administrator, OrganizationAccountAccessRole) used to monitor sensitive modifications.; `SubscriptionTransferPatterns`: Patterns of subscription changes that may indicate hijacking or unauthorized tenant transfers.
 
+</details>
+
 ---
 
 ### T1685: Disable or Modify Tools
 <a id="t1685"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 7 analytics</summary>
 
 Detection strategy: Detection of Defense Impairment through Disabled or Modified Tools across OS Platforms. (`DET0497`)  
 Platforms: Containers, ESXi, IaaS, Linux, Network Devices, Windows, macOS  
@@ -728,10 +894,14 @@ ATT&CK: [T1685](https://attack.mitre.org/techniques/T1685/), [detail page](/tech
   - *Log sources:* `esxi:shell (esxcli system syslog config set/reload, services.sh restart/stop)`; `esxi:hostd (service state change)`
   - *Tune:* `ExpectedAdminIPs`: Authorized management sources.
 
+</details>
+
 ---
 
 ### T1685.001: Disable or Modify Windows Event Log
 <a id="t1685001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Disabled Windows Event Log (`DET0187`)  
 Platforms: Windows  
@@ -742,10 +912,14 @@ ATT&CK: [T1685.001](https://attack.mitre.org/techniques/T1685/001/), [detail pag
   - *Log sources:* `WinEventLog:System (EventCode=7035)`; `WinEventLog:Security (EventCode=1102)`; `WinEventLog:Sysmon (EventCode=13, 14)`; `WinEventLog:Sysmon (EventCode=1)`
   - *Tune:* `AuthorizedAdminAccounts`: List of accounts authorized to legitimately modify audit policies or disable services.; `TimeWindow`: Correlation window between registry modification, service stop, and audit policy commands.; `ServiceNames`: Customizable set of monitored services such as EventLog, Sysmon, or custom loggers.
 
+</details>
+
 ---
 
 ### T1685.002: Disable or Modify Cloud Log
 <a id="t1685002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Disable or Modify Cloud Log (`DET0289`)  
 Platforms: IaaS, Identity Provider, Office Suite, SaaS  
@@ -768,10 +942,14 @@ ATT&CK: [T1685.002](https://attack.mitre.org/techniques/T1685/002/), [detail pag
   - *Log sources:* `saas:audit (Log export integration removed or disabled)`
   - *Tune:* `IntegrationScope`: Define which SaaS log integrations are required and alert if removed.
 
+</details>
+
 ---
 
 ### T1685.003: Modify or Spoof Tool UI
 <a id="t1685003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection for Spoofing Tool UI across OS Platforms (`DET0311`)  
 Platforms: Linux, Windows, macOS  
@@ -790,10 +968,14 @@ ATT&CK: [T1685.003](https://attack.mitre.org/techniques/T1685/003/), [detail pag
   - *Log sources:* `macos:unifiedlog (Execution of processes mimicking Apple Security & Privacy GUIs)`; `macos:unifiedlog (Termination or disabling of XProtect, Gatekeeper, or third-party AV daemons)`
   - *Tune:* `TrustedDaemonList`: Monitored list of macOS security daemons such as XProtect, Gatekeeper, or third-party AV.
 
+</details>
+
 ---
 
 ### T1685.004: Disable or Modify Linux Audit System Log
 <a id="t1685004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Disable or Modify Linux Audit System Log (`DET0062`)  
 Platforms: Linux  
@@ -804,10 +986,14 @@ ATT&CK: [T1685.004](https://attack.mitre.org/techniques/T1685/004/), [detail pag
   - *Log sources:* `auditd:EXECVE (Execution of auditctl, systemctl stop auditd, or kill -9 auditd)`; `auditd:SYSCALL (kill syscalls targeting auditd process)`; `auditd:FILE (Modification or deletion of /etc/audit/audit.rules or /etc/audit/audit.conf)`; `linux:syslog (auditd service stopped or disabled)`
   - *Tune:* `ServiceWhitelist`: Exclude legitimate administrative service stops during system maintenance.; `FilePathScope`: Specify monitored paths (/etc/audit/audit.rules, audit.conf) to avoid false positives from unrelated file writes.; `TimeWindow`: Correlate suspicious commands, file modifications, and audit log gaps in short succession.
 
+</details>
+
 ---
 
 ### T1685.005: Clear Windows Event Logs
 <a id="t1685005"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Event Log Clearing on Windows via Behavioral Chain (`DET0532`)  
 Platforms: Windows  
@@ -818,10 +1004,14 @@ ATT&CK: [T1685.005](https://attack.mitre.org/techniques/T1685/005/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=1102)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=23)`
   - *Tune:* `TimeWindow`: Time range between log-clearing command and 1102 event; tunable to reduce false positives; `UserContext`: Filter by admin/elevated users; allow tuning to detect abuse of high-privilege accounts; `CommandLinePattern`: Match common variations of log-clearing commands like `Remove-EventLog`, `wevtutil cl`; `TargetLogName`: Scope detection to Security, System, Application, or custom logs based on environment
 
+</details>
+
 ---
 
 ### T1685.006: Clear Linux or Mac System Logs
 <a id="t1685006"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Behavioral Detection of Log File Clearing on Linux and macOS (`DET0520`)  
 Platforms: Linux, macOS  
@@ -836,10 +1026,14 @@ ATT&CK: [T1685.006](https://attack.mitre.org/techniques/T1685/006/), [detail pag
   - *Log sources:* `macos:unifiedlog (process)`; `fs:fsusage (truncate, unlink, write)`
   - *Tune:* `TimeWindow`: Duration in which process activity and file I/O should be temporally linked.; `LogFilePathPattern`: Tunable path filter for macOS logs such as /var/log/system.log or /var/log/asl.log.; `UserContext`: Detects higher risk when log deletion is performed by unusual users (e.g., interactive vs. system users).
 
+</details>
+
 ---
 
 ### T1686: Disable or Modify System Firewall
 <a id="t1686"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection of Disabled or Modified System Firewalls across OS Platforms. (`DET0145`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -866,10 +1060,14 @@ ATT&CK: [T1686](https://attack.mitre.org/techniques/T1686/), [detail page](/tech
   - *Log sources:* `networkdevice:cli (firewall disable commands or suspicious ACL modifications)`
   - *Tune:* `AuthorizedAdmins`: List of approved admin accounts allowed to modify firewall ACLs.
 
+</details>
+
 ---
 
 ### T1686.001: Cloud Firewall
 <a id="t1686001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Disable or Modify Cloud Firewall (`DET0424`)  
 Platforms: IaaS  
@@ -880,10 +1078,14 @@ ATT&CK: [T1686.001](https://attack.mitre.org/techniques/T1686/001/), [detail pag
   - *Log sources:* `AWS:CloudTrail (Ingress rule creation or modification for security group)`; `AWS:CloudTrail (Removal of restrictive egress rules from a security group)`
   - *Tune:* `AllowedIPRanges`: Whitelist approved IP ranges; detect unexpected addition of 0.0.0.0/0 or untrusted CIDRs.; `PortScope`: Define expected ports for services; flag additions outside this range (e.g., SSH/RDP open to all).; `RoleContext`: Tune alerts based on whether changes are made by break-glass or admin roles versus automation accounts.; `TimeWindow`: Correlate rule changes with subsequent suspicious network activity to reduce false positives.
 
+</details>
+
 ---
 
 ### T1686.002: Network Device Firewall
 <a id="t1686002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Unauthorized Network Firewall Rule Modification (`DET0306`)  
 Platforms: Network Devices  
@@ -894,10 +1096,14 @@ ATT&CK: [T1686.002](https://attack.mitre.org/techniques/T1686/002/), [detail pag
   - *Log sources:* `networkdevice:Firewall (update_rule: Access control or NAT rule modified or disabled outside maintenance window)`; `networkdevice:Firewall (Login from untrusted IP, or new admin account accessing firewall console/API)`; `networkdevice:Firewall (Audit trail or CLI/API access indicating commands like no access-list, delete rule-set, clear config)`; `NSM:Flow (Outbound traffic spike through formerly blocked ports/subnets following config change)`
   - *Tune:* `TrustedAdminIPs`: Allowlisted IPs/subnets where administrative access is expected (e.g., jump box, VPN mgmt); `ConfigChangeWindow`: Expected maintenance window (e.g., 02:00-04:00 UTC) to filter benign changes; `RuleScopeThreshold`: Number of rules affected or port ranges modified to determine severity; `NewUserPrivilegeThreshold`: Flag new users making changes without observed privilege elevation path
 
+</details>
+
 ---
 
 ### T1686.003: Windows Host Firewall
 <a id="t1686003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detect Windows Firewall (`DET0901`)  
 Platforms: Windows  
@@ -908,10 +1114,14 @@ ATT&CK: [T1686.003](https://attack.mitre.org/techniques/T1686/003/), [detail pag
   - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Security (EventCode=4688)`; `WinEventLog:Sysmon (EventCode=13, 14)`; `WinEventLog:Sysmon (EventCode=12)`; `WinEventLog:System (EventCode=7036)`; `WinEventLog:Sysmon (EventCode=3, 22)`; `WinEventLog:Security (EventCode=5156, 5157)`
   - *Tune:* `AuthorizedAdminAccounts`: Known administrators allowed to manage host firewall settings; `MaintenanceWindow`: Approved change windows where firewall modifications are expected; `ExposureCorrelationWindow`: Time window to correlate firewall change with new connections/listeners; `SensitivePorts`: Ports of concern such as RDP, SMB, WinRM, SSH, custom admin ports; `AllowedManagementParents`: Expected parent processes such as SCCM, Intune agent, GPO client; `RuleScopeThreshold`: Detect widening from subnet/local scope to Any/0.0.0.0/0
 
+</details>
+
 ---
 
 ### T1687: Exploitation for Defense Impairment
 <a id="t1687"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection of Defense Impairment (`DET0900`)  
 Platforms: IaaS, Linux, SaaS, Windows, macOS  
@@ -938,10 +1148,14 @@ ATT&CK: [T1687](https://attack.mitre.org/techniques/T1687/), [detail page](/tech
   - *Log sources:* `saas:okta (policy.rule.update;system.log.disable;admin.role.assign)`; `m365:unified (Set-AdminAuditLogConfig;New-ApplicationAccessPolicy;ConsentToApplication)`
   - *Tune:* `PrivilegedActorAllowlist`: Approved admins allowed to change controls; `RetentionChangeThreshold`: Minimum acceptable logging retention
 
+</details>
+
 ---
 
 ### T1688: Safe Mode Boot
 <a id="t1688"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for Safe Mode Boot Abuse (`DET0116`)  
 Platforms: Windows  
@@ -952,10 +1166,14 @@ ATT&CK: [T1688](https://attack.mitre.org/techniques/T1688/), [detail page](/tech
   - *Log sources:* `WinEventLog:Security (EventCode=4688)`; `WinEventLog:Sysmon (EventCode=13, 14)`; `WinEventLog:Sysmon (EventCode=12)`
   - *Tune:* `SafeBootRegistryPaths`: Customize monitored registry paths for safe mode service additions.; `AllowedAdminTools`: Whitelist legitimate administrative use of bcdedit/bootcfg for troubleshooting.; `TimeWindow`: Correlate registry modifications and boot configuration commands within a short timeframe.
 
+</details>
+
 ---
 
 ### T1689: Downgrade Attack
 <a id="t1689"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detecting Downgrade Attacks (`DET0350`)  
 Platforms: Linux, Windows, macOS  
@@ -974,10 +1192,14 @@ ATT&CK: [T1689](https://attack.mitre.org/techniques/T1689/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (Execution of older or non-standard interpreters)`; `macos:unifiedlog (Modifications or writes to EFI system partition for downgraded bootloaders)`
   - *Tune:* `ApprovedInterpreterVersions`: Defines the minimal version of interpreters expected; older versions flagged as downgrade attempts.
 
+</details>
+
 ---
 
 ### T1690: Prevent Command History Logging
 <a id="t1690"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection Strategy for Defense Impairment via Prevent Command History Logging across OS platforms. (`DET0563`)  
 Platforms: ESXi, Linux, Network Devices, Windows, macOS  
@@ -1004,4 +1226,8 @@ ATT&CK: [T1690](https://attack.mitre.org/techniques/T1690/), [detail page](/tech
   - *Log sources:* `networkdevice:cli (Commands like 'no logging' or equivalents that disable session history)`
   - *Tune:* `DeviceVendors`: Command syntax differs across Cisco, Juniper, Fortinet, etc., requiring vendor-aware tuning.
 
+</details>
+
 ---
+
+*© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*

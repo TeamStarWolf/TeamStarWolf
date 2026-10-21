@@ -1,12 +1,60 @@
 # Automotive Security Reference
 
-> Comprehensive reference for vehicle cybersecurity, CAN bus attacks, ECU security, OTA update integrity, V2X protocols, and automotive penetration testing.
+> Reference for vehicle cybersecurity, CAN bus attacks, ECU security, OTA update integrity, V2X protocols, and automotive penetration testing.
 
-| | |
-|---|---|
-| Read this when | Scoping a vehicle or ECU penetration test, investigating how a car got remotely compromised, or learning why CAN and OBD-II have no built-in authentication |
-| Start at | [CAN Bus Security](#_2-can-bus-security), [Automotive Attack Surface](#_1-automotive-attack-surface), [Automotive Penetration Testing](#_10-automotive-penetration-testing) |
-| Pairs with | [ICS_OT_SECURITY_REFERENCE.md](ICS_OT_SECURITY_REFERENCE.md), [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md), [HARDWARE_SECURITY_REFERENCE.md](HARDWARE_SECURITY_REFERENCE.md), [SDR_RF_SECURITY_REFERENCE.md](SDR_RF_SECURITY_REFERENCE.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Automotive and embedded security engineers, and vehicle penetration testers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 41 min (9,483 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are scoping a vehicle or ECU penetration test, you are investigating how a car got remotely compromised, or you are learning why CAN and OBD-II have no built-in authentication
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[CAN Bus Security](#_2-can-bus-security), [Automotive Attack Surface](#_1-automotive-attack-surface), [Automotive Penetration Testing](#_10-automotive-penetration-testing)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[ICS/OT Security Reference](ICS_OT_SECURITY_REFERENCE.md), [Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE.md), [Hardware Security Reference](HARDWARE_SECURITY_REFERENCE.md), [SDR & RF Security Reference](SDR_RF_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-27, Defense Evasion row (disabling security access logging, suppressing DTC codes) renamed Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

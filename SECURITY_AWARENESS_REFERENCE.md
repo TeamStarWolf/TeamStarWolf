@@ -2,11 +2,64 @@
 
 > In one minute: This is the defender's playbook for building a security-awareness and human-risk program that actually changes behavior, not a compliance checkbox. It covers the operating model (the industry's shift from awareness training to *human risk management*), a maturity model to benchmark against, the behavior-change science underneath it, defensible phishing-simulation methodology (including ethics), how to measure human risk, reporting culture and positive reinforcement, executive/board awareness, and the regulatory clauses that mandate training. It is the *program* companion to [SOCIAL_ENGINEERING_REFERENCE.md](SOCIAL_ENGINEERING_REFERENCE.md), which covers the *attacks* this program defends against. Read that for phishing tooling, pretext craft, and Cialdini-as-weapon detail; read this for how to design, run, and measure the defense. Backs the [security-awareness discipline](disciplines/security-awareness.md).
 
-| | |
-|---|---|
-| Read this when | standing up or overhauling a security-awareness/human-risk program, designing a defensible phishing-simulation cadence, choosing metrics that survive board scrutiny, mapping training obligations across NIST/ISO/PCI/HIPAA/NIS2/DORA, or briefing executives on why annual training alone does not move risk |
-| Start at | [Program Maturity Model](#program-maturity-model), [Phishing Simulation: Methodology, Metrics & Ethics](#phishing-simulation-methodology-metrics-amp-ethics), [Measuring Human Risk](#measuring-human-risk) |
-| Pairs with | [SOCIAL_ENGINEERING_REFERENCE.md](SOCIAL_ENGINEERING_REFERENCE.md), [EMAIL_SECURITY_REFERENCE.md](EMAIL_SECURITY_REFERENCE.md), [INSIDER_THREAT_REFERENCE.md](INSIDER_THREAT_REFERENCE.md), [SECURITY_METRICS_REFERENCE.md](SECURITY_METRICS_REFERENCE.md), [GRC_REFERENCE.md](GRC_REFERENCE.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security awareness and human risk program owners
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,539 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are standing up or overhauling a security-awareness/human-risk program, you are designing a defensible phishing-simulation cadence, you are choosing metrics that survive board scrutiny, you are mapping training obligations across NIST/ISO/PCI/HIPAA/NIS2/DORA, or you are briefing executives on why annual training alone does not move risk
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Program Maturity Model](#program-maturity-model), [Phishing Simulation: Methodology, Metrics & Ethics](#phishing-simulation-methodology-metrics-amp-ethics), [Measuring Human Risk](#measuring-human-risk)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md), [Email Security Reference](EMAIL_SECURITY_REFERENCE.md), [Insider Threat Program Reference](INSIDER_THREAT_REFERENCE.md), [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md), [GRC Reference](GRC_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Security Awareness](/disciplines/security-awareness.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1656 re-keyed to T1684.001 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 > Not legal advice. The training-mandate section below is a defender's operational map, not legal counsel. Statutory and contractual obligations turn on facts, definitions, and national transpositions that change; confirm your specific duties with qualified counsel. Version- and date-specific claims were verified as of 2026-09-29 and carry sources.
 

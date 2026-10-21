@@ -2,11 +2,73 @@
 
 > In one minute: Five ready-to-run threat hunting playbooks, each built around a hypothesis (a specific guess about what an attacker might be doing, like dumping credentials from LSASS or beaconing over DNS) and mapped to a MITRE ATT&CK technique. Every playbook hands you the data sources to check, a copy-paste Splunk or KQL query, step-by-step investigation guidance, and concrete response actions. Instead of staring at a SIEM wondering where to start, you pick a playbook and follow the procedure.
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Threat hunters and SOC analysts starting a proactive hunt
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (917 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You want to run a proactive hunt but need a starting hypothesis, an alert or incident suggests credential theft or lateral movement, or you are deciding which ATT&CK tactics to hunt first
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[How to Use These Playbooks](#how-to-use-these-playbooks), [HP-001: LSASS Credential Dumping](#hp-001-lsass-credential-dumping), [Hunt Prioritization Matrix](#hunt-prioritization-matrix)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Threat Hunting Discipline](disciplines/threat-hunting.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Threat Hunting](/disciplines/threat-hunting.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-27, Defense Evasion row of the tactic severity table renamed Stealth ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 2 on threat hunting.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | you want to run a proactive hunt but need a starting hypothesis, an alert or incident suggests credential theft or lateral movement, you are deciding which ATT&CK tactics to hunt first |
-| Start at | [How to Use These Playbooks](#how-to-use-these-playbooks), [HP-001: LSASS Credential Dumping](#hp-001-lsass-credential-dumping), [Hunt Prioritization Matrix](#hunt-prioritization-matrix) |
-| Pairs with | [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Threat Hunting Discipline](disciplines/threat-hunting.md) |
+| Threat Hunting Playbooks (this page) | Ready-to-run hunts, each with a hypothesis, data sources, a query, and response steps. |
+| [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md) | Hunting fundamentals, query languages, rule authoring, and hunt tracking. |
+
+</details>
+
+<!-- meta:end -->
 
 Hypothesis-driven hunting procedures mapped to MITRE ATT&CK. Each playbook includes data sources, detection logic, investigation steps, and response actions.
 

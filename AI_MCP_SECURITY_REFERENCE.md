@@ -1,12 +1,74 @@
 # AI & MCP Security Reference
 
-> A comprehensive cybersecurity reference library covering the Model Context Protocol (MCP), AI/LLM security, MITRE ATLAS, OWASP Top 10 for LLMs, enterprise AI security controls, and regulatory frameworks.
+> Reference for the Model Context Protocol (MCP), AI/LLM security, MITRE ATLAS, OWASP Top 10 for LLMs, enterprise AI security controls, and regulatory frameworks.
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Engineers and security reviewers who deploy, harden, or threat-model MCP servers and LLM agents
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 48 min (11,040 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or hardening an MCP server deployment, you are threat-modeling an LLM app or AI agent, or you are mapping AI risks to ATLAS/OWASP/NIST or EU AI Act obligations
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[MCP Security Threat Model](#_2-mcp-security-threat-model), [MCP Security Hardening](#_3-mcp-security-hardening), [Quick Reference: Security Checklists](#quick-reference-security-checklists)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[AI Security Reference](AI_SECURITY_REFERENCE.md), [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md), [ATLAS Reference (AI threats)](ATLAS_REFERENCE.md), [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-01, EU AI Act timeline updated for the deferral of the high-risk obligations ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 7 on AI security.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | Evaluating or hardening an MCP server deployment, threat-modeling an LLM app or AI agent, mapping AI risks to ATLAS/OWASP/NIST or EU AI Act obligations |
-| Start at | [MCP Security Threat Model](#_2-mcp-security-threat-model), [MCP Security Hardening](#_3-mcp-security-hardening), [Quick Reference: Security Checklists](#quick-reference-security-checklists) |
-| Pairs with | [AI_SECURITY_REFERENCE.md](AI_SECURITY_REFERENCE.md), [AI_OFFENSIVE_SECURITY_REFERENCE.md](AI_OFFENSIVE_SECURITY_REFERENCE.md), [ATLAS_REFERENCE.md](ATLAS_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md) |
+| AI & MCP Security Reference (this page) | The Model Context Protocol: its threat model and hardening for MCP servers and agents. |
+| [AI Security Reference](/AI_SECURITY_REFERENCE.md) | Securing LLM applications: the OWASP LLM Top 10, prompt injection, adversarial ML, and guardrails. |
+| [AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md) | AI-assisted attack tooling and the defensive playbook against it. |
+| [AI Architecture Reference](/AI_ARCHITECTURE_REFERENCE.md) | Designing ML and LLM systems end to end, with the controls that make the architecture defensible. |
+| [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md) | The infrastructure behind AI: model registries, unsafe model files, pipelines, and inference servers. |
+| [Agentic AI Swarm Attacks](/AGENTIC_AI_ATTACK_REFERENCE.md) | An illustrative agent-swarm intrusion kill chain mapped to ATT&CK and ATLAS. |
+| [ATLAS Reference (AI threats)](/ATLAS_REFERENCE.md) | The MITRE ATLAS matrix of techniques and mitigations for attacks on AI systems. |
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

@@ -2,6 +2,55 @@
 
 > Authorized, simulated cyberattack on a system to identify exploitable vulnerabilities before real adversaries do. Governed by a scope document and Rules of Engagement (RoE), covering external/internal/web app/mobile/wireless/social engineering, and more.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Aspiring and working penetration testers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,338 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning how a penetration test is scoped, run and reported, or you are choosing tools for each phase
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Testing Methodology: Phases](#testing-methodology-phases), [Scoping and Rules of Engagement Checklist](#scoping-and-rules-of-engagement-checklist), [Report Structure](#report-structure)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, CVSS v4.0 row and note added ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md), the library's in-depth page on this subject.

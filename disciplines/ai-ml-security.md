@@ -4,6 +4,50 @@ AI/ML security addresses the attack surface introduced by machine learning syste
 
 AI/ML security practitioners must understand both how to attack ML systems (poisoning training data, extracting model parameters, generating adversarial examples) and how to defend them (adversarial training, differential privacy, model monitoring, supply chain controls for ML artifacts). This discipline connects deeply with application security, cloud security, MLOps, and the emerging field of AI governance.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Engineers and security practitioners securing ML pipelines, models, and inference APIs
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (1,972 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning the security risks at each phase of the ML lifecycle, from training data to deployment, and the controls and governance that address them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [ML Lifecycle Attack Surface](#ml-lifecycle-attack-surface), [MLOps Security](#mlops-security)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Where to Start
 
 | Level | Description | Free Resource |

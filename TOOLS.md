@@ -2,11 +2,70 @@
 
 > In one minute: This is a quick-reference matrix of security tools, defensive and offensive, organized by function: EDR, SIEM, threat intel, red teaming, forensics, cloud, AppSec, and more. Each entry says whether the tool is open source (OSS) or commercial (COM), what it is primarily used for, and links to its homepage. Reach for it when you need to name candidate tools for a category fast, without researching each one from scratch.
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Practitioners shortlisting tools for a security function
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Length</th><td>
+
+Lookup page: 3,263 words, 91% in tables; look entries up from Start at or the search (about 14 min end to end at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need to shortlist tools for a security function, you are comparing open source vs commercial options in a category, or you saw a tool name and want to know what it does
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Endpoint & Detection](#endpoint-amp-detection), [Threat Intelligence](#threat-intelligence), [Offensive Security & Red Teaming](#offensive-security-amp-red-teaming)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Controls Mapping](CONTROLS_MAPPING.md), [Hands-On Labs](LABS.md), [Starred Repositories](STARRED_REPOS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, TheHive, CrackMapExec and SharpHound rows updated, with NetExec added as CrackMapExec's successor ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 4 on finding a tool.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | you need to shortlist tools for a security function, you are comparing open source vs commercial options in a category, you saw a tool name and want to know what it does |
-| Start at | [Endpoint & Detection](#endpoint-amp-detection), [Threat Intelligence](#threat-intelligence), [Offensive Security & Red Teaming](#offensive-security-amp-red-teaming) |
-| Pairs with | [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Controls Mapping](CONTROLS_MAPPING.md), [Hands-On Labs](LABS.md), [Starred Repositories](STARRED_REPOS.md) |
+| Security Tools Reference (this page) | A matrix of tools by function, each marked open source or commercial. |
+| [Open Source Toolkit](/OPEN_SOURCE_TOOLKIT.md) | Free and open-source tools organized by discipline, with practice platforms and bookmarks. |
+| [Starred Repositories](/STARRED_REPOS.md) | The full index of starred GitHub repositories, grouped by the job they do. |
+| [Security Tool Documentation](/SECURITY_TOOL_DOCUMENTATION.md) | Official documentation, API references, and GitHub organizations for the platforms in an enterprise security stack. |
+
+</details>
+
+<!-- meta:end -->
 
 A quick-reference matrix of commonly used security tools organized by function. Each entry links to the project homepage. OSS = open source; COM = commercial.
 

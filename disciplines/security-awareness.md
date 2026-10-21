@@ -4,6 +4,55 @@ Security awareness is the discipline of designing, implementing, and measuring p
 
 The human layer remains the highest-leverage attack surface for adversaries. Phishing drives the majority of initial access events (T1566). Credential reuse enables credential stuffing at scale. Employees who fail to report anomalies extend dwell time. Security awareness programs exist to systematically reduce each of these risk vectors, not by making employees security experts, but by building habitual behaviors: recognizing phishing, using MFA, reporting suspicious activity, and escalating to the security team without fear of blame. The discipline requires expertise in adult learning principles, organizational psychology, and measurement design, not just security knowledge.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+People who run or are building security awareness and human-risk programs
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 8 min (1,779 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or rebuilding a security awareness program, you are running phishing simulations, or you are measuring human risk
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where to Start](#where-to-start), [Phishing Simulation Methodology](#phishing-simulation-methodology), [Human Risk Metrics](#human-risk-metrics)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1656 re-keyed to T1684.001 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 <!-- path-reference:start (written by scripts/build_crosslinks.py from docs/crosslinks.json; do not edit) -->
 
 > Matching reference: [Security Awareness Program](/SECURITY_AWARENESS_REFERENCE.md), the library's in-depth page on this subject.

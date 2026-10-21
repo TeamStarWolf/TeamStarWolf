@@ -2,11 +2,59 @@
 
 > In one minute: A catalog of cybersecurity certifications organized by domain (entry-level, offensive, blue team, DFIR, cloud, management, and more), with each cert's cost, difficulty, exam format, renewal rules, and who it's best for. Use it to pick the right cert for your goal and budget without wading through vendor marketing. It also maps progressions from entry to senior level and flags which certs satisfy DoD 8570 (the US Department of Defense's baseline certification requirement).
 
-| | |
-|---|---|
-| Read this when | Choosing your first or next security cert, comparing costs before asking for training budget, checking a cert's renewal or DoD 8570 status |
-| Start at | [Quick Selection Guide](#quick-selection-guide), [Certification Progression Map](#certification-progression-map), [Exam Preparation Tips](#exam-preparation-tips) |
-| Pairs with | [Career Paths & Cert Roadmap](CAREER_PATHS.md), [Hands-On Labs](LABS.md), [Security Tools Reference](TOOLS.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+People choosing a first or next security certification
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Length</th><td>
+
+Lookup page: 2,445 words, 75% in tables; look entries up from Start at or the search (about 11 min end to end at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are choosing your first or next security cert, you are comparing costs before asking for training budget, or you are checking a cert's renewal or DoD 8570 status
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Quick Selection Guide](#quick-selection-guide), [Certification Progression Map](#certification-progression-map), [Exam Preparation Tips](#exam-preparation-tips)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Career Paths & Cert Roadmap](CAREER_PATHS.md), [Hands-On Labs](LABS.md), [Security Tools Reference](TOOLS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, Azure AD renamed Microsoft Entra ID in one table row ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 A comprehensive reference for cybersecurity certifications, organized by domain, with cost, difficulty, renewal requirements, and who should pursue each. For career-progression roadmaps, see [Career Paths & Cert Roadmap](CAREER_PATHS.md).
 

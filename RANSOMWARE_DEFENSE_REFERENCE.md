@@ -8,10 +8,54 @@ Family-by-family profiles (LockBit, ALPHV, Conti lineage, etc.) live in [Malware
 
 Related: [Malware Families](MALWARE_FAMILIES.md), [IR Playbooks](IR_PLAYBOOKS.md), [Incident Response](INCIDENT_RESPONSE_REFERENCE.md), [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md), [Security Metrics](SECURITY_METRICS_REFERENCE.md), [Threat Group Profiles](THREAT_GROUP_PROFILES.md)
 
-| | |
-|---|---|
-| Read this when | you are building or gap-assessing a ransomware defense program, a new #StopRansomware advisory lands and you need to turn it into work, or you must decide backup architecture, restore order, or payment policy before an incident |
-| Start at | [Scope & how to use this reference](#scope-amp-how-to-use-this-reference), [Backup & recovery architecture](#backup-amp-recovery-architecture), [A 90-day program bootstrap](#a-90-day-program-bootstrap) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security program leads, infrastructure owners, and incident response planners
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 21 min (4,844 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or gap-assessing a ransomware defense program, a new #StopRansomware advisory lands and you need to turn it into work, or you must decide backup architecture, restore order, or payment policy before an incident
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Scope & how to use this reference](#scope-amp-how-to-use-this-reference), [Backup & recovery architecture](#backup-amp-recovery-architecture), [A 90-day program bootstrap](#a-90-day-program-bootstrap)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1562.001 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

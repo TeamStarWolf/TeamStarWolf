@@ -1,12 +1,77 @@
 # Cloud Security Reference Library
 
-> Comprehensive cybersecurity reference for AWS, Azure, GCP, multi-cloud attack tooling, IAM, data security, CNAPP, and compliance. Maintained by TeamStarWolf.
+> Reference for AWS, Azure, GCP, multi-cloud attack tooling, IAM, data security, CNAPP, and compliance.
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Cloud security engineers and cloud penetration testers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 32 min (7,435 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need to look up an AWS/Azure/GCP security control or its configuration, you are chasing a cloud privilege-escalation or metadata-service (IMDS/SSRF) attack path, or you are picking the right offensive/CSPM tool (Pacu, ROADtools, PMapper, Prowler) for a cloud engagement
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[AWS Security Fundamentals](#_1-aws-security-fundamentals), [Multi-Cloud Attack Tools](#_6-multi-cloud-attack-tools), [Cloud IAM Security & Least Privilege](#_7-cloud-iam-security-amp-least-privilege)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [Cloud Security Benchmark](CLOUD_SECURITY_BENCHMARK.md), [Kubernetes Security Reference](KUBERNETES_SECURITY_REFERENCE.md), [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Cloud Security](/disciplines/cloud-security.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-01, PCI DSS version updated to v4.0.1 in one line ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 5 on cloud security.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | You need to look up an AWS/Azure/GCP security control or its configuration, you are chasing a cloud privilege-escalation or metadata-service (IMDS/SSRF) attack path, or you are picking the right offensive/CSPM tool (Pacu, ROADtools, PMapper, Prowler) for a cloud engagement |
-| Start at | [AWS Security Fundamentals](#_1-aws-security-fundamentals), [Multi-Cloud Attack Tools](#_6-multi-cloud-attack-tools), [Cloud IAM Security & Least Privilege](#_7-cloud-iam-security-amp-least-privilege) |
-| Pairs with | [CLOUD_ATTACK_REFERENCE.md](CLOUD_ATTACK_REFERENCE.md), [CLOUD_SECURITY_BENCHMARK.md](CLOUD_SECURITY_BENCHMARK.md), [KUBERNETES_SECURITY_REFERENCE.md](KUBERNETES_SECURITY_REFERENCE.md), [CONTAINER_SECURITY_REFERENCE.md](CONTAINER_SECURITY_REFERENCE.md) |
+| Cloud Security Reference (this page) | Controls and their configuration across AWS, Azure, and GCP, plus privilege-escalation paths and cloud attack tools. |
+| [Cloud Architecture Reference](/CLOUD_ARCHITECTURE_REFERENCE.md) | Designing cloud systems: landing zones, hub-and-spoke networking, and architecture decisions with their trade-offs. |
+| [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md) | Attacker techniques per cloud and for Kubernetes, aligned to ATT&CK, for building detections and running incident response. |
+| [Cloud Security Benchmark](/CLOUD_SECURITY_BENCHMARK.md) | CIS Benchmark hardening checks with fix commands, audit scripts, and CSPM tools. |
+| [Cloud Network Security](/CLOUD_NETWORK_SECURITY.md) | Network controls across the three clouds: VPC design, firewalls, WAF, private connectivity, DDoS protection, and flow logs. |
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

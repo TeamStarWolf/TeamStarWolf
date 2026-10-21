@@ -8,10 +8,49 @@ This reference covers the SaaS threat surface at a taxonomy level, the case stud
 
 Related: [Identity & Access Management](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Identity Security](IDENTITY_SECURITY_REFERENCE.md), [Cloud Security](CLOUD_SECURITY_REFERENCE.md), [Supply Chain Security](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Secrets Management](SECRETS_MANAGEMENT_REFERENCE.md), [Email Security](EMAIL_SECURITY_REFERENCE.md)
 
-| | |
-|---|---|
-| Read this when | you inherit or stand up an M365/GWS/Salesforce/GitHub tenant and need a hardening baseline, an OAuth app or third-party integration needs review or a vendor just got breached, you are deciding which log tier or SSPM tooling to buy |
-| Start at | [The SaaS threat surface](#the-saas-threat-surface) for the five threat classes, [Case studies from public advisories](#case-studies-from-public-advisories) for the incidents that motivate every control, [Hardening checklists by platform](#hardening-checklists-by-platform) to act today |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+SaaS administrators, identity engineers, and security teams responsible for tenants
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 21 min (4,784 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You inherit or stand up an M365/GWS/Salesforce/GitHub tenant and need a hardening baseline, an OAuth app or third-party integration needs review or a vendor just got breached, or you are deciding which log tier or SSPM tooling to buy
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[The SaaS threat surface](#the-saas-threat-surface) for the five threat classes, [Case studies from public advisories](#case-studies-from-public-advisories) for the incidents that motivate every control, [Hardening checklists by platform](#hardening-checklists-by-platform) to act today
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

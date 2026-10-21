@@ -1,12 +1,69 @@
 # Identity & Access Management (IAM) Reference
 
-> A comprehensive cybersecurity reference covering IAM fundamentals, authentication technologies, authorization models, identity providers, PAM, IGA, Zero Trust identity, machine identity, security monitoring, and governance/compliance.
+> Reference covering IAM fundamentals, authentication technologies, authorization models, identity providers, PAM, IGA, Zero Trust identity, machine identity, security monitoring, and governance/compliance.
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+IAM architects and engineers, and security teams writing identity controls and detections
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 13 min (2,950 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are choosing or hardening MFA and passwordless auth, you are designing RBAC/ABAC or PAM controls, you are building IAM detections (credential stuffing, MFA fatigue, impossible travel), or you are mapping IAM to SOC 2 / PCI / NIST / HIPAA
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[IAM Fundamentals](#_1-iam-fundamentals), [Authentication Technologies](#_2-authentication-technologies), [IAM Security Monitoring](#_9-iam-security-monitoring)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Identity Security](IDENTITY_SECURITY_REFERENCE.md), [Zero Trust](ZERO_TRUST_REFERENCE.md), [Active Directory Security](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [Secrets Management](SECRETS_MANAGEMENT_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Identity & Access Management](/disciplines/identity-access-management.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 2 on identity security.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | choosing or hardening MFA and passwordless auth, designing RBAC/ABAC or PAM controls, building IAM detections (credential stuffing, MFA fatigue, impossible travel), mapping IAM to SOC 2 / PCI / NIST / HIPAA |
-| Start at | [IAM Fundamentals](#_1-iam-fundamentals), [Authentication Technologies](#_2-authentication-technologies), [IAM Security Monitoring](#_9-iam-security-monitoring) |
-| Pairs with | [Identity Security](IDENTITY_SECURITY_REFERENCE.md), [Zero Trust](ZERO_TRUST_REFERENCE.md), [Active Directory Security](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [Secrets Management](SECRETS_MANAGEMENT_REFERENCE.md) |
+| Identity & Access Management Reference (this page) | Controls and architecture: authentication technologies, authorization models, PAM, IGA, and compliance mapping. |
+| [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md) | Attacks and vendor controls: MFA bypass, Entra ID, Okta, CyberArk, and identity detection and response. |
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

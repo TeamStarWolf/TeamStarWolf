@@ -2,11 +2,69 @@
 
 > This reference is written for cybersecurity practitioners who need to understand how networking works, not just what it is, so they can reason about attacks, build detections, and design defenses. OSI layers, TCP/IP internals, Layer 2 behavior, routing protocols, DNS, and security architecture are covered with operational depth.
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security practitioners who need working networking knowledge for attacks, detections, and defenses
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 36 min (8,222 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need to reason about which OSI layer an attack lives at and what control stops it, you are decoding packet headers or subnetting during an investigation, or you need the operational mechanics behind ARP/VLAN/STP/routing/DNS abuse
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[The OSI Model: Security Perspective](#the-osi-model-security-perspective), [TCP/IP Deep Dive](#tcpip-deep-dive), [ATT&CK Technique Quick Reference](#attampck-technique-quick-reference)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md), [Network Defense Reference](NETWORK_DEFENSE_REFERENCE.md), [Network Protocols Reference](NETWORK_PROTOCOLS_REFERENCE.md), [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked IDs re-keyed: T1465 to T1638, T1562.004 to T1686 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on how networks work and how to design them.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | You need to reason about which OSI layer an attack lives at and what control stops it, you are decoding packet headers or subnetting during an investigation, or you need the operational mechanics behind ARP/VLAN/STP/routing/DNS abuse |
-| Start at | [The OSI Model: Security Perspective](#the-osi-model-security-perspective), [TCP/IP Deep Dive](#tcpip-deep-dive), [ATT&CK Technique Quick Reference](#attampck-technique-quick-reference) |
-| Pairs with | [NETWORK_ATTACKS_REFERENCE.md](NETWORK_ATTACKS_REFERENCE.md), [NETWORK_DEFENSE_REFERENCE.md](NETWORK_DEFENSE_REFERENCE.md), [NETWORK_PROTOCOLS_REFERENCE.md](NETWORK_PROTOCOLS_REFERENCE.md), [PACKET_ANALYSIS_REFERENCE.md](PACKET_ANALYSIS_REFERENCE.md) |
+| Networking Fundamentals (this page) | How networking works, from OSI layers to routing and DNS, explained for reasoning about attacks and detections. |
+| [Networking Architecture Reference](/NETWORKING_ARCHITECTURE_REFERENCE.md) | Designing networks: topologies, overlays, segmentation, SD-WAN and SASE, and core services. |
+| [Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md) | Building a segmented enterprise network: zones, firewall and IPS placement, 802.1X, and VPNs, with configuration examples. |
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

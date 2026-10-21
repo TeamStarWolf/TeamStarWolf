@@ -9,6 +9,8 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 ### T1021: Remote Services
 <a id="t1021"></a>
 
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
+
 Detection strategy: Behavioral Detection Strategy for Remote Service Logins and Post-Access Activity (`DET0269`)  
 Platforms: ESXi, IaaS, Linux, Windows, macOS  
 ATT&CK: [T1021](https://attack.mitre.org/techniques/T1021/), [detail page](/techniques/lateral-movement.md#t1021)
@@ -34,10 +36,14 @@ ATT&CK: [T1021](https://attack.mitre.org/techniques/T1021/), [detail page](/tech
   - *Log sources:* `esxi:vmkernel (vim.fault.*, DCUI login, SSH shell)`; `esxi:shell (Command execution trace)`
   - *Tune:* `SessionType`: Filter by DCUI, SSH, vSphere API; `CommandPattern`: Watch for remote access tool invocations (e.g., netcat, ssh)
 
+</details>
+
 ---
 
 ### T1021.001: Remote Desktop Protocol
 <a id="t1021001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Multi-event Detection Strategy for RDP-Based Remote Logins and Post-Access Activity (`DET0327`)  
 Platforms: Windows  
@@ -48,10 +54,14 @@ ATT&CK: [T1021.001](https://attack.mitre.org/techniques/T1021/001/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4624, 4648)`; `WinEventLog:Security (EventCode=4778, EventCode=4779)`; `WinEventLog:Sysmon (EventCode=3, 22)`; `WinEventLog:Sysmon (EventCode=1)`
   - *Tune:* `TimeWindow`: Temporal threshold to correlate login with post-login activity (e.g., 5 minutes); `UserContext`: Tune for non-admin users or service accounts expected to use RDP; `ProcessList`: Define suspicious post-login processes such as cmd.exe, powershell.exe, certutil.exe; `HostAccessPatterns`: Scope detection to uncommon or first-time access between source and destination hosts
 
+</details>
+
 ---
 
 ### T1021.002: SMB/Windows Admin Shares
 <a id="t1021002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Multi-Event Detection for SMB Admin Share Lateral Movement (`DET0530`)  
 Platforms: Windows  
@@ -62,10 +72,14 @@ ATT&CK: [T1021.002](https://attack.mitre.org/techniques/T1021/002/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4624, 4648)`; `WinEventLog:Sysmon (EventCode=3, 22)`; `WinEventLog:Sysmon (EventCode=1)`
   - *Tune:* `ShareName`: Targeted admin share path, such as C$, ADMIN$, IPC$; `TimeWindow`: Correlation window between remote file access and remote execution (e.g., 5-10 minutes); `UserContext`: Distinguish expected remote administrators vs. rare/first-time access by specific users; `ProcessList`: List of suspicious binaries or tools executed post remote copy (e.g., cmd.exe, powershell.exe, runonce.exe)
 
+</details>
+
 ---
 
 ### T1021.003: Distributed Component Object Model
 <a id="t1021003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Multi-Event Behavioral Detection for DCOM-Based Remote Code Execution (`DET0285`)  
 Platforms: Windows  
@@ -76,10 +90,14 @@ ATT&CK: [T1021.003](https://attack.mitre.org/techniques/T1021/003/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4624, 4648)`; `WinEventLog:Sysmon (EventCode=3, 22)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=7)`
   - *Tune:* `TimeWindow`: Correlate RPC activity with remote process creation within a configurable time window (e.g., 300s); `UserContext`: Identify rare or first-time DCOM invocations by specific accounts; `ProcessName`: List of suspicious executables commonly abused via DCOM (e.g., excel.exe, wmiprvse.exe); `RemoteHostList`: Known set of systems that should or should not be invoking DCOM activity
 
+</details>
+
 ---
 
 ### T1021.004: SSH
 <a id="t1021004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Behavioral Detection of Remote SSH Logins Followed by Post-Login Execution (`DET0596`)  
 Platforms: ESXi, Linux, macOS  
@@ -98,10 +116,14 @@ ATT&CK: [T1021.004](https://attack.mitre.org/techniques/T1021/004/), [detail pag
   - *Log sources:* `esxi:auth`; `esxi:shell`; `esxi:vmkernel (port 22 access)`
   - *Tune:* `AllowedUsers`: Legitimate SSH users to this host; `TimeWindow`: Correlate SSH login and unauthorized commands or shell access; `CommandList`: Flag commands like esxcli, rm, chmod post-login
 
+</details>
+
 ---
 
 ### T1021.005: VNC
 <a id="t1021005"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Behavioral Detection of Unauthorized VNC Remote Control Sessions (`DET0178`)  
 Platforms: Linux, Windows, macOS  
@@ -120,10 +142,14 @@ ATT&CK: [T1021.005](https://attack.mitre.org/techniques/T1021/005/), [detail pag
   - *Log sources:* `macos:unifiedlog (authentication)`; `macos:osquery (process_events)`; `NSM:firewall (inbound connection to port 5900)`
   - *Tune:* `AuthenticationPredicate`: Unified log predicate to refine suspicious screensharing access; `TimeWindow`: Time between VNC connection and follow-on activity (e.g., 30s); `UserActivitySpike`: Mouse/keyboard interaction spike immediately post-VNC login
 
+</details>
+
 ---
 
 ### T1021.006: Windows Remote Management
 <a id="t1021006"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Behavioral Detection of WinRM-Based Remote Access (`DET0477`)  
 Platforms: Windows  
@@ -134,10 +160,14 @@ ATT&CK: [T1021.006](https://attack.mitre.org/techniques/T1021/006/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4624, 4648)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:WinRM (EventCode=6)`; `NSM:Connections (Inbound on ports 5985/5986)`
   - *Tune:* `TimeWindow`: Defines max time between remote shell creation and child process execution (e.g., 60 seconds); `UserContext`: Scope to unexpected remote user logons (non-admins, service accounts); `CommandLineAnomalyScore`: Score for suspicious command usage via WinRM (e.g., encoded PowerShell); `KnownAdminHosts`: List of trusted systems allowed to use WinRM legitimately
 
+</details>
+
 ---
 
 ### T1021.007: Cloud Services
 <a id="t1021007"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Behavioral Detection of Remote Cloud Logins via Valid Accounts (`DET0008`)  
 Platforms: IaaS, Identity Provider, Office Suite, SaaS  
@@ -160,10 +190,14 @@ ATT&CK: [T1021.007](https://attack.mitre.org/techniques/T1021/007/), [detail pag
   - *Log sources:* `saas:auth (LoginSuccess, APIKeyUse, AdminAction)`
   - *Tune:* `OAuthTokenAge`: Older tokens issued before password change may indicate compromise; `AppScope`: Restrict detection to high-value or regulated SaaS apps
 
+</details>
+
 ---
 
 ### T1021.008: Direct Cloud VM Connections
 <a id="t1021008"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Direct VM Console Access via Cloud-Native Methods (`DET0211`)  
 Platforms: IaaS  
@@ -174,10 +208,14 @@ ATT&CK: [T1021.008](https://attack.mitre.org/techniques/T1021/008/), [detail pag
   - *Log sources:* `AWS:CloudTrail (SendSSHPublicKey, StartSession (SSM), EC2InstanceConnect)`; `WinEventLog:Sysmon (EventCode=1)`
   - *Tune:* `TimeWindow`: Correlates cloud login to host activity within a reasonable time span (e.g., < 60 seconds); `CloudAuthMethod`: Filters based on access vector: SSH key, SSM session, or Console connect; `SessionOriginRegion`: Identifies sessions from out-of-region or untrusted networks; `TargetInstanceTags`: Filters sensitive systems or production assets for alert tuning
 
+</details>
+
 ---
 
 ### T1080: Taint Shared Content
 <a id="t1080"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Detection of Tainted Content Written to Shared Storage (`DET0471`)  
 Platforms: Linux, Office Suite, SaaS, Windows, macOS  
@@ -204,10 +242,14 @@ ATT&CK: [T1080](https://attack.mitre.org/techniques/T1080/), [detail page](/tech
   - *Log sources:* `m365:defender (OfficeTelemetry or DLP)`
   - *Tune:* `MacroExecutionPolicy`: Controls macro execution based on user or group policy.; `SuspiciousKeywordMatch`: Regex match on suspicious VBA function names or calls.
 
+</details>
+
 ---
 
 ### T1091: Replication Through Removable Media
 <a id="t1091"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Removable Media Execution Chain Detection via File and Process Activity (`DET0301`)  
 Platforms: Windows  
@@ -218,10 +260,14 @@ ATT&CK: [T1091](https://attack.mitre.org/techniques/T1091/), [detail page](/tech
   - *Log sources:* `WinEventLog:System (EventCode=1006)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Microsoft-Windows-Windows Defender/Operational (Suspicious file execution on removable media path)`
   - *Tune:* `DriveLetterMatch`: Detect activity on mounted drives typically used by USB (e.g., E:, F:, G:). Tune based on enterprise usage.; `FileExecutionWindow`: Set timing threshold for execution shortly after drive mount (e.g., < 5 minutes).; `ParentProcess`: Restrict detection to suspicious process lineage like explorer.exe, powershell.exe, or unsigned binaries.; `FileEntropy`: Use entropy thresholding to detect packed/obfuscated payloads dropped to removable media.
 
+</details>
+
 ---
 
 ### T1210: Exploitation of Remote Services
 <a id="t1210"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Exploitation of Remote Services – multi-platform lateral movement detection (`DET0118`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -244,10 +290,14 @@ ATT&CK: [T1210](https://attack.mitre.org/techniques/T1210/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (process 'crashed'|'EXC_BAD_ACCESS' for sshd, screensharingd, httpd; launchd restarts of these daemons.)`; `macos:osquery (parent_name in ('sshd','httpd','screensharingd') spawning shells or scripting runtimes.)`; `NSM:Flow (Inbound to 22/5900/8080 and follow-on internal connections.)`
   - *Tune:* `ServicePortSet`: 22, 5900, 8080/8443 by default.; `AllowedAdmins`: MDM/jump-host IPs allowed to manage endpoints.; `TimeWindow`: Default: 10 minutes.
 
+</details>
+
 ---
 
 ### T1534: Internal Spearphishing
 <a id="t1534"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Internal Spearphishing via Trusted Accounts (`DET0054`)  
 Platforms: Linux, Office Suite, SaaS, Windows, macOS  
@@ -274,10 +324,14 @@ ATT&CK: [T1534](https://attack.mitre.org/techniques/T1534/), [detail page](/tech
   - *Log sources:* `m365:unified (SendOnBehalf, MessageSend, AttachmentPreviewed)`; `WinEventLog:Security (EventCode=4103, 4104, 4105, 4106)`
   - *Tune:* `MacroExecutionWindow`: Timing between mail open and macro invocation; `AttachmentNameHeuristics`: Patterns of known internal spearphishing lures (e.g., invoice, HR_policy)
 
+</details>
+
 ---
 
 ### T1550: Use Alternate Authentication Material
 <a id="t1550"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 7 analytics</summary>
 
 Detection strategy: Behavioral Detection Strategy for Use Alternate Authentication Material (T1550) (`DET0338`)  
 Platforms: Containers, IaaS, Identity Provider, Linux, Office Suite, SaaS, Windows  
@@ -312,10 +366,14 @@ ATT&CK: [T1550](https://attack.mitre.org/techniques/T1550/), [detail page](/tech
   - *Log sources:* `AWS:CloudTrail (GetCallerIdentity)`; `AWS:CloudTrail (AssumeRole)`
   - *Tune:* `TokenReuseWindow`: Time window where token reuse is suspicious; `RoleMismatchAlerting`: Enable if tokens for RoleA are used in resources only RoleB should access
 
+</details>
+
 ---
 
 ### T1550.001: Application Access Token
 <a id="t1550001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 5 analytics</summary>
 
 Detection strategy: Behavioral Detection Strategy for Use Alternate Authentication Material: Application Access Token (T1550.001) (`DET0185`)  
 Platforms: Containers, IaaS, Identity Provider, Office Suite, SaaS  
@@ -342,10 +400,14 @@ ATT&CK: [T1550.001](https://attack.mitre.org/techniques/T1550/001/), [detail pag
   - *Log sources:* `kubernetes:apiserver (serviceAccount token used in API requests not tied to workload identity)`; `AWS:CloudTrail (AssumeRoleWithWebIdentity)`
   - *Tune:* `NamespaceScope`: Restrict token use to specific namespaces or workloads
 
+</details>
+
 ---
 
 ### T1550.002: Pass the Hash
 <a id="t1550002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for T1550.002 - Pass the Hash (Windows) (`DET0409`)  
 Platforms: Windows  
@@ -356,10 +418,14 @@ ATT&CK: [T1550.002](https://attack.mitre.org/techniques/T1550/002/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4624, 4648)`; `WinEventLog:Security (EventCode=4768)`; `WinEventLog:Sysmon (EventCode=3, 22)`; `WinEventLog:Sysmon (EventCode=1)`
   - *Tune:* `TimeWindow`: Allows tuning the correlation timeframe between authentication, session creation, and process/network activity.; `SourceAccountAnomalyThreshold`: Supports tuning detection sensitivity based on deviations from normal user login patterns or usage context.; `LogonTypeFilter`: Allows focusing detection on specific logon types (e.g., LogonType 3 for network logon, Type 10 for RDP).
 
+</details>
+
 ---
 
 ### T1550.003: Pass the Ticket
 <a id="t1550003"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection Strategy for T1550.003 - Pass the Ticket (Windows) (`DET0352`)  
 Platforms: Windows  
@@ -370,10 +436,14 @@ ATT&CK: [T1550.003](https://attack.mitre.org/techniques/T1550/003/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4769)`; `WinEventLog:Security (EventCode=4768)`; `WinEventLog:Security (EventCode=4624, 4648)`; `WinEventLog:Sysmon (EventCode=10)`; `WinEventLog:Sysmon (EventCode=7)`
   - *Tune:* `TimeWindow`: Defines the correlation window between TGT request (4768) and TGS request (4769); `HostContextScope`: Adjusts the host scoping for correlation of authentication chains and ticket injection; `LSASSAccessAnomalyThreshold`: Allows tuning of alerts for ticket injection attempts via LSASS memory access
 
+</details>
+
 ---
 
 ### T1550.004: Web Session Cookie
 <a id="t1550004"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detect Use of Stolen Web Session Cookies Across Platforms (`DET0074`)  
 Platforms: IaaS, Office Suite, SaaS  
@@ -392,10 +462,14 @@ ATT&CK: [T1550.004](https://attack.mitre.org/techniques/T1550/004/), [detail pag
   - *Log sources:* `m365:unified (UserLoggedIn)`
   - *Tune:* `EndpointTokenSyncGap`: Allowed delta between endpoint login and cloud token reuse
 
+</details>
+
 ---
 
 ### T1563: Remote Service Session Hijacking
 <a id="t1563"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
 
 Detection strategy: Detection of Remote Service Session Hijacking (`DET0079`)  
 Platforms: Linux, Windows, macOS  
@@ -414,10 +488,14 @@ ATT&CK: [T1563](https://attack.mitre.org/techniques/T1563/), [detail page](/tech
   - *Log sources:* `macos:unifiedlog (Authentication inconsistencies where commands are executed without corresponding login events)`; `macos:unifiedlog (Execution of processes linked to hijacked sessions (e.g., anomalous parent-child process lineage))`; `NSM:Flow (Suspicious long-lived or reattached remote desktop sessions from unexpected IPs)`
   - *Tune:* `SessionIdleThreshold`: Time threshold for inactive sessions flagged as suspicious when commands suddenly resume.
 
+</details>
+
 ---
 
 ### T1563.001: SSH Hijacking
 <a id="t1563001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 2 analytics</summary>
 
 Detection strategy: Detection Strategy for SSH Session Hijacking (`DET0256`)  
 Platforms: Linux, macOS  
@@ -432,10 +510,14 @@ ATT&CK: [T1563.001](https://attack.mitre.org/techniques/T1563/001/), [detail pag
   - *Log sources:* `macos:unifiedlog (Process opening SSH_AUTH_SOCK or /tmp/ssh-* socket not owned by same UID)`; `macos:unifiedlog (Execution of ssh or sftp without corresponding login event)`; `macos:unifiedlog (Session reuse without new auth event)`
   - *Tune:* `SocketPathScope`: Limit detection to monitored SSH agent socket directories.; `BaselineUsers`: Establish normal SSH agent ownership and expected usage for tuning.
 
+</details>
+
 ---
 
 ### T1563.002: RDP Hijacking
 <a id="t1563002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
 
 Detection strategy: Detection of Remote Service Session Hijacking for RDP. (`DET0588`)  
 Platforms: Windows  
@@ -446,10 +528,14 @@ ATT&CK: [T1563.002](https://attack.mitre.org/techniques/T1563/002/), [detail pag
   - *Log sources:* `WinEventLog:Security (EventCode=4624, 4648)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=3, 22)`; `WinEventLog:System (EventCode=7045)`
   - *Tune:* `ExpectedRDPHosts`: Whitelist of systems and accounts authorized to use RDP; deviations indicate possible hijacking.; `TimeWindow`: Time threshold for correlating logon events with session reassignment and process execution.; `SessionIDMapping`: Environment-specific mapping of user accounts to session IDs; inconsistencies may reveal hijacking.
 
+</details>
+
 ---
 
 ### T1570: Lateral Tool Transfer
 <a id="t1570"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 4 analytics</summary>
 
 Detection strategy: Detection Strategy for Lateral Tool Transfer across OS platforms (`DET0183`)  
 Platforms: ESXi, Linux, Windows, macOS  
@@ -472,4 +558,8 @@ ATT&CK: [T1570](https://attack.mitre.org/techniques/T1570/), [detail page](/tech
   - *Log sources:* `esxi:vmkernel (Upload of file to datastore)`; `esxi:hostd (scp/ssh used to move file across hosts)`
   - *Tune:* `DatastoreWhitelist`: Known authorized paths for legitimate VM operations; `TransferProtocol`: Protocols allowed for intra-VM host transfers
 
+</details>
+
 ---
+
+*© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*

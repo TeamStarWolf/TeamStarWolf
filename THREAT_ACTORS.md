@@ -2,11 +2,68 @@
 
 > In one minute: A quick-reference catalog of the threat actors that matter: nation-state APT groups (advanced persistent threats, state-backed intrusion teams) from China, Russia, North Korea, and Iran, plus ransomware operators, financial crime groups, and hacktivists. Each group is mapped to its MITRE ATT&CK ID, aliases, targets, and signature TTPs (tactics, techniques, and procedures), so you can go from a name in a report to what the group actually does. Useful when you need attribution context, actor-specific TTPs to detect or emulate, or a fast answer to "who is Fancy Bear again?"
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Threat intelligence analysts, SOC analysts, and security leaders who brief on adversaries
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (1,966 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+An intel report or news story names an actor you need context on, you are building detections or emulation plans around a specific group's TTPs, or you are briefing leadership on who targets your sector
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Nation-State APTs](#nation-state-apts), [Ransomware Groups](#ransomware-groups), [Threat Intelligence Tools for Actor Tracking](#threat-intelligence-tools-for-actor-tracking)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Notable Incidents](NOTABLE_INCIDENTS.md), [Malware Families](MALWARE_FAMILIES.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [IR Playbooks](IR_PLAYBOOKS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, TLP:WHITE row renamed TLP:CLEAR ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 2 on threat actors.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | an intel report or news story names an actor you need context on, you are building detections or emulation plans around a specific group's TTPs, you are briefing leadership on who targets your sector |
-| Start at | [Nation-State APTs](#nation-state-apts), [Ransomware Groups](#ransomware-groups), [Threat Intelligence Tools for Actor Tracking](#threat-intelligence-tools-for-actor-tracking) |
-| Pairs with | [NOTABLE_INCIDENTS.md](NOTABLE_INCIDENTS.md), [MALWARE_FAMILIES.md](MALWARE_FAMILIES.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [IR_PLAYBOOKS.md](IR_PLAYBOOKS.md) |
+| Threat Actors (this page) | A narrative quick reference to notable groups by nation and type, with aliases, targets, and signature TTPs. |
+| [Threat Group Profiles](/THREAT_GROUP_PROFILES.md) | Profiles built from ATT&CK group data: aliases, technique and software counts, and signature techniques. |
+
+</details>
+
+<!-- meta:end -->
 
 A quick-reference guide to notable advanced persistent threat (APT) groups, ransomware operators, and cybercriminal organizations, mapped to their known TTPs and ATT&CK groups. For deeper intelligence, use MISP, OpenCTI, or the ATT&CK Groups catalog.
 

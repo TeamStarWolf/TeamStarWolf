@@ -1,12 +1,72 @@
 # Network Defense Reference Library
 
-> Comprehensive reference for network defense, monitoring, and security operations.
+> Reference for network defense, monitoring, and security operations.
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Network defenders, NSM engineers, and SOC analysts
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 17 min (3,899 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are standing up or tuning an NSM sensor stack (Suricata, Zeek, Security Onion, Arkime), you are hunting for beaconing or DNS tunneling in network logs, or you are designing segmentation, NAC, or DDoS defenses
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Network Defense Architecture](#_1-network-defense-architecture), [Suricata IDS/IPS](#_2-suricata-idsips), [Network Defense Operations](#_10-network-defense-operations)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md), [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md), [SIEM Reference](SIEM_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Network Security](/disciplines/network-security.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 5 on network attack, defense, and monitoring.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | standing up or tuning an NSM sensor stack (Suricata, Zeek, Security Onion, Arkime), hunting for beaconing or DNS tunneling in network logs, designing segmentation, NAC, or DDoS defenses |
-| Start at | [Network Defense Architecture](#_1-network-defense-architecture), [Suricata IDS/IPS](#_2-suricata-idsips), [Network Defense Operations](#_10-network-defense-operations) |
-| Pairs with | [NETWORK_ATTACKS_REFERENCE.md](NETWORK_ATTACKS_REFERENCE.md), [NETWORK_MONITORING_REFERENCE.md](NETWORK_MONITORING_REFERENCE.md), [NETWORK_FORENSICS_REFERENCE.md](NETWORK_FORENSICS_REFERENCE.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md) |
+| Network Defense Reference (this page) | Defense architecture and NSM operations: Suricata, Zeek, Security Onion, segmentation, and DDoS defense. |
+| [Network Attacks Reference](/NETWORK_ATTACKS_REFERENCE.md) | How network attacks work layer by layer, each paired with the control that detects or blocks it. |
+| [Network Monitoring Reference](/NETWORK_MONITORING_REFERENCE.md) | The monitoring stack and hunting workflows: sensor placement, Zeek, Suricata rules, JA3, and flow data. |
+| [Network Forensics Reference](/NETWORK_FORENSICS_REFERENCE.md) | Collecting and preserving network evidence and reconstructing an incident from it. |
+| [Packet Analysis Reference](/PACKET_ANALYSIS_REFERENCE.md) | Reading raw traffic in Wireshark, tcpdump, and Zeek, and spotting attacks in packet captures. |
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

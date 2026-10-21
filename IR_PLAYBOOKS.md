@@ -2,11 +2,59 @@
 
 > In one minute: Step-by-step response procedures for ten common incident types, from ransomware to supply chain compromise, each organized around the NIST SP 800-61 lifecycle (the standard prepare-detect-contain-recover model for handling security incidents). When an incident hits, you look up the matching playbook and follow its timed immediate actions, investigation steps, and recovery guidance instead of improvising. It also carries the reference tables you need under pressure: escalation timing, regulatory notification deadlines, and how to contact the FBI, CISA, and international authorities.
 
-| | |
-|---|---|
-| Read this when | an active incident needs a structured response right now, you are drafting or adapting IR runbooks for your environment, you need regulatory notification deadlines or law-enforcement contacts fast |
-| Start at | [Playbook Index](#playbook-index), [Ransomware Response Playbook (Detailed)](#ransomware-response-playbook-detailed), [Regulatory Notification Deadlines](#regulatory-notification-deadlines) |
-| Pairs with | [Incident Response](disciplines/incident-response.md), [Digital Forensics](disciplines/digital-forensics.md), [Detection Engineering](disciplines/detection-engineering.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Incident responders and teams writing IR runbooks
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 15 min (3,439 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+An active incident needs a structured response right now, you are drafting or adapting IR runbooks for your environment, or you need regulatory notification deadlines or law-enforcement contacts fast
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Playbook Index](#playbook-index), [Ransomware Response Playbook (Detailed)](#ransomware-response-playbook-detailed), [Regulatory Notification Deadlines](#regulatory-notification-deadlines)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Incident Response](disciplines/incident-response.md), [Digital Forensics](disciplines/digital-forensics.md), [Detection Engineering](disciplines/detection-engineering.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, note added on NIST SP 800-61 Rev 3; Cuckoo replaced by CAPEv2 in one row ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 Structured response procedures for the most common incident types. Each playbook follows the NIST SP 800-61 lifecycle: Preparation -> Detection & Analysis -> Containment -> Eradication -> Recovery -> Post-Incident Activity. (NIST SP 800-61 Rev 3, April 2025, reframes this around the CSF 2.0 Functions; the phased flow is retained here as a practical mental model.)
 

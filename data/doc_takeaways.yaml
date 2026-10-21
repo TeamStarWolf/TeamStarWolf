@@ -1,0 +1,7 @@
+# Key takeaways the owner has reviewed. scripts/build_doc_meta.py renders these, and only
+# these, in each page's header card. Drafts wait in data/doc_takeaways.draft.yaml.
+#
+# Per page: reviewed: "YYYY-MM-DD" and items:, a list of 3 to 5 takeaways, each
+# {"text": ..., "from": "#anchor", "quote": ...} on one line, as in the draft file.
+
+pages: {}

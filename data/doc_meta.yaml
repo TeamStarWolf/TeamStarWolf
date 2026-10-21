@@ -1,0 +1,1996 @@
+# Header cards for the root references and learning paths.
+#
+# scripts/build_doc_meta.py reads this file and writes the card at the top of each page,
+# between the meta:start and meta:end markers, so GitHub and the site show the same card.
+# Edit here, run python scripts/build_doc_meta.py, and commit the pages it rewrites; the
+# --check run in CI fails when a page and this file disagree. Every value is JSON on one
+# line, so any YAML reader and the script's own reader see the same data.
+#
+# Per page (keyed by repository path):
+#   audience       who the page is for
+#   level          Beginner, Beginner to intermediate, Intermediate, Intermediate to
+#                  advanced, Advanced, or (learning paths) Beginner to advanced
+#   read_when, start_at, pairs_with
+#                  the page's orientation rows, as Markdown with any '|' escaped;
+#                  start_at has at most 3 links (the check enforces it)
+#   learning_path  the learning path docs/crosslinks.json pairs with a reference; the
+#                  check fails if the two files disagree
+#   corrected      the id of the page's last recorded correction (see corrections:)
+#   corrected_what what that correction changed on this page, when the entry's own
+#                  "what" is too general for it
+#   reviewed       the id of the owner's last whole-page review (see reviews:), or null
+#   fold           sections folded into <details>: "section:<anchor>" folds a section's
+#                  body, "tables:<anchor>" folds each table of more than 40 rows in it
+#
+# corrections: pull requests from the repository history that edited the text of the
+# pages naming them. They are not reviews of the whole page. The card shows them as
+# "Last corrected" (or the entry's label), with what the edit changed on that page and
+# the pull request; an entry with a label (the pages #68 created) shows only its date and
+# pull request, "Added: 2026-09-29 (#68)". "attack" is set only on edits to ATT&CK content (IDs,
+# tactic names, version pins), and only then does the card print the ATT&CK release.
+#
+# reviews: whole-page reviews the owner records (date, what was checked, optionally the
+# ATT&CK release it was checked against and a pull request). None are recorded yet, so
+# every card says "Last reviewed: No review recorded yet". To record one, add an entry
+# here and set reviewed: on each page it covered. "Due for review" is computed only from
+# these dates (text changed more than 90 days after the review), so a correction never
+# resets the clock. If the owner prefers another basis for "Due for review", that is a
+# change to due() in scripts/build_doc_meta.py.
+#
+# clusters: pages that overlap; each gets a "Which page should I read?" note naming the
+# others, with the one-line focus given here.
+#
+# Provenance: read_when, start_at and pairs_with of the references that already had an
+# orientation card were moved here verbatim from the pages on 2026-10-20 (six start_at
+# rows were then trimmed to 3 links). Later on 2026-10-20 every read_when row was reworded
+# as clauses with their subject ("You are planning ..., you need ..., or ..."), with an
+# AI assistant, and the pairs_with links that showed a file name now show the page's
+# title; the targets are unchanged. audience and level for every page, the orientation
+# rows of the references that had none, the read_when and start_at rows of the learning
+# paths, the corrected_what descriptions (each from the pull request's diff of that page)
+# and the cluster notes were drafted with an AI assistant on 2026-10-20; edit any of them
+# freely.
+
+corrections:
+  pr51-tactic-rename:
+    date: "2026-09-27"
+    pr: 51
+    attack: "v19.2"
+    what: "ATT&CK tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment"
+  pr56-audit-fixes:
+    date: "2026-09-29"
+    pr: 56
+    what: "factual errors corrected in an audit"
+  pr62-names-and-versions:
+    date: "2026-09-29"
+    pr: 62
+    what: "tool, product and standard names or versions updated"
+  pr63-regulatory-updates:
+    date: "2026-10-01"
+    pr: 63
+    what: "regulatory dates and requirements updated"
+  pr68-page-added:
+    date: "2026-09-29"
+    pr: 68
+    label: "Added"
+    what: "page created in this pull request"
+  pr83-revoked-ids:
+    date: "2026-10-12"
+    pr: 83
+    attack: "v19.2"
+    what: "revoked ATT&CK IDs re-keyed to their current IDs"
+  pr88-revoked-ids:
+    date: "2026-10-12"
+    pr: 88
+    attack: "v19.2"
+    what: "revoked ATT&CK IDs re-keyed to their current IDs"
+  pr98-text-fix:
+    date: "2026-10-12"
+    pr: 98
+    what: "a low-severity text error corrected"
+  pr118-revoked-citations:
+    date: "2026-10-13"
+    pr: 118
+    attack: "v19.2"
+    what: "revoked and deprecated ATT&CK citations re-keyed to their current IDs"
+  pr120-attack-figures:
+    date: "2026-10-13"
+    pr: 120
+    attack: "v19.2"
+    what: "ATT&CK version pins in example Navigator layers updated"
+  pr120-homelab:
+    date: "2026-10-13"
+    pr: 120
+    what: "Azure lab steps corrected"
+reviews: {}
+pages:
+  ACTIVE_DIRECTORY_ATTACKS.md:
+    audience: "Penetration testers and red teamers"
+    level: "Intermediate to advanced"
+    read_when: "You are scoping an internal AD pentest or red team op, you are mapping a path to Domain Admins, or you are building detections and defenses for a specific AD attack"
+    start_at: "[AD Fundamentals for Attackers](#_1-ad-fundamentals-for-attackers), [Enumeration & Reconnaissance](#_2-enumeration-amp-reconnaissance), [Tools Quick Reference](#_10-tools-quick-reference)"
+    pairs_with: "[Active Directory Attack Reference](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), [Active Directory Security Reference](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md), [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE.md)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "CrackMapExec tool row marked archived, with NetExec named as its successor"
+    reviewed: null
+  ACTIVE_DIRECTORY_ATTACK_REFERENCE.md:
+    audience: "Blue teamers, detection engineers, SOC analysts, and AD administrators"
+    level: "Intermediate"
+    read_when: "You are writing detections for an AD attack (Kerberoasting, DCSync, Golden Ticket, NTLM relay, AD CS/ESC), you are triaging a suspicious Kerberos/LDAP/replication event, or you are hardening a domain against escalation and persistence"
+    start_at: "[AD Reconnaissance & Enumeration](#_1-ad-reconnaissance-amp-enumeration-defender-view), [Detection & Hardening Summary](#_10-detection-amp-hardening-summary), [Kerberoasting](#_2-kerberoasting)"
+    pairs_with: "[Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md) (red-team offensive playbook: exact exploit chains, trust attacks, tool table), [Active Directory Security Reference](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE.md), [Identity Security Reference](IDENTITY_SECURITY_REFERENCE.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md)"
+    learning_path:
+      - "disciplines/active-directory.md"
+    reviewed: null
+  ACTIVE_DIRECTORY_SECURITY_REFERENCE.md:
+    audience: "Blue teamers, SOC analysts, detection engineers, and AD administrators"
+    level: "Intermediate"
+    read_when: "You are triaging an AD attack alert (Kerberoasting, DCSync, Golden Ticket) and need the event IDs and hunting queries, you are hardening a domain or its DCs, or you are building AD detection coverage in your SIEM"
+    start_at: "[Critical Event IDs Reference Table](#_9-detection-engineering-for-ad), [Kerberos Attack Detection](#_3-kerberos-attack-detection), [AD Architecture & Security Fundamentals](#_1-ad-architecture-amp-security-fundamentals)"
+    pairs_with: "[Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md), [Active Directory Attack Reference](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Identity Security Reference](IDENTITY_SECURITY_REFERENCE.md)"
+    learning_path:
+      - "disciplines/active-directory.md"
+    reviewed: null
+  AGENTIC_AI_ATTACK_REFERENCE.md:
+    audience: "Security engineers, detection engineers, and threat modelers responsible for platforms that run autonomous AI agents"
+    level: "Intermediate to advanced"
+    read_when: "You are threat-modeling a platform where many autonomous AI agents share credentials and infrastructure, or you are mapping agent-driven intrusion activity to ATT&CK and ATLAS"
+    start_at: "[Overview](#overview), [The Kill Chain](#the-kill-chain), [Detection Opportunities](#detection-opportunities)"
+    learning_path: []
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1562.001 re-keyed to T1685"
+    reviewed: null
+  AI_ARCHITECTURE_REFERENCE.md:
+    audience: "Architects and engineers designing ML platforms and LLM, RAG, or agent applications"
+    level: "Intermediate"
+    read_when: "You are designing a new ML platform or LLM/RAG/agent application, you are reviewing an AI reference architecture, you are deciding train-vs-buy / serving topology / RAG vs fine-tune, you are standing up MLOps/LLMOps, or you are preparing an AI architecture review board"
+    start_at: "[Principles & Drivers](#_1-principles-amp-drivers), [Reference Architectures & Patterns](#_2-reference-architectures-amp-patterns), [Maturity & Checklist](#_8-maturity-amp-checklist)"
+    pairs_with: "[AI Infrastructure & MLOps Security](AI_INFRASTRUCTURE_SECURITY_REFERENCE.md), [AI & MCP Security Reference](AI_MCP_SECURITY_REFERENCE.md), [AI Security Reference](AI_SECURITY_REFERENCE.md), [Agentic AI Swarm Attacks](AGENTIC_AI_ATTACK_REFERENCE.md), [ATLAS Reference (AI threats)](ATLAS_REFERENCE.md), [Security Architecture Reference](SECURITY_ARCHITECTURE_REFERENCE.md), [Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
+  AI_INFRASTRUCTURE_SECURITY_REFERENCE.md:
+    audience: "Security and platform engineers hardening ML platforms, model registries, and inference servers"
+    level: "Intermediate to advanced"
+    read_when: "You are threat-modeling or hardening an ML platform (registry, feature store, inference tier), you are reviewing whether it is safe to load a third-party model artifact, you are standing up model signing or SBOM-for-models, you are securing a Jupyter/Kubeflow environment, or you are triaging a CVE in an AI-serving component"
+    start_at: "[The AI Infrastructure Attack Surface](#_1-the-ai-infrastructure-attack-surface), [Unsafe Model Deserialization](#_2-model-serialization-amp-unsafe-deserialization), [Consolidated Hardening Checklist](#_10-consolidated-hardening-checklist)"
+    pairs_with: "[AI Security Reference](AI_SECURITY_REFERENCE.md), [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Agentic AI Swarm Attacks](AGENTIC_AI_ATTACK_REFERENCE.md), [DevSecOps Reference](DEVSECOPS_REFERENCE.md), [Kubernetes Security Reference](KUBERNETES_SECURITY_REFERENCE.md)"
+    learning_path: []
+    corrected: "pr68-page-added"
+    reviewed: null
+  AI_MCP_SECURITY_REFERENCE.md:
+    audience: "Engineers and security reviewers who deploy, harden, or threat-model MCP servers and LLM agents"
+    level: "Intermediate"
+    read_when: "You are evaluating or hardening an MCP server deployment, you are threat-modeling an LLM app or AI agent, or you are mapping AI risks to ATLAS/OWASP/NIST or EU AI Act obligations"
+    start_at: "[MCP Security Threat Model](#_2-mcp-security-threat-model), [MCP Security Hardening](#_3-mcp-security-hardening), [Quick Reference: Security Checklists](#quick-reference-security-checklists)"
+    pairs_with: "[AI Security Reference](AI_SECURITY_REFERENCE.md), [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md), [ATLAS Reference (AI threats)](ATLAS_REFERENCE.md), [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md)"
+    learning_path: []
+    corrected: "pr63-regulatory-updates"
+    corrected_what: "EU AI Act timeline updated for the deferral of the high-risk obligations"
+    reviewed: null
+  AI_OFFENSIVE_SECURITY_REFERENCE.md:
+    audience: "Security leaders, vulnerability managers, and red teams sizing AI-assisted attack risk"
+    level: "Intermediate"
+    read_when: "You are sizing up AI-assisted attack risk, you are tightening patch SLAs to match AI exploitation speed, or you are planning an authorized AI red team engagement"
+    start_at: "[The AI Security Revolution](#section-1-the-ai-security-revolution), [Defending Against AI Attackers](#section-6-defending-against-ai-attackers), [Getting Started: Safe AI Security Assessment](#getting-started-safe-ai-security-assessment)"
+    pairs_with: "[AI Security Reference](AI_SECURITY_REFERENCE.md), [AI & MCP Security Reference](AI_MCP_SECURITY_REFERENCE.md), [CVE Reference](CVE_REFERENCE.md), [Red Team Reference](RED_TEAM_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
+  AI_SECURITY_REFERENCE.md:
+    audience: "Engineers and security reviewers building or assessing LLM applications, and SOC teams using LLMs"
+    level: "Intermediate"
+    read_when: "You are threat-modeling or reviewing an LLM application before deployment, you are investigating a suspected prompt injection or model extraction attempt, you are choosing guardrails or PII controls for an AI pipeline, or you are mapping AI risks to compliance frameworks"
+    start_at: "[OWASP LLM Top 10 (2025)](#owasp-llm-top-10-2025), [Prompt Injection Deep Dive](#prompt-injection-deep-dive), [Quick Reference: AI Security Checklist](#quick-reference-ai-security-checklist)"
+    pairs_with: "[AI & MCP Security Reference](AI_MCP_SECURITY_REFERENCE.md), [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md), [ATLAS Reference (AI threats)](ATLAS_REFERENCE.md), [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md)"
+    learning_path:
+      - "disciplines/ai-llm-security.md"
+    corrected: "pr62-names-and-versions"
+    corrected_what: "note added on the 2026 OWASP Top 10 for LLM Applications"
+    reviewed: null
+  API_SECURITY_REFERENCE.md:
+    audience: "API pentesters, developers, and security engineers"
+    level: "Intermediate"
+    read_when: "You are pentesting a REST/GraphQL/gRPC API, you are reviewing an API's authentication and authorization design, or you are wiring API security tests and linting into a CI/CD pipeline"
+    start_at: "[OWASP API Security Top 10 2023](#_2-owasp-api-security-top-10-2023), [API Penetration Testing](#_8-api-penetration-testing), [API Security in CI/CD](#_9-api-security-in-cicd)"
+    pairs_with: "[Web Application Security Reference](WEB_APPLICATION_SECURITY_REFERENCE.md), [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md), [Identity & Access Management Reference](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [DevSecOps Reference](DEVSECOPS_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
+  ARCHITECTURE_REFERENCE.md:
+    audience: "Solution and enterprise architects, and security reviewers who assess system designs"
+    level: "Intermediate"
+    learning_path: []
+    reviewed: null
+  ATLAS_REFERENCE.md:
+    audience: "Security engineers, threat modelers, and red teams working on AI and ML systems"
+    level: "Intermediate"
+    read_when: "You need to map an attack on an AI/ML system to a named technique ID, you are threat-modeling an LLM, RAG, or AI-agent deployment, or you want the mitigations ATLAS pairs with a given AI attack technique"
+    start_at: "[The ATLAS matrix](#the-atlas-matrix) for the 16-tactic overview, [Execution](#execution) for prompt injection and agent-tool techniques, [ATLAS mitigations](#atlas-mitigations) for the defensive side"
+    learning_path:
+      - "disciplines/adversarial-ai-attacks.md"
+    reviewed: null
+  ATTACK_CAMPAIGNS_REFERENCE.md:
+    audience: "Threat intelligence analysts and incident responders"
+    level: "Intermediate"
+    read_when: "You need the technique set or timeline of a named intrusion campaign, you are checking whether activity you are investigating matches a tracked campaign, or you want the campaigns attributed to a specific group"
+    start_at: "[All campaigns](#all-campaigns) for the sortable index, [Detailed profiles](#detailed-profiles) for per-campaign technique lists"
+    pairs_with: "[Threat Group Profiles](THREAT_GROUP_PROFILES.md), [Notable Incidents](NOTABLE_INCIDENTS.md)"
+    learning_path: []
+    corrected: "pr118-revoked-citations"
+    corrected_what: "revoked T1562 sub-techniques and T1656 re-keyed to their successors (T1684.001, T1685, T1685.001, T1686, T1689, T1690), each marked with the ID it replaces"
+    reviewed: null
+  ATTACK_DATA_COMPONENTS.md:
+    audience: "Detection engineers, SOC leads, and logging and SIEM owners"
+    level: "Intermediate"
+    read_when: "You are planning or auditing logging coverage, you are deciding which log sources to onboard for a detection, or you are checking whether a technique's required telemetry exists in your environment"
+    start_at: "[Process Creation](#process-creation), [Command Execution](#command-execution), [Detail](#detail)"
+    pairs_with: "[Detection Strategies](detections/strategies/README.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "ATT&CK version in the introduction updated from v18.1 to v19.2"
+    reviewed: null
+    fold:
+      - "tables:detail"
+  ATTACK_MATRIX_ANALYSIS_REFERENCE.md:
+    audience: "Threat-informed defense analysts and ATTACK-Navi users"
+    level: "Intermediate"
+    read_when: "You are choosing which heatmap mode answers your coverage question, you are prioritizing techniques by threat activity or exploitation urgency, or you are sanity-checking what a gradient score does and does not prove"
+    start_at: "[An analysis workflow](#an-analysis-workflow), [Lens family 1 - Mitigation & control coverage](#lens-family-1-mitigation-amp-control-coverage), [Reading the scores safely](#reading-the-scores-safely)"
+    pairs_with: "[Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md), [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md), [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
+  ATTACK_MITIGATIONS_REFERENCE.md:
+    audience: "Security architects and engineers turning ATT&CK techniques into hardening work"
+    level: "Intermediate"
+    read_when: "You are prioritizing which defensive measures buy the most technique coverage, you are translating an ATT&CK technique into concrete hardening steps, or you are building or reviewing a mitigation-to-control mapping"
+    start_at: "[Mitigations by coverage](#mitigations-by-coverage) for the ranked table, [Detail](#detail) for per-mitigation descriptions and example techniques"
+    pairs_with: "[Controls Mapping](CONTROLS_MAPPING.md), [D3FEND Countermeasure Reference](D3FEND_REFERENCE.md), [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md)"
+    learning_path: []
+    corrected: "pr118-revoked-citations"
+    corrected_what: "revoked T1562, T1070.001, T1070.002 and T1656 IDs re-keyed to their successors (T1685 and its sub-techniques, T1686, T1688, T1690, T1684.001), each marked with the ID it replaces"
+    reviewed: null
+  ATTACK_SOFTWARE_REFERENCE.md:
+    audience: "Threat intelligence analysts, malware analysts, and detection engineers"
+    level: "Intermediate"
+    read_when: "You need to identify what a named malware or tool can do, you are scoping detections around the software a threat group deploys, or you want the most technique-rich software to prioritize coverage against"
+    start_at: "[All software by technique breadth](#all-software-by-technique-breadth), [Detailed profiles - most capable software](#detailed-profiles-most-capable-software)"
+    pairs_with: "[Threat Group Profiles](THREAT_GROUP_PROFILES.md), [Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md), [Malware Families](MALWARE_FAMILIES.md)"
+    learning_path: []
+    corrected: "pr118-revoked-citations"
+    corrected_what: "revoked T1070.001 re-keyed to T1685.005"
+    reviewed: null
+  ATTACK_TECHNIQUE_ATLAS.md:
+    audience: "Detection engineers, threat-informed defense analysts, and anyone looking up an ATT&CK technique"
+    level: "Intermediate"
+    read_when: "You need to look up any ATT&CK technique fast, you want to see which techniques are heavily used by groups but light on mitigations or detections, or you are prioritizing coverage across a whole tactic"
+    start_at: "[Tactics](#tactics) for the per-tactic index, [Initial Access](#initial-access) or [Defense Evasion](#defense-evasion) to see the scoring columns in action"
+    learning_path: []
+    reviewed: null
+  AUTOMOTIVE_SECURITY_REFERENCE.md:
+    audience: "Automotive and embedded security engineers, and vehicle penetration testers"
+    level: "Intermediate to advanced"
+    read_when: "You are scoping a vehicle or ECU penetration test, you are investigating how a car got remotely compromised, or you are learning why CAN and OBD-II have no built-in authentication"
+    start_at: "[CAN Bus Security](#_2-can-bus-security), [Automotive Attack Surface](#_1-automotive-attack-surface), [Automotive Penetration Testing](#_10-automotive-penetration-testing)"
+    pairs_with: "[ICS/OT Security Reference](ICS_OT_SECURITY_REFERENCE.md), [Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE.md), [Hardware Security Reference](HARDWARE_SECURITY_REFERENCE.md), [SDR & RF Security Reference](SDR_RF_SECURITY_REFERENCE.md)"
+    learning_path: []
+    corrected: "pr51-tactic-rename"
+    corrected_what: "Defense Evasion row (disabling security access logging, suppressing DTC codes) renamed Defense Impairment"
+    reviewed: null
+  BLOCKCHAIN_SECURITY_REFERENCE.md:
+    audience: "Smart contract auditors, blockchain developers, and incident responders handling on-chain exploits"
+    level: "Intermediate to advanced"
+    read_when: "You are reviewing or auditing a smart contract before deployment, you are investigating a DeFi exploit or suspicious on-chain activity, or you are hardening exchange or wallet operations"
+    start_at: "[Smart Contract Vulnerabilities](#_2-smart-contract-vulnerabilities), [DeFi Attack Case Studies](#_3-defi-attack-case-studies), [Incident Response for Blockchain](#_10-incident-response-for-blockchain)"
+    pairs_with: "[Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md), [Secure Coding Reference](SECURE_CODING_REFERENCE.md), [Fight Fraud Framework (MITRE F3)](FRAUD_FRAMEWORK_REFERENCE.md)"
+    learning_path:
+      - "disciplines/blockchain-web3-security.md"
+    corrected: "pr51-tactic-rename"
+    corrected_what: "Defense Evasion row (fund obfuscation) renamed Stealth"
+    reviewed: null
+  BROWSER_SECURITY_REFERENCE.md:
+    audience: "Web developers, application security engineers, and penetration testers"
+    level: "Intermediate"
+    read_when: "You are hardening a web app's response headers and cookies, you are reviewing a CORS or CSP configuration, or you are explaining why a browser boundary (same-origin, framing, storage) blocks or allows a request"
+    start_at: "[Same-Origin Policy (SOP)](#_2-same-origin-policy-sop), [Security Headers Reference](#_5-security-headers-reference), [Browser Security Configuration Checklist](#_12-browser-security-configuration-checklist)"
+    pairs_with: "[Web Application Security Reference](WEB_APPLICATION_SECURITY_REFERENCE.md), [API Security Reference](API_SECURITY_REFERENCE.md), [Secure Coding Reference](SECURE_CODING_REFERENCE.md), [CWE Weakness Reference](CWE_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
+  CAPEC_REFERENCE.md:
+    audience: "Application security engineers, threat modelers, and vulnerability analysts"
+    level: "Intermediate"
+    read_when: "You have a CWE weakness and need the attack patterns that exploit it, you need to pivot from an attack pattern to the ATT&CK techniques it maps to, or you are triaging which high-severity patterns touch your stack"
+    start_at: "[Attack patterns mapped to ATT&CK](#attack-patterns-mapped-to-attampck) for the direct CAPEC-to-ATT&CK bridge, [High-severity attack patterns](#high-severity-attack-patterns) for severity-first triage"
+    learning_path: []
+    corrected: "pr118-revoked-citations"
+    corrected_what: "revoked T1562 sub-techniques and T1574.002 in the ATT&CK mapping column re-keyed to their successors, each marked with the ID it replaces"
+    reviewed: null
+  CAREER_PATHS.md:
+    audience: "People entering security, and practitioners planning their next role"
+    level: "Beginner"
+    read_when: "You are planning your next role or promotion, you are comparing salary and skill expectations across security jobs, or you are mapping a pivot from IT, development, military, or finance into security"
+    start_at: "[Overview: The Career Landscape](#overview-the-career-landscape), [Transition Paths](#transition-paths), [Job Search Strategy](#job-search-strategy)"
+    pairs_with: "[Certifications Reference](CERTIFICATIONS.md), [Hands-On Labs](LABS.md), [Security Tools Reference](TOOLS.md), [HTB Learning Tracks](research/HTB_TRACKS.md)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "Lacework renamed Lacework FortiCNAPP in one tools list"
+    reviewed: null
+  CEH_DOMAIN_CROSSWALK.md:
+    audience: "Candidates preparing for the CEH v13 knowledge exam"
+    level: "Beginner to intermediate"
+    read_when: "You are studying for the CEH knowledge exam, you are deciding where in this library to prepare each domain, or you are checking which topics this library covers versus what needs official EC-Council courseware"
+    start_at: "[At a glance](#at-a-glance) for the domain-and-weight table, [The domain crosswalk](#the-domain-crosswalk) for the per-domain mapping, [Study-plan skeleton](#study-plan-skeleton) to sequence the work"
+    learning_path: []
+    reviewed: null
+  CERTIFICATIONS.md:
+    audience: "People choosing a first or next security certification"
+    level: "Beginner"
+    read_when: "You are choosing your first or next security cert, you are comparing costs before asking for training budget, or you are checking a cert's renewal or DoD 8570 status"
+    start_at: "[Quick Selection Guide](#quick-selection-guide), [Certification Progression Map](#certification-progression-map), [Exam Preparation Tips](#exam-preparation-tips)"
+    pairs_with: "[Career Paths & Cert Roadmap](CAREER_PATHS.md), [Hands-On Labs](LABS.md), [Security Tools Reference](TOOLS.md)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "Azure AD renamed Microsoft Entra ID in one table row"
+    reviewed: null
+  CISSP_DOMAIN_CROSSWALK.md:
+    audience: "Practitioners planning a CISSP study campaign"
+    level: "Intermediate"
+    read_when: "You are planning a CISSP study campaign and want to reuse what this library already teaches, or you are a strong engineer trying to find the *management* and *theory* blind spots the exam punishes"
+    start_at: "[The eight domains at a glance](#the-eight-domains-at-a-glance) for the weight-and-coverage map, [Exam format](#exam-format) for how the CAT actually behaves, [A twelve-week study plan](#a-twelve-week-study-plan) to run the campaign"
+    learning_path: []
+    reviewed: null
+  CLOUD_ARCHITECTURE_REFERENCE.md:
+    audience: "Cloud architects, platform engineers, and security reviewers of cloud designs"
+    level: "Intermediate"
+    learning_path: []
+    reviewed: null
+  CLOUD_ATTACK_REFERENCE.md:
+    audience: "Defensive security engineers and incident responders working in AWS, Azure, GCP, and Kubernetes"
+    level: "Intermediate to advanced"
+    read_when: "You are building or tuning cloud detections, you are running IR on a suspected AWS/Azure/GCP or Kubernetes compromise, or you are planning a red/purple-team cloud engagement"
+    start_at: "[Cloud Attack Taxonomy & Initial Access](#_1-cloud-attack-taxonomy-amp-initial-access), [AWS Attack Techniques](#_2-aws-attack-techniques), [Cloud Security Posture & Detection](#_10-cloud-security-posture-amp-detection)"
+    pairs_with: "[Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md), [Kubernetes Security Reference](KUBERNETES_SECURITY_REFERENCE.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md)"
+    learning_path: []
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1562 re-keyed to T1685"
+    reviewed: null
+  CLOUD_NETWORK_SECURITY.md:
+    audience: "Cloud network and security engineers working across AWS, Azure, and GCP"
+    level: "Intermediate"
+    read_when: "You are designing or reviewing VPC and VNet segmentation, firewall, WAF, or private-connectivity controls, or you are comparing the same network control across AWS, Azure, and GCP"
+    start_at: "[AWS Network Security](#aws-network-security), [Cross-Cloud Comparison](#cross-cloud-comparison), [Compliance Mappings](#compliance-mappings)"
+    learning_path: []
+    reviewed: null
+  CLOUD_SAAS_MOBILE_FORENSICS_REFERENCE.md:
+    audience: "Incident responders and forensic examiners handling cloud, SaaS, identity, and mobile evidence"
+    level: "Intermediate to advanced"
+    read_when: "You are responding to a cloud/SaaS/identity incident and there is no server to image, you need to acquire logs before a retention window closes, you are collecting an iOS/Android device for exam, or you must preserve cloud evidence defensibly for legal hold"
+    start_at: "[Cloud forensic readiness](#cloud-forensic-readiness), [Mobile acquisition workflows](#mobile-acquisition-workflows), [Incident quick-start checklist](#incident-quick-start-checklist)"
+    pairs_with: "[Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md), [SaaS Security Reference](SAAS_SECURITY_REFERENCE.md), [Mobile Security Reference](MOBILE_SECURITY_REFERENCE.md), [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md)"
+    learning_path: []
+    corrected: "pr68-page-added"
+    reviewed: null
+  CLOUD_SECURITY_BENCHMARK.md:
+    audience: "Cloud engineers and auditors hardening AWS, Azure, and GCP accounts"
+    level: "Intermediate"
+    read_when: "You inherit or stand up a cloud account and need to harden it fast, an audit asks for CIS Benchmark evidence, or you are picking or running a CSPM scanner like Prowler or ScoutSuite"
+    start_at: "[Cloud Security Quickstart Checklist](#cloud-security-quickstart-checklist), [AWS CIS Benchmark (v3.0; current release v7.0.0)](#aws-cis-benchmark-v30), [CSPM Tool Reference](#cspm-tool-reference)"
+    pairs_with: "[Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [Cloud Security Discipline](disciplines/cloud-security.md), [Frameworks Reference](FRAMEWORKS.md), [Controls Mapping](CONTROLS_MAPPING.md)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "notes added on the current CIS AWS, Azure and GCP benchmark releases; Lacework renamed FortiCNAPP"
+    reviewed: null
+  CLOUD_SECURITY_REFERENCE.md:
+    audience: "Cloud security engineers and cloud penetration testers"
+    level: "Intermediate to advanced"
+    read_when: "You need to look up an AWS/Azure/GCP security control or its configuration, you are chasing a cloud privilege-escalation or metadata-service (IMDS/SSRF) attack path, or you are picking the right offensive/CSPM tool (Pacu, ROADtools, PMapper, Prowler) for a cloud engagement"
+    start_at: "[AWS Security Fundamentals](#_1-aws-security-fundamentals), [Multi-Cloud Attack Tools](#_6-multi-cloud-attack-tools), [Cloud IAM Security & Least Privilege](#_7-cloud-iam-security-amp-least-privilege)"
+    pairs_with: "[Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [Cloud Security Benchmark](CLOUD_SECURITY_BENCHMARK.md), [Kubernetes Security Reference](KUBERNETES_SECURITY_REFERENCE.md), [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md)"
+    learning_path:
+      - "disciplines/cloud-security.md"
+    corrected: "pr63-regulatory-updates"
+    corrected_what: "PCI DSS version updated to v4.0.1 in one line"
+    reviewed: null
+  CONTAINER_SECURITY_REFERENCE.md:
+    audience: "DevOps, platform, and security engineers who build and run containers"
+    level: "Intermediate"
+    read_when: "You are hardening a Dockerfile or image before it ships to production, you are investigating a privileged-container or container-escape finding, or you are building image scanning and signing into a CI/CD pipeline"
+    start_at: "[Container Security Fundamentals](#_1-container-security-fundamentals), [Dockerfile Security Best Practices](#_3-dockerfile-security-best-practices), [Container Escape Techniques and Defense](#_6-container-escape-techniques-and-defense)"
+    pairs_with: "[Kubernetes Security Reference](KUBERNETES_SECURITY_REFERENCE.md), [DevSecOps Reference](DEVSECOPS_REFERENCE.md), [Secrets Management Reference](SECRETS_MANAGEMENT_REFERENCE.md), [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md)"
+    learning_path:
+      - "disciplines/container-kubernetes-security.md"
+    corrected: "pr62-names-and-versions"
+    corrected_what: "notes added on the Docker Content Trust retirement and CIS Docker Benchmark v1.8.0"
+    reviewed: null
+  CONTROLS_MAPPING.md:
+    audience: "Security architects, GRC analysts, and engineers building control-coverage maps"
+    level: "Intermediate"
+    read_when: "You are tracing a security product to the NIST 800-53 controls it implements and on to the ATT&CK techniques those controls mitigate, or you are downloading CTID mapping data for gap scoring"
+    start_at: "[Vendor to NIST Control to ATT&CK Coverage](#vendor-to-nist-control-to-attampck-coverage), [Key ATT&CK Technique to NIST Control Reference](#key-attampck-technique-to-nist-control-reference), [Using CTID Data for Gap Scoring](#using-ctid-data-for-gap-scoring)"
+    learning_path: []
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1562 re-keyed to T1685"
+    reviewed: null
+  COVERAGE_SCHEMA.md:
+    audience: "Engineers and analysts who build or query the vendor coverage gap data"
+    level: "Intermediate"
+    read_when: "You are building or querying the vendor-to-control-to-technique edge tables, or you are scoring coverage gaps against ATT&CK through NIST 800-53 controls"
+    start_at: "[Data Model Overview](#data-model-overview), [Canonical on-disk schema (CI-enforced)](#canonical-on-disk-schema-ci-enforced), [Gap Scoring Logic](#gap-scoring-logic)"
+    learning_path: []
+    corrected: "pr120-attack-figures"
+    corrected_what: "ATT&CK version pins in two example Navigator layers updated"
+    reviewed: null
+  CPE_REFERENCE.md:
+    audience: "Vulnerability management and asset inventory teams"
+    level: "Beginner to intermediate"
+    read_when: "You are matching CVE feeds to the products you run, you are resolving SBOM components to product identifiers, or you are debugging why a scanner does or does not flag an asset"
+    start_at: "[Where CPE fits in the ecosystem](#where-cpe-fits-in-the-ecosystem), [CPE applicability: how CVEs map to products](#cpe-applicability-how-cves-map-to-products), [Practical notes & pitfalls](#practical-notes-amp-pitfalls)"
+    learning_path: []
+    reviewed: null
+  CRYPTOGRAPHY_REFERENCE.md:
+    audience: "Security engineers, developers, and penetration testers who choose or review cryptography"
+    level: "Intermediate to advanced"
+    read_when: "You are choosing a cipher, mode, key size, or password-hashing function, you are reviewing a cryptographic design or implementation, or you are explaining a cryptographic attack"
+    start_at: "[Symmetric Cryptography](#_1-symmetric-cryptography), [AES-GCM Deep Dive](#_13-aes-gcm-deep-dive), [Key Derivation Functions (KDFs)](#_16-key-derivation-functions-kdfs)"
+    learning_path:
+      - "disciplines/cryptography-pki.md"
+    corrected: "pr56-audit-fixes"
+    corrected_what: "TLS 1.3 cipher-suite requirement and the list of hashes open to length extension corrected"
+    reviewed: null
+  CTEM_REFERENCE.md:
+    audience: "Vulnerability management leads, security program managers, and CISOs"
+    level: "Intermediate"
+    read_when: "You are standing up or rebooting an exposure-management program, your vulnerability queue is ranked by CVSS alone and nobody trusts it, or you need to explain to leadership what CTEM is and why the loop beats scan-and-patch"
+    start_at: "[The five stages](#the-five-stages) for the loop itself, [A 90-day starting plan](#a-90-day-starting-plan) to run a first cycle, [Free and open tooling by stage](#free-and-open-tooling-by-stage) to start without procurement"
+    learning_path: []
+    reviewed: null
+  CTF_METHODOLOGY.md:
+    audience: "CTF players and practitioners sharpening offensive and forensic skills"
+    level: "Beginner to intermediate"
+    read_when: "You are prepping for or mid-competition in a CTF, you need the standard attack playbook and tooling for a specific category (web, forensics, crypto, RE, pwn, OSINT, stego), or you want ready-to-paste one-liners and platform recommendations to practice on"
+    start_at: "[General CTF Strategy](#_1-general-ctf-strategy), [CTF Platform Quick Reference](#_9-ctf-platform-quick-reference), [Useful One-Liners and Quick Reference](#_10-useful-one-liners-and-quick-reference)"
+    pairs_with: "[Hands-On Labs](LABS.md), [Reverse Engineering Reference](REVERSE_ENGINEERING_REFERENCE.md), [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md), [OSINT Reference](OSINT_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
+  CVE_REFERENCE.md:
+    audience: "Vulnerability analysts, patch managers, and engineers automating CVE enrichment"
+    level: "Intermediate"
+    read_when: "You are deciding which vulnerabilities to patch first, you are scoring a new CVE with CVSS v3.1 or v4.0, or you are building automated CVE/EPSS/KEV enrichment pipelines"
+    start_at: "[CVSS v3.1 Deep Dive](#_2-cvss-v31-deep-dive), [EPSS: Exploit Prediction Scoring System](#_4-epss-exploit-prediction-scoring-system), [CISA KEV Catalog](#_5-cisa-kev-catalog)"
+    pairs_with: "[CWE Reference](CWE_REFERENCE.md), [CTEM Reference](CTEM_REFERENCE.md), [Fuzzing & Vulnerability Research](FUZZING_VULNERABILITY_RESEARCH.md), [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md)"
+    learning_path: []
+    corrected: "pr63-regulatory-updates"
+    corrected_what: "BOD 22-01 paragraph rewritten for BOD 26-04"
+    reviewed: null
+  CWE_REFERENCE.md:
+    audience: "Application security engineers, secure-coding trainers, and vulnerability analysts"
+    level: "Intermediate"
+    read_when: "A CVE cites a CWE and you need to know what the underlying weakness actually is, you are prioritizing secure-coding or testing work by weakness type, or you want to know which weaknesses attackers target most"
+    start_at: "[Most-attacked weaknesses](#most-attacked-weaknesses) for the CAPEC-ranked hit list, [Pillars](#pillars-the-top-level-weakness-categories) for the top-level taxonomy, [Weakness classes](#weakness-classes) for the practical class-level view"
+    learning_path: []
+    reviewed: null
+  CYBERSECURITY_BOOK_LIST.md:
+    audience: "Learners and practitioners choosing what to read and practice next"
+    level: "Beginner"
+    read_when: "You are choosing what to study next for a role or skill area, you are building a lab-first study plan, or you are looking for the standard book plus hands-on repos in a domain"
+    start_at: "[Learning Paths](#learning-paths), [How To Use This File](#how-to-use-this-file), [Core / Must-Read](#core-must-read-high-signal)"
+    pairs_with: "[Resources](RESOURCES.md), [Hands-On Labs](LABS.md), [Black Hat Arsenal crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md)"
+    learning_path: []
+    reviewed: null
+  CYBER_RESILIENCE_BCDR_REFERENCE.md:
+    audience: "Business continuity, disaster recovery, and security leaders planning for cyber scenarios"
+    level: "Intermediate"
+    read_when: "You are writing or overhauling a DR/BC plan for cyber scenarios, you are setting or defending RTO/RPO/MTD targets, or you are planning an AD forest recovery or a DR exercise program"
+    start_at: "[Scope & how to use this reference](#scope-amp-how-to-use-this-reference), [How cyber scenarios break classical DR assumptions](#how-cyber-scenarios-break-classical-dr-assumptions), [Identity recovery first](#identity-recovery-first)"
+    learning_path: []
+    reviewed: null
+  D3FEND_REFERENCE.md:
+    audience: "Defensive engineers and threat-informed defense analysts choosing countermeasures"
+    level: "Intermediate"
+    read_when: "You know which ATT&CK technique threatens you and need the countermeasures that blunt it, you are planning defensive coverage across Model/Harden/Detect/Isolate/Deceive/Evict/Restore, or you want the machine-readable ATT&CK-to-D3FEND mapping for tooling"
+    start_at: "[The 7 defensive tactics](#the-7-defensive-tactics) for the lay of the land, [Detect](#detect) for the largest tactic (56 techniques), [ATT&CK technique to D3FEND countermeasures](#attampck-technique-to-d3fend-countermeasures-most-covered) to work backward from a threat"
+    pairs_with: "[Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md), [CVE Reference](CVE_REFERENCE.md), [Engage Reference (deception)](ENGAGE_REFERENCE.md), [Controls Mapping](CONTROLS_MAPPING.md)"
+    learning_path: []
+    corrected: "pr118-revoked-citations"
+    corrected_what: "revoked ICS IDs (T0803, T0805, T0812, T0839, T0857, T0891) and Enterprise T1562 and T1070 sub-techniques re-keyed to their successors, each marked with the ID it replaces"
+    reviewed: null
+  DATABASE_SECURITY_REFERENCE.md:
+    audience: "Database administrators, data platform engineers, and security engineers who harden data stores"
+    level: "Intermediate"
+    read_when: "You are hardening a new or existing DBMS, you are writing a database baseline/benchmark, you are scoping DAM or audit-log coverage, you are responding to an exposed-database finding, you are reviewing least-privilege on a DB, or you are building the data-tier controls of a Zero Trust or PCI/HIPAA program"
+    start_at: "[The database attack surface](#the-database-attack-surface), [Universal hardening baseline](#universal-hardening-baseline), then the [Defender checklist](#defender-checklist)"
+    pairs_with: "[Data Security Reference](DATA_SECURITY_REFERENCE.md), [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md), [Secrets Management Reference](SECRETS_MANAGEMENT_REFERENCE.md), [Identity & Access Management Reference](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md), [Web Application Security Reference](WEB_APPLICATION_SECURITY_REFERENCE.md)"
+    learning_path: []
+    corrected: "pr68-page-added"
+    reviewed: null
+  DATA_SECURITY_REFERENCE.md:
+    audience: "Data protection, privacy, and security program leads"
+    level: "Intermediate"
+    read_when: "You are standing up or maturing a data protection program, you are tuning a noisy DLP deployment, you are choosing between DSPM/DLP/DDR vendor categories, or you are scoping classification tiers or egress controls"
+    start_at: "[Scope & how to use this reference](#scope-amp-how-to-use-this-reference) to route yourself, [The data security program model](#the-data-security-program-model) for the five-capability loop, [A 90-day program bootstrap](#a-90-day-program-bootstrap) if starting from scratch"
+    learning_path:
+      - "disciplines/data-security.md"
+    reviewed: null
+  DECEPTION_TECHNOLOGY_REFERENCE.md:
+    audience: "Detection engineers and SOC teams adding deception to their detection stack"
+    level: "Intermediate"
+    read_when: "You are planning your first honeypot or honeytoken deployment, you need near-zero false-positive detection for lateral movement or credential theft, or you are evaluating deception platforms or writing SIEM rules for decoy assets"
+    start_at: "[Deception Technology Fundamentals](#deception-technology-fundamentals) for why deception works, [Honeytokens](#honeytokens) for the fastest wins (CanaryTokens, AWS keys, AD honey users), [Deception Deployment Strategy](#deception-deployment-strategy) for breadcrumbs and alert pipelines"
+    pairs_with: "[Engage Reference (deception)](ENGAGE_REFERENCE.md), [Honeypot & Deception Reference](HONEYPOT_DECEPTION_REFERENCE.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [SIEM Detection Content](SIEM_DETECTION_CONTENT.md)"
+    learning_path:
+      - "disciplines/active-defense-deception.md"
+    reviewed: null
+  DEEPFAKE_DEFENSE_REFERENCE.md:
+    audience: "Finance, fraud, security awareness, and incident response teams"
+    level: "Beginner to intermediate"
+    read_when: "You are building controls so an impersonated executive cannot authorize a payment; a suspected voice/video deepfake just hit Finance, the SOC, or a KYC flow; you are writing a wire-transfer approval policy, an awareness module, or an IR runbook for BEC/vishing; or you are evaluating deepfake-detection or liveness vendors"
+    start_at: "[Anatomy of the finance-approval scam](#anatomy-of-the-finance-approval-video-call-scam), [Layer 1: Process & policy controls](#layer-1-process-amp-policy-controls-the-strongest-layer), [Deepfake-defense checklist](#deepfake-defense-checklist)"
+    pairs_with: "[Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md), [Fight Fraud Framework (MITRE F3)](FRAUD_FRAMEWORK_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md), [Email Security Reference](EMAIL_SECURITY_REFERENCE.md), [Identity Security Reference](IDENTITY_SECURITY_REFERENCE.md), [AI Security Reference](AI_SECURITY_REFERENCE.md)"
+    learning_path: []
+    corrected: "pr68-page-added"
+    reviewed: null
+  DETECTION_RULES_REFERENCE.md:
+    audience: "Detection engineers and SOC analysts who write and tune rules"
+    level: "Intermediate"
+    read_when: "You need to author a detection for a new technique or CVE, you are converting Sigma rules to your SIEM's query language, or you are tuning a noisy rule or validating that a deployed rule actually fires"
+    start_at: "[Overview of Detection Rule Formats](#_1-overview-of-detection-rule-formats) to pick the right format, [Sigma Rules](#_2-sigma-rules) for the vendor-agnostic starting point, [Best Practices for Detection Engineering](#_7-best-practices-for-detection-engineering) for the lifecycle and testing workflow"
+    pairs_with: "[SIEM Detection Content](SIEM_DETECTION_CONTENT.md), [SIEM Reference](SIEM_REFERENCE.md), [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md), [Purple Team Reference](PURPLE_TEAM_REFERENCE.md)"
+    learning_path:
+      - "disciplines/detection-engineering.md"
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1070.001 re-keyed to T1685.005"
+    reviewed: null
+  DEVSECOPS_REFERENCE.md:
+    audience: "Application security engineers, platform engineers, and security champions"
+    level: "Intermediate"
+    read_when: "You are adding security scanning (SAST, SCA, secrets, container, IaC, DAST) to a CI/CD pipeline, you are hardening the pipeline itself, or you are standing up a DevSecOps program with maturity models, KPIs, and a champions culture"
+    start_at: "[DevSecOps Fundamentals](#_1-devsecops-fundamentals), [SAST & Code Analysis](#_2-sast-amp-code-analysis), [CI/CD Pipeline Security](#_5-cicd-pipeline-security)"
+    pairs_with: "[Secure Coding](SECURE_CODING_REFERENCE.md), [Supply Chain Security](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Secrets Management](SECRETS_MANAGEMENT_REFERENCE.md), [Container Security](CONTAINER_SECURITY_REFERENCE.md)"
+    learning_path:
+      - "disciplines/devsecops.md"
+    corrected: "pr62-names-and-versions"
+    corrected_what: "one CVSS heading now names v3.1 and v4.0"
+    reviewed: null
+  DIGITAL_FORENSICS_REFERENCE.md:
+    audience: "Digital forensic examiners, incident responders, and SOC analysts"
+    level: "Intermediate"
+    read_when: "You are acquiring or examining evidence from a compromised or seized system, you need the right artifact (prefetch, ShimCache, SRUM, $UsnJrnl) to prove a file ran or existed after deletion, or you are writing a court-ready forensic report or timeline"
+    start_at: "[Digital Forensics Fundamentals](#_1-digital-forensics-fundamentals), [Windows Forensics - Artifacts](#_2-windows-forensics-artifacts), [Forensic Reporting & Tools Reference](#_10-forensic-reporting-amp-tools-reference)"
+    pairs_with: "[Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md), [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md), [IR Playbooks](IR_PLAYBOOKS.md), [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md)"
+    learning_path:
+      - "disciplines/digital-forensics.md"
+    corrected: "pr56-audit-fixes"
+    corrected_what: "ShimCache description corrected: an entry shows a file was present, not that it ran"
+    reviewed: null
+  EDGE_DEVICE_SECURITY_REFERENCE.md:
+    audience: "Network and security engineers who run VPNs, firewalls, and gateways, and the vulnerability teams who patch them"
+    level: "Intermediate"
+    read_when: "A KEV entry or emergency directive hits your VPN/firewall/gateway fleet, you are designing management-plane isolation or off-box logging for appliances, or you need to assess or rebuild a possibly compromised edge device"
+    start_at: "[Scope & how to use this reference](#scope-amp-how-to-use-this-reference), [The guidance stack](#the-guidance-stack), [Why edge devices are structurally attractive targets](#why-edge-devices-are-structurally-attractive-targets)"
+    learning_path: []
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1562 re-keyed to T1685"
+    reviewed: null
+  EMAIL_SECURITY_REFERENCE.md:
+    audience: "Email administrators, SOC analysts, and phishing responders"
+    level: "Intermediate"
+    read_when: "You are standing up or hardening SPF/DKIM/DMARC for a domain, you are triaging a suspicious email or phishing report, or you are tuning M365/Proofpoint/Mimecast defenses against BEC and credential harvesting"
+    start_at: "[Email Authentication Protocols](#email-authentication-protocols), [Phishing Analysis](#phishing-analysis), [Email-Based Attack Techniques](#email-based-attack-techniques)"
+    pairs_with: "[Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md), [Fight Fraud Framework (MITRE F3)](FRAUD_FRAMEWORK_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md), [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
+  EMB3D_REFERENCE.md:
+    audience: "Embedded and OT security engineers, device vendors, and asset owners writing procurement requirements"
+    level: "Intermediate to advanced"
+    read_when: "You are assessing or pen-testing an embedded device (PLC, controller, medical device, ECU, IoT endpoint), you are writing procurement or vendor-questionnaire language for device security, or you are deciding whether a vendor claim counts as a real built-in mitigation or just deployment advice"
+    start_at: "[Running a device threat-exposure review with EMB3D](#running-a-device-threat-exposure-review-with-emb3d), [The properties-to-threats mapping](#the-properties-to-threats-mapping), [Program guidance: procurement, vendor questionnaires, and gap tracking](#program-guidance-procurement-vendor-questionnaires-and-gap-tracking)"
+    learning_path: []
+    reviewed: null
+  ENDPOINT_SECURITY_REFERENCE.md:
+    audience: "Endpoint security engineers, SOC analysts, and threat hunters"
+    level: "Intermediate"
+    read_when: "You are configuring or hardening Defender/CrowdStrike/SentinelOne, you are deploying Sysmon or Windows audit policy, or you are hunting for LSASS access, LOLBin abuse, or persistence on hosts"
+    start_at: "[Endpoint Security Architecture](#_1-endpoint-security-architecture), [Sysmon deployment](#_5-sysmon-windows-system-monitor), [Endpoint Hardening Checklist](#_8-endpoint-hardening-checklist)"
+    pairs_with: "[SIEM Detection Content](SIEM_DETECTION_CONTENT.md), [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md), [LOTL Detection Reference](LOTL_DETECTION_REFERENCE.md), [Vendor Prevention Policies](VENDOR_PREVENTION_POLICIES.md)"
+    learning_path: []
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1562.004 re-keyed to T1686"
+    reviewed: null
+  ENGAGE_REFERENCE.md:
+    audience: "Deception program leads, threat hunters, and purple teams"
+    level: "Intermediate"
+    read_when: "You are planning a deception or adversary engagement operation, you are deciding which honeypot/lure activities cover the most ATT&CK techniques, or you are picking a denial/deception response for a specific adversary technique"
+    start_at: "[The Engage matrix](#the-engage-matrix), [Activities by ATT&CK coverage](#activities-by-attampck-coverage), [ATT&CK techniques with the most engagement options](#attampck-techniques-with-the-most-engagement-options)"
+    learning_path: []
+    reviewed: null
+  ENTERPRISE_INFRASTRUCTURE.md:
+    audience: "Penetration testers, defenders, and analysts new to enterprise environments"
+    level: "Beginner to intermediate"
+    read_when: "You land in an unfamiliar environment and need to identify what a server or OS actually does, you are scoping a pentest or hardening effort and want the attack surface of each component, or you need default ports or key CVEs for a system you just found"
+    start_at: "[Server Roles & Functions](#_2-server-roles-amp-functions), [Enterprise Operating Systems](#_1-enterprise-operating-systems), [Security Relevance by Component](#_8-security-relevance-by-component)"
+    pairs_with: "[Privilege Escalation Reference](PRIVESC_REFERENCE.md), [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [Active Directory Security](disciplines/active-directory.md), [Home Lab Setup](HOMELAB_SETUP.md)"
+    learning_path: []
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1562.001 re-keyed to T1685"
+    reviewed: null
+  ENTERPRISE_SECURITY_CONTROLS.md:
+    audience: "Security engineers who configure and tune enterprise security platforms"
+    level: "Intermediate"
+    read_when: "You are tuning WAF rules that are throwing false positives, you are rolling out Defender ASR or CrowdStrike prevention policies to a fleet, you are configuring Proofpoint email defenses or SPF/DKIM/DMARC, or you are building Zscaler ZIA/ZPA policies"
+    start_at: "[WAF rules](#_1-web-application-firewall-waf-rules), [Defender ASR rules](#_2-microsoft-defender-attack-surface-reduction-asr-rules), [CrowdStrike prevention policies](#_3-crowdstrike-falcon-prevention-policies)"
+    pairs_with: "[Windows Hardening and GPO Reference](WINDOWS_HARDENING_GPO.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md), [Security Operations](disciplines/security-operations.md)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "Office 365 renamed Microsoft 365 in one line"
+    reviewed: null
+  EXPLOIT_DEVELOPMENT_REFERENCE.md:
+    audience: "Exploit developers, vulnerability researchers, and CTF players"
+    level: "Advanced"
+    read_when: "You need to turn a crash into code execution, you hit a mitigation (canary/ASLR/NX/PIE/RELRO) and need a bypass, or you are working a CTF pwn challenge and want ready-made pwntools/GDB recipes"
+    start_at: "[Memory Corruption Fundamentals](#_1-memory-corruption-fundamentals), [Classic Buffer Overflow](#_2-classic-buffer-overflow-x86-no-protections), [Pwntools Quick Reference](#_10-pwntools-quick-reference)"
+    pairs_with: "[Reverse Engineering](disciplines/reverse-engineering.md), [CTF Methodology](CTF_METHODOLOGY.md), [Privilege Escalation Reference](PRIVESC_REFERENCE.md)"
+    learning_path:
+      - "disciplines/exploit-development.md"
+    reviewed: null
+  FIRMWARE_IOT_SECURITY_REFERENCE.md:
+    audience: "Hardware and IoT security testers, embedded engineers, and OT defenders"
+    level: "Intermediate to advanced"
+    read_when: "You are assessing a router, camera, PLC, or other connected device; you need to pull and analyze firmware off a chip; or you are hardening an IoT/OT network or mapping it to a compliance standard (ETSI EN 303 645, NIST IR 8259, IEC 62443)"
+    start_at: "[IoT Security Testing Methodology](#_8-iot-security-testing-methodology) for the end-to-end assessment process, [Firmware Extraction](#_2-firmware-extraction) to get the bits off the device, [Firmware Analysis Tools](#_3-firmware-analysis-tools) to tear them apart"
+    pairs_with: "[Hardware Security Reference](HARDWARE_SECURITY_REFERENCE.md), [ICS/OT Security Reference](ICS_OT_SECURITY_REFERENCE.md), [SDR & RF Security Reference](SDR_RF_SECURITY_REFERENCE.md), [Reverse Engineering Reference](REVERSE_ENGINEERING_REFERENCE.md)"
+    learning_path:
+      - "disciplines/iot-security.md"
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked IDs re-keyed: T0839 to T1693.002, T0857 to T1693.001, T0812 to T1694.001, T0803 to T1691.001, T0804 to T1691.002"
+    reviewed: null
+  FRAMEWORKS.md:
+    audience: "GRC analysts, security managers, and engineers who need a fast framework refresher"
+    level: "Beginner to intermediate"
+    read_when: "You need to pick a framework for a compliance or sales requirement, someone asks how two frameworks relate or overlap, or you need a fast refresher on a framework's structure before a meeting or assessment"
+    start_at: "[Framework Comparison Overview](#framework-comparison-overview), [Framework Mapping Quick Reference](#framework-mapping-quick-reference), [Framework Selection Guide](#framework-selection-guide)"
+    pairs_with: "[Controls Mapping](CONTROLS_MAPPING.md), [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md)"
+    learning_path: []
+    corrected: "pr63-regulatory-updates"
+    corrected_what: "PCI DSS sections updated to v4.0.1; CMMC Level 1 count and rule citations updated"
+    reviewed: null
+  FRAUD_FRAMEWORK_REFERENCE.md:
+    audience: "Fraud analysts, SOC teams, and threat-informed defense practitioners in financial services and retail"
+    level: "Intermediate"
+    read_when: "A fraud desk and the SOC are describing the same incident in different words, you need to name a fraud behavior (account takeover, mule cash-out, check fraud) with a standard technique ID, or you are mapping fraud coverage onto ATT&CK-based detections"
+    start_at: "[The F3 kill chain](#the-f3-kill-chain) for the 8-tactic overview, [Monetization](#monetization) for where the money actually leaves, [Using F3 with the rest of this library](#using-f3-with-the-rest-of-this-library) to connect it to detections and CTEM"
+    learning_path: []
+    corrected: "pr118-revoked-citations"
+    corrected_what: "note added that F3 keeps T1672 Email Spoofing, which ATT&CK Enterprise revoked in favour of T1684.002"
+    reviewed: null
+  FUZZING_VULNERABILITY_RESEARCH.md:
+    audience: "Vulnerability researchers, bug bounty hunters, and security-minded developers"
+    level: "Intermediate to advanced"
+    read_when: "You are standing up a fuzzer against a new target, you are triaging a crash you found, you are writing up a vulnerability disclosure or CVE report, or you are planning a bug-bounty recon run"
+    start_at: "[Vulnerability Research Overview](#_1-vulnerability-research-overview), [Fuzzing Fundamentals](#_2-fuzzing-fundamentals), [Bug Bounty Programs](#_11-bug-bounty-programs)"
+    pairs_with: "[Reverse Engineering Reference](REVERSE_ENGINEERING_REFERENCE.md), [Secure Coding Reference](SECURE_CODING_REFERENCE.md), [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md), [Web App Pentesting](WEB_APPLICATION_PENTESTING.md)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "note added on CVSS v4.0"
+    reviewed: null
+  GLOSSARY.md:
+    audience: "Anyone reading this library who meets an unfamiliar term or acronym"
+    level: "Beginner"
+    read_when: "You hit an acronym or term you don't recognize in another doc, you need a quick one-line definition to drop into a report, or you want to check the difference between similar terms (IOC vs IOA, Golden vs Silver Ticket)"
+    start_at: "[A](#a) to browse alphabetically, [Common Acronym Reference](#common-acronym-reference) for acronym expansions only, [Additional Terms](#additional-terms) for offensive and blue-team specialist terms"
+    pairs_with: "[Frameworks Reference](FRAMEWORKS.md) for framework comparisons, [Security Tools Reference](TOOLS.md) for tool quick-reference, [Enterprise Security Pipeline](SECURITY_PIPELINE.md) for pipeline stages"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "TLP entry updated to TLP 2.0 (TLP:CLEAR, TLP:AMBER+STRICT)"
+    reviewed: null
+  GRC_COMPLIANCE_REFERENCE.md:
+    audience: "GRC analysts, compliance engineers, and security program managers"
+    level: "Intermediate"
+    read_when: "You are standing up or maturing a GRC program, you are preparing for an audit or certification (PCI DSS, HIPAA, SOC 2, ISO 27001), you are building a risk register, or you are automating compliance evidence and scanning"
+    start_at: "[GRC Fundamentals](#_1-grc-fundamentals) for definitions and risk scoring, [Control Frameworks Comparison](#_17-control-frameworks-comparison) to pick a framework, [GRC Tools and Automation](#_10-grc-tools-and-automation) for tooling"
+    pairs_with: "[GRC Reference](GRC_REFERENCE.md), [Controls Mapping](CONTROLS_MAPPING.md), [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md), [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md)"
+    learning_path: []
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1562 re-keyed to T1685"
+    reviewed: null
+  GRC_REFERENCE.md:
+    audience: "Security program managers, GRC leads, and CISOs"
+    level: "Intermediate"
+    read_when: "You are standing up or maturing a security governance program, you are quantifying a risk for the register or board reporting, you are prepping for a SOC 2 / ISO 27001 / PCI DSS / HIPAA / CMMC audit, or you are tiering and assessing a new vendor"
+    start_at: "[Risk Management](#risk-management), [Compliance Programs](#compliance-programs), [Third-Party Risk Management (TPRM)](#third-party-risk-management-tprm)"
+    pairs_with: "[GRC Compliance Reference](GRC_COMPLIANCE_REFERENCE.md), [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md), [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md), [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md)"
+    learning_path:
+      - "disciplines/governance-risk-compliance.md"
+    corrected: "pr63-regulatory-updates"
+    corrected_what: "CMMC Level 1 row updated to 15 requirements"
+    reviewed: null
+  HARDWARE_SECURITY_REFERENCE.md:
+    audience: "Hardware and embedded security engineers, and engineers who run HSMs or harden boot chains"
+    level: "Advanced"
+    read_when: "You are hardening a device's boot chain or disk encryption, you are standing up or auditing an HSM and its key ceremony, or you are assessing side-channel, fault-injection, or debug-port exposure on embedded hardware"
+    start_at: "[TPM 2.0 Deep Dive](#_1-tpm-20-deep-dive), [HSM & FIPS 140-3](#_2-hsm-amp-fips-140-3), [Hardware Security Testing Tools](#_9-hardware-security-testing-tools)"
+    pairs_with: "[Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE.md), [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md), [Physical Security Reference](PHYSICAL_SECURITY_REFERENCE.md), [Reverse Engineering Reference](REVERSE_ENGINEERING_REFERENCE.md)"
+    learning_path:
+      - "disciplines/hardware-security.md"
+    reviewed: null
+  HEALTHCARE_SECURITY_REFERENCE.md:
+    audience: "Hospital security teams, biomedical and clinical engineering, and medical-device vendors"
+    level: "Intermediate"
+    read_when: "You are segmenting a hospital network and its biomedical devices; you are scoping an IoMT/HTM security program; you are assessing a medical-device vendor or an FDA premarket submission; you are hardening an HL7 interface engine, a FHIR API, or a PACS; or you are briefing clinical/biomed leadership on ransomware and patient-safety risk"
+    start_at: "[Sector Threat Profile](#sector-threat-profile), [IoMT: Segmentation & Lifecycle](#iomt-medical-device-segmentation-amp-lifecycle), [FDA Cybersecurity Requirements](#fda-medical-device-cybersecurity-requirements)"
+    pairs_with: "[Regulatory Landscape Reference](REGULATORY_LANDSCAPE_REFERENCE.md), [GRC Reference](GRC_REFERENCE.md), [GRC Compliance Reference](GRC_COMPLIANCE_REFERENCE.md), [ICS/OT Security Reference](ICS_OT_SECURITY_REFERENCE.md), [Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE.md), [EMB3D Reference (Embedded Devices)](EMB3D_REFERENCE.md), [Zero Trust Reference](ZERO_TRUST_REFERENCE.md), [Ransomware Defense & Resilience](RANSOMWARE_DEFENSE_REFERENCE.md)"
+    learning_path: []
+    corrected: "pr68-page-added"
+    reviewed: null
+  HOMELAB_SETUP.md:
+    audience: "Learners and practitioners building a personal security lab"
+    level: "Beginner to intermediate"
+    read_when: "You are setting up your first lab from scratch, you need to choose a hypervisor or size hardware, or you want a ready-made vulnerable AD/cloud target to attack and detect"
+    start_at: "[Suggested Progression](#suggested-progression), [Hardware Options](#_1-hardware-options), [Hypervisor Options](#_2-hypervisor-options)"
+    pairs_with: "[Hands-On Labs](LABS.md), [Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md)"
+    learning_path: []
+    corrected: "pr120-homelab"
+    corrected_what: "Azure free-tier limits, the budget command and Sentinel licensing corrected"
+    reviewed: null
+  HONEYPOT_DECEPTION_REFERENCE.md:
+    audience: "Detection engineers and network defenders deploying honeypots and honeytokens"
+    level: "Intermediate"
+    read_when: "You are planning honeypot or honeytoken coverage for a network segment, you need to pick and deploy a specific tool (SSH, SMB, web, IoT, ICS), or you are wiring decoy alerts into a SIEM as P1 incidents"
+    start_at: "[Part 1: Deception Technology Fundamentals](#part-1-deception-technology-fundamentals), [8.6 Quick Reference: Honeypot Selection Guide](#_86-quick-reference-honeypot-selection-guide), [8.5 Deployment Checklist](#_85-deployment-checklist)"
+    pairs_with: "[Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md) (deception-program strategy + detection engineering: honeytokens, honey SPNs, cloud decoy IaC, NIST 800-53 mapping), [Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md), [SIEM Reference](SIEM_REFERENCE.md), [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md), [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md)"
+    learning_path:
+      - "disciplines/active-defense-deception.md"
+    reviewed: null
+  HYPERVISOR_SECURITY_REFERENCE.md:
+    audience: "Virtualization administrators, infrastructure security engineers, and ransomware responders"
+    level: "Intermediate to advanced"
+    read_when: "You are hardening a VMware/Hyper-V/Proxmox estate, a ransomware IR touched the hypervisor layer, you are scoping vCenter/ESXi patch exposure, or you are designing management-plane isolation and backup immutability for virtual infrastructure"
+    start_at: "[Why the Hypervisor Is the Bullseye](#why-the-hypervisor-is-the-bullseye), [The ESXi Ransomware Kill Chain](#the-esxi-ransomware-kill-chain), [ESXi / vSphere Hardening](#vmware-esxi-vsphere-hardening)"
+    pairs_with: "[Ransomware Defense & Resilience](RANSOMWARE_DEFENSE_REFERENCE.md), [Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md), [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md), [Cyber Resilience & BCDR Reference](CYBER_RESILIENCE_BCDR_REFERENCE.md), [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md)"
+    learning_path: []
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1562 re-keyed to T1685"
+    reviewed: null
+  ICS_ATTACK_ATLAS.md:
+    audience: "ICS and OT defenders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You need to look up an ICS ATT&CK technique by tactic, you want to check which threat groups or software use a technique, or you need the ATT&CK mitigations that address it"
+    start_at: "[Tactics](#tactics) for the full tactic index, then jump to ICS-specific tactics like [Inhibit Response Function](#inhibit-response-function) or [Impair Process Control](#impair-process-control)"
+    learning_path: []
+    reviewed: null
+  ICS_OT_SECURITY_REFERENCE.md:
+    audience: "OT and ICS security engineers, plant engineers, and incident responders"
+    level: "Intermediate to advanced"
+    read_when: "You are segmenting or assessing an OT/SCADA network, you are investigating an ICS intrusion, or you need protocol, threat-actor or standards facts (Modbus, IEC 62443, NERC CIP) fast"
+    start_at: "[ICS/OT Fundamentals](#icsot-fundamentals), [ICS Attack Methodology](#ics-attack-methodology-mitre-attampck-for-ics), [Quick Reference Checklists](#quick-reference-checklists)"
+    pairs_with: "[ICS ATT&CK Atlas](ICS_ATTACK_ATLAS.md), [EMB3D Reference (Embedded Devices)](EMB3D_REFERENCE.md), [Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE.md)"
+    learning_path:
+      - "disciplines/ics-ot-security.md"
+    corrected: "pr118-revoked-citations"
+    corrected_what: "T0824 I/O Module Discovery marked deprecated, with no successor"
+    reviewed: null
+  IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md:
+    audience: "IAM architects and engineers, and security teams writing identity controls and detections"
+    level: "Intermediate"
+    read_when: "You are choosing or hardening MFA and passwordless auth, you are designing RBAC/ABAC or PAM controls, you are building IAM detections (credential stuffing, MFA fatigue, impossible travel), or you are mapping IAM to SOC 2 / PCI / NIST / HIPAA"
+    start_at: "[IAM Fundamentals](#_1-iam-fundamentals), [Authentication Technologies](#_2-authentication-technologies), [IAM Security Monitoring](#_9-iam-security-monitoring)"
+    pairs_with: "[Identity Security](IDENTITY_SECURITY_REFERENCE.md), [Zero Trust](ZERO_TRUST_REFERENCE.md), [Active Directory Security](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [Secrets Management](SECRETS_MANAGEMENT_REFERENCE.md)"
+    learning_path:
+      - "disciplines/identity-access-management.md"
+    reviewed: null
+  IDENTITY_SECURITY_REFERENCE.md:
+    audience: "Identity engineers, SOC analysts, and incident responders handling identity attacks"
+    level: "Intermediate"
+    read_when: "You are hardening an IdP (Entra, Okta, AD), you are investigating a credential or MFA-bypass incident, or you are writing identity detections and CA/PAM/IGA policy"
+    start_at: "[Identity Attack Surface](#_1-identity-attack-surface), [MFA Bypass Techniques & Defenses](#_3-multi-factor-authentication-bypass-techniques-amp-defenses), [Identity Detection & Response](#_10-identity-detection-amp-response)"
+    pairs_with: "[Identity & Access Management (IAM) Reference](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md) (controls/architecture counterpart: authorization models, IGA/PAM design, compliance mapping), [Zero Trust Reference](ZERO_TRUST_REFERENCE.md), [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [Privilege Escalation Reference](PRIVESC_REFERENCE.md), [GRC Reference](GRC_REFERENCE.md)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "note added on NIST SP 800-63B-4; ATT&CK version in the footer updated to v19.2"
+    reviewed: null
+  INCIDENT_RESPONSE_REFERENCE.md:
+    audience: "Incident responders, SOC leads, and incident commanders"
+    level: "Intermediate"
+    read_when: "An alert or user report needs triage in the next five minutes, ransomware or a suspicious wire request just landed, or you are building or testing an IR plan and tabletop program"
+    start_at: "[Detection & Initial Triage](#_2-detection-amp-initial-triage), [Ransomware Response](#_3-ransomware-response), [IR Frameworks & Preparation](#_1-ir-frameworks-amp-preparation)"
+    pairs_with: "[IR Playbooks](IR_PLAYBOOKS.md), [Ransomware Defense Reference](RANSOMWARE_DEFENSE_REFERENCE.md), [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md), [Notable Incidents](NOTABLE_INCIDENTS.md)"
+    learning_path:
+      - "disciplines/incident-response.md"
+    corrected: "pr62-names-and-versions"
+    corrected_what: "TheHive line updated (now commercial; DFIR-IRIS named as the open-source alternative)"
+    reviewed: null
+  INSIDER_THREAT_REFERENCE.md:
+    audience: "Insider risk program leads, SOC teams, and HR, legal, and privacy partners"
+    level: "Intermediate"
+    read_when: "You are standing up or maturing an insider threat/risk program, you are designing detections for departing-employee or fraud scenarios, or you are mapping insider TTPs onto ATT&CK coverage"
+    start_at: "[The CTID Insider Threat TTP Knowledge Base](#the-ctid-insider-threat-ttp-knowledge-base), [Detection approaches](#detection-approaches), [A 90-day starting plan](#a-90-day-starting-plan)"
+    learning_path: []
+    reviewed: null
+  INTERVIEW_PREP.md:
+    audience: "Candidates preparing for security job interviews"
+    level: "Beginner to intermediate"
+    read_when: "You have an interview scheduled and need to rehearse likely questions, you are switching security roles and need the role-specific question set, or you received an offer and want negotiation scripts"
+    start_at: "[General Preparation Strategy](#general-preparation-strategy), [Role-Specific Questions](#role-specific-questions), [Salary Negotiation & Offer Evaluation](#salary-negotiation-amp-offer-evaluation)"
+    pairs_with: "[Career Paths](CAREER_PATHS.md), [Certifications Reference](CERTIFICATIONS.md), [Hands-On Labs](LABS.md)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "one answer updated for Volatility 3 and the archived Rekall"
+    reviewed: null
+  IR_PLAYBOOKS.md:
+    audience: "Incident responders and teams writing IR runbooks"
+    level: "Intermediate"
+    read_when: "An active incident needs a structured response right now, you are drafting or adapting IR runbooks for your environment, or you need regulatory notification deadlines or law-enforcement contacts fast"
+    start_at: "[Playbook Index](#playbook-index), [Ransomware Response Playbook (Detailed)](#ransomware-response-playbook-detailed), [Regulatory Notification Deadlines](#regulatory-notification-deadlines)"
+    pairs_with: "[Incident Response](disciplines/incident-response.md), [Digital Forensics](disciplines/digital-forensics.md), [Detection Engineering](disciplines/detection-engineering.md)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "note added on NIST SP 800-61 Rev 3; Cuckoo replaced by CAPEv2 in one row"
+    reviewed: null
+  KUBERNETES_SECURITY_REFERENCE.md:
+    audience: "Platform engineers, Kubernetes administrators, and cloud security engineers"
+    level: "Intermediate to advanced"
+    read_when: "You are hardening a production cluster, you are investigating a suspected container escape or stolen SA token, or you are auditing RBAC and Pod Security before a deployment goes live"
+    start_at: "[Kubernetes Attack Surface](#_1-kubernetes-attack-surface), [K8s Security Hardening Checklist](#_10-k8s-security-hardening-checklist), [Kubernetes Security Scanning Tools](#_4-kubernetes-security-scanning-tools)"
+    pairs_with: "[Container Security Reference](CONTAINER_SECURITY_REFERENCE.md), [Secrets Management Reference](SECRETS_MANAGEMENT_REFERENCE.md), [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md)"
+    learning_path:
+      - "disciplines/container-kubernetes-security.md"
+    reviewed: null
+  LABS.md:
+    audience: "Learners and practitioners looking for free hands-on practice"
+    level: "Beginner"
+    read_when: "You want hands-on practice in a specific discipline, you are prepping for a cert or CTF and need free targets, or you are building a home lab and need a components-and-hardware starting point"
+    start_at: "[Platform Index](#platform-index), [By Discipline](#by-discipline), [Home Lab Builds](#home-lab-builds)"
+    pairs_with: "[Career Paths & Cert Roadmap](CAREER_PATHS.md), [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Starred Repositories](STARRED_REPOS.md)"
+    learning_path: []
+    reviewed: null
+  LINUX_HARDENING_REFERENCE.md:
+    audience: "Linux administrators and security engineers hardening servers"
+    level: "Intermediate"
+    read_when: "You are building or auditing a Linux server against CIS/STIG baselines, you are locking down SSH/sudo/PAM before exposing a host, or you are chasing an SELinux denial or standing up auditd/FIM monitoring"
+    start_at: "[Hardening Fundamentals & CIS Benchmarks](#_1-linux-hardening-fundamentals-amp-cis-benchmarks), [User & Authentication Hardening](#_2-user-amp-authentication-hardening), [Hardening Verification Checklist](#_104-hardening-verification-checklist)"
+    pairs_with: "[Linux Hardening](LINUX_HARDENING.md), [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE.md), [Privilege Escalation Reference](PRIVESC_REFERENCE.md), [Controls Mapping](CONTROLS_MAPPING.md)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "CIS Ubuntu 22.04 benchmark version updated in one row"
+    reviewed: null
+  LOTL_DETECTION_REFERENCE.md:
+    audience: "Detection engineers, threat hunters, and SOC leads"
+    level: "Intermediate"
+    read_when: "You are standing up or maturing detection for abuse of built-in tools (LOLBins, RMM, cloud APIs), an advisory like Volt Typhoon lands and you need the defender's playbook, or you are deciding which telemetry to enable or how to consume the LOLBAS/GTFOBins-style catalogs"
+    start_at: "[Scope & how to use this reference](#scope-amp-how-to-use-this-reference), [Telemetry foundation](#telemetry-foundation), [Detection engineering: patterns that survive syntax changes](#detection-engineering-patterns-that-survive-syntax-changes)"
+    learning_path: []
+    reviewed: null
+  MACOS_SECURITY_REFERENCE.md:
+    audience: "Mac fleet administrators, endpoint security engineers, and detection engineers"
+    level: "Intermediate"
+    read_when: "You inherit or harden a Mac fleet and need a baseline (mSCP/CIS/STIG), you are evaluating or deploying macOS EDR and telemetry, or you are building macOS detections and need to map techniques to event sources"
+    start_at: "[How macOS defense fits together](#how-macos-defense-fits-together), [Native telemetry: Endpoint Security, unified log, eslogger](#native-telemetry-endpoint-security-unified-log-eslogger), [Defender's checklist](#defender39s-checklist)"
+    learning_path: []
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked IDs re-keyed: T1562.001 to T1685, T1070.002 to T1685.006"
+    reviewed: null
+  MALWARE_ANALYSIS_REFERENCE.md:
+    audience: "Malware analysts, incident responders, and detection engineers"
+    level: "Intermediate to advanced"
+    read_when: "You are triaging a suspicious sample, you are setting up a safe analysis lab, you are reading a PE file's imports and packing, or you are mapping malware behavior to ATT&CK"
+    start_at: "[Malware Analysis Overview](#_1-malware-analysis-overview), [Static Analysis: Windows PE Files](#_2-static-analysis-windows-pe-files), [Common Malware Techniques with ATT&CK Mappings](#_7-common-malware-techniques-with-attampck-mappings)"
+    learning_path:
+      - "disciplines/malware-analysis.md"
+    corrected: "pr118-revoked-citations"
+    corrected_what: "revoked T1562 re-keyed to T1685"
+    reviewed: null
+  MALWARE_FAMILIES.md:
+    audience: "SOC analysts, incident responders, and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "An alert or ransom note names a malware family and you need its TTPs fast, you are scoping a ransomware incident and need initial-access and decryptor facts, or you are triaging a suspicious binary and need packer/strings/sandbox-evasion pointers"
+    start_at: "[Overview - Classification Taxonomy](#_1-overview-classification-taxonomy), [Ransomware Families](#_2-ransomware-families), [Malware Analysis Quick Reference](#_10-malware-analysis-quick-reference)"
+    pairs_with: "[Threat Actors](THREAT_ACTORS.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [IR Playbooks](IR_PLAYBOOKS.md), [Malware Analysis](disciplines/malware-analysis.md)"
+    learning_path: []
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1562.001 re-keyed to T1685"
+    reviewed: null
+  MOBILE_ATTACK_ATLAS.md:
+    audience: "Mobile security engineers and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You are assessing Android/iOS threat coverage, you are mapping a mobile malware finding to ATT&CK, or you are checking which mitigations address a mobile technique"
+    start_at: "[Tactics](#tactics) for the 12-tactic index, [Initial Access](#initial-access) for how devices get compromised, [Collection](#collection) for what spyware harvests"
+    learning_path: []
+    reviewed: null
+  MOBILE_SECURITY_REFERENCE.md:
+    audience: "Mobile application testers, mobile developers, and enterprise mobility teams"
+    level: "Intermediate"
+    read_when: "You are testing or hardening an Android/iOS app, you are triaging suspected mobile malware or spyware, or you are designing MDM/enterprise mobile controls"
+    start_at: "[Mobile Security Landscape](#_1-mobile-security-landscape), [Mobile Application Security Testing (MAST)](#_4-mobile-application-security-testing-mast), [Common Mobile Vulnerabilities](#_5-common-mobile-vulnerabilities)"
+    pairs_with: "[Mobile ATT&CK Atlas](MOBILE_ATTACK_ATLAS.md), [Telecom & 5G Security Reference](TELECOM_5G_SECURITY_REFERENCE.md), [Wireless Security Reference](WIRELESS_SECURITY_REFERENCE.md), [Reverse Engineering Reference](REVERSE_ENGINEERING_REFERENCE.md)"
+    learning_path:
+      - "disciplines/mobile-security.md"
+    corrected: "pr118-revoked-citations"
+    corrected_what: "T1475 and T1476 marked deprecated, with no successor"
+    reviewed: null
+  NETWORKING_ARCHITECTURE_REFERENCE.md:
+    audience: "Network architects and engineers, and security architects reviewing network designs"
+    level: "Intermediate"
+    learning_path: []
+    reviewed: null
+  NETWORKING_FUNDAMENTALS.md:
+    audience: "Security practitioners who need working networking knowledge for attacks, detections, and defenses"
+    level: "Beginner to intermediate"
+    read_when: "You need to reason about which OSI layer an attack lives at and what control stops it, you are decoding packet headers or subnetting during an investigation, or you need the operational mechanics behind ARP/VLAN/STP/routing/DNS abuse"
+    start_at: "[The OSI Model: Security Perspective](#the-osi-model-security-perspective), [TCP/IP Deep Dive](#tcpip-deep-dive), [ATT&CK Technique Quick Reference](#attampck-technique-quick-reference)"
+    pairs_with: "[Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md), [Network Defense Reference](NETWORK_DEFENSE_REFERENCE.md), [Network Protocols Reference](NETWORK_PROTOCOLS_REFERENCE.md), [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md)"
+    learning_path: []
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked IDs re-keyed: T1465 to T1638, T1562.004 to T1686"
+    reviewed: null
+  NETWORK_ATTACKS_REFERENCE.md:
+    audience: "Network security engineers, incident responders, and SOC analysts"
+    level: "Intermediate"
+    read_when: "You are placing detection controls across the OSI layers, you are investigating a suspected MitM/relay/DNS-tunnel/BGP-hijack event, or you are hardening a network segment against Layer 2 and routing attacks"
+    start_at: "[Network Attack Taxonomy & Threat Landscape](#_1-network-attack-taxonomy-amp-threat-landscape) for the OSI/ATT&CK map, [SMB & Windows Network Attacks](#_5-smb-amp-windows-network-attacks) for the NTLM relay chain, [Network Attack Detection & Hunting](#_10-network-attack-detection-amp-hunting) for the hunting playbook"
+    pairs_with: "[Network Defense Reference](NETWORK_DEFENSE_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md), [Active Directory Attack Reference](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), [Wireless Security Reference](WIRELESS_SECURITY_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
+  NETWORK_DEFENSE_REFERENCE.md:
+    audience: "Network defenders, NSM engineers, and SOC analysts"
+    level: "Intermediate"
+    read_when: "You are standing up or tuning an NSM sensor stack (Suricata, Zeek, Security Onion, Arkime), you are hunting for beaconing or DNS tunneling in network logs, or you are designing segmentation, NAC, or DDoS defenses"
+    start_at: "[Network Defense Architecture](#_1-network-defense-architecture), [Suricata IDS/IPS](#_2-suricata-idsips), [Network Defense Operations](#_10-network-defense-operations)"
+    pairs_with: "[Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md), [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md), [SIEM Reference](SIEM_REFERENCE.md)"
+    learning_path:
+      - "disciplines/network-security.md"
+    reviewed: null
+  NETWORK_FORENSICS_REFERENCE.md:
+    audience: "Network forensics analysts and incident responders"
+    level: "Intermediate to advanced"
+    read_when: "You need to capture or preserve network evidence that may end up in court, you are reconstructing an incident timeline from PCAP/flow/log data, or you suspect C2 beaconing or data exfiltration and need to prove it from traffic"
+    start_at: "[Network Forensics Fundamentals & Evidence Collection](#_1-network-forensics-fundamentals-amp-evidence-collection), [Malware Traffic Analysis](#_5-malware-traffic-analysis), [Forensic Reporting & Tools Reference](#_10-forensic-reporting-amp-tools-reference)"
+    pairs_with: "[Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md), [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
+  NETWORK_MONITORING_REFERENCE.md:
+    audience: "SOC analysts, detection engineers, and network defenders"
+    level: "Intermediate"
+    read_when: "You are standing up or placing network sensors (TAP vs SPAN), you are hunting C2 beaconing or DNS tunneling in Zeek/flow logs, you are writing or tuning Suricata rules, or you are triaging an NSM alert down to the packet"
+    start_at: "[Network Monitoring Architecture](#_1-network-monitoring-architecture), [Zeek (formerly Bro)](#_2-zeek-formerly-bro), [Network Threat Hunting](#_6-network-threat-hunting)"
+    pairs_with: "[Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md), [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md), [Network Security Architecture](NETWORK_SECURITY_ARCHITECTURE.md), [SIEM Detection Content](SIEM_DETECTION_CONTENT.md)"
+    learning_path:
+      - "disciplines/network-security.md"
+    reviewed: null
+  NETWORK_PROTOCOLS_REFERENCE.md:
+    audience: "Security engineers, penetration testers, and blue teams working at the protocol level"
+    level: "Intermediate"
+    read_when: "You are decoding a packet capture in Wireshark/tshark/tcpdump, you are hardening or reviewing a specific protocol (DNS, TLS, SSH, SNMP, BGP, SMTP, and more), or you are investigating amplification DDoS, address spoofing, or C2 over DNS"
+    start_at: "[TCP/IP Fundamentals](#_1-tcpip-fundamentals), [Protocol Analysis Tools](#_10-protocol-analysis-tools), [Appendix: Quick Reference Commands](#appendix-quick-reference-commands)"
+    pairs_with: "[Network Protocols Security](NETWORK_PROTOCOLS_SECURITY.md) (attacker-view TTPs + ATT&CK IDs + detection), [Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md), [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md), [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md), [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
+  NETWORK_PROTOCOLS_SECURITY.md:
+    audience: "Penetration testers, detection engineers, and network defenders"
+    level: "Intermediate"
+    read_when: "You are researching how attackers abuse a specific protocol (DNS, HTTP, SMB, Kerberos, and others), you are finding the ATT&CK technique for protocol abuse, or you are writing a detection or defensive control for it"
+    start_at: "[DNS (53 UDP/TCP)](#dns-53-udptcp), [HTTP/HTTPS (80/443)](#httphttps-80443), [SMB (445 TCP)](#smb-445-tcp)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "Azure AD MFA renamed Microsoft Entra MFA; ATT&CK version in the footer updated to v19.2"
+    reviewed: null
+  NETWORK_SECURITY_ARCHITECTURE.md:
+    audience: "Network and security architects, and engineers designing segmentation and access control"
+    level: "Intermediate"
+    read_when: "You are designing or reviewing network segmentation and firewall policy, you are deploying IDS/IPS or 802.1X/NAC, or you are hardening VPNs or planning DDoS protection"
+    start_at: "[Defense-in-Depth Network Architecture](#defense-in-depth-network-architecture), [Network Segmentation Implementation](#network-segmentation-implementation), [Architecture Evaluation Checklist](#architecture-evaluation-checklist)"
+    pairs_with: "[Network Defense Reference](NETWORK_DEFENSE_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md), [Zero Trust Reference](ZERO_TRUST_REFERENCE.md), [Cloud Network Security](CLOUD_NETWORK_SECURITY.md)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "ATT&CK version in the footer updated from v15 to v19.2"
+    reviewed: null
+  NOTABLE_INCIDENTS.md:
+    audience: "Security leaders, analysts, and responders who need incident facts fast"
+    level: "Beginner to intermediate"
+    read_when: "You need the facts on a specific breach or campaign fast, you are advising an org mid-ransomware-incident, or you are briefing leadership on why a vulnerability class or threat actor matters"
+    start_at: "[Recent Events (2020-2025)](#_3-recent-events-2020-2025) for current threats, [Ransomware Incident Response - Negotiation Guide](#_5-ransomware-incident-response-negotiation-guide) for an active incident, [Critical Vulnerability Classes to Watch](#_7-critical-vulnerability-classes-to-watch) for patching priorities"
+    pairs_with: "[Threat Actor Reference](./THREAT_ACTORS.md), [Incident Response Playbooks](./IR_PLAYBOOKS.md), [Malware Families Reference](./MALWARE_FAMILIES.md), [Detection Rule Writing Reference](./DETECTION_RULES_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
+  OPEN_SOURCE_TOOLKIT.md:
+    audience: "Practitioners looking for a free tool for a specific job"
+    level: "Beginner to intermediate"
+    read_when: "You need a free tool for a specific job (recon, cracking, forensics, cloud audit), you are building out a lab or home toolkit, or you want the practice platform or cheat-sheet link you half-remember"
+    start_at: "[Reconnaissance & OSINT](#reconnaissance-amp-osint), [Detection & Blue Team](#detection-amp-blue-team), [Online Resources & Bookmarks](#online-resources-amp-bookmarks)"
+    pairs_with: "[Security Tools Reference](TOOLS.md), [Controls Mapping](CONTROLS_MAPPING.md)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "CrackMapExec and PowerSploit marked archived; BloodHound, SharpHound and AzureHound links moved to SpecterOps"
+    reviewed: null
+  OSINT_REFERENCE.md:
+    audience: "Threat intelligence analysts and authorized penetration testers"
+    level: "Intermediate"
+    read_when: "You are scoping an authorized reconnaissance engagement, you are mapping a target's external attack surface before a pentest, or you are running passive collection without touching target systems"
+    start_at: "[OSINT Fundamentals and Legal Framework](#_1-osint-fundamentals-and-legal-framework), [OSINT Investigation Methodology](#_10-osint-investigation-methodology), [OSINT Tools Reference Table](#_11-osint-tools-reference-table)"
+    pairs_with: "[Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md), [Red Team Reference](RED_TEAM_REFERENCE.md), [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md), [Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md)"
+    learning_path:
+      - "disciplines/osint.md"
+    corrected: "pr62-names-and-versions"
+    corrected_what: "AlienVault OTX owner updated to LevelBlue; one ATT&CK version reference updated to v19.2"
+    reviewed: null
+  PACKET_ANALYSIS_REFERENCE.md:
+    audience: "SOC analysts, network forensics analysts, and threat hunters"
+    level: "Intermediate"
+    read_when: "You have a pcap to investigate and need a repeatable workflow, you need the exact Wireshark/tcpdump/zq filter for a suspicious behavior, or you are learning to read TCP handshakes and packet fields at the byte level"
+    start_at: "[Reading Network Packets](#reading-network-packets), [Detecting Attacks in PCAPs](#detecting-attacks-in-pcaps), [PCAP Investigation Workflow](#pcap-investigation-workflow)"
+    pairs_with: "[Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md), [Network Protocols Reference](NETWORK_PROTOCOLS_REFERENCE.md), [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
+  PASSWORD_SECURITY_REFERENCE.md:
+    audience: "Penetration testers, application developers, and identity administrators"
+    level: "Intermediate"
+    read_when: "You need to identify or crack a captured hash, you are choosing how an application should store passwords, or you are setting enterprise password policy and lockout thresholds"
+    start_at: "[Password Hash Formats](#password-hash-formats), [Secure Password Storage](#secure-password-storage-developer-reference), [Enterprise Password Policies](#enterprise-password-policies)"
+    pairs_with: "[Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md), [Secrets Management Reference](SECRETS_MANAGEMENT_REFERENCE.md), [Active Directory Security](disciplines/active-directory.md), [Credential Access: Detection Strategies](detections/strategies/credential-access.md)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "OWASP ASVS reference updated to 5.0; ATT&CK version in the footer updated to v19.2"
+    reviewed: null
+  PENETRATION_TESTING_METHODOLOGY.md:
+    audience: "Penetration testers and engagement leads"
+    level: "Intermediate"
+    read_when: "You are kicking off a new engagement and drafting the Rules of Engagement, you are mid-test and need the right command for recon/scanning/exploitation, or you are writing up findings with CVSS/EPSS/ATT&CK mappings"
+    start_at: "[Engagement Scoping and Legal Framework](#_1-engagement-scoping-and-legal-framework), [Reconnaissance](#_2-reconnaissance), [Professional Reporting](#_8-professional-reporting)"
+    pairs_with: "[Pentest Checklists](PENTEST_CHECKLISTS.md), [Web App Pentesting](WEB_APPLICATION_PENTESTING.md), [Privilege Escalation Reference](PRIVESC_REFERENCE.md), [Red Team Reference](RED_TEAM_REFERENCE.md)"
+    learning_path:
+      - "disciplines/offensive-security.md"
+      - "disciplines/penetration-testing.md"
+    corrected: "pr120-attack-figures"
+    corrected_what: "ATT&CK version pin in an example Navigator layer updated"
+    reviewed: null
+  PENTEST_CHECKLISTS.md:
+    audience: "Penetration testers working through an engagement phase by phase"
+    level: "Intermediate"
+    read_when: "You are kicking off an engagement and nailing down scope/RoE/authorization, you are working through a specific test phase (external, internal, AD, web, cloud, post-ex) and need a no-gaps task list, or you are assembling the deliverable and want a report structure to check against"
+    start_at: "[Pre-Engagement](#_1-pre-engagement), [External Network Penetration Test Checklist](#_2-external-network-penetration-test-checklist), [Common Commands Quick Reference](#_9-common-commands-quick-reference)"
+    pairs_with: "[Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md), [Web App Pentesting](WEB_APPLICATION_PENTESTING.md), [Privilege Escalation Reference](PRIVESC_REFERENCE.md), [Cloud Network Security](CLOUD_NETWORK_SECURITY.md)"
+    learning_path: []
+    reviewed: null
+  PHYSICAL_SECURITY_REFERENCE.md:
+    audience: "Physical penetration testers, red teamers, and facility security assessors"
+    level: "Intermediate"
+    read_when: "You are scoping or running an authorized physical penetration test, you are assessing a facility's or server room's physical controls, or you are building a remediation checklist after a walkthrough"
+    start_at: "[Physical Penetration Testing Overview](#_2-physical-penetration-testing-overview), [Physical Security Controls Assessment Checklist](#_11-physical-security-controls-assessment-checklist), [Lock Picking](#_3-lock-picking)"
+    pairs_with: "[Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md), [OSINT Reference](OSINT_REFERENCE.md), [SDR & RF Security Reference](SDR_RF_SECURITY_REFERENCE.md), [Security Gadgets Reference](SECURITY_GADGETS_REFERENCE.md)"
+    learning_path:
+      - "disciplines/physical-security.md"
+    reviewed: null
+  POST_QUANTUM_MIGRATION_REFERENCE.md:
+    audience: "Security architects, PKI owners, and program leaders planning the post-quantum migration"
+    level: "Intermediate"
+    read_when: "You are scoping or chartering a PQC migration program, you are prioritizing which systems and data stores move to post-quantum crypto first, you are answering an auditor or executive about the 2030/2035 deadlines, or you are writing PQC questions into a vendor questionnaire"
+    start_at: "[Why this matters now: harvest now, decrypt later](#why-this-matters-now-harvest-now-decrypt-later), [Step 1: Cryptographic discovery and the CBOM](#step-1-cryptographic-discovery-and-the-cbom), [Key dates quick reference](#key-dates-quick-reference)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "CycloneDX version updated from 1.6 to 1.7 in three places"
+    reviewed: null
+  PRIVACY_ENGINEERING_REFERENCE.md:
+    audience: "Privacy engineers, developers, and privacy and GRC teams"
+    level: "Intermediate"
+    read_when: "You are scoping GDPR/CCPA obligations for a new system or market, you are building privacy controls into an API or data pipeline, or you are preparing a DPIA or answering a DSAR/breach-notification question"
+    start_at: "[GDPR Deep Dive](#_2-gdpr-deep-dive), [Technical Privacy Controls](#_7-technical-privacy-controls), [Privacy by Design - 7 Principles](#_5-privacy-by-design-7-principles)"
+    pairs_with: "[Data Security Reference](DATA_SECURITY_REFERENCE.md), [GRC Compliance Reference](GRC_COMPLIANCE_REFERENCE.md), [Threat Modeling Reference](THREAT_MODELING_REFERENCE.md), [Secure Coding Reference](SECURE_CODING_REFERENCE.md)"
+    learning_path:
+      - "disciplines/privacy-engineering.md"
+    reviewed: null
+  PRIVESC_REFERENCE.md:
+    audience: "Penetration testers and CTF players with a low-privilege foothold"
+    level: "Intermediate"
+    read_when: "You have a low-privilege foothold and need to reach root or SYSTEM, you are prepping for OSCP/HTB/CTF privesc, or you need to map a technique to its ATT&CK ID"
+    start_at: "[Linux Initial Enumeration](#initial-enumeration), [Windows Initial Enumeration](#initial-enumeration-1), [Automated Tools](#_5-automated-tools)"
+    pairs_with: "[Pentest Checklists](PENTEST_CHECKLISTS.md), [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [HTB Machine Index](research/HTB_MACHINE_INDEX.md)"
+    learning_path: []
+    reviewed: null
+  PURPLE_TEAM_REFERENCE.md:
+    audience: "Purple team leads, detection engineers, and red team operators"
+    level: "Intermediate"
+    read_when: "You are standing up a purple team program, you are planning an ATT&CK-mapped emulation campaign, you are validating whether a technique is actually detected, or you are triaging a detection gap into a remediation ticket"
+    start_at: "[Purple Team Fundamentals](#_1-purple-team-fundamentals), [Atomic Red Team](#_3-atomic-red-team), [Detection Validation Methodology](#_5-detection-validation-methodology)"
+    pairs_with: "[Red Team Reference](RED_TEAM_REFERENCE.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md)"
+    learning_path:
+      - "disciplines/purple-teaming.md"
+    corrected: "pr51-tactic-rename"
+    corrected_what: "Enterprise tactic table: Defense Evasion renamed Stealth and a Defense Impairment (TA0112) row added; one coverage-target row updated to match"
+    reviewed: null
+  RANSOMWARE_DEFENSE_REFERENCE.md:
+    audience: "Security program leads, infrastructure owners, and incident response planners"
+    level: "Intermediate"
+    read_when: "You are building or gap-assessing a ransomware defense program, a new #StopRansomware advisory lands and you need to turn it into work, or you must decide backup architecture, restore order, or payment policy before an incident"
+    start_at: "[Scope & how to use this reference](#scope-amp-how-to-use-this-reference), [Backup & recovery architecture](#backup-amp-recovery-architecture), [A 90-day program bootstrap](#a-90-day-program-bootstrap)"
+    learning_path: []
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1562.001 re-keyed to T1685"
+    reviewed: null
+  RED_TEAM_REFERENCE.md:
+    audience: "Red team operators and program leads, and blue teams preparing for an assessment"
+    level: "Intermediate to advanced"
+    read_when: "You are standing up a red team program or writing rules of engagement, you are planning an authorized engagement and need a lifecycle checklist, or you are on the blue side and want to understand what an assessment will exercise"
+    start_at: "[Program Design & Rules of Engagement](#_1-red-team-program-design-amp-rules-of-engagement) for governance, [Reporting & Purple Team Integration](#_9-reporting-amp-purple-team-integration) for turning results into defense"
+    pairs_with: "[Purple Team Reference](PURPLE_TEAM_REFERENCE.md), [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md), [Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md), [ATT&CK Mitigations Reference](ATTACK_MITIGATIONS_REFERENCE.md)"
+    learning_path:
+      - "disciplines/offensive-security.md"
+      - "disciplines/red-teaming.md"
+    corrected: "pr120-attack-figures"
+    corrected_what: "ATT&CK version pin and name of an example Navigator layer updated"
+    reviewed: null
+  REGULATORY_LANDSCAPE_REFERENCE.md:
+    audience: "GRC leads, legal and privacy partners, and incident commanders"
+    level: "Intermediate"
+    read_when: "An incident just triggered notification duties and you need every clock in one place; you are scoping which regimes apply to a new market or product; you are briefing legal counsel or the board on cross-border reporting exposure; or you are building the notification matrix of an incident-response runbook"
+    start_at: "[Obligation & Deadline Matrix](#obligation-amp-deadline-matrix), [Conflicting Clocks](#conflicting-clocks-practical-guidance), [Regime Detail](#regime-detail)"
+    pairs_with: "[Frameworks Reference](FRAMEWORKS.md), [GRC Reference](GRC_REFERENCE.md), [GRC Compliance Reference](GRC_COMPLIANCE_REFERENCE.md), [Governance, Risk & Compliance (GRC)](disciplines/governance-risk-compliance.md), [CVE Reference](CVE_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
+  RESOURCES.md:
+    audience: "Learners and practitioners choosing books, courses, and communities"
+    level: "Beginner"
+    read_when: "You want a book or course for a specific skill (red team, DFIR, malware analysis), you need hands-on practice via CTFs or vulnerable labs, or you are building a daily news and podcast rotation"
+    start_at: "[Books](#books), [Online Courses & Training Platforms](#online-courses-amp-training-platforms), [CTF Platforms](#ctf-platforms)"
+    pairs_with: "[Certifications Reference](CERTIFICATIONS.md), [Career Paths](CAREER_PATHS.md), [Hands-On Labs](LABS.md), [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md)"
+    learning_path: []
+    reviewed: null
+  REVERSE_ENGINEERING_REFERENCE.md:
+    audience: "Malware analysts, firmware researchers, and vulnerability researchers"
+    level: "Advanced"
+    read_when: "You are triaging an unknown malware sample, you are tearing apart router or IoT firmware, or you are hunting a vulnerability in a compiled binary"
+    start_at: "[RE Fundamentals & Architectures](#section-1-re-fundamentals-amp-architectures), [Static Analysis Tools](#section-3-static-analysis-tools), [Dynamic Analysis & Debugging](#section-4-dynamic-analysis-amp-debugging)"
+    pairs_with: "[Malware Families](MALWARE_FAMILIES.md), [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md), [Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE.md), [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md)"
+    learning_path:
+      - "disciplines/reverse-engineering.md"
+    corrected: "pr51-tactic-rename"
+    corrected_what: "Defense Evasion row for T1027 renamed Stealth"
+    reviewed: null
+  SAAS_SECURITY_REFERENCE.md:
+    audience: "SaaS administrators, identity engineers, and security teams responsible for tenants"
+    level: "Intermediate"
+    read_when: "You inherit or stand up an M365/GWS/Salesforce/GitHub tenant and need a hardening baseline, an OAuth app or third-party integration needs review or a vendor just got breached, or you are deciding which log tier or SSPM tooling to buy"
+    start_at: "[The SaaS threat surface](#the-saas-threat-surface) for the five threat classes, [Case studies from public advisories](#case-studies-from-public-advisories) for the incidents that motivate every control, [Hardening checklists by platform](#hardening-checklists-by-platform) to act today"
+    learning_path: []
+    reviewed: null
+  SDR_RF_SECURITY_REFERENCE.md:
+    audience: "RF security researchers, wireless penetration testers, and hardware hackers"
+    level: "Intermediate to advanced"
+    read_when: "You are choosing SDR hardware for a job, you are capturing or replaying an unknown RF signal, or you are decoding a wireless protocol (GSM, P25, Zigbee, BLE, ADS-B)"
+    start_at: "[SDR Fundamentals & Hardware](#_1-sdr-fundamentals-amp-hardware), [Replay & Signal Injection](#_7-replay-amp-signal-injection), [Defensive RF & Legal Framework](#_10-defensive-rf-amp-legal-framework)"
+    pairs_with: "[Wireless Security Reference](WIRELESS_SECURITY_REFERENCE.md), [Automotive Security Reference](AUTOMOTIVE_SECURITY_REFERENCE.md), [Telecom & 5G Security Reference](TELECOM_5G_SECURITY_REFERENCE.md), [Security Gadgets Reference](SECURITY_GADGETS_REFERENCE.md)"
+    learning_path:
+      - "disciplines/radio-frequency-security.md"
+    reviewed: null
+  SECRETS_MANAGEMENT_REFERENCE.md:
+    audience: "Platform, DevOps, and application security engineers"
+    level: "Intermediate"
+    read_when: "A credential just leaked in a repo or CI log, you are choosing or deploying a secrets manager (Vault, Conjur, cloud-native), or you need to kill secrets sprawl in code, Kubernetes, or pipelines"
+    start_at: "[Secrets Management Fundamentals](#_1-secrets-management-fundamentals), [Secret Detection in Code](#_4-secret-detection-in-code), [Quick Reference](#quick-reference)"
+    pairs_with: "[Secure Coding Reference](SECURE_CODING_REFERENCE.md), [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md), [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Zero Trust Reference](ZERO_TRUST_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
+  SECURE_CODING_REFERENCE.md:
+    audience: "Developers, code reviewers, and application security engineers"
+    level: "Intermediate"
+    read_when: "You are reviewing a pull request for security flaws, you are fixing a scanner finding (SQL injection, weak hashing, unsafe deserialization, SSRF), or you are setting up SAST/SCA/secrets scanning in CI"
+    start_at: "[OWASP Top 10 (2021)](#owasp-top-10-2021), [Security Testing in SDLC](#security-testing-in-sdlc), [Quick Reference Checklist](#quick-reference-checklist)"
+    pairs_with: "[API Security Reference](API_SECURITY_REFERENCE.md), [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md), [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "note added on OWASP Top 10:2025; CWE Top 25 and ATT&CK versions in the footer updated"
+    reviewed: null
+  SECURITY_ARCHITECTURE_REFERENCE.md:
+    audience: "Security architects and architecture review boards"
+    level: "Intermediate to advanced"
+    read_when: "You are designing or reviewing a system's security architecture, you are planning a Zero Trust migration, or you are preparing for or running an architecture review board (SARB)"
+    start_at: "[Security Architecture Fundamentals](#_1-security-architecture-fundamentals), [Architecture Review Process](#_10-architecture-review-process), [Quick Reference: Framework Decision Guide](#quick-reference-architecture-framework-decision-guide)"
+    pairs_with: "[Zero Trust Reference](ZERO_TRUST_REFERENCE.md), [Threat Modeling](disciplines/threat-modeling.md), [Cloud Security](disciplines/cloud-security.md), [GRC Reference](GRC_REFERENCE.md)"
+    learning_path:
+      - "disciplines/security-architecture.md"
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1562 re-keyed to T1685"
+    reviewed: null
+  SECURITY_AWARENESS_REFERENCE.md:
+    audience: "Security awareness and human risk program owners"
+    level: "Intermediate"
+    read_when: "You are standing up or overhauling a security-awareness/human-risk program, you are designing a defensible phishing-simulation cadence, you are choosing metrics that survive board scrutiny, you are mapping training obligations across NIST/ISO/PCI/HIPAA/NIS2/DORA, or you are briefing executives on why annual training alone does not move risk"
+    start_at: "[Program Maturity Model](#program-maturity-model), [Phishing Simulation: Methodology, Metrics & Ethics](#phishing-simulation-methodology-metrics-amp-ethics), [Measuring Human Risk](#measuring-human-risk)"
+    pairs_with: "[Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md), [Email Security Reference](EMAIL_SECURITY_REFERENCE.md), [Insider Threat Program Reference](INSIDER_THREAT_REFERENCE.md), [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md), [GRC Reference](GRC_REFERENCE.md)"
+    learning_path:
+      - "disciplines/security-awareness.md"
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1656 re-keyed to T1684.001"
+    reviewed: null
+  SECURITY_DATA_ENGINEERING_REFERENCE.md:
+    audience: "Detection engineers, SIEM and log pipeline engineers, and security data architects"
+    level: "Intermediate to advanced"
+    read_when: "You are onboarding a new log source, you are choosing or reconciling a normalization schema (OCSF/ECS/CIM/ASIM), you are cutting SIEM ingest cost without breaking detections, or you are designing retention or investigating why a rule silently sees nothing"
+    start_at: "[Scope & how to use this reference](#scope-amp-how-to-use-this-reference), [Why the data layer decides what you can detect](#why-the-data-layer-decides-what-you-can-detect), [Onboarding a new log source: the runbook](#onboarding-a-new-log-source-the-runbook)"
+    learning_path: []
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1562.001 re-keyed to T1685"
+    reviewed: null
+  SECURITY_GADGETS_REFERENCE.md:
+    audience: "Red teamers, physical and wireless testers, and hardware hobbyists"
+    level: "Intermediate"
+    read_when: "You are scoping an authorized wireless, RF, RFID, or hardware assessment and choosing the right gadget, you are standing up an isolated home lab or RF test bench, or you are confirming the legal boundaries before you power on a transmitter"
+    start_at: "[Hak5 Ecosystem](#_1-hak5-ecosystem), [Flipper Zero](#_3-flipper-zero), [Lab Setup, Legal & Community](#_10-lab-setup-legal-amp-community)"
+    pairs_with: "[Wireless Security Reference](WIRELESS_SECURITY_REFERENCE.md), [Red Team Reference](RED_TEAM_REFERENCE.md), [Radio Frequency (RF) Security](disciplines/radio-frequency-security.md), [Hardware Security](disciplines/hardware-security.md)"
+    learning_path: []
+    reviewed: null
+  SECURITY_METRICS_REFERENCE.md:
+    audience: "CISOs, security program managers, and SOC and vulnerability management leads"
+    level: "Intermediate"
+    read_when: "You are building or overhauling a metrics program, you are preparing a CISO/board report and need dollar framing and benchmarks, or you are defining SLA targets or RAG thresholds for a specific domain (SOC, vuln, IAM, cloud)"
+    start_at: "[S1: Security Metrics Fundamentals](#s1-security-metrics-fundamentals) for the KPI/KRI groundwork, [S4: Risk Quantification](#s4-risk-quantification) for FAIR and dollar estimates, [S10: Executive Reporting & Dashboard Design](#s10-executive-reporting-amp-dashboard-design) for board translation"
+    pairs_with: "[Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md), [Vulnerability Prioritization Reference](VULNERABILITY_PRIORITIZATION_REFERENCE.md), [SIEM Reference](SIEM_REFERENCE.md), [SOAR Automation Reference](SOAR_AUTOMATION_REFERENCE.md)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "Windows 10 end-of-support row, one Entra ID rename and the ATT&CK version in the footer updated"
+    reviewed: null
+  SECURITY_PIPELINE.md:
+    audience: "Security architects and program leads building an enterprise control stack"
+    level: "Intermediate"
+    read_when: "You are planning or maturing an enterprise security stack stage by stage, you are picking open-source vs commercial tooling for a control area, or you are mapping vendors to NIST 800-53 controls and ATT&CK techniques"
+    start_at: "[Pipeline Overview](#pipeline-overview), [Enterprise Security Tool Integration Map](#enterprise-security-tool-integration-map), [Incident Response Pipeline Integration](#incident-response-pipeline-integration)"
+    pairs_with: "[Controls Mapping](CONTROLS_MAPPING.md), [Coverage Gap Analysis](scores/coverage_gaps.md), [Black Hat Arsenal Crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md), [Coverage Schema](COVERAGE_SCHEMA.md)"
+    learning_path: []
+    corrected: "pr120-attack-figures"
+    corrected_what: "tactic coverage table replaced with the figures of the generated coverage report"
+    reviewed: null
+  SECURITY_PROGRAM_MANAGEMENT_REFERENCE.md:
+    audience: "CISOs and security leaders, and practitioners stepping into leadership"
+    level: "Intermediate to advanced"
+    read_when: "You have just taken, or are interviewing for, a security-leadership role, you are standing up a program from zero or rebuilding one after an incident or a failed audit, you are defending or cutting a security budget, you are preparing a board deck, or you must decide who declares an incident \"material\""
+    start_at: "[The First 90 Days](#the-first-90-days), [Organizational Design & Reporting Lines](#organizational-design-amp-reporting-lines), [Board & Executive Reporting](#board-amp-executive-reporting)"
+    pairs_with: "[GRC Reference](GRC_REFERENCE.md), [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md), [Regulatory Landscape Reference](REGULATORY_LANDSCAPE_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md), [Career Paths](CAREER_PATHS.md), [Frameworks Reference](FRAMEWORKS.md)"
+    learning_path: []
+    corrected: "pr68-page-added"
+    reviewed: null
+  SECURITY_TOOL_DOCUMENTATION.md:
+    audience: "Vulnerability management, detection engineering, and platform teams working across an enterprise security stack"
+    level: "Intermediate"
+    read_when: "You are looking for the official documentation, API reference, or GitHub organization for a security platform in the stack, or you are starting an integration and need the vendor's developer docs"
+    start_at: "[Endpoint & EDR](#endpoint-amp-edr), [Cloud & Supply Chain](#cloud-amp-supply-chain), [Identity & Privileged Access](#identity-amp-privileged-access)"
+    learning_path: []
+    reviewed: null
+  SIEM_DETECTION_CONTENT.md:
+    audience: "Detection engineers and SIEM administrators expanding detection coverage"
+    level: "Intermediate"
+    read_when: "You are standing up or expanding detection coverage in a SIEM, you need a maintained rule for a specific technique before writing your own, or you want to convert Sigma rules to your platform's query language"
+    start_at: "[Sigma: Universal Detection Rule Format](#sigma-universal-detection-rule-format), [Splunk Security Content (ESCU)](#splunk-security-content-escu), [Authoritative Detection Content Sources Summary](#authoritative-detection-content-sources-summary)"
+    pairs_with: "[SIEM Reference](SIEM_REFERENCE.md), [ATT&CK Detection Strategies](detections/strategies/README.md), [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "Chronicle heading renamed Google Security Operations"
+    reviewed: null
+  SIEM_REFERENCE.md:
+    audience: "SOC analysts, detection engineers, and SIEM administrators"
+    level: "Intermediate"
+    read_when: "You are writing or converting a detection query for Splunk/Sentinel/QRadar/Elastic, you are sizing or tuning a SIEM deployment, you are standing up a detection engineering or triage process, or you are deciding which Windows/Sysmon events to collect"
+    start_at: "[SIEM Fundamentals](#_1-siem-fundamentals) for architecture and sizing, [Detection Engineering](#_7-detection-engineering) for the rule lifecycle and Sigma, [Quick Reference Cheat Sheet](#quick-reference-cheat-sheet) for common SPL/KQL patterns"
+    pairs_with: "[SIEM Detection Content](SIEM_DETECTION_CONTENT.md), [SOAR Automation Reference](SOAR_AUTOMATION_REFERENCE.md), [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md), [ATT&CK Detection Strategies](detections/strategies/README.md)"
+    learning_path:
+      - "disciplines/siem-soar.md"
+    corrected: "pr51-tactic-rename"
+    corrected_what: "Defense Evasion (TA0005) row of the tactic table renamed Stealth"
+    reviewed: null
+  SOAR_AUTOMATION_REFERENCE.md:
+    audience: "SOC engineers and automation developers building playbooks"
+    level: "Intermediate"
+    read_when: "You are designing or hardening a playbook (triggers, error handling, approval gates), you need the API or SDK pattern for a specific SOAR platform, you are automating phishing/malware/ransomware/BEC response, or you are measuring SOAR ROI or playbook effectiveness"
+    start_at: "[SOAR Fundamentals](#_1-soar-fundamentals), [Playbook Design](#_2-playbook-design), [IR Automation by Incident Type](#_9-ir-automation-by-incident-type)"
+    pairs_with: "[SIEM Reference](SIEM_REFERENCE.md), [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md), [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md), [Incident Response](disciplines/incident-response.md)"
+    learning_path:
+      - "disciplines/siem-soar.md"
+    corrected: "pr62-names-and-versions"
+    corrected_what: "Azure AD renamed Microsoft Entra ID in two places"
+    reviewed: null
+  SOCIAL_ENGINEERING_REFERENCE.md:
+    audience: "Defenders, awareness trainers, and authorized social engineering testers"
+    level: "Intermediate"
+    read_when: "You are designing a phishing simulation or awareness program, you are investigating a suspected phishing/BEC/vishing incident, or you are scoping an authorized social engineering engagement"
+    start_at: "[Psychology of Social Engineering](#_1-psychology-of-social-engineering), [Phishing Attack Types](#_2-phishing-attack-types), [Quick Reference Checklists](#_12-quick-reference-checklists)"
+    pairs_with: "[Email Security Reference](EMAIL_SECURITY_REFERENCE.md), [OSINT Reference](OSINT_REFERENCE.md), [Physical Security Reference](PHYSICAL_SECURITY_REFERENCE.md), [Red Team Reference](RED_TEAM_REFERENCE.md)"
+    learning_path:
+      - "disciplines/social-engineering.md"
+    reviewed: null
+  SPACE_SECURITY_REFERENCE.md:
+    audience: "Space and satellite security engineers, and SATCOM and mission program owners"
+    level: "Intermediate to advanced"
+    read_when: "You are scoping security for a satellite or SATCOM program, you are mapping SPARTA coverage or countermeasures for a mission, or you are investigating GNSS jamming/spoofing or a suspected hostile-commanding event"
+    start_at: "[Why space systems security is different](#why-space-systems-security-is-different), [The SPARTA framework](#the-sparta-framework), [Standing up the program](#standing-up-the-program)"
+    learning_path: []
+    reviewed: null
+  STARRED_REPOS.md:
+    audience: "Practitioners looking for a tool or project by the job it does"
+    level: "Beginner"
+    read_when: "You need a tool for a specific security task and want to browse by discipline, you remember starring something but not what it was called, or you want a broad map of the whole collection before diving into curated lists"
+    start_at: "[Category Index](#category-index), [How To Use This File](#how-to-use-this-file), [Black Hat Arsenal Review Queue](#black-hat-arsenal-review-queue)"
+    pairs_with: "[Curated GitHub Stars Lists](research/CURATED_STARS_LISTS.md), [Black Hat Arsenal Crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "AlienVault heading now also names LevelBlue"
+    reviewed: null
+  SUPPLY_CHAIN_SECURITY_REFERENCE.md:
+    audience: "Application security, DevSecOps, and platform engineers who own build and release pipelines"
+    level: "Intermediate"
+    read_when: "You need to vet or scan a project's dependencies, you are adding SBOM generation or artifact signing to a pipeline, you are hardening GitHub Actions/CI workflows, or you suspect a compromised package and need containment steps"
+    start_at: "[Threat landscape](#_1-software-supply-chain-threat-landscape) for how the attacks work, [Artifact signing & verification](#_4-artifact-signing-amp-verification) for cosign/signing workflows, [Incident response](#_10-supply-chain-incident-response) when something is already on fire"
+    pairs_with: "[Supply Chain Security](SUPPLY_CHAIN_SECURITY.md), [DevSecOps Reference](DEVSECOPS_REFERENCE.md), [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md)"
+    learning_path:
+      - "disciplines/supply-chain-security.md"
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1574.002 (DLL side-loading) folded into T1574.001 in the Hijack Execution Flow note"
+    reviewed: null
+  TELECOM_5G_SECURITY_REFERENCE.md:
+    audience: "Telecom and private 5G security engineers, and threat intelligence analysts covering telecom"
+    level: "Advanced"
+    read_when: "You defend or assess a telecom operator or private 5G estate, you need to scope FiGHT techniques or GSMA signaling defenses into a threat-informed program, or you are responding to the Salt Typhoon advisory record and hardening guidance"
+    start_at: "[Why telecom infrastructure is a target](#why-telecom-infrastructure-is-a-target-the-salt-typhoon-wake-up-call), [Case study: Salt Typhoon and AA25-239A](#case-study-salt-typhoon-and-the-advisory-record-aa25-239a), [Hardening communications infrastructure](#hardening-communications-infrastructure-the-december-2024-joint-guidance-distilled)"
+    learning_path: []
+    reviewed: null
+  THREAT_ACTORS.md:
+    audience: "Threat intelligence analysts, SOC analysts, and security leaders who brief on adversaries"
+    level: "Beginner to intermediate"
+    read_when: "An intel report or news story names an actor you need context on, you are building detections or emulation plans around a specific group's TTPs, or you are briefing leadership on who targets your sector"
+    start_at: "[Nation-State APTs](#nation-state-apts), [Ransomware Groups](#ransomware-groups), [Threat Intelligence Tools for Actor Tracking](#threat-intelligence-tools-for-actor-tracking)"
+    pairs_with: "[Notable Incidents](NOTABLE_INCIDENTS.md), [Malware Families](MALWARE_FAMILIES.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [IR Playbooks](IR_PLAYBOOKS.md)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "TLP:WHITE row renamed TLP:CLEAR"
+    reviewed: null
+  THREAT_GROUP_PROFILES.md:
+    audience: "Threat intelligence analysts and threat-informed defense practitioners"
+    level: "Intermediate"
+    read_when: "You need a group's aliases resolved to one ATT&CK ID, you are scoping which adversaries have the broadest technique coverage, or you want a group's signature techniques for threat-informed defense"
+    start_at: "[All tracked groups](#all-tracked-groups) for the alias-and-counts table, [Detailed profiles](#detailed-profiles-most-active-groups) for the most active groups' signature techniques"
+    learning_path: []
+    corrected: "pr118-revoked-citations"
+    corrected_what: "revoked IDs re-keyed: T1070.001 to T1685.005, T1070.002 to T1685.006"
+    reviewed: null
+  THREAT_HUNTING_PLAYBOOKS.md:
+    audience: "Threat hunters and SOC analysts starting a proactive hunt"
+    level: "Intermediate"
+    read_when: "You want to run a proactive hunt but need a starting hypothesis, an alert or incident suggests credential theft or lateral movement, or you are deciding which ATT&CK tactics to hunt first"
+    start_at: "[How to Use These Playbooks](#how-to-use-these-playbooks), [HP-001: LSASS Credential Dumping](#hp-001-lsass-credential-dumping), [Hunt Prioritization Matrix](#hunt-prioritization-matrix)"
+    pairs_with: "[Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Threat Hunting Discipline](disciplines/threat-hunting.md)"
+    learning_path:
+      - "disciplines/threat-hunting.md"
+    corrected: "pr51-tactic-rename"
+    corrected_what: "Defense Evasion row of the tactic severity table renamed Stealth"
+    reviewed: null
+  THREAT_HUNTING_REFERENCE.md:
+    audience: "Threat hunters and detection engineers"
+    level: "Intermediate"
+    read_when: "You are planning or running a hypothesis-driven hunt, you need a ready KQL/SPL query for a technique like LSASS access or Kerberoasting, or you are turning a hunt finding into a Sigma or YARA rule"
+    start_at: "[Threat Hunting Fundamentals](#_1-threat-hunting-fundamentals), [ATT&CK-Aligned Hunting Playbooks](#_6-attampck-aligned-hunting-playbooks), [Hunt Tracking and Reporting](#_10-hunt-tracking-and-reporting)"
+    pairs_with: "[Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md), [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md), [Threat Group Profiles](THREAT_GROUP_PROFILES.md)"
+    learning_path:
+      - "disciplines/threat-hunting.md"
+    corrected: "pr120-attack-figures"
+    corrected_what: "ATT&CK version pin and name of an example Navigator layer updated"
+    reviewed: null
+  THREAT_INFORMED_DEFENSE_REFERENCE.md:
+    audience: "Detection engineers, vulnerability managers, and security architects who prioritize with ATT&CK"
+    level: "Intermediate"
+    read_when: "You are turning a long CVE list into root-cause weakness groupings, you are deciding which detection or mitigation to build next for a technique, or you are wiring ATT&CK to CWE/CAPEC/D3FEND/NIST controls"
+    start_at: "[The ATT&CK-centric knowledge graph](#_1-the-attampck-centric-knowledge-graph), [The canonical chain](#the-canonical-chain), [Getting started](#_6-getting-started-recommended-order)"
+    pairs_with: "[ATT&CK Matrix Analysis](ATTACK_MATRIX_ANALYSIS_REFERENCE.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md), [Controls Mapping](CONTROLS_MAPPING.md), [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
+  THREAT_INTELLIGENCE_REFERENCE.md:
+    audience: "CTI analysts, SOC analysts, incident responders, and security leaders who consume intelligence"
+    level: "Intermediate"
+    read_when: "You are standing up or maturing a CTI program, you are enriching and scoring IOCs before pushing them to your SIEM or firewall, or you are trying to attribute activity to a known threat actor"
+    start_at: "[CTI Fundamentals](#_1-cti-fundamentals), [IOC Management & Enrichment](#_4-ioc-management-amp-enrichment), [Threat Actor Tracking & Attribution](#_5-threat-actor-tracking-amp-attribution)"
+    pairs_with: "[Threat Group Profiles](THREAT_GROUP_PROFILES.md), [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md), [Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Threat Intelligence](disciplines/threat-intelligence.md)"
+    learning_path:
+      - "disciplines/threat-intelligence.md"
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1562 re-keyed to T1685"
+    reviewed: null
+  THREAT_MODELING_REFERENCE.md:
+    audience: "Software architects, application security engineers, and privacy engineers"
+    level: "Intermediate"
+    read_when: "You are designing a new system or major feature, you are reviewing an architecture or cloud migration before code is written, or you are picking a methodology (STRIDE vs PASTA vs LINDDUN) for a threat modeling session"
+    start_at: "[Why Threat Modeling](#why-threat-modeling), [STRIDE Methodology (Microsoft)](#stride-methodology-microsoft), [Practical Threat Modeling Workflow](#practical-threat-modeling-workflow)"
+    pairs_with: "[Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Web Application Security](WEB_APPLICATION_SECURITY_REFERENCE.md), [Zero Trust](ZERO_TRUST_REFERENCE.md), [Threat Modeling discipline](disciplines/threat-modeling.md)"
+    learning_path:
+      - "disciplines/threat-modeling.md"
+    corrected: "pr51-tactic-rename"
+    corrected_what: "Defense Evasion renamed Stealth in the STRIDE Repudiation row, the kill chain sequence and a Navigator layer example"
+    reviewed: null
+  THREAT_REPORT_ALMANAC.md:
+    audience: "Threat intelligence analysts, security leaders, and anyone citing annual threat reports"
+    level: "Intermediate"
+    read_when: "You are choosing which annual threat reports to read, you are checking what a report's evidence can and cannot support before citing it, or you are planning a reading calendar by role"
+    start_at: "[Methodology determines meaning](#methodology-determines-meaning), [The majors](#the-majors), [How to read a threat report critically](#how-to-read-a-threat-report-critically)"
+    learning_path: []
+    reviewed: null
+  TOOLS.md:
+    audience: "Practitioners shortlisting tools for a security function"
+    level: "Beginner to intermediate"
+    read_when: "You need to shortlist tools for a security function, you are comparing open source vs commercial options in a category, or you saw a tool name and want to know what it does"
+    start_at: "[Endpoint & Detection](#endpoint-amp-detection), [Threat Intelligence](#threat-intelligence), [Offensive Security & Red Teaming](#offensive-security-amp-red-teaming)"
+    pairs_with: "[Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Controls Mapping](CONTROLS_MAPPING.md), [Hands-On Labs](LABS.md), [Starred Repositories](STARRED_REPOS.md)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "TheHive, CrackMapExec and SharpHound rows updated, with NetExec added as CrackMapExec's successor"
+    reviewed: null
+  TWITTER_FOLLOW_LIST.md:
+    audience: "Practitioners building a focused security reading feed"
+    level: "Beginner"
+    read_when: "You are building or pruning a security-focused feed, you want high-signal accounts for a specific specialty like DFIR or bug bounty, or you need to know who publishes on a topic you are ramping up on"
+    start_at: "[How To Use This File](#how-to-use-this-file), [Category Index](#category-index), [Enriched Reference Tables](#enriched-reference-tables)"
+    learning_path: []
+    reviewed: null
+  VENDOR_PREVENTION_POLICIES.md:
+    audience: "Endpoint, email, and network security engineers rolling out vendor controls"
+    level: "Intermediate"
+    read_when: "You are rolling out or tuning an EDR/email/web-proxy product and you need the vendor-recommended settings, you are hardening an M365 or Google Workspace tenant against CISA SCuBA baselines, or you are deciding which policies to set to Block vs Audit during a phased deployment"
+    start_at: "[Microsoft Defender for Endpoint Prevention Policies](#microsoft-defender-for-endpoint-prevention-policies), [NSA/CISA Hardening Guidance](#nsacisa-hardening-guidance), [Official Source Directory](#official-source-directory)"
+    pairs_with: "[Windows Hardening](WINDOWS_HARDENING.md), [Windows Hardening GPO Reference](WINDOWS_HARDENING_GPO.md), [Controls Mapping](CONTROLS_MAPPING.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md)"
+    learning_path: []
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1562.009 re-keyed to T1688"
+    reviewed: null
+  VULNERABILITY_MANAGEMENT_REFERENCE.md:
+    audience: "Vulnerability management engineers and analysts running scanners, triage, and patching"
+    level: "Intermediate"
+    read_when: "You are standing up or tuning a VM program (SLAs, KPIs, exception workflow), you need the exact commands for a scanner, DefectDojo, SBOM, or patch task, or you are deciding which findings to fix first with CVSS/EPSS/KEV"
+    start_at: "[VM Lifecycle & KPIs](#_1-vm-lifecycle-amp-kpis), [Prioritization - EPSS / KEV / CVSS](#_4-prioritization-epss-kev-cvss), [Patch Management](#_9-patch-management-windows-linux-oob-virtual-patching)"
+    pairs_with: "[Vulnerability Prioritization Reference](VULNERABILITY_PRIORITIZATION_REFERENCE.md), [CVE Reference](CVE_REFERENCE.md), [DevSecOps Reference](DEVSECOPS_REFERENCE.md), [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md)"
+    learning_path:
+      - "disciplines/vulnerability-management.md"
+    corrected: "pr63-regulatory-updates"
+    corrected_what: "EU Cyber Resilience Act dates updated in one line"
+    reviewed: null
+  VULNERABILITY_PRIORITIZATION_REFERENCE.md:
+    audience: "Vulnerability management leads and security leaders who set remediation policy"
+    level: "Intermediate"
+    read_when: "Your patch queue is flooded with \"Critical\" CVSS findings and you need a defensible order, you are writing or defending a remediation SLA policy, or a KEV addition or EPSS jump just landed and you must decide how fast to act"
+    start_at: "[Why CVSS alone is not a prioritization policy](#why-cvss-alone-is-not-a-prioritization-policy), [Combining signals](#combining-signals-kev-then-epss-then-context), [A defensible prioritization pipeline](#a-defensible-prioritization-pipeline-amp-sla-policy)"
+    learning_path: []
+    reviewed: null
+  WEB_APPLICATION_PENTESTING.md:
+    audience: "Web application penetration testers and bug bounty hunters"
+    level: "Intermediate"
+    read_when: "You are scoping or running a web app pentest, you are hunting a specific bug class and need the exact payload, or you are prepping a findings report with CVSS ratings and remediation"
+    start_at: "[Testing Methodology](#testing-methodology), [Information Gathering](#information-gathering), [Tools Quick Reference](#tools-quick-reference)"
+    pairs_with: "[Web Application Security Reference](WEB_APPLICATION_SECURITY_REFERENCE.md), [API Security Reference](API_SECURITY_REFERENCE.md), [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md), [Pentest Checklists](PENTEST_CHECKLISTS.md)"
+    learning_path: []
+    corrected: "pr62-names-and-versions"
+    corrected_what: "CVSS heading now names v3.1 and v4.0; OWASP Top 10 link updated to the 2025 edition"
+    reviewed: null
+  WEB_APPLICATION_SECURITY_REFERENCE.md:
+    audience: "Web application testers, secure developers, and application security engineers"
+    level: "Intermediate"
+    read_when: "You are testing a web app or API against the OWASP Top 10, you are writing an SQLi/XSS/SSRF payload or its fix, or you are hardening auth, sessions, headers, or a WAF"
+    start_at: "[OWASP Top 10 2021](#_1-owasp-top-10-2021), [Web App Testing Methodology](#_5-web-app-testing-methodology), [Business Logic and API Security](#_7-business-logic-and-api-security)"
+    pairs_with: "[Web App Pentesting](WEB_APPLICATION_PENTESTING.md), [API Security Reference](API_SECURITY_REFERENCE.md), [Secure Coding Reference](SECURE_CODING_REFERENCE.md), [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md)"
+    learning_path:
+      - "disciplines/application-security.md"
+    corrected: "pr62-names-and-versions"
+    corrected_what: "note added on OWASP Top 10:2025"
+    reviewed: null
+  WINDOWS_HARDENING.md:
+    audience: "Windows administrators and security engineers hardening servers and endpoints"
+    level: "Intermediate"
+    read_when: "You are standing up or locking down a Windows server or fleet, an audit or compliance scan flagged missing CIS/STIG controls, or you need the PowerShell/GPO commands for a specific control like ASR rules or SMB signing"
+    start_at: "[Quick Hardening Checklist](#quick-hardening-checklist) for the 20 highest-priority controls, [CIS Windows Server 2022 Benchmark](#cis-windows-server-2022-benchmark) for server policy details, [Compliance Scanning Tools](#compliance-scanning-tools) to measure where you stand"
+    pairs_with: "[Windows Hardening GPO Reference](WINDOWS_HARDENING_GPO.md), [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE.md), [Linux Hardening](LINUX_HARDENING.md), [Endpoint Security Reference](ENDPOINT_SECURITY_REFERENCE.md)"
+    learning_path: []
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked IDs re-keyed: T1562.001 to T1685, T1562.002 to T1685.001"
+    reviewed: null
+  WINDOWS_HARDENING_GPO.md:
+    audience: "Windows and Active Directory administrators building GPO baselines"
+    level: "Intermediate"
+    read_when: "You are building or reviewing a GPO security baseline, you are hardening a new domain or OU, or you are closing a finding tied to a Windows misconfiguration (LLMNR, SMBv1, WDigest)"
+    start_at: "[Disabling Dangerous Services via GPO](#_2-disabling-dangerous-services-via-gpo), [Common Attack Techniques Enabled by GPO Misconfigurations](#_7-common-attack-techniques-enabled-by-gpo-misconfigurations), [Mitigation Strategy Reference](#_9-mitigation-strategy-reference)"
+    pairs_with: "[Windows Hardening](WINDOWS_HARDENING.md) (hands-on apply/verify commands), [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE.md) (architecture + Sysmon/WEF monitoring), [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md), [Active Directory Security](disciplines/active-directory.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
+  WINDOWS_HARDENING_REFERENCE.md:
+    audience: "Windows security engineers and detection engineers deploying Sysmon and WEF"
+    level: "Intermediate to advanced"
+    read_when: "You are locking down a new Windows fleet or server build, you need the exact GPO/registry paths for a CIS/STIG/Microsoft-baseline setting, or you are standing up Sysmon/WEF and need the event IDs to watch"
+    start_at: "[Windows Security Architecture](#_1-windows-security-architecture), [Sysmon Deployment and Configuration](#_4-sysmon-deployment-and-configuration), [Audit Policy and Monitoring](#_10-audit-policy-and-monitoring)"
+    pairs_with: "[Windows Hardening](WINDOWS_HARDENING.md), [Windows Hardening GPO Reference](WINDOWS_HARDENING_GPO.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md)"
+    learning_path: []
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1070.001 re-keyed to T1685.005"
+    reviewed: null
+  WIRELESS_SECURITY_REFERENCE.md:
+    audience: "Wireless penetration testers and network engineers who secure Wi-Fi, Bluetooth, and other wireless links"
+    level: "Intermediate to advanced"
+    read_when: "You are assessing the security of a Wi-Fi, Bluetooth, cellular, RFID/NFC, or IoT wireless deployment, you are planning or running a wireless penetration test, or you are hardening a wireless network against real attacks"
+    start_at: "[Wi-Fi Security Protocols](#_1-wi-fi-security-protocols), [Wi-Fi Attack Techniques](#_2-wi-fi-attack-techniques), [Wireless Hardening](#_9-wireless-hardening)"
+    pairs_with: "[Network Protocols Security](NETWORK_PROTOCOLS_SECURITY.md), [Red Team Reference](RED_TEAM_REFERENCE.md), [Radio Frequency (RF) Security](disciplines/radio-frequency-security.md), [IoT Security](disciplines/iot-security.md)"
+    learning_path: []
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked mobile IDs re-keyed: T1465, T1466 and T1467 to T1638, T1468 to T1430.001"
+    reviewed: null
+    fold:
+      - "section:glossary"
+  YOUTUBE_CHANNELS.md:
+    audience: "Learners who prefer watching practitioners work through labs, tools, and attacks"
+    level: "Beginner"
+    read_when: "You want to learn a discipline by watching workflows instead of reading, you need conference or BSides talk sources, or you are building a Black Hat Arsenal watch queue"
+    start_at: "[Category Index](#category-index), [How To Use This File](#how-to-use-this-file), [Black Hat Arsenal Companion Videos](#black-hat-arsenal-companion-videos)"
+    pairs_with: "[Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md), [Starred Repositories](STARRED_REPOS.md), [Black Hat Arsenal Crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md)"
+    learning_path: []
+    reviewed: null
+  ZERO_TRUST_REFERENCE.md:
+    audience: "Security architects and identity and network engineers planning a Zero Trust rollout"
+    level: "Intermediate"
+    read_when: "You are planning or assessing a Zero Trust rollout, you need to replace a VPN or bastion host with identity-aware access, or you want config examples for Conditional Access, Istio mTLS, Teleport, Boundary, or Cloudflare"
+    start_at: "[Zero Trust Fundamentals](#_1-zero-trust-fundamentals), [Identity Pillar](#_2-identity-pillar), [ZTA Implementation Roadmap](#_10-zta-implementation-roadmap)"
+    pairs_with: "[Zero Trust Architecture discipline](disciplines/zero-trust-architecture.md), [Identity and Access Management](disciplines/identity-access-management.md), [Cloud Network Security](CLOUD_NETWORK_SECURITY.md), [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE.md)"
+    learning_path:
+      - "disciplines/zero-trust-architecture.md"
+    reviewed: null
+  disciplines/active-defense-deception.md:
+    audience: "Defenders adding honeypots, honeytokens, and adversary engagement to their detection program"
+    level: "Intermediate"
+    read_when: "You are planning a deception program (honeypots, honeytokens, decoy credentials), or you are learning how adversary engagement works under MITRE Engage"
+    start_at: "[Core Concepts](#core-concepts), [Free & Open-Source Tools](#free-amp-open-source-tools), [MITRE ENGAGE Framework](#mitre-engage-framework)"
+    reviewed: null
+  disciplines/active-directory.md:
+    audience: "Administrators, defenders, and testers who attack or protect Active Directory"
+    level: "Intermediate to advanced"
+    read_when: "You are learning how AD authentication works and how attackers get from a foothold to domain dominance, or you are building AD detections and hardening"
+    start_at: "[AD Architecture Review](#ad-architecture-review), [Kerberoasting](#kerberoasting), [Detection Strategies](#detection-strategies)"
+    corrected: "pr62-names-and-versions"
+    corrected_what: "CrackMapExec row replaced by NetExec"
+    reviewed: null
+  disciplines/adversarial-ai-attacks.md:
+    audience: "Security practitioners learning to attack and defend AI and ML systems"
+    level: "Beginner to advanced"
+    read_when: "You are learning how attacks on ML models and LLM applications work (evasion, poisoning, extraction, prompt injection) and how MITRE ATLAS catalogs them"
+    start_at: "[Attack Categories](#attack-categories), [MITRE ATLAS Techniques](#mitre-atlas-techniques), [Hands-On Practice](#hands-on-practice)"
+    reviewed: null
+  disciplines/ai-llm-security.md:
+    audience: "Practitioners moving into AI and LLM security, offensive or defensive"
+    level: "Beginner to advanced"
+    read_when: "You are weighing whether to attack or defend AI systems, you are mapping LLM threats to MITRE ATLAS, or you are looking for free training and tools"
+    start_at: "[Where to Start](#where-to-start), [LLM Security Threat Landscape](#llm-security-threat-landscape), [Securing LLM Applications](#securing-llm-applications)"
+    corrected: "pr62-names-and-versions"
+    corrected_what: "note added on the 2026 OWASP Top 10 for LLM Applications"
+    reviewed: null
+  disciplines/ai-ml-security.md:
+    audience: "Engineers and security practitioners securing ML pipelines, models, and inference APIs"
+    level: "Beginner to advanced"
+    read_when: "You are learning the security risks at each phase of the ML lifecycle, from training data to deployment, and the controls and governance that address them"
+    start_at: "[Where to Start](#where-to-start), [ML Lifecycle Attack Surface](#ml-lifecycle-attack-surface), [MLOps Security](#mlops-security)"
+    reviewed: null
+  disciplines/application-security.md:
+    audience: "Developers and security practitioners moving into application security"
+    level: "Beginner to advanced"
+    read_when: "You are new to application security, you are studying the OWASP Top 10, or you are building a secure development lifecycle"
+    start_at: "[Where to Start](#where-to-start), [Web Application Attack Reference](#web-application-attack-reference), [Secure Development Lifecycle (SDL)](#secure-development-lifecycle-sdl)"
+    corrected: "pr62-names-and-versions"
+    corrected_what: "OWASP Top 10 paragraph updated to the 2025 edition"
+    reviewed: null
+  disciplines/blockchain-web3-security.md:
+    audience: "Developers and auditors learning smart contract and Web3 security"
+    level: "Beginner to advanced"
+    read_when: "You are auditing smart contracts or Web3 projects and want the vulnerability classes, practice CTFs and tools"
+    start_at: "[Where to Start](#where-to-start), [Smart Contract Vulnerability Classes](#smart-contract-vulnerability-classes), [Tools & Repositories](#tools-amp-repositories)"
+    reviewed: null
+  disciplines/bug-bounty.md:
+    audience: "Aspiring and working bug bounty hunters and vulnerability researchers"
+    level: "Beginner to advanced"
+    read_when: "You are running recon for a bug bounty program, you are studying vulnerability classes from both sides, or you are learning to write reports that get triaged"
+    start_at: "[Where to Start](#where-to-start), [Recon Methodology](#recon-methodology), [Writing a High-Quality Bug Report](#writing-a-high-quality-bug-report)"
+    corrected: "pr51-tactic-rename"
+    corrected_what: "tactic of T1078 Valid Accounts changed from Defense Evasion to Stealth"
+    reviewed: null
+  disciplines/cloud-security.md:
+    audience: "Engineers and security practitioners moving into AWS, Azure, and GCP security"
+    level: "Beginner to advanced"
+    read_when: "You are moving into cloud security from infrastructure or IT, or you are studying attacks and misconfigurations in AWS, Azure and GCP"
+    start_at: "[Where to Start](#where-to-start), [Cloud Attack Techniques (AWS)](#cloud-attack-techniques-aws), [Common Cloud Misconfigurations](#common-cloud-misconfigurations-all-platforms)"
+    reviewed: null
+  disciplines/container-kubernetes-security.md:
+    audience: "Platform engineers and security practitioners learning container and Kubernetes security"
+    level: "Beginner to advanced"
+    read_when: "You are learning how containers isolate workloads and how attackers escape them, or you are hardening a Kubernetes cluster"
+    start_at: "[Where to Start](#where-to-start), [Container Escape Techniques](#container-escape-techniques-structured-reference), [Kubernetes Hardening](#kubernetes-hardening-prescriptive)"
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1562.001 re-keyed to T1685"
+    reviewed: null
+  disciplines/cryptography-pki.md:
+    audience: "Practitioners learning applied cryptography, certificates, and PKI operations"
+    level: "Beginner to advanced"
+    read_when: "You are learning cryptography and PKI for security work, you are reviewing a TLS configuration, or you are planning for post-quantum algorithms"
+    start_at: "[Where to Start](#where-to-start), [Core Cryptography Concepts](#core-cryptography-concepts), [TLS Hardening Reference](#tls-hardening-reference)"
+    corrected: "pr98-text-fix"
+    corrected_what: "3DES effective key strength corrected in one row"
+    reviewed: null
+  disciplines/cyber-risk-quantification.md:
+    audience: "Risk, GRC, and security leaders learning to express cyber risk in financial terms"
+    level: "Beginner to advanced"
+    read_when: "You are learning to express cyber risk in financial terms with FAIR, or you are moving from qualitative risk ratings to quantitative analysis"
+    start_at: "[Where to Start](#where-to-start), [The FAIR Model](#the-fair-model), [Key Metrics](#key-metrics)"
+    reviewed: null
+  disciplines/data-security.md:
+    audience: "Practitioners learning data classification, encryption, DLP, and data posture management"
+    level: "Beginner to advanced"
+    read_when: "You are finding out what data security engineers do, or you are working on classification, data loss prevention, encryption and access governance for data"
+    start_at: "[Where to Start](#where-to-start), [Data Classification Reference](#data-classification-reference), [Free & Open-Source Tools](#free-amp-open-source-tools)"
+    reviewed: null
+  disciplines/detection-engineering.md:
+    audience: "SOC analysts and engineers moving into detection engineering"
+    level: "Beginner to advanced"
+    read_when: "You are writing Sigma rules, or you are learning the log sources and event IDs detections depend on"
+    start_at: "[Where to Start](#where-to-start), [Critical Windows Event IDs](#critical-windows-event-ids), [Sigma Rule Structure](#sigma-rule-structure)"
+    corrected: "pr83-revoked-ids"
+    corrected_what: "revoked T1070.001 re-keyed to T1685.005"
+    reviewed: null
+  disciplines/devsecops.md:
+    audience: "Developers, DevOps engineers, and security engineers building security into CI/CD"
+    level: "Beginner to advanced"
+    read_when: "You are adding security to CI/CD pipelines, you are learning SBOM and SLSA, or you are moving from development or operations into DevSecOps"
+    start_at: "[Where to Start](#where-to-start), [CI/CD Security](#cicd-security-offensive-amp-defensive-perspectives), [SLSA Framework Levels](#slsa-framework-levels)"
+    corrected: "pr51-tactic-rename"
+    corrected_what: "tactic of T1078 and T1036 changed from Defense Evasion to Stealth"
+    reviewed: null
+  disciplines/digital-forensics.md:
+    audience: "Aspiring and working digital forensic examiners and DFIR analysts"
+    level: "Beginner to advanced"
+    read_when: "You are learning the DFIR investigation method and disk and memory forensics, or you are choosing forensic tools and training"
+    start_at: "[Where to Start](#where-to-start), [DFIR Investigation Methodology](#dfir-investigation-methodology), [Disk Forensics](#disk-forensics)"
+    reviewed: null
+  disciplines/exploit-development.md:
+    audience: "Practitioners learning binary exploitation and exploit development"
+    level: "Beginner to advanced"
+    read_when: "You are learning binary exploitation from stack overflows to ROP and heap techniques, or you are preparing for exploit-focused certifications"
+    start_at: "[Where to Start](#where-to-start), [Memory Protection Mechanisms and Bypasses](#memory-protection-mechanisms-and-bypasses), [Stack Buffer Overflow](#stack-buffer-overflow)"
+    corrected: "pr51-tactic-rename"
+    corrected_what: "T1211 row renamed Exploitation for Stealth (was Exploitation for Defense Evasion)"
+    reviewed: null
+  disciplines/governance-risk-compliance.md:
+    audience: "People entering GRC roles and practitioners building governance, risk, and compliance programs"
+    level: "Beginner to advanced"
+    read_when: "You are picking which frameworks and standards to learn first for governance, risk and compliance work, and the certifications that go with them"
+    start_at: "[Where to Start](#where-to-start), [Frameworks & Standards Reference](#frameworks-amp-standards-reference), [Free Training](#free-training)"
+    corrected: "pr63-regulatory-updates"
+    corrected_what: "CMMC Level 1 count updated in one row"
+    reviewed: null
+  disciplines/hacker-hobbies.md:
+    audience: "Curious people exploring hacker culture: lock picking, radio, hardware, and conference villages"
+    level: "Beginner to advanced"
+    read_when: "You are looking for hobbies that build security skills (locksport, SDR, ham radio, badges, car hacking), or you are getting into hacker conferences and CTF culture"
+    start_at: "[Locksport & Physical Bypass](#locksport-amp-physical-bypass), [Software Defined Radio (SDR)](#software-defined-radio-sdr), [DEF CON Villages Reference](#def-con-villages-reference)"
+    reviewed: null
+  disciplines/hardware-security.md:
+    audience: "Practitioners learning firmware, secure boot, side-channel, and hardware attack and defense"
+    level: "Beginner to advanced"
+    read_when: "You are attacking a device through its debug interfaces, you are extracting firmware, or you are studying side channels, fault injection and TPMs"
+    start_at: "[Where to Start](#where-to-start), [Offensive Techniques](#offensive-techniques), [Hardware Security Tools Reference](#hardware-security-tools-reference)"
+    corrected: "pr51-tactic-rename"
+    corrected_what: "tactic of T1542 and T1601 and their sub-techniques changed from Defense Evasion to Stealth"
+    reviewed: null
+  disciplines/ics-ot-security.md:
+    audience: "IT security practitioners and engineers moving into industrial and OT security"
+    level: "Beginner to advanced"
+    read_when: "You are moving from IT security into ICS/OT, or you are studying industrial protocols, the Purdue model and past ICS incidents"
+    start_at: "[Where to Start](#where-to-start), [The Purdue Reference Model](#the-purdue-reference-model), [ICS Protocols](#ics-protocols-authentication-and-encryption-gaps)"
+    corrected: "pr118-revoked-citations"
+    corrected_what: "T0833 Modify Control Logic marked deprecated, with no successor"
+    reviewed: null
+  disciplines/identity-access-management.md:
+    audience: "Practitioners learning identity, authentication, authorization, and privileged access"
+    level: "Beginner to advanced"
+    read_when: "You are learning the protocols and standards identity and access management relies on (SAML, OIDC, OAuth 2.0, NIST SP 800-63)"
+    start_at: "[What IAM Engineers Do](#what-iam-engineers-do), [Where to Start](#where-to-start), [Core Frameworks & Standards](#core-frameworks-amp-standards)"
+    corrected: "pr62-names-and-versions"
+    corrected_what: "NIST SP 800-63 links and notes updated to Revision 4"
+    reviewed: null
+  disciplines/incident-response.md:
+    audience: "Aspiring and working incident responders"
+    level: "Beginner to advanced"
+    read_when: "You are handling an incident and need the IR lifecycle, containment options and quick triage commands for Windows and Linux"
+    start_at: "[Where to Start](#where-to-start), [IR Framework and Lifecycle](#ir-framework-and-lifecycle), [Windows Rapid Triage Commands](#windows-rapid-triage-commands)"
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1070.001 re-keyed to T1685.005"
+    reviewed: null
+  disciplines/iot-security.md:
+    audience: "Practitioners learning to test and secure connected and embedded devices"
+    level: "Beginner to advanced"
+    read_when: "You are testing an IoT device: firmware analysis, MQTT attack scenarios, device identity and the OWASP IoT Top 10"
+    start_at: "[Where to Start](#where-to-start), [OWASP IoT Top 10](#owasp-iot-top-10), [Firmware Analysis](#firmware-analysis)"
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T0839 re-keyed to T1693.002"
+    reviewed: null
+  disciplines/malware-analysis.md:
+    audience: "Analysts learning static and dynamic malware analysis"
+    level: "Beginner to advanced"
+    read_when: "You are setting up a safe analysis lab, or you are learning static, dynamic and advanced malware analysis"
+    start_at: "[Where to Start](#where-to-start), [Malware Analysis Environment Setup](#malware-analysis-environment-setup), [Static Analysis](#static-analysis)"
+    corrected: "pr62-names-and-versions"
+    corrected_what: "Cuckoo entry marked unmaintained, with CAPEv2 named as its successor"
+    reviewed: null
+  disciplines/mobile-security.md:
+    audience: "Practitioners learning iOS and Android app testing and enterprise mobility security"
+    level: "Beginner to advanced"
+    read_when: "You are testing Android or iOS applications, or you are studying the OWASP Mobile Top 10 and MASVS"
+    start_at: "[Where to Start](#where-to-start), [Android Security Deep Dive](#android-security-deep-dive), [iOS Security Deep Dive](#ios-security-deep-dive)"
+    corrected: "pr83-revoked-ids"
+    corrected_what: "revoked mobile IDs re-keyed: T1446 to T1629.002, T1447 to T1630.002, T1448 to T1643; T1444 row removed and T1437 renamed Application Layer Protocol"
+    reviewed: null
+  disciplines/network-security.md:
+    audience: "Practitioners learning network security monitoring, IDS and IPS, and traffic analysis"
+    level: "Beginner to advanced"
+    read_when: "You are learning how network protocols work at the packet level and how they are attacked and monitored"
+    start_at: "[Where to Start](#where-to-start), [Network Attack Techniques](#network-attack-techniques), [Network Monitoring and Defense](#network-monitoring-and-defense)"
+    reviewed: null
+  disciplines/offensive-security.md:
+    audience: "People moving into penetration testing, red teaming, and adversary emulation"
+    level: "Beginner to advanced"
+    read_when: "You are choosing labs and certifications for offensive work, or you are learning the attack lifecycle, LOLBAS and the vulnerability research process"
+    start_at: "[Where to Start](#where-to-start), [Attack Lifecycle Overview](#attack-lifecycle-overview), [LOLBAS Reference](#lolbas-reference-living-off-the-land-binaries-and-scripts)"
+    reviewed: null
+  disciplines/osint.md:
+    audience: "Analysts and testers learning open-source intelligence collection and analysis"
+    level: "Beginner to advanced"
+    read_when: "You are building an OSINT collection workflow with OPSEC first, or you are choosing OSINT tools and techniques"
+    start_at: "[Where to Start](#where-to-start), [Core Methodology](#core-methodology), [OpSec for OSINT Analysts](#opsec-for-osint-analysts)"
+    reviewed: null
+  disciplines/penetration-testing.md:
+    audience: "Aspiring and working penetration testers"
+    level: "Intermediate"
+    read_when: "You are learning how a penetration test is scoped, run and reported, or you are choosing tools for each phase"
+    start_at: "[Testing Methodology: Phases](#testing-methodology-phases), [Scoping and Rules of Engagement Checklist](#scoping-and-rules-of-engagement-checklist), [Report Structure](#report-structure)"
+    corrected: "pr62-names-and-versions"
+    corrected_what: "CVSS v4.0 row and note added"
+    reviewed: null
+  disciplines/physical-security.md:
+    audience: "Practitioners learning physical security assessment and physical penetration testing"
+    level: "Beginner to advanced"
+    read_when: "You are planning a physical penetration test, or you are learning RFID and NFC, lock, badge and access-control bypass and how to report the findings"
+    start_at: "[Where to Start](#where-to-start), [Physical Penetration Testing Methodology](#physical-penetration-testing-methodology), [RFID/NFC Attack Detail](#rfidnfc-attack-detail)"
+    corrected: "pr51-tactic-rename"
+    corrected_what: "tactic of T1078 and T1601 changed from Defense Evasion to Stealth"
+    reviewed: null
+  disciplines/privacy-engineering.md:
+    audience: "Engineers and privacy professionals learning to build privacy into systems"
+    level: "Beginner to advanced"
+    read_when: "You are moving into privacy engineering, you are running privacy impact assessments, or you are applying privacy-by-design patterns"
+    start_at: "[What Privacy Engineers Do](#what-privacy-engineers-do), [Where to Start](#where-to-start), [Privacy-by-Design Patterns](#privacy-by-design-patterns)"
+    corrected: "pr62-names-and-versions"
+    corrected_what: "ISO/IEC 27701 row updated to the 2025 edition"
+    reviewed: null
+  disciplines/purple-teaming.md:
+    audience: "Red and blue team practitioners learning to run purple team exercises"
+    level: "Beginner to advanced"
+    read_when: "You are planning a purple team exercise, you are measuring detection coverage against ATT&CK, or you are choosing adversary emulation and BAS tools"
+    start_at: "[Where to Start](#where-to-start), [Purple Team Exercise Structure](#purple-team-exercise-structure), [Detection Outcome Matrix](#detection-outcome-matrix)"
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1562 re-keyed to T1685"
+    reviewed: null
+  disciplines/radio-frequency-security.md:
+    audience: "Practitioners learning RF and wireless assessment with software-defined radio"
+    level: "Beginner to advanced"
+    read_when: "You are picking up software-defined radio, you are studying wireless attack techniques, or you are checking the legal limits on transmitting"
+    start_at: "[Where to Start](#where-to-start), [RF Attack Techniques](#rf-attack-techniques), [Legal & Ethical Considerations](#legal-amp-ethical-considerations)"
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1465 re-keyed to T1638"
+    reviewed: null
+  disciplines/red-teaming.md:
+    audience: "Penetration testers and operators moving into red teaming"
+    level: "Intermediate to advanced"
+    read_when: "You are learning how a red team engagement differs from a penetration test, or you are planning C2, infrastructure and OPSEC for an operation"
+    start_at: "[Red Team vs Penetration Test vs Bug Bounty](#red-team-vs-penetration-test-vs-bug-bounty), [Red Team Kill Chain / Methodology](#red-team-kill-chain-methodology), [Infrastructure OPSEC](#infrastructure-opsec)"
+    corrected: "pr51-tactic-rename"
+    corrected_what: "kill-chain phase 7 renamed from Defense Evasion to Stealth (TA0005)"
+    reviewed: null
+  disciplines/reverse-engineering.md:
+    audience: "Analysts and researchers learning to reverse engineer compiled software"
+    level: "Beginner to advanced"
+    read_when: "You are working through crackmes and CTF reversing challenges, or you are learning static and dynamic analysis workflows and anti-analysis bypasses"
+    start_at: "[Where to Start](#where-to-start), [Static Analysis Workflow](#static-analysis-workflow), [Dynamic Analysis Workflow](#dynamic-analysis-workflow)"
+    reviewed: null
+  disciplines/security-architecture.md:
+    audience: "Engineers moving into security architecture roles"
+    level: "Beginner to advanced"
+    read_when: "You are moving into security architecture, or you are learning defense in depth and common architecture patterns"
+    start_at: "[Where to Start](#where-to-start), [Security Architecture Patterns](#security-architecture-patterns), [Free Training](#free-training)"
+    corrected: "pr51-tactic-rename"
+    corrected_what: "tactic of T1078 changed from Defense Evasion to Stealth, and of T1550 to Lateral Movement"
+    reviewed: null
+  disciplines/security-awareness.md:
+    audience: "People who run or are building security awareness and human-risk programs"
+    level: "Beginner to advanced"
+    read_when: "You are building or rebuilding a security awareness program, you are running phishing simulations, or you are measuring human risk"
+    start_at: "[Where to Start](#where-to-start), [Phishing Simulation Methodology](#phishing-simulation-methodology), [Human Risk Metrics](#human-risk-metrics)"
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1656 re-keyed to T1684.001"
+    reviewed: null
+  disciplines/security-operations.md:
+    audience: "Aspiring and working SOC analysts and security operations staff"
+    level: "Beginner to advanced"
+    read_when: "You are learning SOC analyst tiers and the alert triage process, or you are setting up SOC metrics and SOAR playbooks"
+    start_at: "[Where to Start](#where-to-start), [SOC Analyst Tiers](#soc-analyst-tiers), [Alert Triage Process](#alert-triage-process)"
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1562 re-keyed to T1685"
+    reviewed: null
+  disciplines/siem-soar.md:
+    audience: "SOC analysts and engineers learning SIEM and SOAR platforms"
+    level: "Beginner to advanced"
+    read_when: "You are learning a SIEM or SOAR platform, a query language such as SPL or KQL, or how SOAR playbooks are designed"
+    start_at: "[Where to Start](#where-to-start), [Search Language Examples](#search-language-examples), [SOAR Architecture and Design](#soar-architecture-and-design)"
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1562 re-keyed to T1685"
+    reviewed: null
+  disciplines/social-engineering.md:
+    audience: "Defenders, awareness staff, and testers learning social engineering attack and defense"
+    level: "Beginner to advanced"
+    read_when: "You are learning social engineering attack types, you are running phishing or vishing assessments, or you are designing defenses against them"
+    start_at: "[Where to Start](#where-to-start), [Attack Types and Techniques](#attack-types-and-techniques), [Defensive Countermeasures](#defensive-countermeasures)"
+    corrected: "pr88-revoked-ids"
+    corrected_what: "revoked T1656 re-keyed to T1684.001"
+    reviewed: null
+  disciplines/supply-chain-security.md:
+    audience: "Developers and security engineers learning software and hardware supply chain security"
+    level: "Beginner to advanced"
+    read_when: "You are learning software supply chain attacks and defenses: SBOM, artifact signing and provenance, dependency and build security"
+    start_at: "[Where to Start](#where-to-start), [Software Supply Chain Threats](#software-supply-chain-threats), [Artifact Signing and Provenance](#artifact-signing-and-provenance)"
+    corrected: "pr51-tactic-rename"
+    corrected_what: "tactic of T1078.001 Default Accounts changed from Defense Evasion to Stealth"
+    reviewed: null
+  disciplines/threat-hunting.md:
+    audience: "SOC analysts and detection engineers moving into threat hunting"
+    level: "Intermediate to advanced"
+    read_when: "You are developing hunt hypotheses, or you are looking for ATT&CK-mapped hunt procedures and SPL or KQL queries"
+    start_at: "[The Threat Hunting Process](#the-threat-hunting-process), [Hunt Procedures](#hunt-procedures), [Splunk SPL Hunting Queries](#splunk-spl-hunting-queries)"
+    reviewed: null
+  disciplines/threat-intelligence.md:
+    audience: "Analysts learning to collect, analyze, and act on threat intelligence"
+    level: "Beginner to advanced"
+    read_when: "You are learning the intelligence cycle and how CTI uses ATT&CK, or you are choosing CTI tools and sources"
+    start_at: "[Where to Start](#where-to-start), [Free Training](#free-training), [Tools & Repositories](#tools-amp-repositories)"
+    corrected: "pr62-names-and-versions"
+    corrected_what: "TheHive entry updated (now commercial; DFIR-IRIS named as the alternative)"
+    reviewed: null
+  disciplines/threat-modeling.md:
+    audience: "Developers, architects, and security engineers learning threat modeling"
+    level: "Beginner to advanced"
+    read_when: "You are threat-modeling a system design for the first time, or you are choosing between STRIDE, PASTA, LINDDUN and attack trees"
+    start_at: "[Where to Start](#where-to-start), [STRIDE Methodology](#stride-methodology-microsoft), [When to Threat Model](#when-to-threat-model)"
+    reviewed: null
+  disciplines/vulnerability-management.md:
+    audience: "Practitioners learning to run a risk-based vulnerability management program"
+    level: "Beginner to advanced"
+    read_when: "You are running a vulnerability management program or attack surface management, or you are learning to prioritize with CVSS, EPSS and KEV"
+    start_at: "[Where to Start](#where-to-start), [Vulnerability Management Program Lifecycle](#vulnerability-management-program-lifecycle), [CVE, CWE, and Weakness Classification](#cve-cwe-and-weakness-classification)"
+    corrected: "pr63-regulatory-updates"
+    corrected_what: "BOD 22-01 references updated for BOD 26-04"
+    reviewed: null
+  disciplines/zero-trust-architecture.md:
+    audience: "Architects and engineers learning to plan and implement Zero Trust"
+    level: "Beginner to advanced"
+    read_when: "You are learning zero trust architecture from NIST SP 800-207 and the CISA maturity model, or you are planning a migration pillar by pillar"
+    start_at: "[Where to Start](#where-to-start), [NIST SP 800-207](#nist-sp-800-207-zero-trust-architecture), [CISA Zero Trust Maturity Model](#cisa-zero-trust-maturity-model-ztmm)"
+    reviewed: null
+clusters:
+  active-directory:
+    topic: "Active Directory attack and defense"
+    pages:
+      ACTIVE_DIRECTORY_ATTACKS.md: "the offensive playbook for penetration testers and red teamers: each major attack with tool commands, ATT&CK mappings, detection event IDs, and defenses."
+      ACTIVE_DIRECTORY_ATTACK_REFERENCE.md: "the same attacks from the defender's side: what each looks like on the wire, the telemetry it generates, and how to detect and prevent it."
+      ACTIVE_DIRECTORY_SECURITY_REFERENCE.md: "the defensive companion: detection guidance, hardening controls, and response playbooks, including domain controller, Group Policy, and AD CS security."
+  windows-hardening:
+    topic: "Windows hardening"
+    pages:
+      WINDOWS_HARDENING.md: "hands-on apply-and-verify commands for each control, built from CIS Benchmarks, Microsoft baselines, and DISA STIGs."
+      WINDOWS_HARDENING_GPO.md: "Group Policy baselines: disabling dangerous services, credential and network hardening, and the attacks GPO misconfigurations enable."
+      WINDOWS_HARDENING_REFERENCE.md: "from security architecture foundations to monitoring: Credential Guard, LAPS, Sysmon, and Windows Event Forwarding."
+  grc:
+    topic: "governance, risk, and compliance"
+    pages:
+      FRAMEWORKS.md: "a quick reference to each major framework: who publishes it, whether it is mandatory, who it applies to, and its structure."
+      GRC_COMPLIANCE_REFERENCE.md: "frameworks in depth, with compliance automation tooling such as OSCAL and ComplianceAsCode."
+      GRC_REFERENCE.md: "running the program: governance structure, risk quantification, compliance programs, third-party risk, and audits."
+  identity:
+    topic: "identity security"
+    pages:
+      IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md: "controls and architecture: authentication technologies, authorization models, PAM, IGA, and compliance mapping."
+      IDENTITY_SECURITY_REFERENCE.md: "attacks and vendor controls: MFA bypass, Entra ID, Okta, CyberArk, and identity detection and response."
+  web-application:
+    topic: "web application security"
+    pages:
+      WEB_APPLICATION_PENTESTING.md: "the test playbook: recon to reporting, with working commands and payloads for each bug class."
+      WEB_APPLICATION_SECURITY_REFERENCE.md: "the OWASP Top 10 with injection, client-side, and authentication deep dives, covering both payloads and fixes."
+  penetration-testing:
+    topic: "running a penetration test"
+    pages:
+      PENETRATION_TESTING_METHODOLOGY.md: "the end-to-end engagement playbook: legal paperwork, recon, exploitation, post-exploitation, and reporting."
+      PENTEST_CHECKLISTS.md: "task checklists for each phase, from pre-engagement through external, internal, Active Directory, web, cloud, and reporting."
+  deception:
+    topic: "deception and adversary engagement"
+    pages:
+      DECEPTION_TECHNOLOGY_REFERENCE.md: "deception program strategy and detection engineering: honeytokens, decoy placement, alert pipelines, and metrics."
+      HONEYPOT_DECEPTION_REFERENCE.md: "hands-on install, configuration, and SIEM integration for honeypot and honeytoken tools such as OpenCanary, Canarytokens, and T-Pot."
+      ENGAGE_REFERENCE.md: "the MITRE Engage framework for planning adversary engagement, mapped to ATT&CK techniques."
+  network-protocols:
+    topic: "network protocols"
+    pages:
+      NETWORK_PROTOCOLS_REFERENCE.md: "the engineering view: protocol internals, hardening configurations, and packet-analysis tooling."
+      NETWORK_PROTOCOLS_SECURITY.md: "the attacker view: how each protocol is exploited, with ATT&CK IDs, detection, and defenses."
+  cloud:
+    topic: "cloud security"
+    pages:
+      CLOUD_ARCHITECTURE_REFERENCE.md: "designing cloud systems: landing zones, hub-and-spoke networking, and architecture decisions with their trade-offs."
+      CLOUD_SECURITY_REFERENCE.md: "controls and their configuration across AWS, Azure, and GCP, plus privilege-escalation paths and cloud attack tools."
+      CLOUD_ATTACK_REFERENCE.md: "attacker techniques per cloud and for Kubernetes, aligned to ATT&CK, for building detections and running incident response."
+      CLOUD_SECURITY_BENCHMARK.md: "CIS Benchmark hardening checks with fix commands, audit scripts, and CSPM tools."
+      CLOUD_NETWORK_SECURITY.md: "network controls across the three clouds: VPC design, firewalls, WAF, private connectivity, DDoS protection, and flow logs."
+  architecture:
+    topic: "architecture"
+    pages:
+      ARCHITECTURE_REFERENCE.md: "general enterprise and solution architecture: domains, frameworks, decision records, and patterns, each read as an attack-surface decision."
+      SECURITY_ARCHITECTURE_REFERENCE.md: "security architecture itself: SABSA, TOGAF, defense in depth, Zero Trust, and architecture reviews."
+  tool-indexes:
+    topic: "finding a tool"
+    pages:
+      TOOLS.md: "a matrix of tools by function, each marked open source or commercial."
+      OPEN_SOURCE_TOOLKIT.md: "free and open-source tools organized by discipline, with practice platforms and bookmarks."
+      STARRED_REPOS.md: "the full index of starred GitHub repositories, grouped by the job they do."
+      SECURITY_TOOL_DOCUMENTATION.md: "official documentation, API references, and GitHub organizations for the platforms in an enterprise security stack."
+  threat-actors:
+    topic: "threat actors"
+    pages:
+      THREAT_ACTORS.md: "a narrative quick reference to notable groups by nation and type, with aliases, targets, and signature TTPs."
+      THREAT_GROUP_PROFILES.md: "profiles built from ATT&CK group data: aliases, technique and software counts, and signature techniques."
+  detection-content:
+    topic: "SIEM and detection content"
+    pages:
+      SIEM_REFERENCE.md: "SIEM platforms: architecture and sizing, and the query languages and detection workflows of Splunk, Sentinel, QRadar, and Elastic."
+      SIEM_DETECTION_CONTENT.md: "where to get vendor-maintained, ready-made detection content and how to deploy it."
+      DETECTION_RULES_REFERENCE.md: "writing your own rules in Sigma, YARA, Suricata, SPL, and KQL, then testing and tuning them."
+  threat-hunting:
+    topic: "threat hunting"
+    pages:
+      THREAT_HUNTING_PLAYBOOKS.md: "ready-to-run hunts, each with a hypothesis, data sources, a query, and response steps."
+      THREAT_HUNTING_REFERENCE.md: "hunting fundamentals, query languages, rule authoring, and hunt tracking."
+  controls:
+    topic: "security controls and vendor settings"
+    pages:
+      CONTROLS_MAPPING.md: "the chain from security vendors to the NIST 800-53 controls they implement and the ATT&CK techniques those controls mitigate."
+      ENTERPRISE_SECURITY_CONTROLS.md: "configuration, policy tuning, and detection guidance for specific enterprise platforms."
+      VENDOR_PREVENTION_POLICIES.md: "recommended prevention settings from official vendor documentation and the CISA SCuBA baselines."
+  network-design:
+    topic: "how networks work and how to design them"
+    pages:
+      NETWORKING_FUNDAMENTALS.md: "how networking works, from OSI layers to routing and DNS, explained for reasoning about attacks and detections."
+      NETWORKING_ARCHITECTURE_REFERENCE.md: "designing networks: topologies, overlays, segmentation, SD-WAN and SASE, and core services."
+      NETWORK_SECURITY_ARCHITECTURE.md: "building a segmented enterprise network: zones, firewall and IPS placement, 802.1X, and VPNs, with configuration examples."
+  network-operations:
+    topic: "network attack, defense, and monitoring"
+    pages:
+      NETWORK_ATTACKS_REFERENCE.md: "how network attacks work layer by layer, each paired with the control that detects or blocks it."
+      NETWORK_DEFENSE_REFERENCE.md: "defense architecture and NSM operations: Suricata, Zeek, Security Onion, segmentation, and DDoS defense."
+      NETWORK_MONITORING_REFERENCE.md: "the monitoring stack and hunting workflows: sensor placement, Zeek, Suricata rules, JA3, and flow data."
+      NETWORK_FORENSICS_REFERENCE.md: "collecting and preserving network evidence and reconstructing an incident from it."
+      PACKET_ANALYSIS_REFERENCE.md: "reading raw traffic in Wireshark, tcpdump, and Zeek, and spotting attacks in packet captures."
+  ai-security:
+    topic: "AI security"
+    pages:
+      AI_SECURITY_REFERENCE.md: "securing LLM applications: the OWASP LLM Top 10, prompt injection, adversarial ML, and guardrails."
+      AI_MCP_SECURITY_REFERENCE.md: "the Model Context Protocol: its threat model and hardening for MCP servers and agents."
+      AI_OFFENSIVE_SECURITY_REFERENCE.md: "AI-assisted attack tooling and the defensive playbook against it."
+      AI_ARCHITECTURE_REFERENCE.md: "designing ML and LLM systems end to end, with the controls that make the architecture defensible."
+      AI_INFRASTRUCTURE_SECURITY_REFERENCE.md: "the infrastructure behind AI: model registries, unsafe model files, pipelines, and inference servers."
+      AGENTIC_AI_ATTACK_REFERENCE.md: "an illustrative agent-swarm intrusion kill chain mapped to ATT&CK and ATLAS."
+      ATLAS_REFERENCE.md: "the MITRE ATLAS matrix of techniques and mitigations for attacks on AI systems."
+  forensics:
+    topic: "digital forensics"
+    pages:
+      DIGITAL_FORENSICS_REFERENCE.md: "host, disk, and memory forensics: acquisition, Windows artifacts, and reporting."
+      CLOUD_SAAS_MOBILE_FORENSICS_REFERENCE.md: "acquisition and preservation when the evidence lives in an API, a tenant, or a phone."
+  vulnerability:
+    topic: "vulnerability prioritization and management"
+    pages:
+      VULNERABILITY_PRIORITIZATION_REFERENCE.md: "the decision layer: which signal outranks which (SSVC, KEV, EPSS) and how the result becomes an SLA."
+      CVE_REFERENCE.md: "the scoring mechanics: CVE records, CVSS, EPSS, and the KEV catalog, with automation code."
+      VULNERABILITY_MANAGEMENT_REFERENCE.md: "operational tooling: scanners, DefectDojo, SCA and SBOM, and patching."
+      CTEM_REFERENCE.md: "the program loop prioritization runs inside: scoping, discovery, prioritization, validation, and mobilization."

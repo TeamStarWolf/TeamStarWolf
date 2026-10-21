@@ -2,11 +2,70 @@
 
 > In one minute: This is the full map of 1032 starred GitHub repositories, sorted into cybersecurity disciplines like detection engineering, DFIR (digital forensics and incident response), red team tooling, and vulnerability management. Instead of scrolling a raw GitHub stars page, you get every tool, framework, and learning resource grouped by the job it does. Use it as the master index when you know roughly what kind of tool you need but not its name.
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Practitioners looking for a tool or project by the job it does
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 14 min (3,326 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need a tool for a specific security task and want to browse by discipline, you remember starring something but not what it was called, or you want a broad map of the whole collection before diving into curated lists
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Category Index](#category-index), [How To Use This File](#how-to-use-this-file), [Black Hat Arsenal Review Queue](#black-hat-arsenal-review-queue)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Curated GitHub Stars Lists](research/CURATED_STARS_LISTS.md), [Black Hat Arsenal Crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, AlienVault heading now also names LevelBlue ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 4 on finding a tool.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | you need a tool for a specific security task and want to browse by discipline, you remember starring something but not what it was called, you want a broad map of the whole collection before diving into curated lists |
-| Start at | [Category Index](#category-index), [How To Use This File](#how-to-use-this-file), [Black Hat Arsenal Review Queue](#black-hat-arsenal-review-queue) |
-| Pairs with | [research/CURATED_STARS_LISTS.md](research/CURATED_STARS_LISTS.md), [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWALK.md) |
+| Starred Repositories (this page) | The full index of starred GitHub repositories, grouped by the job they do. |
+| [Security Tools Reference](/TOOLS.md) | A matrix of tools by function, each marked open source or commercial. |
+| [Open Source Toolkit](/OPEN_SOURCE_TOOLKIT.md) | Free and open-source tools organized by discipline, with practice platforms and bookmarks. |
+| [Security Tool Documentation](/SECURITY_TOOL_DOCUMENTATION.md) | Official documentation, API references, and GitHub organizations for the platforms in an enterprise security stack. |
+
+</details>
+
+<!-- meta:end -->
 
 A categorized index of 1032 starred repositories grouped by cybersecurity discipline. Use it when you want a broad map of tools, frameworks, references, and learning material in one place.
 

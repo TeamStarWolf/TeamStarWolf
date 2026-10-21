@@ -4,6 +4,50 @@
 
 CPE (Common Platform Enumeration) is a NIST-maintained naming scheme for IT products: operating systems, applications, and hardware. It is part of the SCAP family and underpins the NVD: every CVE's *applicability* is expressed as CPE match criteria, so CPE is how a vulnerability feed becomes an asset-specific risk.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management and asset inventory teams
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (837 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are matching CVE feeds to the products you run, you are resolving SBOM components to product identifiers, or you are debugging why a scanner does or does not flag an asset
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Where CPE fits in the ecosystem](#where-cpe-fits-in-the-ecosystem), [CPE applicability: how CVEs map to products](#cpe-applicability-how-cves-map-to-products), [Practical notes & pitfalls](#practical-notes-amp-pitfalls)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Where CPE fits in the ecosystem
 
 | Layer | Framework | Question it answers |

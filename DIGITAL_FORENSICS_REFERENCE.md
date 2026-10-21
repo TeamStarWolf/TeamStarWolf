@@ -1,12 +1,74 @@
 # Digital Forensics Reference Library
 
-> A comprehensive professional reference for digital forensics practitioners, incident responders, and cybersecurity analysts.
+> A reference for digital forensics practitioners, incident responders, and cybersecurity analysts.
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Digital forensic examiners, incident responders, and SOC analysts
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 28 min (6,326 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are acquiring or examining evidence from a compromised or seized system, you need the right artifact (prefetch, ShimCache, SRUM, $UsnJrnl) to prove a file ran or existed after deletion, or you are writing a court-ready forensic report or timeline
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Digital Forensics Fundamentals](#_1-digital-forensics-fundamentals), [Windows Forensics - Artifacts](#_2-windows-forensics-artifacts), [Forensic Reporting & Tools Reference](#_10-forensic-reporting-amp-tools-reference)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md), [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md), [IR Playbooks](IR_PLAYBOOKS.md), [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Digital Forensics](/disciplines/digital-forensics.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-09-29, ShimCache description corrected: an entry shows a file was present, not that it ran ([#56](https://github.com/TeamStarWolf/TeamStarWolf/pull/56))
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 2 on digital forensics.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | You are acquiring or examining evidence from a compromised or seized system, you need the right artifact (prefetch, ShimCache, SRUM, $UsnJrnl) to prove a file ran or existed after deletion, or you are writing a court-ready forensic report or timeline |
-| Start at | [Digital Forensics Fundamentals](#_1-digital-forensics-fundamentals), [Windows Forensics - Artifacts](#_2-windows-forensics-artifacts), [Forensic Reporting & Tools Reference](#_10-forensic-reporting-amp-tools-reference) |
-| Pairs with | [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [NETWORK_FORENSICS_REFERENCE.md](NETWORK_FORENSICS_REFERENCE.md), [IR_PLAYBOOKS.md](IR_PLAYBOOKS.md), [THREAT_HUNTING_REFERENCE.md](THREAT_HUNTING_REFERENCE.md) |
+| Digital Forensics Reference (this page) | Host, disk, and memory forensics: acquisition, Windows artifacts, and reporting. |
+| [Cloud, SaaS & Mobile Forensics](/CLOUD_SAAS_MOBILE_FORENSICS_REFERENCE.md) | Acquisition and preservation when the evidence lives in an API, a tenant, or a phone. |
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

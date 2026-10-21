@@ -1,6 +1,62 @@
 # Cloud Network Security Reference
 
-A comprehensive reference for network security controls across AWS, Azure, and GCP, covering architecture, firewall policy, WAF configuration, private connectivity, DDoS protection, flow log analysis, and compliance mappings.
+A reference for network security controls across AWS, Azure, and GCP, covering architecture, firewall policy, WAF configuration, private connectivity, DDoS protection, flow log analysis, and compliance mappings.
+
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Cloud network and security engineers working across AWS, Azure, and GCP
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,488 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are designing or reviewing VPC and VNet segmentation, firewall, WAF, or private-connectivity controls, or you are comparing the same network control across AWS, Azure, and GCP
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[AWS Network Security](#aws-network-security), [Cross-Cloud Comparison](#cross-cloud-comparison), [Compliance Mappings](#compliance-mappings)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 5 on cloud security.</summary>
+
+| Page | Read it for |
+|---|---|
+| Cloud Network Security (this page) | Network controls across the three clouds: VPC design, firewalls, WAF, private connectivity, DDoS protection, and flow logs. |
+| [Cloud Architecture Reference](/CLOUD_ARCHITECTURE_REFERENCE.md) | Designing cloud systems: landing zones, hub-and-spoke networking, and architecture decisions with their trade-offs. |
+| [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md) | Controls and their configuration across AWS, Azure, and GCP, plus privilege-escalation paths and cloud attack tools. |
+| [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md) | Attacker techniques per cloud and for Kubernetes, aligned to ATT&CK, for building detections and running incident response. |
+| [Cloud Security Benchmark](/CLOUD_SECURITY_BENCHMARK.md) | CIS Benchmark hardening checks with fix commands, audit scripts, and CSPM tools. |
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

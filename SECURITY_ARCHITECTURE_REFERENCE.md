@@ -2,11 +2,73 @@
 
 > In one minute: A practitioner's handbook for designing and reviewing security architectures: layered frameworks (SABSA, TOGAF, defense-in-depth), Zero Trust, network, cloud, application, data, identity, operations, and resilience architecture. It matters because it turns abstract security principles into concrete designs: diagrams, policy examples, migration roadmaps, and review checklists you can apply directly. Each section pairs the "why" (threat-driven design) with the "how" (reference architectures and tool examples).
 
-| | |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security architects and architecture review boards
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 42 min (9,589 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are designing or reviewing a system's security architecture, you are planning a Zero Trust migration, or you are preparing for or running an architecture review board (SARB)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Security Architecture Fundamentals](#_1-security-architecture-fundamentals), [Architecture Review Process](#_10-architecture-review-process), [Quick Reference: Framework Decision Guide](#quick-reference-architecture-framework-decision-guide)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Zero Trust Reference](ZERO_TRUST_REFERENCE.md), [Threat Modeling](disciplines/threat-modeling.md), [Cloud Security](disciplines/cloud-security.md), [GRC Reference](GRC_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Matching learning path</th><td>
+
+[Security Architecture](/disciplines/security-architecture.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-10-12, revoked T1562 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 2 on architecture.</summary>
+
+| Page | Read it for |
 |---|---|
-| Read this when | designing or reviewing a system's security architecture, planning a Zero Trust migration, preparing for or running an architecture review board (SARB) |
-| Start at | [Security Architecture Fundamentals](#_1-security-architecture-fundamentals), [Architecture Review Process](#_10-architecture-review-process), [Quick Reference: Framework Decision Guide](#quick-reference-architecture-framework-decision-guide) |
-| Pairs with | [Zero Trust Reference](ZERO_TRUST_REFERENCE.md), [Threat Modeling](disciplines/threat-modeling.md), [Cloud Security](disciplines/cloud-security.md), [GRC Reference](GRC_REFERENCE.md) |
+| Security Architecture Reference (this page) | Security architecture itself: SABSA, TOGAF, defense in depth, Zero Trust, and architecture reviews. |
+| [Architecture Reference (General)](/ARCHITECTURE_REFERENCE.md) | General enterprise and solution architecture: domains, frameworks, decision records, and patterns, each read as an attack-surface decision. |
+
+</details>
+
+<!-- meta:end -->
 
 A comprehensive reference for security architects, covering frameworks, design
 patterns, cloud security, application security, identity, operations, and

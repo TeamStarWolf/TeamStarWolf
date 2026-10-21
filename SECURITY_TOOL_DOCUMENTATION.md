@@ -4,6 +4,61 @@
 
 > **Verify before relying.** URLs and repo paths were collected by automated, web-assisted research and reflect vendor state as of 2025-2026; some deep links were not live-re-verified. Treat this as a starting index and confirm the current canonical URL before bookmarking widely. Vendor products are referenced descriptively, not endorsed.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management, detection engineering, and platform teams working across an enterprise security stack
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 21 min (4,813 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are looking for the official documentation, API reference, or GitHub organization for a security platform in the stack, or you are starting an integration and need the vendor's developer docs
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Endpoint & EDR](#endpoint-amp-edr), [Cloud & Supply Chain](#cloud-amp-supply-chain), [Identity & Privileged Access](#identity-amp-privileged-access)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 4 on finding a tool.</summary>
+
+| Page | Read it for |
+|---|---|
+| Security Tool Documentation (this page) | Official documentation, API references, and GitHub organizations for the platforms in an enterprise security stack. |
+| [Security Tools Reference](/TOOLS.md) | A matrix of tools by function, each marked open source or commercial. |
+| [Open Source Toolkit](/OPEN_SOURCE_TOOLKIT.md) | Free and open-source tools organized by discipline, with practice platforms and bookmarks. |
+| [Starred Repositories](/STARRED_REPOS.md) | The full index of starred GitHub repositories, grouped by the job they do. |
+
+</details>
+
+<!-- meta:end -->
+
 ## Contents
 
 - Endpoint & EDR

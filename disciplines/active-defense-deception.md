@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 7 min (1,556 words at 230 words a minute)
+About 8 min (1,888 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -76,12 +76,17 @@ Monitor    Detect    Deny    Disrupt    Deceive    Manipulate
  SIEM      IDS/IPS  Firewall  Honeypot  Honeynet   Tarpit
 ```
 
-The [Cyber Active Defense Continuum](https://www.sans.org/white-papers/36022/) defines five escalating levels:
-1. Annoy: Slow attackers down (tarpits, false credentials)
-2. Attribute: Identify attacker origin (beacon payloads, tracking pixels)
-3. Attack: Counterattack (legally complex; typically off-limits)
+Two published models describe how far active defense goes, and they use the term differently.
 
-Most enterprise programs operate at levels 1-2 (annoy + attribute).
+Robert M. Lee's [The Sliding Scale of Cyber Security](https://www.sans.org/white-papers/36240) (SANS white paper, 2015) defines five categories, from left to right: Architecture, Passive Defense, Active Defense, Intelligence, and Offense. Lee defines Active Defense as "the process of analysts monitoring for, responding to, learning from, and applying their knowledge to threats internal to the network", and writes that systems cannot provide an active defense on their own; they serve as tools for the analysts. On this scale, deception inside your own network is a tool of Active Defense, and only when analysts watch it and act on what it shows. The paper puts honeypots run to study attackers and documents that call home from an adversary's network under Intelligence, and countermeasures against the adversary under Offense.
+
+John Strand, Paul Asadoorian, Ethan Robish, and Benjamin Donnelly's [Offensive Countermeasures: The Art of Active Defense](https://www.blackhillsinfosec.com/tools/books/) (2013, ISBN 9781491065969; a later second edition adds Bryce Galbraith) groups active defense into three levels. The authors' [Active Defense Harbinger Distribution](https://adhdproject.github.io/) (ADHD) sorts its tools the same way, and the examples below come from its documentation:
+
+1. Annoyance: waste the attacker's time (Honey Ports, which bans the IP address of any host that connects to a decoy port; Weblabyrinth, a maze of bogus web pages that confuses web scanners)
+2. Attribution: learn who and where the attacker is (Web Bug Server, which hides a callback in a word processing document; HoneyBadger, which locates a web user from browser geolocation, visible WiFi networks, and IP address)
+3. Attack: act against the attacker's own systems (the Java Applet Web Attack from the Social Engineering Toolkit; BeEF browser hooking); legally complex, so plan it with legal counsel
+
+In practice, most enterprise deception programs stay at annoyance and attribution. This is an observation, not a finding of either source.
 
 ### Deception Technology Taxonomy
 
@@ -103,7 +108,8 @@ Most enterprise programs operate at levels 1-2 (annoy + attribute).
 |---|---|
 | [MITRE ENGAGE](https://engage.mitre.org/) | Adversary engagement and deception framework |
 | [MITRE ATT&CK](https://attack.mitre.org/) | TTPs observed in deception environments |
-| [Cyber Active Defense Continuum (SANS)](https://www.sans.org/white-papers/36022/) | Active defense escalation model |
+| [The Sliding Scale of Cyber Security (Lee, SANS, 2015)](https://www.sans.org/white-papers/36240) | Five categories of security investment: Architecture, Passive Defense, Active Defense, Intelligence, and Offense |
+| [Offensive Countermeasures: The Art of Active Defense (Strand et al., 2013)](https://www.blackhillsinfosec.com/tools/books/) | Three levels of active defense: Annoyance, Attribution, and Attack |
 | [NIST SP 800-160 Vol 2](https://csrc.nist.gov/publications/detail/sp/800-160/vol-2-rev-1/final) | Developing Cyber Resilient Systems (includes deception) |
 | [Project HIVE (CISA)](https://www.cisa.gov/) | Government deception best practices |
 
@@ -247,7 +253,8 @@ Deception technology primarily detects post-initial-access techniques (adversari
 |---|---|---|
 | [MITRE ENGAGE](https://engage.mitre.org/) | Framework | Active defense and adversary engagement matrix |
 | [Thinkst Applied Research](https://thinkst.com/research/) | Blog | Canary token research and deception theory |
-| [Active Defense & Cyber Deception (SANS)](https://www.sans.org/white-papers/36022/) | White paper | Foundational active defense paper |
+| [The Sliding Scale of Cyber Security (Lee)](https://www.sans.org/white-papers/36240) | White paper | SANS, 2015; defines Active Defense as analyst work inside your own network |
+| [Offensive Countermeasures: The Art of Active Defense (Strand et al.)](https://www.blackhillsinfosec.com/tools/books/) | Book | 2013; Annoyance, Attribution, and Attack, with the ADHD tools |
 | The Art of Deception (Mitnick) | Book | Social engineering and deception fundamentals |
 | [Honeypots for Windows (Spitzner)](https://link.springer.com/book/10.1007/978-1-4302-0007-9) | Book | Classic honeypot deployment guide |
 | [T-Pot Documentation](https://github.com/telekom-security/tpotce/wiki) | Reference | All-in-one honeypot platform setup |

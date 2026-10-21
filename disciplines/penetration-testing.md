@@ -9,7 +9,7 @@
 | Who this is for | Aspiring and working penetration testers |
 | Level | Intermediate |
 | Reading time | About 10 min (2,338 words at 230 words a minute) |
-| Read this when | learning how a penetration test is scoped, run and reported, or choosing tools for each phase |
+| Read this when | Learning how a penetration test is scoped, run and reported, or choosing tools for each phase |
 | Start at | [Testing Methodology: Phases](#testing-methodology-phases), [Scoping and Rules of Engagement Checklist](#scoping-and-rules-of-engagement-checklist), [Report Structure](#report-structure) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>

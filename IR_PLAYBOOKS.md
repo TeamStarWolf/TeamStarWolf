@@ -9,7 +9,7 @@
 | Who this is for | Incident responders and teams writing IR runbooks |
 | Level | Intermediate |
 | Reading time | About 15 min (3,439 words at 230 words a minute) |
-| Read this when | an active incident needs a structured response right now, you are drafting or adapting IR runbooks for your environment, you need regulatory notification deadlines or law-enforcement contacts fast |
+| Read this when | An active incident needs a structured response right now, you are drafting or adapting IR runbooks for your environment, you need regulatory notification deadlines or law-enforcement contacts fast |
 | Start at | [Playbook Index](#playbook-index), [Ransomware Response Playbook (Detailed)](#ransomware-response-playbook-detailed), [Regulatory Notification Deadlines](#regulatory-notification-deadlines) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>

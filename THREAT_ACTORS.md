@@ -9,7 +9,7 @@
 | Who this is for | Threat intelligence analysts, SOC analysts, and security leaders who brief on adversaries |
 | Level | Beginner to intermediate |
 | Reading time | About 9 min (1,966 words at 230 words a minute) |
-| Read this when | an intel report or news story names an actor you need context on, you are building detections or emulation plans around a specific group's TTPs, you are briefing leadership on who targets your sector |
+| Read this when | An intel report or news story names an actor you need context on, you are building detections or emulation plans around a specific group's TTPs, you are briefing leadership on who targets your sector |
 | Start at | [Nation-State APTs](#nation-state-apts), [Ransomware Groups](#ransomware-groups), [Threat Intelligence Tools for Actor Tracking](#threat-intelligence-tools-for-actor-tracking) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>

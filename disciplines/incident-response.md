@@ -11,14 +11,14 @@ Modern IR increasingly means cloud IR, where traditional forensic tools have no 
 | Who this is for | Aspiring and working incident responders |
 | Level | Beginner to advanced |
 | Reading time | About 15 min (3,395 words at 230 words a minute) |
-| Read this when | starting in incident response, or looking for the IR lifecycle and quick triage commands for Windows and Linux |
+| Read this when | Handling an incident and needing the IR lifecycle, containment options and quick triage commands for Windows and Linux |
 | Start at | [Where to Start](#where-to-start), [IR Framework and Lifecycle](#ir-framework-and-lifecycle), [Windows Rapid Triage Commands](#windows-rapid-triage-commands) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
 | | |
 |---|---|
-| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last corrected | 2026-10-12, revoked T1070.001 re-keyed to T1685.005 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

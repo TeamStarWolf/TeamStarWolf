@@ -1,6 +1,6 @@
 # Privacy Engineering Reference
 
-> Privacy Engineering: comprehensive technical and regulatory reference covering GDPR, CCPA/CPRA, global privacy laws, Privacy by Design, anonymization, pseudonymization, consent management, DPIA, and privacy-preserving engineering patterns.
+> Privacy Engineering: technical and regulatory reference covering GDPR, CCPA/CPRA, global privacy laws, Privacy by Design, anonymization, pseudonymization, consent management, DPIA, and privacy-preserving engineering patterns.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -8,7 +8,7 @@
 |---|---|
 | Who this is for | Privacy engineers, developers, and privacy and GRC teams |
 | Level | Intermediate |
-| Reading time | About 19 min (4,378 words at 230 words a minute) |
+| Reading time | About 19 min (4,377 words at 230 words a minute) |
 | Read this when | Scoping GDPR/CCPA obligations for a new system or market, building privacy controls into an API or data pipeline, preparing a DPIA or answering a DSAR/breach-notification question |
 | Start at | [GDPR Deep Dive](#_2-gdpr-deep-dive), [Technical Privacy Controls](#_7-technical-privacy-controls), [Privacy by Design - 7 Principles](#_5-privacy-by-design-7-principles) |
 

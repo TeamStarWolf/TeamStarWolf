@@ -9,7 +9,7 @@
 | Who this is for | Security engineers who configure and tune enterprise security platforms |
 | Level | Intermediate |
 | Reading time | About 11 min (2,504 words at 230 words a minute) |
-| Read this when | tuning WAF rules that are throwing false positives, rolling out Defender ASR or CrowdStrike prevention policies to a fleet, configuring Proofpoint email defenses or SPF/DKIM/DMARC, building Zscaler ZIA/ZPA policies |
+| Read this when | Tuning WAF rules that are throwing false positives, rolling out Defender ASR or CrowdStrike prevention policies to a fleet, configuring Proofpoint email defenses or SPF/DKIM/DMARC, building Zscaler ZIA/ZPA policies |
 | Start at | [WAF rules](#_1-web-application-firewall-waf-rules), [Defender ASR rules](#_2-microsoft-defender-attack-surface-reduction-asr-rules), [CrowdStrike prevention policies](#_3-crowdstrike-falcon-prevention-policies) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>

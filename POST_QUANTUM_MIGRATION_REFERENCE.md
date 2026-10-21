@@ -13,7 +13,7 @@ Related: [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md), [Hardware Security
 | Who this is for | Security architects, PKI owners, and program leaders planning the post-quantum migration |
 | Level | Intermediate |
 | Reading time | About 26 min (6,005 words at 230 words a minute) |
-| Read this when | scoping or chartering a PQC migration program, prioritizing which systems and data stores move to post-quantum crypto first, answering an auditor or executive about the 2030/2035 deadlines, or writing PQC questions into a vendor questionnaire |
+| Read this when | Scoping or chartering a PQC migration program, prioritizing which systems and data stores move to post-quantum crypto first, answering an auditor or executive about the 2030/2035 deadlines, or writing PQC questions into a vendor questionnaire |
 | Start at | [Why this matters now: harvest now, decrypt later](#why-this-matters-now-harvest-now-decrypt-later), [Step 1: Cryptographic discovery and the CBOM](#step-1-cryptographic-discovery-and-the-cbom), [Key dates quick reference](#key-dates-quick-reference) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>

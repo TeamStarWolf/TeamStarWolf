@@ -1,6 +1,6 @@
 # AI & MCP Security Reference
 
-> A comprehensive cybersecurity reference library covering the Model Context Protocol (MCP), AI/LLM security, MITRE ATLAS, OWASP Top 10 for LLMs, enterprise AI security controls, and regulatory frameworks.
+> Reference for the Model Context Protocol (MCP), AI/LLM security, MITRE ATLAS, OWASP Top 10 for LLMs, enterprise AI security controls, and regulatory frameworks.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -8,7 +8,7 @@
 |---|---|
 | Who this is for | Engineers and security reviewers who deploy, harden, or threat-model MCP servers and LLM agents |
 | Level | Intermediate |
-| Reading time | About 48 min (11,044 words at 230 words a minute) |
+| Reading time | About 48 min (11,040 words at 230 words a minute) |
 | Read this when | Evaluating or hardening an MCP server deployment, threat-modeling an LLM app or AI agent, mapping AI risks to ATLAS/OWASP/NIST or EU AI Act obligations |
 | Start at | [MCP Security Threat Model](#_2-mcp-security-threat-model), [MCP Security Hardening](#_3-mcp-security-hardening), [Quick Reference: Security Checklists](#quick-reference-security-checklists) |
 

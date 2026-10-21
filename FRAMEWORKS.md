@@ -9,7 +9,7 @@
 | Who this is for | GRC analysts, security managers, and engineers who need a fast framework refresher |
 | Level | Beginner to intermediate |
 | Reading time | About 14 min (3,255 words at 230 words a minute) |
-| Read this when | you need to pick a framework for a compliance or sales requirement, someone asks how two frameworks relate or overlap, you need a fast refresher on a framework's structure before a meeting or assessment |
+| Read this when | You need to pick a framework for a compliance or sales requirement, someone asks how two frameworks relate or overlap, you need a fast refresher on a framework's structure before a meeting or assessment |
 | Start at | [Framework Comparison Overview](#framework-comparison-overview), [Framework Mapping Quick Reference](#framework-mapping-quick-reference), [Framework Selection Guide](#framework-selection-guide) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>

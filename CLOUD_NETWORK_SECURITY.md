@@ -1,6 +1,6 @@
 # Cloud Network Security Reference
 
-A comprehensive reference for network security controls across AWS, Azure, and GCP, covering architecture, firewall policy, WAF configuration, private connectivity, DDoS protection, flow log analysis, and compliance mappings.
+A reference for network security controls across AWS, Azure, and GCP, covering architecture, firewall policy, WAF configuration, private connectivity, DDoS protection, flow log analysis, and compliance mappings.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -8,8 +8,8 @@ A comprehensive reference for network security controls across AWS, Azure, and G
 |---|---|
 | Who this is for | Cloud network and security engineers working across AWS, Azure, and GCP |
 | Level | Intermediate |
-| Reading time | About 11 min (2,489 words at 230 words a minute) |
-| Read this when | designing or reviewing VPC and VNet segmentation, firewall, WAF, or private-connectivity controls, or comparing the same network control across AWS, Azure, and GCP |
+| Reading time | About 11 min (2,488 words at 230 words a minute) |
+| Read this when | Designing or reviewing VPC and VNet segmentation, firewall, WAF, or private-connectivity controls, or comparing the same network control across AWS, Azure, and GCP |
 | Start at | [AWS Network Security](#aws-network-security), [Cross-Cloud Comparison](#cross-cloud-comparison), [Compliance Mappings](#compliance-mappings) |
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>

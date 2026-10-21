@@ -11,7 +11,7 @@ Understanding how AI systems are attacked is essential knowledge for defenders w
 | Who this is for | Security practitioners learning to attack and defend AI and ML systems |
 | Level | Beginner to advanced |
 | Reading time | About 20 min (4,668 words at 230 words a minute) |
-| Read this when | learning how attacks on ML models and LLM applications work (evasion, poisoning, extraction, prompt injection) and how MITRE ATLAS catalogs them |
+| Read this when | Learning how attacks on ML models and LLM applications work (evasion, poisoning, extraction, prompt injection) and how MITRE ATLAS catalogs them |
 | Start at | [Attack Categories](#attack-categories), [MITRE ATLAS Techniques](#mitre-atlas-techniques), [Hands-On Practice](#hands-on-practice) |
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>

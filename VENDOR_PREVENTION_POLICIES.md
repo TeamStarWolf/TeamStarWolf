@@ -9,7 +9,7 @@
 | Who this is for | Endpoint, email, and network security engineers rolling out vendor controls |
 | Level | Intermediate |
 | Reading time | About 15 min (3,430 words at 230 words a minute) |
-| Read this when | rolling out or tuning an EDR/email/web-proxy product and you need the vendor-recommended settings, hardening an M365 or Google Workspace tenant against CISA SCuBA baselines, deciding which policies to set to Block vs Audit during a phased deployment |
+| Read this when | Rolling out or tuning an EDR/email/web-proxy product and you need the vendor-recommended settings, hardening an M365 or Google Workspace tenant against CISA SCuBA baselines, deciding which policies to set to Block vs Audit during a phased deployment |
 | Start at | [Microsoft Defender for Endpoint Prevention Policies](#microsoft-defender-for-endpoint-prevention-policies), [NSA/CISA Hardening Guidance](#nsacisa-hardening-guidance), [Official Source Directory](#official-source-directory) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
@@ -17,7 +17,7 @@
 | | |
 |---|---|
 | Pairs with | [WINDOWS_HARDENING.md](WINDOWS_HARDENING.md), [WINDOWS_HARDENING_GPO.md](WINDOWS_HARDENING_GPO.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md), [TECHNIQUE_DETECTION_LIBRARY.md](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
-| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last corrected | 2026-10-12, revoked T1562.009 re-keyed to T1688 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

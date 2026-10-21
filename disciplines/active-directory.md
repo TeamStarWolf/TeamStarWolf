@@ -9,7 +9,7 @@
 | Who this is for | Administrators, defenders, and testers who attack or protect Active Directory |
 | Level | Intermediate to advanced |
 | Reading time | About 9 min (1,983 words at 230 words a minute) |
-| Read this when | learning how AD authentication works and how attackers get from a foothold to domain dominance, or building AD detections and hardening |
+| Read this when | Learning how AD authentication works and how attackers get from a foothold to domain dominance, or building AD detections and hardening |
 | Start at | [AD Architecture Review](#ad-architecture-review), [Kerberoasting](#kerberoasting), [Detection Strategies](#detection-strategies) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>

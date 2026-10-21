@@ -1,6 +1,6 @@
 # Mobile Security Reference
 
-> Comprehensive reference for mobile application security, platform architecture, malware analysis, MDM, mobile network threats, and enterprise mobile defense.
+> Reference for mobile application security, platform architecture, malware analysis, MDM, mobile network threats, and enterprise mobile defense.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -8,7 +8,7 @@
 |---|---|
 | Who this is for | Mobile application testers, mobile developers, and enterprise mobility teams |
 | Level | Intermediate |
-| Reading time | About 20 min (4,702 words at 230 words a minute) |
+| Reading time | About 20 min (4,701 words at 230 words a minute) |
 | Read this when | You are testing or hardening an Android/iOS app, triaging suspected mobile malware or spyware, or designing MDM/enterprise mobile controls |
 | Start at | [Mobile Security Landscape](#_1-mobile-security-landscape), [Mobile Application Security Testing (MAST)](#_4-mobile-application-security-testing-mast), [Common Mobile Vulnerabilities](#_5-common-mobile-vulnerabilities) |
 
@@ -18,7 +18,7 @@
 |---|---|
 | Pairs with | [MOBILE_ATTACK_ATLAS.md](MOBILE_ATTACK_ATLAS.md), [TELECOM_5G_SECURITY_REFERENCE.md](TELECOM_5G_SECURITY_REFERENCE.md), [WIRELESS_SECURITY_REFERENCE.md](WIRELESS_SECURITY_REFERENCE.md), [REVERSE_ENGINEERING_REFERENCE.md](REVERSE_ENGINEERING_REFERENCE.md) |
 | Matching learning path | [Mobile Security](/disciplines/mobile-security.md) |
-| Last corrected | 2026-10-13, revoked and deprecated ATT&CK citations re-keyed to their current IDs ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2) |
+| Last corrected | 2026-10-13, T1475 and T1476 marked deprecated, with no successor ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

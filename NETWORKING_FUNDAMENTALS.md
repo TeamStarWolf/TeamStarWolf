@@ -17,7 +17,7 @@
 | | |
 |---|---|
 | Pairs with | [NETWORK_ATTACKS_REFERENCE.md](NETWORK_ATTACKS_REFERENCE.md), [NETWORK_DEFENSE_REFERENCE.md](NETWORK_DEFENSE_REFERENCE.md), [NETWORK_PROTOCOLS_REFERENCE.md](NETWORK_PROTOCOLS_REFERENCE.md), [PACKET_ANALYSIS_REFERENCE.md](PACKET_ANALYSIS_REFERENCE.md) |
-| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last corrected | 2026-10-12, revoked IDs re-keyed: T1465 to T1638, T1562.004 to T1686 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

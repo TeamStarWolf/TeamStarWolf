@@ -26,7 +26,7 @@ Related in this library: [AI Security Reference](AI_SECURITY_REFERENCE.md) (OWAS
 | Who this is for | Security engineers, threat modelers, and red teams working on AI and ML systems |
 | Level | Intermediate |
 | Reading time | About 43 min (9,783 words at 230 words a minute) |
-| Read this when | you need to map an attack on an AI/ML system to a named technique ID, you are threat-modeling an LLM, RAG, or AI-agent deployment, you want the mitigations ATLAS pairs with a given AI attack technique |
+| Read this when | You need to map an attack on an AI/ML system to a named technique ID, you are threat-modeling an LLM, RAG, or AI-agent deployment, you want the mitigations ATLAS pairs with a given AI attack technique |
 | Start at | [The ATLAS matrix](#the-atlas-matrix) for the 16-tactic overview, [Execution](#execution) for prompt injection and agent-tool techniques, [ATLAS mitigations](#atlas-mitigations) for the defensive side |
 
 <details class="tsw-meta-more"><summary>More about this page (matching learning path, last reviewed)</summary>

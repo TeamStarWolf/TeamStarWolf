@@ -17,7 +17,7 @@
 | | |
 |---|---|
 | Pairs with | [PRIVESC_REFERENCE.md](PRIVESC_REFERENCE.md), [CLOUD_ATTACK_REFERENCE.md](CLOUD_ATTACK_REFERENCE.md), [disciplines/active-directory.md](disciplines/active-directory.md), [HOMELAB_SETUP.md](HOMELAB_SETUP.md) |
-| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last corrected | 2026-10-12, revoked T1562.001 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

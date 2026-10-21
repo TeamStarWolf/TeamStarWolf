@@ -13,14 +13,14 @@ Machine-readable: [`data/weaknesses/capec.jsonl`](https://github.com/TeamStarWol
 | Who this is for | Application security engineers, threat modelers, and vulnerability analysts |
 | Level | Intermediate |
 | Reading time | About 17 min (4,020 words at 230 words a minute) |
-| Read this when | you have a CWE weakness and need the attack patterns that exploit it, you need to pivot from an attack pattern to the ATT&CK techniques it maps to, you are triaging which high-severity patterns touch your stack |
+| Read this when | You have a CWE weakness and need the attack patterns that exploit it, you need to pivot from an attack pattern to the ATT&CK techniques it maps to, you are triaging which high-severity patterns touch your stack |
 | Start at | [Attack patterns mapped to ATT&CK](#attack-patterns-mapped-to-attampck) for the direct CAPEC-to-ATT&CK bridge, [High-severity attack patterns](#high-severity-attack-patterns) for severity-first triage |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
 | | |
 |---|---|
-| Last corrected | 2026-10-13, revoked and deprecated ATT&CK citations re-keyed to their current IDs ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2) |
+| Last corrected | 2026-10-13, revoked T1562 sub-techniques and T1574.002 in the ATT&CK mapping column re-keyed to their successors, each marked with the ID it replaces ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

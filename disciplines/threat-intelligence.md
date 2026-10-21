@@ -11,7 +11,7 @@ The discipline spans four tiers: strategic intelligence informs executive decisi
 | Who this is for | Analysts learning to collect, analyze, and act on threat intelligence |
 | Level | Beginner to advanced |
 | Reading time | About 12 min (2,772 words at 230 words a minute) |
-| Read this when | starting in cyber threat intelligence, learning the intelligence cycle and ATT&CK, or choosing CTI tools and sources |
+| Read this when | Learning the intelligence cycle and how CTI uses ATT&CK, or choosing CTI tools and sources |
 | Start at | [Where to Start](#where-to-start), [Free Training](#free-training), [Tools & Repositories](#tools-amp-repositories) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>

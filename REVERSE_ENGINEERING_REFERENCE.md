@@ -19,7 +19,7 @@
 |---|---|
 | Pairs with | [MALWARE_FAMILIES.md](MALWARE_FAMILIES.md), [DIGITAL_FORENSICS_REFERENCE.md](DIGITAL_FORENSICS_REFERENCE.md), [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md), [EXPLOIT_DEVELOPMENT_REFERENCE.md](EXPLOIT_DEVELOPMENT_REFERENCE.md) |
 | Matching learning path | [Reverse Engineering](/disciplines/reverse-engineering.md) |
-| Last corrected | 2026-09-27, ATT&CK tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
+| Last corrected | 2026-09-27, Defense Evasion row for T1027 renamed Stealth ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

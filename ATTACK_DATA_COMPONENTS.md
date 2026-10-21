@@ -9,7 +9,7 @@
 | Who this is for | Detection engineers, SOC leads, and logging and SIEM owners |
 | Level | Intermediate |
 | Reading time | About 134 min (30,915 words at 230 words a minute) |
-| Read this when | planning or auditing logging coverage, deciding which log sources to onboard for a detection, checking whether a technique's required telemetry exists in your environment |
+| Read this when | Planning or auditing logging coverage, deciding which log sources to onboard for a detection, checking whether a technique's required telemetry exists in your environment |
 | Start at | [Process Creation](#process-creation), [Command Execution](#command-execution), [Detail](#detail) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>

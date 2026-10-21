@@ -1,6 +1,6 @@
 # Network Forensics Reference
 
-> Comprehensive reference for incident responders and network forensics analysts covering evidence collection, packet analysis, protocol decoding, traffic anomaly detection, malware traffic patterns, incident reconstruction, encrypted traffic analysis, wireless forensics, cloud forensics, and reporting standards.
+> Reference for incident responders and network forensics analysts covering evidence collection, packet analysis, protocol decoding, traffic anomaly detection, malware traffic patterns, incident reconstruction, encrypted traffic analysis, wireless forensics, cloud forensics, and reporting standards.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -8,8 +8,8 @@
 |---|---|
 | Who this is for | Network forensics analysts and incident responders |
 | Level | Intermediate to advanced |
-| Reading time | About 15 min (3,563 words at 230 words a minute) |
-| Read this when | you need to capture or preserve network evidence that may end up in court, you are reconstructing an incident timeline from PCAP/flow/log data, you suspect C2 beaconing or data exfiltration and need to prove it from traffic |
+| Reading time | About 15 min (3,562 words at 230 words a minute) |
+| Read this when | You need to capture or preserve network evidence that may end up in court, you are reconstructing an incident timeline from PCAP/flow/log data, you suspect C2 beaconing or data exfiltration and need to prove it from traffic |
 | Start at | [Network Forensics Fundamentals & Evidence Collection](#_1-network-forensics-fundamentals-amp-evidence-collection), [Malware Traffic Analysis](#_5-malware-traffic-analysis), [Forensic Reporting & Tools Reference](#_10-forensic-reporting-amp-tools-reference) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>

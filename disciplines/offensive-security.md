@@ -11,7 +11,7 @@ The field has evolved rapidly. Modern red teams must contend with EDR platforms 
 | Who this is for | People moving into penetration testing, red teaming, and adversary emulation |
 | Level | Beginner to advanced |
 | Reading time | About 10 min (2,298 words at 230 words a minute) |
-| Read this when | starting in offensive security, choosing labs and certifications, or learning the attack lifecycle |
+| Read this when | Choosing labs and certifications for offensive work, or learning the attack lifecycle, LOLBAS and the vulnerability research process |
 | Start at | [Where to Start](#where-to-start), [Attack Lifecycle Overview](#attack-lifecycle-overview), [LOLBAS Reference](#lolbas-reference-living-off-the-land-binaries-and-scripts) |
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>

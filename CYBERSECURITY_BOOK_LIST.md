@@ -9,7 +9,7 @@
 | Who this is for | Learners and practitioners choosing what to read and practice next |
 | Level | Beginner |
 | Reading time | About 35 min (8,104 words at 230 words a minute) |
-| Read this when | you are choosing what to study next for a role or skill area, building a lab-first study plan, or looking for the standard book plus hands-on repos in a domain |
+| Read this when | You are choosing what to study next for a role or skill area, building a lab-first study plan, or looking for the standard book plus hands-on repos in a domain |
 | Start at | [Learning Paths](#learning-paths), [How To Use This File](#how-to-use-this-file), [Core / Must-Read](#core-must-read-high-signal) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>

@@ -1,6 +1,6 @@
 # Threat Intelligence Reference Library
 
-> Comprehensive professional reference for Cyber Threat Intelligence practitioners, SOC analysts, incident responders, threat hunters, and security leadership.
+> Reference for Cyber Threat Intelligence practitioners, SOC analysts, incident responders, threat hunters, and security leadership.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -8,8 +8,8 @@
 |---|---|
 | Who this is for | CTI analysts, SOC analysts, incident responders, and security leaders who consume intelligence |
 | Level | Intermediate |
-| Reading time | About 22 min (5,147 words at 230 words a minute) |
-| Read this when | standing up or maturing a CTI program, enriching and scoring IOCs before pushing them to your SIEM or firewall, trying to attribute activity to a known threat actor |
+| Reading time | About 22 min (5,145 words at 230 words a minute) |
+| Read this when | Standing up or maturing a CTI program, enriching and scoring IOCs before pushing them to your SIEM or firewall, trying to attribute activity to a known threat actor |
 | Start at | [CTI Fundamentals](#_1-cti-fundamentals), [IOC Management & Enrichment](#_4-ioc-management-amp-enrichment), [Threat Actor Tracking & Attribution](#_5-threat-actor-tracking-amp-attribution) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
@@ -18,7 +18,7 @@
 |---|---|
 | Pairs with | [THREAT_GROUP_PROFILES.md](THREAT_GROUP_PROFILES.md), [THREAT_HUNTING_REFERENCE.md](THREAT_HUNTING_REFERENCE.md), [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [disciplines/threat-intelligence.md](disciplines/threat-intelligence.md) |
 | Matching learning path | [Threat Intelligence](/disciplines/threat-intelligence.md) |
-| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last corrected | 2026-10-12, revoked T1562 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

@@ -1,6 +1,6 @@
 # GRC Reference
 
-> Governance, Risk, and Compliance: comprehensive operational reference for security program management, risk quantification, regulatory compliance, third-party risk, and audit management.
+> Governance, Risk, and Compliance: operational reference for security program management, risk quantification, regulatory compliance, third-party risk, and audit management.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -8,8 +8,8 @@
 |---|---|
 | Who this is for | Security program managers, GRC leads, and CISOs |
 | Level | Intermediate |
-| Reading time | About 18 min (4,079 words at 230 words a minute) |
-| Read this when | standing up or maturing a security governance program, quantifying a risk for the register or board reporting, prepping for a SOC 2 / ISO 27001 / PCI DSS / HIPAA / CMMC audit, tiering and assessing a new vendor |
+| Reading time | About 18 min (4,078 words at 230 words a minute) |
+| Read this when | Standing up or maturing a security governance program, quantifying a risk for the register or board reporting, prepping for a SOC 2 / ISO 27001 / PCI DSS / HIPAA / CMMC audit, tiering and assessing a new vendor |
 | Start at | [Risk Management](#risk-management), [Compliance Programs](#compliance-programs), [Third-Party Risk Management (TPRM)](#third-party-risk-management-tprm) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>

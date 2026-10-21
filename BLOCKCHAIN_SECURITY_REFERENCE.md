@@ -1,6 +1,6 @@
 # Blockchain Security Reference
 
-> Comprehensive reference for blockchain security, smart contract vulnerabilities, DeFi attacks, auditing tools, and incident response. Maintained as part of the TeamStarWolf cybersecurity library.
+> Reference for blockchain security, smart contract vulnerabilities, DeFi attacks, auditing tools, and incident response.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -8,8 +8,8 @@
 |---|---|
 | Who this is for | Smart contract auditors, blockchain developers, and incident responders handling on-chain exploits |
 | Level | Intermediate to advanced |
-| Reading time | About 13 min (2,970 words at 230 words a minute) |
-| Read this when | reviewing or auditing a smart contract before deployment, investigating a DeFi exploit or suspicious on-chain activity, hardening exchange or wallet operations |
+| Reading time | About 13 min (2,961 words at 230 words a minute) |
+| Read this when | Reviewing or auditing a smart contract before deployment, investigating a DeFi exploit or suspicious on-chain activity, hardening exchange or wallet operations |
 | Start at | [Smart Contract Vulnerabilities](#_2-smart-contract-vulnerabilities), [DeFi Attack Case Studies](#_3-defi-attack-case-studies), [Incident Response for Blockchain](#_10-incident-response-for-blockchain) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
@@ -18,7 +18,7 @@
 |---|---|
 | Pairs with | [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md), [FRAUD_FRAMEWORK_REFERENCE.md](FRAUD_FRAMEWORK_REFERENCE.md) |
 | Matching learning path | [Blockchain & Web3 Security](/disciplines/blockchain-web3-security.md) |
-| Last corrected | 2026-09-27, ATT&CK tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
+| Last corrected | 2026-09-27, Defense Evasion row (fund obfuscation) renamed Stealth ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

@@ -9,7 +9,7 @@
 | Who this is for | Developers, code reviewers, and application security engineers |
 | Level | Intermediate |
 | Reading time | About 10 min (2,378 words at 230 words a minute) |
-| Read this when | reviewing a pull request for security flaws, fixing a scanner finding (SQL injection, weak hashing, unsafe deserialization, SSRF), or setting up SAST/SCA/secrets scanning in CI |
+| Read this when | Reviewing a pull request for security flaws, fixing a scanner finding (SQL injection, weak hashing, unsafe deserialization, SSRF), or setting up SAST/SCA/secrets scanning in CI |
 | Start at | [OWASP Top 10 (2021)](#owasp-top-10-2021), [Security Testing in SDLC](#security-testing-in-sdlc), [Quick Reference Checklist](#quick-reference-checklist) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>

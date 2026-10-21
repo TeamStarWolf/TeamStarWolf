@@ -9,7 +9,7 @@
 
 Tactics: Collection, Platforms: ESXi, Linux, macOS, Network Devices, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1005)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 13 NIST 800-53 controls, the detection strategy, 46 threat groups, and 169 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 13 NIST controls, detection strategy, 46 groups, 169 software</summary>
 
 Adversaries may search local system sources, such as file systems, configuration files, local databases, virtual machine files, or process memory, to find files of interest and sensitive data prior to Exfiltration. Adversaries may do this using a [Command and Scripting Interpreter](https://attack.mitre.org/techniques/T1059), such as [cmd](https://attack.mitre.org/software/S0106) as well as a [Network Device CLI](https://attack.mitre.org/techniques/T1059/008), which have functionality to interact with the file system to gather information. Adversaries may also use [Automated Collection](https://attack.mitre.org/techniques/T1119) on the local system.
 
@@ -28,7 +28,7 @@ Implemented by 169 software: [S0009 Hikit](https://attack.mitre.org/software/S00
 
 Tactics: Collection, Platforms: Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1025)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 15 NIST 800-53 controls, the detection strategy, 4 threat groups, and 20 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 15 NIST controls, detection strategy, 4 groups, 20 software</summary>
 
 Adversaries may search connected removable media on computers they have compromised to find files of interest. Sensitive data can be collected from any removable media (optical disk drive, USB memory, etc.) connected to the compromised system prior to Exfiltration. Interactive command shells may be in use, and common functionality within [cmd](https://attack.mitre.org/software/S0106) may be used to gather information. Some adversaries may also use [Automated Collection](https://attack.mitre.org/techniques/T1119) on removable media.
 
@@ -47,7 +47,7 @@ Implemented by 20 software: [S0036 FLASHFLOOD](https://attack.mitre.org/software
 
 Tactics: Collection, Platforms: Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1039)  
 
-<details class="tsw-fold"><summary>Show the description, the detection strategy, 8 threat groups, and 4 software entries</summary>
+<details class="tsw-fold"><summary>Show details: detection strategy, 8 groups, 4 software</summary>
 
 Adversaries may search network shares on computers they have compromised to find files of interest. Sensitive data can be collected from remote systems via shared network drives (host shared directory, network file server, etc.) that are accessible from the current system prior to Exfiltration. Interactive command shells may be in use, and common functionality within [cmd](https://attack.mitre.org/software/S0106) may be used to gather information.
 
@@ -66,7 +66,7 @@ Implemented by 4 software: [S0050 CosmicDuke](https://attack.mitre.org/software/
 
 Tactics: Collection, Credential Access, Platforms: Linux, macOS, Network Devices, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1056)  
 
-<details class="tsw-fold"><summary>Show the description, the detection strategy, 3 threat groups, and 7 software entries</summary>
+<details class="tsw-fold"><summary>Show details: detection strategy, 3 groups, 7 software</summary>
 
 Adversaries may use methods of capturing user input to obtain credentials or collect information. During normal system usage, users often provide credentials to various different locations, such as login pages/portals or system dialog boxes. Input capture mechanisms may be transparent to the user (e.g. [Credential API Hooking](https://attack.mitre.org/techniques/T1056/004)) or rely on deceiving the user into providing input into what they believe to be a genuine service (e.g. [Web Portal Capture](https://attack.mitre.org/techniques/T1056/003)).
 
@@ -85,7 +85,7 @@ Implemented by 7 software: [S0381 FlawedAmmyy](https://attack.mitre.org/software
 
 sub-technique of [T1056](/techniques/collection.md#t1056), Tactics: Collection, Credential Access, Platforms: Linux, macOS, Network Devices, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1056/001)  
 
-<details class="tsw-fold"><summary>Show the description, the detection strategy, 26 threat groups, and 126 software entries</summary>
+<details class="tsw-fold"><summary>Show details: detection strategy, 26 groups, 126 software</summary>
 
 Adversaries may log user keystrokes to intercept credentials as the user types them. Keylogging is likely to be used to acquire credentials for new access opportunities when [OS Credential Dumping](https://attack.mitre.org/techniques/T1003) efforts are not effective, and may require an adversary to intercept keystrokes on a system for a substantial period of time before credentials can be successfully captured. In order to increase the likelihood of capturing credentials quickly, an adversary may also perform actions such as clearing browser cookies to force users to reauthenticate to systems. Keylogging is the most prevalent type of input capture, with many different ways of intercepting keystrokes. Some methods include: * Hooking API callbacks used for processing keystrokes. Unlike [Credential API Hooking](https://attack.mitre.org/techniques/T1056/004), this focuses solely on API functions intended for processing keystroke data. * Reading raw keystroke data from the hardware buffer. * Windows Registry modifications. * Custom drivers. * [Modify System Image](https://attack.mitre.org/techniques/T1601) may provide adversaries with hooks into the operating system of network devices to read raw keystrokes for login sessions.
 
@@ -104,7 +104,7 @@ Implemented by 126 software: [S0004 TinyZBot](https://attack.mitre.org/software/
 
 sub-technique of [T1056](/techniques/collection.md#t1056), Tactics: Collection, Credential Access, Platforms: macOS, Windows, Linux, [ATT&CK](https://attack.mitre.org/techniques/T1056/002)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 4 NIST 800-53 controls, the detection strategy, 2 threat groups, and 13 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 4 NIST controls, detection strategy, 2 groups, 13 software</summary>
 
 Adversaries may mimic common operating system GUI components to prompt users for credentials with a seemingly legitimate prompt. When programs are executed that need additional privileges than are present in the current user context, it is common for the operating system to prompt the user for proper credentials to authorize the elevated privileges for the task (ex: [Bypass User Account Control](https://attack.mitre.org/techniques/T1548/002)). Adversaries may mimic this functionality to prompt users for credentials with a seemingly legitimate prompt for a number of reasons that mimic normal usage, such as a fake installer requiring additional access or a fake malware removal suite. This type of prompt can be used to collect credentials via various languages such as [AppleScript](https://attack.mitre.org/techniques/T1059/002) and [PowerShell](https://attack.mitre.org/techniques/T1059/001). On Linux systems adversaries may launch dialog boxes prompting users for credentials from malicious shell scripts or the command line (i.e. [Unix Shell](https://attack.mitre.org/techniques/T1059/004)). Adversaries may also mimic common software authentication requests, such as those from browsers or email clients. This may also be paired with user activity monitoring (i.e., [Browser Information Discovery](https://attack.mitre.org/techniques/T1217) and/or [Application Window Discovery](https://attack.mitre.org/techniques/T1010)) to spoof prompts when users are naturally accessing sensitive sites/data.
 
@@ -123,7 +123,7 @@ Implemented by 13 software: [S0274 Calisto](https://attack.mitre.org/software/S0
 
 sub-technique of [T1056](/techniques/collection.md#t1056), Tactics: Collection, Credential Access, Platforms: Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1056/003)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 7 NIST 800-53 controls, the detection strategy, 2 threat groups, and 2 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 7 NIST controls, detection strategy, 2 groups, 2 software</summary>
 
 Adversaries may install code on externally facing portals, such as a VPN login page, to capture and transmit credentials of users who attempt to log into the service. For example, a compromised login page may log provided user credentials before logging the user in to the service. This variation on input capture may be conducted post-compromise using legitimate administrative access as a backup measure to maintain network access through [External Remote Services](https://attack.mitre.org/techniques/T1133) and [Valid Accounts](https://attack.mitre.org/techniques/T1078) or as part of the initial compromise by exploitation of the externally facing web service.
 
@@ -142,7 +142,7 @@ Implemented by 2 software: [S1022 IceApple](https://attack.mitre.org/software/S1
 
 sub-technique of [T1056](/techniques/collection.md#t1056), Tactics: Collection, Credential Access, Platforms: Windows, Linux, macOS, [ATT&CK](https://attack.mitre.org/techniques/T1056/004)  
 
-<details class="tsw-fold"><summary>Show the description, the detection strategy, 1 threat group, and 11 software entries</summary>
+<details class="tsw-fold"><summary>Show details: detection strategy, 1 group, 11 software</summary>
 
 Adversaries may hook into Windows application programming interface (API) functions and Linux system functions to collect user credentials. Malicious hooking mechanisms may capture API or function calls that include parameters that reveal user authentication credentials. Unlike [Keylogging](https://attack.mitre.org/techniques/T1056/001), this technique focuses specifically on API functions that include parameters that reveal user credentials. In Windows, hooking involves redirecting calls to these functions and can be implemented via: * Hooks procedures, which intercept and execute designated code in response to events such as messages, keystrokes, and mouse inputs. * Import address table (IAT) hooking, which use modifications to a process’s IAT, where pointers to imported API functions are stored. * Inline hooking, which overwrites the first bytes in an API function to redirect code flow. In Linux and macOS, adversaries may hook into system functions via the `LD_PRELOAD` (Linux) or `DYLD_INSERT_LIBRARIES` (macOS) environment variables, which enables loading shared libraries into a program’s address space. For example, an adversary may capture credentials by hooking into the `libc read` function leveraged by SSH or SCP.
 
@@ -161,7 +161,7 @@ Implemented by 11 software: [S0182 FinFisher](https://attack.mitre.org/software/
 
 Tactics: Collection, Platforms: Windows, IaaS, Linux, macOS, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1074)  
 
-<details class="tsw-fold"><summary>Show the description, the detection strategy, 5 threat groups, and 4 software entries</summary>
+<details class="tsw-fold"><summary>Show details: detection strategy, 5 groups, 4 software</summary>
 
 Adversaries may stage collected data in a central location or directory prior to Exfiltration. Data may be kept in separate files or combined into one file through techniques such as [Archive Collected Data](https://attack.mitre.org/techniques/T1560). Interactive command shells may be used, and common functionality within [cmd](https://attack.mitre.org/software/S0106) and bash may be used to copy data into a staging location. In cloud environments, adversaries may stage data within a particular instance or virtual machine before exfiltration. An adversary may [Create Cloud Instance](https://attack.mitre.org/techniques/T1578/002) and stage data in that instance. Adversaries may choose to stage data from a victim network in a centralized location prior to Exfiltration to minimize the number of connections made to their C2 server and better evade detection.
 
@@ -180,7 +180,7 @@ Implemented by 4 software: [S0641 Kobalos](https://attack.mitre.org/software/S06
 
 sub-technique of [T1074](/techniques/collection.md#t1074), Tactics: Collection, Platforms: ESXi, Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1074/001)  
 
-<details class="tsw-fold"><summary>Show the description, the detection strategy, 28 threat groups, and 95 software entries</summary>
+<details class="tsw-fold"><summary>Show details: detection strategy, 28 groups, 95 software</summary>
 
 Adversaries may stage collected data in a central location or directory on the local system prior to Exfiltration. Data may be kept in separate files or combined into one file through techniques such as [Archive Collected Data](https://attack.mitre.org/techniques/T1560). Interactive command shells may be used, and common functionality within [cmd](https://attack.mitre.org/software/S0106) and bash may be used to copy data into a staging location. Adversaries may also stage collected data in various available formats/locations of a system, including local storage databases/repositories or the Windows Registry.
 
@@ -199,7 +199,7 @@ Implemented by 95 software: [S0012 PoisonIvy](https://attack.mitre.org/software/
 
 sub-technique of [T1074](/techniques/collection.md#t1074), Tactics: Collection, Platforms: Windows, IaaS, Linux, macOS, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1074/002)  
 
-<details class="tsw-fold"><summary>Show the description, the detection strategy, 11 threat groups, and 1 software entry</summary>
+<details class="tsw-fold"><summary>Show details: detection strategy, 11 groups, 1 software</summary>
 
 Adversaries may stage data collected from multiple systems in a central location or directory on one system prior to Exfiltration. Data may be kept in separate files or combined into one file through techniques such as [Archive Collected Data](https://attack.mitre.org/techniques/T1560). Interactive command shells may be used, and common functionality within [cmd](https://attack.mitre.org/software/S0106) and bash may be used to copy data into a staging location. In cloud environments, adversaries may stage data within a particular instance or virtual machine before exfiltration. An adversary may [Create Cloud Instance](https://attack.mitre.org/techniques/T1578/002) and stage data in that instance. By staging data on one system prior to Exfiltration, adversaries can minimize the number of connections made to their C2 server and better evade detection.
 
@@ -218,7 +218,7 @@ Implemented by 1 software: [S1043 ccf32](https://attack.mitre.org/software/S1043
 
 Tactics: Collection, Platforms: Linux, Windows, macOS, [ATT&CK](https://attack.mitre.org/techniques/T1113)  
 
-<details class="tsw-fold"><summary>Show the description, the detection strategy, 19 threat groups, and 151 software entries</summary>
+<details class="tsw-fold"><summary>Show details: detection strategy, 19 groups, 151 software</summary>
 
 Adversaries may attempt to take screen captures of the desktop to gather information over the course of an operation. Screen capturing functionality may be included as a feature of a remote access tool used in post-compromise operations. Taking a screenshot is also typically possible through native utilities or API calls, such as <code>CopyFromScreen</code>, <code>xwd</code>, or <code>screencapture</code>.
 
@@ -237,7 +237,7 @@ Implemented by 151 software: [S0004 TinyZBot](https://attack.mitre.org/software/
 
 Tactics: Collection, Platforms: Windows, macOS, Linux, Office Suite, [ATT&CK](https://attack.mitre.org/techniques/T1114)  
 
-<details class="tsw-fold"><summary>Show the description, 4 ATT&CK mitigations, 15 NIST 800-53 controls, the detection strategy, 4 threat groups, and 2 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 4 mitigations, 15 NIST controls, detection strategy, 4 groups, 2 software</summary>
 
 Adversaries may target user email to collect sensitive information. Emails may contain sensitive data, including trade secrets or personal information, that can prove valuable to adversaries. Emails may also contain details of ongoing incident response operations, which may allow adversaries to adjust their techniques in order to maintain persistence or evade defenses. Adversaries can collect or forward email from mail servers or clients.
 
@@ -256,7 +256,7 @@ Implemented by 2 software: [S0367 Emotet](https://attack.mitre.org/software/S036
 
 sub-technique of [T1114](/techniques/collection.md#t1114), Tactics: Collection, Platforms: Windows, [ATT&CK](https://attack.mitre.org/techniques/T1114/001)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 9 NIST 800-53 controls, the detection strategy, 8 threat groups, and 11 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 9 NIST controls, detection strategy, 8 groups, 11 software</summary>
 
 Adversaries may target user email on local systems to collect sensitive information. Files containing email data can be acquired from a user’s local system, such as Outlook storage or cache files. Outlook stores data locally in offline data files with an extension of.ost. Outlook 2010 and later supports.ost file sizes up to 50GB, while earlier versions of Outlook support up to 20GB. IMAP accounts in Outlook 2013 (and earlier) and POP accounts use Outlook Data Files (.pst) as opposed to.ost, whereas IMAP accounts in Outlook 2016 (and later) use.ost files. Both types of Outlook data files are typically stored in `C:\Users\<username>\Documents\Outlook Files` or `C:\Users\<username>\AppData\Local\Microsoft\Outlook`.
 
@@ -275,7 +275,7 @@ Implemented by 11 software: [S0030 Carbanak](https://attack.mitre.org/software/S
 
 sub-technique of [T1114](/techniques/collection.md#t1114), Tactics: Collection, Platforms: Windows, Office Suite, [ATT&CK](https://attack.mitre.org/techniques/T1114/002)  
 
-<details class="tsw-fold"><summary>Show the description, 3 ATT&CK mitigations, 14 NIST 800-53 controls, the detection strategy, 13 threat groups, and 4 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 3 mitigations, 14 NIST controls, detection strategy, 13 groups, 4 software</summary>
 
 Adversaries may target an Exchange server, Office 365, or Google Workspace to collect sensitive information. Adversaries may leverage a user's credentials and interact directly with the Exchange server to acquire information from within a network. Adversaries may also access externally facing Exchange services, Office 365, or Google Workspace to access email using credentials or access tokens. Tools such as [MailSniper](https://attack.mitre.org/software/S0413) can be used to automate searches for specific keywords.
 
@@ -294,7 +294,7 @@ Implemented by 4 software: [S0053 SeaDuke](https://attack.mitre.org/software/S00
 
 sub-technique of [T1114](/techniques/collection.md#t1114), Tactics: Collection, Platforms: Linux, macOS, Office Suite, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1114/003)  
 
-<details class="tsw-fold"><summary>Show the description, 4 ATT&CK mitigations, 12 NIST 800-53 controls, the detection strategy, and 5 threat groups</summary>
+<details class="tsw-fold"><summary>Show details: 4 mitigations, 12 NIST controls, detection strategy, 5 groups</summary>
 
 Adversaries may setup email forwarding rules to collect sensitive information. Adversaries may abuse email forwarding rules to monitor the activities of a victim, steal information, and further gain intelligence on the victim or the victim’s organization to use as part of further exploits or operations. Furthermore, email forwarding rules can allow adversaries to maintain persistent access to victim's emails even after compromised credentials are reset by administrators. Most email clients allow users to create inbox rules for various email functions, including forwarding to a different recipient. These rules may be created through a local email application, a web interface, or by command-line interface. Messages can be forwarded to internal or external recipients, and there are no restrictions limiting the extent of this rule. Administrators may also create forwarding rules for user accounts with the same considerations and outcomes. Any user or administrator within the organization (or adversary with valid credentials) can create rules to automatically forward all received messages to another recipient, forward emails to different locations based on the sender, and more. Adversaries may also hide the rule by making use of the Microsoft Messaging API (MAPI) to modify the rule properties, making it hidden and not visible from Outlook, OWA or most Exchange Administration tools. In some environments, administrators may be able to enable email forwarding rules that operate organization-wide rather than on individual inboxes. For example, Microsoft Exchange supports transport rules that evaluate all mail an organization receives against user-specified conditions, then performs a user-specified action on mail that adheres to those conditions. Adversaries that abuse such features may be able to enable forwarding on all or specific mail an organization receives.
 
@@ -312,7 +312,7 @@ Used by 5 threat groups: [G0094 Kimsuky](https://attack.mitre.org/groups/G0094),
 
 Tactics: Collection, Platforms: Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1115)  
 
-<details class="tsw-fold"><summary>Show the description, the detection strategy, 4 threat groups, and 41 software entries</summary>
+<details class="tsw-fold"><summary>Show details: detection strategy, 4 groups, 41 software</summary>
 
 Adversaries may collect data stored in the clipboard from users copying information within or between applications. For example, on Windows adversaries can access clipboard data by using <code>clip.exe</code> or <code>Get-Clipboard</code>. Additionally, adversaries may monitor then replace users’ clipboard with their data (e.g., [Transmitted Data Manipulation](https://attack.mitre.org/techniques/T1565/002)). macOS and Linux also have commands, such as <code>pbpaste</code>, to grab clipboard contents.
 
@@ -331,7 +331,7 @@ Implemented by 41 software: [S0004 TinyZBot](https://attack.mitre.org/software/S
 
 Tactics: Collection, Platforms: IaaS, Linux, macOS, Office Suite, SaaS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1119)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 17 NIST 800-53 controls, the detection strategy, 21 threat groups, and 48 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 17 NIST controls, detection strategy, 21 groups, 48 software</summary>
 
 Once established within a system or network, an adversary may use automated techniques for collecting internal data. Methods for performing this technique could include use of a [Command and Scripting Interpreter](https://attack.mitre.org/techniques/T1059) to search for and copy information fitting set criteria such as file type, location, or name at specific time intervals. In cloud-based environments, adversaries may also use cloud APIs, data pipelines, command line interfaces, or extract, transform, and load (ETL) services to automatically collect data. This functionality could also be built into remote access tools. This technique may incorporate use of other techniques such as [File and Directory Discovery](https://attack.mitre.org/techniques/T1083) and [Lateral Tool Transfer](https://attack.mitre.org/techniques/T1570) to identify and move files, as well as [Cloud Service Dashboard](https://attack.mitre.org/techniques/T1538) and [Cloud Storage Object Discovery](https://attack.mitre.org/techniques/T1619) to identify resources in cloud environments.
 
@@ -350,7 +350,7 @@ Implemented by 48 software: [S0090 Rover](https://attack.mitre.org/software/S009
 
 Tactics: Collection, Platforms: Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1123)  
 
-<details class="tsw-fold"><summary>Show the description, the detection strategy, 2 threat groups, and 30 software entries</summary>
+<details class="tsw-fold"><summary>Show details: detection strategy, 2 groups, 30 software</summary>
 
 An adversary can leverage a computer's peripheral devices (e.g., microphones and webcams) or applications (e.g., voice and video call services) to capture audio recordings for the purpose of listening into sensitive conversations to gather information. Malware or scripts may be used to interact with the devices through an available API provided by the operating system or an application to capture audio. Audio files may be written to disk and exfiltrated later.
 
@@ -369,7 +369,7 @@ Implemented by 30 software: [S0021 Derusbi](https://attack.mitre.org/software/S0
 
 Tactics: Collection, Platforms: Windows, macOS, Linux, [ATT&CK](https://attack.mitre.org/techniques/T1125)  
 
-<details class="tsw-fold"><summary>Show the description, the detection strategy, 4 threat groups, and 31 software entries</summary>
+<details class="tsw-fold"><summary>Show details: detection strategy, 4 groups, 31 software</summary>
 
 An adversary can leverage a computer's peripheral devices (e.g., integrated cameras or webcams) or applications (e.g., video call services) to capture video recordings for the purpose of gathering information. Images may also be captured from devices or applications, potentially in specified intervals, in lieu of video files. Malware or scripts may be used to interact with the devices through an available API provided by the operating system or an application to capture video or images. Video or image files may be written to disk and exfiltrated later. This technique differs from [Screen Capture](https://attack.mitre.org/techniques/T1113) due to use of specific devices or applications for video recording rather than capturing the victim's screen. In macOS, there are a few different malware samples that record the user's webcam such as FruitFly and Proton.
 
@@ -388,7 +388,7 @@ Implemented by 31 software: [S0021 Derusbi](https://attack.mitre.org/software/S0
 
 Tactics: Collection, Platforms: Windows, [ATT&CK](https://attack.mitre.org/techniques/T1185)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 14 NIST 800-53 controls, the detection strategy, 1 threat group, and 15 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 14 NIST controls, detection strategy, 1 group, 15 software</summary>
 
 Adversaries may take advantage of security vulnerabilities and inherent functionality in browser software to change content, modify user-behaviors, and intercept information as part of various browser session hijacking techniques. A specific example is when an adversary injects software into a browser that allows them to inherit cookies, HTTP sessions, and SSL client certificates of a user then use the browser as a way to pivot into an authenticated intranet. Executing browser-based behaviors such as pivoting may require specific process permissions, such as <code>SeDebugPrivilege</code> and/or high-integrity/administrator rights. Another example involves pivoting browser traffic from the adversary's browser through the user's browser by setting up a proxy which will redirect web traffic. This does not alter the user's traffic in any way, and the proxy connection can be severed as soon as the browser is closed. The adversary assumes the security context of whichever browser process the proxy is injected into. Browsers typically create a new process for each tab that is opened and permissions and certificates are separated accordingly. With these permissions, an adversary could potentially browse to any resource on an intranet, such as [Sharepoint](https://attack.mitre.org/techniques/T1213/002) or webmail, that is accessible through the browser and which the browser has sufficient permissions. Browser pivoting may also bypass security provided by 2-factor authentication.
 
@@ -407,7 +407,7 @@ Implemented by 15 software: [S0154 Cobalt Strike](https://attack.mitre.org/softw
 
 Tactics: Collection, Platforms: Linux, Windows, macOS, SaaS, IaaS, Office Suite, [ATT&CK](https://attack.mitre.org/techniques/T1213)  
 
-<details class="tsw-fold"><summary>Show the description, 7 ATT&CK mitigations, 24 NIST 800-53 controls, the detection strategy, 1 threat group, and 2 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 7 mitigations, 24 NIST controls, detection strategy, 1 group, 2 software</summary>
 
 Adversaries may leverage information repositories to mine valuable information. Information repositories are tools that allow for storage of information, typically to facilitate collaboration or information sharing between users, and can store a wide variety of data that may aid adversaries in further objectives, such as Credential Access, Lateral Movement, or Defense Evasion, or direct access to the target information. Adversaries may also abuse external sharing features to share sensitive documents with recipients outside of the organization (i.e., [Transfer Data to Cloud Account](https://attack.mitre.org/techniques/T1537)). The following is a brief list of example information that may hold potential value to an adversary and may also be found on an information repository: * Policies, procedures, and standards * Physical / logical network diagrams * System architecture diagrams * Technical system documentation * Testing / development credentials (i.e., [Unsecured Credentials](https://attack.mitre.org/techniques/T1552)) * Work / project schedules * Source code snippets * Links to network shares and other internal resources * Contact or other sensitive information about business partners and customers, including personally identifiable information (PII) Information stored in a repository may vary based on the specific instance or environment. Specific common information repositories include the following: * Storage services such as IaaS databases, enterprise databases, and more specialized platforms such as customer relationship management (CRM) databases * Collaboration platforms such as SharePoint, Confluence, and code repositories * Messaging platforms such as Slack and Microsoft Teams In some cases, information repositories have been improperly secured, typically by unintentionally allowing for overly-broad access by all users or even public access to unauthenticated users. This is particularly common with cloud-native or cloud-hosted services, such as AWS Relational Database Service (RDS), Redis, or ElasticSearch.
 
@@ -426,7 +426,7 @@ Implemented by 2 software: [S1148 Raccoon Stealer](https://attack.mitre.org/soft
 
 sub-technique of [T1213](/techniques/collection.md#t1213), Tactics: Collection, Platforms: SaaS, [ATT&CK](https://attack.mitre.org/techniques/T1213/001)  
 
-<details class="tsw-fold"><summary>Show the description, 3 ATT&CK mitigations, 23 NIST 800-53 controls, the detection strategy, 1 threat group, and 1 software entry</summary>
+<details class="tsw-fold"><summary>Show details: 3 mitigations, 23 NIST controls, detection strategy, 1 group, 1 software</summary>
 
 Adversaries may leverage Confluence repositories to mine valuable information. Often found in development environments alongside Atlassian JIRA, Confluence is generally used to store development-related documentation, however, in general may contain more diverse categories of useful information, such as: * Policies, procedures, and standards * Physical / logical network diagrams * System architecture diagrams * Technical system documentation * Testing / development credentials (i.e., [Unsecured Credentials](https://attack.mitre.org/techniques/T1552)) * Work / project schedules * Source code snippets * Links to network shares and other internal resources
 
@@ -445,7 +445,7 @@ Implemented by 1 software: [S9009 TruffleHog](https://attack.mitre.org/software/
 
 sub-technique of [T1213](/techniques/collection.md#t1213), Tactics: Collection, Platforms: Windows, Office Suite, [ATT&CK](https://attack.mitre.org/techniques/T1213/002)  
 
-<details class="tsw-fold"><summary>Show the description, 3 ATT&CK mitigations, 23 NIST 800-53 controls, the detection strategy, 7 threat groups, and 2 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 3 mitigations, 23 NIST controls, detection strategy, 7 groups, 2 software</summary>
 
 Adversaries may leverage the SharePoint repository as a source to mine valuable information. SharePoint will often contain useful information for an adversary to learn about the structure and functionality of the internal network and systems. For example, the following is a list of example information that may hold potential value to an adversary and may also be found on SharePoint: * Policies, procedures, and standards * Physical / logical network diagrams * System architecture diagrams * Technical system documentation * Testing / development credentials (i.e., [Unsecured Credentials](https://attack.mitre.org/techniques/T1552)) * Work / project schedules * Source code snippets * Links to network shares and other internal resources
 
@@ -464,7 +464,7 @@ Implemented by 2 software: [S0227 spwebmember](https://attack.mitre.org/software
 
 sub-technique of [T1213](/techniques/collection.md#t1213), Tactics: Collection, Platforms: SaaS, [ATT&CK](https://attack.mitre.org/techniques/T1213/003)  
 
-<details class="tsw-fold"><summary>Show the description, 4 ATT&CK mitigations, 14 NIST 800-53 controls, the detection strategy, 4 threat groups, and 5 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 4 mitigations, 14 NIST controls, detection strategy, 4 groups, 5 software</summary>
 
 Adversaries may leverage code repositories to collect valuable information. Code repositories are tools/services that store source code and automate software builds. They may be hosted internally or privately on third party sites such as Github, GitLab, SourceForge, and BitBucket. Users typically interact with code repositories through a web application or command-line utilities such as git. Once adversaries gain access to a victim network or a private code repository, they may collect sensitive information such as proprietary source code or [Unsecured Credentials](https://attack.mitre.org/techniques/T1552) contained within software's source code. Having access to software's source code may allow adversaries to develop [Exploits](https://attack.mitre.org/techniques/T1587/004), while credentials may provide access to additional resources using [Valid Accounts](https://attack.mitre.org/techniques/T1078). Note: This is distinct from [Code Repositories](https://attack.mitre.org/techniques/T1593/003), which focuses on conducting [Reconnaissance](https://attack.mitre.org/tactics/TA0043) via public code repositories.
 
@@ -483,7 +483,7 @@ Implemented by 5 software: [S9008 Shai-Hulud](https://attack.mitre.org/software/
 
 sub-technique of [T1213](/techniques/collection.md#t1213), Tactics: Collection, Platforms: SaaS, [ATT&CK](https://attack.mitre.org/techniques/T1213/004)  
 
-<details class="tsw-fold"><summary>Show the description, 4 ATT&CK mitigations, 18 NIST 800-53 controls, and the detection strategy</summary>
+<details class="tsw-fold"><summary>Show details: 4 mitigations, 18 NIST controls, detection strategy</summary>
 
 Adversaries may leverage Customer Relationship Management (CRM) software to mine valuable information. CRM software is used to assist organizations in tracking and managing customer interactions, as well as storing customer data. Once adversaries gain access to a victim organization, they may mine CRM software for customer data. This may include personally identifiable information (PII) such as full names, emails, phone numbers, and addresses, as well as additional details such as purchase histories and IT support interactions. By collecting this data, an adversary may be able to send personalized [Phishing](https://attack.mitre.org/techniques/T1566) emails, engage in SIM swapping, or otherwise target the organization’s customers in ways that enable financial gain or the compromise of additional organizations. CRM software may be hosted on-premises or in the cloud. Information stored in these solutions may vary based on the specific instance or environment. Examples of CRM software include Microsoft Dynamics 365, Salesforce, Zoho, Zendesk, and HubSpot.
 
@@ -500,7 +500,7 @@ ATT&CK detection strategy: Detecting Suspicious Access to CRM Data in SaaS Envir
 
 sub-technique of [T1213](/techniques/collection.md#t1213), Tactics: Collection, Platforms: SaaS, Office Suite, [ATT&CK](https://attack.mitre.org/techniques/T1213/005)  
 
-<details class="tsw-fold"><summary>Show the description, 3 ATT&CK mitigations, 24 NIST 800-53 controls, the detection strategy, 3 threat groups, and 1 software entry</summary>
+<details class="tsw-fold"><summary>Show details: 3 mitigations, 24 NIST controls, detection strategy, 3 groups, 1 software</summary>
 
 Adversaries may leverage chat and messaging applications, such as Microsoft Teams, Google Chat, and Slack, to mine valuable information. The following is a brief list of example information that may hold potential value to an adversary and may also be found on messaging applications: * Testing / development credentials (i.e., [Chat Messages](https://attack.mitre.org/techniques/T1552/008)) * Source code snippets * Links to network shares and other internal resources * Proprietary data * Discussions about ongoing incident response efforts In addition to exfiltrating data from messaging applications, adversaries may leverage data from chat messages in order to improve their targeting - for example, by learning more about an environment or evading ongoing incident response efforts.
 
@@ -519,7 +519,7 @@ Implemented by 1 software: [S9009 TruffleHog](https://attack.mitre.org/software/
 
 sub-technique of [T1213](/techniques/collection.md#t1213), Tactics: Collection, Platforms: Linux, Windows, macOS, IaaS, SaaS, [ATT&CK](https://attack.mitre.org/techniques/T1213/006)  
 
-<details class="tsw-fold"><summary>Show the description, 5 ATT&CK mitigations, the detection strategy, 5 threat groups, and 4 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 5 mitigations, detection strategy, 5 groups, 4 software</summary>
 
 Adversaries may leverage databases to mine valuable information. These databases may be hosted on-premises or in the cloud (both in platform-as-a-service and software-as-a-service environments). Examples of databases from which information may be collected include MySQL, PostgreSQL, MongoDB, Amazon Relational Database Service, Azure SQL Database, Google Firebase, and Snowflake. Databases may include a variety of information of interest to adversaries, such as usernames, hashed passwords, personally identifiable information, and financial data. Data collected from databases may be used for [Lateral Movement](https://attack.mitre.org/tactics/TA0008), [Command and Control](https://attack.mitre.org/tactics/TA0011), or [Exfiltration](https://attack.mitre.org/tactics/TA0010). Data exfiltrated from databases may also be used to extort victims or may be sold for profit.
 
@@ -538,7 +538,7 @@ Implemented by 4 software: [S0598 P.A.S. Webshell](https://attack.mitre.org/soft
 
 Tactics: Collection, Platforms: IaaS, Office Suite, SaaS, [ATT&CK](https://attack.mitre.org/techniques/T1530)  
 
-<details class="tsw-fold"><summary>Show the description, 6 ATT&CK mitigations, 32 NIST 800-53 controls, the detection strategy, 6 threat groups, and 4 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 6 mitigations, 32 NIST controls, detection strategy, 6 groups, 4 software</summary>
 
 Adversaries may access data from cloud storage. Many IaaS providers offer solutions for online data object storage such as Amazon S3, Azure Storage, and Google Cloud Storage. Similarly, SaaS enterprise platforms such as Office 365 and Google Workspace provide cloud-based document storage to users through services such as OneDrive and Google Drive, while SaaS application providers such as Slack, Confluence, Salesforce, and Dropbox may provide cloud storage solutions as a peripheral or primary use case of their platform. In some cases, as with IaaS-based cloud storage, there exists no overarching application (such as SQL or Elasticsearch) with which to interact with the stored objects: instead, data from these solutions is retrieved directly though the [Cloud API](https://attack.mitre.org/techniques/T1059/009). In SaaS applications, adversaries may be able to collect this data directly from APIs or backend cloud storage objects, rather than through their front-end application or interface (i.e., [Data from Information Repositories](https://attack.mitre.org/techniques/T1213)). Adversaries may collect sensitive data from these cloud storage solutions. Providers typically offer security guides to help end users configure systems, though misconfigurations are a common problem. There have been numerous incidents where cloud storage has been improperly secured, typically by unintentionally allowing public access to unauthenticated users, overly-broad access by all users, or even access for any anonymous person outside the control of the Identity Access Management system without even needing basic user permissions. This open access may expose various types of sensitive data, such as credit cards, personally identifiable information, or medical records. Adversaries may also obtain then abuse leaked credentials from source repositories, logs, or other means as a way to gain access to cloud storage objects.
 
@@ -557,7 +557,7 @@ Implemented by 4 software: [S0677 AADInternals](https://attack.mitre.org/softwar
 
 Tactics: Collection, Platforms: Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1560)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 5 NIST 800-53 controls, the detection strategy, 13 threat groups, and 44 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 5 NIST controls, detection strategy, 13 groups, 44 software</summary>
 
 An adversary may compress and/or encrypt data that is collected prior to exfiltration. Compressing the data can help to obfuscate the collected data and minimize the amount of data sent over the network. Encryption can be used to hide information that is being exfiltrated from detection or make exfiltration less conspicuous upon inspection by a defender. Both compression and encryption are done prior to exfiltration, and can be performed using a utility, 3rd party library, or custom method.
 
@@ -576,7 +576,7 @@ Implemented by 44 software: [S0010 Lurid](https://attack.mitre.org/software/S001
 
 sub-technique of [T1560](/techniques/collection.md#t1560), Tactics: Collection, Platforms: Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1560/001)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 5 NIST 800-53 controls, the detection strategy, 39 threat groups, and 36 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 5 NIST controls, detection strategy, 39 groups, 36 software</summary>
 
 Adversaries may use utilities to compress and/or encrypt collected data prior to exfiltration. Many utilities include functionalities to compress, encrypt, or otherwise package data into a format that is easier/more secure to transport. Adversaries may abuse various utilities to compress or encrypt data before exfiltration. Some third party utilities may be preinstalled, such as <code>tar</code> on Linux and macOS or <code>zip</code> on Windows systems. On Windows, <code>diantz</code> or <code> makecab</code> may be used to package collected files into a cabinet (.cab) file. <code>diantz</code> may also be used to download and compress files from remote locations (i.e. [Remote Data Staging](https://attack.mitre.org/techniques/T1074/002)). <code>xcopy</code> on Windows can copy files and directories with a variety of options. Additionally, adversaries may use [certutil](https://attack.mitre.org/software/S0160) to Base64 encode collected data before exfiltration. Adversaries may use also third party utilities, such as 7-Zip, WinRAR, and WinZip, to perform similar activities.
 
@@ -595,7 +595,7 @@ Implemented by 36 software: [S0062 DustySky](https://attack.mitre.org/software/S
 
 sub-technique of [T1560](/techniques/collection.md#t1560), Tactics: Collection, Platforms: Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1560/002)  
 
-<details class="tsw-fold"><summary>Show the description, the detection strategy, 3 threat groups, and 13 software entries</summary>
+<details class="tsw-fold"><summary>Show details: detection strategy, 3 groups, 13 software</summary>
 
 An adversary may compress or encrypt data that is collected prior to exfiltration using 3rd party libraries. Many libraries exist that can archive data, including [Python](https://attack.mitre.org/techniques/T1059/006) rarfile, libzip, and zlib. Most libraries include functionality to encrypt and/or compress data. Some archival libraries are preinstalled on systems, such as bzip2 on macOS and Linux, and zip on Windows. Note that the libraries are different from the utilities. The libraries can be linked against when compiling, while the utilities require spawning a subshell, or a similar execution mechanism.
 
@@ -614,7 +614,7 @@ Implemented by 13 software: [S0053 SeaDuke](https://attack.mitre.org/software/S0
 
 sub-technique of [T1560](/techniques/collection.md#t1560), Tactics: Collection, Platforms: Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1560/003)  
 
-<details class="tsw-fold"><summary>Show the description, the detection strategy, 7 threat groups, and 31 software entries</summary>
+<details class="tsw-fold"><summary>Show details: detection strategy, 7 groups, 31 software</summary>
 
 An adversary may compress or encrypt data that is collected prior to exfiltration using a custom method. Adversaries may choose to use custom archival methods, such as encryption with XOR or stream ciphers implemented with no external library or utility references. Custom implementations of well-known compression algorithms have also been used.
 
@@ -633,7 +633,7 @@ Implemented by 31 software: [S0035 SPACESHIP](https://attack.mitre.org/software/
 
 Tactics: Collection, Platforms: Network Devices, [ATT&CK](https://attack.mitre.org/techniques/T1602)  
 
-<details class="tsw-fold"><summary>Show the description, 6 ATT&CK mitigations, 25 NIST 800-53 controls, and the detection strategy</summary>
+<details class="tsw-fold"><summary>Show details: 6 mitigations, 25 NIST controls, detection strategy</summary>
 
 Adversaries may collect data related to managed devices from configuration repositories. Configuration repositories are used by management systems in order to configure, manage, and control data on remote systems. Configuration repositories may also facilitate remote access and administration of devices. Adversaries may target these repositories in order to collect large quantities of sensitive system administration data. Data from configuration repositories may be exposed by various protocols and software and can store a wide variety of data, much of which may align with adversary Discovery objectives.
 
@@ -650,7 +650,7 @@ ATT&CK detection strategy: Detection Strategy for Data from Configuration Reposi
 
 sub-technique of [T1602](/techniques/collection.md#t1602), Tactics: Collection, Platforms: Network Devices, [ATT&CK](https://attack.mitre.org/techniques/T1602/001)  
 
-<details class="tsw-fold"><summary>Show the description, 6 ATT&CK mitigations, 25 NIST 800-53 controls, and the detection strategy</summary>
+<details class="tsw-fold"><summary>Show details: 6 mitigations, 25 NIST controls, detection strategy</summary>
 
 Adversaries may target the Management Information Base (MIB) to collect and/or mine valuable information in a network managed using Simple Network Management Protocol (SNMP). The MIB is a configuration repository that stores variable information accessible via SNMP in the form of object identifiers (OID). Each OID identifies a variable that can be read or set and permits active management tasks, such as configuration changes, through remote modification of these variables. SNMP can give administrators great insight in their systems, such as, system information, description of hardware, physical location, and software packages. The MIB may also contain device operational information, including running configuration, routing table, and interface details. Adversaries may use SNMP queries to collect MIB content directly from SNMP-managed devices in order to collect network information that allows the adversary to build network maps and facilitate future targeted exploitation.
 
@@ -667,7 +667,7 @@ ATT&CK detection strategy: Detection Strategy for SNMP (MIB Dump) on Network Dev
 
 sub-technique of [T1602](/techniques/collection.md#t1602), Tactics: Collection, Platforms: Network Devices, [ATT&CK](https://attack.mitre.org/techniques/T1602/002)  
 
-<details class="tsw-fold"><summary>Show the description, 6 ATT&CK mitigations, 25 NIST 800-53 controls, the detection strategy, 1 threat group, and 1 software entry</summary>
+<details class="tsw-fold"><summary>Show details: 6 mitigations, 25 NIST controls, detection strategy, 1 group, 1 software</summary>
 
 Adversaries may access network configuration files to collect sensitive data about the device and the network. The network configuration is a file containing parameters that determine the operation of the device. The device typically stores an in-memory copy of the configuration while operating, and a separate configuration on non-volatile storage to load after device reset. Adversaries can inspect the configuration files to reveal information about the target network and its layout, the network device and its software, or identifying legitimate accounts and credentials for later use. Adversaries can use common management tools and protocols, such as Simple Network Management Protocol (SNMP) and Smart Install (SMI), to access network configuration files. These tools may be used to query specific data from a configuration repository or configure the device to export the configuration for later analysis.
 

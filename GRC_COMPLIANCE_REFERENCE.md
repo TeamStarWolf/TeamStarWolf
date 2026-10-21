@@ -1,6 +1,6 @@
 # GRC Compliance Reference
 
-> Comprehensive reference for Governance, Risk & Compliance (GRC), covering foundational concepts, major frameworks, automation tooling, and practical implementation guidance.
+> Reference for Governance, Risk & Compliance (GRC), covering foundational concepts, major frameworks, automation tooling, and practical implementation guidance.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -8,8 +8,8 @@
 |---|---|
 | Who this is for | GRC analysts, compliance engineers, and security program managers |
 | Level | Intermediate |
-| Reading time | About 32 min (7,436 words at 230 words a minute) |
-| Read this when | standing up or maturing a GRC program, preparing for an audit or certification (PCI DSS, HIPAA, SOC 2, ISO 27001), building a risk register, or automating compliance evidence and scanning |
+| Reading time | About 32 min (7,435 words at 230 words a minute) |
+| Read this when | Standing up or maturing a GRC program, preparing for an audit or certification (PCI DSS, HIPAA, SOC 2, ISO 27001), building a risk register, or automating compliance evidence and scanning |
 | Start at | [GRC Fundamentals](#_1-grc-fundamentals) for definitions and risk scoring, [Control Frameworks Comparison](#_17-control-frameworks-comparison) to pick a framework, [GRC Tools and Automation](#_10-grc-tools-and-automation) for tooling |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
@@ -17,7 +17,7 @@
 | | |
 |---|---|
 | Pairs with | [GRC_REFERENCE.md](GRC_REFERENCE.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md), [VULNERABILITY_MANAGEMENT_REFERENCE.md](VULNERABILITY_MANAGEMENT_REFERENCE.md), [SECURITY_METRICS_REFERENCE.md](SECURITY_METRICS_REFERENCE.md) |
-| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last corrected | 2026-10-12, revoked T1562 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

@@ -9,7 +9,7 @@
 | Who this is for | Virtualization administrators, infrastructure security engineers, and ransomware responders |
 | Level | Intermediate to advanced |
 | Reading time | About 10 min (2,385 words at 230 words a minute) |
-| Read this when | you are hardening a VMware/Hyper-V/Proxmox estate, a ransomware IR touched the hypervisor layer, you are scoping vCenter/ESXi patch exposure, or you are designing management-plane isolation and backup immutability for virtual infrastructure |
+| Read this when | You are hardening a VMware/Hyper-V/Proxmox estate, a ransomware IR touched the hypervisor layer, you are scoping vCenter/ESXi patch exposure, or you are designing management-plane isolation and backup immutability for virtual infrastructure |
 | Start at | [Why the Hypervisor Is the Bullseye](#why-the-hypervisor-is-the-bullseye), [The ESXi Ransomware Kill Chain](#the-esxi-ransomware-kill-chain), [ESXi / vSphere Hardening](#vmware-esxi-vsphere-hardening) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
@@ -17,7 +17,7 @@
 | | |
 |---|---|
 | Pairs with | [RANSOMWARE_DEFENSE_REFERENCE.md](RANSOMWARE_DEFENSE_REFERENCE.md), [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md), [ENTERPRISE_INFRASTRUCTURE.md](ENTERPRISE_INFRASTRUCTURE.md), [CYBER_RESILIENCE_BCDR_REFERENCE.md](CYBER_RESILIENCE_BCDR_REFERENCE.md), [CONTAINER_SECURITY_REFERENCE.md](CONTAINER_SECURITY_REFERENCE.md) |
-| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last corrected | 2026-10-12, revoked T1562 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

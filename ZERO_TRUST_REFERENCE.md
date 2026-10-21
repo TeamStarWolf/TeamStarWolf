@@ -9,7 +9,7 @@
 | Who this is for | Security architects and identity and network engineers planning a Zero Trust rollout |
 | Level | Intermediate |
 | Reading time | About 37 min (8,460 words at 230 words a minute) |
-| Read this when | you are planning or assessing a Zero Trust rollout, you need to replace a VPN or bastion host with identity-aware access, you want config examples for Conditional Access, Istio mTLS, Teleport, Boundary, or Cloudflare |
+| Read this when | You are planning or assessing a Zero Trust rollout, you need to replace a VPN or bastion host with identity-aware access, you want config examples for Conditional Access, Istio mTLS, Teleport, Boundary, or Cloudflare |
 | Start at | [Zero Trust Fundamentals](#_1-zero-trust-fundamentals), [Identity Pillar](#_2-identity-pillar), [ZTA Implementation Roadmap](#_10-zta-implementation-roadmap) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>

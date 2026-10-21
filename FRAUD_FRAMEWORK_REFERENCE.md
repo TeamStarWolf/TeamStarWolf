@@ -9,14 +9,14 @@
 | Who this is for | Fraud analysts, SOC teams, and threat-informed defense practitioners in financial services and retail |
 | Level | Intermediate |
 | Reading time | About 33 min (7,522 words at 230 words a minute) |
-| Read this when | a fraud desk and the SOC are describing the same incident in different words, you need to name a fraud behavior (account takeover, mule cash-out, check fraud) with a standard technique ID, you are mapping fraud coverage onto ATT&CK-based detections |
+| Read this when | A fraud desk and the SOC are describing the same incident in different words, you need to name a fraud behavior (account takeover, mule cash-out, check fraud) with a standard technique ID, you are mapping fraud coverage onto ATT&CK-based detections |
 | Start at | [The F3 kill chain](#the-f3-kill-chain) for the 8-tactic overview, [Monetization](#monetization) for where the money actually leaves, [Using F3 with the rest of this library](#using-f3-with-the-rest-of-this-library) to connect it to detections and CTEM |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
 | | |
 |---|---|
-| Last corrected | 2026-10-13, revoked and deprecated ATT&CK citations re-keyed to their current IDs ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2) |
+| Last corrected | 2026-10-13, note added that F3 keeps T1672 Email Spoofing, which ATT&CK Enterprise revoked in favour of T1684.002 ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

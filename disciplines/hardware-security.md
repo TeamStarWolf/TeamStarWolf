@@ -11,14 +11,14 @@ Hardware security addresses the lowest layers of the computing stack: firmware, 
 | Who this is for | Practitioners learning firmware, secure boot, side-channel, and hardware attack and defense |
 | Level | Beginner to advanced |
 | Reading time | About 8 min (1,949 words at 230 words a minute) |
-| Read this when | starting in hardware hacking: debug interfaces, firmware extraction, side channels and fault injection |
+| Read this when | Attacking a device through its debug interfaces, extracting firmware, or studying side channels, fault injection and TPMs |
 | Start at | [Where to Start](#where-to-start), [Offensive Techniques](#offensive-techniques), [Hardware Security Tools Reference](#hardware-security-tools-reference) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
 | | |
 |---|---|
-| Last corrected | 2026-09-27, ATT&CK tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
+| Last corrected | 2026-09-27, tactic of T1542 and T1601 and their sub-techniques changed from Defense Evasion to Stealth ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

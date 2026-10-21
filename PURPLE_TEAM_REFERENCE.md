@@ -18,7 +18,7 @@
 |---|---|
 | Pairs with | [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [THREAT_INTELLIGENCE_REFERENCE.md](THREAT_INTELLIGENCE_REFERENCE.md) |
 | Matching learning path | [Purple Teaming & Adversary Simulation](/disciplines/purple-teaming.md) |
-| Last corrected | 2026-09-27, ATT&CK tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
+| Last corrected | 2026-09-27, Enterprise tactic table: Defense Evasion renamed Stealth and a Defense Impairment (TA0112) row added; one coverage-target row updated to match ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

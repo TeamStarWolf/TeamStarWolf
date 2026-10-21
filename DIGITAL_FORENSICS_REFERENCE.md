@@ -1,6 +1,6 @@
 # Digital Forensics Reference Library
 
-> A comprehensive professional reference for digital forensics practitioners, incident responders, and cybersecurity analysts.
+> A reference for digital forensics practitioners, incident responders, and cybersecurity analysts.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -8,7 +8,7 @@
 |---|---|
 | Who this is for | Digital forensic examiners, incident responders, and SOC analysts |
 | Level | Intermediate |
-| Reading time | About 28 min (6,328 words at 230 words a minute) |
+| Reading time | About 28 min (6,326 words at 230 words a minute) |
 | Read this when | You are acquiring or examining evidence from a compromised or seized system, you need the right artifact (prefetch, ShimCache, SRUM, $UsnJrnl) to prove a file ran or existed after deletion, or you are writing a court-ready forensic report or timeline |
 | Start at | [Digital Forensics Fundamentals](#_1-digital-forensics-fundamentals), [Windows Forensics - Artifacts](#_2-windows-forensics-artifacts), [Forensic Reporting & Tools Reference](#_10-forensic-reporting-amp-tools-reference) |
 

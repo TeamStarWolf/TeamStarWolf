@@ -7,14 +7,14 @@
 | Who this is for | Security engineers, detection engineers, and threat modelers responsible for platforms that run autonomous AI agents |
 | Level | Intermediate to advanced |
 | Reading time | About 16 min (3,652 words at 230 words a minute) |
-| Read this when | threat-modeling a platform where many autonomous AI agents share credentials and infrastructure, or mapping agent-driven intrusion activity to ATT&CK and ATLAS |
+| Read this when | Threat-modeling a platform where many autonomous AI agents share credentials and infrastructure, or mapping agent-driven intrusion activity to ATT&CK and ATLAS |
 | Start at | [Overview](#overview), [The Kill Chain](#the-kill-chain), [Detection Opportunities](#detection-opportunities) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
 | | |
 |---|---|
-| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last corrected | 2026-10-12, revoked T1562.001 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

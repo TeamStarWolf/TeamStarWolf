@@ -956,7 +956,8 @@
        in section.tsw-meta and marks its two card tables. The first table is what fits one
        screen; the rest of the card sits in details.tsw-meta-more ("More about this page"),
        which the script opens, without its summary line, on screens wider than 600 px, and the
-       "Which page should I read?" table sits in a closed details.tsw-meta-which. On GitHub
+       "Which page should I read?" table sits in a closed details.tsw-meta-which. At 600 px
+       and below the script moves the card up to sit directly under the page title. On GitHub
        the same block is plain tables and two closed folds. Folds are
        <details class="tsw-fold"> around a long appendix or table, and around each
        technique's body on the generated techniques/ and detections/strategies/ pages. */
@@ -965,6 +966,9 @@
       background: var(--tsw-surface); border: 1px solid var(--tsw-border); border-radius: 12px;
     }
     .markdown-section .tsw-meta table { margin: .3rem 0 .5rem; border-radius: 8px; }
+    /* vue.css draws a 1 px #ccc top border on every tr; inside the card it showed as a
+       light line across the first row (most visibly on a phone, where rows are blocks). */
+    .markdown-section .tsw-meta tr { border-top: 0; }
     .markdown-section .tsw-meta tbody tr,
     .markdown-section .tsw-meta tbody tr:nth-child(even),
     .markdown-section .tsw-meta tbody tr:hover { background: transparent; }
@@ -996,6 +1000,10 @@
       .markdown-section .tsw-meta table.tsw-meta-card tr:last-child { border-bottom: 0; }
       .markdown-section .tsw-meta table.tsw-meta-card td { padding: 0; border: 0; }
       .markdown-section .tsw-meta table.tsw-meta-card td:first-child { white-space: normal; font-size: .78rem; margin-bottom: 2px; }
+      /* The "Edit this page on GitHub" line takes one short line on a phone: the "/" key
+         hint is for keyboards, so the card starts higher on the first screen. */
+      .markdown-section .tsw-keyhint { display: none; }
+      .markdown-section blockquote:has(.tsw-keyhint) { margin: .6rem 0 1rem; padding-top: .45rem; padding-bottom: .45rem; }
     }
     .markdown-section details.tsw-fold { margin: .8rem 0 1.2rem; border: 1px solid var(--tsw-border); border-radius: 10px; }
     .markdown-section details.tsw-fold > summary {
@@ -1138,7 +1146,7 @@
         function (hook, vm) {
           hook.beforeEach(function (html) {
             var url = 'https://github.com/TeamStarWolf/TeamStarWolf/blob/main/' + vm.route.file;
-            return '> [Edit this page on GitHub](' + url + '). Press <kbd>/</kbd> to search.\n\n' + html;
+            return '> [Edit this page on GitHub](' + url + ').<span class="tsw-keyhint"> Press <kbd>/</kbd> to search.</span>\n\n' + html;
           });
         },
         // The search box at the top of the sidebar: a button that opens the search overlay
@@ -1770,7 +1778,8 @@
   <!-- Header card and folds (scripts/build_doc_meta.py). The card: the block between a page's
        meta:start and meta:end comments becomes section.tsw-meta, its first table and the
        table in its "More about this page" fold the card; that fold is open on screens wider
-       than 600 px and closed below, where the first table alone fits the first screen.
+       than 600 px and closed below, where the first table alone fits the first screen and
+       the card sits directly under the page title.
        The folds: a link to an anchor inside a closed <details class="tsw-fold">, or to the
        heading a fold sits under (a technique on the generated techniques/ and
        detections/strategies/ pages), opens it; printing opens every fold. -->
@@ -1798,17 +1807,27 @@
               : (el.tagName === 'DETAILS' && el.classList.contains('tsw-meta-more') ? el.querySelector('table') : null);
             if (t) { t.classList.add('tsw-meta-card'); }
           });
+          home = c;
           fitMore();
           return;
         }
       }
       // "More about this page": open (summary hidden) when wide, closed when 600 px or less.
+      // At 600 px or less the card also moves up to sit directly under the page title, so it
+      // starts on the first screen of a phone even under a long introduction; wider, it stays
+      // where the page has it (after the introduction, as on GitHub).
       var wide = window.matchMedia ? window.matchMedia('(min-width: 601px)') : null;
+      var home = null;   // the meta:start comment: where the card sits in the page
       function fitMore() {
-        var d = document.querySelector('#main .tsw-meta > details.tsw-meta-more');
+        var box = document.querySelector('#main .tsw-meta');
+        var d = box && box.querySelector(':scope > details.tsw-meta-more');
         if (!d || !wide) { return; }
         if (wide.matches) { d.setAttribute('data-auto-open', ''); d.open = true; }
         else if (d.hasAttribute('data-auto-open')) { d.removeAttribute('data-auto-open'); d.open = false; }
+        var h1 = home && home.parentNode && home.parentNode.querySelector(':scope > h1');
+        var above = h1 && (h1.compareDocumentPosition(home) & Node.DOCUMENT_POSITION_FOLLOWING);
+        var to = !wide.matches && above ? h1 : home;
+        if (to && to.parentNode && to.nextSibling !== box) { to.parentNode.insertBefore(box, to.nextSibling); }
       }
       if (wide) {
         if (wide.addEventListener) { wide.addEventListener('change', fitMore); }

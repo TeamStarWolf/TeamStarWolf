@@ -10,7 +10,7 @@
 | Who this is for | Windows security engineers and detection engineers deploying Sysmon and WEF |
 | Level | Intermediate to advanced |
 | Reading time | About 18 min (4,166 words at 230 words a minute) |
-| Read this when | you are locking down a new Windows fleet or server build, you need the exact GPO/registry paths for a CIS/STIG/Microsoft-baseline setting, or you are standing up Sysmon/WEF and need the event IDs to watch |
+| Read this when | You are locking down a new Windows fleet or server build, you need the exact GPO/registry paths for a CIS/STIG/Microsoft-baseline setting, or you are standing up Sysmon/WEF and need the event IDs to watch |
 | Start at | [Windows Security Architecture](#_1-windows-security-architecture), [Sysmon Deployment and Configuration](#_4-sysmon-deployment-and-configuration), [Audit Policy and Monitoring](#_10-audit-policy-and-monitoring) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
@@ -18,7 +18,7 @@
 | | |
 |---|---|
 | Pairs with | [WINDOWS_HARDENING.md](WINDOWS_HARDENING.md), [WINDOWS_HARDENING_GPO.md](WINDOWS_HARDENING_GPO.md), [detections/TECHNIQUE_DETECTION_LIBRARY.md](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
-| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last corrected | 2026-10-12, revoked T1070.001 re-keyed to T1685.005 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

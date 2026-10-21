@@ -136,7 +136,7 @@ pages:
   IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md:
     batch: 1
     items:
-      - {"text": "The page covers the controls side of identity: authentication, authorization models, identity providers, PAM, IGA, and machine identity.", "from": "#identity-amp-access-management-iam-reference", "quote": "A comprehensive cybersecurity reference covering IAM fundamentals, authentication technologies, authorization models, identity providers, PAM, IGA, Zero Trust identity, machine identity, security monitoring, and governance/compliance."}
+      - {"text": "The page covers the controls side of identity: authentication, authorization models, identity providers, PAM, IGA, and machine identity.", "from": "#identity-amp-access-management-iam-reference", "quote": "Reference covering IAM fundamentals, authentication technologies, authorization models, identity providers, PAM, IGA, Zero Trust identity, machine identity, security monitoring, and governance/compliance."}
       - {"text": "The page cites the Verizon DBIR 2024 for credential-based attacks remaining the top initial access vector.", "from": "#_1-iam-fundamentals", "quote": "credential-based attacks remain the top initial access vector."}
       - {"text": "Orphaned accounts that were not disabled at offboarding get used for re-entry months after the person leaves.", "from": "#_1-iam-fundamentals", "quote": "Orphaned accounts: Accounts not disabled after offboarding. Exploited for re-entry months after departure."}
       - {"text": "Service account sprawl builds up static application credentials that are rarely rotated or inventoried.", "from": "#_1-iam-fundamentals", "quote": "Accumulation of static credentials for applications; rarely rotated or inventoried."}

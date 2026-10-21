@@ -11,7 +11,7 @@ This is the fastest-moving field in security. Threat taxonomies like MITRE ATLAS
 | Who this is for | Practitioners moving into AI and LLM security, offensive or defensive |
 | Level | Beginner to advanced |
 | Reading time | About 19 min (4,398 words at 230 words a minute) |
-| Read this when | starting in LLM application security, deciding whether to focus on attacking or defending AI systems, or looking for free training and tools |
+| Read this when | Weighing whether to attack or defend AI systems, mapping LLM threats to MITRE ATLAS, or looking for free training and tools |
 | Start at | [Where to Start](#where-to-start), [LLM Security Threat Landscape](#llm-security-threat-landscape), [Securing LLM Applications](#securing-llm-applications) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>

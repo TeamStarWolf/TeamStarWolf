@@ -9,7 +9,7 @@
 | Who this is for | CISOs, security program managers, and SOC and vulnerability management leads |
 | Level | Intermediate |
 | Reading time | About 38 min (8,822 words at 230 words a minute) |
-| Read this when | you are building or overhauling a metrics program, preparing a CISO/board report and need dollar framing and benchmarks, defining SLA targets or RAG thresholds for a specific domain (SOC, vuln, IAM, cloud) |
+| Read this when | You are building or overhauling a metrics program, preparing a CISO/board report and need dollar framing and benchmarks, defining SLA targets or RAG thresholds for a specific domain (SOC, vuln, IAM, cloud) |
 | Start at | [S1: Security Metrics Fundamentals](#s1-security-metrics-fundamentals) for the KPI/KRI groundwork, [S4: Risk Quantification](#s4-risk-quantification) for FAIR and dollar estimates, [S10: Executive Reporting & Dashboard Design](#s10-executive-reporting-amp-dashboard-design) for board translation |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>

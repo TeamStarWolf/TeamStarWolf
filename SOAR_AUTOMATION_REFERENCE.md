@@ -1,6 +1,4 @@
 # SOAR Automation Reference Library
-> Professional Cybersecurity Reference | Maintained by TeamStarWolf Security Engineering
-
 > In one minute: This is a working reference for SOAR (Security Orchestration, Automation, and Response): platforms that let a SOC connect its security tools, automate repetitive triage, and run incident response through playbooks (predefined response workflows). It covers playbook design patterns, then platform-specific code and APIs for Splunk SOAR, Palo Alto XSOAR, Microsoft Sentinel, and IBM QRadar SOAR, plus ready-made automation for phishing, malware, ransomware, and BEC. It is useful because the examples are copy-adaptable Python, YAML, and API calls, not just concepts.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
@@ -9,8 +7,8 @@
 |---|---|
 | Who this is for | SOC engineers and automation developers building playbooks |
 | Level | Intermediate |
-| Reading time | About 21 min (4,721 words at 230 words a minute) |
-| Read this when | you are designing or hardening a playbook (triggers, error handling, approval gates), you need the API or SDK pattern for a specific SOAR platform, you are automating phishing/malware/ransomware/BEC response, you are measuring SOAR ROI or playbook effectiveness |
+| Reading time | About 20 min (4,713 words at 230 words a minute) |
+| Read this when | You are designing or hardening a playbook (triggers, error handling, approval gates), you need the API or SDK pattern for a specific SOAR platform, you are automating phishing/malware/ransomware/BEC response, you are measuring SOAR ROI or playbook effectiveness |
 | Start at | [SOAR Fundamentals](#_1-soar-fundamentals), [Playbook Design](#_2-playbook-design), [IR Automation by Incident Type](#_9-ir-automation-by-incident-type) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>

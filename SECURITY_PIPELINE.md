@@ -9,7 +9,7 @@
 | Who this is for | Security architects and program leads building an enterprise control stack |
 | Level | Intermediate |
 | Reading time | About 6 min (1,473 words at 230 words a minute) |
-| Read this when | planning or maturing an enterprise security stack stage by stage, picking open-source vs commercial tooling for a control area, mapping vendors to NIST 800-53 controls and ATT&CK techniques |
+| Read this when | Planning or maturing an enterprise security stack stage by stage, picking open-source vs commercial tooling for a control area, mapping vendors to NIST 800-53 controls and ATT&CK techniques |
 | Start at | [Pipeline Overview](#pipeline-overview), [Enterprise Security Tool Integration Map](#enterprise-security-tool-integration-map), [Incident Response Pipeline Integration](#incident-response-pipeline-integration) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>

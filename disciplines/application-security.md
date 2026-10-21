@@ -11,7 +11,7 @@ The attack surface of modern applications has expanded dramatically. APIs now re
 | Who this is for | Developers and security practitioners moving into application security |
 | Level | Beginner to advanced |
 | Reading time | About 18 min (4,143 words at 230 words a minute) |
-| Read this when | starting in application security, studying the OWASP Top 10, or building a secure development lifecycle |
+| Read this when | New to application security, studying the OWASP Top 10, or building a secure development lifecycle |
 | Start at | [Where to Start](#where-to-start), [Web Application Attack Reference](#web-application-attack-reference), [Secure Development Lifecycle (SDL)](#secure-development-lifecycle-sdl) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>

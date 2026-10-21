@@ -9,7 +9,7 @@
 | Who this is for | Network and security architects, and engineers designing segmentation and access control |
 | Level | Intermediate |
 | Reading time | About 15 min (3,563 words at 230 words a minute) |
-| Read this when | designing or reviewing network segmentation and firewall policy, deploying IDS/IPS or 802.1X/NAC, hardening VPNs or planning DDoS protection |
+| Read this when | Designing or reviewing network segmentation and firewall policy, deploying IDS/IPS or 802.1X/NAC, hardening VPNs or planning DDoS protection |
 | Start at | [Defense-in-Depth Network Architecture](#defense-in-depth-network-architecture), [Network Segmentation Implementation](#network-segmentation-implementation), [Architecture Evaluation Checklist](#architecture-evaluation-checklist) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>

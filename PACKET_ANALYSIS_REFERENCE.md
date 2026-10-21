@@ -9,7 +9,7 @@
 | Who this is for | SOC analysts, network forensics analysts, and threat hunters |
 | Level | Intermediate |
 | Reading time | About 9 min (2,097 words at 230 words a minute) |
-| Read this when | you have a pcap to investigate and need a repeatable workflow, you need the exact Wireshark/tcpdump/zq filter for a suspicious behavior, you are learning to read TCP handshakes and packet fields at the byte level |
+| Read this when | You have a pcap to investigate and need a repeatable workflow, you need the exact Wireshark/tcpdump/zq filter for a suspicious behavior, you are learning to read TCP handshakes and packet fields at the byte level |
 | Start at | [Reading Network Packets](#reading-network-packets), [Detecting Attacks in PCAPs](#detecting-attacks-in-pcaps), [PCAP Investigation Workflow](#pcap-investigation-workflow) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>

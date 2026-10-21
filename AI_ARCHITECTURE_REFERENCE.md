@@ -9,7 +9,7 @@
 | Who this is for | Architects and engineers designing ML platforms and LLM, RAG, or agent applications |
 | Level | Intermediate |
 | Reading time | About 19 min (4,448 words at 230 words a minute) |
-| Read this when | designing a new ML platform or LLM/RAG/agent application, reviewing an AI reference architecture, deciding train-vs-buy / serving topology / RAG vs fine-tune, standing up MLOps/LLMOps, or preparing an AI architecture review board |
+| Read this when | Designing a new ML platform or LLM/RAG/agent application, reviewing an AI reference architecture, deciding train-vs-buy / serving topology / RAG vs fine-tune, standing up MLOps/LLMOps, or preparing an AI architecture review board |
 | Start at | [Principles & Drivers](#_1-principles-amp-drivers), [Reference Architectures & Patterns](#_2-reference-architectures-amp-patterns), [Maturity & Checklist](#_8-maturity-amp-checklist) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>

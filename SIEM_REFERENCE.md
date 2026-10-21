@@ -1,7 +1,5 @@
 # SIEM Reference Library
 
-> Professional Cybersecurity Reference | SIEM, Detection Engineering, SOC Operations, Threat Hunting
-
 > In one minute: This is a working reference for SIEM platforms (Security Information and Event Management: the systems that collect logs from across an environment, correlate them, and raise alerts). It covers the fundamentals (architecture, sizing, and vendor landscape), then goes deep on the query languages and detection workflows of Splunk, Microsoft Sentinel, QRadar, and Elastic, plus log collection, detection engineering, SOC triage, threat hunting, and performance tuning. Its value is copy-ready queries (SPL, KQL, AQL, EQL) and concrete numbers: EPS estimates, storage tiers, magnitude formulas, and quality targets.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
@@ -10,8 +8,8 @@
 |---|---|
 | Who this is for | SOC analysts, detection engineers, and SIEM administrators |
 | Level | Intermediate |
-| Reading time | About 14 min (3,323 words at 230 words a minute) |
-| Read this when | writing or converting a detection query for Splunk/Sentinel/QRadar/Elastic, sizing or tuning a SIEM deployment, standing up a detection engineering or triage process, deciding which Windows/Sysmon events to collect |
+| Reading time | About 14 min (3,313 words at 230 words a minute) |
+| Read this when | Writing or converting a detection query for Splunk/Sentinel/QRadar/Elastic, sizing or tuning a SIEM deployment, standing up a detection engineering or triage process, deciding which Windows/Sysmon events to collect |
 | Start at | [SIEM Fundamentals](#_1-siem-fundamentals) for architecture and sizing, [Detection Engineering](#_7-detection-engineering) for the rule lifecycle and Sigma, [Quick Reference Cheat Sheet](#quick-reference-cheat-sheet) for common SPL/KQL patterns |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
@@ -20,7 +18,7 @@
 |---|---|
 | Pairs with | [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md), [SOAR_AUTOMATION_REFERENCE.md](SOAR_AUTOMATION_REFERENCE.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [detections/strategies/README.md](detections/strategies/README.md) |
 | Matching learning path | [SIEM & SOAR](/disciplines/siem-soar.md) |
-| Last corrected | 2026-09-27, ATT&CK tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
+| Last corrected | 2026-09-27, Defense Evasion (TA0005) row of the tactic table renamed Stealth ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

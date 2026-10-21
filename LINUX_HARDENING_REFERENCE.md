@@ -1,6 +1,6 @@
 # Linux Hardening Reference Library
 
-> A comprehensive professional reference for Linux system hardening, compliance, and security operations.
+> A reference for Linux system hardening, compliance, and security operations.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -8,7 +8,7 @@
 |---|---|
 | Who this is for | Linux administrators and security engineers hardening servers |
 | Level | Intermediate |
-| Reading time | About 7 min (1,585 words at 230 words a minute) |
+| Reading time | About 7 min (1,583 words at 230 words a minute) |
 | Read this when | Building or auditing a Linux server against CIS/STIG baselines, locking down SSH/sudo/PAM before exposing a host, chasing an SELinux denial or standing up auditd/FIM monitoring |
 | Start at | [Hardening Fundamentals & CIS Benchmarks](#_1-linux-hardening-fundamentals-amp-cis-benchmarks), [User & Authentication Hardening](#_2-user-amp-authentication-hardening), [Hardening Verification Checklist](#_104-hardening-verification-checklist) |
 

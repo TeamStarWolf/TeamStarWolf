@@ -13,14 +13,14 @@ Related: [Endpoint Security](ENDPOINT_SECURITY_REFERENCE.md), [Windows Hardening
 | Who this is for | Mac fleet administrators, endpoint security engineers, and detection engineers |
 | Level | Intermediate |
 | Reading time | About 22 min (5,076 words at 230 words a minute) |
-| Read this when | you inherit or harden a Mac fleet and need a baseline (mSCP/CIS/STIG), you are evaluating or deploying macOS EDR and telemetry, you are building macOS detections and need to map techniques to event sources |
+| Read this when | You inherit or harden a Mac fleet and need a baseline (mSCP/CIS/STIG), you are evaluating or deploying macOS EDR and telemetry, you are building macOS detections and need to map techniques to event sources |
 | Start at | [How macOS defense fits together](#how-macos-defense-fits-together), [Native telemetry: Endpoint Security, unified log, eslogger](#native-telemetry-endpoint-security-unified-log-eslogger), [Defender's checklist](#defender39s-checklist) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
 | | |
 |---|---|
-| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last corrected | 2026-10-12, revoked IDs re-keyed: T1562.001 to T1685, T1070.002 to T1685.006 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

@@ -1,6 +1,6 @@
 # Network Defense Reference Library
 
-> Comprehensive reference for network defense, monitoring, and security operations.
+> Reference for network defense, monitoring, and security operations.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -8,8 +8,8 @@
 |---|---|
 | Who this is for | Network defenders, NSM engineers, and SOC analysts |
 | Level | Intermediate |
-| Reading time | About 17 min (3,900 words at 230 words a minute) |
-| Read this when | standing up or tuning an NSM sensor stack (Suricata, Zeek, Security Onion, Arkime), hunting for beaconing or DNS tunneling in network logs, designing segmentation, NAC, or DDoS defenses |
+| Reading time | About 17 min (3,899 words at 230 words a minute) |
+| Read this when | Standing up or tuning an NSM sensor stack (Suricata, Zeek, Security Onion, Arkime), hunting for beaconing or DNS tunneling in network logs, designing segmentation, NAC, or DDoS defenses |
 | Start at | [Network Defense Architecture](#_1-network-defense-architecture), [Suricata IDS/IPS](#_2-suricata-idsips), [Network Defense Operations](#_10-network-defense-operations) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>

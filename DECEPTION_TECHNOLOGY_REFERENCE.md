@@ -1,8 +1,7 @@
 # Deception Technology Reference
 
-> Comprehensive reference for honeypots, honeytokens, canary tokens, deception platforms,
-> breadcrumb strategies, detection rules, and metrics. Maintained as part of the
-> [TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf) cybersecurity reference library.
+> Reference for honeypots, honeytokens, canary tokens, deception platforms,
+> breadcrumb strategies, detection rules, and metrics.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -10,7 +9,7 @@
 |---|---|
 | Who this is for | Detection engineers and SOC teams adding deception to their detection stack |
 | Level | Intermediate |
-| Reading time | About 10 min (2,266 words at 230 words a minute) |
+| Reading time | About 10 min (2,256 words at 230 words a minute) |
 | Read this when | You are planning your first honeypot or honeytoken deployment, you need near-zero false-positive detection for lateral movement or credential theft, you are evaluating deception platforms or writing SIEM rules for decoy assets |
 | Start at | [Deception Technology Fundamentals](#deception-technology-fundamentals) for why deception works, [Honeytokens](#honeytokens) for the fastest wins (CanaryTokens, AWS keys, AD honey users), [Deception Deployment Strategy](#deception-deployment-strategy) for breadcrumbs and alert pipelines |
 

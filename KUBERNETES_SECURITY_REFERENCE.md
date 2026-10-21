@@ -1,6 +1,6 @@
 # Kubernetes Security Reference
 
-> A comprehensive reference for Kubernetes security: attack surface mapping, RBAC deep dives,
+> A reference for Kubernetes security: attack surface mapping, RBAC deep dives,
 > container escape techniques, Pod Security Standards, NetworkPolicy, secrets management,
 > supply chain security, etcd hardening, and a full security checklist.
 
@@ -10,7 +10,7 @@
 |---|---|
 | Who this is for | Platform engineers, Kubernetes administrators, and cloud security engineers |
 | Level | Intermediate to advanced |
-| Reading time | About 4 min (987 words at 230 words a minute) |
+| Reading time | About 4 min (986 words at 230 words a minute) |
 | Read this when | Hardening a production cluster, investigating a suspected container escape or stolen SA token, or auditing RBAC and Pod Security before a deployment goes live |
 | Start at | [Kubernetes Attack Surface](#_1-kubernetes-attack-surface), [K8s Security Hardening Checklist](#_10-k8s-security-hardening-checklist), [Kubernetes Security Scanning Tools](#_4-kubernetes-security-scanning-tools) |
 

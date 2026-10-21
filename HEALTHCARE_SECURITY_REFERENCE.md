@@ -9,7 +9,7 @@
 | Who this is for | Hospital security teams, biomedical and clinical engineering, and medical-device vendors |
 | Level | Intermediate |
 | Reading time | About 13 min (3,104 words at 230 words a minute) |
-| Read this when | segmenting a hospital network and its biomedical devices; scoping an IoMT/HTM security program; assessing a medical-device vendor or an FDA premarket submission; hardening an HL7 interface engine, a FHIR API, or a PACS; briefing clinical/biomed leadership on ransomware and patient-safety risk |
+| Read this when | Segmenting a hospital network and its biomedical devices; scoping an IoMT/HTM security program; assessing a medical-device vendor or an FDA premarket submission; hardening an HL7 interface engine, a FHIR API, or a PACS; briefing clinical/biomed leadership on ransomware and patient-safety risk |
 | Start at | [Sector Threat Profile](#sector-threat-profile), [IoMT: Segmentation & Lifecycle](#iomt-medical-device-segmentation-amp-lifecycle), [FDA Cybersecurity Requirements](#fda-medical-device-cybersecurity-requirements) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, added, last reviewed)</summary>
@@ -17,7 +17,7 @@
 | | |
 |---|---|
 | Pairs with | [REGULATORY_LANDSCAPE_REFERENCE.md](REGULATORY_LANDSCAPE_REFERENCE.md), [GRC_REFERENCE.md](GRC_REFERENCE.md), [GRC_COMPLIANCE_REFERENCE.md](GRC_COMPLIANCE_REFERENCE.md), [ICS_OT_SECURITY_REFERENCE.md](ICS_OT_SECURITY_REFERENCE.md), [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md), [EMB3D_REFERENCE.md](EMB3D_REFERENCE.md), [ZERO_TRUST_REFERENCE.md](ZERO_TRUST_REFERENCE.md), [RANSOMWARE_DEFENSE_REFERENCE.md](RANSOMWARE_DEFENSE_REFERENCE.md) |
-| Added | 2026-09-29, page added in a pull request that records its facts as checked against live sources ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68)) |
+| Added | 2026-09-29 ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68)) |
 | Last reviewed | No review recorded yet |
 
 </details>

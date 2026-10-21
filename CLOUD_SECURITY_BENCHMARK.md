@@ -9,7 +9,7 @@
 | Who this is for | Cloud engineers and auditors hardening AWS, Azure, and GCP accounts |
 | Level | Intermediate |
 | Reading time | About 8 min (1,840 words at 230 words a minute) |
-| Read this when | you inherit or stand up a cloud account and need to harden it fast, an audit asks for CIS Benchmark evidence, you are picking or running a CSPM scanner like Prowler or ScoutSuite |
+| Read this when | You inherit or stand up a cloud account and need to harden it fast, an audit asks for CIS Benchmark evidence, you are picking or running a CSPM scanner like Prowler or ScoutSuite |
 | Start at | [Cloud Security Quickstart Checklist](#cloud-security-quickstart-checklist), [AWS CIS Benchmark (v3.0; current release v7.0.0)](#aws-cis-benchmark-v30), [CSPM Tool Reference](#cspm-tool-reference) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>

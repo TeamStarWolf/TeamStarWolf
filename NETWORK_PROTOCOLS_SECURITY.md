@@ -12,7 +12,7 @@
 | Who this is for | Penetration testers, detection engineers, and network defenders |
 | Level | Intermediate |
 | Reading time | About 22 min (5,002 words at 230 words a minute) |
-| Read this when | researching how attackers abuse a specific protocol (DNS, HTTP, SMB, Kerberos, and others), finding the ATT&CK technique for protocol abuse, or writing a detection or defensive control for it |
+| Read this when | Researching how attackers abuse a specific protocol (DNS, HTTP, SMB, Kerberos, and others), finding the ATT&CK technique for protocol abuse, or writing a detection or defensive control for it |
 | Start at | [DNS (53 UDP/TCP)](#dns-53-udptcp), [HTTP/HTTPS (80/443)](#httphttps-80443), [SMB (445 TCP)](#smb-445-tcp) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>

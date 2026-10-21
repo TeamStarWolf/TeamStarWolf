@@ -9,7 +9,7 @@
 | Who this is for | Detection engineers and SOC analysts who write and tune rules |
 | Level | Intermediate |
 | Reading time | About 11 min (2,634 words at 230 words a minute) |
-| Read this when | you need to author a detection for a new technique or CVE, you are converting Sigma rules to your SIEM's query language, you are tuning a noisy rule or validating that a deployed rule actually fires |
+| Read this when | You need to author a detection for a new technique or CVE, you are converting Sigma rules to your SIEM's query language, you are tuning a noisy rule or validating that a deployed rule actually fires |
 | Start at | [Overview of Detection Rule Formats](#_1-overview-of-detection-rule-formats) to pick the right format, [Sigma Rules](#_2-sigma-rules) for the vendor-agnostic starting point, [Best Practices for Detection Engineering](#_7-best-practices-for-detection-engineering) for the lifecycle and testing workflow |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
@@ -18,7 +18,7 @@
 |---|---|
 | Pairs with | [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [PURPLE_TEAM_REFERENCE.md](PURPLE_TEAM_REFERENCE.md) |
 | Matching learning path | [Detection Engineering](/disciplines/detection-engineering.md) |
-| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last corrected | 2026-10-12, revoked T1070.001 re-keyed to T1685.005 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

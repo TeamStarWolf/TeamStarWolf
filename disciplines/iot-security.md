@@ -13,14 +13,14 @@ The discipline encompasses firmware security, hardware interface analysis, netwo
 | Who this is for | Practitioners learning to test and secure connected and embedded devices |
 | Level | Beginner to advanced |
 | Reading time | About 11 min (2,542 words at 230 words a minute) |
-| Read this when | starting in IoT security: firmware analysis, MQTT and other device protocols, and the OWASP IoT Top 10 |
+| Read this when | Testing an IoT device: firmware analysis, MQTT attack scenarios, device identity and the OWASP IoT Top 10 |
 | Start at | [Where to Start](#where-to-start), [OWASP IoT Top 10](#owasp-iot-top-10), [Firmware Analysis](#firmware-analysis) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
 | | |
 |---|---|
-| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last corrected | 2026-10-12, revoked T0839 re-keyed to T1693.002 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

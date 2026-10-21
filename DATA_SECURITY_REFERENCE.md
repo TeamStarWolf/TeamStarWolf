@@ -15,7 +15,7 @@ Related: [Insider Threat Program](INSIDER_THREAT_REFERENCE.md), [Privacy Enginee
 | Who this is for | Data protection, privacy, and security program leads |
 | Level | Intermediate |
 | Reading time | About 24 min (5,479 words at 230 words a minute) |
-| Read this when | standing up or maturing a data protection program, tuning a noisy DLP deployment, choosing between DSPM/DLP/DDR vendor categories, scoping classification tiers or egress controls |
+| Read this when | Standing up or maturing a data protection program, tuning a noisy DLP deployment, choosing between DSPM/DLP/DDR vendor categories, scoping classification tiers or egress controls |
 | Start at | [Scope & how to use this reference](#scope-amp-how-to-use-this-reference) to route yourself, [The data security program model](#the-data-security-program-model) for the five-capability loop, [A 90-day program bootstrap](#a-90-day-program-bootstrap) if starting from scratch |
 
 <details class="tsw-meta-more"><summary>More about this page (matching learning path, last reviewed)</summary>

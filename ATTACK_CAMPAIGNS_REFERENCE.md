@@ -17,7 +17,7 @@
 | | |
 |---|---|
 | Pairs with | [Threat Group Profiles](THREAT_GROUP_PROFILES.md), [Notable Incidents](NOTABLE_INCIDENTS.md) |
-| Last corrected | 2026-10-13, revoked and deprecated ATT&CK citations re-keyed to their current IDs ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2) |
+| Last corrected | 2026-10-13, revoked T1562 sub-techniques and T1656 re-keyed to their successors (T1684.001, T1685, T1685.001, T1686, T1689, T1690), each marked with the ID it replaces ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

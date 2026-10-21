@@ -13,7 +13,7 @@ Related: [Threat Intelligence](THREAT_INTELLIGENCE_REFERENCE.md), [CTEM](CTEM_RE
 | Who this is for | Threat intelligence analysts, security leaders, and anyone citing annual threat reports |
 | Level | Intermediate |
 | Reading time | About 17 min (3,865 words at 230 words a minute) |
-| Read this when | choosing which annual threat reports to read, checking what a report's evidence can and cannot support before citing it, or planning a reading calendar by role |
+| Read this when | Choosing which annual threat reports to read, checking what a report's evidence can and cannot support before citing it, or planning a reading calendar by role |
 | Start at | [Methodology determines meaning](#methodology-determines-meaning), [The majors](#the-majors), [How to read a threat report critically](#how-to-read-a-threat-report-critically) |
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>

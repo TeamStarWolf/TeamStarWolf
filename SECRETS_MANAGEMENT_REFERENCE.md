@@ -1,6 +1,6 @@
 # Secrets Management Reference
 
-> Comprehensive reference for secrets management practices, tools, detection, and operations in modern security engineering.
+> Reference for secrets management practices, tools, detection, and operations in modern security engineering.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -8,8 +8,8 @@
 |---|---|
 | Who this is for | Platform, DevOps, and application security engineers |
 | Level | Intermediate |
-| Reading time | About 17 min (3,805 words at 230 words a minute) |
-| Read this when | a credential just leaked in a repo or CI log, you are choosing or deploying a secrets manager (Vault, Conjur, cloud-native), you need to kill secrets sprawl in code, Kubernetes, or pipelines |
+| Reading time | About 17 min (3,804 words at 230 words a minute) |
+| Read this when | A credential just leaked in a repo or CI log, you are choosing or deploying a secrets manager (Vault, Conjur, cloud-native), you need to kill secrets sprawl in code, Kubernetes, or pipelines |
 | Start at | [Secrets Management Fundamentals](#_1-secrets-management-fundamentals), [Secret Detection in Code](#_4-secret-detection-in-code), [Quick Reference](#quick-reference) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>

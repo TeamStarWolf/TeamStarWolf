@@ -9,7 +9,7 @@
 | Who this is for | Hardware and embedded security engineers, and engineers who run HSMs or harden boot chains |
 | Level | Advanced |
 | Reading time | About 9 min (2,167 words at 230 words a minute) |
-| Read this when | hardening a device's boot chain or disk encryption, standing up or auditing an HSM and its key ceremony, assessing side-channel, fault-injection, or debug-port exposure on embedded hardware |
+| Read this when | Hardening a device's boot chain or disk encryption, standing up or auditing an HSM and its key ceremony, assessing side-channel, fault-injection, or debug-port exposure on embedded hardware |
 | Start at | [TPM 2.0 Deep Dive](#_1-tpm-20-deep-dive), [HSM & FIPS 140-3](#_2-hsm-amp-fips-140-3), [Hardware Security Testing Tools](#_9-hardware-security-testing-tools) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>

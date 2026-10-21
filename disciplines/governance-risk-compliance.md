@@ -9,7 +9,7 @@ GRC is the backbone of every mature security program. Governance defines policie
 | Who this is for | People entering GRC roles and practitioners building governance, risk, and compliance programs |
 | Level | Beginner to advanced |
 | Reading time | About 7 min (1,668 words at 230 words a minute) |
-| Read this when | starting in governance, risk and compliance, or choosing which frameworks to learn first |
+| Read this when | Picking which frameworks and standards to learn first for governance, risk and compliance work, and the certifications that go with them |
 | Start at | [Where to Start](#where-to-start), [Frameworks & Standards Reference](#frameworks-amp-standards-reference), [Free Training](#free-training) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>

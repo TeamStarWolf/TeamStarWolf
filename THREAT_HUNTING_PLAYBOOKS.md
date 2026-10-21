@@ -9,7 +9,7 @@
 | Who this is for | Threat hunters and SOC analysts starting a proactive hunt |
 | Level | Intermediate |
 | Reading time | About 4 min (917 words at 230 words a minute) |
-| Read this when | you want to run a proactive hunt but need a starting hypothesis, an alert or incident suggests credential theft or lateral movement, you are deciding which ATT&CK tactics to hunt first |
+| Read this when | You want to run a proactive hunt but need a starting hypothesis, an alert or incident suggests credential theft or lateral movement, you are deciding which ATT&CK tactics to hunt first |
 | Start at | [How to Use These Playbooks](#how-to-use-these-playbooks), [HP-001: LSASS Credential Dumping](#hp-001-lsass-credential-dumping), [Hunt Prioritization Matrix](#hunt-prioritization-matrix) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
@@ -18,7 +18,7 @@
 |---|---|
 | Pairs with | [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Threat Hunting Discipline](disciplines/threat-hunting.md) |
 | Matching learning path | [Threat Hunting](/disciplines/threat-hunting.md) |
-| Last corrected | 2026-09-27, ATT&CK tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
+| Last corrected | 2026-09-27, Defense Evasion row of the tactic severity table renamed Stealth ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

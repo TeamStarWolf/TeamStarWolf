@@ -18,7 +18,7 @@
 |---|---|
 | Pairs with | [ICS_ATTACK_ATLAS.md](ICS_ATTACK_ATLAS.md), [EMB3D_REFERENCE.md](EMB3D_REFERENCE.md), [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md) |
 | Matching learning path | [ICS/OT Security](/disciplines/ics-ot-security.md) |
-| Last corrected | 2026-10-13, revoked and deprecated ATT&CK citations re-keyed to their current IDs ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2) |
+| Last corrected | 2026-10-13, T0824 I/O Module Discovery marked deprecated, with no successor ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

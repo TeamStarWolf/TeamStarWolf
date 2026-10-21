@@ -9,7 +9,7 @@
 | Who this is for | Incident responders and forensic examiners handling cloud, SaaS, identity, and mobile evidence |
 | Level | Intermediate to advanced |
 | Reading time | About 11 min (2,559 words at 230 words a minute) |
-| Read this when | you are responding to a cloud/SaaS/identity incident and there is no server to image, you need to acquire logs before a retention window closes, you are collecting an iOS/Android device for exam, or you must preserve cloud evidence defensibly for legal hold |
+| Read this when | You are responding to a cloud/SaaS/identity incident and there is no server to image, you need to acquire logs before a retention window closes, you are collecting an iOS/Android device for exam, or you must preserve cloud evidence defensibly for legal hold |
 | Start at | [Cloud forensic readiness](#cloud-forensic-readiness), [Mobile acquisition workflows](#mobile-acquisition-workflows), [Incident quick-start checklist](#incident-quick-start-checklist) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, added, last reviewed)</summary>
@@ -17,7 +17,7 @@
 | | |
 |---|---|
 | Pairs with | [DIGITAL_FORENSICS_REFERENCE.md](DIGITAL_FORENSICS_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [SAAS_SECURITY_REFERENCE.md](SAAS_SECURITY_REFERENCE.md), [MOBILE_SECURITY_REFERENCE.md](MOBILE_SECURITY_REFERENCE.md), [NETWORK_FORENSICS_REFERENCE.md](NETWORK_FORENSICS_REFERENCE.md) |
-| Added | 2026-09-29, page added in a pull request that records its facts as checked against live sources ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68)) |
+| Added | 2026-09-29 ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68)) |
 | Last reviewed | No review recorded yet |
 
 </details>

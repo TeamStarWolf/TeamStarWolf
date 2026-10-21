@@ -84,7 +84,8 @@ Rules the --check run enforces (CI, validate-data.yml):
   * each committed card and fold matches what this script writes;
   * no "Read this when", "Start at" or "Pairs with" row outside the card (they live in
     doc_meta.yaml now);
-  * level is one of LEVELS, "Start at" has at most 3 links, a correction or review id
+  * level is one of LEVELS, "Read this when" starts with a capital letter, "Start at"
+    has at most 3 links, a correction or review id
     exists, a fold names a real heading, a learning path matches docs/crosslinks.json, a
     page sits in at most one cluster;
   * every takeaway (draft or reviewed): 3 to 5 per page, one line, the voice rules of
@@ -442,6 +443,9 @@ def validate(meta: dict, refs: list[str], paths: list[str]) -> list[str]:
             v = e.get(field)
             if v is not None and (not isinstance(v, str) or "\n" in v or UNESCAPED_PIPE_RE.search(v)):
                 problems.append(where + field + " must be one line with any '|' escaped as '\\|'")
+        rw = str(e.get("read_when") or "")
+        if rw[:1].islower():
+            problems.append(where + "read_when starts with a lower-case letter; start every row with a capital")
         n_start = len(LINK_RE.findall(str(e.get("start_at") or "")))
         if n_start > START_AT_MAX:
             problems.append(where + "start_at has " + str(n_start) + " links; plan section 5 allows at most "
@@ -571,14 +575,15 @@ def pr_link(n: int) -> str:
 def corrected_row(e: dict, corrections: dict) -> tuple[str, str] | None:
     """(label, value) of the page's last recorded correction: its date, what the edit
     changed on this page, the pull request, and the ATT&CK release only when the edit was
-    about ATT&CK content."""
+    about ATT&CK content. An entry with a label (the pages #68 added) says only its date
+    and pull request, "Added: 2026-09-29 (#68)", unless the page has its own corrected_what."""
     cid = e.get("corrected")
     if not cid:
         return None
     c = corrections[cid]
     tail = pr_link(c["pr"]) + (", ATT&CK " + c["attack"] if c.get("attack") else "")
-    return c.get("label") or CORRECTED_LABEL, c["date"] + ", " + (e.get("corrected_what") or c["what"]) \
-        + " (" + tail + ")"
+    what = e.get("corrected_what") or ("" if c.get("label") else c["what"])
+    return c.get("label") or CORRECTED_LABEL, c["date"] + (", " + what if what else "") + " (" + tail + ")"
 
 
 def review_row(e: dict, reviews: dict, changed: str | None) -> str:
@@ -962,6 +967,13 @@ def self_test() -> int:
     if corrected_row(e, m["corrections"]) != ("Last corrected", "2026-01-02, a tool renamed (" + pr_link(5) + ")") \
             or "ATT&CK v19.2" not in corrected_row({"corrected": "c2"}, m["corrections"])[1]:
         fails.append("correction row (ATT&CK release only for ATT&CK edits)")
+    m["corrections"]["c3"] = {"date": "2026-01-04", "pr": 68, "what": "page created", "label": "Added"}
+    if corrected_row({"corrected": "c3"}, m["corrections"]) != ("Added", "2026-01-04 (" + pr_link(68) + ")"):
+        fails.append("an Added row says only its date and pull request")
+    e["read_when"] = "starting out"
+    if not any("read_when starts with a lower-case letter" in p for p in validate(m, ["A.md"], [])):
+        fails.append("read_when capital letter not enforced")
+    del e["read_when"]
     if review_row(e, {}, "2027-06-01") != "No review recorded yet":
         fails.append("a correction must not count as a review or start the due clock")
     if voice_hits("A seamless tool.") != ["hype:seamless"] or voice_hits("Plain words."):

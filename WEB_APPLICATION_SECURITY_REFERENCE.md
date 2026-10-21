@@ -1,6 +1,6 @@
 # Web Application Security Reference
 
-> Professional cybersecurity reference library for web application penetration testing, secure development, and vulnerability research.
+> Reference for web application penetration testing, secure development, and vulnerability research.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -8,7 +8,7 @@
 |---|---|
 | Who this is for | Web application testers, secure developers, and application security engineers |
 | Level | Intermediate |
-| Reading time | About 16 min (3,755 words at 230 words a minute) |
+| Reading time | About 16 min (3,752 words at 230 words a minute) |
 | Read this when | Testing a web app or API against the OWASP Top 10, writing an SQLi/XSS/SSRF payload or its fix, hardening auth, sessions, headers, or a WAF |
 | Start at | [OWASP Top 10 2021](#_1-owasp-top-10-2021), [Web App Testing Methodology](#_5-web-app-testing-methodology), [Business Logic and API Security](#_7-business-logic-and-api-security) |
 

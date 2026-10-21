@@ -1,6 +1,6 @@
 # Automotive Security Reference
 
-> Comprehensive reference for vehicle cybersecurity, CAN bus attacks, ECU security, OTA update integrity, V2X protocols, and automotive penetration testing.
+> Reference for vehicle cybersecurity, CAN bus attacks, ECU security, OTA update integrity, V2X protocols, and automotive penetration testing.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -8,7 +8,7 @@
 |---|---|
 | Who this is for | Automotive and embedded security engineers, and vehicle penetration testers |
 | Level | Intermediate to advanced |
-| Reading time | About 41 min (9,484 words at 230 words a minute) |
+| Reading time | About 41 min (9,483 words at 230 words a minute) |
 | Read this when | Scoping a vehicle or ECU penetration test, investigating how a car got remotely compromised, or learning why CAN and OBD-II have no built-in authentication |
 | Start at | [CAN Bus Security](#_2-can-bus-security), [Automotive Attack Surface](#_1-automotive-attack-surface), [Automotive Penetration Testing](#_10-automotive-penetration-testing) |
 
@@ -17,7 +17,7 @@
 | | |
 |---|---|
 | Pairs with | [ICS_OT_SECURITY_REFERENCE.md](ICS_OT_SECURITY_REFERENCE.md), [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md), [HARDWARE_SECURITY_REFERENCE.md](HARDWARE_SECURITY_REFERENCE.md), [SDR_RF_SECURITY_REFERENCE.md](SDR_RF_SECURITY_REFERENCE.md) |
-| Last corrected | 2026-09-27, ATT&CK tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
+| Last corrected | 2026-09-27, Defense Evasion row (disabling security access logging, suppressing DTC codes) renamed Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

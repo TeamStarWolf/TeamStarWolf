@@ -9,7 +9,7 @@
 | Who this is for | GRC leads, legal and privacy partners, and incident commanders |
 | Level | Intermediate |
 | Reading time | About 13 min (3,076 words at 230 words a minute) |
-| Read this when | an incident just triggered notification duties and you need every clock in one place; scoping which regimes apply to a new market or product; briefing legal/board on cross-border reporting exposure; building an incident-response runbook's notification matrix |
+| Read this when | An incident just triggered notification duties and you need every clock in one place; scoping which regimes apply to a new market or product; briefing legal/board on cross-border reporting exposure; building an incident-response runbook's notification matrix |
 | Start at | [Obligation & Deadline Matrix](#obligation-amp-deadline-matrix), [Conflicting Clocks](#conflicting-clocks-practical-guidance), [Regime Detail](#regime-detail) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>

@@ -15,7 +15,7 @@ Related: [Identity & Access Management](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)
 | Who this is for | SaaS administrators, identity engineers, and security teams responsible for tenants |
 | Level | Intermediate |
 | Reading time | About 21 min (4,784 words at 230 words a minute) |
-| Read this when | you inherit or stand up an M365/GWS/Salesforce/GitHub tenant and need a hardening baseline, an OAuth app or third-party integration needs review or a vendor just got breached, you are deciding which log tier or SSPM tooling to buy |
+| Read this when | You inherit or stand up an M365/GWS/Salesforce/GitHub tenant and need a hardening baseline, an OAuth app or third-party integration needs review or a vendor just got breached, you are deciding which log tier or SSPM tooling to buy |
 | Start at | [The SaaS threat surface](#the-saas-threat-surface) for the five threat classes, [Case studies from public advisories](#case-studies-from-public-advisories) for the incidents that motivate every control, [Hardening checklists by platform](#hardening-checklists-by-platform) to act today |
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>

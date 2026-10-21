@@ -11,7 +11,7 @@ Machine-readable: [`data/weaknesses/cwe.jsonl`](https://github.com/TeamStarWolf/
 | Who this is for | Application security engineers, secure-coding trainers, and vulnerability analysts |
 | Level | Intermediate |
 | Reading time | About 14 min (3,118 words at 230 words a minute) |
-| Read this when | a CVE cites a CWE and you need to know what the underlying weakness actually is, you are prioritizing secure-coding or testing work by weakness type, you want to know which weaknesses attackers target most |
+| Read this when | A CVE cites a CWE and you need to know what the underlying weakness actually is, you are prioritizing secure-coding or testing work by weakness type, you want to know which weaknesses attackers target most |
 | Start at | [Most-attacked weaknesses](#most-attacked-weaknesses) for the CAPEC-ranked hit list, [Pillars](#pillars-the-top-level-weakness-categories) for the top-level taxonomy, [Weakness classes](#weakness-classes) for the practical class-level view |
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>

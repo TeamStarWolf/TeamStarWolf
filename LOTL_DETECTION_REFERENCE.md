@@ -13,7 +13,7 @@ Related: [Threat Hunting](THREAT_HUNTING_REFERENCE.md), [Detection Rules](DETECT
 | Who this is for | Detection engineers, threat hunters, and SOC leads |
 | Level | Intermediate |
 | Reading time | About 32 min (7,412 words at 230 words a minute) |
-| Read this when | you are standing up or maturing detection for abuse of built-in tools (LOLBins, RMM, cloud APIs), an advisory like Volt Typhoon lands and you need the defender's playbook, you are deciding which telemetry to enable or how to consume the LOLBAS/GTFOBins-style catalogs |
+| Read this when | You are standing up or maturing detection for abuse of built-in tools (LOLBins, RMM, cloud APIs), an advisory like Volt Typhoon lands and you need the defender's playbook, you are deciding which telemetry to enable or how to consume the LOLBAS/GTFOBins-style catalogs |
 | Start at | [Scope & how to use this reference](#scope-amp-how-to-use-this-reference), [Telemetry foundation](#telemetry-foundation), [Detection engineering: patterns that survive syntax changes](#detection-engineering-patterns-that-survive-syntax-changes) |
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>

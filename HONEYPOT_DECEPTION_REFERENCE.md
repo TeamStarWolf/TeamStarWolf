@@ -9,7 +9,7 @@
 | Who this is for | Detection engineers and network defenders deploying honeypots and honeytokens |
 | Level | Intermediate |
 | Reading time | About 27 min (6,150 words at 230 words a minute) |
-| Read this when | you're planning honeypot or honeytoken coverage for a network segment, you need to pick and deploy a specific tool (SSH, SMB, web, IoT, ICS), you're wiring decoy alerts into a SIEM as P1 incidents |
+| Read this when | You're planning honeypot or honeytoken coverage for a network segment, you need to pick and deploy a specific tool (SSH, SMB, web, IoT, ICS), you're wiring decoy alerts into a SIEM as P1 incidents |
 | Start at | [Part 1: Deception Technology Fundamentals](#part-1-deception-technology-fundamentals), [8.6 Quick Reference: Honeypot Selection Guide](#_86-quick-reference-honeypot-selection-guide), [8.5 Deployment Checklist](#_85-deployment-checklist) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>

@@ -1,6 +1,6 @@
 # Wireless Security Reference
 
-> Comprehensive technical reference for wireless security protocols, attack techniques, detection, and hardening. Part of the TeamStarWolf cybersecurity reference library.
+> Technical reference for wireless security protocols, attack techniques, detection, and hardening.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -8,7 +8,7 @@
 |---|---|
 | Who this is for | Wireless penetration testers and network engineers who secure Wi-Fi, Bluetooth, and other wireless links |
 | Level | Intermediate to advanced |
-| Reading time | About 30 min (6,970 words at 230 words a minute) |
+| Reading time | About 30 min (6,962 words at 230 words a minute) |
 | Read this when | Assessing the security of a Wi-Fi, Bluetooth, cellular, RFID/NFC, or IoT wireless deployment, planning or running a wireless penetration test, hardening a wireless network against real attacks |
 | Start at | [Wi-Fi Security Protocols](#_1-wi-fi-security-protocols), [Wi-Fi Attack Techniques](#_2-wi-fi-attack-techniques), [Wireless Hardening](#_9-wireless-hardening) |
 
@@ -17,7 +17,7 @@
 | | |
 |---|---|
 | Pairs with | [NETWORK_PROTOCOLS_SECURITY.md](NETWORK_PROTOCOLS_SECURITY.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md), [disciplines/radio-frequency-security.md](disciplines/radio-frequency-security.md), [disciplines/iot-security.md](disciplines/iot-security.md) |
-| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last corrected | 2026-10-12, revoked mobile IDs re-keyed: T1465, T1466 and T1467 to T1638, T1468 to T1430.001 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

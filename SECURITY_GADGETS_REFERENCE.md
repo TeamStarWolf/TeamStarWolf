@@ -1,6 +1,6 @@
 # SECURITY GADGETS REFERENCE
 
-> Professional cybersecurity reference covering security-focused hardware gadgets, maker tools, and DIY security devices.
+> Reference covering security-focused hardware gadgets, maker tools, and DIY security devices.
 >
 > All information is provided for authorized security research, penetration testing, and educational purposes only. Always obtain explicit written authorization before testing on any systems you do not own. Unauthorized use of these tools may violate the Computer Fraud and Abuse Act (18 U.S.C. § 1030), FCC regulations, and other applicable laws.
 
@@ -10,7 +10,7 @@
 |---|---|
 | Who this is for | Red teamers, physical and wireless testers, and hardware hobbyists |
 | Level | Intermediate |
-| Reading time | About 28 min (6,550 words at 230 words a minute) |
+| Reading time | About 28 min (6,548 words at 230 words a minute) |
 | Read this when | Scoping an authorized wireless, RF, RFID, or hardware assessment and choosing the right gadget, standing up an isolated home lab or RF test bench, confirming the legal boundaries before you power on a transmitter |
 | Start at | [Hak5 Ecosystem](#_1-hak5-ecosystem), [Flipper Zero](#_3-flipper-zero), [Lab Setup, Legal & Community](#_10-lab-setup-legal-amp-community) |
 

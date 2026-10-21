@@ -9,7 +9,7 @@
 | Who this is for | Practitioners looking for a tool or project by the job it does |
 | Level | Beginner |
 | Reading time | About 14 min (3,326 words at 230 words a minute) |
-| Read this when | you need a tool for a specific security task and want to browse by discipline, you remember starring something but not what it was called, you want a broad map of the whole collection before diving into curated lists |
+| Read this when | You need a tool for a specific security task and want to browse by discipline, you remember starring something but not what it was called, you want a broad map of the whole collection before diving into curated lists |
 | Start at | [Category Index](#category-index), [How To Use This File](#how-to-use-this-file), [Black Hat Arsenal Review Queue](#black-hat-arsenal-review-queue) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>

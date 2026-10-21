@@ -9,7 +9,7 @@
 | Who this is for | Anyone reading this library who meets an unfamiliar term or acronym |
 | Level | Beginner |
 | Reading time | About 13 min (3,043 words at 230 words a minute) |
-| Read this when | you hit an acronym or term you don't recognize in another doc, you need a quick one-line definition to drop into a report, you want to check the difference between similar terms (IOC vs IOA, Golden vs Silver Ticket) |
+| Read this when | You hit an acronym or term you don't recognize in another doc, you need a quick one-line definition to drop into a report, you want to check the difference between similar terms (IOC vs IOA, Golden vs Silver Ticket) |
 | Start at | [A](#a) to browse alphabetically, [Common Acronym Reference](#common-acronym-reference) for acronym expansions only, [Additional Terms](#additional-terms) for offensive and blue-team specialist terms |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>

@@ -1,6 +1,6 @@
 # Cybersecurity Career Paths
 
-> Comprehensive progression guides covering 15+ cybersecurity roles, from entry-level to CISO. Each path includes salary ranges, key skills, certifications, HTB tracks, tools, and typical job titles at every level.
+> Progression guides covering 15+ cybersecurity roles, from entry-level to CISO. Each path includes salary ranges, key skills, certifications, HTB tracks, tools, and typical job titles at every level.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -8,7 +8,7 @@
 |---|---|
 | Who this is for | People entering security, and practitioners planning their next role |
 | Level | Beginner |
-| Reading time | About 19 min (4,473 words at 230 words a minute) |
+| Reading time | About 19 min (4,472 words at 230 words a minute) |
 | Read this when | Planning your next role or promotion, comparing salary and skill expectations across security jobs, mapping a pivot from IT, development, military, or finance into security |
 | Start at | [Overview: The Career Landscape](#overview-the-career-landscape), [Transition Paths](#transition-paths), [Job Search Strategy](#job-search-strategy) |
 

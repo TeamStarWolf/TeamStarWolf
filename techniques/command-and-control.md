@@ -9,7 +9,7 @@
 
 Tactics: Command and Control, Platforms: ESXi, Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1001)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 7 NIST 800-53 controls, the detection strategy, 1 threat group, and 13 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 7 NIST controls, detection strategy, 1 group, 13 software</summary>
 
 Adversaries may obfuscate command and control traffic to make it more difficult to detect. Command and control (C2) communications are hidden (but not necessarily encrypted) in an attempt to make the content more difficult to discover or decipher and to make the communication less conspicuous and hide commands from being seen. This encompasses many methods, such as adding junk data to protocol traffic, using steganography, or impersonating legitimate protocols.
 
@@ -28,7 +28,7 @@ Implemented by 13 software: [S0381 FlawedAmmyy](https://attack.mitre.org/softwar
 
 sub-technique of [T1001](/techniques/command-and-control.md#t1001), Tactics: Command and Control, Platforms: ESXi, Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1001/001)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 7 NIST 800-53 controls, the detection strategy, 1 threat group, and 17 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 7 NIST controls, detection strategy, 1 group, 17 software</summary>
 
 Adversaries may add junk data to protocols used for command and control to make detection more difficult. By adding random or meaningless data to the protocols used for command and control, adversaries can prevent trivial methods for decoding, deciphering, or otherwise analyzing the traffic. Examples may include appending/prepending data with junk characters or writing junk characters between significant characters.
 
@@ -47,7 +47,7 @@ Implemented by 17 software: [S0016 P2P ZeuS](https://attack.mitre.org/software/S
 
 sub-technique of [T1001](/techniques/command-and-control.md#t1001), Tactics: Command and Control, Platforms: Linux, macOS, Windows, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1001/002)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 7 NIST 800-53 controls, the detection strategy, 1 threat group, and 11 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 7 NIST controls, detection strategy, 1 group, 11 software</summary>
 
 Adversaries may use steganographic techniques to hide command and control traffic to make detection efforts more difficult. Steganographic techniques can be used to hide data in digital messages that are transferred between systems. This hidden information can be used for command and control of compromised systems. In some cases, the passing of files embedded using steganography, such as image or document files, can be used for command and control.
 
@@ -66,7 +66,7 @@ Implemented by 11 software: [S0037 HAMMERTOSS](https://attack.mitre.org/software
 
 sub-technique of [T1001](/techniques/command-and-control.md#t1001), Tactics: Command and Control, Platforms: ESXi, Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1001/003)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 7 NIST 800-53 controls, the detection strategy, 3 threat groups, and 18 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 7 NIST controls, detection strategy, 3 groups, 18 software</summary>
 
 Adversaries may impersonate legitimate protocols or web service traffic to disguise command and control activity and thwart analysis efforts. By impersonating legitimate protocols or web services, adversaries can make their command and control traffic blend in with legitimate network traffic. Adversaries may impersonate a fake SSL/TLS handshake to make it look like subsequent traffic is SSL/TLS encrypted, potentially interfering with some security tooling, or to make the traffic look like it is related with a trusted entity. Adversaries may also leverage legitimate protocols to impersonate expected web traffic or trusted services. For example, adversaries may manipulate HTTP headers, URI endpoints, SSL certificates, and transmitted data to disguise C2 communications or mimic legitimate services such as Gmail, Google Drive, and Yahoo Messenger.
 
@@ -85,7 +85,7 @@ Implemented by 18 software: [S0022 Uroburos](https://attack.mitre.org/software/S
 
 Tactics: Command and Control, Platforms: Linux, Windows, macOS, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1008)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 8 NIST 800-53 controls, the detection strategy, 5 threat groups, and 51 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 8 NIST controls, detection strategy, 5 groups, 51 software</summary>
 
 Adversaries may use fallback or alternate communication channels if the primary channel is compromised or inaccessible in order to maintain reliable command and control and to avoid data transfer thresholds.
 
@@ -104,7 +104,7 @@ Implemented by 51 software: [S0017 BISCUIT](https://attack.mitre.org/software/S0
 
 Tactics: Command and Control, Platforms: Linux, macOS, Windows, Network Devices, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1071)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 15 NIST 800-53 controls, the detection strategy, 5 threat groups, and 10 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 15 NIST controls, detection strategy, 5 groups, 10 software</summary>
 
 Adversaries may communicate using OSI application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. Adversaries may utilize many different protocols, including those used for web browsing, transferring files, electronic mail, DNS, or publishing/subscribing. For connections that occur internally within an enclave (such as those between a proxy or pivot node and other nodes), commonly used protocols are SMB, SSH, or RDP.
 
@@ -123,7 +123,7 @@ Implemented by 10 software: [S0034 NETEAGLE](https://attack.mitre.org/software/S
 
 sub-technique of [T1071](/techniques/command-and-control.md#t1071), Tactics: Command and Control, Platforms: ESXi, Linux, macOS, Network Devices, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1071/001)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 15 NIST 800-53 controls, the detection strategy, 57 threat groups, and 344 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 15 NIST controls, detection strategy, 57 groups, 344 software</summary>
 
 Adversaries may communicate using application layer protocols associated with web traffic to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. Protocols such as HTTP/S and WebSocket that carry web traffic may be very common in environments. HTTP/S packets have many fields and headers in which data can be concealed. An adversary may abuse these protocols to communicate with systems under their control within a victim network while also mimicking normal, expected traffic.
 
@@ -142,7 +142,7 @@ Implemented by 344 software: [S0003 RIPTIDE](https://attack.mitre.org/software/S
 
 sub-technique of [T1071](/techniques/command-and-control.md#t1071), Tactics: Command and Control, Platforms: ESXi, Linux, macOS, Network Devices, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1071/002)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 15 NIST 800-53 controls, the detection strategy, 5 threat groups, and 20 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 15 NIST controls, detection strategy, 5 groups, 20 software</summary>
 
 Adversaries may communicate using application layer protocols associated with transferring files to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. Protocols such as SMB, FTP, FTPS, and TFTP that transfer files may be very common in environments. Packets produced from these protocols may have many fields and headers in which data can be concealed. Data could also be concealed within the transferred files. An adversary may abuse these protocols to communicate with systems under their control within a victim network while also mimicking normal, expected traffic.
 
@@ -161,7 +161,7 @@ Implemented by 20 software: [S0019 Regin](https://attack.mitre.org/software/S001
 
 sub-technique of [T1071](/techniques/command-and-control.md#t1071), Tactics: Command and Control, Platforms: Linux, macOS, Network Devices, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1071/003)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 15 NIST 800-53 controls, the detection strategy, 6 threat groups, and 20 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 15 NIST controls, detection strategy, 6 groups, 20 software</summary>
 
 Adversaries may communicate using application layer protocols associated with electronic mail delivery to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. Protocols such as SMTP/S, POP3/S, and IMAP that carry electronic mail may be very common in environments. Packets produced from these protocols may have many fields and headers in which data can be concealed. Data could also be concealed within the email messages themselves. An adversary may abuse these protocols to communicate with systems under their control within a victim network while also mimicking normal, expected traffic.
 
@@ -180,7 +180,7 @@ Implemented by 20 software: [S0022 Uroburos](https://attack.mitre.org/software/S
 
 sub-technique of [T1071](/techniques/command-and-control.md#t1071), Tactics: Command and Control, Platforms: Linux, macOS, Windows, Network Devices, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1071/004)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 18 NIST 800-53 controls, the detection strategy, 11 threat groups, and 43 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 18 NIST controls, detection strategy, 11 groups, 43 software</summary>
 
 Adversaries may communicate using the Domain Name System (DNS) application layer protocol to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. The DNS protocol serves an administrative function in computer networking and thus may be very common in environments. DNS traffic may also be allowed even before network authentication is completed. DNS packets contain many fields and headers in which data can be concealed. Often known as DNS tunneling, adversaries may abuse DNS to communicate with systems under their control within a victim network while also mimicking normal, expected traffic. DNS beaconing may be used to send commands to remote systems via DNS queries. A DNS beacon is created by tunneling DNS traffic (i.e. [Protocol Tunneling](https://attack.mitre.org/techniques/T1572)). The commands may be embedded into different DNS records, for example, TXT or A records. DNS beacons may be difficult to detect because the beacons infrequently communicate with infected devices. Infrequent communication conceals the malicious DNS traffic with normal DNS traffic.
 
@@ -199,7 +199,7 @@ Implemented by 43 software: [S0013 PlugX](https://attack.mitre.org/software/S001
 
 sub-technique of [T1071](/techniques/command-and-control.md#t1071), Tactics: Command and Control, Platforms: macOS, Linux, Windows, Network Devices, [ATT&CK](https://attack.mitre.org/techniques/T1071/005)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 4 NIST 800-53 controls, the detection strategy, and 1 software entry</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 4 NIST controls, detection strategy, 1 software</summary>
 
 Adversaries may communicate using publish/subscribe (pub/sub) application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. Protocols such as <code>MQTT</code>, <code>XMPP</code>, <code>AMQP</code>, and <code>STOMP</code> use a publish/subscribe design, with message distribution managed by a centralized broker. Publishers categorize their messages by topics, while subscribers receive messages according to their subscribed topics. An adversary may abuse publish/subscribe protocols to communicate with systems under their control from behind a message broker while also mimicking normal, expected traffic.
 
@@ -217,7 +217,7 @@ Implemented by 1 software: [S0026 GLOOXMAIL](https://attack.mitre.org/software/S
 
 Tactics: Command and Control, Platforms: ESXi, Linux, macOS, Network Devices, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1090)  
 
-<details class="tsw-fold"><summary>Show the description, 3 ATT&CK mitigations, 12 NIST 800-53 controls, the detection strategy, 19 threat groups, and 47 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 3 mitigations, 12 NIST controls, detection strategy, 19 groups, 47 software</summary>
 
 Adversaries may use a connection proxy to direct network traffic between systems or act as an intermediary for network communications to a command and control server to avoid direct connections to their infrastructure. Many tools exist that enable traffic redirection through proxies or port redirection, including [HTRAN](https://attack.mitre.org/software/S0040), ZXProxy, and ZXPortMap. Adversaries use these types of proxies to manage command and control communications, reduce the number of simultaneous outbound network connections, provide resiliency in the face of connection loss, or to ride over existing trusted communications paths between victims to avoid suspicion. Adversaries may chain together multiple proxies to further disguise the source of malicious traffic. Adversaries can also take advantage of routing schemes in Content Delivery Networks (CDNs) to proxy command and control traffic.
 
@@ -236,7 +236,7 @@ Implemented by 47 software: [S0040 HTRAN](https://attack.mitre.org/software/S004
 
 sub-technique of [T1090](/techniques/command-and-control.md#t1090), Tactics: Command and Control, Platforms: Linux, Network Devices, Windows, macOS, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1090/001)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 8 NIST 800-53 controls, the detection strategy, 9 threat groups, and 23 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 8 NIST controls, detection strategy, 9 groups, 23 software</summary>
 
 Adversaries may use an internal proxy to direct command and control traffic between two or more systems in a compromised environment. Many tools exist that enable traffic redirection through proxies or port redirection, including [HTRAN](https://attack.mitre.org/software/S0040), ZXProxy, and ZXPortMap. Adversaries use internal proxies to manage command and control communications inside a compromised environment, to reduce the number of simultaneous outbound network connections, to provide resiliency in the face of connection loss, or to ride over existing trusted communications paths between infected systems to avoid suspicion. Internal proxy connections may use common peer-to-peer (p2p) networking protocols, such as SMB, to better blend in with the environment. By using a compromised internal system as a proxy, adversaries may conceal the true destination of C2 traffic while reducing the need for numerous connections to external systems.
 
@@ -255,7 +255,7 @@ Implemented by 23 software: [S0009 Hikit](https://attack.mitre.org/software/S000
 
 sub-technique of [T1090](/techniques/command-and-control.md#t1090), Tactics: Command and Control, Platforms: ESXi, Linux, Network Devices, Windows, macOS, [ATT&CK](https://attack.mitre.org/techniques/T1090/002)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 8 NIST 800-53 controls, the detection strategy, 11 threat groups, and 11 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 8 NIST controls, detection strategy, 11 groups, 11 software</summary>
 
 Adversaries may use an external proxy to act as an intermediary for network communications to a command and control server to avoid direct connections to their infrastructure. Many tools exist that enable traffic redirection through proxies or port redirection, including [HTRAN](https://attack.mitre.org/software/S0040), ZXProxy, and ZXPortMap. Adversaries use these types of proxies to manage command and control communications, to provide resiliency in the face of connection loss, or to ride over existing trusted communications paths to avoid suspicion. External connection proxies are used to mask the destination of C2 traffic and are typically implemented with port redirectors. Compromised systems outside of the victim environment may be used for these purposes, as well as purchased infrastructure such as cloud-based resources or virtual private servers. Proxies may be chosen based on the low likelihood that a connection to them from a compromised system would be investigated. Victim systems would communicate directly with the external proxy on the Internet and then the proxy would forward communications to the C2 server.
 
@@ -274,7 +274,7 @@ Implemented by 11 software: [S0019 Regin](https://attack.mitre.org/software/S001
 
 sub-technique of [T1090](/techniques/command-and-control.md#t1090), Tactics: Command and Control, Platforms: ESXi, Linux, macOS, Network Devices, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1090/003)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 8 NIST 800-53 controls, the detection strategy, 12 threat groups, and 23 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 8 NIST controls, detection strategy, 12 groups, 23 software</summary>
 
 Adversaries may chain together multiple proxies to disguise the source of malicious traffic. Typically, a defender will be able to identify the last proxy traffic traversed before it enters their network; the defender may or may not be able to identify any previous proxies before the last-hop proxy. This technique makes identifying the original source of the malicious traffic even more difficult by requiring the defender to trace malicious traffic through several proxies to identify its source. For example, adversaries may construct or use onion routing networks – such as the publicly available [Tor](https://attack.mitre.org/software/S0183) network – to transport encrypted C2 traffic through a compromised population, allowing communication with any device within the network. Adversaries may also use operational relay box (ORB) networks composed of virtual private servers (VPS), Internet of Things (IoT) devices, smart devices, and end-of-life routers to obfuscate their operations. In the case of network infrastructure, it is possible for an adversary to leverage multiple compromised devices to create a multi-hop proxy chain (i.e., [Network Devices](https://attack.mitre.org/techniques/T1584/008)). By leveraging [Patch System Image](https://attack.mitre.org/techniques/T1601/001) on routers, adversaries can add custom code to the affected network devices that will implement onion routing between those nodes. This method is dependent upon the [Network Boundary Bridging](https://attack.mitre.org/techniques/T1599) method allowing the adversaries to cross the protected network boundary of the Internet perimeter and into the organization’s Wide-Area Network (WAN). Protocols such as ICMP may be used as a transport. Similarly, adversaries may abuse peer-to-peer (P2P) and blockchain-oriented infrastructure to implement routing between a decentralized network of peers.
 
@@ -293,7 +293,7 @@ Implemented by 23 software: [S0022 Uroburos](https://attack.mitre.org/software/S
 
 sub-technique of [T1090](/techniques/command-and-control.md#t1090), Tactics: Command and Control, Platforms: Linux, macOS, Windows, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1090/004)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 1 NIST 800-53 control, the detection strategy, 1 threat group, and 4 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 1 NIST control, detection strategy, 1 group, 4 software</summary>
 
 Adversaries may take advantage of routing schemes in Content Delivery Networks (CDNs) and other services which host multiple domains to obfuscate the intended destination of HTTPS traffic or traffic tunneled through HTTPS. Domain fronting involves using different domain names in the SNI field of the TLS header and the Host field of the HTTP header. If both domains are served from the same CDN, then the CDN may route to the address specified in the HTTP header after unwrapping the TLS header. A variation of the the technique, "domainless" fronting, utilizes a SNI field that is left blank; this may allow the fronting to work even when the CDN attempts to validate that the SNI and HTTP Host fields match (if the blank SNI fields are ignored). For example, if domain-x and domain-y are customers of the same CDN, it is possible to place domain-x in the TLS header and domain-y in the HTTP header. Traffic will appear to be going to domain-x, however the CDN may route it to domain-y.
 
@@ -312,7 +312,7 @@ Implemented by 4 software: [S0154 Cobalt Strike](https://attack.mitre.org/softwa
 
 Tactics: Command and Control, Platforms: Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1092)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 8 NIST 800-53 controls, the detection strategy, 1 threat group, and 2 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 8 NIST controls, detection strategy, 1 group, 2 software</summary>
 
 Adversaries can perform command and control between compromised hosts on potentially disconnected networks using removable media to transfer commands from system to system. Both systems would need to be compromised, with the likelihood that an Internet-connected system was compromised first and the second through lateral movement by [Replication Through Removable Media](https://attack.mitre.org/techniques/T1091). Commands and files would be relayed from the disconnected system to the Internet-connected system to which the adversary has direct access.
 
@@ -331,7 +331,7 @@ Implemented by 2 software: [S0023 CHOPSTICK](https://attack.mitre.org/software/S
 
 Tactics: Command and Control, Platforms: ESXi, Linux, macOS, Network Devices, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1095)  
 
-<details class="tsw-fold"><summary>Show the description, 4 ATT&CK mitigations, 11 NIST 800-53 controls, the detection strategy, 12 threat groups, and 88 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 4 mitigations, 11 NIST controls, detection strategy, 12 groups, 88 software</summary>
 
 Adversaries may use an OSI non-application layer protocol for communication between host and C2 server or among infected hosts within a network. The list of possible protocols is extensive. Specific examples include use of network layer protocols, such as the Internet Control Message Protocol (ICMP), transport layer protocols, such as the User Datagram Protocol (UDP), session layer protocols, such as Socket Secure (SOCKS), as well as redirected/tunneled protocols, such as Serial over LAN (SOL). ICMP communication between hosts is one example. Because ICMP is part of the Internet Protocol Suite, it is required to be implemented by all IP-compatible hosts. However, it is not as commonly monitored as other Internet Protocols such as TCP or UDP and may be used by adversaries to hide communications. In ESXi environments, adversaries may leverage the Virtual Machine Communication Interface (VMCI) for communication between guest virtual machines and the ESXi host. This traffic is similar to client-server communications on traditional network sockets but is localized to the physical machine running the ESXi host, meaning it does not traverse external networks (routers, switches). This results in communications that are invisible to external monitoring and standard networking tools like tcpdump, netstat, nmap, and Wireshark. By adding a VMCI backdoor to a compromised ESXi host, adversaries may persistently regain access from any guest VM to the compromised ESXi host’s backdoor, regardless of network segmentation or firewall rules in place.
 
@@ -350,7 +350,7 @@ Implemented by 88 software: [S0011 Taidoor](https://attack.mitre.org/software/S0
 
 Tactics: Command and Control, Platforms: ESXi, Linux, Windows, macOS, [ATT&CK](https://attack.mitre.org/techniques/T1102)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 8 NIST 800-53 controls, the detection strategy, 15 threat groups, and 31 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 8 NIST controls, detection strategy, 15 groups, 31 software</summary>
 
 Adversaries may use an existing, legitimate external Web service as a means for relaying data to/from a compromised system. Popular websites, cloud services, and social media acting as a mechanism for C2 may give a significant amount of cover due to the likelihood that hosts within a network are already communicating with them prior to a compromise. Using common services, such as those offered by Google, Microsoft, or Twitter, makes it easier for adversaries to hide in expected noise. Web service providers commonly use SSL/TLS encryption, giving adversaries an added level of protection. Use of Web services may also protect back-end C2 infrastructure from discovery through malware binary analysis while also enabling operational resiliency (since this infrastructure may be dynamically changed).
 
@@ -369,7 +369,7 @@ Implemented by 31 software: [S0198 NETWIRE](https://attack.mitre.org/software/S0
 
 sub-technique of [T1102](/techniques/command-and-control.md#t1102), Tactics: Command and Control, Platforms: ESXi, Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1102/001)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 8 NIST 800-53 controls, the detection strategy, 6 threat groups, and 19 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 8 NIST controls, detection strategy, 6 groups, 19 software</summary>
 
 Adversaries may use an existing, legitimate external Web service to host information that points to additional command and control (C2) infrastructure. Adversaries may post content, known as a dead drop resolver, on Web services with embedded (and often obfuscated/encoded) domains or IP addresses. Once infected, victims will reach out to and be redirected by these resolvers. Popular websites and social media acting as a mechanism for C2 may give a significant amount of cover due to the likelihood that hosts within a network are already communicating with them prior to a compromise. Using common services, such as those offered by Google or Twitter, makes it easier for adversaries to hide in expected noise. Web service providers commonly use SSL/TLS encryption, giving adversaries an added level of protection. Use of a dead drop resolver may also protect back-end C2 infrastructure from discovery through malware binary analysis while also enabling operational resiliency (since this infrastructure may be dynamically changed).
 
@@ -388,7 +388,7 @@ Implemented by 19 software: [S0013 PlugX](https://attack.mitre.org/software/S001
 
 sub-technique of [T1102](/techniques/command-and-control.md#t1102), Tactics: Command and Control, Platforms: Linux, macOS, Windows, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1102/002)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 8 NIST 800-53 controls, the detection strategy, 16 threat groups, and 38 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 8 NIST controls, detection strategy, 16 groups, 38 software</summary>
 
 Adversaries may use an existing, legitimate external Web service as a means for sending commands to and receiving output from a compromised system over the Web service channel. Compromised systems may leverage popular websites and social media to host command and control (C2) instructions. Those infected systems can then send the output from those commands back over that Web service channel. The return traffic may occur in a variety of ways, depending on the Web service being utilized. For example, the return traffic may take the form of the compromised system posting a comment on a forum, issuing a pull request to development project, updating a document hosted on a Web service, or by sending a Tweet. Popular websites and social media acting as a mechanism for C2 may give a significant amount of cover due to the likelihood that hosts within a network are already communicating with them prior to a compromise. Using common services, such as those offered by Google or Twitter, makes it easier for adversaries to hide in expected noise. Web service providers commonly use SSL/TLS encryption, giving adversaries an added level of protection.
 
@@ -407,7 +407,7 @@ Implemented by 38 software: [S0025 CALENDAR](https://attack.mitre.org/software/S
 
 sub-technique of [T1102](/techniques/command-and-control.md#t1102), Tactics: Command and Control, Platforms: Linux, macOS, Windows, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1102/003)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 8 NIST 800-53 controls, the detection strategy, 2 threat groups, and 6 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 8 NIST controls, detection strategy, 2 groups, 6 software</summary>
 
 Adversaries may use an existing, legitimate external Web service as a means for sending commands to a compromised system without receiving return output over the Web service channel. Compromised systems may leverage popular websites and social media to host command and control (C2) instructions. Those infected systems may opt to send the output from those commands back over a different C2 channel, including to another distinct Web service. Alternatively, compromised systems may return no output at all in cases where adversaries want to send instructions to systems and do not want a response. Popular websites and social media acting as a mechanism for C2 may give a significant amount of cover due to the likelihood that hosts within a network are already communicating with them prior to a compromise. Using common services, such as those offered by Google or Twitter, makes it easier for adversaries to hide in expected noise. Web service providers commonly use SSL/TLS encryption, giving adversaries an added level of protection.
 
@@ -426,7 +426,7 @@ Implemented by 6 software: [S0037 HAMMERTOSS](https://attack.mitre.org/software/
 
 Tactics: Command and Control, Platforms: Linux, macOS, Windows, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1104)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 8 NIST 800-53 controls, the detection strategy, 4 threat groups, and 10 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 8 NIST controls, detection strategy, 4 groups, 10 software</summary>
 
 Adversaries may create multiple stages for command and control that are employed under different conditions or for certain functions. Use of multiple stages may obfuscate the command and control channel to make detection more difficult. Remote access tools will call back to the first-stage command and control server for instructions. The first stage may have automated capabilities to collect basic host information, update tools, and upload additional files. A second remote access tool (RAT) could be uploaded at that point to redirect the host to the second-stage command and control server. The second stage will likely be more fully featured and allow the adversary to interact with the system through a reverse shell and additional RAT features. The different stages will likely be hosted separately with no overlapping infrastructure. The loader may also have backup first-stage callbacks or [Fallback Channels](https://attack.mitre.org/techniques/T1008) in case the original first-stage communication path is discovered and blocked.
 
@@ -445,7 +445,7 @@ Implemented by 10 software: [S0022 Uroburos](https://attack.mitre.org/software/S
 
 Tactics: Command and Control, Platforms: ESXi, Linux, macOS, Network Devices, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1105)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 8 NIST 800-53 controls, the detection strategy, 88 threat groups, and 403 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 8 NIST controls, detection strategy, 88 groups, 403 software</summary>
 
 Adversaries may transfer tools or other files from an external system into a compromised environment. Tools or files may be copied from an external adversary-controlled system to the victim network through the command and control channel or through alternate protocols such as [ftp](https://attack.mitre.org/software/S0095). Once present, adversaries may also transfer/spread tools between victim devices within a compromised environment (i.e. [Lateral Tool Transfer](https://attack.mitre.org/techniques/T1570)). On Windows, adversaries may use various utilities to download tools, such as `copy`, `finger`, [certutil](https://attack.mitre.org/software/S0160), and [PowerShell](https://attack.mitre.org/techniques/T1059/001) commands such as <code>IEX(New-Object Net.WebClient).downloadString()</code> and <code>Invoke-WebRequest</code>. On Linux and macOS systems, a variety of utilities also exist, such as `curl`, `scp`, `sftp`, `tftp`, `rsync`, `finger`, and `wget`. A number of these tools, such as `wget`, `curl`, and `scp`, also exist on ESXi. After downloading a file, a threat actor may attempt to verify its integrity by checking its hash value (e.g., via `certutil -hashfile`). Adversaries may also abuse installers and package managers, such as `yum` or `winget`, to download tools to victim hosts. Adversaries have also abused file application features, such as the Windows `search-ms` protocol handler, to deliver malicious files to victims through remote file searches invoked by [User Execution](https://attack.mitre.org/techniques/T1204) (typically after interacting with [Phishing](https://attack.mitre.org/techniques/T1566) lures). Files can also be transferred using various [Web Service](https://attack.mitre.org/techniques/T1102)s as well as native or otherwise present tools on the victim system. In some cases, adversaries may be able to leverage services that sync between a web-based and an on-premises client, such as Dropbox or OneDrive, to transfer files onto victim systems. For example, by compromising a cloud account and logging into the service's web portal, an adversary may be able to trigger an automatic syncing process that transfers the file onto the victim's machine.
 
@@ -464,7 +464,7 @@ Implemented by 403 software: [S0009 Hikit](https://attack.mitre.org/software/S00
 
 Tactics: Command and Control, Platforms: Linux, macOS, Windows, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1132)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 7 NIST 800-53 controls, the detection strategy, 1 threat group, and 7 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 7 NIST controls, detection strategy, 1 group, 7 software</summary>
 
 Adversaries may encode data to make the content of command and control traffic more difficult to detect. Command and control (C2) information can be encoded using a standard data encoding system. Use of data encoding may adhere to existing protocol specifications and includes use of ASCII, Unicode, Base64, MIME, or other binary-to-text and character encoding systems. Some data encoding systems may also result in data compression, such as gzip.
 
@@ -483,7 +483,7 @@ Implemented by 7 software: [S0128 BADNEWS](https://attack.mitre.org/software/S01
 
 sub-technique of [T1132](/techniques/command-and-control.md#t1132), Tactics: Command and Control, Platforms: ESXi, Linux, Windows, macOS, [ATT&CK](https://attack.mitre.org/techniques/T1132/001)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 7 NIST 800-53 controls, the detection strategy, 11 threat groups, and 114 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 7 NIST controls, detection strategy, 11 groups, 114 software</summary>
 
 Adversaries may encode data with a standard data encoding system to make the content of command and control traffic more difficult to detect. Command and control (C2) information can be encoded using a standard data encoding system that adheres to existing protocol specifications. Common data encoding schemes include ASCII, Unicode, hexadecimal, Base64, and MIME. Some data encoding systems may also result in data compression, such as gzip.
 
@@ -502,7 +502,7 @@ Implemented by 114 software: [S0014 BS2005](https://attack.mitre.org/software/S0
 
 sub-technique of [T1132](/techniques/command-and-control.md#t1132), Tactics: Command and Control, Platforms: ESXi, Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1132/002)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 7 NIST 800-53 controls, the detection strategy, 1 threat group, and 17 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 7 NIST controls, detection strategy, 1 group, 17 software</summary>
 
 Adversaries may encode data with a non-standard data encoding system to make the content of command and control traffic more difficult to detect. Command and control (C2) information can be encoded using a non-standard data encoding system that diverges from existing protocol specifications. Non-standard data encoding schemes may be based on or related to standard data encoding schemes, such as a modified Base64 encoding for the message body of an HTTP request.
 
@@ -521,7 +521,7 @@ Implemented by 17 software: [S0022 Uroburos](https://attack.mitre.org/software/S
 
 Tactics: Command and Control, Platforms: Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1219)  
 
-<details class="tsw-fold"><summary>Show the description, 5 ATT&CK mitigations, 13 NIST 800-53 controls, the detection strategy, 13 threat groups, and 7 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 5 mitigations, 13 NIST controls, detection strategy, 13 groups, 7 software</summary>
 
 An adversary may use legitimate remote access tools to establish an interactive command and control channel within a network. Remote access tools create a session between two trusted hosts through a graphical interface, a command line interaction, a protocol tunnel via development or management software, or hardware-level access such as KVM (Keyboard, Video, Mouse) over IP solutions. Desktop support software (usually graphical interface) and remote management software (typically command line interface) allow a user to control a computer remotely as if they are a local user inheriting the user or software permissions. This software is commonly used for troubleshooting, software installation, and system management. Adversaries may similarly abuse response features included in EDR and other defensive tools that enable remote access. Remote access tools may be installed and used post-compromise as an alternate communications channel for redundant access or to establish an interactive remote desktop session with the target system. It may also be used as a malware component to establish a reverse connection or back-connect to a service or adversary-controlled system. Installation of many remote access tools may also include persistence (e.g., the software's installation routine creates a [Windows Service](https://attack.mitre.org/techniques/T1543/003)). Remote access modules/features may also exist as part of otherwise existing software (e.g., Google Chrome’s Remote Desktop).
 
@@ -540,7 +540,7 @@ Implemented by 7 software: [S0030 Carbanak](https://attack.mitre.org/software/S0
 
 sub-technique of [T1219](/techniques/command-and-control.md#t1219), Tactics: Command and Control, Platforms: Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1219/001)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, the detection strategy, and 1 threat group</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, detection strategy, 1 group</summary>
 
 Adversaries may abuse Integrated Development Environment (IDE) software with remote development features to establish an interactive command and control channel on target systems within a network. IDE tunneling combines SSH, port forwarding, file sharing, and debugging into a single secure connection, letting developers work on remote systems as if they were local. Unlike SSH and port forwarding, IDE tunneling encapsulates an entire session and may use proprietary tunneling protocols alongside SSH, allowing adversaries to blend in with legitimate development workflows. Some IDEs, like Visual Studio Code, also provide CLI tools (e.g., `code tunnel`) that adversaries may use to programmatically establish tunnels and generate web-accessible URLs for remote access. These tunnels can be authenticated through accounts such as GitHub, enabling the adversary to control the compromised system via a legitimate developer portal. Additionally, adversaries may use IDE tunneling for persistence. Some IDEs, such as Visual Studio Code and JetBrains, support automatic reconnection. Adversaries may configure the IDE to auto-launch at startup, re-establishing the tunnel upon execution. Compromised developer machines may also be exploited as jump hosts to move further into the network. IDE tunneling tools may be built-in or installed as [IDE Extensions](https://attack.mitre.org/techniques/T1176/002).
 
@@ -558,7 +558,7 @@ Used by 1 threat groups: [G0129 Mustang Panda](https://attack.mitre.org/groups/G
 
 sub-technique of [T1219](/techniques/command-and-control.md#t1219), Tactics: Command and Control, Platforms: Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1219/002)  
 
-<details class="tsw-fold"><summary>Show the description, 3 ATT&CK mitigations, the detection strategy, 11 threat groups, and 1 software entry</summary>
+<details class="tsw-fold"><summary>Show details: 3 mitigations, detection strategy, 11 groups, 1 software</summary>
 
 An adversary may use legitimate desktop support software to establish an interactive command and control channel to target systems within networks. Desktop support software provides a graphical interface for remotely controlling another computer, transmitting the display output, keyboard input, and mouse control between devices using various protocols. Desktop support software, such as `VNC`, `Team Viewer`, `AnyDesk`, `ScreenConnect`, `LogMein`, `AmmyyAdmin`, and other remote monitoring and management (RMM) tools, are commonly used as legitimate technical support software and may be allowed by application control within a target environment. Remote access modules/features may also exist as part of otherwise existing software such as Zoom or Google Chrome’s Remote Desktop.
 
@@ -577,7 +577,7 @@ Implemented by 1 software: [S1242 Qilin](https://attack.mitre.org/software/S1242
 
 sub-technique of [T1219](/techniques/command-and-control.md#t1219), Tactics: Command and Control, Platforms: Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1219/003)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, and the detection strategy</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, detection strategy</summary>
 
 An adversary may use legitimate remote access hardware to establish an interactive command and control channel to target systems within networks. These services, including IP-based keyboard, video, or mouse (KVM) devices such as TinyPilot and PiKVM, are commonly used as legitimate tools and may be allowed by peripheral device policies within a target environment. Remote access hardware may be physically installed and used post-compromise as an alternate communications channel for redundant access or as a way to establish an interactive remote session with the target system. Using hardware-based remote access tools may allow threat actors to bypass software security solutions and gain more control over the compromised device(s).
 
@@ -594,7 +594,7 @@ ATT&CK detection strategy: Detect Remote Access via USB Hardware (TinyPilot, PiK
 
 Tactics: Command and Control, Platforms: Linux, macOS, Windows, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1568)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 8 NIST 800-53 controls, the detection strategy, 8 threat groups, and 10 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 8 NIST controls, detection strategy, 8 groups, 10 software</summary>
 
 Adversaries may dynamically establish connections to command and control infrastructure to evade common detections and remediations. This may be achieved by using malware that shares a common algorithm with the infrastructure the adversary uses to receive the malware's communications. These calculations can be used to dynamically adjust parameters such as the domain name, IP address, or port number the malware uses for command and control. Adversaries may use dynamic resolution for the purpose of [Fallback Channels](https://attack.mitre.org/techniques/T1008). When contact is lost with the primary command and control server malware may employ dynamic resolution as a means to reestablishing command and control.
 
@@ -613,7 +613,7 @@ Implemented by 10 software: [S0034 NETEAGLE](https://attack.mitre.org/software/S
 
 sub-technique of [T1568](/techniques/command-and-control.md#t1568), Tactics: Command and Control, Platforms: Linux, macOS, Windows, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1568/001)  
 
-<details class="tsw-fold"><summary>Show the description, the detection strategy, 3 threat groups, and 3 software entries</summary>
+<details class="tsw-fold"><summary>Show details: detection strategy, 3 groups, 3 software</summary>
 
 Adversaries may use Fast Flux DNS to hide a command and control channel behind an array of rapidly changing IP addresses linked to a single domain resolution. This technique uses a fully qualified domain name, with multiple IP addresses assigned to it which are swapped with high frequency, using a combination of round robin IP addressing and short Time-To-Live (TTL) for a DNS resource record. The simplest, "single-flux" method, involves registering and de-registering an addresses as part of the DNS A (address) record list for a single DNS name. These registrations have a five-minute average lifespan, resulting in a constant shuffle of IP address resolution. In contrast, the "double-flux" method registers and de-registers an address as part of the DNS Name Server record list for the DNS zone, providing additional resilience for the connection. With double-flux additional hosts can act as a proxy to the C2 host, further insulating the true source of the C2 channel.
 
@@ -632,7 +632,7 @@ Implemented by 3 software: [S0032 gh0st RAT](https://attack.mitre.org/software/S
 
 sub-technique of [T1568](/techniques/command-and-control.md#t1568), Tactics: Command and Control, Platforms: Linux, macOS, Windows, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1568/002)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 8 NIST 800-53 controls, the detection strategy, 2 threat groups, and 22 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 8 NIST controls, detection strategy, 2 groups, 22 software</summary>
 
 Adversaries may make use of Domain Generation Algorithms (DGAs) to dynamically identify a destination domain for command and control traffic rather than relying on a list of static IP addresses or domains. This has the advantage of making it much harder for defenders to block, track, or take over the command and control channel, as there potentially could be thousands of domains that malware can check for instructions. DGAs can take the form of apparently random or “gibberish” strings (ex: istgmxdejdnxuyla.ru) when they construct domain names by generating each letter. Alternatively, some DGAs employ whole words as the unit by concatenating words together instead of letters (ex: cityjulydish.net). Many DGAs are time-based, generating a different domain for each time period (hourly, daily, monthly, etc). Others incorporate a seed value as well to make predicting future domains more difficult for defenders. Adversaries may use DGAs for the purpose of [Fallback Channels](https://attack.mitre.org/techniques/T1008). When contact is lost with the primary command and control server malware may employ a DGA as a means to reestablishing command and control.
 
@@ -651,7 +651,7 @@ Implemented by 22 software: [S0023 CHOPSTICK](https://attack.mitre.org/software/
 
 sub-technique of [T1568](/techniques/command-and-control.md#t1568), Tactics: Command and Control, Platforms: Linux, macOS, Windows, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1568/003)  
 
-<details class="tsw-fold"><summary>Show the description, the detection strategy, and 1 threat group</summary>
+<details class="tsw-fold"><summary>Show details: detection strategy, 1 group</summary>
 
 Adversaries may perform calculations on addresses returned in DNS results to determine which port and IP address to use for command and control, rather than relying on a predetermined port number or the actual returned IP address. A IP and/or port number calculation can be used to bypass egress filtering on a C2 channel. One implementation of [DNS Calculation](https://attack.mitre.org/techniques/T1568/003) is to take the first three octets of an IP address in a DNS response and use those values to calculate the port for command and control traffic.
 
@@ -669,7 +669,7 @@ Used by 1 threat groups: [G0005 APT12](https://attack.mitre.org/groups/G0005)
 
 Tactics: Command and Control, Platforms: ESXi, Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1571)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 8 NIST 800-53 controls, the detection strategy, 17 threat groups, and 41 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 8 NIST controls, detection strategy, 17 groups, 41 software</summary>
 
 Adversaries may communicate using a protocol and port pairing that are typically not associated. For example, HTTPS over port 8088 or port 587 as opposed to the traditional port 443. Adversaries may make changes to the standard port used by a protocol to bypass filtering or muddle analysis/parsing of network data. Adversaries may also make changes to victim systems to abuse non-standard ports. For example, Registry keys and other configuration settings can be used to modify protocol and port pairings.
 
@@ -688,7 +688,7 @@ Implemented by 41 software: [S0013 PlugX](https://attack.mitre.org/software/S001
 
 Tactics: Command and Control, Platforms: ESXi, Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1572)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 11 NIST 800-53 controls, the detection strategy, 15 threat groups, and 21 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 11 NIST controls, detection strategy, 15 groups, 21 software</summary>
 
 Adversaries may tunnel network communications to and from a victim system within a separate protocol to avoid detection/network filtering and/or enable access to otherwise unreachable systems. Tunneling involves explicitly encapsulating a protocol within another. This behavior may conceal malicious traffic by blending in with existing traffic and/or provide an outer layer of encryption (similar to a VPN). Tunneling could also enable routing of network packets that would otherwise not reach their intended destination, such as SMB, RDP, or other traffic that would be filtered by network appliances or not routed over the Internet. There are various means to encapsulate a protocol within another protocol. For example, adversaries may perform SSH tunneling (also known as SSH port forwarding), which involves forwarding arbitrary data over an encrypted SSH tunnel. [Protocol Tunneling](https://attack.mitre.org/techniques/T1572) may also be abused by adversaries during [Dynamic Resolution](https://attack.mitre.org/techniques/T1568). Known as DNS over HTTPS (DoH), queries to resolve C2 infrastructure may be encapsulated within encrypted HTTPS packets. Adversaries may also leverage [Protocol Tunneling](https://attack.mitre.org/techniques/T1572) in conjunction with [Proxy](https://attack.mitre.org/techniques/T1090) and/or [Protocol or Service Impersonation](https://attack.mitre.org/techniques/T1001/003) to further conceal C2 communications and infrastructure.
 
@@ -707,7 +707,7 @@ Implemented by 21 software: [S0022 Uroburos](https://attack.mitre.org/software/S
 
 Tactics: Command and Control, Platforms: ESXi, Linux, macOS, Network Devices, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1573)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 11 NIST 800-53 controls, the detection strategy, 4 threat groups, and 11 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 11 NIST controls, detection strategy, 4 groups, 11 software</summary>
 
 Adversaries may employ an encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol. Despite the use of a secure algorithm, these implementations may be vulnerable to reverse engineering if secret keys are encoded and/or generated within malware samples/configuration files.
 
@@ -726,7 +726,7 @@ Implemented by 11 software: [S0032 gh0st RAT](https://attack.mitre.org/software/
 
 sub-technique of [T1573](/techniques/command-and-control.md#t1573), Tactics: Command and Control, Platforms: ESXi, Linux, macOS, Network Devices, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1573/001)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 11 NIST 800-53 controls, the detection strategy, 14 threat groups, and 167 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 11 NIST controls, detection strategy, 14 groups, 167 software</summary>
 
 Adversaries may employ a known symmetric encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol. Symmetric encryption algorithms use the same key for plaintext encryption and ciphertext decryption. Common symmetric encryption algorithms include AES, DES, 3DES, Blowfish, and RC4.
 
@@ -745,7 +745,7 @@ Implemented by 167 software: [S0003 RIPTIDE](https://attack.mitre.org/software/S
 
 sub-technique of [T1573](/techniques/command-and-control.md#t1573), Tactics: Command and Control, Platforms: ESXi, Linux, macOS, Network Devices, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1573/002)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 11 NIST 800-53 controls, the detection strategy, 12 threat groups, and 80 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 11 NIST controls, detection strategy, 12 groups, 80 software</summary>
 
 Adversaries may employ a known asymmetric encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol. Asymmetric cryptography, also known as public key cryptography, uses a keypair per party: one public that can be freely distributed, and one private. Due to how the keys are generated, the sender encrypts data with the receiver’s public key and the receiver decrypts the data with their private key. This ensures that only the intended recipient can read the encrypted data. Common public key encryption algorithms include RSA and ElGamal. For efficiency, many protocols (including SSL/TLS) use symmetric cryptography once a connection is established, but use asymmetric cryptography to establish or transmit a key. As such, these protocols are classified as [Asymmetric Cryptography](https://attack.mitre.org/techniques/T1573/002).
 
@@ -764,7 +764,7 @@ Implemented by 80 software: [S0017 BISCUIT](https://attack.mitre.org/software/S0
 
 Tactics: Command and Control, Platforms: ESXi, Linux, Network Devices, Windows, macOS, [ATT&CK](https://attack.mitre.org/techniques/T1665)  
 
-<details class="tsw-fold"><summary>Show the description, the detection strategy, 2 threat groups, and 3 software entries</summary>
+<details class="tsw-fold"><summary>Show details: detection strategy, 2 groups, 3 software</summary>
 
 Adversaries may manipulate network traffic in order to hide and evade detection of their C2 infrastructure. This can be accomplished by identifying and filtering traffic from defensive tools, masking malicious domains to obfuscate the true destination from both automated scanning tools and security researchers, and otherwise hiding malicious artifacts to delay discovery and prolong the effectiveness of adversary infrastructure that could otherwise be identified, blocked, or taken down entirely. C2 networks may include the use of [Proxy](https://attack.mitre.org/techniques/T1090) or VPNs to disguise IP addresses, which can allow adversaries to blend in with normal network traffic and bypass conditional access policies or anti-abuse protections. For example, an adversary may use a virtual private cloud to spoof their IP address to closer align with a victim's IP address ranges. This may also bypass security measures relying on geolocation of the source IP address. Adversaries may also attempt to filter network traffic in order to evade defensive tools in numerous ways, including blocking/redirecting common incident responder or security appliance user agents. Filtering traffic based on IP and geo-fencing may also avoid automated sandboxing or researcher activity (i.e., [Virtualization/Sandbox Evasion](https://attack.mitre.org/techniques/T1497)). Hiding C2 infrastructure may also be supported by [Resource Development](https://attack.mitre.org/tactics/TA0042) activities such as [Acquire Infrastructure](https://attack.mitre.org/techniques/T1583) and [Compromise Infrastructure](https://attack.mitre.org/techniques/T1584). For example, using widely trusted hosting services or domains such as prominent URL shortening providers or marketing services for C2 networks may enable adversaries to present benign content that later redirects victims to malicious web pages or infrastructure once specific conditions are met.
 

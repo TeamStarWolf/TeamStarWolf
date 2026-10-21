@@ -1,6 +1,6 @@
 # DevSecOps Reference Library
 
-> A professional, comprehensive reference for integrating security into every phase of the software development lifecycle. Maintained for practitioners, architects, and security champions.
+> A reference for integrating security into every phase of the software development lifecycle, for practitioners, architects, and security champions.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -8,7 +8,7 @@
 |---|---|
 | Who this is for | Application security engineers, platform engineers, and security champions |
 | Level | Intermediate |
-| Reading time | About 19 min (4,448 words at 230 words a minute) |
+| Reading time | About 19 min (4,445 words at 230 words a minute) |
 | Read this when | You are adding security scanning (SAST, SCA, secrets, container, IaC, DAST) to a CI/CD pipeline, hardening the pipeline itself, or standing up a DevSecOps program with maturity models, KPIs, and a champions culture |
 | Start at | [DevSecOps Fundamentals](#_1-devsecops-fundamentals), [SAST & Code Analysis](#_2-sast-amp-code-analysis), [CI/CD Pipeline Security](#_5-cicd-pipeline-security) |
 

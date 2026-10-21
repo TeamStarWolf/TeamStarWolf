@@ -9,7 +9,7 @@
 | Who this is for | SOC analysts, detection engineers, and network defenders |
 | Level | Intermediate |
 | Reading time | About 8 min (1,773 words at 230 words a minute) |
-| Read this when | standing up or placing network sensors (TAP vs SPAN), hunting C2 beaconing or DNS tunneling in Zeek/flow logs, writing or tuning Suricata rules, triaging an NSM alert down to the packet |
+| Read this when | Standing up or placing network sensors (TAP vs SPAN), hunting C2 beaconing or DNS tunneling in Zeek/flow logs, writing or tuning Suricata rules, triaging an NSM alert down to the packet |
 | Start at | [Network Monitoring Architecture](#_1-network-monitoring-architecture), [Zeek (formerly Bro)](#_2-zeek-formerly-bro), [Network Threat Hunting](#_6-network-threat-hunting) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>

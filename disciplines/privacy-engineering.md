@@ -11,7 +11,7 @@ Privacy engineering is the discipline of making data protection a structural pro
 | Who this is for | Engineers and privacy professionals learning to build privacy into systems |
 | Level | Beginner to advanced |
 | Reading time | About 12 min (2,826 words at 230 words a minute) |
-| Read this when | moving into privacy engineering, running privacy impact assessments, or applying privacy-by-design patterns |
+| Read this when | Moving into privacy engineering, running privacy impact assessments, or applying privacy-by-design patterns |
 | Start at | [What Privacy Engineers Do](#what-privacy-engineers-do), [Where to Start](#where-to-start), [Privacy-by-Design Patterns](#privacy-by-design-patterns) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>

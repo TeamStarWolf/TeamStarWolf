@@ -1,7 +1,6 @@
 # Cryptography Reference
 
-> A comprehensive reference for cryptographic concepts, algorithms, attacks, and best practices.
-> Maintained as part of the TeamStarWolf cybersecurity reference library.
+> A reference for cryptographic concepts, algorithms, attacks, and best practices.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -9,8 +8,8 @@
 |---|---|
 | Who this is for | Security engineers, developers, and penetration testers who choose or review cryptography |
 | Level | Intermediate to advanced |
-| Reading time | About 38 min (8,635 words at 230 words a minute) |
-| Read this when | choosing a cipher, mode, key size, or password-hashing function, reviewing a cryptographic design or implementation, or explaining a cryptographic attack |
+| Reading time | About 38 min (8,625 words at 230 words a minute) |
+| Read this when | Choosing a cipher, mode, key size, or password-hashing function, reviewing a cryptographic design or implementation, or explaining a cryptographic attack |
 | Start at | [Symmetric Cryptography](#_1-symmetric-cryptography), [AES-GCM Deep Dive](#_13-aes-gcm-deep-dive), [Key Derivation Functions (KDFs)](#_16-key-derivation-functions-kdfs) |
 
 <details class="tsw-meta-more"><summary>More about this page (matching learning path, last corrected, last reviewed)</summary>

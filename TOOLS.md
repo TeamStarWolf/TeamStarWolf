@@ -9,7 +9,7 @@
 | Who this is for | Practitioners shortlisting tools for a security function |
 | Level | Beginner to intermediate |
 | Reading time | About 14 min (3,263 words at 230 words a minute) |
-| Read this when | you need to shortlist tools for a security function, you are comparing open source vs commercial options in a category, you saw a tool name and want to know what it does |
+| Read this when | You need to shortlist tools for a security function, you are comparing open source vs commercial options in a category, you saw a tool name and want to know what it does |
 | Start at | [Endpoint & Detection](#endpoint-amp-detection), [Threat Intelligence](#threat-intelligence), [Offensive Security & Red Teaming](#offensive-security-amp-red-teaming) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>

@@ -9,14 +9,14 @@ Social engineering is the practice of exploiting human psychology rather than te
 | Who this is for | Defenders, awareness staff, and testers learning social engineering attack and defense |
 | Level | Beginner to advanced |
 | Reading time | About 10 min (2,350 words at 230 words a minute) |
-| Read this when | learning social engineering attack types, running phishing or vishing assessments, or designing defenses against them |
+| Read this when | Learning social engineering attack types, running phishing or vishing assessments, or designing defenses against them |
 | Start at | [Where to Start](#where-to-start), [Attack Types and Techniques](#attack-types-and-techniques), [Defensive Countermeasures](#defensive-countermeasures) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
 | | |
 |---|---|
-| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last corrected | 2026-10-12, revoked T1656 re-keyed to T1684.001 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

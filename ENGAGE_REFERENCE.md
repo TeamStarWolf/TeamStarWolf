@@ -21,7 +21,7 @@ Related: [Honeypot & Deception Reference](HONEYPOT_DECEPTION_REFERENCE.md), [Dec
 | Who this is for | Deception program leads, threat hunters, and purple teams |
 | Level | Intermediate |
 | Reading time | About 9 min (2,039 words at 230 words a minute) |
-| Read this when | planning a deception or adversary engagement operation, deciding which honeypot/lure activities cover the most ATT&CK techniques, picking a denial/deception response for a specific adversary technique |
+| Read this when | Planning a deception or adversary engagement operation, deciding which honeypot/lure activities cover the most ATT&CK techniques, picking a denial/deception response for a specific adversary technique |
 | Start at | [The Engage matrix](#the-engage-matrix), [Activities by ATT&CK coverage](#activities-by-attampck-coverage), [ATT&CK techniques with the most engagement options](#attampck-techniques-with-the-most-engagement-options) |
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>

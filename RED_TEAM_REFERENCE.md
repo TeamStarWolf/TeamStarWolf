@@ -11,7 +11,7 @@
 | Who this is for | Red team operators and program leads, and blue teams preparing for an assessment |
 | Level | Intermediate to advanced |
 | Reading time | About 30 min (6,854 words at 230 words a minute) |
-| Read this when | you are standing up a red team program or writing rules of engagement, you are planning an authorized engagement and need a lifecycle checklist, or you are on the blue side and want to understand what an assessment will exercise |
+| Read this when | You are standing up a red team program or writing rules of engagement, you are planning an authorized engagement and need a lifecycle checklist, or you are on the blue side and want to understand what an assessment will exercise |
 | Start at | [Program Design & Rules of Engagement](#_1-red-team-program-design-amp-rules-of-engagement) for governance, [Reporting & Purple Team Integration](#_9-reporting-amp-purple-team-integration) for turning results into defense |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning paths, last corrected, last reviewed)</summary>

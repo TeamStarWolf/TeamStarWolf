@@ -9,7 +9,7 @@
 | Who this is for | CISOs and security leaders, and practitioners stepping into leadership |
 | Level | Intermediate to advanced |
 | Reading time | About 15 min (3,425 words at 230 words a minute) |
-| Read this when | you just took (or are interviewing for) a security-leadership role, standing up a program from zero, rebuilding one after an incident or a failed audit, defending or cutting a security budget, prepping a board deck, or deciding who declares an incident "material" |
+| Read this when | You just took (or are interviewing for) a security-leadership role, standing up a program from zero, rebuilding one after an incident or a failed audit, defending or cutting a security budget, prepping a board deck, or deciding who declares an incident "material" |
 | Start at | [The First 90 Days](#the-first-90-days), [Organizational Design & Reporting Lines](#organizational-design-amp-reporting-lines), [Board & Executive Reporting](#board-amp-executive-reporting) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, added, last reviewed)</summary>
@@ -17,7 +17,7 @@
 | | |
 |---|---|
 | Pairs with | [GRC_REFERENCE.md](GRC_REFERENCE.md), [SECURITY_METRICS_REFERENCE.md](SECURITY_METRICS_REFERENCE.md), [REGULATORY_LANDSCAPE_REFERENCE.md](REGULATORY_LANDSCAPE_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [CAREER_PATHS.md](CAREER_PATHS.md), [FRAMEWORKS.md](FRAMEWORKS.md) |
-| Added | 2026-09-29, page added in a pull request that records its facts as checked against live sources ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68)) |
+| Added | 2026-09-29 ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68)) |
 | Last reviewed | No review recorded yet |
 
 </details>

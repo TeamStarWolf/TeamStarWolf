@@ -1,7 +1,7 @@
 # Physical Security Reference
 
 > Audience: Cybersecurity professionals, physical penetration testers, red teamers, and security engineers.
-> Purpose: Comprehensive hands-on reference for physical security assessment and physical penetration testing.
+> Purpose: Hands-on reference for physical security assessment and physical penetration testing.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -9,7 +9,7 @@
 |---|---|
 | Who this is for | Physical penetration testers, red teamers, and facility security assessors |
 | Level | Intermediate |
-| Reading time | About 25 min (5,822 words at 230 words a minute) |
+| Reading time | About 25 min (5,821 words at 230 words a minute) |
 | Read this when | Scoping or running an authorized physical penetration test, assessing a facility's or server room's physical controls, building a remediation checklist after a walkthrough |
 | Start at | [Physical Penetration Testing Overview](#_2-physical-penetration-testing-overview), [Physical Security Controls Assessment Checklist](#_11-physical-security-controls-assessment-checklist), [Lock Picking](#_3-lock-picking) |
 

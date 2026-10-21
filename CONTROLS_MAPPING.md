@@ -28,14 +28,14 @@ For the full pipeline context, see [SECURITY_PIPELINE.md](SECURITY_PIPELINE.md).
 | Who this is for | Security architects, GRC analysts, and engineers building control-coverage maps |
 | Level | Intermediate |
 | Reading time | About 8 min (1,954 words at 230 words a minute) |
-| Read this when | tracing a security product to the NIST 800-53 controls it implements and on to the ATT&CK techniques those controls mitigate, or downloading CTID mapping data for gap scoring |
+| Read this when | Tracing a security product to the NIST 800-53 controls it implements and on to the ATT&CK techniques those controls mitigate, or downloading CTID mapping data for gap scoring |
 | Start at | [Vendor to NIST Control to ATT&CK Coverage](#vendor-to-nist-control-to-attampck-coverage), [Key ATT&CK Technique to NIST Control Reference](#key-attampck-technique-to-nist-control-reference), [Using CTID Data for Gap Scoring](#using-ctid-data-for-gap-scoring) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
 | | |
 |---|---|
-| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last corrected | 2026-10-12, revoked T1562 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

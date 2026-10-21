@@ -13,14 +13,14 @@ Related: [ATT&CK Data Components & Log Sources](ATTACK_DATA_COMPONENTS.md), [SIE
 | Who this is for | Detection engineers, SIEM and log pipeline engineers, and security data architects |
 | Level | Intermediate to advanced |
 | Reading time | About 32 min (7,283 words at 230 words a minute) |
-| Read this when | onboarding a new log source, choosing or reconciling a normalization schema (OCSF/ECS/CIM/ASIM), cutting SIEM ingest cost without breaking detections, designing retention or investigating why a rule silently sees nothing |
+| Read this when | Onboarding a new log source, choosing or reconciling a normalization schema (OCSF/ECS/CIM/ASIM), cutting SIEM ingest cost without breaking detections, designing retention or investigating why a rule silently sees nothing |
 | Start at | [Scope & how to use this reference](#scope-amp-how-to-use-this-reference), [Why the data layer decides what you can detect](#why-the-data-layer-decides-what-you-can-detect), [Onboarding a new log source: the runbook](#onboarding-a-new-log-source-the-runbook) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
 | | |
 |---|---|
-| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last corrected | 2026-10-12, revoked T1562.001 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

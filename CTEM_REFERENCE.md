@@ -15,7 +15,7 @@ Related: [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Vulne
 | Who this is for | Vulnerability management leads, security program managers, and CISOs |
 | Level | Intermediate |
 | Reading time | About 28 min (6,530 words at 230 words a minute) |
-| Read this when | you are standing up or rebooting an exposure-management program, your vulnerability queue is ranked by CVSS alone and nobody trusts it, or you need to explain to leadership what CTEM is and why the loop beats scan-and-patch |
+| Read this when | You are standing up or rebooting an exposure-management program, your vulnerability queue is ranked by CVSS alone and nobody trusts it, or you need to explain to leadership what CTEM is and why the loop beats scan-and-patch |
 | Start at | [The five stages](#the-five-stages) for the loop itself, [A 90-day starting plan](#a-90-day-starting-plan) to run a first cycle, [Free and open tooling by stage](#free-and-open-tooling-by-stage) to start without procurement |
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>

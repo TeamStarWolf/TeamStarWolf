@@ -11,7 +11,7 @@
 | Who this is for | Vulnerability management, detection engineering, and platform teams working across an enterprise security stack |
 | Level | Intermediate |
 | Reading time | About 21 min (4,813 words at 230 words a minute) |
-| Read this when | looking for the official documentation, API reference, or GitHub organization for a security platform in the stack, or starting an integration and needing the vendor's developer docs |
+| Read this when | Looking for the official documentation, API reference, or GitHub organization for a security platform in the stack, or starting an integration and needing the vendor's developer docs |
 | Start at | [Endpoint & EDR](#endpoint-amp-edr), [Cloud & Supply Chain](#cloud-amp-supply-chain), [Identity & Privileged Access](#identity-amp-privileged-access) |
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>

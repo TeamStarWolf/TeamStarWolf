@@ -11,14 +11,14 @@ Physical security underpins every other security domain. Strong network segmenta
 | Who this is for | Practitioners learning physical security assessment and physical penetration testing |
 | Level | Beginner to advanced |
 | Reading time | About 9 min (2,182 words at 230 words a minute) |
-| Read this when | starting in physical penetration testing, or learning lock, badge and access-control bypass and how to report the findings |
+| Read this when | Planning a physical penetration test, or learning RFID and NFC, lock, badge and access-control bypass and how to report the findings |
 | Start at | [Where to Start](#where-to-start), [Physical Penetration Testing Methodology](#physical-penetration-testing-methodology), [RFID/NFC Attack Detail](#rfidnfc-attack-detail) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
 | | |
 |---|---|
-| Last corrected | 2026-09-27, ATT&CK tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
+| Last corrected | 2026-09-27, tactic of T1078 and T1601 changed from Defense Evasion to Stealth ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

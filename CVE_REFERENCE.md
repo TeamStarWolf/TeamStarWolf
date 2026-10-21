@@ -1,6 +1,6 @@
 # CVE Reference Guide
 
-> Comprehensive reference for CVE program, CVSS scoring, EPSS, KEV catalog,
+> Reference for the CVE program, CVSS scoring, EPSS, KEV catalog,
 > vulnerability databases, research, patch management, notable CVEs, and automation tooling.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->

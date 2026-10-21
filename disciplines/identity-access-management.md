@@ -13,7 +13,7 @@ IAM failures drive a disproportionate share of significant breaches. The Lapsus$
 | Who this is for | Practitioners learning identity, authentication, authorization, and privileged access |
 | Level | Beginner to advanced |
 | Reading time | About 11 min (2,428 words at 230 words a minute) |
-| Read this when | starting in identity and access management, or learning the protocols and standards IAM work relies on (SAML, OIDC, OAuth 2.0, NIST SP 800-63) |
+| Read this when | Learning the protocols and standards identity and access management relies on (SAML, OIDC, OAuth 2.0, NIST SP 800-63) |
 | Start at | [What IAM Engineers Do](#what-iam-engineers-do), [Where to Start](#where-to-start), [Core Frameworks & Standards](#core-frameworks-amp-standards) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>

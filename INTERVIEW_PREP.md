@@ -9,7 +9,7 @@
 | Who this is for | Candidates preparing for security job interviews |
 | Level | Beginner to intermediate |
 | Reading time | About 20 min (4,620 words at 230 words a minute) |
-| Read this when | you have an interview scheduled and need to rehearse likely questions, you are switching security roles and need the role-specific question set, you received an offer and want negotiation scripts |
+| Read this when | You have an interview scheduled and need to rehearse likely questions, you are switching security roles and need the role-specific question set, you received an offer and want negotiation scripts |
 | Start at | [General Preparation Strategy](#general-preparation-strategy), [Role-Specific Questions](#role-specific-questions), [Salary Negotiation & Offer Evaluation](#salary-negotiation-amp-offer-evaluation) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>

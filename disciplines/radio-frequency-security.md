@@ -11,14 +11,14 @@ The security practitioner who understands RF has access to an attack surface tha
 | Who this is for | Practitioners learning RF and wireless assessment with software-defined radio |
 | Level | Beginner to advanced |
 | Reading time | About 11 min (2,473 words at 230 words a minute) |
-| Read this when | starting in RF security with software-defined radio, studying wireless attack techniques, or checking the legal limits on transmitting |
+| Read this when | Picking up software-defined radio, studying wireless attack techniques, or checking the legal limits on transmitting |
 | Start at | [Where to Start](#where-to-start), [RF Attack Techniques](#rf-attack-techniques), [Legal & Ethical Considerations](#legal-amp-ethical-considerations) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
 | | |
 |---|---|
-| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last corrected | 2026-10-12, revoked T1465 re-keyed to T1638 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

@@ -12,7 +12,7 @@ For pipeline context, see [SECURITY_PIPELINE.md](SECURITY_PIPELINE.md).
 | Who this is for | Engineers and analysts who build or query the vendor coverage gap data |
 | Level | Intermediate |
 | Reading time | About 2 min (555 words at 230 words a minute) |
-| Read this when | building or querying the vendor-to-control-to-technique edge tables, or scoring coverage gaps against ATT&CK through NIST 800-53 controls |
+| Read this when | Building or querying the vendor-to-control-to-technique edge tables, or scoring coverage gaps against ATT&CK through NIST 800-53 controls |
 | Start at | [Data Model Overview](#data-model-overview), [Canonical on-disk schema (CI-enforced)](#canonical-on-disk-schema-ci-enforced), [Gap Scoring Logic](#gap-scoring-logic) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>

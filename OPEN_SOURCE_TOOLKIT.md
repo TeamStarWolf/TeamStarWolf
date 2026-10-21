@@ -11,7 +11,7 @@
 | Who this is for | Practitioners looking for a free tool for a specific job |
 | Level | Beginner to intermediate |
 | Reading time | About 13 min (3,024 words at 230 words a minute) |
-| Read this when | you need a free tool for a specific job (recon, cracking, forensics, cloud audit), you are building out a lab or home toolkit, you want the practice platform or cheat-sheet link you half-remember |
+| Read this when | You need a free tool for a specific job (recon, cracking, forensics, cloud audit), you are building out a lab or home toolkit, you want the practice platform or cheat-sheet link you half-remember |
 | Start at | [Reconnaissance & OSINT](#reconnaissance-amp-osint), [Detection & Blue Team](#detection-amp-blue-team), [Online Resources & Bookmarks](#online-resources-amp-bookmarks) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>

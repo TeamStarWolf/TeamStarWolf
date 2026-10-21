@@ -9,7 +9,7 @@
 | Who this is for | Security and platform engineers hardening ML platforms, model registries, and inference servers |
 | Level | Intermediate to advanced |
 | Reading time | About 14 min (3,163 words at 230 words a minute) |
-| Read this when | you are threat-modeling or hardening an ML platform (registry, feature store, inference tier), reviewing whether it is safe to load a third-party model artifact, standing up model signing or SBOM-for-models, securing a Jupyter/Kubeflow environment, or triaging a CVE in an AI-serving component |
+| Read this when | You are threat-modeling or hardening an ML platform (registry, feature store, inference tier), reviewing whether it is safe to load a third-party model artifact, standing up model signing or SBOM-for-models, securing a Jupyter/Kubeflow environment, or triaging a CVE in an AI-serving component |
 | Start at | [The AI Infrastructure Attack Surface](#_1-the-ai-infrastructure-attack-surface), [Unsafe Model Deserialization](#_2-model-serialization-amp-unsafe-deserialization), [Consolidated Hardening Checklist](#_10-consolidated-hardening-checklist) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, added, last reviewed)</summary>
@@ -17,7 +17,7 @@
 | | |
 |---|---|
 | Pairs with | [AI_SECURITY_REFERENCE.md](AI_SECURITY_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [AGENTIC_AI_ATTACK_REFERENCE.md](AGENTIC_AI_ATTACK_REFERENCE.md), [DEVSECOPS_REFERENCE.md](DEVSECOPS_REFERENCE.md), [KUBERNETES_SECURITY_REFERENCE.md](KUBERNETES_SECURITY_REFERENCE.md) |
-| Added | 2026-09-29, page added in a pull request that records its facts as checked against live sources ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68)) |
+| Added | 2026-09-29 ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68)) |
 | Last reviewed | No review recorded yet |
 
 </details>

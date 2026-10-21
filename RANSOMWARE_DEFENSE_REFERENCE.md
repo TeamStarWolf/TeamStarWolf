@@ -15,14 +15,14 @@ Related: [Malware Families](MALWARE_FAMILIES.md), [IR Playbooks](IR_PLAYBOOKS.md
 | Who this is for | Security program leads, infrastructure owners, and incident response planners |
 | Level | Intermediate |
 | Reading time | About 21 min (4,844 words at 230 words a minute) |
-| Read this when | you are building or gap-assessing a ransomware defense program, a new #StopRansomware advisory lands and you need to turn it into work, or you must decide backup architecture, restore order, or payment policy before an incident |
+| Read this when | You are building or gap-assessing a ransomware defense program, a new #StopRansomware advisory lands and you need to turn it into work, or you must decide backup architecture, restore order, or payment policy before an incident |
 | Start at | [Scope & how to use this reference](#scope-amp-how-to-use-this-reference), [Backup & recovery architecture](#backup-amp-recovery-architecture), [A 90-day program bootstrap](#a-90-day-program-bootstrap) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
 | | |
 |---|---|
-| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last corrected | 2026-10-12, revoked T1562.001 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

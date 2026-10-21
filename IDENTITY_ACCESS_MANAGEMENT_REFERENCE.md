@@ -1,6 +1,6 @@
 # Identity & Access Management (IAM) Reference
 
-> A comprehensive cybersecurity reference covering IAM fundamentals, authentication technologies, authorization models, identity providers, PAM, IGA, Zero Trust identity, machine identity, security monitoring, and governance/compliance.
+> Reference covering IAM fundamentals, authentication technologies, authorization models, identity providers, PAM, IGA, Zero Trust identity, machine identity, security monitoring, and governance/compliance.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -8,8 +8,8 @@
 |---|---|
 | Who this is for | IAM architects and engineers, and security teams writing identity controls and detections |
 | Level | Intermediate |
-| Reading time | About 13 min (2,953 words at 230 words a minute) |
-| Read this when | choosing or hardening MFA and passwordless auth, designing RBAC/ABAC or PAM controls, building IAM detections (credential stuffing, MFA fatigue, impossible travel), mapping IAM to SOC 2 / PCI / NIST / HIPAA |
+| Reading time | About 13 min (2,950 words at 230 words a minute) |
+| Read this when | Choosing or hardening MFA and passwordless auth, designing RBAC/ABAC or PAM controls, building IAM detections (credential stuffing, MFA fatigue, impossible travel), mapping IAM to SOC 2 / PCI / NIST / HIPAA |
 | Start at | [IAM Fundamentals](#_1-iam-fundamentals), [Authentication Technologies](#_2-authentication-technologies), [IAM Security Monitoring](#_9-iam-security-monitoring) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>

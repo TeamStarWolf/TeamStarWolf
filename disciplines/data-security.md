@@ -11,7 +11,7 @@ Data security is the set of technical and operational practices that ensure sens
 | Who this is for | Practitioners learning data classification, encryption, DLP, and data posture management |
 | Level | Beginner to advanced |
 | Reading time | About 12 min (2,737 words at 230 words a minute) |
-| Read this when | starting in data security: classification, data loss prevention, encryption and access governance for data |
+| Read this when | Finding out what data security engineers do, or working on classification, data loss prevention, encryption and access governance for data |
 | Start at | [Where to Start](#where-to-start), [Data Classification Reference](#data-classification-reference), [Free & Open-Source Tools](#free-amp-open-source-tools) |
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>

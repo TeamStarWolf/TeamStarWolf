@@ -1,6 +1,6 @@
 # SDR & RF Security Reference Library
 
-> A professional cybersecurity reference for Software-Defined Radio and RF security research, penetration testing, and defensive operations.
+> Reference for Software-Defined Radio and RF security research, penetration testing, and defensive operations.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -8,7 +8,7 @@
 |---|---|
 | Who this is for | RF security researchers, wireless penetration testers, and hardware hackers |
 | Level | Intermediate to advanced |
-| Reading time | About 19 min (4,317 words at 230 words a minute) |
+| Reading time | About 19 min (4,314 words at 230 words a minute) |
 | Read this when | Choosing SDR hardware for a job, capturing or replaying an unknown RF signal, or decoding a wireless protocol (GSM, P25, Zigbee, BLE, ADS-B) |
 | Start at | [SDR Fundamentals & Hardware](#_1-sdr-fundamentals-amp-hardware), [Replay & Signal Injection](#_7-replay-amp-signal-injection), [Defensive RF & Legal Framework](#_10-defensive-rf-amp-legal-framework) |
 

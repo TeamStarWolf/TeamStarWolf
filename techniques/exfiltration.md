@@ -9,7 +9,7 @@
 
 Tactics: Exfiltration, Platforms: Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1011)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 5 NIST 800-53 controls, and the detection strategy</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 5 NIST controls, detection strategy</summary>
 
 Adversaries may attempt to exfiltrate data over a different network medium than the command and control channel. If the command and control network is a wired Internet connection, the exfiltration may occur, for example, over a WiFi connection, modem, cellular data connection, Bluetooth, or another radio frequency (RF) channel. Adversaries may choose to do this if they have sufficient access or proximity, and the connection might not be secured or defended as well as the primary Internet-connected channel because it is not routed through the same enterprise network.
 
@@ -26,7 +26,7 @@ ATT&CK detection strategy: Detection of Exfiltration Over Alternate Network Inte
 
 sub-technique of [T1011](/techniques/exfiltration.md#t1011), Tactics: Exfiltration, Platforms: Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1011/001)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 8 NIST 800-53 controls, the detection strategy, and 1 software entry</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 8 NIST controls, detection strategy, 1 software</summary>
 
 Adversaries may attempt to exfiltrate data over Bluetooth rather than the command and control channel. If the command and control network is a wired Internet connection, an adversary may opt to exfiltrate data using a Bluetooth communication channel. Adversaries may choose to do this if they have sufficient access and proximity. Bluetooth connections might not be secured or defended as well as the primary Internet-connected channel because it is not routed through the same enterprise network.
 
@@ -44,7 +44,7 @@ Implemented by 1 software: [S0143 Flame](https://attack.mitre.org/software/S0143
 
 Tactics: Exfiltration, Platforms: Linux, macOS, Network Devices, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1020)  
 
-<details class="tsw-fold"><summary>Show the description, the detection strategy, 7 threat groups, and 21 software entries</summary>
+<details class="tsw-fold"><summary>Show details: detection strategy, 7 groups, 21 software</summary>
 
 Adversaries may exfiltrate data, such as sensitive documents, through the use of automated processing after being gathered during Collection. When automated exfiltration is used, other exfiltration techniques likely apply as well to transfer the information out of the network, such as [Exfiltration Over C2 Channel](https://attack.mitre.org/techniques/T1041) and [Exfiltration Over Alternative Protocol](https://attack.mitre.org/techniques/T1048).
 
@@ -63,7 +63,7 @@ Implemented by 21 software: [S0050 CosmicDuke](https://attack.mitre.org/software
 
 sub-technique of [T1020](/techniques/exfiltration.md#t1020), Tactics: Exfiltration, Platforms: Network Devices, IaaS, [ATT&CK](https://attack.mitre.org/techniques/T1020/001)  
 
-<details class="tsw-fold"><summary>Show the description, 3 ATT&CK mitigations, 21 NIST 800-53 controls, and the detection strategy</summary>
+<details class="tsw-fold"><summary>Show details: 3 mitigations, 21 NIST controls, detection strategy</summary>
 
 Adversaries may leverage traffic mirroring in order to automate data exfiltration over compromised infrastructure. Traffic mirroring is a native feature for some devices, often used for network analysis. For example, devices may be configured to forward network traffic to one or more destinations for analysis by a network analyzer or other monitoring device. Adversaries may abuse traffic mirroring to mirror or redirect network traffic through other infrastructure they control. Malicious modifications to network devices to enable traffic redirection may be possible through [ROMMONkit](https://attack.mitre.org/techniques/T1542/004) or [Patch System Image](https://attack.mitre.org/techniques/T1601/001). Many cloud-based environments also support traffic mirroring. For example, AWS Traffic Mirroring, GCP Packet Mirroring, and Azure vTap allow users to define specified instances to collect traffic from and specified targets to send collected traffic to. Adversaries may use traffic duplication in conjunction with [Network Sniffing](https://attack.mitre.org/techniques/T1040), [Input Capture](https://attack.mitre.org/techniques/T1056), or [Adversary-in-the-Middle](https://attack.mitre.org/techniques/T1557) depending on the goals and objectives of the adversary.
 
@@ -80,7 +80,7 @@ ATT&CK detection strategy: Detection Strategy for Traffic Duplication via Mirror
 
 Tactics: Exfiltration, Platforms: Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1029)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 7 NIST 800-53 controls, the detection strategy, 1 threat group, and 17 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 7 NIST controls, detection strategy, 1 group, 17 software</summary>
 
 Adversaries may schedule data exfiltration to be performed only at certain times of day or at certain intervals. This could be done to blend traffic patterns with normal activity or availability. When scheduled exfiltration is used, other exfiltration techniques likely apply as well to transfer the information out of the network, such as [Exfiltration Over C2 Channel](https://attack.mitre.org/techniques/T1041) or [Exfiltration Over Alternative Protocol](https://attack.mitre.org/techniques/T1048).
 
@@ -99,7 +99,7 @@ Implemented by 17 software: [S0045 ADVSTORESHELL](https://attack.mitre.org/softw
 
 Tactics: Exfiltration, Platforms: Linux, macOS, Windows, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1030)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 7 NIST 800-53 controls, the detection strategy, 5 threat groups, and 14 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 7 NIST controls, detection strategy, 5 groups, 14 software</summary>
 
 An adversary may exfiltrate data in fixed size chunks instead of whole files or limit packet sizes below certain thresholds. This approach may be used to avoid triggering network data transfer threshold alerts.
 
@@ -118,7 +118,7 @@ Implemented by 14 software: [S0030 Carbanak](https://attack.mitre.org/software/S
 
 Tactics: Exfiltration, Platforms: ESXi, Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1041)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 18 NIST 800-53 controls, the detection strategy, 27 threat groups, and 166 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 18 NIST controls, detection strategy, 27 groups, 166 software</summary>
 
 Adversaries may steal data by exfiltrating it over an existing command and control channel. Stolen data is encoded into the normal communications channel using the same protocol as command and control communications.
 
@@ -137,7 +137,7 @@ Implemented by 166 software: [S0013 PlugX](https://attack.mitre.org/software/S00
 
 Tactics: Exfiltration, Platforms: ESXi, IaaS, Linux, macOS, Network Devices, Office Suite, SaaS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1048)  
 
-<details class="tsw-fold"><summary>Show the description, 6 ATT&CK mitigations, 23 NIST 800-53 controls, the detection strategy, 2 threat groups, and 7 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 6 mitigations, 23 NIST controls, detection strategy, 2 groups, 7 software</summary>
 
 Adversaries may steal data by exfiltrating it over a different protocol than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server. Alternate protocols include FTP, SMTP, HTTP/S, DNS, SMB, or any other network protocol not being used as the main command and control channel. Adversaries may also opt to encrypt and/or obfuscate these alternate channels. [Exfiltration Over Alternative Protocol](https://attack.mitre.org/techniques/T1048) can be done using various common operating system utilities such as [Net](https://attack.mitre.org/software/S0039)/SMB or FTP. On macOS and Linux <code>curl</code> may be used to invoke protocols such as HTTP/S or FTP/S to exfiltrate data from a system. Many IaaS and SaaS platforms (such as Microsoft Exchange, Microsoft SharePoint, GitHub, and AWS S3) support the direct download of files, emails, source code, and other sensitive information via the web console or [Cloud API](https://attack.mitre.org/techniques/T1059/009).
 
@@ -156,7 +156,7 @@ Implemented by 7 software: [S0203 Hydraq](https://attack.mitre.org/software/S020
 
 sub-technique of [T1048](/techniques/exfiltration.md#t1048), Tactics: Exfiltration, Platforms: Linux, macOS, Windows, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1048/001)  
 
-<details class="tsw-fold"><summary>Show the description, 3 ATT&CK mitigations, 12 NIST 800-53 controls, and the detection strategy</summary>
+<details class="tsw-fold"><summary>Show details: 3 mitigations, 12 NIST controls, detection strategy</summary>
 
 Adversaries may steal data by exfiltrating it over a symmetrically encrypted network protocol other than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server. Symmetric encryption algorithms are those that use shared or the same keys/secrets on each end of the channel. This requires an exchange or pre-arranged agreement/possession of the value used to encrypt and decrypt data. Network protocols that use asymmetric encryption often utilize symmetric encryption once keys are exchanged, but adversaries may opt to manually share keys and implement symmetric cryptographic algorithms (ex: RC4, AES) vice using mechanisms that are baked into a protocol. This may result in multiple layers of encryption (in protocols that are natively encrypted such as HTTPS) or encryption in protocols that not typically encrypted (such as HTTP or FTP).
 
@@ -173,7 +173,7 @@ ATT&CK detection strategy: Behavioral Detection Strategy for Exfiltration Over S
 
 sub-technique of [T1048](/techniques/exfiltration.md#t1048), Tactics: Exfiltration, Platforms: Linux, macOS, Windows, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1048/002)  
 
-<details class="tsw-fold"><summary>Show the description, 4 ATT&CK mitigations, 23 NIST 800-53 controls, the detection strategy, 4 threat groups, and 3 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 4 mitigations, 23 NIST controls, detection strategy, 4 groups, 3 software</summary>
 
 Adversaries may steal data by exfiltrating it over an asymmetrically encrypted network protocol other than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server. Asymmetric encryption algorithms are those that use different keys on each end of the channel. Also known as public-key cryptography, this requires pairs of cryptographic keys that can encrypt/decrypt data from the corresponding key. Each end of the communication channels requires a private key (only in the procession of that entity) and the public key of the other entity. The public keys of each entity are exchanged before encrypted communications begin. Network protocols that use asymmetric encryption (such as HTTPS/TLS/SSL) often utilize symmetric encryption once keys are exchanged. Adversaries may opt to use these encrypted mechanisms that are baked into a protocol.
 
@@ -192,7 +192,7 @@ Implemented by 3 software: [S0483 IcedID](https://attack.mitre.org/software/S048
 
 sub-technique of [T1048](/techniques/exfiltration.md#t1048), Tactics: Exfiltration, Platforms: ESXi, Linux, macOS, Network Devices, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1048/003)  
 
-<details class="tsw-fold"><summary>Show the description, 4 ATT&CK mitigations, 23 NIST 800-53 controls, the detection strategy, 11 threat groups, and 22 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 4 mitigations, 23 NIST controls, detection strategy, 11 groups, 22 software</summary>
 
 Adversaries may steal data by exfiltrating it over an un-encrypted network protocol other than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server. Adversaries may opt to obfuscate this data, without the use of encryption, within network protocols that are natively unencrypted (such as HTTP, FTP, or DNS). This may include custom or publicly available encoding/compression algorithms (such as base64) as well as embedding data within protocol headers and fields.
 
@@ -211,7 +211,7 @@ Implemented by 22 software: [S0050 CosmicDuke](https://attack.mitre.org/software
 
 Tactics: Exfiltration, Platforms: Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1052)  
 
-<details class="tsw-fold"><summary>Show the description, 3 ATT&CK mitigations, 19 NIST 800-53 controls, and the detection strategy</summary>
+<details class="tsw-fold"><summary>Show details: 3 mitigations, 19 NIST controls, detection strategy</summary>
 
 Adversaries may attempt to exfiltrate data via a physical medium, such as a removable drive. In certain circumstances, such as an air-gapped network compromise, exfiltration could occur via a physical medium or device introduced by a user. Such media could be an external hard drive, USB drive, cellular phone, MP3 player, or other removable storage and processing device. The physical medium or device could be used as the final exfiltration point or to hop between otherwise disconnected systems.
 
@@ -228,7 +228,7 @@ ATT&CK detection strategy: Detection of Data Exfiltration via Removable Media
 
 sub-technique of [T1052](/techniques/exfiltration.md#t1052), Tactics: Exfiltration, Platforms: Linux, Windows, macOS, [ATT&CK](https://attack.mitre.org/techniques/T1052/001)  
 
-<details class="tsw-fold"><summary>Show the description, 3 ATT&CK mitigations, 19 NIST 800-53 controls, the detection strategy, 2 threat groups, and 5 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 3 mitigations, 19 NIST controls, detection strategy, 2 groups, 5 software</summary>
 
 Adversaries may attempt to exfiltrate data over a USB connected physical device. In certain circumstances, such as an air-gapped network compromise, exfiltration could occur via a USB device introduced by a user. The USB device could be used as the final exfiltration point or to hop between otherwise disconnected systems.
 
@@ -247,7 +247,7 @@ Implemented by 5 software: [S0035 SPACESHIP](https://attack.mitre.org/software/S
 
 Tactics: Exfiltration, Platforms: IaaS, Office Suite, SaaS, [ATT&CK](https://attack.mitre.org/techniques/T1537)  
 
-<details class="tsw-fold"><summary>Show the description, 4 ATT&CK mitigations, 20 NIST 800-53 controls, the detection strategy, and 3 threat groups</summary>
+<details class="tsw-fold"><summary>Show details: 4 mitigations, 20 NIST controls, detection strategy, 3 groups</summary>
 
 Adversaries may exfiltrate data by transferring the data, including through sharing/syncing and creating backups of cloud environments, to another cloud account they control on the same service. A defender who is monitoring for large transfers to outside the cloud environment through normal file transfers or over command and control channels may not be watching for data transfers to another account within the same cloud provider. Such transfers may utilize existing cloud provider APIs and the internal address space of the cloud provider to blend into normal traffic or avoid data transfers over external network interfaces. Adversaries may also use cloud-native mechanisms to share victim data with adversary-controlled cloud accounts, such as creating anonymous file sharing links or, in Azure, a shared access signature (SAS) URI. Incidents have been observed where adversaries have created backups of cloud instances and transferred them to separate accounts.
 
@@ -265,7 +265,7 @@ Used by 3 threat groups: [G1032 INC Ransom](https://attack.mitre.org/groups/G103
 
 Tactics: Exfiltration, Platforms: ESXi, Linux, macOS, Office Suite, SaaS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1567)  
 
-<details class="tsw-fold"><summary>Show the description, 2 ATT&CK mitigations, 17 NIST 800-53 controls, the detection strategy, 5 threat groups, and 7 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 2 mitigations, 17 NIST controls, detection strategy, 5 groups, 7 software</summary>
 
 Adversaries may use an existing, legitimate external Web service to exfiltrate data rather than their primary command and control channel. Popular Web services acting as an exfiltration mechanism may give a significant amount of cover due to the likelihood that hosts within a network are already communicating with them prior to compromise. Firewall rules may also already exist to permit traffic to these services. Web service providers also commonly use SSL/TLS encryption, giving adversaries an added level of protection.
 
@@ -284,7 +284,7 @@ Implemented by 7 software: [S0508 ngrok](https://attack.mitre.org/software/S0508
 
 sub-technique of [T1567](/techniques/exfiltration.md#t1567), Tactics: Exfiltration, Platforms: Linux, macOS, Windows, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1567/001)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 3 NIST 800-53 controls, the detection strategy, and 4 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 3 NIST controls, detection strategy, 4 software</summary>
 
 Adversaries may exfiltrate data to a code repository rather than over their primary command and control channel. Code repositories are often accessible via an API (ex: https://api.github.com). Access to these APIs are often over HTTPS, which gives the adversary an additional level of protection. Exfiltration to a code repository can also provide a significant amount of cover to the adversary if it is a popular service already used by hosts within the network.
 
@@ -302,7 +302,7 @@ Implemented by 4 software: [S0363 Empire](https://attack.mitre.org/software/S036
 
 sub-technique of [T1567](/techniques/exfiltration.md#t1567), Tactics: Exfiltration, Platforms: ESXi, Linux, macOS, Windows, [ATT&CK](https://attack.mitre.org/techniques/T1567/002)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 3 NIST 800-53 controls, the detection strategy, 25 threat groups, and 16 software entries</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 3 NIST controls, detection strategy, 25 groups, 16 software</summary>
 
 Adversaries may exfiltrate data to a cloud storage service rather than over their primary command and control channel. Cloud storage services allow for the storage, edit, and retrieval of data from a remote cloud storage server over the Internet. Examples of cloud storage services include Dropbox and Google Docs. Exfiltration to these cloud storage services can provide a significant amount of cover to the adversary if hosts within the network are already communicating with the service.
 
@@ -321,7 +321,7 @@ Implemented by 16 software: [S0037 HAMMERTOSS](https://attack.mitre.org/software
 
 sub-technique of [T1567](/techniques/exfiltration.md#t1567), Tactics: Exfiltration, Platforms: Linux, macOS, Windows, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1567/003)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 3 NIST 800-53 controls, and the detection strategy</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 3 NIST controls, detection strategy</summary>
 
 Adversaries may exfiltrate data to text storage sites instead of their primary command and control channel. Text storage sites, such as <code>pastebin[.]com</code>, are commonly used by developers to share code and other information. Text storage sites are often used to host malicious code for C2 communication (e.g., [Stage Capabilities](https://attack.mitre.org/techniques/T1608)), but adversaries may also use these sites to exfiltrate collected data. Furthermore, paid features and encryption options may allow adversaries to conceal and store data more securely. Note: This is distinct from [Exfiltration to Code Repository](https://attack.mitre.org/techniques/T1567/001), which highlight access to code repositories via APIs.
 
@@ -338,7 +338,7 @@ ATT&CK detection strategy: Detection Strategy for Exfiltration to Text Storage S
 
 sub-technique of [T1567](/techniques/exfiltration.md#t1567), Tactics: Exfiltration, Platforms: Windows, macOS, Linux, SaaS, Office Suite, ESXi, [ATT&CK](https://attack.mitre.org/techniques/T1567/004)  
 
-<details class="tsw-fold"><summary>Show the description, 1 ATT&CK mitigation, 3 NIST 800-53 controls, the detection strategy, and 1 software entry</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 3 NIST controls, detection strategy, 1 software</summary>
 
 Adversaries may exfiltrate data to a webhook endpoint rather than over their primary command and control channel. Webhooks are simple mechanisms for allowing a server to push data over HTTP/S to a client without the need for the client to continuously poll the server. Many public and commercial services, such as Discord, Slack, and `webhook.site`, support the creation of webhook endpoints that can be used by other services, such as Github, Jira, or Trello. When changes happen in the linked services (such as pushing a repository update or modifying a ticket), these services will automatically post the data to the webhook endpoint for use by the consuming application. Adversaries may link an adversary-owned environment to a victim-owned SaaS service to achieve repeated [Automated Exfiltration](https://attack.mitre.org/techniques/T1020) of emails, chat messages, and other data. Alternatively, instead of linking the webhook endpoint to a service, an adversary can manually post staged data directly to the URL in order to exfiltrate it. Access to webhook endpoints is often over HTTPS, which gives the adversary an additional level of protection. Exfiltration leveraging webhooks can also blend in with normal network traffic if the webhook endpoint points to a commonly used SaaS application or collaboration service.
 

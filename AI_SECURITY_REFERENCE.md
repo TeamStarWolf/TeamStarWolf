@@ -9,7 +9,7 @@
 | Who this is for | Engineers and security reviewers building or assessing LLM applications, and SOC teams using LLMs |
 | Level | Intermediate |
 | Reading time | About 14 min (3,305 words at 230 words a minute) |
-| Read this when | you are threat-modeling or reviewing an LLM application before deployment, investigating a suspected prompt injection or model extraction attempt, choosing guardrails or PII controls for an AI pipeline, mapping AI risks to compliance frameworks |
+| Read this when | You are threat-modeling or reviewing an LLM application before deployment, investigating a suspected prompt injection or model extraction attempt, choosing guardrails or PII controls for an AI pipeline, mapping AI risks to compliance frameworks |
 | Start at | [OWASP LLM Top 10 (2025)](#owasp-llm-top-10-2025), [Prompt Injection Deep Dive](#prompt-injection-deep-dive), [Quick Reference: AI Security Checklist](#quick-reference-ai-security-checklist) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>

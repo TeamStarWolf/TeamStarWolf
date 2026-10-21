@@ -11,7 +11,7 @@ Related: [Certifications Reference](CERTIFICATIONS.md), [Career Paths & Cert Roa
 | Who this is for | Candidates preparing for the CEH v13 knowledge exam |
 | Level | Beginner to intermediate |
 | Reading time | About 12 min (2,863 words at 230 words a minute) |
-| Read this when | you are studying for the CEH knowledge exam, deciding where in this library to prepare each domain, or checking which topics this library covers versus what needs official EC-Council courseware |
+| Read this when | You are studying for the CEH knowledge exam, deciding where in this library to prepare each domain, or checking which topics this library covers versus what needs official EC-Council courseware |
 | Start at | [At a glance](#at-a-glance) for the domain-and-weight table, [The domain crosswalk](#the-domain-crosswalk) for the per-domain mapping, [Study-plan skeleton](#study-plan-skeleton) to sequence the work |
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>

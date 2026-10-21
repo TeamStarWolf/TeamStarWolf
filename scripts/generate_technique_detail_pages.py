@@ -109,13 +109,6 @@ def count(n, noun, plural=None):
     return str(n) + " " + plural
 
 
-def series(parts):
-    """'a', 'a and b', 'a, b, and c' (serial comma, docs/VOICE.md)."""
-    if len(parts) < 3:
-        return " and ".join(parts)
-    return ", ".join(parts[:-1]) + ", and " + parts[-1]
-
-
 def dedup(seq):
     seen, out = set(), []
     for x in seq:
@@ -141,13 +134,14 @@ def tech_block(tid):
     migs, nist = p.get("mitigations") or [], p.get("nist_800_53_controls") or []
     strat = p.get("detection_strategies") or []
     grps, sw = dedup(groups_by_t.get(tid) or []), dedup(sw_by_t.get(tid) or [])
-    parts = ["the description"] if p.get("description") else []
-    parts += [count(len(migs), "ATT&CK mitigation")] if migs else []
-    parts += [count(len(nist), "NIST 800-53 control")] if nist else []
-    parts += [("the detection strategy" if len(strat) == 1 else count(len(strat), "detection strategy"))] if strat else []
-    parts += [count(len(grps), "threat group")] if grps else []
-    parts += [count(len(sw), "software entry", "software entries")] if sw else []
-    out += [FOLD_OPEN.format("Show " + series(parts)), ""]
+    # A short label to scan down a page of folds: the description is implied by "details",
+    # NIST means NIST SP 800-53, and "software" is ATT&CK's own plural.
+    parts = [count(len(migs), "mitigation")] if migs else []
+    parts += [count(len(nist), "NIST control")] if nist else []
+    parts += [("detection strategy" if len(strat) == 1 else count(len(strat), "detection strategy"))] if strat else []
+    parts += [count(len(grps), "group")] if grps else []
+    parts += [count(len(sw), "software", "software")] if sw else []
+    out += [FOLD_OPEN.format("Show details" + (": " + ", ".join(parts) if parts else "")), ""]
     if p.get("description"):
         out.append(p["description"].strip())
         out.append("")

@@ -7,7 +7,7 @@
 | Who this is for | Architects and engineers learning to plan and implement Zero Trust |
 | Level | Beginner to advanced |
 | Reading time | About 9 min (2,084 words at 230 words a minute) |
-| Read this when | learning zero trust architecture from NIST SP 800-207 and the CISA maturity model, or planning a migration pillar by pillar |
+| Read this when | Learning zero trust architecture from NIST SP 800-207 and the CISA maturity model, or planning a migration pillar by pillar |
 | Start at | [Where to Start](#where-to-start), [NIST SP 800-207](#nist-sp-800-207-zero-trust-architecture), [CISA Zero Trust Maturity Model](#cisa-zero-trust-maturity-model-ztmm) |
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>

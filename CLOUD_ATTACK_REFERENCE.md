@@ -1,6 +1,6 @@
 # Cloud Attack Reference
 
-> Comprehensive cloud attack techniques for AWS, Azure, and GCP, aligned to MITRE ATT&CK for Cloud.  
+> Cloud attack techniques for AWS, Azure, and GCP, aligned to MITRE ATT&CK for Cloud.  
 > For defensive security engineers and incident responders: understand attacker techniques to build better detections and controls.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
@@ -9,7 +9,7 @@
 |---|---|
 | Who this is for | Defensive security engineers and incident responders working in AWS, Azure, GCP, and Kubernetes |
 | Level | Intermediate to advanced |
-| Reading time | About 7 min (1,542 words at 230 words a minute) |
+| Reading time | About 7 min (1,541 words at 230 words a minute) |
 | Read this when | Building or tuning cloud detections, running IR on a suspected AWS/Azure/GCP or Kubernetes compromise, planning a red/purple-team cloud engagement |
 | Start at | [Cloud Attack Taxonomy & Initial Access](#_1-cloud-attack-taxonomy-amp-initial-access), [AWS Attack Techniques](#_2-aws-attack-techniques), [Cloud Security Posture & Detection](#_10-cloud-security-posture-amp-detection) |
 
@@ -18,7 +18,7 @@
 | | |
 |---|---|
 | Pairs with | [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md), [KUBERNETES_SECURITY_REFERENCE.md](KUBERNETES_SECURITY_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md) |
-| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last corrected | 2026-10-12, revoked T1562 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

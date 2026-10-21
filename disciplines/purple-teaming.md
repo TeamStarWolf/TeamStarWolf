@@ -9,14 +9,14 @@ Purple teaming is a structured security methodology that unites offensive (red) 
 | Who this is for | Red and blue team practitioners learning to run purple team exercises |
 | Level | Beginner to advanced |
 | Reading time | About 8 min (1,785 words at 230 words a minute) |
-| Read this when | planning a purple team exercise, measuring detection coverage against ATT&CK, or choosing adversary emulation and BAS tools |
+| Read this when | Planning a purple team exercise, measuring detection coverage against ATT&CK, or choosing adversary emulation and BAS tools |
 | Start at | [Where to Start](#where-to-start), [Purple Team Exercise Structure](#purple-team-exercise-structure), [Detection Outcome Matrix](#detection-outcome-matrix) |
 
 <details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
 
 | | |
 |---|---|
-| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last corrected | 2026-10-12, revoked T1562 re-keyed to T1685 ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
 | Last reviewed | No review recorded yet |
 
 </details>

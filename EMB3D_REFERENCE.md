@@ -25,7 +25,7 @@ Related: [Firmware & IoT Security](FIRMWARE_IOT_SECURITY_REFERENCE.md), [ICS/OT 
 | Who this is for | Embedded and OT security engineers, device vendors, and asset owners writing procurement requirements |
 | Level | Intermediate to advanced |
 | Reading time | About 21 min (4,816 words at 230 words a minute) |
-| Read this when | assessing or pen-testing an embedded device (PLC, controller, medical device, ECU, IoT endpoint), writing procurement or vendor-questionnaire language for device security, deciding whether a vendor claim counts as a real built-in mitigation or just deployment advice |
+| Read this when | Assessing or pen-testing an embedded device (PLC, controller, medical device, ECU, IoT endpoint), writing procurement or vendor-questionnaire language for device security, deciding whether a vendor claim counts as a real built-in mitigation or just deployment advice |
 | Start at | [Running a device threat-exposure review with EMB3D](#running-a-device-threat-exposure-review-with-emb3d), [The properties-to-threats mapping](#the-properties-to-threats-mapping), [Program guidance: procurement, vendor questionnaires, and gap tracking](#program-guidance-procurement-vendor-questionnaires-and-gap-tracking) |
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>

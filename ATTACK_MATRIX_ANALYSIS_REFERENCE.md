@@ -14,7 +14,7 @@
 | Who this is for | Threat-informed defense analysts and ATTACK-Navi users |
 | Level | Intermediate |
 | Reading time | About 5 min (1,127 words at 230 words a minute) |
-| Read this when | choosing which heatmap mode answers your coverage question, prioritizing techniques by threat activity or exploitation urgency, sanity-checking what a gradient score does and does not prove |
+| Read this when | Choosing which heatmap mode answers your coverage question, prioritizing techniques by threat activity or exploitation urgency, sanity-checking what a gradient score does and does not prove |
 | Start at | [An analysis workflow](#an-analysis-workflow), [Lens family 1 - Mitigation & control coverage](#lens-family-1-mitigation-amp-control-coverage), [Reading the scores safely](#reading-the-scores-safely) |
 
 <details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>

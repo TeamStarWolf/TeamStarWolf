@@ -11,7 +11,7 @@ CPE (Common Platform Enumeration) is a NIST-maintained naming scheme for IT prod
 | Who this is for | Vulnerability management and asset inventory teams |
 | Level | Beginner to intermediate |
 | Reading time | About 4 min (837 words at 230 words a minute) |
-| Read this when | matching CVE feeds to the products you run, resolving SBOM components to product identifiers, or debugging why a scanner does or does not flag an asset |
+| Read this when | Matching CVE feeds to the products you run, resolving SBOM components to product identifiers, or debugging why a scanner does or does not flag an asset |
 | Start at | [Where CPE fits in the ecosystem](#where-cpe-fits-in-the-ecosystem), [CPE applicability: how CVEs map to products](#cpe-applicability-how-cves-map-to-products), [Practical notes & pitfalls](#practical-notes-amp-pitfalls) |
 
 <details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>

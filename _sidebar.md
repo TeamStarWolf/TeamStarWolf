@@ -79,5 +79,6 @@
   - [Third-party notices](/THIRD_PARTY_NOTICES.md)
   - [Contributing](/CONTRIBUTING.md)
   - [Voice and credibility guide](/docs/VOICE.md)
+  - [Maintaining the site](/docs/MAINTAINING_THE_SITE.md)
   - [Security policy](/SECURITY.md)
   - [Code of conduct](/CODE_OF_CONDUCT.md)

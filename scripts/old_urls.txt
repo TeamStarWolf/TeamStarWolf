@@ -1,0 +1,56 @@
+# Old-URL regression list: site routes sampled from the sidebar and INDEX.md as they were before
+# the site revamp (commit 1234f86c, 2026-10-16), one per line. Page routes are spaced evenly
+# over the old sidebar and INDEX targets; each anchor route takes a level-2 heading the page had
+# then. scripts/check_old_urls.py resolves every line the way the docsify site does and fails if
+# one no longer reaches its page and heading. Add a line for any route outside sites link to;
+# never delete one to make the check pass: restore the page, heading or alias instead.
+#/ACTIVE_DIRECTORY_ATTACKS
+#/AI_SECURITY_REFERENCE
+#/ATTACK_SOFTWARE_REFERENCE
+#/CERTIFICATIONS
+#/CONTAINER_SECURITY_REFERENCE
+#/CVE_REFERENCE
+#/DETECTION_RULES_REFERENCE
+#/ENTERPRISE_INFRASTRUCTURE
+#/GRC_COMPLIANCE_REFERENCE
+#/ICS_OT_SECURITY_REFERENCE
+#/LABS
+#/MOBILE_SECURITY_REFERENCE
+#/NETWORK_SECURITY_ARCHITECTURE
+#/PHYSICAL_SECURITY_REFERENCE
+#/REGULATORY_LANDSCAPE_REFERENCE
+#/SECURITY_AWARENESS_REFERENCE
+#/SIEM_REFERENCE
+#/THREAT_ACTORS
+#/TWITTER_FOLLOW_LIST
+#/WINDOWS_HARDENING_REFERENCE
+#/ai-tooling/tools/
+#/disciplines/cloud-security
+#/disciplines/offensive-security
+#/guides/HARDEN_A_KUBERNETES_CLUSTER
+#/guides/
+#/guides/TRIAGE_A_CVE
+#/mitre/techniques/
+#/tools-research/
+#/tools/check-point
+#/tools/microsoft-defender-for-cloud
+#/AI_MCP_SECURITY_REFERENCE?id=_5-mitre-atlas-techniques
+#/BLOCKCHAIN_SECURITY_REFERENCE?id=essential-audit-checklist
+#/CLOUD_SECURITY_BENCHMARK?id=cspm-tool-reference
+#/CYBER_RESILIENCE_BCDR_REFERENCE?id=sources
+#/ENDPOINT_SECURITY_REFERENCE?id=_6-windows-event-log-security-monitoring
+#/HEALTHCARE_SECURITY_REFERENCE?id=related-resources
+#/IR_PLAYBOOKS?id=ddos-attack
+#/NETWORK_ATTACKS_REFERENCE?id=quick-reference-attack-to-detection-to-prevention
+#/PENETRATION_TESTING_METHODOLOGY?id=_5-post-exploitation
+#/SAAS_SECURITY_REFERENCE?id=sources
+#/SECURITY_TOOL_DOCUMENTATION?id=cloud-amp-supply-chain
+#/THREAT_HUNTING_REFERENCE?id=quick-reference-key-resources
+#/WINDOWS_HARDENING?id=windows-firewall-configuration
+#/detections/TECHNIQUE_DETECTION_LIBRARY?id=related-references
+#/disciplines/malware-analysis?id=who-to-follow
+#/guides/HOW_TO_USE_THIS_LIBRARY?id=go-deeper
+#/guides/START_A_VULN_MGMT_PROGRAM?id=step-5-prioritize-with-ssvc-not-cvss-alone
+#/research/HTB_MACHINE_INDEX?id=ippsec-machine-video-index
+#/tools/aws-waf?id=validation-amp-telemetry
+#/tools/splunk?id=current-state-2025-26

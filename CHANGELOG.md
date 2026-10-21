@@ -7,6 +7,13 @@ by the date its pull requests merged to `main` rather than by tagged release.
 ## Unreleased
 
 ### Added
+- [Maintaining the Site](docs/MAINTAINING_THE_SITE.md): how to add a page, where each piece of
+  page metadata lives, what every script and CI check does, how the Actions deploy works, and
+  how to roll the site back, down to switching the Pages source back to the branch
+- An old-URL regression check: `scripts/old_urls.txt` holds site routes sampled from the
+  sidebar and INDEX as they were before the site revamp, page routes and `?id=` heading
+  routes, and `scripts/check_old_urls.py` fails the Link Check workflow when one no longer
+  reaches its page and heading
 - Header cards on every root reference and learning path, written into the page by
   `scripts/build_doc_meta.py` from `data/doc_meta.yaml`, so GitHub and the site show the
   same card: who the page is for, its level, its reading time (its words at 230 a minute;
@@ -81,6 +88,15 @@ by the date its pull requests merged to `main` rather than by tagged release.
 - Case Studies: a 16-slide PowerPoint deck for the AI Threats 2026 case study
   (`case-studies/slides/`), with each slide's sources in its speaker notes, linked
   from the study page and the Case Studies hub
+
+### Fixed
+- A link to a heading (`?id=`) on a long page could leave the heading scrolled above the
+  window, because docsify works out the scroll position before the header card and folds
+  are laid out; the site now lines the heading up under the navbar once that scroll stops,
+  unless the reader has already scrolled
+- The theme and search buttons are now the first tab stops after "Skip to content" and the
+  navbar; before, a keyboard user reached them only after every link on the page
+- Long inline code (paths, API routes) wraps instead of running off a phone screen
 
 ## 2026-09-26
 

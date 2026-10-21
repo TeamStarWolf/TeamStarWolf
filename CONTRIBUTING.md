@@ -107,6 +107,7 @@ if `git status` shows the ` D` entry.
 - Include a source reference for vendor-to-control mappings where possible
 
 ### New Pages and the Site Navigation
+- [Maintaining the Site](docs/MAINTAINING_THE_SITE.md) walks through adding a page, where each piece of page metadata lives, what every script and CI check does, how the deploy works and how to roll the site back.
 - The sidebars, the navbar, the domain hubs in `hubs/`, the "Browse by domain" cards on the homepage and the breadcrumbs are written by `scripts/build_site_nav.py` from `docs/site_nav.json`. Edit the JSON, not the generated files.
 - A new root reference goes in exactly one hub: add its file name to that hub's `docs` list in `docs/site_nav.json`, add its row to [INDEX.md](INDEX.md) (the hub shows the INDEX description), then run `python scripts/build_site_nav.py`.
 - A new page in a folder (a guide, a learning path, a tool page) is listed by that folder's README.md; link it there and run the script again.

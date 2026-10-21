@@ -547,6 +547,9 @@
       border-radius: 5px;
       padding: .12em .42em; font-size: .855em;
     }
+    /* A long inline path or API route wraps instead of running off a phone screen (break-word,
+       not anywhere, so table columns keep their width and the table scrolls instead). */
+    .markdown-section :not(pre) > code { overflow-wrap: break-word; }
     .markdown-section pre {
       background: var(--tsw-pre-bg);
       border: 1px solid var(--tsw-border);
@@ -1072,9 +1075,9 @@
       <p>Every page is plain Markdown, so you can read the whole library on GitHub instead: <a href="https://github.com/TeamStarWolf/TeamStarWolf#readme">start with the README</a>.</p>
     </div>
   </noscript>
-  <div id="app">Loading</div>
-  <button id="tsw-top" title="Back to top" aria-label="Back to top">↑</button>
-  <div id="tsw-mbar" aria-hidden="true"></div>
+  <!-- The theme and search buttons come before #app in the page so that, after "Skip to
+       content" and the navbar (which docsify puts first in the body), they are the next tab
+       stops; after #app they were reached only after every link on the page. -->
   <button id="tsw-theme" type="button" aria-label="Switch to light theme" title="Switch to light theme">
     <svg class="tsw-i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
     <svg class="tsw-i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>
@@ -1082,6 +1085,9 @@
   <button id="tsw-search-btn" type="button" aria-label="Search the library" title="Search (Ctrl K)" aria-haspopup="dialog">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5l5 5"/></svg>
   </button>
+  <div id="app">Loading</div>
+  <button id="tsw-top" title="Back to top" aria-label="Back to top">↑</button>
+  <div id="tsw-mbar" aria-hidden="true"></div>
 
   <!-- Search overlay. The script at the end of the page drives it with Pagefind's JS API over
        pagefind/ and ids.json, which the deploy workflow builds into the Pages artifact
@@ -1861,13 +1867,42 @@
         }
         if (hidden) { window.scrollTo(0, t.getBoundingClientRect().top + window.pageYOffset - (topMargin || 60)); }
       }
+      // docsify works out where to scroll for "?id=" before the header card and the folds are
+      // laid out, so on a long page its 500 ms scroll could stop with the heading up to a couple
+      // of hundred pixels above the window (found by the P6 old-URL check). Once that scroll has
+      // started and stopped (or nothing has moved for 1.5 s), line the heading up under the
+      // navbar once, unless the reader has scrolled, clicked or pressed a key since the route
+      // changed.
+      var touched = false, align = 0;
+      ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (t) {
+        window.addEventListener(t, function () { touched = true; }, { passive: true, capture: true });
+      });
+      function alignTo(id, topMargin) {
+        var my = ++align, y0 = window.pageYOffset, last = null, moved = false, t0 = Date.now();
+        touched = false;
+        if (!id) { return; }
+        (function poll() {
+          if (my !== align || touched) { return; }
+          var y = window.pageYOffset, age = Date.now() - t0;
+          if (y !== y0) { moved = true; }
+          if (age < 600 || y !== last || (!moved && age < 1500)) {
+            last = y;
+            if (age < 4000) { setTimeout(poll, 150); }
+            return;
+          }
+          var t = document.getElementById(id);
+          if (!t || !main() || !main().contains(t)) { return; }
+          var off = Math.round(t.getBoundingClientRect().top - (topMargin || 60));
+          if (Math.abs(off) > 4) { window.scrollTo(0, y + off); }
+        })();
+      }
       window.$docsify.plugins.push(function (hook, vm) {
         hook.doneEach(function () {
           card();
-          setTimeout(function () { openFor(routeId(), vm.config.topMargin); }, 0);
+          setTimeout(function () { openFor(routeId(), vm.config.topMargin); alignTo(routeId(), vm.config.topMargin); }, 0);
         });
         window.addEventListener('hashchange', function () {
-          setTimeout(function () { openFor(routeId(), vm.config.topMargin); }, 0);
+          setTimeout(function () { openFor(routeId(), vm.config.topMargin); alignTo(routeId(), vm.config.topMargin); }, 0);
         });
       });
       // "Show details: ..." while closed, "Hide details: ..." while open. The label is plain

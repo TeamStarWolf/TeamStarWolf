@@ -11,6 +11,8 @@ on:
       - 'scripts/check_docsify_links.py'
       - 'scripts/repo_files.py'
       - 'scripts/baselines/docsify_links.json'
+      - 'scripts/check_old_urls.py'
+      - 'scripts/old_urls.txt'
       - '.github/workflows/link-check.yml'
   pull_request:
     branches: [main]
@@ -22,6 +24,8 @@ on:
       - 'scripts/check_docsify_links.py'
       - 'scripts/repo_files.py'
       - 'scripts/baselines/docsify_links.json'
+      - 'scripts/check_old_urls.py'
+      - 'scripts/old_urls.txt'
       - '.github/workflows/link-check.yml'
   schedule:
     - cron: '0 6 * * 1'  # Every Monday at 6am UTC: full external scan
@@ -53,6 +57,11 @@ jobs:
 
       - name: Check internal links and anchors
         run: python scripts/check_docsify_links.py
+
+      # Routes sampled from the sidebar and INDEX before the site revamp (scripts/old_urls.txt):
+      # each must still reach its page and, for "?id=", its heading.
+      - name: Old site URLs still resolve
+        run: python scripts/check_old_urls.py
 
   external:
     name: External links (lychee)

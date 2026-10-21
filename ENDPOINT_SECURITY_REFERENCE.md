@@ -11,8 +11,16 @@
 | Reading time | About 9 min (2,014 words at 230 words a minute) |
 | Read this when | you are configuring or hardening Defender/CrowdStrike/SentinelOne, deploying Sysmon or Windows audit policy, or hunting for LSASS access, LOLBin abuse, or persistence on hosts |
 | Start at | [Endpoint Security Architecture](#_1-endpoint-security-architecture), [Sysmon deployment](#_5-sysmon-windows-system-monitor), [Endpoint Hardening Checklist](#_8-endpoint-hardening-checklist) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [LOTL_DETECTION_REFERENCE.md](LOTL_DETECTION_REFERENCE.md), [VENDOR_PREVENTION_POLICIES.md](VENDOR_PREVENTION_POLICIES.md) |
-| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

@@ -11,7 +11,17 @@ Red teaming differs fundamentally from penetration testing. A pentest is scoped,
 | Who this is for | Penetration testers and operators moving into red teaming |
 | Level | Intermediate to advanced |
 | Reading time | About 10 min (2,237 words at 230 words a minute) |
-| Last reviewed | 2026-09-27 (ATT&CK v19.2): tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51)) |
+| Read this when | learning how a red team engagement differs from a penetration test, or planning C2, infrastructure and OPSEC for an operation |
+| Start at | [Red Team vs Penetration Test vs Bug Bounty](#red-team-vs-penetration-test-vs-bug-bounty), [Red Team Kill Chain / Methodology](#red-team-kill-chain-methodology), [Infrastructure OPSEC](#infrastructure-opsec) |
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Last corrected | 2026-09-27, ATT&CK tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

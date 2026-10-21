@@ -11,16 +11,26 @@
 | Reading time | About 6 min (1,390 words at 230 words a minute) |
 | Read this when | You are standing up or expanding detection coverage in a SIEM, you need a maintained rule for a specific technique before writing your own, you want to convert Sigma rules to your platform's query language |
 | Start at | [Sigma: Universal Detection Rule Format](#sigma-universal-detection-rule-format), [Splunk Security Content (ESCU)](#splunk-security-content-escu), [Authoritative Detection Content Sources Summary](#authoritative-detection-content-sources-summary) |
-| Pairs with | [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [detections/strategies/README.md](detections/strategies/README.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [detections/TECHNIQUE_DETECTION_LIBRARY.md](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
 
-Which page should I read? This page is one of 3 on SIEM and detection content.
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Pairs with | [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [detections/strategies/README.md](detections/strategies/README.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [detections/TECHNIQUE_DETECTION_LIBRARY.md](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
+| Last corrected | 2026-09-29, Chronicle heading renamed Google Security Operations ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last reviewed | No review recorded yet |
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on SIEM and detection content.</summary>
 
 | Page | Read it for |
 |---|---|
 | SIEM Detection Content (this page) | Where to get vendor-maintained, ready-made detection content and how to deploy it. |
 | [SIEM Reference](/SIEM_REFERENCE.md) | SIEM platforms: architecture and sizing, and the query languages and detection workflows of Splunk, Sentinel, QRadar, and Elastic. |
 | [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md) | Writing your own rules in Sigma, YARA, Suricata, SPL, and KQL, then testing and tuning them. |
+
+</details>
 
 <!-- meta:end -->
 

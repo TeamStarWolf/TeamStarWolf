@@ -9,7 +9,17 @@ Supply chain security is the practice of protecting the integrity of software an
 | Who this is for | Developers and security engineers learning software and hardware supply chain security |
 | Level | Beginner to advanced |
 | Reading time | About 12 min (2,704 words at 230 words a minute) |
-| Last reviewed | 2026-09-27 (ATT&CK v19.2): tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51)) |
+| Read this when | learning software supply chain attacks and defenses: SBOM, signing and provenance, dependency and build security |
+| Start at | [Where to Start](#where-to-start), [Software Supply Chain Threats](#software-supply-chain-threats), [Artifact Signing and Provenance](#artifact-signing-and-provenance) |
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Last corrected | 2026-09-27, ATT&CK tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

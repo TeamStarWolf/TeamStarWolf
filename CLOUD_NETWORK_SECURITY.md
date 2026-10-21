@@ -11,9 +11,16 @@ A comprehensive reference for network security controls across AWS, Azure, and G
 | Reading time | About 11 min (2,489 words at 230 words a minute) |
 | Read this when | designing or reviewing VPC and VNet segmentation, firewall, WAF, or private-connectivity controls, or comparing the same network control across AWS, Azure, and GCP |
 | Start at | [AWS Network Security](#aws-network-security), [Cross-Cloud Comparison](#cross-cloud-comparison), [Compliance Mappings](#compliance-mappings) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 5 on cloud security.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 5 on cloud security.</summary>
 
 | Page | Read it for |
 |---|---|
@@ -22,6 +29,8 @@ Which page should I read? This page is one of 5 on cloud security.
 | [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md) | Controls and their configuration across AWS, Azure, and GCP, plus privilege-escalation paths and cloud attack tools. |
 | [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md) | Attacker techniques per cloud and for Kubernetes, aligned to ATT&CK, for building detections and running incident response. |
 | [Cloud Security Benchmark](/CLOUD_SECURITY_BENCHMARK.md) | CIS Benchmark hardening checks with fix commands, audit scripts, and CSPM tools. |
+
+</details>
 
 <!-- meta:end -->
 

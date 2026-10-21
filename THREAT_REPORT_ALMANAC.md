@@ -15,7 +15,14 @@ Related: [Threat Intelligence](THREAT_INTELLIGENCE_REFERENCE.md), [CTEM](CTEM_RE
 | Reading time | About 17 min (3,865 words at 230 words a minute) |
 | Read this when | choosing which annual threat reports to read, checking what a report's evidence can and cannot support before citing it, or planning a reading calendar by role |
 | Start at | [Methodology determines meaning](#methodology-determines-meaning), [The majors](#the-majors), [How to read a threat report critically](#how-to-read-a-threat-report-critically) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

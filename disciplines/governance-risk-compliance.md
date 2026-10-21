@@ -9,7 +9,17 @@ GRC is the backbone of every mature security program. Governance defines policie
 | Who this is for | People entering GRC roles and practitioners building governance, risk, and compliance programs |
 | Level | Beginner to advanced |
 | Reading time | About 7 min (1,668 words at 230 words a minute) |
-| Last reviewed | 2026-10-01 (ATT&CK v19.2): regulatory references checked against live sources ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63)) |
+| Read this when | starting in governance, risk and compliance, or choosing which frameworks to learn first |
+| Start at | [Where to Start](#where-to-start), [Frameworks & Standards Reference](#frameworks-amp-standards-reference), [Free Training](#free-training) |
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Last corrected | 2026-10-01, CMMC Level 1 count updated in one row ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63)) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

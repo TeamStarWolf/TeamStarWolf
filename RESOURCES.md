@@ -11,8 +11,15 @@
 | Reading time | About 7 min (1,723 words at 230 words a minute) |
 | Read this when | you want a book or course for a specific skill (red team, DFIR, malware analysis), you need hands-on practice via CTFs or vulnerable labs, you are building a daily news and podcast rotation |
 | Start at | [Books](#books), [Online Courses & Training Platforms](#online-courses-amp-training-platforms), [CTF Platforms](#ctf-platforms) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [CERTIFICATIONS.md](CERTIFICATIONS.md), [CAREER_PATHS.md](CAREER_PATHS.md), [LABS.md](LABS.md), [CYBERSECURITY_BOOK_LIST.md](CYBERSECURITY_BOOK_LIST.md) |
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

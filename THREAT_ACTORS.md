@@ -11,15 +11,25 @@
 | Reading time | About 9 min (1,966 words at 230 words a minute) |
 | Read this when | an intel report or news story names an actor you need context on, you are building detections or emulation plans around a specific group's TTPs, you are briefing leadership on who targets your sector |
 | Start at | [Nation-State APTs](#nation-state-apts), [Ransomware Groups](#ransomware-groups), [Threat Intelligence Tools for Actor Tracking](#threat-intelligence-tools-for-actor-tracking) |
-| Pairs with | [NOTABLE_INCIDENTS.md](NOTABLE_INCIDENTS.md), [MALWARE_FAMILIES.md](MALWARE_FAMILIES.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [IR_PLAYBOOKS.md](IR_PLAYBOOKS.md) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
 
-Which page should I read? This page is one of 2 on threat actors.
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Pairs with | [NOTABLE_INCIDENTS.md](NOTABLE_INCIDENTS.md), [MALWARE_FAMILIES.md](MALWARE_FAMILIES.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [IR_PLAYBOOKS.md](IR_PLAYBOOKS.md) |
+| Last corrected | 2026-09-29, TLP:WHITE row renamed TLP:CLEAR ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last reviewed | No review recorded yet |
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 2 on threat actors.</summary>
 
 | Page | Read it for |
 |---|---|
 | Threat Actors (this page) | A narrative quick reference to notable groups by nation and type, with aliases, targets, and signature TTPs. |
 | [Threat Group Profiles](/THREAT_GROUP_PROFILES.md) | Profiles built from ATT&CK group data: aliases, technique and software counts, and signature techniques. |
+
+</details>
 
 <!-- meta:end -->
 

@@ -28,10 +28,17 @@ Related in this library: [AI Security Reference](AI_SECURITY_REFERENCE.md) (OWAS
 | Reading time | About 43 min (9,783 words at 230 words a minute) |
 | Read this when | you need to map an attack on an AI/ML system to a named technique ID, you are threat-modeling an LLM, RAG, or AI-agent deployment, you want the mitigations ATLAS pairs with a given AI attack technique |
 | Start at | [The ATLAS matrix](#the-atlas-matrix) for the 16-tactic overview, [Execution](#execution) for prompt injection and agent-tool techniques, [ATLAS mitigations](#atlas-mitigations) for the defensive side |
+
+<details class="tsw-meta-more"><summary>More about this page (matching learning path, last reviewed)</summary>
+
+| | |
+|---|---|
 | Matching learning path | [Adversarial AI Attacks](/disciplines/adversarial-ai-attacks.md) |
 | Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 7 on AI security.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 7 on AI security.</summary>
 
 | Page | Read it for |
 |---|---|
@@ -42,6 +49,8 @@ Which page should I read? This page is one of 7 on AI security.
 | [AI Architecture Reference](/AI_ARCHITECTURE_REFERENCE.md) | Designing ML and LLM systems end to end, with the controls that make the architecture defensible. |
 | [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md) | The infrastructure behind AI: model registries, unsafe model files, pipelines, and inference servers. |
 | [Agentic AI Swarm Attacks](/AGENTIC_AI_ATTACK_REFERENCE.md) | An illustrative agent-swarm intrusion kill chain mapped to ATT&CK and ATLAS. |
+
+</details>
 
 <!-- meta:end -->
 

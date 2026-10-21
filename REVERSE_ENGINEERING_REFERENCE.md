@@ -12,9 +12,17 @@
 | Reading time | About 31 min (7,207 words at 230 words a minute) |
 | Read this when | You are triaging an unknown malware sample, tearing apart router or IoT firmware, or hunting a vulnerability in a compiled binary |
 | Start at | [RE Fundamentals & Architectures](#section-1-re-fundamentals-amp-architectures), [Static Analysis Tools](#section-3-static-analysis-tools), [Dynamic Analysis & Debugging](#section-4-dynamic-analysis-amp-debugging) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [MALWARE_FAMILIES.md](MALWARE_FAMILIES.md), [DIGITAL_FORENSICS_REFERENCE.md](DIGITAL_FORENSICS_REFERENCE.md), [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md), [EXPLOIT_DEVELOPMENT_REFERENCE.md](EXPLOIT_DEVELOPMENT_REFERENCE.md) |
 | Matching learning path | [Reverse Engineering](/disciplines/reverse-engineering.md) |
-| Last reviewed | 2026-09-27 (ATT&CK v19.2): tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51)) |
+| Last corrected | 2026-09-27, ATT&CK tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

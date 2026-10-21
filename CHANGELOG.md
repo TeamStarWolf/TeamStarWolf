@@ -10,10 +10,12 @@ by the date its pull requests merged to `main` rather than by tagged release.
 - Header cards on every root reference and learning path, written into the page by
   `scripts/build_doc_meta.py` from `data/doc_meta.yaml`, so GitHub and the site show the
   same card: who the page is for, its level, its reading time (its words at 230 a minute),
-  the existing "Read this when", "Start at" and "Pairs with" rows, the matching learning
-  path, and the last recorded review with its date, ATT&CK release and pull request ("Due
-  for review" when the text changed more than 90 days after it). Pages that overlap get a
-  "Which page should I read?" table. Long appendices and tables fold into `<details>`, and
+  "Read this when" and "Start at" (at most 3 links), then in a "More about this page" fold
+  "Pairs with", the matching learning path, the last recorded correction (what that pull
+  request changed on the page) and the owner's last review ("No review recorded yet" until
+  one is recorded; "Due for review" when the text changed more than 90 days after it).
+  Learning paths get "Read this when" and "Start at" rows too. Pages that overlap get a
+  folded "Which page should I read?" table. Long appendices and tables fold into `<details>`, and
   the generated technique detail and detection strategy pages fold each technique's body
   under its heading; on the site a link into a fold opens it. Key takeaways are drafted in
   `data/doc_takeaways.draft.yaml` for owner review and appear on a page only once moved to

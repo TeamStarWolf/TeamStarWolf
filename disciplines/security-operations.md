@@ -9,7 +9,17 @@ Security Operations is the continuous practice of monitoring, detecting, analyzi
 | Who this is for | Aspiring and working SOC analysts and security operations staff |
 | Level | Beginner to advanced |
 | Reading time | About 11 min (2,474 words at 230 words a minute) |
-| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+| Read this when | starting as a SOC analyst, learning the alert triage process, or setting up SOC metrics and SOAR playbooks |
+| Start at | [Where to Start](#where-to-start), [SOC Analyst Tiers](#soc-analyst-tiers), [Alert Triage Process](#alert-triage-process) |
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

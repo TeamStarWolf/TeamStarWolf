@@ -11,7 +11,14 @@
 | Reading time | About 7 min (1,671 words at 230 words a minute) |
 | Read this when | you are building or pruning a security-focused feed, you want high-signal accounts for a specific specialty like DFIR or bug bounty, you need to know who publishes on a topic you are ramping up on |
 | Start at | [How To Use This File](#how-to-use-this-file), [Category Index](#category-index), [Enriched Reference Tables](#enriched-reference-tables) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

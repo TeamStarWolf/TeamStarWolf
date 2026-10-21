@@ -11,16 +11,26 @@
 | Reading time | About 36 min (8,222 words at 230 words a minute) |
 | Read this when | You need to reason about which OSI layer an attack lives at and what control stops it, you are decoding packet headers or subnetting during an investigation, or you need the operational mechanics behind ARP/VLAN/STP/routing/DNS abuse |
 | Start at | [The OSI Model: Security Perspective](#the-osi-model-security-perspective), [TCP/IP Deep Dive](#tcpip-deep-dive), [ATT&CK Technique Quick Reference](#attampck-technique-quick-reference) |
-| Pairs with | [NETWORK_ATTACKS_REFERENCE.md](NETWORK_ATTACKS_REFERENCE.md), [NETWORK_DEFENSE_REFERENCE.md](NETWORK_DEFENSE_REFERENCE.md), [NETWORK_PROTOCOLS_REFERENCE.md](NETWORK_PROTOCOLS_REFERENCE.md), [PACKET_ANALYSIS_REFERENCE.md](PACKET_ANALYSIS_REFERENCE.md) |
-| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
 
-Which page should I read? This page is one of 3 on how networks work and how to design them.
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Pairs with | [NETWORK_ATTACKS_REFERENCE.md](NETWORK_ATTACKS_REFERENCE.md), [NETWORK_DEFENSE_REFERENCE.md](NETWORK_DEFENSE_REFERENCE.md), [NETWORK_PROTOCOLS_REFERENCE.md](NETWORK_PROTOCOLS_REFERENCE.md), [PACKET_ANALYSIS_REFERENCE.md](PACKET_ANALYSIS_REFERENCE.md) |
+| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on how networks work and how to design them.</summary>
 
 | Page | Read it for |
 |---|---|
 | Networking Fundamentals (this page) | How networking works, from OSI layers to routing and DNS, explained for reasoning about attacks and detections. |
 | [Networking Architecture Reference](/NETWORKING_ARCHITECTURE_REFERENCE.md) | Designing networks: topologies, overlays, segmentation, SD-WAN and SASE, and core services. |
 | [Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md) | Building a segmented enterprise network: zones, firewall and IPS placement, 802.1X, and VPNs, with configuration examples. |
+
+</details>
 
 <!-- meta:end -->
 

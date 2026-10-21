@@ -11,16 +11,26 @@
 | Reading time | About 10 min (2,345 words at 230 words a minute) |
 | Read this when | Kicking off a new engagement and drafting the Rules of Engagement, mid-test and needing the right command for recon/scanning/exploitation, writing up findings with CVSS/EPSS/ATT&CK mappings |
 | Start at | [Engagement Scoping and Legal Framework](#_1-engagement-scoping-and-legal-framework), [Reconnaissance](#_2-reconnaissance), [Professional Reporting](#_8-professional-reporting) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning paths, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [PENTEST_CHECKLISTS.md](PENTEST_CHECKLISTS.md), [WEB_APPLICATION_PENTESTING.md](WEB_APPLICATION_PENTESTING.md), [PRIVESC_REFERENCE.md](PRIVESC_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md) |
 | Matching learning paths | [Offensive Security](/disciplines/offensive-security.md), [Penetration Testing](/disciplines/penetration-testing.md) |
-| Last reviewed | 2026-10-13 (ATT&CK v19.2): stale gap figures, a false gap claim, and revoked-ID wording corrected ([#120](https://github.com/TeamStarWolf/TeamStarWolf/pull/120)) |
+| Last corrected | 2026-10-13, ATT&CK version pin in an example Navigator layer updated ([#120](https://github.com/TeamStarWolf/TeamStarWolf/pull/120), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 2 on running a penetration test.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 2 on running a penetration test.</summary>
 
 | Page | Read it for |
 |---|---|
 | Penetration Testing Methodology (this page) | The end-to-end engagement playbook: legal paperwork, recon, exploitation, post-exploitation, and reporting. |
 | [Pentest Checklists](/PENTEST_CHECKLISTS.md) | Task checklists for each phase, from pre-engagement through external, internal, Active Directory, web, cloud, and reporting. |
+
+</details>
 
 <!-- meta:end -->
 

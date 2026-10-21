@@ -11,8 +11,16 @@
 | Reading time | About 20 min (4,620 words at 230 words a minute) |
 | Read this when | you have an interview scheduled and need to rehearse likely questions, you are switching security roles and need the role-specific question set, you received an offer and want negotiation scripts |
 | Start at | [General Preparation Strategy](#general-preparation-strategy), [Role-Specific Questions](#role-specific-questions), [Salary Negotiation & Offer Evaluation](#salary-negotiation-amp-offer-evaluation) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [Career Paths](CAREER_PATHS.md), [Certifications Reference](CERTIFICATIONS.md), [Hands-On Labs](LABS.md) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last corrected | 2026-09-29, one answer updated for Volatility 3 and the archived Rekall ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

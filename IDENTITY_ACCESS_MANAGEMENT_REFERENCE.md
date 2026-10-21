@@ -11,16 +11,25 @@
 | Reading time | About 13 min (2,953 words at 230 words a minute) |
 | Read this when | choosing or hardening MFA and passwordless auth, designing RBAC/ABAC or PAM controls, building IAM detections (credential stuffing, MFA fatigue, impossible travel), mapping IAM to SOC 2 / PCI / NIST / HIPAA |
 | Start at | [IAM Fundamentals](#_1-iam-fundamentals), [Authentication Technologies](#_2-authentication-technologies), [IAM Security Monitoring](#_9-iam-security-monitoring) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [Identity Security](IDENTITY_SECURITY_REFERENCE.md), [Zero Trust](ZERO_TRUST_REFERENCE.md), [Active Directory Security](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [Secrets Management](SECRETS_MANAGEMENT_REFERENCE.md) |
 | Matching learning path | [Identity & Access Management](/disciplines/identity-access-management.md) |
 | Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 2 on identity security.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 2 on identity security.</summary>
 
 | Page | Read it for |
 |---|---|
 | Identity & Access Management Reference (this page) | Controls and architecture: authentication technologies, authorization models, PAM, IGA, and compliance mapping. |
 | [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md) | Attacks and vendor controls: MFA bypass, Entra ID, Okta, CyberArk, and identity detection and response. |
+
+</details>
 
 <!-- meta:end -->
 

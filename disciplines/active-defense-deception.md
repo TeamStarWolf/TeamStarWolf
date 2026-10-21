@@ -9,7 +9,16 @@
 | Who this is for | Defenders adding honeypots, honeytokens, and adversary engagement to their detection program |
 | Level | Intermediate |
 | Reading time | About 7 min (1,556 words at 230 words a minute) |
+| Read this when | planning a deception program (honeypots, honeytokens, decoy credentials) or learning how adversary engagement works under MITRE Engage |
+| Start at | [Core Concepts](#core-concepts), [Free & Open-Source Tools](#free-amp-open-source-tools), [MITRE ENGAGE Framework](#mitre-engage-framework) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

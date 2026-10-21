@@ -11,7 +11,17 @@ Good detection programs are hypothesis-driven, not signature-collection exercise
 | Who this is for | SOC analysts and engineers moving into detection engineering |
 | Level | Beginner to advanced |
 | Reading time | About 11 min (2,471 words at 230 words a minute) |
-| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#83](https://github.com/TeamStarWolf/TeamStarWolf/pull/83)) |
+| Read this when | starting in detection engineering, learning the log sources and event IDs detections depend on, or writing Sigma rules |
+| Start at | [Where to Start](#where-to-start), [Critical Windows Event IDs](#critical-windows-event-ids), [Sigma Rule Structure](#sigma-rule-structure) |
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#83](https://github.com/TeamStarWolf/TeamStarWolf/pull/83), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

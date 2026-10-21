@@ -11,10 +11,17 @@
 | Reading time | About 9 min (2,097 words at 230 words a minute) |
 | Read this when | you have a pcap to investigate and need a repeatable workflow, you need the exact Wireshark/tcpdump/zq filter for a suspicious behavior, you are learning to read TCP handshakes and packet fields at the byte level |
 | Start at | [Reading Network Packets](#reading-network-packets), [Detecting Attacks in PCAPs](#detecting-attacks-in-pcaps), [PCAP Investigation Workflow](#pcap-investigation-workflow) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md), [Network Protocols Reference](NETWORK_PROTOCOLS_REFERENCE.md), [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md) |
 | Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 5 on network attack, defense, and monitoring.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 5 on network attack, defense, and monitoring.</summary>
 
 | Page | Read it for |
 |---|---|
@@ -23,6 +30,8 @@ Which page should I read? This page is one of 5 on network attack, defense, and 
 | [Network Defense Reference](/NETWORK_DEFENSE_REFERENCE.md) | Defense architecture and NSM operations: Suricata, Zeek, Security Onion, segmentation, and DDoS defense. |
 | [Network Monitoring Reference](/NETWORK_MONITORING_REFERENCE.md) | The monitoring stack and hunting workflows: sensor placement, Zeek, Suricata rules, JA3, and flow data. |
 | [Network Forensics Reference](/NETWORK_FORENSICS_REFERENCE.md) | Collecting and preserving network evidence and reconstructing an incident from it. |
+
+</details>
 
 <!-- meta:end -->
 

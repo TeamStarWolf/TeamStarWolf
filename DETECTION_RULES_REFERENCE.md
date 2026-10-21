@@ -11,17 +11,27 @@
 | Reading time | About 11 min (2,634 words at 230 words a minute) |
 | Read this when | you need to author a detection for a new technique or CVE, you are converting Sigma rules to your SIEM's query language, you are tuning a noisy rule or validating that a deployed rule actually fires |
 | Start at | [Overview of Detection Rule Formats](#_1-overview-of-detection-rule-formats) to pick the right format, [Sigma Rules](#_2-sigma-rules) for the vendor-agnostic starting point, [Best Practices for Detection Engineering](#_7-best-practices-for-detection-engineering) for the lifecycle and testing workflow |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [PURPLE_TEAM_REFERENCE.md](PURPLE_TEAM_REFERENCE.md) |
 | Matching learning path | [Detection Engineering](/disciplines/detection-engineering.md) |
-| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 3 on SIEM and detection content.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on SIEM and detection content.</summary>
 
 | Page | Read it for |
 |---|---|
 | Detection Rules Reference (this page) | Writing your own rules in Sigma, YARA, Suricata, SPL, and KQL, then testing and tuning them. |
 | [SIEM Reference](/SIEM_REFERENCE.md) | SIEM platforms: architecture and sizing, and the query languages and detection workflows of Splunk, Sentinel, QRadar, and Elastic. |
 | [SIEM Detection Content](/SIEM_DETECTION_CONTENT.md) | Where to get vendor-maintained, ready-made detection content and how to deploy it. |
+
+</details>
 
 <!-- meta:end -->
 

@@ -13,8 +13,15 @@
 | Reading time | About 28 min (6,550 words at 230 words a minute) |
 | Read this when | Scoping an authorized wireless, RF, RFID, or hardware assessment and choosing the right gadget, standing up an isolated home lab or RF test bench, confirming the legal boundaries before you power on a transmitter |
 | Start at | [Hak5 Ecosystem](#_1-hak5-ecosystem), [Flipper Zero](#_3-flipper-zero), [Lab Setup, Legal & Community](#_10-lab-setup-legal-amp-community) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [WIRELESS_SECURITY_REFERENCE.md](WIRELESS_SECURITY_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md), [disciplines/radio-frequency-security.md](disciplines/radio-frequency-security.md), [disciplines/hardware-security.md](disciplines/hardware-security.md) |
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

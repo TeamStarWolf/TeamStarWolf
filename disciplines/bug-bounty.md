@@ -9,7 +9,17 @@ Bug bounty programs are structured arrangements where organizations invite exter
 | Who this is for | Aspiring and working bug bounty hunters and vulnerability researchers |
 | Level | Beginner to advanced |
 | Reading time | About 9 min (1,966 words at 230 words a minute) |
-| Last reviewed | 2026-09-27 (ATT&CK v19.2): tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51)) |
+| Read this when | starting bug bounty hunting, building a recon workflow, or learning to write reports that get triaged |
+| Start at | [Where to Start](#where-to-start), [Recon Methodology](#recon-methodology), [Writing a High-Quality Bug Report](#writing-a-high-quality-bug-report) |
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Last corrected | 2026-09-27, ATT&CK tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

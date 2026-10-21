@@ -11,11 +11,19 @@
 | Reading time | About 32 min (7,440 words at 230 words a minute) |
 | Read this when | You need to look up an AWS/Azure/GCP security control or its configuration, you are chasing a cloud privilege-escalation or metadata-service (IMDS/SSRF) attack path, or you are picking the right offensive/CSPM tool (Pacu, ROADtools, PMapper, Prowler) for a cloud engagement |
 | Start at | [AWS Security Fundamentals](#_1-aws-security-fundamentals), [Multi-Cloud Attack Tools](#_6-multi-cloud-attack-tools), [Cloud IAM Security & Least Privilege](#_7-cloud-iam-security-amp-least-privilege) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [CLOUD_ATTACK_REFERENCE.md](CLOUD_ATTACK_REFERENCE.md), [CLOUD_SECURITY_BENCHMARK.md](CLOUD_SECURITY_BENCHMARK.md), [KUBERNETES_SECURITY_REFERENCE.md](KUBERNETES_SECURITY_REFERENCE.md), [CONTAINER_SECURITY_REFERENCE.md](CONTAINER_SECURITY_REFERENCE.md) |
 | Matching learning path | [Cloud Security](/disciplines/cloud-security.md) |
-| Last reviewed | 2026-10-01 (ATT&CK v19.2): regulatory references checked against live sources ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63)) |
+| Last corrected | 2026-10-01, PCI DSS version updated to v4.0.1 in one line ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63)) |
+| Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 5 on cloud security.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 5 on cloud security.</summary>
 
 | Page | Read it for |
 |---|---|
@@ -24,6 +32,8 @@ Which page should I read? This page is one of 5 on cloud security.
 | [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md) | Attacker techniques per cloud and for Kubernetes, aligned to ATT&CK, for building detections and running incident response. |
 | [Cloud Security Benchmark](/CLOUD_SECURITY_BENCHMARK.md) | CIS Benchmark hardening checks with fix commands, audit scripts, and CSPM tools. |
 | [Cloud Network Security](/CLOUD_NETWORK_SECURITY.md) | Network controls across the three clouds: VPC design, firewalls, WAF, private connectivity, DDoS protection, and flow logs. |
+
+</details>
 
 <!-- meta:end -->
 

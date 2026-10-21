@@ -11,9 +11,17 @@
 | Reading time | About 11 min (2,467 words at 230 words a minute) |
 | Read this when | Hardening a Dockerfile or image before it ships to production, investigating a privileged-container or container-escape finding, building image scanning and signing into a CI/CD pipeline |
 | Start at | [Container Security Fundamentals](#_1-container-security-fundamentals), [Dockerfile Security Best Practices](#_3-dockerfile-security-best-practices), [Container Escape Techniques and Defense](#_6-container-escape-techniques-and-defense) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [KUBERNETES_SECURITY_REFERENCE.md](KUBERNETES_SECURITY_REFERENCE.md), [DEVSECOPS_REFERENCE.md](DEVSECOPS_REFERENCE.md), [SECRETS_MANAGEMENT_REFERENCE.md](SECRETS_MANAGEMENT_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md) |
 | Matching learning path | [Container & Kubernetes Security](/disciplines/container-kubernetes-security.md) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last corrected | 2026-09-29, notes added on the Docker Content Trust retirement and CIS Docker Benchmark v1.8.0 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

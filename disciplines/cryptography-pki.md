@@ -11,7 +11,17 @@ Cryptography and Public Key Infrastructure (PKI) underpin nearly every security 
 | Who this is for | Practitioners learning applied cryptography, certificates, and PKI operations |
 | Level | Beginner to advanced |
 | Reading time | About 9 min (2,117 words at 230 words a minute) |
-| Last reviewed | 2026-10-12 (ATT&CK v19.2): low-severity text findings from a review fixed ([#98](https://github.com/TeamStarWolf/TeamStarWolf/pull/98)) |
+| Read this when | learning cryptography and PKI for security work, reviewing a TLS configuration, or planning for post-quantum algorithms |
+| Start at | [Where to Start](#where-to-start), [Core Cryptography Concepts](#core-cryptography-concepts), [TLS Hardening Reference](#tls-hardening-reference) |
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Last corrected | 2026-10-12, 3DES effective key strength corrected in one row ([#98](https://github.com/TeamStarWolf/TeamStarWolf/pull/98)) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

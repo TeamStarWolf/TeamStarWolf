@@ -9,7 +9,16 @@ Hacker culture extends far beyond professional security work. At its core, hacki
 | Who this is for | Curious people exploring hacker culture: lock picking, radio, hardware, and conference villages |
 | Level | Beginner to advanced |
 | Reading time | About 18 min (4,074 words at 230 words a minute) |
+| Read this when | looking for hobbies that build security skills (locksport, SDR, ham radio, badges, car hacking) or getting into hacker conferences and CTF culture |
+| Start at | [Locksport & Physical Bypass](#locksport-amp-physical-bypass), [Software Defined Radio (SDR)](#software-defined-radio-sdr), [DEF CON Villages Reference](#def-con-villages-reference) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

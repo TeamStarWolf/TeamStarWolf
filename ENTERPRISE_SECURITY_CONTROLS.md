@@ -11,16 +11,26 @@
 | Reading time | About 11 min (2,504 words at 230 words a minute) |
 | Read this when | tuning WAF rules that are throwing false positives, rolling out Defender ASR or CrowdStrike prevention policies to a fleet, configuring Proofpoint email defenses or SPF/DKIM/DMARC, building Zscaler ZIA/ZPA policies |
 | Start at | [WAF rules](#_1-web-application-firewall-waf-rules), [Defender ASR rules](#_2-microsoft-defender-attack-surface-reduction-asr-rules), [CrowdStrike prevention policies](#_3-crowdstrike-falcon-prevention-policies) |
-| Pairs with | [Windows Hardening and GPO Reference](WINDOWS_HARDENING_GPO.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md), [Security Operations](disciplines/security-operations.md) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
 
-Which page should I read? This page is one of 3 on security controls and vendor settings.
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Pairs with | [Windows Hardening and GPO Reference](WINDOWS_HARDENING_GPO.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md), [Security Operations](disciplines/security-operations.md) |
+| Last corrected | 2026-09-29, Office 365 renamed Microsoft 365 in one line ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last reviewed | No review recorded yet |
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on security controls and vendor settings.</summary>
 
 | Page | Read it for |
 |---|---|
 | Enterprise Security Controls (this page) | Configuration, policy tuning, and detection guidance for specific enterprise platforms. |
 | [Controls Mapping](/CONTROLS_MAPPING.md) | The chain from security vendors to the NIST 800-53 controls they implement and the ATT&CK techniques those controls mitigate. |
 | [Vendor Prevention Policies](/VENDOR_PREVENTION_POLICIES.md) | Recommended prevention settings from official vendor documentation and the CISA SCuBA baselines. |
+
+</details>
 
 <!-- meta:end -->
 

@@ -11,8 +11,16 @@
 | Reading time | About 134 min (30,915 words at 230 words a minute) |
 | Read this when | planning or auditing logging coverage, deciding which log sources to onboard for a detection, checking whether a technique's required telemetry exists in your environment |
 | Start at | [Process Creation](#process-creation), [Command Execution](#command-execution), [Detail](#detail) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [Detection Strategies](detections/strategies/README.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last corrected | 2026-09-29, ATT&CK version in the introduction updated from v18.1 to v19.2 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

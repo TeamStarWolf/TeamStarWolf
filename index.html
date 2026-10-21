@@ -953,9 +953,13 @@
     /* ===================== Header card and folds =====================
        scripts/build_doc_meta.py writes a header card between meta:start and meta:end comments
        at the top of each reference and learning path; the card script below wraps that block
-       in section.tsw-meta and marks its first table. On GitHub the same block is a plain
-       table. Folds are <details class="tsw-fold"> around a long appendix or table, and around
-       each technique's body on the generated techniques/ and detections/strategies/ pages. */
+       in section.tsw-meta and marks its two card tables. The first table is what fits one
+       screen; the rest of the card sits in details.tsw-meta-more ("More about this page"),
+       which the script opens, without its summary line, on screens wider than 600 px, and the
+       "Which page should I read?" table sits in a closed details.tsw-meta-which. On GitHub
+       the same block is plain tables and two closed folds. Folds are
+       <details class="tsw-fold"> around a long appendix or table, and around each
+       technique's body on the generated techniques/ and detections/strategies/ pages. */
     .markdown-section .tsw-meta {
       margin: 1.2rem 0 1.8rem; padding: .35rem 1.1rem .7rem;
       background: var(--tsw-surface); border: 1px solid var(--tsw-border); border-radius: 12px;
@@ -971,6 +975,17 @@
       width: 11rem; white-space: nowrap; color: var(--tsw-text-dim); font-weight: 650;
     }
     .markdown-section .tsw-meta > p { margin: 1rem 0 .4rem; color: var(--tsw-text); }
+    .markdown-section .tsw-meta > details { margin: .1rem 0 .2rem; border-top: 1px solid var(--tsw-border-soft); }
+    .markdown-section .tsw-meta > details > summary {
+      cursor: pointer; padding: .5rem 0; color: var(--tsw-link); font-weight: 600; font-size: .88rem;
+    }
+    .markdown-section .tsw-meta > details > summary:hover { color: var(--tsw-link-hover); }
+    .markdown-section .tsw-meta > details > table { margin-top: 0; }
+    @media (min-width: 601px) {
+      .markdown-section .tsw-meta > details.tsw-meta-more[data-auto-open] { border-top: 0; margin-top: -.5rem; }
+      .markdown-section .tsw-meta > details.tsw-meta-more[data-auto-open] > summary { display: none; }
+    }
+    @media print { .markdown-section .tsw-meta > details > summary { display: none; } }
     @media (max-width: 600px) {
       .markdown-section .tsw-meta { padding: .2rem .85rem .55rem; }
       .markdown-section .tsw-meta table.tsw-meta-card,
@@ -1753,7 +1768,9 @@
   </script>
 
   <!-- Header card and folds (scripts/build_doc_meta.py). The card: the block between a page's
-       meta:start and meta:end comments becomes section.tsw-meta, its first table the card.
+       meta:start and meta:end comments becomes section.tsw-meta, its first table and the
+       table in its "More about this page" fold the card; that fold is open on screens wider
+       than 600 px and closed below, where the first table alone fits the first screen.
        The folds: a link to an anchor inside a closed <details class="tsw-fold">, or to the
        heading a fold sits under (a technique on the generated techniques/ and
        detections/strategies/ pages), opens it; printing opens every fold. -->
@@ -1776,10 +1793,26 @@
             box.appendChild(n);
             n = next;
           }
-          var t = box.querySelector('table');
-          if (t) { t.classList.add('tsw-meta-card'); }
+          Array.prototype.forEach.call(box.children, function (el) {
+            var t = el.tagName === 'TABLE' ? el
+              : (el.tagName === 'DETAILS' && el.classList.contains('tsw-meta-more') ? el.querySelector('table') : null);
+            if (t) { t.classList.add('tsw-meta-card'); }
+          });
+          fitMore();
           return;
         }
+      }
+      // "More about this page": open (summary hidden) when wide, closed when 600 px or less.
+      var wide = window.matchMedia ? window.matchMedia('(min-width: 601px)') : null;
+      function fitMore() {
+        var d = document.querySelector('#main .tsw-meta > details.tsw-meta-more');
+        if (!d || !wide) { return; }
+        if (wide.matches) { d.setAttribute('data-auto-open', ''); d.open = true; }
+        else if (d.hasAttribute('data-auto-open')) { d.removeAttribute('data-auto-open'); d.open = false; }
+      }
+      if (wide) {
+        if (wide.addEventListener) { wide.addEventListener('change', fitMore); }
+        else if (wide.addListener) { wide.addListener(fitMore); }
       }
       function routeId() {
         var m = /[?&]id=([^&]*)/.exec(location.hash);
@@ -1811,7 +1844,7 @@
       });
       var printed = [];
       window.addEventListener('beforeprint', function () {
-        printed = Array.prototype.filter.call(document.querySelectorAll('details.tsw-fold'), function (d) { return !d.open; });
+        printed = Array.prototype.filter.call(document.querySelectorAll('details.tsw-fold, .tsw-meta > details'), function (d) { return !d.open; });
         printed.forEach(function (d) { d.open = true; });
       });
       window.addEventListener('afterprint', function () {

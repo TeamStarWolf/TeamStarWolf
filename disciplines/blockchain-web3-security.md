@@ -11,7 +11,16 @@ The discipline sits at the intersection of cryptography, distributed systems, an
 | Who this is for | Developers and auditors learning smart contract and Web3 security |
 | Level | Beginner to advanced |
 | Reading time | About 9 min (2,108 words at 230 words a minute) |
+| Read this when | starting in smart contract auditing or Web3 security and looking for the vulnerability classes, practice CTFs and tools |
+| Start at | [Where to Start](#where-to-start), [Smart Contract Vulnerability Classes](#smart-contract-vulnerability-classes), [Tools & Repositories](#tools-amp-repositories) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

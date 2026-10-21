@@ -11,10 +11,17 @@
 | Reading time | About 15 min (3,563 words at 230 words a minute) |
 | Read this when | you need to capture or preserve network evidence that may end up in court, you are reconstructing an incident timeline from PCAP/flow/log data, you suspect C2 beaconing or data exfiltration and need to prove it from traffic |
 | Start at | [Network Forensics Fundamentals & Evidence Collection](#_1-network-forensics-fundamentals-amp-evidence-collection), [Malware Traffic Analysis](#_5-malware-traffic-analysis), [Forensic Reporting & Tools Reference](#_10-forensic-reporting-amp-tools-reference) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md), [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md) |
 | Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 5 on network attack, defense, and monitoring.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 5 on network attack, defense, and monitoring.</summary>
 
 | Page | Read it for |
 |---|---|
@@ -23,6 +30,8 @@ Which page should I read? This page is one of 5 on network attack, defense, and 
 | [Network Defense Reference](/NETWORK_DEFENSE_REFERENCE.md) | Defense architecture and NSM operations: Suricata, Zeek, Security Onion, segmentation, and DDoS defense. |
 | [Network Monitoring Reference](/NETWORK_MONITORING_REFERENCE.md) | The monitoring stack and hunting workflows: sensor placement, Zeek, Suricata rules, JA3, and flow data. |
 | [Packet Analysis Reference](/PACKET_ANALYSIS_REFERENCE.md) | Reading raw traffic in Wireshark, tcpdump, and Zeek, and spotting attacks in packet captures. |
+
+</details>
 
 <!-- meta:end -->
 

@@ -9,7 +9,16 @@ Digital forensics is the application of scientific methods to the identification
 | Who this is for | Aspiring and working digital forensic examiners and DFIR analysts |
 | Level | Beginner to advanced |
 | Reading time | About 6 min (1,387 words at 230 words a minute) |
+| Read this when | starting in digital forensics, learning disk and memory forensics, or choosing forensic tools and training |
+| Start at | [Where to Start](#where-to-start), [DFIR Investigation Methodology](#dfir-investigation-methodology), [Disk Forensics](#disk-forensics) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

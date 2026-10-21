@@ -12,10 +12,18 @@
 | Reading time | About 20 min (4,513 words at 230 words a minute) |
 | Read this when | Deciding which vulnerabilities to patch first, scoring a new CVE with CVSS v3.1 or v4.0, building automated CVE/EPSS/KEV enrichment pipelines |
 | Start at | [CVSS v3.1 Deep Dive](#_2-cvss-v31-deep-dive), [EPSS: Exploit Prediction Scoring System](#_4-epss-exploit-prediction-scoring-system), [CISA KEV Catalog](#_5-cisa-kev-catalog) |
-| Pairs with | [CWE Reference](CWE_REFERENCE.md), [CTEM Reference](CTEM_REFERENCE.md), [Fuzzing & Vulnerability Research](FUZZING_VULNERABILITY_RESEARCH.md), [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md) |
-| Last reviewed | 2026-10-01 (ATT&CK v19.2): regulatory references checked against live sources ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63)) |
 
-Which page should I read? This page is one of 4 on vulnerability prioritization and management.
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Pairs with | [CWE Reference](CWE_REFERENCE.md), [CTEM Reference](CTEM_REFERENCE.md), [Fuzzing & Vulnerability Research](FUZZING_VULNERABILITY_RESEARCH.md), [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md) |
+| Last corrected | 2026-10-01, BOD 22-01 paragraph rewritten for BOD 26-04 ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63)) |
+| Last reviewed | No review recorded yet |
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 4 on vulnerability prioritization and management.</summary>
 
 | Page | Read it for |
 |---|---|
@@ -23,6 +31,8 @@ Which page should I read? This page is one of 4 on vulnerability prioritization 
 | [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md) | The decision layer: which signal outranks which (SSVC, KEV, EPSS) and how the result becomes an SLA. |
 | [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md) | Operational tooling: scanners, DefectDojo, SCA and SBOM, and patching. |
 | [CTEM Reference](/CTEM_REFERENCE.md) | The program loop prioritization runs inside: scoping, discovery, prioritization, validation, and mobilization. |
+
+</details>
 
 <!-- meta:end -->
 

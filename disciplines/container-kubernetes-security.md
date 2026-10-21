@@ -11,7 +11,17 @@ The fundamental challenge of container security is that containers share a kerne
 | Who this is for | Platform engineers and security practitioners learning container and Kubernetes security |
 | Level | Beginner to advanced |
 | Reading time | About 19 min (4,284 words at 230 words a minute) |
-| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+| Read this when | learning how containers isolate workloads and how attackers escape them, or hardening a Kubernetes cluster |
+| Start at | [Where to Start](#where-to-start), [Container Escape Techniques](#container-escape-techniques-structured-reference), [Kubernetes Hardening](#kubernetes-hardening-prescriptive) |
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

@@ -11,7 +11,16 @@ The discipline exists because no detection stack is complete. Advanced adversari
 | Who this is for | SOC analysts and detection engineers moving into threat hunting |
 | Level | Intermediate to advanced |
 | Reading time | About 14 min (3,234 words at 230 words a minute) |
+| Read this when | starting hypothesis-driven threat hunting, or looking for ATT&CK-mapped hunt procedures and SPL or KQL queries |
+| Start at | [The Threat Hunting Process](#the-threat-hunting-process), [Hunt Procedures](#hunt-procedures), [Splunk SPL Hunting Queries](#splunk-spl-hunting-queries) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

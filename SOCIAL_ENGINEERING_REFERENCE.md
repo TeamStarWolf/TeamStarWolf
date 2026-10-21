@@ -11,9 +11,16 @@
 | Reading time | About 32 min (7,299 words at 230 words a minute) |
 | Read this when | Designing a phishing simulation or awareness program, investigating a suspected phishing/BEC/vishing incident, or scoping an authorized social engineering engagement |
 | Start at | [Psychology of Social Engineering](#_1-psychology-of-social-engineering), [Phishing Attack Types](#_2-phishing-attack-types), [Quick Reference Checklists](#_12-quick-reference-checklists) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [EMAIL_SECURITY_REFERENCE.md](EMAIL_SECURITY_REFERENCE.md), [OSINT_REFERENCE.md](OSINT_REFERENCE.md), [PHYSICAL_SECURITY_REFERENCE.md](PHYSICAL_SECURITY_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md) |
 | Matching learning path | [Social Engineering](/disciplines/social-engineering.md) |
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

@@ -11,11 +11,18 @@
 | Reading time | About 17 min (3,900 words at 230 words a minute) |
 | Read this when | standing up or tuning an NSM sensor stack (Suricata, Zeek, Security Onion, Arkime), hunting for beaconing or DNS tunneling in network logs, designing segmentation, NAC, or DDoS defenses |
 | Start at | [Network Defense Architecture](#_1-network-defense-architecture), [Suricata IDS/IPS](#_2-suricata-idsips), [Network Defense Operations](#_10-network-defense-operations) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [NETWORK_ATTACKS_REFERENCE.md](NETWORK_ATTACKS_REFERENCE.md), [NETWORK_MONITORING_REFERENCE.md](NETWORK_MONITORING_REFERENCE.md), [NETWORK_FORENSICS_REFERENCE.md](NETWORK_FORENSICS_REFERENCE.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md) |
 | Matching learning path | [Network Security](/disciplines/network-security.md) |
 | Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 5 on network attack, defense, and monitoring.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 5 on network attack, defense, and monitoring.</summary>
 
 | Page | Read it for |
 |---|---|
@@ -24,6 +31,8 @@ Which page should I read? This page is one of 5 on network attack, defense, and 
 | [Network Monitoring Reference](/NETWORK_MONITORING_REFERENCE.md) | The monitoring stack and hunting workflows: sensor placement, Zeek, Suricata rules, JA3, and flow data. |
 | [Network Forensics Reference](/NETWORK_FORENSICS_REFERENCE.md) | Collecting and preserving network evidence and reconstructing an incident from it. |
 | [Packet Analysis Reference](/PACKET_ANALYSIS_REFERENCE.md) | Reading raw traffic in Wireshark, tcpdump, and Zeek, and spotting attacks in packet captures. |
+
+</details>
 
 <!-- meta:end -->
 

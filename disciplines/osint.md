@@ -11,7 +11,16 @@ OSINT is not passive browsing. Professional OSINT work involves structured colle
 | Who this is for | Analysts and testers learning open-source intelligence collection and analysis |
 | Level | Beginner to advanced |
 | Reading time | About 14 min (3,130 words at 230 words a minute) |
+| Read this when | starting in OSINT, building a collection workflow with OPSEC in mind, or choosing OSINT tools |
+| Start at | [Where to Start](#where-to-start), [Core Methodology](#core-methodology), [OpSec for OSINT Analysts](#opsec-for-osint-analysts) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

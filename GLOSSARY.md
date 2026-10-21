@@ -11,8 +11,16 @@
 | Reading time | About 13 min (3,043 words at 230 words a minute) |
 | Read this when | you hit an acronym or term you don't recognize in another doc, you need a quick one-line definition to drop into a report, you want to check the difference between similar terms (IOC vs IOA, Golden vs Silver Ticket) |
 | Start at | [A](#a) to browse alphabetically, [Common Acronym Reference](#common-acronym-reference) for acronym expansions only, [Additional Terms](#additional-terms) for offensive and blue-team specialist terms |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [FRAMEWORKS.md](FRAMEWORKS.md) for framework comparisons, [TOOLS.md](TOOLS.md) for tool quick-reference, [SECURITY_PIPELINE.md](SECURITY_PIPELINE.md) for pipeline stages |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last corrected | 2026-09-29, TLP entry updated to TLP 2.0 (TLP:CLEAR, TLP:AMBER+STRICT) ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

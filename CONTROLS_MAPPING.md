@@ -30,15 +30,25 @@ For the full pipeline context, see [SECURITY_PIPELINE.md](SECURITY_PIPELINE.md).
 | Reading time | About 8 min (1,954 words at 230 words a minute) |
 | Read this when | tracing a security product to the NIST 800-53 controls it implements and on to the ATT&CK techniques those controls mitigate, or downloading CTID mapping data for gap scoring |
 | Start at | [Vendor to NIST Control to ATT&CK Coverage](#vendor-to-nist-control-to-attampck-coverage), [Key ATT&CK Technique to NIST Control Reference](#key-attampck-technique-to-nist-control-reference), [Using CTID Data for Gap Scoring](#using-ctid-data-for-gap-scoring) |
-| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
 
-Which page should I read? This page is one of 3 on security controls and vendor settings.
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on security controls and vendor settings.</summary>
 
 | Page | Read it for |
 |---|---|
 | Controls Mapping (this page) | The chain from security vendors to the NIST 800-53 controls they implement and the ATT&CK techniques those controls mitigate. |
 | [Enterprise Security Controls](/ENTERPRISE_SECURITY_CONTROLS.md) | Configuration, policy tuning, and detection guidance for specific enterprise platforms. |
 | [Vendor Prevention Policies](/VENDOR_PREVENTION_POLICIES.md) | Recommended prevention settings from official vendor documentation and the CISA SCuBA baselines. |
+
+</details>
 
 <!-- meta:end -->
 

@@ -11,8 +11,16 @@
 | Reading time | About 10 min (2,378 words at 230 words a minute) |
 | Read this when | reviewing a pull request for security flaws, fixing a scanner finding (SQL injection, weak hashing, unsafe deserialization, SSRF), or setting up SAST/SCA/secrets scanning in CI |
 | Start at | [OWASP Top 10 (2021)](#owasp-top-10-2021), [Security Testing in SDLC](#security-testing-in-sdlc), [Quick Reference Checklist](#quick-reference-checklist) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [API Security Reference](API_SECURITY_REFERENCE.md), [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md), [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last corrected | 2026-09-29, note added on OWASP Top 10:2025; CWE Top 25 and ATT&CK versions in the footer updated ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

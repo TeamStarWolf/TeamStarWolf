@@ -15,7 +15,14 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md), [Thre
 | Reading time | About 4 min (982 words at 230 words a minute) |
 | Read this when | You need to look up an ICS ATT&CK technique by tactic, check which threat groups or software use a technique, or find the ATT&CK mitigations that address it |
 | Start at | [Tactics](#tactics) for the full tactic index, then jump to ICS-specific tactics like [Inhibit Response Function](#inhibit-response-function) or [Impair Process Control](#impair-process-control) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

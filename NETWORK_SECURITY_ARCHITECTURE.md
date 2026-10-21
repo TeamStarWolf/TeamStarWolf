@@ -11,16 +11,26 @@
 | Reading time | About 15 min (3,563 words at 230 words a minute) |
 | Read this when | designing or reviewing network segmentation and firewall policy, deploying IDS/IPS or 802.1X/NAC, hardening VPNs or planning DDoS protection |
 | Start at | [Defense-in-Depth Network Architecture](#defense-in-depth-network-architecture), [Network Segmentation Implementation](#network-segmentation-implementation), [Architecture Evaluation Checklist](#architecture-evaluation-checklist) |
-| Pairs with | [NETWORK_DEFENSE_REFERENCE.md](NETWORK_DEFENSE_REFERENCE.md), [NETWORK_MONITORING_REFERENCE.md](NETWORK_MONITORING_REFERENCE.md), [ZERO_TRUST_REFERENCE.md](ZERO_TRUST_REFERENCE.md), [CLOUD_NETWORK_SECURITY.md](CLOUD_NETWORK_SECURITY.md) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
 
-Which page should I read? This page is one of 3 on how networks work and how to design them.
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Pairs with | [NETWORK_DEFENSE_REFERENCE.md](NETWORK_DEFENSE_REFERENCE.md), [NETWORK_MONITORING_REFERENCE.md](NETWORK_MONITORING_REFERENCE.md), [ZERO_TRUST_REFERENCE.md](ZERO_TRUST_REFERENCE.md), [CLOUD_NETWORK_SECURITY.md](CLOUD_NETWORK_SECURITY.md) |
+| Last corrected | 2026-09-29, ATT&CK version in the footer updated from v15 to v19.2 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last reviewed | No review recorded yet |
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on how networks work and how to design them.</summary>
 
 | Page | Read it for |
 |---|---|
 | Network Security Architecture (this page) | Building a segmented enterprise network: zones, firewall and IPS placement, 802.1X, and VPNs, with configuration examples. |
 | [Networking Fundamentals](/NETWORKING_FUNDAMENTALS.md) | How networking works, from OSI layers to routing and DNS, explained for reasoning about attacks and detections. |
 | [Networking Architecture Reference](/NETWORKING_ARCHITECTURE_REFERENCE.md) | Designing networks: topologies, overlays, segmentation, SD-WAN and SASE, and core services. |
+
+</details>
 
 <!-- meta:end -->
 

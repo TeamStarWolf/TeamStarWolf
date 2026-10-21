@@ -11,8 +11,15 @@
 | Reading time | About 6 min (1,472 words at 230 words a minute) |
 | Read this when | you want hands-on practice in a specific discipline, you are prepping for a cert or CTF and need free targets, you are building a home lab and need a components-and-hardware starting point |
 | Start at | [Platform Index](#platform-index), [By Discipline](#by-discipline), [Home Lab Builds](#home-lab-builds) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [Career Paths & Cert Roadmap](CAREER_PATHS.md), [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Starred Repositories](STARRED_REPOS.md) |
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

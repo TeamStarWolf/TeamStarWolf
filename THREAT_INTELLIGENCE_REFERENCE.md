@@ -11,9 +11,17 @@
 | Reading time | About 22 min (5,147 words at 230 words a minute) |
 | Read this when | standing up or maturing a CTI program, enriching and scoring IOCs before pushing them to your SIEM or firewall, trying to attribute activity to a known threat actor |
 | Start at | [CTI Fundamentals](#_1-cti-fundamentals), [IOC Management & Enrichment](#_4-ioc-management-amp-enrichment), [Threat Actor Tracking & Attribution](#_5-threat-actor-tracking-amp-attribution) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [THREAT_GROUP_PROFILES.md](THREAT_GROUP_PROFILES.md), [THREAT_HUNTING_REFERENCE.md](THREAT_HUNTING_REFERENCE.md), [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [disciplines/threat-intelligence.md](disciplines/threat-intelligence.md) |
 | Matching learning path | [Threat Intelligence](/disciplines/threat-intelligence.md) |
-| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

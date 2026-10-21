@@ -11,7 +11,16 @@ The shared responsibility model is the foundational concept every cloud security
 | Who this is for | Engineers and security practitioners moving into AWS, Azure, and GCP security |
 | Level | Beginner to advanced |
 | Reading time | About 13 min (3,081 words at 230 words a minute) |
+| Read this when | moving into cloud security from infrastructure or IT, or studying attacks and misconfigurations in AWS, Azure and GCP |
+| Start at | [Where to Start](#where-to-start), [Cloud Attack Techniques (AWS)](#cloud-attack-techniques-aws), [Common Cloud Misconfigurations](#common-cloud-misconfigurations-all-platforms) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

@@ -11,7 +11,17 @@ Good security architecture is not just about controls; it is about making securi
 | Who this is for | Engineers moving into security architecture roles |
 | Level | Beginner to advanced |
 | Reading time | About 8 min (1,954 words at 230 words a minute) |
-| Last reviewed | 2026-09-27 (ATT&CK v19.2): tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51)) |
+| Read this when | moving into security architecture, or learning defense in depth and common architecture patterns |
+| Start at | [Where to Start](#where-to-start), [Security Architecture Patterns](#security-architecture-patterns), [Free Training](#free-training) |
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Last corrected | 2026-09-27, ATT&CK tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

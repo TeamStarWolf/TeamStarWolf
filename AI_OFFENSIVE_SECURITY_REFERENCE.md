@@ -11,10 +11,17 @@
 | Reading time | About 36 min (8,312 words at 230 words a minute) |
 | Read this when | You are sizing up AI-assisted attack risk, tightening patch SLAs to match AI exploitation speed, or planning an authorized AI red team engagement |
 | Start at | [The AI Security Revolution](#section-1-the-ai-security-revolution), [Defending Against AI Attackers](#section-6-defending-against-ai-attackers), [Getting Started: Safe AI Security Assessment](#getting-started-safe-ai-security-assessment) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [AI_SECURITY_REFERENCE.md](AI_SECURITY_REFERENCE.md), [AI_MCP_SECURITY_REFERENCE.md](AI_MCP_SECURITY_REFERENCE.md), [CVE_REFERENCE.md](CVE_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md) |
 | Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 7 on AI security.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 7 on AI security.</summary>
 
 | Page | Read it for |
 |---|---|
@@ -25,6 +32,8 @@ Which page should I read? This page is one of 7 on AI security.
 | [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md) | The infrastructure behind AI: model registries, unsafe model files, pipelines, and inference servers. |
 | [Agentic AI Swarm Attacks](/AGENTIC_AI_ATTACK_REFERENCE.md) | An illustrative agent-swarm intrusion kill chain mapped to ATT&CK and ATLAS. |
 | [ATLAS Reference (AI threats)](/ATLAS_REFERENCE.md) | The MITRE ATLAS matrix of techniques and mitigations for attacks on AI systems. |
+
+</details>
 
 <!-- meta:end -->
 

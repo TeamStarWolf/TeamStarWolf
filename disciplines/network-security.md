@@ -11,7 +11,16 @@ The discipline has expanded significantly with the rise of encrypted traffic, cl
 | Who this is for | Practitioners learning network security monitoring, IDS and IPS, and traffic analysis |
 | Level | Beginner to advanced |
 | Reading time | About 10 min (2,271 words at 230 words a minute) |
+| Read this when | learning how network protocols work at the packet level and how they are attacked and monitored |
+| Start at | [Where to Start](#where-to-start), [Network Attack Techniques](#network-attack-techniques), [Network Monitoring and Defense](#network-monitoring-and-defense) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

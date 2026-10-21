@@ -11,15 +11,25 @@
 | Reading time | About 11 min (2,559 words at 230 words a minute) |
 | Read this when | you are responding to a cloud/SaaS/identity incident and there is no server to image, you need to acquire logs before a retention window closes, you are collecting an iOS/Android device for exam, or you must preserve cloud evidence defensibly for legal hold |
 | Start at | [Cloud forensic readiness](#cloud-forensic-readiness), [Mobile acquisition workflows](#mobile-acquisition-workflows), [Incident quick-start checklist](#incident-quick-start-checklist) |
-| Pairs with | [DIGITAL_FORENSICS_REFERENCE.md](DIGITAL_FORENSICS_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [SAAS_SECURITY_REFERENCE.md](SAAS_SECURITY_REFERENCE.md), [MOBILE_SECURITY_REFERENCE.md](MOBILE_SECURITY_REFERENCE.md), [NETWORK_FORENSICS_REFERENCE.md](NETWORK_FORENSICS_REFERENCE.md) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): written and checked against live sources ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68)) |
 
-Which page should I read? This page is one of 2 on digital forensics.
+<details class="tsw-meta-more"><summary>More about this page (pairs with, added, last reviewed)</summary>
+
+| | |
+|---|---|
+| Pairs with | [DIGITAL_FORENSICS_REFERENCE.md](DIGITAL_FORENSICS_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [SAAS_SECURITY_REFERENCE.md](SAAS_SECURITY_REFERENCE.md), [MOBILE_SECURITY_REFERENCE.md](MOBILE_SECURITY_REFERENCE.md), [NETWORK_FORENSICS_REFERENCE.md](NETWORK_FORENSICS_REFERENCE.md) |
+| Added | 2026-09-29, page added in a pull request that records its facts as checked against live sources ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68)) |
+| Last reviewed | No review recorded yet |
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 2 on digital forensics.</summary>
 
 | Page | Read it for |
 |---|---|
 | Cloud, SaaS & Mobile Forensics (this page) | Acquisition and preservation when the evidence lives in an API, a tenant, or a phone. |
 | [Digital Forensics Reference](/DIGITAL_FORENSICS_REFERENCE.md) | Host, disk, and memory forensics: acquisition, Windows artifacts, and reporting. |
+
+</details>
 
 <!-- meta:end -->
 

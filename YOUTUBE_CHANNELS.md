@@ -11,8 +11,15 @@
 | Reading time | About 7 min (1,644 words at 230 words a minute) |
 | Read this when | you want to learn a discipline by watching workflows instead of reading, you need conference or BSides talk sources, you are building a Black Hat Arsenal watch queue |
 | Start at | [Category Index](#category-index), [How To Use This File](#how-to-use-this-file), [Black Hat Arsenal Companion Videos](#black-hat-arsenal-companion-videos) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [CYBERSECURITY_BOOK_LIST.md](CYBERSECURITY_BOOK_LIST.md), [STARRED_REPOS.md](STARRED_REPOS.md), [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWALK.md) |
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

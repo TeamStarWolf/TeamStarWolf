@@ -13,9 +13,16 @@
 | Reading time | About 21 min (4,813 words at 230 words a minute) |
 | Read this when | looking for the official documentation, API reference, or GitHub organization for a security platform in the stack, or starting an integration and needing the vendor's developer docs |
 | Start at | [Endpoint & EDR](#endpoint-amp-edr), [Cloud & Supply Chain](#cloud-amp-supply-chain), [Identity & Privileged Access](#identity-amp-privileged-access) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 4 on finding a tool.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 4 on finding a tool.</summary>
 
 | Page | Read it for |
 |---|---|
@@ -23,6 +30,8 @@ Which page should I read? This page is one of 4 on finding a tool.
 | [Security Tools Reference](/TOOLS.md) | A matrix of tools by function, each marked open source or commercial. |
 | [Open Source Toolkit](/OPEN_SOURCE_TOOLKIT.md) | Free and open-source tools organized by discipline, with practice platforms and bookmarks. |
 | [Starred Repositories](/STARRED_REPOS.md) | The full index of starred GitHub repositories, grouped by the job they do. |
+
+</details>
 
 <!-- meta:end -->
 

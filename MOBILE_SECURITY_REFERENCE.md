@@ -11,9 +11,17 @@
 | Reading time | About 20 min (4,702 words at 230 words a minute) |
 | Read this when | You are testing or hardening an Android/iOS app, triaging suspected mobile malware or spyware, or designing MDM/enterprise mobile controls |
 | Start at | [Mobile Security Landscape](#_1-mobile-security-landscape), [Mobile Application Security Testing (MAST)](#_4-mobile-application-security-testing-mast), [Common Mobile Vulnerabilities](#_5-common-mobile-vulnerabilities) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [MOBILE_ATTACK_ATLAS.md](MOBILE_ATTACK_ATLAS.md), [TELECOM_5G_SECURITY_REFERENCE.md](TELECOM_5G_SECURITY_REFERENCE.md), [WIRELESS_SECURITY_REFERENCE.md](WIRELESS_SECURITY_REFERENCE.md), [REVERSE_ENGINEERING_REFERENCE.md](REVERSE_ENGINEERING_REFERENCE.md) |
 | Matching learning path | [Mobile Security](/disciplines/mobile-security.md) |
-| Last reviewed | 2026-10-13 (ATT&CK v19.2): revoked and deprecated ATT&CK citations re-keyed to their current IDs ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118)) |
+| Last corrected | 2026-10-13, revoked and deprecated ATT&CK citations re-keyed to their current IDs ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

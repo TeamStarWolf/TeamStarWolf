@@ -11,7 +11,17 @@ Mobile security encompasses the protection of smartphones, tablets, and the appl
 | Who this is for | Practitioners learning iOS and Android app testing and enterprise mobility security |
 | Level | Beginner to advanced |
 | Reading time | About 8 min (1,918 words at 230 words a minute) |
-| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#83](https://github.com/TeamStarWolf/TeamStarWolf/pull/83)) |
+| Read this when | starting in Android or iOS application security testing, or studying the OWASP Mobile Top 10 and MASVS |
+| Start at | [Where to Start](#where-to-start), [Android Security Deep Dive](#android-security-deep-dive), [iOS Security Deep Dive](#ios-security-deep-dive) |
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#83](https://github.com/TeamStarWolf/TeamStarWolf/pull/83), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

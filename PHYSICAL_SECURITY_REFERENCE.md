@@ -12,9 +12,16 @@
 | Reading time | About 25 min (5,822 words at 230 words a minute) |
 | Read this when | Scoping or running an authorized physical penetration test, assessing a facility's or server room's physical controls, building a remediation checklist after a walkthrough |
 | Start at | [Physical Penetration Testing Overview](#_2-physical-penetration-testing-overview), [Physical Security Controls Assessment Checklist](#_11-physical-security-controls-assessment-checklist), [Lock Picking](#_3-lock-picking) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [SOCIAL_ENGINEERING_REFERENCE.md](SOCIAL_ENGINEERING_REFERENCE.md), [OSINT_REFERENCE.md](OSINT_REFERENCE.md), [SDR_RF_SECURITY_REFERENCE.md](SDR_RF_SECURITY_REFERENCE.md), [SECURITY_GADGETS_REFERENCE.md](SECURITY_GADGETS_REFERENCE.md) |
 | Matching learning path | [Physical Security](/disciplines/physical-security.md) |
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

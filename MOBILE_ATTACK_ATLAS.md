@@ -15,7 +15,14 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md), [Thre
 | Reading time | About 7 min (1,575 words at 230 words a minute) |
 | Read this when | Assessing Android/iOS threat coverage, mapping a mobile malware finding to ATT&CK, checking which mitigations address a mobile technique |
 | Start at | [Tactics](#tactics) for the 12-tactic index, [Initial Access](#initial-access) for how devices get compromised, [Collection](#collection) for what spyware harvests |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

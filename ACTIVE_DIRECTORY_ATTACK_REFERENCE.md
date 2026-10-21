@@ -13,17 +13,26 @@
 | Reading time | About 31 min (7,186 words at 230 words a minute) |
 | Read this when | Writing detections for an AD attack (Kerberoasting, DCSync, Golden Ticket, NTLM relay, AD CS/ESC), triaging a suspicious Kerberos/LDAP/replication event, or hardening a domain against escalation and persistence |
 | Start at | [AD Reconnaissance & Enumeration](#_1-ad-reconnaissance-amp-enumeration-defender-view), [Detection & Hardening Summary](#_10-detection-amp-hardening-summary), [Kerberoasting](#_2-kerberoasting) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [ACTIVE_DIRECTORY_ATTACKS.md](ACTIVE_DIRECTORY_ATTACKS.md) (red-team offensive playbook: exact exploit chains, trust attacks, tool table), [ACTIVE_DIRECTORY_SECURITY_REFERENCE.md](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md), [IDENTITY_SECURITY_REFERENCE.md](IDENTITY_SECURITY_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md) |
 | Matching learning path | [Active Directory Security](/disciplines/active-directory.md) |
 | Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 3 on Active Directory attack and defense.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on Active Directory attack and defense.</summary>
 
 | Page | Read it for |
 |---|---|
 | Active Directory Attack Reference (this page) | The same attacks from the defender's side: what each looks like on the wire, the telemetry it generates, and how to detect and prevent it. |
 | [Active Directory Attacks](/ACTIVE_DIRECTORY_ATTACKS.md) | The offensive playbook for penetration testers and red teamers: each major attack with tool commands, ATT&CK mappings, detection event IDs, and defenses. |
 | [Active Directory Security Reference](/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md) | The defensive companion: detection guidance, hardening controls, and response playbooks, including domain controller, Group Policy, and AD CS security. |
+
+</details>
 
 <!-- meta:end -->
 

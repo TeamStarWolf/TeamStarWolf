@@ -11,14 +11,24 @@
 | Reading time | About 30 min (6,821 words at 230 words a minute) |
 | Read this when | you need a group's aliases resolved to one ATT&CK ID, you're scoping which adversaries have the broadest technique coverage, you want a group's signature techniques for threat-informed defense |
 | Start at | [All tracked groups](#all-tracked-groups) for the alias-and-counts table, [Detailed profiles](#detailed-profiles-most-active-groups) for the most active groups' signature techniques |
-| Last reviewed | 2026-10-13 (ATT&CK v19.2): revoked and deprecated ATT&CK citations re-keyed to their current IDs ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118)) |
 
-Which page should I read? This page is one of 2 on threat actors.
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Last corrected | 2026-10-13, revoked and deprecated ATT&CK citations re-keyed to their current IDs ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 2 on threat actors.</summary>
 
 | Page | Read it for |
 |---|---|
 | Threat Group Profiles (this page) | Profiles built from ATT&CK group data: aliases, technique and software counts, and signature techniques. |
 | [Threat Actors](/THREAT_ACTORS.md) | A narrative quick reference to notable groups by nation and type, with aliases, targets, and signature TTPs. |
+
+</details>
 
 <!-- meta:end -->
 

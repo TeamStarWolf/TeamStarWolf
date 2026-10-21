@@ -11,7 +11,17 @@ The human layer remains the highest-leverage attack surface for adversaries. Phi
 | Who this is for | People who run or are building security awareness and human-risk programs |
 | Level | Beginner to advanced |
 | Reading time | About 8 min (1,779 words at 230 words a minute) |
-| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+| Read this when | building or rebuilding a security awareness program, running phishing simulations, or measuring human risk |
+| Start at | [Where to Start](#where-to-start), [Phishing Simulation Methodology](#phishing-simulation-methodology), [Human Risk Metrics](#human-risk-metrics) |
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

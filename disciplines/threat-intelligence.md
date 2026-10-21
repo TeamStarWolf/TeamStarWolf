@@ -11,7 +11,17 @@ The discipline spans four tiers: strategic intelligence informs executive decisi
 | Who this is for | Analysts learning to collect, analyze, and act on threat intelligence |
 | Level | Beginner to advanced |
 | Reading time | About 12 min (2,772 words at 230 words a minute) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Read this when | starting in cyber threat intelligence, learning the intelligence cycle and ATT&CK, or choosing CTI tools and sources |
+| Start at | [Where to Start](#where-to-start), [Free Training](#free-training), [Tools & Repositories](#tools-amp-repositories) |
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Last corrected | 2026-09-29, TheHive entry updated (now commercial; DFIR-IRIS named as the alternative) ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

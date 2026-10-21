@@ -12,8 +12,16 @@
 | Reading time | About 14 min (3,218 words at 230 words a minute) |
 | Read this when | You need to identify or crack a captured hash, you are choosing how an application should store passwords, or you are setting enterprise password policy and lockout thresholds |
 | Start at | [Password Hash Formats](#password-hash-formats), [Secure Password Storage](#secure-password-storage-developer-reference), [Enterprise Password Policies](#enterprise-password-policies) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [SECRETS_MANAGEMENT_REFERENCE.md](SECRETS_MANAGEMENT_REFERENCE.md), [disciplines/active-directory.md](disciplines/active-directory.md), [detections/strategies/credential-access.md](detections/strategies/credential-access.md) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last corrected | 2026-09-29, OWASP ASVS reference updated to 5.0; ATT&CK version in the footer updated to v19.2 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

@@ -11,16 +11,26 @@
 | Reading time | About 28 min (6,328 words at 230 words a minute) |
 | Read this when | You are acquiring or examining evidence from a compromised or seized system, you need the right artifact (prefetch, ShimCache, SRUM, $UsnJrnl) to prove a file ran or existed after deletion, or you are writing a court-ready forensic report or timeline |
 | Start at | [Digital Forensics Fundamentals](#_1-digital-forensics-fundamentals), [Windows Forensics - Artifacts](#_2-windows-forensics-artifacts), [Forensic Reporting & Tools Reference](#_10-forensic-reporting-amp-tools-reference) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [NETWORK_FORENSICS_REFERENCE.md](NETWORK_FORENSICS_REFERENCE.md), [IR_PLAYBOOKS.md](IR_PLAYBOOKS.md), [THREAT_HUNTING_REFERENCE.md](THREAT_HUNTING_REFERENCE.md) |
 | Matching learning path | [Digital Forensics](/disciplines/digital-forensics.md) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): detection queries and framework facts corrected in an audit ([#56](https://github.com/TeamStarWolf/TeamStarWolf/pull/56)) |
+| Last corrected | 2026-09-29, ShimCache description corrected: an entry shows a file was present, not that it ran ([#56](https://github.com/TeamStarWolf/TeamStarWolf/pull/56)) |
+| Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 2 on digital forensics.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 2 on digital forensics.</summary>
 
 | Page | Read it for |
 |---|---|
 | Digital Forensics Reference (this page) | Host, disk, and memory forensics: acquisition, Windows artifacts, and reporting. |
 | [Cloud, SaaS & Mobile Forensics](/CLOUD_SAAS_MOBILE_FORENSICS_REFERENCE.md) | Acquisition and preservation when the evidence lives in an API, a tenant, or a phone. |
+
+</details>
 
 <!-- meta:end -->
 

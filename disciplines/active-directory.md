@@ -9,7 +9,17 @@
 | Who this is for | Administrators, defenders, and testers who attack or protect Active Directory |
 | Level | Intermediate to advanced |
 | Reading time | About 9 min (1,983 words at 230 words a minute) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Read this when | learning how AD authentication works and how attackers get from a foothold to domain dominance, or building AD detections and hardening |
+| Start at | [AD Architecture Review](#ad-architecture-review), [Kerberoasting](#kerberoasting), [Detection Strategies](#detection-strategies) |
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Last corrected | 2026-09-29, CrackMapExec row replaced by NetExec ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

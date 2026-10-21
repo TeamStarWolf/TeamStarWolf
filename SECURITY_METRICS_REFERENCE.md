@@ -11,8 +11,16 @@
 | Reading time | About 38 min (8,822 words at 230 words a minute) |
 | Read this when | you are building or overhauling a metrics program, preparing a CISO/board report and need dollar framing and benchmarks, defining SLA targets or RAG thresholds for a specific domain (SOC, vuln, IAM, cloud) |
 | Start at | [S1: Security Metrics Fundamentals](#s1-security-metrics-fundamentals) for the KPI/KRI groundwork, [S4: Risk Quantification](#s4-risk-quantification) for FAIR and dollar estimates, [S10: Executive Reporting & Dashboard Design](#s10-executive-reporting-amp-dashboard-design) for board translation |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [VULNERABILITY_MANAGEMENT_REFERENCE.md](VULNERABILITY_MANAGEMENT_REFERENCE.md), [VULNERABILITY_PRIORITIZATION_REFERENCE.md](VULNERABILITY_PRIORITIZATION_REFERENCE.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [SOAR_AUTOMATION_REFERENCE.md](SOAR_AUTOMATION_REFERENCE.md) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last corrected | 2026-09-29, Windows 10 end-of-support row, one Entra ID rename and the ATT&CK version in the footer updated ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

@@ -11,16 +11,26 @@
 | Reading time | About 14 min (3,255 words at 230 words a minute) |
 | Read this when | you need to pick a framework for a compliance or sales requirement, someone asks how two frameworks relate or overlap, you need a fast refresher on a framework's structure before a meeting or assessment |
 | Start at | [Framework Comparison Overview](#framework-comparison-overview), [Framework Mapping Quick Reference](#framework-mapping-quick-reference), [Framework Selection Guide](#framework-selection-guide) |
-| Pairs with | [Controls Mapping](CONTROLS_MAPPING.md), [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md) |
-| Last reviewed | 2026-10-01 (ATT&CK v19.2): regulatory references checked against live sources ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63)) |
 
-Which page should I read? This page is one of 3 on governance, risk, and compliance.
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Pairs with | [Controls Mapping](CONTROLS_MAPPING.md), [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md) |
+| Last corrected | 2026-10-01, PCI DSS sections updated to v4.0.1; CMMC Level 1 count and rule citations updated ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63)) |
+| Last reviewed | No review recorded yet |
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on governance, risk, and compliance.</summary>
 
 | Page | Read it for |
 |---|---|
 | Frameworks Reference (this page) | A quick reference to each major framework: who publishes it, whether it is mandatory, who it applies to, and its structure. |
 | [GRC Compliance Reference](/GRC_COMPLIANCE_REFERENCE.md) | Frameworks in depth, with compliance automation tooling such as OSCAL and ComplianceAsCode. |
 | [GRC Reference](/GRC_REFERENCE.md) | Running the program: governance structure, risk quantification, compliance programs, third-party risk, and audits. |
+
+</details>
 
 <!-- meta:end -->
 

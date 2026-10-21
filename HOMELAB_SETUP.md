@@ -11,8 +11,16 @@
 | Reading time | About 27 min (6,252 words at 230 words a minute) |
 | Read this when | You are setting up your first lab from scratch, you need to choose a hypervisor or size hardware, or you want a ready-made vulnerable AD/cloud target to attack and detect |
 | Start at | [Suggested Progression](#suggested-progression), [Hardware Options](#_1-hardware-options), [Hypervisor Options](#_2-hypervisor-options) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [LABS.md](LABS.md), [ACTIVE_DIRECTORY_ATTACKS.md](ACTIVE_DIRECTORY_ATTACKS.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [CLOUD_ATTACK_REFERENCE.md](CLOUD_ATTACK_REFERENCE.md) |
-| Last reviewed | 2026-10-13 (ATT&CK v19.2): stale gap figures, a false gap claim, and revoked-ID wording corrected ([#120](https://github.com/TeamStarWolf/TeamStarWolf/pull/120)) |
+| Last corrected | 2026-10-13, Azure free-tier limits, the budget command and Sentinel licensing corrected ([#120](https://github.com/TeamStarWolf/TeamStarWolf/pull/120)) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

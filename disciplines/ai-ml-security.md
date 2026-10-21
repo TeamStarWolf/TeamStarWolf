@@ -11,7 +11,16 @@ AI/ML security practitioners must understand both how to attack ML systems (pois
 | Who this is for | Engineers and security practitioners securing ML pipelines, models, and inference APIs |
 | Level | Beginner to advanced |
 | Reading time | About 9 min (1,972 words at 230 words a minute) |
+| Read this when | learning the security risks at each phase of the ML lifecycle, from training data to deployment, and the controls and governance that address them |
+| Start at | [Where to Start](#where-to-start), [ML Lifecycle Attack Surface](#ml-lifecycle-attack-surface), [MLOps Security](#mlops-security) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

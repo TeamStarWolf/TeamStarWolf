@@ -15,7 +15,14 @@ Related: [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Fight
 | Reading time | About 28 min (6,496 words at 230 words a minute) |
 | Read this when | standing up or maturing an insider threat/risk program, designing detections for departing-employee or fraud scenarios, mapping insider TTPs onto ATT&CK coverage |
 | Start at | [The CTID Insider Threat TTP Knowledge Base](#the-ctid-insider-threat-ttp-knowledge-base), [Detection approaches](#detection-approaches), [A 90-day starting plan](#a-90-day-starting-plan) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

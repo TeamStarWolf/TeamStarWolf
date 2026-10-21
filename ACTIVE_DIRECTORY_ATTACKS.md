@@ -11,16 +11,26 @@
 | Reading time | About 12 min (2,780 words at 230 words a minute) |
 | Read this when | Scoping an internal AD pentest or red team op, mapping a path to Domain Admins, or building detections and defenses for a specific AD attack |
 | Start at | [AD Fundamentals for Attackers](#_1-ad-fundamentals-for-attackers), [Enumeration & Reconnaissance](#_2-enumeration-amp-reconnaissance), [Tools Quick Reference](#_10-tools-quick-reference) |
-| Pairs with | [ACTIVE_DIRECTORY_ATTACK_REFERENCE.md](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), [ACTIVE_DIRECTORY_SECURITY_REFERENCE.md](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
 
-Which page should I read? This page is one of 3 on Active Directory attack and defense.
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Pairs with | [ACTIVE_DIRECTORY_ATTACK_REFERENCE.md](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), [ACTIVE_DIRECTORY_SECURITY_REFERENCE.md](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md) |
+| Last corrected | 2026-09-29, CrackMapExec tool row marked archived, with NetExec named as its successor ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last reviewed | No review recorded yet |
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on Active Directory attack and defense.</summary>
 
 | Page | Read it for |
 |---|---|
 | Active Directory Attacks (this page) | The offensive playbook for penetration testers and red teamers: each major attack with tool commands, ATT&CK mappings, detection event IDs, and defenses. |
 | [Active Directory Attack Reference](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md) | The same attacks from the defender's side: what each looks like on the wire, the telemetry it generates, and how to detect and prevent it. |
 | [Active Directory Security Reference](/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md) | The defensive companion: detection guidance, hardening controls, and response playbooks, including domain controller, Group Policy, and AD CS security. |
+
+</details>
 
 <!-- meta:end -->
 

@@ -13,10 +13,18 @@
 | Reading time | About 13 min (3,024 words at 230 words a minute) |
 | Read this when | you need a free tool for a specific job (recon, cracking, forensics, cloud audit), you are building out a lab or home toolkit, you want the practice platform or cheat-sheet link you half-remember |
 | Start at | [Reconnaissance & OSINT](#reconnaissance-amp-osint), [Detection & Blue Team](#detection-amp-blue-team), [Online Resources & Bookmarks](#online-resources-amp-bookmarks) |
-| Pairs with | [TOOLS.md](TOOLS.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
 
-Which page should I read? This page is one of 4 on finding a tool.
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Pairs with | [TOOLS.md](TOOLS.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md) |
+| Last corrected | 2026-09-29, CrackMapExec and PowerSploit marked archived; BloodHound, SharpHound and AzureHound links moved to SpecterOps ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last reviewed | No review recorded yet |
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 4 on finding a tool.</summary>
 
 | Page | Read it for |
 |---|---|
@@ -24,6 +32,8 @@ Which page should I read? This page is one of 4 on finding a tool.
 | [Security Tools Reference](/TOOLS.md) | A matrix of tools by function, each marked open source or commercial. |
 | [Starred Repositories](/STARRED_REPOS.md) | The full index of starred GitHub repositories, grouped by the job they do. |
 | [Security Tool Documentation](/SECURITY_TOOL_DOCUMENTATION.md) | Official documentation, API references, and GitHub organizations for the platforms in an enterprise security stack. |
+
+</details>
 
 <!-- meta:end -->
 

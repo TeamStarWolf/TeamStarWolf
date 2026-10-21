@@ -9,9 +9,17 @@
 | Reading time | About 16 min (3,652 words at 230 words a minute) |
 | Read this when | threat-modeling a platform where many autonomous AI agents share credentials and infrastructure, or mapping agent-driven intrusion activity to ATT&CK and ATLAS |
 | Start at | [Overview](#overview), [The Kill Chain](#the-kill-chain), [Detection Opportunities](#detection-opportunities) |
-| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
 
-Which page should I read? This page is one of 7 on AI security.
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 7 on AI security.</summary>
 
 | Page | Read it for |
 |---|---|
@@ -22,6 +30,8 @@ Which page should I read? This page is one of 7 on AI security.
 | [AI Architecture Reference](/AI_ARCHITECTURE_REFERENCE.md) | Designing ML and LLM systems end to end, with the controls that make the architecture defensible. |
 | [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md) | The infrastructure behind AI: model registries, unsafe model files, pipelines, and inference servers. |
 | [ATLAS Reference (AI threats)](/ATLAS_REFERENCE.md) | The MITRE ATLAS matrix of techniques and mitigations for attacks on AI systems. |
+
+</details>
 
 <!-- meta:end -->
 

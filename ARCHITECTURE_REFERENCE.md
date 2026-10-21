@@ -18,14 +18,23 @@
 | Who this is for | Solution and enterprise architects, and security reviewers who assess system designs |
 | Level | Intermediate |
 | Reading time | About 23 min (5,350 words at 230 words a minute) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 2 on architecture.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 2 on architecture.</summary>
 
 | Page | Read it for |
 |---|---|
 | Architecture Reference (General) (this page) | General enterprise and solution architecture: domains, frameworks, decision records, and patterns, each read as an attack-surface decision. |
 | [Security Architecture Reference](/SECURITY_ARCHITECTURE_REFERENCE.md) | Security architecture itself: SABSA, TOGAF, defense in depth, Zero Trust, and architecture reviews. |
+
+</details>
 
 <!-- meta:end -->
 

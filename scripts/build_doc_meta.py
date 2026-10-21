@@ -3,7 +3,9 @@
 long appendices.
 
 The card is a two-column table between markers, written into the page itself so it reads
-the same on GitHub and on the site:
+the same on GitHub and on the site. The first table is what fits one screen; the rest sits
+in two closed <details> folds (on the site, the "More about this page" fold opens by itself
+on screens wider than 600 px):
 
     <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -13,25 +15,45 @@ the same on GitHub and on the site:
     | Level | ... |
     | Reading time | About 13 min (2,963 words at 230 words a minute) |
     | Read this when | ... |
-    | Start at | ... |
+    | Start at | ... (at most 3 links) |
+
+    <details class="tsw-meta-more"><summary>More about this page (pairs with, ...)</summary>
+
+    | | |
+    |---|---|
     | Pairs with | ... |
     | Matching learning path | ... |
-    | Last reviewed | 2026-10-13 (ATT&CK v19.2): what was checked (#PR) |
+    | Last corrected | 2026-10-12, what the edit changed on this page ([#PR](...), ATT&CK v19.2) |
+    | Last reviewed | No review recorded yet |
 
-    Which page should I read? ...          (pages in an overlap cluster)
+    </details>
+
+    <details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on ...</summary>
+
+    | Page | Read it for |                    (pages in an overlap cluster)
+
+    </details>
 
     Key takeaways (reviewed ...):          (only takeaways from data/doc_takeaways.yaml)
 
     <!-- meta:end -->
 
+"Last corrected" and "Last reviewed" are different rows on purpose. A correction is a pull
+request in the history that edited the page's text (a renamed tool, a re-keyed ATT&CK ID,
+an updated regulation); its row says what that edit changed on this page, and names an
+ATT&CK release only when the edit was about ATT&CK content. A review is a whole-page review
+the owner records; until one is recorded the card says "No review recorded yet", and only a
+review starts or resets the "Due for review" clock, so a find-and-replace never does.
+
 Where each part comes from:
 
     data/doc_meta.yaml          the hand-written fields of each page (who it is for, level,
                                 read this when, start at, pairs with, matching learning
-                                path, the review it last had), the reviews themselves, the
-                                overlap clusters and the folds. The file is YAML in which
-                                every value is written as JSON (one line each), so it needs
-                                no YAML library here and any YAML tool reads it the same.
+                                path, its last correction and its last review), the
+                                corrections and reviews themselves, the overlap clusters
+                                and the folds. The file is YAML in which every value is
+                                written as JSON (one line each), so it needs no YAML
+                                library here and any YAML tool reads it the same.
     the page                    the word count and reading time: the page's words
                                 (build_site_nav.word_count, the same count the domain hubs
                                 show) at 230 words a minute
@@ -39,8 +61,8 @@ Where each part comes from:
                                 touch script-written blocks, link targets or the card do
                                 not count). "Due for review" is added to the last-reviewed
                                 row when the text changed more than 90 days after the
-                                review. The --check run needs full history (CI checks out
-                                with fetch-depth: 0) and refuses a shallow clone.
+                                owner's review. The --check run needs full history (CI
+                                checks out with fetch-depth: 0) and refuses a shallow clone.
     docs/crosslinks.json        the learning path that matches a reference; doc_meta.yaml
                                 must name the same one (build_crosslinks.py writes the
                                 callout under each path from the same pairs)
@@ -62,8 +84,9 @@ Rules the --check run enforces (CI, validate-data.yml):
   * each committed card and fold matches what this script writes;
   * no "Read this when", "Start at" or "Pairs with" row outside the card (they live in
     doc_meta.yaml now);
-  * level is one of LEVELS, a review id exists, a fold names a real heading, a learning
-    path matches docs/crosslinks.json, a page sits in at most one cluster;
+  * level is one of LEVELS, "Start at" has at most 3 links, a correction or review id
+    exists, a fold names a real heading, a learning path matches docs/crosslinks.json, a
+    page sits in at most one cluster;
   * every takeaway (draft or reviewed): 3 to 5 per page, one line, the voice rules of
     docs/VOICE.md, a "from" anchor on the page, and a quote found in that section.
 
@@ -103,6 +126,12 @@ END = "<!-- meta:end -->"
 META_RE = re.compile(r"^<!-- meta:start[^\n]*-->\n.*?^<!-- meta:end -->", re.S | re.M)
 CARD_ROW_RE = re.compile(r"^\|\s*(Read this when|Start at|Pairs with)\s*\|")
 CARD_FIELDS = (("read_when", "Read this when"), ("start_at", "Start at"), ("pairs_with", "Pairs with"))
+FIRST_SCREEN = ("read_when", "start_at")     # the rest of the card goes in "More about this page"
+START_AT_MAX = 3                             # plan section 5: at most three anchors
+LINK_RE = re.compile(r"\]\(")
+MORE_OPEN = '<details class="tsw-meta-more"><summary>{}</summary>'
+WHICH_OPEN = '<details class="tsw-meta-which"><summary>{}</summary>'
+CORRECTED_LABEL = "Last corrected"
 
 WPM = bsn.WPM
 DUE_DAYS = 90
@@ -369,13 +398,24 @@ def due(reviewed: str, changed: str) -> bool:
 
 def validate(meta: dict, refs: list[str], paths: list[str]) -> list[str]:
     problems = []
+    corrections = meta.get("corrections") or {}
+    for cid, r in corrections.items():
+        if not isinstance(r, dict) or set(r) - {"date", "pr", "what", "attack", "label"} \
+                or not DATE_RE.match(str(r.get("date", ""))) or not isinstance(r.get("pr"), int) \
+                or not str(r.get("what", "")).strip() \
+                or ("attack" in r and not ATTACK_RE.match(str(r["attack"]))) \
+                or ("label" in r and not str(r["label"]).strip()):
+            problems.append(META + ": correction '" + cid + "' needs date (YYYY-MM-DD), pr (a number) "
+                            "and what, and may have attack (vNN.N, only for an edit to ATT&CK content) "
+                            "and label")
     reviews = meta.get("reviews") or {}
     for rid, r in reviews.items():
-        if not isinstance(r, dict) or not DATE_RE.match(str(r.get("date", ""))) \
-                or not ATTACK_RE.match(str(r.get("attack", ""))) or not isinstance(r.get("pr"), int) \
-                or not str(r.get("what", "")).strip():
-            problems.append(META + ": review '" + rid + "' needs date (YYYY-MM-DD), attack (vNN.N), "
-                            "pr (a number) and what")
+        if not isinstance(r, dict) or set(r) - {"date", "what", "attack", "pr"} \
+                or not DATE_RE.match(str(r.get("date", ""))) or not str(r.get("what", "")).strip() \
+                or ("attack" in r and not ATTACK_RE.match(str(r["attack"]))) \
+                or ("pr" in r and not isinstance(r["pr"], int)):
+            problems.append(META + ": review '" + rid + "' needs date (YYYY-MM-DD) and what, and may "
+                            "have attack (vNN.N) and pr (a number)")
     pages = meta.get("pages") or {}
     want = set(refs) | set(paths)
     for rel in sorted(want - set(pages)):
@@ -391,17 +431,21 @@ def validate(meta: dict, refs: list[str], paths: list[str]) -> list[str]:
             problems.append(where + "must be a mapping")
             continue
         unknown = set(e) - {"audience", "level", "read_when", "start_at", "pairs_with",
-                            "learning_path", "reviewed", "fold"}
+                            "learning_path", "corrected", "corrected_what", "reviewed", "fold"}
         if unknown:
             problems.append(where + "unknown field(s) " + ", ".join(sorted(unknown)))
         if not str(e.get("audience") or "").strip():
             problems.append(where + "audience is empty")
         if e.get("level") not in LEVELS:
             problems.append(where + "level must be one of: " + ", ".join(LEVELS))
-        for field, _ in CARD_FIELDS + (("audience", ""),):
+        for field, _ in CARD_FIELDS + (("audience", ""), ("corrected_what", "")):
             v = e.get(field)
             if v is not None and (not isinstance(v, str) or "\n" in v or UNESCAPED_PIPE_RE.search(v)):
                 problems.append(where + field + " must be one line with any '|' escaped as '\\|'")
+        n_start = len(LINK_RE.findall(str(e.get("start_at") or "")))
+        if n_start > START_AT_MAX:
+            problems.append(where + "start_at has " + str(n_start) + " links; plan section 5 allows at most "
+                            + str(START_AT_MAX))
         lp = e.get("learning_path") or []
         if rel in refs and sorted(lp) != matched.get(rel, []):
             problems.append(where + "learning_path " + json.dumps(lp) + " differs from " + CROSSLINKS
@@ -411,6 +455,11 @@ def validate(meta: dict, refs: list[str], paths: list[str]) -> list[str]:
         rv = e.get("reviewed")
         if rv is not None and rv not in reviews:
             problems.append(where + "reviewed '" + str(rv) + "' is not under reviews:")
+        cv_ = e.get("corrected")
+        if cv_ is not None and cv_ not in corrections:
+            problems.append(where + "corrected '" + str(cv_) + "' is not under corrections:")
+        if e.get("corrected_what") is not None and cv_ is None:
+            problems.append(where + "corrected_what without corrected")
         for spec in e.get("fold") or []:
             kind, _, anchor = str(spec).partition(":")
             if kind not in ("section", "tables") or not anchor:
@@ -515,13 +564,33 @@ def reading_row(text: str) -> tuple[str, int]:
         + " words a minute)", n
 
 
+def pr_link(n: int) -> str:
+    return "[#" + str(n) + "](" + REPO_URL + "/pull/" + str(n) + ")"
+
+
+def corrected_row(e: dict, corrections: dict) -> tuple[str, str] | None:
+    """(label, value) of the page's last recorded correction: its date, what the edit
+    changed on this page, the pull request, and the ATT&CK release only when the edit was
+    about ATT&CK content."""
+    cid = e.get("corrected")
+    if not cid:
+        return None
+    c = corrections[cid]
+    tail = pr_link(c["pr"]) + (", ATT&CK " + c["attack"] if c.get("attack") else "")
+    return c.get("label") or CORRECTED_LABEL, c["date"] + ", " + (e.get("corrected_what") or c["what"]) \
+        + " (" + tail + ")"
+
+
 def review_row(e: dict, reviews: dict, changed: str | None) -> str:
+    """The owner's last whole-page review, or "No review recorded yet". Only a review
+    starts the "Due for review" clock."""
     rid = e.get("reviewed")
     if not rid:
         return "No review recorded yet"
     r = reviews[rid]
-    row = (r["date"] + " (ATT&CK " + r["attack"] + "): " + r["what"] + " ([#" + str(r["pr"]) + "]("
-           + REPO_URL + "/pull/" + str(r["pr"]) + "))")
+    extra = [x for x in ((pr_link(r["pr"]) if r.get("pr") else ""),
+                         ("against ATT&CK " + r["attack"] if r.get("attack") else "")) if x]
+    row = r["date"] + ", " + r["what"] + (" (" + ", ".join(extra) + ")" if extra else "")
     if changed and due(r["date"], changed):
         row += ". Due for review: the text changed more than " + str(DUE_DAYS) + " days after this review"
     return row
@@ -536,13 +605,13 @@ def cluster_note(rel: str, meta: dict, descs: dict) -> list[str]:
         members = c["pages"]
         if rel not in members:
             continue
-        out = ["Which page should I read? This page is one of " + str(len(members)) + " on "
-               + c["topic"] + ".", "", "| Page | Read it for |", "|---|---|",
+        out = [WHICH_OPEN.format("Which page should I read? This page is one of " + str(len(members))
+                                 + " on " + c["topic"] + "."), "", "| Page | Read it for |", "|---|---|",
                "| " + label(rel, descs) + " (this page) | " + cap(members[rel]) + " |"]
         for other, why in members.items():
             if other != rel:
                 out.append("| " + bsn.md_link(label(other, descs), "/" + other) + " | " + cap(why) + " |")
-        return out
+        return out + ["", "</details>"]
     return []
 
 
@@ -564,14 +633,22 @@ def card(rel: str, text: str, meta: dict, reviewed: dict, descs: dict, hist: His
     e = meta["pages"][rel]
     rows = [("Who this is for", e["audience"]), ("Level", e["level"]),
             ("Reading time", reading_row(text)[0])]
-    rows += [(lab, e[f]) for f, lab in CARD_FIELDS if e.get(f)]
+    rows += [(lab, e[f]) for f, lab in CARD_FIELDS if f in FIRST_SCREEN and e.get(f)]
+    more = [(lab, e[f]) for f, lab in CARD_FIELDS if f not in FIRST_SCREEN and e.get(f)]
     lp = e.get("learning_path") or []
     if lp:
-        rows.append(("Matching learning path" if len(lp) == 1 else "Matching learning paths",
+        more.append(("Matching learning path" if len(lp) == 1 else "Matching learning paths",
                      ", ".join(bsn.md_link(bsn.title(p), "/" + p) for p in lp)))
+    fixed = corrected_row(e, meta.get("corrections") or {})
+    if fixed:
+        more.append(fixed)
     changed = hist.last_changed(rel, text) if (hist and e.get("reviewed")) else None
-    rows.append(("Last reviewed", review_row(e, meta.get("reviews") or {}, changed)))
-    out = [START, "", "| | |", "|---|---|"] + ["| " + k + " | " + v + " |" for k, v in rows]
+    more.append(("Last reviewed", review_row(e, meta.get("reviews") or {}, changed)))
+    table = ["| | |", "|---|---|"]
+    out = [START, ""] + table + ["| " + k + " | " + v + " |" for k, v in rows]
+    out += ["", MORE_OPEN.format("More about this page (" + ", ".join(k[:1].lower() + k[1:] for k, _ in more)
+                                 + ")"), ""] + table + ["| " + k + " | " + v + " |" for k, v in more]
+    out += ["", "</details>"]
     for part in (cluster_note(rel, meta, descs), takeaway_lines(rel, reviewed, text)):
         if part:
             out += [""] + part
@@ -780,7 +857,10 @@ def report(current: dict[str, str], expected: dict[str, str], hist: History) -> 
     pages = meta["pages"]
     print("Header cards: " + str(len(refs)) + " root references, " + str(len(paths)) + " learning paths")
     for f, lab in CARD_FIELDS:
-        print("  '" + lab + "' row: " + str(sum(1 for r in refs if pages[r].get(f))) + " references")
+        print("  '" + lab + "' row: " + str(sum(1 for r in refs if pages[r].get(f))) + " references, "
+              + str(sum(1 for r in paths if pages[r].get(f))) + " learning paths")
+    starts = [len(LINK_RE.findall(pages[r].get("start_at") or "")) for r in refs + paths]
+    print("  'Start at' links per page: at most " + str(max(starts)) + " (limit " + str(START_AT_MAX) + ")")
     print("  'Matching learning path' row: " + str(sum(1 for r in refs if pages[r].get("learning_path"))) + " references")
     levels: dict[str, int] = {}
     for rel in refs + paths:
@@ -792,12 +872,21 @@ def report(current: dict[str, str], expected: dict[str, str], hist: History) -> 
         print("Reading time, " + name + ": words median " + format(int(statistics.median(w)), ",")
               + ", p90 " + format(w[int(0.9 * (len(w) - 1))], ",") + ", max " + format(w[-1], ",")
               + "; minutes median " + str(statistics.median(mins)) + ", max " + str(mins[-1]))
+    corrections = meta.get("corrections") or {}
+    with_fix = [r for r in refs + paths if pages[r].get("corrected")]
+    print("Last corrected: " + str(len(with_fix)) + " pages name their last recorded correction, "
+          + str(sum(1 for p in with_fix if pages[p].get("corrected_what"))) + " of them with a "
+          "page-specific description; " + str(sum(1 for p in with_fix if corrections[pages[p]["corrected"]].get("attack")))
+          + " print an ATT&CK release (edits to ATT&CK content)")
+    for cid, c in corrections.items():
+        print("  " + cid + " (" + c["date"] + ", #" + str(c["pr"]) + (", ATT&CK " + c["attack"] if c.get("attack") else "")
+              + "): " + str(sum(1 for p in with_fix if pages[p]["corrected"] == cid)) + " pages")
     reviews = meta.get("reviews") or {}
     with_review = [r for r in refs + paths if pages[r].get("reviewed")]
-    print("Last reviewed: " + str(len(with_review)) + " pages have a recorded review, "
+    print("Last reviewed: " + str(len(with_review)) + " pages have a review the owner recorded, "
           + str(len(refs) + len(paths) - len(with_review)) + " show 'No review recorded yet'")
     for rid, r in reviews.items():
-        print("  " + rid + " (" + r["date"] + ", #" + str(r["pr"]) + "): "
+        print("  " + rid + " (" + r["date"] + "): "
               + str(sum(1 for p in with_review if pages[p]["reviewed"] == rid)) + " pages")
     n_due = sum(1 for p in with_review if due(reviews[pages[p]["reviewed"]]["date"], hist.last_changed(p, current[p])))
     print("  due for review (text changed more than " + str(DUE_DAYS) + " days after the review): " + str(n_due))
@@ -862,6 +951,19 @@ def self_test() -> int:
         fails.append("reading time moves when the card rows move into the block")
     if not due("2026-01-01", "2026-04-02") or due("2026-01-01", "2026-04-01"):
         fails.append("due rule (more than 90 days)")
+    m = {"corrections": {"c1": {"date": "2026-01-02", "pr": 5, "what": "a tool renamed"},
+                         "c2": {"date": "2026-01-03", "pr": 6, "what": "IDs re-keyed", "attack": "v19.2"}},
+         "reviews": {},
+         "pages": {"A.md": {"audience": "x", "level": "Intermediate", "corrected": "c1",
+                            "start_at": "[a](#a), [b](#b), [c](#c), [d](#d)"}}}
+    if not any("start_at has 4 links" in p for p in validate(m, ["A.md"], [])):
+        fails.append("start_at limit of " + str(START_AT_MAX) + " links not enforced")
+    e = m["pages"]["A.md"]
+    if corrected_row(e, m["corrections"]) != ("Last corrected", "2026-01-02, a tool renamed (" + pr_link(5) + ")") \
+            or "ATT&CK v19.2" not in corrected_row({"corrected": "c2"}, m["corrections"])[1]:
+        fails.append("correction row (ATT&CK release only for ATT&CK edits)")
+    if review_row(e, {}, "2027-06-01") != "No review recorded yet":
+        fails.append("a correction must not count as a review or start the due clock")
     if voice_hits("A seamless tool.") != ["hype:seamless"] or voice_hits("Plain words."):
         fails.append("voice rules on takeaways")
     print("self-test: " + ("OK" if not fails else "FAILED: " + "; ".join(fails)))
@@ -873,7 +975,8 @@ def main() -> int:
     mode = ap.add_mutually_exclusive_group()
     mode.add_argument("--check", action="store_true", help="exit 1 on drift or an invalid entry")
     mode.add_argument("--report", action="store_true", help="cards, reading times, reviews, folds, takeaways")
-    mode.add_argument("--self-test", action="store_true", help="YAML reader, folds, placement, due rule")
+    mode.add_argument("--self-test", action="store_true",
+                      help="YAML reader, folds, placement, due rule, Start at limit, correction and review rows")
     args = ap.parse_args()
     if args.self_test:
         return self_test()

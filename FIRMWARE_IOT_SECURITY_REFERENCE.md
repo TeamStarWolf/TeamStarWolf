@@ -11,9 +11,17 @@
 | Reading time | About 14 min (3,261 words at 230 words a minute) |
 | Read this when | You are assessing a router, camera, PLC, or other connected device; you need to pull and analyze firmware off a chip; you are hardening an IoT/OT network or mapping it to a compliance standard (ETSI EN 303 645, NIST IR 8259, IEC 62443) |
 | Start at | [IoT Security Testing Methodology](#_8-iot-security-testing-methodology) for the end-to-end assessment process, [Firmware Extraction](#_2-firmware-extraction) to get the bits off the device, [Firmware Analysis Tools](#_3-firmware-analysis-tools) to tear them apart |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [HARDWARE_SECURITY_REFERENCE.md](HARDWARE_SECURITY_REFERENCE.md), [ICS_OT_SECURITY_REFERENCE.md](ICS_OT_SECURITY_REFERENCE.md), [SDR_RF_SECURITY_REFERENCE.md](SDR_RF_SECURITY_REFERENCE.md), [REVERSE_ENGINEERING_REFERENCE.md](REVERSE_ENGINEERING_REFERENCE.md) |
 | Matching learning path | [IoT Security](/disciplines/iot-security.md) |
-| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

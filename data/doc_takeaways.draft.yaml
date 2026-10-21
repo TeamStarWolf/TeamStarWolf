@@ -103,7 +103,7 @@ pages:
   INCIDENT_RESPONSE_REFERENCE.md:
     batch: 1
     items:
-      - {"text": "NIST SP 800-61 defines four incident response phases; the six-phase PICERL model comes from SANS.", "from": "#_1-ir-frameworks-amp-preparation", "quote": "as four phases: Preparation; Detection & Analysis; Containment, Eradication & Recovery; and Post-Incident Activity."}
+      - {"text": "NIST SP 800-61 Revision 2 defines four incident response phases, and Revision 3 (April 2025) supersedes it; the six-step PICERL model comes from SANS.", "from": "#_1-ir-frameworks-amp-preparation", "quote": "(SP 800-61 Revision 2) defines the authoritative lifecycle for federal and private-sector incident response as four phases"}
       - {"text": "Complete a set triage checklist within the first five minutes of an alert or report.", "from": "#_2-detection-amp-initial-triage", "quote": "Upon receiving an alert or report, complete the following within the first 5 minutes:"}
       - {"text": "During ransomware recovery, restore in dependency order and never reconnect compromised systems to clean networks.", "from": "#_3-ransomware-response", "quote": "Recover in dependency order; never reconnect compromised systems to clean networks:"}
       - {"text": "File a law enforcement complaint for ransomware incidents whether or not you pay.", "from": "#_3-ransomware-response", "quote": "File a complaint for ransomware incidents regardless of whether you pay"}
@@ -133,7 +133,6 @@ pages:
       - {"text": "Only 5 to 7 percent of all published CVEs are ever exploited, which is why exploit likelihood matters for prioritization.", "from": "#_4-epss-exploit-prediction-scoring-system", "quote": "Only 5-7% of all published CVEs are ever exploited."}
       - {"text": "EPSS has limits: new CVEs lack exploitation history, so it may underestimate targeted 0-days.", "from": "#_4-epss-exploit-prediction-scoring-system", "quote": "New CVEs lack exploitation history; may underestimate targeted 0-days"}
       - {"text": "CVSS v4.0 was officially published by FIRST on November 1, 2023.", "from": "#_3-cvss-v40", "quote": "Officially published by FIRST on November 1, 2023"}
-      - {"text": "The NVD REST API v2.0 allows 6 requests per 30 seconds without an API key.", "from": "#_6-vulnerability-databases-amp-feeds", "quote": "Rate limits: 6 req/30s without API key"}
   IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md:
     batch: 1
     items:

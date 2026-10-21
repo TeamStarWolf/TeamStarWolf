@@ -12,8 +12,16 @@
 | Reading time | About 38 min (8,635 words at 230 words a minute) |
 | Read this when | choosing a cipher, mode, key size, or password-hashing function, reviewing a cryptographic design or implementation, or explaining a cryptographic attack |
 | Start at | [Symmetric Cryptography](#_1-symmetric-cryptography), [AES-GCM Deep Dive](#_13-aes-gcm-deep-dive), [Key Derivation Functions (KDFs)](#_16-key-derivation-functions-kdfs) |
+
+<details class="tsw-meta-more"><summary>More about this page (matching learning path, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Matching learning path | [Cryptography & PKI](/disciplines/cryptography-pki.md) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): detection queries and framework facts corrected in an audit ([#56](https://github.com/TeamStarWolf/TeamStarWolf/pull/56)) |
+| Last corrected | 2026-09-29, TLS 1.3 cipher-suite requirement and the list of hashes open to length extension corrected ([#56](https://github.com/TeamStarWolf/TeamStarWolf/pull/56)) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

@@ -13,9 +13,17 @@
 | Reading time | About 30 min (6,854 words at 230 words a minute) |
 | Read this when | you are standing up a red team program or writing rules of engagement, you are planning an authorized engagement and need a lifecycle checklist, or you are on the blue side and want to understand what an assessment will exercise |
 | Start at | [Program Design & Rules of Engagement](#_1-red-team-program-design-amp-rules-of-engagement) for governance, [Reporting & Purple Team Integration](#_9-reporting-amp-purple-team-integration) for turning results into defense |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning paths, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [PURPLE_TEAM_REFERENCE.md](PURPLE_TEAM_REFERENCE.md), [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md), [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [ATTACK_MITIGATIONS_REFERENCE.md](ATTACK_MITIGATIONS_REFERENCE.md) |
 | Matching learning paths | [Offensive Security](/disciplines/offensive-security.md), [Red Teaming](/disciplines/red-teaming.md) |
-| Last reviewed | 2026-10-13 (ATT&CK v19.2): stale gap figures, a false gap claim, and revoked-ID wording corrected ([#120](https://github.com/TeamStarWolf/TeamStarWolf/pull/120)) |
+| Last corrected | 2026-10-13, ATT&CK version pin and name of an example Navigator layer updated ([#120](https://github.com/TeamStarWolf/TeamStarWolf/pull/120), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

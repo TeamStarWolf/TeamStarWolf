@@ -11,8 +11,16 @@
 | Reading time | About 7 min (1,585 words at 230 words a minute) |
 | Read this when | Building or auditing a Linux server against CIS/STIG baselines, locking down SSH/sudo/PAM before exposing a host, chasing an SELinux denial or standing up auditd/FIM monitoring |
 | Start at | [Hardening Fundamentals & CIS Benchmarks](#_1-linux-hardening-fundamentals-amp-cis-benchmarks), [User & Authentication Hardening](#_2-user-amp-authentication-hardening), [Hardening Verification Checklist](#_104-hardening-verification-checklist) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [LINUX_HARDENING.md](LINUX_HARDENING.md), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md), [PRIVESC_REFERENCE.md](PRIVESC_REFERENCE.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last corrected | 2026-09-29, CIS Ubuntu 22.04 benchmark version updated in one row ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

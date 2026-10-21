@@ -11,7 +11,17 @@ Privacy engineering is the discipline of making data protection a structural pro
 | Who this is for | Engineers and privacy professionals learning to build privacy into systems |
 | Level | Beginner to advanced |
 | Reading time | About 12 min (2,826 words at 230 words a minute) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Read this when | moving into privacy engineering, running privacy impact assessments, or applying privacy-by-design patterns |
+| Start at | [What Privacy Engineers Do](#what-privacy-engineers-do), [Where to Start](#where-to-start), [Privacy-by-Design Patterns](#privacy-by-design-patterns) |
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Last corrected | 2026-09-29, ISO/IEC 27701 row updated to the 2025 edition ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

@@ -12,8 +12,15 @@
 | Reading time | About 12 min (2,773 words at 230 words a minute) |
 | Read this when | Standing up or hardening SPF/DKIM/DMARC for a domain, triaging a suspicious email or phishing report, or tuning M365/Proofpoint/Mimecast defenses against BEC and credential harvesting |
 | Start at | [Email Authentication Protocols](#email-authentication-protocols), [Phishing Analysis](#phishing-analysis), [Email-Based Attack Techniques](#email-based-attack-techniques) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [SOCIAL_ENGINEERING_REFERENCE.md](SOCIAL_ENGINEERING_REFERENCE.md), [FRAUD_FRAMEWORK_REFERENCE.md](FRAUD_FRAMEWORK_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md) |
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

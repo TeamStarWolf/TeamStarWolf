@@ -13,7 +13,16 @@ Security applications of RE include: malware analysis, vulnerability research, f
 | Who this is for | Analysts and researchers learning to reverse engineer compiled software |
 | Level | Beginner to advanced |
 | Reading time | About 15 min (3,443 words at 230 words a minute) |
+| Read this when | starting in reverse engineering with crackmes and CTFs, or learning static and dynamic analysis workflows |
+| Start at | [Where to Start](#where-to-start), [Static Analysis Workflow](#static-analysis-workflow), [Dynamic Analysis Workflow](#dynamic-analysis-workflow) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

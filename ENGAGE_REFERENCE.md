@@ -23,15 +23,24 @@ Related: [Honeypot & Deception Reference](HONEYPOT_DECEPTION_REFERENCE.md), [Dec
 | Reading time | About 9 min (2,039 words at 230 words a minute) |
 | Read this when | planning a deception or adversary engagement operation, deciding which honeypot/lure activities cover the most ATT&CK techniques, picking a denial/deception response for a specific adversary technique |
 | Start at | [The Engage matrix](#the-engage-matrix), [Activities by ATT&CK coverage](#activities-by-attampck-coverage), [ATT&CK techniques with the most engagement options](#attampck-techniques-with-the-most-engagement-options) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 3 on deception and adversary engagement.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on deception and adversary engagement.</summary>
 
 | Page | Read it for |
 |---|---|
 | Engage Reference (deception) (this page) | The MITRE Engage framework for planning adversary engagement, mapped to ATT&CK techniques. |
 | [Deception Technology](/DECEPTION_TECHNOLOGY_REFERENCE.md) | Deception program strategy and detection engineering: honeytokens, decoy placement, alert pipelines, and metrics. |
 | [Honeypot & Deception Reference](/HONEYPOT_DECEPTION_REFERENCE.md) | Hands-on install, configuration, and SIEM integration for honeypot and honeytoken tools such as OpenCanary, Canarytokens, and T-Pot. |
+
+</details>
 
 <!-- meta:end -->
 

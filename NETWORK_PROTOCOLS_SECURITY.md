@@ -14,14 +14,24 @@
 | Reading time | About 22 min (5,002 words at 230 words a minute) |
 | Read this when | researching how attackers abuse a specific protocol (DNS, HTTP, SMB, Kerberos, and others), finding the ATT&CK technique for protocol abuse, or writing a detection or defensive control for it |
 | Start at | [DNS (53 UDP/TCP)](#dns-53-udptcp), [HTTP/HTTPS (80/443)](#httphttps-80443), [SMB (445 TCP)](#smb-445-tcp) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
 
-Which page should I read? This page is one of 2 on network protocols.
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Last corrected | 2026-09-29, Azure AD MFA renamed Microsoft Entra MFA; ATT&CK version in the footer updated to v19.2 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last reviewed | No review recorded yet |
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 2 on network protocols.</summary>
 
 | Page | Read it for |
 |---|---|
 | Network Protocols Security (this page) | The attacker view: how each protocol is exploited, with ATT&CK IDs, detection, and defenses. |
 | [Network Protocols Reference](/NETWORK_PROTOCOLS_REFERENCE.md) | The engineering view: protocol internals, hardening configurations, and packet-analysis tooling. |
+
+</details>
 
 <!-- meta:end -->
 

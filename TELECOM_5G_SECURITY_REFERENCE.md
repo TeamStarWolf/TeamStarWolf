@@ -24,7 +24,14 @@ Related: [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Mobil
 | Reading time | About 20 min (4,534 words at 230 words a minute) |
 | Read this when | You defend or assess a telecom operator or private 5G estate, you need to scope FiGHT techniques or GSMA signaling defenses into a threat-informed program, or you are responding to the Salt Typhoon advisory record and hardening guidance |
 | Start at | [Why telecom infrastructure is a target](#why-telecom-infrastructure-is-a-target-the-salt-typhoon-wake-up-call), [Case study: Salt Typhoon and AA25-239A](#case-study-salt-typhoon-and-the-advisory-record-aa25-239a), [Hardening communications infrastructure](#hardening-communications-infrastructure-the-december-2024-joint-guidance-distilled) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

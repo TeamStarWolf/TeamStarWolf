@@ -11,10 +11,18 @@
 | Reading time | About 14 min (3,326 words at 230 words a minute) |
 | Read this when | you need a tool for a specific security task and want to browse by discipline, you remember starring something but not what it was called, you want a broad map of the whole collection before diving into curated lists |
 | Start at | [Category Index](#category-index), [How To Use This File](#how-to-use-this-file), [Black Hat Arsenal Review Queue](#black-hat-arsenal-review-queue) |
-| Pairs with | [research/CURATED_STARS_LISTS.md](research/CURATED_STARS_LISTS.md), [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWALK.md) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
 
-Which page should I read? This page is one of 4 on finding a tool.
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Pairs with | [research/CURATED_STARS_LISTS.md](research/CURATED_STARS_LISTS.md), [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWALK.md) |
+| Last corrected | 2026-09-29, AlienVault heading now also names LevelBlue ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last reviewed | No review recorded yet |
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 4 on finding a tool.</summary>
 
 | Page | Read it for |
 |---|---|
@@ -22,6 +30,8 @@ Which page should I read? This page is one of 4 on finding a tool.
 | [Security Tools Reference](/TOOLS.md) | A matrix of tools by function, each marked open source or commercial. |
 | [Open Source Toolkit](/OPEN_SOURCE_TOOLKIT.md) | Free and open-source tools organized by discipline, with practice platforms and bookmarks. |
 | [Security Tool Documentation](/SECURITY_TOOL_DOCUMENTATION.md) | Official documentation, API references, and GitHub organizations for the platforms in an enterprise security stack. |
+
+</details>
 
 <!-- meta:end -->
 

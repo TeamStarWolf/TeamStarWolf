@@ -7,7 +7,16 @@
 | Who this is for | Developers, architects, and security engineers learning threat modeling |
 | Level | Beginner to advanced |
 | Reading time | About 10 min (2,317 words at 230 words a minute) |
+| Read this when | threat-modeling a system design for the first time, or choosing between STRIDE, PASTA, LINDDUN and attack trees |
+| Start at | [Where to Start](#where-to-start), [STRIDE Methodology](#stride-methodology-microsoft), [When to Threat Model](#when-to-threat-model) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

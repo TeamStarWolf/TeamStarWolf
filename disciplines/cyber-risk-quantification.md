@@ -11,7 +11,16 @@ The central problem CRQ solves is comparability. A "high" risk in one security p
 | Who this is for | Risk, GRC, and security leaders learning to express cyber risk in financial terms |
 | Level | Beginner to advanced |
 | Reading time | About 15 min (3,347 words at 230 words a minute) |
+| Read this when | learning to express cyber risk in financial terms with FAIR, or moving from qualitative risk ratings to quantitative analysis |
+| Start at | [Where to Start](#where-to-start), [The FAIR Model](#the-fair-model), [Key Metrics](#key-metrics) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

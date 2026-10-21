@@ -17,7 +17,14 @@ Related: [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [D3FEN
 | Reading time | About 29 min (6,627 words at 230 words a minute) |
 | Read this when | scoping security for a satellite or SATCOM program, mapping SPARTA coverage or countermeasures for a mission, investigating GNSS jamming/spoofing or a suspected hostile-commanding event |
 | Start at | [Why space systems security is different](#why-space-systems-security-is-different), [The SPARTA framework](#the-sparta-framework), [Standing up the program](#standing-up-the-program) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

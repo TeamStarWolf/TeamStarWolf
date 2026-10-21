@@ -11,17 +11,26 @@
 | Reading time | About 27 min (6,150 words at 230 words a minute) |
 | Read this when | you're planning honeypot or honeytoken coverage for a network segment, you need to pick and deploy a specific tool (SSH, SMB, web, IoT, ICS), you're wiring decoy alerts into a SIEM as P1 incidents |
 | Start at | [Part 1: Deception Technology Fundamentals](#part-1-deception-technology-fundamentals), [8.6 Quick Reference: Honeypot Selection Guide](#_86-quick-reference-honeypot-selection-guide), [8.5 Deployment Checklist](#_85-deployment-checklist) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [DECEPTION_TECHNOLOGY_REFERENCE.md](DECEPTION_TECHNOLOGY_REFERENCE.md) (deception-program strategy + detection engineering: honeytokens, honey SPNs, cloud decoy IaC, NIST 800-53 mapping), [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [THREAT_INTELLIGENCE_REFERENCE.md](THREAT_INTELLIGENCE_REFERENCE.md), [THREAT_HUNTING_REFERENCE.md](THREAT_HUNTING_REFERENCE.md) |
 | Matching learning path | [Active Defense & Deception](/disciplines/active-defense-deception.md) |
 | Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 3 on deception and adversary engagement.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on deception and adversary engagement.</summary>
 
 | Page | Read it for |
 |---|---|
 | Honeypot & Deception Reference (this page) | Hands-on install, configuration, and SIEM integration for honeypot and honeytoken tools such as OpenCanary, Canarytokens, and T-Pot. |
 | [Deception Technology](/DECEPTION_TECHNOLOGY_REFERENCE.md) | Deception program strategy and detection engineering: honeytokens, decoy placement, alert pipelines, and metrics. |
 | [Engage Reference (deception)](/ENGAGE_REFERENCE.md) | The MITRE Engage framework for planning adversary engagement, mapped to ATT&CK techniques. |
+
+</details>
 
 <!-- meta:end -->
 

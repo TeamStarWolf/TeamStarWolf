@@ -11,9 +11,16 @@
 | Reading time | About 19 min (4,317 words at 230 words a minute) |
 | Read this when | Choosing SDR hardware for a job, capturing or replaying an unknown RF signal, or decoding a wireless protocol (GSM, P25, Zigbee, BLE, ADS-B) |
 | Start at | [SDR Fundamentals & Hardware](#_1-sdr-fundamentals-amp-hardware), [Replay & Signal Injection](#_7-replay-amp-signal-injection), [Defensive RF & Legal Framework](#_10-defensive-rf-amp-legal-framework) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [WIRELESS_SECURITY_REFERENCE.md](WIRELESS_SECURITY_REFERENCE.md), [AUTOMOTIVE_SECURITY_REFERENCE.md](AUTOMOTIVE_SECURITY_REFERENCE.md), [TELECOM_5G_SECURITY_REFERENCE.md](TELECOM_5G_SECURITY_REFERENCE.md), [SECURITY_GADGETS_REFERENCE.md](SECURITY_GADGETS_REFERENCE.md) |
 | Matching learning path | [Radio Frequency (RF) Security](/disciplines/radio-frequency-security.md) |
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

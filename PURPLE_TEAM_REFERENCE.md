@@ -11,9 +11,17 @@
 | Reading time | About 20 min (4,691 words at 230 words a minute) |
 | Read this when | Standing up a purple team program, planning an ATT&CK-mapped emulation campaign, validating whether a technique is actually detected, or triaging a detection gap into a remediation ticket |
 | Start at | [Purple Team Fundamentals](#_1-purple-team-fundamentals), [Atomic Red Team](#_3-atomic-red-team), [Detection Validation Methodology](#_5-detection-validation-methodology) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [THREAT_INTELLIGENCE_REFERENCE.md](THREAT_INTELLIGENCE_REFERENCE.md) |
 | Matching learning path | [Purple Teaming & Adversary Simulation](/disciplines/purple-teaming.md) |
-| Last reviewed | 2026-09-27 (ATT&CK v19.2): tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51)) |
+| Last corrected | 2026-09-27, ATT&CK tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

@@ -19,15 +19,24 @@
 | Who this is for | Network architects and engineers, and security architects reviewing network designs |
 | Level | Intermediate |
 | Reading time | About 19 min (4,291 words at 230 words a minute) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 3 on how networks work and how to design them.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on how networks work and how to design them.</summary>
 
 | Page | Read it for |
 |---|---|
 | Networking Architecture Reference (this page) | Designing networks: topologies, overlays, segmentation, SD-WAN and SASE, and core services. |
 | [Networking Fundamentals](/NETWORKING_FUNDAMENTALS.md) | How networking works, from OSI layers to routing and DNS, explained for reasoning about attacks and detections. |
 | [Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md) | Building a segmented enterprise network: zones, firewall and IPS placement, 802.1X, and VPNs, with configuration examples. |
+
+</details>
 
 <!-- meta:end -->
 

@@ -7,7 +7,17 @@
 | Who this is for | SOC analysts and engineers learning SIEM and SOAR platforms |
 | Level | Beginner to advanced |
 | Reading time | About 8 min (1,843 words at 230 words a minute) |
-| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+| Read this when | learning a SIEM or SOAR platform, a query language such as SPL or KQL, or how SOAR playbooks are designed |
+| Start at | [Where to Start](#where-to-start), [Search Language Examples](#search-language-examples), [SOAR Architecture and Design](#soar-architecture-and-design) |
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

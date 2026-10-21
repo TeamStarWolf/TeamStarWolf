@@ -11,16 +11,26 @@
 | Reading time | About 12 min (2,647 words at 230 words a minute) |
 | Read this when | You are planning or running a hypothesis-driven hunt, you need a ready KQL/SPL query for a technique like LSASS access or Kerberoasting, or you are turning a hunt finding into a Sigma or YARA rule |
 | Start at | [Threat Hunting Fundamentals](#_1-threat-hunting-fundamentals), [ATT&CK-Aligned Hunting Playbooks](#_6-attampck-aligned-hunting-playbooks), [Hunt Tracking and Reporting](#_10-hunt-tracking-and-reporting) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md), [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md), [Threat Group Profiles](THREAT_GROUP_PROFILES.md) |
 | Matching learning path | [Threat Hunting](/disciplines/threat-hunting.md) |
-| Last reviewed | 2026-10-13 (ATT&CK v19.2): stale gap figures, a false gap claim, and revoked-ID wording corrected ([#120](https://github.com/TeamStarWolf/TeamStarWolf/pull/120)) |
+| Last corrected | 2026-10-13, ATT&CK version pin and name of an example Navigator layer updated ([#120](https://github.com/TeamStarWolf/TeamStarWolf/pull/120), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 2 on threat hunting.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 2 on threat hunting.</summary>
 
 | Page | Read it for |
 |---|---|
 | Threat Hunting Reference (this page) | Hunting fundamentals, query languages, rule authoring, and hunt tracking. |
 | [Threat Hunting Playbooks](/THREAT_HUNTING_PLAYBOOKS.md) | Ready-to-run hunts, each with a hypothesis, data sources, a query, and response steps. |
+
+</details>
 
 <!-- meta:end -->
 

@@ -11,17 +11,26 @@
 | Reading time | About 33 min (7,641 words at 230 words a minute) |
 | Read this when | Triaging an AD attack alert (Kerberoasting, DCSync, Golden Ticket) and need the event IDs and hunting queries, hardening a domain or its DCs, or building AD detection coverage in your SIEM |
 | Start at | [Critical Event IDs Reference Table](#_9-detection-engineering-for-ad), [Kerberos Attack Detection](#_3-kerberos-attack-detection), [AD Architecture & Security Fundamentals](#_1-ad-architecture-amp-security-fundamentals) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [ACTIVE_DIRECTORY_ATTACKS.md](ACTIVE_DIRECTORY_ATTACKS.md), [ACTIVE_DIRECTORY_ATTACK_REFERENCE.md](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [IDENTITY_SECURITY_REFERENCE.md](IDENTITY_SECURITY_REFERENCE.md) |
 | Matching learning path | [Active Directory Security](/disciplines/active-directory.md) |
 | Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 3 on Active Directory attack and defense.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on Active Directory attack and defense.</summary>
 
 | Page | Read it for |
 |---|---|
 | Active Directory Security Reference (this page) | The defensive companion: detection guidance, hardening controls, and response playbooks, including domain controller, Group Policy, and AD CS security. |
 | [Active Directory Attacks](/ACTIVE_DIRECTORY_ATTACKS.md) | The offensive playbook for penetration testers and red teamers: each major attack with tool commands, ATT&CK mappings, detection event IDs, and defenses. |
 | [Active Directory Attack Reference](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md) | The same attacks from the defender's side: what each looks like on the wire, the telemetry it generates, and how to detect and prevent it. |
+
+</details>
 
 <!-- meta:end -->
 

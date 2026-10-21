@@ -11,16 +11,26 @@
 | Reading time | About 12 min (2,690 words at 230 words a minute) |
 | Read this when | you are standing up or locking down a Windows server or fleet, an audit or compliance scan flagged missing CIS/STIG controls, or you need the PowerShell/GPO commands for a specific control like ASR rules or SMB signing |
 | Start at | [Quick Hardening Checklist](#quick-hardening-checklist) for the 20 highest-priority controls, [CIS Windows Server 2022 Benchmark](#cis-windows-server-2022-benchmark) for server policy details, [Compliance Scanning Tools](#compliance-scanning-tools) to measure where you stand |
-| Pairs with | [WINDOWS_HARDENING_GPO.md](WINDOWS_HARDENING_GPO.md), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md), [LINUX_HARDENING.md](LINUX_HARDENING.md), [ENDPOINT_SECURITY_REFERENCE.md](ENDPOINT_SECURITY_REFERENCE.md) |
-| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
 
-Which page should I read? This page is one of 3 on Windows hardening.
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Pairs with | [WINDOWS_HARDENING_GPO.md](WINDOWS_HARDENING_GPO.md), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md), [LINUX_HARDENING.md](LINUX_HARDENING.md), [ENDPOINT_SECURITY_REFERENCE.md](ENDPOINT_SECURITY_REFERENCE.md) |
+| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on Windows hardening.</summary>
 
 | Page | Read it for |
 |---|---|
 | Windows Hardening (this page) | Hands-on apply-and-verify commands for each control, built from CIS Benchmarks, Microsoft baselines, and DISA STIGs. |
 | [Windows Hardening GPO Reference](/WINDOWS_HARDENING_GPO.md) | Group Policy baselines: disabling dangerous services, credential and network hardening, and the attacks GPO misconfigurations enable. |
 | [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md) | From security architecture foundations to monitoring: Credential Guard, LAPS, Sysmon, and Windows Event Forwarding. |
+
+</details>
 
 <!-- meta:end -->
 

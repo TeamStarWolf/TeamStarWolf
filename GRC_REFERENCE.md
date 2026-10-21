@@ -11,17 +11,27 @@
 | Reading time | About 18 min (4,079 words at 230 words a minute) |
 | Read this when | standing up or maturing a security governance program, quantifying a risk for the register or board reporting, prepping for a SOC 2 / ISO 27001 / PCI DSS / HIPAA / CMMC audit, tiering and assessing a new vendor |
 | Start at | [Risk Management](#risk-management), [Compliance Programs](#compliance-programs), [Third-Party Risk Management (TPRM)](#third-party-risk-management-tprm) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [GRC_COMPLIANCE_REFERENCE.md](GRC_COMPLIANCE_REFERENCE.md), [VULNERABILITY_MANAGEMENT_REFERENCE.md](VULNERABILITY_MANAGEMENT_REFERENCE.md), [SECURITY_METRICS_REFERENCE.md](SECURITY_METRICS_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md) |
 | Matching learning path | [Governance, Risk & Compliance (GRC)](/disciplines/governance-risk-compliance.md) |
-| Last reviewed | 2026-10-01 (ATT&CK v19.2): regulatory references checked against live sources ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63)) |
+| Last corrected | 2026-10-01, CMMC Level 1 row updated to 15 requirements ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63)) |
+| Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 3 on governance, risk, and compliance.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on governance, risk, and compliance.</summary>
 
 | Page | Read it for |
 |---|---|
 | GRC Reference (this page) | Running the program: governance structure, risk quantification, compliance programs, third-party risk, and audits. |
 | [Frameworks Reference](/FRAMEWORKS.md) | A quick reference to each major framework: who publishes it, whether it is mandatory, who it applies to, and its structure. |
 | [GRC Compliance Reference](/GRC_COMPLIANCE_REFERENCE.md) | Frameworks in depth, with compliance automation tooling such as OSCAL and ComplianceAsCode. |
+
+</details>
 
 <!-- meta:end -->
 

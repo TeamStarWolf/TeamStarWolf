@@ -11,9 +11,16 @@
 | Reading time | About 19 min (4,378 words at 230 words a minute) |
 | Read this when | Scoping GDPR/CCPA obligations for a new system or market, building privacy controls into an API or data pipeline, preparing a DPIA or answering a DSAR/breach-notification question |
 | Start at | [GDPR Deep Dive](#_2-gdpr-deep-dive), [Technical Privacy Controls](#_7-technical-privacy-controls), [Privacy by Design - 7 Principles](#_5-privacy-by-design-7-principles) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [Data Security Reference](DATA_SECURITY_REFERENCE.md), [GRC Compliance Reference](GRC_COMPLIANCE_REFERENCE.md), [Threat Modeling Reference](THREAT_MODELING_REFERENCE.md), [Secure Coding Reference](SECURE_CODING_REFERENCE.md) |
 | Matching learning path | [Privacy Engineering](/disciplines/privacy-engineering.md) |
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

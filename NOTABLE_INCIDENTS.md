@@ -11,8 +11,15 @@
 | Reading time | About 22 min (5,102 words at 230 words a minute) |
 | Read this when | You need the facts on a specific breach or campaign fast, you are advising an org mid-ransomware-incident, you are briefing leadership on why a vulnerability class or threat actor matters |
 | Start at | [Recent Events (2020-2025)](#_3-recent-events-2020-2025) for current threats, [Ransomware Incident Response - Negotiation Guide](#_5-ransomware-incident-response-negotiation-guide) for an active incident, [Critical Vulnerability Classes to Watch](#_7-critical-vulnerability-classes-to-watch) for patching priorities |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [THREAT_ACTORS.md](./THREAT_ACTORS.md), [IR_PLAYBOOKS.md](./IR_PLAYBOOKS.md), [MALWARE_FAMILIES.md](./MALWARE_FAMILIES.md), [DETECTION_RULES_REFERENCE.md](./DETECTION_RULES_REFERENCE.md) |
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

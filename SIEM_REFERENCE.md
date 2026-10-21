@@ -13,17 +13,27 @@
 | Reading time | About 14 min (3,323 words at 230 words a minute) |
 | Read this when | writing or converting a detection query for Splunk/Sentinel/QRadar/Elastic, sizing or tuning a SIEM deployment, standing up a detection engineering or triage process, deciding which Windows/Sysmon events to collect |
 | Start at | [SIEM Fundamentals](#_1-siem-fundamentals) for architecture and sizing, [Detection Engineering](#_7-detection-engineering) for the rule lifecycle and Sigma, [Quick Reference Cheat Sheet](#quick-reference-cheat-sheet) for common SPL/KQL patterns |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md), [SOAR_AUTOMATION_REFERENCE.md](SOAR_AUTOMATION_REFERENCE.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [detections/strategies/README.md](detections/strategies/README.md) |
 | Matching learning path | [SIEM & SOAR](/disciplines/siem-soar.md) |
-| Last reviewed | 2026-09-27 (ATT&CK v19.2): tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51)) |
+| Last corrected | 2026-09-27, ATT&CK tactic names updated for the v19.2 split of Defense Evasion into Stealth and Defense Impairment ([#51](https://github.com/TeamStarWolf/TeamStarWolf/pull/51), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 3 on SIEM and detection content.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on SIEM and detection content.</summary>
 
 | Page | Read it for |
 |---|---|
 | SIEM Reference (this page) | SIEM platforms: architecture and sizing, and the query languages and detection workflows of Splunk, Sentinel, QRadar, and Elastic. |
 | [SIEM Detection Content](/SIEM_DETECTION_CONTENT.md) | Where to get vendor-maintained, ready-made detection content and how to deploy it. |
 | [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md) | Writing your own rules in Sigma, YARA, Suricata, SPL, and KQL, then testing and tuning them. |
+
+</details>
 
 <!-- meta:end -->
 

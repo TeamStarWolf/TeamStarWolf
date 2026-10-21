@@ -11,8 +11,16 @@
 | Reading time | About 19 min (4,473 words at 230 words a minute) |
 | Read this when | Planning your next role or promotion, comparing salary and skill expectations across security jobs, mapping a pivot from IT, development, military, or finance into security |
 | Start at | [Overview: The Career Landscape](#overview-the-career-landscape), [Transition Paths](#transition-paths), [Job Search Strategy](#job-search-strategy) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [CERTIFICATIONS.md](CERTIFICATIONS.md), [LABS.md](LABS.md), [TOOLS.md](TOOLS.md), [research/HTB_TRACKS.md](research/HTB_TRACKS.md) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last corrected | 2026-09-29, Lacework renamed Lacework FortiCNAPP in one tools list ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

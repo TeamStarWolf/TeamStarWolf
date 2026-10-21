@@ -15,7 +15,14 @@ Related: [Ransomware Defense & Resilience](RANSOMWARE_DEFENSE_REFERENCE.md), [In
 | Reading time | About 24 min (5,555 words at 230 words a minute) |
 | Read this when | writing or overhauling a DR/BC plan for cyber scenarios, setting or defending RTO/RPO/MTD targets, planning an AD forest recovery or a DR exercise program |
 | Start at | [Scope & how to use this reference](#scope-amp-how-to-use-this-reference), [How cyber scenarios break classical DR assumptions](#how-cyber-scenarios-break-classical-dr-assumptions), [Identity recovery first](#identity-recovery-first) |
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+| | |
+|---|---|
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

@@ -11,8 +11,15 @@
 | Reading time | About 17 min (3,805 words at 230 words a minute) |
 | Read this when | a credential just leaked in a repo or CI log, you are choosing or deploying a secrets manager (Vault, Conjur, cloud-native), you need to kill secrets sprawl in code, Kubernetes, or pipelines |
 | Start at | [Secrets Management Fundamentals](#_1-secrets-management-fundamentals), [Secret Detection in Code](#_4-secret-detection-in-code), [Quick Reference](#quick-reference) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [ZERO_TRUST_REFERENCE.md](ZERO_TRUST_REFERENCE.md) |
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

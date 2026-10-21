@@ -11,16 +11,25 @@
 | Reading time | About 8 min (1,752 words at 230 words a minute) |
 | Read this when | Building or reviewing a GPO security baseline, hardening a new domain or OU, closing a finding tied to a Windows misconfiguration (LLMNR, SMBv1, WDigest) |
 | Start at | [Disabling Dangerous Services via GPO](#_2-disabling-dangerous-services-via-gpo), [Common Attack Techniques Enabled by GPO Misconfigurations](#_7-common-attack-techniques-enabled-by-gpo-misconfigurations), [Mitigation Strategy Reference](#_9-mitigation-strategy-reference) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [WINDOWS_HARDENING.md](WINDOWS_HARDENING.md) (hands-on apply/verify commands), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md) (architecture + Sysmon/WEF monitoring), [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md), [Active Directory Security](disciplines/active-directory.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) |
 | Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 3 on Windows hardening.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 3 on Windows hardening.</summary>
 
 | Page | Read it for |
 |---|---|
 | Windows Hardening GPO Reference (this page) | Group Policy baselines: disabling dangerous services, credential and network hardening, and the attacks GPO misconfigurations enable. |
 | [Windows Hardening](/WINDOWS_HARDENING.md) | Hands-on apply-and-verify commands for each control, built from CIS Benchmarks, Microsoft baselines, and DISA STIGs. |
 | [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md) | From security architecture foundations to monitoring: Credential Guard, LAPS, Sysmon, and Windows Event Forwarding. |
+
+</details>
 
 <!-- meta:end -->
 

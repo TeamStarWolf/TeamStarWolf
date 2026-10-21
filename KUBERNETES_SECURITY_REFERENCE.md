@@ -13,9 +13,16 @@
 | Reading time | About 4 min (987 words at 230 words a minute) |
 | Read this when | Hardening a production cluster, investigating a suspected container escape or stolen SA token, or auditing RBAC and Pod Security before a deployment goes live |
 | Start at | [Kubernetes Attack Surface](#_1-kubernetes-attack-surface), [K8s Security Hardening Checklist](#_10-k8s-security-hardening-checklist), [Kubernetes Security Scanning Tools](#_4-kubernetes-security-scanning-tools) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [CONTAINER_SECURITY_REFERENCE.md](CONTAINER_SECURITY_REFERENCE.md), [SECRETS_MANAGEMENT_REFERENCE.md](SECRETS_MANAGEMENT_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md) |
 | Matching learning path | [Container & Kubernetes Security](/disciplines/container-kubernetes-security.md) |
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

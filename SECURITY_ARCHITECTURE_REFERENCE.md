@@ -11,16 +11,26 @@
 | Reading time | About 42 min (9,589 words at 230 words a minute) |
 | Read this when | designing or reviewing a system's security architecture, planning a Zero Trust migration, preparing for or running an architecture review board (SARB) |
 | Start at | [Security Architecture Fundamentals](#_1-security-architecture-fundamentals), [Architecture Review Process](#_10-architecture-review-process), [Quick Reference: Framework Decision Guide](#quick-reference-architecture-framework-decision-guide) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [Zero Trust Reference](ZERO_TRUST_REFERENCE.md), [Threat Modeling](disciplines/threat-modeling.md), [Cloud Security](disciplines/cloud-security.md), [GRC Reference](GRC_REFERENCE.md) |
 | Matching learning path | [Security Architecture](/disciplines/security-architecture.md) |
-| Last reviewed | 2026-10-12 (ATT&CK v19.2): revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88)) |
+| Last corrected | 2026-10-12, revoked ATT&CK IDs re-keyed to their current IDs ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 2 on architecture.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 2 on architecture.</summary>
 
 | Page | Read it for |
 |---|---|
 | Security Architecture Reference (this page) | Security architecture itself: SABSA, TOGAF, defense in depth, Zero Trust, and architecture reviews. |
 | [Architecture Reference (General)](/ARCHITECTURE_REFERENCE.md) | General enterprise and solution architecture: domains, frameworks, decision records, and patterns, each read as an attack-surface decision. |
+
+</details>
 
 <!-- meta:end -->
 

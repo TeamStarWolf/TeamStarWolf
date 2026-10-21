@@ -11,16 +11,26 @@
 | Reading time | About 16 min (3,755 words at 230 words a minute) |
 | Read this when | Testing a web app or API against the OWASP Top 10, writing an SQLi/XSS/SSRF payload or its fix, hardening auth, sessions, headers, or a WAF |
 | Start at | [OWASP Top 10 2021](#_1-owasp-top-10-2021), [Web App Testing Methodology](#_5-web-app-testing-methodology), [Business Logic and API Security](#_7-business-logic-and-api-security) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, matching learning path, last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [WEB_APPLICATION_PENTESTING.md](WEB_APPLICATION_PENTESTING.md), [API_SECURITY_REFERENCE.md](API_SECURITY_REFERENCE.md), [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md), [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md) |
 | Matching learning path | [Application Security](/disciplines/application-security.md) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): standards and tooling references checked against live sources ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last corrected | 2026-09-29, note added on OWASP Top 10:2025 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62)) |
+| Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 2 on web application security.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 2 on web application security.</summary>
 
 | Page | Read it for |
 |---|---|
 | Web Application Security Reference (this page) | The OWASP Top 10 with injection, client-side, and authentication deep dives, covering both payloads and fixes. |
 | [Web App Pentesting](/WEB_APPLICATION_PENTESTING.md) | The test playbook: recon to reporting, with working commands and payloads for each bug class. |
+
+</details>
 
 <!-- meta:end -->
 

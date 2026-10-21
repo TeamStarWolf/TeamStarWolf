@@ -10,9 +10,17 @@
 | Level | Intermediate |
 | Reading time | About 13 min (2,961 words at 230 words a minute) |
 | Read this when | hardening a new or existing DBMS, writing a database baseline/benchmark, scoping DAM or audit-log coverage, responding to an exposed-database finding, reviewing least-privilege on a DB, or building the data-tier controls of a Zero Trust or PCI/HIPAA program |
-| Start at | [The database attack surface](#the-database-attack-surface), [Universal hardening baseline](#universal-hardening-baseline), [Per-engine hardening](#per-engine-hardening-quick-reference), then the [Defender checklist](#defender-checklist) |
+| Start at | [The database attack surface](#the-database-attack-surface), [Universal hardening baseline](#universal-hardening-baseline), then the [Defender checklist](#defender-checklist) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, added, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [DATA_SECURITY_REFERENCE.md](DATA_SECURITY_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [SECRETS_MANAGEMENT_REFERENCE.md](SECRETS_MANAGEMENT_REFERENCE.md), [IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md), [WEB_APPLICATION_SECURITY_REFERENCE.md](WEB_APPLICATION_SECURITY_REFERENCE.md) |
-| Last reviewed | 2026-09-29 (ATT&CK v19.2): written and checked against live sources ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68)) |
+| Added | 2026-09-29, page added in a pull request that records its facts as checked against live sources ([#68](https://github.com/TeamStarWolf/TeamStarWolf/pull/68)) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

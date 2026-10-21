@@ -11,7 +11,17 @@ The consequences of a security failure in OT are measured in physical damage, pr
 | Who this is for | IT security practitioners and engineers moving into industrial and OT security |
 | Level | Beginner to advanced |
 | Reading time | About 10 min (2,414 words at 230 words a minute) |
-| Last reviewed | 2026-10-13 (ATT&CK v19.2): revoked and deprecated ATT&CK citations re-keyed to their current IDs ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118)) |
+| Read this when | moving from IT security into ICS/OT, or studying industrial protocols, the Purdue model and past ICS incidents |
+| Start at | [Where to Start](#where-to-start), [The Purdue Reference Model](#the-purdue-reference-model), [ICS Protocols](#ics-protocols-authentication-and-encryption-gaps) |
+
+<details class="tsw-meta-more"><summary>More about this page (last corrected, last reviewed)</summary>
+
+| | |
+|---|---|
+| Last corrected | 2026-10-13, revoked and deprecated ATT&CK citations re-keyed to their current IDs ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2) |
+| Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

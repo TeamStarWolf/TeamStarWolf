@@ -11,10 +11,17 @@
 | Reading time | About 22 min (5,097 words at 230 words a minute) |
 | Read this when | You are placing detection controls across the OSI layers, investigating a suspected MitM/relay/DNS-tunnel/BGP-hijack event, or hardening a network segment against Layer 2 and routing attacks |
 | Start at | [Network Attack Taxonomy & Threat Landscape](#_1-network-attack-taxonomy-amp-threat-landscape) for the OSI/ATT&CK map, [SMB & Windows Network Attacks](#_5-smb-amp-windows-network-attacks) for the NTLM relay chain, [Network Attack Detection & Hunting](#_10-network-attack-detection-amp-hunting) for the hunting playbook |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [NETWORK_DEFENSE_REFERENCE.md](NETWORK_DEFENSE_REFERENCE.md), [NETWORK_MONITORING_REFERENCE.md](NETWORK_MONITORING_REFERENCE.md), [ACTIVE_DIRECTORY_ATTACK_REFERENCE.md](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), [WIRELESS_SECURITY_REFERENCE.md](WIRELESS_SECURITY_REFERENCE.md) |
 | Last reviewed | No review recorded yet |
 
-Which page should I read? This page is one of 5 on network attack, defense, and monitoring.
+</details>
+
+<details class="tsw-meta-which"><summary>Which page should I read? This page is one of 5 on network attack, defense, and monitoring.</summary>
 
 | Page | Read it for |
 |---|---|
@@ -23,6 +30,8 @@ Which page should I read? This page is one of 5 on network attack, defense, and 
 | [Network Monitoring Reference](/NETWORK_MONITORING_REFERENCE.md) | The monitoring stack and hunting workflows: sensor placement, Zeek, Suricata rules, JA3, and flow data. |
 | [Network Forensics Reference](/NETWORK_FORENSICS_REFERENCE.md) | Collecting and preserving network evidence and reconstructing an incident from it. |
 | [Packet Analysis Reference](/PACKET_ANALYSIS_REFERENCE.md) | Reading raw traffic in Wireshark, tcpdump, and Zeek, and spotting attacks in packet captures. |
+
+</details>
 
 <!-- meta:end -->
 

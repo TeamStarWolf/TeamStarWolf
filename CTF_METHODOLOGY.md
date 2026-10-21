@@ -11,8 +11,15 @@
 | Reading time | About 14 min (3,131 words at 230 words a minute) |
 | Read this when | You are prepping for or mid-competition in a CTF, you need the standard attack playbook and tooling for a specific category (web, forensics, crypto, RE, pwn, OSINT, stego), or you want ready-to-paste one-liners and platform recommendations to practice on |
 | Start at | [General CTF Strategy](#_1-general-ctf-strategy), [CTF Platform Quick Reference](#_9-ctf-platform-quick-reference), [Useful One-Liners and Quick Reference](#_10-useful-one-liners-and-quick-reference) |
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+| | |
+|---|---|
 | Pairs with | [LABS.md](LABS.md), [REVERSE_ENGINEERING_REFERENCE.md](REVERSE_ENGINEERING_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [OSINT_REFERENCE.md](OSINT_REFERENCE.md) |
 | Last reviewed | No review recorded yet |
+
+</details>
 
 <!-- meta:end -->
 

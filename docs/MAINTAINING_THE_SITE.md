@@ -9,7 +9,7 @@ Drafted with an AI assistant from the repository's scripts, workflows and settin
 The site at [teamstarwolf.github.io/TeamStarWolf](https://teamstarwolf.github.io/TeamStarWolf/) is the Markdown in this repository rendered in the browser by [docsify](https://docsify.js.org/) 4.13.1. There is no static-site build: `index.html` loads docsify and the pinned plugins from jsDelivr (each with a Subresource Integrity hash), and docsify fetches the `.md` file for the route in the address bar.
 
 - A page's route is its path without `.md`: `SIEM_REFERENCE.md` is `#/SIEM_REFERENCE`, and a folder's `README.md` is the folder route (`#/guides/`). The homepage is `HOME.md` at `#/`.
-- A heading's anchor is `?id=<slug>`, using docsify 4.13.1's slug rules (lower case, punctuation dropped, spaces to hyphens, `_` before a leading digit, `-1`, `-2` on repeats).
+- A heading's anchor is `?id=<slug>`, using docsify 4.13.1's slug rules. Docsify slugs the heading's rendered HTML, not its Markdown: lower case, `&` becomes `amp` and an apostrophe becomes `39` (`## Cloud & Supply Chain` is `?id=cloud-amp-supply-chain`), other punctuation dropped, spaces to hyphens, `_` before a leading digit, `-1`, `-2` on repeats. The docstring of `scripts/check_docsify_links.py` lists the rules the link check applies.
 - `relativePath` is off, so links in pages are root-absolute: `[SIEM Reference](/SIEM_REFERENCE.md)`. They work on GitHub too.
 - `index.html` also holds the site's own code: the theme tokens for the dark and light themes, the search overlay and ID jump, the header card and fold behaviour, breadcrumbs, the Explore table, the keyboard handling and the tab titles. Each block has a comment saying what it does and which script, if any, writes into it. The docsify alias block between `// nav-aliases:start` and `// nav-aliases:end` is written by `scripts/build_site_nav.py`.
 - The shell pages: `_coverpage.md` (the hero, hand-written), `_404.md` (shown for a route with no page, hand-written), `_navbar.md` and every `_sidebar.md` (written by `scripts/build_site_nav.py`).
@@ -48,7 +48,7 @@ Edit the text. If the edit changes facts on the page, record it under `correctio
 
 ### Removing or renaming a page
 
-Avoid it. If a page is superseded, keep the file and replace its body with a note that starts `> This document has been superseded.` in its first lines and links the replacement (see `SUPPLY_CHAIN_SECURITY.md`). Take it out of its hub in `docs/site_nav.json` and out of INDEX; the nav and search scripts recognise that sentence and leave the stub out, while its old links still land on the note. If a heading that other pages link to must change, keep the old anchor working with an HTML id on the new heading (`<a id="old-slug"></a>`), and check `scripts/old_urls.txt` still passes.
+Avoid it. If a page is superseded, keep the file and replace its body with a note that starts `> This document has been superseded.` in its first lines and links the replacement (see `SUPPLY_CHAIN_SECURITY.md`). Take it out of its hub in `docs/site_nav.json` and out of INDEX; `build_site_nav.py` recognises that sentence and leaves the stub out of the nav, and `build_search_index.py` still indexes it but lists it under "Superseded"; its old links still land on the note. If a heading that other pages link to must change, keep the old anchor working with an HTML id on the new heading (`<a id="old-slug"></a>`), and check `scripts/old_urls.txt` still passes.
 
 ## Where metadata lives
 

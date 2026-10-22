@@ -1,7 +1,5 @@
 # Detections
 
-Drafted with an AI assistant from the sources cited; checked against them on 2026-10-17.
-
 > Detection content keyed to MITRE ATT&CK techniques: a small hand-curated set of ready-to-adapt SIEM and EDR queries, and the full set of detection strategies and analytics MITRE publishes in ATT&CK v19.2.
 
 ## What is here

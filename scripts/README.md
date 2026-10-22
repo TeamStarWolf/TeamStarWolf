@@ -1,7 +1,5 @@
 # Scripts
 
-Drafted with an AI assistant from the sources cited; checked against them on 2026-10-17.
-
 > The generators and checks that keep the library's data, generated pages, and headline numbers in step. Each builder has a `--check` mode that rebuilds in memory and fails on any difference from the committed files, and CI runs those modes on every pull request.
 
 ## What is here

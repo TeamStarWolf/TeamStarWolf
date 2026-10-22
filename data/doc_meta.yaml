@@ -43,13 +43,12 @@
 # Provenance: read_when, start_at and pairs_with of the references that already had an
 # orientation card were moved here verbatim from the pages on 2026-10-20 (six start_at
 # rows were then trimmed to 3 links). Later on 2026-10-20 every read_when row was reworded
-# as clauses with their subject ("You are planning ..., you need ..., or ..."), with an
-# AI assistant, and the pairs_with links that showed a file name now show the page's
+# as clauses with their subject ("You are planning ..., you need ..., or ..."),
+# and the pairs_with links that showed a file name now show the page's
 # title; the targets are unchanged. audience and level for every page, the orientation
 # rows of the references that had none, the read_when and start_at rows of the learning
 # paths, the corrected_what descriptions (each from the pull request's diff of that page)
-# and the cluster notes were drafted with an AI assistant on 2026-10-20; edit any of them
-# freely.
+# and the cluster notes were written on 2026-10-20; edit any of them freely.
 
 corrections:
   pr51-tactic-rename:

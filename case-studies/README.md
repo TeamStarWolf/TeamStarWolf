@@ -16,7 +16,7 @@ Every study follows the same rules.
 2. **Every event carries an evidence grade.** The grade separates what has happened from what has only been shown to be possible.
 3. **Hype and evidence are kept apart.** Each study says which threats are overstated and which are understated, and why.
 4. **Numbers are reported as the source states them.** A study notes when a figure is a floor, an estimate, or a vendor's own count.
-5. **AI assistance is disclosed.** Studies drafted with AI assistance say so, and every figure is checked against its source.
+5. **Figures are checked against their sources.** Every figure in a study is checked against the source it cites.
 
 | Grade | Meaning |
 |---|---|

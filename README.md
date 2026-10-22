@@ -4,8 +4,6 @@
 
 <p align="center">An open cybersecurity reference library, cross-referenced to MITRE ATT&amp;CK.</p>
 
-<p align="center">Drafted with an AI assistant from the sources cited; checked against them on 2026-10-17.</p>
-
 <div align="center">
 
 [Website](https://teamstarwolf.github.io/TeamStarWolf/) | [Browse references](INDEX.md) | [Explore ATT&CK](mitre/README.md) | [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/) | [Data and Navigator layers](data/README.md) | [Contribute](CONTRIBUTING.md)

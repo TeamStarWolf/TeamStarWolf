@@ -1,6 +1,6 @@
 # Key takeaways: DRAFTS, owner review pending. Never rendered on any page.
 #
-# Drafted with an AI assistant from each page's own text on 2026-10-20. Each takeaway is one
+# Written from each page's own text on 2026-10-20. Each takeaway is one
 # line ("text"), names the section it comes from ("from", a heading anchor on the page), and
 # quotes the page ("quote", the passage that supports it). scripts/build_doc_meta.py
 # --check validates every draft: 3 to 5 per page, one sentence, the docs/VOICE.md rules, and

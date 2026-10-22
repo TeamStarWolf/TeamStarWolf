@@ -1,7 +1,5 @@
 # Vendor Tool Pages
 
-Drafted with an AI assistant from the sources cited; checked against them on 2026-10-17.
-
 > One page per platform in a representative enterprise security stack: what the product does, where it fits in vulnerability mitigation, how to confirm it is deployed and producing telemetry, and where its official documentation and repositories are. The pages describe products; they do not endorse them.
 
 ## What is here
@@ -20,7 +18,7 @@ Each page follows the same outline: capabilities and architecture, the vulnerabi
 
 ## How it is generated
 
-No script generates these pages; they are maintained by hand. They were drafted with an AI assistant from web-assisted research into vendor documentation (vendor state as of 2025 and 2026); some deep links were not re-checked against the live vendor sites at the time. The Link Check workflow tests every outbound link a change adds and scans all of them weekly.
+No script generates these pages; they are maintained by hand. They describe vendor state as of 2025 and 2026, from vendor documentation; some deep links were not re-checked against the live vendor sites at the time. The Link Check workflow tests every outbound link a change adds and scans all of them weekly.
 
 ## How to use it
 

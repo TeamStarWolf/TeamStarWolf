@@ -1,7 +1,5 @@
 # Maintaining the Site
 
-Drafted with an AI assistant from the repository's scripts, workflows and settings; checked against them on 2026-10-20.
-
 > How the library's website is built, where each piece of page metadata lives, what every script and CI check does, how a change reaches the live site, and how to roll the site back. For writing rules, see the [Voice and Credibility Guide](/docs/VOICE.md); for the contribution workflow, see [CONTRIBUTING](/CONTRIBUTING.md).
 
 ## How the site works

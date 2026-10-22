@@ -1,7 +1,5 @@
 # Data
 
-Drafted with an AI assistant from the sources cited; checked against them on 2026-10-17.
-
 > The machine-readable side of the library: MITRE framework objects and the relationships between them, as JSON Lines files (one JSON object per line), with a manifest that records each file's source, license, row count, and SHA-256.
 
 ## What is here

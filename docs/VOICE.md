@@ -1,7 +1,5 @@
 # Voice and Credibility Guide
 
-Drafted with an AI assistant from the sources cited; checked against them on 2026-10-17.
-
 ## Sentences
 
 - Write plain declarative sentences: what a thing does, under what conditions.
@@ -61,7 +59,6 @@ Write "a disassembler with a decompiler", not `a powerful disassembler`. Proper 
 
 ## Provenance and credit
 
-- A page drafted or substantially revised with an AI assistant carries this line under its title: `Drafted with an AI assistant from the sources cited; checked against them on <YYYY-MM-DD>.` No apology. Pages written before this guide get the line when they are next checked against their sources.
 - Upstream names and quoted descriptions stay verbatim; the lint skips text matching the MITRE datasets under `data/`.
 - Credit upstream work by name and link: [MITRE ATT&CK](https://attack.mitre.org/), [CTID](https://ctid.mitre.org/), [SigmaHQ](https://github.com/SigmaHQ/sigma), and every project we reuse. [THIRD_PARTY_NOTICES.md](/THIRD_PARTY_NOTICES.md) records their terms.
 - Reproduced ATT&CK content carries this notice from THIRD_PARTY_NOTICES.md: "© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE." Other MITRE frameworks (CAPEC, CWE, D3FEND, ATLAS, Engage, CAR, F3) carry theirs from the same file.

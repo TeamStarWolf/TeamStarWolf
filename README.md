@@ -2,7 +2,7 @@
   <img src="assets/brand/starwolf64-banner-1280.png" width="100%" alt="STARWOLF 64 logotype: green-to-yellow chrome lettering on a dark blue plate, a red and white wolf head at the left, a red streak over the letters, and a red star holding the number 64">
 </p>
 
-<p align="center">An open cybersecurity reference library, cross-referenced to MITRE ATT&amp;CK.</p>
+<p align="center">An open cybersecurity reference library for the community.</p>
 
 <div align="center">
 

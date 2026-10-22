@@ -43,9 +43,9 @@
     <span class="tsw-door-go">Open the guides</span>
   </a>
   <a class="tsw-door tsw-door--data" href="#/mitre/README">
-    <span class="tsw-door-who">I work with ATT&amp;CK data</span>
+    <span class="tsw-door-who">I work with framework data</span>
     <span class="tsw-door-t">Framework pages and data</span>
-    <span class="tsw-door-d">Pages for Enterprise ATT&amp;CK techniques, tactics, groups, software, campaigns, and mitigations, CAPEC attack patterns, D3FEND countermeasures, ATLAS techniques and mitigations, and F3 techniques, with the JSONL data and Navigator layers behind them.</span>
+    <span class="tsw-door-d">One page per technique, group, attack pattern, countermeasure, and mitigation, with the JSONL data and Navigator layers behind them, from Enterprise ATT&amp;CK, CAPEC, D3FEND, ATLAS, and F3.</span>
     <span class="tsw-door-go">Browse the frameworks</span>
   </a>
 </div>
@@ -166,7 +166,7 @@
 <div class="tsw-footer" id="data-amp-navigator-layers">
   <div class="tsw-footer-col">
     <div class="tsw-footer-h">TeamStarWolf library</div>
-    <p>Open reference material for defenders, cross-referenced to MITRE ATT&amp;CK v19.2. Original content is released under the <a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>; data and text drawn from MITRE and other sources stay under their owners' terms, listed in the <a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/THIRD_PARTY_NOTICES.md" target="_blank" rel="noopener">third-party notices</a>.</p>
+    <p>Open reference material for defenders, learners, and anyone with a security job to do. The framework pages and mapping data follow ATT&amp;CK v19.2. Original content is released under the <a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>; data and text drawn from MITRE and other sources stay under their owners' terms, listed in the <a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/THIRD_PARTY_NOTICES.md" target="_blank" rel="noopener">third-party notices</a>.</p>
     <a class="tsw-btn tsw-btn--navi" href="https://teamstarwolf.github.io/ATTACK-Navi/" target="_blank" rel="noopener">Open ATTACK-Navi, the ATT&amp;CK workbench</a>
   </div>
   <div class="tsw-footer-col">

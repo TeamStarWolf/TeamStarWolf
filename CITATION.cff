@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "TeamStarWolf: An Open, Threat-Informed Cybersecurity Reference Library"
+title: "TeamStarWolf: An Open Cybersecurity Reference Library for the Community"
 message: "If you use this library in your work, teaching, or research, please cite it."
 type: dataset
 authors:
@@ -8,11 +8,13 @@ authors:
 repository-code: "https://github.com/TeamStarWolf/TeamStarWolf"
 url: "https://teamstarwolf.github.io/TeamStarWolf/"
 abstract: >-
-  An open, MIT-licensed cybersecurity reference library of in-depth practitioner
-  references, step-by-step how-to guides, and discipline learning paths, anchored
-  to MITRE ATT&CK and mapped to NIST 800-53 controls, detections, D3FEND
-  countermeasures, and the wider MITRE stack (ATLAS, Engage, F3, EMB3D, FiGHT,
-  CWE, CAPEC), with machine-readable coverage datasets and ATT&CK Navigator layers.
+  An open cybersecurity reference library for defenders, learners, and anyone
+  with a security job to do: in-depth practitioner references, step-by-step
+  how-to guides, and discipline learning paths. Original content is MIT-licensed.
+  The library also publishes generated framework pages, machine-readable mapping
+  data, and ATT&CK Navigator layers. The references and data are cross-referenced
+  to MITRE ATT&CK, CAPEC, CWE, D3FEND, ATLAS, Engage, F3, EMB3D, and FiGHT, and to
+  NIST SP 800-53 controls.
 keywords:
   - cybersecurity
   - threat-informed-defense

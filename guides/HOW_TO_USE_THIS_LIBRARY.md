@@ -23,7 +23,7 @@ The library has two faces backed by the same files:
 
 Every page on the live site has an "Edit this page on GitHub" link at the top, so you can hop between surfaces from wherever you are.
 
-Checkpoint: You can see the cover ("An open cybersecurity reference library, cross-referenced to MITRE ATT&CK.") and, below it, the three doors: I'm learning, I have a job to do, and I work with ATT&CK data. The "What's inside" counts on the homepage and in the README are written by `scripts/build_stats.py`, and the guide times and levels by `scripts/build_home_guides.py`; the full set of current numbers lives in [data/generated/stats.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/generated/stats.json).
+Checkpoint: You can see the cover ("An open cybersecurity reference library for the community.") and, below it, the three doors: I'm learning, I have a job to do, and I work with ATT&CK data. The "What's inside" counts on the homepage and in the README are written by `scripts/build_stats.py`, and the guide times and levels by `scripts/build_home_guides.py`; the full set of current numbers lives in [data/generated/stats.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/generated/stats.json).
 
 Watch out: Dataset links (the `.jsonl` files) always open on GitHub, not on the site; the site's hash router cannot serve raw data files. That is by design, not a broken link.
 

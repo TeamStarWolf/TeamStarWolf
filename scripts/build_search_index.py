@@ -52,7 +52,6 @@ ROOT_ABOUT = {
 }
 STUB_MARK = "This document has been superseded."
 SUMMARY_MAX = 220
-AI_NOTE = "Drafted with an AI assistant"    # the provenance line under some H1s; not a summary
 # Blocks the site hides (index.html CSS) but GitHub shows: not part of the page as read on
 # the site, so neither searchable nor a summary. HOME.md opens with one.
 SITE_HIDDEN_CLASSES = ("tsw-gh-only",)
@@ -253,8 +252,7 @@ def summary_of(text: str, title: str) -> str:
         if s.startswith("<p") and strip_inline(s) and not para:
             s = strip_inline(s)                      # README.md centres its tagline in <p>
         if (s.startswith(("#", "|", "<", "---", "***", "- ", "* ", "+ ", "[![")) or " | " in s
-                or re.match(r"^\d+[.)]\s", s) or META_LINE.match(s)
-                or s.startswith(AI_NOTE)):
+                or re.match(r"^\d+[.)]\s", s) or META_LINE.match(s)):
             if para:
                 break
             continue

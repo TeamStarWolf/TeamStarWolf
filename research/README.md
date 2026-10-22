@@ -1,7 +1,5 @@
 # Research
 
-Drafted with an AI assistant from the sources cited; checked against them on 2026-10-17.
-
 > Working notes and catalogues that feed the library: conference and training indexes, tool-coverage studies, the curated GitHub Stars Lists, and field notes from building projects in public. These pages are hand-written; small datasets and the scripts that built them sit beside them.
 
 ## What is here

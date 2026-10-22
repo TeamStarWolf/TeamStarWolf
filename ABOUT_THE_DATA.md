@@ -1,7 +1,5 @@
 # About the Library and Its Data
 
-Drafted with an AI assistant from the sources cited; checked against them on 2026-10-17.
-
 > What the library contains, which frameworks it restates, where its data files come from, which ATT&CK version each part is built from, and what continuous integration checks. This page holds the overview and provenance text that the README carried before 2026-10-17.
 
 | | |

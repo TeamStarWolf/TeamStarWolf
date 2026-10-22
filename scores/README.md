@@ -1,7 +1,5 @@
 # Scores
 
-Drafted with an AI assistant from the sources cited; checked against them on 2026-10-17.
-
 > Computed views over the ATT&CK v19.2 data: how much of the Enterprise matrix a modeled vendor stack reaches through NIST SP 800-53 control mappings, and which techniques are both widely used by tracked groups and thinly covered by controls. Every file here is generated.
 
 ## What is here

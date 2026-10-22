@@ -1,6 +1,6 @@
 # AI Threats in the Cybersecurity Industry: A 2026 Case Study
 
-*A TeamStarWolf case study. Published 7 October 2026; every source checked as of that date. Researched and drafted with AI assistance (Anthropic's Claude, whose misuse is among the cases), with each figure verified against the cited source.*
+*A TeamStarWolf case study. Published 7 October 2026; every source checked as of that date. Each figure is verified against the cited source.*
 
 [Download the PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/AI_Threats_2026_Case_Study.pdf) · [Download the slides (PowerPoint, 16 slides)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/AI_Threats_2026_Case_Study.pptx) · [All case studies](/case-studies/README.md)
 

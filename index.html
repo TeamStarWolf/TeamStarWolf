@@ -26,7 +26,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="assets/brand/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/brand/apple-touch-icon-180.png">
   <!-- Theme before first paint: a stored choice (this browser only), else the system preference,
-       else dark. The key is namespaced because ATTACK-Navi shares this origin's localStorage. -->
+       else dark. The key is namespaced because ATT&CK-Navi shares this origin's localStorage. -->
   <script>
     (function () {
       var t = null;
@@ -682,7 +682,7 @@
       .content { padding-top: var(--tsw-nav-h, 48px); }
       /* Mobile top bar: the menu button sits at its left and the theme button at its right,
          so neither floats over page content. vue.css put the menu button at the bottom-left
-         corner, where it covered the cover's ATTACK-Navi button. It shows in phone mode,
+         corner, where it covered the cover's ATT&CK-Navi button. It shows in phone mode,
          and in tablet mode only while the sidebar is open (body.close), when vue.css hides
          the navbar; it never covers the tablet navbar. */
       body:not(:has(> nav.app-nav)) > #tsw-mbar, body.close > #tsw-mbar {
@@ -1973,7 +1973,7 @@
       var st = { q: '', kind: '', results: [], items: [], shown: 0, direct: [], kinds: null, active: -1 };
 
       // The docsify search plugin cached its index (about 12 MB) in localStorage, which this
-      // origin shares with ATTACK-Navi. The plugin is gone, so free the space.
+      // origin shares with ATT&CK-Navi. The plugin is gone, so free the space.
       try { localStorage.removeItem('docsify.search.index'); localStorage.removeItem('docsify.search.expires'); } catch (e) {}
 
       function loadPagefind() {

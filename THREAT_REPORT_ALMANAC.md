@@ -21,7 +21,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 17 min (3,865 words at 230 words a minute)
+About 17 min (3,866 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -254,7 +254,7 @@ An annual report earns its shelf space only when its findings land in a workflow
 | Library workflow | Reports that feed it | What to extract |
 |---|---|---|
 | Strategic CTI and PIRs: [Threat Intelligence](THREAT_INTELLIGENCE_REFERENCE.md) | Recorded Future, MDDR, ENISA, national reviews | Actor intent and sector targeting for next year's priority intelligence requirements; strategic-tier briefing material |
-| ATT&CK technique prioritization: [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [ATT&CK Priority Gaps](scores/attack_priority_gaps.md) | Red Canary TDR, M-Trends, Unit 42, X-Force | Top-technique lists and initial-access shares -> re-weight the technique priority scores and the ATTACK-Navi layers |
+| ATT&CK technique prioritization: [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [ATT&CK Priority Gaps](scores/attack_priority_gaps.md) | Red Canary TDR, M-Trends, Unit 42, X-Force | Top-technique lists and initial-access shares -> re-weight the technique priority scores and the ATT&CK-Navi layers |
 | CTEM scoping and prioritization: [CTEM](CTEM_REFERENCE.md) (Stages 1 and 3) | DBIR industry patterns, Dragos (OT scopes), sector honorable mentions | The *threat relevance* signal: which vectors and techniques actors actually use against your sector this year |
 | Metrics context and benchmarks: [Security Metrics](SECURITY_METRICS_REFERENCE.md) | M-Trends and Sophos (dwell), CrowdStrike (breakout), Unit 42 (time-to-exfil), Cost of a Data Breach (cost) | External context lines for your own MTTD/MTTR trend charts: always labeled with the source's caseload caveat |
 | Detection engineering: [Detection Rules](DETECTION_RULES_REFERENCE.md), [SIEM Content](SIEM_DETECTION_CONTENT.md) | Red Canary TDR (per-technique detection guidance), MDDR | New analytics for the year's top techniques; validation targets for purple-team cycles |

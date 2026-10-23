@@ -678,8 +678,8 @@ Projects from the MITRE Center for Threat-Informed Defense (CTID). Several mappi
 |---|---|---|---|
 | [TeamStarWolf library (repo)](https://github.com/TeamStarWolf/TeamStarWolf) | Repository | Open, threat-informed cybersecurity reference library; MIT | OK |
 | [TeamStarWolf library (site)](https://teamstarwolf.github.io/TeamStarWolf/) | GitHub Pages | Rendered library, including this Tools Research section | OK |
-| [ATTACK-Navi (repo)](https://github.com/TeamStarWolf/ATTACK-Navi) | Repository | Browser-based ATT&CK analyst workbench; v0.10.0 (2026-08-17); MIT | OK |
-| [ATTACK-Navi (hosted)](https://teamstarwolf.github.io/ATTACK-Navi/) | GitHub Pages | Hosted app | OK |
+| [ATT&CK-Navi (repo)](https://github.com/TeamStarWolf/ATTACK-Navi) | Repository | Browser-based ATT&CK analyst workbench; v0.10.0 (2026-08-17); MIT | OK |
+| [ATT&CK-Navi (hosted)](https://teamstarwolf.github.io/ATTACK-Navi/) | GitHub Pages | Hosted app | OK |
 | [cybersecurity-resources](https://github.com/TeamStarWolf/cybersecurity-resources) | Repository | Curated resources for vulnerability management and threat intelligence | OK |
 
 ## Dead or moved links to avoid

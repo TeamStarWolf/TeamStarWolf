@@ -31,7 +31,7 @@
 | [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) | All 714 ATT&CK techniques by tactic (697 active per MITRE v19.2; a few superseded records retained), cross-referenced to threat groups, software, mitigations, NIST controls, and detection |
 | [ATT&CK Technique Detail Pages](techniques/README.md) | Full consolidated per-technique write-ups (description, mitigations, NIST controls, detections, groups, software) across 15 tactic files |
 | [ATLAS Reference (AI threats)](/ATLAS_REFERENCE.md) | MITRE ATLAS bundled snapshot of tactics, techniques, and mitigations; tactic and technique labels checked against 2026.09, including AI Model Access and AI Attack Adaptation |
-| [ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) | MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapping, and threat-intelligence correlation |
+| [ATT&CK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) | MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapping, and threat-intelligence correlation |
 | [Automotive Security Reference](AUTOMOTIVE_SECURITY_REFERENCE.md) | CAN bus attacks, ECU security, OTA update integrity, V2X/DSRC/C-V2X, key fob relay attacks, ADAS sensor spoofing, ISO 21434 |
 | [Blockchain Security Reference](BLOCKCHAIN_SECURITY_REFERENCE.md) | Smart contract auditing, Solidity vulnerabilities, DeFi attacks, Web3 security tools, consensus mechanism security |
 | [Browser Security Reference](BROWSER_SECURITY_REFERENCE.md) | SOP, CORS attacks, CSP bypass, security headers, CSRF, clickjacking, cookie security, extension analysis, prototype pollution |

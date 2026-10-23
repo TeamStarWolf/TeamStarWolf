@@ -4,7 +4,7 @@
 > from a static list of techniques into a decision tool. Each lens recolors every technique by a different
 > security dimension (mitigation depth, threat activity, detection coverage, vulnerability exposure,
 > compliance, or composite risk), so a different question gets answered by the same matrix. These are the
-> 24 heatmap modes implemented in [ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi); the model
+> 24 heatmap modes implemented in [ATT&CK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi); the model
 > generalizes to any Navigator-style workflow.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
@@ -12,7 +12,7 @@
 <table class="tsw-meta-card">
 <tr><th scope="row" align="left" valign="top">Who this is for</th><td>
 
-Threat-informed defense analysts and ATTACK-Navi users
+Threat-informed defense analysts and ATT&CK-Navi users
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Level</th><td>
@@ -22,7 +22,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,127 words at 230 words a minute)
+About 5 min (1,129 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -194,7 +194,7 @@ your team.
 - [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md): turning coverage into program KPIs
 - [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md): CVSS/EPSS/KEV prioritization
 - [Controls Mapping](CONTROLS_MAPPING.md), [Coverage Schema](COVERAGE_SCHEMA.md), [Navigator layers](navigator/)
-- [ATTACK-Navi workbench](https://github.com/TeamStarWolf/ATTACK-Navi): reference implementation of all 24 lenses
+- [ATT&CK-Navi workbench](https://github.com/TeamStarWolf/ATTACK-Navi): reference implementation of all 24 lenses
 
 <!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
 

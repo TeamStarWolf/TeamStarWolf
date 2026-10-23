@@ -88,9 +88,10 @@ Continuous integration validates the JSONL data files, checks every Navigator la
 
 The voice lint (`scripts/check_voice.py`) fails a change that adds an em-dash, emoji, sentence-ending exclamation mark, listed marketing word, or hand-typed headline count to a hand-written page beyond its recorded baseline ([docs/VOICE.md](/docs/VOICE.md)). The counts in the README's "What's inside" table are written by `scripts/build_stats.py`, and the build fails when the committed table differs from what the script produces. [scripts/README.md](/scripts/README.md) lists every script and the CI job that runs it.
 
-## ATTACK-Navi
+## ATT&CK-Navi
+<a id="attack-navi"></a>
 
-[ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) is a companion web application for exploring the Enterprise, ICS, and Mobile ATT&CK matrices. It draws on the same public sources as this library, MITRE ATT&CK and D3FEND and the CTID control mappings, which it loads directly in the browser. It also bundles several of this library's Navigator overlays and adds views for detection coverage, threat intelligence, vulnerability exposure, and compliance. It needs no backend, and a [live version](https://teamstarwolf.github.io/ATTACK-Navi/) is hosted on GitHub Pages.
+[ATT&CK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) is a companion web application for exploring the Enterprise, ICS, and Mobile ATT&CK matrices. It draws on the same public sources as this library, MITRE ATT&CK and D3FEND and the CTID control mappings, which it loads directly in the browser. It also bundles several of this library's Navigator overlays and adds views for detection coverage, threat intelligence, vulnerability exposure, and compliance. It needs no backend, and a [live version](https://teamstarwolf.github.io/ATTACK-Navi/) is hosted on GitHub Pages.
 
 ## Trademarks
 

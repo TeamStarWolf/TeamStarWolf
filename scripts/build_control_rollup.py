@@ -3,7 +3,7 @@
 
 Why (mapping-consistency audit + Roadmap Tier 1.9 convergence): the library ships
 only *direct* control->technique edges on a technique profile (e.g. T1021 = 14
-controls), while consumers such as ATTACK-Navi roll each parent technique's
+controls), while consumers such as ATT&CK-Navi roll each parent technique's
 sub-technique control mappings up into the parent (T1021 = 31). Same CTID source,
 two different answers. The fix is to define the rollup ONCE, here, and ship both:
 keep `nist_800_53_controls` (direct) and add `nist_800_53_controls_rolled`

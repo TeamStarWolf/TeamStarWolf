@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Length</th><td>
 
-Lookup page: 3,263 words, 91% in tables; look entries up from Start at or the search (about 14 min end to end at 230 words a minute)
+Lookup page: 3,264 words, 91% in tables; look entries up from Start at or the search (about 14 min end to end at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -117,7 +117,7 @@ For deeper context on how tools map to NIST 800-53 controls and ATT&CK technique
 | [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team) | OSS | ATT&CK-mapped detection validation tests |
 | [Caldera](https://caldera.mitre.org/) | OSS | Automated adversary emulation, BAS |
 | [MITRE ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) | OSS | Coverage visualization and layer management |
-| [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/) | OSS | Advanced ATT&CK workbench with CVE and intel integrations |
+| [ATT&CK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/) | OSS | Advanced ATT&CK workbench with CVE and intel integrations |
 
 ### SOAR
 | Tool | Type | Primary Use |

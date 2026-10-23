@@ -5,7 +5,7 @@ The normalized relationship contract for the TeamStarWolf library. Every derived
 here with its normalized interpretation: which field is the source node, which is
 the target, the node types, the edge type, and the row cardinality.
 
-This is the contract a consumer (e.g. ATTACK-Navi's cross-framework graph) uses to
+This is the contract a consumer (e.g. ATT&CK-Navi's cross-framework graph) uses to
 join the library's relationships without re-deriving them. The source/target field
 presence declared here is enforced in CI by `scripts/validate_jsonl.py` (the
 `edge-contract` check): every row must carry a non-empty source id and a non-empty

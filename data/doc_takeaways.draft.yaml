@@ -412,7 +412,7 @@ pages:
     items:
       - {"text": "The data model scores vendor coverage against ATT&CK techniques through NIST 800-53 controls.", "from": "#vendor-coverage-gap-scoring-data-model-amp-schema", "quote": "This page defines the data model for scoring vendor coverage against ATT&CK techniques through NIST 800-53 controls."}
       - {"text": "In the CI-enforced on-disk schema, attack_technique must be an ATT&CK ID (T#### with an optional .###).", "from": "#coverage-edge-schema-graph-model", "quote": "must be an ATT&CK ID (T####, optionally .###)."}
-      - {"text": "ATTACK-Navi custom heatmap layers can show the resulting coverage scores directly on the ATT&CK matrix.", "from": "#connecting-to-attack-navi", "quote": "ATTACK-Navi supports custom heatmap layers that can visualize coverage scores directly on the ATT&CK matrix."}
+      - {"text": "ATT&CK-Navi custom heatmap layers can show the resulting coverage scores directly on the ATT&CK matrix.", "from": "#connecting-to-attampck-navi", "quote": "ATT&CK-Navi supports custom heatmap layers that can visualize coverage scores directly on the ATT&CK matrix."}
   INSIDER_THREAT_REFERENCE.md:
     batch: 4
     items:

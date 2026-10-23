@@ -19,7 +19,7 @@ Beginner to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 18 min (4,143 words at 230 words a minute)
+About 18 min (4,144 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -382,7 +382,7 @@ Security Code Review Focus Areas
 ## Key Resources
 
 - [PortSwigger Web Security Academy](https://portswigger.net/web-security): The definitive free web security training platform; interactive labs and structured paths for every major vulnerability class
-- [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/): Maps web exploitation techniques in Initial Access and Execution tactics; visualize how application-layer attacks connect to the full ATT&CK kill chain
+- [ATT&CK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/): Maps web exploitation techniques in Initial Access and Execution tactics; visualize how application-layer attacks connect to the full ATT&CK kill chain
 - [OWASP Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide/): The comprehensive testing methodology reference for web application security assessments
 - [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/): The framework for security requirements and application security maturity measurement
 - [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org): Concise developer and tester reference on implementing security controls correctly

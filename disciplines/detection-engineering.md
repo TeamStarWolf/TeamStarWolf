@@ -19,7 +19,7 @@ Beginner to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 11 min (2,471 words at 230 words a minute)
+About 11 min (2,472 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -308,7 +308,7 @@ Detection engineering directly implements coverage against specific ATT&CK techn
 
 | Resource | Type | Notes |
 |---|---|---|
-| [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/) | Free tool | Map detection coverage across ATT&CK; identify gaps by tactic; correlate Sigma rules and Atomic Red Team tests |
+| [ATT&CK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/) | Free tool | Map detection coverage across ATT&CK; identify gaps by tactic; correlate Sigma rules and Atomic Red Team tests |
 | [Sigma Rule Repository](https://github.com/SigmaHQ/sigma) | Free rules | Community detection rule library; browse existing rules before authoring new ones |
 | [MITRE D3FEND](https://d3fend.mitre.org) | Free framework | Maps defensive techniques to adversary techniques; identify the right detection mechanism for any attack pattern |
 | [Palantir ADS Framework](https://github.com/palantir/alerting-detection-strategy-framework) | Free framework | Alerting and Detection Strategy framework; standard template for professional detection engineering documentation |

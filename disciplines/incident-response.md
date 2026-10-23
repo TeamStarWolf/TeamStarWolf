@@ -19,7 +19,7 @@ Beginner to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 15 min (3,395 words at 230 words a minute)
+About 15 min (3,396 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -244,7 +244,7 @@ Incident response is most effective when analysts can map observed behaviors to 
 
 ## Key Resources
 
-- [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/): During active incidents, pivot from observed indicators and behaviors to ATT&CK techniques, identify the probable tactic sequence, and map detection gaps to close before the next incident
+- [ATT&CK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/): During active incidents, pivot from observed indicators and behaviors to ATT&CK techniques, identify the probable tactic sequence, and map detection gaps to close before the next incident
 - [The DFIR Report](https://thedfirreport.com): Real-world IR case studies with full TTP timelines; the most valuable free resource for understanding actual intrusion patterns
 - [NIST SP 800-61r3](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r3.pdf): Current federal IR guidance (April 2025), reframing incident response around the CSF 2.0 Functions; supersedes SP 800-61r2 (2012, still a useful four-phase lifecycle reference: <https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf>)
 - [SANS DFIR Posters](https://www.sans.org/posters/?focus-area=digital-forensics): Free reference posters covering Windows artifact locations, memory forensics workflow, and evidence collection procedures

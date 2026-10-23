@@ -19,7 +19,7 @@ Beginner to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 10 min (2,271 words at 230 words a minute)
+About 10 min (2,272 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -187,7 +187,7 @@ Network security has a mature commercial market with specialized vendors for NDR
 
 ## Key Resources
 
-- [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/): Command-and-Control, Lateral Movement, and Exfiltration technique analysis with detection coverage visualization; identify which network-observable ATT&CK techniques have Sigma and Suricata coverage
+- [ATT&CK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/): Command-and-Control, Lateral Movement, and Exfiltration technique analysis with detection coverage visualization; identify which network-observable ATT&CK techniques have Sigma and Suricata coverage
 - [Security Onion Documentation](https://docs.securityonion.net): The most comprehensive free NSM platform documentation; covers deployment, configuration, and analyst workflows for a complete network monitoring stack
 - [Zeek Documentation](https://docs.zeek.org): The reference for the leading network analysis framework; protocol analyzers, log format specification, and scripting reference
 - [Emerging Threats Open Ruleset](https://rules.emergingthreats.net/open/): The most widely deployed free Suricata/Snort network detection rule library

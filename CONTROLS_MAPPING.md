@@ -7,7 +7,7 @@ The chain:
 Vendor
   → satisfies → NIST 800-53 Control
   → maps to   → ATT&CK Technique  (via CTID)
-  → scored in → ATTACK-Navi heatmap
+  → scored in → ATT&CK-Navi heatmap
 ```
 
 Additional cloud-native control mappings from CTID:

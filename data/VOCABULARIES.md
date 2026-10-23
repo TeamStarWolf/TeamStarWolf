@@ -1,7 +1,7 @@
 # Data Vocabularies
 
 The controlled vocabularies used by the crosswalk / edge datasets. These are the
-allowed value sets a consumer (e.g. ATTACK-Navi's cross-framework graph) can rely
+allowed value sets a consumer (e.g. ATT&CK-Navi's cross-framework graph) can rely
 on. Library-defined vocabularies are stable and owned here; MITRE-derived
 vocabularies track the upstream framework and are updated when it changes. The
 `confidence`, `coverage_type`, `mapping_type`, `edge_type`, `relation`, and

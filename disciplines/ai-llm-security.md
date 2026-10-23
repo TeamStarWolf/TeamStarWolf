@@ -19,7 +19,7 @@ Beginner to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 19 min (4,398 words at 230 words a minute)
+About 19 min (4,399 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -269,7 +269,7 @@ Note: AI security is an emerging field and formal certification infrastructure i
 - NIST AI Risk Management Framework: NIST's comprehensive framework for managing risk across the AI system lifecycle; the governance foundation for regulated environments
 - [Google SAIF](https://safety.google/cybersecurity-advancements/saif/): Google's Secure AI Framework covering six core elements for building and securing AI systems
 - [Anthropic Safety Research](https://www.anthropic.com/research): Published research on Constitutional AI, interpretability, and safety evaluation from a leading frontier model developer
-- [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/): AI-assisted security analysis in practice; uses data-driven technique correlation to help analysts reason over ATT&CK at scale; the same class of capability that AI security practitioners are both building and defending against
+- [ATT&CK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/): AI-assisted security analysis in practice; uses data-driven technique correlation to help analysts reason over ATT&CK at scale; the same class of capability that AI security practitioners are both building and defending against
 - [LLM Security (llmsecurity.net)](https://llmsecurity.net): Curated aggregator of LLM vulnerability research and real-world incident disclosures; the best single source for staying current
 - Microsoft AI Red Team Blog: Case studies and methodology from Microsoft's dedicated AI Red Team practice
 - [Berryville Institute of Machine Learning (BIML)](https://berryvilleiml.com): Gary McGraw's systematic architectural risk analysis of ML systems; rigorous engineering perspective on AI security

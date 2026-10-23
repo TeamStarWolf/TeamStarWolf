@@ -230,7 +230,7 @@ pages:
     fold:
       - "tables:detail"
   ATTACK_MATRIX_ANALYSIS_REFERENCE.md:
-    audience: "Threat-informed defense analysts and ATTACK-Navi users"
+    audience: "Threat-informed defense analysts and ATT&CK-Navi users"
     level: "Intermediate"
     read_when: "You are choosing which heatmap mode answers your coverage question, you are prioritizing techniques by threat activity or exploitation urgency, or you are sanity-checking what a gradient score does and does not prove"
     start_at: "[An analysis workflow](#an-analysis-workflow), [Lens family 1 - Mitigation & control coverage](#lens-family-1-mitigation-amp-control-coverage), [Reading the scores safely](#reading-the-scores-safely)"

@@ -21,7 +21,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 28 min (6,496 words at 230 words a minute)
+About 28 min (6,498 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -142,7 +142,7 @@ The documentation site (v2.0.0) is organized as: *Introduction, Knowledge Base, 
 | Artifact | Use |
 |---|---|
 | Navigator layer (JSON) | Load in the [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) and overlay against your detection-coverage layer; the intersection of "insiders actually do this" and "we can't see it" is your backlog |
-| CSV / Excel | Join technique IDs against your detection inventory or [ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) workbench for coverage scoring |
+| CSV / Excel | Join technique IDs against your detection inventory or [ATT&CK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) workbench for coverage scoring |
 | Case Analysis pages | Read before designing detections: the *method of detection* and *data sources* fields tell you what actually worked in seven large enterprises |
 | Emulation | The KB's stated purpose includes *emulating* insider actions: run benign purple-team versions of the KB's dominant chains (e.g., stage -> archive -> copy a marked test file to USB) to prove the telemetry and alerts fire end to end; see [Purple Team](PURPLE_TEAM_REFERENCE.md) |
 
@@ -520,7 +520,7 @@ Quarterly, four numbers and one story: KB technique coverage (are we watching wh
 
 | Goal | How |
 |---|---|
-| See insider coverage on the matrix | Load the KB's Navigator layer against your coverage layers in [ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) |
+| See insider coverage on the matrix | Load the KB's Navigator layer against your coverage layers in [ATT&CK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) |
 | Build the detections | Join KB technique IDs to the [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) and [Detection Strategies](detections/strategies/README.md) |
 | Pick mitigations | The KB's M-code mappings land in the [ATT&CK Mitigations Reference](ATTACK_MITIGATIONS_REFERENCE.md); identity-heavy ones in [Identity Security](IDENTITY_SECURITY_REFERENCE.md) |
 | Cover insider *fraud* end-to-end | The KB shows the insider's IT actions; the [Fight Fraud Framework (F3)](FRAUD_FRAMEWORK_REFERENCE.md) models the monetization side. F1033 Insider Access Abuse is the explicit bridge |

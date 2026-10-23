@@ -11,7 +11,7 @@ The site at [teamstarwolf.github.io/TeamStarWolf](https://teamstarwolf.github.io
 - `relativePath` is off, so links in pages are root-absolute: `[SIEM Reference](/SIEM_REFERENCE.md)`. They work on GitHub too.
 - `index.html` also holds the site's own code: the theme tokens for the dark and light themes, the search overlay and ID jump, the header card and fold behaviour, breadcrumbs, the Explore table, the keyboard handling and the tab titles. Each block has a comment saying what it does and which script, if any, writes into it. The docsify alias block between `// nav-aliases:start` and `// nav-aliases:end` is written by `scripts/build_site_nav.py`.
 - The shell pages: `_coverpage.md` (the hero, hand-written), `_404.md` (shown for a route with no page, hand-written), `_navbar.md` and every `_sidebar.md` (written by `scripts/build_site_nav.py`).
-- No file is ever renamed or moved without a plan for its old routes: outside sites, ATTACK-Navi and GitHub blob URLs link to these paths. `scripts/old_urls.txt` holds a sample of routes from before the site revamp, and CI fails if one stops resolving.
+- No file is ever renamed or moved without a plan for its old routes: outside sites, ATT&CK-Navi and GitHub blob URLs link to these paths. `scripts/old_urls.txt` holds a sample of routes from before the site revamp, and CI fails if one stops resolving.
 
 ## Add or change a page
 

@@ -43,7 +43,7 @@ The repo is one flat root of reference documents plus a few purposeful folders:
 | `scores/` | Gap analyses computed from the datasets: start with [Priority Gap Analysis](/scores/attack_priority_gaps.md) |
 | `research/` | Curated research indexes: conference talks, tool crosswalks, lab tracks |
 
-One companion lives outside this repo: [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/), an interactive ATT&CK workbench that consumes the same coverage data published here.
+One companion lives outside this repo: [ATT&CK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/), an interactive ATT&CK workbench that consumes the same coverage data published here.
 
 Checkpoint: Given any question ("how does Kerberoasting detection work", "which controls map to T1078", "where do I start learning cloud security"), you can name the folder it will be answered in before you search.
 
@@ -108,7 +108,7 @@ Worked example ("where are our coverage gaps?"):
 2. Open the [Navigator Layers index](/navigator/index.md) and click any layer's " Navigator" link: it opens MITRE's hosted [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) with the layer pre-loaded via its documented `layerURL` fragment. Start with the master NIST 800-53 coverage layer.
 3. Read the ranked write-ups: [Priority Gap Analysis](/scores/attack_priority_gaps.md) lists the most-used, least-covered techniques, and the Framework Blind Spots layer shows the live Enterprise techniques with no mapped NIST 800-53 control.
 4. For vendor questions ("what does our EDR actually cover?"), use the vendor layers and the edge tables described in [Coverage Schema](/COVERAGE_SCHEMA.md).
-5. For richer interactive analysis (EPSS, CISA KEV, detection-content correlation), move to the [ATTACK-Navi workbench](https://teamstarwolf.github.io/ATTACK-Navi/).
+5. For richer interactive analysis (EPSS, CISA KEV, detection-content correlation), move to the [ATT&CK-Navi workbench](https://teamstarwolf.github.io/ATTACK-Navi/).
 
 Checkpoint: A coverage heatmap open in ATT&CK Navigator and a shortlist of high-priority gap techniques for your program.
 

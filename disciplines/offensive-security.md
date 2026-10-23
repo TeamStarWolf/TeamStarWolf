@@ -19,7 +19,7 @@ Beginner to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 10 min (2,298 words at 230 words a minute)
+About 10 min (2,299 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -193,7 +193,7 @@ The fastest legal path into offensive security is through structured lab environ
 
 ## Key Resources
 
-- [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/): Map red team operation technique coverage to ATT&CK; correlate CVE-to-technique overlays for exploitation planning; track EPSS and CISA KEV status for vulnerability-based initial access selection
+- [ATT&CK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/): Map red team operation technique coverage to ATT&CK; correlate CVE-to-technique overlays for exploitation planning; track EPSS and CISA KEV status for vulnerability-based initial access selection
 - [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings): The comprehensive payload reference; bookmark it, you will use it on every engagement
 - [HackTricks](https://book.hacktricks.xyz): The practitioner's field manual; Windows, Linux, AD, and web attack techniques with real command examples
 - [LOLBAS Project](https://lolbas-project.github.io): Every Windows-native binary that can be abused offensively; essential for EDR evasion without custom tooling

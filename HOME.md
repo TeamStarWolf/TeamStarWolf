@@ -90,7 +90,7 @@
   <div class="tsw-node"><span class="tsw-node-k">Framework page</span> <a href="#/mitre/techniques/T1059-001">T1059.001 PowerShell</a> <span class="tsw-node-d">Mitigations, detection, data sources, adversary usage, and NIST SP 800-53 controls.</span></div>
   <div class="tsw-node"><span class="tsw-node-k">Detection</span> <a href="#/detections/TECHNIQUE_DETECTION_LIBRARY?id=t1059001">Technique Detection Library</a> <span class="tsw-node-d">Example queries for the technique, with data source and confidence.</span></div>
   <div class="tsw-node"><span class="tsw-node-k">Layer</span> <a href="#/navigator/index">Navigator layers</a> <span class="tsw-node-d">Heatmaps to load in ATT&amp;CK Navigator.</span></div>
-  <div class="tsw-node"><span class="tsw-node-k">Workbench</span> <a href="https://teamstarwolf.github.io/ATTACK-Navi/" target="_blank" rel="noopener">ATTACK-Navi</a> <span class="tsw-node-d">The ATT&amp;CK matrices with coverage, threat, and exposure views.</span></div>
+  <div class="tsw-node"><span class="tsw-node-k">Workbench</span> <a href="https://teamstarwolf.github.io/ATTACK-Navi/" target="_blank" rel="noopener">ATT&amp;CK-Navi</a> <span class="tsw-node-d">The ATT&amp;CK matrices with coverage, threat, and exposure views.</span></div>
 </div>
 
 <p class="tsw-lead">The references also follow the chain from a vulnerability to its countermeasures:</p>
@@ -167,7 +167,7 @@
   <div class="tsw-footer-col">
     <div class="tsw-footer-h">TeamStarWolf library</div>
     <p>Open reference material for defenders, learners, and anyone with a security job to do. The framework pages and mapping data follow ATT&amp;CK v19.2. Original content is released under the <a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>; data and text drawn from MITRE and other sources stay under their owners' terms, listed in the <a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/THIRD_PARTY_NOTICES.md" target="_blank" rel="noopener">third-party notices</a>.</p>
-    <a class="tsw-btn tsw-btn--navi" href="https://teamstarwolf.github.io/ATTACK-Navi/" target="_blank" rel="noopener">Open ATTACK-Navi, the ATT&amp;CK workbench</a>
+    <a class="tsw-btn tsw-btn--navi" href="https://teamstarwolf.github.io/ATTACK-Navi/" target="_blank" rel="noopener">Open ATT&amp;CK-Navi, the ATT&amp;CK workbench</a>
   </div>
   <div class="tsw-footer-col">
     <div class="tsw-footer-h">Data</div>

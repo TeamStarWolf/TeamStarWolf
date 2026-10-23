@@ -4,7 +4,7 @@
 > knowledge systems that answer *what behavior is happening*, *what weakness enables it*, *what products
 > are affected*, and *what we should do about it*. It is the conceptual backbone behind this repository's
 > [ATT&CK Navigator layers](navigator/), [control/technique edge tables](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data), and the
-> [ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) workbench.
+> [ATT&CK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) workbench.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -21,7 +21,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 7 min (1,589 words at 230 words a minute)
+About 7 min (1,592 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -233,7 +233,7 @@ The gap-scoring recipe (see [COVERAGE_SCHEMA.md](COVERAGE_SCHEMA.md) for the dat
 ### Visualizing it
 
 Load any layer in the [MITRE ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/), or use
-the [ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) workbench, which adds coverage, detection,
+the [ATT&CK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) workbench, which adds coverage, detection,
 exposure, compliance, and risk heatmaps over these mappings. See the
 [ATT&CK Matrix Analysis Reference](ATTACK_MATRIX_ANALYSIS_REFERENCE.md) for the full set of analytic lenses.
 
@@ -277,7 +277,7 @@ in this repo are built to support.
 - [Controls Mapping](CONTROLS_MAPPING.md), [Coverage Schema](COVERAGE_SCHEMA.md), [Coverage gaps](scores/coverage_gaps.md)
 - [Threat Intelligence](THREAT_INTELLIGENCE_REFERENCE.md), [Threat Hunting](THREAT_HUNTING_REFERENCE.md), [Purple Team](PURPLE_TEAM_REFERENCE.md), [Detection Rules](DETECTION_RULES_REFERENCE.md)
 - [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md), [Threat Modeling](THREAT_MODELING_REFERENCE.md), [Security Metrics](SECURITY_METRICS_REFERENCE.md)
-- [ATTACK-Navi workbench](https://github.com/TeamStarWolf/ATTACK-Navi): the interactive implementation of this model
+- [ATT&CK-Navi workbench](https://github.com/TeamStarWolf/ATTACK-Navi): the interactive implementation of this model
 
 *All systems referenced here are public, authoritative knowledge bases (MITRE, NIST, CISA, FIRST, CTID) or
 open-source projects. Mappings between NIST 800-53 and ATT&CK are sourced from the

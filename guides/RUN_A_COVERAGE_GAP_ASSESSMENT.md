@@ -4,7 +4,7 @@
 
 | Time | Difficulty | You need | You'll produce |
 |---|---|---|---|
-| 2-4 hours (first run) | Intermediate | A browser, this library's Navigator layers and score reports; optionally Git + Node.js for ATTACK-Navi | A priority-gap Navigator layer (JSON) and a ranked gap register with owners |
+| 2-4 hours (first run) | Intermediate | A browser, this library's Navigator layers and score reports; optionally Git + Node.js for ATT&CK-Navi | A priority-gap Navigator layer (JSON) and a ranked gap register with owners |
 
 ## Before you start
 
@@ -13,7 +13,7 @@
 - [ ] Skim the two precomputed reports you will reconcile against: the [ATT&CK Priority Gap Analysis](/scores/attack_priority_gaps.md) and the [vendor-stack Coverage Gap Analysis](/scores/coverage_gaps.md).
 - [ ] Know where the layers live: the [Navigator layer index](/navigator/index.md) lists every hosted heatmap with one-click load links.
 - [ ] Confirm you can open the [MITRE ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) in a browser; keep the official [Navigator usage doc](https://github.com/mitre-attack/attack-navigator/blob/master/USAGE.md) handy.
-- [ ] Optional but recommended: Git and a current Node.js LTS release to run [ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) locally in Step 6.
+- [ ] Optional but recommended: Git and a current Node.js LTS release to run [ATT&CK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) locally in Step 6.
 
 ## Step 1: Scope your threat model
 
@@ -78,9 +78,10 @@ Checkpoint: A layer named like `priority-gaps-2026Q3` whose reddest cells are si
 
 Watch out: Gradient shading is normalized to the maximum in view (the doctrine's "normalize thoughtfully" rule). If you change platform filters after scoring, the colors re-normalize and two screenshots become incomparable. Lock filters before you export anything.
 
-## Step 6: Cross-check the gaps in ATTACK-Navi's heatmap modes
+## Step 6: Cross-check the gaps in ATT&CK-Navi's heatmap modes
+<a id="step-6-cross-check-the-gaps-in-attack-navi39s-heatmap-modes"></a>
 
-Navigator gave you one composite view. [ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi), this library's companion workbench, lets you re-color the same matrix through every lens family without rebuilding layers.
+Navigator gave you one composite view. [ATT&CK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi), this library's companion workbench, lets you re-color the same matrix through every lens family without rebuilding layers.
 
 1. Run it locally (commands from the official README):
 
@@ -98,7 +99,7 @@ Navigator gave you one composite view. [ATTACK-Navi](https://github.com/TeamStar
    - KEV / EPSS Probability / CVE: is there active exploitation pressure? Treat [CISA KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) hits as a priority multiplier, and read probabilities against [FIRST's EPSS model](https://www.first.org/epss/).
    - Sigma / CAR / Detection: is published detection logic available even where controls are thin?
    - Atomic: can you *validate* detection with an Atomic Red Team test? (Stay at the level of test IDs; execution belongs in an approved purple-team exercise.)
-3. Annotate your draft list: for each top technique, record KEV/EPSS pressure and detection availability. Import or export ATT&CK Navigator layer JSON through the Reports workspace's Export Hub if you want your Step 5 layer inside ATTACK-Navi.
+3. Annotate your draft list: for each top technique, record KEV/EPSS pressure and detection availability. Import or export ATT&CK Navigator layer JSON through the Reports workspace's Export Hub if you want your Step 5 layer inside ATT&CK-Navi.
 
 Checkpoint: Each draft gap now carries three extra facts: exploitation urgency, detection-content availability, and validation-test availability.
 

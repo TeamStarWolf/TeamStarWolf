@@ -97,7 +97,7 @@ Official repositories from major security vendors. CrowdStrike (MISP-tools, falc
 Reference catalogs and curated awesome-lists across hacking, detection engineering, threat detection, incident response, threat intelligence, malware analysis, forensics, reversing, AppSec, blue team, and pentest. Starting points for any deep dive.
 
 ## 15. TeamStarWolf - Production Stack
-TeamStarWolf-authored projects (LimeWire, ATTACK-Navi, PokeNav) plus the upstream tooling they rely on for development and packaging.
+TeamStarWolf-authored projects (LimeWire, ATT&CK-Navi, PokeNav) plus the upstream tooling they rely on for development and packaging.
 
 ## 16. Vulnerability and Attack Surface Management
 Open-source vulnerability management platforms, vulnerability scanners, attack surface management, and external exposure monitoring. DefectDojo, archerysec, Greenbone OpenVAS/gvmd, Wiz Open-CVDB, OWASP ZAP, Coraza WAF, dnstwist, ThreatMapper, SecretScanner, rEngine, Sn1per, surf, scan4all, shellhub, Brinqa LDAP-CLI, and the cisagov vulnrichment + CVE Project automation working group.

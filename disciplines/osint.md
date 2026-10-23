@@ -19,7 +19,7 @@ Beginner to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 14 min (3,130 words at 230 words a minute)
+About 14 min (3,131 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -251,7 +251,7 @@ Understanding which of these techniques expose your organization's data drives p
 - [Michael Bazzell's IntelTechniques](https://inteltechniques.com): The most comprehensive OSINT practitioner resource; custom search tools, annual resource guide, and the best OSINT podcast available
 - [Bellingcat Online Investigation Toolkit](https://docs.google.com/spreadsheets/d/18rtqh8EG2q1xBo2cLNyhIDuK9jrPGwYr9DI2UncoqJQ): Community-maintained spreadsheet of OSINT tools organized by category; regularly updated by Bellingcat community contributors
 - [MITRE ATT&CK Reconnaissance Tactic](https://attack.mitre.org/tactics/TA0043/): The authoritative mapping of adversary reconnaissance techniques; use it to understand what attackers collect and how to reduce your organization's OSINT exposure
-- [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/): Visualize ATT&CK Reconnaissance technique coverage and detection gaps; map OSINT-informed threat models to detection priorities
+- [ATT&CK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/): Visualize ATT&CK Reconnaissance technique coverage and detection gaps; map OSINT-informed threat models to detection priorities
 
 ---
 

@@ -19,7 +19,7 @@ Beginner to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 12 min (2,772 words at 230 words a minute)
+About 12 min (2,773 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -220,7 +220,7 @@ Threat intelligence practitioners use the [MITRE ATT&CK framework](https://attac
 
 ## Key Resources
 
-- [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/): The recommended ATT&CK analysis surface for TI workflows; load threat actor profiles, map campaign techniques, correlate with MISP and OpenCTI integrations, and export STIX bundles for sharing
+- [ATT&CK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/): The recommended ATT&CK analysis surface for TI workflows; load threat actor profiles, map campaign techniques, correlate with MISP and OpenCTI integrations, and export STIX bundles for sharing
 - [MITRE ATT&CK](https://attack.mitre.org): The universal language for describing adversary behavior; 600+ techniques with real-world procedure examples, threat group mappings, and campaign documentation
 - [MISP Project](https://www.misp-project.org): Community hub for the world's most deployed open-source TI platform; documentation, galaxy updates, and sharing community links
 - [OpenCTI Platform](https://www.opencti.io): Documentation and community for the leading modern open-source TI platform

@@ -1144,4 +1144,4 @@ rule t1566_001_office_macro {
 - [SIEM Reference](/SIEM_REFERENCE.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [Purple Team Reference](/PURPLE_TEAM_REFERENCE.md)
 - [Controls Mapping](/CONTROLS_MAPPING.md), [Coverage layer](/navigator/index.md), [Edge tables](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data)
 
-*Detection content adapted from open community sources for the ATTACK-Navi project; see attribution above. This library is a study/hunting aid and carries no warranty.*
+*Detection content adapted from open community sources for the ATT&CK-Navi project; see attribution above. This library is a study/hunting aid and carries no warranty.*

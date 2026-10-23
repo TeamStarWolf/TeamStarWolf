@@ -19,7 +19,7 @@ Beginner to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 13 min (3,081 words at 230 words a minute)
+About 13 min (3,082 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -225,7 +225,7 @@ Cloud attack techniques are catalogued in the [MITRE ATT&CK Cloud Matrix](https:
 
 ## Key Resources
 
-- [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/): Cloud technique clusters in the ATT&CK Enterprise matrix; visualization of detection and compliance coverage for cloud-specific TTPs; pivot from cloud attack techniques to relevant threat groups
+- [ATT&CK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/): Cloud technique clusters in the ATT&CK Enterprise matrix; visualization of detection and compliance coverage for cloud-specific TTPs; pivot from cloud attack techniques to relevant threat groups
 - [Flaws.cloud](http://flaws.cloud): The single best starting point for hands-on cloud security learning; complete every level before any certification
 - [Wiz Research Blog](https://www.wiz.io/blog/tag/research): The most prolific publisher of cloud vulnerability research; ChaosDB, OMIGOD, and BrokenSesame were all Wiz Research discoveries
 - [MITRE ATT&CK Cloud Matrix](https://attack.mitre.org/matrices/enterprise/cloud/): Adversary behavior framework covering AWS, Azure, GCP, Office 365, and SaaS attack techniques

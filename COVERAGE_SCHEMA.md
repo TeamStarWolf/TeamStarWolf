@@ -20,7 +20,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 2 min (555 words at 230 words a minute)
+About 2 min (558 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -333,9 +333,10 @@ def vendor_redundancy(vendor_stack: list[str]) -> dict:
 
 ---
 
-## Connecting to ATTACK-Navi
+## Connecting to ATT&CK-Navi
+<a id="connecting-to-attack-navi"></a>
 
-ATTACK-Navi supports custom heatmap layers that can visualize coverage scores directly on the ATT&CK matrix. The output of the gap scoring pipeline can be loaded as a Navigator layer:
+ATT&CK-Navi supports custom heatmap layers that can visualize coverage scores directly on the ATT&CK matrix. The output of the gap scoring pipeline can be loaded as a Navigator layer:
 
 ```json
 {
@@ -359,7 +360,7 @@ ATTACK-Navi supports custom heatmap layers that can visualize coverage scores di
 }
 ```
 
-Load this JSON into ATTACK-Navi to see your coverage gaps visualized as a heatmap across the full ATT&CK matrix.
+Load this JSON into ATT&CK-Navi to see your coverage gaps visualized as a heatmap across the full ATT&CK matrix.
 
 ---
 

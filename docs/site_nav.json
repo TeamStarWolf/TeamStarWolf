@@ -23,7 +23,7 @@
     ["Learning paths", "/disciplines/README.md"],
     ["Domains", "/hubs/README.md"],
     ["Index", "/INDEX.md"],
-    ["ATTACK-Navi", "https://teamstarwolf.github.io/ATTACK-Navi/"],
+    ["ATT&CK-Navi", "https://teamstarwolf.github.io/ATTACK-Navi/"],
     ["GitHub", "https://github.com/TeamStarWolf/TeamStarWolf"]
   ],
   "sections": [

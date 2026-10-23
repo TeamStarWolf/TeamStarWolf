@@ -30,7 +30,7 @@ Advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 20 min (4,534 words at 230 words a minute)
+About 20 min (4,535 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -157,7 +157,7 @@ FiGHT slots into the same loop as ATT&CK (see [Threat-Informed Defense](THREAT_I
 | Adversary emulation | Build emulation plans from FiGHT groups (G1045, FGG5001, G0093) and campaigns (FGC5001) for [purple team](PURPLE_TEAM_REFERENCE.md) exercises |
 | Coverage-gap analysis | Map the 49 data sources / 120 components against your telemetry, exactly as you would ATT&CK data components ([ATT&CK Data Components](ATTACK_DATA_COMPONENTS.md) shows the method) |
 | Investment planning | The 92 mitigations give a defensible backlog; Observed-status techniques justify spend first |
-| Navigator layers | The `FGT1xxx` techniques share ATT&CK numbering, so cyber and telecom coverage can be reviewed side-by-side in [ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) |
+| Navigator layers | The `FGT1xxx` techniques share ATT&CK numbering, so cyber and telecom coverage can be reviewed side-by-side in [ATT&CK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) |
 
 Do
 - Treat `FGT1xxx` techniques as the join key between your enterprise ATT&CK program and your telecom estate: one detection engineering backlog, two matrices.

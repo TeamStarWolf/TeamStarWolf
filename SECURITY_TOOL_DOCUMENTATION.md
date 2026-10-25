@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 21 min (4,813 words at 230 words a minute)
+About 21 min (4,931 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -426,6 +426,41 @@ _Learning & reference_
 
 > Note: Product was renamed from Azure Security Center / Azure Defender to Microsoft Defender for Cloud; older REST docs still live under the 'securitycenter' namespace and the ARM Microsoft.Security provider. REST reference pages on Microsoft Learn may show a sign-in/authorization banner. Do NOT confuse with 'Microsoft Defender for Cloud Apps' (MCAS) — a separate product with its own tenant-scoped REST API. The Azure/Microsoft-Defender-for-Cloud GitHub repo is the official home for workbooks, automation playbooks, and sample policies.
 
+### Azure native security (Defender for Cloud, Sentinel, Policy, Firewall)
+
+The suite map, including which service does not replace which, is [tools/azure-native-security.md](/tools/azure-native-security.md). Defender plan depth stays on the Defender for Cloud page above.
+
+_Official documentation_
+- [Microsoft Sentinel](https://learn.microsoft.com/en-us/azure/sentinel/overview)
+- [Azure Policy](https://learn.microsoft.com/en-us/azure/governance/policy/overview)
+- [Azure Firewall](https://learn.microsoft.com/en-us/azure/firewall/overview)
+- [Azure DDoS Protection](https://learn.microsoft.com/en-us/azure/ddos-protection/ddos-protection-overview)
+- [Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview)
+- [Azure Update Manager](https://learn.microsoft.com/en-us/azure/update-manager/overview)
+- [Defender EASM](https://learn.microsoft.com/en-us/azure/external-attack-surface-management/overview)
+- [Azure Bastion](https://learn.microsoft.com/en-us/azure/bastion/bastion-overview)
+- [Azure Private Link](https://learn.microsoft.com/en-us/azure/private-link/private-link-overview)
+- [Azure Landing Zones](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/)
+
+### GCP native security (Security Command Center, Cloud Armor, VPC Service Controls)
+
+The suite map is [tools/gcp-native-security.md](/tools/gcp-native-security.md).
+
+_Official documentation_
+- [Security Command Center overview](https://cloud.google.com/security-command-center/docs/concepts-security-command-center-overview)
+- [Event Threat Detection](https://cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview)
+- [Web Security Scanner](https://cloud.google.com/security-command-center/docs/concepts-web-security-scanner-overview)
+- [List findings](https://cloud.google.com/security-command-center/docs/how-to-api-list-findings)
+- [Organization Policy Service](https://cloud.google.com/resource-manager/docs/organization-policy/overview)
+- [VPC Service Controls](https://cloud.google.com/vpc-service-controls/docs/overview)
+- [Cloud Armor](https://cloud.google.com/armor/docs/cloud-armor-overview)
+- [Binary Authorization](https://cloud.google.com/binary-authorization/docs/overview)
+- [Artifact Analysis container scanning](https://cloud.google.com/artifact-analysis/docs/container-scanning-overview)
+- [VM Manager](https://cloud.google.com/compute/docs/vm-manager)
+- [Sensitive Data Protection](https://cloud.google.com/sensitive-data-protection/docs)
+- [Identity-Aware Proxy](https://cloud.google.com/iap/docs/concepts-overview)
+- [Cloud Audit Logs](https://cloud.google.com/logging/docs/audit)
+- [Google Security Operations](https://cloud.google.com/security/products/security-operations)
 
 ### Wiz
 

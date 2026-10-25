@@ -23,7 +23,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 28 min (6,530 words at 230 words a minute)
+About 30 min (6,948 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -557,6 +557,27 @@ After the first cycle
 
 ---
 
+## Native cloud services on the five stages
+
+The five stages do not require a third-party CNAPP. AWS, Azure, and GCP each ship a service that can fill a stage. Use the native service as the baseline for workloads that already run there, and add a specialist where the native service stops (authenticated application testing, identity attack paths in Active Directory, a detection the provider does not emit). Product pages: [AWS native security](/tools/aws-native-security.md), [Azure native security](/tools/azure-native-security.md), [GCP native security](/tools/gcp-native-security.md).
+
+Modern scope is wider than a CVE list. A cycle that only scans servers misses the exposures that show up in incident write-ups:
+
+- **Identity.** Long-lived keys, over-broad roles, illicit consent grants, and service accounts that can leave a perimeter. Start with [Identity Security](/IDENTITY_SECURITY_REFERENCE.md) and the cloud IAM sections of [Cloud Security](/CLOUD_SECURITY_REFERENCE.md).
+- **The cloud control plane.** A public bucket, a disabled trail, an external IP, a firewall rule of `0.0.0.0/0`. These are misconfigurations, which this reference already treats as exposures rather than vulnerabilities.
+- **Internet edge and SaaS.** The WAF, the external attack surface, and the SaaS tenant. [Cloud Architecture](/CLOUD_ARCHITECTURE_REFERENCE.md) places the edge. Defender EASM and Web Security Scanner are the native discovery tools.
+- **AI systems.** A model endpoint, a vector store, and a tool the agent can call are in scope when the business runs them. The defensive write-up is [AI Security](/AI_SECURITY_REFERENCE.md) and [MITRE ATLAS](/ATLAS_REFERENCE.md).
+
+| Stage | AWS | Azure | GCP |
+|---|---|---|---|
+| Scoping | Organizations, Control Tower, account tags, Config inventory | Management groups, Azure Resource Graph | Organization and folders, Cloud Asset Inventory |
+| Discovery | Inspector, Config, IAM Access Analyzer, Macie, Security Hub assets | Defender for Cloud inventory, Defender EASM, Resource Graph | SCC assets, Web Security Scanner, VM Manager inventory |
+| Prioritization | Inspector score with network reachability, Security Hub exposure, GuardDuty attack sequences | Attack paths and secure score in Defender for Cloud, not CVSS alone | SCC attack exposure and vulnerability findings joined to whether the asset is reachable |
+| Validation | A GuardDuty finding or a controlled technique. A Config COMPLIANT result is not validation. | A Defender or Sentinel alert for the technique you staged. A Healthy assessment is not validation. | An Event Threat Detection or VM Threat Detection finding. A Security Health Analytics pass is not validation. |
+| Mobilization | Systems Manager Patch Manager, SSM Automation, EventBridge into the ticket system | Azure Update Manager, Policy Deny or DeployIfNotExists, Logic Apps | VM Manager patch jobs, a rebuilt image admitted by Binary Authorization, Pub/Sub export of findings |
+
+Read a row left to right only for the provider you run. A program in one cloud does not need the other two columns.
+
 ## Free and open tooling by stage
 
 The loop can be run end-to-end without a procurement cycle. BloodHound CE, Infection Monkey, PTEF, VECTR, the CISA SSVC calculator, and the KEV/EPSS feeds were re-verified for this revision (September 2026); the rest are long-established open projects. Confirm license and maintenance status before standardizing on one.
@@ -636,9 +657,9 @@ One trap worth naming: search engines surface a Wikipedia article for "Continuou
 ## Related pages
 
 - Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
 - [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)
 - [CVE Reference](/CVE_REFERENCE.md)
-- [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
 - [CPE Reference](/CPE_REFERENCE.md)
 
 <!-- related:end -->

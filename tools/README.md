@@ -9,7 +9,7 @@
 | Endpoint and EDR | [Tanium](/tools/tanium.md), [Microsoft Defender for Endpoint and Vulnerability Management](/tools/microsoft-defender-endpoint.md), [CrowdStrike Falcon](/tools/crowdstrike-falcon.md) |
 | Web application firewall and edge | [Akamai App and API Protector](/tools/akamai-app-api-protector.md), [AWS WAF](/tools/aws-waf.md), [Citrix NetScaler WAF](/tools/netscaler-waf.md) |
 | Network and secure access | [Check Point Quantum and Infinity](/tools/check-point.md), [Zscaler Zero Trust Exchange](/tools/zscaler.md) |
-| Cloud | [AWS native security](/tools/aws-native-security.md), [Microsoft Defender for Cloud](/tools/microsoft-defender-for-cloud.md), [Wiz](/tools/wiz.md), [Chainguard](/tools/chainguard.md) |
+| Cloud | [AWS native security](/tools/aws-native-security.md), [Azure native security](/tools/azure-native-security.md), [Microsoft Defender for Cloud](/tools/microsoft-defender-for-cloud.md), [GCP native security](/tools/gcp-native-security.md), [Wiz](/tools/wiz.md), [Chainguard](/tools/chainguard.md) |
 | Vulnerability management and application security | [Tenable](/tools/tenable.md), [Zafran Security](/tools/zafran.md), [Invicti](/tools/invicti.md), [Snyk](/tools/snyk.md), [HackerOne](/tools/hackerone.md) |
 | SIEM | [Splunk Enterprise Security](/tools/splunk.md) |
 | Identity and privileged access | [Microsoft Entra ID](/tools/entra-id.md), [Cisco Duo](/tools/cisco-duo.md), [CyberArk](/tools/cyberark.md) |

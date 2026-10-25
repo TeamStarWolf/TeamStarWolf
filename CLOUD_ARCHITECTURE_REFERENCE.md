@@ -29,7 +29,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 20 min (4,665 words at 230 words a minute)
+About 22 min (4,967 words at 230 words a minute)
 
 </td></tr>
 </table>
@@ -138,6 +138,24 @@ A **landing zone** is a pre-configured, governed, multi-account (AWS) / multi-su
 3. **Centralized identity** — federation to one IdP; no local users. Break-glass accounts hardware-MFA'd, sealed, monitored.
 4. **Network baseline** — shared connectivity hub, standard address plan, no default VPC/VNet left in place.
 5. **Security tooling account** — CSPM/CNAPP, GuardDuty/Defender for Cloud/SCC, delegated admin.
+
+### Native security services in the landing zone
+
+The security tooling account (AWS), the platform subscription (Azure), and the security project (GCP) are where the native services are enabled once, as a delegated administrator, rather than once per workload. Workload accounts stay unable to turn those services off. The product pages are [AWS native security](/tools/aws-native-security.md), [Azure native security](/tools/azure-native-security.md), and [GCP native security](/tools/gcp-native-security.md). How the same services map onto a CTEM cycle is in the [CTEM reference](/CTEM_REFERENCE.md).
+
+| Job | AWS | Azure | GCP |
+|---|---|---|---|
+| Preventive guardrail | Service control policies, declarative policies | Azure Policy Deny | Organization Policy constraints |
+| Configuration record | AWS Config | Azure Resource Graph, Policy compliance | Cloud Asset Inventory, Security Health Analytics |
+| Immutable audit | Organization CloudTrail in the log-archive account | Subscription Activity Log via a diagnostic setting the workload cannot delete | Admin Activity audit logs, plus Data Access logs you explicitly enable |
+| Vulnerability inventory | Amazon Inspector | Defender Vulnerability Management and agentless scanning | VM Manager inventory and Artifact Analysis, surfaced in Security Command Center |
+| Threat detection | GuardDuty | Defender for Cloud plans, Microsoft Sentinel | Event Threat Detection and the runtime detectors on paid SCC tiers |
+| Edge | AWS WAF and Shield | Application Gateway or Front Door WAF, Azure DDoS Protection | Cloud Armor |
+| Private path to PaaS | Interface VPC endpoints | Private Link | Private Service Connect, Private Google Access |
+| Admin access without a public IP | SSM Session Manager | Azure Bastion | Identity-Aware Proxy TCP forwarding |
+| Secrets | Secrets Manager, KMS | Key Vault | Secret Manager, Cloud KMS |
+
+Turn the detective services on in every region you use. A GuardDuty detector, a Defender plan, or an SCC source that exists only in the home region does not see the workload in the second region. Data Access audit logs on GCP and CloudTrail data events on AWS are off until you enable them. Design the landing zone as if that fact is the default, because it is.
 
 ### Networking: hub-and-spoke & transit
 

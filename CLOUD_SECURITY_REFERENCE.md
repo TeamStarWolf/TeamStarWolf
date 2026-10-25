@@ -17,7 +17,7 @@ Intermediate to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 32 min (7,435 words at 230 words a minute)
+About 33 min (7,546 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -91,6 +91,8 @@ No review recorded yet
 ---
 
 ## 1. AWS Security Fundamentals
+
+The composable native services (Inspector, GuardDuty, Security Hub, Config, and Patch Manager) are the product page [AWS native security](/tools/aws-native-security.md). This section is the IAM model and the service-by-service notes behind that page.
 
 ### 1.1 IAM Core Concepts
 
@@ -628,6 +630,8 @@ pmapper --profile default analysis --suggest
 ---
 
 ## 3. Azure Security
+
+The native control plane (Sentinel, Policy, Firewall, Key Vault, Update Manager, Bastion, Private Link), and how it sits next to Defender for Cloud, is the product page [Azure native security](/tools/azure-native-security.md). Plan-by-plan Defender detail is [Microsoft Defender for Cloud](/tools/microsoft-defender-for-cloud.md). Identity is [Microsoft Entra ID](/tools/entra-id.md).
 
 ### 3.1 Microsoft Entra ID (formerly Azure AD)
 
@@ -1168,6 +1172,8 @@ Key IMDS endpoints:
 ---
 
 ## 5. GCP Security
+
+Security Command Center, Cloud Armor, VPC Service Controls, VM Manager, Binary Authorization, and the organization-policy constraints are the product page [GCP native security](/tools/gcp-native-security.md). This section is the IAM model and the attack notes behind that page.
 
 ### 5.1 GCP IAM
 

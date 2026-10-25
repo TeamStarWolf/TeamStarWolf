@@ -89,6 +89,40 @@ az network firewall show -g RG -n FW --query "{sku:sku.tier, threatIntel:threatI
 
 Field names on SecurityAlert differ by workspace schema. Check them against the table in your workspace before you alert on a column.
 
+**Logging gaps that look like a quiet tenant**
+
+- The Activity Log in the portal is 90 days. A diagnostic setting on the subscription, aimed at a workspace the workload team does not own, is what you will have in month four.
+- Firewall logs (application rule, network rule, threat intelligence, and the IDPS log on Premium) do not exist until that diagnostic setting exists. Threat intelligence mode `Alert` records a match. `Deny` blocks it. `Off` does neither.
+- Key Vault data-plane reads are not in the Activity Log. They are in the Key Vault diagnostic category, and only after you enable it.
+- A Policy assignment in `DoNotEnforce` evaluates and does not deny. Count it as a dry run.
+- Defender continuous export and the Sentinel connector are two paths into the workspace. An alert that exists only in the Defender portal has not reached the incident queue.
+
+## Differentiators
+
+- Entra ID is the principal both Policy and Defender reason about, so a role assignment and a CIEM finding can name the same object.
+- Policy `Deny` and `DeployIfNotExists` act at deployment time. A recommendation that stays `Unhealthy` does not stop the next identical deployment.
+- Sentinel is an analytics layer on a Log Analytics workspace you choose. Defender alerts become incidents there without a second vendor SIEM, once the connector or the continuous export is on.
+- Update Manager and Policy guest configuration extend to Arc machines, so the same mobilization path covers a server that is not an Azure VM. Defender for Servers Plan 2 includes Update Manager for those Arc servers, as the [Defender for Cloud page](/tools/microsoft-defender-for-cloud.md) records.
+
+## Limitations
+
+- `Free` in the pricing list is foundational CSPM for that resource type. Attack-path analysis and agentless scanning are paid plans. A tenant with every plan on `Free` does not have the vulnerability inventory this page describes.
+- IDPS and TLS inspection are Firewall Premium. A Standard firewall does not gain them because threat intelligence is on.
+- DDoS Protection has a per-IP plan and a virtual-network plan. The names and the meter have changed before. Read the pricing page for the plan you enable.
+- Update Manager reports OS update compliance. It does not rebuild a container image or bump a library inside an application you compiled.
+- Purge protection on a Key Vault, once set, stays set. Soft delete alone still allows a privileged caller to purge.
+- An exemption is not a failed deployment. If the workload team can write `Microsoft.Authorization/policyExemptions`, they can step around a Deny without generating the Activity Log failure you are watching for.
+
+## A reading against the frameworks
+
+This mapping is the page's own reading, for routing a control to a catalog. It is not a Microsoft attestation.
+
+| Catalog | Where these services sit |
+|---|---|
+| NIST CSF 2.0 | Identify: Resource Graph and Defender inventory. Protect: Policy Deny, Key Vault, Firewall. Detect: Defender plans and Sentinel. Respond: Logic Apps on an incident. |
+| CIS Controls v8 | 1 and 2 inventory, 4 secure configuration, 7 continuous vulnerability management, 8 audit logs |
+| ATT&CK mitigations | M1051 Update Software (Update Manager), M1030 Network Segmentation (Firewall and NSGs), M1047 Audit (Activity Log and diagnostic settings) |
+
 ## Documentation and repositories
 
 - [Microsoft Defender for Cloud](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction)

@@ -2,7 +2,7 @@
 
 *Amazon Web Services (AWS) · Cloud-native security services suite (CSPM/CWPP + vulnerability assessment + threat detection + patch orchestration)*
 
-AWS's first-party security services collectively provide continuous vulnerability assessment (Inspector), threat detection (GuardDuty), unified findings aggregation and cloud risk/exposure management (Security Hub), and OS/application patch orchestration (Systems Manager Patch Manager) for AWS accounts and workloads. Rather than a single product, they are composable, account-native services that together cover the discover-assess-prioritize-mitigate-remediate lifecycle for AWS estates. They solve the problem of getting vulnerability, misconfiguration, and threat visibility plus remediation for cloud workloads without deploying third-party agents everywhere.
+AWS's first-party security services collectively provide continuous vulnerability assessment (Inspector), threat detection (GuardDuty), unified findings aggregation and cloud risk/exposure management (Security Hub), and OS/application patch orchestration (Systems Manager Patch Manager) for AWS accounts and workloads. Rather than a single product, they are composable, account-native services that together cover the discover-assess-prioritize-mitigate-remediate lifecycle for AWS estates. They solve the problem of getting vulnerability, misconfiguration, and threat visibility plus remediation for cloud workloads without deploying third-party agents everywhere. How the same services sit on a CTEM cycle, next to the Azure and GCP suites, is in the [CTEM reference](/CTEM_REFERENCE.md). The landing-zone placement is in [Cloud Architecture](/CLOUD_ARCHITECTURE_REFERENCE.md).
 
 ## Capabilities & architecture
 

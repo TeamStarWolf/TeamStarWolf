@@ -18,7 +18,7 @@ Advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 33 min (7,697 words at 230 words a minute)
+About 35 min (7,984 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -212,6 +212,12 @@ AAPCS64 Calling Convention:
 - Return: X0 (or X0+X1 for 128-bit), V0 for float
 - Callee-saved: X19-X28, X29 (frame pointer), X30 (link register), SP
 
+What you see in a decompiler:
+- An address of a global is usually `ADRP` (the page) plus `ADD` (the page offset), not one absolute load.
+- `RET` returns through X30. A `POP` of the link register means the compiler spilled LR. It is not the x86 pattern.
+- `PACIASP` / `AUTIASP` (and the related hint instructions) are pointer authentication in the prologue and epilogue on arm64e and on newer Linux toolchains. Treat them as ABI, then look at the code they frame.
+- Exception level matters once the sample is firmware: EL0 is user, EL1 is the kernel, EL2 is a hypervisor, EL3 is the monitor. A memory-corruption bug retained in EL3 is the whole trust chain.
+
 ---
 
 ### AArch32 and Thumb-2
@@ -229,6 +235,8 @@ Thumb-2 interworking:
 
 `file` and the ELF `e_machine` field report `EM_ARM` (40) for these binaries. `EM_AARCH64` (183) is the 64-bit ISA in the previous section.
 
+A compiler prologue you will see constantly is `PUSH {r4-r7, lr}` and the matching `POP {r4-r7, pc}`, which returns by writing the saved link register into the program counter. In Thumb state the low bit of that address is set. If the decompiler shows a jump to an odd address, that bit is the state selector, not part of the instruction pointer. Cortex-M has no ARM state to switch to, so a `BLX` that expects an ARM target is a sign you picked the wrong processor module.
+
 ---
 
 ### MIPS32 Architecture
@@ -244,6 +252,8 @@ Register Conventions (MIPS O32 ABI):
 Branch Delay Slots: Every branch/jump instruction in MIPS has a delay slot: the instruction immediately following the branch is always executed before the branch takes effect. Disassemblers show this; decompilers abstract it away. Watch for intentional misuse: shellcode sometimes places meaningful code in delay slots to confuse naive disassemblers.
 
 Endianness: MIPS runs both big-endian (network equipment, older SGI) and little-endian (PlayStation, some routers). The file command will identify; binwalk and Ghidra handle both.
+
+The stack grows down. Under O32 the caller reserves 16 bytes at the top of its frame even when the arguments fit in `$a0`-`$a3`; those words are the argument home, and a callee may spill there. A function that starts by storing `$ra` at a fixed offset from `$sp` is the ordinary prologue. The delay slot still executes, including when the branch is not taken, which is the mistake to avoid when you single-step and the instruction under the cursor is not the one that ran.
 
 ---
 

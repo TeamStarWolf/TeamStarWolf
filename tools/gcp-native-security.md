@@ -101,6 +101,39 @@ gcloud logging read 'logName:"clouactivity_log" AND protoPayload.methodName="Set
 
 `gcloud scc findings list` syntax has changed across gcloud versions. If the command rejects `--location` or `--filter`, use the example on the current [list-findings](https://cloud.google.com/security-command-center/docs/how-to-api-list-findings) page rather than the line above.
 
+**Logging gaps that look like a quiet organization**
+
+- Admin Activity is always on. Data Access is off until you enable it, and it is the log of object reads. A bucket policy review that only reads Admin Activity cannot see who downloaded the object.
+- VPC Flow Logs are sampled and off until you enable them on the subnet. Cloud Armor matches live on the load balancer request log, not in SCC, unless you export them.
+- An Organization Policy that shows only a dry-run spec does not deny the call. The enforced spec is the one that returns a constraint violation. Keep that denial from the audit log with the finding you close.
+- SCC at the organization does not scan a project whose Container Scanning API or OS Config API is disabled. The empty finding list is a coverage gap. The presence check above is how you show the API state.
+- Web Security Scanner is an unauthenticated managed scan of a URL you configure. It is not an authenticated application test, and a custom scan does not exist until someone creates it.
+
+## Differentiators
+
+- Organization Policy is preventive and inherited. A workload project does not get a public IP, a service-account key, or a public bucket when the constraint is enforced above it.
+- VPC Service Controls are independent of IAM. A valid grant does not cross the perimeter unless an ingress or egress rule allows the call.
+- Artifact Analysis records the image. Binary Authorization is the admission decision. Scanning without admission still lets the cluster run the digest you just flagged.
+- SCC is the finding store. Google Security Operations is the SIEM, and it is a separate product. Export findings to Pub/Sub if that SIEM, or a ticket system, must see them.
+
+## Limitations
+
+- Detector coverage follows the tier you bought. The free tier is a subset of Security Health Analytics and a limited Web Security Scanner. Threat detectors, vulnerability findings, and attack exposure are paid. Tier names (Premium, Enterprise, and any Mandiant bundle) move. Read the pricing page before you write a detector into a runbook.
+- CMEK is a per-service choice. Turning on Cloud KMS does not encrypt every product.
+- VM Manager inventory is the package list vulnerability findings depend on. An instance with the OS Config agent stopped, or the API disabled, drops out of that list.
+- Sensitive Data Protection inspects what the job was pointed at. It does not, by itself, copy or classify every table in the organization.
+- IAP TCP forwarding replaces a public SSH port. It does not replace a VPN for site-to-site traffic.
+
+## A reading against the frameworks
+
+This mapping is the page's own reading, for routing a control to a catalog. It is not a Google attestation.
+
+| Catalog | Where these services sit |
+|---|---|
+| NIST CSF 2.0 | Identify: Cloud Asset Inventory and SCC assets. Protect: Organization Policy, VPC Service Controls, Binary Authorization. Detect: Event Threat Detection and the runtime detectors on the tier you bought. Respond: the Pub/Sub export into the ticket system or Google Security Operations. |
+| CIS Controls v8 | 1 and 2 inventory, 4 secure configuration, 7 continuous vulnerability management, 8 audit logs |
+| ATT&CK mitigations | M1051 Update Software (VM Manager patch jobs and rebuilt images), M1030 Network Segmentation (VPC firewall, Cloud Armor, the perimeter), M1047 Audit (Cloud Audit Logs) |
+
 ## Documentation and repositories
 
 - [Security Command Center overview](https://cloud.google.com/security-command-center/docs/concepts-security-command-center-overview)

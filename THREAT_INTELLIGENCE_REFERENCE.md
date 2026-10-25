@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 22 min (5,145 words at 230 words a minute)
+About 24 min (5,540 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -118,6 +118,7 @@ Collection
 - Conduct human source elicitation from sector peers and government liaisons
 - Operate honeypots, sinkholes, and passive DNS sensors
 - Subscribe to threat feeds (STIX/TAXII, CSV blocklists, API-based enrichment)
+- Read the public [Intelligence Hub](https://teamstarwolf.github.io/intelligence-hub/) as one lead list among those feeds. [How to grade what you find there](#the-public-intelligence-hub) is below. A headline is not a finding.
 
 Processing
 - Parse, normalize, and de-duplicate raw data
@@ -1322,6 +1323,29 @@ X Interacting with dark web actors without cover identity
 - Do not download files from attacker-controlled infrastructure directly
 - Use VirusTotal, URLScan, or sandboxes to safely examine content
 - Be aware that sophisticated actors track visits to their infrastructure (unique URLs per target, honeypot files)
+
+---
+
+### The public Intelligence Hub
+
+The [Intelligence Hub](https://teamstarwolf.github.io/intelligence-hub/) is this project's public desk: configured publisher RSS and Atom feeds, the CISA KEV catalog, short CVE briefs from the CVE Program's public records, and a curated set of primary publications across a rolling decade. It is a collection surface for the cycle in section 1.1. It is not a TIP, a scanner, or a statement that a reader's devices are exposed.
+
+Read it with the distinctions the hub already prints:
+
+| What you see | What it is | What it is not |
+|---|---|---|
+| A feed headline | A lead from that publisher, with the publisher's date | Corroboration, or a complete archive of that publisher |
+| Exploitation `known` | The cited material confirms malicious activity | A measurement of your environment |
+| Exploitation `reported` | A research publisher observed or assessed activity, or exploitation was reported | Independent confirmation of every claim in the article |
+| Exploitation `unknown` | This item does not establish exploitation | A verdict of safe, or of "not exploited" |
+| A KEV `dateAdded` | The day CISA added the CVE to the catalog | The disclosure day, the incident day, or your remediation deadline |
+| CVE guidance "Publisher guidance" | A structured CNA solution or workaround was loaded | A command to run, or proof the fix applies to your build |
+| CVE guidance "Needs review" | Neither the CNA excerpt nor a CISA action established a fix on the brief | An invitation to invent a patch |
+| A curated history row | One selected primary publication | One incident per row, or every incident that year |
+
+Dates stay in separate fields: the publisher's publication day, an event day when one is supported, the KEV catalog day, and the day the hub retrieved the item. Do not collapse them.
+
+When a hub item matches a PIR, carry it into the procedure in [Produce an Intelligence Product](/guides/PRODUCE_AN_INTELLIGENCE_PRODUCT.md). Grade the source and the claim separately (section 4.4, Admiralty). Prefer the primary advisory the hub links over the headline that pointed at it. Do not write a blocklist from titles. The hub's own reading notes are [docs/READING.md](https://github.com/TeamStarWolf/intelligence-hub/blob/main/docs/READING.md) in that repository. Weekly written reports, when one has been published, are under `reports/` there. A report is a selective summary with its retrieval date attached. It does not update itself when the feeds move.
 
 ---
 

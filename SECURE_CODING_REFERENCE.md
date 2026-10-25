@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 13 min (2,955 words at 230 words a minute)
+About 13 min (3,051 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -1493,7 +1493,7 @@ const id = untrusted as string;
 // only after it accepts the input (Zod, Valibot, or a hand-written guard)
 ```
 
-Prototype pollution is unchanged from JavaScript: `Object.assign` and a recursive merge will copy `__proto__` if you let them. Build untrusted objects with `Object.create(null)` or a merge that skips `__proto__`, `constructor`, and `prototype`.
+Prototype pollution is unchanged from JavaScript: `Object.assign` and a recursive merge will copy `__proto__` if you let them. Build untrusted objects with `Object.create(null)` or a merge that skips `__proto__`, `constructor`, and `prototype`. The HTML sink is CWE-79. The polluted prototype is CWE-1321. A type annotation prevents neither.
 
 ### C
 
@@ -1590,7 +1590,7 @@ static User? ReadUser(string json) =>
 // Tokens: RandomNumberGenerator.Fill, not System.Random
 ```
 
-`BinaryFormatter` is obsolete because a payload can name a type and run it during deserialize. `XmlReader` on untrusted XML should set `DtdProcessing = DtdProcessing.Prohibit`. Microsoft documents both restrictions in the .NET serialization guidance.
+`BinaryFormatter` is obsolete because a payload can name a type and run it during deserialize (CWE-502). `XmlReader` on untrusted XML should set `DtdProcessing = DtdProcessing.Prohibit` (CWE-611). Microsoft documents both restrictions in the .NET serialization guidance. The SQL parameter above is CWE-89.
 
 ### Rust
 
@@ -1614,7 +1614,7 @@ fn list_dir(dir: &str) -> std::io::Result<std::process::ExitStatus> {
 // )?;
 ```
 
-Safe Rust checks bounds and lifetimes. The holes that matter in review are `unsafe` blocks that turn bytes into references, `Command` invoked through a shell, and `serde` types that implement a custom deserializer you did not read. Keep `unsafe` on the other side of a function that only accepts a length you checked. Read OS entropy from `getrandom` or `rand::rngs::OsRng`, not from a seeded `StdRng` the program picked itself.
+Safe Rust checks bounds and lifetimes. The holes that matter in review are `unsafe` blocks that turn bytes into references, `Command` invoked through a shell (CWE-78), and `serde` types that implement a custom deserializer you did not read. Keep `unsafe` on the other side of a function that only accepts a length you checked. Read OS entropy from `getrandom` or `rand::rngs::OsRng`, not from a seeded `StdRng` the program picked itself. A bound query is still required: the borrow checker does not parameterize SQL (CWE-89).
 
 ### PHP
 
@@ -1661,7 +1661,7 @@ require 'securerandom'
 token = SecureRandom.hex(32)
 ```
 
-`html_safe` and `raw` mark a string as already encoded. Call them only on a value your own code built from encoded parts. `send` and `public_send` with a user-supplied method name dispatch to whatever the object implements: allowlist the method.
+`html_safe` and `raw` mark a string as already encoded. Call them only on a value your own code built from encoded parts (CWE-79). `send` and `public_send` with a user-supplied method name dispatch to whatever the object implements: allowlist the method. `Marshal.load` on a cookie is CWE-502. The hash form of `where` is what keeps the query parameterized (CWE-89).
 
 ### Swift
 
@@ -1702,7 +1702,7 @@ stmt.setString(1, email)
 val rs = stmt.executeQuery()
 ```
 
-`kotlinx.serialization` should deserialize into a class you named (`Json.decodeFromString<User>(text)`). A serializer that honors a type tag from the payload recreates the Java deserialization problem. For tokens, `java.security.SecureRandom`, not `kotlin.random.Random`.
+`kotlinx.serialization` should deserialize into a class you named (`Json.decodeFromString<User>(text)`). A serializer that honors a type tag from the payload recreates the Java deserialization problem (CWE-502). For tokens, `java.security.SecureRandom`, not `kotlin.random.Random`. The string form of `Runtime.exec` is CWE-78, the same bug as a shell, because the single string is parsed.
 
 ### PowerShell
 
@@ -1721,7 +1721,7 @@ $rng = [System.Security.Cryptography.RandomNumberGenerator]::Create()
 $rng.GetBytes($bytes)
 ```
 
-Constrained Language Mode is a host policy, not a property of a script you wrote: in that mode many .NET types are unavailable, which blocks a class of fileless payloads. Turn it on for users who do not administer the machine, and log script blocks (module logging and event 4104) so the detection rules in this library have something to read. Do not build a command line by concatenating untrusted strings and passing the result to `Invoke-Expression` or `powershell -Command`.
+Constrained Language Mode is a host policy, not a property of a script you wrote: in that mode many .NET types are unavailable, which blocks a class of fileless payloads. Turn it on for users who do not administer the machine, and log script blocks (module logging and event 4104) so the detection rules in this library have something to read. Do not build a command line by concatenating untrusted strings and passing the result to `Invoke-Expression` or `powershell -Command` (CWE-78). `GetBytes` as written works on Windows PowerShell 5.1 and on PowerShell 7. `RandomNumberGenerator.Fill` does not exist on 5.1.
 
 ---
 

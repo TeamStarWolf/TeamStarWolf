@@ -6,7 +6,7 @@
 
 <div align="center">
 
-[Website](https://teamstarwolf.github.io/TeamStarWolf/) | [Browse references](INDEX.md) | [Explore ATT&CK](mitre/README.md) | [ATT&CK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/) | [Data and Navigator layers](data/README.md) | [Contribute](CONTRIBUTING.md)
+[Website](https://teamstarwolf.github.io/TeamStarWolf/) | [Intelligence Hub](https://teamstarwolf.github.io/intelligence-hub/) | [Browse references](INDEX.md) | [Explore ATT&CK](mitre/README.md) | [ATT&CK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/) | [Data and Navigator layers](data/README.md) | [Contribute](CONTRIBUTING.md)
 
 [![Link Check](https://github.com/TeamStarWolf/TeamStarWolf/actions/workflows/link-check.yml/badge.svg?branch=main)](https://github.com/TeamStarWolf/TeamStarWolf/actions/workflows/link-check.yml)
 [![Validate Data Files](https://github.com/TeamStarWolf/TeamStarWolf/actions/workflows/validate-data.yml/badge.svg?branch=main)](https://github.com/TeamStarWolf/TeamStarWolf/actions/workflows/validate-data.yml)
@@ -19,6 +19,7 @@
 
 | I want to... | Go to |
 |---|---|
+| Follow cybersecurity news and advisories | [Intelligence Hub](https://teamstarwolf.github.io/intelligence-hub/) |
 | Learn a discipline | [Learning paths](disciplines/README.md) |
 | Write detections or hunt | [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
 | Assess ATT&CK coverage | [Run a coverage gap assessment](guides/RUN_A_COVERAGE_GAP_ASSESSMENT.md) |
@@ -46,6 +47,7 @@ The references, guides, and learning paths are written for defenders, learners, 
 | Project | What it is |
 |---|---|
 | [TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf) | This library: hand-written references, generated framework pages, and mapping data, published as a [website](https://teamstarwolf.github.io/TeamStarWolf/). |
+| [Intelligence Hub](https://github.com/TeamStarWolf/intelligence-hub) | Searchable security news, advisories, CVE mitigation guidance, and a sourced historical timeline. [Live feed](https://teamstarwolf.github.io/intelligence-hub/). |
 | [ATT&CK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) | A browser-based workbench for the Enterprise, ICS, and Mobile ATT&CK matrices, with views for detection coverage, threat intelligence, vulnerability exposure, and compliance. It needs no backend: [live app](https://teamstarwolf.github.io/ATTACK-Navi/). |
 | [cybersecurity-resources](https://github.com/TeamStarWolf/cybersecurity-resources) | A bookmark collection weighted toward vulnerability management and threat intelligence, released under CC0. |
 

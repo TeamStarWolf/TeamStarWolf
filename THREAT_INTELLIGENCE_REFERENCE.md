@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 24 min (5,540 words at 230 words a minute)
+About 24 min (5,531 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -1345,7 +1345,7 @@ Read it with the distinctions the hub already prints:
 
 Dates stay in separate fields: the publisher's publication day, an event day when one is supported, the KEV catalog day, and the day the hub retrieved the item. Do not collapse them.
 
-When a hub item matches a PIR, carry it into the procedure in [Produce an Intelligence Product](/guides/PRODUCE_AN_INTELLIGENCE_PRODUCT.md). Grade the source and the claim separately (section 4.4, Admiralty). Prefer the primary advisory the hub links over the headline that pointed at it. Do not write a blocklist from titles. The hub's own reading notes are [docs/READING.md](https://github.com/TeamStarWolf/intelligence-hub/blob/main/docs/READING.md) in that repository. Weekly written reports, when one has been published, are under `reports/` there. A report is a selective summary with its retrieval date attached. It does not update itself when the feeds move.
+When a hub item matches a PIR, carry it into the procedure in [Produce an Intelligence Product](/guides/PRODUCE_AN_INTELLIGENCE_PRODUCT.md). Grade the source and the claim separately (section 4.4, Admiralty). Prefer the primary advisory the hub links over the headline that pointed at it. Do not write a blocklist from titles. Weekly written reports, when one has been published, are under [reports/](https://github.com/TeamStarWolf/intelligence-hub/tree/main/reports) in that repository. A report is a selective summary with its retrieval date attached. It does not update itself when the feeds move.
 
 ---
 

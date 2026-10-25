@@ -38,7 +38,7 @@ Part of the [domain hubs](/hubs/README.md). 24 reference documents in this domai
 | [Network Forensics Reference](/NETWORK_FORENSICS_REFERENCE.md) | Packet capture, protocol analysis, NetFlow, encrypted traffic analysis, cloud forensics, incident reconstruction | 15 min |
 | [Cloud, SaaS & Mobile Forensics](/CLOUD_SAAS_MOBILE_FORENSICS_REFERENCE.md) | CloudTrail/GuardDuty/EBS-snapshot acquisition, M365 UAL & Graph, Google Workspace logs, SaaS logs, iLEAPP/ALEAPP-class mobile workflows | 11 min |
 | [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md) | Static/dynamic analysis, PE structure, process injection, YARA rules, ransomware, memory forensics, Volatility 3 | 9 min |
-| [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md) | Ghidra/IDA/Binary Ninja, dynamic analysis, anti-analysis techniques, firmware RE, malware-focused RE workflow | 31 min |
+| [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md) | x86, x86-64, AArch32, AArch64, MIPS, RISC-V, and PowerPC; Ghidra/IDA/Binary Ninja; firmware and malware RE | 33 min |
 
 ## Learning paths
 

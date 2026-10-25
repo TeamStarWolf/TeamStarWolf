@@ -156,11 +156,11 @@
 | [Ransomware Defense & Resilience](RANSOMWARE_DEFENSE_REFERENCE.md) | CISA #StopRansomware program, NIST IR 8374r1, RaaS/IAB ecosystem literacy, 3-2-1 immutable backups and restore testing, OFAC payment policy, tabletops, resilience metrics |
 | [Red Team Reference](RED_TEAM_REFERENCE.md) | Red team methodology, ROE, C2 framework comparison (Cobalt Strike/Sliver/Havoc/Mythic), LOLBAS, persistence, lateral movement tradecraft |
 | [Resources](RESOURCES.md) | Books, courses, YouTube channels, podcasts, CTF platforms, and communities |
-| [Reverse Engineering Reference](REVERSE_ENGINEERING_REFERENCE.md) | Ghidra/IDA/Binary Ninja, dynamic analysis, anti-analysis techniques, firmware RE, malware-focused RE workflow |
+| [Reverse Engineering Reference](REVERSE_ENGINEERING_REFERENCE.md) | x86, x86-64, AArch32, AArch64, MIPS, RISC-V, and PowerPC; Ghidra/IDA/Binary Ninja; firmware and malware RE |
 | [SaaS Security Reference](SAAS_SECURITY_REFERENCE.md) | OAuth consent abuse, token theft, shadow SaaS, Midnight Blizzard/Storm-0558/Okta case studies, CISA SCuBA (ScubaGear/ScubaGoggles), SSPM, M365/GWS/Salesforce/GitHub hardening |
 | [SDR & RF Security Reference](SDR_RF_SECURITY_REFERENCE.md) | Software-Defined Radio and RF security: HackRF/RTL-SDR, GNU Radio, GSM/LTE/Bluetooth/Zigbee/P25 analysis, TEMPEST |
 | [Secrets Management Reference](SECRETS_MANAGEMENT_REFERENCE.md) | HashiCorp Vault, CyberArk Conjur, secret detection (gitleaks/ggshield/TruffleHog), cloud-native secrets, PKI/SSH, CI/CD OIDC |
-| [Secure Coding Reference](SECURE_CODING_REFERENCE.md) | OWASP Top 10 (2021), input validation, auth/session security, cryptography in code, SAST/DAST tools, and supply chain security |
+| [Secure Coding Reference](SECURE_CODING_REFERENCE.md) | OWASP Top 10 (2021), input validation, cryptography in code, SAST/DAST, and quick guides for Python, JavaScript, TypeScript, Java, Kotlin, C#, Go, Rust, C, C++, PHP, Ruby, Swift, and PowerShell |
 | [Security Architecture Reference](SECURITY_ARCHITECTURE_REFERENCE.md) | Defense-in-depth, Zero Trust architecture, cloud security design, application security patterns, identity architecture, SecOps |
 | [Security Data Engineering Reference](SECURITY_DATA_ENGINEERING_REFERENCE.md) | OCSF/ECS/CIM/ASIM normalization schemas, log pipeline architecture, security data lakes, cost-driven routing, schema-on-read vs schema-on-write, telemetry quality, retention design, ATT&CK data-component mapping |
 | [Security Gadgets Reference](SECURITY_GADGETS_REFERENCE.md) | Hak5 ecosystem, HackRF/Ubertooth, Samy Kamkar tools, Flipper Zero, Pi-hole, Meshtastic/LoRa, Proxmark3, Alfa/GL.iNet |

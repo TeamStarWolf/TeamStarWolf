@@ -1,6 +1,6 @@
 # Secure Coding Reference
 
-> In one minute: This document shows how to write code that resists attack: each OWASP Top 10 category comes with a vulnerable code sample, a secure rewrite, and the tooling that detects the flaw. It covers input validation, password hashing, JWTs, crypto, file uploads, dependency and supply chain safety, and the scanners (SAST, DAST, secrets, IaC) to wire into your pipeline. Everything is mapped back to CWE, NIST SSDF, and MITRE ATT&CK so a fix can be traced to the standard that requires it.
+> In one minute: This document shows how to write code that resists attack: each OWASP Top 10 category comes with a vulnerable code sample, a secure rewrite, and the tooling that detects the flaw. It covers input validation, password hashing, JWTs, crypto, file uploads, dependency and supply chain safety, and the scanners (SAST, DAST, secrets, IaC) to wire into your pipeline. Language quick guides cover Python, JavaScript and TypeScript, Java and Kotlin, C#, Go, Rust, C and C++, PHP, Ruby, Swift, and PowerShell. Everything is mapped back to CWE, NIST SSDF, and MITRE ATT&CK so a fix can be traced to the standard that requires it.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 10 min (2,378 words at 230 words a minute)
+About 13 min (2,955 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -1311,6 +1311,8 @@ Prod   → Runtime WAF + monitoring + alerting
 
 ## Language-Specific Quick Guides
 
+Each guide is the unsafe call a reviewer should reject, and the standard-library or mainstream-library replacement. Snippets are patterns for authorized development and code review. Confirm the API against the language version you ship: defaults move (PHP libxml, Ruby YAML, .NET serializers).
+
 ### Python
 
 ```python
@@ -1464,6 +1466,262 @@ func safeJoin(base, rel string) (string, error) {
     return abs, nil
 }
 ```
+
+### TypeScript
+
+Types disappear at runtime. A parameter annotated `string` can still be an object if the value crossed `JSON.parse`, a query string, or an `any` boundary. Validate the value, then use it.
+
+```typescript
+// BAD: the annotation is erased; payload may not be a string
+function greet(name: string) {
+  element.innerHTML = name; // HTML injection if name is attacker-controlled
+}
+
+// GOOD: narrow unknown, then write text
+function isShortName(v: unknown): v is string {
+  return typeof v === "string" && v.length > 0 && v.length <= 64 && !/[\u0000<>]/.test(v);
+}
+
+function greet(raw: unknown) {
+  if (!isShortName(raw)) return;
+  element.textContent = raw;
+}
+
+// BAD: a cast hides a missing check
+const id = untrusted as string;
+// GOOD: the same predicate as above, or a schema parser that returns a typed value
+// only after it accepts the input (Zod, Valibot, or a hand-written guard)
+```
+
+Prototype pollution is unchanged from JavaScript: `Object.assign` and a recursive merge will copy `__proto__` if you let them. Build untrusted objects with `Object.create(null)` or a merge that skips `__proto__`, `constructor`, and `prototype`.
+
+### C
+
+```c
+#include <stdio.h>
+#include <stddef.h>
+#include <stdint.h>
+
+/* BAD: gets() has no bound; printf(user) treats user bytes as a format string */
+void bad(char *user) {
+    char buf[64];
+    gets(buf);
+    printf(user);
+}
+
+/* GOOD: fgets keeps the bound; "%s" makes the user bytes data, not a format */
+void good_read(char *user) {
+    char buf[64];
+    if (fgets(buf, sizeof buf, stdin) == NULL) return;
+    printf("%s", user);
+}
+
+/* GOOD: snprintf reports truncation instead of writing past dst */
+int copy_name(char *dst, size_t dst_len, const char *src) {
+    int n;
+    if (dst_len == 0) return -1;
+    n = snprintf(dst, dst_len, "%s", src);
+    if (n < 0 || (size_t)n >= dst_len) return -1;
+    return 0;
+}
+
+/* GOOD: reject a count that would wrap the allocation size */
+void *alloc_items(size_t count) {
+    if (count > SIZE_MAX / sizeof(uint64_t)) return NULL;
+    return calloc(count, sizeof(uint64_t));
+}
+```
+
+`strncpy` does not promise a terminating NUL when the source is longer than the bound. Prefer `snprintf` as above, or an explicit length plus a NUL you write yourself. CWE-120, CWE-134, and CWE-190 are the weakness classes behind these three fixes.
+
+### C++
+
+```cpp
+#include <string>
+#include <string_view>
+#include <vector>
+#include <cstdint>
+#include <limits>
+
+// BAD: a raw buffer and a C format string
+// sprintf(buf, user_format, value);
+
+// GOOD: std::string owns the bytes; the format string is a literal
+std::string greet(std::string_view name) {
+    std::string out = "Hello, ";
+    out.append(name);
+    return out;
+}
+
+// GOOD: refuse a count that overflows the byte length before any allocation
+std::vector<std::uint8_t> make_buf(std::size_t count) {
+    if (count > std::numeric_limits<std::size_t>::max() / sizeof(std::uint32_t))
+        return {};
+    return std::vector<std::uint8_t>(count);
+}
+```
+
+Prefer `std::unique_ptr` or a container over `new` and `delete` on a path that can throw. Do not reinterpret untrusted bytes as a live object (`reinterpret_cast` onto a `T*` and then calling a method). Parse into a value you constructed. A user-controlled format string passed to `printf` or `std::format` is still CWE-134: keep the format a literal.
+
+### C#
+
+```csharp
+using System.Data;
+using System.Text.Json;
+using Microsoft.Data.SqlClient;
+
+// BAD: string-built SQL, and BinaryFormatter on bytes you did not produce
+// cmd.CommandText = "SELECT * FROM Users WHERE Name = '" + name + "'";
+// new BinaryFormatter().Deserialize(stream);
+
+// GOOD: a bound parameter, and a serializer that only constructs the type you name
+static User? Load(SqlConnection conn, string name) {
+    using var cmd = new SqlCommand(
+        "SELECT Id, Name FROM Users WHERE Name = @name", conn);
+    cmd.Parameters.Add("@name", SqlDbType.NVarChar, 128).Value = name;
+    using var reader = cmd.ExecuteReader();
+    if (!reader.Read()) return null;
+    return new User { Id = reader.GetInt32(0), Name = reader.GetString(1) };
+}
+
+static User? ReadUser(string json) =>
+    JsonSerializer.Deserialize<User>(json);
+
+// Tokens: RandomNumberGenerator.Fill, not System.Random
+```
+
+`BinaryFormatter` is obsolete because a payload can name a type and run it during deserialize. `XmlReader` on untrusted XML should set `DtdProcessing = DtdProcessing.Prohibit`. Microsoft documents both restrictions in the .NET serialization guidance.
+
+### Rust
+
+```rust
+use std::process::Command;
+
+// BAD: a shell string, and transmute of untrusted bytes into a reference
+// Command::new("sh").arg("-c").arg(user_line).status()?;
+// let r: &T = unsafe { &*(bytes.as_ptr() as *const T) };
+
+fn list_dir(dir: &str) -> std::io::Result<std::process::ExitStatus> {
+    // GOOD: the program and each argument are separate; no shell parsing
+    Command::new("ls").arg(dir).status()
+}
+
+// SQL: bind the value. With rusqlite:
+// conn.query_row(
+//     "SELECT name FROM users WHERE id = ?1",
+//     [id],
+//     |row| row.get(0),
+// )?;
+```
+
+Safe Rust checks bounds and lifetimes. The holes that matter in review are `unsafe` blocks that turn bytes into references, `Command` invoked through a shell, and `serde` types that implement a custom deserializer you did not read. Keep `unsafe` on the other side of a function that only accepts a length you checked. Read OS entropy from `getrandom` or `rand::rngs::OsRng`, not from a seeded `StdRng` the program picked itself.
+
+### PHP
+
+```php
+<?php
+// BAD: SQL built by concatenation, and unserialize() on a cookie
+// $pdo->query("SELECT * FROM users WHERE id = " . $_GET['id']);
+// $obj = unserialize($_COOKIE['session']);
+
+// GOOD: a bound parameter, and JSON for data you do not intend to turn into objects
+$stmt = $pdo->prepare('SELECT id, name FROM users WHERE id = ?');
+$stmt->execute([$_GET['id']]);
+$row = $stmt->fetch();
+
+$payload = json_decode($_COOKIE['prefs'] ?? '', true, 8, JSON_THROW_ON_ERROR);
+
+// HTML text: encode quotes and use UTF-8
+echo htmlspecialchars($row['name'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+
+// Passwords: password_hash($password, PASSWORD_DEFAULT) and password_verify()
+```
+
+Leave `allow_url_include` off so `include` cannot fetch a remote script (CWE-98). When parsing XML, do not pass `LIBXML_NOENT`. `simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NONET)` refuses network access during parse. PHP 8 disables external entities by default; an explicit `LIBXML_NOENT` turns substitution back on.
+
+### Ruby
+
+```ruby
+# BAD: SQL interpolation, Marshal.load, and YAML.load on untrusted text
+# User.where("name = '#{params[:name]}'")
+# Marshal.load(params[:blob])
+# YAML.load(request.body.read)   # unsafe on Ruby before 3.1
+
+# GOOD: a hash condition is bound; JSON does not revive objects
+User.where(name: params[:name])
+prefs = JSON.parse(request.body.read)
+
+# YAML, when you must accept it: an allowlist, including on Ruby 3.1+
+# where YAML.load is safe by default. safe_load stays explicit.
+require 'yaml'
+YAML.safe_load(request.body.read, permitted_classes: [], aliases: false)
+
+# Tokens
+require 'securerandom'
+token = SecureRandom.hex(32)
+```
+
+`html_safe` and `raw` mark a string as already encoded. Call them only on a value your own code built from encoded parts. `send` and `public_send` with a user-supplied method name dispatch to whatever the object implements: allowlist the method.
+
+### Swift
+
+```swift
+import CryptoKit
+import Foundation
+import SQLite3
+
+// BAD: the user string is the SQL text
+// sqlite3_exec(db, "SELECT * FROM users WHERE name = '\(name)'", nil, nil, nil)
+
+// GOOD: a placeholder, then a bind. SQLITE_TRANSIENT copies the bytes
+// because the Swift string may move before sqlite3_step runs.
+var stmt: OpaquePointer?
+sqlite3_prepare_v2(db, "SELECT id FROM users WHERE name = ?", -1, &stmt, nil)
+sqlite3_bind_text(stmt, 1, name, -1, SQLITE_TRANSIENT)
+_ = sqlite3_step(stmt)
+sqlite3_finalize(stmt)
+
+// GOOD: CryptoKit draws the key from the system generator
+let key = SymmetricKey(size: .bits256)
+```
+
+Put untrusted text into UIKit or SwiftUI as text (`Text(name)`, `label.text = name`), not as HTML or as an `NSAttributedString` built from an HTML document fragment. Format strings for `String(format:)` and `NSString(format:)` stay literals; a user format is the same CWE-134 bug as in C.
+
+### Kotlin
+
+```kotlin
+// BAD: one string is both the program and the arguments
+// Runtime.getRuntime().exec("convert " + userPath)
+
+// GOOD: the program and each argument are separate
+ProcessBuilder(listOf("convert", userPath)).start()
+
+// GOOD: JDBC bind, same rule as Java
+val stmt = conn.prepareStatement("SELECT id FROM users WHERE email = ?")
+stmt.setString(1, email)
+val rs = stmt.executeQuery()
+```
+
+`kotlinx.serialization` should deserialize into a class you named (`Json.decodeFromString<User>(text)`). A serializer that honors a type tag from the payload recreates the Java deserialization problem. For tokens, `java.security.SecureRandom`, not `kotlin.random.Random`.
+
+### PowerShell
+
+```powershell
+# BAD: the user string is parsed as code
+# Invoke-Expression $UserInput
+# iex $UserInput
+
+# GOOD: pass arguments as data. Start-Process -ArgumentList does not invoke a shell.
+Start-Process -FilePath 'C:\Tools\scan.exe' -ArgumentList @($Path, '-r')
+
+# GOOD: a token from the cryptographic generator.
+# GetBytes(byte[]) exists on Windows PowerShell 5.1 and on PowerShell 7.
+$bytes = [byte[]]::new(32)
+$rng = [System.Security.Cryptography.RandomNumberGenerator]::Create()
+$rng.GetBytes($bytes)
+```
+
+Constrained Language Mode is a host policy, not a property of a script you wrote: in that mode many .NET types are unavailable, which blocks a class of fileless payloads. Turn it on for users who do not administer the machine, and log script blocks (module logging and event 4104) so the detection rules in this library have something to read. Do not build a command line by concatenating untrusted strings and passing the result to `Invoke-Expression` or `powershell -Command`.
 
 ---
 

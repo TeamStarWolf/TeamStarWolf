@@ -23,7 +23,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 28 min (6,530 words at 230 words a minute)
+About 34 min (7,910 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -557,6 +557,77 @@ After the first cycle
 
 ---
 
+## Native cloud services on the five stages
+
+The five stages do not require a third-party CNAPP. AWS, Azure, and GCP each ship a service that can fill a stage. Use the native service as the baseline for workloads that already run there, and add a specialist where the native service stops (authenticated application testing, identity attack paths in Active Directory, a detection the provider does not emit). Product pages: [AWS native security](/tools/aws-native-security.md), [Azure native security](/tools/azure-native-security.md), [GCP native security](/tools/gcp-native-security.md).
+
+Modern scope is wider than a CVE list. A cycle that only scans servers misses the exposures that show up in incident write-ups:
+
+- **Identity.** Long-lived keys, over-broad roles, illicit consent grants, and service accounts that can leave a perimeter. Start with [Identity Security](/IDENTITY_SECURITY_REFERENCE.md) and the cloud IAM sections of [Cloud Security](/CLOUD_SECURITY_REFERENCE.md).
+- **The cloud control plane.** A public bucket, a disabled trail, an external IP, a firewall rule of `0.0.0.0/0`. These are misconfigurations, which this reference already treats as exposures rather than vulnerabilities.
+- **Internet edge and SaaS.** The WAF, the external attack surface, and the SaaS tenant. [Cloud Architecture](/CLOUD_ARCHITECTURE_REFERENCE.md) places the edge. Defender EASM and Web Security Scanner are the native discovery tools.
+- **AI systems.** A model endpoint, a vector store, and a tool the agent can call are in scope when the business runs them. The defensive write-up is [AI Security](/AI_SECURITY_REFERENCE.md) and [MITRE ATLAS](/ATLAS_REFERENCE.md).
+
+| Stage | AWS | Azure | GCP |
+|---|---|---|---|
+| Scoping | Organizations, Control Tower, account tags, Config inventory | Management groups, Azure Resource Graph | Organization and folders, Cloud Asset Inventory |
+| Discovery | Inspector, Config, IAM Access Analyzer, Macie, Security Hub assets | Defender for Cloud inventory, Defender EASM, Resource Graph | SCC assets, Web Security Scanner, VM Manager inventory |
+| Prioritization | Inspector score with network reachability, Security Hub exposure, GuardDuty attack sequences | Attack paths and secure score in Defender for Cloud, not CVSS alone | SCC attack exposure and vulnerability findings joined to whether the asset is reachable |
+| Validation | A GuardDuty finding or a controlled technique. A Config COMPLIANT result is not validation. | A Defender or Sentinel alert for the technique you staged. A Healthy assessment is not validation. | An Event Threat Detection or VM Threat Detection finding. A Security Health Analytics pass is not validation. |
+| Mobilization | Systems Manager Patch Manager, SSM Automation, EventBridge into the ticket system | Azure Update Manager, Policy Deny or DeployIfNotExists, Logic Apps | VM Manager patch jobs, a rebuilt image admitted by Binary Authorization, Pub/Sub export of findings |
+
+Read a row left to right only for the provider you run. A program in one cloud does not need the other two columns.
+
+### What you record at each stage
+
+The stage contracts above still apply. A cloud cycle adds a provider object id to every row, because "the payment API" is not a thing the finding store can close.
+
+| Stage | Record | Done when |
+|---|---|---|
+| Scoping | The business outcome, the account or subscription or project ids in scope, and the ids explicitly out | A platform owner agrees the boundary, including which regions are in use |
+| Discovery | One inventory row per resource id, with owner, exposure class (CVE, misconfiguration, identity, secret, edge), and the tool that cannot see it | You can name what is in scope and which API was not enabled |
+| Prioritization | The top of the queue with the reason: KEV, EPSS, reachability, attack-path position, or a control that already blocks it | An owner can explain the order without opening the console |
+| Validation | A verdict of proven, blocked-by-control, or untestable, plus the detector event id or the statement that no detector covers it | The top items carry a test artifact |
+| Mobilization | One of mitigate, accept, transfer, or avoid, with the owner's ticket id and the finding id that must leave the active state | The provider inventory agrees with the ticket |
+
+A scope that is "the whole organization" fails the first row. Pick the payment flow, the identity tenant, or the internet-facing projects, then let the next cycle add a scope.
+
+### One cycle on an internet-facing workload
+
+Use this as the shape of the first cycle. Substitute the column for the provider you run. The point is the evidence at each step, not a particular SKU.
+
+1. **Scope.** Name the workload and the accounts, subscriptions, or projects that serve it, plus the regions those resources actually use. A detector enabled only in the home region is out of scope for the second region, and the scope statement should say so.
+2. **Discover.** Pull the provider inventory (Inspector, Defender for Cloud, or VM Manager and Artifact Analysis) and the configuration record (Config, Resource Graph, or Security Health Analytics). Add the external view: what the internet can reach, from the provider's attack-surface tool where you have one, or from the load balancer and public IP inventory where you do not. Write down APIs that are off. An empty vulnerability list from a project where the scanning API is disabled is a coverage gap, not a clean bill.
+3. **Prioritize.** Keep an item near the top when it is on the KEV list, the provider marks it reachable, and it sits on the workload you scoped. Drop an item down when a policy already denies the class of change, or when the package is on a host with no route from the internet and no path to the data the scope named. Section 4 of the [vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) is the scoring model. The provider's reachability bit is one input to it.
+4. **Validate.** Stage a technique you expect the detector to see, in a lab project, and keep the event id. For a guardrail, attempt the denied action and keep the audit record of the denial. A COMPLIANT rule, a Healthy assessment, or a Security Health Analytics pass records that the control is present. The denial, or the detector finding, is the validation.
+5. **Mobilize.** Route the CVE to the team that owns the image or the patch window, and the misconfiguration to the team that owns the template. Close the item when the provider finding leaves the active state and the inventory shows the fixed package or the corrected configuration. A closed ticket with the package still installed is the same failure mode as in the mobilization stage above.
+
+### Where the native service stops
+
+Add a specialist at these boundaries. Pretending the native service covers them produces a cycle that cannot see the exposure.
+
+| Gap | What the native service does | What you add |
+|---|---|---|
+| Authenticated application testing | Web Security Scanner and AWS WAF see classes of request. They are not an authenticated penetration test. | The validation methods in [Stage 4](#stage-4-validation): a tester, Atomic Red Team, or a BAS job with rules of engagement |
+| Identity attack paths in Active Directory or Entra ID | Cloud CIEM sees cloud roles. It does not walk an on-premises domain. | [Identity Security](/IDENTITY_SECURITY_REFERENCE.md) and the attack-path tools in the free-tooling table below |
+| A detection the provider does not emit | GuardDuty, Defender, and Event Threat Detection each have a published detector list. Silence outside that list is expected. | A detection from the [technique detection library](/detections/TECHNIQUE_DETECTION_LIBRARY.md), tested on purpose |
+| Software the provider did not inventory | Inspector, Defender, and VM Manager see the packages their agents or snapshots enumerated. A binary copied to disk outside that inventory is invisible. | The SCA and SBOM path in the [vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) |
+| SaaS tenants and the corporate IdP | The cloud finding store does not contain the Salesforce or Microsoft 365 tenant unless you connected it. | [SaaS Security](/SAAS_SECURITY_REFERENCE.md), as its own scope |
+
+### Measures from the finding store
+
+Count these from the provider's own states, per scope, per cycle. A raw finding total is the discovery input, not the measure.
+
+| Measure | Numerator | Denominator |
+|---|---|---|
+| Coverage | Resources with a successful inventory or scan state | Resources in the written scope |
+| Time to close | Time from the finding entering the active state to it leaving that state | Items mobilized this cycle, reported as a median |
+| Recurrence | Items that return to the active state after a close, same CVE and same resource id | Items closed in the previous cycle |
+| Validation rate | Top-queue items with a proven, blocked, or untestable verdict | Top-queue items |
+| Guardrail hold | Denied attempts of a class you meant to forbid, present in the audit log | Attempts you staged, plus any organic denials you choose to count separately |
+
+A falling finding count after someone disables the scanner is not an improvement. Pair every count with the coverage row.
+
 ## Free and open tooling by stage
 
 The loop can be run end-to-end without a procurement cycle. BloodHound CE, Infection Monkey, PTEF, VECTR, the CISA SSVC calculator, and the KEV/EPSS feeds were re-verified for this revision (September 2026); the rest are long-established open projects. Confirm license and maintenance status before standardizing on one.
@@ -636,9 +707,9 @@ One trap worth naming: search engines surface a Wikipedia article for "Continuou
 ## Related pages
 
 - Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
 - [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)
 - [CVE Reference](/CVE_REFERENCE.md)
-- [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
 - [CPE Reference](/CPE_REFERENCE.md)
 
 <!-- related:end -->

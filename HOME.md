@@ -50,6 +50,8 @@
   </a>
 </div>
 
+<p class="tsw-lead">Current headlines, advisories, and CVE briefs are on the <a href="https://teamstarwolf.github.io/intelligence-hub/" target="_blank" rel="noopener">Intelligence Hub</a>. The rules for reading them are in <a href="#/THREAT_INTELLIGENCE_REFERENCE?id=the-public-intelligence-hub">the threat intelligence reference</a>.</p>
+
 <div class="tsw-anchor" id="how-to-guides"></div>
 
 ## Start-here guides

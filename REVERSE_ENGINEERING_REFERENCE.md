@@ -18,7 +18,7 @@ Advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 31 min (7,207 words at 230 words a minute)
+About 35 min (7,984 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -212,10 +212,30 @@ AAPCS64 Calling Convention:
 - Return: X0 (or X0+X1 for 128-bit), V0 for float
 - Callee-saved: X19-X28, X29 (frame pointer), X30 (link register), SP
 
-AArch32/Thumb2 Interworking:
-- BLX instruction switches between ARM and Thumb mode
-- LSB of branch target address: 1 = Thumb, 0 = ARM
-- T32 (Thumb2) instructions are 16 or 32 bits wide; common on Cortex-M embedded targets
+What you see in a decompiler:
+- An address of a global is usually `ADRP` (the page) plus `ADD` (the page offset), not one absolute load.
+- `RET` returns through X30. A `POP` of the link register means the compiler spilled LR. It is not the x86 pattern.
+- `PACIASP` / `AUTIASP` (and the related hint instructions) are pointer authentication in the prologue and epilogue on arm64e and on newer Linux toolchains. Treat them as ABI, then look at the code they frame.
+- Exception level matters once the sample is firmware: EL0 is user, EL1 is the kernel, EL2 is a hypervisor, EL3 is the monitor. A memory-corruption bug retained in EL3 is the whole trust chain.
+
+---
+
+### AArch32 and Thumb-2
+
+AAPCS (32-bit ARM):
+- r0-r3: first four arguments, and r0 (then r1) holds the return value
+- r4-r8 and r10-r11: callee-saved. r9 is the platform register (often the static base) and is not a general callee-saved register
+- r12 (IP): intra-procedure scratch
+- r13 (SP): stack pointer, r14 (LR): link register, r15 (PC): program counter
+
+Thumb-2 interworking:
+- BLX switches between ARM and Thumb state
+- LSB of a branch target: 1 = Thumb, 0 = ARM
+- T32 (Thumb-2) instructions are 16 or 32 bits wide; Cortex-M parts run Thumb-2 only
+
+`file` and the ELF `e_machine` field report `EM_ARM` (40) for these binaries. `EM_AARCH64` (183) is the 64-bit ISA in the previous section.
+
+A compiler prologue you will see constantly is `PUSH {r4-r7, lr}` and the matching `POP {r4-r7, pc}`, which returns by writing the saved link register into the program counter. In Thumb state the low bit of that address is set. If the decompiler shows a jump to an odd address, that bit is the state selector, not part of the instruction pointer. Cortex-M has no ARM state to switch to, so a `BLX` that expects an ARM target is a sign you picked the wrong processor module.
 
 ---
 
@@ -232,6 +252,45 @@ Register Conventions (MIPS O32 ABI):
 Branch Delay Slots: Every branch/jump instruction in MIPS has a delay slot: the instruction immediately following the branch is always executed before the branch takes effect. Disassemblers show this; decompilers abstract it away. Watch for intentional misuse: shellcode sometimes places meaningful code in delay slots to confuse naive disassemblers.
 
 Endianness: MIPS runs both big-endian (network equipment, older SGI) and little-endian (PlayStation, some routers). The file command will identify; binwalk and Ghidra handle both.
+
+The stack grows down. Under O32 the caller reserves 16 bytes at the top of its frame even when the arguments fit in `$a0`-`$a3`; those words are the argument home, and a callee may spill there. A function that starts by storing `$ra` at a fixed offset from `$sp` is the ordinary prologue. The delay slot still executes, including when the branch is not taken, which is the mistake to avoid when you single-step and the instruction under the cursor is not the one that ran.
+
+---
+
+### RISC-V (RV32 and RV64)
+
+Integer registers in the psABI (the names used by gas, LLVM, and Ghidra):
+- x0 (`zero`): hardwired 0
+- x1 (`ra`): return address, written by `jal` and `jalr`
+- x2 (`sp`): stack pointer
+- x3 (`gp`): global pointer
+- x4 (`tp`): thread pointer
+- x5-x7 (`t0`-`t2`), x28-x31 (`t3`-`t6`): caller-saved temporaries
+- x8 (`s0`/`fp`), x9 (`s1`), x18-x27 (`s2`-`s11`): callee-saved
+- x10-x17 (`a0`-`a7`): arguments; `a0` and `a1` also return integer values
+
+LP64 (RV64) and ILP32 (RV32) call the stack 16-byte aligned at a call. There is no branch delay slot: the instruction after a branch is not implicitly executed, which is the first difference from MIPS when you are reading firmware that moved from one to the other.
+
+The C extension encodes many instructions in 16 bits. A linear disassembler that assumes every instruction is 32 bits will desynchronize until the next aligned boundary. Ghidra's RISC-V module knows the C extension; turn it on when the ELF flags or the vendor datasheet say the core implements it.
+
+ELF `e_machine` is `EM_RISCV` (243). The common application profile, RV64GC, is little-endian. `file` prints `RISC-V` and the XLEN. Privilege mode (M, S, or U) matters once the sample is a bootloader or an SBI firmware image: machine mode has no OS above it, so a memory-corruption bug there is the whole device.
+
+---
+
+### PowerPC and PowerPC64
+
+Integer registers:
+- r0: volatile; the prologue often uses it while saving the link register
+- r1: stack pointer
+- r2: TOC (table of contents) base on ELF v2 and on AIX
+- r3-r10: the first eight integer arguments; r3 returns the integer result
+- r14-r31: non-volatile in the ELF v2 ABI
+- LR: return address, moved with `mflr` and `mtlr`. `bl` sets LR. There is no delay slot.
+
+The Power Architecture 64-Bit ELF V2 ABI requires 16-byte stack alignment. Classic 32-bit PowerPC (routers, older game consoles, embedded controllers) is usually big-endian. POWER8 and later server chips are commonly little-endian, and the ELF header records which. `e_machine` is `EM_PPC` (20) or `EM_PPC64` (21).
+
+In a decompiler, a function that starts with `mflr` into r0 and then stores r0 at a fixed offset from r1 is the standard prologue, not an obfuscation trick. Indirect calls go through a function descriptor on the older ELF v1 ABI (a pointer to code, a TOC, and an environment) and through a raw address on ELF v2. If the decompiler shows a call to a structure rather than to code, you are looking at an ELF v1 descriptor.
+
 ---
 
 ## Section 2: Binary Formats
@@ -246,7 +305,7 @@ ELF is the standard binary format for Linux, Android, BSD, and most embedded sys
 |-------|------|-------|
 | e_ident | 16 bytes | Magic: 7f 45 4c 46 (\x7fELF), class (32/64-bit), endian, ABI |
 | e_type | 2 bytes | ET_EXEC=executable, ET_DYN=shared/PIE, ET_REL=object, ET_CORE=core dump |
-| e_machine | 2 bytes | EM_X86_64=62, EM_ARM=40, EM_AARCH64=183, EM_MIPS=8 |
+| e_machine | 2 bytes | EM_386=3, EM_X86_64=62, EM_ARM=40, EM_AARCH64=183, EM_MIPS=8, EM_PPC=20, EM_PPC64=21, EM_RISCV=243 |
 | e_entry | 4/8 bytes | Virtual address of entry point |
 | e_phoff | 4/8 bytes | Offset to program header table |
 | e_shoff | 4/8 bytes | Offset to section header table |

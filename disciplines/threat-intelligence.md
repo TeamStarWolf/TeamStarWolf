@@ -19,7 +19,7 @@ Beginner to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 12 min (2,773 words at 230 words a minute)
+About 12 min (2,858 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -64,6 +64,8 @@ No review recorded yet
 ## Where to Start
 
 Anchor on the intelligence cycle before anything else; it provides the framework that prevents CTI from becoming a firehose of unactionable indicators. Then learn MITRE ATT&CK as the common language for describing adversary behavior; it is the shared vocabulary that allows TI reports, detection rules, and red team plans to reference the same concepts. Pick one platform (MISP or OpenCTI) and learn it hands-on before worrying about commercial alternatives.
+
+The [Intelligence Hub](https://teamstarwolf.github.io/intelligence-hub/) is the public desk that sits in front of that cycle: current headlines, advisories, KEV, CVE briefs, and a sourced decade. Use it as collection practice. A headline is a lead until you can say who published it, which date field you are looking at, and whether exploitation is known, reported, or unknown. The rules are in the threat intelligence reference under [The public Intelligence Hub](/THREAT_INTELLIGENCE_REFERENCE.md#the-public-intelligence-hub). The procedure that turns one of those leads into a product is [Produce an Intelligence Product](/guides/PRODUCE_AN_INTELLIGENCE_PRODUCT.md).
 
 | Stage | Focus | Where to Begin |
 |---|---|---|

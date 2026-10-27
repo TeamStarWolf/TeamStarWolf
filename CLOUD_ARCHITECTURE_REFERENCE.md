@@ -29,7 +29,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 20 min (4,665 words at 230 words a minute)
+About 23 min (5,394 words at 230 words a minute)
 
 </td></tr>
 </table>
@@ -138,6 +138,36 @@ A **landing zone** is a pre-configured, governed, multi-account (AWS) / multi-su
 3. **Centralized identity** — federation to one IdP; no local users. Break-glass accounts hardware-MFA'd, sealed, monitored.
 4. **Network baseline** — shared connectivity hub, standard address plan, no default VPC/VNet left in place.
 5. **Security tooling account** — CSPM/CNAPP, GuardDuty/Defender for Cloud/SCC, delegated admin.
+
+### Native security services in the landing zone
+
+The security tooling account (AWS), the platform subscription (Azure), and the security project (GCP) are where the native services are enabled once, as a delegated administrator, rather than once per workload. Workload accounts stay unable to turn those services off. The product pages are [AWS native security](/tools/aws-native-security.md), [Azure native security](/tools/azure-native-security.md), and [GCP native security](/tools/gcp-native-security.md). How the same services map onto a CTEM cycle is in the [CTEM reference](/CTEM_REFERENCE.md).
+
+| Job | AWS | Azure | GCP |
+|---|---|---|---|
+| Preventive guardrail | Service control policies, declarative policies | Azure Policy Deny | Organization Policy constraints |
+| Configuration record | AWS Config | Azure Resource Graph, Policy compliance | Cloud Asset Inventory, Security Health Analytics |
+| Immutable audit | Organization CloudTrail in the log-archive account | Subscription Activity Log via a diagnostic setting the workload cannot delete | Admin Activity audit logs, plus Data Access logs you explicitly enable |
+| Vulnerability inventory | Amazon Inspector | Defender Vulnerability Management and agentless scanning | VM Manager inventory and Artifact Analysis, surfaced in Security Command Center |
+| Threat detection | GuardDuty | Defender for Cloud plans, Microsoft Sentinel | Event Threat Detection and the runtime detectors on paid SCC tiers |
+| Edge | AWS WAF and Shield | Application Gateway or Front Door WAF, Azure DDoS Protection | Cloud Armor |
+| Private path to PaaS | Interface VPC endpoints | Private Link | Private Service Connect, Private Google Access |
+| Admin access without a public IP | SSM Session Manager | Azure Bastion | Identity-Aware Proxy TCP forwarding |
+| Secrets | Secrets Manager, KMS | Key Vault | Secret Manager, Cloud KMS |
+
+Turn the detective services on in every region you use. A GuardDuty detector, a Defender plan, or an SCC source that exists only in the home region does not see the workload in the second region. Data Access audit logs on GCP and CloudTrail data events on AWS are off until you enable them. Design the landing zone as if that fact is the default, because it is.
+
+**Who enables the service, and who must not be able to switch it off.** The security tooling account, platform subscription, or security project holds the delegated administrator. Workload teams keep the right to deploy their application. They do not keep the right to delete the detector, stop the trail, or exempt themselves from the guardrail.
+
+| Provider | Enable once here | Hold it with |
+|---|---|---|
+| AWS | Delegated administrator for GuardDuty, Inspector, Security Hub, Config, and the organization CloudTrail, in the security tooling account | An SCP on the workload OUs denying detector deletion, trail stop, and logging disable. A member account cannot edit that SCP. |
+| Azure | Defender plan and Policy assignments on the management group that contains the workload subscriptions | Do not grant those subscriptions delete on the assignments. A Policy exemption is a separate write: if workload owners can create exemptions, a Deny does not hold. Restrict exemption write at the management group. |
+| GCP | Security Command Center and Organization Policy at the organization, administered from the security project | Do not grant workload project owners Security Center Admin or Organization Policy Administrator. A constraint that exists only as a dry run does not deny the API call. |
+
+**Placement inside the hub-and-spoke that follows.** Inspection and egress firewalls live in the hub. The WAF sits on the public load balancer, which may be in the hub or at the edge account, and it is not the same product as the workload firewall. Private endpoints, Private Link, and Private Service Connect terminate in the spoke that owns the consumer, with the DNS record published from the shared resolver so other spokes do not grow a public path by accident. Admin access (Session Manager, Bastion, IAP) is the path operators use, so the workload subnet does not need a public IP for administration. Secrets stay in the account that owns the workload, with the key policy or vault RBAC granting the runtime identity and not the CI principal that only needs to deploy.
+
+The go/no-go list below names the checks a reviewer can tick. The product pages name the commands that produce the evidence.
 
 ### Networking: hub-and-spoke & transit
 
@@ -485,6 +515,10 @@ CSPM/CNAPP + native findings ──► auto-remediate or alert SIEM             
 - [ ] Immutable org-wide audit trail to a sealed log-archive account
 - [ ] CSPM/CNAPP active; findings route to SIEM; auto-remediation for known-bad
 - [ ] Design threat-modeled against ATT&CK Cloud/Containers; detections cover the identity kill chain
+- [ ] Vulnerability inventory enabled on the resource types you run (EC2 and ECR and Lambda, or VMs and registries, or VM Manager and Artifact Analysis), in every region in the scope
+- [ ] Threat detection enabled in those same regions, and a lab technique has produced one finding you kept
+- [ ] Data events (AWS) and Data Access logs (GCP) enabled on the stores the scope claims to watch
+- [ ] A workload identity cannot disable the trail, delete the detector, or create a policy exemption
 
 **Cost**
 - [ ] Budgets + anomaly alerts; cost attributable by tag

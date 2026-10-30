@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: High  
 Likelihood: Low  
 Status: Draft  
+OpenCRE: [CAPEC-535](https://opencre.org/smartlink/standard/CAPEC/535)  
 
 An attacker maliciously alters hardware components that will be sold on the gray market, allowing for victim disruption and compromise when the victim needs replacement hardware components for systems where the parts are no longer in regular supply from original suppliers, or where the hardware components from the attacker seems to be a great benefit from a cost perspective.
 

@@ -5,6 +5,7 @@
 Abstraction: Meta  
 Typical severity: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-176](https://opencre.org/smartlink/standard/CAPEC/176)  
 
 An attacker manipulates files or settings external to a target application which affect the behavior of that application. For example, many applications use external configuration files and libraries - modification of these entities or otherwise affecting the application's ability to use them would constitute a configuration/environment manipulation attack.
 

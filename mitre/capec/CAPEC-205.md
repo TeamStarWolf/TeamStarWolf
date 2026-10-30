@@ -4,6 +4,7 @@
 
 Abstraction: Detailed  
 Status: Deprecated  
+OpenCRE: [CAPEC-205](https://opencre.org/smartlink/standard/CAPEC/205)  
 
 This attack pattern has been deprecated as it is a duplicate of CAPEC-37 : Retrieve Embedded Sensitive Data. Please refer to this other pattern going forward.
 

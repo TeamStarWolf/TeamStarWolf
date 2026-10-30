@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: High  
 Likelihood: Low  
 Status: Draft  
+OpenCRE: [CAPEC-519](https://opencre.org/smartlink/standard/CAPEC/519)  
 
 An attacker with access to a manufacturer's documentation containing requirements allocation and software design processes maliciously alters the documentation in order to cause errors in system design. This allows the attacker to take advantage of a weakness in a deployed system of the manufacturer for malicious purposes.
 

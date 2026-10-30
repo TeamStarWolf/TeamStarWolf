@@ -6,6 +6,7 @@ Abstraction: Meta
 Typical severity: Medium  
 Likelihood: High  
 Status: Stable  
+OpenCRE: [CAPEC-116](https://opencre.org/smartlink/standard/CAPEC/116)  
 
 An adversary actively probes the target in a manner that is designed to solicit information that could be leveraged for malicious purposes.
 

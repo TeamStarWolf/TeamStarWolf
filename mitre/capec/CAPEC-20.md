@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: Low  
 Likelihood: Low  
 Status: Draft  
+OpenCRE: [CAPEC-20](https://opencre.org/smartlink/standard/CAPEC/20)  
 
 An attacker, armed with the cipher text and the encryption algorithm used, performs an exhaustive (brute force) search on the key space to determine the key that decrypts the cipher text to obtain the plaintext.
 

@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: Very High  
 Likelihood: High  
 Status: Draft  
+OpenCRE: [CAPEC-89](https://opencre.org/smartlink/standard/CAPEC/89)  
 
 A pharming attack occurs when the victim is fooled into entering sensitive data into supposedly trusted locations, such as an online bank site or a trading platform. An attacker can impersonate these supposedly trusted sites and have the victim be directed to their site rather than the originally intended one. Pharming does not require script injection or clicking on malicious links for the attack to succeed.
 

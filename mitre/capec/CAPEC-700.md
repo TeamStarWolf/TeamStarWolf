@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: High  
 Likelihood: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-700](https://opencre.org/smartlink/standard/CAPEC/700)  
 
 An adversary which has gained elevated access to network boundary devices may use these devices to create a channel to bridge trusted and untrusted networks. Boundary devices do not necessarily have to be on the network’s edge, but rather must serve to segment portions of the target network the adversary wishes to cross into.
 

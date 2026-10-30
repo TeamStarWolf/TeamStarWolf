@@ -6,6 +6,7 @@ Abstraction: Meta
 Typical severity: Very Low  
 Likelihood: High  
 Status: Stable  
+OpenCRE: [CAPEC-169](https://opencre.org/smartlink/standard/CAPEC/169)  
 
 An adversary engages in probing and exploration activities to identify constituents and properties of the target.
 

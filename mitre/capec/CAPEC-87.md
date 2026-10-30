@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: High  
 Likelihood: High  
 Status: Draft  
+OpenCRE: [CAPEC-87](https://opencre.org/smartlink/standard/CAPEC/87)  
 
 An attacker employs forceful browsing (direct URL entry) to access portions of a website that are otherwise unreachable. Usually, a front controller or similar design pattern is employed to protect access to portions of a web application. Forceful browsing enables an attacker to access information, perform privileged operations and otherwise reach sections of the web application that have been improperly protected.
 

@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Very High  
 Likelihood: High  
 Status: Draft  
+OpenCRE: [CAPEC-76](https://opencre.org/smartlink/standard/CAPEC/76)  
 
 An attacker manipulates inputs to the target software which the target software passes to file system calls in the OS. The goal is to gain access to, and perhaps modify, areas of the file system that the target software did not intend to be accessible.
 

@@ -5,6 +5,7 @@
 Abstraction: Standard  
 Typical severity: High  
 Status: Draft  
+OpenCRE: [CAPEC-620](https://opencre.org/smartlink/standard/CAPEC/620)  
 
 An attacker forces the encryption level to be lowered, thus enabling a successful attack against the encrypted data.
 

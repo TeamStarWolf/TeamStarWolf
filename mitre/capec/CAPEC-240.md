@@ -6,6 +6,7 @@ Abstraction: Meta
 Typical severity: High  
 Likelihood: High  
 Status: Stable  
+OpenCRE: [CAPEC-240](https://opencre.org/smartlink/standard/CAPEC/240)  
 
 An adversary exploits weaknesses in input validation by manipulating resource identifiers enabling the unintended modification or specification of a resource.
 

@@ -5,6 +5,7 @@
 Abstraction: Detailed  
 Typical severity: Low  
 Status: Stable  
+OpenCRE: [CAPEC-307](https://opencre.org/smartlink/standard/CAPEC/307)  
 
 An adversary scans for RPC services listing on a Unix/Linux host.
 

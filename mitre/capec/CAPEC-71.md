@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: High  
 Likelihood: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-71](https://opencre.org/smartlink/standard/CAPEC/71)  
 
 An attacker may provide a Unicode string to a system component that is not Unicode aware and use that to circumvent the filter or cause the classifying mechanism to fail to properly understanding the request. That may allow the attacker to slip malicious data past the content filter and/or possibly cause the application to route the request incorrectly.
 

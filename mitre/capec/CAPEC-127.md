@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Medium  
 Likelihood: High  
 Status: Draft  
+OpenCRE: [CAPEC-127](https://opencre.org/smartlink/standard/CAPEC/127)  
 
 An adversary crafts a request to a target that results in the target listing/indexing the content of a directory as output. One common method of triggering directory contents as output is to construct a request containing a path that terminates in a directory name rather than a file name since many applications are configured to provide a list of the directory's contents when such a request is received. An adversary can use this to explore the directory tree on a target as well as learn the names of files. This can often end up revealing test files, backup files, temporary files, hidden files, configuration files, user accounts, script contents, as well as naming conventions, all of which can be used by an attacker to mount additional attacks.
 

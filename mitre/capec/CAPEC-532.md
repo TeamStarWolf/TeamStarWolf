@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: High  
 Likelihood: Low  
 Status: Stable  
+OpenCRE: [CAPEC-532](https://opencre.org/smartlink/standard/CAPEC/532)  
 
 An attacker with access to download and update system software sends a maliciously altered BIOS to the victim or victim supplier/integrator, which when installed allows for future exploitation.
 

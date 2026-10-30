@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: High  
 Likelihood: High  
 Status: Draft  
+OpenCRE: [CAPEC-508](https://opencre.org/smartlink/standard/CAPEC/508)  
 
 In a shoulder surfing attack, an adversary observes an unaware individual's keystrokes, screen content, or conversations with the goal of obtaining sensitive information. One motive for this attack is to obtain sensitive information about the target for financial, personal, political, or other gains. From an insider threat perspective, an additional motive could be to obtain system/application credentials or cryptographic keys. Shoulder surfing attacks are accomplished by observing the content "over the victim's shoulder", as implied by the name of this attack.
 

@@ -4,6 +4,7 @@
 
 Abstraction: Detailed  
 Status: Draft  
+OpenCRE: [CAPEC-589](https://opencre.org/smartlink/standard/CAPEC/589)  
 
 An adversary intercepts traffic and intentionally drops DNS requests based on content in the request. In this way, the adversary can deny the availability of specific services or content to the user even if the IP address is changed.
 

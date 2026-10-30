@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: High  
 Likelihood: Medium  
 Status: Stable  
+OpenCRE: [CAPEC-692](https://opencre.org/smartlink/standard/CAPEC/692)  
 
 An adversary spoofs metadata pertaining to a Version Control System (VCS) (e.g., Git) repository's commits to deceive users into believing that the maliciously provided software is frequently maintained and originates from a trusted source.
 

@@ -4,6 +4,7 @@
 
 Abstraction: Standard  
 Status: Deprecated  
+OpenCRE: [CAPEC-314](https://opencre.org/smartlink/standard/CAPEC/314)  
 
 This pattern has been deprecated as it was determined to be an unnecessary layer of abstraction. Please refer to the standard level pattern CAPEC-312 : Active OS Fingerprinting going forward, or to any of the detailed patterns that children of CAPEC-312.
 

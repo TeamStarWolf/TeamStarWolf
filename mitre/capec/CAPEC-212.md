@@ -6,6 +6,7 @@ Abstraction: Meta
 Typical severity: Medium  
 Likelihood: Medium  
 Status: Stable  
+OpenCRE: [CAPEC-212](https://opencre.org/smartlink/standard/CAPEC/212)  
 
 An adversary leverages a legitimate capability of an application in such a way as to achieve a negative technical impact. The system functionality is not altered or modified but used in a way that was not intended. This is often accomplished through the overuse of a specific functionality or by leveraging functionality with design flaws that enables the adversary to gain access to unauthorized, sensitive data.
 

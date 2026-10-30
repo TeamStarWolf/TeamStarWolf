@@ -5,6 +5,7 @@
 Abstraction: Standard  
 Typical severity: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-202](https://opencre.org/smartlink/standard/CAPEC/202)  
 
 An adversary creates a client application to interface with a target service where the client violates assumptions the service makes about clients. Services that have designated client applications (as opposed to services that use general client applications, such as IMAP or POP mail servers which can interact with any IMAP or POP client) may assume that the client will follow specific procedures.
 

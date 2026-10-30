@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Very High  
 Likelihood: High  
 Status: Stable  
+OpenCRE: [CAPEC-592](https://opencre.org/smartlink/standard/CAPEC/592)  
 
 An adversary utilizes a form of Cross-site Scripting (XSS) where a malicious script is persistently "stored" within the data storage of a vulnerable web application as valid input.
 

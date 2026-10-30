@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: High  
 Likelihood: Low  
 Status: Draft  
+OpenCRE: [CAPEC-523](https://opencre.org/smartlink/standard/CAPEC/523)  
 
 An attacker implants malicious software into the system in the supply chain distribution channel, with purpose of causing malicious disruption or allowing for additional compromise when the system is deployed.
 

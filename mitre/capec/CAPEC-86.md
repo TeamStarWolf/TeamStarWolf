@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Very High  
 Likelihood: High  
 Status: Draft  
+OpenCRE: [CAPEC-86](https://opencre.org/smartlink/standard/CAPEC/86)  
 
 An adversary exploits web applications that generate web content, such as links in a HTML page, based on unvalidated or improperly validated data submitted by other actors. XSS in HTTP Headers attacks target the HTTP headers which are hidden from most users and may not be validated by web applications.
 

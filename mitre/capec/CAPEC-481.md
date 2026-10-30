@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: High  
 Likelihood: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-481](https://opencre.org/smartlink/standard/CAPEC/481)  
 
 Adversaries can provide contradictory destinations when sending messages. Traffic is routed in networks using the domain names in various headers available at different levels of the OSI model. In a Content Delivery Network (CDN) multiple domains might be available, and if there are contradictory domain names provided it is possible to route traffic to an inappropriate destination. The technique, called Domain Fronting, involves using different domain names in the SNI field of the TLS header and the Host field of the HTTP header. An alternative technique, called Domainless Fronting, is similar, but the SNI field is left blank.
 

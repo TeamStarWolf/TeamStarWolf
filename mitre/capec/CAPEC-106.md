@@ -4,6 +4,7 @@
 
 Abstraction: Detailed  
 Status: Deprecated  
+OpenCRE: [CAPEC-106](https://opencre.org/smartlink/standard/CAPEC/106)  
 
 This attack pattern has been deprecated as it referes to an existing chain relationship between "CAPEC-93 : Log Injection-Tampering-Forging" and "CAPEC-63 : Cross-Site Scripting". Please refer to these CAPECs going forward.
 

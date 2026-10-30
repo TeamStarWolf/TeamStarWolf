@@ -5,6 +5,7 @@
 Abstraction: Detailed  
 Typical severity: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-204](https://opencre.org/smartlink/standard/CAPEC/204)  
 
 An adversary examines a target application's cache, or a browser cache, for sensitive information. Many applications that communicate with remote entities or which perform intensive calculations utilize caches to improve efficiency. However, if the application computes or receives sensitive information and the cache is not appropriately protected, an attacker can browse the cache and retrieve this information. This can result in the disclosure of sensitive information.
 

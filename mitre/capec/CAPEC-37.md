@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Very High  
 Likelihood: High  
 Status: Draft  
+OpenCRE: [CAPEC-37](https://opencre.org/smartlink/standard/CAPEC/37)  
 
 An attacker examines a target system to find sensitive data that has been embedded within it. This information can reveal confidential contents, such as account numbers or individual keys/credentials that can be used as an intermediate step in a larger attack.
 

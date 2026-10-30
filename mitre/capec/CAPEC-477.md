@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: High  
 Likelihood: Low  
 Status: Draft  
+OpenCRE: [CAPEC-477](https://opencre.org/smartlink/standard/CAPEC/477)  
 
 An attacker exploits the underlying complexity of a data structure that allows for both signed and unsigned content, to cause unsigned data to be processed as though it were signed data.
 

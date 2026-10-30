@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: High  
 Likelihood: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-667](https://opencre.org/smartlink/standard/CAPEC/667)  
 
 An adversary disguises the MAC address of their Bluetooth enabled device to one for which there exists an active and trusted connection and authenticates successfully. The adversary can then perform malicious actions on the target Bluetooth device depending on the target’s capabilities.
 

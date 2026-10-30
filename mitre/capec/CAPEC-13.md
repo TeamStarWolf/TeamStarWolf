@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Very High  
 Likelihood: High  
 Status: Stable  
+OpenCRE: [CAPEC-13](https://opencre.org/smartlink/standard/CAPEC/13)  
 
 The adversary directly or indirectly modifies environment variables used by or controlling the target software. The adversary's goal is to cause the target software to deviate from its expected operation in a manner that benefits the adversary.
 

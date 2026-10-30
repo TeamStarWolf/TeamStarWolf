@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: Very High  
 Likelihood: High  
 Status: Stable  
+OpenCRE: [CAPEC-593](https://opencre.org/smartlink/standard/CAPEC/593)  
 
 This type of attack involves an adversary that exploits weaknesses in an application's use of sessions in performing authentication. The adversary is able to steal or manipulate an active session and use it to gain unathorized access to the application.
 

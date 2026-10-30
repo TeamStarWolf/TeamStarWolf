@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: High  
 Likelihood: Low  
 Status: Stable  
+OpenCRE: [CAPEC-536](https://opencre.org/smartlink/standard/CAPEC/536)  
 
 An attacker with access to data files and processes on a victim's system injects malicious data into critical operational data during configuration or recalibration, causing the victim's system to perform in a suboptimal manner that benefits the adversary.
 

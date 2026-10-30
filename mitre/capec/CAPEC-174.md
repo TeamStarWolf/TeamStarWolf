@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Medium  
 Likelihood: High  
 Status: Draft  
+OpenCRE: [CAPEC-174](https://opencre.org/smartlink/standard/CAPEC/174)  
 
 An adversary takes advantage of improper data validation to inject malicious global parameters into a Flash file embedded within an HTML document. Flash files can leverage user-submitted data to configure the Flash document and access the embedding HTML document.
 

@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Medium  
 Likelihood: Low  
 Status: Draft  
+OpenCRE: [CAPEC-649](https://opencre.org/smartlink/standard/CAPEC/649)  
 
 An adversary adds a space character to the end of a file extension and takes advantage of an application that does not properly neutralize trailing special elements in file names. This extra space, which can be difficult for a user to notice, affects which default application is used to operate on the file and can be leveraged by the adversary to control execution.
 

@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Medium  
 Likelihood: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-643](https://opencre.org/smartlink/standard/CAPEC/643)  
 
 An adversary discovers connections between systems by exploiting the target system's standard practice of revealing them in searchable, common areas. Through the identification of shared folders/drives between systems, the adversary may further their goals of locating and collecting sensitive information/files, or map potential routes for lateral movement within the network.
 

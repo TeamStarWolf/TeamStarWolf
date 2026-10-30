@@ -5,6 +5,7 @@
 Abstraction: Standard  
 Typical severity: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-166](https://opencre.org/smartlink/standard/CAPEC/166)  
 
 An attacker forces the target into a previous state in order to leverage potential weaknesses in the target dependent upon a prior configuration or state-dependent factors. Even in cases where an attacker may not be able to directly control the configuration of the targeted application, they may be able to reset the configuration to a prior state since many applications implement reset functions.
 

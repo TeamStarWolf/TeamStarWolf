@@ -6,6 +6,7 @@ Abstraction: Meta
 Typical severity: Medium  
 Likelihood: Medium  
 Status: Stable  
+OpenCRE: [CAPEC-151](https://opencre.org/smartlink/standard/CAPEC/151)  
 
 Identity Spoofing refers to the action of assuming (i.e., taking on) the identity of some other entity (human or non-human) and then using that identity to accomplish a goal. An adversary may craft messages that appear to come from a different principle or use stolen / spoofed authentication credentials.
 

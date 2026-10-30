@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: Very High  
 Likelihood: High  
 Status: Draft  
+OpenCRE: [CAPEC-100](https://opencre.org/smartlink/standard/CAPEC/100)  
 
 Buffer Overflow attacks target improper or missing bounds checking on buffer operations, typically triggered by input injected by an adversary. As a consequence, an adversary is able to write past the boundaries of allocated buffer regions in memory, causing a program crash or potentially redirection of execution as per the adversaries' choice.
 

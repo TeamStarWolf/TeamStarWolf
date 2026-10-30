@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: Low  
 Likelihood: Low  
 Status: Draft  
+OpenCRE: [CAPEC-577](https://opencre.org/smartlink/standard/CAPEC/577)  
 
 An adversary exploits functionality meant to identify information about the primary users on the target system to an authorized user. They may do this, for example, by reviewing logins or file modification times. By knowing what owners use the target system, the adversary can inform further and more targeted malicious behavior. An example Windows command that may accomplish this is "dir /A ntuser.dat". Which will display the last modified time of a user's ntuser.dat file when run within the root folder of a user. This time is synonymous with the last time that user was logged in.
 

@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Medium  
 Likelihood: Low  
 Status: Draft  
+OpenCRE: [CAPEC-546](https://opencre.org/smartlink/standard/CAPEC/546)  
 
 An adversary obtains unauthorized information due to insecure or incomplete data deletion in a multi-tenant environment. If a cloud provider fails to completely delete storage and data from former cloud tenants' systems/resources, once these resources are allocated to new, potentially malicious tenants, the latter can probe the provided resources for sensitive information still there.
 

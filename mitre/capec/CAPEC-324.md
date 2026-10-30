@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Low  
 Likelihood: Medium  
 Status: Stable  
+OpenCRE: [CAPEC-324](https://opencre.org/smartlink/standard/CAPEC/324)  
 
 This type of operating system probe attempts to determine an estimate for how predictable the sequence number generation algorithm is for a remote host. Statistical techniques, such as standard deviation, can be used to determine how predictable the sequence number generation is for a system. This result can then be compared to a database of operating system behaviors to determine a likely match for operating system and version.
 

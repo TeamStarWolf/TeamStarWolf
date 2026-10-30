@@ -5,6 +5,7 @@
 Abstraction: Standard  
 Typical severity: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-167](https://opencre.org/smartlink/standard/CAPEC/167)  
 
 An attacker discovers the structure, function, and composition of a type of computer software through white box analysis techniques. White box techniques involve methods which can be applied to a piece of software when an executable or some other compiled object can be directly subjected to analysis, revealing at least a portion of its machine instructions that can be observed upon execution.
 

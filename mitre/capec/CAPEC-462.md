@@ -5,6 +5,7 @@
 Abstraction: Detailed  
 Typical severity: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-462](https://opencre.org/smartlink/standard/CAPEC/462)  
 
 An attacker initiates cross domain HTTP / GET requests and times the server responses. The timing of these responses may leak important information on what is happening on the server. Browser's same origin policy prevents the attacker from directly reading the server responses (in the absence of any other weaknesses), but does not prevent the attacker from timing the responses to requests that the attacker issued cross domain.
 

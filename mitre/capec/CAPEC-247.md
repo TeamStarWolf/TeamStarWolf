@@ -5,6 +5,7 @@
 Abstraction: Detailed  
 Typical severity: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-247](https://opencre.org/smartlink/standard/CAPEC/247)  
 
 An adversary inserts invalid characters in identifiers to bypass application filtering of input. Filters may not scan beyond invalid characters but during later stages of processing content that follows these invalid characters may still be processed. This allows the adversary to sneak prohibited commands past filters and perform normally prohibited operations. Invalid characters may include null, carriage return, line feed or tab in an identifier. Successful bypassing of the filter can result in a XSS attack, resulting in the disclosure of web cookies or possibly other results.
 

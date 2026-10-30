@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: Medium  
 Likelihood: High  
 Status: Draft  
+OpenCRE: [CAPEC-39](https://opencre.org/smartlink/standard/CAPEC/39)  
 
 In circumstances where an application holds important data client-side in tokens (cookies, URLs, data files, and so forth) that data can be manipulated. If client or server-side application components reinterpret that data as authentication tokens or data (such as store item pricing or wallet information) then even opaquely manipulating that data may bear fruit for an Attacker. In this pattern an attacker undermines the assumption that client side tokens have been adequately protected from tampering through use of encryption or obfuscation.
 

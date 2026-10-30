@@ -5,6 +5,7 @@
 Abstraction: Detailed  
 Typical severity: Low  
 Status: Draft  
+OpenCRE: [CAPEC-383](https://opencre.org/smartlink/standard/CAPEC/383)  
 
 An adversary hosts an event within an application framework and then monitors the data exchanged during the course of the event for the purpose of harvesting any important data leaked during the transactions. One example could be harvesting lists of usernames or userIDs for the purpose of sending spam messages to those users. One example of this type of attack involves the adversary creating an event within the sub-application. Assume the adversary hosts a "virtual sale" of rare items. As other users enter the event, the attacker records via AiTM (CAPEC-94) proxy the user_ids and usernames of everyone who attends. The adversary would then be able to spam those users within the application using an automated script.
 

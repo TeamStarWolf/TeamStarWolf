@@ -4,6 +4,7 @@
 
 Abstraction: Meta  
 Status: Deprecated  
+OpenCRE: [CAPEC-265](https://opencre.org/smartlink/standard/CAPEC/265)  
 
 This attack pattern has been deprecated as it is a duplicate of the existing attack pattern "CAPEC-77 : Manipulating User-Controlled Variables". Please refer to this other CAPEC going forward.
 

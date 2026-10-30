@@ -5,6 +5,7 @@
 Abstraction: Standard  
 Typical severity: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-465](https://opencre.org/smartlink/standard/CAPEC/465)  
 
 A transparent proxy serves as an intermediate between the client and the internet at large. It intercepts all requests originating from the client and forwards them to the correct location. The proxy also intercepts all responses to the client and forwards these to the client. All of this is done in a manner transparent to the client.
 

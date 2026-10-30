@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: Very High  
 Likelihood: High  
 Status: Draft  
+OpenCRE: [CAPEC-69](https://opencre.org/smartlink/standard/CAPEC/69)  
 
 This attack targets programs running with elevated privileges. The adversary tries to leverage a vulnerability in the running program and get arbitrary code to execute with elevated privileges.
 

@@ -5,6 +5,7 @@
 Abstraction: Standard  
 Typical severity: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-220](https://opencre.org/smartlink/standard/CAPEC/220)  
 
 An adversary takes advantage of weaknesses in the protocol by which a client and server are communicating to perform unexpected actions. Communication protocols are necessary to transfer messages between client and server applications. Moreover, different protocols may be used for different types of interactions.
 

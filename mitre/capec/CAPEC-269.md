@@ -4,6 +4,7 @@
 
 Abstraction: Meta  
 Status: Deprecated  
+OpenCRE: [CAPEC-269](https://opencre.org/smartlink/standard/CAPEC/269)  
 
 This pattern has been deprecated as it was determined to be a duplicate of another pattern. Please refer to the pattern CAPEC-203 : Manipulate Application Registry Values going forward.
 

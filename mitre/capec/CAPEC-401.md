@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: High  
 Likelihood: Low  
 Status: Stable  
+OpenCRE: [CAPEC-401](https://opencre.org/smartlink/standard/CAPEC/401)  
 
 An adversary exploits a weakness in access control to gain access to currently installed hardware and precedes to implement changes or secretly replace a hardware component which undermines the system's integrity for the purpose of carrying out an attack.
 

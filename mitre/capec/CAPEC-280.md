@@ -4,6 +4,7 @@
 
 Abstraction: Detailed  
 Status: Deprecated  
+OpenCRE: [CAPEC-280](https://opencre.org/smartlink/standard/CAPEC/280)  
 
 This attack pattern has been deprecated as its contents have been included in CAPEC-279 : SOAP Manipulation. Please refer to this other pattern going forward.
 

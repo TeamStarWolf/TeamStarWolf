@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: High  
 Likelihood: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-680](https://opencre.org/smartlink/standard/CAPEC/680)  
 
 An adversary exploits missing or incorrectly configured access control within registers to read/write data that is not meant to be obtained or modified by a user.
 

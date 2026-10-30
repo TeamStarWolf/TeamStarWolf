@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: High  
 Likelihood: Low  
 Status: Draft  
+OpenCRE: [CAPEC-475](https://opencre.org/smartlink/standard/CAPEC/475)  
 
 An adversary exploits a cryptographic weakness in the signature verification algorithm implementation to generate a valid signature without knowing the key.
 

@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: Very High  
 Likelihood: High  
 Status: Stable  
+OpenCRE: [CAPEC-662](https://opencre.org/smartlink/standard/CAPEC/662)  
 
 An adversary exploits security vulnerabilities or inherent functionalities of a web browser, in order to manipulate traffic between two endpoints.
 

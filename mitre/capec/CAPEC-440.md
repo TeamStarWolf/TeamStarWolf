@@ -6,6 +6,7 @@ Abstraction: Meta
 Typical severity: High  
 Likelihood: Low  
 Status: Stable  
+OpenCRE: [CAPEC-440](https://opencre.org/smartlink/standard/CAPEC/440)  
 
 An adversary exploits a weakness in the system maintenance process and causes a change to be made to a technology, product, component, or sub-component or a new one installed during its deployed use at the victim location for the purpose of carrying out an attack.
 

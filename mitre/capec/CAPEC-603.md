@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: High  
 Likelihood: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-603](https://opencre.org/smartlink/standard/CAPEC/603)  
 
 An adversary blocks the delivery of an important system resource causing the system to fail or stop working.
 

@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Very High  
 Likelihood: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-57](https://opencre.org/smartlink/standard/CAPEC/57)  
 
 This attack utilizes a REST(REpresentational State Transfer)-style applications' trust in the system resources and environment to obtain sensitive data once SSL is terminated.
 

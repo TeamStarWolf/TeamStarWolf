@@ -5,6 +5,7 @@
 Abstraction: Detailed  
 Typical severity: Low  
 Status: Draft  
+OpenCRE: [CAPEC-612](https://opencre.org/smartlink/standard/CAPEC/612)  
 
 In this attack scenario, the attacker passively listens for WiFi messages and logs the associated Media Access Control (MAC) addresses. These addresses are intended to be unique to each wireless device (although they can be configured and changed by software). Once the attacker is able to associate a MAC address with a particular user or set of users (for example, when attending a public event), the attacker can then scan for that MAC address to track that user in the future.
 

@@ -5,6 +5,7 @@
 Abstraction: Detailed  
 Typical severity: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-261](https://opencre.org/smartlink/standard/CAPEC/261)  
 
 An adversary who is authorized to send queries to a target sends variants of expected queries in the hope that these modified queries might return information (directly or indirectly through error logs) beyond what the expected set of queries should provide.
 

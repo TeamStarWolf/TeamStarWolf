@@ -5,6 +5,7 @@
 Abstraction: Standard  
 Typical severity: Low  
 Status: Stable  
+OpenCRE: [CAPEC-300](https://opencre.org/smartlink/standard/CAPEC/300)  
 
 An adversary uses a combination of techniques to determine the state of the ports on a remote target. Any service or application available for TCP or UDP networking will have a port open for communications over the network.
 

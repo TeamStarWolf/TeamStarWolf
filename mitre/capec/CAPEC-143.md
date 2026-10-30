@@ -5,6 +5,7 @@
 Abstraction: Detailed  
 Typical severity: Low  
 Status: Draft  
+OpenCRE: [CAPEC-143](https://opencre.org/smartlink/standard/CAPEC/143)  
 
 An adversary searches a targeted web site for web pages that have not been publicized. In doing this, the adversary may be able to gain access to information that the targeted site did not intend to make public.
 

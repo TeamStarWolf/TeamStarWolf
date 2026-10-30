@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: Medium  
 Likelihood: High  
 Status: Draft  
+OpenCRE: [CAPEC-182](https://opencre.org/smartlink/standard/CAPEC/182)  
 
 An attacker tricks a victim to execute malicious flash content that executes commands or makes flash calls specified by the attacker. One example of this attack is cross-site flashing, an attacker controlled parameter to a reference call loads from content specified by the attacker.
 

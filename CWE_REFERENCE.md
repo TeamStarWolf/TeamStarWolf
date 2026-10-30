@@ -4,6 +4,8 @@
 
 Machine-readable: [`data/weaknesses/cwe.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/weaknesses/cwe.jsonl). Related: [CAPEC Attack Patterns](CAPEC_REFERENCE.md), [Secure Coding](SECURE_CODING_REFERENCE.md).
 
+To follow a weakness to the requirements and guidance linked to it, such as OWASP ASVS requirements and the OWASP Cheat Sheets, open it on [OpenCRE](https://opencre.org/) at `https://opencre.org/smartlink/standard/CWE/<number>`, for example [CWE-79](https://opencre.org/smartlink/standard/CWE/79). When OpenCRE has no links for a weakness, the address opens the weakness on the MITRE CWE site ([how the link resolves](https://github.com/OWASP/OpenCRE/blob/cbf22e06071c69b62f1b3c50c38015da1640e54e/application/web/web_main.py#L757-L837)).
+
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
 <table class="tsw-meta-card">
@@ -19,7 +21,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Length</th><td>
 
-Lookup page: 3,118 words, 95% in tables; look entries up from Start at or the search (about 14 min end to end at 230 words a minute)
+Lookup page: 3,170 words, 93% in tables; look entries up from Start at or the search (about 14 min end to end at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>

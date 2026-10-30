@@ -5,6 +5,7 @@
 Abstraction: Detailed  
 Typical severity: Low  
 Status: Stable  
+OpenCRE: [CAPEC-295](https://opencre.org/smartlink/standard/CAPEC/295)  
 
 This pattern of attack leverages standard requests to learn the exact time associated with a target system. An adversary may be able to use the timestamp returned from the target to attack time-based security algorithms, such as random number generators, or time-based authentication mechanisms.
 

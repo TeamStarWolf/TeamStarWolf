@@ -5,6 +5,7 @@
 Abstraction: Detailed  
 Typical severity: High  
 Status: Draft  
+OpenCRE: [CAPEC-587](https://opencre.org/smartlink/standard/CAPEC/587)  
 
 This attack pattern combines malicious Javascript and a legitimate webpage loaded into a concealed iframe. The malicious Javascript is then able to interact with a legitimate webpage in a manner that is unknown to the user. This attack usually leverages some element of social engineering in that an attacker must convinces a user to visit a web page that the attacker controls.
 

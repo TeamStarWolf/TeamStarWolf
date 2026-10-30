@@ -5,6 +5,7 @@
 Abstraction: Standard  
 Typical severity: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-134](https://opencre.org/smartlink/standard/CAPEC/134)  
 
 An adversary manipulates the headers and content of an email message by injecting data via the use of delimiter characters native to the protocol.
 

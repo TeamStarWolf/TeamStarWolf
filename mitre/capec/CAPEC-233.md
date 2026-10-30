@@ -4,6 +4,7 @@
 
 Abstraction: Meta  
 Status: Draft  
+OpenCRE: [CAPEC-233](https://opencre.org/smartlink/standard/CAPEC/233)  
 
 An adversary exploits a weakness enabling them to elevate their privilege and perform an action that they are not supposed to be authorized to perform.
 

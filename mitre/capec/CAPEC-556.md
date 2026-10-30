@@ -4,6 +4,7 @@
 
 Abstraction: Detailed  
 Status: Draft  
+OpenCRE: [CAPEC-556](https://opencre.org/smartlink/standard/CAPEC/556)  
 
 When a file is opened, its file handler is checked to determine which program opens the file. File handlers are configuration properties of many operating systems. Applications can modify the file handler for a given file extension to call an arbitrary program when a file with the given extension is opened.
 

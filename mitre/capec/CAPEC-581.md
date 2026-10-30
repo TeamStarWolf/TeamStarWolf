@@ -4,6 +4,7 @@
 
 Abstraction: Detailed  
 Status: Draft  
+OpenCRE: [CAPEC-581](https://opencre.org/smartlink/standard/CAPEC/581)  
 
 Adversaries may attempt to get a listing of security tools that are installed on the system and their configurations. This may include security related system features (such as a built-in firewall or anti-spyware) as well as third-party security software.
 

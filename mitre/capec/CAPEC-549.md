@@ -6,6 +6,7 @@ Abstraction: Meta
 Typical severity: High  
 Likelihood: Medium  
 Status: Stable  
+OpenCRE: [CAPEC-549](https://opencre.org/smartlink/standard/CAPEC/549)  
 
 An adversary installs and executes malicious code on the target system in an effort to achieve a negative technical impact. Examples include rootkits, ransomware, spyware, adware, and others.
 

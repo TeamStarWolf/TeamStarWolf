@@ -4,6 +4,7 @@
 
 Abstraction: Detailed  
 Status: Deprecated  
+OpenCRE: [CAPEC-246](https://opencre.org/smartlink/standard/CAPEC/246)  
 
 This pattern has been deprecated as it is covered by a chaining relationship between CAPEC-174: Flash Parameter Injection and CAPEC-591: Stored XSS. Please refer to these CAPECs going forward.
 

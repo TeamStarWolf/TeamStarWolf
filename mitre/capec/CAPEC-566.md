@@ -4,6 +4,7 @@
 
 Abstraction: Detailed  
 Status: Deprecated  
+OpenCRE: [CAPEC-566](https://opencre.org/smartlink/standard/CAPEC/566)  
 
 This CAPEC has been deprecated because of is not directly related to a weakness, social engineering, supply chains, or a physical-based attack.
 

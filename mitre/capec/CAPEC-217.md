@@ -5,6 +5,7 @@
 Abstraction: Standard  
 Likelihood: Low  
 Status: Draft  
+OpenCRE: [CAPEC-217](https://opencre.org/smartlink/standard/CAPEC/217)  
 
 An adversary takes advantage of incorrectly configured SSL/TLS communications that enables access to data intended to be encrypted. The adversary may also use this type of attack to inject commands or other traffic into the encrypted stream to cause compromise of either the client or server.
 

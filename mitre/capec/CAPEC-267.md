@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: High  
 Likelihood: High  
 Status: Draft  
+OpenCRE: [CAPEC-267](https://opencre.org/smartlink/standard/CAPEC/267)  
 
 An adversary leverages the possibility to encode potentially harmful input or content used by applications such that the applications are ineffective at validating this encoding standard.
 

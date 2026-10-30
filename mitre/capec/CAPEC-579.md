@@ -4,6 +4,7 @@
 
 Abstraction: Detailed  
 Status: Draft  
+OpenCRE: [CAPEC-579](https://opencre.org/smartlink/standard/CAPEC/579)  
 
 Winlogon is a part of Windows that performs logon actions. In Windows systems prior to Windows Vista, a registry key can be modified that causes Winlogon to load a DLL on startup. Adversaries may take advantage of this feature to load adversarial code at startup.
 

@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: Very Low  
 Likelihood: High  
 Status: Stable  
+OpenCRE: [CAPEC-694](https://opencre.org/smartlink/standard/CAPEC/694)  
 
 An adversary collects information about the target system in an attempt to identify the system's geographical location. Information gathered could include keyboard layout, system language, and timezone. This information may benefit an adversary in confirming the desired target and/or tailoring further attacks.
 

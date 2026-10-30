@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: High  
 Likelihood: Medium  
 Status: Stable  
+OpenCRE: [CAPEC-443](https://opencre.org/smartlink/standard/CAPEC/443)  
 
 An adversary uses their privileged position within an authorized development organization to inject malicious logic into a codebase or product.
 

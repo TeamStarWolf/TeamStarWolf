@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Low  
 Likelihood: Low  
 Status: Draft  
+OpenCRE: [CAPEC-424](https://opencre.org/smartlink/standard/CAPEC/424)  
 
 The adversary influences the target's actions by leveraging the inherent human nature to assume behavior of others is appropriate. In situations of uncertainty, people tend to behave in ways they see others behaving. The adversary convinces the target of adopting behavior or actions that is advantageous to the adversary.
 

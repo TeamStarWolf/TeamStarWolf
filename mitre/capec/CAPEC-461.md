@@ -5,6 +5,7 @@
 Abstraction: Standard  
 Typical severity: High  
 Status: Draft  
+OpenCRE: [CAPEC-461](https://opencre.org/smartlink/standard/CAPEC/461)  
 
 An adversary utilizes a hash function extension/padding weakness, to modify the parameters passed to the web service requesting authentication by generating their own call in order to generate a legitimate signature hash (as described in the notes), without knowledge of the secret token sometimes provided by the web service.
 

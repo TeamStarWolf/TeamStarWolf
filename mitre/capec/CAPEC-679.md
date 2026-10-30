@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Very High  
 Likelihood: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-679](https://opencre.org/smartlink/standard/CAPEC/679)  
 
 An adversary takes advantage of missing or incorrectly configured access control within memory to read/write data or inject malicious code into said memory.
 

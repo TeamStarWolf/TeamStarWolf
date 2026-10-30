@@ -4,6 +4,7 @@
 
 Abstraction: Standard  
 Status: Deprecated  
+OpenCRE: [CAPEC-484](https://opencre.org/smartlink/standard/CAPEC/484)  
 
 This attack pattern has been deprecated as it a generalization of CAPEC-230: XML Nested Payloads and CAPEC-231: XML Oversized Payloads. Please refer to these CAPECs going forward.
 

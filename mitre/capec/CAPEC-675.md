@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: Medium  
 Likelihood: Medium  
 Status: Stable  
+OpenCRE: [CAPEC-675](https://opencre.org/smartlink/standard/CAPEC/675)  
 
 An adversary obtains decommissioned, recycled, or discarded systems and devices that can include an organization’s intellectual property, employee data, and other types of controlled information. Systems and devices that have reached the end of their lifecycles may be subject to recycle or disposal where they can be exposed to adversarial attempts to retrieve information from internal memory chips and storage devices that are part of the system.
 

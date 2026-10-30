@@ -4,6 +4,7 @@
 
 Abstraction: Standard  
 Status: Draft  
+OpenCRE: [CAPEC-268](https://opencre.org/smartlink/standard/CAPEC/268)  
 
 The attacker injects, manipulates, deletes, or forges malicious log entries into the log file, in an attempt to mislead an audit of the log file or cover tracks of an attack. Due to either insufficient access controls of the log files or the logging mechanism, the attacker is able to perform such actions.
 

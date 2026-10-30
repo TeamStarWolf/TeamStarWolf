@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: Low  
 Likelihood: Low  
 Status: Stable  
+OpenCRE: [CAPEC-576](https://opencre.org/smartlink/standard/CAPEC/576)  
 
 An adversary exploits functionality meant to identify information about user groups and their permissions on the target system to an authorized user. By knowing what users/permissions are registered on the target system, the adversary can inform further and more targeted malicious behavior. An example Windows command which can list local groups is "net localgroup".
 

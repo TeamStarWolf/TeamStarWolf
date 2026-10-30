@@ -5,6 +5,7 @@
 Abstraction: Detailed  
 Typical severity: High  
 Status: Draft  
+OpenCRE: [CAPEC-568](https://opencre.org/smartlink/standard/CAPEC/568)  
 
 An adversary deploys a keylogger in an effort to obtain credentials directly from a system's user. After capturing all the keystrokes made by a user, the adversary can analyze the data and determine which string are likely to be passwords or other credential related information.
 

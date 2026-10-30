@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: Very Low  
 Likelihood: High  
 Status: Draft  
+OpenCRE: [CAPEC-497](https://opencre.org/smartlink/standard/CAPEC/497)  
 
 An adversary engages in probing and exploration activities to determine if common key files exists. Such files often contain configuration and security parameters of the targeted application, system or network. Using this knowledge may often pave the way for more damaging attacks.
 

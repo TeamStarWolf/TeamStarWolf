@@ -5,6 +5,7 @@
 Abstraction: Meta  
 Typical severity: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-114](https://opencre.org/smartlink/standard/CAPEC/114)  
 
 An attacker obtains unauthorized access to an application, service or device either through knowledge of the inherent weaknesses of an authentication mechanism, or by exploiting a flaw in the authentication scheme's implementation. In such an attack an authentication mechanism is functioning but a carefully controlled sequence of events causes the mechanism to grant access to the attacker.
 

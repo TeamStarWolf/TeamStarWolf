@@ -4,6 +4,7 @@
 
 Abstraction: Standard  
 Status: Deprecated  
+OpenCRE: [CAPEC-82](https://opencre.org/smartlink/standard/CAPEC/82)  
 
 This attack pattern has been deprecated as it a generalization of CAPEC-230: XML Nested Payloads, CAPEC-231: XML Oversized Payloads, and CAPEC-147: XML Ping of Death. Please refer to these CAPECs going forward.
 

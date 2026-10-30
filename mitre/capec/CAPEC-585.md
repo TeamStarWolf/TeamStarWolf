@@ -4,6 +4,7 @@
 
 Abstraction: Detailed  
 Status: Draft  
+OpenCRE: [CAPEC-585](https://opencre.org/smartlink/standard/CAPEC/585)  
 
 In this attack pattern, an adversary influences a target's web-hosting company to disable a target domain. The goal is to prevent access to the targeted service provided by that domain. It usually occurs as the result of civil or criminal legal interventions.
 

@@ -6,6 +6,7 @@ Abstraction: Meta
 Typical severity: Medium  
 Likelihood: High  
 Status: Draft  
+OpenCRE: [CAPEC-122](https://opencre.org/smartlink/standard/CAPEC/122)  
 
 An adversary is able to exploit features of the target that should be reserved for privileged users or administrators but are exposed to use by lower or non-privileged accounts. Access to sensitive information and functionality must be controlled to ensure that only authorized users are able to access these resources.
 

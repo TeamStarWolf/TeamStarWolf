@@ -5,6 +5,7 @@
 Abstraction: Standard  
 Likelihood: High  
 Status: Draft  
+OpenCRE: [CAPEC-250](https://opencre.org/smartlink/standard/CAPEC/250)  
 
 An attacker utilizes crafted XML user-controllable input to probe, attack, and inject data into the XML database, using techniques similar to SQL injection. The user-controllable input can allow for unauthorized viewing of data, bypassing authentication or the front-end application for direct XML database access, and possibly altering database information.
 

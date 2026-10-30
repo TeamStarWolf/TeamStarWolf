@@ -4,6 +4,7 @@
 
 Abstraction: Standard  
 Status: Draft  
+OpenCRE: [CAPEC-542](https://opencre.org/smartlink/standard/CAPEC/542)  
 
 An adversary develops targeted malware that takes advantage of a known vulnerability in an organizational information technology environment. The malware crafted for these attacks is based specifically on information gathered about the technology environment. Successfully executing the malware enables an adversary to achieve a wide variety of negative technical impacts.
 

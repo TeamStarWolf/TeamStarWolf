@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: Low  
 Likelihood: High  
 Status: Draft  
+OpenCRE: [CAPEC-54](https://opencre.org/smartlink/standard/CAPEC/54)  
 
 An adversary, aware of an application's location (and possibly authorized to use the application), probes an application's structure and evaluates its robustness by submitting requests and examining responses. Often, this is accomplished by sending variants of expected queries in the hope that these modified queries might return information beyond what the expected set of queries would provide.
 

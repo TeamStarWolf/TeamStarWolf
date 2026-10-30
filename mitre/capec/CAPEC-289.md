@@ -4,6 +4,7 @@
 
 Abstraction: Meta  
 Status: Deprecated  
+OpenCRE: [CAPEC-289](https://opencre.org/smartlink/standard/CAPEC/289)  
 
 This attack pattern has been deprecated as it was determined to be an unnecessary layer of abstraction. Please refer to the meta level pattern CAPEC-169 : going forward, or to any of its children patterns.
 

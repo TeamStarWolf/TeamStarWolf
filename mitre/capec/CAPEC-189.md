@@ -5,6 +5,7 @@
 Abstraction: Standard  
 Typical severity: Low  
 Status: Draft  
+OpenCRE: [CAPEC-189](https://opencre.org/smartlink/standard/CAPEC/189)  
 
 An adversary discovers the structure, function, and composition of a type of computer software through black box analysis techniques. 'Black Box' methods involve interacting with the software indirectly, in the absence of direct access to the executable object. Such analysis typically involves interacting with the software at the boundaries of where the software interfaces with a larger execution environment, such as input-output vectors, libraries, or APIs. Black Box Reverse Engineering also refers to gathering physical side effects of a hardware device, such as electromagnetic radiation or sounds.
 

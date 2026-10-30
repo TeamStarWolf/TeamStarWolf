@@ -4,6 +4,7 @@
 
 Abstraction: Standard  
 Status: Draft  
+OpenCRE: [CAPEC-482](https://opencre.org/smartlink/standard/CAPEC/482)  
 
 An adversary may execute a flooding attack using the TCP protocol with the intent to deny legitimate users access to a service. These attacks exploit the weakness within the TCP protocol where there is some state information for the connection the server needs to maintain. This often involves the use of TCP SYN messages.
 

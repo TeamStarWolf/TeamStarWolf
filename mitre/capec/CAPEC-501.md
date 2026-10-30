@@ -5,6 +5,7 @@
 Abstraction: Detailed  
 Typical severity: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-501](https://opencre.org/smartlink/standard/CAPEC/501)  
 
 An adversary intercepts an implicit intent sent to launch a Android-based trusted activity and instead launches a counterfeit activity in its place. The malicious activity is then used to mimic the trusted activity's user interface and prompt the target to enter sensitive data as if they were interacting with the trusted activity.
 

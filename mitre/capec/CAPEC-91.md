@@ -4,6 +4,7 @@
 
 Abstraction: Detailed  
 Status: Deprecated  
+OpenCRE: [CAPEC-91](https://opencre.org/smartlink/standard/CAPEC/91)  
 
 This attack pattern has been deprecated as it is contained in the existing attack pattern "CAPEC-18 : XSS Targeting Non-Script Elements". Please refer to this other CAPEC going forward.
 

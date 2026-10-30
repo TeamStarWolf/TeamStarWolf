@@ -6,6 +6,7 @@ Abstraction: Meta
 Typical severity: Low  
 Likelihood: Low  
 Status: Stable  
+OpenCRE: [CAPEC-188](https://opencre.org/smartlink/standard/CAPEC/188)  
 
 An adversary discovers the structure, function, and composition of an object, resource, or system by using a variety of analysis techniques to effectively determine how the analyzed entity was constructed or operates. The goal of reverse engineering is often to duplicate the function, or a part of the function, of an object in order to duplicate or "back engineer" some aspect of its functioning. Reverse engineering techniques can be applied to mechanical objects, electronic devices, or software, although the methodology and techniques involved in each type of analysis differ widely.
 

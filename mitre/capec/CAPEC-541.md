@@ -5,6 +5,7 @@
 Abstraction: Standard  
 Typical severity: Low  
 Status: Draft  
+OpenCRE: [CAPEC-541](https://opencre.org/smartlink/standard/CAPEC/541)  
 
 An adversary engages in fingerprinting activities to determine the type or version of an application installed on a remote target.
 

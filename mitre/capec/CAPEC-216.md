@@ -4,6 +4,7 @@
 
 Abstraction: Meta  
 Status: Stable  
+OpenCRE: [CAPEC-216](https://opencre.org/smartlink/standard/CAPEC/216)  
 
 An adversary manipulates a setting or parameter on communications channel in order to compromise its security. This can result in information exposure, insertion/removal of information from the communications stream, and/or potentially system compromise.
 

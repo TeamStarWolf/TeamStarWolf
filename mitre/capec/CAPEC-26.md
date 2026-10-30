@@ -6,6 +6,7 @@ Abstraction: Meta
 Typical severity: High  
 Likelihood: High  
 Status: Stable  
+OpenCRE: [CAPEC-26](https://opencre.org/smartlink/standard/CAPEC/26)  
 
 The adversary targets a race condition occurring when multiple processes access and manipulate the same resource concurrently, and the outcome of the execution depends on the particular order in which the access takes place. The adversary can leverage a race condition by "running the race", modifying the resource and modifying the normal execution flow. For instance, a race condition can occur while accessing a file: the adversary can trick the system by replacing the original file with their version and cause the system to read the malicious file.
 

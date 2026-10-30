@@ -4,6 +4,7 @@
 
 Abstraction: Standard  
 Status: Deprecated  
+OpenCRE: [CAPEC-450](https://opencre.org/smartlink/standard/CAPEC/450)  
 
 This attack pattern has been deprecated as it is a duplicate of CAPEC-448 : Embed Virus into DLL. Please refer to this other pattern going forward.
 

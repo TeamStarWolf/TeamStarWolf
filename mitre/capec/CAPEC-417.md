@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: Low  
 Likelihood: High  
 Status: Stable  
+OpenCRE: [CAPEC-417](https://opencre.org/smartlink/standard/CAPEC/417)  
 
 The adversary uses social engineering to exploit the target's perception of the relationship between the adversary and themselves. This goal is to persuade the target to unknowingly perform an action or divulge information that is advantageous to the adversary.
 

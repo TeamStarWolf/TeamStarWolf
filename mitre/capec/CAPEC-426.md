@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: Low  
 Likelihood: Low  
 Status: Stable  
+OpenCRE: [CAPEC-426](https://opencre.org/smartlink/standard/CAPEC/426)  
 
 The adversary incites a behavior from the target by manipulating something of influence. This is commonly associated with financial, social, or ideological incentivization. Examples include monetary fraud, peer pressure, and preying on the target's morals or ethics. The most effective incentive against one target might not be as effective against another, therefore the adversary must gather information about the target's vulnerability to particular incentives.
 

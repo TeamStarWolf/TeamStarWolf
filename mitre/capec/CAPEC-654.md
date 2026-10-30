@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: High  
 Likelihood: Medium  
 Status: Stable  
+OpenCRE: [CAPEC-654](https://opencre.org/smartlink/standard/CAPEC/654)  
 
 An adversary, through a previously installed malicious application, impersonates a credential prompt in an attempt to steal a user's credentials.
 

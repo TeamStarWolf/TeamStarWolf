@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Low  
 Likelihood: Medium  
 Status: Stable  
+OpenCRE: [CAPEC-332](https://opencre.org/smartlink/standard/CAPEC/332)  
 
 An adversary sends a UDP datagram having an assigned value to its internet identification field (ID) to a closed port on a target to observe the manner in which this bit is echoed back in the ICMP error message. This allows the attacker to construct a fingerprint of specific OS behaviors.
 

@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Medium  
 Likelihood: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-647](https://opencre.org/smartlink/standard/CAPEC/647)  
 
 An adversary exploits a weakness in authorization to gather system-specific data and sensitive information within a registry (e.g., Windows Registry, Mac plist). These contain information about the system configuration, software, operating system, and security. The adversary can leverage information gathered in order to carry out further attacks.
 

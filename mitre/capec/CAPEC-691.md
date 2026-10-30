@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: High  
 Likelihood: Medium  
 Status: Stable  
+OpenCRE: [CAPEC-691](https://opencre.org/smartlink/standard/CAPEC/691)  
 
 An adversary spoofs open-source software metadata in an attempt to masquerade malicious software as popular, maintained, and trusted.
 

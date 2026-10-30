@@ -4,6 +4,7 @@
 
 Abstraction: Standard  
 Status: Draft  
+OpenCRE: [CAPEC-253](https://opencre.org/smartlink/standard/CAPEC/253)  
 
 The attacker forces an application to load arbitrary code files from a remote location. The attacker could use this to try to load old versions of library files that have known vulnerabilities, to load malicious files that the attacker placed on the remote machine, or to otherwise change the functionality of the targeted application in unexpected ways.
 

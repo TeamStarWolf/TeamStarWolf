@@ -4,6 +4,7 @@
 
 Abstraction: Meta  
 Status: Deprecated  
+OpenCRE: [CAPEC-241](https://opencre.org/smartlink/standard/CAPEC/241)  
 
 This attack pattern has been deprecated as it is a duplicate of the existing attack pattern "CAPEC-242 : Code Injection". Please refer to this other CAPEC going forward.
 

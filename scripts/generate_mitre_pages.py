@@ -60,6 +60,13 @@ SHORT_FOOTER = (
     "summary; consult the upstream projects for authoritative content.*\n"
 )
 
+# OpenCRE (OWASP) "smartlink": opens the CRE linked to a standard's entry, OpenCRE's page for
+# the entry when it links to several, or the entry on the MITRE site when OpenCRE has no links
+# for it (CWE and CAPEC only). The route is OpenCRE's smartlink() in application/web/web_main.py.
+OPENCRE_SMARTLINK = "https://opencre.org/smartlink/standard/"
+OPENCRE_SMARTLINK_SRC = ("https://github.com/OWASP/OpenCRE/blob/cbf22e06071c69b62f1b3c50c38015da1640e54e/"
+                         "application/web/web_main.py#L757-L837")
+
 CAP_NAMED = 25          # cap named groups/software listed per technique
 CAP_ANALYTICS = 8       # cap analytics rendered per technique
 CAP_LOGSRC = 6          # cap log sources rendered per analytic
@@ -1023,7 +1030,14 @@ def render_capec_index(db):
         sev = str(c.get("typical_severity") or "").strip()
         by_sev[sev if sev in CAPEC_SEVERITY_ORDER else "Unknown"].append(cid)
     out = ["# CAPEC Attack Patterns (" + str(len(db.capec)) + ")", "",
-           "One page per CAPEC pattern, mapped to ATT&CK techniques and CWE.", "", ""]
+           "One page per CAPEC pattern, mapped to ATT&CK techniques and CWE.", "",
+           "Each page links to the pattern on [OpenCRE](https://opencre.org/), the OWASP project that "
+           "links security standards through common requirements, so a pattern can be followed to "
+           "requirements and guidance such as OWASP ASVS and the OWASP Cheat Sheets. OpenCRE reaches "
+           "CAPEC patterns through their related CWE entries, and the link opens the pattern on the "
+           "MITRE CAPEC site when OpenCRE has no links for it ([how the link resolves]("
+           + OPENCRE_SMARTLINK_SRC + "))."
+           , "", ""]
     for sev in CAPEC_SEVERITY_ORDER + ("Unknown",):
         ids = sorted(by_sev.get(sev) or [])
         if not ids:
@@ -1043,8 +1057,8 @@ def render_capec(db, cid):
                      ("likelihood", "Likelihood"), ("status", "Status")):
         if c.get(k):
             meta.append("**" + label + ":** " + str(c[k]) + "  ")
-    if meta:
-        out.append("\n".join(meta) + "\n")
+    meta.append("**OpenCRE:** [" + cid + "](" + OPENCRE_SMARTLINK + "CAPEC/" + cid.replace("CAPEC-", "") + ")  ")
+    out.append("\n".join(meta) + "\n")
     if c.get("description"):
         out.append(str(c["description"]).strip() + "\n")
     # mapped ATT&CK

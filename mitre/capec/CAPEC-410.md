@@ -5,6 +5,7 @@
 Abstraction: Meta  
 Typical severity: Low  
 Status: Draft  
+OpenCRE: [CAPEC-410](https://opencre.org/smartlink/standard/CAPEC/410)  
 
 An adversary engages an individual using any combination of social engineering methods for the purpose of extracting information. Accurate contextual and environmental queues, such as knowing important information about the target company or individual can greatly increase the success of the attack and the quality of information gathered. Authentic mimicry combined with detailed knowledge increases the success of elicitation attacks.
 

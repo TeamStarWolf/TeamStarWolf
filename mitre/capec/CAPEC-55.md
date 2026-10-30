@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Medium  
 Likelihood: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-55](https://opencre.org/smartlink/standard/CAPEC/55)  
 
 An attacker gets access to the database table where hashes of passwords are stored. They then use a rainbow table of pre-computed hash chains to attempt to look up the original password. Once the original password corresponding to the hash is obtained, the attacker uses the original password to gain access to the system.
 

@@ -4,6 +4,7 @@
 
 Abstraction: Standard  
 Status: Draft  
+OpenCRE: [CAPEC-494](https://opencre.org/smartlink/standard/CAPEC/494)  
 
 An adversary may execute a TCP Fragmentation attack against a target with the intention of avoiding filtering rules of network controls, by attempting to fragment the TCP packet such that the headers flag field is pushed into the second fragment which typically is not filtered.
 

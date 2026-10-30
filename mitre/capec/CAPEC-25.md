@@ -6,6 +6,7 @@ Abstraction: Meta
 Typical severity: High  
 Likelihood: Low  
 Status: Stable  
+OpenCRE: [CAPEC-25](https://opencre.org/smartlink/standard/CAPEC/25)  
 
 The adversary triggers and exploits a deadlock condition in the target software to cause a denial of service. A deadlock can occur when two or more competing actions are waiting for each other to finish, and thus neither ever does. Deadlock conditions can be difficult to detect.
 

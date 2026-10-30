@@ -4,6 +4,7 @@
 
 Abstraction: Detailed  
 Status: Deprecated  
+OpenCRE: [CAPEC-451](https://opencre.org/smartlink/standard/CAPEC/451)  
 
 This attack pattern has been deprecated as it is a duplicate of CAPEC-448 : Malware Infection into Product Software. Please refer to this other pattern going forward.
 

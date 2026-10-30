@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: Medium  
 Likelihood: Low  
 Status: Stable  
+OpenCRE: [CAPEC-646](https://opencre.org/smartlink/standard/CAPEC/646)  
 
 Adversaries may attempt to obtain information about attached peripheral devices and components connected to a computer system. Examples may include discovering the presence of iOS devices by searching for backups, analyzing the Windows registry to determine what USB devices have been connected, or infecting a victim system with malware to report when a USB device has been connected. This may allow the adversary to gain additional insight about the system or network environment, which may be useful in constructing further attacks.
 

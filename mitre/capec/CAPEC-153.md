@@ -5,6 +5,7 @@
 Abstraction: Meta  
 Typical severity: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-153](https://opencre.org/smartlink/standard/CAPEC/153)  
 
 An attacker exploits a weakness in input validation by controlling the format, structure, and composition of data to an input-processing interface. By supplying input of a non-standard or unexpected form an attacker can adversely impact the security of the target.
 

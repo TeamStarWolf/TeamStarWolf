@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Low  
 Likelihood: Medium  
 Status: Stable  
+OpenCRE: [CAPEC-329](https://opencre.org/smartlink/standard/CAPEC/329)  
 
 An adversary uses a technique to generate an ICMP Error message (Port Unreachable, Destination Unreachable, Redirect, Source Quench, Time Exceeded, Parameter Problem) from a target and then analyze the amount of data returned or "Quoted" from the originating request that generated the ICMP error message.
 

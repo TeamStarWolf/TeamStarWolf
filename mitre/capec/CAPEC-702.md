@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Medium  
 Likelihood: Low  
 Status: Draft  
+OpenCRE: [CAPEC-702](https://opencre.org/smartlink/standard/CAPEC/702)  
 
 An adversary exploits incorrect chaining or granularity of hardware debug components in order to gain unauthorized access to debug functionality on a chip. This happens when authorization is not checked on a per function basis and is assumed for a chain or group of debug functionality.
 

@@ -5,6 +5,7 @@
 Abstraction: Standard  
 Typical severity: Low  
 Status: Draft  
+OpenCRE: [CAPEC-571](https://opencre.org/smartlink/standard/CAPEC/571)  
 
 An adversary prevents host-generated logs being delivered to a central location in an attempt to hide indicators of compromise.
 

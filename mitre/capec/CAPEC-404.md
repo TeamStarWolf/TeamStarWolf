@@ -4,6 +4,7 @@
 
 Abstraction: Meta  
 Status: Deprecated  
+OpenCRE: [CAPEC-404](https://opencre.org/smartlink/standard/CAPEC/404)  
 
 This attack pattern has been deprecated as it was deemed not to be a legitimate attack pattern. Please refer to CAPEC-118 : Collect and Analyze Information.
 

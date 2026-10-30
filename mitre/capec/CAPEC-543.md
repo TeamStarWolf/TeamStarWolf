@@ -5,6 +5,7 @@
 Abstraction: Detailed  
 Typical severity: High  
 Status: Draft  
+OpenCRE: [CAPEC-543](https://opencre.org/smartlink/standard/CAPEC/543)  
 
 Adversary creates duplicates of legitimate websites. When users visit a counterfeit site, the site can gather information or upload malware.
 

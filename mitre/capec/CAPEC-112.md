@@ -5,6 +5,7 @@
 Abstraction: Meta  
 Typical severity: High  
 Status: Draft  
+OpenCRE: [CAPEC-112](https://opencre.org/smartlink/standard/CAPEC/112)  
 
 In this attack, some asset (information, functionality, identity, etc.) is protected by a finite secret value. The attacker attempts to gain access to this asset by using trial-and-error to exhaustively explore all the possible secret values in the hope of finding the secret (or a value that is functionally equivalent) that will unlock the asset.
 

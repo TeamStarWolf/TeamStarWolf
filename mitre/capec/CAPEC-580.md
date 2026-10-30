@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: Low  
 Likelihood: Low  
 Status: Stable  
+OpenCRE: [CAPEC-580](https://opencre.org/smartlink/standard/CAPEC/580)  
 
 An adversary engages in active probing and exploration activities to determine security information about a remote target system. Often times adversaries will rely on remote applications that can be probed for system configurations.
 

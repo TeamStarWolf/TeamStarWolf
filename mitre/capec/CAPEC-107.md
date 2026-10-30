@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Very High  
 Likelihood: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-107](https://opencre.org/smartlink/standard/CAPEC/107)  
 
 Cross Site Tracing (XST) enables an adversary to steal the victim's session cookie and possibly other authentication credentials transmitted in the header of the HTTP request when the victim's browser communicates to a destination system's web server.
 

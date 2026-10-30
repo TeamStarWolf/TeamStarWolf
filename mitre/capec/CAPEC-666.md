@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: Medium  
 Likelihood: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-666](https://opencre.org/smartlink/standard/CAPEC/666)  
 
 An adversary uses Bluetooth flooding to transfer large packets to Bluetooth enabled devices over the L2CAP protocol with the goal of creating a DoS. This attack must be carried out within close proximity to a Bluetooth enabled device.
 

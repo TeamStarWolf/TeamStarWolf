@@ -5,6 +5,7 @@
 Abstraction: Detailed  
 Typical severity: High  
 Status: Draft  
+OpenCRE: [CAPEC-544](https://opencre.org/smartlink/standard/CAPEC/544)  
 
 An adversary creates a false front organizations with the appearance of a legitimate supplier in the critical life cycle path that then injects corrupted/malicious information system components into the organizational supply chain.
 

@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: Medium  
 Likelihood: Medium  
 Status: Stable  
+OpenCRE: [CAPEC-529](https://opencre.org/smartlink/standard/CAPEC/529)  
 
 Adversary uses malware or a similarly controlled application installed inside an organizational perimeter to gather information about the composition, configuration, and security mechanisms of a targeted application, system or network.
 

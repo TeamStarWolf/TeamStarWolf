@@ -4,6 +4,7 @@
 
 Abstraction: Detailed  
 Status: Deprecated  
+OpenCRE: [CAPEC-254](https://opencre.org/smartlink/standard/CAPEC/254)  
 
 This pattern has been deprecated as it was determined to be an unnecessary layer of abstraction. Please refer to the pattern CAPEC-228 : DTD Injection going forward.
 

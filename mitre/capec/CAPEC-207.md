@@ -6,6 +6,7 @@ Abstraction: Standard
 Typical severity: High  
 Likelihood: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-207](https://opencre.org/smartlink/standard/CAPEC/207)  
 
 An adversary removes or disables functionality on the client that the server assumes to be present and trustworthy.
 

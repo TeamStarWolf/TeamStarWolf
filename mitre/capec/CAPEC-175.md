@@ -6,6 +6,7 @@ Abstraction: Meta
 Typical severity: Very High  
 Likelihood: Medium  
 Status: Stable  
+OpenCRE: [CAPEC-175](https://opencre.org/smartlink/standard/CAPEC/175)  
 
 An adversary exploits a weakness on the target to force arbitrary code to be retrieved locally or from a remote location and executed. This differs from code injection in that code injection involves the direct inclusion of code while code inclusion involves the addition or replacement of a reference to a code file, which is subsequently loaded by the target and used as part of the code of some application.
 

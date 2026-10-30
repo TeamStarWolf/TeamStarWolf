@@ -6,6 +6,7 @@ Abstraction: Meta
 Typical severity: Medium  
 Likelihood: Medium  
 Status: Stable  
+OpenCRE: [CAPEC-131](https://opencre.org/smartlink/standard/CAPEC/131)  
 
 An adversary utilizes a resource leak on the target to deplete the quantity of the resource available to service legitimate requests.
 

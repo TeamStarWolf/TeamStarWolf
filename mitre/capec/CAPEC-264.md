@@ -4,6 +4,7 @@
 
 Abstraction: Meta  
 Status: Deprecated  
+OpenCRE: [CAPEC-264](https://opencre.org/smartlink/standard/CAPEC/264)  
 
 This attack pattern has been deprecated as it is a duplicate of the existing attack pattern "CAPEC-13 : Subverting Environment Variable Values". Please refer to this other CAPEC going forward.
 

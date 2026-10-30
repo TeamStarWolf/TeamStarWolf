@@ -4,6 +4,7 @@
 
 Abstraction: Standard  
 Status: Deprecated  
+OpenCRE: [CAPEC-249](https://opencre.org/smartlink/standard/CAPEC/249)  
 
 This attack pattern has been deprecated as it is covered by "CAPEC-40 : Manipulating Writeable Terminal Devices". Please refer to this CAPEC going forward.
 

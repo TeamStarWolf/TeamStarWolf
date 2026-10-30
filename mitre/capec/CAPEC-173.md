@@ -6,6 +6,7 @@ Abstraction: Meta
 Typical severity: Very High  
 Likelihood: High  
 Status: Stable  
+OpenCRE: [CAPEC-173](https://opencre.org/smartlink/standard/CAPEC/173)  
 
 An adversary is able to disguise one action for another and therefore trick a user into initiating one type of action when they intend to initiate a different action. For example, a user might be led to believe that clicking a button will submit a query, but in fact it downloads software. Adversaries may perform this attack through social means, such as by simply convincing a victim to perform the action or relying on a user's natural inclination to do so, or through technical means, such as a clickjacking attack where a user sees one interface but is actually interacting with a second, invisible, interface.
 

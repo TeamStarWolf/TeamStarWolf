@@ -4,6 +4,7 @@
 
 Abstraction: Meta  
 Status: Stable  
+OpenCRE: [CAPEC-594](https://opencre.org/smartlink/standard/CAPEC/594)  
 
 An adversary injects traffic into the target's network connection. The adversary is therefore able to degrade or disrupt the connection, and potentially modify the content. This is not a flooding attack, as the adversary is not focusing on exhausting resources. Instead, the adversary is crafting a specific input to affect the system in a particular way.
 

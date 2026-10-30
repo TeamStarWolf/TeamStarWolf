@@ -5,6 +5,7 @@
 Abstraction: Detailed  
 Typical severity: Low  
 Status: Draft  
+OpenCRE: [CAPEC-144](https://opencre.org/smartlink/standard/CAPEC/144)  
 
 An adversary searches a targeted web site for web services that have not been publicized. This attack can be especially dangerous since unpublished but available services may not have adequate security controls placed upon them given that an administrator may believe they are unreachable.
 

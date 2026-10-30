@@ -4,6 +4,7 @@
 
 Abstraction: Standard  
 Status: Draft  
+OpenCRE: [CAPEC-547](https://opencre.org/smartlink/standard/CAPEC/547)  
 
 An adversary conducts a physical attack a device or component, destroying it such that it no longer functions as intended.
 

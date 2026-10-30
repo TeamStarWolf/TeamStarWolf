@@ -5,6 +5,7 @@
 Abstraction: Meta  
 Typical severity: Medium  
 Status: Draft  
+OpenCRE: [CAPEC-115](https://opencre.org/smartlink/standard/CAPEC/115)  
 
 An attacker gains access to application, service, or device with the privileges of an authorized or privileged user by evading or circumventing an authentication mechanism. The attacker is therefore able to access protected data without authentication ever having taken place.
 

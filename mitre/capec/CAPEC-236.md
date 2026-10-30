@@ -4,6 +4,7 @@
 
 Abstraction: Detailed  
 Status: Deprecated  
+OpenCRE: [CAPEC-236](https://opencre.org/smartlink/standard/CAPEC/236)  
 
 This attack pattern has been deprecated as it did not have enough distinction from CAPEC-30 : Hijacking a Privileged Thread of Execution. Please refer to CAPEC-30 moving forward.
 

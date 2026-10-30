@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Low  
 Likelihood: Medium  
 Status: Stable  
+OpenCRE: [CAPEC-326](https://opencre.org/smartlink/standard/CAPEC/326)  
 
 This OS fingerprinting probe checks the initial TCP Window size. TCP stacks limit the range of sequence numbers allowable within a session to maintain the "connected" state within TCP protocol logic. The initial window size specifies a range of acceptable sequence numbers that will qualify as a response to an ACK packet within a session. Various operating systems use different Initial window sizes. The initial window size can be sampled by establishing an ordinary TCP connection.
 

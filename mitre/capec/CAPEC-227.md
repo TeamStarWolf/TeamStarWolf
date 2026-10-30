@@ -4,6 +4,7 @@
 
 Abstraction: Meta  
 Status: Draft  
+OpenCRE: [CAPEC-227](https://opencre.org/smartlink/standard/CAPEC/227)  
 
 An adversary attempts to deny legitimate users access to a resource by continually engaging a specific resource in an attempt to keep the resource tied up as long as possible. The adversary's primary goal is not to crash or flood the target, which would alert defenders; rather it is to repeatedly perform actions or abuse algorithmic flaws such that a given resource is tied up and not available to a legitimate user. By carefully crafting a requests that keep the resource engaged through what is seemingly benign requests, legitimate users are limited or completely denied access to the resource.
 

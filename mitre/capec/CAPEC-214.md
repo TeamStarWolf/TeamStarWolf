@@ -4,6 +4,7 @@
 
 Abstraction: Detailed  
 Status: Deprecated  
+OpenCRE: [CAPEC-214](https://opencre.org/smartlink/standard/CAPEC/214)  
 
 This attack pattern has been deprecated as it was merged into "CAPEC-215 : Fuzzing for application mapping". Please refer to this other CAPEC going forward.
 

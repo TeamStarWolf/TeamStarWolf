@@ -6,6 +6,7 @@ Abstraction: Meta
 Typical severity: High  
 Likelihood: High  
 Status: Stable  
+OpenCRE: [CAPEC-242](https://opencre.org/smartlink/standard/CAPEC/242)  
 
 An adversary exploits a weakness in input validation on the target to inject new code into that which is currently executing. This differs from code inclusion in that code inclusion involves the addition or replacement of a reference to a code file, which is subsequently loaded by the target and used as part of the code of some application.
 

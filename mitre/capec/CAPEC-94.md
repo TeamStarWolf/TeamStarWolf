@@ -6,6 +6,7 @@ Abstraction: Meta
 Typical severity: Very High  
 Likelihood: High  
 Status: Stable  
+OpenCRE: [CAPEC-94](https://opencre.org/smartlink/standard/CAPEC/94)  
 
 An adversary targets the communication between two components (typically client and server), in order to alter or obtain data from transactions. A general approach entails the adversary placing themself within the communication channel between the two components.
 

@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Low  
 Likelihood: High  
 Status: Stable  
+OpenCRE: [CAPEC-420](https://opencre.org/smartlink/standard/CAPEC/420)  
 
 The adversary leverages a perception of scarcity to persuade the target to perform an action or divulge information that is advantageous to the adversary. By conveying a perception of scarcity, or a situation of limited supply, the adversary aims to create a sense of urgency in the context of a target's decision-making process.
 

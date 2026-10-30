@@ -5,6 +5,7 @@
 Abstraction: Detailed  
 Typical severity: High  
 Status: Draft  
+OpenCRE: [CAPEC-650](https://opencre.org/smartlink/standard/CAPEC/650)  
 
 By exploiting insufficient permissions, it is possible to upload a web shell to a web server in such a way that it can be executed remotely. This shell can have various capabilities, thereby acting as a "gateway" to the underlying web server. The shell might execute at the higher permission level of the web server, providing the ability the execute malicious code at elevated levels.
 

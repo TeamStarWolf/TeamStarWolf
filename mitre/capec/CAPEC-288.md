@@ -5,6 +5,7 @@
 Abstraction: Meta  
 Typical severity: Low  
 Status: Deprecated  
+OpenCRE: [CAPEC-288](https://opencre.org/smartlink/standard/CAPEC/288)  
 
 This attack pattern has been deprecated as it is a duplicate of the existing attack pattern "CAPEC-285". Please refer to this other CAPEC going forward.
 

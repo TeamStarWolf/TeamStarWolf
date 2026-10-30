@@ -4,6 +4,7 @@
 
 Abstraction: Detailed  
 Status: Draft  
+OpenCRE: [CAPEC-626](https://opencre.org/smartlink/standard/CAPEC/626)  
 
 Attacks that reveal the password/passcode pattern on a touchscreen device by detecting oil smudges left behind by the user’s fingers.
 

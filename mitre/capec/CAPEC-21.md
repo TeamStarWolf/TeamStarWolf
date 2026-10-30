@@ -6,6 +6,7 @@ Abstraction: Meta
 Typical severity: High  
 Likelihood: High  
 Status: Stable  
+OpenCRE: [CAPEC-21](https://opencre.org/smartlink/standard/CAPEC/21)  
 
 An adversary guesses, obtains, or "rides" a trusted identifier (e.g. session ID, resource ID, cookie, etc.) to perform authorized actions under the guise of an authenticated user or service.
 

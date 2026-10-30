@@ -6,6 +6,7 @@ Abstraction: Meta
 Typical severity: Very Low  
 Likelihood: High  
 Status: Stable  
+OpenCRE: [CAPEC-224](https://opencre.org/smartlink/standard/CAPEC/224)  
 
 An adversary compares output from a target system to known indicators that uniquely identify specific details about the target. Most commonly, fingerprinting is done to determine operating system and application versions. Fingerprinting can be done passively as well as actively. Fingerprinting by itself is not usually detrimental to the target. However, the information gathered through fingerprinting often enables an adversary to discover existing weaknesses in the target.
 

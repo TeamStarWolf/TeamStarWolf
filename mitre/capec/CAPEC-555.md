@@ -5,6 +5,7 @@
 Abstraction: Standard  
 Typical severity: Very High  
 Status: Stable  
+OpenCRE: [CAPEC-555](https://opencre.org/smartlink/standard/CAPEC/555)  
 
 This pattern of attack involves an adversary that uses stolen credentials to leverage remote services such as RDP, telnet, SSH, and VNC to log into a system. Once access is gained, any number of malicious activities could be performed.
 

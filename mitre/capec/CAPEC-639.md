@@ -5,6 +5,7 @@
 Abstraction: Detailed  
 Typical severity: Medium  
 Status: Stable  
+OpenCRE: [CAPEC-639](https://opencre.org/smartlink/standard/CAPEC/639)  
 
 An adversary obtains unauthorized information due to improperly protected files. If an application stores sensitive information in a file that is not protected by proper access control, then an adversary can access the file and search for sensitive information.
 

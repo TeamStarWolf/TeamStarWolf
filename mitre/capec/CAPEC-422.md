@@ -6,6 +6,7 @@ Abstraction: Detailed
 Typical severity: Low  
 Likelihood: High  
 Status: Stable  
+OpenCRE: [CAPEC-422](https://opencre.org/smartlink/standard/CAPEC/422)  
 
 An adversary uses social engineering to convince the target to do minor tasks as opposed to larger actions. After complying with a request, individuals are more likely to agree to subsequent requests that are similar in type and required effort.
 

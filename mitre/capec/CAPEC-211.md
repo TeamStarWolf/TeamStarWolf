@@ -4,6 +4,7 @@
 
 Abstraction: Detailed  
 Status: Deprecated  
+OpenCRE: [CAPEC-211](https://opencre.org/smartlink/standard/CAPEC/211)  
 
 This attack pattern has been deprecated as it was deemed not to be a legitimate attack pattern.
 

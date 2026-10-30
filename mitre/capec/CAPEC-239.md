@@ -4,6 +4,7 @@
 
 Abstraction: Detailed  
 Status: Deprecated  
+OpenCRE: [CAPEC-239](https://opencre.org/smartlink/standard/CAPEC/239)  
 
 This attack pattern has been deprecated as it did not contain any content and did not serve any useful purpose. Please refer to "CAPEC-207: removing Important Client Functionality" going forward.
 

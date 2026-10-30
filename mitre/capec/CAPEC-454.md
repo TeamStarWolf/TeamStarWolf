@@ -4,6 +4,7 @@
 
 Abstraction: Detailed  
 Status: Deprecated  
+OpenCRE: [CAPEC-454](https://opencre.org/smartlink/standard/CAPEC/454)  
 
 This attack pattern has been deprecated as it is a duplicate of CAPEC-452 : Malicious Logic Insertion into Product Hardware. Please refer to this other pattern going forward.
 

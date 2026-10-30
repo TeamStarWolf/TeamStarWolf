@@ -4,6 +4,7 @@
 
 Abstraction: Standard  
 Status: Deprecated  
+OpenCRE: [CAPEC-259](https://opencre.org/smartlink/standard/CAPEC/259)  
 
 This attack pattern has been deprecated as it is a duplicate of the existing attack pattern "CAPEC-65 : Sniff Application Code". Please refer to this other CAPEC going forward.
 

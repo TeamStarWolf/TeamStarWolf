@@ -2,6 +2,8 @@
 
 One page per CAPEC pattern, mapped to ATT&CK techniques and CWE.
 
+Each page links to the pattern on [OpenCRE](https://opencre.org/), the OWASP project that links security standards through common requirements, so a pattern can be followed to requirements and guidance such as OWASP ASVS and the OWASP Cheat Sheets. OpenCRE reaches CAPEC patterns through their related CWE entries, and the link opens the pattern on the MITRE CAPEC site when OpenCRE has no links for it ([how the link resolves](https://github.com/OWASP/OpenCRE/blob/cbf22e06071c69b62f1b3c50c38015da1640e54e/application/web/web_main.py#L757-L837)).
+
 
 ## Very High severity (59)
 

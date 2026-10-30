@@ -5,6 +5,7 @@
 Abstraction: Standard  
 Typical severity: High  
 Status: Stable  
+OpenCRE: [CAPEC-610](https://opencre.org/smartlink/standard/CAPEC/610)  
 
 Adversaries inject data into mobile technology traffic (data flows or signaling data) to disrupt communications or conduct additional surveillance operations.
 

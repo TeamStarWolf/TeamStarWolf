@@ -292,7 +292,7 @@
     },
     {
       "name": "generated_by",
-      "value": "Codex Task 1 per Claude Code handoff"
+      "value": "scripts/build_navigator_layers.py"
     },
     {
       "name": "attack_version",

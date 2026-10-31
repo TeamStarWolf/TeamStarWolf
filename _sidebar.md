@@ -73,6 +73,7 @@
   - [Programming paradigms](/paradigms/README.md)
   - [Software frameworks](/frameworks/README.md)
   - [Command reference](/commands/README.md)
+  - [Data formats and regex](/formats/README.md)
 
 ---
 

@@ -72,7 +72,8 @@
       ["All languages", "/languages/README.md"],
       ["Programming paradigms", "/paradigms/README.md"],
       ["Software frameworks", "/frameworks/README.md"],
-      ["Command reference", "/commands/README.md"]
+      ["Command reference", "/commands/README.md"],
+      ["Data formats and regex", "/formats/README.md"]
     ]},
     {"label": "Case studies and research", "links": [
       ["Case studies", "/case-studies/README.md"],
@@ -105,7 +106,8 @@
     {"folder": "languages", "label": "Programming languages", "landing": "languages/README.md"},
     {"folder": "paradigms", "label": "Programming paradigms", "landing": "paradigms/README.md"},
     {"folder": "frameworks", "label": "Software frameworks", "landing": "frameworks/README.md"},
-    {"folder": "commands", "label": "Command reference", "landing": "commands/README.md"}
+    {"folder": "commands", "label": "Command reference", "landing": "commands/README.md"},
+    {"folder": "formats", "label": "Data formats", "landing": "formats/README.md"}
   ],
   "crumb_parents": {
     "guides/": ["How-to guides", "/guides/README.md"],
@@ -122,7 +124,8 @@
     "languages/": ["Programming languages", "/languages/README.md"],
     "paradigms/": ["Programming paradigms", "/paradigms/README.md"],
     "frameworks/": ["Software frameworks", "/frameworks/README.md"],
-    "commands/": ["Command reference", "/commands/README.md"]
+    "commands/": ["Command reference", "/commands/README.md"],
+    "formats/": ["Data formats", "/formats/README.md"]
   },
   "not_in_nav": {
     "README.md": "The GitHub front door. On the site, HOME.md is the homepage at '/' and covers the same ground."

@@ -70,7 +70,8 @@
     ]},
     {"label": "Programming languages", "links": [
       ["All languages", "/languages/README.md"],
-      ["Programming paradigms", "/paradigms/README.md"]
+      ["Programming paradigms", "/paradigms/README.md"],
+      ["Software frameworks", "/frameworks/README.md"]
     ]},
     {"label": "Case studies and research", "links": [
       ["Case studies", "/case-studies/README.md"],
@@ -101,7 +102,8 @@
     {"folder": "mitre", "label": "Frameworks", "fixed": "Frameworks",
      "lead": [["Overview", "/mitre/README.md"]]},
     {"folder": "languages", "label": "Programming languages", "landing": "languages/README.md"},
-    {"folder": "paradigms", "label": "Programming paradigms", "landing": "paradigms/README.md"}
+    {"folder": "paradigms", "label": "Programming paradigms", "landing": "paradigms/README.md"},
+    {"folder": "frameworks", "label": "Software frameworks", "landing": "frameworks/README.md"}
   ],
   "crumb_parents": {
     "guides/": ["How-to guides", "/guides/README.md"],
@@ -116,7 +118,8 @@
     "detections/": ["Detections", "/detections/README.md"],
     "hubs/": ["Domains", "/hubs/README.md"],
     "languages/": ["Programming languages", "/languages/README.md"],
-    "paradigms/": ["Programming paradigms", "/paradigms/README.md"]
+    "paradigms/": ["Programming paradigms", "/paradigms/README.md"],
+    "frameworks/": ["Software frameworks", "/frameworks/README.md"]
   },
   "not_in_nav": {
     "README.md": "The GitHub front door. On the site, HOME.md is the homepage at '/' and covers the same ground."

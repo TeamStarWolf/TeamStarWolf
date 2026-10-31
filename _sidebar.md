@@ -71,6 +71,7 @@
 - Programming languages
   - [All languages](/languages/README.md)
   - [Programming paradigms](/paradigms/README.md)
+  - [Software frameworks](/frameworks/README.md)
 
 ---
 

@@ -158,6 +158,7 @@
 | [Resources](RESOURCES.md) | Books, courses, YouTube channels, podcasts, CTF platforms, and communities |
 | [Reverse Engineering Reference](REVERSE_ENGINEERING_REFERENCE.md) | x86, x86-64, AArch32, AArch64, MIPS, RISC-V, and PowerPC; Ghidra/IDA/Binary Ninja; firmware and malware RE |
 | [SaaS Security Reference](SAAS_SECURITY_REFERENCE.md) | OAuth consent abuse, token theft, shadow SaaS, Midnight Blizzard/Storm-0558/Okta case studies, CISA SCuBA (ScubaGear/ScubaGoggles), SSPM, M365/GWS/Salesforce/GitHub hardening |
+| [Scanner Platforms and Findings Catalog](SCANNER_PLATFORMS_REFERENCE.md) | How enterprise scanners (Tenable, Qualys, Rapid7, Wiz, Defender VM, CrowdStrike, Snyk, Invicti, Nessus) are deployed, their finding and severity taxonomies, a cross-scanner catalog of finding types, and where findings land in ServiceNow Vulnerability Response |
 | [SDR & RF Security Reference](SDR_RF_SECURITY_REFERENCE.md) | Software-Defined Radio and RF security: HackRF/RTL-SDR, GNU Radio, GSM/LTE/Bluetooth/Zigbee/P25 analysis, TEMPEST |
 | [Secrets Management Reference](SECRETS_MANAGEMENT_REFERENCE.md) | HashiCorp Vault, CyberArk Conjur, secret detection (gitleaks/ggshield/TruffleHog), cloud-native secrets, PKI/SSH, CI/CD OIDC |
 | [Secure Coding Reference](SECURE_CODING_REFERENCE.md) | OWASP Top 10 (2021), input validation, cryptography in code, SAST/DAST, and quick guides for Python, JavaScript, TypeScript, Java, Kotlin, C#, Go, Rust, C, C++, PHP, Ruby, Swift, and PowerShell |

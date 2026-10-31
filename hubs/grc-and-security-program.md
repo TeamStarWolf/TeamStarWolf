@@ -4,7 +4,7 @@
 
 > Running a security program: governance, risk, compliance, architecture and controls, vulnerability and exposure management, careers, and reading lists.
 
-Part of the [domain hubs](/hubs/README.md). 35 reference documents in this domain; reading time is the page's words at 230 words a minute.
+Part of the [domain hubs](/hubs/README.md). 36 reference documents in this domain; reading time is the page's words at 230 words a minute.
 
 ## Governance, risk, and compliance
 
@@ -35,6 +35,7 @@ Part of the [domain hubs](/hubs/README.md). 35 reference documents in this domai
 |---|---|---|
 | [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md) | CVSS v3.1/v4.0 scoring, EPSS prioritization, CISA KEV, scanning tools, patch management, and program KPIs | 12 min |
 | [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md) | SSVC decision models (CERT/CC trees, CISA Track/Track*/Attend/Act), KEV semantics and BOD 26-04 timelines, EPSS probability vs percentile, Vulnrichment, CSAF/VEX/OpenVEX, CTID KEV->ATT&CK mappings, SLA policy design | 23 min |
+| [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md) | How enterprise scanners (Tenable, Qualys, Rapid7, Wiz, Defender VM, CrowdStrike, Snyk, Invicti, Nessus) are deployed, their finding and severity taxonomies, a cross-scanner catalog of finding types, and where findings land in ServiceNow Vulnerability Response | 8 min |
 | [CTEM Reference](/CTEM_REFERENCE.md) | Continuous Threat Exposure Management: Gartner's 5-stage loop in operational depth, attack-path/choke-point analysis, the EASM/CAASM/BAS->AEV/EAP category taxonomy, validation governance, maturity, failure modes, metrics, and a 90-day plan | 34 min |
 | [CVE Reference](/CVE_REFERENCE.md) | CVE program, CVSS v3.1/v4.0, EPSS scoring, CISA KEV catalog, vulnerability databases, patch prioritization | 20 min |
 | [CPE Reference](/CPE_REFERENCE.md) | Common Platform Enumeration: the CPE 2.3 name, part a/o/h, NVD dictionary, CVE CPE applicability/match ranges, and CPE's role in vuln-mgmt / SBOM / CTEM | 4 min |

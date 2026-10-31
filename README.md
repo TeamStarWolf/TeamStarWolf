@@ -34,7 +34,7 @@ New here? [How to use this library](guides/HOW_TO_USE_THIS_LIBRARY.md) shows wha
 <!-- stats:start (written by scripts/build_stats.py; do not edit) -->
 | What | Count | Contents | Start at |
 |---|---:|---|---|
-| Reference documents | 155 | One topic each: its terms, tooling, and the frameworks and guidance that apply | [Reference index](INDEX.md) |
+| Reference documents | 156 | One topic each: its terms, tooling, and the frameworks and guidance that apply | [Reference index](INDEX.md) |
 | How-to guides | 21 | One task, step by step, with the time it takes, what you need, and what you produce | [Guides](guides/README.md) |
 | Learning paths | 47 | An order of study for one discipline, with training, tools, books, and certifications | [Learning paths](disciplines/README.md) |
 | Framework pages | 2,930 | One page per Enterprise ATT&CK technique, tactic, group, software entry, campaign, and mitigation, CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, and F3 technique | [Framework pages](mitre/README.md) |

@@ -1147,6 +1147,14 @@ pages:
     start_at: "[The SaaS threat surface](#the-saas-threat-surface) for the five threat classes, [Case studies from public advisories](#case-studies-from-public-advisories) for the incidents that motivate every control, [Hardening checklists by platform](#hardening-checklists-by-platform) to act today"
     learning_path: []
     reviewed: null
+  SCANNER_PLATFORMS_REFERENCE.md:
+    audience: "Vulnerability management analysts reconciling output from several scanners into one remediation queue"
+    level: "Intermediate"
+    read_when: "You need to know how a given scanner is deployed and what its findings mean, you are mapping findings from several platforms onto one asset, or you need to see where scanner output lands in ServiceNow Vulnerability Response"
+    start_at: "[Platform catalog](#platform-catalog), [A cross-scanner findings catalog](#a-cross-scanner-findings-catalog), [Where findings land in ServiceNow](#where-findings-land-in-servicenow)"
+    pairs_with: "[Vulnerability Management Reference](VULNERABILITY_MANAGEMENT_REFERENCE.md), [Vulnerability Prioritization Reference](VULNERABILITY_PRIORITIZATION_REFERENCE.md), [CTEM Reference](CTEM_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
   SDR_RF_SECURITY_REFERENCE.md:
     audience: "RF security researchers, wireless penetration testers, and hardware hackers"
     level: "Intermediate to advanced"

@@ -68,10 +68,11 @@
 
 ---
 
-- Programming languages
+- Developer reference
   - [All languages](/languages/README.md)
   - [Programming paradigms](/paradigms/README.md)
   - [Software frameworks](/frameworks/README.md)
+  - [Command reference](/commands/README.md)
 
 ---
 

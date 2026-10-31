@@ -68,10 +68,11 @@
       ["AI tooling", "/ai-tooling/README.md"],
       ["Tools research", "/tools-research/README.md"]
     ]},
-    {"label": "Programming languages", "links": [
+    {"label": "Developer reference", "links": [
       ["All languages", "/languages/README.md"],
       ["Programming paradigms", "/paradigms/README.md"],
-      ["Software frameworks", "/frameworks/README.md"]
+      ["Software frameworks", "/frameworks/README.md"],
+      ["Command reference", "/commands/README.md"]
     ]},
     {"label": "Case studies and research", "links": [
       ["Case studies", "/case-studies/README.md"],
@@ -103,7 +104,8 @@
      "lead": [["Overview", "/mitre/README.md"]]},
     {"folder": "languages", "label": "Programming languages", "landing": "languages/README.md"},
     {"folder": "paradigms", "label": "Programming paradigms", "landing": "paradigms/README.md"},
-    {"folder": "frameworks", "label": "Software frameworks", "landing": "frameworks/README.md"}
+    {"folder": "frameworks", "label": "Software frameworks", "landing": "frameworks/README.md"},
+    {"folder": "commands", "label": "Command reference", "landing": "commands/README.md"}
   ],
   "crumb_parents": {
     "guides/": ["How-to guides", "/guides/README.md"],
@@ -119,7 +121,8 @@
     "hubs/": ["Domains", "/hubs/README.md"],
     "languages/": ["Programming languages", "/languages/README.md"],
     "paradigms/": ["Programming paradigms", "/paradigms/README.md"],
-    "frameworks/": ["Software frameworks", "/frameworks/README.md"]
+    "frameworks/": ["Software frameworks", "/frameworks/README.md"],
+    "commands/": ["Command reference", "/commands/README.md"]
   },
   "not_in_nav": {
     "README.md": "The GitHub front door. On the site, HOME.md is the homepage at '/' and covers the same ground."

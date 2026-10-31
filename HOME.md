@@ -75,7 +75,7 @@
 
 <!-- stats:start (written by scripts/build_stats.py; do not edit) -->
 <div class="tsw-counts">
-  <a class="tsw-count" href="#/INDEX"><span class="tsw-count-n">162</span> <span class="tsw-count-l">Reference documents</span> <span class="tsw-count-d">One topic each: its terms, tooling, and the frameworks and guidance that apply</span></a>
+  <a class="tsw-count" href="#/INDEX"><span class="tsw-count-n">164</span> <span class="tsw-count-l">Reference documents</span> <span class="tsw-count-d">One topic each: its terms, tooling, and the frameworks and guidance that apply</span></a>
   <a class="tsw-count" href="#/guides/README"><span class="tsw-count-n">21</span> <span class="tsw-count-l">How-to guides</span> <span class="tsw-count-d">One task, step by step, with the time it takes, what you need, and what you produce</span></a>
   <a class="tsw-count" href="#/disciplines/README"><span class="tsw-count-n">47</span> <span class="tsw-count-l">Learning paths</span> <span class="tsw-count-d">An order of study for one discipline, with training, tools, books, and certifications</span></a>
   <a class="tsw-count" href="#/mitre/README"><span class="tsw-count-n">2,930</span> <span class="tsw-count-l">Framework pages</span> <span class="tsw-count-d">One page per Enterprise ATT&amp;CK technique, tactic, group, software entry, campaign, and mitigation, CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, and F3 technique</span></a>

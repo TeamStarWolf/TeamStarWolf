@@ -17,7 +17,7 @@
 | [Identity and data protection](/hubs/identity-and-data-protection.md) | Identity and access, Active Directory, passwords, zero trust, cryptography, and protecting and governing data. | 11 |
 | [AI and emerging tech](/hubs/ai-and-emerging-tech.md) | Securing AI and machine learning systems, attacks on and with AI, synthetic media, and blockchain. | 9 |
 | [ICS, OT, and hardware](/hubs/ics-ot-and-hardware.md) | Industrial control systems, embedded and IoT devices, hardware, vehicles, space systems, and physical security. | 9 |
-| [GRC and security program](/hubs/grc-and-security-program.md) | Running a security program: governance, risk, compliance, architecture and controls, vulnerability and exposure management, careers, and reading lists. | 37 |
+| [GRC and security program](/hubs/grc-and-security-program.md) | Running a security program: governance, risk, compliance, architecture and controls, vulnerability and exposure management, careers, and reading lists. | 39 |
 
 Every reference A to Z: the [reference index](/INDEX.md). The framework objects that have a page, in one filterable table: [Explore](/explore.md).
 

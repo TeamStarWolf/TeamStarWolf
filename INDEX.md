@@ -80,6 +80,7 @@
 | [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md) | Every OS, server role, and network component encountered in enterprise environments, with security context and ATT&CK relevance |
 | [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md) | Vendor-specific config, policy tuning, and detection guidance for major enterprise security platforms |
 | [Enterprise Security Pipeline](SECURITY_PIPELINE.md) | End-to-end security lifecycle with vendor mapping across all 6 stages |
+| [Enterprise Technology Inventory](ENTERPRISE_TECHNOLOGY_INVENTORY.md) | The enterprise technologies a security program inventories and protects, by domain, with a common inventory data model for vulnerability and asset management |
 | [Explore the Frameworks](explore.md) | Every ATT&CK technique, group, software entry, campaign and mitigation, CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, and F3 technique that has a page, in one table filterable by kind, tactic, platform, software type and CAPEC severity, with aliases and connection counts |
 | [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md) | Buffer overflows, ROP chains, heap exploitation, format strings, shellcode, pwntools, Windows exploit dev, CTF resources |
 | [Field Notes](research/FIELD_NOTES.md) | Writeups and lessons learned from building, reviewing, and hardening projects in public: what changed, what it surfaced, and what may help others doing similar work |
@@ -173,6 +174,7 @@
 | [Security Gadgets Reference](SECURITY_GADGETS_REFERENCE.md) | Hak5 ecosystem, HackRF/Ubertooth, Samy Kamkar tools, Flipper Zero, Pi-hole, Meshtastic/LoRa, Proxmark3, Alfa/GL.iNet |
 | [Security Glossary](GLOSSARY.md) | 100+ cybersecurity terms, acronyms, and definitions from APT to ZTNA |
 | [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md) | SOC KPIs, vulnerability management SLAs, detection coverage scoring, risk metrics, and executive reporting frameworks |
+| [Security Tools Catalog](SECURITY_TOOLS_CATALOG.md) | A map of the security tool landscape by category, the named tools in each, and where the library covers them in depth |
 | [Security Tool Documentation](SECURITY_TOOL_DOCUMENTATION.md) | Index of official documentation, API docs, GitHub repositories, and learning resources for a representative enterprise security stack |
 | [Security Tools Reference](TOOLS.md) | Quick-reference matrices of 100+ security tools organized by category with OSS/commercial tags |
 | [ServiceNow USEM with Tenable and Wiz](tools-research/SERVICENOW_USEM_TENABLE_WIZ.md) | Tools Research: ServiceNow Unified Security Exposure Management reviewed against official docs (Brazil): data model, risk scoring, Tenable and Wiz integration paths, deduplication, migration, licensing |

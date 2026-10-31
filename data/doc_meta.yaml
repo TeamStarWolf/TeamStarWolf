@@ -450,6 +450,22 @@ pages:
     corrected: "pr56-audit-fixes"
     corrected_what: "TLS 1.3 cipher-suite requirement and the list of hashes open to length extension corrected"
     reviewed: null
+  SECURITY_TOOLS_CATALOG.md:
+    audience: "Security engineers and analysts orienting across the tool landscape or planning a lab"
+    level: "Beginner to intermediate"
+    read_when: "You need to find the tools in a security category, you are planning a lab or toolchain, or you want to see which tools the library covers in depth"
+    start_at: "[Tool categories](#tool-categories), [Core enterprise security stack](#core-enterprise-security-stack), [Where the library goes deeper](#where-the-library-goes-deeper)"
+    pairs_with: "[Security platforms](platforms/README.md), [Command reference](commands/README.md), [Enterprise Technology Inventory](ENTERPRISE_TECHNOLOGY_INVENTORY.md)"
+    learning_path: []
+    reviewed: null
+  ENTERPRISE_TECHNOLOGY_INVENTORY.md:
+    audience: "Vulnerability management, asset management, and security teams inventorying the estate"
+    level: "Beginner to intermediate"
+    read_when: "You are building an asset inventory, you are scoping what a vulnerability program must cover, or you need to map enterprise technologies to owners and vulnerability sources"
+    start_at: "[The common inventory data model](#the-common-inventory-data-model), [Infrastructure and computing](#infrastructure-and-computing), [Using this for vulnerability management](#using-this-for-vulnerability-management)"
+    pairs_with: "[Security Tools Catalog](SECURITY_TOOLS_CATALOG.md), [Databases](databases/README.md), [Vulnerability Management Reference](VULNERABILITY_MANAGEMENT_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
   IT_DOMAINS_REFERENCE.md:
     audience: "Learners, lab builders, and anyone orienting across the IT and security landscape"
     level: "Beginner"

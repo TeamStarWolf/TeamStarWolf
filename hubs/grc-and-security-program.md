@@ -4,7 +4,7 @@
 
 > Running a security program: governance, risk, compliance, architecture and controls, vulnerability and exposure management, careers, and reading lists.
 
-Part of the [domain hubs](/hubs/README.md). 37 reference documents in this domain; reading time is the page's words at 230 words a minute.
+Part of the [domain hubs](/hubs/README.md). 39 reference documents in this domain; reading time is the page's words at 230 words a minute.
 
 ## Governance, risk, and compliance
 
@@ -67,6 +67,8 @@ Part of the [domain hubs](/hubs/README.md). 37 reference documents in this domai
 | [Open Source Toolkit](/OPEN_SOURCE_TOOLKIT.md) | Open source security tools and bookmarks, organized by category and discipline | Lookup page (13 min end to end) |
 | [Security Tools Reference](/TOOLS.md) | Quick-reference matrices of 100+ security tools organized by category with OSS/commercial tags | Lookup page (14 min end to end) |
 | [Security Tool Documentation](/SECURITY_TOOL_DOCUMENTATION.md) | Index of official documentation, API docs, GitHub repositories, and learning resources for a representative enterprise security stack | 21 min |
+| [Security Tools Catalog](/SECURITY_TOOLS_CATALOG.md) | A map of the security tool landscape by category, the named tools in each, and where the library covers them in depth | 7 min |
+| [Enterprise Technology Inventory](/ENTERPRISE_TECHNOLOGY_INVENTORY.md) | The enterprise technologies a security program inventories and protects, by domain, with a common inventory data model for vulnerability and asset management | 6 min |
 
 ## Learning paths
 

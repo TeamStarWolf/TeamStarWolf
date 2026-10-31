@@ -4,7 +4,7 @@
 
 > Network fundamentals, protocols, architecture, edge devices, packet analysis, and wireless, RF, and telecom security.
 
-Part of the [domain hubs](/hubs/README.md). 10 reference documents in this domain; reading time is the page's words at 230 words a minute.
+Part of the [domain hubs](/hubs/README.md). 11 reference documents in this domain; reading time is the page's words at 230 words a minute.
 
 ## References
 
@@ -16,6 +16,7 @@ Part of the [domain hubs](/hubs/README.md). 10 reference documents in this domai
 | [Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md) | DMZ design, VLAN segmentation, firewall policy, IDS/IPS placement, NAC/802.1X, DDoS protection, and network monitoring | 15 min |
 | [Networking Architecture Reference](/NETWORKING_ARCHITECTURE_REFERENCE.md) | Designing enterprise networks across campus, branch, data center and cloud: addressing plans, fabrics, segmentation, and trust boundaries | 19 min |
 | [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md) | BOD 23-02 management-interface isolation, BOD 26-04 KEV patch tiers, 2023-2026 edge exploitation record, Feb 2025 joint edge-device guidance, appliance integrity checking and forensic readiness, egress monitoring | 25 min |
+| [Internet-Facing Services and External Exposure](/INTERNET_FACING_SERVICES_REFERENCE.md) | The services enterprises expose externally (SMB, RDP, databases, HTTP/S, SMTP, DNS, SSH, FTP, web servers, load balancers, edge appliances): why each is risky when reachable, how to discover external exposure, and how to harden and reduce the attack surface | 5 min |
 | [Packet Analysis Reference](/PACKET_ANALYSIS_REFERENCE.md) | Wireshark display filters, tcpdump BPF syntax, Zeek logs and scripting, JA3 fingerprinting, and attack pattern detection in pcaps | 9 min |
 | [Wireless Security Reference](/WIRELESS_SECURITY_REFERENCE.md) | WiFi attacks (WPA2/WPA3, evil twin, PMKID), Bluetooth, SDR, RFID/NFC, and enterprise wireless hardening | 30 min |
 | [SDR & RF Security Reference](/SDR_RF_SECURITY_REFERENCE.md) | Software-Defined Radio and RF security: HackRF/RTL-SDR, GNU Radio, GSM/LTE/Bluetooth/Zigbee/P25 analysis, TEMPEST | 19 min |

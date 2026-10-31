@@ -810,6 +810,14 @@ pages:
     start_at: "[The CTID Insider Threat TTP Knowledge Base](#the-ctid-insider-threat-ttp-knowledge-base), [Detection approaches](#detection-approaches), [A 90-day starting plan](#a-90-day-starting-plan)"
     learning_path: []
     reviewed: null
+  INTERNET_FACING_SERVICES_REFERENCE.md:
+    audience: "Vulnerability management and network security analysts who own the external attack surface"
+    level: "Intermediate"
+    read_when: "You need to decide what should be reachable from the internet before deciding what to patch, you are hunting exposed management or database services, or you are prioritizing internet-facing appliance findings"
+    start_at: "[How to find your external exposure](#how-to-find-your-external-exposure), [Services that should rarely be internet-facing](#services-that-should-rarely-be-internet-facing), [Hardening and reducing attack surface](#hardening-and-reducing-attack-surface)"
+    pairs_with: "[Scanner Platforms and Findings Catalog](SCANNER_PLATFORMS_REFERENCE.md), [Edge Device Security Reference](EDGE_DEVICE_SECURITY_REFERENCE.md), [Network Defense Reference](NETWORK_DEFENSE_REFERENCE.md), [CTEM Reference](CTEM_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
   INTERVIEW_PREP.md:
     audience: "Candidates preparing for security job interviews"
     level: "Beginner to intermediate"

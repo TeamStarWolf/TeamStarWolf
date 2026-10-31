@@ -10,7 +10,7 @@
 | [Detection and response](/hubs/detection-and-response.md) | Collecting telemetry, writing and tuning detections, hunting, and responding to and investigating incidents. | 24 |
 | [Threat intelligence and adversaries](/hubs/threat-intelligence.md) | Who attacks, with what, and how: intelligence practice, threat reporting, groups, malware, incidents, and OSINT. | 7 |
 | [Offensive security](/hubs/offensive-security.md) | Penetration testing, red and purple teaming, exploitation, and the attack techniques defenders need to understand. | 13 |
-| [Network security](/hubs/network-security.md) | Network fundamentals, protocols, architecture, edge devices, packet analysis, and wireless, RF, and telecom security. | 10 |
+| [Network security](/hubs/network-security.md) | Network fundamentals, protocols, architecture, edge devices, packet analysis, and wireless, RF, and telecom security. | 11 |
 | [Cloud and infrastructure](/hubs/cloud-and-infrastructure.md) | Securing cloud platforms, SaaS, containers, Kubernetes, and the virtualization layer under them. | 8 |
 | [Platform hardening](/hubs/platform-hardening.md) | Baselines and hardening for Windows, Linux, macOS, and mobile devices. | 6 |
 | [Application and supply chain security](/hubs/application-and-supply-chain.md) | Secure coding, web, API, and browser security, threat modeling, DevSecOps, the software supply chain, and secrets. | 9 |

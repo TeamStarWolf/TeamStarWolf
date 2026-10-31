@@ -8,6 +8,12 @@ Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Applicatio
 
 ---
 
+## Foundations
+
+| Topic | Summary |
+|---|---|
+| [Programming paradigms](/languages/programming-paradigms.md) | How programs are organized: imperative and declarative, procedural, object-oriented (in depth), functional, logic, reactive, and concurrent paradigms, and how to mix them |
+
 ## Systems and low-level
 
 | Language | Summary |

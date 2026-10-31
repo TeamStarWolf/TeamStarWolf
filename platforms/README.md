@@ -46,6 +46,7 @@ Related: [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.m
 | [Cisco Secure Access](/platforms/cisco-secure-access.md) | Cisco's security service edge with ZTNA, SWG, CASB, and DNS-layer security |
 | [Forcepoint](/platforms/forcepoint.md) | Data-first security: security service edge and data loss prevention |
 | [Fortinet](/platforms/fortinet.md) | The Security Fabric: FortiGate firewall, FortiNDR, and analytics |
+| [Akamai](/platforms/akamai.md) | Edge platform with a web application and API firewall, bot and DDoS protection, and segmentation |
 
 ## Firewalls and network appliances
 
@@ -71,6 +72,7 @@ Related: [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.m
 | [Snyk](/platforms/snyk.md) | Developer-first SCA, SAST, container, and IaC security |
 | [Invicti](/platforms/invicti.md) | Proof-based dynamic and interactive application security testing |
 | [HackerOne](/platforms/hackerone.md) | Bug bounty, vulnerability disclosure, and pentest-as-a-service |
+| [Chainguard](/platforms/chainguard.md) | Secure-by-default minimal container images and a hardened Wolfi base that cut image vulnerabilities |
 
 ## Backup, recovery, and cyber resilience
 

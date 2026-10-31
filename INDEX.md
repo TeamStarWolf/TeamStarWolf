@@ -20,6 +20,7 @@
 | [AI Tooling](ai-tooling/README.md) | Practical guide to AI tools and LLMs: a grouped index of tools, a one-page manual for each, a learning path, and hands-on labs |
 | [AI Tools and LLMs Index](ai-tooling/AI_TOOLS_INDEX.md) | AI Tooling: tools and model platforms grouped by category, each with license, official docs, repository, and a manual covering quick start and security notes |
 | [API Security Reference](API_SECURITY_REFERENCE.md) | OWASP API Top 10, REST and GraphQL attack techniques, JWT attacks, SSRF, BOLA/BFLA, and API security testing methodology |
+| [Application Security Testing](APPSEC_TESTING_REFERENCE.md) | SAST, DAST, IAST, SCA, SBOM, and secrets scanning: what each finds and misses, where each fits in the SDLC and CI/CD, how to choose and combine them, and where application findings are consolidated |
 | [Architecture Reference (General)](ARCHITECTURE_REFERENCE.md) | Enterprise and solution architecture: the four architecture domains, frameworks, quality attributes, and how to record architecture decisions |
 | [ATT&CK Campaigns Reference](ATTACK_CAMPAIGNS_REFERENCE.md) | 56 MITRE ATT&CK intrusion campaigns with active windows, techniques, software, and group attribution |
 | [ATT&CK Data Components & Log Sources](ATTACK_DATA_COMPONENTS.md) | 106 telemetry categories mapped to the techniques they detect, with concrete log sources and channels |

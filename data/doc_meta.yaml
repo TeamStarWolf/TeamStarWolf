@@ -194,6 +194,14 @@ pages:
     pairs_with: "[Web Application Security Reference](WEB_APPLICATION_SECURITY_REFERENCE.md), [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md), [Identity & Access Management Reference](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [DevSecOps Reference](DEVSECOPS_REFERENCE.md)"
     learning_path: []
     reviewed: null
+  APPSEC_TESTING_REFERENCE.md:
+    audience: "Application security and vulnerability management analysts combining code, dependency, and running-application testing"
+    level: "Intermediate"
+    read_when: "You need to know what SAST, DAST, IAST, SCA, and SBOM each find and miss, you are deciding which methods to gate a pipeline on, or you are consolidating application findings alongside infrastructure findings"
+    start_at: "[The testing methods at a glance](#the-testing-methods-at-a-glance), [Choosing and combining methods](#choosing-and-combining-methods), [Where these fit in the SDLC](#where-these-fit-in-the-sdlc)"
+    pairs_with: "[Secure Coding Reference](SECURE_CODING_REFERENCE.md), [Web Application Security Reference](WEB_APPLICATION_SECURITY_REFERENCE.md), [DevSecOps Reference](DEVSECOPS_REFERENCE.md), [Scanner Platforms and Findings Catalog](SCANNER_PLATFORMS_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
   ARCHITECTURE_REFERENCE.md:
     audience: "Solution and enterprise architects, and security reviewers who assess system designs"
     level: "Intermediate"

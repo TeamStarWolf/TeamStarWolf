@@ -4,7 +4,7 @@
 
 > Secure coding, web, API, and browser security, threat modeling, DevSecOps, the software supply chain, and secrets.
 
-Part of the [domain hubs](/hubs/README.md). 8 reference documents in this domain; reading time is the page's words at 230 words a minute.
+Part of the [domain hubs](/hubs/README.md). 9 reference documents in this domain; reading time is the page's words at 230 words a minute.
 
 ## References
 
@@ -18,6 +18,7 @@ Part of the [domain hubs](/hubs/README.md). 8 reference documents in this domain
 | [DevSecOps Reference](/DEVSECOPS_REFERENCE.md) | SAST/DAST/SCA tools, GitHub Actions security, Semgrep/CodeQL/Trivy/Snyk, secrets detection, IaC scanning, pipeline security gates | 19 min |
 | [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md) | SBOM (CycloneDX/SPDX), Sigstore/cosign, SLSA framework, dependency security, CI/CD pipeline hardening, malicious package detection, OSS risk management | 24 min |
 | [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md) | HashiCorp Vault, CyberArk Conjur, secret detection (gitleaks/ggshield/TruffleHog), cloud-native secrets, PKI/SSH, CI/CD OIDC | 17 min |
+| [Application Security Testing](/APPSEC_TESTING_REFERENCE.md) | SAST, DAST, IAST, SCA, SBOM, and secrets scanning: what each finds and misses, where each fits in the SDLC and CI/CD, how to choose and combine them, and where application findings are consolidated | 6 min |
 
 ## Learning paths
 

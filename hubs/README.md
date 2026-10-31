@@ -13,7 +13,7 @@
 | [Network security](/hubs/network-security.md) | Network fundamentals, protocols, architecture, edge devices, packet analysis, and wireless, RF, and telecom security. | 10 |
 | [Cloud and infrastructure](/hubs/cloud-and-infrastructure.md) | Securing cloud platforms, SaaS, containers, Kubernetes, and the virtualization layer under them. | 8 |
 | [Platform hardening](/hubs/platform-hardening.md) | Baselines and hardening for Windows, Linux, macOS, and mobile devices. | 6 |
-| [Application and supply chain security](/hubs/application-and-supply-chain.md) | Secure coding, web, API, and browser security, threat modeling, DevSecOps, the software supply chain, and secrets. | 8 |
+| [Application and supply chain security](/hubs/application-and-supply-chain.md) | Secure coding, web, API, and browser security, threat modeling, DevSecOps, the software supply chain, and secrets. | 9 |
 | [Identity and data protection](/hubs/identity-and-data-protection.md) | Identity and access, Active Directory, passwords, zero trust, cryptography, and protecting and governing data. | 10 |
 | [AI and emerging tech](/hubs/ai-and-emerging-tech.md) | Securing AI and machine learning systems, attacks on and with AI, synthetic media, and blockchain. | 9 |
 | [ICS, OT, and hardware](/hubs/ics-ot-and-hardware.md) | Industrial control systems, embedded and IoT devices, hardware, vehicles, space systems, and physical security. | 9 |

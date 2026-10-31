@@ -68,6 +68,9 @@
       ["AI tooling", "/ai-tooling/README.md"],
       ["Tools research", "/tools-research/README.md"]
     ]},
+    {"label": "Programming languages", "links": [
+      ["All languages", "/languages/README.md"]
+    ]},
     {"label": "Case studies and research", "links": [
       ["Case studies", "/case-studies/README.md"],
       ["Research notes", "/research/README.md"]
@@ -95,7 +98,8 @@
               ["All tool manuals", "/ai-tooling/tools/README.md"]],
      "sub": {"folder": "ai-tooling/tools", "label": "Tool manuals", "landing": "ai-tooling/tools/README.md"}},
     {"folder": "mitre", "label": "Frameworks", "fixed": "Frameworks",
-     "lead": [["Overview", "/mitre/README.md"]]}
+     "lead": [["Overview", "/mitre/README.md"]]},
+    {"folder": "languages", "label": "Programming languages", "landing": "languages/README.md"}
   ],
   "crumb_parents": {
     "guides/": ["How-to guides", "/guides/README.md"],
@@ -108,7 +112,8 @@
     "research/": ["Research notes", "/research/README.md"],
     "data/": ["Data and edges", "/data/README.md"],
     "detections/": ["Detections", "/detections/README.md"],
-    "hubs/": ["Domains", "/hubs/README.md"]
+    "hubs/": ["Domains", "/hubs/README.md"],
+    "languages/": ["Programming languages", "/languages/README.md"]
   },
   "not_in_nav": {
     "README.md": "The GitHub front door. On the site, HOME.md is the homepage at '/' and covers the same ground."

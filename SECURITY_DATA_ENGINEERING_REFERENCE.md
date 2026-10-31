@@ -21,7 +21,7 @@ Intermediate to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 32 min (7,283 words at 230 words a minute)
+About 32 min (7,287 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -503,7 +503,7 @@ Don't
 
 The question "which logs do we actually need?" has an authoritative, vendor-neutral answer layer: ATT&CK data components. This repo carries the full map in [ATT&CK Data Components & Log Sources](ATTACK_DATA_COMPONENTS.md): telemetry categories cross-referenced to the techniques they detect, with concrete log sources and channels.
 
-Version discipline first. ATT&CK v18 (October 28, 2025) rebuilt the detection model: technique-level detection text was replaced by two new object types, Detection Strategies (691 Enterprise / 124 Mobile / 83 ICS per the v18 release notes) and Analytics (1,739 Enterprise / 211 Mobile / 82 ICS); all Data Source objects were deprecated (retained but inactive); and Data Components were restructured to v2.0: 106 Enterprise, 17 Mobile, 36 ICS (v18 release-notes figures). v19 (current since April 28, 2026; the versions page lists v19.2 as the current minor) split Defense Evasion into Stealth and Defense Impairment, brought sub-techniques to ICS, started Mobile Detection Strategies, added 12 new Mobile data components, and bumped several components to v3.0. Consequence: version-stamp any data-component list you operationalize, including the one in this repo.
+Version discipline first. ATT&CK v18 (October 28, 2025) rebuilt the detection model: technique-level detection text was replaced by two new object types, Detection Strategies (691 Enterprise / 124 Mobile / 83 ICS per the v18 release notes) and Analytics (1,739 Enterprise / 211 Mobile / 82 ICS); all Data Source objects were deprecated (retained but inactive); and Data Components were restructured to v2.0: 106 Enterprise, 17 Mobile, 36 ICS (v18 release-notes figures). v19 (April 28, 2026; v19.2 was the current minor through October 12, 2026, when ATT&CK v20.0 superseded it) split Defense Evasion into Stealth and Defense Impairment, brought sub-techniques to ICS, started Mobile Detection Strategies, added 12 new Mobile data components, and bumped several components to v3.0. Consequence: version-stamp any data-component list you operationalize, including the one in this repo.
 
 The chain, and where the pipeline enters it:
 

@@ -16,6 +16,10 @@ Related: [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.m
 | [Microsoft Defender for Endpoint](/platforms/microsoft-defender.md) | Microsoft endpoint EDR with Defender Vulnerability Management |
 | [Tanium](/platforms/tanium.md) | Real-time endpoint query and action at scale, with patch and compliance |
 | [Trend Vision One](/platforms/trend-micro.md) | Trend Micro's XDR platform, including the former Cloud One workload and cloud security |
+| [SentinelOne Singularity](/platforms/sentinelone.md) | Autonomous endpoint and extended detection with on-device AI and Storyline correlation |
+| [Sophos](/platforms/sophos.md) | Intercept X endpoint with deep-learning prevention and anti-ransomware, and Sophos XDR and MDR |
+| [Trellix](/platforms/trellix.md) | Endpoint and XDR from the McAfee Enterprise and FireEye combination, managed through ePO |
+| [Bitdefender GravityZone](/platforms/bitdefender.md) | Endpoint protection and EDR/XDR with layered prevention and risk analytics |
 
 ## Vulnerability and exposure management
 
@@ -47,6 +51,10 @@ Related: [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.m
 | [Forcepoint](/platforms/forcepoint.md) | Data-first security: security service edge and data loss prevention |
 | [Fortinet](/platforms/fortinet.md) | The Security Fabric: FortiGate firewall, FortiNDR, and analytics |
 | [Akamai](/platforms/akamai.md) | Edge platform with a web application and API firewall, bot and DDoS protection, and segmentation |
+| [Netskope](/platforms/netskope.md) | Netskope One security service edge: secure web gateway, CASB, zero-trust access, and DLP |
+| [Cloudflare](/platforms/cloudflare.md) | Edge platform with a WAF, DDoS protection, and the Cloudflare One zero-trust services |
+| [Mimecast](/platforms/mimecast.md) | Email security and resilience with URL and attachment protection, DLP, and archiving |
+| [Abnormal AI](/platforms/abnormal.md) | Behavioral-AI email security for business email compromise and account takeover |
 
 ## Firewalls and network appliances
 
@@ -55,6 +63,8 @@ Related: [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.m
 | [Check Point](/platforms/check-point.md) | Quantum gateways with IPS virtual patching and threat prevention |
 | [Citrix NetScaler](/platforms/citrix-netscaler.md) | Application delivery controller with a web application firewall and fleet CVE matching |
 | [Cisco ISE](/platforms/cisco-ise.md) | Network access control with 802.1X, posture, and Change of Authorization |
+| [Palo Alto Networks](/platforms/palo-alto-networks.md) | Next-generation firewalls on PAN-OS, Prisma Access SASE, and the Cortex operations family |
+| [F5](/platforms/f5.md) | BIG-IP application delivery and Advanced WAF, and F5 Distributed Cloud services |
 
 ## Identity, access, and privilege
 
@@ -64,6 +74,10 @@ Related: [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.m
 | [Cisco Duo](/platforms/cisco-duo.md) | Multi-factor authentication and device trust |
 | [CyberArk](/platforms/cyberark.md) | Privileged access management, vaulting, and endpoint privilege |
 | [SailPoint](/platforms/sailpoint.md) | Identity governance: provisioning, certifications, and the role model |
+| [Okta](/platforms/okta.md) | Workforce and customer identity: SSO, adaptive MFA, Universal Directory, and lifecycle |
+| [Ping Identity](/platforms/ping-identity.md) | Enterprise identity with PingOne, PingFederate federation, and PingAccess |
+| [BeyondTrust](/platforms/beyondtrust.md) | Privileged access management: password vaulting, remote access, and endpoint privilege |
+| [Delinea](/platforms/delinea.md) | Privileged access management with Secret Server and endpoint privilege |
 
 ## Application and crowdsourced security
 
@@ -73,6 +87,22 @@ Related: [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.m
 | [Invicti](/platforms/invicti.md) | Proof-based dynamic and interactive application security testing |
 | [HackerOne](/platforms/hackerone.md) | Bug bounty, vulnerability disclosure, and pentest-as-a-service |
 | [Chainguard](/platforms/chainguard.md) | Secure-by-default minimal container images and a hardened Wolfi base that cut image vulnerabilities |
+
+## Cloud and container security
+
+| Platform | Summary |
+|---|---|
+| [Prisma Cloud](/platforms/prisma-cloud.md) | Palo Alto Networks CNAPP across posture, workload, entitlements, and code security |
+| [Orca Security](/platforms/orca-security.md) | Agentless CNAPP using SideScanning with a unified cloud data model |
+| [Aqua Security](/platforms/aqua-security.md) | Container and cloud-native security with image assurance and runtime protection |
+| [Sysdig](/platforms/sysdig.md) | Cloud-native security on the Falco project, with runtime detection and response |
+
+## Operational technology and ICS
+
+| Platform | Summary |
+|---|---|
+| [Dragos](/platforms/dragos.md) | OT and ICS threat detection, asset visibility, and vulnerability management |
+| [Claroty](/platforms/claroty.md) | Cyber-physical systems protection across OT, IoT, and healthcare devices |
 
 ## Backup, recovery, and cyber resilience
 

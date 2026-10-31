@@ -183,7 +183,7 @@ def h1_of(text: str) -> str | None:
             continue
         if in_fence:
             continue
-        m = re.match(r"^#\s+(.+?)\s*#*\s*$", line)
+        m = re.match(r"^#\s+(.+?)(?:\s+#+)?\s*$", line)
         if m:
             return strip_inline(m.group(1))
     return None

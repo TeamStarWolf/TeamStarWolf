@@ -96,6 +96,7 @@
 | [AI Infrastructure & MLOps Security](AI_INFRASTRUCTURE_SECURITY_REFERENCE.md) | Model registries & artifact provenance, unsafe model deserialization, RAG/training-data poisoning, vector stores, ML pipeline supply chain, GPU/inference hardening |
 | [Deepfake & Synthetic-Media Defense](DEEPFAKE_DEFENSE_REFERENCE.md) | Voice-clone & video-call ('finance-approval') fraud defense, verification callbacks, liveness, C2PA/Content Credentials provenance, detection and its limits |
 | [Healthcare & Medical-Device Security](HEALTHCARE_SECURITY_REFERENCE.md) | HL7/FHIR/DICOM security, IoMT segmentation & lifecycle, FDA premarket/postmarket cybersecurity, IEC 80001, HIPAA Security Rule |
+| [Security Operating Systems and Distributions](SECURITY_OPERATING_SYSTEMS_REFERENCE.md) | Offensive (Kali, Parrot, BlackArch), forensic (SIFT, REMnux, CAINE), privacy (Tails, Whonix, Qubes), and hardened or minimal (RHEL, Ubuntu Pro, Chainguard/Wolfi, Bottlerocket, Talos) operating systems, and what each is built on |
 | [Security-Program Management / CISO Handbook](SECURITY_PROGRAM_MANAGEMENT_REFERENCE.md) | Building & running a security program: first-90-days, org design, budget & headcount, risk prioritization, board reporting, metrics, strategy |
 | [Security Awareness Program](SECURITY_AWARENESS_REFERENCE.md) | Program design & maturity, phishing simulation (methodology/metrics/ethics), human-risk measurement, culture change, role-based training |
 

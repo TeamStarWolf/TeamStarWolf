@@ -1247,6 +1247,14 @@ pages:
     corrected: "pr62-names-and-versions"
     corrected_what: "Windows 10 end-of-support row, one Entra ID rename and the ATT&CK version in the footer updated"
     reviewed: null
+  SECURITY_OPERATING_SYSTEMS_REFERENCE.md:
+    audience: "Security practitioners and vulnerability management analysts choosing or assessing operating systems and distributions"
+    level: "Beginner to intermediate"
+    read_when: "You are picking an offensive, forensic, or privacy distribution, you need to know what a security distribution is built on to patch it, or you are reducing attack surface with minimal and immutable operating systems"
+    start_at: "[Offensive and penetration-testing distributions](#offensive-and-penetration-testing-distributions), [Privacy and anonymity distributions](#privacy-and-anonymity-distributions), [Hardened, minimal, and enterprise distributions](#hardened-minimal-and-enterprise-distributions)"
+    pairs_with: "[Linux Hardening Reference](LINUX_HARDENING_REFERENCE.md), [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE.md), [macOS Security Reference](MACOS_SECURITY_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
   SECURITY_PIPELINE.md:
     audience: "Security architects and program leads building an enterprise control stack"
     level: "Intermediate"

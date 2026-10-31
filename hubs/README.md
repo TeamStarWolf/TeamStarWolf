@@ -12,7 +12,7 @@
 | [Offensive security](/hubs/offensive-security.md) | Penetration testing, red and purple teaming, exploitation, and the attack techniques defenders need to understand. | 13 |
 | [Network security](/hubs/network-security.md) | Network fundamentals, protocols, architecture, edge devices, packet analysis, and wireless, RF, and telecom security. | 11 |
 | [Cloud and infrastructure](/hubs/cloud-and-infrastructure.md) | Securing cloud platforms, SaaS, containers, Kubernetes, and the virtualization layer under them. | 8 |
-| [Platform hardening](/hubs/platform-hardening.md) | Baselines and hardening for Windows, Linux, macOS, and mobile devices. | 6 |
+| [Platform hardening](/hubs/platform-hardening.md) | Baselines and hardening for Windows, Linux, macOS, and mobile devices. | 7 |
 | [Application and supply chain security](/hubs/application-and-supply-chain.md) | Secure coding, web, API, and browser security, threat modeling, DevSecOps, the software supply chain, and secrets. | 9 |
 | [Identity and data protection](/hubs/identity-and-data-protection.md) | Identity and access, Active Directory, passwords, zero trust, cryptography, and protecting and governing data. | 10 |
 | [AI and emerging tech](/hubs/ai-and-emerging-tech.md) | Securing AI and machine learning systems, attacks on and with AI, synthetic media, and blockchain. | 9 |

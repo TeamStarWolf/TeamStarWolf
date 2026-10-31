@@ -255,7 +255,7 @@
       "groups": [
         {"heading": "References", "docs": [
           "WINDOWS_HARDENING_REFERENCE.md", "WINDOWS_HARDENING.md", "WINDOWS_HARDENING_GPO.md",
-          "LINUX_HARDENING_REFERENCE.md", "MACOS_SECURITY_REFERENCE.md", "MOBILE_SECURITY_REFERENCE.md"]}
+          "LINUX_HARDENING_REFERENCE.md", "MACOS_SECURITY_REFERENCE.md", "MOBILE_SECURITY_REFERENCE.md", "SECURITY_OPERATING_SYSTEMS_REFERENCE.md"]}
       ],
       "paths": ["mobile-security", "security-architecture"],
       "guides": ["HARDEN_A_WINDOWS_BASELINE", "HARDEN_A_MACOS_FLEET"],

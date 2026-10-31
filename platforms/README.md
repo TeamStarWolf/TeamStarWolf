@@ -25,6 +25,7 @@ Related: [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.m
 | [Qualys](/platforms/qualys.md) | The Qualys Cloud Platform with VMDR and TruRisk |
 | [Wiz](/platforms/wiz.md) | Agentless cloud-native application protection and the Security Graph |
 | [Rapid7 InsightVM](/platforms/rapid7-insightvm.md) | Vulnerability management with Real Risk scoring on the Insight platform |
+| [Zafran](/platforms/zafran.md) | Threat exposure management that prioritizes by exploitability and existing control coverage, and drives mitigations |
 
 ## Vulnerability workflow, SIEM, and SOAR
 

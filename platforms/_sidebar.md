@@ -18,6 +18,7 @@
   - [Qualys](/platforms/qualys.md)
   - [Wiz](/platforms/wiz.md)
   - [Rapid7 InsightVM](/platforms/rapid7-insightvm.md)
+  - [Zafran](/platforms/zafran.md)
   - [ServiceNow Vulnerability Response](/platforms/servicenow-vr.md)
   - [Splunk Enterprise Security](/platforms/splunk.md)
   - [IBM QRadar](/platforms/qradar.md)

@@ -1024,6 +1024,14 @@ pages:
     corrected: "pr62-names-and-versions"
     corrected_what: "AlienVault OTX owner updated to LevelBlue; one ATT&CK version reference updated to v19.2"
     reviewed: null
+  PACKAGE_MANAGERS_REFERENCE.md:
+    audience: "Security and vulnerability management analysts tracking where third-party code enters the environment"
+    level: "Beginner to intermediate"
+    read_when: "You need to know how a package manager resolves, locks, and installs dependencies, you are hardening against dependency confusion or typosquatting, or you are deciding where to enforce lockfiles and private registries"
+    start_at: "[How package managers work](#how-package-managers-work), [Package managers by ecosystem](#package-managers-by-ecosystem), [Supply-chain risks and mitigations](#supply-chain-risks-and-mitigations)"
+    pairs_with: "[Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Application Security Testing](APPSEC_TESTING_REFERENCE.md), [Scanner Platforms and Findings Catalog](SCANNER_PLATFORMS_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
   PACKET_ANALYSIS_REFERENCE.md:
     audience: "SOC analysts, network forensics analysts, and threat hunters"
     level: "Intermediate"

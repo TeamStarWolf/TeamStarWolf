@@ -273,7 +273,7 @@
         {"heading": "References", "docs": [
           "SECURE_CODING_REFERENCE.md", "WEB_APPLICATION_SECURITY_REFERENCE.md", "API_SECURITY_REFERENCE.md",
           "BROWSER_SECURITY_REFERENCE.md", "THREAT_MODELING_REFERENCE.md", "DEVSECOPS_REFERENCE.md",
-          "SUPPLY_CHAIN_SECURITY_REFERENCE.md", "SECRETS_MANAGEMENT_REFERENCE.md", "APPSEC_TESTING_REFERENCE.md"]}
+          "SUPPLY_CHAIN_SECURITY_REFERENCE.md", "SECRETS_MANAGEMENT_REFERENCE.md", "APPSEC_TESTING_REFERENCE.md", "PACKAGE_MANAGERS_REFERENCE.md"]}
       ],
       "paths": ["application-security", "devsecops", "supply-chain-security", "threat-modeling"],
       "guides": ["THREAT_MODEL_AN_APPLICATION"],

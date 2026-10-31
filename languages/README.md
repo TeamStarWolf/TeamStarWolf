@@ -12,7 +12,7 @@ Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Applicatio
 
 | Topic | Summary |
 |---|---|
-| [Programming paradigms](/languages/programming-paradigms.md) | How programs are organized: imperative and declarative, procedural, object-oriented (in depth), functional, logic, reactive, and concurrent paradigms, and how to mix them |
+| [Programming paradigms](/paradigms/README.md) | The dedicated paradigms section: imperative, procedural, structured, object-oriented, functional, logic, declarative, concurrent, reactive, and more, each in depth with a bibliography |
 
 ## Systems and low-level
 

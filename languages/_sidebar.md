@@ -10,7 +10,6 @@
 ---
 
 - Programming languages
-  - [Programming Paradigms](/languages/programming-paradigms.md)
   - [C](/languages/c.md)
   - [C++](/languages/cpp.md)
   - [Rust](/languages/rust.md)

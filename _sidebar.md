@@ -63,6 +63,7 @@
 
 - Tools
   - [Vendor tools](/tools/README.md)
+  - [Security platforms](/platforms/README.md)
   - [AI tooling](/ai-tooling/README.md)
   - [Tools research](/tools-research/README.md)
 

@@ -65,6 +65,7 @@
     ]},
     {"label": "Tools", "links": [
       ["Vendor tools", "/tools/README.md"],
+      ["Security platforms", "/platforms/README.md"],
       ["AI tooling", "/ai-tooling/README.md"],
       ["Tools research", "/tools-research/README.md"]
     ]},
@@ -109,7 +110,8 @@
     {"folder": "frameworks", "label": "Software frameworks", "landing": "frameworks/README.md"},
     {"folder": "commands", "label": "Command reference", "landing": "commands/README.md"},
     {"folder": "formats", "label": "Data formats", "landing": "formats/README.md"},
-    {"folder": "databases", "label": "Databases", "landing": "databases/README.md"}
+    {"folder": "databases", "label": "Databases", "landing": "databases/README.md"},
+    {"folder": "platforms", "label": "Security platforms", "landing": "platforms/README.md"}
   ],
   "crumb_parents": {
     "guides/": ["How-to guides", "/guides/README.md"],
@@ -128,7 +130,8 @@
     "frameworks/": ["Software frameworks", "/frameworks/README.md"],
     "commands/": ["Command reference", "/commands/README.md"],
     "formats/": ["Data formats", "/formats/README.md"],
-    "databases/": ["Databases", "/databases/README.md"]
+    "databases/": ["Databases", "/databases/README.md"],
+    "platforms/": ["Security platforms", "/platforms/README.md"]
   },
   "not_in_nav": {
     "README.md": "The GitHub front door. On the site, HOME.md is the homepage at '/' and covers the same ground."

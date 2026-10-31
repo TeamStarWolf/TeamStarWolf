@@ -459,7 +459,7 @@ Three honest caveats, stated by CISA itself: the pledge is voluntary and not leg
 
 - Domain: [Network security](/hubs/network-security.md)
 - [Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md)
-- [Networking Fundamentals](/NETWORKING_FUNDAMENTALS.md)
+- [Internet-Facing Services and External Exposure](/INTERNET_FACING_SERVICES_REFERENCE.md)
 
 <!-- related:end -->
 

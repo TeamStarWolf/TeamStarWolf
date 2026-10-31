@@ -467,6 +467,7 @@ Verification notes: "XProtect Remediator" as a name, its 24-module count (Eclect
 - Domain: [Platform hardening](/hubs/platform-hardening.md)
 - [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md)
 - [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md)
+- [Security Operating Systems and Distributions](/SECURITY_OPERATING_SYSTEMS_REFERENCE.md)
 
 <!-- related:end -->
 

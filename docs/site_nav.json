@@ -292,8 +292,8 @@
           "IDENTITY_SECURITY_REFERENCE.md", "IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md", "ACTIVE_DIRECTORY_SECURITY_REFERENCE.md",
           "PASSWORD_SECURITY_REFERENCE.md", "ZERO_TRUST_REFERENCE.md"]},
         {"heading": "Cryptography and data", "docs": [
-          "CRYPTOGRAPHY_REFERENCE.md", "POST_QUANTUM_MIGRATION_REFERENCE.md", "DATA_SECURITY_REFERENCE.md",
-          "DATABASE_SECURITY_REFERENCE.md", "PRIVACY_ENGINEERING_REFERENCE.md"]}
+          "CRYPTOGRAPHY_REFERENCE.md", "CERTIFICATE_TRUST_INCIDENT_RESPONSE_REFERENCE.md", "POST_QUANTUM_MIGRATION_REFERENCE.md",
+          "DATA_SECURITY_REFERENCE.md", "DATABASE_SECURITY_REFERENCE.md", "PRIVACY_ENGINEERING_REFERENCE.md"]}
       ],
       "paths": ["identity-access-management", "active-directory", "zero-trust-architecture", "cryptography-pki",
                 "data-security", "privacy-engineering"],

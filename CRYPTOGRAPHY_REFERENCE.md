@@ -2471,6 +2471,7 @@ HSM certifications: Hardware Security Modules (HSMs) used for key storage typica
 
 - Domain: [Identity and data protection](/hubs/identity-and-data-protection.md)
 - Learning path: [Cryptography & PKI](/disciplines/cryptography-pki.md)
+- [Certificate Trust Incident Response](/CERTIFICATE_TRUST_INCIDENT_RESPONSE_REFERENCE.md)
 - [Post-Quantum Migration Reference](/POST_QUANTUM_MIGRATION_REFERENCE.md)
 - [Data Security Reference](/DATA_SECURITY_REFERENCE.md)
 - [Database Security](/DATABASE_SECURITY_REFERENCE.md)

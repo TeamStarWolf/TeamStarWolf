@@ -40,6 +40,7 @@
 | [Case Studies](case-studies/README.md) | Evidence-graded studies of how the threat landscape is changing, written from primary sources, with figures and PDF downloads |
 | [Certifications Reference](CERTIFICATIONS.md) | Detailed reference for 40+ security certifications: cost, difficulty, DoD 8570, and who should pursue each |
 | [CEH Domain Crosswalk](CEH_DOMAIN_CROSSWALK.md) | EC-Council CEH v13 exam blueprint (9 domains) mapped onto the library, with study sequence, honest gaps, and legal-practice pointers |
+| [Certificate Trust Incident Response](CERTIFICATE_TRUST_INCIDENT_RESPONSE_REFERENCE.md) | Responding to a compromised, distrusted, or removed certificate authority: trust chains, the four trust controls, per-platform and per-runtime trust stores, the assessment decision model, and the eMudhra/emSign case |
 | [CISSP Domain Crosswalk](CISSP_DOMAIN_CROSSWALK.md) | ISC2 CISSP 8 domains (April 2024 weights) mapped onto the library, with a 12-week plan and honest coverage gaps |
 | [Cloud Architecture Reference](CLOUD_ARCHITECTURE_REFERENCE.md) | Composing managed cloud services into systems: well-architected pillars, landing zones, and the trade-offs between business, operations, security and cost |
 | [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md) | AWS, Azure, and GCP attack techniques, IAM escalation paths, and defensive controls |

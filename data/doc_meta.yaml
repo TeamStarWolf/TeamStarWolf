@@ -432,6 +432,14 @@ pages:
     start_at: "[Where CPE fits in the ecosystem](#where-cpe-fits-in-the-ecosystem), [CPE applicability: how CVEs map to products](#cpe-applicability-how-cves-map-to-products), [Practical notes & pitfalls](#practical-notes-amp-pitfalls)"
     learning_path: []
     reviewed: null
+  CERTIFICATE_TRUST_INCIDENT_RESPONSE_REFERENCE.md:
+    audience: "Vulnerability management and incident-response analysts driving a certificate-authority distrust across an estate"
+    level: "Intermediate"
+    read_when: "A certificate authority is compromised, distrusted, or removed from root stores, you need to find which clients still trust it, or you are deciding whether a scanner result proves a client path is fixed"
+    start_at: "[The response method](#the-response-method), [Trust in runtimes and languages](#trust-in-runtimes-and-languages), [The assessment decision model](#the-assessment-decision-model)"
+    pairs_with: "[Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md), [Scanner Platforms and Findings Catalog](SCANNER_PLATFORMS_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
   CRYPTOGRAPHY_REFERENCE.md:
     audience: "Security engineers, developers, and penetration testers who choose or review cryptography"
     level: "Intermediate to advanced"

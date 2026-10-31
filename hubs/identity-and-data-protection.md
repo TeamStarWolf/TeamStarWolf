@@ -4,7 +4,7 @@
 
 > Identity and access, Active Directory, passwords, zero trust, cryptography, and protecting and governing data.
 
-Part of the [domain hubs](/hubs/README.md). 10 reference documents in this domain; reading time is the page's words at 230 words a minute.
+Part of the [domain hubs](/hubs/README.md). 11 reference documents in this domain; reading time is the page's words at 230 words a minute.
 
 ## Identity and access
 
@@ -21,6 +21,7 @@ Part of the [domain hubs](/hubs/README.md). 10 reference documents in this domai
 | Reference | What it covers | Reading time |
 |---|---|---|
 | [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md) | Cryptographic concepts, algorithms, attacks, and best practices | 38 min |
+| [Certificate Trust Incident Response](/CERTIFICATE_TRUST_INCIDENT_RESPONSE_REFERENCE.md) | Responding to a compromised, distrusted, or removed certificate authority: trust chains, the four trust controls, per-platform and per-runtime trust stores, the assessment decision model, and the eMudhra/emSign case | 5 min |
 | [Post-Quantum Migration Reference](/POST_QUANTUM_MIGRATION_REFERENCE.md) | Harvest-now-decrypt-later risk, FIPS 203/204/205, NIST IR 8547 timelines, CNSA 2.0, CBOM discovery, crypto-agility, hybrid TLS/SSH deployment, PKI impact, program governance | 26 min |
 | [Data Security Reference](/DATA_SECURITY_REFERENCE.md) | CSF 2.0 PR.DS, classification tiers and Purview sensitivity labels, DSPM discovery, DLP channels and false-positive economics, encryption at rest/in transit/in use, egress controls, SP 800-171r3/CMMC drivers, program metrics | 24 min |
 | [Database Security](/DATABASE_SECURITY_REFERENCE.md) | DBMS hardening (SQL Server/PostgreSQL/MySQL/Oracle/MongoDB/Redis/Elasticsearch), Database Activity Monitoring, privileged DB access, encryption, audit | 13 min |

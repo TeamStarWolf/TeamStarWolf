@@ -2624,5 +2624,6 @@ cat /proc/version                    # Kernel build info
 - [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md)
 - [Privilege Escalation Reference](/PRIVESC_REFERENCE.md)
 - [Controls Mapping](/CONTROLS_MAPPING.md)
+- [Security Operating Systems and Distributions](/SECURITY_OPERATING_SYSTEMS_REFERENCE.md)
 
 <!-- related:end -->

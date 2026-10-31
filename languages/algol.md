@@ -8,7 +8,7 @@ ALGOL (Algorithmic Language) is a family of imperative, block-structured languag
 | Typing | Static |
 | First appeared | 1958 (ALGOL 58); ALGOL 60 in 1960; ALGOL 68 in 1968 |
 | Memory model | Stack-based with block scope; ALGOL 68 added heap allocation and garbage collection |
-| Reference implementation | No single reference; the defining Reports stood in for one, [MARST](https://www.gnu.org/software/marst/) translates ALGOL 60 to C and Algol 68 Genie runs ALGOL 68 |
+| Reference implementation | No single reference; the defining Reports stood in for one, MARST translates ALGOL 60 to C and Algol 68 Genie runs ALGOL 68 |
 | Typical uses | Historically scientific computing and algorithm publication; today teaching and preservation |
 | Governance/standard | Defined by the Revised Report on ALGOL 60 and the Revised Report on ALGOL 68; no active body |
 
@@ -37,7 +37,7 @@ ALGOL 60's call-by-name parameter passing, in which an argument expression is re
 
 ## Toolchain and ecosystem
 
-- ALGOL 60: [MARST](https://www.gnu.org/software/marst/) translates ALGOL 60 source to C, which is then compiled by a C compiler.
+- ALGOL 60: MARST translates ALGOL 60 source to C, which is then compiled by a C compiler.
 - ALGOL 68: Algol 68 Genie (`a68g`) is an interpreter that runs ALGOL 68 programs on modern systems.
 - There is no modern package ecosystem; historical implementations were tied to specific mainframes, and current use is through these preservation tools.
 
@@ -106,7 +106,7 @@ There is no modern security tooling for ALGOL; where ALGOL 60 is translated to C
 ## Learning resources
 
 - [Revised Report on the Algorithmic Language ALGOL 60](https://www.masswerk.at/algol60/report.htm), the defining document.
-- [MARST documentation](https://www.gnu.org/software/marst/), the GNU ALGOL 60 to C translator.
+- MARST documentation, the GNU ALGOL 60 to C translator.
 - [Algol 68 Genie](https://jmvdveer.home.xs4all.nl/en.algol-68-genie.html), an ALGOL 68 interpreter with documentation.
 
 ## Related pages

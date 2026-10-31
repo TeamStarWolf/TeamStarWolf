@@ -10,7 +10,7 @@ C++ is a statically typed, compiled, multi-paradigm language created by Bjarne S
 | Memory model | Manual, with RAII and smart pointers for scoped ownership |
 | Reference compiler | No single reference; [GCC](https://gcc.gnu.org/), [Clang](https://clang.llvm.org/), and MSVC implement the standard |
 | Typical uses | Game engines, browsers, databases, trading, embedded, tooling |
-| Governance/standard | [ISO/IEC 14882](https://isocpp.org/std/the-standard), via ISO JTC1/SC22/WG21 |
+| Governance/standard | ISO/IEC 14882, via ISO JTC1/SC22/WG21 |
 
 Related: [C](/languages/c.md), [Rust](/languages/rust.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 
@@ -18,7 +18,7 @@ Related: [C](/languages/c.md), [Rust](/languages/rust.md), [Secure Coding Refere
 
 C++ began as a set of additions to C that brought classes and object orientation to systems programming. It was first standardized as C++98, then revised by C++03. C++11 was a large revision that added `auto` type deduction, lambdas, move semantics, `std::unique_ptr` and `std::shared_ptr`, range-based `for`, and a threading library. Later standards continued on a three-year cadence: C++14, C++17 (structured bindings, `std::optional`, `std::variant`, filesystem), C++20 (concepts, ranges, coroutines, modules), and C++23.
 
-The standard is maintained by ISO working group WG21, with proposals discussed openly on the [isocpp.org](https://isocpp.org/) site. GCC, Clang, and MSVC are the main implementations, and each tracks the standard closely.
+The standard is maintained by ISO working group WG21, with proposals discussed openly on the isocpp.org site. GCC, Clang, and MSVC are the main implementations, and each tracks the standard closely.
 
 ## Paradigm and type system
 
@@ -134,8 +134,8 @@ Tooling: enable `-Wall -Wextra`, AddressSanitizer and UndefinedBehaviorSanitizer
 
 ## Learning resources
 
-- [cppreference.com](https://en.cppreference.com/), the detailed language and library reference.
-- [isocpp.org](https://isocpp.org/) and the [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines).
+- cppreference.com, the detailed language and library reference.
+- isocpp.org and the [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines).
 - *The C++ Programming Language* by Bjarne Stroustrup, the author's reference text.
 
 ## Related pages

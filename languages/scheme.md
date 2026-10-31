@@ -18,7 +18,7 @@ Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Racket](/langu
 
 Scheme began as an experiment in applying the actor model and lexical scope to Lisp, and it became influential for its small, carefully specified core. Its evolution is recorded in the Revised Reports, informally the RnRS series: R5RS (1998) is a compact and widely implemented standard, R6RS (2007) added a larger library and a module system and was more contentious, and R7RS (2013) split the language into a small language and a larger standard library to serve both teaching and application needs.
 
-There is no single reference implementation; the standard is the authority and many implementations conform to it. Common ones include [Chez Scheme](https://cisco.github.io/ChezScheme/) (a fast native compiler), [Guile](https://www.gnu.org/software/guile/) (the GNU extension language), [Chicken](https://www.call-cc.org/) (compiles through C), and [Gambit](https://gambitscheme.org/). Racket began as a Scheme and is now a separate language documented on its own page.
+There is no single reference implementation; the standard is the authority and many implementations conform to it. Common ones include [Chez Scheme](https://cisco.github.io/ChezScheme/) (a fast native compiler), Guile (the GNU extension language), [Chicken](https://www.call-cc.org/) (compiles through C), and [Gambit](https://gambitscheme.org/). Racket began as a Scheme and is now a separate language documented on its own page.
 
 ## Paradigm and type system
 

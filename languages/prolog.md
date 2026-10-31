@@ -10,7 +10,7 @@ Prolog (Programming in Logic) is a declarative logic-programming language first 
 | Memory model | Automatic: garbage-collected heap plus a backtracking trail |
 | Reference implementation | No single reference; [SWI-Prolog](https://www.swi-prolog.org/) is widely used, [GNU Prolog](http://www.gprolog.org/) and SICStus are others |
 | Typical uses | AI, natural-language processing, theorem proving, constraint solving, expert systems |
-| Governance/standard | [ISO/IEC 13211](https://www.iso.org/standard/21413.html) (Prolog) |
+| Governance/standard | ISO/IEC 13211 (Prolog) |
 
 Related: [Smalltalk](/languages/smalltalk.md), [Logo](/languages/logo.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 

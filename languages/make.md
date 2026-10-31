@@ -8,7 +8,7 @@ Make is a build-automation language and tool created by Stuart Feldman at Bell L
 | Typing | Untyped: variables hold strings; recipes are shell commands |
 | First appeared | 1976 |
 | Memory model | Managed by the tool; variables are string macros expanded on use |
-| Reference implementation | [GNU Make](https://www.gnu.org/software/make/) |
+| Reference implementation | GNU Make |
 | Typical uses | Building software, task automation, reproducible command sequences |
 | Governance | POSIX specification for `make`; GNU Make as the common implementation |
 
@@ -34,7 +34,7 @@ Make is untyped; variables are string macros. The core logic is declarative: Mak
 ## Toolchain and ecosystem
 
 - Tool: `make` reads `Makefile` (or `-f file`); `make target` builds a specific target, and `make -n` prints commands without running them.
-- Implementations: [GNU Make](https://www.gnu.org/software/make/) is the common one on Linux; BSD Make and other variants differ in functions and conditionals.
+- Implementations: GNU Make is the common one on Linux; BSD Make and other variants differ in functions and conditionals.
 - Generators: Autotools, [CMake](https://cmake.org/), and similar tools generate makefiles so authors do not write them by hand.
 - Analysis: `make --warn-undefined-variables` surfaces typos; [checkmake](https://github.com/mrtazz/checkmake) is a linter for makefile style and common mistakes.
 
@@ -123,7 +123,7 @@ Tooling: `make --warn-undefined-variables` catches a class of expansion bugs, an
 
 ## Learning resources
 
-- [GNU Make Manual](https://www.gnu.org/software/make/manual/), the reference for variables, functions, and rules.
+- GNU Make Manual, the reference for variables, functions, and rules.
 - [POSIX make specification](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/make.html), the portable core.
 - ["Recursive Make Considered Harmful"](https://aegis.sourceforge.net/auug97.pdf) by Peter Miller, on structuring large builds.
 

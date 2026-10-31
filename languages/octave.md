@@ -10,7 +10,7 @@ GNU Octave is a dynamically typed, garbage-collected language and environment fo
 | Memory model | Automatic: reference counting with copy-on-write arrays |
 | Reference implementation | [GNU Octave](https://octave.org/) |
 | Typical uses | Numerical linear algebra, teaching, signal processing, batch computation |
-| Governance | [GNU Project](https://www.gnu.org/software/octave/) maintainers |
+| Governance | GNU Project maintainers |
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [MATLAB](/languages/matlab.md), [languages index](/languages/README.md).
 

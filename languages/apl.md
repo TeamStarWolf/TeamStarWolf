@@ -8,7 +8,7 @@ APL (A Programming Language) is a dynamically typed, array-oriented language cre
 | Typing | Dynamic; values are multidimensional arrays of numbers or characters |
 | First appeared | 1966 (notation described 1962) |
 | Memory model | Automatic garbage collection |
-| Reference implementation | No single one; [Dyalog APL](https://www.dyalog.com/) and [GNU APL](https://www.gnu.org/software/apl/) are common |
+| Reference implementation | No single one; [Dyalog APL](https://www.dyalog.com/) and GNU APL are common |
 | Typical uses | Financial and actuarial modeling, quantitative analysis, array algorithms |
 | Governance | ISO 8485 standard; vendors extend it |
 
@@ -18,7 +18,7 @@ Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [J](/languages/
 
 Iverson devised APL's notation while at Harvard and IBM as a consistent way to describe algorithms and computer systems, and IBM implemented it as an interactive language on mainframes. Its distinguishing feature is a character set of special glyphs (such as `⍴`, `⍳`, `⌿`, and `⍉`) that denote primitive operations on arrays. APL ONE programs read right to left, apply functions to entire arrays at once, and favor composition of primitives over explicit loops.
 
-There is no single reference implementation. The language is standardized by ISO 8485, and current practice centers on [Dyalog APL](https://www.dyalog.com/), a commercial implementation, with [GNU APL](https://www.gnu.org/software/apl/) as a free alternative. Modern dialects add nested arrays, anonymous functions, and namespaces beyond the original flat-array language.
+There is no single reference implementation. The language is standardized by ISO 8485, and current practice centers on [Dyalog APL](https://www.dyalog.com/), a commercial implementation, with GNU APL as a free alternative. Modern dialects add nested arrays, anonymous functions, and namespaces beyond the original flat-array language.
 
 ## Paradigm and type system
 
@@ -33,7 +33,7 @@ The same glyph often has a monadic and a dyadic meaning (`-` negates or subtract
 
 ## Toolchain and ecosystem
 
-- Interpreters: [Dyalog APL](https://www.dyalog.com/) (commercial, with a graphical session), [GNU APL](https://www.gnu.org/software/apl/), and the browser-based [TryAPL](https://tryapl.org/).
+- Interpreters: [Dyalog APL](https://www.dyalog.com/) (commercial, with a graphical session), GNU APL, and the browser-based [TryAPL](https://tryapl.org/).
 - Input: special glyphs are entered through a keyboard layout, a prefix key, or an on-screen language bar.
 - Distribution: Dyalog ships a package manager, [Tatin](https://tatin.dev/), for APL libraries, and code is also shared as workspace and script files.
 - Interfacing: Dyalog provides .NET and native shared-library interfaces, and APL links to external code through these bridges.

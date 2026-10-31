@@ -10,7 +10,7 @@ C is a statically typed, compiled, imperative language created by Dennis Ritchie
 | Memory model | Manual: the programmer allocates and frees |
 | Reference compiler | No single reference; [GCC](https://gcc.gnu.org/) and [Clang](https://clang.llvm.org/) are dominant |
 | Typical uses | Operating systems, embedded firmware, drivers, runtimes, tooling |
-| Governance/standard | [ISO/IEC 9899](https://www.iso.org/standard/82075.html), via ISO JTC1/SC22/WG14 |
+| Governance/standard | ISO/IEC 9899, via ISO JTC1/SC22/WG14 |
 
 Related: [C++](/languages/cpp.md), [Rust](/languages/rust.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 
@@ -44,7 +44,7 @@ Undefined behavior is a defining property: signed integer overflow, out-of-bound
 ## Toolchain and ecosystem
 
 - Compilers: `gcc` and `clang` compile and link; `cc` is the conventional name.
-- Build systems: [Make](https://www.gnu.org/software/make/), [CMake](https://cmake.org/), and [Meson](https://mesonbuild.com/) are common; there is no standard package manager.
+- Build systems: Make, [CMake](https://cmake.org/), and [Meson](https://mesonbuild.com/) are common; there is no standard package manager.
 - Debuggers and analyzers: [GDB](https://www.sourceware.org/gdb/) and [LLDB](https://lldb.llvm.org/) debug; [Valgrind](https://valgrind.org/) and the compiler sanitizers (AddressSanitizer, UndefinedBehaviorSanitizer) find memory and behavior errors at run time.
 
 ```bash
@@ -151,7 +151,7 @@ Tooling: compile with `-Wall -Wextra` and the AddressSanitizer and UndefinedBeha
 ## Learning resources
 
 - [The C Programming Language](https://en.wikipedia.org/wiki/The_C_Programming_Language) by Kernighan and Ritchie, the original reference text.
-- [cppreference's C section](https://en.cppreference.com/w/c), a detailed standard-library and language reference.
+- cppreference's C section, a detailed standard-library and language reference.
 - SEI CERT C Coding Standard, rules for safe and portable C.
 
 ## Related pages

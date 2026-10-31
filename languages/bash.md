@@ -8,7 +8,7 @@ Bash (the Bourne Again SHell) is a command-line interpreter and scripting langua
 | Typing | Untyped: values are strings; arithmetic and arrays are contextual |
 | First appeared | 1989 |
 | Memory model | Managed by the interpreter; variables live in the shell process environment |
-| Reference implementation | [GNU Bash](https://www.gnu.org/software/bash/) |
+| Reference implementation | GNU Bash |
 | Typical uses | System administration, automation, build and deploy scripts, CI pipelines |
 | Governance | GNU Project; maintained by Chet Ramey |
 
@@ -134,7 +134,7 @@ Tooling: [ShellCheck](https://www.shellcheck.net/) flags unquoted expansions, un
 
 ## Learning resources
 
-- [GNU Bash Manual](https://www.gnu.org/software/bash/manual/), the reference for builtins and syntax.
+- GNU Bash Manual, the reference for builtins and syntax.
 - [The Bash Guide (mywiki.wooledge.org)](https://mywiki.wooledge.org/BashGuide) and its FAQ, a careful treatment of quoting and common mistakes.
 - [ShellCheck](https://www.shellcheck.net/), which explains each warning with examples.
 

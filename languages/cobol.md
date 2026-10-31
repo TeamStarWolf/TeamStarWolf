@@ -10,7 +10,7 @@ COBOL (Common Business-Oriented Language) is a statically typed, compiled langua
 | Memory model | Static and stack allocation; `WORKING-STORAGE` is fixed at compile time, no garbage collector |
 | Reference compiler | No single reference; IBM Enterprise COBOL and Micro Focus are common commercial compilers, [GnuCOBOL](https://gnucobol.sourceforge.io/) is open source |
 | Typical uses | Mainframe batch and transaction processing, banking, insurance, payroll, government |
-| Governance/standard | [ISO/IEC 1989](https://www.iso.org/standard/74527.html), latest edition ISO/IEC 1989:2023 |
+| Governance/standard | ISO/IEC 1989, latest edition ISO/IEC 1989:2023 |
 
 Related: [PL/I](/languages/pli.md), [RPG (IBM)](/languages/rpg.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 

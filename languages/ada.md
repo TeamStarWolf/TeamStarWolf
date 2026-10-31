@@ -10,7 +10,7 @@ Ada is a statically typed, compiled language first designed in the late 1970s un
 | Memory model | Manual, with scoped and storage-pool control; optional access checks |
 | Reference compiler | No single reference; [GNAT](https://www.adacore.com/community) (part of GCC) is widely used |
 | Typical uses | Avionics, rail, spacecraft, defense, safety-critical systems |
-| Governance/standard | [ISO/IEC 8652](https://www.iso.org/standard/61507.html), via ISO JTC1/SC22/WG9 |
+| Governance/standard | ISO/IEC 8652, via ISO JTC1/SC22/WG9 |
 
 Related: [C](/languages/c.md), [Rust](/languages/rust.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 

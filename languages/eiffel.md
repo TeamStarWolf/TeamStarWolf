@@ -10,7 +10,7 @@ Eiffel is a statically typed, compiled, object-oriented language created by Bert
 | Memory model | Automatic: garbage-collected |
 | Reference compiler | No single reference; [EiffelStudio](https://www.eiffel.org/) from Eiffel Software is the main implementation, Liberty Eiffel and Gobo are open-source |
 | Typical uses | Business and mission-critical systems, teaching object-oriented design |
-| Governance/standard | [ISO/IEC 25436:2006](https://www.iso.org/standard/42924.html) and [ECMA-367](https://ecma-international.org/publications-and-standards/standards/ecma-367/) |
+| Governance/standard | ISO/IEC 25436:2006 and [ECMA-367](https://ecma-international.org/publications-and-standards/standards/ecma-367/) |
 
 Related: [Smalltalk](/languages/smalltalk.md), [Delphi (Object Pascal)](/languages/delphi.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 

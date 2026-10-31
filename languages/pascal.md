@@ -10,7 +10,7 @@ Pascal is a statically typed, compiled, procedural language designed by Niklaus 
 | Memory model | Manual: stack for locals, heap via `new` and `dispose` |
 | Reference compiler | No single reference; [Free Pascal](https://www.freepascal.org/) is a common open-source compiler, Turbo Pascal was historically dominant |
 | Typical uses | Teaching, application development, systems programming (historically) |
-| Governance/standard | [ISO/IEC 7185](https://www.iso.org/standard/13802.html) (Pascal) and ISO/IEC 10206 (Extended Pascal) |
+| Governance/standard | ISO/IEC 7185 (Pascal) and ISO/IEC 10206 (Extended Pascal) |
 
 Related: [ALGOL](/languages/algol.md), [Delphi (Object Pascal)](/languages/delphi.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 

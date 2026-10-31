@@ -30,7 +30,7 @@ x86-64 has sixteen general-purpose 64-bit registers: `rax`, `rbx`, `rcx`, `rdx`,
 
 - Assemblers: [NASM](https://www.nasm.us/) uses Intel syntax; [GNU as](https://sourceware.org/binutils/) (invoked through `gcc`) defaults to AT&T syntax; MASM is the Microsoft assembler on Windows.
 - Linkers and tools: `ld` links object files; `objdump` and `readelf` inspect binaries.
-- Debuggers and disassemblers: [GDB](https://www.sourceware.org/gdb/), [radare2](https://rada.re/), and [Ghidra](https://ghidra-sre.org/) for reverse engineering.
+- Debuggers and disassemblers: [GDB](https://www.sourceware.org/gdb/), radare2, and [Ghidra](https://ghidra-sre.org/) for reverse engineering.
 
 ```bash
 nasm -f elf64 hello.asm -o hello.o
@@ -110,7 +110,7 @@ Assembly has no safety net, so memory and control-flow errors map directly to vu
 - Use of untrusted data in control flow: indirect jumps and calls through attacker-influenced pointers enable control-flow hijacking; validate targets and use mitigations such as stack canaries, non-executable stacks, and control-flow-integrity instructions where available.
 - When assembly builds command strings passed to the operating system, the injection risk is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
 
-Tooling: disassemble and audit with [Ghidra](https://ghidra-sre.org/) or [radare2](https://rada.re/), and keep compiler mitigations (stack protector, ASLR-compatible position-independent code) in the surrounding program. See [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
+Tooling: disassemble and audit with [Ghidra](https://ghidra-sre.org/) or radare2, and keep compiler mitigations (stack protector, ASLR-compatible position-independent code) in the surrounding program. See [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 
 ## Learning resources
 

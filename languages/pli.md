@@ -10,7 +10,7 @@ PL/I (Programming Language One) is a statically typed, compiled language designe
 | Memory model | Static, automatic (stack), controlled, and based (heap) storage classes |
 | Reference compiler | No single reference; IBM Enterprise PL/I for z/OS is the dominant compiler, [Iron Spring PL/I](http://www.iron-spring.com/) targets personal platforms |
 | Typical uses | Mainframe scientific and business applications, systems programming (historically Multics) |
-| Governance/standard | [ANSI X3.53-1976](https://www.iso.org/standard/11169.html) and ISO 6160 (PL/I) |
+| Governance/standard | ANSI X3.53-1976 and ISO 6160 (PL/I) |
 
 Related: [COBOL](/languages/cobol.md), [ALGOL](/languages/algol.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 

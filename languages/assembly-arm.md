@@ -30,7 +30,7 @@ AArch64 provides 31 general-purpose 64-bit registers, `x0` through `x30`, each w
 
 - Assemblers: [GNU as](https://sourceware.org/binutils/) (through `gcc`) and the LLVM assembler use GNU syntax; Arm's `armasm` and the Keil toolchain are common in embedded work.
 - Linkers and tools: `ld` links; `objdump` and `readelf` inspect binaries.
-- Debuggers and disassemblers: [GDB](https://www.sourceware.org/gdb/), [Ghidra](https://ghidra-sre.org/), and [radare2](https://rada.re/).
+- Debuggers and disassemblers: [GDB](https://www.sourceware.org/gdb/), [Ghidra](https://ghidra-sre.org/), and radare2.
 
 ```bash
 aarch64-linux-gnu-as hello.s -o hello.o
@@ -112,7 +112,7 @@ ARM assembly offers no run-time checks, so memory and control-flow errors map di
 - Control-flow hijacking: indirect branches through attacker-influenced registers enable code reuse; use architecture mitigations such as pointer authentication (PAC) and branch target identification (BTI) on cores that support them, along with non-executable stacks.
 - When assembly assembles command strings passed to the operating system, the injection risk is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
 
-Tooling: disassemble and audit with [Ghidra](https://ghidra-sre.org/) or [radare2](https://rada.re/), run cross-built code under QEMU for testing, and keep the surrounding program's compiler mitigations enabled. See [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
+Tooling: disassemble and audit with [Ghidra](https://ghidra-sre.org/) or radare2, run cross-built code under QEMU for testing, and keep the surrounding program's compiler mitigations enabled. See [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 
 ## Learning resources
 

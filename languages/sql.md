@@ -10,7 +10,7 @@ SQL (Structured Query Language) is a declarative language for defining, querying
 | Memory model | Managed by the database engine |
 | Reference implementation | No single one; [PostgreSQL](https://www.postgresql.org/), [SQLite](https://www.sqlite.org/), and MySQL are common |
 | Typical uses | Transactional applications, reporting, analytics, data warehousing |
-| Governance | [ISO/IEC 9075](https://www.iso.org/standard/76583.html), ISO/IEC JTC 1/SC 32 |
+| Governance | ISO/IEC 9075, ISO/IEC JTC 1/SC 32 |
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [PL/SQL](/languages/plsql.md), [languages index](/languages/README.md).
 
@@ -147,7 +147,7 @@ Tooling: [sqlfluff](https://sqlfluff.com/) lints SQL style and some risk pattern
 
 ## Learning resources
 
-- [ISO/IEC 9075](https://www.iso.org/standard/76583.html), the SQL standard (the engine manuals below are the practical references).
+- ISO/IEC 9075, the SQL standard (the engine manuals below are the practical references).
 - [PostgreSQL documentation](https://www.postgresql.org/docs/), a thorough and widely cited SQL reference.
 - [SQLite SQL syntax](https://www.sqlite.org/lang.html), a concise reference for a small, embeddable engine.
 

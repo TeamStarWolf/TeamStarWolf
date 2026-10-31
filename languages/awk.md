@@ -34,7 +34,7 @@ Typing is dynamic: a value is a string or a number, and context decides which. `
 ## Toolchain and ecosystem
 
 - Interpreter: `awk 'program' file ...` runs an inline program; `awk -f prog.awk` runs one from a file.
-- Implementations: [gawk](https://www.gnu.org/software/gawk/) adds features such as true multidimensional arrays, networking, and a profiler; `mawk` and the original `awk` are smaller and faster for the POSIX subset.
+- Implementations: gawk adds features such as true multidimensional arrays, networking, and a profiler; `mawk` and the original `awk` are smaller and faster for the POSIX subset.
 - Variables: `-v name=value` sets a variable before execution; `-F sep` sets the field separator.
 - There is no package ecosystem; AWK programs are distributed as scripts or embedded in shell scripts.
 
@@ -121,7 +121,7 @@ Tooling: `gawk --lint` flags some unsafe and nonportable constructs; the main co
 
 ## Learning resources
 
-- [The GNU Awk User's Guide](https://www.gnu.org/software/gawk/manual/), a thorough reference that notes POSIX versus `gawk` behavior.
+- The GNU Awk User's Guide, a thorough reference that notes POSIX versus `gawk` behavior.
 - [The AWK Programming Language](https://awk.dev/), the authors' book, whose second edition appeared in 2023.
 - [The one true awk source and manual](https://github.com/onetrueawk/awk), the reference implementation.
 

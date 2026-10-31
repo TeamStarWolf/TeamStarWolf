@@ -68,6 +68,11 @@
 
 ---
 
+- Programming languages
+  - [All languages](/languages/README.md)
+
+---
+
 - Case studies and research
   - [Case studies](/case-studies/README.md)
   - [Research notes](/research/README.md)

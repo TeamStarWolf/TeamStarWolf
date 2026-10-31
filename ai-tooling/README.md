@@ -16,6 +16,7 @@
 | [AI Tool Manuals](/ai-tooling/tools/README.md) | One page per tool, A to Z: what it is for, quick start, key concepts, security notes with verified CVEs and incidents, and where to learn more |
 | [AI and LLM Learning Path](/ai-tooling/AI_LEARNING_PATH.md) | Nine modules from how LLMs work through prompting, RAG, agents and MCP, fine-tuning, evaluation, local models, security and governance, each with free, reputable resources |
 | [AI Labs](/ai-tooling/AI_LABS.md) | Six local, defensive labs: run a model with Ollama, build a small RAG, write an MCP server, evaluate prompts, scan your own model, and add a guardrail |
+| [Prompt Engineering for Security Work](/ai-tooling/PROMPT_ENGINEERING_FOR_SECURITY.md) | An eight-pillar framework for writing prompts that return accurate, structured, decision-useful output for security tasks, with local-model and data-handling cautions |
 
 ## How these pages are checked
 

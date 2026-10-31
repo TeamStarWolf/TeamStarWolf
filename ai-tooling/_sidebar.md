@@ -15,6 +15,7 @@
   - [AI and LLM learning path](/ai-tooling/AI_LEARNING_PATH.md)
   - [AI labs](/ai-tooling/AI_LABS.md)
   - [All tool manuals](/ai-tooling/tools/README.md)
+  - [Prompt Engineering for Security Work](/ai-tooling/PROMPT_ENGINEERING_FOR_SECURITY.md)
 
 ---
 

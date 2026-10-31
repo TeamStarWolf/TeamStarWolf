@@ -450,6 +450,14 @@ pages:
     corrected: "pr56-audit-fixes"
     corrected_what: "TLS 1.3 cipher-suite requirement and the list of hashes open to length extension corrected"
     reviewed: null
+  IT_DOMAINS_REFERENCE.md:
+    audience: "Learners, lab builders, and anyone orienting across the IT and security landscape"
+    level: "Beginner"
+    read_when: "You are planning a lab or study program, you want to decide which IT domains to learn, or you need to see where this library covers a given specialization"
+    start_at: "[How to read this map](#how-to-read-this-map), [Cybersecurity and information security](#cybersecurity-and-information-security), [Using this map](#using-this-map)"
+    pairs_with: "[Career Paths](CAREER_PATHS.md), [Learning paths](disciplines/README.md), [Domains index](hubs/README.md)"
+    learning_path: []
+    reviewed: null
   CTEM_REFERENCE.md:
     audience: "Vulnerability management leads, security program managers, and CISOs"
     level: "Intermediate"

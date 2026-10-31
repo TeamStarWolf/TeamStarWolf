@@ -759,7 +759,7 @@ Common and well-worn ways to move between roles as you grow.
 - [Hands-On Labs](/LABS.md)
 - [Security Tools Reference](/TOOLS.md)
 - [HTB Learning Tracks](/research/HTB_TRACKS.md)
-- [CISSP Domain Crosswalk](/CISSP_DOMAIN_CROSSWALK.md)
+- [IT Domains and Specializations](/IT_DOMAINS_REFERENCE.md)
 
 <!-- related:end -->
 

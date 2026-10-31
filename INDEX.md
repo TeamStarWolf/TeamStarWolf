@@ -120,6 +120,7 @@
 | [Insider Threat Program Reference](INSIDER_THREAT_REFERENCE.md) | MITRE CTID Insider Threat TTP Knowledge Base v2.0, EO 13587/NITTF/NISPOM foundations, CISA mitigation guide, UAM detection, HR/legal/privacy guardrails, program metrics |
 | [Interview Prep](INTERVIEW_PREP.md) | Common interview questions by role: SOC analyst, pentester, DFIR, cloud security, AppSec |
 | [IR Playbooks](IR_PLAYBOOKS.md) | Step-by-step response procedures for ransomware, BEC, data exfiltration, DDoS, cloud incidents, and more |
+| [IT Domains and Specializations](IT_DOMAINS_REFERENCE.md) | A map of 100 IT domains across 15 categories, each pointing to where this library covers it, as an orientation aid for labs, research, and learning paths |
 | [Kali Linux Tool Coverage](research/KALI_TOOL_COVERAGE.md) | Coverage analysis comparing the Kali Linux tool catalog against the curated Stars Lists and the starred GitHub repositories index |
 | [Kubernetes Security Reference](KUBERNETES_SECURITY_REFERENCE.md) | K8s RBAC attacks, container escape, Pod Security Standards, NetworkPolicy, secrets management, Falco, kube-bench |
 | [LimeWire](https://github.com/TeamStarWolf/LimeWire) | Python desktop audio studio: download, analysis, editing, stem separation, and batch processing |

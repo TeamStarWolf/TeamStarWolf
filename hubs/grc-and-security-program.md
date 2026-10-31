@@ -4,7 +4,7 @@
 
 > Running a security program: governance, risk, compliance, architecture and controls, vulnerability and exposure management, careers, and reading lists.
 
-Part of the [domain hubs](/hubs/README.md). 36 reference documents in this domain; reading time is the page's words at 230 words a minute.
+Part of the [domain hubs](/hubs/README.md). 37 reference documents in this domain; reading time is the page's words at 230 words a minute.
 
 ## Governance, risk, and compliance
 
@@ -45,6 +45,7 @@ Part of the [domain hubs](/hubs/README.md). 36 reference documents in this domai
 | Reference | What it covers | Reading time |
 |---|---|---|
 | [Career Paths](/CAREER_PATHS.md) | 15+ cybersecurity roles with skill maps, salary ranges, cert roadmaps, and career transition paths | 19 min |
+| [IT Domains and Specializations](/IT_DOMAINS_REFERENCE.md) | A map of 100 IT domains across 15 categories, each pointing to where this library covers it, as an orientation aid for labs, research, and learning paths | 5 min |
 | [Certifications Reference](/CERTIFICATIONS.md) | Detailed reference for 40+ security certifications: cost, difficulty, DoD 8570, and who should pursue each | Lookup page (11 min end to end) |
 | [CISSP Domain Crosswalk](/CISSP_DOMAIN_CROSSWALK.md) | ISC2 CISSP 8 domains (April 2024 weights) mapped onto the library, with a 12-week plan and honest coverage gaps | 17 min |
 | [CEH Domain Crosswalk](/CEH_DOMAIN_CROSSWALK.md) | EC-Council CEH v13 exam blueprint (9 domains) mapped onto the library, with study sequence, honest gaps, and legal-practice pointers | 12 min |

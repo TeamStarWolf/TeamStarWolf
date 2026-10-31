@@ -373,7 +373,7 @@
           "VULNERABILITY_MANAGEMENT_REFERENCE.md", "VULNERABILITY_PRIORITIZATION_REFERENCE.md", "SCANNER_PLATFORMS_REFERENCE.md",
           "CTEM_REFERENCE.md", "CVE_REFERENCE.md", "CPE_REFERENCE.md"]},
         {"heading": "Careers and learning", "docs": [
-          "CAREER_PATHS.md", "CERTIFICATIONS.md", "CISSP_DOMAIN_CROSSWALK.md", "CEH_DOMAIN_CROSSWALK.md",
+          "CAREER_PATHS.md", "IT_DOMAINS_REFERENCE.md", "CERTIFICATIONS.md", "CISSP_DOMAIN_CROSSWALK.md", "CEH_DOMAIN_CROSSWALK.md",
           "INTERVIEW_PREP.md", "LABS.md", "HOMELAB_SETUP.md", "CTF_METHODOLOGY.md", "GLOSSARY.md"]},
         {"heading": "Reading lists and tool catalogs", "docs": [
           "RESOURCES.md", "CYBERSECURITY_BOOK_LIST.md", "YOUTUBE_CHANNELS.md", "TWITTER_FOLLOW_LIST.md",

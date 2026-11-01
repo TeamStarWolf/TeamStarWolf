@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 23 min (5,269 words at 230 words a minute)
+About 24 min (5,502 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -302,6 +302,14 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 - Impact: CDK Global provides dealer management systems to ~15,000 US automotive dealerships; outage lasted ~2 weeks forcing dealers to use paper; CDK reportedly paid ~$25M ransom; estimated $1B+ in lost revenue across the industry
 - Significance: Demonstrated SaaS platform single points of failure; automotive industry has no manual fallback for modern dealership operations; reinforced concentration risk concerns raised by Change Healthcare
 
+### 2024: CrowdStrike Falcon Content Update Outage
+
+- Date: July 19, 2024 (faulty update live 04:09 to 05:27 UTC)
+- Cause: Not a cyberattack. A faulty Falcon sensor Rapid Response Content update, Channel File 291
+- Method: The update used a template type with 21 input fields, but the sensor's content interpreter expected 20; a non-wildcard value in the 21st field caused an out-of-bounds read in the kernel-mode driver, which bluescreened the host into a boot loop. The Content Validator had no test for that case, so the update shipped.
+- Impact: About 8.5 million Windows hosts crashed worldwide (Microsoft estimate), grounding airlines and disrupting hospitals, banks, and retail; recovery required booting each machine to safe mode and deleting the channel file by hand. macOS and Linux were unaffected.
+- Significance: The largest IT outage in history, and a change-management lesson rather than an attack. A kernel-level security agent is itself an availability risk, and vendor content or definition updates bypass the normal patch-test cycle. The event drove phased sensor-content rollout controls and renewed scrutiny of kernel-mode agents on Windows.
+
 ### 2023-2025: Volt Typhoon (Chinese Pre-Positioning)
 
 - Actor: Volt Typhoon (Bronze Silhouette): Chinese MSS/PLA (attributed by US IC, Five Eyes)
@@ -502,6 +510,7 @@ The following vulnerability classes have proven to be high-impact, widely exploi
 | Ivanti Connect Secure | CVE-2025-0282, CVE-2023-46805, CVE-2024-21887 | 9.0-10.0 | Pre-auth stack overflow / auth bypass / command injection in Ivanti VPN appliances; exploited by Chinese APT (UNC5221/5337) as zero-days; CISA ordered federal agencies to disconnect; ICT (Integrity Checker Tool) repeatedly bypassed |
 | Citrix/Netscaler (general) | CVE-2023-3519 | 9.8 | Unauthenticated RCE in Citrix ADC/NetScaler; exploited as zero-day against critical infrastructure; CISA alert AA23-201A; implants installed before patch release |
 | SAP NetWeaver Visual Composer | CVE-2025-31324, CVE-2025-42999 | 9.8-10.0 | Missing authorization in the Visual Composer Metadata Uploader allows unauthenticated file upload to RCE, chained with the CVE-2025-42999 deserialization bug; SAP emergency patch 24 April 2025; added to CISA KEV with a ransomware flag; exploited by China-nexus actors and ransomware crews; where Visual Composer is unused, setting vc/enabled=false removes the attack surface entirely |
+| PHP-CGI argument injection | CVE-2024-4577 | 9.8 | Best-fit character encoding on Windows lets an attacker inject arguments to the PHP binary in CGI mode, yielding unauthenticated RCE; XAMPP on Windows is vulnerable by default in some locales; exploited within 24 hours of disclosure and by TellYouThePass ransomware; fixed in PHP 8.3.8 / 8.2.20 / 8.1.29, or move off PHP-CGI to PHP-FPM |
 
 ### Vulnerability Prioritization Guidance
 

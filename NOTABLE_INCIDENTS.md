@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 24 min (5,604 words at 230 words a minute)
+About 25 min (5,708 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -377,6 +377,8 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 | ALPHV / BlackCat | 2021-2024 | MGM Resorts, Change Healthcare ($22M) | FBI seized infrastructure Dec 2023 (released decryptor for 500 victims); exit-scammed affiliates after Change Healthcare ransom; effectively disbanded mid-2024 |
 | Cl0p (TA505) | 2019-present | Accellion FTA, GoAnywhere, MOVEit (90M+ records), Cleo (2024) | Active; specializes in managed file transfer zero-days; rarely encrypts, prefers pure extortion |
 | Scattered Spider | 2022-present | MGM Resorts ($100M+), Caesars Entertainment (~$15M) | Active; US/UK nationals; several arrests 2023-2024 including alleged ringleader |
+| RansomHub | 2024-2025 | Change Healthcare data re-extortion (via affiliate after the ALPHV exit scam) | Emerged February 2024 on the RAMP forum with a 90% affiliate cut; absorbed ALPHV and LockBit affiliates after their 2024 disruptions and became the most prolific RaaS by late 2024; infrastructure went dark in early April 2025 and affiliates scattered to DragonForce, Qilin, and LockBit |
+| Akira | 2023-present | Hundreds of victims; 2025 SonicWall SSLVPN campaign (CVE-2024-40766) | Appeared March 2023 with a double-extortion model; reported to have collected $200M+; among the most active groups into 2025 (second to Qilin in Q2 2025 per Check Point); a mid-2025 campaign hit SonicWall SSLVPN at scale |
 
 ---
 

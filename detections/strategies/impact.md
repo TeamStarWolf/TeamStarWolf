@@ -722,9 +722,9 @@ ATT&CK: [T1531](https://attack.mitre.org/techniques/T1531/), [detail page](/tech
   - *Log sources:* `m365:unified (Remove-Mailbox, Set-Mailbox)`; `m365:signinlogs (Sign-in from anomalous location or impossible travel condition)`
   - *Tune:* `RoleAssignment`: Determine if operation was delegated to expected admin group; `GeoThreshold`: Trigger on unusual geographic login sources
 - `AN0339` Analytic 0339, SaaS
-  Deletion or disablement of user accounts in platforms like Okta, Salesforce, or Zoom with anomalies in admin session attributes or mass actions within short duration.
-  - *Log sources:* `saas:okta (user.lifecycle.delete, user.account.lock)`
-  - *Tune:* `BulkActionThreshold`: Trigger if multiple deletions occur within a short period; `SessionDeviceType`: Alert on deletions initiated from unfamiliar device contexts
+  Deletion or disablement of user accounts in SaaS platforms such as Okta, Salesforce, or Zoom, correlated with anomalous administrative session attributes or multiple account-removal actions within a short duration.
+  - *Log sources:* `saas:okta (user.lifecycle.deactivate, user.lifecycle.suspend, user.lifecycle.delete.initiated, user.lifecycle.delete.completed)`
+  - *Tune:* `BulkActionThreshold`: Trigger if multiple account deletion, deactivation, or suspension actions occur within a short period.; `SessionDeviceType`: Alert when account deletion, deactivation, or suspension is initiated from unfamiliar administrative session contexts.
 
 </details>
 

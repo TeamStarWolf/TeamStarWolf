@@ -7,9 +7,8 @@ Digital artifacts: Document File, Executable File
 
 Executing or opening a file in a synthetic "sandbox" environment to determine if the file is a malicious program or if the file exploits another program such as a document reader.
 
-## ATT&CK techniques countered (43)
+## ATT&CK techniques countered (42)
 
-- [T0853: Scripting](https://attack.mitre.org/techniques/T0853): analyzes
 - [T0865: Spearphishing Attachment](https://attack.mitre.org/techniques/T0865): analyzes
 - [T0871: Execution through API](https://attack.mitre.org/techniques/T0871): analyzes
 - [T0894: System Binary Proxy Execution](https://attack.mitre.org/techniques/T0894): analyzes
@@ -52,6 +51,8 @@ Executing or opening a file in a synthetic "sandbox" environment to determine if
 - [T1574.008: Path Interception by Search Order Hijacking](/mitre/techniques/T1574-008.md): analyzes. Adversaries may execute their own malicious payloads by hijacking the search order used to load other programs.
 - [T1574.009: Path Interception by Unquoted Path](/mitre/techniques/T1574-009.md): analyzes. Adversaries may execute their own malicious payloads by hijacking vulnerable file path references.
 - [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): analyzes. Adversaries may impair command history logging to hide commands they run on a compromised system.
+
+_D3FEND also maps T0853, deprecated in ATT&CK with no successor; not counted above._
 
 ---
 

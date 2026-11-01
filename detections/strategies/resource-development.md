@@ -822,6 +822,22 @@ ATT&CK: [T1608.006](https://attack.mitre.org/techniques/T1608/006/), [detail pag
 
 ---
 
+### T1608.007: AI Result Poisoning
+<a id="t1608007"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
+
+Detection strategy: Detection of AI Result Poisoning (`DET0922`)  
+Platforms: PRE  
+ATT&CK: [T1608.007](https://attack.mitre.org/techniques/T1608/007/), [detail page](/techniques/resource-development.md#t1608007)
+
+- `AN2068` Analytic 2068, PRE
+  No target-side behavioral analytic. A defender cannot reliably distinguish an adversary intentionally staging public content to manipulate future AI retrieval from ordinary publishing, SEO, inaccurate information, duplicated content, or legitimate coordinated publication using target-enterprise telemetry.
+
+</details>
+
+---
+
 ### T1650: Acquire Access
 <a id="t1650"></a>
 

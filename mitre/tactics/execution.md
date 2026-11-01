@@ -10,7 +10,7 @@ The adversary is trying to run malicious code.
 - [T1053.003: Cron](/mitre/techniques/T1053-003.md) (10.4% of machines)
 - [T1574: Hijack Execution Flow](/mitre/techniques/T1574.md) (2.5% of machines)
 
-64 techniques in this tactic (Team Star Wolf enriched pages):
+66 techniques in this tactic (Team Star Wolf enriched pages):
 
 - [T1047: Windows Management Instrumentation](/mitre/techniques/T1047.md)
 - [T1053: Scheduled Task/Job](/mitre/techniques/T1053.md)
@@ -76,6 +76,8 @@ The adversary is trying to run malicious code.
 - [T1674: Input Injection](/mitre/techniques/T1674.md)
 - [T1675: ESXi Administration Command](/mitre/techniques/T1675.md)
 - [T1677: Poisoned Pipeline Execution](/mitre/techniques/T1677.md)
+- [T1698: Indirect Prompt Injection](/mitre/techniques/T1698.md)
+- [T1699: Direct Prompt Injection](/mitre/techniques/T1699.md)
 
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 

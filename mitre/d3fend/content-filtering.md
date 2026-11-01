@@ -7,10 +7,9 @@ Digital artifacts: File
 
 Content Filtering techniques aid in the process of analyzing an input file for malicious or erroneous content and outputting a sanitized version.
 
-## ATT&CK techniques countered (105)
+## ATT&CK techniques countered (104)
 
 - [T0851: Rootkit](https://attack.mitre.org/techniques/T0851): filters
-- [T0853: Scripting](https://attack.mitre.org/techniques/T0853): filters
 - [T0865: Spearphishing Attachment](https://attack.mitre.org/techniques/T0865): filters
 - [T0871: Execution through API](https://attack.mitre.org/techniques/T0871): filters
 - [T0888: Remote System Information Discovery](https://attack.mitre.org/techniques/T0888): filters
@@ -115,7 +114,7 @@ Content Filtering techniques aid in the process of analyzing an input file for m
 - [T1685.006: Clear Linux or Mac System Logs](/mitre/techniques/T1685-006.md): filters. Adversaries may clear system logs to hide evidence of an intrusion.
 - [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): filters. Adversaries may impair command history logging to hide commands they run on a compromised system.
 
-_D3FEND also maps T1053.004, deprecated in ATT&CK with no successor; not counted above._
+_D3FEND also maps T0853, T1053.004, deprecated in ATT&CK with no successor; not counted above._
 
 ---
 

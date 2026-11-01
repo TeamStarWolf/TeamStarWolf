@@ -7,9 +7,8 @@ Digital artifacts: Session
 
 Forcefully end all active sessions associated with compromised accounts or devices.
 
-## ATT&CK techniques countered (10)
+## ATT&CK techniques countered (9)
 
-- [T0807: Command-Line Interface](https://attack.mitre.org/techniques/T0807): deletes
 - [T0822: External Remote Services](https://attack.mitre.org/techniques/T0822): deletes
 - [T1021.001: Remote Desktop Protocol](/mitre/techniques/T1021-001.md): deletes. Adversaries may use [Valid Accounts](https://attack.mitre.org/techniques/T1078) to log into a computer using the Remote Desktop Protocol (RDP).
 - [T1021.004: SSH](/mitre/techniques/T1021-004.md): deletes. Adversaries may use [Valid Accounts](https://attack.mitre.org/techniques/T1078) to log into remote machines using Secure Shell (SSH).
@@ -19,6 +18,8 @@ Forcefully end all active sessions associated with compromised accounts or devic
 - [T1563: Remote Service Session Hijacking](/mitre/techniques/T1563.md): deletes. Adversaries may take control of preexisting sessions with remote services to move laterally in an environment.
 - [T1563.001: SSH Hijacking](/mitre/techniques/T1563-001.md): deletes. Adversaries may hijack a legitimate user's SSH session to move laterally within an environment.
 - [T1563.002: RDP Hijacking](/mitre/techniques/T1563-002.md): deletes. Adversaries may hijack a legitimate user’s remote desktop session to move laterally within an environment.
+
+_D3FEND also maps T0807, deprecated in ATT&CK with no successor; not counted above._
 
 ---
 

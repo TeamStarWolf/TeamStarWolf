@@ -134,7 +134,7 @@ DATA = ROOT / "data" / "attack"
 # The pinned STIX inputs (see the module docstring). A commit SHA, never a branch;
 # all three bundles are read at the same commit.
 STIX_REPO = "mitre-attack/attack-stix-data"
-STIX_COMMIT = "6cda5ad8462c79e14fbb872f4e09059b18e0cfc4"  # tag v19.2
+STIX_COMMIT = "3a9dc7798bf78b53b77fc2f821002f7167c00be3"  # tag v20.0
 
 
 def _raw_url(path: str) -> str:
@@ -142,18 +142,18 @@ def _raw_url(path: str) -> str:
 
 
 # Enterprise (the names predate the ICS/Mobile pins and are kept for their readers).
-STIX_FILE = "enterprise-attack/enterprise-attack-19.2.json"
-STIX_SHA256 = "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4"
-STIX_BYTES = 53835637
+STIX_FILE = "enterprise-attack/enterprise-attack-20.0.json"
+STIX_SHA256 = "81113ba98afa2928f3dcff62022539f7ce30c315c32e14422f11ff95ce534352"
+STIX_BYTES = 55271014
 STIX_URL = _raw_url(STIX_FILE)
 
-ICS_STIX_FILE = "ics-attack/ics-attack-19.2.json"
-ICS_STIX_SHA256 = "08b83d2cea6b6d6752468ef0e62e2ab2a53c9443ef72c439ecccb07ab9e89da9"
-ICS_STIX_BYTES = 4057891
+ICS_STIX_FILE = "ics-attack/ics-attack-20.0.json"
+ICS_STIX_SHA256 = "c9ca0ce523a1b5e512060a390415e8aefe8f6d32c5f82d7de81264960c1e1183"
+ICS_STIX_BYTES = 5266683
 
-MOBILE_STIX_FILE = "mobile-attack/mobile-attack-19.2.json"
-MOBILE_STIX_SHA256 = "acfa5ca2d93484476f79bf38590e2b55bb675fc0ce85e76bffa0af2c82dada64"
-MOBILE_STIX_BYTES = 5750325
+MOBILE_STIX_FILE = "mobile-attack/mobile-attack-20.0.json"
+MOBILE_STIX_SHA256 = "824f7d8a37e7893b29e4c6ca6d87b5fbbf3b228ec6384f1a69ee20d523ff59e5"
+MOBILE_STIX_BYTES = 6095145
 
 # domain -> its pinned bundle. scripts/build_manifest.py writes one MANIFEST `inputs`
 # entry per item, in this order.
@@ -697,8 +697,58 @@ def patch_technique_profiles(idx: Index, m, strategies: list[dict]) -> tuple[dic
         if r != before:
             rows_changed += 1
 
+    # Onboard techniques new in this release. The patch above only updates rows that
+    # already exist; active enterprise attack-patterns with no committed row (new in
+    # this ATT&CK version) are appended here. Core fields are derived from the STIX,
+    # the same way build_domain() builds ICS and Mobile rows. The NIST and CAPEC
+    # enrichment is left empty and is filled by the downstream scripts when a mapping
+    # exists for the new id, which at release time it does not.
+    existing = {r["technique_id"] for r in rows}
+    parent = {
+        o["source_ref"]: o["target_ref"] for o in idx.objs
+        if o["type"] == "relationship" and o.get("relationship_type") == "subtechnique-of" and is_active(o)
+    }
+    added = []
+    for ap in idx.ap:
+        if ap["id"] not in idx.ap_active_ids:
+            continue
+        tid = attack_id(ap)
+        if not tid or tid in existing:
+            continue
+        ref = ap["id"]
+        mits = sorted(
+            ({"id": attack_id(idx.by_id[x]), "name": idx.by_id[x].get("name")} for x in t_mits.get(ref, ())),
+            key=lambda d: d["id"],
+        )
+        strats = t_strats.get(tid, [])
+        added.append({
+            "technique_id": tid,
+            "name": ap.get("name"),
+            "is_subtechnique": bool(ap.get("x_mitre_is_subtechnique")),
+            "parent_id": attack_id(idx.by_id[parent[ref]]) if ref in parent else None,
+            "tactics": technique_tactics(ap),
+            "platforms": list(ap.get("x_mitre_platforms", [])),
+            "url": attack_url(ap),
+            "attack_version": ap.get("x_mitre_version"),
+            "capec": [],
+            "mitigations": mits,
+            "mitigation_count": len(mits),
+            "nist_800_53_controls": [],
+            "nist_control_count": 0,
+            "group_count": len(t_groups.get(ref, ())),
+            "software_count": len(t_sw.get(ref, ())),
+            "campaign_count": len(t_camps.get(ref, ())),
+            "detection_strategies": strats,
+            "has_detection_strategy": bool(strats),
+            "description": summarise(ap.get("description")),
+            "nist_800_53_controls_rolled": [],
+            "nist_control_count_rolled": 0,
+        })
+    added.sort(key=lambda r: r["technique_id"])
+    rows.extend(added)
+
     return ({"rows": len(rows), "tactics_changed": tactics_changed, "rows_changed": rows_changed,
-             "flagged_revoked": flagged, "missing_in_stix": missing}, rows)
+             "flagged_revoked": flagged, "added": len(added), "missing_in_stix": missing}, rows)
 
 
 # --------------------------------------------------------------------------- #

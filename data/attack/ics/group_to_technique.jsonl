@@ -1,20 +1,39 @@
 {"group_id": "G0032", "group_name": "Lazarus Group", "technique_id": "T0865", "technique_name": "Spearphishing Attachment"}
-{"group_id": "G0034", "group_name": "Sandworm Team", "technique_id": "T0807", "technique_name": "Command-Line Interface"}
 {"group_id": "G0034", "group_name": "Sandworm Team", "technique_id": "T0819", "technique_name": "Exploit Public-Facing Application"}
 {"group_id": "G0034", "group_name": "Sandworm Team", "technique_id": "T0884", "technique_name": "Connection Proxy"}
+{"group_id": "G0034", "group_name": "Sandworm Team", "technique_id": "T1701.001", "technique_name": "PowerShell"}
+{"group_id": "G0034", "group_name": "Sandworm Team", "technique_id": "T1701.002", "technique_name": "Windows Command Shell"}
 {"group_id": "G0035", "group_name": "Dragonfly", "technique_id": "T0817", "technique_name": "Drive-by Compromise"}
 {"group_id": "G0035", "group_name": "Dragonfly", "technique_id": "T0862", "technique_name": "Supply Chain Compromise"}
 {"group_id": "G0049", "group_name": "OilRig", "technique_id": "T0817", "technique_name": "Drive-by Compromise"}
-{"group_id": "G0049", "group_name": "OilRig", "technique_id": "T0853", "technique_name": "Scripting"}
 {"group_id": "G0049", "group_name": "OilRig", "technique_id": "T0859", "technique_name": "Valid Accounts"}
 {"group_id": "G0049", "group_name": "OilRig", "technique_id": "T0865", "technique_name": "Spearphishing Attachment"}
 {"group_id": "G0049", "group_name": "OilRig", "technique_id": "T0869", "technique_name": "Standard Application Layer Protocol"}
+{"group_id": "G0049", "group_name": "OilRig", "technique_id": "T1701.001", "technique_name": "PowerShell"}
+{"group_id": "G0049", "group_name": "OilRig", "technique_id": "T1701.004", "technique_name": "Visual Basic"}
 {"group_id": "G0064", "group_name": "APT33", "technique_id": "T0852", "technique_name": "Screen Capture"}
-{"group_id": "G0064", "group_name": "APT33", "technique_id": "T0853", "technique_name": "Scripting"}
 {"group_id": "G0064", "group_name": "APT33", "technique_id": "T0865", "technique_name": "Spearphishing Attachment"}
+{"group_id": "G0064", "group_name": "APT33", "technique_id": "T1701.001", "technique_name": "PowerShell"}
 {"group_id": "G0088", "group_name": "TEMP.Veles", "technique_id": "T0817", "technique_name": "Drive-by Compromise"}
 {"group_id": "G0088", "group_name": "TEMP.Veles", "technique_id": "T0862", "technique_name": "Supply Chain Compromise"}
 {"group_id": "G1000", "group_name": "ALLANITE", "technique_id": "T0817", "technique_name": "Drive-by Compromise"}
 {"group_id": "G1000", "group_name": "ALLANITE", "technique_id": "T0852", "technique_name": "Screen Capture"}
 {"group_id": "G1000", "group_name": "ALLANITE", "technique_id": "T0859", "technique_name": "Valid Accounts"}
 {"group_id": "G1000", "group_name": "ALLANITE", "technique_id": "T0865", "technique_name": "Spearphishing Attachment"}
+{"group_id": "G1027", "group_name": "CyberAv3ngers", "technique_id": "T0826", "technique_name": "Loss of Availability"}
+{"group_id": "G1027", "group_name": "CyberAv3ngers", "technique_id": "T0827", "technique_name": "Loss of Control"}
+{"group_id": "G1027", "group_name": "CyberAv3ngers", "technique_id": "T0829", "technique_name": "Loss of View"}
+{"group_id": "G1027", "group_name": "CyberAv3ngers", "technique_id": "T0838", "technique_name": "Modify Alarm Settings"}
+{"group_id": "G1027", "group_name": "CyberAv3ngers", "technique_id": "T0843", "technique_name": "Program Download"}
+{"group_id": "G1027", "group_name": "CyberAv3ngers", "technique_id": "T0845", "technique_name": "Program Upload"}
+{"group_id": "G1027", "group_name": "CyberAv3ngers", "technique_id": "T0871", "technique_name": "Execution through API"}
+{"group_id": "G1027", "group_name": "CyberAv3ngers", "technique_id": "T0879", "technique_name": "Damage to Property"}
+{"group_id": "G1027", "group_name": "CyberAv3ngers", "technique_id": "T0880", "technique_name": "Loss of Safety"}
+{"group_id": "G1027", "group_name": "CyberAv3ngers", "technique_id": "T0883", "technique_name": "Internet Accessible Device"}
+{"group_id": "G1027", "group_name": "CyberAv3ngers", "technique_id": "T0885", "technique_name": "Commonly Used Port"}
+{"group_id": "G1027", "group_name": "CyberAv3ngers", "technique_id": "T0886", "technique_name": "Remote Services"}
+{"group_id": "G1027", "group_name": "CyberAv3ngers", "technique_id": "T0889", "technique_name": "Modify Program"}
+{"group_id": "G1027", "group_name": "CyberAv3ngers", "technique_id": "T0892", "technique_name": "Change Credential"}
+{"group_id": "G1027", "group_name": "CyberAv3ngers", "technique_id": "T1692.001", "technique_name": "Command Message"}
+{"group_id": "G1027", "group_name": "CyberAv3ngers", "technique_id": "T1694.001", "technique_name": "Default Credentials"}
+{"group_id": "G1027", "group_name": "CyberAv3ngers", "technique_id": "T1695", "technique_name": "Block Communications"}

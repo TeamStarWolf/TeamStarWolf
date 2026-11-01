@@ -7,10 +7,9 @@ Digital artifacts: Directory, File
 
 Local file permissions is the systematic process of defining, implementing, and managing access control policies that dictate user permissions for accessing files on a local system through the configuration of operating system functionality.
 
-## ATT&CK techniques countered (106)
+## ATT&CK techniques countered (105)
 
 - [T0851: Rootkit](https://attack.mitre.org/techniques/T0851): restricts
-- [T0853: Scripting](https://attack.mitre.org/techniques/T0853): restricts
 - [T0865: Spearphishing Attachment](https://attack.mitre.org/techniques/T0865): restricts
 - [T0871: Execution through API](https://attack.mitre.org/techniques/T0871): restricts
 - [T0888: Remote System Information Discovery](https://attack.mitre.org/techniques/T0888): restricts
@@ -116,7 +115,7 @@ Local file permissions is the systematic process of defining, implementing, and 
 - [T1685.006: Clear Linux or Mac System Logs](/mitre/techniques/T1685-006.md): restricts. Adversaries may clear system logs to hide evidence of an intrusion.
 - [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): restricts. Adversaries may impair command history logging to hide commands they run on a compromised system.
 
-_D3FEND also maps T1053.004, deprecated in ATT&CK with no successor; not counted above._
+_D3FEND also maps T0853, T1053.004, deprecated in ATT&CK with no successor; not counted above._
 
 ---
 

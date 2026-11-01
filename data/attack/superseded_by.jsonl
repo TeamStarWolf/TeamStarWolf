@@ -1,6 +1,7 @@
 {"old_id": "T0803", "old_name": "Block Command Message", "new_id": "T1691.001", "new_name": "Command Message", "domain": "ics", "reason": "revoked"}
 {"old_id": "T0804", "old_name": "Block Reporting Message", "new_id": "T1691.002", "new_name": "Reporting Message", "domain": "ics", "reason": "revoked"}
 {"old_id": "T0805", "old_name": "Block Serial COM", "new_id": "T1695.001", "new_name": "Serial COM", "domain": "ics", "reason": "revoked"}
+{"old_id": "T0807", "old_name": "Command-Line Interface", "new_id": null, "new_name": null, "domain": "ics", "reason": "deprecated"}
 {"old_id": "T0808", "old_name": "Control Device Identification", "new_id": null, "new_name": null, "domain": "ics", "reason": "deprecated"}
 {"old_id": "T0810", "old_name": "Data Historian Compromise", "new_id": null, "new_name": null, "domain": "ics", "reason": "deprecated"}
 {"old_id": "T0812", "old_name": "Default Credentials", "new_id": "T1694.001", "new_name": "Default Credentials", "domain": "ics", "reason": "revoked"}
@@ -12,6 +13,7 @@
 {"old_id": "T0841", "old_name": "Network Service Scanning", "new_id": null, "new_name": null, "domain": "ics", "reason": "deprecated"}
 {"old_id": "T0844", "old_name": "Program Organization Units", "new_id": null, "new_name": null, "domain": "ics", "reason": "deprecated"}
 {"old_id": "T0850", "old_name": "Role Identification", "new_id": null, "new_name": null, "domain": "ics", "reason": "deprecated"}
+{"old_id": "T0853", "old_name": "Scripting", "new_id": null, "new_name": null, "domain": "ics", "reason": "deprecated"}
 {"old_id": "T0854", "old_name": "Serial Connection Enumeration", "new_id": null, "new_name": null, "domain": "ics", "reason": "deprecated"}
 {"old_id": "T0855", "old_name": "Unauthorized Command Message", "new_id": "T1692.001", "new_name": "Command Message", "domain": "ics", "reason": "revoked"}
 {"old_id": "T0856", "old_name": "Spoof Reporting Message", "new_id": "T1692.002", "new_name": "Reporting Message", "domain": "ics", "reason": "revoked"}
@@ -162,10 +164,10 @@
 {"old_id": "T1419", "old_name": "Device Type Discovery", "new_id": "T1426", "new_name": "System Information Discovery", "domain": "mobile", "reason": "revoked"}
 {"old_id": "T1425", "old_name": "Insecure Third-Party Libraries", "new_id": "T1474", "new_name": "Supply Chain Compromise", "domain": "mobile", "reason": "revoked"}
 {"old_id": "T1427", "old_name": "Attack PC via USB Connection", "new_id": null, "new_name": null, "domain": "mobile", "reason": "deprecated"}
-{"old_id": "T1431", "old_name": "App Delivered via Web Download", "new_id": null, "new_name": null, "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1431", "old_name": "App Delivered via Web Download", "new_id": "T1476", "new_name": "Deliver Malicious Application via Other Means", "domain": "mobile", "reason": "revoked"}
 {"old_id": "T1432", "old_name": "Access Contact List", "new_id": "T1636.003", "new_name": "Contact List", "domain": "mobile", "reason": "revoked"}
 {"old_id": "T1433", "old_name": "Access Call Log", "new_id": "T1636.002", "new_name": "Call Log", "domain": "mobile", "reason": "revoked"}
-{"old_id": "T1434", "old_name": "App Delivered via Email Attachment", "new_id": null, "new_name": null, "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1434", "old_name": "App Delivered via Email Attachment", "new_id": "T1476", "new_name": "Deliver Malicious Application via Other Means", "domain": "mobile", "reason": "revoked"}
 {"old_id": "T1435", "old_name": "Access Calendar Entries", "new_id": "T1636.001", "new_name": "Calendar Entries", "domain": "mobile", "reason": "revoked"}
 {"old_id": "T1436", "old_name": "Commonly Used Port", "new_id": null, "new_name": null, "domain": "mobile", "reason": "deprecated"}
 {"old_id": "T1438", "old_name": "Exfiltration Over Other Network Medium", "new_id": "T1644", "new_name": "Out of Band Data", "domain": "mobile", "reason": "revoked"}
@@ -175,7 +177,7 @@
 {"old_id": "T1442", "old_name": "Fake Developer Accounts", "new_id": null, "new_name": null, "domain": "mobile", "reason": "revoked"}
 {"old_id": "T1443", "old_name": "Remotely Install Application", "new_id": null, "new_name": null, "domain": "mobile", "reason": "revoked"}
 {"old_id": "T1444", "old_name": "Masquerade as Legitimate Application", "new_id": null, "new_name": null, "domain": "mobile", "reason": "deprecated"}
-{"old_id": "T1445", "old_name": "Abuse of iOS Enterprise App Signing Key", "new_id": null, "new_name": null, "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1445", "old_name": "Abuse of iOS Enterprise App Signing Key", "new_id": "T1476", "new_name": "Deliver Malicious Application via Other Means", "domain": "mobile", "reason": "revoked"}
 {"old_id": "T1446", "old_name": "Device Lockout", "new_id": "T1629.002", "new_name": "Device Lockout", "domain": "mobile", "reason": "revoked"}
 {"old_id": "T1447", "old_name": "Delete Device Data", "new_id": "T1630.002", "new_name": "File Deletion", "domain": "mobile", "reason": "revoked"}
 {"old_id": "T1448", "old_name": "Carrier Billing Fraud", "new_id": "T1643", "new_name": "Generate Traffic from Victim", "domain": "mobile", "reason": "revoked"}
@@ -198,7 +200,6 @@
 {"old_id": "T1472", "old_name": "Generate Fraudulent Advertising Revenue", "new_id": "T1643", "new_name": "Generate Traffic from Victim", "domain": "mobile", "reason": "revoked"}
 {"old_id": "T1473", "old_name": "Malicious or Vulnerable Built-in Device Functionality", "new_id": "T1474", "new_name": "Supply Chain Compromise", "domain": "mobile", "reason": "revoked"}
 {"old_id": "T1475", "old_name": "Deliver Malicious App via Authorized App Store", "new_id": null, "new_name": null, "domain": "mobile", "reason": "deprecated"}
-{"old_id": "T1476", "old_name": "Deliver Malicious App via Other Means", "new_id": null, "new_name": null, "domain": "mobile", "reason": "deprecated"}
 {"old_id": "T1477", "old_name": "Exploit via Radio Interfaces", "new_id": null, "new_name": null, "domain": "mobile", "reason": "deprecated"}
 {"old_id": "T1478", "old_name": "Install Insecure or Malicious Configuration", "new_id": "T1632.001", "new_name": "Code Signing Policy Modification", "domain": "mobile", "reason": "revoked"}
 {"old_id": "T1483", "old_name": "Domain Generation Algorithms", "new_id": "T1568.002", "new_name": "Domain Generation Algorithms", "domain": "enterprise", "reason": "revoked"}

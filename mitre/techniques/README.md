@@ -1,6 +1,6 @@
 # MITRE ATT&CK Techniques: Enriched Pages
 
-One page per ATT&CK technique (714 pages: 697 current in ATT&CK v19.2 plus 17 revoked in v19.2 and kept for reference), each enriched with mitigations, D3FEND countermeasures, CAPEC, NIST 800-53 controls, detection strategies, and Team Star Wolf corpus prevalence where observed. Each current technique is listed once, under its primary (first) tactic; a [tactic page](/mitre/tactics/README.md) lists every technique in that tactic. (observed) marks the 21 techniques seen in the Team Star Wolf training corpus.
+One page per ATT&CK technique (723 pages: 706 current in ATT&CK v19.2 plus 17 revoked in v19.2 and kept for reference), each enriched with mitigations, D3FEND countermeasures, CAPEC, NIST 800-53 controls, detection strategies, and Team Star Wolf corpus prevalence where observed. Each current technique is listed once, under its primary (first) tactic; a [tactic page](/mitre/tactics/README.md) lists every technique in that tactic. (observed) marks the 21 techniques seen in the Team Star Wolf training corpus.
 
 [MITRE Hub](/mitre/README.md), [Tactics](/mitre/tactics/README.md), [Mitigations](/mitre/mitigations/README.md)
 
@@ -53,7 +53,7 @@ One page per ATT&CK technique (714 pages: 697 current in ATT&CK v19.2 plus 17 re
 - [T1681: Search Threat Vendor Data](/mitre/techniques/T1681.md)
 - [T1682: Query Public AI Services](/mitre/techniques/T1682.md)
 
-## Resource Development (50)
+## Resource Development (51)
 
 - [T1583: Acquire Infrastructure](/mitre/techniques/T1583.md)
 - [T1583.001: Domains](/mitre/techniques/T1583-001.md)
@@ -101,6 +101,7 @@ One page per ATT&CK technique (714 pages: 697 current in ATT&CK v19.2 plus 17 re
 - [T1608.004: Drive-by Target](/mitre/techniques/T1608-004.md)
 - [T1608.005: Link Target](/mitre/techniques/T1608-005.md)
 - [T1608.006: SEO Poisoning](/mitre/techniques/T1608-006.md)
+- [T1608.007: AI Result Poisoning](/mitre/techniques/T1608-007.md)
 - [T1650: Acquire Access](/mitre/techniques/T1650.md)
 - [T1683: Generate Content](/mitre/techniques/T1683.md)
 - [T1683.001: Written Content](/mitre/techniques/T1683-001.md)
@@ -124,7 +125,7 @@ One page per ATT&CK technique (714 pages: 697 current in ATT&CK v19.2 plus 17 re
 - [T1659: Content Injection](/mitre/techniques/T1659.md)
 - [T1669: Wi-Fi Networks](/mitre/techniques/T1669.md)
 
-## Execution (46)
+## Execution (48)
 
 - [T1047: Windows Management Instrumentation](/mitre/techniques/T1047.md)
 - [T1053: Scheduled Task/Job](/mitre/techniques/T1053.md)
@@ -172,6 +173,8 @@ One page per ATT&CK technique (714 pages: 697 current in ATT&CK v19.2 plus 17 re
 - [T1674: Input Injection](/mitre/techniques/T1674.md)
 - [T1675: ESXi Administration Command](/mitre/techniques/T1675.md)
 - [T1677: Poisoned Pipeline Execution](/mitre/techniques/T1677.md)
+- [T1698: Indirect Prompt Injection](/mitre/techniques/T1698.md)
+- [T1699: Direct Prompt Injection](/mitre/techniques/T1699.md)
 
 ## Persistence (64)
 
@@ -269,7 +272,7 @@ One page per ATT&CK technique (714 pages: 697 current in ATT&CK v19.2 plus 17 re
 - [T1548.006: TCC Manipulation](/mitre/techniques/T1548-006.md)
 - [T1611: Escape to Host](/mitre/techniques/T1611.md) (observed)
 
-## Stealth (148)
+## Stealth (151)
 
 - [T1006: Direct Volume Access](/mitre/techniques/T1006.md)
 - [T1014: Rootkit](/mitre/techniques/T1014.md)
@@ -419,8 +422,11 @@ One page per ATT&CK technique (714 pages: 697 current in ATT&CK v19.2 plus 17 re
 - [T1684: Social Engineering](/mitre/techniques/T1684.md)
 - [T1684.001: Impersonation](/mitre/techniques/T1684-001.md)
 - [T1684.002: Email Spoofing](/mitre/techniques/T1684-002.md)
+- [T1696: Anti-Automation Evasion](/mitre/techniques/T1696.md)
+- [T1696.001: Automate CAPTCHA Completion](/mitre/techniques/T1696-001.md)
+- [T1696.002: Avoid CAPTCHA](/mitre/techniques/T1696-002.md)
 
-## Defense Impairment (56)
+## Defense Impairment (57)
 
 - [T1112: Modify Registry](/mitre/techniques/T1112.md)
 - [T1207: Rogue Domain Controller](/mitre/techniques/T1207.md)
@@ -470,6 +476,7 @@ One page per ATT&CK technique (714 pages: 697 current in ATT&CK v19.2 plus 17 re
 - [T1685.004: Disable or Modify Linux Audit System Log](/mitre/techniques/T1685-004.md)
 - [T1685.005: Clear Windows Event Logs](/mitre/techniques/T1685-005.md)
 - [T1685.006: Clear Linux or Mac System Logs](/mitre/techniques/T1685-006.md)
+- [T1685.007: Impair Autonomous Defenses](/mitre/techniques/T1685-007.md)
 - [T1686: Disable or Modify System Firewall](/mitre/techniques/T1686.md)
 - [T1686.001: Cloud Firewall](/mitre/techniques/T1686-001.md)
 - [T1686.002: Network Device Firewall](/mitre/techniques/T1686-002.md)
@@ -479,7 +486,7 @@ One page per ATT&CK technique (714 pages: 697 current in ATT&CK v19.2 plus 17 re
 - [T1689: Downgrade Attack](/mitre/techniques/T1689.md)
 - [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md)
 
-## Credential Access (52)
+## Credential Access (53)
 
 - [T1003: OS Credential Dumping](/mitre/techniques/T1003.md) (observed)
 - [T1003.001: LSASS Memory](/mitre/techniques/T1003-001.md)
@@ -533,6 +540,7 @@ One page per ATT&CK technique (714 pages: 697 current in ATT&CK v19.2 plus 17 re
 - [T1606.002: SAML Tokens](/mitre/techniques/T1606-002.md)
 - [T1621: Multi-Factor Authentication Request Generation](/mitre/techniques/T1621.md)
 - [T1649: Steal or Forge Authentication Certificates](/mitre/techniques/T1649.md)
+- [T1697: Steal Application Specific Passwords](/mitre/techniques/T1697.md)
 
 ## Discovery (43)
 
@@ -688,7 +696,7 @@ One page per ATT&CK technique (714 pages: 697 current in ATT&CK v19.2 plus 17 re
 - [T1573.002: Asymmetric Cryptography](/mitre/techniques/T1573-002.md)
 - [T1665: Hide Infrastructure](/mitre/techniques/T1665.md)
 
-## Exfiltration (19)
+## Exfiltration (20)
 
 - [T1011: Exfiltration Over Other Network Medium](/mitre/techniques/T1011.md)
 - [T1011.001: Exfiltration Over Bluetooth](/mitre/techniques/T1011-001.md)
@@ -709,6 +717,7 @@ One page per ATT&CK technique (714 pages: 697 current in ATT&CK v19.2 plus 17 re
 - [T1567.002: Exfiltration to Cloud Storage](/mitre/techniques/T1567-002.md)
 - [T1567.003: Exfiltration to Text Storage Sites](/mitre/techniques/T1567-003.md)
 - [T1567.004: Exfiltration Over Webhook](/mitre/techniques/T1567-004.md)
+- [T1700: AI-Enabled Exfiltration](/mitre/techniques/T1700.md)
 
 ## Impact (33)
 

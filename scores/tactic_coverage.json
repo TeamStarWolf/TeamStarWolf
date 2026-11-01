@@ -60,7 +60,7 @@
     "name": "Resource Development",
     "covered_techniques": [],
     "covered_count": 0,
-    "total_in_attack": 50,
+    "total_in_attack": 51,
     "coverage_pct_of_total": 0.0,
     "gap_techniques": [
       "T1583",
@@ -109,6 +109,7 @@
       "T1608.004",
       "T1608.005",
       "T1608.006",
+      "T1608.007",
       "T1650",
       "T1683",
       "T1683.001",
@@ -209,8 +210,8 @@
       "T1651"
     ],
     "covered_count": 55,
-    "total_in_attack": 64,
-    "coverage_pct_of_total": 85.9,
+    "total_in_attack": 66,
+    "coverage_pct_of_total": 83.3,
     "gap_techniques": [
       "T1059.012",
       "T1059.013",
@@ -220,7 +221,9 @@
       "T1569.003",
       "T1674",
       "T1675",
-      "T1677"
+      "T1677",
+      "T1698",
+      "T1699"
     ],
     "weight": 1.3
   },
@@ -563,8 +566,8 @@
       "T1622"
     ],
     "covered_count": 103,
-    "total_in_attack": 148,
-    "coverage_pct_of_total": 69.6,
+    "total_in_attack": 151,
+    "coverage_pct_of_total": 68.2,
     "gap_techniques": [
       "T1006",
       "T1014",
@@ -610,7 +613,10 @@
       "T1679",
       "T1684",
       "T1684.001",
-      "T1684.002"
+      "T1684.002",
+      "T1696",
+      "T1696.001",
+      "T1696.002"
     ],
     "weight": 1.4
   },
@@ -663,8 +669,8 @@
       "T1690"
     ],
     "covered_count": 44,
-    "total_in_attack": 56,
-    "coverage_pct_of_total": 78.6,
+    "total_in_attack": 57,
+    "coverage_pct_of_total": 77.2,
     "gap_techniques": [
       "T1207",
       "T1484.001",
@@ -675,6 +681,7 @@
       "T1600.001",
       "T1600.002",
       "T1666",
+      "T1685.007",
       "T1686.002",
       "T1686.003",
       "T1687"
@@ -749,13 +756,14 @@
       "T1649"
     ],
     "covered_count": 63,
-    "total_in_attack": 67,
-    "coverage_pct_of_total": 94.0,
+    "total_in_attack": 68,
+    "coverage_pct_of_total": 92.6,
     "gap_techniques": [
       "T1056",
       "T1056.001",
       "T1056.004",
-      "T1555.003"
+      "T1555.003",
+      "T1697"
     ],
     "weight": 1.4
   },
@@ -984,10 +992,11 @@
       "T1567.004"
     ],
     "covered_count": 18,
-    "total_in_attack": 19,
-    "coverage_pct_of_total": 94.7,
+    "total_in_attack": 20,
+    "coverage_pct_of_total": 90.0,
     "gap_techniques": [
-      "T1020"
+      "T1020",
+      "T1700"
     ],
     "weight": 1.2
   },

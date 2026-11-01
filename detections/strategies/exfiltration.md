@@ -552,4 +552,30 @@ ATT&CK: [T1567.004](https://attack.mitre.org/techniques/T1567/004/), [detail pag
 
 ---
 
+### T1700: AI-Enabled Exfiltration
+<a id="t1700"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its 3 analytics</summary>
+
+Detection strategy: Detect AI-Enabled Exfiltration (`DET0927`)  
+Platforms: Linux, SaaS, Windows  
+ATT&CK: [T1700](https://attack.mitre.org/techniques/T1700/), [detail page](/techniques/exfiltration.md#t1700)
+
+- `AN2078` Analytic 2078, SaaS
+  An analyst observes an AI agent access $ProtectedDataScope$, invoke a tool/API using that information or a derived payload, and the destination service record a successful transfer to a recipient, repository, tenant, domain, or service outside $AuthorizedAIDataFlows$.
+  - *Log sources:* `saas:audit (Actual send/share/upload/write operation)`; `AWS:bedrock (AgentTrace.actionGroupInvocationInput)`; `AWS:bedrock (AgentTrace.knowledgeBaseLookupInput)`
+  - *Tune:* `ProtectedDataScope`: protected information; `AuthorizedAgentActions`: tools/functions legitimately available for workflow; `AuthorizedAIDataFlows`: allowed source->tool->destination relationships; `AuthorizedAIOutputDestinations`: permitted recipients/domains/tenants/repos/connectors; `AIExfiltrationWindow`: normal access->transfer interval
+- `AN2079` Analytic 2079, Windows
+  An analyst observes an AI-associated process access data outside $AuthorizedAIDataScope$, followed within $EndpointExfilWindow$ by transfer-capable execution and an outbound connection to a destination outside $AuthorizedAIEndpoints$ from the same process lineage.
+  - *Log sources:* `WinEventLog:Security (EventCode=4663, 4670, 4656)`; `WinEventLog:PowerShell (EventCode=4103, 4104, 4105, 4106)`; `WinEventLog:Sysmon (EventCode=1)`
+  - *Tune:* `AuthorizedAIDataScope`: data paths/classes the AI application/service identity is permitted to access; derive from application design, IAM and data policy; `ExpectedAIProcessTree`: approved AI parent/child relationships from clean executions; `AuthorizedAIEndpoints`: legitimate service/repository/API destinations; `EndpointExfilWindow`: access->execution->egress timing derived from clean workflows
+- `AN2080` Analytic 2080, Linux
+  An analyst observes an AI-associated process access data outside $AuthorizedAIDataScope$, followed within $EndpointExfilWindow$ by transfer-capable execution and an outbound connection from the same lineage to a destination outside $AuthorizedAIEndpoints$.
+  - *Log sources:* `auditd:SYSCALL (open/read)`; `auditd:SYSCALL (EXECVE)`; `auditd:SYSCALL (connect)`
+  - *Tune:* `AuthorizedAIDataScope`: data paths/classes the AI application/service identity is permitted to access; derive from application design, IAM and data policy; `ExpectedAIProcessTree`: approved AI parent/child relationships from clean executions; `AuthorizedAIEndpoints`: legitimate service/repository/API destinations; `EndpointExfilWindow`: access->execution->egress timing derived from clean workflows
+
+</details>
+
+---
+
 *© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*

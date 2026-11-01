@@ -7,9 +7,8 @@ Digital artifacts: Network Node
 
 Logical link mapping creates a model of existing or previous node-to-node connections using network-layer data or metadata.
 
-## ATT&CK techniques countered (15)
+## ATT&CK techniques countered (14)
 
-- [T0807: Command-Line Interface](https://attack.mitre.org/techniques/T0807): maps
 - [T0809: Data Destruction](https://attack.mitre.org/techniques/T0809): maps
 - [T0816: Device Restart/Shutdown](https://attack.mitre.org/techniques/T0816): maps
 - [T0848: Rogue Master](https://attack.mitre.org/techniques/T0848): maps
@@ -24,6 +23,8 @@ Logical link mapping creates a model of existing or previous node-to-node connec
 - [T1578.004: Revert Cloud Instance](/mitre/techniques/T1578-004.md): maps. An adversary may revert changes made to a cloud instance after they have performed malicious activities in attempt to evade detection and remove evidence of their presence.
 - [T1686.002: Network Device Firewall](/mitre/techniques/T1686-002.md): maps. Adversaries may disable network device-based firewall mechanisms entirely or add, delete, or modify particular rules in order to bypass controls limiting network usage.
 - [T1693.001: System Firmware](https://attack.mitre.org/techniques/T1693/001): maps (D3FEND maps the revoked predecessor T0857)
+
+_D3FEND also maps T0807, deprecated in ATT&CK with no successor; not counted above._
 
 ---
 

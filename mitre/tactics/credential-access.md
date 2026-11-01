@@ -11,7 +11,7 @@ The adversary is trying to steal account names and passwords.
 - [T1003: OS Credential Dumping](/mitre/techniques/T1003.md) (7.9% of machines)
 - [T1558.003: Kerberoasting](/mitre/techniques/T1558-003.md) (3.0% of machines)
 
-67 techniques in this tactic (Team Star Wolf enriched pages):
+68 techniques in this tactic (Team Star Wolf enriched pages):
 
 - [T1003: OS Credential Dumping](/mitre/techniques/T1003.md) (observed)
 - [T1003.001: LSASS Memory](/mitre/techniques/T1003-001.md)
@@ -80,6 +80,7 @@ The adversary is trying to steal account names and passwords.
 - [T1606.002: SAML Tokens](/mitre/techniques/T1606-002.md)
 - [T1621: Multi-Factor Authentication Request Generation](/mitre/techniques/T1621.md)
 - [T1649: Steal or Forge Authentication Certificates](/mitre/techniques/T1649.md)
+- [T1697: Steal Application Specific Passwords](/mitre/techniques/T1697.md)
 
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 

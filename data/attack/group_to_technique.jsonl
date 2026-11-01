@@ -1828,22 +1828,40 @@
 {"group_id": "G0081", "group_name": "Tropic Trooper", "technique_id": "T1574.001", "technique_name": "DLL", "tactics": ["stealth", "execution"]}
 {"group_id": "G0081", "group_name": "Tropic Trooper", "technique_id": "T1680", "technique_name": "Local Storage Discovery", "tactics": ["discovery"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1005", "technique_name": "Data from Local System", "tactics": ["collection"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1012", "technique_name": "Query Registry", "tactics": ["discovery"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1027.002", "technique_name": "Software Packing", "tactics": ["stealth"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1027.010", "technique_name": "Command Obfuscation", "tactics": ["stealth"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1027.015", "technique_name": "Compression", "tactics": ["stealth"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1027.016", "technique_name": "Junk Code Insertion", "tactics": ["stealth"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1033", "technique_name": "System Owner/User Discovery", "tactics": ["discovery"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1036.003", "technique_name": "Rename Legitimate Utilities", "tactics": ["stealth"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1036.005", "technique_name": "Match Legitimate Resource Name or Location", "tactics": ["stealth"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1036.006", "technique_name": "Space after Filename", "tactics": ["stealth"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1036.008", "technique_name": "Masquerade File Type", "tactics": ["stealth"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1041", "technique_name": "Exfiltration Over C2 Channel", "tactics": ["exfiltration"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1048.002", "technique_name": "Exfiltration Over Asymmetric Encrypted Non-C2 Protocol", "tactics": ["exfiltration"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1049", "technique_name": "System Network Connections Discovery", "tactics": ["discovery"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1053.003", "technique_name": "Cron", "tactics": ["execution", "persistence", "privilege-escalation"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1053.005", "technique_name": "Scheduled Task", "tactics": ["execution", "persistence", "privilege-escalation"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1053.006", "technique_name": "Systemd Timers", "tactics": ["execution", "persistence", "privilege-escalation"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1055", "technique_name": "Process Injection", "tactics": ["stealth", "privilege-escalation"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1056.001", "technique_name": "Keylogging", "tactics": ["collection", "credential-access"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1056.002", "technique_name": "GUI Input Capture", "tactics": ["collection", "credential-access"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1057", "technique_name": "Process Discovery", "tactics": ["discovery"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1059.001", "technique_name": "PowerShell", "tactics": ["execution"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1059.002", "technique_name": "AppleScript", "tactics": ["execution"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1059.003", "technique_name": "Windows Command Shell", "tactics": ["execution"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1059.004", "technique_name": "Unix Shell", "tactics": ["execution"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1059.005", "technique_name": "Visual Basic", "tactics": ["execution"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1059.006", "technique_name": "Python", "tactics": ["execution"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1059.007", "technique_name": "JavaScript", "tactics": ["execution"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1070.003", "technique_name": "Clear Command History", "tactics": ["stealth"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1070.004", "technique_name": "File Deletion", "tactics": ["stealth"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1070.006", "technique_name": "Timestomp", "tactics": ["stealth"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1071.001", "technique_name": "Web Protocols", "tactics": ["command-and-control"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1074.001", "technique_name": "Local Data Staging", "tactics": ["collection"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1078.003", "technique_name": "Local Accounts", "tactics": ["stealth", "persistence", "privilege-escalation", "initial-access"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1078.004", "technique_name": "Cloud Accounts", "tactics": ["stealth", "persistence", "privilege-escalation", "initial-access"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1082", "technique_name": "System Information Discovery", "tactics": ["discovery"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1083", "technique_name": "File and Directory Discovery", "tactics": ["discovery"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1105", "technique_name": "Ingress Tool Transfer", "tactics": ["command-and-control"]}
@@ -1851,34 +1869,75 @@
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1110", "technique_name": "Brute Force", "tactics": ["credential-access"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1112", "technique_name": "Modify Registry", "tactics": ["defense-impairment", "persistence"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1115", "technique_name": "Clipboard Data", "tactics": ["collection"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1124", "technique_name": "System Time Discovery", "tactics": ["discovery"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1132.001", "technique_name": "Standard Encoding", "tactics": ["command-and-control"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1135", "technique_name": "Network Share Discovery", "tactics": ["discovery"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1140", "technique_name": "Deobfuscate/Decode Files or Information", "tactics": ["stealth"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1189", "technique_name": "Drive-by Compromise", "tactics": ["initial-access"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1195.001", "technique_name": "Compromise Software Dependencies and Development Tools", "tactics": ["initial-access"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1204.001", "technique_name": "Malicious Link", "tactics": ["execution"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1204.002", "technique_name": "Malicious File", "tactics": ["execution"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1213.005", "technique_name": "Messaging Applications", "tactics": ["collection"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1213.006", "technique_name": "Databases", "tactics": ["collection"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1217", "technique_name": "Browser Information Discovery", "tactics": ["discovery"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1218.001", "technique_name": "Compiled HTML File", "tactics": ["stealth"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1218.005", "technique_name": "Mshta", "tactics": ["stealth"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1218.007", "technique_name": "Msiexec", "tactics": ["stealth"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1218.011", "technique_name": "Rundll32", "tactics": ["stealth"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1222.002", "technique_name": "Linux and Mac Permissions", "tactics": ["defense-impairment"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1480", "technique_name": "Execution Guardrails", "tactics": ["stealth"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1480.002", "technique_name": "Mutual Exclusion", "tactics": ["stealth"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1485", "technique_name": "Data Destruction", "tactics": ["impact"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1486", "technique_name": "Data Encrypted for Impact", "tactics": ["impact"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1505.003", "technique_name": "Web Shell", "tactics": ["persistence"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1518", "technique_name": "Software Discovery", "tactics": ["discovery"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1518.001", "technique_name": "Security Software Discovery", "tactics": ["discovery"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1529", "technique_name": "System Shutdown/Reboot", "tactics": ["impact"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1543.001", "technique_name": "Launch Agent", "tactics": ["persistence", "privilege-escalation"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1543.003", "technique_name": "Windows Service", "tactics": ["persistence", "privilege-escalation"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1543.004", "technique_name": "Launch Daemon", "tactics": ["persistence", "privilege-escalation"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1546.016", "technique_name": "Installer Packages", "tactics": ["privilege-escalation", "persistence"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1547.001", "technique_name": "Registry Run Keys / Startup Folder", "tactics": ["persistence", "privilege-escalation"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1548.002", "technique_name": "Bypass User Account Control", "tactics": ["privilege-escalation"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1548.003", "technique_name": "Sudo and Sudo Caching", "tactics": ["privilege-escalation"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1548.006", "technique_name": "TCC Manipulation", "tactics": ["privilege-escalation"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1552.003", "technique_name": "Shell History", "tactics": ["credential-access"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1552.004", "technique_name": "Private Keys", "tactics": ["credential-access"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1553.005", "technique_name": "Mark-of-the-Web Bypass", "tactics": ["defense-impairment"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1555", "technique_name": "Credentials from Password Stores", "tactics": ["credential-access"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1555.001", "technique_name": "Keychain", "tactics": ["credential-access"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1555.003", "technique_name": "Credentials from Web Browsers", "tactics": ["credential-access"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1560.001", "technique_name": "Archive via Utility", "tactics": ["collection"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1561.002", "technique_name": "Disk Structure Wipe", "tactics": ["impact"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1564.003", "technique_name": "Hidden Window", "tactics": ["stealth"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1564.011", "technique_name": "Ignore Process Interrupts", "tactics": ["stealth"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1564.012", "technique_name": "File/Path Exclusions", "tactics": ["stealth"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1565.001", "technique_name": "Stored Data Manipulation", "tactics": ["impact"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1565.002", "technique_name": "Transmitted Data Manipulation", "tactics": ["impact"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1565.003", "technique_name": "Runtime Data Manipulation", "tactics": ["impact"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1566.001", "technique_name": "Spearphishing Attachment", "tactics": ["initial-access"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1566.002", "technique_name": "Spearphishing Link", "tactics": ["initial-access"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1566.003", "technique_name": "Spearphishing via Service", "tactics": ["initial-access"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1567", "technique_name": "Exfiltration Over Web Service", "tactics": ["exfiltration"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1569.002", "technique_name": "Service Execution", "tactics": ["execution"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1571", "technique_name": "Non-Standard Port", "tactics": ["command-and-control"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1583.001", "technique_name": "Domains", "tactics": ["resource-development"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1583.003", "technique_name": "Virtual Private Server", "tactics": ["resource-development"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1583.006", "technique_name": "Web Services", "tactics": ["resource-development"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1585.001", "technique_name": "Social Media Accounts", "tactics": ["resource-development"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1585.002", "technique_name": "Email Accounts", "tactics": ["resource-development"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1586.003", "technique_name": "Cloud Accounts", "tactics": ["resource-development"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1588.002", "technique_name": "Tool", "tactics": ["resource-development"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1608.001", "technique_name": "Upload Malware", "tactics": ["resource-development"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1620", "technique_name": "Reflective Code Loading", "tactics": ["stealth"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1657", "technique_name": "Financial Theft", "tactics": ["impact"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1677", "technique_name": "Poisoned Pipeline Execution", "tactics": ["execution"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1678", "technique_name": "Delay Execution", "tactics": ["stealth"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1683.001", "technique_name": "Written Content", "tactics": ["resource-development"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1683.002", "technique_name": "Audio-Visual Content", "tactics": ["resource-development"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1684.001", "technique_name": "Impersonation", "tactics": ["stealth"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1685.003", "technique_name": "Modify or Spoof Tool UI", "tactics": ["defense-impairment"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs", "tactics": ["defense-impairment"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall", "tactics": ["defense-impairment"]}
 {"group_id": "G0082", "group_name": "APT38", "technique_id": "T1686.002", "technique_name": "Network Device Firewall", "tactics": ["defense-impairment"]}
@@ -4164,20 +4223,65 @@
 {"group_id": "G1044", "group_name": "APT42", "technique_id": "T1608.001", "technique_name": "Upload Malware", "tactics": ["resource-development"]}
 {"group_id": "G1044", "group_name": "APT42", "technique_id": "T1682", "technique_name": "Query Public AI Services", "tactics": ["reconnaissance"]}
 {"group_id": "G1044", "group_name": "APT42", "technique_id": "T1684.001", "technique_name": "Impersonation", "tactics": ["stealth"]}
+{"group_id": "G1044", "group_name": "APT42", "technique_id": "T1697", "technique_name": "Steal Application Specific Passwords", "tactics": ["credential-access"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1005", "technique_name": "Data from Local System", "tactics": ["collection"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1016", "technique_name": "System Network Configuration Discovery", "tactics": ["discovery"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1018", "technique_name": "Remote System Discovery", "tactics": ["discovery"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1020.001", "technique_name": "Traffic Duplication", "tactics": ["exfiltration"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1021.001", "technique_name": "Remote Desktop Protocol", "tactics": ["lateral-movement"]}
 {"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1021.004", "technique_name": "SSH", "tactics": ["lateral-movement"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1027.010", "technique_name": "Command Obfuscation", "tactics": ["stealth"]}
 {"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1040", "technique_name": "Network Sniffing", "tactics": ["credential-access", "discovery"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1046", "technique_name": "Network Service Discovery", "tactics": ["discovery"]}
 {"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1048.003", "technique_name": "Exfiltration Over Unencrypted Non-C2 Protocol", "tactics": ["exfiltration"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1059.004", "technique_name": "Unix Shell", "tactics": ["execution"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1059.006", "technique_name": "Python", "tactics": ["execution"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1059.008", "technique_name": "Network Device CLI", "tactics": ["execution"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1059.013", "technique_name": "Container CLI/API", "tactics": ["execution"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1070.003", "technique_name": "Clear Command History", "tactics": ["stealth"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1070.007", "technique_name": "Clear Network Connection History and Configurations", "tactics": ["stealth"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1070.009", "technique_name": "Clear Persistence", "tactics": ["stealth"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1071.001", "technique_name": "Web Protocols", "tactics": ["command-and-control"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1071.002", "technique_name": "File Transfer Protocols", "tactics": ["command-and-control"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1072", "technique_name": "Software Deployment Tools", "tactics": ["execution", "lateral-movement"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1078", "technique_name": "Valid Accounts", "tactics": ["stealth", "persistence", "privilege-escalation", "initial-access"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1082", "technique_name": "System Information Discovery", "tactics": ["discovery"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1090", "technique_name": "Proxy", "tactics": ["command-and-control"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1090.003", "technique_name": "Multi-hop Proxy", "tactics": ["command-and-control"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1095", "technique_name": "Non-Application Layer Protocol", "tactics": ["command-and-control"]}
 {"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1098.004", "technique_name": "SSH Authorized Keys", "tactics": ["persistence", "privilege-escalation"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1105", "technique_name": "Ingress Tool Transfer", "tactics": ["command-and-control"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1110.001", "technique_name": "Password Guessing", "tactics": ["credential-access"]}
 {"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1110.002", "technique_name": "Password Cracking", "tactics": ["credential-access"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1132.001", "technique_name": "Standard Encoding", "tactics": ["command-and-control"]}
 {"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1136", "technique_name": "Create Account", "tactics": ["persistence"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1136.001", "technique_name": "Local Account", "tactics": ["persistence"]}
 {"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1190", "technique_name": "Exploit Public-Facing Application", "tactics": ["initial-access"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1199", "technique_name": "Trusted Relationship", "tactics": ["initial-access"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1543.005", "technique_name": "Container Service", "tactics": ["persistence", "privilege-escalation"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1548.003", "technique_name": "Sudo and Sudo Caching", "tactics": ["privilege-escalation"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1552.001", "technique_name": "Credentials In Files", "tactics": ["credential-access"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1556", "technique_name": "Modify Authentication Process", "tactics": ["defense-impairment", "persistence", "credential-access"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1569", "technique_name": "System Services", "tactics": ["execution"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1571", "technique_name": "Non-Standard Port", "tactics": ["command-and-control"]}
 {"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1572", "technique_name": "Protocol Tunneling", "tactics": ["command-and-control"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1583.003", "technique_name": "Virtual Private Server", "tactics": ["resource-development"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1584.008", "technique_name": "Network Devices", "tactics": ["resource-development"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1585.001", "technique_name": "Social Media Accounts", "tactics": ["resource-development"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1587", "technique_name": "Develop Capabilities", "tactics": ["resource-development"]}
 {"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1587.001", "technique_name": "Malware", "tactics": ["resource-development"]}
 {"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1588.002", "technique_name": "Tool", "tactics": ["resource-development"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1588.005", "technique_name": "Exploits", "tactics": ["resource-development"]}
 {"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1590.004", "technique_name": "Network Topology", "tactics": ["reconnaissance"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1595", "technique_name": "Active Scanning", "tactics": ["reconnaissance"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1599", "technique_name": "Network Boundary Bridging", "tactics": ["defense-impairment"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1602.001", "technique_name": "SNMP (MIB Dump)", "tactics": ["collection"]}
 {"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1602.002", "technique_name": "Network Device Configuration Dump", "tactics": ["collection"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1610", "technique_name": "Deploy Container", "tactics": ["execution"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
 {"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1685.006", "technique_name": "Clear Linux or Mac System Logs", "tactics": ["defense-impairment"]}
 {"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall", "tactics": ["defense-impairment"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1686.002", "technique_name": "Network Device Firewall", "tactics": ["defense-impairment"]}
 {"group_id": "G1046", "group_name": "Storm-1811", "technique_id": "T1021.002", "technique_name": "SMB/Windows Admin Shares", "tactics": ["lateral-movement"]}
 {"group_id": "G1046", "group_name": "Storm-1811", "technique_id": "T1021.004", "technique_name": "SSH", "tactics": ["lateral-movement"]}
 {"group_id": "G1046", "group_name": "Storm-1811", "technique_id": "T1027.013", "technique_name": "Encrypted/Encoded File", "tactics": ["stealth"]}
@@ -4576,6 +4680,7 @@
 {"group_id": "G1056", "group_name": "TeamPCP", "technique_id": "T1585.001", "technique_name": "Social Media Accounts", "tactics": ["resource-development"]}
 {"group_id": "G1056", "group_name": "TeamPCP", "technique_id": "T1587.001", "technique_name": "Malware", "tactics": ["resource-development"]}
 {"group_id": "G1056", "group_name": "TeamPCP", "technique_id": "T1608.001", "technique_name": "Upload Malware", "tactics": ["resource-development"]}
+{"group_id": "G1056", "group_name": "TeamPCP", "technique_id": "T1610", "technique_name": "Deploy Container", "tactics": ["execution"]}
 {"group_id": "G1056", "group_name": "TeamPCP", "technique_id": "T1657", "technique_name": "Financial Theft", "tactics": ["impact"]}
 {"group_id": "G1056", "group_name": "TeamPCP", "technique_id": "T1677", "technique_name": "Poisoned Pipeline Execution", "tactics": ["execution"]}
 {"group_id": "G1056", "group_name": "TeamPCP", "technique_id": "T1683.001", "technique_name": "Written Content", "tactics": ["resource-development"]}
@@ -4626,3 +4731,85 @@
 {"group_id": "G1057", "group_name": "ShinyHunters", "technique_id": "T1619", "technique_name": "Cloud Storage Object Discovery", "tactics": ["discovery"]}
 {"group_id": "G1057", "group_name": "ShinyHunters", "technique_id": "T1657", "technique_name": "Financial Theft", "tactics": ["impact"]}
 {"group_id": "G1057", "group_name": "ShinyHunters", "technique_id": "T1684", "technique_name": "Social Engineering", "tactics": ["stealth"]}
+{"group_id": "G1058", "group_name": "The Gentlemen", "technique_id": "T1018", "technique_name": "Remote System Discovery", "tactics": ["discovery"]}
+{"group_id": "G1058", "group_name": "The Gentlemen", "technique_id": "T1027.002", "technique_name": "Software Packing", "tactics": ["stealth"]}
+{"group_id": "G1058", "group_name": "The Gentlemen", "technique_id": "T1036", "technique_name": "Masquerading", "tactics": ["stealth"]}
+{"group_id": "G1058", "group_name": "The Gentlemen", "technique_id": "T1036.001", "technique_name": "Invalid Code Signature", "tactics": ["stealth"]}
+{"group_id": "G1058", "group_name": "The Gentlemen", "technique_id": "T1036.005", "technique_name": "Match Legitimate Resource Name or Location", "tactics": ["stealth"]}
+{"group_id": "G1058", "group_name": "The Gentlemen", "technique_id": "T1068", "technique_name": "Exploitation for Privilege Escalation", "tactics": ["privilege-escalation"]}
+{"group_id": "G1058", "group_name": "The Gentlemen", "technique_id": "T1078", "technique_name": "Valid Accounts", "tactics": ["stealth", "persistence", "privilege-escalation", "initial-access"]}
+{"group_id": "G1058", "group_name": "The Gentlemen", "technique_id": "T1190", "technique_name": "Exploit Public-Facing Application", "tactics": ["initial-access"]}
+{"group_id": "G1058", "group_name": "The Gentlemen", "technique_id": "T1219.002", "technique_name": "Remote Desktop Software", "tactics": ["command-and-control"]}
+{"group_id": "G1058", "group_name": "The Gentlemen", "technique_id": "T1486", "technique_name": "Data Encrypted for Impact", "tactics": ["impact"]}
+{"group_id": "G1058", "group_name": "The Gentlemen", "technique_id": "T1583.001", "technique_name": "Domains", "tactics": ["resource-development"]}
+{"group_id": "G1058", "group_name": "The Gentlemen", "technique_id": "T1585", "technique_name": "Establish Accounts", "tactics": ["resource-development"]}
+{"group_id": "G1058", "group_name": "The Gentlemen", "technique_id": "T1585.001", "technique_name": "Social Media Accounts", "tactics": ["resource-development"]}
+{"group_id": "G1058", "group_name": "The Gentlemen", "technique_id": "T1588.002", "technique_name": "Tool", "tactics": ["resource-development"]}
+{"group_id": "G1058", "group_name": "The Gentlemen", "technique_id": "T1657", "technique_name": "Financial Theft", "tactics": ["impact"]}
+{"group_id": "G1058", "group_name": "The Gentlemen", "technique_id": "T1683.001", "technique_name": "Written Content", "tactics": ["resource-development"]}
+{"group_id": "G1058", "group_name": "The Gentlemen", "technique_id": "T1683.002", "technique_name": "Audio-Visual Content", "tactics": ["resource-development"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1003.006", "technique_name": "DCSync", "tactics": ["credential-access"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1007", "technique_name": "System Service Discovery", "tactics": ["discovery"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1021.001", "technique_name": "Remote Desktop Protocol", "tactics": ["lateral-movement"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1021.002", "technique_name": "SMB/Windows Admin Shares", "tactics": ["lateral-movement"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1027", "technique_name": "Obfuscated Files or Information", "tactics": ["stealth"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1027.015", "technique_name": "Compression", "tactics": ["stealth"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1036.004", "technique_name": "Masquerade Task or Service", "tactics": ["stealth"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1036.005", "technique_name": "Match Legitimate Resource Name or Location", "tactics": ["stealth"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1039", "technique_name": "Data from Network Shared Drive", "tactics": ["collection"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1046", "technique_name": "Network Service Discovery", "tactics": ["discovery"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1047", "technique_name": "Windows Management Instrumentation", "tactics": ["execution"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1049", "technique_name": "System Network Connections Discovery", "tactics": ["discovery"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1053.005", "technique_name": "Scheduled Task", "tactics": ["execution", "persistence", "privilege-escalation"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1057", "technique_name": "Process Discovery", "tactics": ["discovery"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1059.001", "technique_name": "PowerShell", "tactics": ["execution"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1059.007", "technique_name": "JavaScript", "tactics": ["execution"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1070.004", "technique_name": "File Deletion", "tactics": ["stealth"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1070.007", "technique_name": "Clear Network Connection History and Configurations", "tactics": ["stealth"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1071", "technique_name": "Application Layer Protocol", "tactics": ["command-and-control"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1072", "technique_name": "Software Deployment Tools", "tactics": ["execution", "lateral-movement"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1078.002", "technique_name": "Domain Accounts", "tactics": ["stealth", "persistence", "privilege-escalation", "initial-access"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1078.003", "technique_name": "Local Accounts", "tactics": ["stealth", "persistence", "privilege-escalation", "initial-access"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1078.004", "technique_name": "Cloud Accounts", "tactics": ["stealth", "persistence", "privilege-escalation", "initial-access"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1087.001", "technique_name": "Local Account", "tactics": ["discovery"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1087.002", "technique_name": "Domain Account", "tactics": ["discovery"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1098", "technique_name": "Account Manipulation", "tactics": ["persistence", "privilege-escalation"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1105", "technique_name": "Ingress Tool Transfer", "tactics": ["command-and-control"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1106", "technique_name": "Native API", "tactics": ["execution"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1110.003", "technique_name": "Password Spraying", "tactics": ["credential-access"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1114.001", "technique_name": "Local Email Collection", "tactics": ["collection"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1136.001", "technique_name": "Local Account", "tactics": ["persistence"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1199", "technique_name": "Trusted Relationship", "tactics": ["initial-access"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1204.001", "technique_name": "Malicious Link", "tactics": ["execution"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1204.002", "technique_name": "Malicious File", "tactics": ["execution"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1213", "technique_name": "Data from Information Repositories", "tactics": ["collection"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1213.002", "technique_name": "Sharepoint", "tactics": ["collection"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1213.005", "technique_name": "Messaging Applications", "tactics": ["collection"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1534", "technique_name": "Internal Spearphishing", "tactics": ["lateral-movement"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1547.001", "technique_name": "Registry Run Keys / Startup Folder", "tactics": ["persistence", "privilege-escalation"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1552", "technique_name": "Unsecured Credentials", "tactics": ["credential-access"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1558.003", "technique_name": "Kerberoasting", "tactics": ["credential-access"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1563.002", "technique_name": "RDP Hijacking", "tactics": ["lateral-movement"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1566.001", "technique_name": "Spearphishing Attachment", "tactics": ["initial-access"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1566.002", "technique_name": "Spearphishing Link", "tactics": ["initial-access"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1574.001", "technique_name": "DLL", "tactics": ["stealth", "execution"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1574.014", "technique_name": "AppDomainManager", "tactics": ["stealth", "execution"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1583.001", "technique_name": "Domains", "tactics": ["resource-development"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1583.003", "technique_name": "Virtual Private Server", "tactics": ["resource-development"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1583.006", "technique_name": "Web Services", "tactics": ["resource-development"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1585.001", "technique_name": "Social Media Accounts", "tactics": ["resource-development"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1587.001", "technique_name": "Malware", "tactics": ["resource-development"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1588.002", "technique_name": "Tool", "tactics": ["resource-development"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1588.003", "technique_name": "Code Signing Certificates", "tactics": ["resource-development"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1588.007", "technique_name": "Artificial Intelligence", "tactics": ["resource-development"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1591", "technique_name": "Gather Victim Org Information", "tactics": ["reconnaissance"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1598.001", "technique_name": "Spearphishing Service", "tactics": ["reconnaissance"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1608.001", "technique_name": "Upload Malware", "tactics": ["resource-development"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1608.005", "technique_name": "Link Target", "tactics": ["resource-development"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1608.006", "technique_name": "SEO Poisoning", "tactics": ["resource-development"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1649", "technique_name": "Steal or Forge Authentication Certificates", "tactics": ["credential-access"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1678", "technique_name": "Delay Execution", "tactics": ["stealth"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1683.001", "technique_name": "Written Content", "tactics": ["resource-development"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1683.002", "technique_name": "Audio-Visual Content", "tactics": ["resource-development"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1684.001", "technique_name": "Impersonation", "tactics": ["stealth"]}
+{"group_id": "G1059", "group_name": "NIMBUS MANTICORE", "technique_id": "T1685.003", "technique_name": "Modify or Spoof Tool UI", "tactics": ["defense-impairment"]}

@@ -3450,4 +3450,52 @@ ATT&CK: [T1684.002](https://attack.mitre.org/techniques/T1684/002/), [detail pag
 
 ---
 
+### T1696: Anti-Automation Evasion
+<a id="t1696"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
+
+Detection strategy: Detection of Anti-Automation Evasion (`DET0939`)  
+Platforms: SaaS  
+ATT&CK: [T1696](https://attack.mitre.org/techniques/T1696/), [detail page](/techniques/stealth.md#t1696)
+
+- `AN2106` Analytic 2106, SaaS
+  No target-side behavioral Detection Strategy exists for CAPTCHA based solely on CAPTCHA telemetry.
+
+</details>
+
+---
+
+### T1696.001: Automate CAPTCHA Completion
+<a id="t1696001"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
+
+Detection strategy: Detection of Automated CAPTCHA (`DET0937`)  
+Platforms: SaaS  
+ATT&CK: [T1696.001](https://attack.mitre.org/techniques/T1696/001/), [detail page](/techniques/stealth.md#t1696001)
+
+- `AN2104` Analytic 2104, SaaS
+  Successful CAPTCHA completion does not expose whether the challenge was solved manually, through automated tooling, through an AI-enabled solver, or through a third-party human-solving service. Providers may independently classify associated sessions as automated or bot-like, but this identifies suspicious automation rather than the method used to complete the CAPTCHA.
+
+</details>
+
+---
+
+### T1696.002: Avoid CAPTCHA
+<a id="t1696002"></a>
+
+<details class="tsw-fold"><summary>Show the detection strategy and its analytic</summary>
+
+Detection strategy: Detection of Avoid CAPTCHA (`DET0938`)  
+Platforms: SaaS  
+ATT&CK: [T1696.002](https://attack.mitre.org/techniques/T1696/002/), [detail page](/techniques/stealth.md#t1696002)
+
+- `AN2105` Analytic 2105, SaaS
+  No target-side behavioral Detection Strategy exists for Avoid CAPTCHA based solely on CAPTCHA telemetry.
+
+</details>
+
+---
+
 *© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*

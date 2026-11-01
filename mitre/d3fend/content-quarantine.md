@@ -7,10 +7,9 @@ Digital artifacts: Database Record, File
 
 Transfer content that does not comply with policy to a quarantine zone.
 
-## ATT&CK techniques countered (118)
+## ATT&CK techniques countered (117)
 
 - [T0851: Rootkit](https://attack.mitre.org/techniques/T0851): quarantines
-- [T0853: Scripting](https://attack.mitre.org/techniques/T0853): quarantines
 - [T0865: Spearphishing Attachment](https://attack.mitre.org/techniques/T0865): quarantines
 - [T0871: Execution through API](https://attack.mitre.org/techniques/T0871): quarantines
 - [T0888: Remote System Information Discovery](https://attack.mitre.org/techniques/T0888): quarantines
@@ -128,7 +127,7 @@ Transfer content that does not comply with policy to a quarantine zone.
 - [T1688: Safe Mode Boot](/mitre/techniques/T1688.md): quarantines. Adversaries may abuse Windows safe mode to disable endpoint defenses.
 - [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): quarantines. Adversaries may impair command history logging to hide commands they run on a compromised system.
 
-_D3FEND also maps T1053.004, deprecated in ATT&CK with no successor; not counted above._
+_D3FEND also maps T0853, T1053.004, deprecated in ATT&CK with no successor; not counted above._
 
 ---
 

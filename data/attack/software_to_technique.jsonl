@@ -11253,6 +11253,7 @@
 {"software_id": "S9041", "software_name": "TeamPCP Cloud Stealer", "software_type": "malware", "technique_id": "T1573.002", "technique_name": "Asymmetric Cryptography"}
 {"software_id": "S9041", "software_name": "TeamPCP Cloud Stealer", "software_type": "malware", "technique_id": "T1580", "technique_name": "Cloud Infrastructure Discovery"}
 {"software_id": "S9041", "software_name": "TeamPCP Cloud Stealer", "software_type": "malware", "technique_id": "T1609", "technique_name": "Container Administration Command"}
+{"software_id": "S9041", "software_name": "TeamPCP Cloud Stealer", "software_type": "malware", "technique_id": "T1610", "technique_name": "Deploy Container"}
 {"software_id": "S9041", "software_name": "TeamPCP Cloud Stealer", "software_type": "malware", "technique_id": "T1613", "technique_name": "Container and Resource Discovery"}
 {"software_id": "S9041", "software_name": "TeamPCP Cloud Stealer", "software_type": "malware", "technique_id": "T1657", "technique_name": "Financial Theft"}
 {"software_id": "S9041", "software_name": "TeamPCP Cloud Stealer", "software_type": "malware", "technique_id": "T1678", "technique_name": "Delay Execution"}
@@ -11360,3 +11361,248 @@
 {"software_id": "S9044", "software_name": "Kali365", "software_type": "malware", "technique_id": "T1566.001", "technique_name": "Spearphishing Attachment"}
 {"software_id": "S9044", "software_name": "Kali365", "software_type": "malware", "technique_id": "T1566.002", "technique_name": "Spearphishing Link"}
 {"software_id": "S9044", "software_name": "Kali365", "software_type": "malware", "technique_id": "T1683.001", "technique_name": "Written Content"}
+{"software_id": "S9045", "software_name": "BACKUPOSINT v9.0 APEX PREDATOR", "software_type": "malware", "technique_id": "T1018", "technique_name": "Remote System Discovery"}
+{"software_id": "S9045", "software_name": "BACKUPOSINT v9.0 APEX PREDATOR", "software_type": "malware", "technique_id": "T1046", "technique_name": "Network Service Discovery"}
+{"software_id": "S9045", "software_name": "BACKUPOSINT v9.0 APEX PREDATOR", "software_type": "malware", "technique_id": "T1053.003", "technique_name": "Cron"}
+{"software_id": "S9045", "software_name": "BACKUPOSINT v9.0 APEX PREDATOR", "software_type": "malware", "technique_id": "T1057", "technique_name": "Process Discovery"}
+{"software_id": "S9045", "software_name": "BACKUPOSINT v9.0 APEX PREDATOR", "software_type": "malware", "technique_id": "T1059.009", "technique_name": "Cloud API"}
+{"software_id": "S9045", "software_name": "BACKUPOSINT v9.0 APEX PREDATOR", "software_type": "malware", "technique_id": "T1082", "technique_name": "System Information Discovery"}
+{"software_id": "S9045", "software_name": "BACKUPOSINT v9.0 APEX PREDATOR", "software_type": "malware", "technique_id": "T1090.002", "technique_name": "External Proxy"}
+{"software_id": "S9045", "software_name": "BACKUPOSINT v9.0 APEX PREDATOR", "software_type": "malware", "technique_id": "T1135", "technique_name": "Network Share Discovery"}
+{"software_id": "S9045", "software_name": "BACKUPOSINT v9.0 APEX PREDATOR", "software_type": "malware", "technique_id": "T1528", "technique_name": "Steal Application Access Token"}
+{"software_id": "S9045", "software_name": "BACKUPOSINT v9.0 APEX PREDATOR", "software_type": "malware", "technique_id": "T1548.003", "technique_name": "Sudo and Sudo Caching"}
+{"software_id": "S9045", "software_name": "BACKUPOSINT v9.0 APEX PREDATOR", "software_type": "malware", "technique_id": "T1552.001", "technique_name": "Credentials In Files"}
+{"software_id": "S9045", "software_name": "BACKUPOSINT v9.0 APEX PREDATOR", "software_type": "malware", "technique_id": "T1552.003", "technique_name": "Shell History"}
+{"software_id": "S9045", "software_name": "BACKUPOSINT v9.0 APEX PREDATOR", "software_type": "malware", "technique_id": "T1552.005", "technique_name": "Cloud Instance Metadata API"}
+{"software_id": "S9045", "software_name": "BACKUPOSINT v9.0 APEX PREDATOR", "software_type": "malware", "technique_id": "T1555.006", "technique_name": "Cloud Secrets Management Stores"}
+{"software_id": "S9045", "software_name": "BACKUPOSINT v9.0 APEX PREDATOR", "software_type": "malware", "technique_id": "T1567", "technique_name": "Exfiltration Over Web Service"}
+{"software_id": "S9045", "software_name": "BACKUPOSINT v9.0 APEX PREDATOR", "software_type": "malware", "technique_id": "T1609", "technique_name": "Container Administration Command"}
+{"software_id": "S9045", "software_name": "BACKUPOSINT v9.0 APEX PREDATOR", "software_type": "malware", "technique_id": "T1683", "technique_name": "Generate Content"}
+{"software_id": "S9046", "software_name": "IOControl", "software_type": "malware", "technique_id": "T1027.002", "technique_name": "Software Packing"}
+{"software_id": "S9046", "software_name": "IOControl", "software_type": "malware", "technique_id": "T1027.013", "technique_name": "Encrypted/Encoded File"}
+{"software_id": "S9046", "software_name": "IOControl", "software_type": "malware", "technique_id": "T1033", "technique_name": "System Owner/User Discovery"}
+{"software_id": "S9046", "software_name": "IOControl", "software_type": "malware", "technique_id": "T1037.004", "technique_name": "RC Scripts"}
+{"software_id": "S9046", "software_name": "IOControl", "software_type": "malware", "technique_id": "T1070.004", "technique_name": "File Deletion"}
+{"software_id": "S9046", "software_name": "IOControl", "software_type": "malware", "technique_id": "T1070.009", "technique_name": "Clear Persistence"}
+{"software_id": "S9046", "software_name": "IOControl", "software_type": "malware", "technique_id": "T1082", "technique_name": "System Information Discovery"}
+{"software_id": "S9046", "software_name": "IOControl", "software_type": "malware", "technique_id": "T1124", "technique_name": "System Time Discovery"}
+{"software_id": "S9046", "software_name": "IOControl", "software_type": "malware", "technique_id": "T1140", "technique_name": "Deobfuscate/Decode Files or Information"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1005", "technique_name": "Data from Local System"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1016", "technique_name": "System Network Configuration Discovery"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1027", "technique_name": "Obfuscated Files or Information"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1027.001", "technique_name": "Binary Padding"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1027.005", "technique_name": "Indicator Removal from Tools"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1027.013", "technique_name": "Encrypted/Encoded File"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1036.001", "technique_name": "Invalid Code Signature"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1036.005", "technique_name": "Match Legitimate Resource Name or Location"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1041", "technique_name": "Exfiltration Over C2 Channel"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1055", "technique_name": "Process Injection"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1055.003", "technique_name": "Thread Execution Hijacking"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1055.012", "technique_name": "Process Hollowing"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1057", "technique_name": "Process Discovery"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1059.001", "technique_name": "PowerShell"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1070.004", "technique_name": "File Deletion"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1071.001", "technique_name": "Web Protocols"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1071.004", "technique_name": "DNS"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1074.001", "technique_name": "Local Data Staging"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1082", "technique_name": "System Information Discovery"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1083", "technique_name": "File and Directory Discovery"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1102.001", "technique_name": "Dead Drop Resolver"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1105", "technique_name": "Ingress Tool Transfer"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1106", "technique_name": "Native API"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1112", "technique_name": "Modify Registry"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1119", "technique_name": "Automated Collection"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1124", "technique_name": "System Time Discovery"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1129", "technique_name": "Shared Modules"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1140", "technique_name": "Deobfuscate/Decode Files or Information"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1189", "technique_name": "Drive-by Compromise"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1204.001", "technique_name": "Malicious Link"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1204.004", "technique_name": "Malicious Copy and Paste"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1217", "technique_name": "Browser Information Discovery"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1222.001", "technique_name": "Windows Permissions"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1480", "technique_name": "Execution Guardrails"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1489", "technique_name": "Service Stop"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1497.001", "technique_name": "System Checks"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1497.003", "technique_name": "Time Based Checks"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1539", "technique_name": "Steal Web Session Cookie"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1543", "technique_name": "Create or Modify System Process"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1548.002", "technique_name": "Bypass User Account Control"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1552.001", "technique_name": "Credentials In Files"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1555.003", "technique_name": "Credentials from Web Browsers"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1560.001", "technique_name": "Archive via Utility"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1564.001", "technique_name": "Hidden Files and Directories"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1566.001", "technique_name": "Spearphishing Attachment"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1566.002", "technique_name": "Spearphishing Link"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1569.002", "technique_name": "Service Execution"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1573.002", "technique_name": "Asymmetric Cryptography"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1574.001", "technique_name": "DLL"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1614", "technique_name": "System Location Discovery"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1622", "technique_name": "Debugger Evasion"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1678", "technique_name": "Delay Execution"}
+{"software_id": "S9050", "software_name": "Vidar", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1021.001", "technique_name": "Remote Desktop Protocol"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1021.002", "technique_name": "SMB/Windows Admin Shares"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1027", "technique_name": "Obfuscated Files or Information"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1027.010", "technique_name": "Command Obfuscation"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1036.004", "technique_name": "Masquerade Task or Service"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1037.003", "technique_name": "Network Logon Script"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1037.004", "technique_name": "RC Scripts"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1047", "technique_name": "Windows Management Instrumentation"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1053.003", "technique_name": "Cron"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1053.005", "technique_name": "Scheduled Task"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1059.001", "technique_name": "PowerShell"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1059.003", "technique_name": "Windows Command Shell"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1059.012", "technique_name": "Hypervisor CLI"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1070.003", "technique_name": "Clear Command History"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1070.004", "technique_name": "File Deletion"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1070.007", "technique_name": "Clear Network Connection History and Configurations"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1074.001", "technique_name": "Local Data Staging"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1083", "technique_name": "File and Directory Discovery"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1090", "technique_name": "Proxy"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1106", "technique_name": "Native API"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1112", "technique_name": "Modify Registry"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1135", "technique_name": "Network Share Discovery"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1222.001", "technique_name": "Windows Permissions"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1482", "technique_name": "Domain Trust Discovery"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1484.001", "technique_name": "Group Policy Modification"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1486", "technique_name": "Data Encrypted for Impact"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1489", "technique_name": "Service Stop"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1490", "technique_name": "Inhibit System Recovery"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1491.001", "technique_name": "Internal Defacement"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1529", "technique_name": "System Shutdown/Reboot"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1543.003", "technique_name": "Windows Service"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1547.001", "technique_name": "Registry Run Keys / Startup Folder"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1561.001", "technique_name": "Disk Content Wipe"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1564.001", "technique_name": "Hidden Files and Directories"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1564.012", "technique_name": "File/Path Exclusions"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1569.002", "technique_name": "Service Execution"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1675", "technique_name": "ESXi Administration Command"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1678", "technique_name": "Delay Execution"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1679", "technique_name": "Selective Exclusion"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1680", "technique_name": "Local Storage Discovery"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1686.003", "technique_name": "Windows Host Firewall"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1689", "technique_name": "Downgrade Attack"}
+{"software_id": "S9051", "software_name": "The Gentlemen Ransomware", "software_type": "malware", "technique_id": "T1690", "technique_name": "Prevent Command History Logging"}
+{"software_id": "S9052", "software_name": "MiniFast", "software_type": "malware", "technique_id": "T1005", "technique_name": "Data from Local System"}
+{"software_id": "S9052", "software_name": "MiniFast", "software_type": "malware", "technique_id": "T1027.015", "technique_name": "Compression"}
+{"software_id": "S9052", "software_name": "MiniFast", "software_type": "malware", "technique_id": "T1033", "technique_name": "System Owner/User Discovery"}
+{"software_id": "S9052", "software_name": "MiniFast", "software_type": "malware", "technique_id": "T1036.012", "technique_name": "Browser Fingerprint"}
+{"software_id": "S9052", "software_name": "MiniFast", "software_type": "malware", "technique_id": "T1041", "technique_name": "Exfiltration Over C2 Channel"}
+{"software_id": "S9052", "software_name": "MiniFast", "software_type": "malware", "technique_id": "T1053.005", "technique_name": "Scheduled Task"}
+{"software_id": "S9052", "software_name": "MiniFast", "software_type": "malware", "technique_id": "T1057", "technique_name": "Process Discovery"}
+{"software_id": "S9052", "software_name": "MiniFast", "software_type": "malware", "technique_id": "T1059.003", "technique_name": "Windows Command Shell"}
+{"software_id": "S9052", "software_name": "MiniFast", "software_type": "malware", "technique_id": "T1070.004", "technique_name": "File Deletion"}
+{"software_id": "S9052", "software_name": "MiniFast", "software_type": "malware", "technique_id": "T1071.001", "technique_name": "Web Protocols"}
+{"software_id": "S9052", "software_name": "MiniFast", "software_type": "malware", "technique_id": "T1074.001", "technique_name": "Local Data Staging"}
+{"software_id": "S9052", "software_name": "MiniFast", "software_type": "malware", "technique_id": "T1082", "technique_name": "System Information Discovery"}
+{"software_id": "S9052", "software_name": "MiniFast", "software_type": "malware", "technique_id": "T1083", "technique_name": "File and Directory Discovery"}
+{"software_id": "S9052", "software_name": "MiniFast", "software_type": "malware", "technique_id": "T1105", "technique_name": "Ingress Tool Transfer"}
+{"software_id": "S9052", "software_name": "MiniFast", "software_type": "malware", "technique_id": "T1132.001", "technique_name": "Standard Encoding"}
+{"software_id": "S9052", "software_name": "MiniFast", "software_type": "malware", "technique_id": "T1134.002", "technique_name": "Create Process with Token"}
+{"software_id": "S9052", "software_name": "MiniFast", "software_type": "malware", "technique_id": "T1140", "technique_name": "Deobfuscate/Decode Files or Information"}
+{"software_id": "S9052", "software_name": "MiniFast", "software_type": "malware", "technique_id": "T1489", "technique_name": "Service Stop"}
+{"software_id": "S9052", "software_name": "MiniFast", "software_type": "malware", "technique_id": "T1553.002", "technique_name": "Code Signing"}
+{"software_id": "S9052", "software_name": "MiniFast", "software_type": "malware", "technique_id": "T1560.001", "technique_name": "Archive via Utility"}
+{"software_id": "S9052", "software_name": "MiniFast", "software_type": "malware", "technique_id": "T1680", "technique_name": "Local Storage Discovery"}
+{"software_id": "S9053", "software_name": "MiniJunk", "software_type": "malware", "technique_id": "T1027", "technique_name": "Obfuscated Files or Information"}
+{"software_id": "S9053", "software_name": "MiniJunk", "software_type": "malware", "technique_id": "T1027.013", "technique_name": "Encrypted/Encoded File"}
+{"software_id": "S9053", "software_name": "MiniJunk", "software_type": "malware", "technique_id": "T1027.015", "technique_name": "Compression"}
+{"software_id": "S9053", "software_name": "MiniJunk", "software_type": "malware", "technique_id": "T1027.016", "technique_name": "Junk Code Insertion"}
+{"software_id": "S9053", "software_name": "MiniJunk", "software_type": "malware", "technique_id": "T1033", "technique_name": "System Owner/User Discovery"}
+{"software_id": "S9053", "software_name": "MiniJunk", "software_type": "malware", "technique_id": "T1057", "technique_name": "Process Discovery"}
+{"software_id": "S9053", "software_name": "MiniJunk", "software_type": "malware", "technique_id": "T1070.004", "technique_name": "File Deletion"}
+{"software_id": "S9053", "software_name": "MiniJunk", "software_type": "malware", "technique_id": "T1071.001", "technique_name": "Web Protocols"}
+{"software_id": "S9053", "software_name": "MiniJunk", "software_type": "malware", "technique_id": "T1074.001", "technique_name": "Local Data Staging"}
+{"software_id": "S9053", "software_name": "MiniJunk", "software_type": "malware", "technique_id": "T1082", "technique_name": "System Information Discovery"}
+{"software_id": "S9053", "software_name": "MiniJunk", "software_type": "malware", "technique_id": "T1083", "technique_name": "File and Directory Discovery"}
+{"software_id": "S9053", "software_name": "MiniJunk", "software_type": "malware", "technique_id": "T1105", "technique_name": "Ingress Tool Transfer"}
+{"software_id": "S9053", "software_name": "MiniJunk", "software_type": "malware", "technique_id": "T1106", "technique_name": "Native API"}
+{"software_id": "S9053", "software_name": "MiniJunk", "software_type": "malware", "technique_id": "T1547.001", "technique_name": "Registry Run Keys / Startup Folder"}
+{"software_id": "S9053", "software_name": "MiniJunk", "software_type": "malware", "technique_id": "T1553.002", "technique_name": "Code Signing"}
+{"software_id": "S9057", "software_name": "CRASHPAD", "software_type": "malware", "technique_id": "T1106", "technique_name": "Native API"}
+{"software_id": "S9057", "software_name": "CRASHPAD", "software_type": "malware", "technique_id": "T1134.001", "technique_name": "Token Impersonation/Theft"}
+{"software_id": "S9057", "software_name": "CRASHPAD", "software_type": "malware", "technique_id": "T1140", "technique_name": "Deobfuscate/Decode Files or Information"}
+{"software_id": "S9057", "software_name": "CRASHPAD", "software_type": "malware", "technique_id": "T1555.003", "technique_name": "Credentials from Web Browsers"}
+{"software_id": "S9058", "software_name": "SIGHTGRAB", "software_type": "malware", "technique_id": "T1005", "technique_name": "Data from Local System"}
+{"software_id": "S9058", "software_name": "SIGHTGRAB", "software_type": "malware", "technique_id": "T1027.013", "technique_name": "Encrypted/Encoded File"}
+{"software_id": "S9058", "software_name": "SIGHTGRAB", "software_type": "malware", "technique_id": "T1074.001", "technique_name": "Local Data Staging"}
+{"software_id": "S9058", "software_name": "SIGHTGRAB", "software_type": "malware", "technique_id": "T1106", "technique_name": "Native API"}
+{"software_id": "S9058", "software_name": "SIGHTGRAB", "software_type": "malware", "technique_id": "T1113", "technique_name": "Screen Capture"}
+{"software_id": "S9058", "software_name": "SIGHTGRAB", "software_type": "malware", "technique_id": "T1119", "technique_name": "Automated Collection"}
+{"software_id": "S9058", "software_name": "SIGHTGRAB", "software_type": "malware", "technique_id": "T1124", "technique_name": "System Time Discovery"}
+{"software_id": "S9058", "software_name": "SIGHTGRAB", "software_type": "malware", "technique_id": "T1140", "technique_name": "Deobfuscate/Decode Files or Information"}
+{"software_id": "S9059", "software_name": "MiniBike", "software_type": "malware", "technique_id": "T1005", "technique_name": "Data from Local System"}
+{"software_id": "S9059", "software_name": "MiniBike", "software_type": "malware", "technique_id": "T1027.015", "technique_name": "Compression"}
+{"software_id": "S9059", "software_name": "MiniBike", "software_type": "malware", "technique_id": "T1041", "technique_name": "Exfiltration Over C2 Channel"}
+{"software_id": "S9059", "software_name": "MiniBike", "software_type": "malware", "technique_id": "T1071.001", "technique_name": "Web Protocols"}
+{"software_id": "S9059", "software_name": "MiniBike", "software_type": "malware", "technique_id": "T1082", "technique_name": "System Information Discovery"}
+{"software_id": "S9059", "software_name": "MiniBike", "software_type": "malware", "technique_id": "T1083", "technique_name": "File and Directory Discovery"}
+{"software_id": "S9059", "software_name": "MiniBike", "software_type": "malware", "technique_id": "T1105", "technique_name": "Ingress Tool Transfer"}
+{"software_id": "S9059", "software_name": "MiniBike", "software_type": "malware", "technique_id": "T1547.001", "technique_name": "Registry Run Keys / Startup Folder"}
+{"software_id": "S9059", "software_name": "MiniBike", "software_type": "malware", "technique_id": "T1574.001", "technique_name": "DLL"}
+{"software_id": "S9060", "software_name": "MiniBus", "software_type": "malware", "technique_id": "T1057", "technique_name": "Process Discovery"}
+{"software_id": "S9060", "software_name": "MiniBus", "software_type": "malware", "technique_id": "T1071.001", "technique_name": "Web Protocols"}
+{"software_id": "S9060", "software_name": "MiniBus", "software_type": "malware", "technique_id": "T1105", "technique_name": "Ingress Tool Transfer"}
+{"software_id": "S9060", "software_name": "MiniBus", "software_type": "malware", "technique_id": "T1497.001", "technique_name": "System Checks"}
+{"software_id": "S9060", "software_name": "MiniBus", "software_type": "malware", "technique_id": "T1518.001", "technique_name": "Security Software Discovery"}
+{"software_id": "S9060", "software_name": "MiniBus", "software_type": "malware", "technique_id": "T1547.001", "technique_name": "Registry Run Keys / Startup Folder"}
+{"software_id": "S9060", "software_name": "MiniBus", "software_type": "malware", "technique_id": "T1574.001", "technique_name": "DLL"}
+{"software_id": "S9060", "software_name": "MiniBus", "software_type": "malware", "technique_id": "T1673", "technique_name": "Virtual Machine Discovery"}
+{"software_id": "S9061", "software_name": "LIGHTRAIL", "software_type": "malware", "technique_id": "T1001.003", "technique_name": "Protocol or Service Impersonation"}
+{"software_id": "S9061", "software_name": "LIGHTRAIL", "software_type": "malware", "technique_id": "T1036.012", "technique_name": "Browser Fingerprint"}
+{"software_id": "S9061", "software_name": "LIGHTRAIL", "software_type": "malware", "technique_id": "T1071.001", "technique_name": "Web Protocols"}
+{"software_id": "S9061", "software_name": "LIGHTRAIL", "software_type": "malware", "technique_id": "T1090.002", "technique_name": "External Proxy"}
+{"software_id": "S9061", "software_name": "LIGHTRAIL", "software_type": "malware", "technique_id": "T1106", "technique_name": "Native API"}
+{"software_id": "S9061", "software_name": "LIGHTRAIL", "software_type": "malware", "technique_id": "T1572", "technique_name": "Protocol Tunneling"}
+{"software_id": "S9061", "software_name": "LIGHTRAIL", "software_type": "malware", "technique_id": "T1574.001", "technique_name": "DLL"}
+{"software_id": "S9062", "software_name": "MiniBrowse", "software_type": "malware", "technique_id": "T1027", "technique_name": "Obfuscated Files or Information"}
+{"software_id": "S9062", "software_name": "MiniBrowse", "software_type": "malware", "technique_id": "T1027.013", "technique_name": "Encrypted/Encoded File"}
+{"software_id": "S9062", "software_name": "MiniBrowse", "software_type": "malware", "technique_id": "T1027.016", "technique_name": "Junk Code Insertion"}
+{"software_id": "S9062", "software_name": "MiniBrowse", "software_type": "malware", "technique_id": "T1033", "technique_name": "System Owner/User Discovery"}
+{"software_id": "S9062", "software_name": "MiniBrowse", "software_type": "malware", "technique_id": "T1041", "technique_name": "Exfiltration Over C2 Channel"}
+{"software_id": "S9062", "software_name": "MiniBrowse", "software_type": "malware", "technique_id": "T1059.007", "technique_name": "JavaScript"}
+{"software_id": "S9062", "software_name": "MiniBrowse", "software_type": "malware", "technique_id": "T1069.002", "technique_name": "Domain Groups"}
+{"software_id": "S9062", "software_name": "MiniBrowse", "software_type": "malware", "technique_id": "T1071.001", "technique_name": "Web Protocols"}
+{"software_id": "S9062", "software_name": "MiniBrowse", "software_type": "malware", "technique_id": "T1217", "technique_name": "Browser Information Discovery"}
+{"software_id": "S9062", "software_name": "MiniBrowse", "software_type": "malware", "technique_id": "T1555.003", "technique_name": "Credentials from Web Browsers"}
+{"software_id": "S9062", "software_name": "MiniBrowse", "software_type": "malware", "technique_id": "T1559", "technique_name": "Inter-Process Communication"}
+{"software_id": "S9063", "software_name": "DEEPROOT", "software_type": "malware", "technique_id": "T1008", "technique_name": "Fallback Channels"}
+{"software_id": "S9063", "software_name": "DEEPROOT", "software_type": "malware", "technique_id": "T1033", "technique_name": "System Owner/User Discovery"}
+{"software_id": "S9063", "software_name": "DEEPROOT", "software_type": "malware", "technique_id": "T1041", "technique_name": "Exfiltration Over C2 Channel"}
+{"software_id": "S9063", "software_name": "DEEPROOT", "software_type": "malware", "technique_id": "T1059.004", "technique_name": "Unix Shell"}
+{"software_id": "S9063", "software_name": "DEEPROOT", "software_type": "malware", "technique_id": "T1070.004", "technique_name": "File Deletion"}
+{"software_id": "S9063", "software_name": "DEEPROOT", "software_type": "malware", "technique_id": "T1082", "technique_name": "System Information Discovery"}
+{"software_id": "S9063", "software_name": "DEEPROOT", "software_type": "malware", "technique_id": "T1083", "technique_name": "File and Directory Discovery"}
+{"software_id": "S9063", "software_name": "DEEPROOT", "software_type": "malware", "technique_id": "T1105", "technique_name": "Ingress Tool Transfer"}
+{"software_id": "S9063", "software_name": "DEEPROOT", "software_type": "malware", "technique_id": "T1132.001", "technique_name": "Standard Encoding"}
+{"software_id": "S9063", "software_name": "DEEPROOT", "software_type": "malware", "technique_id": "T1678", "technique_name": "Delay Execution"}
+{"software_id": "S9064", "software_name": "TRUSTTRAP", "software_type": "malware", "technique_id": "T1056.002", "technique_name": "GUI Input Capture"}
+{"software_id": "S9064", "software_name": "TRUSTTRAP", "software_type": "malware", "technique_id": "T1074.001", "technique_name": "Local Data Staging"}
+{"software_id": "S9064", "software_name": "TRUSTTRAP", "software_type": "malware", "technique_id": "T1684.001", "technique_name": "Impersonation"}
+{"software_id": "S9065", "software_name": "DCSYNCER.SLICK", "software_type": "malware", "technique_id": "T1003.006", "technique_name": "DCSync"}
+{"software_id": "S9065", "software_name": "DCSYNCER.SLICK", "software_type": "malware", "technique_id": "T1005", "technique_name": "Data from Local System"}
+{"software_id": "S9065", "software_name": "DCSYNCER.SLICK", "software_type": "malware", "technique_id": "T1027.007", "technique_name": "Dynamic API Resolution"}
+{"software_id": "S9065", "software_name": "DCSYNCER.SLICK", "software_type": "malware", "technique_id": "T1027.013", "technique_name": "Encrypted/Encoded File"}
+{"software_id": "S9065", "software_name": "DCSYNCER.SLICK", "software_type": "malware", "technique_id": "T1036.005", "technique_name": "Match Legitimate Resource Name or Location"}
+{"software_id": "S9065", "software_name": "DCSYNCER.SLICK", "software_type": "malware", "technique_id": "T1074.001", "technique_name": "Local Data Staging"}
+{"software_id": "S9065", "software_name": "DCSYNCER.SLICK", "software_type": "malware", "technique_id": "T1574.001", "technique_name": "DLL"}
+{"software_id": "S9066", "software_name": "POLLBLEND", "software_type": "malware", "technique_id": "T1041", "technique_name": "Exfiltration Over C2 Channel"}
+{"software_id": "S9066", "software_name": "POLLBLEND", "software_type": "malware", "technique_id": "T1071.001", "technique_name": "Web Protocols"}
+{"software_id": "S9066", "software_name": "POLLBLEND", "software_type": "malware", "technique_id": "T1105", "technique_name": "Ingress Tool Transfer"}
+{"software_id": "S9066", "software_name": "POLLBLEND", "software_type": "malware", "technique_id": "T1553.002", "technique_name": "Code Signing"}
+{"software_id": "S9066", "software_name": "POLLBLEND", "software_type": "malware", "technique_id": "T1574.001", "technique_name": "DLL"}
+{"software_id": "S9067", "software_name": "TWOSTROKE", "software_type": "malware", "technique_id": "T1027.013", "technique_name": "Encrypted/Encoded File"}
+{"software_id": "S9067", "software_name": "TWOSTROKE", "software_type": "malware", "technique_id": "T1033", "technique_name": "System Owner/User Discovery"}
+{"software_id": "S9067", "software_name": "TWOSTROKE", "software_type": "malware", "technique_id": "T1041", "technique_name": "Exfiltration Over C2 Channel"}
+{"software_id": "S9067", "software_name": "TWOSTROKE", "software_type": "malware", "technique_id": "T1059.003", "technique_name": "Windows Command Shell"}
+{"software_id": "S9067", "software_name": "TWOSTROKE", "software_type": "malware", "technique_id": "T1070.004", "technique_name": "File Deletion"}
+{"software_id": "S9067", "software_name": "TWOSTROKE", "software_type": "malware", "technique_id": "T1082", "technique_name": "System Information Discovery"}
+{"software_id": "S9067", "software_name": "TWOSTROKE", "software_type": "malware", "technique_id": "T1083", "technique_name": "File and Directory Discovery"}
+{"software_id": "S9067", "software_name": "TWOSTROKE", "software_type": "malware", "technique_id": "T1105", "technique_name": "Ingress Tool Transfer"}
+{"software_id": "S9067", "software_name": "TWOSTROKE", "software_type": "malware", "technique_id": "T1106", "technique_name": "Native API"}
+{"software_id": "S9067", "software_name": "TWOSTROKE", "software_type": "malware", "technique_id": "T1132.001", "technique_name": "Standard Encoding"}
+{"software_id": "S9067", "software_name": "TWOSTROKE", "software_type": "malware", "technique_id": "T1553.002", "technique_name": "Code Signing"}
+{"software_id": "S9067", "software_name": "TWOSTROKE", "software_type": "malware", "technique_id": "T1573.002", "technique_name": "Asymmetric Cryptography"}
+{"software_id": "S9067", "software_name": "TWOSTROKE", "software_type": "malware", "technique_id": "T1574.001", "technique_name": "DLL"}

@@ -7,10 +7,9 @@ Digital artifacts: Create Process, Executable File
 
 Using a digital signature to authenticate a file before opening.
 
-## ATT&CK techniques countered (58)
+## ATT&CK techniques countered (57)
 
 - [T0846: Remote System Discovery](https://attack.mitre.org/techniques/T0846): filters
-- [T0853: Scripting](https://attack.mitre.org/techniques/T0853): blocks
 - [T0863: User Execution](https://attack.mitre.org/techniques/T0863): filters
 - [T0871: Execution through API](https://attack.mitre.org/techniques/T0871): blocks
 - [T0888: Remote System Information Discovery](https://attack.mitre.org/techniques/T0888): filters
@@ -67,6 +66,8 @@ Using a digital signature to authenticate a file before opening.
 - [T1574.008: Path Interception by Search Order Hijacking](/mitre/techniques/T1574-008.md): blocks. Adversaries may execute their own malicious payloads by hijacking the search order used to load other programs.
 - [T1574.009: Path Interception by Unquoted Path](/mitre/techniques/T1574-009.md): blocks. Adversaries may execute their own malicious payloads by hijacking vulnerable file path references.
 - [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): blocks. Adversaries may impair command history logging to hide commands they run on a compromised system.
+
+_D3FEND also maps T0853, deprecated in ATT&CK with no successor; not counted above._
 
 ---
 

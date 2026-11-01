@@ -1,6 +1,6 @@
 # ATT&CK Technique Detail: Index
 
-> Consolidated detail pages for all 697 MITRE ATT&CK Enterprise techniques (v19.2), grouped by primary tactic. Each links its ATT&CK description, mitigations, NIST 800-53 controls, detections, and the groups and software that use it.
+> Consolidated detail pages for all 706 MITRE ATT&CK Enterprise techniques (v19.2), grouped by primary tactic. Each links its ATT&CK description, mitigations, NIST 800-53 controls, detections, and the groups and software that use it.
 
 By tactic: [Reconnaissance](/techniques/reconnaissance.md), [Resource Development](/techniques/resource-development.md), [Initial Access](/techniques/initial-access.md), [Execution](/techniques/execution.md), [Persistence](/techniques/persistence.md), [Privilege Escalation](/techniques/privilege-escalation.md), [Stealth](/techniques/stealth.md), [Defense Impairment](/techniques/defense-impairment.md), [Credential Access](/techniques/credential-access.md), [Discovery](/techniques/discovery.md), [Lateral Movement](/techniques/lateral-movement.md), [Collection](/techniques/collection.md), [Command and Control](/techniques/command-and-control.md), [Exfiltration](/techniques/exfiltration.md), [Impact](/techniques/impact.md)
 
@@ -647,6 +647,7 @@ See also: [Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md) (matrix view), [Threat G
 | `T1608.004` | Drive-by Target | [Resource Development](/techniques/resource-development.md#t1608004) |
 | `T1608.005` | Link Target | [Resource Development](/techniques/resource-development.md#t1608005) |
 | `T1608.006` | SEO Poisoning | [Resource Development](/techniques/resource-development.md#t1608006) |
+| `T1608.007` | AI Result Poisoning | [Resource Development](/techniques/resource-development.md#t1608007) |
 | `T1609` | Container Administration Command | [Execution](/techniques/execution.md#t1609) |
 | `T1610` | Deploy Container | [Execution](/techniques/execution.md#t1610) |
 | `T1611` | Escape to Host | [Privilege Escalation](/techniques/privilege-escalation.md#t1611) |
@@ -697,6 +698,7 @@ See also: [Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md) (matrix view), [Threat G
 | `T1685.004` | Disable or Modify Linux Audit System Log | [Defense Impairment](/techniques/defense-impairment.md#t1685004) |
 | `T1685.005` | Clear Windows Event Logs | [Defense Impairment](/techniques/defense-impairment.md#t1685005) |
 | `T1685.006` | Clear Linux or Mac System Logs | [Defense Impairment](/techniques/defense-impairment.md#t1685006) |
+| `T1685.007` | Impair Autonomous Defenses | [Defense Impairment](/techniques/defense-impairment.md#t1685007) |
 | `T1686` | Disable or Modify System Firewall | [Defense Impairment](/techniques/defense-impairment.md#t1686) |
 | `T1686.001` | Cloud Firewall | [Defense Impairment](/techniques/defense-impairment.md#t1686001) |
 | `T1686.002` | Network Device Firewall | [Defense Impairment](/techniques/defense-impairment.md#t1686002) |
@@ -705,6 +707,13 @@ See also: [Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md) (matrix view), [Threat G
 | `T1688` | Safe Mode Boot | [Defense Impairment](/techniques/defense-impairment.md#t1688) |
 | `T1689` | Downgrade Attack | [Defense Impairment](/techniques/defense-impairment.md#t1689) |
 | `T1690` | Prevent Command History Logging | [Defense Impairment](/techniques/defense-impairment.md#t1690) |
+| `T1696` | Anti-Automation Evasion | [Stealth](/techniques/stealth.md#t1696) |
+| `T1696.001` | Automate CAPTCHA Completion | [Stealth](/techniques/stealth.md#t1696001) |
+| `T1696.002` | Avoid CAPTCHA | [Stealth](/techniques/stealth.md#t1696002) |
+| `T1697` | Steal Application Specific Passwords | [Credential Access](/techniques/credential-access.md#t1697) |
+| `T1698` | Indirect Prompt Injection | [Execution](/techniques/execution.md#t1698) |
+| `T1699` | Direct Prompt Injection | [Execution](/techniques/execution.md#t1699) |
+| `T1700` | AI-Enabled Exfiltration | [Exfiltration](/techniques/exfiltration.md#t1700) |
 
 ---
 

@@ -207,14 +207,14 @@ Used by 1 threat groups: [G1017 Volt Typhoon](https://attack.mitre.org/groups/G1
 
 Tactics: Reconnaissance, Platforms: PRE, [ATT&CK](https://attack.mitre.org/techniques/T1591)  
 
-<details class="tsw-fold"><summary>Show details: 1 mitigation, detection strategy, 7 groups</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, detection strategy, 8 groups</summary>
 
 Adversaries may gather information about the victim's organization that can be used during targeting. Information about an organization may include a variety of details, including the names of divisions/departments, specifics of business operations, as well as the roles and responsibilities of key employees. Adversaries may gather this information in various ways, such as direct elicitation via [Phishing for Information](https://attack.mitre.org/techniques/T1598). Information about an organization may also be exposed to adversaries via online or other accessible data sets (ex: [Social Media](https://attack.mitre.org/techniques/T1593/001) or [Search Victim-Owned Websites](https://attack.mitre.org/techniques/T1594)). Gathering this information may reveal opportunities for other forms of reconnaissance (ex: [Phishing for Information](https://attack.mitre.org/techniques/T1598) or [Search Open Websites/Domains](https://attack.mitre.org/techniques/T1593)), establishing operational resources (ex: [Establish Accounts](https://attack.mitre.org/techniques/T1585) or [Compromise Accounts](https://attack.mitre.org/techniques/T1586)), and/or initial access (ex: [Phishing](https://attack.mitre.org/techniques/T1566) or [Trusted Relationship](https://attack.mitre.org/techniques/T1199)).
 
 ATT&CK mitigations (1): [M1056 Pre-compromise](/ATTACK_MITIGATIONS_REFERENCE.md#m1056)  
 NIST 800-53 R5 controls: none (*no CTID mapping under this ID or its predecessors; rely on detection/design controls*)  
 ATT&CK detection strategy: Detection of Gather Victim Org Information  
-Used by 7 threat groups: [G0007 APT28](https://attack.mitre.org/groups/G0007), [G0032 Lazarus Group](https://attack.mitre.org/groups/G0032), [G0046 FIN7](https://attack.mitre.org/groups/G0046), [G0094 Kimsuky](https://attack.mitre.org/groups/G0094), [G1017 Volt Typhoon](https://attack.mitre.org/groups/G1017), [G1036 Moonstone Sleet](https://attack.mitre.org/groups/G1036), [G1054 MirrorFace](https://attack.mitre.org/groups/G1054)  
+Used by 8 threat groups: [G0007 APT28](https://attack.mitre.org/groups/G0007), [G0032 Lazarus Group](https://attack.mitre.org/groups/G0032), [G0046 FIN7](https://attack.mitre.org/groups/G0046), [G0094 Kimsuky](https://attack.mitre.org/groups/G0094), [G1017 Volt Typhoon](https://attack.mitre.org/groups/G1017), [G1036 Moonstone Sleet](https://attack.mitre.org/groups/G1036), [G1054 MirrorFace](https://attack.mitre.org/groups/G1054), [G1059 NIMBUS MANTICORE](https://attack.mitre.org/groups/G1059)  
 
 </details>
 
@@ -475,13 +475,14 @@ Used by 6 threat groups: [G0034 Sandworm Team](https://attack.mitre.org/groups/G
 
 Tactics: Reconnaissance, Platforms: PRE, [ATT&CK](https://attack.mitre.org/techniques/T1595)  
 
-<details class="tsw-fold"><summary>Show details: 1 mitigation, detection strategy</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, detection strategy, 1 group</summary>
 
 Adversaries may execute active reconnaissance scans to gather information that can be used during targeting. Active scans are those where the adversary probes victim infrastructure via network traffic, as opposed to other forms of reconnaissance that do not involve direct interaction. Adversaries may perform different forms of active scanning depending on what information they seek to gather. These scans can also be performed in various ways, including using native features of network protocols such as ICMP. Information from these scans may reveal opportunities for other forms of reconnaissance (ex: [Search Open Websites/Domains](https://attack.mitre.org/techniques/T1593) or [Search Open Technical Databases](https://attack.mitre.org/techniques/T1596)), establishing operational resources (ex: [Develop Capabilities](https://attack.mitre.org/techniques/T1587) or [Obtain Capabilities](https://attack.mitre.org/techniques/T1588)), and/or initial access (ex: [External Remote Services](https://attack.mitre.org/techniques/T1133) or [Exploit Public-Facing Application](https://attack.mitre.org/techniques/T1190)).
 
 ATT&CK mitigations (1): [M1056 Pre-compromise](/ATTACK_MITIGATIONS_REFERENCE.md#m1056)  
 NIST 800-53 R5 controls: none (*no CTID mapping under this ID or its predecessors; rely on detection/design controls*)  
 ATT&CK detection strategy: Detection of Active Scanning  
+Used by 1 threat groups: [G1045 Salt Typhoon](https://attack.mitre.org/groups/G1045)  
 
 </details>
 
@@ -721,13 +722,14 @@ Used by 6 threat groups: [G0007 APT28](https://attack.mitre.org/groups/G0007), [
 
 sub-technique of [T1598](/techniques/reconnaissance.md#t1598), Tactics: Reconnaissance, Platforms: PRE, [ATT&CK](https://attack.mitre.org/techniques/T1598/001)  
 
-<details class="tsw-fold"><summary>Show details: 1 mitigation, 7 NIST controls, detection strategy</summary>
+<details class="tsw-fold"><summary>Show details: 1 mitigation, 7 NIST controls, detection strategy, 1 group</summary>
 
 Adversaries may send spearphishing messages via third-party services to elicit sensitive information that can be used during targeting. Spearphishing for information is an attempt to trick targets into divulging information, frequently credentials or other actionable information. Spearphishing for information frequently involves social engineering techniques, such as posing as a source with a reason to collect information (ex: [Establish Accounts](https://attack.mitre.org/techniques/T1585) or [Compromise Accounts](https://attack.mitre.org/techniques/T1586)) and/or sending multiple, seemingly urgent messages. All forms of spearphishing are electronically delivered social engineering targeted at a specific individual, company, or industry. In this scenario, adversaries send messages through various social media services, personal webmail, and other non-enterprise controlled services. These services are more likely to have a less-strict security policy than an enterprise. As with most kinds of spearphishing, the goal is to generate rapport with the target or get the target's interest in some way. Adversaries may create fake social media accounts and message employees for potential job opportunities. Doing so allows a plausible reason for asking about services, policies, and information about their environment. Adversaries may also use information from previous reconnaissance efforts (ex: [Social Media](https://attack.mitre.org/techniques/T1593/001) or [Search Victim-Owned Websites](https://attack.mitre.org/techniques/T1594)) to craft persuasive and believable lures.
 
 ATT&CK mitigations (1): [M1017 User Training](/ATTACK_MITIGATIONS_REFERENCE.md#m1017)  
 NIST 800-53 R5 controls (7): `AC-4`, `CA-7`, `SC-44`, `SC-7`, `SI-3`, `SI-4`, `SI-8`  
 ATT&CK detection strategy: Detection of Spearphishing Service  
+Used by 1 threat groups: [G1059 NIMBUS MANTICORE](https://attack.mitre.org/groups/G1059)  
 
 </details>
 

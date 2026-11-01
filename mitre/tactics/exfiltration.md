@@ -4,7 +4,7 @@
 
 The adversary is trying to steal data.
 
-19 techniques in this tactic (Team Star Wolf enriched pages):
+20 techniques in this tactic (Team Star Wolf enriched pages):
 
 - [T1011: Exfiltration Over Other Network Medium](/mitre/techniques/T1011.md)
 - [T1011.001: Exfiltration Over Bluetooth](/mitre/techniques/T1011-001.md)
@@ -25,6 +25,7 @@ The adversary is trying to steal data.
 - [T1567.002: Exfiltration to Cloud Storage](/mitre/techniques/T1567-002.md)
 - [T1567.003: Exfiltration to Text Storage Sites](/mitre/techniques/T1567-003.md)
 - [T1567.004: Exfiltration Over Webhook](/mitre/techniques/T1567-004.md)
+- [T1700: AI-Enabled Exfiltration](/mitre/techniques/T1700.md)
 
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 

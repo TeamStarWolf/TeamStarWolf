@@ -7,9 +7,8 @@ Digital artifacts: Host
 
 Restoring a entity's access to a computer network.
 
-## ATT&CK techniques countered (14)
+## ATT&CK techniques countered (13)
 
-- [T0807: Command-Line Interface](https://attack.mitre.org/techniques/T0807): restores
 - [T0809: Data Destruction](https://attack.mitre.org/techniques/T0809): restores
 - [T0816: Device Restart/Shutdown](https://attack.mitre.org/techniques/T0816): restores
 - [T0848: Rogue Master](https://attack.mitre.org/techniques/T0848): restores
@@ -23,6 +22,8 @@ Restoring a entity's access to a computer network.
 - [T1578.003: Delete Cloud Instance](/mitre/techniques/T1578-003.md): restores. An adversary may delete a cloud instance after they have performed malicious activities in an attempt to evade detection and remove evidence of their presence.
 - [T1578.004: Revert Cloud Instance](/mitre/techniques/T1578-004.md): restores. An adversary may revert changes made to a cloud instance after they have performed malicious activities in attempt to evade detection and remove evidence of their presence.
 - [T1693.001: System Firmware](https://attack.mitre.org/techniques/T1693/001): restores (D3FEND maps the revoked predecessor T0857)
+
+_D3FEND also maps T0807, deprecated in ATT&CK with no successor; not counted above._
 
 ---
 

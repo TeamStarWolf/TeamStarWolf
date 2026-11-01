@@ -9,7 +9,7 @@ New name in ATT&CK v19.2 (TA0005): formerly _Defense Evasion_, renamed to Stealt
 - [T1078: Valid Accounts](/mitre/techniques/T1078.md) (11.0% of machines)
 - [T1574: Hijack Execution Flow](/mitre/techniques/T1574.md) (2.5% of machines)
 
-148 techniques in this tactic (Team Star Wolf enriched pages):
+151 techniques in this tactic (Team Star Wolf enriched pages):
 
 - [T1006: Direct Volume Access](/mitre/techniques/T1006.md)
 - [T1014: Rootkit](/mitre/techniques/T1014.md)
@@ -159,6 +159,9 @@ New name in ATT&CK v19.2 (TA0005): formerly _Defense Evasion_, renamed to Stealt
 - [T1684: Social Engineering](/mitre/techniques/T1684.md)
 - [T1684.001: Impersonation](/mitre/techniques/T1684-001.md)
 - [T1684.002: Email Spoofing](/mitre/techniques/T1684-002.md)
+- [T1696: Anti-Automation Evasion](/mitre/techniques/T1696.md)
+- [T1696.001: Automate CAPTCHA Completion](/mitre/techniques/T1696-001.md)
+- [T1696.002: Avoid CAPTCHA](/mitre/techniques/T1696-002.md)
 
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 

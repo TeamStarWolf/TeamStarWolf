@@ -3,19 +3,19 @@
   "attack_version": "19.2",
   "generated_from": "MITRE ATT&CK Enterprise v19.2 + CTID NIST 800-53 R5",
   "inputs_sha256": {
-    "data/attack/technique_profiles.jsonl": "56c1302b4620d011a58a30469e0694c297d0c3af89d41fecc7852f34bf7baccb",
-    "data/attack/superseded_by.jsonl": "d3afa6f7699d07027b12afdc8c476df2694c885f3e224d6cb6e329a9b5c37c75",
-    "data/attack/group_to_technique.jsonl": "0547008fc1f316a285ab1d7e4700b20dd42d22b7b24801a6a7ec232b7ba3f5ec",
-    "data/attack/software_to_technique.jsonl": "d118560fab5107c02df4d7fcc3e6a56bda0b2b841ed8160663a85efe04e17aba",
-    "data/attack/mitigation_to_technique.jsonl": "d027c2a6cf26df271541ca9deedd180c6366918f57df491f2542a779c3478e9e",
+    "data/attack/technique_profiles.jsonl": "c5616b745e7c14aabe78341d06ddb7c27e93979598498cae9a7e1304332675b4",
+    "data/attack/superseded_by.jsonl": "1a62bb53e0aadf4e2a27365331778ee57453246f0a7b36166bb9dc5295a95b0b",
+    "data/attack/group_to_technique.jsonl": "b85df01beecf568a71f40aaaa0b7e6e0536e2ad30c147ab59e3355569b453480",
+    "data/attack/software_to_technique.jsonl": "fd8512b4a47b6dbc3ee86a00356f7e494fb6318227e0bc544ec6784e2cccfd22",
+    "data/attack/mitigation_to_technique.jsonl": "b88b43fa9cd9e7e34307b6b3a3d703d2cebf15b34f51eefccccc528fda2bb4c1",
     "data/control_to_technique.jsonl": "e9ae53ba902d26fdcc67fa69f8247659f7a7f9d6757cc19487889444a0d6c8ba"
   },
   "formula": "priority = group_count * (1 + 1/(nist_control_count+1))",
   "ranking": "priority desc, technique_id; techniques with group_count 0 are not ranked",
   "revoked_ids": "never ranked; edges keyed on a revoked id are counted under the live successor from data/attack/superseded_by.jsonl",
-  "live_technique_count": 697,
-  "ranked_technique_count": 498,
-  "no_nist_control_count": 231,
+  "live_technique_count": 706,
+  "ranked_technique_count": 515,
+  "no_nist_control_count": 240,
   "tactic_coverage": {
     "reconnaissance": {
       "name": "Reconnaissance",
@@ -26,10 +26,10 @@
     },
     "resource-development": {
       "name": "Resource Development",
-      "techniques": 50,
+      "techniques": 51,
       "with_nist_control": 0,
-      "with_attack_mitigation": 50,
-      "with_detection_strategy": 50
+      "with_attack_mitigation": 51,
+      "with_detection_strategy": 51
     },
     "initial-access": {
       "name": "Initial Access",
@@ -40,9 +40,9 @@
     },
     "execution": {
       "name": "Execution",
-      "techniques": 64,
+      "techniques": 66,
       "with_nist_control": 55,
-      "with_attack_mitigation": 63,
+      "with_attack_mitigation": 65,
       "with_detection_strategy": 64
     },
     "persistence": {
@@ -61,24 +61,24 @@
     },
     "stealth": {
       "name": "Stealth",
-      "techniques": 148,
+      "techniques": 151,
       "with_nist_control": 104,
-      "with_attack_mitigation": 115,
-      "with_detection_strategy": 148
+      "with_attack_mitigation": 118,
+      "with_detection_strategy": 151
     },
     "defense-impairment": {
       "name": "Defense Impairment",
-      "techniques": 56,
+      "techniques": 57,
       "with_nist_control": 45,
-      "with_attack_mitigation": 49,
+      "with_attack_mitigation": 50,
       "with_detection_strategy": 56
     },
     "credential-access": {
       "name": "Credential Access",
-      "techniques": 67,
+      "techniques": 68,
       "with_nist_control": 63,
-      "with_attack_mitigation": 63,
-      "with_detection_strategy": 67
+      "with_attack_mitigation": 64,
+      "with_detection_strategy": 68
     },
     "discovery": {
       "name": "Discovery",
@@ -110,10 +110,10 @@
     },
     "exfiltration": {
       "name": "Exfiltration",
-      "techniques": 19,
+      "techniques": 20,
       "with_nist_control": 18,
-      "with_attack_mitigation": 18,
-      "with_detection_strategy": 19
+      "with_attack_mitigation": 19,
+      "with_detection_strategy": 20
     },
     "impact": {
       "name": "Impact",
@@ -130,12 +130,12 @@
       "tactics": [
         "resource-development"
       ],
-      "group_count": 82,
+      "group_count": 84,
       "software_count": 1,
       "nist_control_count": 0,
       "mitigation_count": 1,
       "has_detection_strategy": true,
-      "priority_score": 164.0
+      "priority_score": 168.0
     },
     {
       "technique_id": "T1082",
@@ -143,12 +143,12 @@
       "tactics": [
         "discovery"
       ],
-      "group_count": 58,
-      "software_count": 355,
+      "group_count": 59,
+      "software_count": 363,
       "nist_control_count": 0,
       "mitigation_count": 0,
       "has_detection_strategy": true,
-      "priority_score": 116.0
+      "priority_score": 118.0
     },
     {
       "technique_id": "T1547.001",
@@ -157,12 +157,12 @@
         "persistence",
         "privilege-escalation"
       ],
-      "group_count": 57,
-      "software_count": 201,
+      "group_count": 59,
+      "software_count": 205,
       "nist_control_count": 0,
       "mitigation_count": 0,
       "has_detection_strategy": true,
-      "priority_score": 114.0
+      "priority_score": 118.0
     },
     {
       "technique_id": "T1083",
@@ -171,7 +171,7 @@
         "discovery"
       ],
       "group_count": 52,
-      "software_count": 308,
+      "software_count": 315,
       "nist_control_count": 0,
       "mitigation_count": 0,
       "has_detection_strategy": true,
@@ -183,12 +183,12 @@
       "tactics": [
         "command-and-control"
       ],
-      "group_count": 88,
-      "software_count": 403,
+      "group_count": 90,
+      "software_count": 411,
       "nist_control_count": 8,
       "mitigation_count": 2,
       "has_detection_strategy": true,
-      "priority_score": 97.78
+      "priority_score": 100.0
     },
     {
       "technique_id": "T1070.004",
@@ -196,25 +196,12 @@
       "tactics": [
         "stealth"
       ],
-      "group_count": 47,
-      "software_count": 251,
+      "group_count": 48,
+      "software_count": 258,
       "nist_control_count": 0,
       "mitigation_count": 0,
       "has_detection_strategy": true,
-      "priority_score": 94.0
-    },
-    {
-      "technique_id": "T1204.002",
-      "name": "Malicious File",
-      "tactics": [
-        "execution"
-      ],
-      "group_count": 86,
-      "software_count": 98,
-      "nist_control_count": 12,
-      "mitigation_count": 3,
-      "has_detection_strategy": true,
-      "priority_score": 92.62
+      "priority_score": 96.0
     },
     {
       "technique_id": "T1583.001",
@@ -222,12 +209,25 @@
       "tactics": [
         "resource-development"
       ],
-      "group_count": 46,
+      "group_count": 48,
       "software_count": 3,
       "nist_control_count": 0,
       "mitigation_count": 1,
       "has_detection_strategy": true,
-      "priority_score": 92.0
+      "priority_score": 96.0
+    },
+    {
+      "technique_id": "T1204.002",
+      "name": "Malicious File",
+      "tactics": [
+        "execution"
+      ],
+      "group_count": 87,
+      "software_count": 98,
+      "nist_control_count": 12,
+      "mitigation_count": 3,
+      "has_detection_strategy": true,
+      "priority_score": 93.69
     },
     {
       "technique_id": "T1059.001",
@@ -235,12 +235,12 @@
       "tactics": [
         "execution"
       ],
-      "group_count": 85,
-      "software_count": 131,
+      "group_count": 86,
+      "software_count": 133,
       "nist_control_count": 19,
       "mitigation_count": 5,
       "has_detection_strategy": true,
-      "priority_score": 89.25
+      "priority_score": 90.3
     },
     {
       "technique_id": "T1016",
@@ -248,25 +248,12 @@
       "tactics": [
         "discovery"
       ],
-      "group_count": 44,
-      "software_count": 232,
+      "group_count": 45,
+      "software_count": 233,
       "nist_control_count": 0,
       "mitigation_count": 0,
       "has_detection_strategy": true,
-      "priority_score": 88.0
-    },
-    {
-      "technique_id": "T1566.001",
-      "name": "Spearphishing Attachment",
-      "tactics": [
-        "initial-access"
-      ],
-      "group_count": 78,
-      "software_count": 61,
-      "nist_control_count": 12,
-      "mitigation_count": 7,
-      "has_detection_strategy": true,
-      "priority_score": 84.0
+      "priority_score": 90.0
     },
     {
       "technique_id": "T1018",
@@ -274,12 +261,25 @@
       "tactics": [
         "discovery"
       ],
-      "group_count": 41,
-      "software_count": 54,
+      "group_count": 43,
+      "software_count": 55,
       "nist_control_count": 0,
       "mitigation_count": 0,
       "has_detection_strategy": true,
-      "priority_score": 82.0
+      "priority_score": 86.0
+    },
+    {
+      "technique_id": "T1566.001",
+      "name": "Spearphishing Attachment",
+      "tactics": [
+        "initial-access"
+      ],
+      "group_count": 79,
+      "software_count": 62,
+      "nist_control_count": 12,
+      "mitigation_count": 7,
+      "has_detection_strategy": true,
+      "priority_score": 85.08
     },
     {
       "technique_id": "T1057",
@@ -287,12 +287,12 @@
       "tactics": [
         "discovery"
       ],
-      "group_count": 41,
-      "software_count": 268,
+      "group_count": 42,
+      "software_count": 273,
       "nist_control_count": 0,
       "mitigation_count": 0,
       "has_detection_strategy": true,
-      "priority_score": 82.0
+      "priority_score": 84.0
     },
     {
       "technique_id": "T1033",
@@ -301,7 +301,7 @@
         "discovery"
       ],
       "group_count": 40,
-      "software_count": 196,
+      "software_count": 202,
       "nist_control_count": 0,
       "mitigation_count": 0,
       "has_detection_strategy": true,
@@ -314,7 +314,7 @@
         "execution"
       ],
       "group_count": 73,
-      "software_count": 295,
+      "software_count": 298,
       "nist_control_count": 11,
       "mitigation_count": 1,
       "has_detection_strategy": true,
@@ -327,7 +327,7 @@
         "stealth"
       ],
       "group_count": 38,
-      "software_count": 301,
+      "software_count": 306,
       "nist_control_count": 0,
       "mitigation_count": 0,
       "has_detection_strategy": true,
@@ -339,12 +339,12 @@
       "tactics": [
         "stealth"
       ],
-      "group_count": 63,
-      "software_count": 143,
+      "group_count": 66,
+      "software_count": 145,
       "nist_control_count": 12,
       "mitigation_count": 3,
       "has_detection_strategy": true,
-      "priority_score": 67.85
+      "priority_score": 71.08
     },
     {
       "technique_id": "T1049",
@@ -352,12 +352,12 @@
       "tactics": [
         "discovery"
       ],
-      "group_count": 32,
+      "group_count": 33,
       "software_count": 61,
       "nist_control_count": 0,
       "mitigation_count": 0,
       "has_detection_strategy": true,
-      "priority_score": 64.0
+      "priority_score": 66.0
     },
     {
       "technique_id": "T1071.001",
@@ -365,12 +365,12 @@
       "tactics": [
         "command-and-control"
       ],
-      "group_count": 57,
-      "software_count": 344,
+      "group_count": 58,
+      "software_count": 352,
       "nist_control_count": 15,
       "mitigation_count": 2,
       "has_detection_strategy": true,
-      "priority_score": 60.56
+      "priority_score": 61.62
     },
     {
       "technique_id": "T1027.013",
@@ -379,9 +379,22 @@
         "stealth"
       ],
       "group_count": 40,
-      "software_count": 195,
+      "software_count": 202,
       "nist_control_count": 1,
       "mitigation_count": 2,
+      "has_detection_strategy": true,
+      "priority_score": 60.0
+    },
+    {
+      "technique_id": "T1608.001",
+      "name": "Upload Malware",
+      "tactics": [
+        "resource-development"
+      ],
+      "group_count": 30,
+      "software_count": 1,
+      "nist_control_count": 0,
+      "mitigation_count": 1,
       "has_detection_strategy": true,
       "priority_score": 60.0
     },
@@ -393,12 +406,12 @@
         "persistence",
         "privilege-escalation"
       ],
-      "group_count": 54,
-      "software_count": 124,
+      "group_count": 55,
+      "software_count": 126,
       "nist_control_count": 13,
       "mitigation_count": 4,
       "has_detection_strategy": true,
-      "priority_score": 57.86
+      "priority_score": 58.93
     },
     {
       "technique_id": "T1074.001",
@@ -406,12 +419,25 @@
       "tactics": [
         "collection"
       ],
-      "group_count": 28,
-      "software_count": 95,
+      "group_count": 29,
+      "software_count": 102,
       "nist_control_count": 0,
       "mitigation_count": 0,
       "has_detection_strategy": true,
-      "priority_score": 56.0
+      "priority_score": 58.0
+    },
+    {
+      "technique_id": "T1583.006",
+      "name": "Web Services",
+      "tactics": [
+        "resource-development"
+      ],
+      "group_count": 29,
+      "software_count": 0,
+      "nist_control_count": 0,
+      "mitigation_count": 1,
+      "has_detection_strategy": true,
+      "priority_score": 58.0
     },
     {
       "technique_id": "T1553.002",
@@ -420,24 +446,24 @@
         "defense-impairment"
       ],
       "group_count": 28,
-      "software_count": 53,
+      "software_count": 57,
       "nist_control_count": 0,
       "mitigation_count": 0,
       "has_detection_strategy": true,
       "priority_score": 56.0
     },
     {
-      "technique_id": "T1608.001",
-      "name": "Upload Malware",
+      "technique_id": "T1204.001",
+      "name": "Malicious Link",
       "tactics": [
-        "resource-development"
+        "execution"
       ],
-      "group_count": 28,
-      "software_count": 1,
-      "nist_control_count": 0,
-      "mitigation_count": 1,
+      "group_count": 50,
+      "software_count": 31,
+      "nist_control_count": 11,
+      "mitigation_count": 3,
       "has_detection_strategy": true,
-      "priority_score": 56.0
+      "priority_score": 54.17
     },
     {
       "technique_id": "T1518.001",
@@ -446,15 +472,15 @@
         "discovery"
       ],
       "group_count": 27,
-      "software_count": 111,
+      "software_count": 112,
       "nist_control_count": 0,
       "mitigation_count": 0,
       "has_detection_strategy": true,
       "priority_score": 54.0
     },
     {
-      "technique_id": "T1583.006",
-      "name": "Web Services",
+      "technique_id": "T1587.001",
+      "name": "Malware",
       "tactics": [
         "resource-development"
       ],
@@ -464,19 +490,6 @@
       "mitigation_count": 1,
       "has_detection_strategy": true,
       "priority_score": 54.0
-    },
-    {
-      "technique_id": "T1204.001",
-      "name": "Malicious Link",
-      "tactics": [
-        "execution"
-      ],
-      "group_count": 49,
-      "software_count": 30,
-      "nist_control_count": 11,
-      "mitigation_count": 3,
-      "has_detection_strategy": true,
-      "priority_score": 53.08
     },
     {
       "technique_id": "T1056.001",
@@ -493,43 +506,17 @@
       "priority_score": 52.0
     },
     {
-      "technique_id": "T1587.001",
-      "name": "Malware",
-      "tactics": [
-        "resource-development"
-      ],
-      "group_count": 26,
-      "software_count": 0,
-      "nist_control_count": 0,
-      "mitigation_count": 1,
-      "has_detection_strategy": true,
-      "priority_score": 52.0
-    },
-    {
       "technique_id": "T1566.002",
       "name": "Spearphishing Link",
       "tactics": [
         "initial-access"
       ],
-      "group_count": 46,
-      "software_count": 31,
+      "group_count": 48,
+      "software_count": 32,
       "nist_control_count": 11,
       "mitigation_count": 5,
       "has_detection_strategy": true,
-      "priority_score": 49.83
-    },
-    {
-      "technique_id": "T1005",
-      "name": "Data from Local System",
-      "tactics": [
-        "collection"
-      ],
-      "group_count": 46,
-      "software_count": 169,
-      "nist_control_count": 13,
-      "mitigation_count": 1,
-      "has_detection_strategy": true,
-      "priority_score": 49.29
+      "priority_score": 52.0
     },
     {
       "technique_id": "T1078",
@@ -540,12 +527,38 @@
         "privilege-escalation",
         "initial-access"
       ],
-      "group_count": 47,
+      "group_count": 49,
       "software_count": 7,
       "nist_control_count": 25,
       "mitigation_count": 8,
       "has_detection_strategy": true,
-      "priority_score": 48.81
+      "priority_score": 50.88
+    },
+    {
+      "technique_id": "T1005",
+      "name": "Data from Local System",
+      "tactics": [
+        "collection"
+      ],
+      "group_count": 47,
+      "software_count": 174,
+      "nist_control_count": 13,
+      "mitigation_count": 1,
+      "has_detection_strategy": true,
+      "priority_score": 50.36
+    },
+    {
+      "technique_id": "T1190",
+      "name": "Exploit Public-Facing Application",
+      "tactics": [
+        "initial-access"
+      ],
+      "group_count": 47,
+      "software_count": 8,
+      "nist_control_count": 29,
+      "mitigation_count": 8,
+      "has_detection_strategy": true,
+      "priority_score": 48.57
     },
     {
       "technique_id": "T1059.005",
@@ -561,17 +574,43 @@
       "priority_score": 48.56
     },
     {
-      "technique_id": "T1190",
-      "name": "Exploit Public-Facing Application",
+      "technique_id": "T1036.004",
+      "name": "Masquerade Task or Service",
       "tactics": [
-        "initial-access"
+        "stealth"
       ],
-      "group_count": 46,
-      "software_count": 8,
-      "nist_control_count": 29,
-      "mitigation_count": 8,
+      "group_count": 24,
+      "software_count": 64,
+      "nist_control_count": 0,
+      "mitigation_count": 0,
       "has_detection_strategy": true,
-      "priority_score": 47.53
+      "priority_score": 48.0
+    },
+    {
+      "technique_id": "T1555.003",
+      "name": "Credentials from Web Browsers",
+      "tactics": [
+        "credential-access"
+      ],
+      "group_count": 24,
+      "software_count": 67,
+      "nist_control_count": 0,
+      "mitigation_count": 5,
+      "has_detection_strategy": true,
+      "priority_score": 48.0
+    },
+    {
+      "technique_id": "T1560.001",
+      "name": "Archive via Utility",
+      "tactics": [
+        "collection"
+      ],
+      "group_count": 40,
+      "software_count": 38,
+      "nist_control_count": 5,
+      "mitigation_count": 1,
+      "has_detection_strategy": true,
+      "priority_score": 46.67
     },
     {
       "technique_id": "T1003.001",
@@ -587,43 +626,30 @@
       "priority_score": 46.2
     },
     {
-      "technique_id": "T1036.004",
-      "name": "Masquerade Task or Service",
+      "technique_id": "T1585.001",
+      "name": "Social Media Accounts",
       "tactics": [
-        "stealth"
+        "resource-development"
       ],
       "group_count": 23,
-      "software_count": 63,
+      "software_count": 0,
       "nist_control_count": 0,
-      "mitigation_count": 0,
-      "has_detection_strategy": true,
-      "priority_score": 46.0
-    },
-    {
-      "technique_id": "T1555.003",
-      "name": "Credentials from Web Browsers",
-      "tactics": [
-        "credential-access"
-      ],
-      "group_count": 23,
-      "software_count": 64,
-      "nist_control_count": 0,
-      "mitigation_count": 5,
-      "has_detection_strategy": true,
-      "priority_score": 46.0
-    },
-    {
-      "technique_id": "T1560.001",
-      "name": "Archive via Utility",
-      "tactics": [
-        "collection"
-      ],
-      "group_count": 39,
-      "software_count": 36,
-      "nist_control_count": 5,
       "mitigation_count": 1,
       "has_detection_strategy": true,
-      "priority_score": 45.5
+      "priority_score": 46.0
+    },
+    {
+      "technique_id": "T1047",
+      "name": "Windows Management Instrumentation",
+      "tactics": [
+        "execution"
+      ],
+      "group_count": 43,
+      "software_count": 94,
+      "nist_control_count": 17,
+      "mitigation_count": 4,
+      "has_detection_strategy": true,
+      "priority_score": 45.39
     },
     {
       "technique_id": "T1203",
@@ -639,30 +665,17 @@
       "priority_score": 44.47
     },
     {
-      "technique_id": "T1047",
-      "name": "Windows Management Instrumentation",
-      "tactics": [
-        "execution"
-      ],
-      "group_count": 42,
-      "software_count": 93,
-      "nist_control_count": 17,
-      "mitigation_count": 4,
-      "has_detection_strategy": true,
-      "priority_score": 44.33
-    },
-    {
       "technique_id": "T1585.002",
       "name": "Email Accounts",
       "tactics": [
         "resource-development"
       ],
-      "group_count": 20,
+      "group_count": 21,
       "software_count": 0,
       "nist_control_count": 0,
       "mitigation_count": 1,
       "has_detection_strategy": true,
-      "priority_score": 40.0
+      "priority_score": 42.0
     },
     {
       "technique_id": "T1021.001",
@@ -670,12 +683,12 @@
       "tactics": [
         "lateral-movement"
       ],
-      "group_count": 37,
-      "software_count": 17,
+      "group_count": 39,
+      "software_count": 18,
       "nist_control_count": 23,
       "mitigation_count": 8,
       "has_detection_strategy": true,
-      "priority_score": 38.54
+      "priority_score": 40.62
     },
     {
       "technique_id": "T1012",
@@ -683,12 +696,12 @@
       "tactics": [
         "discovery"
       ],
-      "group_count": 19,
+      "group_count": 20,
       "software_count": 99,
       "nist_control_count": 0,
       "mitigation_count": 0,
       "has_detection_strategy": true,
-      "priority_score": 38.0
+      "priority_score": 40.0
     },
     {
       "technique_id": "T1113",
@@ -697,22 +710,9 @@
         "collection"
       ],
       "group_count": 19,
-      "software_count": 151,
+      "software_count": 152,
       "nist_control_count": 0,
       "mitigation_count": 0,
-      "has_detection_strategy": true,
-      "priority_score": 38.0
-    },
-    {
-      "technique_id": "T1585.001",
-      "name": "Social Media Accounts",
-      "tactics": [
-        "resource-development"
-      ],
-      "group_count": 19,
-      "software_count": 0,
-      "nist_control_count": 0,
-      "mitigation_count": 1,
       "has_detection_strategy": true,
       "priority_score": 38.0
     },
@@ -723,12 +723,25 @@
         "stealth",
         "execution"
       ],
-      "group_count": 35,
-      "software_count": 75,
+      "group_count": 36,
+      "software_count": 82,
       "nist_control_count": 17,
       "mitigation_count": 5,
       "has_detection_strategy": true,
-      "priority_score": 36.94
+      "priority_score": 38.0
+    },
+    {
+      "technique_id": "T1583.003",
+      "name": "Virtual Private Server",
+      "tactics": [
+        "resource-development"
+      ],
+      "group_count": 19,
+      "software_count": 0,
+      "nist_control_count": 0,
+      "mitigation_count": 1,
+      "has_detection_strategy": true,
+      "priority_score": 38.0
     },
     {
       "technique_id": "T1087.002",
@@ -736,12 +749,25 @@
       "tactics": [
         "discovery"
       ],
-      "group_count": 29,
+      "group_count": 30,
       "software_count": 28,
       "nist_control_count": 3,
       "mitigation_count": 1,
       "has_detection_strategy": true,
-      "priority_score": 36.25
+      "priority_score": 37.5
+    },
+    {
+      "technique_id": "T1027.010",
+      "name": "Command Obfuscation",
+      "tactics": [
+        "stealth"
+      ],
+      "group_count": 31,
+      "software_count": 36,
+      "nist_control_count": 4,
+      "mitigation_count": 2,
+      "has_detection_strategy": true,
+      "priority_score": 37.2
     },
     {
       "technique_id": "T1112",
@@ -751,7 +777,7 @@
         "persistence"
       ],
       "group_count": 29,
-      "software_count": 139,
+      "software_count": 141,
       "nist_control_count": 3,
       "mitigation_count": 1,
       "has_detection_strategy": true,
@@ -771,17 +797,43 @@
       "priority_score": 36.0
     },
     {
-      "technique_id": "T1027.010",
-      "name": "Command Obfuscation",
+      "technique_id": "T1684.001",
+      "name": "Impersonation",
       "tactics": [
         "stealth"
       ],
-      "group_count": 29,
-      "software_count": 35,
-      "nist_control_count": 4,
+      "group_count": 18,
+      "software_count": 3,
+      "nist_control_count": 0,
       "mitigation_count": 2,
       "has_detection_strategy": true,
-      "priority_score": 34.8
+      "priority_score": 36.0
+    },
+    {
+      "technique_id": "T1046",
+      "name": "Network Service Discovery",
+      "tactics": [
+        "discovery"
+      ],
+      "group_count": 33,
+      "software_count": 36,
+      "nist_control_count": 11,
+      "mitigation_count": 3,
+      "has_detection_strategy": true,
+      "priority_score": 35.75
+    },
+    {
+      "technique_id": "T1685",
+      "name": "Disable or Modify Tools",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "group_count": 33,
+      "software_count": 89,
+      "nist_control_count": 19,
+      "mitigation_count": 7,
+      "has_detection_strategy": true,
+      "priority_score": 34.65
     },
     {
       "technique_id": "T1505.003",
@@ -797,69 +849,43 @@
       "priority_score": 34.44
     },
     {
-      "technique_id": "T1685",
-      "name": "Disable or Modify Tools",
-      "tactics": [
-        "defense-impairment"
-      ],
-      "group_count": 32,
-      "software_count": 87,
-      "nist_control_count": 19,
-      "mitigation_count": 7,
-      "has_detection_strategy": true,
-      "priority_score": 33.6
-    },
-    {
-      "technique_id": "T1046",
-      "name": "Network Service Discovery",
-      "tactics": [
-        "discovery"
-      ],
-      "group_count": 31,
-      "software_count": 35,
-      "nist_control_count": 11,
-      "mitigation_count": 3,
-      "has_detection_strategy": true,
-      "priority_score": 33.58
-    },
-    {
       "technique_id": "T1189",
       "name": "Drive-by Compromise",
       "tactics": [
         "initial-access"
       ],
       "group_count": 31,
-      "software_count": 10,
+      "software_count": 11,
       "nist_control_count": 18,
       "mitigation_count": 5,
       "has_detection_strategy": true,
       "priority_score": 32.63
     },
     {
-      "technique_id": "T1583.003",
-      "name": "Virtual Private Server",
+      "technique_id": "T1007",
+      "name": "System Service Discovery",
       "tactics": [
-        "resource-development"
+        "discovery"
       ],
       "group_count": 16,
-      "software_count": 0,
+      "software_count": 52,
       "nist_control_count": 0,
-      "mitigation_count": 1,
+      "mitigation_count": 0,
       "has_detection_strategy": true,
       "priority_score": 32.0
     },
     {
-      "technique_id": "T1684.001",
-      "name": "Impersonation",
+      "technique_id": "T1059.007",
+      "name": "JavaScript",
       "tactics": [
-        "stealth"
+        "execution"
       ],
-      "group_count": 16,
-      "software_count": 2,
-      "nist_control_count": 0,
-      "mitigation_count": 2,
+      "group_count": 30,
+      "software_count": 43,
+      "nist_control_count": 16,
+      "mitigation_count": 4,
       "has_detection_strategy": true,
-      "priority_score": 32.0
+      "priority_score": 31.76
     },
     {
       "technique_id": "T1567.002",
@@ -888,13 +914,13 @@
       "priority_score": 31.2
     },
     {
-      "technique_id": "T1007",
-      "name": "System Service Discovery",
+      "technique_id": "T1124",
+      "name": "System Time Discovery",
       "tactics": [
         "discovery"
       ],
       "group_count": 15,
-      "software_count": 52,
+      "software_count": 86,
       "nist_control_count": 0,
       "mitigation_count": 0,
       "has_detection_strategy": true,
@@ -914,13 +940,13 @@
       "priority_score": 30.0
     },
     {
-      "technique_id": "T1059.007",
-      "name": "JavaScript",
+      "technique_id": "T1021.002",
+      "name": "SMB/Windows Admin Shares",
       "tactics": [
-        "execution"
+        "lateral-movement"
       ],
       "group_count": 28,
-      "software_count": 42,
+      "software_count": 31,
       "nist_control_count": 16,
       "mitigation_count": 4,
       "has_detection_strategy": true,
@@ -941,6 +967,19 @@
       "priority_score": 29.56
     },
     {
+      "technique_id": "T1041",
+      "name": "Exfiltration Over C2 Channel",
+      "tactics": [
+        "exfiltration"
+      ],
+      "group_count": 28,
+      "software_count": 173,
+      "nist_control_count": 18,
+      "mitigation_count": 2,
+      "has_detection_strategy": true,
+      "priority_score": 29.47
+    },
+    {
       "technique_id": "T1543.003",
       "name": "Windows Service",
       "tactics": [
@@ -948,50 +987,24 @@
         "privilege-escalation"
       ],
       "group_count": 26,
-      "software_count": 109,
+      "software_count": 110,
       "nist_control_count": 8,
       "mitigation_count": 5,
       "has_detection_strategy": true,
       "priority_score": 28.89
     },
     {
-      "technique_id": "T1021.002",
-      "name": "SMB/Windows Admin Shares",
+      "technique_id": "T1027.002",
+      "name": "Software Packing",
       "tactics": [
-        "lateral-movement"
+        "stealth"
       ],
-      "group_count": 27,
-      "software_count": 30,
-      "nist_control_count": 16,
-      "mitigation_count": 4,
+      "group_count": 24,
+      "software_count": 74,
+      "nist_control_count": 4,
+      "mitigation_count": 1,
       "has_detection_strategy": true,
-      "priority_score": 28.59
-    },
-    {
-      "technique_id": "T1041",
-      "name": "Exfiltration Over C2 Channel",
-      "tactics": [
-        "exfiltration"
-      ],
-      "group_count": 27,
-      "software_count": 166,
-      "nist_control_count": 18,
-      "mitigation_count": 2,
-      "has_detection_strategy": true,
-      "priority_score": 28.42
-    },
-    {
-      "technique_id": "T1124",
-      "name": "System Time Discovery",
-      "tactics": [
-        "discovery"
-      ],
-      "group_count": 14,
-      "software_count": 83,
-      "nist_control_count": 0,
-      "mitigation_count": 0,
-      "has_detection_strategy": true,
-      "priority_score": 28.0
+      "priority_score": 28.8
     },
     {
       "technique_id": "T1586.002",
@@ -1020,26 +1033,13 @@
       "priority_score": 28.0
     },
     {
-      "technique_id": "T1027.002",
-      "name": "Software Packing",
-      "tactics": [
-        "stealth"
-      ],
-      "group_count": 23,
-      "software_count": 73,
-      "nist_control_count": 4,
-      "mitigation_count": 1,
-      "has_detection_strategy": true,
-      "priority_score": 27.6
-    },
-    {
       "technique_id": "T1069.002",
       "name": "Domain Groups",
       "tactics": [
         "discovery"
       ],
       "group_count": 13,
-      "software_count": 23,
+      "software_count": 24,
       "nist_control_count": 0,
       "mitigation_count": 0,
       "has_detection_strategy": true,
@@ -1052,24 +1052,11 @@
         "stealth"
       ],
       "group_count": 13,
-      "software_count": 46,
+      "software_count": 48,
       "nist_control_count": 0,
       "mitigation_count": 0,
       "has_detection_strategy": true,
       "priority_score": 26.0
-    },
-    {
-      "technique_id": "T1068",
-      "name": "Exploitation for Privilege Escalation",
-      "tactics": [
-        "privilege-escalation"
-      ],
-      "group_count": 22,
-      "software_count": 19,
-      "nist_control_count": 21,
-      "mitigation_count": 5,
-      "has_detection_strategy": true,
-      "priority_score": 23.0
     },
     {
       "technique_id": "T1657",
@@ -1077,38 +1064,51 @@
       "tactics": [
         "impact"
       ],
-      "group_count": 17,
+      "group_count": 19,
       "software_count": 8,
       "nist_control_count": 2,
       "mitigation_count": 2,
       "has_detection_strategy": true,
-      "priority_score": 22.67
+      "priority_score": 25.33
     },
     {
-      "technique_id": "T1087.001",
-      "name": "Local Account",
+      "technique_id": "T1068",
+      "name": "Exploitation for Privilege Escalation",
       "tactics": [
-        "discovery"
+        "privilege-escalation"
       ],
-      "group_count": 18,
-      "software_count": 45,
-      "nist_control_count": 3,
+      "group_count": 23,
+      "software_count": 19,
+      "nist_control_count": 21,
+      "mitigation_count": 5,
+      "has_detection_strategy": true,
+      "priority_score": 24.05
+    },
+    {
+      "technique_id": "T1027.015",
+      "name": "Compression",
+      "tactics": [
+        "stealth"
+      ],
+      "group_count": 12,
+      "software_count": 28,
+      "nist_control_count": 0,
       "mitigation_count": 1,
       "has_detection_strategy": true,
-      "priority_score": 22.5
+      "priority_score": 24.0
     },
     {
-      "technique_id": "T1106",
-      "name": "Native API",
+      "technique_id": "T1219.002",
+      "name": "Remote Desktop Software",
       "tactics": [
-        "execution"
+        "command-and-control"
       ],
-      "group_count": 20,
-      "software_count": 203,
-      "nist_control_count": 7,
-      "mitigation_count": 2,
+      "group_count": 12,
+      "software_count": 1,
+      "nist_control_count": 0,
+      "mitigation_count": 3,
       "has_detection_strategy": true,
-      "priority_score": 22.5
+      "priority_score": 24.0
     }
   ]
 }

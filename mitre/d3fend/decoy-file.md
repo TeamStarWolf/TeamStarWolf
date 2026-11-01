@@ -7,10 +7,9 @@ Digital artifacts: File
 
 A file created for the purposes of deceiving an adversary.
 
-## ATT&CK techniques countered (105)
+## ATT&CK techniques countered (104)
 
 - [T0851: Rootkit](https://attack.mitre.org/techniques/T0851): spoofs
-- [T0853: Scripting](https://attack.mitre.org/techniques/T0853): spoofs
 - [T0865: Spearphishing Attachment](https://attack.mitre.org/techniques/T0865): spoofs
 - [T0871: Execution through API](https://attack.mitre.org/techniques/T0871): spoofs
 - [T0888: Remote System Information Discovery](https://attack.mitre.org/techniques/T0888): spoofs
@@ -115,7 +114,7 @@ A file created for the purposes of deceiving an adversary.
 - [T1685.006: Clear Linux or Mac System Logs](/mitre/techniques/T1685-006.md): spoofs. Adversaries may clear system logs to hide evidence of an intrusion.
 - [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): spoofs. Adversaries may impair command history logging to hide commands they run on a compromised system.
 
-_D3FEND also maps T1053.004, deprecated in ATT&CK with no successor; not counted above._
+_D3FEND also maps T0853, T1053.004, deprecated in ATT&CK with no successor; not counted above._
 
 ---
 

@@ -4,7 +4,7 @@
 
 New tactic in ATT&CK v19.2 (TA0112): split out from the former Defense Evasion; see also [Stealth](/mitre/tactics/stealth.md). The adversary is trying to break security mechanisms, pipelines, and tooling so defenders can’t see or trust what’s happening. Defense Impairment consists of techniques that degrade, disable, or undermine the effectiveness and trustworthiness of security controls and monitoring mechanisms. These techniques are characterized by direct interference with defensive systems. The goal is to reduce defenders’ ability to detect, interpret, or respond to adversary activity.
 
-56 techniques in this tactic (Team Star Wolf enriched pages):
+57 techniques in this tactic (Team Star Wolf enriched pages):
 
 - [T1112: Modify Registry](/mitre/techniques/T1112.md)
 - [T1207: Rogue Domain Controller](/mitre/techniques/T1207.md)
@@ -54,6 +54,7 @@ New tactic in ATT&CK v19.2 (TA0112): split out from the former Defense Evasion; 
 - [T1685.004: Disable or Modify Linux Audit System Log](/mitre/techniques/T1685-004.md)
 - [T1685.005: Clear Windows Event Logs](/mitre/techniques/T1685-005.md)
 - [T1685.006: Clear Linux or Mac System Logs](/mitre/techniques/T1685-006.md)
+- [T1685.007: Impair Autonomous Defenses](/mitre/techniques/T1685-007.md)
 - [T1686: Disable or Modify System Firewall](/mitre/techniques/T1686.md)
 - [T1686.001: Cloud Firewall](/mitre/techniques/T1686-001.md)
 - [T1686.002: Network Device Firewall](/mitre/techniques/T1686-002.md)

@@ -2,13 +2,13 @@
   "generated_by": "scripts/compute_coverage.py",
   "attack_version": "19.2",
   "inputs_sha256": {
-    "data/attack/technique_profiles.jsonl": "56c1302b4620d011a58a30469e0694c297d0c3af89d41fecc7852f34bf7baccb",
-    "data/attack/superseded_by.jsonl": "d3afa6f7699d07027b12afdc8c476df2694c885f3e224d6cb6e329a9b5c37c75",
+    "data/attack/technique_profiles.jsonl": "c5616b745e7c14aabe78341d06ddb7c27e93979598498cae9a7e1304332675b4",
+    "data/attack/superseded_by.jsonl": "1a62bb53e0aadf4e2a27365331778ee57453246f0a7b36166bb9dc5295a95b0b",
     "data/vendor_to_technique.jsonl": "4702882894497f81fd644692f8e06ca69976576b73a010f7cb70e0c506601852"
   },
   "coverage_definition": "A technique is covered when at least one stack vendor satisfies a NIST 800-53 R5 control that the CTID mapping links to it (vendor_to_control JOIN control_to_technique, revoked ids carried forward to their live successor). It is control-mapping availability, not a measured detection or prevention.",
   "total_covered_techniques": 462,
-  "total_technique_universe": 697,
+  "total_technique_universe": 706,
   "total_vendor_stack_vendors": 52,
   "vendor_aliases_folded": {
     "cyberark": "cyberark-pam",
@@ -29,7 +29,7 @@
     },
     "resource-development": {
       "covered": 0,
-      "total": 50,
+      "total": 51,
       "pct": 0.0
     },
     "initial-access": {
@@ -39,8 +39,8 @@
     },
     "execution": {
       "covered": 55,
-      "total": 64,
-      "pct": 85.9
+      "total": 66,
+      "pct": 83.3
     },
     "persistence": {
       "covered": 95,
@@ -54,18 +54,18 @@
     },
     "stealth": {
       "covered": 103,
-      "total": 148,
-      "pct": 69.6
+      "total": 151,
+      "pct": 68.2
     },
     "defense-impairment": {
       "covered": 44,
-      "total": 56,
-      "pct": 78.6
+      "total": 57,
+      "pct": 77.2
     },
     "credential-access": {
       "covered": 63,
-      "total": 67,
-      "pct": 94.0
+      "total": 68,
+      "pct": 92.6
     },
     "discovery": {
       "covered": 15,
@@ -89,8 +89,8 @@
     },
     "exfiltration": {
       "covered": 18,
-      "total": 19,
-      "pct": 94.7
+      "total": 20,
+      "pct": 90.0
     },
     "impact": {
       "covered": 25,
@@ -98,16 +98,16 @@
       "pct": 75.8
     }
   },
-  "gap_count": 235,
+  "gap_count": 244,
   "gap_nist_control_depth_distribution": {
-    "0": 231,
+    "0": 240,
     "1": 4
   },
   "gap_priority_distribution": {
-    "critical": 22,
-    "high": 23,
-    "medium": 66,
-    "low": 124
+    "critical": 24,
+    "high": 21,
+    "medium": 71,
+    "low": 128
   },
   "gap_ranking": "group_count desc, software_count desc, campaign_count desc, nist_control_depth desc, technique_id",
   "priority_basis": "group_count (the number of ATT&CK groups documented using the technique, from the v19.2 profiles): critical >= 20, high >= 10, medium >= 3, low otherwise",
@@ -120,9 +120,9 @@
       ],
       "tactic": "resource-development",
       "tactic_name": "Resource Development",
-      "group_count": 82,
+      "group_count": 84,
       "software_count": 1,
-      "campaign_count": 26,
+      "campaign_count": 27,
       "nist_control_depth": 0,
       "priority": "critical",
       "covered": false
@@ -135,9 +135,9 @@
       ],
       "tactic": "discovery",
       "tactic_name": "Discovery",
-      "group_count": 58,
-      "software_count": 355,
-      "campaign_count": 14,
+      "group_count": 59,
+      "software_count": 363,
+      "campaign_count": 15,
       "nist_control_depth": 0,
       "priority": "critical",
       "covered": false
@@ -151,8 +151,8 @@
       ],
       "tactic": "persistence",
       "tactic_name": "Persistence",
-      "group_count": 57,
-      "software_count": 201,
+      "group_count": 59,
+      "software_count": 205,
       "campaign_count": 3,
       "nist_control_depth": 0,
       "priority": "critical",
@@ -167,8 +167,8 @@
       "tactic": "discovery",
       "tactic_name": "Discovery",
       "group_count": 52,
-      "software_count": 308,
-      "campaign_count": 13,
+      "software_count": 315,
+      "campaign_count": 14,
       "nist_control_depth": 0,
       "priority": "critical",
       "covered": false
@@ -181,8 +181,8 @@
       ],
       "tactic": "stealth",
       "tactic_name": "Stealth",
-      "group_count": 47,
-      "software_count": 251,
+      "group_count": 48,
+      "software_count": 258,
       "campaign_count": 13,
       "nist_control_depth": 0,
       "priority": "critical",
@@ -196,7 +196,7 @@
       ],
       "tactic": "resource-development",
       "tactic_name": "Resource Development",
-      "group_count": 46,
+      "group_count": 48,
       "software_count": 3,
       "campaign_count": 15,
       "nist_control_depth": 0,
@@ -211,24 +211,9 @@
       ],
       "tactic": "discovery",
       "tactic_name": "Discovery",
-      "group_count": 44,
-      "software_count": 232,
-      "campaign_count": 13,
-      "nist_control_depth": 0,
-      "priority": "critical",
-      "covered": false
-    },
-    {
-      "technique_id": "T1057",
-      "name": "Process Discovery",
-      "tactics": [
-        "discovery"
-      ],
-      "tactic": "discovery",
-      "tactic_name": "Discovery",
-      "group_count": 41,
-      "software_count": 268,
-      "campaign_count": 10,
+      "group_count": 45,
+      "software_count": 233,
+      "campaign_count": 14,
       "nist_control_depth": 0,
       "priority": "critical",
       "covered": false
@@ -241,9 +226,24 @@
       ],
       "tactic": "discovery",
       "tactic_name": "Discovery",
-      "group_count": 41,
-      "software_count": 54,
-      "campaign_count": 9,
+      "group_count": 43,
+      "software_count": 55,
+      "campaign_count": 10,
+      "nist_control_depth": 0,
+      "priority": "critical",
+      "covered": false
+    },
+    {
+      "technique_id": "T1057",
+      "name": "Process Discovery",
+      "tactics": [
+        "discovery"
+      ],
+      "tactic": "discovery",
+      "tactic_name": "Discovery",
+      "group_count": 42,
+      "software_count": 273,
+      "campaign_count": 11,
       "nist_control_depth": 0,
       "priority": "critical",
       "covered": false
@@ -257,8 +257,8 @@
       "tactic": "discovery",
       "tactic_name": "Discovery",
       "group_count": 40,
-      "software_count": 196,
-      "campaign_count": 8,
+      "software_count": 202,
+      "campaign_count": 9,
       "nist_control_depth": 0,
       "priority": "critical",
       "covered": false
@@ -272,7 +272,7 @@
       "tactic": "stealth",
       "tactic_name": "Stealth",
       "group_count": 38,
-      "software_count": 301,
+      "software_count": 306,
       "campaign_count": 14,
       "nist_control_depth": 0,
       "priority": "critical",
@@ -286,9 +286,24 @@
       ],
       "tactic": "discovery",
       "tactic_name": "Discovery",
-      "group_count": 32,
+      "group_count": 33,
       "software_count": 61,
       "campaign_count": 5,
+      "nist_control_depth": 0,
+      "priority": "critical",
+      "covered": false
+    },
+    {
+      "technique_id": "T1608.001",
+      "name": "Upload Malware",
+      "tactics": [
+        "resource-development"
+      ],
+      "tactic": "resource-development",
+      "tactic_name": "Resource Development",
+      "group_count": 30,
+      "software_count": 1,
+      "campaign_count": 8,
       "nist_control_depth": 0,
       "priority": "critical",
       "covered": false
@@ -301,9 +316,24 @@
       ],
       "tactic": "collection",
       "tactic_name": "Collection",
-      "group_count": 28,
-      "software_count": 95,
+      "group_count": 29,
+      "software_count": 102,
       "campaign_count": 13,
+      "nist_control_depth": 0,
+      "priority": "critical",
+      "covered": false
+    },
+    {
+      "technique_id": "T1583.006",
+      "name": "Web Services",
+      "tactics": [
+        "resource-development"
+      ],
+      "tactic": "resource-development",
+      "tactic_name": "Resource Development",
+      "group_count": 29,
+      "software_count": 0,
+      "campaign_count": 5,
       "nist_control_depth": 0,
       "priority": "critical",
       "covered": false
@@ -317,22 +347,7 @@
       "tactic": "defense-impairment",
       "tactic_name": "Defense Impairment",
       "group_count": 28,
-      "software_count": 53,
-      "campaign_count": 8,
-      "nist_control_depth": 0,
-      "priority": "critical",
-      "covered": false
-    },
-    {
-      "technique_id": "T1608.001",
-      "name": "Upload Malware",
-      "tactics": [
-        "resource-development"
-      ],
-      "tactic": "resource-development",
-      "tactic_name": "Resource Development",
-      "group_count": 28,
-      "software_count": 1,
+      "software_count": 57,
       "campaign_count": 8,
       "nist_control_depth": 0,
       "priority": "critical",
@@ -347,15 +362,15 @@
       "tactic": "discovery",
       "tactic_name": "Discovery",
       "group_count": 27,
-      "software_count": 111,
+      "software_count": 112,
       "campaign_count": 3,
       "nist_control_depth": 0,
       "priority": "critical",
       "covered": false
     },
     {
-      "technique_id": "T1583.006",
-      "name": "Web Services",
+      "technique_id": "T1587.001",
+      "name": "Malware",
       "tactics": [
         "resource-development"
       ],
@@ -363,7 +378,7 @@
       "tactic_name": "Resource Development",
       "group_count": 27,
       "software_count": 0,
-      "campaign_count": 4,
+      "campaign_count": 16,
       "nist_control_depth": 0,
       "priority": "critical",
       "covered": false
@@ -385,21 +400,6 @@
       "covered": false
     },
     {
-      "technique_id": "T1587.001",
-      "name": "Malware",
-      "tactics": [
-        "resource-development"
-      ],
-      "tactic": "resource-development",
-      "tactic_name": "Resource Development",
-      "group_count": 26,
-      "software_count": 0,
-      "campaign_count": 16,
-      "nist_control_depth": 0,
-      "priority": "critical",
-      "covered": false
-    },
-    {
       "technique_id": "T1555.003",
       "name": "Credentials from Web Browsers",
       "tactics": [
@@ -407,8 +407,8 @@
       ],
       "tactic": "credential-access",
       "tactic_name": "Credential Access",
-      "group_count": 23,
-      "software_count": 64,
+      "group_count": 24,
+      "software_count": 67,
       "campaign_count": 2,
       "nist_control_depth": 0,
       "priority": "critical",
@@ -422,9 +422,24 @@
       ],
       "tactic": "stealth",
       "tactic_name": "Stealth",
-      "group_count": 23,
-      "software_count": 63,
+      "group_count": 24,
+      "software_count": 64,
       "campaign_count": 7,
+      "nist_control_depth": 0,
+      "priority": "critical",
+      "covered": false
+    },
+    {
+      "technique_id": "T1585.001",
+      "name": "Social Media Accounts",
+      "tactics": [
+        "resource-development"
+      ],
+      "tactic": "resource-development",
+      "tactic_name": "Resource Development",
+      "group_count": 23,
+      "software_count": 0,
+      "campaign_count": 2,
       "nist_control_depth": 0,
       "priority": "critical",
       "covered": false
@@ -437,9 +452,24 @@
       ],
       "tactic": "resource-development",
       "tactic_name": "Resource Development",
-      "group_count": 20,
+      "group_count": 21,
       "software_count": 0,
       "campaign_count": 8,
+      "nist_control_depth": 0,
+      "priority": "critical",
+      "covered": false
+    },
+    {
+      "technique_id": "T1012",
+      "name": "Query Registry",
+      "tactics": [
+        "discovery"
+      ],
+      "tactic": "discovery",
+      "tactic_name": "Discovery",
+      "group_count": 20,
+      "software_count": 99,
+      "campaign_count": 1,
       "nist_control_depth": 0,
       "priority": "critical",
       "covered": false
@@ -453,30 +483,15 @@
       "tactic": "collection",
       "tactic_name": "Collection",
       "group_count": 19,
-      "software_count": 151,
+      "software_count": 152,
       "campaign_count": 1,
       "nist_control_depth": 0,
       "priority": "high",
       "covered": false
     },
     {
-      "technique_id": "T1012",
-      "name": "Query Registry",
-      "tactics": [
-        "discovery"
-      ],
-      "tactic": "discovery",
-      "tactic_name": "Discovery",
-      "group_count": 19,
-      "software_count": 99,
-      "campaign_count": 1,
-      "nist_control_depth": 0,
-      "priority": "high",
-      "covered": false
-    },
-    {
-      "technique_id": "T1585.001",
-      "name": "Social Media Accounts",
+      "technique_id": "T1583.003",
+      "name": "Virtual Private Server",
       "tactics": [
         "resource-development"
       ],
@@ -484,7 +499,22 @@
       "tactic_name": "Resource Development",
       "group_count": 19,
       "software_count": 0,
-      "campaign_count": 2,
+      "campaign_count": 7,
+      "nist_control_depth": 0,
+      "priority": "high",
+      "covered": false
+    },
+    {
+      "technique_id": "T1684.001",
+      "name": "Impersonation",
+      "tactics": [
+        "stealth"
+      ],
+      "tactic": "stealth",
+      "tactic_name": "Stealth",
+      "group_count": 18,
+      "software_count": 3,
+      "campaign_count": 3,
       "nist_control_depth": 0,
       "priority": "high",
       "covered": false
@@ -505,36 +535,6 @@
       "covered": false
     },
     {
-      "technique_id": "T1684.001",
-      "name": "Impersonation",
-      "tactics": [
-        "stealth"
-      ],
-      "tactic": "stealth",
-      "tactic_name": "Stealth",
-      "group_count": 16,
-      "software_count": 2,
-      "campaign_count": 3,
-      "nist_control_depth": 0,
-      "priority": "high",
-      "covered": false
-    },
-    {
-      "technique_id": "T1583.003",
-      "name": "Virtual Private Server",
-      "tactics": [
-        "resource-development"
-      ],
-      "tactic": "resource-development",
-      "tactic_name": "Resource Development",
-      "group_count": 16,
-      "software_count": 0,
-      "campaign_count": 6,
-      "nist_control_depth": 0,
-      "priority": "high",
-      "covered": false
-    },
-    {
       "technique_id": "T1007",
       "name": "System Service Discovery",
       "tactics": [
@@ -542,7 +542,7 @@
       ],
       "tactic": "discovery",
       "tactic_name": "Discovery",
-      "group_count": 15,
+      "group_count": 16,
       "software_count": 52,
       "campaign_count": 2,
       "nist_control_depth": 0,
@@ -550,15 +550,15 @@
       "covered": false
     },
     {
-      "technique_id": "T1595.002",
-      "name": "Vulnerability Scanning",
+      "technique_id": "T1124",
+      "name": "System Time Discovery",
       "tactics": [
-        "reconnaissance"
+        "discovery"
       ],
-      "tactic": "reconnaissance",
-      "tactic_name": "Reconnaissance",
+      "tactic": "discovery",
+      "tactic_name": "Discovery",
       "group_count": 15,
-      "software_count": 0,
+      "software_count": 86,
       "campaign_count": 3,
       "nist_control_depth": 0,
       "priority": "high",
@@ -615,7 +615,7 @@
           "uncovered": []
         }
       },
-      "rationale": "Coverage today: Collection 65.9% (27/41), Exfiltration 94.7% (18/19); 3 of 5 key technique families have uncovered members (6 techniques: T1213, T1560, T1074). Purpose: monitors data access and staging before exfiltration."
+      "rationale": "Coverage today: Collection 65.9% (27/41), Exfiltration 90.0% (18/20); 3 of 5 key technique families have uncovered members (6 techniques: T1213, T1560, T1074). Purpose: monitors data access and staging before exfiltration."
     },
     {
       "capability": "UEBA (User and Entity Behavior Analytics)",
@@ -664,7 +664,7 @@
           "uncovered": []
         }
       },
-      "rationale": "Coverage today: Discovery 30.6% (15/49), Credential Access 94.0% (63/67), Lateral Movement 95.7% (22/23); 3 of 5 key technique families have uncovered members (3 techniques: T1082, T1083, T1087). Purpose: identifies reconnaissance and account-misuse patterns from log telemetry already in the SIEM."
+      "rationale": "Coverage today: Discovery 30.6% (15/49), Credential Access 92.6% (63/68), Lateral Movement 95.7% (22/23); 3 of 5 key technique families have uncovered members (3 techniques: T1082, T1083, T1087). Purpose: identifies reconnaissance and account-misuse patterns from log telemetry already in the SIEM."
     },
     {
       "capability": "Endpoint Hardening / Application Control",
@@ -691,8 +691,10 @@
           "uncovered": []
         },
         "T1685": {
-          "family_size": 7,
-          "uncovered": []
+          "family_size": 8,
+          "uncovered": [
+            "T1685.007"
+          ]
         },
         "T1027": {
           "family_size": 19,
@@ -717,7 +719,7 @@
           "uncovered": []
         }
       },
-      "rationale": "Coverage today: Stealth 69.6% (103/148), Defense Impairment 78.6% (44/56), Execution 85.9% (55/64); 1 of 5 key technique families have uncovered members (9 techniques: T1027). Purpose: limits LOLBAS proxy execution, obfuscation and disable/modify-tools abuse."
+      "rationale": "Coverage today: Stealth 68.2% (103/151), Defense Impairment 77.2% (44/57), Execution 83.3% (55/66); 2 of 5 key technique families have uncovered members (10 techniques: T1685, T1027). Purpose: limits LOLBAS proxy execution, obfuscation and disable/modify-tools abuse."
     },
     {
       "capability": "NDR (Network Detection & Response)",

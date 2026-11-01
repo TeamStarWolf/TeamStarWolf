@@ -10,11 +10,11 @@ Type an ID, a name or an alias (T1059, APT29, Cozy Bear, CAPEC-66), or filter by
 
 ## Browse by family
 
-On GitHub, the table does not load; the family index pages below list the same objects. The table is built from the JSONL files in [data/](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data) into [assets/explore.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/assets/explore.json): 2,914 objects, one index page per family.
+On GitHub, the table does not load; the family index pages below list the same objects. The table is built from the JSONL files in [data/](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data) into [assets/explore.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/assets/explore.json): 2,923 objects, one index page per family.
 
 | Family | Objects | Index | Built from |
 |---|---|---|---|
-| ATT&CK techniques | 714 (17 revoked or deprecated in v19.2, kept for reference) | [ATT&CK techniques](/mitre/techniques/README.md) | `data/attack/technique_profiles.jsonl` |
+| ATT&CK techniques | 723 (17 revoked or deprecated in v19.2, kept for reference) | [ATT&CK techniques](/mitre/techniques/README.md) | `data/attack/technique_profiles.jsonl` |
 | ATT&CK groups | 176 | [ATT&CK groups](/mitre/groups/README.md) | `data/attack/group_profiles.jsonl` |
 | ATT&CK software | 825 | [ATT&CK software](/mitre/software/README.md) | `data/attack/software_profiles.jsonl` |
 | ATT&CK campaigns | 56 | [ATT&CK campaigns](/mitre/campaigns/README.md) | `data/attack/campaign_profiles.jsonl` |

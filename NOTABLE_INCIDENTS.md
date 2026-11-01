@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 23 min (5,223 words at 230 words a minute)
+About 23 min (5,269 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -367,7 +367,7 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 | DarkSide | 2020-2021 | Colonial Pipeline ($4.4M paid) | Disbanded May 2021 under US government pressure following Colonial Pipeline; infrastructure seized |
 | LockBit | 2019-present | Royal Mail UK, Boeing, ICBC, Fulton County GA | Operation Cronos (Feb 2024) disrupted infrastructure, seized servers, arrested affiliates, decryptor released; LockBit 3.0 rebranded and resumed operations within days |
 | ALPHV / BlackCat | 2021-2024 | MGM Resorts, Change Healthcare ($22M) | FBI seized infrastructure Dec 2023 (released decryptor for 500 victims); exit-scammed affiliates after Change Healthcare ransom; effectively disbanded mid-2024 |
-| Cl0p (TA505) | 2019-present | MOVEit (90M+ records), Accellion FTA, GoAnywhere | Active; specializes in managed file transfer zero-days; rarely encrypts, prefers pure extortion |
+| Cl0p (TA505) | 2019-present | Accellion FTA, GoAnywhere, MOVEit (90M+ records), Cleo (2024) | Active; specializes in managed file transfer zero-days; rarely encrypts, prefers pure extortion |
 | Scattered Spider | 2022-present | MGM Resorts ($100M+), Caesars Entertainment (~$15M) | Active; US/UK nationals; several arrests 2023-2024 including alleged ringleader |
 
 ---
@@ -495,6 +495,7 @@ The following vulnerability classes have proven to be high-impact, widely exploi
 | PrintNightmare | CVE-2021-34527, CVE-2021-1675 | 8.2-8.8 | Windows Print Spooler LPE and remote code execution; affects all Windows versions; patch bypass found within days; impacts domain controllers; exploited by Vice Society, Magniber ransomware |
 | Follina / MSDT | CVE-2022-30190 | 7.8 | Microsoft Support Diagnostic Tool RCE triggered by specially crafted Office documents; exploited without macros via ms-msdt: URI handler; exploited by TA413 (Chinese APT) targeting Tibet; patched June 2022 |
 | MOVEit Transfer SQLi | CVE-2023-34362, CVE-2023-35036, CVE-2023-35708 | 9.1-9.8 | SQL injection in Progress MOVEit Transfer; unauthenticated; mass-exploited by Cl0p in coordinated global campaign; 90M+ records stolen; largest single-vulnerability breach event in history |
+| Cleo MFT (Harmony/VLTrader/LexiCom) | CVE-2024-50623, CVE-2024-55956 | 9.8 | Unrestricted file upload/download plus a separate unauthenticated file-write flaw in Cleo managed-file-transfer products; mass-exploited by Cl0p in December 2024 for data-theft extortion, the next MFT campaign after MOVEit; 180+ victims named; fixed in version 5.8.0.24 |
 | Citrix Bleed | CVE-2023-4966 | 9.4 | Session token leak from Citrix NetScaler ADC/Gateway; allows session hijacking bypassing MFA; exploited by LockBit affiliate against Boeing, DP World, ICBC, Allen & Overy; CISA emergency directive issued |
 | CitrixBleed 2 | CVE-2025-5777 | 9.3 (v4) | Out-of-bounds memory read in NetScaler ADC/Gateway leaks session tokens, enabling hijack and MFA bypass like the 2023 original; named by Kevin Beaumont; CISA added it to KEV on 10 July 2025 with a one-day remediation deadline and a known-ransomware flag; patch, then terminate active sessions because stolen tokens stay valid after the upgrade |
 | ConnectWise ScreenConnect | CVE-2024-1708, CVE-2024-1709 | 9.8-10.0 | Authentication bypass + path traversal; RCE on ScreenConnect RMM; exploited by LockBit, ransomware affiliates, nation-states within 48 hours of PoC; affects hundreds of MSPs |

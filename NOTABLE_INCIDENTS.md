@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 22 min (5,102 words at 230 words a minute)
+About 22 min (5,161 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -496,6 +496,7 @@ The following vulnerability classes have proven to be high-impact, widely exploi
 | Follina / MSDT | CVE-2022-30190 | 7.8 | Microsoft Support Diagnostic Tool RCE triggered by specially crafted Office documents; exploited without macros via ms-msdt: URI handler; exploited by TA413 (Chinese APT) targeting Tibet; patched June 2022 |
 | MOVEit Transfer SQLi | CVE-2023-34362, CVE-2023-35036, CVE-2023-35708 | 9.1-9.8 | SQL injection in Progress MOVEit Transfer; unauthenticated; mass-exploited by Cl0p in coordinated global campaign; 90M+ records stolen; largest single-vulnerability breach event in history |
 | Citrix Bleed | CVE-2023-4966 | 9.4 | Session token leak from Citrix NetScaler ADC/Gateway; allows session hijacking bypassing MFA; exploited by LockBit affiliate against Boeing, DP World, ICBC, Allen & Overy; CISA emergency directive issued |
+| CitrixBleed 2 | CVE-2025-5777 | 9.3 (v4) | Out-of-bounds memory read in NetScaler ADC/Gateway leaks session tokens, enabling hijack and MFA bypass like the 2023 original; named by Kevin Beaumont; CISA added it to KEV on 10 July 2025 with a one-day remediation deadline and a known-ransomware flag; patch, then terminate active sessions because stolen tokens stay valid after the upgrade |
 | ConnectWise ScreenConnect | CVE-2024-1708, CVE-2024-1709 | 9.8-10.0 | Authentication bypass + path traversal; RCE on ScreenConnect RMM; exploited by LockBit, ransomware affiliates, nation-states within 48 hours of PoC; affects hundreds of MSPs |
 | Ivanti Connect Secure | CVE-2025-0282, CVE-2023-46805, CVE-2024-21887 | 9.0-10.0 | Pre-auth stack overflow / auth bypass / command injection in Ivanti VPN appliances; exploited by Chinese APT (UNC5221/5337) as zero-days; CISA ordered federal agencies to disconnect; ICT (Integrity Checker Tool) repeatedly bypassed |
 | Citrix/Netscaler (general) | CVE-2023-3519 | 9.8 | Unauthenticated RCE in Citrix ADC/NetScaler; exploited as zero-day against critical infrastructure; CISA alert AA23-201A; implants installed before patch release |

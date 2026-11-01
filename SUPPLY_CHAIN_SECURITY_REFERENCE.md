@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 24 min (5,612 words at 230 words a minute)
+About 25 min (5,759 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -131,6 +131,9 @@ Timeline:
 - March 29, 2024: CVE-2024-3094 disclosed, emergency patches released
 
 Technical details: The backdoor targeted systemd-linked sshd on glibc-based Linux systems. The malicious code was concealed in test files and activated via a malicious ifunc resolver that intercepted RSA key decryption in OpenSSH. The attacker used a forged signature verification bypass allowing authentication with any key. The social engineering campaign lasted ~2 years, demonstrating sophisticated long-term supply chain infiltration. The attack is attributed to a nation-state actor with resources for multi-year operations.
+
+#### Polyfill.io CDN Supply Chain Attack (2024)
+In February 2024 a company named Funnull acquired the `polyfill.io` domain and its GitHub account from the original author. On 25 June 2024 Sansec reported that `cdn.polyfill.io` was injecting malware into mobile visitors of any site that embedded the script. Estimates of reach ran from over 100,000 sites (Sansec) to tens of millions (Cloudflare). The payload was generated on the server and keyed on request headers, so it hid from casual inspection and served the attack selectively. Cloudflare and Fastly stood up safe mirrors, and the registrar Namecheap placed the domain on hold. The same operator was later linked to the BootCDN, Bootcss, and Staticfile mirrors. Lesson: a third-party script loaded from a mutable CDN is a live code-execution dependency on that provider. Self-host the asset, or pin it with Subresource Integrity (SRI) so a changed file fails to load.
 
 #### Codecov Breach (2021)
 Attackers modified Codecov's bash uploader script hosted on codecov.io. The modified script exfiltrated environment variables (including CI secrets and API tokens) to an attacker-controlled server. Since the standard usage was `curl -s https://codecov.io/bash | bash`, every CI pipeline using Codecov was affected. Over 29,000 customers used the bash uploader. The attack exposed secrets from thousands of CI pipelines including tokens for Twilio, Hashicorp, Rapid7, and others.

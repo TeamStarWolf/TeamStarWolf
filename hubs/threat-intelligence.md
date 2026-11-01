@@ -15,7 +15,7 @@ Part of the [domain hubs](/hubs/README.md). 7 reference documents in this domain
 | [Threat Actors](/THREAT_ACTORS.md) | Nation-state APTs, ransomware groups, and eCrime actors mapped to ATT&CK TTPs | 9 min |
 | [Threat Group Profiles](/THREAT_GROUP_PROFILES.md) | 176 MITRE ATT&CK adversary groups with aliases, attributed techniques, and tooling (authoritative STIX-derived) | 30 min |
 | [Malware Families](/MALWARE_FAMILIES.md) | Ransomware, banking trojans, RATs, APT malware, rootkits, and loaders with TTPs and analysis resources | Lookup page (25 min end to end) |
-| [Notable Incidents](/NOTABLE_INCIDENTS.md) | Curated reference of significant cyber incidents, nation-state campaigns, ransomware events, and critical vulnerabilities | 22 min |
+| [Notable Incidents](/NOTABLE_INCIDENTS.md) | Curated reference of significant cyber incidents, nation-state campaigns, ransomware events, and critical vulnerabilities | 27 min |
 | [OSINT Reference](/OSINT_REFERENCE.md) | Passive recon, OSINT frameworks, Maltego, Shodan/Censys/FOFA, social media OSINT, domain/IP investigation | 16 min |
 
 ## Learning paths

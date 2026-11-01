@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 22 min (5,102 words at 230 words a minute)
+About 27 min (6,227 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -302,6 +302,14 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 - Impact: CDK Global provides dealer management systems to ~15,000 US automotive dealerships; outage lasted ~2 weeks forcing dealers to use paper; CDK reportedly paid ~$25M ransom; estimated $1B+ in lost revenue across the industry
 - Significance: Demonstrated SaaS platform single points of failure; automotive industry has no manual fallback for modern dealership operations; reinforced concentration risk concerns raised by Change Healthcare
 
+### 2024: CrowdStrike Falcon Content Update Outage
+
+- Date: July 19, 2024 (faulty update live 04:09 to 05:27 UTC)
+- Cause: Not a cyberattack. A faulty Falcon sensor Rapid Response Content update, Channel File 291
+- Method: The update used a template type with 21 input fields, but the sensor's content interpreter expected 20; a non-wildcard value in the 21st field caused an out-of-bounds read in the kernel-mode driver, which bluescreened the host into a boot loop. The Content Validator had no test for that case, so the update shipped.
+- Impact: About 8.5 million Windows hosts crashed worldwide (Microsoft estimate), grounding airlines and disrupting hospitals, banks, and retail; recovery required booting each machine to safe mode and deleting the channel file by hand. macOS and Linux were unaffected.
+- Significance: The largest IT outage in history, and a change-management lesson rather than an attack. A kernel-level security agent is itself an availability risk, and vendor content or definition updates bypass the normal patch-test cycle. The event drove phased sensor-content rollout controls and renewed scrutiny of kernel-mode agents on Windows.
+
 ### 2023-2025: Volt Typhoon (Chinese Pre-Positioning)
 
 - Actor: Volt Typhoon (Bronze Silhouette): Chinese MSS/PLA (attributed by US IC, Five Eyes)
@@ -367,8 +375,10 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 | DarkSide | 2020-2021 | Colonial Pipeline ($4.4M paid) | Disbanded May 2021 under US government pressure following Colonial Pipeline; infrastructure seized |
 | LockBit | 2019-present | Royal Mail UK, Boeing, ICBC, Fulton County GA | Operation Cronos (Feb 2024) disrupted infrastructure, seized servers, arrested affiliates, decryptor released; LockBit 3.0 rebranded and resumed operations within days |
 | ALPHV / BlackCat | 2021-2024 | MGM Resorts, Change Healthcare ($22M) | FBI seized infrastructure Dec 2023 (released decryptor for 500 victims); exit-scammed affiliates after Change Healthcare ransom; effectively disbanded mid-2024 |
-| Cl0p (TA505) | 2019-present | MOVEit (90M+ records), Accellion FTA, GoAnywhere | Active; specializes in managed file transfer zero-days; rarely encrypts, prefers pure extortion |
+| Cl0p (TA505) | 2019-present | Accellion FTA, GoAnywhere, MOVEit (90M+ records), Cleo (2024) | Active; specializes in managed file transfer zero-days; rarely encrypts, prefers pure extortion |
 | Scattered Spider | 2022-present | MGM Resorts ($100M+), Caesars Entertainment (~$15M) | Active; US/UK nationals; several arrests 2023-2024 including alleged ringleader |
+| RansomHub | 2024-2025 | Change Healthcare data re-extortion (via affiliate after the ALPHV exit scam) | Emerged February 2024 on the RAMP forum with a 90% affiliate cut; absorbed ALPHV and LockBit affiliates after their 2024 disruptions and became the most prolific RaaS by late 2024; infrastructure went dark in early April 2025 and affiliates scattered to DragonForce, Qilin, and LockBit |
+| Akira | 2023-present | Hundreds of victims; 2025 SonicWall SSLVPN campaign (CVE-2024-40766) | Appeared March 2023 with a double-extortion model; reported to have collected $200M+; among the most active groups into 2025 (second to Qilin in Q2 2025 per Check Point); a mid-2025 campaign hit SonicWall SSLVPN at scale |
 
 ---
 
@@ -495,10 +505,26 @@ The following vulnerability classes have proven to be high-impact, widely exploi
 | PrintNightmare | CVE-2021-34527, CVE-2021-1675 | 8.2-8.8 | Windows Print Spooler LPE and remote code execution; affects all Windows versions; patch bypass found within days; impacts domain controllers; exploited by Vice Society, Magniber ransomware |
 | Follina / MSDT | CVE-2022-30190 | 7.8 | Microsoft Support Diagnostic Tool RCE triggered by specially crafted Office documents; exploited without macros via ms-msdt: URI handler; exploited by TA413 (Chinese APT) targeting Tibet; patched June 2022 |
 | MOVEit Transfer SQLi | CVE-2023-34362, CVE-2023-35036, CVE-2023-35708 | 9.1-9.8 | SQL injection in Progress MOVEit Transfer; unauthenticated; mass-exploited by Cl0p in coordinated global campaign; 90M+ records stolen; largest single-vulnerability breach event in history |
+| Cleo MFT (Harmony/VLTrader/LexiCom) | CVE-2024-50623, CVE-2024-55956 | 9.8 | Unrestricted file upload/download plus a separate unauthenticated file-write flaw in Cleo managed-file-transfer products; mass-exploited by Cl0p in December 2024 for data-theft extortion, the next MFT campaign after MOVEit; 180+ victims named; fixed in version 5.8.0.24 |
 | Citrix Bleed | CVE-2023-4966 | 9.4 | Session token leak from Citrix NetScaler ADC/Gateway; allows session hijacking bypassing MFA; exploited by LockBit affiliate against Boeing, DP World, ICBC, Allen & Overy; CISA emergency directive issued |
+| CitrixBleed 2 | CVE-2025-5777 | 9.3 (v4) | Out-of-bounds memory read in NetScaler ADC/Gateway leaks session tokens, enabling hijack and MFA bypass like the 2023 original; named by Kevin Beaumont; CISA added it to KEV on 10 July 2025 with a one-day remediation deadline and a known-ransomware flag; patch, then terminate active sessions because stolen tokens stay valid after the upgrade |
 | ConnectWise ScreenConnect | CVE-2024-1708, CVE-2024-1709 | 9.8-10.0 | Authentication bypass + path traversal; RCE on ScreenConnect RMM; exploited by LockBit, ransomware affiliates, nation-states within 48 hours of PoC; affects hundreds of MSPs |
 | Ivanti Connect Secure | CVE-2025-0282, CVE-2023-46805, CVE-2024-21887 | 9.0-10.0 | Pre-auth stack overflow / auth bypass / command injection in Ivanti VPN appliances; exploited by Chinese APT (UNC5221/5337) as zero-days; CISA ordered federal agencies to disconnect; ICT (Integrity Checker Tool) repeatedly bypassed |
 | Citrix/Netscaler (general) | CVE-2023-3519 | 9.8 | Unauthenticated RCE in Citrix ADC/NetScaler; exploited as zero-day against critical infrastructure; CISA alert AA23-201A; implants installed before patch release |
+| SAP NetWeaver Visual Composer | CVE-2025-31324, CVE-2025-42999 | 9.8-10.0 | Missing authorization in the Visual Composer Metadata Uploader allows unauthenticated file upload to RCE, chained with the CVE-2025-42999 deserialization bug; SAP emergency patch 24 April 2025; added to CISA KEV with a ransomware flag; exploited by China-nexus actors and ransomware crews; where Visual Composer is unused, setting vc/enabled=false removes the attack surface entirely |
+| PHP-CGI argument injection | CVE-2024-4577 | 9.8 | Best-fit character encoding on Windows lets an attacker inject arguments to the PHP binary in CGI mode, yielding unauthenticated RCE; XAMPP on Windows is vulnerable by default in some locales; exploited within 24 hours of disclosure and by TellYouThePass ransomware; fixed in PHP 8.3.8 / 8.2.20 / 8.1.29, or move off PHP-CGI to PHP-FPM |
+| CrushFTP VFS sandbox escape | CVE-2024-4040 | 9.8 | Server-side template injection in the CrushFTP virtual file system lets an unauthenticated attacker escape the sandbox to read any file and chain to RCE; exploited as a zero-day; CISA KEV 24 April 2024; fixed in 10.7.1 and 11.1.0; another managed-file-transfer edge bug in the MOVEit and Cleo pattern |
+| FortiManager "FortiJump" | CVE-2024-47575 | 9.8 | Missing authentication in the fgfmd daemon lets an unauthenticated attacker run code and register a rogue FortiManager, exposing managed-firewall configurations; exploited as a zero-day since mid-2024 (Mandiant UNC5820); CISA KEV; Fortinet advisory FG-IR-24-423 on 23 October 2024; the first patch proved incomplete ("FortiJump Higher") |
+| SharePoint "ToolShell" | CVE-2025-53770, CVE-2025-53771 | 9.8 | On-premises SharePoint (2016, 2019, Subscription Edition) unauthenticated RCE chain, a patch bypass of CVE-2025-49704 and CVE-2025-49706; a forged Referer to ToolPane.aspx defeats auth, then deserialization drops a web shell; exploited in the wild from 17-18 July 2025 before the patch; CISA KEV; Storm-2603 and PRC espionage actors; stolen ASP.NET machine keys survive patching, so rotate the keys and restart IIS, not just patch |
+| CUPS unauthenticated RCE chain | CVE-2024-47076, CVE-2024-47175, CVE-2024-47176, CVE-2024-47177 | 7.5-9.0 | A chain across cups-browsed, libcupsfilters, libppd, and cups-filters: cups-browsed on UDP 631 is pointed at an attacker printer whose IPP attributes inject a command (FoomaticRIPCommandLine) that runs when a job prints; unauthenticated RCE on many Linux systems, though exploitation needs a print action; mitigate by disabling cups-browsed or blocking UDP 631 |
+| Blast-RADIUS | CVE-2024-3596 | 9.0 | An MD5 collision in the RADIUS Response Authenticator lets a man-in-the-middle forge a valid Access-Accept out of a failed authentication, breaking RADIUS-over-UDP integrity across the ecosystem; EAP methods are unaffected; mitigate by requiring the Message-Authenticator attribute on requests and responses, and move toward RADIUS over (D)TLS |
+| Linux kernel "Dirty COW" | CVE-2016-5195 | 7.8 | A race condition in the kernel copy-on-write handling lets a local user write to read-only memory mappings and escalate to root; present since kernel 2.6.22 (2007) and fixed in 4.8.3 (October 2016); exploited in the wild and widely used to root Android devices; the archetypal Linux kernel local privilege escalation |
+| Linux kernel "Dirty Pipe" | CVE-2022-0847 | 7.8 | Uninitialized pipe-buffer flags let an unprivileged user overwrite pages in the page cache backed by read-only files, escalating to root; affects kernel 5.8 and later, fixed in 5.16.11 / 5.15.25 / 5.10.102; easier to exploit than Dirty COW; found by Max Kellermann (March 2022) |
+| Linux kernel netfilter nf_tables | CVE-2024-1086 | 7.8 | A use-after-free in the nf_tables netfilter component gives local-to-root privilege escalation; affects kernels 3.15 up to 6.8; added to CISA KEV in May 2024 with a ransomware flag and a public proof-of-concept; remediate by patching to a fixed distribution kernel |
+| polkit "PwnKit" | CVE-2021-4034 | 7.8 | An out-of-bounds write in polkit's pkexec, reached through a mishandled argument vector, gives any local user root; present for over a decade and exploitable on default installs of most major distributions; disclosed by Qualys in January 2022; a userspace classic rather than a kernel bug |
+| Linux kernel OverlayFS | CVE-2023-0386 | 7.8 | OverlayFS fails to strip setuid and setgid bits when copying a file up from a nosuid mount, so a local user gains root; affects kernels 5.11 through 6.1.9 (and 6.2 release candidates) where OverlayFS and user namespaces are enabled; CISA KEV |
+| Linux kernel "StackRot" | CVE-2023-3269 | 7.8 | A use-after-free in stack expansion: the maple tree that replaced the red-black VMA tree in 6.1 can replace nodes without the MM write lock; affects kernels 6.1 to 6.4, fixed in 6.1.37 / 6.3.11 / 6.4.1; exploitation is hard (RCU-delayed frees) and none was observed in the wild |
+| glibc "Looney Tunables" | CVE-2023-4911 | 7.8 | A buffer overflow in the glibc dynamic loader ld.so, triggered by the GLIBC_TUNABLES environment variable, gives local root; introduced in glibc 2.34 (2021), disclosed by Qualys in October 2023 and demonstrated on Fedora, Ubuntu, and Debian; CISA reported active exploitation |
 
 ### Vulnerability Prioritization Guidance
 

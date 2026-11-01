@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 7 min (1,583 words at 230 words a minute)
+About 8 min (1,755 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -510,6 +510,18 @@ ssh-audit -p 22 targethost.example.com
 ssh-copy-id -i ~/.ssh/id_ed25519.pub user@remotehost
 ```
 
+regreSSHion (CVE-2024-6387):
+Qualys disclosed this unauthenticated remote code execution flaw in `sshd` on 1 July 2024. It is a regression of CVE-2006-5051: a race in the `SIGALRM` handler that fires when `LoginGraceTime` expires, reaching `malloc` and `free` code that is not async-signal-safe. Winning the race runs code as root on glibc-based Linux. It affects OpenSSH 8.5p1 through 9.7p1; 4.4p1 through 8.5p1 are not affected because they carried the earlier fix. Remediate by upgrading to 9.8p1 or a distribution backport. Distribution patches keep the old version string, so test the package, not the banner.
+```bash
+# Confirm the installed OpenSSH build (do not trust the banner alone)
+ssh -V
+dpkg -l openssh-server 2>/dev/null || rpm -q openssh-server
+# Stopgap ONLY where you cannot patch: removes the alarm, closes the race,
+# but exposes sshd to connection-slot exhaustion (a denial-of-service trade-off).
+# echo "LoginGraceTime 0" >> /etc/ssh/sshd_config && systemctl reload sshd
+```
+The hardened values above (`LoginGraceTime 60`, `MaxStartups 10:30:60`) narrow the exposure window but do not remove the flaw; patching is the fix.
+
 ### 2.7 MFA for SSH
 
 Google Authenticator PAM:
@@ -868,7 +880,7 @@ fs.protected_regular = 2
 # Disable core dump SUID/SGID (prevent extracting sensitive info)
 fs.suid_dumpable = 0
 
-# Restrict unprivileged user namespaces (prevents container escapes)
+# Restrict unprivileged user namespaces (blocks container escapes and a common kernel-LPE path)
 kernel.unprivileged_userns_clone = 0   # Debian/Ubuntu
 # kernel.unprivileged_bpf_disabled = 1
 
@@ -881,6 +893,8 @@ kernel.sysrq = 0
 # Increase PID max
 kernel.pid_max = 65536
 ```
+
+Setting `kernel.unprivileged_userns_clone = 0` (or `user.max_user_namespaces = 0`) is one of the highest-leverage kernel-hardening controls. Many kernel local-privilege-escalation exploits, including the actively exploited nf_tables use-after-free `CVE-2024-1086`, reach the vulnerable code only through an unprivileged user namespace. Disabling that path closes the class, at the cost of breaking rootless containers and some sandboxed applications that rely on it.
 
 Apply sysctl settings:
 ```bash

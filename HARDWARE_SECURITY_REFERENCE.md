@@ -17,7 +17,7 @@ Advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 9 min (2,167 words at 230 words a minute)
+About 11 min (2,642 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -701,6 +701,57 @@ MDS Attacks (Microarchitectural Data Sampling):
 cat /sys/devices/system/cpu/vulnerabilities/mds
 # Mitigation: Clear CPU buffers; SMT vulnerable
 # Disable SMT for full mitigation: nosmt in cmdline (30-40% perf hit)
+```
+
+### Transient-Execution Attacks (2020-2025)
+
+The sampling and speculation flaws kept coming after MDS. Each new class shares one remediation pattern, which is what a vulnerability-management program tracks. The fix is a CPU microcode update, shipped through `microcode_ctl` or a BIOS/UEFI release, plus a current kernel. The live state reads under `/sys/devices/system/cpu/vulnerabilities/`. Most of these sample data across SMT (hyper-threading) siblings or across security boundaries. That is why they matter for cloud co-tenancy: the host microcode, not just the guest, has to be patched.
+
+Retbleed (CVE-2022-29900 AMD, CVE-2022-29901 Intel):
+- Mechanism: return instructions are mistrained so speculation runs attacker-chosen code, undoing the protection retpoline provides
+- Affected: Intel 6th to 8th generation (Skylake to Coffee Lake); AMD Zen 1, Zen 1+, Zen 2
+- Mitigation: Intel moves to enhanced IBRS; AMD adds `Jmp2Ret`; state in the `retbleed` sysfs node
+- Source: ETH Zurich, USENIX Security 2022
+
+Branch History Injection / BHI (CVE-2022-0001 cross-privilege, CVE-2022-0002 intra-mode; Arm Spectre-BHB CVE-2022-23960):
+- Mechanism: poisoning the global branch history buffer steers Spectre v2 speculation across privilege boundaries, surviving eIBRS alone
+- Native BHI (CVE-2024-2201, 2024): the same result without unprivileged eBPF, leaking kernel memory at roughly 3.5 KB/s on affected Intel parts
+- Mitigation: a software branch-history-clearing sequence plus `BHI_DIS_S` where available; reflected in the `spectre_v2` sysfs node
+
+Downfall / Gather Data Sampling (CVE-2022-40982):
+- Mechanism: the `gather` instruction leaks stale data from internal vector-register buffers, across SMT siblings and across tenants
+- Affected: Intel Skylake through Tiger Lake and Ice Lake (INTEL-SA-00828)
+- Mitigation: microcode (`microcode_ctl` release 20230808 or later); check the `gather_data_sampling` sysfs node or `dmesg | grep "GDS: "`
+
+Zenbleed (CVE-2023-20593):
+- Mechanism: a mispredicted `vzeroupper` leaves register contents readable by another process on Zen 2
+- Affected: AMD Zen 2 (Ryzen 3000, mobile 4000/5000/7020, EPYC Rome)
+- Mitigation: microcode (EPYC first, consumer parts October to December 2023); a chicken-bit workaround bridges until microcode lands
+- Source: Tavis Ormandy, disclosed July 2023
+
+Inception / SRSO (CVE-2023-20569):
+- Mechanism: Speculative Return Stack Overflow combines Phantom speculation with transient training to leak through the return stack
+- Affected: AMD Zen 3 and Zen 4
+- Mitigation: microcode or BIOS update; state in the `spec_rstack_overflow` sysfs node
+- Source: ETH Zurich, 2023
+
+Register File Data Sampling / RFDS (CVE-2023-28746):
+- Mechanism: recovers stale floating-point, vector, or integer values left in the register file; the attacker cannot choose which data leaks
+- Affected: Intel Atom (E-core) parts only, including the E-cores in hybrid client CPUs
+- Mitigation: `VERW` buffer-clear plus microcode; enumerated by `IA32_ARCH_CAPABILITIES` (`RFDS_NO` / `RFDS_CLEAR`); state in the `reg_file_data_sampling` sysfs node
+
+GoFetch (2024, microarchitectural, no CVE):
+- Mechanism: Apple's data memory-dependent prefetcher (DMP) dereferences in-memory values that look like pointers, which breaks constant-time cryptography (OpenSSL Diffie-Hellman, Go RSA, CRYSTALS-Kyber, CRYSTALS-Dilithium)
+- Affected: Apple M1, M2, M3; the researchers also found a DMP in Intel Raptor Lake
+- Mitigation: enable data-independent timing (DIT) where the part supports it, or run the sensitive crypto on efficiency cores, which carry no DMP
+- Source: USENIX Security 2024
+
+```bash
+# Enumerate every transient-execution mitigation state at once
+grep -r . /sys/devices/system/cpu/vulnerabilities/ 2>/dev/null
+# Each node reads "Not affected", "Vulnerable", or "Mitigation: ..."
+# Remediation = CPU microcode (microcode_ctl or BIOS/UEFI) + current kernel.
+# Turning SMT off (nosmt) closes the cross-thread samplers at a throughput cost.
 ```
 
 ### Cache-Based Attacks

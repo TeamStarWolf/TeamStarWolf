@@ -11,7 +11,7 @@ Part of the [domain hubs](/hubs/README.md). 11 reference documents in this domai
 | Reference | What it covers | Reading time |
 |---|---|---|
 | [Networking Fundamentals](/NETWORKING_FUNDAMENTALS.md) | OSI model, TCP/IP deep dive, subnetting, ARP/VLANs/STP, routing protocols (OSPF/BGP), DNS, and essential troubleshooting commands for security practitioners | 36 min |
-| [Network Protocols Reference](/NETWORK_PROTOCOLS_REFERENCE.md) | TCP/IP, DNS, TLS, HTTP, Kerberos/NTLM, BGP/OSPF, email security protocols, ICS/OT, Wireshark/Zeek analysis | 24 min |
+| [Network Protocols Reference](/NETWORK_PROTOCOLS_REFERENCE.md) | TCP/IP, DNS, TLS, HTTP, Kerberos/NTLM, BGP/OSPF, email security protocols, ICS/OT, Wireshark/Zeek analysis | 25 min |
 | [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md) | How attackers exploit the major network protocols: mechanics, TTPs, detection, and defenses, with ATT&CK technique IDs | 22 min |
 | [Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md) | DMZ design, VLAN segmentation, firewall policy, IDS/IPS placement, NAC/802.1X, DDoS protection, and network monitoring | 15 min |
 | [Networking Architecture Reference](/NETWORKING_ARCHITECTURE_REFERENCE.md) | Designing enterprise networks across campus, branch, data center and cloud: addressing plans, fabrics, segmentation, and trust boundaries | 19 min |

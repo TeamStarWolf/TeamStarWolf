@@ -18,7 +18,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 24 min (5,627 words at 230 words a minute)
+About 25 min (5,757 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -1269,6 +1269,9 @@ Client                    Server
   │←─SSH_MSG_NEWKEYS──── │
   │──SSH_MSG_USERAUTH─→  │  (password/pubkey auth)
 ```
+
+Terrapin (CVE-2023-48795):
+A man-in-the-middle attack on the handshake above. The attacker inserts ignorable messages before encryption starts, then deletes the same number of early encrypted packets. The sequence numbers realign, so the truncation passes the integrity check. The usual target is the `SSH2_MSG_EXT_INFO` message, which can strip negotiated extensions such as the keystroke-timing countermeasures added in OpenSSH 9.5. It applies to the `chacha20-poly1305@openssh.com` cipher and to CBC ciphers paired with Encrypt-then-MAC (`-etm`) MACs; AES-GCM is not affected the same way. The fix is strict key exchange (`kex-strict-c/s-v00@openssh.com`), added in OpenSSH 9.6 and in other SSH stacks, and both ends must support it. Where one end cannot be patched, disable the affected cipher and MAC. Check appliances and embedded SSH stacks as well, not only OpenSSH version numbers.
 
 Host Key Verification:
 ```bash

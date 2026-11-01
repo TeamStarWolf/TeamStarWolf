@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 22 min (5,161 words at 230 words a minute)
+About 23 min (5,223 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -500,6 +500,7 @@ The following vulnerability classes have proven to be high-impact, widely exploi
 | ConnectWise ScreenConnect | CVE-2024-1708, CVE-2024-1709 | 9.8-10.0 | Authentication bypass + path traversal; RCE on ScreenConnect RMM; exploited by LockBit, ransomware affiliates, nation-states within 48 hours of PoC; affects hundreds of MSPs |
 | Ivanti Connect Secure | CVE-2025-0282, CVE-2023-46805, CVE-2024-21887 | 9.0-10.0 | Pre-auth stack overflow / auth bypass / command injection in Ivanti VPN appliances; exploited by Chinese APT (UNC5221/5337) as zero-days; CISA ordered federal agencies to disconnect; ICT (Integrity Checker Tool) repeatedly bypassed |
 | Citrix/Netscaler (general) | CVE-2023-3519 | 9.8 | Unauthenticated RCE in Citrix ADC/NetScaler; exploited as zero-day against critical infrastructure; CISA alert AA23-201A; implants installed before patch release |
+| SAP NetWeaver Visual Composer | CVE-2025-31324, CVE-2025-42999 | 9.8-10.0 | Missing authorization in the Visual Composer Metadata Uploader allows unauthenticated file upload to RCE, chained with the CVE-2025-42999 deserialization bug; SAP emergency patch 24 April 2025; added to CISA KEV with a ransomware flag; exploited by China-nexus actors and ransomware crews; where Visual Composer is unused, setting vc/enabled=false removes the attack surface entirely |
 
 ### Vulnerability Prioritization Guidance
 

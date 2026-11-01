@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 26 min (5,886 words at 230 words a minute)
+About 26 min (6,036 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -518,6 +518,9 @@ The following vulnerability classes have proven to be high-impact, widely exploi
 | SharePoint "ToolShell" | CVE-2025-53770, CVE-2025-53771 | 9.8 | On-premises SharePoint (2016, 2019, Subscription Edition) unauthenticated RCE chain, a patch bypass of CVE-2025-49704 and CVE-2025-49706; a forged Referer to ToolPane.aspx defeats auth, then deserialization drops a web shell; exploited in the wild from 17-18 July 2025 before the patch; CISA KEV; Storm-2603 and PRC espionage actors; stolen ASP.NET machine keys survive patching, so rotate the keys and restart IIS, not just patch |
 | CUPS unauthenticated RCE chain | CVE-2024-47076, CVE-2024-47175, CVE-2024-47176, CVE-2024-47177 | 7.5-9.0 | A chain across cups-browsed, libcupsfilters, libppd, and cups-filters: cups-browsed on UDP 631 is pointed at an attacker printer whose IPP attributes inject a command (FoomaticRIPCommandLine) that runs when a job prints; unauthenticated RCE on many Linux systems, though exploitation needs a print action; mitigate by disabling cups-browsed or blocking UDP 631 |
 | Blast-RADIUS | CVE-2024-3596 | 9.0 | An MD5 collision in the RADIUS Response Authenticator lets a man-in-the-middle forge a valid Access-Accept out of a failed authentication, breaking RADIUS-over-UDP integrity across the ecosystem; EAP methods are unaffected; mitigate by requiring the Message-Authenticator attribute on requests and responses, and move toward RADIUS over (D)TLS |
+| Linux kernel "Dirty COW" | CVE-2016-5195 | 7.8 | A race condition in the kernel copy-on-write handling lets a local user write to read-only memory mappings and escalate to root; present since kernel 2.6.22 (2007) and fixed in 4.8.3 (October 2016); exploited in the wild and widely used to root Android devices; the archetypal Linux kernel local privilege escalation |
+| Linux kernel "Dirty Pipe" | CVE-2022-0847 | 7.8 | Uninitialized pipe-buffer flags let an unprivileged user overwrite pages in the page cache backed by read-only files, escalating to root; affects kernel 5.8 and later, fixed in 5.16.11 / 5.15.25 / 5.10.102; easier to exploit than Dirty COW; found by Max Kellermann (March 2022) |
+| Linux kernel netfilter nf_tables | CVE-2024-1086 | 7.8 | A use-after-free in the nf_tables netfilter component gives local-to-root privilege escalation; affects kernels 3.15 up to 6.8; added to CISA KEV in May 2024 with a ransomware flag and a public proof-of-concept; remediate by patching to a fixed distribution kernel |
 
 ### Vulnerability Prioritization Guidance
 

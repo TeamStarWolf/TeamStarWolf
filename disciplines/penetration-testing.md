@@ -155,6 +155,7 @@ Tools
 |---|---|
 | [Nmap](https://nmap.org/) | TCP/UDP port scanning, scripting engine (NSE) |
 | [Masscan](https://github.com/robertdavidgraham/masscan) | Fast internet-speed port scanning |
+| [mysquidscanner](https://github.com/hack-ita/mysquidscanner) | Internal port scanning through a misconfigured Squid proxy using the CONNECT method |
 | [Nessus](https://www.tenable.com/products/nessus) / [OpenVAS](https://www.openvas.org/) | Credentialed and uncredentialed vulnerability scanning |
 | [FFUF](https://github.com/ffuf/ffuf) | Web fuzzing: directories, parameters, vhosts |
 | [Gobuster](https://github.com/OJ/gobuster) / [dirb](https://sourceforge.net/projects/dirb/) | Web content and directory enumeration |

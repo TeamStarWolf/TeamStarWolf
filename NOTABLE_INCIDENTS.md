@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 26 min (6,036 words at 230 words a minute)
+About 27 min (6,227 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -521,6 +521,10 @@ The following vulnerability classes have proven to be high-impact, widely exploi
 | Linux kernel "Dirty COW" | CVE-2016-5195 | 7.8 | A race condition in the kernel copy-on-write handling lets a local user write to read-only memory mappings and escalate to root; present since kernel 2.6.22 (2007) and fixed in 4.8.3 (October 2016); exploited in the wild and widely used to root Android devices; the archetypal Linux kernel local privilege escalation |
 | Linux kernel "Dirty Pipe" | CVE-2022-0847 | 7.8 | Uninitialized pipe-buffer flags let an unprivileged user overwrite pages in the page cache backed by read-only files, escalating to root; affects kernel 5.8 and later, fixed in 5.16.11 / 5.15.25 / 5.10.102; easier to exploit than Dirty COW; found by Max Kellermann (March 2022) |
 | Linux kernel netfilter nf_tables | CVE-2024-1086 | 7.8 | A use-after-free in the nf_tables netfilter component gives local-to-root privilege escalation; affects kernels 3.15 up to 6.8; added to CISA KEV in May 2024 with a ransomware flag and a public proof-of-concept; remediate by patching to a fixed distribution kernel |
+| polkit "PwnKit" | CVE-2021-4034 | 7.8 | An out-of-bounds write in polkit's pkexec, reached through a mishandled argument vector, gives any local user root; present for over a decade and exploitable on default installs of most major distributions; disclosed by Qualys in January 2022; a userspace classic rather than a kernel bug |
+| Linux kernel OverlayFS | CVE-2023-0386 | 7.8 | OverlayFS fails to strip setuid and setgid bits when copying a file up from a nosuid mount, so a local user gains root; affects kernels 5.11 through 6.1.9 (and 6.2 release candidates) where OverlayFS and user namespaces are enabled; CISA KEV |
+| Linux kernel "StackRot" | CVE-2023-3269 | 7.8 | A use-after-free in stack expansion: the maple tree that replaced the red-black VMA tree in 6.1 can replace nodes without the MM write lock; affects kernels 6.1 to 6.4, fixed in 6.1.37 / 6.3.11 / 6.4.1; exploitation is hard (RCU-delayed frees) and none was observed in the wild |
+| glibc "Looney Tunables" | CVE-2023-4911 | 7.8 | A buffer overflow in the glibc dynamic loader ld.so, triggered by the GLIBC_TUNABLES environment variable, gives local root; introduced in glibc 2.34 (2021), disclosed by Qualys in October 2023 and demonstrated on Fedora, Ubuntu, and Debian; CISA reported active exploitation |
 
 ### Vulnerability Prioritization Guidance
 

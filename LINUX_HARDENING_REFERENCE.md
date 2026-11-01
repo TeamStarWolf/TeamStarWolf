@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 7 min (1,583 words at 230 words a minute)
+About 7 min (1,700 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -509,6 +509,18 @@ ssh-audit -p 22 targethost.example.com
 # Deploy public key to remote host
 ssh-copy-id -i ~/.ssh/id_ed25519.pub user@remotehost
 ```
+
+regreSSHion (CVE-2024-6387):
+Qualys disclosed this unauthenticated remote code execution flaw in `sshd` on 1 July 2024. It is a regression of CVE-2006-5051: a race in the `SIGALRM` handler that fires when `LoginGraceTime` expires, reaching `malloc` and `free` code that is not async-signal-safe. Winning the race runs code as root on glibc-based Linux. It affects OpenSSH 8.5p1 through 9.7p1; 4.4p1 through 8.5p1 are not affected because they carried the earlier fix. Remediate by upgrading to 9.8p1 or a distribution backport. Distribution patches keep the old version string, so test the package, not the banner.
+```bash
+# Confirm the installed OpenSSH build (do not trust the banner alone)
+ssh -V
+dpkg -l openssh-server 2>/dev/null || rpm -q openssh-server
+# Stopgap ONLY where you cannot patch: removes the alarm, closes the race,
+# but exposes sshd to connection-slot exhaustion (a denial-of-service trade-off).
+# echo "LoginGraceTime 0" >> /etc/ssh/sshd_config && systemctl reload sshd
+```
+The hardened values above (`LoginGraceTime 60`, `MaxStartups 10:30:60`) narrow the exposure window but do not remove the flaw; patching is the fix.
 
 ### 2.7 MFA for SSH
 

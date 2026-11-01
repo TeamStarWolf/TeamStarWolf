@@ -22,14 +22,14 @@
 | [API Security Reference](API_SECURITY_REFERENCE.md) | OWASP API Top 10, REST and GraphQL attack techniques, JWT attacks, SSRF, BOLA/BFLA, and API security testing methodology |
 | [Application Security Testing](APPSEC_TESTING_REFERENCE.md) | SAST, DAST, IAST, SCA, SBOM, and secrets scanning: what each finds and misses, where each fits in the SDLC and CI/CD, how to choose and combine them, and where application findings are consolidated |
 | [Architecture Reference (General)](ARCHITECTURE_REFERENCE.md) | Enterprise and solution architecture: the four architecture domains, frameworks, quality attributes, and how to record architecture decisions |
-| [ATT&CK Campaigns Reference](ATTACK_CAMPAIGNS_REFERENCE.md) | 56 MITRE ATT&CK intrusion campaigns with active windows, techniques, software, and group attribution |
+| [ATT&CK Campaigns Reference](ATTACK_CAMPAIGNS_REFERENCE.md) | 57 MITRE ATT&CK intrusion campaigns with active windows, techniques, software, and group attribution |
 | [ATT&CK Data Components & Log Sources](ATTACK_DATA_COMPONENTS.md) | 106 telemetry categories mapped to the techniques they detect, with concrete log sources and channels |
-| [ATT&CK Detection Strategies](detections/strategies/README.md) | 697 MITRE detection strategies + 1,758 analytics: log sources, detection logic, and tunable parameters per technique |
+| [ATT&CK Detection Strategies](detections/strategies/README.md) | 703 MITRE detection strategies + 1,770 analytics: log sources, detection logic, and tunable parameters per technique |
 | [ATT&CK Matrix Analysis Reference](ATTACK_MATRIX_ANALYSIS_REFERENCE.md) | 24 analytic lenses for reading an ATT&CK matrix: mitigation, threat activity, exposure, detection, compliance, and composite risk |
 | [ATT&CK Mitigations Reference](ATTACK_MITIGATIONS_REFERENCE.md) | All 44 ATT&CK Enterprise mitigations (M-codes) and the techniques each one addresses |
-| [ATT&CK Software Reference](ATTACK_SOFTWARE_REFERENCE.md) | 825 MITRE ATT&CK malware families and tools with the techniques they implement and the groups that use them |
+| [ATT&CK Software Reference](ATTACK_SOFTWARE_REFERENCE.md) | 842 MITRE ATT&CK malware families and tools with the techniques they implement and the groups that use them |
 | [ATT&CK Priority Gap Analysis](scores/attack_priority_gaps.md) | Most-used, least-covered ATT&CK techniques ranked for detection/mitigation focus |
-| [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) | All 714 ATT&CK techniques by tactic (697 active per MITRE v19.2; a few superseded records retained), cross-referenced to threat groups, software, mitigations, NIST controls, and detection |
+| [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) | All 723 ATT&CK techniques by tactic (697 active per MITRE v20.0; a few superseded records retained), cross-referenced to threat groups, software, mitigations, NIST controls, and detection |
 | [ATT&CK Technique Detail Pages](techniques/README.md) | Full consolidated per-technique write-ups (description, mitigations, NIST controls, detections, groups, software) across 15 tactic files |
 | [ATLAS Reference (AI threats)](/ATLAS_REFERENCE.md) | MITRE ATLAS bundled snapshot of tactics, techniques, and mitigations; tactic and technique labels checked against 2026.09, including AI Model Access and AI Attack Adaptation |
 | [ATT&CK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) | MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapping, and threat-intelligence correlation |
@@ -194,7 +194,7 @@
 | [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) | Multi-platform detection queries (Splunk, Elastic, Microsoft, Chronicle, CrowdStrike) keyed to ATT&CK techniques and their mitigating NIST 800-53 controls |
 | [Telecom & 5G Security Reference](TELECOM_5G_SECURITY_REFERENCE.md) | MITRE FiGHT framework, SS7/Diameter signaling defense, GSMA FS.11/FS.19, 5G SBA/SUCI/SEPP, network slicing, O-RAN WG11, Salt Typhoon advisories and CISA hardening guidance |
 | [Threat Actors](THREAT_ACTORS.md) | Nation-state APTs, ransomware groups, and eCrime actors mapped to ATT&CK TTPs |
-| [Threat Group Profiles](THREAT_GROUP_PROFILES.md) | 176 MITRE ATT&CK adversary groups with aliases, attributed techniques, and tooling (authoritative STIX-derived) |
+| [Threat Group Profiles](THREAT_GROUP_PROFILES.md) | 178 MITRE ATT&CK adversary groups with aliases, attributed techniques, and tooling (authoritative STIX-derived) |
 | [Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md) | ATT&CK-centric knowledge graph (CVE -> CWE -> CAPEC -> ATT&CK -> D3FEND), open-source data-source stack, and per-technique coverage-stack model |
 | [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md) | Hypothesis-driven hunting procedures mapped to MITRE ATT&CK with data sources, detection logic, and response actions |
 | [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md) | KQL, SPL, Sigma, YARA, ATT&CK playbooks, Velociraptor, osquery, TI integration, hunt tracking |

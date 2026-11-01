@@ -1,4 +1,4 @@
-# Software & Tools (825)
+# Software & Tools (842)
 
 ATT&CK-tracked software (malware and tools), each with its type, platforms, aliases, the techniques it implements (linked), and the groups that use it. ATT&CK v19.2.
 
@@ -827,6 +827,23 @@ ATT&CK-tracked software (malware and tools), each with its type, platforms, alia
 - [S9042: CanisterWorm](/mitre/software/S9042.md) (malware)
 - [S9043: Mini Shai-Hulud](/mitre/software/S9043.md) (malware)
 - [S9044: Kali365](/mitre/software/S9044.md) (malware)
+- [S9045: BACKUPOSINT v9.0 APEX PREDATOR](/mitre/software/S9045.md) (malware)
+- [S9046: IOControl](/mitre/software/S9046.md) (malware)
+- [S9050: Vidar](/mitre/software/S9050.md) (malware)
+- [S9051: The Gentlemen Ransomware](/mitre/software/S9051.md) (malware)
+- [S9052: MiniFast](/mitre/software/S9052.md) (malware)
+- [S9053: MiniJunk](/mitre/software/S9053.md) (malware)
+- [S9057: CRASHPAD](/mitre/software/S9057.md) (malware)
+- [S9058: SIGHTGRAB](/mitre/software/S9058.md) (malware)
+- [S9059: MiniBike](/mitre/software/S9059.md) (malware)
+- [S9060: MiniBus](/mitre/software/S9060.md) (malware)
+- [S9061: LIGHTRAIL](/mitre/software/S9061.md) (malware)
+- [S9062: MiniBrowse](/mitre/software/S9062.md) (malware)
+- [S9063: DEEPROOT](/mitre/software/S9063.md) (malware)
+- [S9064: TRUSTTRAP](/mitre/software/S9064.md) (malware)
+- [S9065: DCSYNCER.SLICK](/mitre/software/S9065.md) (malware)
+- [S9066: POLLBLEND](/mitre/software/S9066.md) (malware)
+- [S9067: TWOSTROKE](/mitre/software/S9067.md) (malware)
 
 ---
 

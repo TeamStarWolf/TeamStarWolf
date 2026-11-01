@@ -389,6 +389,13 @@ def mitigates_pairs(idx: Index):
             yield o["source_ref"], o["target_ref"]
 
 
+def attributed_pairs(idx: Index):
+    """All active `attributed-to` relationships (campaign -> group) as (source, target)."""
+    for o in idx.objs:
+        if o["type"] == "relationship" and o.get("relationship_type") == "attributed-to" and is_active(o):
+            yield o["source_ref"], o["target_ref"]
+
+
 # --------------------------------------------------------------------------- #
 # File builders
 # --------------------------------------------------------------------------- #
@@ -400,6 +407,8 @@ def build_edge_maps(idx: Index):
     sw_tech: dict[str, set] = {}
     sw_groups: dict[str, set] = {}
     camp_tech: dict[str, set] = {}
+    camp_sw: dict[str, set] = {}
+    camp_groups: dict[str, set] = {}
     mit_tech: dict[str, set] = {}
 
     group_ids = {o["id"] for o in idx.groups_active}
@@ -417,9 +426,16 @@ def build_edge_maps(idx: Index):
                 sw_tech.setdefault(src, set()).add(at)
             elif src in camp_ids:
                 camp_tech.setdefault(src, set()).add(at)
-        elif tgt in idx.software_active_ids and src in group_ids:
-            group_sw.setdefault(src, set()).add(tgt)
-            sw_groups.setdefault(tgt, set()).add(src)
+        elif tgt in idx.software_active_ids:
+            if src in group_ids:
+                group_sw.setdefault(src, set()).add(tgt)
+                sw_groups.setdefault(tgt, set()).add(src)
+            elif src in camp_ids:
+                camp_sw.setdefault(src, set()).add(tgt)
+
+    for src, tgt in attributed_pairs(idx):
+        if src in camp_ids and tgt in group_ids:
+            camp_groups.setdefault(src, set()).add(tgt)
 
     for src, tgt in mitigates_pairs(idx):
         if src in mit_ids and tgt.startswith("attack-pattern--"):
@@ -430,7 +446,8 @@ def build_edge_maps(idx: Index):
     return {
         "group_tech": group_tech, "group_sw": group_sw,
         "sw_tech": sw_tech, "sw_groups": sw_groups,
-        "camp_tech": camp_tech, "mit_tech": mit_tech,
+        "camp_tech": camp_tech, "camp_sw": camp_sw, "camp_groups": camp_groups,
+        "mit_tech": mit_tech,
     }
 
 
@@ -478,6 +495,76 @@ def build_campaigns(idx: Index, m) -> list[dict]:
             "technique_count": len(m["camp_tech"].get(c["id"], ())),
             "url": attack_url(c),
             "description": c.get("description", ""),
+        })
+    return sorted(rows, key=lambda r: r["campaign_id"])
+
+
+def _carry_desc(old: dict, rid: str, obj: dict) -> str:
+    """Keep a committed profile row's curated description; for a row new to the file,
+    fall back to the first two sentences of the STIX description."""
+    prev = old.get(rid)
+    if prev and "description" in prev:
+        return prev["description"]
+    first = re.sub(r"\s+", " ", (obj.get("description") or "").split("\n", 1)[0]).strip()
+    return " ".join(re.split(r"(?<=[.!?])\s+", first)[:2]) if first else ""
+
+
+def build_group_profiles(idx: Index, m) -> list[dict]:
+    """group_profiles.jsonl: one row per active group with its sorted technique-id and
+    software-name arrays, from the same edges as groups.jsonl so the two never drift.
+    Description is carried from the committed row (first two STIX sentences if new)."""
+    old = {r["group_id"]: r for r in read_existing("group_profiles.jsonl")}
+    rows = []
+    for g in idx.groups_active:
+        gid = attack_id(g)
+        rows.append({
+            "group_id": gid,
+            "name": g.get("name"),
+            "aliases": g.get("aliases", []),
+            "description": _carry_desc(old, gid, g),
+            "techniques": sorted(attack_id(idx.ap_by_id[x]) for x in m["group_tech"].get(g["id"], ())),
+            "software": sorted(idx.by_id[x].get("name") for x in m["group_sw"].get(g["id"], ())),
+        })
+    return sorted(rows, key=lambda r: r["group_id"])
+
+
+def build_software_profiles(idx: Index, m) -> list[dict]:
+    """software_profiles.jsonl: one row per active software with its sorted technique-id
+    and group-name arrays, from the same edges as software.jsonl."""
+    old = {r["software_id"]: r for r in read_existing("software_profiles.jsonl")}
+    rows = []
+    for s in idx.software_active:
+        sid = attack_id(s)
+        rows.append({
+            "software_id": sid,
+            "name": s.get("name"),
+            "type": "malware" if s["type"] == "malware" else "tool",
+            "aliases": s.get("x_mitre_aliases", []),
+            "platforms": s.get("x_mitre_platforms", []),
+            "description": _carry_desc(old, sid, s),
+            "techniques": sorted(attack_id(idx.ap_by_id[x]) for x in m["sw_tech"].get(s["id"], ())),
+            "groups": sorted(idx.by_id[x].get("name") for x in m["sw_groups"].get(s["id"], ())),
+        })
+    return sorted(rows, key=lambda r: r["software_id"])
+
+
+def build_campaign_profiles(idx: Index, m) -> list[dict]:
+    """campaign_profiles.jsonl: one row per campaign with its sorted technique-id,
+    software-name and group-name arrays, from the same edges as campaigns.jsonl
+    (groups via attributed-to; software and techniques via uses)."""
+    old = {r["campaign_id"]: r for r in read_existing("campaign_profiles.jsonl")}
+    rows = []
+    for c in idx.campaigns:
+        cid = attack_id(c)
+        rows.append({
+            "campaign_id": cid,
+            "name": c.get("name"),
+            "description": _carry_desc(old, cid, c),
+            "first_seen": (c.get("first_seen") or "")[:10] or None,
+            "last_seen": (c.get("last_seen") or "")[:10] or None,
+            "techniques": sorted(attack_id(idx.ap_by_id[x]) for x in m["camp_tech"].get(c["id"], ())),
+            "software": sorted(idx.by_id[x].get("name") for x in m["camp_sw"].get(c["id"], ())),
+            "groups": sorted(idx.by_id[x].get("name") for x in m["camp_groups"].get(c["id"], ())),
         })
     return sorted(rows, key=lambda r: r["campaign_id"])
 
@@ -946,6 +1033,9 @@ def main() -> None:
         ("groups.jsonl", build_groups(idx, m)),
         ("software.jsonl", build_software(idx, m)),
         ("campaigns.jsonl", build_campaigns(idx, m)),
+        ("group_profiles.jsonl", build_group_profiles(idx, m)),
+        ("software_profiles.jsonl", build_software_profiles(idx, m)),
+        ("campaign_profiles.jsonl", build_campaign_profiles(idx, m)),
         ("group_to_technique.jsonl", build_group_to_technique(idx, m)),
         ("software_to_technique.jsonl", build_software_to_technique(idx, m)),
         ("mitigation_to_technique.jsonl", build_mitigation_to_technique(idx, m)),

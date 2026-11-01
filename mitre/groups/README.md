@@ -1,4 +1,4 @@
-# Threat Groups (176)
+# Threat Groups (178)
 
 ATT&CK-tracked adversary groups (intrusion sets), each with its aliases, the techniques it uses (linked to their technique pages), and the software it wields. ATT&CK v19.2.
 
@@ -178,6 +178,8 @@ ATT&CK-tracked adversary groups (intrusion sets), each with its aliases, the tec
 - [G1055: VOID MANTICORE](/mitre/groups/G1055.md) (aka COBALT MYSTIQUE, Handala Hack, Homeland Justice)
 - [G1056: TeamPCP](/mitre/groups/G1056.md) (aka PCPCat, ShellForce, DeadCatx3)
 - [G1057: ShinyHunters](/mitre/groups/G1057.md) (aka UNC6240, Bling Libra)
+- [G1058: The Gentlemen](/mitre/groups/G1058.md) (aka Storm-2697, GOLD SHERWOOD)
+- [G1059: NIMBUS MANTICORE](/mitre/groups/G1059.md) (aka UNC1549, TA455, COBALT SMOKEY)
 
 ---
 

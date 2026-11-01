@@ -37,7 +37,7 @@ The repo is one flat root of reference documents plus a few purposeful folders:
 | `disciplines/` | 47 guided learning paths that sequence those references in the right order; hub at [Discipline Paths](/disciplines/README.md) |
 | `guides/` | Step-by-step how-to guides (you are reading one): procedures, where the references are doctrine |
 | `techniques/` | Per-technique ATT&CK detail pages, one file per tactic: hub at [Technique Detail Pages](/techniques/README.md) |
-| `detections/` | Detection engineering: 697 MITRE detection strategies + 1,758 analytics ([Detection Strategies](/detections/strategies/README.md)) and 65 multi-platform queries ([Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)) |
+| `detections/` | Detection engineering: 703 MITRE detection strategies + 1,770 analytics ([Detection Strategies](/detections/strategies/README.md)) and 65 multi-platform queries ([Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)) |
 | `data/` | Machine-readable JSONL datasets: every mapping in the library as one JSON object per line (ATT&CK, D3FEND, CWE, CAPEC, ATLAS, Engage, F3, and the NIST 800-53 coverage edges) |
 | `navigator/` | ATT&CK Navigator heatmap layers: index at [Navigator Layers](/navigator/index.md) |
 | `scores/` | Gap analyses computed from the datasets: start with [Priority Gap Analysis](/scores/attack_priority_gaps.md) |

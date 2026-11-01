@@ -1,4 +1,4 @@
-# Campaigns (56)
+# Campaigns (57)
 
 ATT&CK-tracked intrusion campaigns, each with its active window, the groups it is attributed to, the techniques used (linked), and the software deployed. ATT&CK v19.2.
 
@@ -53,11 +53,12 @@ ATT&CK-tracked intrusion campaigns, each with its active window, the groups it i
 - [C0056: RedPenguin](/mitre/campaigns/C0056.md) (2024-07-01)
 - [C0057: 3CX Supply Chain Attack](/mitre/campaigns/C0057.md) (2022-11-01)
 - [C0058: SharePoint ToolShell Exploitation](/mitre/campaigns/C0058.md) (2025-07-01)
-- [C0059: Salesforce Data Exfiltration](/mitre/campaigns/C0059.md) (2004-10-01)
-- [C0060: Operation AkaiRyū](/mitre/campaigns/C0060.md) (2004-06-01)
+- [C0059: Salesforce Data Exfiltration](/mitre/campaigns/C0059.md) (2024-10-01)
+- [C0060: Operation AkaiRyū](/mitre/campaigns/C0060.md) (2024-06-01)
 - [C0061: Operation Digital Eye](/mitre/campaigns/C0061.md) (2024-06-01)
 - [C0062: Anthropic AI-orchestrated Campaign](/mitre/campaigns/C0062.md) (2025-09-01)
 - [C0063: 2025 Poland Wiper Attacks](/mitre/campaigns/C0063.md) (2025-03-01)
+- [C0064: AI-Assisted Breach of Mexico's Government Infrastructure](/mitre/campaigns/C0064.md) (2025-12-01)
 
 ---
 

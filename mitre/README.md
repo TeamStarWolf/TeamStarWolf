@@ -13,9 +13,9 @@ ATT&CK-Navigator-style browsable pages: one page per MITRE object, cross-linked 
 | [CAPEC](/mitre/capec/README.md) | 615 | abstraction, severity, likelihood, mapped ATT&CK, related CWE, prerequisites, mitigations |
 | [ATLAS (AI/ML)](/mitre/atlas/README.md) | 205 | adversarial-AI techniques + mitigations |
 | [F3 (Fight Fraud)](/mitre/f3/README.md) | 123 | CTID fraud-lifecycle techniques; ATT&CK-derived ones cross-link to their technique pages |
-| [Threat Groups](/mitre/groups/README.md) | 176 | ATT&CK adversary groups (intrusion sets): aliases, techniques used (linked), and software wielded |
-| [Software & Tools](/mitre/software/README.md) | 825 | ATT&CK malware & tools: type, platforms, aliases, techniques implemented (linked), and the groups that wield them |
-| [Campaigns](/mitre/campaigns/README.md) | 56 | ATT&CK intrusion campaigns: active window, attributed groups, techniques used (linked), and software deployed |
+| [Threat Groups](/mitre/groups/README.md) | 178 | ATT&CK adversary groups (intrusion sets): aliases, techniques used (linked), and software wielded |
+| [Software & Tools](/mitre/software/README.md) | 842 | ATT&CK malware & tools: type, platforms, aliases, techniques implemented (linked), and the groups that wield them |
+| [Campaigns](/mitre/campaigns/README.md) | 57 | ATT&CK intrusion campaigns: active window, attributed groups, techniques used (linked), and software deployed |
 | [Cross-Framework Crosswalk](/mitre/crosswalk.md) | N/A | technique, mitigation, NIST, D3FEND, CAPEC in one table |
 
 ## Start here

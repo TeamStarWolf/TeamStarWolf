@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 7 min (1,700 words at 230 words a minute)
+About 8 min (1,755 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -880,7 +880,7 @@ fs.protected_regular = 2
 # Disable core dump SUID/SGID (prevent extracting sensitive info)
 fs.suid_dumpable = 0
 
-# Restrict unprivileged user namespaces (prevents container escapes)
+# Restrict unprivileged user namespaces (blocks container escapes and a common kernel-LPE path)
 kernel.unprivileged_userns_clone = 0   # Debian/Ubuntu
 # kernel.unprivileged_bpf_disabled = 1
 
@@ -893,6 +893,8 @@ kernel.sysrq = 0
 # Increase PID max
 kernel.pid_max = 65536
 ```
+
+Setting `kernel.unprivileged_userns_clone = 0` (or `user.max_user_namespaces = 0`) is one of the highest-leverage kernel-hardening controls. Many kernel local-privilege-escalation exploits, including the actively exploited nf_tables use-after-free `CVE-2024-1086`, reach the vulnerable code only through an unprivileged user namespace. Disabling that path closes the class, at the cost of breaking rootless containers and some sandboxed applications that rely on it.
 
 Apply sysctl settings:
 ```bash

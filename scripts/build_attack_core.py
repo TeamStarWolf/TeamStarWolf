@@ -134,7 +134,7 @@ DATA = ROOT / "data" / "attack"
 # The pinned STIX inputs (see the module docstring). A commit SHA, never a branch;
 # all three bundles are read at the same commit.
 STIX_REPO = "mitre-attack/attack-stix-data"
-STIX_COMMIT = "3a9dc7798bf78b53b77fc2f821002f7167c00be3"  # tag v20.0
+STIX_COMMIT = "20664a889568dce884a1dac0ec7b12ae3a199f51"  # v20.0 bundles (release commit)
 
 
 def _raw_url(path: str) -> str:

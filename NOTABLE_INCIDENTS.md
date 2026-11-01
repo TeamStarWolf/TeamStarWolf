@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 25 min (5,708 words at 230 words a minute)
+About 26 min (5,886 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -515,6 +515,9 @@ The following vulnerability classes have proven to be high-impact, widely exploi
 | PHP-CGI argument injection | CVE-2024-4577 | 9.8 | Best-fit character encoding on Windows lets an attacker inject arguments to the PHP binary in CGI mode, yielding unauthenticated RCE; XAMPP on Windows is vulnerable by default in some locales; exploited within 24 hours of disclosure and by TellYouThePass ransomware; fixed in PHP 8.3.8 / 8.2.20 / 8.1.29, or move off PHP-CGI to PHP-FPM |
 | CrushFTP VFS sandbox escape | CVE-2024-4040 | 9.8 | Server-side template injection in the CrushFTP virtual file system lets an unauthenticated attacker escape the sandbox to read any file and chain to RCE; exploited as a zero-day; CISA KEV 24 April 2024; fixed in 10.7.1 and 11.1.0; another managed-file-transfer edge bug in the MOVEit and Cleo pattern |
 | FortiManager "FortiJump" | CVE-2024-47575 | 9.8 | Missing authentication in the fgfmd daemon lets an unauthenticated attacker run code and register a rogue FortiManager, exposing managed-firewall configurations; exploited as a zero-day since mid-2024 (Mandiant UNC5820); CISA KEV; Fortinet advisory FG-IR-24-423 on 23 October 2024; the first patch proved incomplete ("FortiJump Higher") |
+| SharePoint "ToolShell" | CVE-2025-53770, CVE-2025-53771 | 9.8 | On-premises SharePoint (2016, 2019, Subscription Edition) unauthenticated RCE chain, a patch bypass of CVE-2025-49704 and CVE-2025-49706; a forged Referer to ToolPane.aspx defeats auth, then deserialization drops a web shell; exploited in the wild from 17-18 July 2025 before the patch; CISA KEV; Storm-2603 and PRC espionage actors; stolen ASP.NET machine keys survive patching, so rotate the keys and restart IIS, not just patch |
+| CUPS unauthenticated RCE chain | CVE-2024-47076, CVE-2024-47175, CVE-2024-47176, CVE-2024-47177 | 7.5-9.0 | A chain across cups-browsed, libcupsfilters, libppd, and cups-filters: cups-browsed on UDP 631 is pointed at an attacker printer whose IPP attributes inject a command (FoomaticRIPCommandLine) that runs when a job prints; unauthenticated RCE on many Linux systems, though exploitation needs a print action; mitigate by disabling cups-browsed or blocking UDP 631 |
+| Blast-RADIUS | CVE-2024-3596 | 9.0 | An MD5 collision in the RADIUS Response Authenticator lets a man-in-the-middle forge a valid Access-Accept out of a failed authentication, breaking RADIUS-over-UDP integrity across the ecosystem; EAP methods are unaffected; mitigate by requiring the Message-Authenticator attribute on requests and responses, and move toward RADIUS over (D)TLS |
 
 ### Vulnerability Prioritization Guidance
 

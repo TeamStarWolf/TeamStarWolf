@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 24 min (5,502 words at 230 words a minute)
+About 24 min (5,604 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -511,6 +511,8 @@ The following vulnerability classes have proven to be high-impact, widely exploi
 | Citrix/Netscaler (general) | CVE-2023-3519 | 9.8 | Unauthenticated RCE in Citrix ADC/NetScaler; exploited as zero-day against critical infrastructure; CISA alert AA23-201A; implants installed before patch release |
 | SAP NetWeaver Visual Composer | CVE-2025-31324, CVE-2025-42999 | 9.8-10.0 | Missing authorization in the Visual Composer Metadata Uploader allows unauthenticated file upload to RCE, chained with the CVE-2025-42999 deserialization bug; SAP emergency patch 24 April 2025; added to CISA KEV with a ransomware flag; exploited by China-nexus actors and ransomware crews; where Visual Composer is unused, setting vc/enabled=false removes the attack surface entirely |
 | PHP-CGI argument injection | CVE-2024-4577 | 9.8 | Best-fit character encoding on Windows lets an attacker inject arguments to the PHP binary in CGI mode, yielding unauthenticated RCE; XAMPP on Windows is vulnerable by default in some locales; exploited within 24 hours of disclosure and by TellYouThePass ransomware; fixed in PHP 8.3.8 / 8.2.20 / 8.1.29, or move off PHP-CGI to PHP-FPM |
+| CrushFTP VFS sandbox escape | CVE-2024-4040 | 9.8 | Server-side template injection in the CrushFTP virtual file system lets an unauthenticated attacker escape the sandbox to read any file and chain to RCE; exploited as a zero-day; CISA KEV 24 April 2024; fixed in 10.7.1 and 11.1.0; another managed-file-transfer edge bug in the MOVEit and Cleo pattern |
+| FortiManager "FortiJump" | CVE-2024-47575 | 9.8 | Missing authentication in the fgfmd daemon lets an unauthenticated attacker run code and register a rogue FortiManager, exposing managed-firewall configurations; exploited as a zero-day since mid-2024 (Mandiant UNC5820); CISA KEV; Fortinet advisory FG-IR-24-423 on 23 October 2024; the first patch proved incomplete ("FortiJump Higher") |
 
 ### Vulnerability Prioritization Guidance
 

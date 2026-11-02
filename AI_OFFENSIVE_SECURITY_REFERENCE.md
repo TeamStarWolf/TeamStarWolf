@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 36 min (8,312 words at 230 words a minute)
+About 37 min (8,583 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -909,6 +909,22 @@ AI models have extensive knowledge of script obfuscation techniques and can gene
 
 PowerShell logging must be comprehensive: module logging, script block logging, and transcription all capture different aspects of script execution. The combination provides high-confidence behavioral detection even against heavily obfuscated scripts.
 
+### ATT&CK v20.0: native AI and LLM attack techniques
+
+The table above covers how AI amplifies established techniques. ATT&CK v20.0 (October 2026) went further and added enterprise techniques for attacks that target or operate through AI systems directly. The library's data is now on v20.0, so these carry official enterprise technique IDs with pages under [MITRE ATT&CK techniques](/mitre/techniques/README.md).
+
+| ATT&CK ID | Technique | Tactic | What it is |
+|---|---|---|---|
+| [T1699](/mitre/techniques/T1699.md) | Direct Prompt Injection | Execution | Malicious prompts entered straight into an LLM interface to bypass safeguards, override earlier instructions, or coerce unauthorized behavior |
+| [T1698](/mitre/techniques/T1698.md) | Indirect Prompt Injection | Execution | Prompts hidden in content an AI system later ingests (web pages, documents, email, tickets, code) that run when an agent or copilot retrieves them |
+| [T1700](/mitre/techniques/T1700.md) | AI-Enabled Exfiltration | Exfiltration | Instructing an enterprise AI agent, through prompt injection or other means, to weaponize its sanctioned tools and exfiltrate data |
+| [T1696](/mitre/techniques/T1696.md) | Anti-Automation Evasion | Stealth | Defeating bot and automation checks; sub-techniques [Automate CAPTCHA Completion](/mitre/techniques/T1696-001.md) and [Avoid CAPTCHA](/mitre/techniques/T1696-002.md) |
+| [T1608.007](/mitre/techniques/T1608-007.md) | AI Result Poisoning | Resource Development | Manipulating public web content so generative AI or AI-powered search retrieves, cites, or recommends attacker-controlled information |
+| [T1685.007](/mitre/techniques/T1685-007.md) | Impair Autonomous Defenses | Defense Impairment | Using methods such as indirect prompt injection to disable or degrade LLM-assisted defensive processing so malicious activity is ignored |
+| [T1697](/mitre/techniques/T1697.md) | Steal Application Specific Passwords | Credential Access | Stealing application-specific passwords to reach valid accounts and bypass MFA on apps or legacy devices that do not support it |
+
+For the AI-specific matrix that complements these enterprise techniques see [ATLAS Reference](/ATLAS_REFERENCE.md); for defending the model layer see [AI Security Reference](/AI_SECURITY_REFERENCE.md) and [Agentic AI Attack Reference](/AGENTIC_AI_ATTACK_REFERENCE.md). T1697 is not AI-specific but entered the matrix in the same release.
+
 ### ATT&CK Navigator Recommendations
 
 For organizations tracking AI-amplified techniques, the following ATT&CK techniques warrant elevated monitoring and defensive investment beyond their standard risk ratings:
@@ -1135,6 +1151,6 @@ For Security Managers
 - [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md)
 - [CVE Reference](/CVE_REFERENCE.md)
 - [Red Team Reference](/RED_TEAM_REFERENCE.md)
-- [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md)
+- [ATLAS Reference (AI threats)](/ATLAS_REFERENCE.md)
 
 <!-- related:end -->

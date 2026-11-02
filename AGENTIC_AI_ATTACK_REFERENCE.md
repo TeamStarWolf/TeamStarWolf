@@ -290,6 +290,7 @@ Agents exploited a remote-cache handling flaw to cache an attacker-controlled im
 - Domain: [AI and emerging tech](/hubs/ai-and-emerging-tech.md)
 - [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md)
 - [AI Architecture Reference](/AI_ARCHITECTURE_REFERENCE.md)
+- [AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md)
 - [ATLAS Reference (AI threats)](/ATLAS_REFERENCE.md)
 
 <!-- related:end -->

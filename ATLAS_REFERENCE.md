@@ -529,8 +529,8 @@ Mitigation-name refresh: AML.M0002, AML.M0003, AML.M0004, AML.M0006, AML.M0009, 
 - Learning path: [Adversarial AI Attacks](/disciplines/adversarial-ai-attacks.md)
 - [AI Security Reference](/AI_SECURITY_REFERENCE.md)
 - [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md)
+- [AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md)
 - [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md)
-- [AI Architecture Reference](/AI_ARCHITECTURE_REFERENCE.md)
 
 <!-- related:end -->
 

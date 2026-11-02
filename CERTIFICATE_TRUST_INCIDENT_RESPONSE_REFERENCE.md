@@ -24,7 +24,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,248 words at 230 words a minute)
+About 6 min (1,275 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -148,7 +148,7 @@ A green result requires the client to reject the intended certificate for the ri
 
 ## The eMudhra example
 
-In October 2026 eight eMudhra (emSign) intermediate CA keys were found to be weakly generated, and the emSign ECC Root CA G3 was distrusted across browsers, operating systems, and software ecosystems. Browsers blocked it within days through root removal and blocklists. Non-browser clients (curl, Python, Node.js, Go, Git, and container images) did not, because they do not check revocation by default and carry their own trust data, so they stayed exposed until their bundles were updated. That gap, where a browser is fixed but a server's outbound client is not, is the reason this method centers on the client path rather than the browser. See [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md).
+In October 2026 eight eMudhra (emSign) intermediate CA keys were found to be weakly generated, and the emSign ECC Root CA G3 was distrusted across browsers, operating systems, and software ecosystems. Browsers blocked it within days through root removal and blocklists. Non-browser clients (curl, Python, Node.js, Go, Git, and container images) did not, because they do not check revocation by default and carry their own trust data, so they stayed exposed until their bundles were updated. That gap, where a browser is fixed but a server's outbound client is not, is the reason this method centers on the client path rather than the browser. The full write-up, with the root cause, the response timeline, and the evidence grades, is in [The eMudhra Certificate Authority Key Compromise: A 2026 Case Study](/case-studies/EMUDHRA_CA_COMPROMISE_2026.md); see also [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md).
 
 ## Learning resources
 

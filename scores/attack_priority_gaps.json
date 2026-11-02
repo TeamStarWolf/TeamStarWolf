@@ -1,7 +1,7 @@
 {
   "generated_by": "scripts/build_priority_gaps.py",
-  "attack_version": "19.2",
-  "generated_from": "MITRE ATT&CK Enterprise v19.2 + CTID NIST 800-53 R5",
+  "attack_version": "20.0",
+  "generated_from": "MITRE ATT&CK Enterprise v20.0 + CTID NIST 800-53 R5",
   "inputs_sha256": {
     "data/attack/technique_profiles.jsonl": "c5616b745e7c14aabe78341d06ddb7c27e93979598498cae9a7e1304332675b4",
     "data/attack/superseded_by.jsonl": "1a62bb53e0aadf4e2a27365331778ee57453246f0a7b36166bb9dc5295a95b0b",

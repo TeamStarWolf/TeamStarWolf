@@ -44,7 +44,7 @@ from build_ctid_edges import VENDOR_SLUG_ALIASES
 
 ROOT = Path(__file__).resolve().parents[1]
 
-ATTACK_VERSION = "19.2"
+ATTACK_VERSION = "20.0"
 
 # Inputs, relative to the repo root. All are required: a missing file is an error, never
 # an empty table (an empty table used to produce an all-zero scores/ silently).

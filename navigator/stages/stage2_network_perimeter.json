@@ -1,7 +1,7 @@
 {
   "name": "Network & Perimeter Security (alternate view of Stage 4)",
   "versions": {
-    "attack": "19",
+    "attack": "20",
     "navigator": "4.9",
     "layer": "4.5"
   },
@@ -303,7 +303,7 @@
     },
     {
       "name": "attack_version",
-      "value": "MITRE ATT&CK Enterprise v19.2: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
     }
   ],
   "links": [],

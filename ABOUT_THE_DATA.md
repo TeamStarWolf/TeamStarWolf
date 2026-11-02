@@ -72,7 +72,7 @@ The relationships behind these pages are published as JSONL files in [`data/`](/
 
 ## Versions
 
-The ATT&CK data files, the technique pages, and the framework pages are built from MITRE ATT&CK v19.2. The technique records also keep a small number of techniques that MITRE has since revoked. Some summary pages, including the technique atlases and Threat Group Profiles, were generated from earlier ATT&CK releases and have not yet been regenerated. Each states the version it was built from. The ATT&CK Navigator layers are pinned to ATT&CK v19 and use v19.2 technique IDs and tactics; the layer index shows each layer's version and how it was built. As of late October 2026, MITRE has released ATT&CK v20.0 (October 13, 2026) as the current upstream version, so this library's v19.2 basis is one major version behind. A refresh to v20.0 regenerates the data files, the framework and technique pages, the atlases, and the Navigator layers, and is tracked as pending work.
+The ATT&CK data files, the technique pages, the framework pages, and the ATT&CK Navigator layers are built from MITRE ATT&CK v20.0, released October 13, 2026. The technique records also keep a small number of techniques that MITRE has since revoked, each marked with the ID that replaces it. Some summary pages, including the technique atlases and Threat Group Profiles, were generated from an earlier ATT&CK release (v18.1) and have not yet been regenerated; each states the version it was built from, and refreshing them to v20.0 is tracked as pending work. The Navigator layers use v20.0 technique IDs and tactics; the layer index shows each layer's version and how it was built.
 
 ## Control mappings
 

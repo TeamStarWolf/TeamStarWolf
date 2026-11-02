@@ -168,7 +168,7 @@
 <div class="tsw-footer" id="data-amp-navigator-layers">
   <div class="tsw-footer-col">
     <div class="tsw-footer-h">TeamStarWolf library</div>
-    <p>Open reference material for defenders, learners, and anyone with a security job to do. The framework pages and mapping data follow ATT&amp;CK v19.2. Original content is released under the <a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>; data and text drawn from MITRE and other sources stay under their owners' terms, listed in the <a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/THIRD_PARTY_NOTICES.md" target="_blank" rel="noopener">third-party notices</a>.</p>
+    <p>Open reference material for defenders, learners, and anyone with a security job to do. The framework pages and mapping data follow ATT&amp;CK v20.0. Original content is released under the <a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>; data and text drawn from MITRE and other sources stay under their owners' terms, listed in the <a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/THIRD_PARTY_NOTICES.md" target="_blank" rel="noopener">third-party notices</a>.</p>
     <a class="tsw-btn tsw-btn--navi" href="https://teamstarwolf.github.io/ATTACK-Navi/" target="_blank" rel="noopener">Open ATT&amp;CK-Navi, the ATT&amp;CK workbench</a>
   </div>
   <div class="tsw-footer-col">

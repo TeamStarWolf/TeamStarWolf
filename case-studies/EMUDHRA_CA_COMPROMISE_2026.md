@@ -70,7 +70,69 @@ Browser action was effectively complete within days through a mix of blocklists 
 
 The defensive lesson is not that browsers were slow, because they were not. It is that a browser and a server's outbound HTTP client are different trust stores with different update paths. A web browser checks revocation signals and receives fast-pushed blocklists; `curl`, a language runtime's HTTP library, `git`, and a container base image usually do not check revocation by default and carry a trust bundle that changes only when the bundle is updated and the workload is rebuilt. During the window between the browser fix and the bundle update, a server that calls an API, a webhook, or a package registry over TLS would still trust a forged certificate chaining to the affected keys.
 
-This is why the remediation is an inventory of trust sources per client, a patch of the client path, and a block keyed on the eight public-key hashes rather than on the CA's name. The full method, including per-platform and per-runtime trust-store locations and an assessment decision model, is in [Certificate Trust Incident Response](/CERTIFICATE_TRUST_INCIDENT_RESPONSE_REFERENCE.md).
+This is why the remediation is an inventory of trust sources per client, a patch of the client path, and a block keyed on the eight public-key hashes rather than on the CA's name. The full method, including how to locate each trust store, is in [Certificate Trust Incident Response](/CERTIFICATE_TRUST_INCIDENT_RESPONSE_REFERENCE.md).
+
+## Remediation by platform and capability
+
+Four principles apply everywhere:
+
+1. **Block by key, not by name.** Each weak key has two certificates: one under the emSign root and one cross-signed by Sectigo AAA Certificate Services. Removing the emSign ECC Root CA G3 alone does not stop a client that still trusts the Sectigo chain, so block the eight affected public keys by their Subject Public Key Info (SPKI) SHA-256 hashes, which the root-program records and vendor advisories publish.
+2. **Patch the client path, not only the browser or OS.** A fixed browser does not fix curl, a language runtime, or a container.
+3. **Rebuild and redeploy anything immutable.** Restarting a container or pod does not change the trust bundle baked into its image.
+4. **Verify by test, not by version.** Confirm the real client now rejects a certificate chaining to the affected keys, and still reaches a good endpoint.
+
+There are two audiences: relying parties (anything that trusts the CA, below) and site operators whose certificates chained to the emSign ECC Root CA G3, who must reissue from a different trusted hierarchy before the root removals break validation.
+
+### Operating-system trust stores
+
+| Platform | How to remediate |
+|---|---|
+| Windows (Schannel) | Windows Update ships the distrust through the Certificate Trust List; to act now, add the emSign ECC Root CA G3 to the Untrusted Certificates store by GPO or `certutil -addstore -f Disallowed emSignECCRootCAG3.cer`, and push it fleet-wide |
+| macOS / iOS | Apple ships the distrust in an OS and XProtect/trust-store update; apply it, and in Keychain Access (or `security add-trusted-cert` with a deny policy) set the root to Never Trust where you must act before the update |
+| Debian / Ubuntu | `sudo apt-get update && sudo apt-get install --only-upgrade ca-certificates && sudo update-ca-certificates` (the certifi-derived bundle dropped the root); to force it, add the root under `/etc/ca-certificates.conf` with a `!` prefix and re-run |
+| RHEL / Fedora / Rocky / Alma | `sudo dnf upgrade ca-certificates && sudo update-ca-trust extract`; to blocklist explicitly, drop the root in `/etc/pki/ca-trust/source/blocklist/` and run `update-ca-trust` |
+| SUSE | `sudo zypper up ca-certificates && sudo update-ca-certificates`; blocklist via `/etc/pki/trust/blocklist/` then `update-ca-certificates` |
+| Alpine | `sudo apk upgrade --no-cache ca-certificates ca-certificates-bundle && sudo update-ca-certificates` |
+| Arch | `sudo pacman -Syu ca-certificates ca-certificates-mozilla` |
+| Android | Google ships the removal through a system or Play-services trust update; apply it. A user-installed CA cannot be relied on for the system store |
+
+### Language runtimes and clients (these carry their own bundles)
+
+| Runtime / client | How to remediate |
+|---|---|
+| Python | `pip install -U certifi` (used by `requests`, `httpx`, `urllib3` and others), then update the OS bundle too; a service may pin an old `certifi`, so rebuild and redeploy |
+| Node.js | update to a Node release whose bundled roots dropped the CA, then rebuild; or point Node at the patched OS store with `--use-system-ca` / `NODE_EXTRA_CA_CERTS`, noting `NODE_EXTRA_CA_CERTS` only adds, it cannot distrust |
+| Go | update the Go toolchain and rebuild (the block is tracked in `crypto/x509` as CVE-2026-111943); Go uses the system store on Linux and macOS, so patch that too |
+| Java / JVM | `keytool -delete -alias <emsign-ecc-root-g3-alias> -cacerts` (or against each `cacerts`), or update the JDK; inventory every bundled JRE and restart the application |
+| .NET | uses the OS store on Windows and macOS (patch the OS) and OpenSSL on Linux (patch `ca-certificates`); rebuild if TLS is vendored |
+| Ruby | update the OS bundle and any gem carrying its own CA data (check `OpenSSL::X509::DEFAULT_CERT_FILE`) |
+| PHP | update `ca-certificates` and the file named by `curl.cainfo` / `openssl.cafile` in `php.ini` |
+| Rust | `cargo update` the present trust crate (`webpki-roots`, `rustls-native-certs`, or `native-tls`) and rebuild with `--locked` |
+| curl / libcurl | uses the system bundle or one named by `--cacert` / `CURL_CA_BUNDLE`; patch that file |
+| Git | uses curl's backend; patch the file in `git config --get http.sslCAInfo` (or the system store) |
+| OpenSSL | refresh `SSL_CERT_DIR` / `SSL_CERT_FILE` (usually the OS bundle) |
+
+### Browsers
+
+| Browser | How to remediate |
+|---|---|
+| Chrome / Chromium / Brave | update to the current version (the Chrome Root Store removed the emSign ECC Root CA G3 on 27 October 2026, with an interim CRLSet block); enterprises can also distrust it by policy |
+| Firefox | update to a build on NSS 3.131.1 or later, which removed the root |
+| Edge | updates through the Chrome Root Store and the Windows store; apply both |
+| Safari | ships with the macOS and iOS trust-store update |
+
+### Containers, images, and CI
+
+- Rebuild every image from patched base packages (`ca-certificates`, language runtimes), pin by digest rather than a mutable tag, redeploy all replicas, and test in-pod egress after restart.
+- Distroless, Alpine, and scratch images carry only what was baked in; a running pod keeps the old bundle until the image is rebuilt.
+- Patch CI runners and build base images so a pipeline does not bake a bad bundle back in.
+
+### Network appliances, proxies, and other capabilities
+
+- Reverse proxies, load balancers, and API gateways (NGINX, HAProxy, Envoy, F5, NetScaler) verify upstream and client certificates with their own trust store; update the CA bundle they reference and reload.
+- Mail transfer agents (Postfix, Exim), SIEM and log forwarders, databases with TLS client verification, and VPN concentrators each have their own trust configuration; update and restart them.
+- Code signing: two of the eight were code-signing CAs. Verify that no in-use software was signed under them, refresh the code-signing trust the verifier uses (for example the Windows Authenticode trust list), and treat any artifact signed under an affected key as unverified until re-signed.
+- Managed cloud and SaaS trust (AWS, Azure, GCP, and identity providers such as Okta and Auth0, which removed the root in October 2026) is updated by the provider; obtain their confirmation and rotate any served certificate whose chain is affected.
 
 ## Sources
 

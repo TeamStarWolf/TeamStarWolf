@@ -2,7 +2,7 @@
 
 <!-- local-id-links (written by scripts/build_crosslinks.py from docs/crosslinks.json): the "(local)" link after a MITRE ID opens that object's page in this library. Edit the MITRE link; the script rewrites the "(local)" link. -->
 
-> [MITRE CAPEC](https://capec.mitre.org/) (Common Attack Pattern Enumeration and Classification) describes the 615 common patterns of attack that exploit software weaknesses. CAPEC is the *attack-pattern* bridge between CWE (the weakness) and ATT&CK (the adversary behavior) in the [knowledge graph](THREAT_INFORMED_DEFENSE_REFERENCE.md). 177 patterns carry an explicit ATT&CK technique mapping.
+> Testers, red teams and secure-code reviewers describe an exploit by its method long before anyone assigns it a CVE, and attack patterns give those methods shared names. [MITRE CAPEC™](https://capec.mitre.org/) (Common Attack Pattern Enumeration and Classification) lists <!-- stat-capec_attack_patterns:start -->559<!-- stat-capec_attack_patterns:end --> of them in CAPEC 3.9, not counting deprecated entries: the common ways an attacker exploits a software weakness. CAPEC is the *attack-pattern* bridge between CWE (the weakness) and ATT&CK (the adversary behavior) in the [knowledge graph](THREAT_INFORMED_DEFENSE_REFERENCE.md). <!-- stat-capec_patterns_with_attack:start -->177<!-- stat-capec_patterns_with_attack:end --> patterns carry an explicit ATT&CK technique mapping.
 
 Machine-readable: [`data/weaknesses/capec.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/weaknesses/capec.jsonl). Related: [CWE Weaknesses](CWE_REFERENCE.md), [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md).
 
@@ -21,7 +21,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Length</th><td>
 
-Lookup page: 4,020 words, 97% in tables; look entries up from Start at or the search (about 17 min end to end at 230 words a minute)
+Lookup page: 4,054 words, 96% in tables; look entries up from Start at or the search (about 18 min end to end at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>

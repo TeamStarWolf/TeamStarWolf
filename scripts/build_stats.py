@@ -10,6 +10,13 @@ It also writes the "What's inside" counts in README.md (a table) and in HOME.md 
 site homepage's count cards), each between the markers `<!-- stats:start ... -->` and
 `<!-- stats:end -->`. --check fails when either block differs from what the current
 files produce, so the front-door counts cannot drift.
+
+Inline counts: any hand-written page may hold one computed number as
+`<!-- stat-KEY:start -->N<!-- stat-KEY:end -->`, where KEY is a stats.json key. The
+script writes N (with thousands separators) into every such pair in the tracked .md
+files outside the generated trees, and --check fails when one is stale or names a key
+stats.json does not have. The intros of CAPEC_REFERENCE.md, CWE_REFERENCE.md,
+D3FEND_REFERENCE.md and ENGAGE_REFERENCE.md carry their headline counts this way.
 """
 from __future__ import annotations
 import json, sys, glob, os, re
@@ -93,6 +100,18 @@ def _library_counts():
     }
 
 
+def _current(tid, superseded):
+    """tid followed through superseded_by to the id ATT&CK uses today (None when the chain
+    ends in a deprecation)."""
+    seen = set()
+    while tid in superseded and tid not in seen:
+        seen.add(tid)
+        tid = superseded[tid]
+        if not tid:
+            return None
+    return tid
+
+
 def _count(rel):
     r = _rows(rel)
     return len(r) if r is not None else None
@@ -103,6 +122,10 @@ def compute():
     d3 = _rows("data/attack/technique_to_d3fend.jsonl") or []
     d3_tech = len({r.get("technique_id") for r in d3 if r.get("technique_id", "").startswith("T")})
     ds = _rows("data/attack/detection_strategies.jsonl") or []
+    superseded = {r["old_id"]: r.get("new_id") for r in (_rows("data/attack/superseded_by.jsonl") or [])}
+    capec = _rows("data/weaknesses/capec.jsonl") or []
+    cwe = _rows("data/weaknesses/cwe.jsonl") or []
+    engage = _rows("data/engage/attack_to_engage.jsonl") or []
     stats = {
         # --- ATT&CK core (project's own data = source of truth) ---
         "technique_total": len(tp),
@@ -134,11 +157,30 @@ def compute():
         "engage_approaches": _count("data/engage/engage_approaches.jsonl"),
         "engage_goals": _count("data/engage/engage_goals.jsonl"),
         "engage_mappings": _count("data/engage/attack_to_engage.jsonl"),
+        # one per (technique, activity) pair; MITRE's attack_mapping.json repeats a pair
+        # once per adversary vulnerability, so its row count is higher
+        "engage_activity_mappings": (sum(len(r.get("engage_activities") or []) for r in engage)
+                                     if engage else None),
+        # --- CAPEC and CWE: the entries a release lists as not Deprecated, the count
+        # capec.mitre.org and cwe.mitre.org show as their totals ---
+        "capec_attack_patterns": (sum(1 for r in capec if r.get("status") != "Deprecated")
+                                  if capec else None),
+        "capec_patterns_with_attack": (sum(1 for r in capec if r.get("attack_techniques"))
+                                       if capec else None),
+        "cwe_weaknesses": (sum(1 for r in cwe if r.get("status") != "Deprecated") if cwe else None),
+        # --- D3FEND ---
+        "d3fend_countermeasures": _count("data/attack/d3fend_countermeasures.jsonl"),
         # --- crosswalk edge tables ---
         "control_to_technique_edges": _count("data/control_to_technique.jsonl"),
         "vendor_to_technique_edges": _count("data/vendor_to_technique.jsonl"),
         "technique_to_d3fend_edges": len(d3) if d3 else None,
         "techniques_with_d3fend": d3_tech,
+        # the current Enterprise and ICS techniques those ids stand for: a revoked id counts
+        # as its live successor (superseded_by.jsonl, followed to the end of the chain) and
+        # a deprecated id with no successor is left out
+        "d3fend_current_attack_techniques": len({
+            c for c in (_current(r.get("technique_id", ""), superseded) for r in d3
+                        if r.get("technique_id", "").startswith("T")) if c}),
         # --- workbench / docs ---
         "navigator_layers": _navigator_layers() or None,
         # --- hand-written and generated pages (README "What's inside") ---
@@ -243,6 +285,53 @@ def home_block(stats):
 # file -> renderer of its stats block
 BLOCKS = {"README.md": readme_block, "HOME.md": home_block}
 
+INLINE_RE = re.compile(r"(<!-- stat-([a-z0-9_]+):start -->)(.*?)(<!-- stat-\2:end -->)")
+# generated trees: their pages are written by other scripts and carry no inline counts
+INLINE_SKIP = ("mitre/", "techniques/", "detections/", "scores/", "navigator/")
+
+
+def _inline_files():
+    return [f for f in tracked_files() if f.endswith(".md") and not f.startswith(INLINE_SKIP)]
+
+
+def _inline_render(text, stats, probs, rel):
+    def sub(m):
+        key = m.group(2)
+        if key not in stats:
+            probs.append(f"{rel}: <!-- stat-{key} --> names no stats.json key")
+            return m.group(0)
+        return m.group(1) + f"{stats[key]:,}" + m.group(4)
+    return INLINE_RE.sub(sub, text)
+
+
+def inline_problems(stats):
+    probs = []
+    for rel in _inline_files():
+        text = read_text(rel)
+        if not text or "<!-- stat-" not in text:
+            continue
+        new = _inline_render(text, stats, probs, rel)
+        if new != text:
+            probs.append(f"{rel}: an inline stat count is stale; run `python scripts/build_stats.py`")
+    return probs
+
+
+def write_inline(stats):
+    for rel in _inline_files():
+        text = read_text(rel)
+        if not text or "<!-- stat-" not in text:
+            continue
+        probs = []
+        new = _inline_render(text, stats, probs, rel)
+        for p in probs:
+            print("WARNING:", p)
+        if new != text:
+            raw = open(os.path.join(ROOT, rel), "rb").read()
+            eol = "\r\n" if b"\r\n" in raw else "\n"
+            with open(os.path.join(ROOT, rel), "w", encoding="utf-8", newline="") as f:
+                f.write(new.replace("\r\n", "\n").replace("\n", eol))
+            print(f"wrote {rel} inline counts")
+
 
 def block_problems(stats):
     probs = []
@@ -275,7 +364,7 @@ def write_blocks(stats):
 def main():
     stats = compute()
     if "--check" in sys.argv:
-        probs = check(stats) + block_problems(stats)
+        probs = check(stats) + block_problems(stats) + inline_problems(stats)
         if probs:
             print("STALE HEADLINE NUMBERS (must match data/generated/stats.json):")
             for p in probs:
@@ -290,6 +379,7 @@ def main():
         f.write("\n")
     print("wrote data/generated/stats.json")
     write_blocks(stats)
+    write_inline(stats)
     for k, v in sorted(stats.items()):
         print(f"  {k}: {v:,}" if isinstance(v, int) else f"  {k}: {v}")
 

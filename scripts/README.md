@@ -14,6 +14,7 @@
 | `validate_jsonl.py` | Validates every JSONL file: JSON per line, unique keys, the edge contract in [data/EDGES.md](/data/EDGES.md), live ATT&CK ids, and counts that match their edge tables | Validate Data Files: JSONL edge tables |
 | `generate_mitre_pages.py` | Generates the `mitre/` framework pages and their indexes from `data/` | Validate Data Files: generated page trees (`--only all --check`) and corpus signal (`--verify-corpus`) |
 | `generate_technique_detail_pages.py` | Generates `techniques/` and `detections/strategies/`, with each technique's body folded into a `<details>` element under its heading | Validate Data Files: generated page trees (`--check`) |
+| `build_attack_atlases.py` | Writes the four ATT&CK summary pages (`ATTACK_TECHNIQUE_ATLAS.md`, `THREAT_GROUP_PROFILES.md`, `ICS_ATTACK_ATLAS.md`, `MOBILE_ATTACK_ATLAS.md`) from `data/attack`, leaving their header card and related-pages footer to `build_doc_meta.py` and `build_crosslinks.py`. `--self-test` runs planted cases | Validate Data Files: generated page trees (`--self-test`, `--check`) |
 | `compute_coverage.py` | Writes the coverage files in `scores/` | Validate Data Files: Navigator layers (`--check`) |
 | `build_priority_gaps.py` | Writes the priority-gap page and JSON in `scores/` and the layers in `navigator/analytics/` | Validate Data Files: headline-number drift guard (`--check`) |
 | `build_navigator_layers.py` | Generates the vendor coverage layer, normalizes the curated layers to v19.2, and writes `navigator/index.md` | Validate Data Files: Navigator layers (`--check`) |
@@ -53,6 +54,7 @@ python scripts/backfill_capec_edges.py
 python scripts/build_atlas.py                # only when re-pinning ATLAS
 python scripts/generate_mitre_pages.py --only all
 python scripts/generate_technique_detail_pages.py
+python scripts/build_attack_atlases.py        # then build_doc_meta.py and build_crosslinks.py
 python scripts/compute_coverage.py
 python scripts/build_priority_gaps.py
 python scripts/build_navigator_layers.py

@@ -6,7 +6,7 @@
 
 | Path | Contents | Upstream |
 |---|---|---|
-| `attack/` | ATT&CK Enterprise objects (techniques, groups, software, campaigns, mitigations, data components, detection strategies, analytics) and the edges between them: `group_to_technique`, `software_to_technique`, `mitigation_to_technique`, `technique_to_d3fend`, `technique_to_car`, `superseded_by` | MITRE ATT&CK v19.2, D3FEND, CAR |
+| `attack/` | ATT&CK Enterprise objects (techniques, groups, software, campaigns, mitigations, data components, detection strategies, analytics) and the edges between them: `group_to_technique`, `software_to_technique`, `mitigation_to_technique`, `technique_to_d3fend`, `technique_to_car`, `superseded_by` | MITRE ATT&CK v20.0, D3FEND, CAR |
 | `attack/ics/`, `attack/mobile/` | The same core objects and group edges for ATT&CK for ICS and ATT&CK for Mobile | MITRE ATT&CK v20.0 |
 | `attack/*_profiles.jsonl` | One row per technique, group, software entry, or campaign, with the lists and counts the pages use (tactics, platforms, mitigations, NIST controls, CAPEC patterns, detection strategies) | Derived by this library from the files above |
 | `control_to_technique.jsonl` | NIST SP 800-53 Rev. 5 controls mapped to ATT&CK techniques | CTID Mappings Explorer (Apache-2.0) |

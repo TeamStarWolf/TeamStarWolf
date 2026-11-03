@@ -1,6 +1,6 @@
 # macOS Security Reference
 
-> macOS ships with a layered, hardware-rooted security architecture; the defender's job is to manage it, observe it, and know where it stops. [Apple's Platform Security Guide](https://support.apple.com/guide/security/welcome/web) documents a stack that runs from the Secure Enclave and a signed system volume up through Gatekeeper, XProtect, and TCC. This reference covers that architecture, the hardening baselines that configure it (NIST mSCP / SP 800-219, CIS, DISA STIG), the native telemetry planes (Endpoint Security framework, unified log), and how the platform maps into MITRE ATT&CK v19, for defenders running Mac fleets, not for admiring the marketing diagram.
+> macOS ships with a layered, hardware-rooted security architecture; the defender's job is to manage it, observe it, and know where it stops. [Apple's Platform Security Guide](https://support.apple.com/guide/security/welcome/web) documents a stack that runs from the Secure Enclave and a signed system volume up through Gatekeeper, XProtect, and TCC. This reference covers that architecture, the hardening baselines that configure it (NIST mSCP / SP 800-219, CIS, DISA STIG), the native telemetry planes (Endpoint Security framework, unified log), and how the platform maps into MITRE ATT&CK v20, for defenders running Mac fleets, not for admiring the marketing diagram.
 
 Two things changed the macOS defense picture in 2025-2026: macOS 27 "Golden Gate" (released 2026-09-14) is the first Apple-silicon-only release, so current-OS fleets can finally assume the Secure Enclave and the Apple silicon boot chain everywhere (macOS 26 Tahoe remains the last Intel-capable release in support); and infostealers are now the leading macOS crimeware concern in vendor reporting (Microsoft, Jamf Threat Labs), attacks that mostly succeed by talking users past the platform controls rather than through them.
 
@@ -21,7 +21,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 22 min (5,085 words at 230 words a minute)
+About 22 min (5,084 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -458,7 +458,7 @@ Accessed 2026-09-24. The Apple Platform Security Guide is continuously updated w
 | [Eclectic Light Company (2023-02-25)](https://eclecticlight.co/2023/02/25/what-are-those-xprotects/), [module count (2025-01-03)](https://eclecticlight.co/2025/01/03/why-xprotect-remediator-scans-now-take-longer/), [XPR v163 (2026-09-18)](https://eclecticlight.co/2026/09/18/apple-has-released-an-update-to-xprotect-remediator-5/) | Third-party XProtect Remediator research (naming, module count, cadence) |
 | [Mandiant unified-log analysis](https://cloud.google.com/blog/topics/threat-intelligence/reviewing-macos-unified-logs/), [Intune DDM guidance](https://techcommunity.microsoft.com/blog/intunecustomersuccess/support-tip-move-to-declarative-device-management-for-apple-software-updates/4432177), [macOS 27 release (9to5Mac)](https://9to5mac.com/2026/09/09/apple-confirms-macos-27-golden-gate-launch-date-september-14/) | Telemetry tooling, DDM migration, release timing |
 
-Verification notes: "XProtect Remediator" as a name, its 24-module count (Eclectic Light, 2025-01-03; module list unchanged at the 2026-09-18 v163 update), and its scan cadence are third-party observations (Eclectic Light), not Apple documentation; the CloudKit delivery channel for notarization ticket revocation is likewise community-observed, not stated on Apple's malware-protection page. FileVault key length is deliberately omitted; Apple's current page states only AES-XTS. CIS exact version strings were confirmed via a secondary catalog (Tenable), not CIS WorkBench. eslogger's 80-event figure is its macOS 13 introduction count. ATT&CK counts are v19.2; v20 is expected ~October 2026. Technique IDs cited were verified against this library's `technique_profiles.jsonl`, a pre-v19 (v18-era) ATT&CK snapshot, and re-checked against attack.mitre.org v19.2.
+Verification notes: "XProtect Remediator" as a name, its 24-module count (Eclectic Light, 2025-01-03; module list unchanged at the 2026-09-18 v163 update), and its scan cadence are third-party observations (Eclectic Light), not Apple documentation; the CloudKit delivery channel for notarization ticket revocation is likewise community-observed, not stated on Apple's malware-protection page. FileVault key length is deliberately omitted; Apple's current page states only AES-XTS. CIS exact version strings were confirmed via a secondary catalog (Tenable), not CIS WorkBench. eslogger's 80-event figure is its macOS 13 introduction count. ATT&CK counts are v20.0 (checked 2026-11-03). Technique IDs cited were verified against this library's `technique_profiles.jsonl`, built from ATT&CK v20.0, and re-checked against the attack.mitre.org v20.0 macOS matrix.
 
 <!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
 

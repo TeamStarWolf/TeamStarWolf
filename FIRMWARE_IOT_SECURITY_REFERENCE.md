@@ -17,7 +17,7 @@ Intermediate to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 14 min (3,264 words at 230 words a minute)
+About 14 min (3,268 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -2769,4 +2769,4 @@ T0884: Used legitimate Siemens STEP 7 software for persistence
 
 ---
 
-*Last updated: 2026-04-26 | Framework versions: OWASP IoT Top 10 (2018), ATT&CK for ICS v19.2, ETSI EN 303 645 v2.1.1, NIST IR 8259A*
+*Last updated: 2026-04-26 | Framework versions: OWASP IoT Top 10 (2018), ATT&CK for ICS v20.0 (technique IDs checked 2026-11-03), ETSI EN 303 645 v2.1.1, NIST IR 8259A*

@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 10 min (2,356 words at 230 words a minute)
+About 10 min (2,365 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -1484,7 +1484,7 @@ Prioritization Matrix:
 
 ### 10.1 Tactic and Technique Overview
 
-The MITRE ATT&CK Enterprise Matrix v14 covers 14 tactics:
+The MITRE ATT&CK Enterprise matrix (v20.0) has 15 tactics ([v20 release notes](https://attack.mitre.org/resources/updates/updates-october-2026/)):
 
 | Tactic | ID | Description |
 |--------|-----|-------------|
@@ -1494,7 +1494,8 @@ The MITRE ATT&CK Enterprise Matrix v14 covers 14 tactics:
 | Execution | TA0002 | Running adversary-controlled code |
 | Persistence | TA0003 | Maintaining foothold across restarts |
 | Privilege Escalation | TA0004 | Gaining higher permissions |
-| Defense Evasion | TA0005 | Avoiding detection |
+| Stealth | TA0005 | Avoiding detection |
+| Defense Impairment | TA0112 | Disabling or degrading defenses |
 | Credential Access | TA0006 | Stealing credentials |
 | Discovery | TA0007 | Learning about the environment |
 | Lateral Movement | TA0008 | Moving through the environment |

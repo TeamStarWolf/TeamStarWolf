@@ -17,7 +17,7 @@ The adversary modifies state information maintained by the target software or ca
 - [CWE-693: Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html): The product does not use or incorrectly uses a protection mechanism that provides sufficient defense against directed attacks against the product.
 - [CWE-1245: Improper Finite State Machines (FSMs) in Hardware Logic](https://cwe.mitre.org/data/definitions/1245.html): Faulty finite state machines (FSMs) in the hardware logic allow an attacker to put the system in an undefined state, to cause a denial of service (DoS) or gain privileges on the victim's system.
 - [CWE-1253: Incorrect Selection of Fuse Values](https://cwe.mitre.org/data/definitions/1253.html): The logic level used to set a system to a secure state relies on a fuse being unblown.
-- [CWE-1265: Unintended Reentrant Invocation of Non-reentrant Code Via Nested Calls](https://cwe.mitre.org/data/definitions/1265.html): The product invokes code that is believed to be reentrant, but the code performs a call that unintentionally produces a nested invocation of the non-reentrant code.
+- [CWE-1265: Unintended Reentrant Invocation of Non-reentrant Code Via Nested Calls](https://cwe.mitre.org/data/definitions/1265.html): The product invokes code that is believed to be reentrant, but the code performs a call that unintentionally produces a nested invocation of non-reentrant code.
 - [CWE-1271: Uninitialized Value on Reset for Registers Holding Security Settings](https://cwe.mitre.org/data/definitions/1271.html): Security-critical logic is not set to a known value on reset.
 
 ## Prerequisites

@@ -10,6 +10,13 @@ It also writes the "What's inside" counts in README.md (a table) and in HOME.md 
 site homepage's count cards), each between the markers `<!-- stats:start ... -->` and
 `<!-- stats:end -->`. --check fails when either block differs from what the current
 files produce, so the front-door counts cannot drift.
+
+Inline counts: any hand-written page may hold one computed number as
+`<!-- stat-KEY:start -->N<!-- stat-KEY:end -->`, where KEY is a stats.json key. The
+script writes N (with thousands separators) into every such pair in the tracked .md
+files outside the generated trees, and --check fails when one is stale or names a key
+stats.json does not have. The intros of CAPEC_REFERENCE.md, CWE_REFERENCE.md,
+D3FEND_REFERENCE.md and ENGAGE_REFERENCE.md carry their headline counts this way.
 """
 from __future__ import annotations
 import json, sys, glob, os, re
@@ -80,13 +87,29 @@ def _library_counts():
                    and page(f))
     # Framework pages are the object pages in mitre/<kind>/ (techniques, groups, capec,
     # ...). Pages at the mitre/ root, such as crosswalk.md, are not object pages.
+    # A retired ATLAS ID keeps a stub page so old links still resolve, but it is not a
+    # technique of the pinned release, so data/ai/atlas_superseded_by.jsonl leaves it out.
+    retired = {"mitre/atlas/" + r["old_id"].replace(".", "-") + ".md"
+               for r in (_rows("data/ai/atlas_superseded_by.jsonl") or []) if r.get("old_id")}
     return {
         "reference_docs": refs,
         "guides": folder("guides/"),
         "learning_paths": folder("disciplines/"),
         "framework_pages": sum(1 for f in files if f.startswith("mitre/")
-                               and f.count("/") >= 2 and page(f)),
+                               and f.count("/") >= 2 and page(f) and f not in retired),
     }
+
+
+def _current(tid, superseded):
+    """tid followed through superseded_by to the id ATT&CK uses today (None when the chain
+    ends in a deprecation)."""
+    seen = set()
+    while tid in superseded and tid not in seen:
+        seen.add(tid)
+        tid = superseded[tid]
+        if not tid:
+            return None
+    return tid
 
 
 def _count(rel):
@@ -99,26 +122,32 @@ def compute():
     d3 = _rows("data/attack/technique_to_d3fend.jsonl") or []
     d3_tech = len({r.get("technique_id") for r in d3 if r.get("technique_id", "").startswith("T")})
     ds = _rows("data/attack/detection_strategies.jsonl") or []
+    superseded = {r["old_id"]: r.get("new_id") for r in (_rows("data/attack/superseded_by.jsonl") or [])}
+    capec = _rows("data/weaknesses/capec.jsonl") or []
+    cwe = _rows("data/weaknesses/cwe.jsonl") or []
+    engage = _rows("data/engage/attack_to_engage.jsonl") or []
     stats = {
         # --- ATT&CK core (project's own data = source of truth) ---
         "technique_total": len(tp),
         "technique_parent": len(tp) - sub,
         "technique_sub": sub,
-        # MITRE currently lists 697 ACTIVE enterprise techniques; this file retains a
-        # small number of superseded records on purpose (no revoked flag in-file), so
-        # technique_total (file) legitimately exceeds MITRE-active. See docs footnote.
-        "mitre_active_enterprise_techniques_ref": 697,
-        # Authoritative entity counts come from the *_profiles files (the complete,
-        # v19.2-current sets). All entities are official MITRE ATT&CK v19.2, including
-        # the S9xxx software block and group G1056 (TeamPCP), which are genuine v19.2
-        # additions (verified on attack.mitre.org), not lab/fictional entries.
+        # The ACTIVE Enterprise techniques of the pinned release: the profile rows that
+        # are not flagged revoked or deprecated. The file keeps the revoked records on
+        # purpose (each keeps its page for lineage), so technique_total exceeds it.
+        # Computed, never typed: it was a hand-typed constant that went stale on a re-pin.
+        "mitre_active_enterprise_techniques_ref": sum(
+            1 for t in tp if not t.get("revoked") and not t.get("deprecated")),
+        # Authoritative entity counts come from the *_profiles files (the complete sets
+        # of the pinned release). All entities are official MITRE ATT&CK, including
+        # the S9xxx software block and group G1056 (TeamPCP), which are genuine ATT&CK
+        # entries (verified on attack.mitre.org), not lab/fictional ones.
         "groups": _count("data/attack/group_profiles.jsonl"),
         "software": _count("data/attack/software_profiles.jsonl"),
         "campaigns": _count("data/attack/campaign_profiles.jsonl"),
         "mitigations": _count("data/attack/mitigations.jsonl"),
         "data_components": _count("data/attack/data_components.jsonl"),
         # Count DISTINCT strategies, not rows: 15 strategies are listed against
-        # both a technique's superseded and current v19.2 id (e.g. DET0532 under
+        # both a technique's superseded and current id (e.g. DET0532 under
         # T1070.001 and T1685.005), so the file has more rows than strategies.
         "detection_strategies": (len({r.get("strategy_id") for r in ds}) if ds else None),
         "detection_strategy_technique_rows": (len(ds) if ds else None),
@@ -128,11 +157,30 @@ def compute():
         "engage_approaches": _count("data/engage/engage_approaches.jsonl"),
         "engage_goals": _count("data/engage/engage_goals.jsonl"),
         "engage_mappings": _count("data/engage/attack_to_engage.jsonl"),
+        # one per (technique, activity) pair; MITRE's attack_mapping.json repeats a pair
+        # once per adversary vulnerability, so its row count is higher
+        "engage_activity_mappings": (sum(len(r.get("engage_activities") or []) for r in engage)
+                                     if engage else None),
+        # --- CAPEC and CWE: the entries a release lists as not Deprecated, the count
+        # capec.mitre.org and cwe.mitre.org show as their totals ---
+        "capec_attack_patterns": (sum(1 for r in capec if r.get("status") != "Deprecated")
+                                  if capec else None),
+        "capec_patterns_with_attack": (sum(1 for r in capec if r.get("attack_techniques"))
+                                       if capec else None),
+        "cwe_weaknesses": (sum(1 for r in cwe if r.get("status") != "Deprecated") if cwe else None),
+        # --- D3FEND ---
+        "d3fend_countermeasures": _count("data/attack/d3fend_countermeasures.jsonl"),
         # --- crosswalk edge tables ---
         "control_to_technique_edges": _count("data/control_to_technique.jsonl"),
         "vendor_to_technique_edges": _count("data/vendor_to_technique.jsonl"),
         "technique_to_d3fend_edges": len(d3) if d3 else None,
         "techniques_with_d3fend": d3_tech,
+        # the current Enterprise and ICS techniques those ids stand for: a revoked id counts
+        # as its live successor (superseded_by.jsonl, followed to the end of the chain) and
+        # a deprecated id with no successor is left out
+        "d3fend_current_attack_techniques": len({
+            c for c in (_current(r.get("technique_id", ""), superseded) for r in d3
+                        if r.get("technique_id", "").startswith("T")) if c}),
         # --- workbench / docs ---
         "navigator_layers": _navigator_layers() or None,
         # --- hand-written and generated pages (README "What's inside") ---
@@ -141,16 +189,21 @@ def compute():
     return {k: v for k, v in stats.items() if v is not None}
 
 # (regex on the doc, group(1) = the number)  ->  stats key it must equal
-# technique_total (714) = the technique RECORDS/pages the library publishes; 697 are
-# active per MITRE v19.2 (17 superseded records retained for lineage; see docs footnote).
+# technique_total = the technique RECORDS/pages the library publishes;
+# mitre_active_enterprise_techniques_ref = the live ones (the revoked records are retained
+# for lineage). Both are computed above; "N active" in a doc must equal the second.
 CHECKS = [
-    # Skip relational subset claims like "the 426 ATT&CK techniques they counter"
-    # (a cross-reference count, not the technique total) via the trailing lookahead.
+    # "N ATT&CK techniques they counter" is the D3FEND cross-reference count, not the
+    # technique total: the lookahead keeps it out of technique_total and the next entry
+    # checks it against the current techniques the D3FEND mappings cover.
     (r"([\d,]+)\s+(?:MITRE\s+)?ATT&CK\s+(?:Enterprise\s+)?techniques\b(?! they counter)", "technique_total"),
+    (r"([\d,]+)\s+(?:current\s+)?(?:MITRE\s+)?ATT&CK\s+(?:Enterprise\s+(?:and\s+ICS\s+)?)?techniques\s+they counter",
+     "d3fend_current_attack_techniques"),
     (r"([\d,]+)\s+(?:MITRE ATT&CK\s+)?(?:adversary\s+)?groups\b", "groups"),
     (r"([\d,]+)\s+(?:MITRE ATT&CK\s+)?malware", "software"),
     (r"([\d,]+)\s+(?:MITRE\s+)?detection strategies", "detection_strategies"),
     (r"([\d,]+)\s+analytics", "analytics"),
+    (r"([\d,]+)\s+active\b", "mitre_active_enterprise_techniques_ref"),
     (r"([\d,]+)\s+deception activities", "engage_activities"),
     (r"([\d,]+)\s+mappings? to ATT", "engage_mappings"),
     (r"([\d,]+)\s+(?:MITRE ATT&CK\s+)?(?:intrusion\s+)?campaigns", "campaigns"),
@@ -235,6 +288,53 @@ def home_block(stats):
 # file -> renderer of its stats block
 BLOCKS = {"README.md": readme_block, "HOME.md": home_block}
 
+INLINE_RE = re.compile(r"(<!-- stat-([a-z0-9_]+):start -->)(.*?)(<!-- stat-\2:end -->)")
+# generated trees: their pages are written by other scripts and carry no inline counts
+INLINE_SKIP = ("mitre/", "techniques/", "detections/", "scores/", "navigator/")
+
+
+def _inline_files():
+    return [f for f in tracked_files() if f.endswith(".md") and not f.startswith(INLINE_SKIP)]
+
+
+def _inline_render(text, stats, probs, rel):
+    def sub(m):
+        key = m.group(2)
+        if key not in stats:
+            probs.append(f"{rel}: <!-- stat-{key} --> names no stats.json key")
+            return m.group(0)
+        return m.group(1) + f"{stats[key]:,}" + m.group(4)
+    return INLINE_RE.sub(sub, text)
+
+
+def inline_problems(stats):
+    probs = []
+    for rel in _inline_files():
+        text = read_text(rel)
+        if not text or "<!-- stat-" not in text:
+            continue
+        new = _inline_render(text, stats, probs, rel)
+        if new != text:
+            probs.append(f"{rel}: an inline stat count is stale; run `python scripts/build_stats.py`")
+    return probs
+
+
+def write_inline(stats):
+    for rel in _inline_files():
+        text = read_text(rel)
+        if not text or "<!-- stat-" not in text:
+            continue
+        probs = []
+        new = _inline_render(text, stats, probs, rel)
+        for p in probs:
+            print("WARNING:", p)
+        if new != text:
+            raw = open(os.path.join(ROOT, rel), "rb").read()
+            eol = "\r\n" if b"\r\n" in raw else "\n"
+            with open(os.path.join(ROOT, rel), "w", encoding="utf-8", newline="") as f:
+                f.write(new.replace("\r\n", "\n").replace("\n", eol))
+            print(f"wrote {rel} inline counts")
+
 
 def block_problems(stats):
     probs = []
@@ -267,7 +367,7 @@ def write_blocks(stats):
 def main():
     stats = compute()
     if "--check" in sys.argv:
-        probs = check(stats) + block_problems(stats)
+        probs = check(stats) + block_problems(stats) + inline_problems(stats)
         if probs:
             print("STALE HEADLINE NUMBERS (must match data/generated/stats.json):")
             for p in probs:
@@ -282,6 +382,7 @@ def main():
         f.write("\n")
     print("wrote data/generated/stats.json")
     write_blocks(stats)
+    write_inline(stats)
     for k, v in sorted(stats.items()):
         print(f"  {k}: {v:,}" if isinstance(v, int) else f"  {k}: {v}")
 

@@ -33,12 +33,50 @@ jobs:
       - name: Validate JSONL files
         run: python scripts/validate_jsonl.py
 
+      # data/vocab/entities.jsonl and vocabulary.json (the vendor, product, actor, malware
+      # and sector ids the Intelligence Hub tags with) are written by build_vocab.py from
+      # the platform pages, the vendor crosswalk, the ATT&CK groups and software and the
+      # curated rows in data/vocab/. Fails on any drift, an unclaimed platform page or
+      # vendor key, a missing library page or an anchor that does not resolve.
+      - name: Entity vocabulary build rules (planted cases)
+        run: python scripts/build_vocab.py --self-test
+
+      - name: Entity vocabulary (data/vocab) matches its sources
+        run: python scripts/build_vocab.py --check
+
       # Rebuilds the ATT&CK core (Enterprise, ICS, Mobile) and superseded_by.jsonl in
-      # memory from the commit-pinned v19.2 STIX bundles and fails on any drift. It fetches
+      # memory from the commit-pinned v20.0 STIX bundles and fails on any drift. It fetches
       # the three public bundles (about 64 MB) from raw.githubusercontent.com at the pinned
       # commit and aborts unless each one matches its SHA-256 in build_attack_core.py.
-      - name: ATT&CK core matches the pinned v19.2 STIX (Enterprise, ICS, Mobile)
+      - name: ATT&CK core matches the pinned v20.0 STIX (Enterprise, ICS, Mobile)
         run: python scripts/build_attack_core.py --check
+
+      # Rebuilds data/ai/ (ATLAS tactics, techniques, mitigations and retired IDs), the two
+      # navigator/ai/ layers and the generated ATLAS_REFERENCE.md blocks in memory from the
+      # commit-pinned ATLAS 2026.10 release file and release notes, and fails on any drift.
+      # It fetches both (about 1.2 MB) from raw.githubusercontent.com and aborts unless each
+      # matches its SHA-256 and size in build_atlas.py. The self-test runs planted cases for
+      # its standard-library YAML reader; the self-check proves every committed file is a
+      # fixed point of the serializer, so a drift report is always about content.
+      - name: ATLAS data, layers and reference tables match the pinned ATLAS 2026.10 release
+        run: |
+          python scripts/build_atlas.py --self-test
+          python scripts/build_atlas.py --self-check
+          python scripts/build_atlas.py --check
+
+      # Rebuilds the three D3FEND files in data/attack/ and the D3FEND_REFERENCE.md tables in
+      # memory from the D3FEND 1.6.0 release (full inferred mappings CSV and ontology JSON,
+      # about 20 MB from d3fend.mitre.org's versioned path) and fails on any drift. Each
+      # input must match its size and SHA-256 in build_d3fend.py.
+      - name: D3FEND data and reference tables match the pinned D3FEND 1.6.0 release
+        run: python scripts/build_d3fend.py --check
+
+      # Rebuilds data/weaknesses/cwe.jsonl and the CWE_REFERENCE.md tables from CWE List 5.0
+      # and checks data/weaknesses/capec.jsonl against CAPEC List 3.9 (ids, names, statuses,
+      # severity, likelihood, related CWEs). Both downloads (about 2.7 MB) must match their
+      # size and SHA-256 in build_weaknesses.py.
+      - name: CWE data matches CWE 5.0 and CAPEC data matches CAPEC 3.9
+        run: python scripts/build_weaknesses.py --check
 
       - name: Check CAPEC edge integrity (profiles vs capec.jsonl)
         run: python scripts/backfill_capec_edges.py --check
@@ -48,7 +86,7 @@ jobs:
 
   corpus-signal:
     name: Corpus-signal round-trip (data file == pages, exactly 21)
-    # The "Team Star Wolf corpus signal" paragraph on 21 technique pages comes from the
+    # The "TeamStarWolf corpus signal" paragraph on 21 technique pages comes from the
     # uncommitted training corpus and exists in-repo only as
     # data/generated/corpus_signal.jsonl. Fail if the data file and the committed pages
     # disagree, or if the count drifts from 21 (a regeneration that dropped the
@@ -91,6 +129,15 @@ jobs:
 
       - name: techniques/ and detections/strategies/ match the data
         run: python scripts/generate_technique_detail_pages.py --check
+
+      # The Technique, ICS and Mobile atlases and Threat Group Profiles are written from
+      # data/attack by build_attack_atlases.py; the header card and the related-pages footer
+      # on them are left to build_doc_meta.py and build_crosslinks.py, whose own checks run
+      # in the site jobs.
+      - name: ATT&CK atlases and Threat Group Profiles match the data
+        run: |
+          python scripts/build_attack_atlases.py --self-test
+          python scripts/build_attack_atlases.py --check
 
   repo-hygiene:
     name: Tracked junk, text encoding, revoked ATT&CK IDs, voice in hand-written pages, theme contrast
@@ -193,9 +240,9 @@ jobs:
 
   validate-navigator:
     name: Validate ATT&CK Navigator layers
-    # Every layer under navigator/ (not just one): JSON shape, domain, versions.attack == 19 for
+    # Every layer under navigator/ (not just one): JSON shape, domain, versions.attack == 20 for
     # the ATT&CK domains, every techniqueID LIVE (present and not revoked/deprecated) in its
-    # domain's profile file, every tactic a v19.2 tactic of that technique, no orphan layers,
+    # domain's profile file, every tactic a v20.0 tactic of that technique, no orphan layers,
     # stage names vs SECURITY_PIPELINE.md. ATLAS/F3 layers are checked against their own data.
     runs-on: ubuntu-latest
     steps:
@@ -209,11 +256,17 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Validate every Navigator layer against the v19.2 data
+      - name: Validate every Navigator layer against the v20.0 data
         run: python scripts/validate_navigator.py
 
       - name: Full-stack layer, curated-layer normalization and navigator/index.md match the data
         run: python scripts/build_navigator_layers.py --check
+
+      # Re-derives each computed layer's technique set (navigator/computed/) from its quoted
+      # rule with code independent of the generator, and fails if a layer's description no
+      # longer quotes its rule and the not-an-official-MITRE-mapping note.
+      - name: Computed layers reproduce from their quoted rules
+        run: python scripts/computed_layers.py --self-check
 
       - name: scores/ (coverage scores + rendered coverage_gaps.md) match the data
         run: python scripts/compute_coverage.py --check

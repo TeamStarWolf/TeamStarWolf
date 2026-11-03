@@ -1,6 +1,6 @@
 # Reconnaissance: Technique Detail
 
-> Full detail pages for the 46 ATT&CK techniques whose primary tactic is [Reconnaissance](https://attack.mitre.org/tactics/TA0043/) (ATT&CK Enterprise v19.2). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](/techniques/README.md).
+> Full detail pages for the 46 ATT&CK techniques whose primary tactic is [Reconnaissance](https://attack.mitre.org/tactics/TA0043/) (ATT&CK Enterprise v20.0). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](/techniques/README.md).
 
 ---
 

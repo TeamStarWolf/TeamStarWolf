@@ -6,7 +6,7 @@ Regenerates one page per MITRE object for: techniques, mitigations, tactics, D3F
 CAPEC, ATLAS, plus every section's README.md index and the /mitre/README landing.
 Everything is derived deterministically from data/attack, data/weaknesses, and data/ai.
 
-CORPUS SIGNAL: the "Team Star Wolf corpus signal" paragraph on a technique page (and the
+CORPUS SIGNAL: the "TeamStarWolf corpus signal" paragraph on a technique page (and the
 "(observed)" mark that flags corpus-observed techniques on tactic pages, the crosswalk
 and the landing page) is keyword-derived from a local 529-machine HTB training corpus
 that is NOT committed to this repo. The extracted per-technique counts ARE committed, in
@@ -31,24 +31,30 @@ from pathlib import Path
 
 from plain_markdown import plain
 import build_crosslinks as xl  # owns the "Library references" block on each page
-from attack_ids import AttackIds
+from attack_ids import ATTACK_RELEASE, ATTACK_VER, AttackIds, technique_releases
+from build_atlas import ATLAS_RELEASE  # the pinned ATLAS release (2026.10)
 from collections import defaultdict, Counter
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 MITRE = ROOT / "mitre"
-ATTACK_VER = "v19.2"
+# ATTACK_VER ("v20.0") comes from scripts/attack_ids.py, which also names the release
+# build_attack_core.py pins; nothing here types a release. Historical statements
+# ("revoked in", "new in") take their release from data/attack/technique_releases.jsonl.
 
-DASH = "\N{EM DASH}"
+# The separator templates put between an id and its name or a term and its gloss.
+# plain() (plain_markdown.py) rewrites it into a colon, comma, sentence break or "N/A",
+# so it never reaches a page. It is an en dash: the voice guide bans the em dash.
+DASH = "\N{EN DASH}"
 ARROW = "\N{RIGHTWARDS ARROW}"
 STAR = "\N{WHITE MEDIUM STAR}"
 
 FOOTER = (
     "---\n\n"
-    "*Source: MITRE ATT&CK\N{REGISTERED SIGN} (v19.2) " + DASH + " ATT&CK\N{REGISTERED SIGN}, "
+    "*Source: MITRE ATT&CK\N{REGISTERED SIGN} (" + ATTACK_VER + ") " + DASH + " ATT&CK\N{REGISTERED SIGN}, "
     "D3FEND\N{TRADE MARK SIGN}, and CAPEC\N{TRADE MARK SIGN} are trademarks of "
-    "The MITRE Corporation. This is an independent reference summary enriched with Team "
-    "Star Wolf corpus telemetry; consult the upstream projects for authoritative content. "
+    "The MITRE Corporation. This is an independent reference summary enriched with "
+    "TeamStarWolf corpus telemetry; consult the upstream projects for authoritative content. "
     "Corpus figures are keyword-derived from a 529-machine training walkthrough corpus "
     "(lower-bound evidence), not an official MITRE mapping.*\n"
 )
@@ -132,7 +138,7 @@ def clean_capec_field(s):
         if not part:
             continue
         if part.rstrip(".").strip().lower() in ("none", "n/a", "na", "unknown", "tbd", "todo"):
-            continue  # MITRE placeholder meaning "no content" — drop the noise bullet
+            continue  # MITRE placeholder meaning "no content": drop the noise bullet
         part = re.sub(r"^[A-Z][A-Z0-9 _-]{1,24}:\s*", "", part).strip()
         if part:
             out.append(part)
@@ -144,7 +150,9 @@ CORPUS_PATH = DATA / "generated" / "corpus_signal.jsonl"
 # markers, so the committed paragraph starts with the bare phrase. (The old pattern
 # required the literal "**" and matched nothing, which made a regeneration delete the
 # paragraph from every page.)
-CORPUS_RE = re.compile(r"(?:\*\*)?Team Star Wolf corpus signal.*?(?=\n\s*\n|\Z)", re.S)
+# Both spellings are read ("Team Star Wolf" was the spelling before the brand settled
+# on "TeamStarWolf"), so pages written before the rename still guard their paragraph.
+CORPUS_RE = re.compile(r"(?:\*\*)?Team ?Star ?Wolf corpus signal.*?(?=\n\s*\n|\Z)", re.S)
 
 
 def extract_corpus(md_path):
@@ -161,9 +169,9 @@ def render_corpus(row):
     Output is already in plain() form (no bold markers) so the written page is
     byte-identical whether or not plain() touches it.
     """
-    return ("Team Star Wolf corpus signal (keyword-derived, n=" + str(row["corpus_n"]) +
+    return ("TeamStarWolf corpus signal (keyword-derived, n=" + str(row["corpus_n"]) +
             " HTB training machines): observed on " + str(row["machines"]) + " machines (" +
-            ("%.1f" % float(row["pct"])) + "%) " + DASH + " Linux " + str(row["linux"]) +
+            ("%.1f" % float(row["pct"])) + "%): Linux " + str(row["linux"]) +
             " / Windows " + str(row["windows"]) + ". See the corpus deep-dive and "
             "detection-coverage matrix in the Lylat Labs range for tooling and detections.")
 
@@ -220,7 +228,7 @@ def link(text, url):
     return "[" + text + "](" + url + ")" if url else text
 
 
-# All ATT&CK software (official S0/S1 and the v19.2 S9xxx block) has a live
+# All ATT&CK software (official S0/S1 and the S9xxx block added in v19) has a live
 # attack.mitre.org page, so inline description links are kept as-is.
 def canon_desc(text):
     return text or ""
@@ -239,7 +247,7 @@ _ABBR = {"e.g", "i.e", "etc", "vs", "cf", "al", "u.s", "a.k.a", "resp", "approx"
 
 def summarize(text, max_chars=220):
     """First full sentence (abbreviation-aware) of a description, on one line.
-    Never cut a complete sentence mid-word — a returned sentence always ends on
+    Never cut a complete sentence mid-word, a returned sentence always ends on
     its own terminal punctuation. Only text with NO sentence terminator at all
     (a run-on) is clipped at a word boundary with an ellipsis. max_chars only
     bounds that run-on fallback; a complete first sentence is returned in full
@@ -252,10 +260,10 @@ def summarize(text, max_chars=220):
         tok = re.sub(r"[^A-Za-z.]", "", raw).rstrip(".").lower()
         # Skip only known abbreviations ("e.g.") and single-LETTER initials ("J." in
         # "J. Smith"). A word ending in a digit ("unit 74455.") or any normal word is
-        # a real sentence end — don't treat it as an initial just because it has no letters.
+        # a real sentence end: don't treat it as an initial just because it has no letters.
         if tok in _ABBR or (len(raw) == 1 and raw.isalpha()):
             continue
-        return t[:m.end()]  # first complete sentence, in full — never truncated
+        return t[:m.end()]  # first complete sentence, in full: never truncated
     # No sentence terminator anywhere: clip the run-on at a word boundary.
     if len(t) > max_chars:
         return t[:max_chars].rsplit(" ", 1)[0].rstrip(",;:(") + "\N{HORIZONTAL ELLIPSIS}"
@@ -314,7 +322,7 @@ class DB:
         ea_p = DATA / "engage/engage_activities.jsonl"
         self.engage_desc = {r["activity_id"]: r.get("description", "") for r in (load_jsonl(ea_p) if ea_p.exists() else [])}
 
-        # F3 — CTID Fight Fraud Framework
+        # F3: CTID Fight Fraud Framework
         f3_p = DATA / "fraud/f3_techniques.jsonl"
         self.f3 = {r["technique_id"]: r for r in (load_jsonl(f3_p) if f3_p.exists() else [])}
         self.f3_tactics = {r.get("shortname"): r for r in load_jsonl(DATA / "fraud/f3_tactics.jsonl")} if (DATA / "fraud/f3_tactics.jsonl").exists() else {}
@@ -332,8 +340,8 @@ class DB:
         self.group_prof = {r["group_id"]: r for r in (load_jsonl(gp_p) if gp_p.exists() else [])}
         self.group_name_to_id = {r["name"]: r["group_id"] for r in self.group_prof.values()}
         # software + campaign per-object pages (from the ATT&CK STIX).
-        # All ATT&CK software IDs — official S0/S1 and the v19.2 S9xxx block (e.g. G1056
-        # TeamPCP's S9041-44, verified live on attack.mitre.org) — are first-class objects
+        # All ATT&CK software IDs (official S0/S1 and the S9xxx block, e.g. G1056
+        # TeamPCP's S9041-44, verified live on attack.mitre.org) are first-class objects
         # with a valid ATT&CK ID and a live attack.mitre.org page.
         sp_p = DATA / "attack/software_profiles.jsonl"
         _sw_all = load_jsonl(sp_p) if sp_p.exists() else []
@@ -341,7 +349,7 @@ class DB:
                         if re.fullmatch(r"S\d{4}", r["software_id"])}
         self.sw_name_to_id = {r["name"]: r["software_id"] for r in self.sw_prof.values()}
         # (The earlier S9xxx "emerging/community" and "lab/fictional" carve-outs were
-        # removed — those entities are official MITRE ATT&CK v19.2, verified live.)
+        # removed: those entities are official MITRE ATT&CK, verified live.)
         cp_p = DATA / "attack/campaign_profiles.jsonl"
         self.camp_prof = {r["campaign_id"]: r for r in (load_jsonl(cp_p) if cp_p.exists() else [])}
         # Live per-technique edges. Technique pages print counts and lists from these
@@ -355,6 +363,12 @@ class DB:
         self.strats_by_t = defaultdict(list)
         for r in sorted(load_jsonl(DATA / "attack/detection_strategies.jsonl"), key=lambda r: r["strategy_id"]):
             self.strats_by_t[r["technique_id"]].append(r["name"])
+        # The library's own notes for techniques MITRE shipped with little around them
+        # (data/attack/technique_enrichment.jsonl; schema in scripts/validate_jsonl.py):
+        # narrative, defender notes, re-checked references, related ATLAS techniques and
+        # the dated "no upstream CAPEC / CTID mapping" check.
+        en_p = DATA / "attack/technique_enrichment.jsonl"
+        self.enrich = {r["technique_id"]: r for r in (load_jsonl(en_p) if en_p.exists() else [])}
 
         self.nist_name = {}
         for r in load_jsonl(DATA / "control_to_technique.jsonl"):
@@ -366,6 +380,11 @@ class DB:
         for r in tp:
             if r.get("parent_id"):
                 self.subs[r["parent_id"]].append(r["technique_id"])
+
+        # release history per Enterprise technique (data/attack/technique_releases.jsonl):
+        # the banners say which release added or revoked a technique from these rows.
+        self.releases = {tid: r for (dom, tid), r in technique_releases(ROOT).items()
+                         if dom == "enterprise"}
 
         # reverse of superseded_by: successor_id -> [(revoked_id, revoked_name)]
         self.supersedes = defaultdict(list)
@@ -401,6 +420,12 @@ class DB:
         for r in self.atlas.values():
             if r.get("parent_id"):
                 self.atlas_subs[r["parent_id"]].append(r["technique_id"])
+        # ATLAS ids retired by a release keep a stub page (title + successor banner), the
+        # same rule revoked ATT&CK techniques follow, so old #/mitre/atlas/<id> links and
+        # other repos' references still land somewhere useful. Rows that are live again
+        # in the current release are skipped.
+        self.atlas_retired = {r["old_id"]: r for r in load_jsonl(DATA / "ai/atlas_superseded_by.jsonl")
+                              if r["old_id"] not in self.atlas}
 
         # --- D3FEND (reverse map: countermeasure -> tactic, artifacts, ATT&CK techniques it counters) ---
         # D3FEND publishes its ATT&CK mappings against whatever id they were authored for,
@@ -492,15 +517,155 @@ class DB:
 
 
 # ----------------------------------------------------------------------------- technique
+def one_line(text):
+    """Upstream text on one line (analytic notes carry newlines and no-break spaces)."""
+    return re.sub(r"\s+", " ", str(text or "")).strip()
+
+
+def atlas_label(db, aid):
+    """'AML.T0051.001 LLM Prompt Injection: Indirect' style label for an ATLAS id."""
+    r = db.atlas.get(aid) or {}
+    name = r.get("name", "")
+    par = r.get("parent_id")
+    if par and par in db.atlas:
+        name = db.atlas[par].get("name", "") + ": " + name
+    return aid + " " + DASH + " " + name
+
+
+def render_reference(ref):
+    """One reference row. A citation whose link did not open at the last check is kept as
+    plain text with that note, never linked."""
+    title = ref["title"]
+    head = ref["author"] + ", "
+    when = (", " + ref["date"]) if ref.get("date") else ""
+    if ref.get("url"):
+        return "- " + head + "[" + title + "](" + ref["url"] + ")" + when + "."
+    return ("- " + head + title + when + " (not linked: the page did not open for the library's "
+            "link check on " + ref["checked_at"] + ").")
+
+
+def render_technique_enrichment(db, tid, en):
+    """Related ATLAS techniques, references and the dated upstream-mapping line."""
+    p = db.prof[tid]
+    out = []
+    rel = en.get("related_atlas") or []
+    if rel:
+        out.append("## Related ATLAS techniques (" + str(len(rel)) + ")\n")
+        out.append("The library pairs " + tid + " with these ATLAS " + ATLAS_RELEASE + " techniques. "
+                   "They are related, not an official mapping: ATLAS " + ATLAS_RELEASE + " carries no "
+                   "ATT&CK reference to " + tid + ". " + en.get("atlas_note", "").strip() + "\n")
+        out.append("\n".join("- [" + atlas_label(db, a) + "](/mitre/atlas/" + aml_slug(a) + ".md)"
+                             for a in rel) + "\n")
+    refs = en.get("references") or []
+    if refs:
+        out.append("## References (" + str(len(refs)) + ")\n")
+        out.append("The sources MITRE cites for " + tid + ", re-opened on " +
+                   en["references"][0]["checked_at"] + ".\n")
+        out.append("\n".join(render_reference(r) for r in refs) + "\n")
+        n_news = int(en.get("omitted_news") or 0)
+        if n_news:
+            out.append("MITRE's page also cites " + str(n_news) + " news " +
+                       ("article" if n_news == 1 else "articles") + " that the library does not carry as "
+                       "a primary source.\n")
+    if not (p.get("capec") or []):
+        out.append("## Upstream mappings\n")
+        out.append("No upstream mapping as of " + en["mappings_checked_at"] + ": CAPEC " +
+                   en["capec_release"] + " (the latest CAPEC release) has no ATT&CK taxonomy entry for " +
+                   tid + ", and the CTID Mappings Explorer, whose ATT&CK mappings are for v" +
+                   en["ctid_attack_release"] + ", has no page for it.\n")
+    return out
+
+
+# ATLAS_REFERENCE.md carries the same pairings as a table, between these markers. The
+# block is written here (the pairings are this script's input) and --check compares it.
+ATLAS_REF = ROOT / "ATLAS_REFERENCE.md"
+XW_START = ("<!-- attack-crosswalk:start (written by scripts/generate_mitre_pages.py from "
+            "data/attack/technique_enrichment.jsonl; do not edit) -->")
+XW_END = "<!-- attack-crosswalk:end -->"
+
+
+def render_atlas_crosswalk(db):
+    """The library's ATT&CK -> related ATLAS table, one row per enriched technique, in
+    ATT&CK id order. Names come from the ATT&CK and ATLAS data, never typed here."""
+    def key(tid):
+        return [int(x) for x in tid[1:].split(".")]
+    rows = ["| ATT&CK " + ATTACK_VER + " technique | Related ATLAS " + ATLAS_RELEASE +
+            " techniques (library pairing) | Why the library pairs them |", "|---|---|---|"]
+    for tid in sorted(db.enrich, key=key):
+        en = db.enrich[tid]
+        t = "[" + tid + " " + db.prof[tid]["name"] + "](/mitre/techniques/" + tslug(tid) + ".md)"
+        rel = ", ".join("[" + atlas_label(db, a).replace(" " + DASH + " ", " ") + "](/mitre/atlas/" +
+                        aml_slug(a) + ".md)" for a in en.get("related_atlas") or []) or "None"
+        rows.append("| " + t + " | " + rel + " | " + en.get("atlas_note", "").strip().replace("|", "\\|") + " |")
+    return XW_START + "\n\n" + "\n".join(rows) + "\n\n" + XW_END
+
+
+def sync_atlas_crosswalk(db, check):
+    """Write (or, with check, compare) the crosswalk block in ATLAS_REFERENCE.md. The page
+    keeps its own line endings. Returns 0 when the block is current, 1 otherwise."""
+    raw = ATLAS_REF.read_bytes().decode("utf-8")
+    crlf = "\r\n" in raw
+    text = raw.replace("\r\n", "\n")
+    i, j = text.find(XW_START), text.find(XW_END)
+    if i < 0 or j < i:
+        print("ATLAS CROSSWALK: ATLAS_REFERENCE.md has no " + XW_START[:30] + "... block")
+        return 1
+    new = text[:i] + render_atlas_crosswalk(db) + text[j + len(XW_END):]
+    if new == text:
+        print("OK: ATLAS_REFERENCE.md crosswalk block matches data/attack/technique_enrichment.jsonl")
+        return 0
+    if check:
+        print("ATLAS CROSSWALK DRIFT: the block in ATLAS_REFERENCE.md differs from "
+              "data/attack/technique_enrichment.jsonl. Run `python scripts/generate_mitre_pages.py "
+              "--only techniques` and commit the result.")
+        return 1
+    ATLAS_REF.write_bytes((new.replace("\n", "\r\n") if crlf else new).encode("utf-8"))
+    print("atlas crosswalk: wrote " + str(len(db.enrich)) + " rows to ATLAS_REFERENCE.md")
+    return 0
+
+
+def technique_invariants(db):
+    """Rules every rendered technique page must keep (run by --check and --self-test):
+    no analytic row stops after its platforms, every campaign that uses the technique
+    is linked by id (up to CAP_NAMED), a live technique without a detection strategy
+    says so, an enriched page carries its narrative, defender notes and references,
+    and a reference that did not open is never rendered as a link."""
+    empty_row = re.compile(r"^- \*\*[^*]+\*\* \([^)]*\)\s*$", re.M)
+    problems = []
+    for tid in sorted(db.prof):
+        page = render_technique(db, tid)
+        if empty_row.search(page):
+            problems.append(tid + ": an analytic row ends after its platforms (empty analytic)")
+        for c in (db.camps_by_t.get(tid) or [])[:CAP_NAMED]:
+            if "(/mitre/campaigns/" + c + ".md)" not in page:
+                problems.append(tid + ": campaign " + c + " is counted but not linked")
+        p = db.prof[tid]
+        if not (p.get("revoked") or p.get("deprecated") or p.get("has_detection_strategy")):
+            if "MITRE publishes no detection strategy for this technique" not in page:
+                problems.append(tid + ": no detection strategy, and the page does not say so")
+        en = db.enrich.get(tid)
+        if en:
+            for label, needle in (("narrative", en["narrative"][0].strip()),
+                                  ("defender notes", "**Defender notes (library):**"),
+                                  ("references", "## References (")):
+                if needle not in page:
+                    problems.append(tid + ": enriched page lacks its " + label)
+            for ref in en.get("references") or []:
+                line = render_reference(ref)
+                if not ref.get("url") and "](" in line:
+                    problems.append(tid + ": unreachable reference rendered as a link")
+    return problems
+
+
 def render_technique(db, tid):
     p = db.prof[tid]
     out = ["# " + tid + " " + DASH + " " + p["name"] + "\n", '<a id="' + tanchor(tid) + '"></a>\n']
 
     plats = ", ".join(p.get("platforms") or []) or DASH
     if p.get("revoked"):
-        # A revoked object has no v19.2 tactic. Its stored tactic is the pre-v19 one put
+        # A revoked object has no current tactic. Its stored tactic is the pre-v19 one put
         # through the Defense Evasion -> Stealth rename, so print it as the legacy tactic
-        # and give the successor's v19.2 tactics next to it (review cur-8).
+        # and give the successor's current tactics next to it (review cur-8).
         legacy = [LEGACY_TACTIC.get(t, t) for t in (p.get("tactics") or [])]
         tac_lines = ["**Tactics (pre-v19, legacy):** " + (", ".join(legacy) or DASH) + "  "]
         sup = p.get("superseded_by")
@@ -529,18 +694,34 @@ def render_technique(db, tid):
             tgt = "[" + sup + " " + DASH + " " + supname + "](https://attack.mitre.org/techniques/" + sup.replace(".", "/") + ")"
         else:
             tgt = ""
-        out.append("> **⚠ Revoked in ATT&CK v19.2**" + ((" " + DASH + " superseded by " + tgt + ".") if tgt else ".") + "\n")
+        out.append("> **⚠ " + revoked_phrase(db, tid) + "**" + ((" and superseded by " + tgt + ".") if tgt else ".") + "\n")
     elif p.get("deprecated"):
-        out.append("> **⚠ Deprecated in ATT&CK v19.2.**\n")
+        out.append("> **⚠ Deprecated in ATT&CK.** It is not part of ATT&CK " + ATTACK_VER + ".\n")
 
     sups = db.supersedes.get(tid) or []
+    added = (db.releases.get(tid) or {}).get("added_in")
     if sups:
         parts = ", ".join("[" + oid + " " + DASH + " " + onm + "](/mitre/techniques/" + tslug(oid) + ".md)"
                           for oid, onm in sorted(sups))
-        out.append("> **New in ATT&CK v19.2** " + DASH + " supersedes " + parts +
-                   " (revoked; kept for reference).\n")
+        out.append("> **New in ATT&CK " + ("v" + added if added else ATTACK_VER) + ".** It supersedes " +
+                   parts + " (revoked; kept for reference).\n")
+    elif added == ATTACK_RELEASE and not p.get("revoked"):
+        if tid in db.enrich:
+            out.append("> **New in ATT&CK " + ATTACK_VER + ".** MITRE added this technique in the current "
+                       "release. The overview, defender notes, references and related ATLAS techniques on "
+                       "this page are the library's own, last reviewed " + db.enrich[tid]["reviewed_at"] +
+                       "; the NIST control and corpus signal data do not cover it yet.\n")
+        else:
+            out.append("> **New in ATT&CK " + ATTACK_VER + ".** MITRE added this technique in the current "
+                       "release; the library's own enrichment (NIST controls, CAPEC, detections, corpus "
+                       "signal) may not cover it yet.\n")
 
-    if p.get("description"):
+    en = db.enrich.get(tid)
+    if en:
+        out.append("\n\n".join(x.strip() for x in en["narrative"]) + "\n")
+        if p.get("description"):
+            out.append("ATT&CK's definition: " + p["description"].strip() + "\n")
+    elif p.get("description"):
         out.append(p["description"].strip() + "\n")
 
     if tid in db.corpus:
@@ -590,8 +771,12 @@ def render_technique(db, tid):
     # Detection (enriched: strategies + analytics with log sources)
     strategies = db.strats_by_t.get(tid) or []
     analytics = db.analytics.get(tid) or []
-    if strategies or analytics:
+    no_strategy = not (p.get("revoked") or p.get("deprecated") or p.get("has_detection_strategy"))
+    notes = (en or {}).get("detection_notes")
+    if strategies or analytics or no_strategy or notes:
         out.append("## Detection\n")
+        if no_strategy and not strategies:
+            out.append("MITRE publishes no detection strategy for this technique in ATT&CK " + ATTACK_VER + ".\n")
         if strategies:
             out.append("**Detection strategies:**\n")
             out.append("\n".join("- " + s for s in strategies) + "\n")
@@ -612,10 +797,16 @@ def render_technique(db, tid):
                     parts.append(seg)
                 more = " (+" + str(len(ls) - CAP_LOGSRC) + " more)" if len(ls) > CAP_LOGSRC else ""
                 name = a.get("name") or a.get("analytic_id")
-                arows.append("- **" + str(name) + "** (" + aplats + ") " + DASH + " " + "; ".join(parts) + more)
+                # An analytic with no log sources is MITRE's note on why the technique is hard
+                # to see from the target's side; print that note instead of an empty row.
+                tail = "; ".join(parts) + more if parts else one_line(a.get("description"))
+                arows.append("- **" + str(name) + "** (" + aplats + ")" +
+                             ((" " + DASH + " " + tail) if tail else ""))
             out.append("\n".join(arows) + "\n")
             if len(analytics) > CAP_ANALYTICS:
                 out.append("_+" + str(len(analytics) - CAP_ANALYTICS) + " more analytics._\n")
+        if notes:
+            out.append("**Defender notes (library):** " + notes.strip() + "\n")
 
     # Data sources & telemetry (from the analytics' log sources)
     comps, seen = [], set()
@@ -629,7 +820,7 @@ def render_technique(db, tid):
         out.append("## Data sources & telemetry (" + str(len(comps)) + ")\n")
         out.append(", ".join("**" + c + "**" for c in comps) + "\n")
 
-    # CAR analytics (MITRE Cyber Analytics Repository — detection analytics with pseudocode)
+    # CAR analytics (MITRE Cyber Analytics Repository: detection analytics with pseudocode)
     car = db.car.get(tid) or []
     if car:
         out.append("## CAR analytics (" + str(len(car)) + ")\n")
@@ -657,7 +848,7 @@ def render_technique(db, tid):
         if via:
             out.append(_via_revoked_note(db, via, "MITRE Engage"))
 
-    # F3 (CTID Fight Fraud Framework) — this technique is also modeled as a fraud technique
+    # F3 (CTID Fight Fraud Framework): this technique is also modeled as a fraud technique
     if tid in db.f3_of_attack:
         fr = db.f3.get(tid, {})
         out.append("## Fraud (F3)\n")
@@ -685,7 +876,7 @@ def render_technique(db, tid):
                     continue
                 al = first_alias_str(gr.get("aliases"), g)
                 al_txt = " (" + al + ")" if al else ""
-                notable.append("- " + group_link(db, g) + al_txt + " " + DASH + " " + d)
+                notable.append("- " + group_link(db, g) + al_txt + ": " + d)
             if notable:
                 out.append("_Notable groups seen using this technique:_\n")
                 out.append("\n".join(notable) + "\n")
@@ -694,7 +885,11 @@ def render_technique(db, tid):
             extra = " _+" + str(len(sw) - CAP_NAMED) + " more_" if len(sw) > CAP_NAMED else ""
             out.append("**Software/tools (" + str(sc) + "):** " + named + extra + "\n")
         if cc:
-            out.append("**Campaigns:** " + str(cc) + " (per MITRE ATT&CK)\n")
+            camps = db.camps_by_t.get(tid) or []
+            named = ", ".join("[" + c + " " + DASH + " " + db.camp_prof[c].get("name", "") +
+                              "](/mitre/campaigns/" + c + ".md)" for c in camps[:CAP_NAMED])
+            extra = " _+" + str(cc - CAP_NAMED) + " more_" if cc > CAP_NAMED else ""
+            out.append("**Campaigns (" + str(cc) + "):** " + named + extra + "\n")
 
     # Sub-techniques (for parent techniques). Revoked sub-techniques are not current
     # members of the parent (review cur-4): they are listed apart with their successor.
@@ -713,8 +908,11 @@ def render_technique(db, tid):
         out.append("\n".join(rows) + "\n")
     if gone_kids:
         out.append("## Revoked sub-techniques (" + str(len(gone_kids)) + ")\n")
-        out.append("Revoked in ATT&CK " + ATTACK_VER + "; the pages are kept for reference.\n")
+        out.append(revoked_phrase(db, *gone_kids) + "; the pages are kept for reference.\n")
         out.append("\n".join("- " + revoked_line(db, k) for k in gone_kids) + "\n")
+
+    if en:
+        out.extend(render_technique_enrichment(db, tid, en))
 
     # NIST 800-53 (now with control names)
     nist = p.get("nist_800_53_controls") or []
@@ -771,7 +969,17 @@ def _via_revoked_note(db, via, source):
     preds = ", ".join(link_tech(db, old) + " (" + str(len(items)) + ")"
                       for old, items in sorted(via.items()))
     return ("_Carried forward from revoked " + preds + ": " + source + " is keyed on the "
-            "predecessor id, which ATT&CK has since revoked in favour of this technique (current release: v19.2)._\n")
+            "predecessor id, which ATT&CK has since revoked in favour of this technique (current release: " +
+            ATTACK_VER + ")._\n")
+
+
+def revoked_phrase(db, *tids):
+    """'Revoked in ATT&CK v19.0' for one or more revoked techniques, naming each release
+    data/attack/technique_releases.jsonl gives them ('v6.3 and v19.0' when they differ),
+    or 'Revoked in ATT&CK' when the data has none."""
+    rels = sorted({(db.releases.get(t) or {}).get("revoked_in") for t in tids} - {None},
+                  key=lambda v: [int(x) for x in v.split(".")])
+    return "Revoked in ATT&CK" + ((" " + " and ".join("v" + v for v in rels)) if rels else "")
 
 
 def link_tech(db, tid, name=None, domain="enterprise"):
@@ -800,8 +1008,10 @@ def render_mitigation(db, mid, existing):
     if m.get("description"):
         out.append(m["description"].strip() + "\n")
     # preserved, non-data sections
-    for h in ("How to implement", "Team Star Wolf corpus relevance"):
-        body = extract_section(existing, h)
+    # (heading written, headings read): the corpus section was headed "Team Star Wolf
+    # corpus relevance" before the brand spelling settled on "TeamStarWolf"
+    for h, olds in (("How to implement", ()), ("TeamStarWolf corpus relevance", ("Team Star Wolf corpus relevance",))):
+        body = next((b for b in (extract_section(existing, x) for x in (h,) + olds) if b), None)
         if body:
             out.append("## " + h + "\n")
             out.append(body + "\n")
@@ -824,7 +1034,7 @@ def render_tactic(db, slug, existing):
         m = re.search(r'</a>\s*\n+(.*?)(?:\n\s*\n|\Z)', existing, re.S)
         if m:
             desc = m.group(1).strip()
-    # live techniques only: a revoked object has no v19.2 tactic (its stored one is the
+    # live techniques only: a revoked object has no current tactic (its stored one is the
     # pre-v19 tactic put through the rename), and the tactic landing counts live only
     techs = [t for t, p in db.prof.items()
              if not p.get("revoked") and slug in (p.get("tactics") or [])]
@@ -835,12 +1045,12 @@ def render_tactic(db, slug, existing):
     # most-observed in the corpus (this tactic's techniques that carry a corpus signal)
     obs = sorted(((db.corpus_pct.get(t, 0), t) for t in techs if t in db.corpus_ids), reverse=True)
     if obs:
-        out.append("## Most-observed in the Team Star Wolf corpus\n")
+        out.append("## Most-observed in the TeamStarWolf corpus\n")
         out.append("\n".join(
             "- [" + t + " " + DASH + " " + db.prof[t]["name"] + "](/mitre/techniques/" + tslug(t) +
             ".md) " + DASH + " " + (str(pct) + "% of machines" if pct else "observed")
             for pct, t in obs) + "\n")
-    out.append("**" + str(len(techs)) + " techniques** in this tactic (Team Star Wolf enriched pages):\n")
+    out.append("**" + str(len(techs)) + " techniques** in this tactic (TeamStarWolf enriched pages):\n")
     out.append("\n".join(
         "- [" + t + " " + DASH + " " + db.prof[t]["name"] + "](/mitre/techniques/" + tslug(t) + ".md)" +
         (" " + STAR if t in db.corpus_ids else "") for t in techs) + "\n")
@@ -848,7 +1058,9 @@ def render_tactic(db, slug, existing):
     return "\n".join(out)
 
 
-# v19.2 renamed Defense Evasion (TA0005) -> Stealth and split out Defense Impairment (TA0112).
+# ATT&CK v19 renamed Defense Evasion (TA0005) -> Stealth and split out Defense Impairment
+# (TA0112). The split is history, so its release is stated as such, not as ATTACK_VER.
+TACTIC_SPLIT_RELEASE = "v19"
 RENAMED_TACTICS = {"defense-evasion": ("Defense Evasion", "stealth", "Stealth")}
 LEGACY_TACTIC = {new: old for old, (_, new, _) in RENAMED_TACTICS.items()}  # stealth -> defense-evasion
 TACTIC_ORDER = [
@@ -863,14 +1075,14 @@ TACTIC_NAME = dict(TACTIC_ORDER)
 
 
 def primary_tactic(p):
-    """First v19.2 tactic of a technique (the grouping /techniques/ uses too), else None."""
+    """First current tactic of a technique (the grouping /techniques/ uses too), else None."""
     return next((t for t in (p.get("tactics") or []) if t in TACTIC_NAME), None)
 
 
 def render_tactic_pointer(old_name, new_slug, new_name):
     return ("# Tactic: " + old_name + " (renamed)\n\n"
             '<a id="' + new_slug + '-legacy"></a>\n\n'
-            "> **Renamed in ATT&CK v19.2.** _" + old_name + "_ (TA0005) is now **[" + new_name +
+            "> **Renamed in ATT&CK " + TACTIC_SPLIT_RELEASE + ".** _" + old_name + "_ (TA0005) is now **[" + new_name +
             "](/mitre/tactics/" + new_slug + ".md)**, and the impairment behaviours split into the new "
             "**[Defense Impairment](/mitre/tactics/defense-impairment.md)** (TA0112). This page is kept as a "
             "pointer so existing links resolve; see those two tactic pages.\n\n" + SHORT_FOOTER)
@@ -880,7 +1092,7 @@ def render_tactic_landing(db):
     def count(slug):
         return sum(1 for p in db.prof.values() if not p.get("revoked") and slug in (p.get("tactics") or []))
     out = ["# ATT&CK Tactics (" + ATTACK_VER + ")", "",
-           "The 15 Enterprise tactics. In **v19.2**, _Defense Evasion_ (TA0005) was renamed "
+           "The 15 Enterprise tactics. In **" + TACTIC_SPLIT_RELEASE + "**, _Defense Evasion_ (TA0005) was renamed "
            "[Stealth](/mitre/tactics/stealth.md) and the new "
            "[Defense Impairment](/mitre/tactics/defense-impairment.md) tactic (TA0112) was split out.", ""]
     for slug, name in TACTIC_ORDER:
@@ -907,14 +1119,19 @@ def render_technique_index(db):
         return ("- [" + t + " " + DASH + " " + db.prof[t]["name"] + "](/mitre/techniques/" + tslug(t) + ".md)" +
                 (" " + STAR if t in db.corpus_ids else ""))
 
-    out = ["# MITRE ATT&CK Techniques: Enriched Pages", "",
-           "One page per ATT&CK technique (" + str(len(db.prof)) + " pages: " + str(len(live)) +
-           " current in ATT&CK " + ATTACK_VER + " plus " + str(len(gone)) + " revoked in " + ATTACK_VER +
+    new = sorted(t for t in live if (db.releases.get(t) or {}).get("added_in") == ATTACK_RELEASE)
+    out = ["# ATT&CK Techniques: Enriched Pages", "",
+           "Look up a technique to see how to mitigate it, detect it and map it to controls. There is one "
+           "page per technique (" + str(len(db.prof)) + " pages: " + str(len(live)) +
+           " current in MITRE ATT&CK\N{REGISTERED SIGN} " + ATTACK_VER + " plus " + str(len(gone)) + " " +
+           revoked_phrase(db, *gone).replace("Revoked", "revoked") +
            " and kept for reference), each enriched with mitigations, D3FEND countermeasures, CAPEC, NIST "
-           "800-53 controls, detection strategies, and Team Star Wolf corpus prevalence where observed. "
+           "800-53 controls, detection strategies, and TeamStarWolf corpus prevalence where observed. "
            "Each current technique is listed once, under its primary (first) tactic; a "
            "[tactic page](/mitre/tactics/README.md) lists every technique in that tactic. " + STAR +
-           " marks the " + str(len(db.corpus_ids)) + " techniques seen in the Team Star Wolf training corpus.", "",
+           " marks the " + str(len(db.corpus_ids)) + " techniques seen in the TeamStarWolf training corpus." +
+           ((" New in " + ATTACK_VER + " (" + str(len(new)) + "): " +
+             ", ".join("[" + t + "](/mitre/techniques/" + tslug(t) + ".md)" for t in new) + ".") if new else ""), "",
            "[MITRE Hub](/mitre/README.md) \N{MIDDLE DOT} [Tactics](/mitre/tactics/README.md) \N{MIDDLE DOT} "
            "[Mitigations](/mitre/mitigations/README.md)", ""]
     for slug, name in TACTIC_ORDER:
@@ -924,10 +1141,10 @@ def render_technique_index(db):
         out.append("## " + name + " (" + str(len(ts)) + ")\n")
         out.append("\n".join(item(t) for t in ts) + "\n")
     if untagged:
-        out.append("## No " + ATTACK_VER + " tactic (" + str(len(untagged)) + ")\n")
+        out.append("## No current tactic (" + str(len(untagged)) + ")\n")
         out.append("\n".join(item(t) for t in untagged) + "\n")
     if gone:
-        out.append("## Revoked in ATT&CK " + ATTACK_VER + " (" + str(len(gone)) + ")\n")
+        out.append("## Revoked techniques (" + str(len(gone)) + ")\n")
         out.append("No longer current ATT&CK techniques. Each page is kept so old links resolve, and "
                    "carries a banner to the technique that replaced it.\n")
         out.append("\n".join("- " + revoked_line(db, t) for t in gone) + "\n")
@@ -940,7 +1157,7 @@ def render_mitigation_landing(db, mids):
     rows = sorted(mids, key=lambda m: (-len(db.mit_techs.get(m, [])), m))
     out = ["# MITRE ATT&CK Mitigations: with Implementation Guidance", "",
            "One page per ATT&CK mitigation (" + str(len(rows)) + "), each with concrete how-to-implement "
-           "steps, mapped NIST 800-53 families, the techniques it addresses, and Team Star Wolf corpus "
+           "steps, mapped NIST 800-53 families, the techniques it addresses, and TeamStarWolf corpus "
            "relevance. ATT&CK " + ATTACK_VER + ".", "",
            "[MITRE Hub](/mitre/README.md), [Techniques](/mitre/techniques/README.md)", "", "",
            "| Mitigation | Techniques addressed |", "|---|---:|"]
@@ -1059,7 +1276,7 @@ def render_capec(db, cid):
                 line += " " + DASH + " " + ts
             rows.append(line)
         out.append("\n".join(rows) + "\n")
-    # related CWE — per-CWE links with names + inlined weakness detail
+    # related CWE: per-CWE links with names + inlined weakness detail
     cwes = as_list(c.get("related_cwe"))
     if cwes:
         out.append("## Related CWE (" + str(len(cwes)) + ")\n")
@@ -1128,6 +1345,28 @@ def render_atlas_technique(db, tid):
     return "\n".join(out)
 
 
+def render_atlas_retired(db, tid):
+    """Stub page for an ATLAS technique id a release retired (data/ai/atlas_superseded_by.jsonl):
+    the old name, the release that retired it and its successor, or a note that the release
+    notes name none."""
+    r = db.atlas_retired[tid]
+    out = ["# " + tid + " " + DASH + " " + (r.get("old_name") or "") + "\n", '<a id="' + aml_anchor(tid) + '"></a>\n']
+    new = r.get("new_id")
+    if new:
+        # the superseded row carries the full "Parent: Sub" name; the technique row only the sub name
+        nm = r.get("new_name") or db.atlas.get(new, {}).get("name") or ""
+        banner = ("> Retired in ATLAS " + str(r.get("retired_in")) + " and superseded by [" + new + ": " + nm +
+                  "](/mitre/atlas/" + aml_slug(new) + ".md).")
+    else:
+        banner = ("> Retired in ATLAS " + str(r.get("retired_in")) +
+                  "; no successor named in the release notes.")
+    out.append(banner + "\n")
+    out.append("This ID is no longer part of the current ATLAS release. The page stays so that older links "
+               "keep working; see the [ATLAS index](/mitre/atlas/README.md) for the live techniques.\n")
+    out.append(SHORT_FOOTER)
+    return "\n".join(out)
+
+
 def render_atlas_mitigation(db, mid):
     r = db.atlas_mit[mid]
     out = ["# " + mid + " " + DASH + " " + r.get("name", "") + "\n", '<a id="' + aml_anchor(mid) + '"></a>\n']
@@ -1152,6 +1391,15 @@ def render_atlas_index(db):
     out += ["", "## Mitigations", ""]
     out += ["- [" + mid + " " + DASH + " " + db.atlas_mit[mid].get("name", "") + "](/mitre/atlas/" + aml_slug(mid) + ".md)"
             for mid in sorted(db.atlas_mit)]
+    if db.atlas_retired:
+        out += ["", "## Retired techniques", "",
+                "IDs a release retired; each page names the release and the successor.", ""]
+        for tid in sorted(db.atlas_retired):
+            r = db.atlas_retired[tid]
+            line = ("- [" + tid + " " + DASH + " " + (r.get("old_name") or "") + "](/mitre/atlas/" + aml_slug(tid) +
+                    ".md): retired in " + str(r.get("retired_in")))
+            line += (", superseded by " + r["new_id"]) if r.get("new_id") else ", no successor named"
+            out.append(line)
     out += ["", "[MITRE Hub](/mitre/README.md)", ""]
     return "\n".join(out)
 
@@ -1337,7 +1585,7 @@ def render_campaign_landing(db):
 
 
 # (The former "emerging & community tools" / lab-fictional subsystem was removed:
-#  all S9xxx are official MITRE ATT&CK v19.2 software, rendered as first-class
+#  all S9xxx are official MITRE ATT&CK software, rendered as first-class
 #  objects under /mitre/software/ with live attack.mitre.org links.)
 
 
@@ -1345,23 +1593,27 @@ def render_campaign_landing(db):
 def render_landing(db):
     n_tech = len(list((MITRE / "techniques").glob("T*.md")))
     n_mit = len(list((MITRE / "mitigations").glob("M*.md")))
-    # the 15 v19.2 tactics; defense-evasion.md is only a legacy pointer to Stealth (review cur-7)
+    # the 15 current tactics; defense-evasion.md is only a legacy pointer to Stealth (review cur-7)
     n_tac = len([p for p in (MITRE / "tactics").glob("*.md")
                  if p.name != "README.md" and p.stem not in RENAMED_TACTICS])
     n_d3 = len([p for p in (MITRE / "d3fend").glob("*.md") if p.name != "README.md"])
     n_cap = len(list((MITRE / "capec").glob("CAPEC-*.md")))
-    n_atl = len(list((MITRE / "atlas").glob("AML-*.md")))
+    # retired-id stubs are pointers, not techniques, so they are not counted
+    n_atl = len(db.atlas) + len(db.atlas_mit)
     n_f3 = len(db.f3)
     n_groups = len(db.group_prof)
     n_software = len(db.sw_prof)
     n_campaigns = len(db.camp_prof)
     corpus_n = len(db.corpus_ids)
     lines = [
-        "# MITRE Frameworks " + DASH + " Enriched Knowledge Base",
+        "# Framework Knowledge Base: ATT&CK, D3FEND, CAPEC, ATLAS and F3",
         "",
-        "ATT&CK-Navigator-style browsable pages: **one page per MITRE object**, cross-linked across "
-        "frameworks (ATT&CK, Mitigation, D3FEND, CAPEC, NIST 800-53) and enriched with detection "
-        "analytics, data sources, named adversary usage, and Team Star Wolf corpus telemetry. ATT&CK " + ATTACK_VER + ".",
+        "Start from a technique, a mitigation, a threat group or a tool and follow it across the "
+        "frameworks defenders use: what the behaviour is, who uses it, how to mitigate and detect it, "
+        "and which NIST 800-53 controls apply. There is **one page per framework object**, cross-linked "
+        "across MITRE ATT&CK\N{REGISTERED SIGN} " + ATTACK_VER + ", its mitigations, D3FEND\N{TRADE MARK SIGN}, "
+        "CAPEC\N{TRADE MARK SIGN} and NIST 800-53, and enriched with detection analytics, data sources, "
+        "named adversary usage, and TeamStarWolf corpus telemetry.",
         "",
         "## Browse by object",
         "",
@@ -1383,10 +1635,10 @@ def render_landing(db):
         "| [F3 (Fight Fraud)](/mitre/f3/README.md) | " + str(n_f3) + " | CTID fraud-lifecycle techniques; ATT&CK-derived "
         "ones cross-link to their technique pages |",
         "| [Threat Groups](/mitre/groups/README.md) | " + str(n_groups) + " | ATT&CK adversary groups (intrusion sets) "
-        "— aliases, techniques used (linked), and software wielded |",
-        "| [Software & Tools](/mitre/software/README.md) | " + str(n_software) + " | ATT&CK malware & tools — type, "
+        "– aliases, techniques used (linked), and software wielded |",
+        "| [Software & Tools](/mitre/software/README.md) | " + str(n_software) + " | ATT&CK malware & tools – type, "
         "platforms, aliases, techniques implemented (linked), and the groups that wield them |",
-        "| [Campaigns](/mitre/campaigns/README.md) | " + str(n_campaigns) + " | ATT&CK intrusion campaigns — active "
+        "| [Campaigns](/mitre/campaigns/README.md) | " + str(n_campaigns) + " | ATT&CK intrusion campaigns – active "
         "window, attributed groups, techniques used (linked), and software deployed |",
         "| [Cross-Framework Crosswalk](/mitre/crosswalk.md) | " + DASH + " | technique, mitigation, NIST, D3FEND, "
         "CAPEC in one table |",
@@ -1399,8 +1651,8 @@ def render_landing(db):
         "or the Crosswalk for the full join.",
         "- Engineering detections? The Detection and Data sources sections on each technique name the "
         "analytics and telemetry to collect.",
-        "- Prioritising? Techniques marked (observed) are the " + str(corpus_n) + " seen in the Team Star "
-        "Wolf 529-machine training corpus, a real-world lower bound on prevalence.",
+        "- Prioritising? Techniques marked (observed) are the " + str(corpus_n) + " seen in the "
+        "TeamStarWolf 529-machine training corpus, a real-world lower bound on prevalence.",
         "",
         "Coverage: every ATT&CK object cross-links to its related mitigations, D3FEND countermeasures, "
         "CAPEC patterns, and NIST 800-53 controls, so the cross-framework relationships can be browsed in one place.",
@@ -1450,13 +1702,13 @@ def render_crosswalk(db):
             d3 |= {e.get("d3fend_technique") for e in (db.d3.get(t) or []) if e.get("d3fend_technique")}
         fams = ", ".join(f for f, _ in fam.most_common(8)) or DASH
         name = (db.mit.get(mid, {}) or {}).get("name", "")
-        out.append("| [" + mid + (" — " + name if name else "") + "](/mitre/mitigations/" + mid +
+        out.append("| [" + mid + (" – " + name if name else "") + "](/mitre/mitigations/" + mid +
                    ".md) | " + str(len(ts)) + " | " + fams + " | " + str(len(d3)) + " |")
     out.append("")
 
     # ---- per-technique crosswalk
     out.append("## Per-technique crosswalk (counts + links)\n")
-    out.append('"(observed)" marks techniques seen in the Team Star Wolf 529-machine training corpus. '
+    out.append('"(observed)" marks techniques seen in the TeamStarWolf 529-machine training corpus. '
                "Counts link out to the per-object pages.\n")
     out.append("| Technique | Tactic | Mitigations | NIST | D3FEND | CAPEC |")
     out.append("|---|---|---|---:|---:|---:|")
@@ -1486,6 +1738,9 @@ def main():
                     help="write nothing under mitre/: render the selected sections into a temporary "
                          "directory and exit 1 if any committed page differs, is missing, or is an orphan "
                          "the generator no longer produces")
+    ap.add_argument("--self-test", action="store_true",
+                    help="write nothing; render every technique page and exit 1 if a page breaks "
+                         "a rule in technique_invariants() (also run by --check)")
     ap.add_argument("--verify-corpus", type=int, metavar="N", default=None,
                     help="write nothing; fail unless corpus_signal.jsonl holds exactly N rows, every "
                          "row's paragraph is on its committed page verbatim, and no page carries a "
@@ -1504,6 +1759,18 @@ def main():
     print("loaded: " + str(len(db.prof)) + " techniques, corpus preserved for " +
           str(len(db.corpus_ids)) + " of them (" + CORPUS_PATH.relative_to(ROOT).as_posix() +
           "; " + str(len(db.corpus_on_pages)) + " committed pages carry the paragraph)")
+
+    if args.self_test or args.check:
+        bad = technique_invariants(db)
+        if bad:
+            print("TECHNIQUE PAGE RULES FAILED (" + str(len(bad)) + "):")
+            for line in bad[:50]:
+                print("  - " + line)
+            raise SystemExit(1)
+        print("OK: " + str(len(db.prof)) + " technique pages keep the render rules "
+              "(no empty analytic, campaigns linked, no-strategy line, enrichment present)")
+        if args.self_test:
+            return
 
     if args.verify_corpus is not None:
         problems = []
@@ -1532,8 +1799,9 @@ def main():
     out_root = (check_dir / "mitre") if args.check else MITRE
     try:
         generate(db, only, out_root)
+        xw = sync_atlas_crosswalk(db, args.check) if "techniques" in only else 0
         if args.check:
-            raise SystemExit(compare_tree(out_root, only))
+            raise SystemExit(compare_tree(out_root, only) or xw)
     finally:
         if check_dir is not None:
             shutil.rmtree(check_dir, ignore_errors=True)
@@ -1669,8 +1937,11 @@ def generate(db, only, out_root):
         for mid in db.atlas_mit:
             emit(out_root, d / (aml_slug(mid) + ".md"), plain(render_atlas_mitigation(db, mid)))
             nm += 1
+        for tid in db.atlas_retired:
+            emit(out_root, d / (aml_slug(tid) + ".md"), plain(render_atlas_retired(db, tid)))
         emit(out_root, d / "README.md", plain(render_atlas_index(db)))
-        print("atlas: wrote " + str(nt) + " technique + " + str(nm) + " mitigation pages + README")
+        print("atlas: wrote " + str(nt) + " technique + " + str(nm) + " mitigation pages + " +
+              str(len(db.atlas_retired)) + " retired-id stubs + README")
 
     if "f3" in only:
         d = out_root / "f3"

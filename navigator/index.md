@@ -88,6 +88,20 @@ Curated practitioner views built from the library's reference pages and data fil
 
 ---
 
+## Computed Layers
+
+Heatmaps the library computes from its own data, one rule per layer, written by `scripts/build_navigator_layers.py` with the rules in `scripts/computed_layers.py`. Each layer's description quotes its rule word for word. They are computed, not official MITRE mappings, and a score is a count from the data, not measured or deployed coverage.
+
+| Layer | Description | Techniques | Version | Load |
+|---|---|---|---|---|
+| [Ransomware Family Techniques](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/computed/ransomware-family.json) | Techniques used by ransomware software, scored by how many ransomware entries use them. Rule: A live ATT&CK Enterprise technique is in the layer when at least one ATT&CK software entry whose description's first sentence contains the word "ransomware" uses it; the score is the number of those software entries that use it. | 186 | ATT&CK v20 | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/computed/ransomware-family.json) |
+| [D3FEND Blind Spots](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/computed/d3fend-blindspot.json) | Techniques no D3FEND 1.6.0 countermeasure maps to, scored by threat-group usage. Rule: A live ATT&CK Enterprise technique is in the layer when data/attack/technique_to_d3fend.jsonl has no row for its ID or for an ID it replaced (data/attack/superseded_by.jsonl); the score is the number of ATT&CK groups that use it. | 383 | ATT&CK v20 | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/computed/d3fend-blindspot.json) |
+| [Platform Exposure](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/computed/platform-exposure.json) | Techniques scored by the number of ATT&CK platforms they apply to. Rule: Every live ATT&CK Enterprise technique is in the layer; the score is the number of ATT&CK platforms the technique lists. | 706 | ATT&CK v20 | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/computed/platform-exposure.json) |
+| [Mapping Completeness](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/computed/coverage-completeness.json) | Techniques scored 0 to 5 by which library mappings they have (mitigation, NIST control, CAPEC, D3FEND, detection strategy). Rule: Every live ATT&CK Enterprise technique is in the layer; the score counts which of five library mappings it has (0 to 5): an ATT&CK mitigation, a NIST SP 800-53 control, a CAPEC pattern, a D3FEND countermeasure and an ATT&CK detection strategy. | 706 | ATT&CK v20 | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/computed/coverage-completeness.json) |
+| [Detection Strategy Gaps](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/computed/detection-strategy-gap.json) | Techniques ATT&CK publishes no detection strategy for, scored by threat-group usage. Rule: A live ATT&CK Enterprise technique is in the layer when ATT&CK publishes no detection strategy for it (has_detection_strategy is false in data/attack/technique_profiles.jsonl); the score is the number of ATT&CK groups that use it. | 3 | ATT&CK v20 | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/computed/detection-strategy-gap.json) |
+
+---
+
 ## Analytic Layers
 
 Threat-intelligence and gap-analysis heatmaps generated from the library's MITRE ATT&CK Enterprise v20.0, ICS and Mobile data and the CTID NIST 800-53 R5 mappings by `scripts/build_priority_gaps.py`. See the [ATT&CK Priority Gap Analysis](/scores/attack_priority_gaps.md) for the ranked write-up.
@@ -107,8 +121,8 @@ MITRE ATLAS layers in ATLAS's own `atlas-atlas` Navigator domain, vendored with 
 
 | Layer | Description | Techniques | Version | Load |
 |---|---|---|---|---|
-| [ATLAS Matrix](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/ai/atlas-matrix.json) | The full ATLAS matrix of techniques against AI systems | 170 | ATLAS data 5.6.0 | [ATLAS Navigator](https://mitre-atlas.github.io/atlas-navigator/) |
-| [ATLAS Case Study Frequency](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/ai/atlas-case-study-frequency.json) | ATLAS techniques shaded by how often they appear in ATLAS case studies | 170 | ATLAS data 5.6.0 | [ATLAS Navigator](https://mitre-atlas.github.io/atlas-navigator/) |
+| [ATLAS Matrix](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/ai/atlas-matrix.json) | The full ATLAS matrix of techniques against AI systems | 221 | ATLAS data 2026.10 | [ATLAS Navigator](https://mitre-atlas.github.io/atlas-navigator/) |
+| [ATLAS Case Study Frequency](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/ai/atlas-case-study-frequency.json) | ATLAS techniques shaded by how often they appear in ATLAS case studies | 221 | ATLAS data 2026.10 | [ATLAS Navigator](https://mitre-atlas.github.io/atlas-navigator/) |
 
 ---
 

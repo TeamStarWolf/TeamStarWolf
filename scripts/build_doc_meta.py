@@ -27,7 +27,7 @@ this page" fold opens by itself on screens wider than 600 px):
 
     <table class="tsw-meta-card">          Pairs with, Matching learning path, Last
     ...                                    corrected ("2026-10-12, what the edit changed
-    </table>                               on this page (#PR, ATT&CK v19.2)"), Last reviewed
+    </table>                               on this page (#PR, ATT&CK v20.0)"), Last reviewed
 
     </details>
 

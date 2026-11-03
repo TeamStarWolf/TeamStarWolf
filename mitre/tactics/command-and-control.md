@@ -4,12 +4,12 @@
 
 The adversary is trying to communicate with compromised systems to control them.
 
-## Most-observed in the Team Star Wolf corpus
+## Most-observed in the TeamStarWolf corpus
 
 - [T1105: Ingress Tool Transfer](/mitre/techniques/T1105.md) (43.5% of machines)
 - [T1572: Protocol Tunneling](/mitre/techniques/T1572.md) (17.8% of machines)
 
-45 techniques in this tactic (Team Star Wolf enriched pages):
+45 techniques in this tactic (TeamStarWolf enriched pages):
 
 - [T1001: Data Obfuscation](/mitre/techniques/T1001.md)
 - [T1001.001: Junk Data](/mitre/techniques/T1001-001.md)

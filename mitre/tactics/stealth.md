@@ -2,14 +2,14 @@
 
 <a id="stealth"></a>
 
-New name in ATT&CK v19.2 (TA0005): formerly _Defense Evasion_, renamed to Stealth; the impairment behaviours split into the new [Defense Impairment](/mitre/tactics/defense-impairment.md) tactic. The adversary is trying to hide and conceal their actions, appearing as normal behavior. Stealth consists of techniques that reduce the likelihood of detection by blending in with legitimate activity or minimizing observable signals. These techniques are characterized by concealment behaviors, such as avoiding, obfuscating, or mimicking normal operations, without modifying security controls or compromising collection and monitoring feeds. The goal is to remain indistinguishable from benign activity while leaving defensive systems intact.
+New name in ATT&CK v19 (TA0005): formerly _Defense Evasion_, renamed to Stealth; the impairment behaviours split into the new [Defense Impairment](/mitre/tactics/defense-impairment.md) tactic. The adversary is trying to hide and conceal their actions, appearing as normal behavior. Stealth consists of techniques that reduce the likelihood of detection by blending in with legitimate activity or minimizing observable signals. These techniques are characterized by concealment behaviors, such as avoiding, obfuscating, or mimicking normal operations, without modifying security controls or compromising collection and monitoring feeds. The goal is to remain indistinguishable from benign activity while leaving defensive systems intact.
 
-## Most-observed in the Team Star Wolf corpus
+## Most-observed in the TeamStarWolf corpus
 
 - [T1078: Valid Accounts](/mitre/techniques/T1078.md) (11.0% of machines)
 - [T1574: Hijack Execution Flow](/mitre/techniques/T1574.md) (2.5% of machines)
 
-151 techniques in this tactic (Team Star Wolf enriched pages):
+151 techniques in this tactic (TeamStarWolf enriched pages):
 
 - [T1006: Direct Volume Access](/mitre/techniques/T1006.md)
 - [T1014: Rootkit](/mitre/techniques/T1014.md)

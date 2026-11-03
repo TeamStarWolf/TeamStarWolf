@@ -21,7 +21,7 @@ Network node inventorying identifies and records all the network nodes (hosts, r
 - [T1578.002: Create Cloud Instance](/mitre/techniques/T1578-002.md): inventories. An adversary may create a new instance or virtual machine (VM) within the compute service of a cloud account to evade defenses.
 - [T1578.003: Delete Cloud Instance](/mitre/techniques/T1578-003.md): inventories. An adversary may delete a cloud instance after they have performed malicious activities in an attempt to evade detection and remove evidence of their presence.
 - [T1578.004: Revert Cloud Instance](/mitre/techniques/T1578-004.md): inventories. An adversary may revert changes made to a cloud instance after they have performed malicious activities in attempt to evade detection and remove evidence of their presence.
-- [T1686.002: Network Device Firewall](/mitre/techniques/T1686-002.md): inventories. Adversaries may disable network device-based firewall mechanisms entirely or add, delete, or modify particular rules in order to bypass controls limiting network usage.
+- [T1686.002: Network Device Firewall](/mitre/techniques/T1686-002.md): inventories (D3FEND maps the revoked predecessor T1562.013). Adversaries may disable network device-based firewall mechanisms entirely or add, delete, or modify particular rules in order to bypass controls limiting network usage.
 - [T1693.001: System Firmware](https://attack.mitre.org/techniques/T1693/001): inventories (D3FEND maps the revoked predecessor T0857)
 
 _D3FEND also maps T0807, deprecated in ATT&CK with no successor; not counted above._

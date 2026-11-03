@@ -349,7 +349,9 @@ def allowed(line: str, start: int, end: int, patterns) -> bool:
 # Alternate Encoding", CAPEC-267): that short a part of a description is stock phrasing
 # ("Adversaries may leverage"), which team-written copy can repeat.
 UPSTREAM_DATA = ("data/attack/", "data/ai/", "data/fraud/", "data/weaknesses/", "data/engage/")
-UPSTREAM_KEYS = ("name", "description", "definition")
+# "mitigation" is the CWE mitigation text (data/weaknesses/cwe.jsonl) that the generated
+# CWE_REFERENCE.md tables quote.
+UPSTREAM_KEYS = ("name", "description", "definition", "mitigation")
 _CITATION_RE = re.compile(r"\(Citation:[^)]*\)")
 _MD_LINK_RE = re.compile(r"\[([^\]]*)\]\([^)]*\)")
 _LEFT_RE = re.compile(r"(?:\S+\s+){0,6}\S*$")

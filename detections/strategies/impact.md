@@ -1,6 +1,6 @@
 # Impact: Detection Strategies
 
-> MITRE ATT&CK detection strategies and analytics (v19.2) for techniques whose primary tactic is Impact. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
+> MITRE ATT&CK detection strategies and analytics (v20.0) for techniques whose primary tactic is Impact. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
 
 See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](/techniques/README.md)
 
@@ -334,7 +334,7 @@ ATT&CK: [T1496.001](https://attack.mitre.org/techniques/T1496/001/), [detail pag
 - `AN1489` Analytic 1489, Windows
   Sustained execution of resource-intensive processes (e.g., cryptocurrency miners), often launched via scheduled tasks, WMI, or PowerShell. These processes frequently establish persistent external connections and attempt to evade detection using masqueraded or renamed binaries.
   - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=3, 22)`; `WinEventLog:Security (EventCode=4698)`
-  - *Tune:* `Image`: The executable name of the miner or wrapper—can vary across campaigns.; `DestinationIP`: May differ depending on the mining pool or proxy server.; `ParentProcessName`: Useful for filtering known-good automation vs malicious task runners.
+  - *Tune:* `Image`: The executable name of the miner or wrapper, can vary across campaigns.; `DestinationIP`: May differ depending on the mining pool or proxy server.; `ParentProcessName`: Useful for filtering known-good automation vs malicious task runners.
 - `AN1490` Analytic 1490, Linux
   Unusual long-running processes consuming high CPU cycles (e.g., via 'top' or 'ps') initiated via cron, shell scripts, or Docker. Connections to known mining pools or DNS over HTTPS usage as evasion.
   - *Log sources:* `auditd:SYSCALL (execve)`; `NSM:Flow (Outbound connection to mining pool port (3333, 4444, 5555))`; `linux:cron (Scheduled execution of unknown or unusual script/binary)`
@@ -742,7 +742,7 @@ ATT&CK: [T1561](https://attack.mitre.org/techniques/T1561/), [detail page](/tech
 - `AN0384` Analytic 0384, Windows
   Unusual direct disk access attempts (e.g., use of \\.\PhysicalDrive notation), abnormal writes to MBR/boot sectors, and installation of kernel drivers that grant raw disk access. Correlate anomalous process creation with disk modification attempts and driver loads.
   - *Log sources:* `WinEventLog:Security (EventCode=4673)`; `WinEventLog:Sysmon (Raw disk write access via \\.\PhysicalDrive* or \\.\C:)`; `WinEventLog:Sysmon (EventCode=6)`
-  - *Tune:* `ProcessWhitelist`: Legitimate disk imaging or backup tools may trigger raw disk access — must be excluded per environment.; `TimeWindow`: Correlate disk access, driver load, and process execution within a short timeframe to minimize false positives.
+  - *Tune:* `ProcessWhitelist`: Legitimate disk imaging or backup tools may trigger raw disk access, must be excluded per environment.; `TimeWindow`: Correlate disk access, driver load, and process execution within a short timeframe to minimize false positives.
 - `AN0385` Analytic 0385, Linux
   Processes invoking destructive commands (dd, shred, wipe) with raw device targets (e.g., /dev/sda, /dev/nvme0n1). Detect direct writes to disk partitions and abnormal superblock or bootloader modifications. Correlate shell execution with subsequent block device I/O.
   - *Log sources:* `auditd:SYSCALL (open/write syscalls on /dev/sd* or /dev/nvme*)`; `auditd:EXECVE (Execution of dd, shred, wipe targeting block devices)`
@@ -772,7 +772,7 @@ ATT&CK: [T1561.001](https://attack.mitre.org/techniques/T1561/001/), [detail pag
 - `AN0882` Analytic 0882, Windows
   Processes attempting raw disk access via \\.\PhysicalDrive paths, abnormal file I/O to MBR/boot sectors, or loading of third-party drivers (e.g., RawDisk) that enable disk overwrite. Correlate process creation, privilege usage, and disk modification events within a short time window.
   - *Log sources:* `WinEventLog:Security (EventCode=4673)`; `WinEventLog:Sysmon (Raw disk writes targeting \\.\PhysicalDrive* or MBR locations)`; `WinEventLog:Sysmon (EventCode=6)`
-  - *Tune:* `ProcessWhitelist`: Backup, forensics, or imaging tools may perform legitimate raw disk access — requires tuning per environment.; `TimeWindow`: Correlation threshold for process execution, driver load, and raw disk writes.
+  - *Tune:* `ProcessWhitelist`: Backup, forensics, or imaging tools may perform legitimate raw disk access, requires tuning per environment.; `TimeWindow`: Correlation threshold for process execution, driver load, and raw disk writes.
 - `AN0883` Analytic 0883, Linux
   Execution of destructive utilities (dd, shred, wipe) targeting block devices, or processes invoking syscalls to directly overwrite /dev/sd* or /dev/nvme* partitions. Correlate abnormal file write attempts with shell process execution and block device access.
   - *Log sources:* `auditd:SYSCALL (open/write syscalls to block devices (/dev/sd*, /dev/nvme*))`; `auditd:EXECVE (Execution of dd, shred, or wipe with arguments targeting block devices)`

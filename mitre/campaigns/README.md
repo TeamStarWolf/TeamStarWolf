@@ -1,6 +1,6 @@
 # Campaigns (57)
 
-ATT&CK-tracked intrusion campaigns, each with its active window, the groups it is attributed to, the techniques used (linked), and the software deployed. ATT&CK v19.2.
+ATT&CK-tracked intrusion campaigns, each with its active window, the groups it is attributed to, the techniques used (linked), and the software deployed. ATT&CK v20.0.
 
 - [C0001: Frankenstein](/mitre/campaigns/C0001.md) (2019-01-01)
 - [C0002: Night Dragon](/mitre/campaigns/C0002.md) (2009-11-01)

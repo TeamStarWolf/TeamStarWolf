@@ -29,7 +29,7 @@ Terminating a running application process on a computer system.
 - [T1550: Use Alternate Authentication Material](/mitre/techniques/T1550.md): terminates. Adversaries may use alternate authentication material, such as password hashes, Kerberos tickets, and application access tokens, in order to move laterally within an environment and bypass normal system access controls.
 - [T1556: Modify Authentication Process](/mitre/techniques/T1556.md): terminates. Adversaries may modify authentication mechanisms and processes to access user credentials or enable otherwise unwarranted access to accounts.
 - [T1621: Multi-Factor Authentication Request Generation](/mitre/techniques/T1621.md): terminates. Adversaries may attempt to bypass multi-factor authentication (MFA) mechanisms and gain access to accounts by generating MFA requests sent to users.
-- [T1685: Disable or Modify Tools](/mitre/techniques/T1685.md): terminates. Adversaries may disable, degrade, or tamper with security tools or applications (e.g., endpoint detection and response (EDR) tools, intrusion detection systems (IDS), antivirus, logging agents, sensors, etc.) to impair or reduce visibility of defensive capabilities.
+- [T1685: Disable or Modify Tools](/mitre/techniques/T1685.md): terminates (D3FEND maps the revoked predecessor T1562.001). Adversaries may disable, degrade, or tamper with security tools or applications (e.g., endpoint detection and response (EDR) tools, intrusion detection systems (IDS), antivirus, logging agents, sensors, etc.) to impair or reduce visibility of defensive capabilities.
 
 ---
 

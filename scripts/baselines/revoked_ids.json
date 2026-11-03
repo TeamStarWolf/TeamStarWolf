@@ -1,34 +1,4 @@
 {
  "_comment": "Revoked/deprecated ATT&CK IDs still cited by hand-written pages (file -> old_id -> count). Written by scripts/check_repo_hygiene.py --update-baseline. Only ever shrink it: re-key the citation to the new_id in data/attack/superseded_by.jsonl, then rewrite.",
- "citations": {
-  "ATTACK_TECHNIQUE_ATLAS.md": {
-   "T1562": 1,
-   "T1656": 1,
-   "T1672": 1
-  },
-  "D3FEND_REFERENCE.md": {
-   "T0807": 2,
-   "T0853": 15
-  },
-  "FIRMWARE_IOT_SECURITY_REFERENCE.md": {
-   "T0807": 1
-  },
-  "ICS_ATTACK_ATLAS.md": {
-   "T0803": 1,
-   "T0804": 1,
-   "T0805": 1,
-   "T0807": 1,
-   "T0812": 1,
-   "T0839": 2,
-   "T0853": 1,
-   "T0855": 1,
-   "T0856": 2,
-   "T0857": 2,
-   "T0891": 2
-  },
-  "ICS_OT_SECURITY_REFERENCE.md": {
-   "T0807": 1,
-   "T0853": 1
-  }
- }
+ "citations": {}
 }

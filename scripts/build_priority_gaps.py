@@ -2,7 +2,7 @@
 """
 TeamStarWolf ATT&CK priority-gap ranking + analytics Navigator layers.
 
-Derives, from the committed ATT&CK v19.2 data and the CTID NIST 800-53 R5 edge table:
+Derives, from the committed ATT&CK data and the CTID NIST 800-53 R5 edge table:
 
     scores/attack_priority_gaps.json              ranked list + per-tactic coverage
     scores/attack_priority_gaps.md                the page, rendered from the same run
@@ -61,9 +61,9 @@ ENTERPRISE_INPUTS = (
     "data/control_to_technique.jsonl",
 )
 
-# ICS and Mobile tactic shortnames in ATT&CK v19.2 (from the v19.2 STIX bundles, matrix
+# ICS and Mobile tactic shortnames in the pinned ATT&CK release (from its STIX bundles, matrix
 # order). Enterprise uses compute_coverage.TACTIC_METADATA (Stealth TA0005 and Defense
-# Impairment TA0112 in place of the retired Defense Evasion). Mobile v19.2 still has
+# Impairment TA0112 in place of the retired Defense Evasion). Mobile still has
 # defense-evasion and ICS has evasion; neither domain took the Enterprise split.
 ICS_TACTICS = (
     "initial-access", "execution", "persistence", "privilege-escalation", "evasion",

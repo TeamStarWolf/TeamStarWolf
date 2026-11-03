@@ -13,7 +13,7 @@ Analysis of any system process startup configuration.
 - [T1037.005: Startup Items](/mitre/techniques/T1037-005.md): analyzes. Adversaries may use startup items automatically executed at boot initialization to establish persistence.
 - [T1547.001: Registry Run Keys / Startup Folder](/mitre/techniques/T1547-001.md): analyzes. Adversaries may achieve persistence by adding a program to a startup folder or referencing it with a Registry run key.
 - [T1574.011: Services Registry Permissions Weakness](/mitre/techniques/T1574-011.md): analyzes. Adversaries may execute their own malicious payloads by hijacking the Registry entries used by services.
-- [T1688: Safe Mode Boot](/mitre/techniques/T1688.md): analyzes. Adversaries may abuse Windows safe mode to disable endpoint defenses.
+- [T1688: Safe Mode Boot](/mitre/techniques/T1688.md): analyzes (D3FEND maps the revoked predecessor T1562.009). Adversaries may abuse Windows safe mode to disable endpoint defenses.
 
 ---
 

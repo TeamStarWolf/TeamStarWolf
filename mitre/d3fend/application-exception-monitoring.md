@@ -22,7 +22,7 @@ Monitoring the failures of system counters and timers.
 - [T1546.003: Windows Management Instrumentation Event Subscription](/mitre/techniques/T1546-003.md): monitors. Adversaries may establish persistence and elevate privileges by executing malicious content triggered by a Windows Management Instrumentation (WMI) event subscription.
 - [T1546.005: Trap](/mitre/techniques/T1546-005.md): monitors. Adversaries may establish persistence by executing malicious content triggered by an interrupt signal.
 - [T1548.003: Sudo and Sudo Caching](/mitre/techniques/T1548-003.md): monitors. Adversaries may perform sudo caching and/or use the sudoers file to elevate privileges.
-- [T1685.005: Clear Windows Event Logs](/mitre/techniques/T1685-005.md): monitors. Adversaries may clear Windows Event Logs to hide the activity of an intrusion.
+- [T1685.005: Clear Windows Event Logs](/mitre/techniques/T1685-005.md): monitors (D3FEND maps the revoked predecessor T1070.001). Adversaries may clear Windows Event Logs to hide the activity of an intrusion.
 
 ---
 

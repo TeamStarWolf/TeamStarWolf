@@ -15,7 +15,7 @@ An adversary exploits a weakness enabling them to elevate their privilege and pe
 
 - [CWE-269: Improper Privilege Management](https://cwe.mitre.org/data/definitions/269.html): The product does not properly assign, modify, track, or check privileges for an actor, creating an unintended sphere of control for that actor.
 - [CWE-1264: Hardware Logic with Insecure De-Synchronization between Control and Data Channels](https://cwe.mitre.org/data/definitions/1264.html): The hardware logic for error handling and security checks can incorrectly forward data before the security check is complete.
-- [CWE-1311: Improper Translation of Security Attributes by Fabric Bridge](https://cwe.mitre.org/data/definitions/1311.html): The bridge incorrectly translates security attributes from either trusted to untrusted or from untrusted to trusted when converting from one fabric protocol to another.
+- [CWE-1311: Improper Translation of Security Attributes by Fabric Bridge](https://cwe.mitre.org/data/definitions/1311.html): The fabric bridge incorrectly translates security attributes from either trusted to untrusted or from untrusted to trusted when converting from one fabric protocol to another.
 
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 

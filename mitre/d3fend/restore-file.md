@@ -111,8 +111,8 @@ Restoring a file for an entity to access.
 - [T1574.012: COR_PROFILER](/mitre/techniques/T1574-012.md): restores. Adversaries may leverage the COR_PROFILER environment variable to hijack the execution flow of programs that load the.NET CLR.
 - [T1647: Plist File Modification](/mitre/techniques/T1647.md): restores (D3FEND maps the revoked predecessor T1547.011). Adversaries may modify property list files (plist files) to enable other malicious activity, while also potentially evading and bypassing system defenses.
 - [T1649: Steal or Forge Authentication Certificates](/mitre/techniques/T1649.md): restores. Adversaries may steal or forge certificates used for authentication to access remote systems or resources.
-- [T1685.006: Clear Linux or Mac System Logs](/mitre/techniques/T1685-006.md): restores. Adversaries may clear system logs to hide evidence of an intrusion.
-- [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): restores. Adversaries may impair command history logging to hide commands they run on a compromised system.
+- [T1685.006: Clear Linux or Mac System Logs](/mitre/techniques/T1685-006.md): restores (D3FEND maps the revoked predecessor T1070.002). Adversaries may clear system logs to hide evidence of an intrusion.
+- [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): restores (D3FEND maps the revoked predecessor T1562.003). Adversaries may impair command history logging to hide commands they run on a compromised system.
 
 _D3FEND also maps T0853, T1053.004, deprecated in ATT&CK with no successor; not counted above._
 

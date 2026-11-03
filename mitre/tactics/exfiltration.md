@@ -4,7 +4,7 @@
 
 The adversary is trying to steal data.
 
-20 techniques in this tactic (Team Star Wolf enriched pages):
+20 techniques in this tactic (TeamStarWolf enriched pages):
 
 - [T1011: Exfiltration Over Other Network Medium](/mitre/techniques/T1011.md)
 - [T1011.001: Exfiltration Over Bluetooth](/mitre/techniques/T1011-001.md)

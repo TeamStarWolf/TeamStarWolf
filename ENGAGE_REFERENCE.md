@@ -1,14 +1,16 @@
 # MITRE Engage Reference: Denial, Deception & Adversary Engagement
 
-> [MITRE Engage™](https://engage.mitre.org/) is the framework for planning and running adversary engagement, denial, and deception operations. Where ATT&CK describes what the adversary does and D3FEND describes countermeasures, Engage describes what *you* do to expose, affect, and learn from an adversary already in your environment: 5 goals, 9 approaches, and 31 activities, with 793 mappings to ATT&CK techniques.
+> Some defenders do more than block an intruder: they steer it toward decoys, watch what it does, and feed it false information. MITRE Engage™ (engage.mitre.org; its data is published in the [mitre/engage repository](https://github.com/mitre/engage)) is the framework for planning and running those adversary engagement, denial, and deception operations. Where ATT&CK describes what the adversary does and D3FEND describes countermeasures, Engage describes what *you* do to expose, affect, and learn from an adversary already in your environment: <!-- stat-engage_goals:start -->5<!-- stat-engage_goals:end --> goals, <!-- stat-engage_approaches:start -->9<!-- stat-engage_approaches:end --> approaches, and <!-- stat-engage_activities:start -->31<!-- stat-engage_activities:end --> activities, with <!-- stat-engage_activity_mappings:start -->596<!-- stat-engage_activity_mappings:end --> activity mappings across <!-- stat-engage_mappings:start -->175<!-- stat-engage_mappings:end --> ATT&CK techniques.
 
 | | |
 |---|---|
-| Goals | 5: Expose, Affect, Elicit, Prepare, Understand |
-| Approaches | 9 |
-| Activities | 31 |
-| ATT&CK mappings | 793 across 175 techniques |
+| Goals | <!-- stat-engage_goals:start -->5<!-- stat-engage_goals:end -->: Expose, Affect, Elicit, Prepare, Understand |
+| Approaches | <!-- stat-engage_approaches:start -->9<!-- stat-engage_approaches:end --> |
+| Activities | <!-- stat-engage_activities:start -->31<!-- stat-engage_activities:end --> |
+| ATT&CK mappings | <!-- stat-engage_activity_mappings:start -->596<!-- stat-engage_activity_mappings:end --> across <!-- stat-engage_mappings:start -->175<!-- stat-engage_mappings:end --> techniques |
 | Datasets | [goals](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/engage/engage_goals.jsonl), [approaches](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/engage/engage_approaches.jsonl), [activities](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/engage/engage_activities.jsonl), [ATT&CK -> Engage](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/engage/attack_to_engage.jsonl) |
+
+The mapping count is computed from the library's data: one mapping per technique and activity pair. MITRE's published [`attack_mapping.json`](https://github.com/mitre/engage/blob/main/Data/json/attack_mapping.json) has the same pairs and more rows, because it repeats a pair once for each adversary vulnerability the activity exploits (checked on 2026-11-03; engage.mitre.org did not respond that day).
 
 > Deception is a detection strategy, not a trap for its own sake. Engage's value is that every activity ties back to an adversary behavior (ATT&CK technique) and a defensive outcome, so a honeypot becomes a measurable control rather than a science project.
 
@@ -29,7 +31,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Length</th><td>
 
-Lookup page: 2,039 words, 80% in tables; look entries up from Start at or the search (about 9 min end to end at 230 words a minute)
+Lookup page: 2,112 words, 77% in tables; look entries up from Start at or the search (about 9 min end to end at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>

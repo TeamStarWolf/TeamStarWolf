@@ -11,11 +11,16 @@ dataset addition depends on; THIRD_PARTY_NOTICES.md carries the attributions.
 
 Objective facts (path/rows/bytes/sha256, and any version field found in the
 data itself) are computed. Provenance (source/license/url) comes from the
-explicit PROVENANCE table below — edit it, never guess, when adding data.
+explicit PROVENANCE table below: edit it, never guess, when adding data.
 
 `inputs` records the upstream artifacts a generator fetches rather than ships
 (today: the ATT&CK Enterprise, ICS and Mobile STIX bundles behind
-scripts/build_attack_core.py), each pinned by commit and SHA-256. The values are
+scripts/build_attack_core.py, and the ATLAS release file and release notes behind
+scripts/build_atlas.py, with the ATLAS release in `version`), each pinned by commit and
+SHA-256, then the D3FEND release files behind scripts/build_d3fend.py and the CWE and
+CAPEC release downloads behind scripts/build_weaknesses.py, each pinned by its
+versioned URL, size and SHA-256 with the release in `version` and `release_date`. The
+values are
 read from the generator's own constants, so --check fails if the manifest and the
 generator's pins disagree.
 
@@ -27,6 +32,9 @@ import json, os, sys, glob, hashlib
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_attack_core  # noqa: E402  (owns the pinned STIX input constants)
+import build_atlas  # noqa: E402  (owns the pinned ATLAS input constants)
+import build_d3fend  # noqa: E402  (owns the pinned D3FEND input constants)
+import build_weaknesses  # noqa: E402  (owns the pinned CWE and CAPEC input constants)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MANIFEST = os.path.join(ROOT, "data", "MANIFEST.json")
@@ -46,22 +54,25 @@ SOURCES = {
                 "url": "https://cwe.mitre.org/", "copyright": "(c) The MITRE Corporation"},
     "capec":   {"upstream": "MITRE CAPEC", "license": "MITRE Terms of Use",
                 "url": "https://capec.mitre.org/", "copyright": "(c) The MITRE Corporation"},
-    "atlas":   {"upstream": "MITRE ATLAS", "license": "MITRE Terms of Use",
+    "atlas":   {"upstream": "MITRE ATLAS", "license": "Apache License 2.0 (mitre-atlas/atlas-data)",
                 "url": "https://atlas.mitre.org/", "copyright": "(c) The MITRE Corporation"},
-    "ctid_map":{"upstream": "Center for Threat-Informed Defense — Mappings Explorer (NIST SP 800-53 Rev 5; control text is US-Government public domain)",
+    "ctid_map":{"upstream": "Center for Threat-Informed Defense: Mappings Explorer (NIST SP 800-53 Rev 5; control text is US-Government public domain)",
                 "license": "Apache-2.0", "url": "https://center-for-threat-informed-defense.github.io/mappings-explorer/",
                 "copyright": "(c) The MITRE Corporation, all rights reserved (Apache-2.0)"},
-    "ctid_f3": {"upstream": "Center for Threat-Informed Defense — F3EAD / Fraud (F3) framework",
+    "ctid_f3": {"upstream": "Center for Threat-Informed Defense: F3EAD / Fraud (F3) framework",
                 "license": "Apache-2.0", "url": "https://github.com/center-for-threat-informed-defense",
                 "copyright": "(c) The MITRE Corporation, all rights reserved (Apache-2.0)"},
     "tsw":     {"upstream": "TeamStarWolf (first-party)", "license": "MIT",
                 "url": "https://github.com/TeamStarWolf/TeamStarWolf", "copyright": "(c) TeamStarWolf"},
-    "tsw_attack": {"upstream": "TeamStarWolf (first-party) — aggregated/derived from MITRE ATT&CK",
+    "tsw_attack": {"upstream": "TeamStarWolf (first-party): aggregated/derived from MITRE ATT&CK",
                    "license": "MIT (derivation); underlying ATT&CK under MITRE Terms of Use",
                    "url": "https://github.com/TeamStarWolf/TeamStarWolf", "copyright": "(c) TeamStarWolf; ATT&CK (c) The MITRE Corporation"},
-    "tsw_ctid": {"upstream": "TeamStarWolf (first-party) — derived by joining vendor->control with CTID control->technique",
+    "tsw_ctid": {"upstream": "TeamStarWolf (first-party): derived by joining vendor->control with CTID control->technique",
                  "license": "MIT (derivation); underlying CTID mappings Apache-2.0",
                  "url": "https://github.com/TeamStarWolf/TeamStarWolf", "copyright": "(c) TeamStarWolf; CTID mappings (c) The MITRE Corporation (Apache-2.0)"},
+    "tsw_vocab": {"upstream": "TeamStarWolf (first-party): entity vocabulary built by scripts/build_vocab.py from the platform pages, the vendor crosswalk and MITRE ATT&CK groups and software; vendor spellings from the CISA KEV catalog",
+                  "license": "MIT (derivation); ATT&CK names under MITRE Terms of Use; CISA KEV is a US-Government work",
+                  "url": "https://github.com/TeamStarWolf/TeamStarWolf", "copyright": "(c) TeamStarWolf; ATT&CK (c) The MITRE Corporation"},
 }
 
 # Longest matching prefix wins. Paths are POSIX-relative to the repo root.
@@ -73,6 +84,7 @@ PROVENANCE = [
     ("data/attack/d3fend_countermeasures.jsonl","d3fend"),
     ("data/attack/technique_to_car.jsonl",     "car"),
     ("data/attack/technique_profiles.jsonl",   "tsw_attack"),
+    ("data/attack/technique_enrichment.jsonl", "tsw"),   # the library's own notes, not MITRE data
     ("data/attack/group_profiles.jsonl",       "tsw_attack"),
     ("data/attack/software_profiles.jsonl",    "tsw_attack"),
     ("data/attack/campaign_profiles.jsonl",    "tsw_attack"),
@@ -85,9 +97,10 @@ PROVENANCE = [
     ("data/control_to_technique.jsonl",        "ctid_map"),
     ("data/vendor_to_technique.jsonl",         "tsw_ctid"),
     ("data/vendor_to_control.jsonl",           "tsw"),
+    ("data/vocab/",                            "tsw_vocab"),
 ]
 
-VERSION_KEYS = ["attack_version", "capec_version", "cwe_version", "atlas_version",
+VERSION_KEYS = ["attack_version", "capec_version", "cwe_version", "atlas_version", "d3fend_version",
                 "x_mitre_version", "version", "spec_version"]
 
 
@@ -119,22 +132,29 @@ def _file_entry(path: str, rel: str):
                 if k in row0:
                     entry["data_version_field"] = {k: row0[k]}
                     break
+            # data/vocab/ rows carry a per-row `source` (which input made that row), not a
+            # file-level one, so row 0 says nothing about the whole file: skip it there.
             for sk in ("source", "ctid_source"):
-                if sk in row0:
+                if sk in row0 and not rel.startswith("data/vocab/"):
                     entry["data_source_field"] = row0[sk]
                     break
         except Exception:
             pass
     src = _source_for(rel)
-    entry["provenance"] = src if src else {"upstream": "UNSPECIFIED — add to PROVENANCE",
+    entry["provenance"] = src if src else {"upstream": "UNSPECIFIED: add to PROVENANCE",
                                            "license": "UNSPECIFIED", "url": "", "copyright": ""}
     return entry
 
 
 def inputs():
     """Pinned upstream inputs that generators fetch (not files under data/): one entry
-    per ATT&CK STIX bundle (Enterprise, ICS, Mobile) in build_attack_core.STIX_INPUTS."""
+    per ATT&CK STIX bundle (Enterprise, ICS, Mobile) in build_attack_core.STIX_INPUTS, then
+    the release index (index.json, build_attack_core.STIX_INDEX) read at the same commit,
+    then the ATLAS release file and release notes in build_atlas.ATLAS_INPUTS, each with
+    the ATLAS release it pins, then the D3FEND, CWE and CAPEC release files in
+    build_d3fend.D3FEND_INPUTS and build_weaknesses.WEAKNESS_INPUTS."""
     core = build_attack_core
+    atlas = build_atlas
     return [{
         "name": "MITRE ATT&CK " + pin["label"] + " STIX bundle (" + os.path.basename(pin["path"]) + ")",
         "consumed_by": "scripts/build_attack_core.py",
@@ -145,7 +165,49 @@ def inputs():
         "bytes": pin["bytes"],
         "sha256": pin["sha256"],
         "provenance": SOURCES["attack"],
-    } for pin in core.STIX_INPUTS.values()]
+    } for pin in core.STIX_INPUTS.values()] + [{
+        "name": "MITRE ATT&CK STIX release index (index.json)",
+        "consumed_by": "scripts/build_attack_core.py",
+        "repo": core.STIX_REPO,
+        "commit": core.STIX_COMMIT,
+        "path": core.STIX_INDEX["path"],
+        "url": core.STIX_INDEX["url"],
+        "bytes": core.STIX_INDEX["bytes"],
+        "sha256": core.STIX_INDEX["sha256"],
+        "provenance": SOURCES["attack"],
+    }] + [{
+        "name": "MITRE " + pin["label"] + " (" + os.path.basename(pin["path"]) + ")",
+        "consumed_by": "scripts/build_atlas.py",
+        "repo": atlas.ATLAS_REPO,
+        "commit": atlas.ATLAS_COMMIT,
+        "version": atlas.ATLAS_RELEASE,
+        "path": pin["path"],
+        "url": pin["url"],
+        "bytes": pin["bytes"],
+        "sha256": pin["sha256"],
+        "provenance": SOURCES["atlas"],
+    } for pin in atlas.ATLAS_INPUTS.values()] + [{
+        "name": "MITRE " + pin["label"],
+        "consumed_by": "scripts/build_d3fend.py",
+        "version": build_d3fend.D3FEND_RELEASE,
+        "release_date": build_d3fend.D3FEND_RELEASE_DATE,
+        "path": pin["path"],
+        "url": pin["url"],
+        "bytes": pin["bytes"],
+        "sha256": pin["sha256"],
+        "provenance": SOURCES["d3fend"],
+    } for pin in build_d3fend.D3FEND_INPUTS.values()] + [{
+        "name": "MITRE " + pin["label"],
+        "consumed_by": "scripts/build_weaknesses.py",
+        "version": pin["version"],
+        "release_date": {"cwe": build_weaknesses.CWE_RELEASE_DATE,
+                         "capec": build_weaknesses.CAPEC_RELEASE_DATE}[pin["upstream"]],
+        "path": pin["path"],
+        "url": pin["url"],
+        "bytes": pin["bytes"],
+        "sha256": pin["sha256"],
+        "provenance": SOURCES[pin["upstream"]],
+    } for pin in build_weaknesses.WEAKNESS_INPUTS.values()]
 
 
 def compute():
@@ -163,7 +225,7 @@ def compute():
         total += e["bytes"]
         entries.append(e)
     return {
-        "_comment": ("Generated by scripts/build_manifest.py — do not edit by hand. "
+        "_comment": ("Generated by scripts/build_manifest.py: do not edit by hand. "
                      "Objective fields (rows/bytes/sha256) are computed; provenance comes "
                      "from the script's PROVENANCE table. `inputs` lists the pinned upstream "
                      "artifacts generators fetch (commit + SHA-256). See THIRD_PARTY_NOTICES.md."),
@@ -178,7 +240,7 @@ def main():
     manifest = compute()
     if "--check" in sys.argv:
         if not os.path.exists(MANIFEST):
-            print("ERROR: data/MANIFEST.json is missing — run scripts/build_manifest.py")
+            print("ERROR: data/MANIFEST.json is missing: run scripts/build_manifest.py")
             sys.exit(1)
         committed = json.load(open(MANIFEST, encoding="utf-8"))
         if committed != manifest:
@@ -194,7 +256,7 @@ def main():
     with open(MANIFEST, "w", encoding="utf-8", newline="") as f:
         json.dump(manifest, f, indent=2, ensure_ascii=False)
         f.write("\n")
-    print(f"wrote data/MANIFEST.json — {manifest['dataset_count']} datasets, "
+    print(f"wrote data/MANIFEST.json: {manifest['dataset_count']} datasets, "
           f"{manifest['total_bytes']:,} bytes")
     unspecified = [e["path"] for e in manifest["files"]
                    if e["provenance"]["license"] == "UNSPECIFIED"]

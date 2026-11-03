@@ -24,7 +24,7 @@ An adversary guesses, obtains, or "rides" a trusted identifier (e.g. session ID,
 - [CWE-6: J2EE Misconfiguration: Insufficient Session-ID Length](https://cwe.mitre.org/data/definitions/6.html): The J2EE application is configured to use an insufficient session ID length.
 - [CWE-384: Session Fixation](https://cwe.mitre.org/data/definitions/384.html): Authenticating a user, or otherwise establishing a new user session, without invalidating any existing session identifier gives an attacker the opportunity to steal authenticated sessions.
 - [CWE-664: Improper Control of a Resource Through its Lifetime](https://cwe.mitre.org/data/definitions/664.html): The product does not maintain or incorrectly maintains control over a resource throughout its lifetime of creation, use, and release.
-- [CWE-602: Client-Side Enforcement of Server-Side Security](https://cwe.mitre.org/data/definitions/602.html): The product is composed of a server that relies on the client to implement a mechanism that is intended to protect the server.
+- [CWE-602: Client-Side Enforcement of Server-Side Security](https://cwe.mitre.org/data/definitions/602.html): The product includes a server that relies on the client to implement a protection mechanism that is intended to protect the server.
 - [CWE-642: External Control of Critical State Data](https://cwe.mitre.org/data/definitions/642.html): The product stores security-critical state information about its users, or the product itself, in a location that is accessible to unauthorized actors.
 
 ## Prerequisites

@@ -1,6 +1,6 @@
-# MITRE ATT&CK Techniques: Enriched Pages
+# ATT&CK Techniques: Enriched Pages
 
-One page per ATT&CK technique (723 pages: 706 current in ATT&CK v19.2 plus 17 revoked in v19.2 and kept for reference), each enriched with mitigations, D3FEND countermeasures, CAPEC, NIST 800-53 controls, detection strategies, and Team Star Wolf corpus prevalence where observed. Each current technique is listed once, under its primary (first) tactic; a [tactic page](/mitre/tactics/README.md) lists every technique in that tactic. (observed) marks the 21 techniques seen in the Team Star Wolf training corpus.
+Look up a technique to see how to mitigate it, detect it and map it to controls. There is one page per technique (723 pages: 706 current in MITRE ATT&CK® v20.0 plus 17 revoked in ATT&CK v19.0 and kept for reference), each enriched with mitigations, D3FEND countermeasures, CAPEC, NIST 800-53 controls, detection strategies, and TeamStarWolf corpus prevalence where observed. Each current technique is listed once, under its primary (first) tactic; a [tactic page](/mitre/tactics/README.md) lists every technique in that tactic. (observed) marks the 21 techniques seen in the TeamStarWolf training corpus. New in v20.0 (9): [T1608.007](/mitre/techniques/T1608-007.md), [T1685.007](/mitre/techniques/T1685-007.md), [T1696](/mitre/techniques/T1696.md), [T1696.001](/mitre/techniques/T1696-001.md), [T1696.002](/mitre/techniques/T1696-002.md), [T1697](/mitre/techniques/T1697.md), [T1698](/mitre/techniques/T1698.md), [T1699](/mitre/techniques/T1699.md), [T1700](/mitre/techniques/T1700.md).
 
 [MITRE Hub](/mitre/README.md), [Tactics](/mitre/tactics/README.md), [Mitigations](/mitre/mitigations/README.md)
 
@@ -755,7 +755,7 @@ One page per ATT&CK technique (723 pages: 706 current in ATT&CK v19.2 plus 17 re
 - [T1657: Financial Theft](/mitre/techniques/T1657.md)
 - [T1667: Email Bombing](/mitre/techniques/T1667.md)
 
-## Revoked in ATT&CK v19.2 (17)
+## Revoked techniques (17)
 
 No longer current ATT&CK techniques. Each page is kept so old links resolve, and carries a banner to the technique that replaced it.
 

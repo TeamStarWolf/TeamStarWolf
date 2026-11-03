@@ -1,6 +1,6 @@
-# ATT&CK Tactics (v19.2)
+# ATT&CK Tactics (v20.0)
 
-The 15 Enterprise tactics. In v19.2, _Defense Evasion_ (TA0005) was renamed [Stealth](/mitre/tactics/stealth.md) and the new [Defense Impairment](/mitre/tactics/defense-impairment.md) tactic (TA0112) was split out.
+The 15 Enterprise tactics. In v19, _Defense Evasion_ (TA0005) was renamed [Stealth](/mitre/tactics/stealth.md) and the new [Defense Impairment](/mitre/tactics/defense-impairment.md) tactic (TA0112) was split out.
 
 - [Reconnaissance](/mitre/tactics/reconnaissance.md): 46 techniques
 - [Resource Development](/mitre/tactics/resource-development.md): 51 techniques

@@ -30,6 +30,19 @@ Layers of checks:
      ATT&CK release would otherwise contradict the list printed under it (review
      findings gen-6/gen-7/gen-8: 167 technique pages, 8 mitigations).
 
+  7. Entity vocabulary (data/vocab/entities.jsonl, written by scripts/build_vocab.py):
+     each id is `<type>:<slug>` with a type in the locked set, an ATT&CK row's id is
+     its attack_id and that id is a group or software row of the pinned release, a
+     product's `vendor` is a vendor row, every `library_path` is a tracked page and
+     every `library_anchor` resolves on it with the docsify slugger.
+
+  8. Technique enrichment (data/attack/technique_enrichment.jsonl, the library's notes
+     that scripts/generate_mitre_pages.py renders on new techniques): the name matches
+     the technique profile, every related ATLAS id is a technique of the pinned ATLAS
+     release, every reference is either linked (link_status ok, an https URL) or kept as
+     plain text (link_status unreachable, no URL), dates are ISO, and no text carries an
+     em dash (docs/VOICE.md).
+
 Previously only the three crosswalks were validated (3 of 41 datasets); this
 covers them all (Library Enhancement Roadmap Tier 1.9).
 """
@@ -44,7 +57,22 @@ from attack_ids import AttackIds
 
 ROOT = Path(__file__).resolve().parent.parent
 
-# Layer 3 — rich per-field schemas for the vendor/control/technique crosswalks.
+# Layer 7: the entity vocabulary's locked types and record fields (scripts/build_vocab.py).
+VOCAB = "data/vocab/entities.jsonl"
+VOCAB_TYPES = ("vendor", "product", "actor", "malware", "sector")
+VOCAB_FIELDS = ("id", "type", "label", "aliases", "match", "stop_aliases", "ambiguous_aliases",
+                "kev_vendor_project", "vendor", "attack_id", "attack_domains", "software_type",
+                "superseded_ids", "vendor_keys", "library_path", "library_anchor", "library_url",
+                "source", "reviewed_at")
+
+# Layer 8: the technique enrichment rows (scripts/generate_mitre_pages.py renders them).
+ENRICH = "data/attack/technique_enrichment.jsonl"
+ENRICH_FIELDS = ("technique_id", "name", "narrative", "detection_notes", "references",
+                 "omitted_news", "related_atlas", "atlas_note", "capec_release",
+                 "ctid_attack_release", "mappings_checked_at", "reviewed_at")
+ENRICH_REF_FIELDS = ("author", "title", "date", "url", "link_status", "checked_at")
+
+# Layer 3: rich per-field schemas for the vendor/control/technique crosswalks.
 SCHEMAS = {
     "data/vendor_to_control.jsonl": {
         "required": ["vendor", "vendor_normalized", "market_family", "pipeline_stage", "nist_control", "control_desc", "confidence"],
@@ -76,6 +104,44 @@ SCHEMAS = {
             "reason": ["revoked", "deprecated"],
         }
     },
+    # which ATT&CK release added (and, for a revoked id, revoked) each technique;
+    # written by scripts/build_attack_core.py from the pinned STIX and index.json
+    "data/attack/technique_releases.jsonl": {
+        "required": ["technique_id", "domain", "status", "added_in"],
+        "field_values": {
+            "domain": ["enterprise", "ics", "mobile"],
+            "status": ["live", "revoked", "deprecated"],
+        }
+    },
+    # The shared entity vocabulary (scripts/build_vocab.py; field meanings in
+    # data/VOCABULARIES.md) and its two curated inputs.
+    "data/vocab/entities.jsonl": {
+        "required": list(VOCAB_FIELDS),
+        "field_values": {
+            "type": list(VOCAB_TYPES),
+            "software_type": [None, "malware", "tool"],
+        }
+    },
+    "data/vocab/curated.jsonl": {
+        "required": ["id", "type", "label", "aliases", "match", "kev_vendor_project", "vendor",
+                     "platform_page", "library", "library_heading", "vendor_keys", "basis",
+                     "reviewed_at"],
+        "field_values": {
+            "type": ["vendor", "product", "actor", "sector"],
+        }
+    },
+    "data/vocab/stop_aliases.jsonl": {
+        "required": ["alias", "reason"],
+        "field_values": {
+            "reason": ["ordinary-word", "command-name", "personal-name", "place-name", "legitimate-service"],
+        }
+    },
+    # The library's notes for new ATT&CK techniques (rendered by generate_mitre_pages.py);
+    # the cross-file rules are in enrichment_errors() (layer 8).
+    ENRICH: {
+        "required": list(ENRICH_FIELDS),
+        "field_values": {},
+    },
     # Per-technique prevalence extracted from the (uncommitted) 529-machine training
     # corpus; scripts/generate_mitre_pages.py renders the "corpus signal" paragraph from it.
     "data/generated/corpus_signal.jsonl": {
@@ -84,10 +150,11 @@ SCHEMAS = {
     },
 }
 
-# Layer 2 — the primary key of each node/entity file (must be unique per file).
+# Layer 2: the primary key of each node/entity file (must be unique per file).
 # Edge tables (paths containing "_to_") are intentionally omitted.
 PRIMARY_KEYS = {
     "data/ai/atlas_mitigations.jsonl": "mitigation_id",
+    "data/ai/atlas_superseded_by.jsonl": "old_id",
     "data/ai/atlas_tactics.jsonl": "tactic_id",
     "data/ai/atlas_techniques.jsonl": "technique_id",
     "data/attack/analytics.jsonl": "analytic_id",
@@ -110,6 +177,7 @@ PRIMARY_KEYS = {
     "data/attack/software.jsonl": "software_id",
     "data/attack/software_profiles.jsonl": "software_id",
     "data/attack/technique_profiles.jsonl": "technique_id",
+    "data/attack/technique_enrichment.jsonl": "technique_id",
     "data/engage/engage_activities.jsonl": "activity_id",
     "data/engage/engage_approaches.jsonl": "approach_id",
     "data/engage/engage_goals.jsonl": "goal_id",
@@ -118,13 +186,18 @@ PRIMARY_KEYS = {
     "data/generated/corpus_signal.jsonl": "technique_id",
     "data/weaknesses/capec.jsonl": "capec_id",
     "data/weaknesses/cwe.jsonl": "cwe_id",
+    "data/vocab/entities.jsonl": "id",
+    "data/vocab/curated.jsonl": "id",
+    "data/vocab/stop_aliases.jsonl": "alias",
 }
 
 # Files whose true primary key is a tuple. detection_strategies lists a strategy
 # once per technique it covers (15 strategies appear against both a superseded
-# and current v19.2 technique id), so (strategy_id, technique_id) is the unique key.
+# and current technique id), so (strategy_id, technique_id) is the unique key.
 COMPOSITE_KEYS = {
     "data/attack/detection_strategies.jsonl": ("strategy_id", "technique_id"),
+    # one row per technique per domain (ICS and Enterprise share the T16xx range)
+    "data/attack/technique_releases.jsonl": ("technique_id", "domain"),
     # edge tables: one row per (source, target)
     "data/control_to_technique.jsonl":                ("nist_control", "attack_technique"),
     "data/vendor_to_control.jsonl":                   ("vendor_normalized", "nist_control"),
@@ -159,10 +232,11 @@ TECHNIQUE_REFS = {
     "data/attack/detection_strategies.jsonl":      ("technique_id", False, ENT, False),
     "data/attack/analytics.jsonl":                 ("technique_ids", True, ENT, False),
     "data/generated/corpus_signal.jsonl":          ("technique_id", False, ENT, False),
+    "data/attack/technique_enrichment.jsonl":      ("technique_id", False, ENT, False),
     "data/weaknesses/capec.jsonl":                 ("attack_techniques", True, ALL, False),
 }
 
-# Layer 4 — edge contract (see data/EDGES.md). Each edge dataset asserts a
+# Layer 4: edge contract (see data/EDGES.md). Each edge dataset asserts a
 # relationship from a source id to a target id; every row must carry a non-empty
 # source and a non-empty target (adjacency rows: a non-empty target list whose
 # items carry the declared id key). The normalized (source_type, target_type,
@@ -275,6 +349,49 @@ def count_consistency_errors():
     return out
 
 
+def vocab_errors():
+    """Layer 7: id shape, ATT&CK ids, vendor references and library links of every
+    entities.jsonl row. Returns a list of error strings."""
+    import re
+    from check_docsify_links import anchors_of
+    from repo_files import tracked_files
+
+    cache, errs = {}, []
+    rows = _rows(VOCAB, cache)
+    if not rows:
+        return [f"  {VOCAB} is missing or empty (run scripts/build_vocab.py)"]
+    tracked = set(tracked_files())
+    attack = {"actor": set(), "malware": set()}
+    for sub in ("", "ics/", "mobile/"):
+        attack["actor"].update(r.get("group_id") for r in _rows(f"data/attack/{sub}groups.jsonl", cache))
+        attack["malware"].update(r.get("software_id") for r in _rows(f"data/attack/{sub}software.jsonl", cache))
+    vendors = {r.get("id") for r in rows if r.get("type") == "vendor"}
+    id_re = re.compile(r"^(vendor|product|actor|malware|sector):[A-Za-z0-9][A-Za-z0-9-]*$")
+    for r in rows:
+        rid, typ = r.get("id"), r.get("type")
+        if not isinstance(rid, str) or not id_re.match(rid) or rid.split(":", 1)[0] != typ:
+            errs.append(f"  {rid!r}: id must be '<type>:<slug>' with the row's type ({typ!r})")
+            continue
+        aid = r.get("attack_id")
+        if aid is not None:
+            if typ not in attack or aid not in attack[typ] or rid != f"{typ}:{aid}":
+                errs.append(f"  {rid}: attack_id {aid!r} is not a {typ} row of the pinned ATT&CK release")
+        elif typ in attack and re.match(r"^[GS]\d{4}$", rid.split(":", 1)[1]):
+            errs.append(f"  {rid}: an ATT&CK-shaped id needs its attack_id")
+        if r.get("vendor") is not None and r.get("vendor") not in vendors:
+            errs.append(f"  {rid}: vendor {r.get('vendor')!r} is not a vendor row")
+        path, anchor = r.get("library_path"), r.get("library_anchor")
+        if path is not None:
+            rel = path[1:] if isinstance(path, str) and path.startswith("/") else None
+            if rel is None or rel not in tracked:
+                errs.append(f"  {rid}: library_path {path!r} is not a tracked page ('/'-prefixed, from the repo root)")
+            elif anchor is not None and anchor not in anchors_of(rel):
+                errs.append(f"  {rid}: library_anchor {anchor!r} does not resolve on {path}")
+        elif anchor is not None:
+            errs.append(f"  {rid}: library_anchor without a library_path")
+    return errs
+
+
 def _ref_errors(record, ref, ids):
     """Layer 5 errors for one record (technique references, via_revoked, tactics)."""
     field, is_list, domains, allow_dep = ref
@@ -353,14 +470,14 @@ def validate_file(rel: str, ids=None):
             try:
                 record = json.loads(raw)
             except json.JSONDecodeError as e:
-                errors.append(f"  Line {lineno}: Invalid JSON — {e}")
+                errors.append(f"  Line {lineno}: Invalid JSON: {e}")
                 continue
 
             if not isinstance(record, dict):
                 errors.append(f"  Line {lineno}: record is not a JSON object ({type(record).__name__})")
                 continue
 
-            # Layer 2 — primary-key presence + uniqueness (single or composite)
+            # Layer 2: primary-key presence + uniqueness (single or composite)
             if pk:
                 val = record.get(pk)
                 if val in (None, ""):
@@ -379,7 +496,7 @@ def validate_file(rel: str, ids=None):
                     else:
                         seen_ids[val] = lineno
 
-            # Layer 3 — rich field schema
+            # Layer 3: rich field schema
             if schema:
                 for field in schema.get("required", []):
                     if field not in record:
@@ -392,7 +509,7 @@ def validate_file(rel: str, ids=None):
                     if not (isinstance(val, str) and val.startswith("T") and len(val) >= 5):
                         errors.append(f"  Line {lineno}: 'attack_technique' = '{val}' doesn't look like an ATT&CK technique ID")
 
-            # Layer 4 — edge contract (source/target presence; see data/EDGES.md)
+            # Layer 4: edge contract (source/target presence; see data/EDGES.md)
             if edge:
                 src = record.get(edge["source"])
                 if src in (None, ""):
@@ -426,6 +543,64 @@ def validate_file(rel: str, ids=None):
                                   f"'{record['new_id']}' does not reach a live {dom} technique")
 
     return line_count, errors, checks
+
+
+def enrichment_errors():
+    """Layer 8: cross-file and content rules for data/attack/technique_enrichment.jsonl."""
+    import re
+    p = ROOT / ENRICH
+    if not p.exists():
+        return []
+    def rows(rel):
+        with open(ROOT / rel, encoding="utf-8") as f:
+            return [json.loads(x) for x in f if x.strip()]
+    names = {r["technique_id"]: r.get("name") for r in rows("data/attack/technique_profiles.jsonl")}
+    atlas = {r["technique_id"] for r in rows("data/ai/atlas_techniques.jsonl")}
+    day = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+    when = re.compile(r"^\d{4}(-\d{2}(-\d{2})?)?$")
+    errs = []
+    for n, r in enumerate(rows(ENRICH), start=1):
+        tid = r.get("technique_id")
+        at = f"  Line {n} ({tid}): "
+        if names.get(tid) != r.get("name"):
+            errs.append(at + f"name {r.get('name')!r} differs from technique_profiles ({names.get(tid)!r})")
+        nar = r.get("narrative")
+        if not (isinstance(nar, list) and nar and all(isinstance(x, str) and x.strip() for x in nar)):
+            errs.append(at + "narrative must be a non-empty list of paragraphs")
+        if not (isinstance(r.get("detection_notes"), str) and r["detection_notes"].strip()):
+            errs.append(at + "detection_notes must be a non-empty string")
+        for k in ("mappings_checked_at", "reviewed_at"):
+            if not day.match(str(r.get(k) or "")):
+                errs.append(at + f"{k} must be YYYY-MM-DD")
+        if not (isinstance(r.get("omitted_news"), int) and r["omitted_news"] >= 0):
+            errs.append(at + "omitted_news must be a count (int >= 0)")
+        for a in r.get("related_atlas") or []:
+            if a not in atlas:
+                errs.append(at + f"related ATLAS id {a} is not a technique in data/ai/atlas_techniques.jsonl")
+        refs = r.get("references")
+        if not (isinstance(refs, list) and refs):
+            errs.append(at + "references must be a non-empty list")
+            refs = []
+        for i, ref in enumerate(refs, start=1):
+            missing = [k for k in ENRICH_REF_FIELDS if k not in ref]
+            if missing:
+                errs.append(at + f"reference {i} lacks {missing}")
+                continue
+            if ref["link_status"] == "ok":
+                if not (isinstance(ref["url"], str) and ref["url"].startswith("https://")):
+                    errs.append(at + f"reference {i} is linked but has no https URL")
+            elif ref["link_status"] == "unreachable":
+                if ref["url"] is not None:
+                    errs.append(at + f"reference {i} did not open, so it must carry no URL (kept as plain text)")
+            else:
+                errs.append(at + f"reference {i} link_status {ref['link_status']!r} not in ['ok', 'unreachable']")
+            if ref["date"] is not None and not when.match(str(ref["date"])):
+                errs.append(at + f"reference {i} date {ref['date']!r} is not YYYY, YYYY-MM or YYYY-MM-DD")
+            if not day.match(str(ref["checked_at"])):
+                errs.append(at + f"reference {i} checked_at must be YYYY-MM-DD")
+        if "\u2014" in json.dumps(r, ensure_ascii=False):
+            errs.append(at + "contains an em dash (U+2014); docs/VOICE.md bans it")
+    return errs
 
 
 def main():
@@ -470,6 +645,28 @@ def main():
             total_errors += len(errs)
         else:
             print(f"OK    {node_rel}  (count-vs-edge: {fields})")
+
+    # Layer 7 - the entity vocabulary's ids and library links (cross-file)
+    verrs = vocab_errors()
+    if verrs:
+        print(f"FAIL  {VOCAB}  vocabulary links: {len(verrs)} error(s) (rebuild with scripts/build_vocab.py)")
+        for e in verrs[:25]:
+            print(e)
+        if len(verrs) > 25:
+            print(f"  ... and {len(verrs) - 25} more")
+        total_errors += len(verrs)
+    else:
+        print(f"OK    {VOCAB}  (vocabulary: ids, attack_id, vendor refs, library_path + docsify anchors)")
+
+    # Layer 8 - the technique enrichment rows (cross-file and content rules)
+    eerrs = enrichment_errors()
+    if eerrs:
+        print(f"FAIL  {ENRICH}  enrichment: {len(eerrs)} error(s)")
+        for e in eerrs[:25]:
+            print(e)
+        total_errors += len(eerrs)
+    else:
+        print(f"OK    {ENRICH}  (enrichment: profile names, ATLAS ids, reference links, dates, no em dash)")
 
     print("\n" + "=" * 60)
     print(f"Datasets validated: {len(files)}   Records: {total_lines}")

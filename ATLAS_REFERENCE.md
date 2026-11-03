@@ -41,7 +41,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Length</th><td>
 
-Lookup page: 10,010 words, 80% in tables; look entries up from Start at or the search (about 44 min end to end at 230 words a minute)
+Lookup page: 10,128 words, 79% in tables; look entries up from Start at or the search (about 44 min end to end at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -108,6 +108,26 @@ Version boundary: The counts above, the tables from [The ATLAS matrix](#the-atla
 | AML.T0010 Supply Chain Compromise | Adversaries compromise AI supply-chain components to obtain access; this is distinct from simply acquiring a public artifact. |
 
 Defensive application (practitioner curation): Scope short-lived identities per agent and environment, enforce default-deny egress outside the model, and prohibit secrets shared across environments. Bound tool calls, retries, delegation, and spend; use pre-authorized, act-on-signals runbooks that can pause agents, revoke credentials, and isolate execution at machine tempo while preserving evidence. These choices draw on the same release's AML.M0032 (Segmentation of AI Agent Components), AML.M0037 (AI Agent Authority Expansion Controls), and AML.M0038 (AI Agent Scope Drift Detection); they are not a claim of complete mitigation coverage. See the [AI & LLM Security learning path](/disciplines/ai-llm-security.md) for a bounded practice exercise.
+
+## ATT&CK v20.0 AI techniques and related ATLAS techniques
+
+ATT&CK v20.0 added Enterprise techniques for prompt injection, AI-enabled exfiltration, AI result poisoning and attacks on autonomous defenses, next to the CAPTCHA and app-specific password techniques added in the same release. The pinned ATLAS 2026.10 data carries no ATT&CK reference to any of them, so the table below is the library's own crosswalk, not a MITRE mapping: a pairing says the two techniques describe related behavior from different sides (the enterprise being attacked, the AI system being attacked), not that one maps to the other. The table is written by `scripts/generate_mitre_pages.py` from `data/attack/technique_enrichment.jsonl`, and each technique page repeats its pairings under Related ATLAS techniques.
+
+<!-- attack-crosswalk:start (written by scripts/generate_mitre_pages.py from data/attack/technique_enrichment.jsonl; do not edit) -->
+
+| ATT&CK v20.0 technique | Related ATLAS 2026.10 techniques (library pairing) | Why the library pairs them |
+|---|---|---|
+| [T1608.007 AI Result Poisoning](/mitre/techniques/T1608-007.md) | [AML.T0066 Retrieval Content Crafting](/mitre/atlas/AML-T0066.md), [AML.T0070 RAG Poisoning](/mitre/atlas/AML-T0070.md) | The retrieval side of the same idea: content crafted to be retrieved by an AI system, and poisoning of a retrieval-augmented generation corpus. |
+| [T1685.007 Impair Autonomous Defenses](/mitre/techniques/T1685-007.md) | [AML.T0015 Evade AI Model](/mitre/atlas/AML-T0015.md), [AML.T0051.001 LLM Prompt Injection: Indirect](/mitre/atlas/AML-T0051-001.md) | ATLAS describes the defender's model as the victim: evading an AI model, here by prompt injection carried in the sample it reads. |
+| [T1696 Anti-Automation Evasion](/mitre/techniques/T1696.md) | None | ATLAS techniques describe attacks on AI systems; evading a bot check with automation has no ATLAS counterpart. |
+| [T1696.001 Automate CAPTCHA Completion](/mitre/techniques/T1696-001.md) | None | No ATLAS counterpart: the solver is a tool used against a web control, not an attack on an AI system. |
+| [T1696.002 Avoid CAPTCHA](/mitre/techniques/T1696-002.md) | None | No ATLAS counterpart: mimicking a human visitor targets a web control, not an AI system. |
+| [T1697 Steal Application Specific Passwords](/mitre/techniques/T1697.md) | None | No ATLAS counterpart: the target is an account credential, not an AI system. |
+| [T1698 Indirect Prompt Injection](/mitre/techniques/T1698.md) | [AML.T0051.001 LLM Prompt Injection: Indirect](/mitre/atlas/AML-T0051-001.md), [AML.T0080 AI Agent Context Poisoning](/mitre/atlas/AML-T0080.md) | The same behavior seen from the AI system's side: prompt injection delivered through retrieved content, and poisoning of the context an agent works from. |
+| [T1699 Direct Prompt Injection](/mitre/techniques/T1699.md) | [AML.T0051.000 LLM Prompt Injection: Direct](/mitre/atlas/AML-T0051-000.md), [AML.T0054 LLM Jailbreak](/mitre/atlas/AML-T0054.md) | ATLAS's view of the same act: a prompt injected straight into the model, and jailbreaking it past its safety controls. |
+| [T1700 AI-Enabled Exfiltration](/mitre/techniques/T1700.md) | [AML.T0086 Exfiltration via AI Agent Tool Invocation](/mitre/atlas/AML-T0086.md), [AML.T0136 Exfiltration via AI User Interface](/mitre/atlas/AML-T0136.md) | ATLAS's exfiltration techniques for the same path: data sent out through an agent's tool calls, or through the AI user interface itself. |
+
+<!-- attack-crosswalk:end -->
 
 ---
 

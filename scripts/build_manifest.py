@@ -79,6 +79,7 @@ PROVENANCE = [
     ("data/attack/d3fend_countermeasures.jsonl","d3fend"),
     ("data/attack/technique_to_car.jsonl",     "car"),
     ("data/attack/technique_profiles.jsonl",   "tsw_attack"),
+    ("data/attack/technique_enrichment.jsonl", "tsw"),   # the library's own notes, not MITRE data
     ("data/attack/group_profiles.jsonl",       "tsw_attack"),
     ("data/attack/software_profiles.jsonl",    "tsw_attack"),
     ("data/attack/campaign_profiles.jsonl",    "tsw_attack"),

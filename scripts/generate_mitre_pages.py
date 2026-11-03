@@ -32,6 +32,7 @@ from pathlib import Path
 from plain_markdown import plain
 import build_crosslinks as xl  # owns the "Library references" block on each page
 from attack_ids import ATTACK_RELEASE, ATTACK_VER, AttackIds, technique_releases
+from build_atlas import ATLAS_RELEASE  # the pinned ATLAS release (2026.10)
 from collections import defaultdict, Counter
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -362,6 +363,12 @@ class DB:
         self.strats_by_t = defaultdict(list)
         for r in sorted(load_jsonl(DATA / "attack/detection_strategies.jsonl"), key=lambda r: r["strategy_id"]):
             self.strats_by_t[r["technique_id"]].append(r["name"])
+        # The library's own notes for techniques MITRE shipped with little around them
+        # (data/attack/technique_enrichment.jsonl; schema in scripts/validate_jsonl.py):
+        # narrative, defender notes, re-checked references, related ATLAS techniques and
+        # the dated "no upstream CAPEC / CTID mapping" check.
+        en_p = DATA / "attack/technique_enrichment.jsonl"
+        self.enrich = {r["technique_id"]: r for r in (load_jsonl(en_p) if en_p.exists() else [])}
 
         self.nist_name = {}
         for r in load_jsonl(DATA / "control_to_technique.jsonl"):
@@ -510,6 +517,146 @@ class DB:
 
 
 # ----------------------------------------------------------------------------- technique
+def one_line(text):
+    """Upstream text on one line (analytic notes carry newlines and no-break spaces)."""
+    return re.sub(r"\s+", " ", str(text or "")).strip()
+
+
+def atlas_label(db, aid):
+    """'AML.T0051.001 LLM Prompt Injection: Indirect' style label for an ATLAS id."""
+    r = db.atlas.get(aid) or {}
+    name = r.get("name", "")
+    par = r.get("parent_id")
+    if par and par in db.atlas:
+        name = db.atlas[par].get("name", "") + ": " + name
+    return aid + " " + DASH + " " + name
+
+
+def render_reference(ref):
+    """One reference row. A citation whose link did not open at the last check is kept as
+    plain text with that note, never linked."""
+    title = ref["title"]
+    head = ref["author"] + ", "
+    when = (", " + ref["date"]) if ref.get("date") else ""
+    if ref.get("url"):
+        return "- " + head + "[" + title + "](" + ref["url"] + ")" + when + "."
+    return ("- " + head + title + when + " (not linked: the page did not open for the library's "
+            "link check on " + ref["checked_at"] + ").")
+
+
+def render_technique_enrichment(db, tid, en):
+    """Related ATLAS techniques, references and the dated upstream-mapping line."""
+    p = db.prof[tid]
+    out = []
+    rel = en.get("related_atlas") or []
+    if rel:
+        out.append("## Related ATLAS techniques (" + str(len(rel)) + ")\n")
+        out.append("The library pairs " + tid + " with these ATLAS " + ATLAS_RELEASE + " techniques. "
+                   "They are related, not an official mapping: ATLAS " + ATLAS_RELEASE + " carries no "
+                   "ATT&CK reference to " + tid + ". " + en.get("atlas_note", "").strip() + "\n")
+        out.append("\n".join("- [" + atlas_label(db, a) + "](/mitre/atlas/" + aml_slug(a) + ".md)"
+                             for a in rel) + "\n")
+    refs = en.get("references") or []
+    if refs:
+        out.append("## References (" + str(len(refs)) + ")\n")
+        out.append("The sources MITRE cites for " + tid + ", re-opened on " +
+                   en["references"][0]["checked_at"] + ".\n")
+        out.append("\n".join(render_reference(r) for r in refs) + "\n")
+        n_news = int(en.get("omitted_news") or 0)
+        if n_news:
+            out.append("MITRE's page also cites " + str(n_news) + " news " +
+                       ("article" if n_news == 1 else "articles") + " that the library does not carry as "
+                       "a primary source.\n")
+    if not (p.get("capec") or []):
+        out.append("## Upstream mappings\n")
+        out.append("No upstream mapping as of " + en["mappings_checked_at"] + ": CAPEC " +
+                   en["capec_release"] + " (the latest CAPEC release) has no ATT&CK taxonomy entry for " +
+                   tid + ", and the CTID Mappings Explorer, whose ATT&CK mappings are for v" +
+                   en["ctid_attack_release"] + ", has no page for it.\n")
+    return out
+
+
+# ATLAS_REFERENCE.md carries the same pairings as a table, between these markers. The
+# block is written here (the pairings are this script's input) and --check compares it.
+ATLAS_REF = ROOT / "ATLAS_REFERENCE.md"
+XW_START = ("<!-- attack-crosswalk:start (written by scripts/generate_mitre_pages.py from "
+            "data/attack/technique_enrichment.jsonl; do not edit) -->")
+XW_END = "<!-- attack-crosswalk:end -->"
+
+
+def render_atlas_crosswalk(db):
+    """The library's ATT&CK -> related ATLAS table, one row per enriched technique, in
+    ATT&CK id order. Names come from the ATT&CK and ATLAS data, never typed here."""
+    def key(tid):
+        return [int(x) for x in tid[1:].split(".")]
+    rows = ["| ATT&CK " + ATTACK_VER + " technique | Related ATLAS " + ATLAS_RELEASE +
+            " techniques (library pairing) | Why the library pairs them |", "|---|---|---|"]
+    for tid in sorted(db.enrich, key=key):
+        en = db.enrich[tid]
+        t = "[" + tid + " " + db.prof[tid]["name"] + "](/mitre/techniques/" + tslug(tid) + ".md)"
+        rel = ", ".join("[" + atlas_label(db, a).replace(" " + DASH + " ", " ") + "](/mitre/atlas/" +
+                        aml_slug(a) + ".md)" for a in en.get("related_atlas") or []) or "None"
+        rows.append("| " + t + " | " + rel + " | " + en.get("atlas_note", "").strip().replace("|", "\\|") + " |")
+    return XW_START + "\n\n" + "\n".join(rows) + "\n\n" + XW_END
+
+
+def sync_atlas_crosswalk(db, check):
+    """Write (or, with check, compare) the crosswalk block in ATLAS_REFERENCE.md. The page
+    keeps its own line endings. Returns 0 when the block is current, 1 otherwise."""
+    raw = ATLAS_REF.read_bytes().decode("utf-8")
+    crlf = "\r\n" in raw
+    text = raw.replace("\r\n", "\n")
+    i, j = text.find(XW_START), text.find(XW_END)
+    if i < 0 or j < i:
+        print("ATLAS CROSSWALK: ATLAS_REFERENCE.md has no " + XW_START[:30] + "... block")
+        return 1
+    new = text[:i] + render_atlas_crosswalk(db) + text[j + len(XW_END):]
+    if new == text:
+        print("OK: ATLAS_REFERENCE.md crosswalk block matches data/attack/technique_enrichment.jsonl")
+        return 0
+    if check:
+        print("ATLAS CROSSWALK DRIFT: the block in ATLAS_REFERENCE.md differs from "
+              "data/attack/technique_enrichment.jsonl. Run `python scripts/generate_mitre_pages.py "
+              "--only techniques` and commit the result.")
+        return 1
+    ATLAS_REF.write_bytes((new.replace("\n", "\r\n") if crlf else new).encode("utf-8"))
+    print("atlas crosswalk: wrote " + str(len(db.enrich)) + " rows to ATLAS_REFERENCE.md")
+    return 0
+
+
+def technique_invariants(db):
+    """Rules every rendered technique page must keep (run by --check and --self-test):
+    no analytic row stops after its platforms, every campaign that uses the technique
+    is linked by id (up to CAP_NAMED), a live technique without a detection strategy
+    says so, an enriched page carries its narrative, defender notes and references,
+    and a reference that did not open is never rendered as a link."""
+    empty_row = re.compile(r"^- \*\*[^*]+\*\* \([^)]*\)\s*$", re.M)
+    problems = []
+    for tid in sorted(db.prof):
+        page = render_technique(db, tid)
+        if empty_row.search(page):
+            problems.append(tid + ": an analytic row ends after its platforms (empty analytic)")
+        for c in (db.camps_by_t.get(tid) or [])[:CAP_NAMED]:
+            if "(/mitre/campaigns/" + c + ".md)" not in page:
+                problems.append(tid + ": campaign " + c + " is counted but not linked")
+        p = db.prof[tid]
+        if not (p.get("revoked") or p.get("deprecated") or p.get("has_detection_strategy")):
+            if "MITRE publishes no detection strategy for this technique" not in page:
+                problems.append(tid + ": no detection strategy, and the page does not say so")
+        en = db.enrich.get(tid)
+        if en:
+            for label, needle in (("narrative", en["narrative"][0].strip()),
+                                  ("defender notes", "**Defender notes (library):**"),
+                                  ("references", "## References (")):
+                if needle not in page:
+                    problems.append(tid + ": enriched page lacks its " + label)
+            for ref in en.get("references") or []:
+                line = render_reference(ref)
+                if not ref.get("url") and "](" in line:
+                    problems.append(tid + ": unreachable reference rendered as a link")
+    return problems
+
+
 def render_technique(db, tid):
     p = db.prof[tid]
     out = ["# " + tid + " " + DASH + " " + p["name"] + "\n", '<a id="' + tanchor(tid) + '"></a>\n']
@@ -559,11 +706,22 @@ def render_technique(db, tid):
         out.append("> **New in ATT&CK " + ("v" + added if added else ATTACK_VER) + ".** It supersedes " +
                    parts + " (revoked; kept for reference).\n")
     elif added == ATTACK_RELEASE and not p.get("revoked"):
-        out.append("> **New in ATT&CK " + ATTACK_VER + ".** MITRE added this technique in the current "
-                   "release; the library's own enrichment (NIST controls, CAPEC, detections, corpus "
-                   "signal) may not cover it yet.\n")
+        if tid in db.enrich:
+            out.append("> **New in ATT&CK " + ATTACK_VER + ".** MITRE added this technique in the current "
+                       "release. The overview, defender notes, references and related ATLAS techniques on "
+                       "this page are the library's own, last reviewed " + db.enrich[tid]["reviewed_at"] +
+                       "; the NIST control and corpus signal data do not cover it yet.\n")
+        else:
+            out.append("> **New in ATT&CK " + ATTACK_VER + ".** MITRE added this technique in the current "
+                       "release; the library's own enrichment (NIST controls, CAPEC, detections, corpus "
+                       "signal) may not cover it yet.\n")
 
-    if p.get("description"):
+    en = db.enrich.get(tid)
+    if en:
+        out.append("\n\n".join(x.strip() for x in en["narrative"]) + "\n")
+        if p.get("description"):
+            out.append("ATT&CK's definition: " + p["description"].strip() + "\n")
+    elif p.get("description"):
         out.append(p["description"].strip() + "\n")
 
     if tid in db.corpus:
@@ -613,8 +771,12 @@ def render_technique(db, tid):
     # Detection (enriched: strategies + analytics with log sources)
     strategies = db.strats_by_t.get(tid) or []
     analytics = db.analytics.get(tid) or []
-    if strategies or analytics:
+    no_strategy = not (p.get("revoked") or p.get("deprecated") or p.get("has_detection_strategy"))
+    notes = (en or {}).get("detection_notes")
+    if strategies or analytics or no_strategy or notes:
         out.append("## Detection\n")
+        if no_strategy and not strategies:
+            out.append("MITRE publishes no detection strategy for this technique in ATT&CK " + ATTACK_VER + ".\n")
         if strategies:
             out.append("**Detection strategies:**\n")
             out.append("\n".join("- " + s for s in strategies) + "\n")
@@ -635,11 +797,16 @@ def render_technique(db, tid):
                     parts.append(seg)
                 more = " (+" + str(len(ls) - CAP_LOGSRC) + " more)" if len(ls) > CAP_LOGSRC else ""
                 name = a.get("name") or a.get("analytic_id")
+                # An analytic with no log sources is MITRE's note on why the technique is hard
+                # to see from the target's side; print that note instead of an empty row.
+                tail = "; ".join(parts) + more if parts else one_line(a.get("description"))
                 arows.append("- **" + str(name) + "** (" + aplats + ")" +
-                             ((" " + DASH + " " + "; ".join(parts) + more) if parts else ""))
+                             ((" " + DASH + " " + tail) if tail else ""))
             out.append("\n".join(arows) + "\n")
             if len(analytics) > CAP_ANALYTICS:
                 out.append("_+" + str(len(analytics) - CAP_ANALYTICS) + " more analytics._\n")
+        if notes:
+            out.append("**Defender notes (library):** " + notes.strip() + "\n")
 
     # Data sources & telemetry (from the analytics' log sources)
     comps, seen = [], set()
@@ -718,7 +885,11 @@ def render_technique(db, tid):
             extra = " _+" + str(len(sw) - CAP_NAMED) + " more_" if len(sw) > CAP_NAMED else ""
             out.append("**Software/tools (" + str(sc) + "):** " + named + extra + "\n")
         if cc:
-            out.append("**Campaigns:** " + str(cc) + " (per MITRE ATT&CK)\n")
+            camps = db.camps_by_t.get(tid) or []
+            named = ", ".join("[" + c + " " + DASH + " " + db.camp_prof[c].get("name", "") +
+                              "](/mitre/campaigns/" + c + ".md)" for c in camps[:CAP_NAMED])
+            extra = " _+" + str(cc - CAP_NAMED) + " more_" if cc > CAP_NAMED else ""
+            out.append("**Campaigns (" + str(cc) + "):** " + named + extra + "\n")
 
     # Sub-techniques (for parent techniques). Revoked sub-techniques are not current
     # members of the parent (review cur-4): they are listed apart with their successor.
@@ -739,6 +910,9 @@ def render_technique(db, tid):
         out.append("## Revoked sub-techniques (" + str(len(gone_kids)) + ")\n")
         out.append(revoked_phrase(db, *gone_kids) + "; the pages are kept for reference.\n")
         out.append("\n".join("- " + revoked_line(db, k) for k in gone_kids) + "\n")
+
+    if en:
+        out.extend(render_technique_enrichment(db, tid, en))
 
     # NIST 800-53 (now with control names)
     nist = p.get("nist_800_53_controls") or []
@@ -1564,6 +1738,9 @@ def main():
                     help="write nothing under mitre/: render the selected sections into a temporary "
                          "directory and exit 1 if any committed page differs, is missing, or is an orphan "
                          "the generator no longer produces")
+    ap.add_argument("--self-test", action="store_true",
+                    help="write nothing; render every technique page and exit 1 if a page breaks "
+                         "a rule in technique_invariants() (also run by --check)")
     ap.add_argument("--verify-corpus", type=int, metavar="N", default=None,
                     help="write nothing; fail unless corpus_signal.jsonl holds exactly N rows, every "
                          "row's paragraph is on its committed page verbatim, and no page carries a "
@@ -1582,6 +1759,18 @@ def main():
     print("loaded: " + str(len(db.prof)) + " techniques, corpus preserved for " +
           str(len(db.corpus_ids)) + " of them (" + CORPUS_PATH.relative_to(ROOT).as_posix() +
           "; " + str(len(db.corpus_on_pages)) + " committed pages carry the paragraph)")
+
+    if args.self_test or args.check:
+        bad = technique_invariants(db)
+        if bad:
+            print("TECHNIQUE PAGE RULES FAILED (" + str(len(bad)) + "):")
+            for line in bad[:50]:
+                print("  - " + line)
+            raise SystemExit(1)
+        print("OK: " + str(len(db.prof)) + " technique pages keep the render rules "
+              "(no empty analytic, campaigns linked, no-strategy line, enrichment present)")
+        if args.self_test:
+            return
 
     if args.verify_corpus is not None:
         problems = []
@@ -1610,8 +1799,9 @@ def main():
     out_root = (check_dir / "mitre") if args.check else MITRE
     try:
         generate(db, only, out_root)
+        xw = sync_atlas_crosswalk(db, args.check) if "techniques" in only else 0
         if args.check:
-            raise SystemExit(compare_tree(out_root, only))
+            raise SystemExit(compare_tree(out_root, only) or xw)
     finally:
         if check_dir is not None:
             shutil.rmtree(check_dir, ignore_errors=True)

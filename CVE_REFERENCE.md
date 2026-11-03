@@ -355,7 +355,8 @@ be exploited in the wild in the next 30 days?"
 
 - Score: 0.000001 to 1.0 (probability)
 - Updated daily at api.first.org
-- EPSS v4 (current, March 2025): developed by Jay Jacobs / Empirical Security with the Cyentia Institute, published by FIRST. Vastly improved data ingestion and monitoring; expands exploitation tracking to malware activity + endpoint detections (~12K vulnerabilities/month). Not directly comparable to v3.
+- EPSS v5 (current: model version v2026.06.15, live since June 15, 2026): released by Empirical Security, which reports a 23% improvement over v4 on the same data ([EPSS V5 Is Here](https://research.empiricalsecurity.com/research/epss-v5-is-here)). The daily scores file names the model in its header (`model_version:v2026.06.15`).
+- EPSS v4 (March 2025, superseded by v5): developed by Jay Jacobs / Empirical Security with the Cyentia Institute, published by FIRST. Vastly improved data ingestion and monitoring; expands exploitation tracking to malware activity + endpoint detections (~12K vulnerabilities/month). Not directly comparable to v3.
 - EPSS v3 (Feb 2023, superseded): ~1,500 features; accuracy degraded slightly over 2023-2024, prompting v4
 
 ### EPSS Model Features (v3 signals, expanded in v4)

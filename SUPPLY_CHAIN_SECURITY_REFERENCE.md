@@ -2196,7 +2196,7 @@ Maven Central:
 ```bash
 # Maven Central does not support deletion of published artifacts
 # This is a deliberate policy (reproducible builds depend on immutability)
-# Contact: https://central.sonatype.org/publish/delete/
+# Policy: https://central.sonatype.org/faq/can-i-change-a-component/
 # For security emergencies: central@sonatype.com
 
 # Mitigation: publish a new version with fix and communicate urgently

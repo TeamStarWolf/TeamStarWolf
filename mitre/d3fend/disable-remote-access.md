@@ -13,8 +13,8 @@ Limiting access to a computing device which is not required through or from a no
 - [T0868: Detect Operating Mode](https://attack.mitre.org/techniques/T0868): configures
 - [T1114.003: Email Forwarding Rule](/mitre/techniques/T1114-003.md): configures. Adversaries may setup email forwarding rules to collect sensitive information.
 - [T1564.008: Email Hiding Rules](/mitre/techniques/T1564-008.md): configures. Adversaries may use email rules to hide inbound emails in a compromised user's mailbox.
-- [T1685.001: Disable or Modify Windows Event Log](/mitre/techniques/T1685-001.md): configures. Adversaries may disable or modify the Windows Event Log to limit data that can be leveraged for detections and audits.
-- [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): configures. Adversaries may impair command history logging to hide commands they run on a compromised system.
+- [T1685.001: Disable or Modify Windows Event Log](/mitre/techniques/T1685-001.md): configures (D3FEND maps the revoked predecessor T1562.002). Adversaries may disable or modify the Windows Event Log to limit data that can be leveraged for detections and audits.
+- [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): configures (D3FEND maps the revoked predecessor T1562.003). Adversaries may impair command history logging to hide commands they run on a compromised system.
 
 ---
 

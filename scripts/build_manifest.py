@@ -123,8 +123,10 @@ def _file_entry(path: str, rel: str):
                 if k in row0:
                     entry["data_version_field"] = {k: row0[k]}
                     break
+            # data/vocab/ rows carry a per-row `source` (which input made that row), not a
+            # file-level one, so row 0 says nothing about the whole file: skip it there.
             for sk in ("source", "ctid_source"):
-                if sk in row0:
+                if sk in row0 and not rel.startswith("data/vocab/"):
                     entry["data_source_field"] = row0[sk]
                     break
         except Exception:

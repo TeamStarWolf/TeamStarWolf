@@ -596,7 +596,6 @@
       "bytes": 700543,
       "sha256": "7943fb389111502621fcc62098d09ee91cbf74a42e22eeab752a9d001849ecf3",
       "rows": 1322,
-      "data_source_field": "data/attack/groups.jsonl",
       "provenance": {
         "upstream": "TeamStarWolf (first-party): entity vocabulary built by scripts/build_vocab.py from the platform pages, the vendor crosswalk and MITRE ATT&CK groups and software; vendor spellings from the CISA KEV catalog",
         "license": "MIT (derivation); ATT&CK names under MITRE Terms of Use; CISA KEV is a US-Government work",

@@ -39,6 +39,10 @@ Rules:
 vocabulary.json carries `generated_from` (the library commit the build ran on top of;
 kept unchanged while the content is unchanged) and `entities_sha256` (LF-normalised
 SHA-256 of entities.jsonl), so a consumer can pin and verify the copy it vendors.
+generated_from is `git merge-base HEAD origin/main`, not HEAD: a rebuild on a pull
+request branch would otherwise record a branch commit that the squash merge discards,
+and consumers could not resolve it. Only when origin/main is unavailable (no remote,
+shallow clone without it) does the build fall back to HEAD.
 
 Usage:
     python scripts/build_vocab.py              # (re)write both files
@@ -432,12 +436,26 @@ def render_json(doc: dict) -> str:
     return lines + ',\n  "entities": [\n' + body + "\n  ]\n}\n"
 
 
-def _git_head() -> str:
-    out = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True)
-    sha = out.stdout.strip()
-    if out.returncode or not re.fullmatch(r"[0-9a-f]{40}", sha):
-        raise VocabError("cannot read the current commit (git rev-parse HEAD)")
-    return sha
+def _git(args: list[str]) -> tuple[int, str]:
+    out = subprocess.run(["git"] + args, cwd=ROOT, capture_output=True, text=True)
+    return out.returncode, out.stdout.strip()
+
+
+def base_commit(git=_git) -> str:
+    """The commit generated_from records: the merge base of HEAD and origin/main.
+
+    Rule: never record a pull-request branch commit. A squash merge drops branch
+    commits, so a SHA taken from `git rev-parse HEAD` on a branch would not resolve
+    on main afterwards. The merge base is always a main commit. HEAD is the fallback
+    only when origin/main cannot be resolved (for example a clone with no remote).
+    The self-test covers all three cases.
+    """
+    for args in (["merge-base", "HEAD", "origin/main"], ["rev-parse", "HEAD"]):
+        rc, sha = git(args)
+        if rc == 0 and re.fullmatch(r"[0-9a-f]{40}", sha):
+            return sha
+    raise VocabError("cannot read the base commit (git merge-base HEAD origin/main, "
+                     "then git rev-parse HEAD)")
 
 
 def _read(rel: str) -> str | None:
@@ -481,7 +499,7 @@ def main_build() -> int:
     if old and re.fullmatch(r"[0-9a-f]{40}", str(old.get("generated_from"))) and _without_sha(old) == doc:
         sha = old["generated_from"]
     else:
-        sha = _git_head()
+        sha = base_commit()
     os.makedirs(os.path.join(ROOT, "data", "vocab"), exist_ok=True)
     with open(os.path.join(ROOT, ENTITIES), "w", encoding="utf-8", newline="\n") as f:
         f.write(text)
@@ -622,11 +640,28 @@ def self_test() -> int:
     rendered = render_json(with_generated_from(doc, "0" * 40))
     expect("vocabulary.json is valid JSON and round-trips", _without_sha(json.loads(rendered)) == doc)
 
+    # generated_from rule: the merge base with origin/main, HEAD only as a fallback
+    base, head = "b" * 40, "c" * 40
+    def fake_git(merge_base_ok, head_ok=True):
+        def git(args):
+            if args[0] == "merge-base":
+                return (0, base) if merge_base_ok else (128, "")
+            return (0, head) if head_ok else (128, "")
+        return git
+    expect("generated_from is the merge base on a branch", base_commit(fake_git(True)) == base)
+    expect("generated_from falls back to HEAD without origin/main",
+           base_commit(fake_git(False)) == head)
+    try:
+        base_commit(fake_git(False, head_ok=False))
+        expect("no commit at all fails", False)
+    except VocabError:
+        pass
+
     if fails:
         print("SELF-TEST FAILED: " + "; ".join(fails))
         return 1
     print("OK: build_vocab self-test (slugs, revoked folding, stop/short/ambiguous names, "
-          "curation errors, JSON layout)")
+          "curation errors, JSON layout, generated_from base rule)")
     return 0
 
 

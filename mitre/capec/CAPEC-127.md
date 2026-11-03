@@ -16,7 +16,7 @@ An adversary crafts a request to a target that results in the target listing/ind
 ## Related CWE (7)
 
 - [CWE-424: Improper Protection of Alternate Path](https://cwe.mitre.org/data/definitions/424.html): The product does not sufficiently protect all possible paths that a user can take to access restricted functionality or resources.
-- [CWE-425: Direct Request ('Forced Browsing')](https://cwe.mitre.org/data/definitions/425.html): The web application does not adequately enforce appropriate authorization on all restricted URLs, scripts, or files.
+- [CWE-425: Direct Request](https://cwe.mitre.org/data/definitions/425.html): The web application does not adequately enforce appropriate authorization on all restricted URLs, scripts, or files.
 - [CWE-288: Authentication Bypass Using an Alternate Path or Channel](https://cwe.mitre.org/data/definitions/288.html): The product requires authentication, but the product has an alternate path or channel that does not require authentication.
 - [CWE-285: Improper Authorization](https://cwe.mitre.org/data/definitions/285.html): The product does not perform or incorrectly performs an authorization check when an actor attempts to access a resource or perform an action.
 - [CWE-732: Incorrect Permission Assignment for Critical Resource](https://cwe.mitre.org/data/definitions/732.html): The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.

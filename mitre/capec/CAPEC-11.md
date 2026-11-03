@@ -15,7 +15,7 @@ An attack of this type exploits a Web server's decision to take action based on 
 
 ## Related CWE (1)
 
-- [CWE-430: Deployment of Wrong Handler](https://cwe.mitre.org/data/definitions/430.html): The wrong handler is assigned to process an object.
+- [CWE-430: Deployment of Wrong Handler](https://cwe.mitre.org/data/definitions/430.html): The wrong "handler" is assigned to process an object or request.
 
 ## Prerequisites
 

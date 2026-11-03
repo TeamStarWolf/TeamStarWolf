@@ -229,8 +229,8 @@ pages:
   CWE_REFERENCE.md:
     batch: 2
     items:
-      - {"text": "CWE catalogs the weakness types that CVEs are instances of, and answers why an exploit works.", "from": "#cwe-weakness-reference", "quote": "catalogs the 969 software and hardware weakness types that vulnerabilities (CVEs) are instances of."}
-      - {"text": "CWE is a hierarchy that runs from Pillars, the most abstract, through Classes and Bases to Variants, the most specific.", "from": "#cwe-weakness-reference", "quote": "CWE is a hierarchy: 10 Pillars (most abstract) -> 114 Classes -> 539 Base -> 299 Variants (most specific)"}
+      - {"text": "CWE catalogs the weakness types that CVEs are instances of, and answers why an exploit works.", "from": "#cwe-weakness-reference", "quote": "software and hardware weakness types that vulnerabilities (CVEs) are instances of"}
+      - {"text": "CWE is a hierarchy that runs from Pillars, the most abstract, through Classes and Bases to Variants, the most specific.", "from": "#abstraction-levels", "quote": "CWE is a hierarchy:"}
       - {"text": "Ranking weaknesses by the CAPEC attack patterns that target them shows which have the richest known exploit tradecraft.", "from": "#most-attacked-weaknesses", "quote": "Ranked by the number of CAPEC attack patterns that target them: a data-driven view of which weaknesses have the richest known exploit tradecraft."}
   FRAMEWORKS.md:
     batch: 2

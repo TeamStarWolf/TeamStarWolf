@@ -18,7 +18,7 @@ The adversary uses disruptive signals or events, or alters the physical environm
 - [CWE-1332: Improper Handling of Faults that Lead to Instruction Skips](https://cwe.mitre.org/data/definitions/1332.html): The device is missing or incorrectly implements circuitry or sensors that detect and mitigate the skipping of security-critical CPU instructions when they occur.
 - [CWE-1334: Unauthorized Error Injection Can Degrade Hardware Redundancy](https://cwe.mitre.org/data/definitions/1334.html): An unauthorized agent can inject errors into a redundant block to deprive the system of redundancy or put the system in a degraded operating mode.
 - [CWE-1338: Improper Protections Against Hardware Overheating](https://cwe.mitre.org/data/definitions/1338.html): A hardware device is missing or has inadequate protection features to prevent overheating.
-- [CWE-1351: Improper Handling of Hardware Behavior in Exceptionally Cold Environments](https://cwe.mitre.org/data/definitions/1351.html): A hardware device, or the firmware running on it, is missing or has incorrect protection features to maintain goals of security primitives when the device is cooled below standard operating temperatures.
+- [CWE-1351: Improper Handling of Hardware Behavior in Exceptionally Cold Environments](https://cwe.mitre.org/data/definitions/1351.html): The hardware device, or the firmware running on it, is missing or has incorrect protection mechanisms to maintain goals of security primitives when the device is cooled below standard operating temperatures.
 
 ## Prerequisites
 

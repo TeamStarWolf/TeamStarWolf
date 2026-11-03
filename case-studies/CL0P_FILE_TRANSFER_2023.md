@@ -121,6 +121,28 @@ A data-theft-only model is quieter going in and just as damaging coming out, and
 | Reduce exposure | Put MOVEit behind authenticated access or a VPN, restrict its inbound and outbound connectivity, and be prepared to take it offline during an active campaign |
 | Assume breach | If the server was internet-facing and unpatched over the exploitation window, treat the data it held as stolen and begin breach notification analysis, do not wait for a ransom note |
 
+### Remediation across the managed-file-transfer products
+
+Because the campaign recurred against product after product, the remediation is best expressed per product and then as the platform controls that apply to any of them (**Confirmed**: each vendor's advisory):
+
+| Product | How to remediate |
+|---|---|
+| MOVEit Transfer | Patch to the fixed build for CVE-2023-34362, CVE-2023-35036 and CVE-2023-35708 and stay current with later advisories; hunt for `human2.aspx` in the `wwwroot` path; if exposed, rotate the service account and any Azure Storage keys and restart IIS |
+| Fortra GoAnywhere MFT | Apply the Fortra fix for CVE-2023-0669; take the administrative console off the public internet; rotate credentials and review admin accounts |
+| Cleo Harmony, VLTrader, LexiCom | Patch CVE-2024-50623 and CVE-2024-55956; clear and restrict the Autorun directory the exploit abused; remove internet exposure and review for dropped files |
+| Accellion FTA | It is end-of-life: decommission it and migrate to a supported platform rather than patching, which is the lesson of its 2020 to 2021 compromise |
+| Any MFT product | Inventory every instance including vendor-run ones, put it behind authenticated access or a VPN, restrict inbound and outbound connectivity, minimize files left at rest, monitor for web shells and bulk egress, and keep a rehearsed take-offline option |
+
+### Platform and technology controls
+
+| Layer | Remediation and mitigation |
+|---|---|
+| Windows / IIS host (MOVEit and other .NET MFTs) | Keep an EDR agent and AMSI enabled, run the app pool as a least-privileged identity, restart IIS after key or credential rotation, and watch for `w3wp.exe` spawning shells |
+| Cloud storage keys (Azure Blob, Amazon S3) | If the transfer server held storage keys, rotate them on suspicion, because the web shell could read them; prefer short-lived managed identities over long-lived keys |
+| Network and edge | Place the MFT behind a WAF and authenticated access or a VPN, filter egress so a web shell cannot exfiltrate freely, and alert on large outbound transfers |
+| Third-party and vendor-run instances | Ask each vendor that runs an MFT with your data for its patch status and breach attestation, because their server holding your files is your exposure |
+| Data lifecycle | Delete transferred files promptly after delivery and set retention limits, so a compromise of the staging point does not expose months of data |
+
 ## Part 3: who did it, and the scale
 
 ### The actor

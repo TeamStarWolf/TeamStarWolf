@@ -1498,4 +1498,4 @@ Revoke-AzureADUserAllRefreshToken -ObjectId "user-object-id"
 
 ---
 
-*Reference compiled from OWASP Password Storage Cheat Sheet (2023), NIST SP 800-63B Rev. 4, CIS Benchmark v8, Microsoft Security Documentation, Hashcat documentation, MITRE ATT&CK v19.2, and community research on password security.*
+*Reference compiled from OWASP Password Storage Cheat Sheet (2023), NIST SP 800-63B Rev. 4, CIS Benchmark v8, Microsoft Security Documentation, Hashcat documentation, MITRE ATT&CK v20.0, and community research on password security.*

@@ -23,7 +23,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 21 min (4,844 words at 230 words a minute)
+About 21 min (4,856 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -206,7 +206,7 @@ IR 8374r1 is the bridge document: it selects and interprets CSF 2.0 outcomes spe
 
 ### Version discipline first
 
-MITRE ATT&CK's current release is v19.2 (August 6, 2026), the first "Agile" release (targeted Groups/Software/Campaigns updates outside the biannual cadence). v19 (April 28, 2026) split the former Defense Evasion tactic into two tactics (Stealth and Defense Impairment), bringing Enterprise to 15 tactics, 222 techniques, 475 sub-techniques, with 697 Detection Strategies and 1,758 Analytics. Two consequences:
+MITRE ATT&CK's current release is v20.0 (October 13, 2026): Enterprise has 15 tactics, 227 techniques and 479 sub-techniques, with 703 Detection Strategies and 1,770 Analytics ([v20 release notes](https://attack.mitre.org/resources/updates/updates-october-2026/)). Before it, v19.2 (August 6, 2026) was the first "Agile" release (targeted Groups/Software/Campaigns updates outside the biannual cadence), and v19 (April 28, 2026) split the former Defense Evasion tactic into two tactics (Stealth and Defense Impairment). Two consequences:
 
 - Advisories pin versions. AA26-222A maps to ATT&CK Enterprise v19.1. When you import an advisory's TTP table, record its version; do not silently re-map.
 - There is no official crosswalk from the #StopRansomware Guide's practices to ATT&CK technique IDs. Per-variant mappings exist only inside individual advisories. Any guide-to-ATT&CK mapping you build internally is your own artifact; label it that way.
@@ -441,7 +441,7 @@ External baseline for context: the FBI IC3 2025 Annual Report (published 2026) r
 - NIST: IR 8374r1, Ransomware Risk Management: A CSF 2.0 Community Profile (June 2026): <https://csrc.nist.gov/pubs/ir/8374/r1/final>
 - NIST: CSF 2.0 release (Feb 26, 2024): <https://www.nist.gov/news-events/news/2024/02/nist-releases-version-20-landmark-cybersecurity-framework>
 - NIST: SP 800-61r3 announcement (April 2025): <https://csrc.nist.gov/news/2025/nist-revises-sp-800-61>
-- MITRE ATT&CK: release notes / updates (v19, v19.2): <https://attack.mitre.org/resources/updates/>
+- MITRE ATT&CK: release notes / updates (v19, v19.2, v20): <https://attack.mitre.org/resources/updates/>
 - MITRE ATT&CK: T1486 Data Encrypted for Impact: <https://attack.mitre.org/techniques/T1486/>, T1490 Inhibit System Recovery: <https://attack.mitre.org/techniques/T1490/>
 - OFAC: Updated Advisory on Potential Sanctions Risks for Facilitating Ransomware Payments (Sept 21, 2021): <https://ofac.treasury.gov/system/files/126/ofac_ransomware_advisory.pdf>
 - No More Ransom: <https://www.nomoreransom.org/>, Europol six-year milestone (2022): <https://www.europol.europa.eu/media-press/newsroom/news/hit-ransomware-no-more-ransom-now-offers-136-free-tools-to-rescue-your-files>

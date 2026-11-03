@@ -6,7 +6,7 @@
 
 | Script | What it does | CI job that runs it |
 |---|---|---|
-| `build_attack_core.py` | Rebuilds the ATT&CK Enterprise, ICS, and Mobile files in `data/attack/` from the v19.2 STIX bundles, pinned by commit and SHA-256, and writes `superseded_by.jsonl` | Validate Data Files: JSONL edge tables (`--check`) |
+| `build_attack_core.py` | Rebuilds the ATT&CK Enterprise, ICS, and Mobile files in `data/attack/` from the v20.0 STIX bundles, pinned by commit and SHA-256, and writes `superseded_by.jsonl` | Validate Data Files: JSONL edge tables (`--check`) |
 | `build_ctid_edges.py` | Normalizes the CTID NIST SP 800-53 to ATT&CK table and builds the vendor-to-technique join | Validate Data Files: JSONL edge tables (`--check`) |
 | `backfill_capec_edges.py` | Writes the CAPEC edge on each technique profile from `data/weaknesses/capec.jsonl` | Validate Data Files: JSONL edge tables (`--check`) |
 | `build_control_rollup.py` | Adds the parent-rolled NIST controls to each technique profile | Validate Data Files: headline-number drift guard |
@@ -15,7 +15,7 @@
 | `generate_technique_detail_pages.py` | Generates `techniques/` and `detections/strategies/`, with each technique's body folded into a `<details>` element under its heading | Validate Data Files: generated page trees (`--check`) |
 | `compute_coverage.py` | Writes the coverage files in `scores/` | Validate Data Files: Navigator layers (`--check`) |
 | `build_priority_gaps.py` | Writes the priority-gap page and JSON in `scores/` and the layers in `navigator/analytics/` | Validate Data Files: headline-number drift guard (`--check`) |
-| `build_navigator_layers.py` | Generates the vendor coverage layer, normalizes the curated layers to v19.2, and writes `navigator/index.md` | Validate Data Files: Navigator layers (`--check`) |
+| `build_navigator_layers.py` | Generates the vendor coverage layer, normalizes the curated layers to v20.0, and writes `navigator/index.md` | Validate Data Files: Navigator layers (`--check`) |
 | `validate_navigator.py` | Checks every Navigator layer's shape, domain, ATT&CK version, technique ids, and tactics against the data | Validate Data Files: Navigator layers |
 | `build_manifest.py` | Writes `data/MANIFEST.json` (rows, bytes, SHA-256, and provenance per file) | Validate Data Files: headline-number drift guard (`--check`) |
 | `build_stats.py` | Writes `data/generated/stats.json` and the "What's inside" table in README.md; `--check` fails when a front-door number differs from the data or the README table is stale | Validate Data Files: headline-number drift guard |

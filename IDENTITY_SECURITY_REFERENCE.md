@@ -20,7 +20,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 15 min (3,479 words at 230 words a minute)
+About 15 min (3,483 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -1683,4 +1683,4 @@ CAT I (High) Findings, Admin Account Controls:
 
 ---
 
-*Last updated: 2026-04-24 | MITRE ATT&CK v19.2 | NIST SP 800-63B-4 (Digital Identity Guidelines, Rev 4, July 2025)*
+*Last updated: 2026-04-24 | MITRE ATT&CK v20.0 (technique IDs checked 2026-11-03) | NIST SP 800-63B-4 (Digital Identity Guidelines, Rev 4, July 2025)*

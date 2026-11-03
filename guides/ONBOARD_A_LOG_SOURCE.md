@@ -30,7 +30,7 @@ Do not start with the source. Start with what you need to see.
 
 Checkpoint: You have a one-line justification naming the data components and technique IDs this source serves. If you cannot write that sentence, stop: "the appliance can send syslog" is not a use case.
 
-Watch out: ATT&CK v18 rebuilt the detection model (Detection Strategies and Analytics replaced technique-level detection text, and data components were restructured). Version-stamp any component list you operationalize; the one in this library is stamped v18.1.
+Watch out: ATT&CK v18 rebuilt the detection model (Detection Strategies and Analytics replaced technique-level detection text, and data components were restructured). Version-stamp any component list you operationalize; the one in this library is built from ATT&CK v20.0 (106 Enterprise data components).
 
 ## Step 2: Capture a real event corpus
 

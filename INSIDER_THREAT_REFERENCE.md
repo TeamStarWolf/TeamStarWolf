@@ -21,7 +21,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 28 min (6,498 words at 230 words a minute)
+About 28 min (6,495 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -148,7 +148,7 @@ The documentation site (v2.0.0) is organized as: *Introduction, Knowledge Base, 
 
 ### Version drift you must account for
 
-The KB is pinned to ATT&CK v14 (current October 2023 to April 2024). Live ATT&CK is v19.2; the v19 release cycle began April 28, 2026 (splitting Defense Evasion into Stealth and Defense Impairment tactics), and v18 (October 28, 2025) replaced Detections/Data Sources with Detection Strategies and Analytics. Consequences:
+The KB is pinned to ATT&CK v14 (current October 2023 to April 2024). Live ATT&CK is v20.0 (October 13, 2026); v19 (April 28, 2026) split Defense Evasion into Stealth and Defense Impairment tactics, and v18 (October 28, 2025) replaced Detections/Data Sources with Detection Strategies and Analytics. Consequences:
 
 - The KB lags the live framework by five major versions; no official re-mapping to later ATT&CK versions has been published.
 - The KB's DS-code references follow the older, now-deprecated ATT&CK detection model. When you operationalize KB detection guidance, translate DS-codes into the v18+ Detection Strategies model (see [Detection Strategies](detections/strategies/README.md)) yourself, and treat that translation as your own engineering, not CTID's.
@@ -554,7 +554,7 @@ Quarterly, four numbers and one story: KB technique coverage (are we watching wh
 | Resource | Version / edition | Date | Source |
 |---|---|---|---|
 | CTID Insider Threat TTP KB | v2.0.0 (on ATT&CK v14) | March 2024 | [github.com/center-for-threat-informed-defense/insider-threat-ttp-kb](https://github.com/center-for-threat-informed-defense/insider-threat-ttp-kb) |
-| MITRE ATT&CK (live) | v19.2 (v19 cycle began April 28, 2026) | 2026 | [attack.mitre.org/resources/versions](https://attack.mitre.org/resources/versions/) |
+| MITRE ATT&CK (live) | v20.0 (released October 13, 2026) | 2026 | [attack.mitre.org/resources/versions](https://attack.mitre.org/resources/versions/) |
 | CISA Insider Threat Mitigation Guide | 2026 Edition | September 9, 2026 | [cisa.gov](https://www.cisa.gov/resources-tools/resources/insider-threat-mitigation-guide) |
 | CERT Common Sense Guide | 7th Edition (22 practices) | September 8, 2022 | [SEI digital library](https://www.sei.cmu.edu/documents/619/2022_019_001_886876.pdf) |
 | IIDES | v1.0 (+ PyIIDES) | June 12, 2025 | [github.com/cmu-sei/iides](https://github.com/cmu-sei/iides) |

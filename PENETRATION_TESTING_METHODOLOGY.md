@@ -71,7 +71,7 @@ No review recorded yet
 <!-- meta:end -->
 
 > Classification: Internal Use, Authorized Security Personnel Only
-> Standard: PTES, OWASP Testing Guide v4.2, NIST SP 800-115, MITRE ATT&CK v19.2
+> Standard: PTES, OWASP Testing Guide v4.2, NIST SP 800-115, MITRE ATT&CK v20.0
 > Last Updated: 2026-04-26
 
 ---
@@ -1642,7 +1642,7 @@ The MITRE ATT&CK Enterprise Matrix v14 covers 14 tactics:
 
 *This document is intended for authorized security professionals only. All techniques described must only be applied against systems for which explicit written authorization has been obtained. Unauthorized use may violate the Computer Fraud and Abuse Act, Computer Misuse Act, and other applicable laws.*
 
-*References: PTES (http://www.pentest-standard.org/), OWASP Testing Guide v4.2 (https://owasp.org/www-project-web-security-testing-guide/), MITRE ATT&CK v19.2 (https://attack.mitre.org/), NIST SP 800-115 (https://csrc.nist.gov/pubs/sp/800/115/final), CVSS v3.1 Specification (https://www.first.org/cvss/specification-document)*
+*References: PTES (http://www.pentest-standard.org/), OWASP Testing Guide v4.2 (https://owasp.org/www-project-web-security-testing-guide/), MITRE ATT&CK v20.0 (https://attack.mitre.org/), NIST SP 800-115 (https://csrc.nist.gov/pubs/sp/800/115/final), CVSS v3.1 Specification (https://www.first.org/cvss/specification-document)*
 
 <!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
 

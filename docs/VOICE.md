@@ -11,7 +11,7 @@
 - Use ATT&CK's terms exactly: tactic, technique, sub-technique, procedure, group, software, campaign, mitigation, data component, detection strategy, analytic.
 - A mitigation (ATT&CK), countermeasure (D3FEND), and control (NIST SP 800-53) are different objects; say which.
 - Put identifiers, paths, and literal values in code font: `T1059.001`, `data/attack/technique_profiles.jsonl`.
-- Give the framework version a fact depends on: "in ATT&CK v19.2".
+- Give the framework version a fact depends on: "in ATT&CK v20.0".
 
 ## Claims and numbers
 

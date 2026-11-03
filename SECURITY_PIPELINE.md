@@ -298,24 +298,24 @@ The combined coverage of all six pipeline stages across the TeamStarWolf vendor 
 
 ### Known Coverage Gaps (Pre-Computed)
 
-These figures are copied from the `tactic_summary` block of [`scores/coverage_gaps.json`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/scores/coverage_gaps.json), which `scripts/compute_coverage.py` generated against ATT&CK Enterprise v19.2 from these inputs (sha256, first 12 hex digits): `data/attack/technique_profiles.jsonl` `56c1302b4620`, `data/attack/superseded_by.jsonl` `d3afa6f7699d`, `data/vendor_to_technique.jsonl` `470288289449`. If the input hashes in the header of the [Coverage Gap Analysis](scores/coverage_gaps.md) differ from these, the data has changed since this table was copied, and the generated report is the current one. Tactics are sorted by coverage, lowest first. A technique in several tactics is counted in each.
+These figures are copied from the `tactic_summary` block of [`scores/coverage_gaps.json`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/scores/coverage_gaps.json), which `scripts/compute_coverage.py` generated against ATT&CK Enterprise v20.0 from these inputs (sha256, first 12 hex digits): `data/attack/technique_profiles.jsonl` `c5616b745e7c`, `data/attack/superseded_by.jsonl` `1a62bb53e0aa`, `data/vendor_to_technique.jsonl` `470288289449`. If the input hashes in the header of the [Coverage Gap Analysis](scores/coverage_gaps.md) differ from these, the data has changed since this table was copied, and the generated report is the current one. Tactics are sorted by coverage, lowest first. A technique in several tactics is counted in each.
 
 | Tactic | Covered (of live techniques) | Coverage | Uncovered |
 |---|---:|---:|---:|
-| Resource Development | 0 of 50 | 0.0% | 50 |
+| Resource Development | 0 of 51 | 0.0% | 51 |
 | Reconnaissance | 6 of 46 | 13.0% | 40 |
 | Discovery | 15 of 49 | 30.6% | 34 |
 | Collection | 27 of 41 | 65.9% | 14 |
-| Stealth | 103 of 148 | 69.6% | 45 |
+| Stealth | 103 of 151 | 68.2% | 48 |
 | Impact | 25 of 33 | 75.8% | 8 |
-| Defense Impairment | 44 of 56 | 78.6% | 12 |
+| Defense Impairment | 44 of 57 | 77.2% | 13 |
+| Execution | 55 of 66 | 83.3% | 11 |
 | Persistence | 95 of 113 | 84.1% | 18 |
 | Privilege Escalation | 81 of 96 | 84.4% | 15 |
-| Execution | 55 of 64 | 85.9% | 9 |
 | Command and Control | 39 of 45 | 86.7% | 6 |
+| Exfiltration | 18 of 20 | 90.0% | 2 |
 | Initial Access | 20 of 22 | 90.9% | 2 |
-| Credential Access | 63 of 67 | 94.0% | 4 |
-| Exfiltration | 18 of 19 | 94.7% | 1 |
+| Credential Access | 63 of 68 | 92.6% | 5 |
 | Lateral Movement | 22 of 23 | 95.7% | 1 |
 
 The generated report gives tactics no priority label: it lists the lowest-coverage tactics, and assigns gap priority to each uncovered technique by the number of ATT&CK groups documented using it (critical >= 20, high >= 10, medium >= 3). See the [Coverage Gap Analysis](scores/coverage_gaps.md) for what "covered" means there, the ranked gap list, and its recommended capability additions.

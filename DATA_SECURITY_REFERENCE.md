@@ -23,7 +23,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 24 min (5,479 words at 230 words a minute)
+About 24 min (5,477 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -381,7 +381,7 @@ Under EO 14117 (February 28, 2024, restricting bulk sensitive-data transactions 
 
 Data security and insider-threat programs converge on the same sensors: the DLP events, egress logs, and file-share auditing this document builds are exactly the telemetry the insider program's analytics consume. Build once, feed both. The program wrapper (HR partnership, legal and privacy guardrails, UAM governance, case handling) lives in the [Insider Threat Program Reference](INSIDER_THREAT_REFERENCE.md); the instrumented chain with event IDs is in its [exfiltration chain section](INSIDER_THREAT_REFERENCE.md#the-exfiltration-chain-instrumented).
 
-The shared taxonomy is MITRE ATT&CK's Exfiltration tactic ([TA0010](https://attack.mitre.org/tactics/TA0010/)) and the Collection tactic that precedes it (ATT&CK is at v19.2 as of this writing; pin the version when you import mappings). Techniques below are current ATT&CK Enterprise techniques; the grouping into a "data theft chain" is practitioner framing, not an official MITRE sequence:
+The shared taxonomy is MITRE ATT&CK's Exfiltration tactic ([TA0010](https://attack.mitre.org/tactics/TA0010/)) and the Collection tactic that precedes it (ATT&CK is at v20.0, released October 13, 2026; pin the version when you import mappings). Techniques below are current ATT&CK Enterprise techniques; the grouping into a "data theft chain" is practitioner framing, not an official MITRE sequence:
 
 | Chain stage | Techniques | The data-security sensor that sees it |
 |---|---|---|
@@ -470,7 +470,7 @@ For an organization starting from "we have an AV, a firewall, and a vague sense 
 - CISA: Cybersecurity Performance Goals 2.0 announcement (Dec 11, 2025): <https://www.cisa.gov/news-events/alerts/2025/12/11/cybersecurity-performance-goals-20-critical-infrastructure>
 - HHS/OCR: HIPAA Security Rule NPRM, Federal Register (Jan 6, 2025; proposed, not final): <https://www.federalregister.gov/documents/2025/01/06/2024-30983/hipaa-security-rule-to-strengthen-the-cybersecurity-of-electronic-protected-health-information>
 - PreVeil: CMMC 48 CFR final acquisition rule analysis (published Sept 10, 2025; effective Nov 10, 2025): <https://www.preveil.com/blog/cmmc-final-rule-published/>
-- MITRE ATT&CK: version list (v19.2 current as of this writing): <https://attack.mitre.org/resources/versions/>, Exfiltration tactic TA0010: <https://attack.mitre.org/tactics/TA0010/>
+- MITRE ATT&CK: version list (v20.0 current, checked 2026-11-03): <https://attack.mitre.org/resources/versions/>, Exfiltration tactic TA0010: <https://attack.mitre.org/tactics/TA0010/>
 
 <!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
 

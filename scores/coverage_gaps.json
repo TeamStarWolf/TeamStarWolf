@@ -110,7 +110,7 @@
     "low": 128
   },
   "gap_ranking": "group_count desc, software_count desc, campaign_count desc, nist_control_depth desc, technique_id",
-  "priority_basis": "group_count (the number of ATT&CK groups documented using the technique, from the v19.2 profiles): critical >= 20, high >= 10, medium >= 3, low otherwise",
+  "priority_basis": "group_count (the number of ATT&CK groups documented using the technique, from the technique profiles): critical >= 20, high >= 10, medium >= 3, low otherwise",
   "top_gaps": [
     {
       "technique_id": "T1588.002",

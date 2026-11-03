@@ -50,7 +50,7 @@ A technique in several tactics is counted in each, so the rows do not sum to the
 
 Coverage is derived through NIST controls, so a gap means no stack product satisfies any control mapped to the technique. Of the 244 uncovered techniques, 240 have no CTID NIST 800-53 mapping at all (under their own id or a revoked predecessor), so no product can be credited for them through this join, whatever it actually does. Distribution of mapped controls across the gaps: 0 controls: 240, 1 control: 4.
 
-The gap list is therefore ranked by adversary use rather than by NIST depth (`group_count desc, software_count desc, campaign_count desc, nist_control_depth desc, technique_id`). Priority basis: group_count (the number of ATT&CK groups documented using the technique, from the v19.2 profiles): critical >= 20, high >= 10, medium >= 3, low otherwise. Gaps by priority: critical 24, high 21, medium 71, low 128.
+The gap list is therefore ranked by adversary use rather than by NIST depth (`group_count desc, software_count desc, campaign_count desc, nist_control_depth desc, technique_id`). Priority basis: group_count (the number of ATT&CK groups documented using the technique, from the technique profiles): critical >= 20, high >= 10, medium >= 3, low otherwise. Gaps by priority: critical 24, high 21, medium 71, low 128.
 
 ### Top 30 uncovered techniques
 

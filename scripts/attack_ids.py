@@ -33,6 +33,17 @@ DOMAIN_PROFILES = {
     "mobile": "data/attack/mobile/technique_profiles.jsonl",
 }
 SUPERSEDED = "data/attack/superseded_by.jsonl"
+RELEASES = "data/attack/technique_releases.jsonl"
+
+# The MITRE ATT&CK release the library is built on, for all three domains. It is the
+# one place the release is typed: scripts/build_attack_core.py builds its pinned STIX
+# file names from it (enterprise-attack-<release>.json, ...) and refuses a bundle whose
+# collection object names another release, and every generator that prints
+# "ATT&CK vX" reads ATTACK_VER from here. A re-pin changes this line and the commit and
+# digests in build_attack_core.py together.
+ATTACK_RELEASE = "20.0"
+ATTACK_VER = "v" + ATTACK_RELEASE            # "v20.0", as pages print it
+ATTACK_MAJOR = ATTACK_RELEASE.split(".")[0]  # "20", the Navigator layer versions.attack value
 
 
 def read_jsonl(path: Path) -> list[dict]:
@@ -40,6 +51,15 @@ def read_jsonl(path: Path) -> list[dict]:
         return []
     with open(path, encoding="utf-8") as f:
         return [json.loads(line) for line in f if line.strip()]
+
+
+def technique_releases(root: Path = ROOT) -> dict[tuple[str, str], dict]:
+    """(domain, technique_id) -> its data/attack/technique_releases.jsonl row: the
+    release that added the technique (`added_in`) and, for a revoked one, the release
+    that revoked it (`revoked_in`), both derived by build_attack_core.py from the pinned
+    STIX. Pages state those releases, never ATTACK_RELEASE, for anything historical."""
+    return {(r.get("domain") or "enterprise", r["technique_id"]): r
+            for r in read_jsonl(root / RELEASES)}
 
 
 class AttackIds:

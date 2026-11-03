@@ -1,6 +1,6 @@
 # Software & Tools (842)
 
-ATT&CK-tracked software (malware and tools), each with its type, platforms, aliases, the techniques it implements (linked), and the groups that use it. ATT&CK v19.2.
+ATT&CK-tracked software (malware and tools), each with its type, platforms, aliases, the techniques it implements (linked), and the groups that use it. ATT&CK v20.0.
 
 - [S0001: Trojan.Mebromi](/mitre/software/S0001.md) (malware)
 - [S0002: Mimikatz](/mitre/software/S0002.md) (tool)

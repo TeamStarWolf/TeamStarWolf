@@ -29,7 +29,7 @@
 | [ATT&CK Mitigations Reference](ATTACK_MITIGATIONS_REFERENCE.md) | All 44 ATT&CK Enterprise mitigations (M-codes) and the techniques each one addresses |
 | [ATT&CK Software Reference](ATTACK_SOFTWARE_REFERENCE.md) | 842 MITRE ATT&CK malware families and tools with the techniques they implement and the groups that use them |
 | [ATT&CK Priority Gap Analysis](scores/attack_priority_gaps.md) | Most-used, least-covered ATT&CK techniques ranked for detection/mitigation focus |
-| [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) | All 723 ATT&CK techniques by tactic (697 active per MITRE v20.0; a few superseded records retained), cross-referenced to threat groups, software, mitigations, NIST controls, and detection |
+| [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) | All 723 ATT&CK techniques by tactic (706 active in ATT&CK v20.0, plus the revoked records kept so old links resolve), cross-referenced to threat groups, software, mitigations, NIST controls, and detection |
 | [ATT&CK Technique Detail Pages](techniques/README.md) | Full consolidated per-technique write-ups (description, mitigations, NIST controls, detections, groups, software) across 15 tactic files |
 | [ATLAS Reference (AI threats)](/ATLAS_REFERENCE.md) | MITRE ATLAS bundled snapshot of tactics, techniques, and mitigations; tactic and technique labels checked against 2026.09, including AI Model Access and AI Attack Adaptation |
 | [ATT&CK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) | MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapping, and threat-intelligence correlation |

@@ -1,6 +1,6 @@
 # Execution: Detection Strategies
 
-> MITRE ATT&CK detection strategies and analytics (v19.2) for techniques whose primary tactic is Execution. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
+> MITRE ATT&CK detection strategies and analytics (v20.0) for techniques whose primary tactic is Execution. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
 
 See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](/techniques/README.md)
 
@@ -158,7 +158,7 @@ ATT&CK: [T1053.007](https://attack.mitre.org/techniques/T1053/007/), [detail pag
 - `AN0582` Analytic 0582, Containers
   Detects abuse of container orchestration platforms (e.g., Kubernetes) where adversaries create CronJobs to maintain persistence or execute malicious Jobs across the cluster.
   - *Log sources:* `kubernetes:apiserver (verb=create, resource=cronjobs, group=batch)`; `kubernetes:events (container start/stop activity via Docker, containerd, or CRI-O)`; `container:proxy (outbound/inbound network activity from spawned pods)`
-  - *Tune:* `NamespaceScope`: Kubernetes namespace the job is deployed to—scoping this to known trusted namespaces may reduce noise.; `ImageRepository`: The container image registry or repository the job pulls from—can be filtered by trusted registries.; `ScheduleWindow`: Time window or frequency of CronJob execution (e.g., ‘@hourly’)—jobs running at odd hours may be suspicious.; `ExecutionCommand`: The command or entrypoint executed by the Job—unexpected shell commands or interpreters may warrant inspection.
+  - *Tune:* `NamespaceScope`: Kubernetes namespace the job is deployed to, scoping this to known trusted namespaces may reduce noise.; `ImageRepository`: The container image registry or repository the job pulls from, can be filtered by trusted registries.; `ScheduleWindow`: Time window or frequency of CronJob execution (e.g., ‘@hourly’), jobs running at odd hours may be suspicious.; `ExecutionCommand`: The command or entrypoint executed by the Job, unexpected shell commands or interpreters may warrant inspection.
 
 </details>
 
@@ -478,7 +478,7 @@ ATT&CK: [T1059.013](https://attack.mitre.org/techniques/T1059/013/), [detail pag
 - `AN0233` Analytic 0233, Containers
   Execution of container orchestration commands (e.g., `docker exec`, `kubectl exec`) or API-driven interactions with running containers from unauthorized hosts or non-standard user contexts. Defender sees programmatic or interactive command execution within containers outside expected CI/CD tools or automation frameworks, often followed by file writes, privilege escalation, or lateral discovery.
   - *Log sources:* `auditd:SYSCALL (execve: Execution of container management CLIs (docker, crictl, kubectl) or interpreted shells (sh, bash, python) within container context)`; `docker:events (exec_create: docker exec events targeting running containers from non-CI sources)`; `kubernetes:apiserver (create/exec: Kubernetes API calls to exec into containers or create pods from curl, kubectl, or SDK clients)`; `AWS:CloudTrail (CreatePod: Programmatic creation of new pod resources using container images not seen before in the environment)`; `kubernetes:audit (Shell process (e.g., /bin/sh, /bin/bash) spawned in a container without an interactive session attached (i.e., automation anomaly))`
-  - *Tune:* `AuthorizedUserAgents`: List of CI/CD pipeline runners, SRE tools, or cluster mgmt agents allowed to invoke API/CLI commands in containers.; `NewImageThreshold`: Threshold for alerting on unseen container images pulled and executed. Adjust to reduce noise from frequent deploys.; `TimeWindow`: Temporal window to correlate container exec with shell spawn and network activity (default: 2 minutes).; `InteractiveSessionExpectation`: Set whether shell spawns without TTY or PTY should be flagged — based on org deployment model.
+  - *Tune:* `AuthorizedUserAgents`: List of CI/CD pipeline runners, SRE tools, or cluster mgmt agents allowed to invoke API/CLI commands in containers.; `NewImageThreshold`: Threshold for alerting on unseen container images pulled and executed. Adjust to reduce noise from frequent deploys.; `TimeWindow`: Temporal window to correlate container exec with shell spawn and network activity (default: 2 minutes).; `InteractiveSessionExpectation`: Set whether shell spawns without TTY or PTY should be flagged, based on org deployment model.
 
 </details>
 

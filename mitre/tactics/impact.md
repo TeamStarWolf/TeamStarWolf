@@ -4,7 +4,7 @@
 
 The adversary is trying to manipulate, interrupt, or destroy your systems and data.
 
-33 techniques in this tactic (Team Star Wolf enriched pages):
+33 techniques in this tactic (TeamStarWolf enriched pages):
 
 - [T1485: Data Destruction](/mitre/techniques/T1485.md)
 - [T1485.001: Lifecycle-Triggered Deletion](/mitre/techniques/T1485-001.md)

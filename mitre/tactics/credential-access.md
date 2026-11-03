@@ -4,14 +4,14 @@
 
 The adversary is trying to steal account names and passwords.
 
-## Most-observed in the Team Star Wolf corpus
+## Most-observed in the TeamStarWolf corpus
 
 - [T1110.002: Password Cracking](/mitre/techniques/T1110-002.md) (43.1% of machines)
 - [T1552.001: Credentials In Files](/mitre/techniques/T1552-001.md) (12.9% of machines)
 - [T1003: OS Credential Dumping](/mitre/techniques/T1003.md) (7.9% of machines)
 - [T1558.003: Kerberoasting](/mitre/techniques/T1558-003.md) (3.0% of machines)
 
-68 techniques in this tactic (Team Star Wolf enriched pages):
+68 techniques in this tactic (TeamStarWolf enriched pages):
 
 - [T1003: OS Credential Dumping](/mitre/techniques/T1003.md) (observed)
 - [T1003.001: LSASS Memory](/mitre/techniques/T1003-001.md)

@@ -1,6 +1,6 @@
 # Persistence: Detection Strategies
 
-> MITRE ATT&CK detection strategies and analytics (v19.2) for techniques whose primary tactic is Persistence. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
+> MITRE ATT&CK detection strategies and analytics (v20.0) for techniques whose primary tactic is Persistence. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
 
 See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](/techniques/README.md)
 
@@ -136,7 +136,7 @@ ATT&CK: [T1037.005](https://attack.mitre.org/techniques/T1037/005/), [detail pag
 - `AN1197` Analytic 1197, macOS
   Detects the modification or addition of Launch Agents or Startup Items to establish persistence. Adversaries may write plist or executable files to ~/Library/LaunchAgents/, /Library/StartupItems/, or similar directories and configure them to run at user or system boot. Detection requires correlating file creation or modification events with subsequent user logon or boot-time process execution.
   - *Log sources:* `macos:unifiedlog (launchservices or loginwindow events)`; `macos:fsevents (/Library/StartupItems/, ~/Library/LaunchAgents/)`
-  - *Tune:* `directory_path`: Specific paths to monitor may differ across macOS versions or enterprise baselines.; `user_context`: Different users may have unique LaunchAgents folders—tuning may be required.; `time_window`: The correlation time between file creation and process execution may need to be adjusted for boot persistence.; `process_name`: Specific startup binaries (e.g., bash, osascript) may vary across implementations.
+  - *Tune:* `directory_path`: Specific paths to monitor may differ across macOS versions or enterprise baselines.; `user_context`: Different users may have unique LaunchAgents folders, tuning may be required.; `time_window`: The correlation time between file creation and process execution may need to be adjusted for boot persistence.; `process_name`: Specific startup binaries (e.g., bash, osascript) may vary across implementations.
 
 </details>
 
@@ -450,7 +450,7 @@ ATT&CK: [T1136.001](https://attack.mitre.org/techniques/T1136/001/), [detail pag
 - `AN1240` Analytic 1240, Network Devices
   Account created via CLI using 'username' command or REST API. Detectable through AAA logging or CLI history telemetry.
   - *Log sources:* `networkdevice:syslog (username <user> privilege <level>)`
-  - *Tune:* `PrivilegeLevel`: Some devices allow unprivileged user creation—adjust based on role risk; `RemoteSessionFlag`: Creation via Telnet, SSH, or serial console affects detection priority
+  - *Tune:* `PrivilegeLevel`: Some devices allow unprivileged user creation, adjust based on role risk; `RemoteSessionFlag`: Creation via Telnet, SSH, or serial console affects detection priority
 
 </details>
 
@@ -678,11 +678,11 @@ ATT&CK: [T1176](https://attack.mitre.org/techniques/T1176/), [detail page](/tech
 - `AN0251` Analytic 0251, Windows
   Installation or execution of a malicious browser or IDE extension, followed by abnormal registry entries or outbound network connections from the host application
   - *Log sources:* `WinEventLog:Security (EventCode=4688)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=13, 14)`; `WinEventLog:Sysmon (EventCode=3, 22)`
-  - *Tune:* `Image`: Path of browser or IDE launching subprocesses—may vary depending on installed applications; `ParentImage`: Legitimate parent-child process relationships for known safe extensions; `RegistryPath`: Expected registry keys under HKCU/HKLM for installed extensions; `TimeWindow`: Tunable interval to correlate extension install with follow-on C2 traffic
+  - *Tune:* `Image`: Path of browser or IDE launching subprocesses, may vary depending on installed applications; `ParentImage`: Legitimate parent-child process relationships for known safe extensions; `RegistryPath`: Expected registry keys under HKCU/HKLM for installed extensions; `TimeWindow`: Tunable interval to correlate extension install with follow-on C2 traffic
 - `AN0252` Analytic 0252, macOS
   Installation of configuration profiles or plist entries associated with malicious or unauthorized browser extensions
   - *Log sources:* `macos:unifiedlog (Execution of 'profiles install -type=configuration')`; `macos:unifiedlog (Creation of .plist under /Library/Managed Preferences/)`; `macos:unifiedlog (Suspicious outbound traffic from browser binary to non-standard domains)`
-  - *Tune:* `PlistPath`: Directory path for user-specific extension configuration files; `CommandLine`: Usage of profiles CLI tool—can be modified by legitimate tools or MDMs; `TimeWindow`: Correlation window between configuration install and observable extension behavior
+  - *Tune:* `PlistPath`: Directory path for user-specific extension configuration files; `CommandLine`: Usage of profiles CLI tool, can be modified by legitimate tools or MDMs; `TimeWindow`: Correlation window between configuration install and observable extension behavior
 - `AN0253` Analytic 0253, Linux
   Manual or script-based installation of extension-like modules into browser config directories or IDE plugin paths, followed by suspicious network activity
   - *Log sources:* `auditd:SYSCALL (execve)`; `fs:fileevents (creat)`; `NSM:Flow (Abnormal browser traffic volume or destination)`
@@ -892,7 +892,7 @@ ATT&CK: [T1505.006](https://attack.mitre.org/techniques/T1505/006/), [detail pag
 - `AN1475` Analytic 1475, ESXi
   Malicious VIB installation for persistence via `esxcli software vib install` using `--force` or `--no-sig-check`, enabling custom startup scripts or firewall rules. Behavior chain: (1) unsigned/suspicious VIB installation -> (2) startup script or binary placed in persistent boot path -> (3) persistence across reboot via /etc/rc.local.d or other boot hook).
   - *Log sources:* `esxi:esxupdate (/var/log/esxupdate.log contains VIB installed with `--force` or `--no-sig-check` and non-standard acceptance levels)`; `esxi:shell (`esxcli software vib install` with `--force` or `--no-sig-check` from shell history or `shell.log`)`; `linux:fim (Changes to /etc/rc.local.d/local.sh or creation of unexpected startup files in persistent partitions (/etc/init.d, /store, /locker))`
-  - *Tune:* `AcceptanceLevel`: Some environments may intentionally permit CommunitySupported or unsigned VIBs—filter by known allowed publishers.; `InstallCommandThreshold`: Set alerting thresholds for frequency of VIB install attempts per host/user/time window.; `StartupPathRegex`: Tune regex for monitoring startup file locations based on ESXi image customization.
+  - *Tune:* `AcceptanceLevel`: Some environments may intentionally permit CommunitySupported or unsigned VIBs, filter by known allowed publishers.; `InstallCommandThreshold`: Set alerting thresholds for frequency of VIB install attempts per host/user/time window.; `StartupPathRegex`: Tune regex for monitoring startup file locations based on ESXi image customization.
 
 </details>
 
@@ -1242,7 +1242,7 @@ Platforms: Windows
 ATT&CK: [T1547.008](https://attack.mitre.org/techniques/T1547/008/), [detail page](/techniques/persistence.md#t1547008)
 
 - `AN0629` Analytic 0629, Windows
-  Unauthorized creation or modification of DLLs loaded by LSASS, abnormal registry values under LSA extensions, and anomalous DLL load activity into the lsass.exe process context—correlated during boot or logon events.
+  Unauthorized creation or modification of DLLs loaded by LSASS, abnormal registry values under LSA extensions, and anomalous DLL load activity into the lsass.exe process context, correlated during boot or logon events.
   - *Log sources:* `WinEventLog:Security (EventCode=3033)`; `WinEventLog:Sysmon (EventCode=6)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=2)`; `WinEventLog:Sysmon (EventCode=12)`; `WinEventLog:Sysmon (EventCode=13, 14)`
   - *Tune:* `TimeWindow`: Correlate DLL file creation/modification with LSASS execution within a configurable timeframe (e.g., 5 min); `ImagePathPattern`: Tune based on known legitimate LSASS plugin DLL paths; `SignatureValidation`: Flag unsigned DLLs loaded into lsass.exe or those signed by unexpected publishers; `RegistryKeyScope`: Scope to specific registry keys: HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Authentication Packages; `FileHashAllowList`: Exclude known-good LSASS plugin DLLs based on cryptographic hash
 

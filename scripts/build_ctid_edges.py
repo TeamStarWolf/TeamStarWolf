@@ -4,7 +4,7 @@
 data/control_to_technique.jsonl  (NIST 800-53 r5 -> ATT&CK, CTID Mappings Explorer)
     The CTID rows are the source and are kept as published, with three hygiene rules:
       * `tactics` is a denormalised copy of the target technique's CURRENT tactics and is
-        rewritten from data/attack/technique_profiles.jsonl (v19.2: stealth /
+        rewritten from data/attack/technique_profiles.jsonl (since v19: stealth /
         defense-impairment, never the retired defense-evasion).
       * a target that has no profile row but is a revoked id in superseded_by.jsonl
         (a key that was already stale in the source's own ATT&CK version, e.g.

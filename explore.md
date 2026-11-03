@@ -14,7 +14,7 @@ On GitHub, the table does not load; the family index pages below list the same o
 
 | Family | Objects | Index | Built from |
 |---|---|---|---|
-| ATT&CK techniques | 723 (17 revoked or deprecated in v19.2, kept for reference) | [ATT&CK techniques](/mitre/techniques/README.md) | `data/attack/technique_profiles.jsonl` |
+| ATT&CK techniques | 723 (17 revoked or deprecated, kept for reference) | [ATT&CK techniques](/mitre/techniques/README.md) | `data/attack/technique_profiles.jsonl` |
 | ATT&CK groups | 178 | [ATT&CK groups](/mitre/groups/README.md) | `data/attack/group_profiles.jsonl` |
 | ATT&CK software | 842 | [ATT&CK software](/mitre/software/README.md) | `data/attack/software_profiles.jsonl` |
 | ATT&CK campaigns | 57 | [ATT&CK campaigns](/mitre/campaigns/README.md) | `data/attack/campaign_profiles.jsonl` |
@@ -25,7 +25,7 @@ On GitHub, the table does not load; the family index pages below list the same o
 | ATLAS mitigations | 35 | [ATLAS mitigations](/mitre/atlas/README.md) | `data/ai/atlas_mitigations.jsonl` |
 | F3 techniques | 123 | [F3 techniques](/mitre/f3/README.md) | `data/fraud/f3_techniques.jsonl` |
 
-Versions: ATT&CK v19.2 (Enterprise), CAPEC 3.9. The licenses and notices for each framework are in [THIRD_PARTY_NOTICES.md](/THIRD_PARTY_NOTICES.md); how the data is built and checked is in [About the data](/ABOUT_THE_DATA.md).
+Versions: ATT&CK v20.0 (Enterprise), CAPEC 3.9. The licenses and notices for each framework are in [THIRD_PARTY_NOTICES.md](/THIRD_PARTY_NOTICES.md); how the data is built and checked is in [About the data](/ABOUT_THE_DATA.md).
 
 ATT&CK&reg; and MITRE ATT&CK&reg; are registered trademarks of The MITRE Corporation. CAPEC, D3FEND and ATLAS are maintained by The MITRE Corporation, and F3 by MITRE's Center for Threat-Informed Defense. This project is not affiliated with or endorsed by MITRE.
 

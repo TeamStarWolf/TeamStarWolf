@@ -25,10 +25,10 @@ ATLAS and F3 layers legitimately carry non-ATT&CK ids and their own tactic sets:
       deprecated (scripts/attack_ids.py). The profiles keep revoked ids as lineage rows with
       revoked: true, so a bare presence check would pass them; the error names the successor
       from data/attack/superseded_by.jsonl
-    * every tactic is a v19.2 tactic of that domain AND one of the technique's own tactics
+    * every tactic is a current tactic of that domain AND one of the technique's own tactics
       (Enterprise: Stealth / Defense Impairment, never the retired defense-evasion)
     * a layer whose tactic_policy shows each technique under all its tactics does exactly that
-    * filters.platforms are platforms of that domain in v19.2 and hide no scored technique
+    * filters.platforms are platforms of that domain in the pinned release and hide no scored technique
 
   ATLAS layers: techniqueID in data/ai/atlas_techniques.jsonl, tactic in its tactics
   F3 layers:    techniqueID in data/fraud/f3_techniques.jsonl, tactic in its tactics
@@ -46,7 +46,7 @@ import re
 import sys
 from pathlib import Path
 
-from attack_ids import AttackIds, read_jsonl
+from attack_ids import ATTACK_VER, AttackIds, read_jsonl
 from build_priority_gaps import ICS_TACTICS, MOBILE_TACTICS, NAVIGATOR_ATTACK
 from compute_coverage import TACTIC_METADATA
 
@@ -67,7 +67,7 @@ OTHER_DOMAINS = {
 }
 ATTACK_ID = re.compile(r"^T\d{4}(\.\d{3})?$")
 COLOR = re.compile(r"^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$")
-STAGE_NAME = re.compile(r"^Stage (\d+)\s*[—–:-]\s*(.+)$")
+STAGE_NAME = re.compile(r"^Stage (\d+)\s*[\u2014–:-]\s*(.+)$")
 TACTIC_POLICY_ALL = "Each selected technique is shown under all tactics"
 COUNT_META = {"techniques_scored": "distinct", "blind_spot_count": "distinct",
               "technique_tactic_entries": "entries"}
@@ -132,9 +132,9 @@ def check_layer(rel: str, layer: dict, ids: AttackIds, other: dict, platforms: d
             if tac is None:
                 continue
             if tac not in vocab:
-                err(rel, f"{tid}: tactic {tac!r} is not an ATT&CK v19.2 {key} tactic")
+                err(rel, f"{tid}: tactic {tac!r} is not an ATT&CK {ATTACK_VER} {key} tactic")
             elif tac not in (profiles[tid].get("tactics") or []):
-                err(rel, f"{tid}: tactic {tac!r} is not one of its v19.2 tactics "
+                err(rel, f"{tid}: tactic {tac!r} is not one of its {ATTACK_VER} tactics "
                          f"{profiles[tid].get('tactics')} - Navigator would not render it")
         for tid, why in sorted(bad_ids.items()):
             err(rel, f"techniqueID {tid} is not a live {key} technique: {why}")
@@ -151,7 +151,7 @@ def check_layer(rel: str, layer: dict, ids: AttackIds, other: dict, platforms: d
         if plat is not None:
             unknown = sorted(set(plat) - platforms[key])
             if unknown:
-                err(rel, f"filters.platforms {unknown} are not ATT&CK v19.2 {key} platforms "
+                err(rel, f"filters.platforms {unknown} are not ATT&CK {ATTACK_VER} {key} platforms "
                          f"{sorted(platforms[key])}")
             hidden = sorted({t["techniqueID"] for t in techniques if t["techniqueID"] not in bad_ids
                              and not set(profiles[t["techniqueID"]].get("platforms") or []) & set(plat)})
@@ -270,7 +270,7 @@ def main() -> None:
         sys.exit(1)
     summary = ", ".join(f"{n} {d}" for d, n in sorted(counts.items()))
     print(f"OK: {len(layers)} Navigator layers valid ({summary}); every ATT&CK layer pinned to "
-          f"v{NAVIGATOR_ATTACK} with live technique IDs and v19.2 tactics")
+          f"v{NAVIGATOR_ATTACK} with live technique IDs and {ATTACK_VER} tactics")
 
 
 if __name__ == "__main__":

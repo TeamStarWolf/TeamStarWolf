@@ -39,6 +39,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from repo_files import ROOT, read_bytes, tracked_files  # noqa: E402
+from attack_ids import ATTACK_VER  # noqa: E402
 
 BASELINE = os.path.join(ROOT, "scripts", "baselines", "revoked_ids.json")
 
@@ -168,7 +169,7 @@ def check_revoked(files: list[str], report: bool, update: bool) -> list[str]:
     for h in hits:
         k = (h[0], h[2])
         if k in over:
-            problems.append(h[0] + ":" + str(h[1]) + ": cites " + h[2] + ", " + h[4] + " in the pinned ATT&CK v19.2 data " +
+            problems.append(h[0] + ":" + str(h[1]) + ": cites " + h[2] + ", " + h[4] + " in the pinned ATT&CK " + ATTACK_VER + " data " +
                             "(use " + (h[3] or "a current technique; no direct replacement") + ")")
             over.pop(k)
     return problems

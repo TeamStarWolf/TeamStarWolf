@@ -1,6 +1,6 @@
 # Scores
 
-> Computed views over the ATT&CK v19.2 data: how much of the Enterprise matrix a modeled vendor stack reaches through NIST SP 800-53 control mappings, and which techniques are both widely used by tracked groups and thinly covered by controls. Every file here is generated.
+> Computed views over the ATT&CK v20.0 data: how much of the Enterprise matrix a modeled vendor stack reaches through NIST SP 800-53 control mappings, and which techniques are both widely used by tracked groups and thinly covered by controls. Every file here is generated.
 
 ## What is here
 

@@ -34,10 +34,10 @@ jobs:
         run: python scripts/validate_jsonl.py
 
       # Rebuilds the ATT&CK core (Enterprise, ICS, Mobile) and superseded_by.jsonl in
-      # memory from the commit-pinned v19.2 STIX bundles and fails on any drift. It fetches
+      # memory from the commit-pinned v20.0 STIX bundles and fails on any drift. It fetches
       # the three public bundles (about 64 MB) from raw.githubusercontent.com at the pinned
       # commit and aborts unless each one matches its SHA-256 in build_attack_core.py.
-      - name: ATT&CK core matches the pinned v19.2 STIX (Enterprise, ICS, Mobile)
+      - name: ATT&CK core matches the pinned v20.0 STIX (Enterprise, ICS, Mobile)
         run: python scripts/build_attack_core.py --check
 
       - name: Check CAPEC edge integrity (profiles vs capec.jsonl)
@@ -48,7 +48,7 @@ jobs:
 
   corpus-signal:
     name: Corpus-signal round-trip (data file == pages, exactly 21)
-    # The "Team Star Wolf corpus signal" paragraph on 21 technique pages comes from the
+    # The "TeamStarWolf corpus signal" paragraph on 21 technique pages comes from the
     # uncommitted training corpus and exists in-repo only as
     # data/generated/corpus_signal.jsonl. Fail if the data file and the committed pages
     # disagree, or if the count drifts from 21 (a regeneration that dropped the
@@ -190,9 +190,9 @@ jobs:
 
   validate-navigator:
     name: Validate ATT&CK Navigator layers
-    # Every layer under navigator/ (not just one): JSON shape, domain, versions.attack == 19 for
+    # Every layer under navigator/ (not just one): JSON shape, domain, versions.attack == 20 for
     # the ATT&CK domains, every techniqueID LIVE (present and not revoked/deprecated) in its
-    # domain's profile file, every tactic a v19.2 tactic of that technique, no orphan layers,
+    # domain's profile file, every tactic a v20.0 tactic of that technique, no orphan layers,
     # stage names vs SECURITY_PIPELINE.md. ATLAS/F3 layers are checked against their own data.
     runs-on: ubuntu-latest
     steps:
@@ -206,7 +206,7 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Validate every Navigator layer against the v19.2 data
+      - name: Validate every Navigator layer against the v20.0 data
         run: python scripts/validate_navigator.py
 
       - name: Full-stack layer, curated-layer normalization and navigator/index.md match the data

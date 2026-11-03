@@ -4,7 +4,7 @@
 
 The adversary is trying to establish resources they can use to support operations.
 
-51 techniques in this tactic (Team Star Wolf enriched pages):
+51 techniques in this tactic (TeamStarWolf enriched pages):
 
 - [T1583: Acquire Infrastructure](/mitre/techniques/T1583.md)
 - [T1583.001: Domains](/mitre/techniques/T1583-001.md)

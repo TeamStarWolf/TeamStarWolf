@@ -193,9 +193,12 @@ def compute():
 # mitre_active_enterprise_techniques_ref = the live ones (the revoked records are retained
 # for lineage). Both are computed above; "N active" in a doc must equal the second.
 CHECKS = [
-    # Skip relational subset claims like "the 426 ATT&CK techniques they counter"
-    # (a cross-reference count, not the technique total) via the trailing lookahead.
+    # "N ATT&CK techniques they counter" is the D3FEND cross-reference count, not the
+    # technique total: the lookahead keeps it out of technique_total and the next entry
+    # checks it against the current techniques the D3FEND mappings cover.
     (r"([\d,]+)\s+(?:MITRE\s+)?ATT&CK\s+(?:Enterprise\s+)?techniques\b(?! they counter)", "technique_total"),
+    (r"([\d,]+)\s+(?:current\s+)?(?:MITRE\s+)?ATT&CK\s+(?:Enterprise\s+(?:and\s+ICS\s+)?)?techniques\s+they counter",
+     "d3fend_current_attack_techniques"),
     (r"([\d,]+)\s+(?:MITRE ATT&CK\s+)?(?:adversary\s+)?groups\b", "groups"),
     (r"([\d,]+)\s+(?:MITRE ATT&CK\s+)?malware", "software"),
     (r"([\d,]+)\s+(?:MITRE\s+)?detection strategies", "detection_strategies"),

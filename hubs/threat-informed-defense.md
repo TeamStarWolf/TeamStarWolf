@@ -23,8 +23,8 @@ Part of the [domain hubs](/hubs/README.md). 16 reference documents in this domai
 
 | Reference | What it covers | Reading time |
 |---|---|---|
-| [D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md) | 156 MITRE D3FEND defensive techniques (7 tactics) mapped to the 426 ATT&CK techniques they counter | Lookup page (15 min end to end) |
-| [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md) | 615 common attack patterns, 177 bridging to ATT&CK techniques, linked to their CWE weaknesses | Lookup page (18 min end to end) |
+| [D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md) | 156 MITRE D3FEND defensive techniques (7 tactics) mapped to the 387 current ATT&CK techniques they counter | Lookup page (15 min end to end) |
+| [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md) | 559 common attack patterns (CAPEC 3.9, not counting deprecated entries), 177 bridging to ATT&CK techniques, linked to their CWE weaknesses | Lookup page (18 min end to end) |
 | [CWE Weakness Reference](/CWE_REFERENCE.md) | Software and hardware weakness types, organized by pillar and class, with consequences, mitigations, and a most-attacked ranking | Lookup page (15 min end to end) |
 | [Engage Reference (deception)](/ENGAGE_REFERENCE.md) | MITRE Engage: denial, deception and adversary engagement: 5 goals, 9 approaches, 31 activities, with 175 mappings to ATT&CK techniques | Lookup page (9 min end to end) |
 | [Fight Fraud Framework (MITRE F3)](/FRAUD_FRAMEWORK_REFERENCE.md) | 123 cyber-enabled financial fraud techniques across 8 tactics (reconnaissance through monetization) from MITRE's Center for Threat-Informed Defense | Lookup page (33 min end to end) |

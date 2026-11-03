@@ -53,7 +53,7 @@
 | [Coverage Schema](COVERAGE_SCHEMA.md) | Data model for scoring vendor coverage gaps against ATT&CK techniques through NIST 800-53 controls |
 | [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md) | Cryptographic concepts, algorithms, attacks, and best practices |
 | [CTF Methodology](CTF_METHODOLOGY.md) | Systematic approach to web, forensics, crypto, reverse engineering, binary exploitation, and OSINT challenges |
-| [CAPEC Attack Pattern Reference](CAPEC_REFERENCE.md) | 615 common attack patterns, 177 bridging to ATT&CK techniques, linked to their CWE weaknesses |
+| [CAPEC Attack Pattern Reference](CAPEC_REFERENCE.md) | <!-- stat-capec_attack_patterns:start -->559<!-- stat-capec_attack_patterns:end --> common attack patterns (CAPEC 3.9, not counting deprecated entries), <!-- stat-capec_patterns_with_attack:start -->177<!-- stat-capec_patterns_with_attack:end --> bridging to ATT&CK techniques, linked to their CWE weaknesses |
 | [CVE Reference](CVE_REFERENCE.md) | CVE program, CVSS v3.1/v4.0, EPSS scoring, CISA KEV catalog, vulnerability databases, patch prioritization |
 | [CPE Reference](CPE_REFERENCE.md) | Common Platform Enumeration: the CPE 2.3 name, part a/o/h, NVD dictionary, CVE<->CPE applicability/match ranges, and CPE's role in vuln-mgmt / SBOM / CTEM |
 | [CWE Weakness Reference](CWE_REFERENCE.md) | Software and hardware weakness types, organized by pillar and class, with consequences, mitigations, and a most-attacked ranking |
@@ -65,7 +65,7 @@
 
 | Resource | Description |
 |---|---|
-| [D3FEND Countermeasure Reference](D3FEND_REFERENCE.md) | 156 MITRE D3FEND defensive techniques (7 tactics) mapped to the 426 ATT&CK techniques they counter |
+| [D3FEND Countermeasure Reference](D3FEND_REFERENCE.md) | <!-- stat-d3fend_countermeasures:start -->156<!-- stat-d3fend_countermeasures:end --> MITRE D3FEND defensive techniques (7 tactics) mapped to the <!-- stat-d3fend_current_attack_techniques:start -->387<!-- stat-d3fend_current_attack_techniques:end --> current ATT&CK techniques they counter |
 | [Data Security Reference](DATA_SECURITY_REFERENCE.md) | CSF 2.0 PR.DS, classification tiers and Purview sensitivity labels, DSPM discovery, DLP channels and false-positive economics, encryption at rest/in transit/in use, egress controls, SP 800-171r3/CMMC drivers, program metrics |
 | [Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md) | Honeypots, honeytokens, canary tokens, deception platforms, breadcrumb strategy, and detection rules |
 | [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) | Sigma, YARA, and Suricata rule writing with examples and conversion to Splunk, Elastic, and Sentinel |

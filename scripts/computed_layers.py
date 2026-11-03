@@ -32,7 +32,7 @@ DIR = "navigator/computed"
 # description (citations dropped, links reduced to their text) contains "ransomware".
 _CITATION = re.compile(r"\(Citation:[^)]*\)")
 _LINK = re.compile(r"\[([^\]]*)\]\([^)]*\)")
-_SENTENCE_END = re.compile(r"(?<=[a-z0-9)\]])\.\s")
+_SENTENCE_END = re.compile(r"(?<=[A-Za-z0-9)\]])\.\s")
 
 RULES = {
     "ransomware-family": (
@@ -232,7 +232,7 @@ def reproduce(key: str) -> set[str]:
         out = set()
         for s in _rows("data/attack/software_profiles.jsonl"):
             text = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", re.sub(r"\(Citation:[^)]*\)", "", s.get("description") or ""))
-            if "ransomware" in re.split(r"(?<=[a-z0-9)\]])\.\s", text, maxsplit=1)[0].lower():
+            if "ransomware" in re.split(r"[.!?]\s", text, maxsplit=1)[0].lower():
                 out |= {c for c in (current(t) for t in s.get("techniques") or []) if c}
         return out
     mapped = {current(r["technique_id"]) for r in _rows("data/attack/technique_to_d3fend.jsonl")}

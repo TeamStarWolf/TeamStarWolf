@@ -68,6 +68,22 @@ Time and difficulty are quoted in full from each guide's header table.
 | [Acquire and Triage a Compromised Endpoint](/guides/ACQUIRE_AND_TRIAGE_AN_ENDPOINT.md) | 4-8 hours per host for acquisition + first-pass triage; a full timeline and report can run 1-3 days | Advanced: irreversible collection decisions, evidence-integrity discipline |
 | [Investigate a Cloud Account Compromise](/guides/INVESTIGATE_A_CLOUD_COMPROMISE.md) | First hour is containment; full investigation 1-5 days by scope | Advanced: cross-provider, and the evidence ages by the hour |
 
+## Platforms and developer reference
+
+| Page | What it covers |
+|---|---|
+| [Splunk Enterprise Security](/platforms/splunk.md) | SIEM with SPL, correlation searches, risk-based alerting, and SOAR |
+| [IBM QRadar](/platforms/qradar.md) | SIEM with events, flows, and offenses, with notes on the XSIAM transition |
+| [CrowdStrike Falcon](/platforms/crowdstrike-falcon.md) | Cloud-native endpoint protection, EDR, and exposure management on a single sensor |
+| [Microsoft Defender for Endpoint](/platforms/microsoft-defender.md) | Microsoft endpoint EDR with Defender Vulnerability Management |
+| [SentinelOne Singularity](/platforms/sentinelone.md) | Autonomous endpoint and extended detection with on-device AI and Storyline correlation |
+| [Cortex XSOAR](/platforms/cortex-xsoar.md) | Security orchestration, automation, and response with playbooks |
+| [Tines](/platforms/tines.md) | No-code security automation and orchestration |
+| [Elasticsearch](/databases/elasticsearch.md) | Distributed search and analytics engine on Lucene |
+| [Regular Expressions](/formats/regex.md) | Syntax, engines, and the regular-expression denial-of-service (ReDoS) risk |
+| [PowerShell Command Reference](/commands/powershell-commands.md) | The cmdlet cheat sheet: verb-noun cmdlets, the pipeline, events, and ACLs |
+| [Linux Command Reference](/commands/linux-commands.md) | Core GNU/Linux utilities: files, text, processes, permissions, disk, archives, packages |
+
 ## See also
 
 - [Technique detection library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)

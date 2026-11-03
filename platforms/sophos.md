@@ -79,3 +79,9 @@ The optional MDR service lets a lean team sustain round-the-clock monitoring wit
 - [SentinelOne Singularity](/platforms/sentinelone.md)
 - [Trend Micro](/platforms/trend-micro.md)
 - [Fortinet](/platforms/fortinet.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [Sophos entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?vendor=sophos) · [Sophos entries linked to CISA KEV](https://teamstarwolf.github.io/intelligence-hub/#/explore?kev=1&vendor=sophos)
+
+<!-- hub-links:end -->

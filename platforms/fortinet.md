@@ -99,3 +99,9 @@ Its logs feed incident response by showing boundary decisions, network behavior,
 - [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
 - [Check Point](/platforms/check-point.md)
 - [Cisco Secure Access](/platforms/cisco-secure-access.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [Fortinet entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?vendor=fortinet) · [Fortinet entries linked to CISA KEV](https://teamstarwolf.github.io/intelligence-hub/#/explore?kev=1&vendor=fortinet)
+
+<!-- hub-links:end -->

@@ -320,6 +320,10 @@ def headings(lines: list[str]) -> list[tuple[int, int, str, str]]:
     return out
 
 
+INLINE_BLOCK = "<!-- hub-links:start"
+INLINE_BLOCK_END = "<!-- hub-links:end"
+
+
 def section_range(lines: list[str], anchor: str) -> tuple[int, int, int, str] | None:
     """(heading line, first body line, end line exclusive, heading text) of a section: up
     to the next heading of the same or a higher level, a script-written block, or a
@@ -335,7 +339,9 @@ def section_range(lines: list[str], anchor: str) -> tuple[int, int, int, str] | 
                 end = j
                 break
         for k in range(i + 1, end):
-            if re.match(r"^<!-- [\w-]+:start", lines[k]):
+            # scripts/build_hub_links.py writes its one-line blocks inside sections, so they
+            # do not end one; section_text leaves their lines out.
+            if re.match(r"^<!-- [\w-]+:start", lines[k]) and not lines[k].startswith(INLINE_BLOCK):
                 end = k
                 break
         return i, i + 1, end, text
@@ -554,7 +560,14 @@ def section_text(lines: list[str], anchor: str) -> str | None:
     if r is None:
         return None
     i, a, b, _ = r
-    keep = [ln for ln, f in zip(lines[a:b], fences(lines)[a:b]) if not f]
+    keep, inline = [], False
+    for ln, f in zip(lines[a:b], fences(lines)[a:b]):
+        if ln.startswith(INLINE_BLOCK):
+            inline = True
+        if not f and not inline:
+            keep.append(ln)
+        if inline and ln.startswith(INLINE_BLOCK_END):
+            inline = False
     # Blockquote markers go, so a quote may run across the lines of a blockquote.
     return " ".join(norm_text(re.sub(r"^\s{0,3}(?:>\s?)+", "", ln)) for ln in keep)
 

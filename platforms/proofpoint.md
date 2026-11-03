@@ -82,3 +82,9 @@ Its value depends on tuning and access control. A well-tuned gateway stops threa
 - [Scanner platforms reference](/SCANNER_PLATFORMS_REFERENCE.md)
 - [Cortex XSOAR](/platforms/cortex-xsoar.md)
 - [Zscaler](/platforms/zscaler.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [Proofpoint entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?vendor=proofpoint)
+
+<!-- hub-links:end -->

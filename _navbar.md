@@ -6,4 +6,5 @@
 - [Domains](/hubs/README.md)
 - [Index](/INDEX.md)
 - [ATT&CK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/)
+- [Intelligence Hub](https://teamstarwolf.github.io/intelligence-hub/)
 - [GitHub](https://github.com/TeamStarWolf/TeamStarWolf)

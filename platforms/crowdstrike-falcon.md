@@ -69,3 +69,9 @@ A vulnerability management and security operations team uses Falcon as the endpo
 - [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
 - [Microsoft Defender for Endpoint](/platforms/microsoft-defender.md)
 - [Tanium](/platforms/tanium.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [CrowdStrike entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?vendor=crowdstrike)
+
+<!-- hub-links:end -->

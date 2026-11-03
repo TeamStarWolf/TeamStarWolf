@@ -31,6 +31,15 @@ Time and difficulty are quoted in full from each guide's header table.
 |---|---|---|
 | [Produce and Operationalize an Intelligence Product](/guides/PRODUCE_AN_INTELLIGENCE_PRODUCT.md) | A few focused days for the first product end to end; the operationalization loop is ongoing | Intermediate: analytic tradecraft plus cross-team coordination |
 
+## Platforms and developer reference
+
+| Page | What it covers |
+|---|---|
+| [JSON](/formats/json.md) | JavaScript Object Notation: the data interchange format of the web, and prototype-pollution risk |
+| [Regular Expressions](/formats/regex.md) | Syntax, engines, and the regular-expression denial-of-service (ReDoS) risk |
+| [jq Command Reference](/commands/jq.md) | Filtering and transforming JSON, with safe shell integration |
+| [curl Command Reference](/commands/curl.md) | HTTP from the command line: methods, headers, auth, TLS, and SSRF caution |
+
 ## See also
 
 - [ATT&CK threat groups](/mitre/groups/README.md)

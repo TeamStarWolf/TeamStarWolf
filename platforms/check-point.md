@@ -78,3 +78,9 @@ The gateway logs feed detection and incident response. Access policy supports se
 - [Fortinet](/platforms/fortinet.md)
 - [Citrix NetScaler](/platforms/citrix-netscaler.md)
 - [Zscaler](/platforms/zscaler.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [Check Point entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?vendor=check-point) · [Check Point entries linked to CISA KEV](https://teamstarwolf.github.io/intelligence-hub/#/explore?kev=1&vendor=check-point)
+
+<!-- hub-links:end -->

@@ -167,3 +167,9 @@ also an internet-facing device that needs the same discipline as any other. See
 - [Cortex XSOAR](/platforms/cortex-xsoar.md)
 - [Prisma Cloud](/platforms/prisma-cloud.md)
 - [Splunk Enterprise Security](/platforms/splunk.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [Palo Alto Networks entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?vendor=palo-alto-networks) · [Palo Alto Networks entries linked to CISA KEV](https://teamstarwolf.github.io/intelligence-hub/#/explore?kev=1&vendor=palo-alto-networks)
+
+<!-- hub-links:end -->

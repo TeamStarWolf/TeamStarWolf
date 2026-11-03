@@ -34,7 +34,7 @@
 
 ---
 
-- Frameworks
+- MITRE frameworks
   - [Explore all objects](/explore.md)
   - [ATT&CK techniques](/mitre/techniques/README.md)
   - [ATT&CK tactics](/mitre/tactics/README.md)

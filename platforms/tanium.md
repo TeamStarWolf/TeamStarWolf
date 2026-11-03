@@ -70,3 +70,9 @@ A vulnerability management and security operations team uses Tanium for live, es
 - [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
 - [CrowdStrike Falcon](/platforms/crowdstrike-falcon.md)
 - [ServiceNow Vulnerability Response](/platforms/servicenow-vr.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [Tanium entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?vendor=tanium)
+
+<!-- hub-links:end -->

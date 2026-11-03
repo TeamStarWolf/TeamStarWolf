@@ -67,3 +67,9 @@ A vulnerability management and security operations team uses Trend Vision One to
 - [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
 - [CrowdStrike Falcon](/platforms/crowdstrike-falcon.md)
 - [Wiz](/platforms/wiz.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [Trend Micro entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?vendor=trend-micro) · [Trend Micro entries linked to CISA KEV](https://teamstarwolf.github.io/intelligence-hub/#/explore?kev=1&vendor=trend-micro)
+
+<!-- hub-links:end -->

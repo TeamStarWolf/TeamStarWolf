@@ -44,6 +44,18 @@ Time and difficulty are quoted in full from each guide's header table.
 |---|---|---|
 | [Run Your First Purple-Team Exercise](/guides/RUN_A_PURPLE_TEAM_EXERCISE.md) | Half a day to plan, 2-3 hours to run | Intermediate |
 
+## Platforms and developer reference
+
+| Page | What it covers |
+|---|---|
+| [Nmap Command Reference](/commands/nmap.md) | Host discovery, port and service scanning, and the scripting engine |
+| [Metasploit Framework Reference](/commands/metasploit.md) | The msfconsole workflow for authorized testing, with detection guidance |
+| [sqlmap Command Reference](/commands/sqlmap.md) | Detecting and confirming SQL injection; defense is parameterized queries |
+| [gobuster Command Reference](/commands/gobuster.md) | Content, DNS, and virtual-host enumeration; defense is monitoring and least exposure |
+| [hashcat Command Reference](/commands/hashcat.md) | Password-hash auditing; defense is slow salted hashing |
+| [GDB Command Reference](/commands/gdb.md) | Debugging, crash analysis, and exploit development in authorized research |
+| [HackerOne](/platforms/hackerone.md) | Bug bounty, vulnerability disclosure, and pentest-as-a-service |
+
 ## See also
 
 - [Kali Linux tool coverage](/research/KALI_TOOL_COVERAGE.md)

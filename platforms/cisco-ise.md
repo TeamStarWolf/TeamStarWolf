@@ -77,3 +77,9 @@ During incident response, ISE is the control that isolates a compromised endpoin
 - [Cisco Duo](/platforms/cisco-duo.md)
 - [Cisco Secure Access](/platforms/cisco-secure-access.md)
 - [Entra ID](/platforms/entra-id.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [Cisco ISE entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?product=cisco-ise) · [Cisco ISE entries linked to CISA KEV](https://teamstarwolf.github.io/intelligence-hub/#/explore?kev=1&product=cisco-ise)
+
+<!-- hub-links:end -->

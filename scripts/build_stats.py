@@ -35,6 +35,8 @@ ROOT_META = {
     "explore.md",   # the Explore page (scripts/build_explore.py), a framework index
 }
 STUB_MARK = "This document has been superseded."
+# The folders of the developer reference (README "What's inside": Developer reference pages).
+DEVELOPER_FOLDERS = ("languages/", "paradigms/", "frameworks/", "commands/", "formats/", "databases/")
 
 def _rows(rel):
     p = os.path.join(ROOT, rel)
@@ -85,6 +87,10 @@ def _library_counts():
     def folder(prefix):
         return sum(1 for f in files if f.startswith(prefix) and "/" not in f[len(prefix):]
                    and page(f))
+
+    def tree(prefix):
+        """Content pages in a folder and its subfolders (ai-tooling/ holds tools/)."""
+        return sum(1 for f in files if f.startswith(prefix) and page(f))
     # Framework pages are the object pages in mitre/<kind>/ (techniques, groups, capec,
     # ...). Pages at the mitre/ root, such as crosswalk.md, are not object pages.
     # A retired ATLAS ID keeps a stub page so old links still resolve, but it is not a
@@ -95,6 +101,12 @@ def _library_counts():
         "reference_docs": refs,
         "guides": folder("guides/"),
         "learning_paths": folder("disciplines/"),
+        # The developer reference: one page per language, paradigm, software framework,
+        # command-line tool, data format and database engine.
+        "developer_reference_pages": sum(folder(p) for p in DEVELOPER_FOLDERS),
+        "platform_pages": folder("platforms/"),
+        "ai_tooling_pages": tree("ai-tooling/"),
+        "case_studies": folder("case-studies/"),
         "framework_pages": sum(1 for f in files if f.startswith("mitre/")
                                and f.count("/") >= 2 and page(f) and f not in retired),
     }
@@ -213,6 +225,10 @@ CHECKS = [
     (r"([\d,]+)\s+(?:step-by-step\s+)?how-to guides?\b", "guides"),
     (r"([\d,]+)\s+(?:guided\s+|discipline\s+)?learning paths?\b", "learning_paths"),
     (r"([\d,]+)\s+(?:generated\s+)?framework pages?\b", "framework_pages"),
+    (r"([\d,]+)\s+developer reference pages?\b", "developer_reference_pages"),
+    (r"([\d,]+)\s+(?:security\s+)?platform pages?\b", "platform_pages"),
+    (r"([\d,]+)\s+AI tooling pages?\b", "ai_tooling_pages"),
+    (r"([\d,]+)\s+case stud(?:y|ies)\b", "case_studies"),
 ]
 # guides/HOW_TO_USE_THIS_LIBRARY.md is the onboarding walk-through and quotes library-wide
 # totals; the other guides quote relational subsets ("6 groups") the regexes would misread.
@@ -241,7 +257,7 @@ def check(stats):
 
 BLOCK_RE = re.compile(r"(<!-- stats:start[^>]*-->\n)(.*?)(<!-- stats:end -->)", re.S)
 
-# The four front-door counts: (label, what it holds, stats key, README link, site route).
+# The front-door counts: (label, what it holds, stats key, README link, site route).
 # Wording lives here so the numbers and the nouns they count change together, and the
 # README table and the HOME cards say the same thing.
 FRONT_DOOR = [
@@ -257,6 +273,18 @@ FRONT_DOOR = [
      "and mitigation, CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, "
      "and F3 technique",
      "framework_pages", "[Framework pages](mitre/README.md)", "#/mitre/README"),
+    ("Developer reference pages", "One page per programming language, paradigm, software framework, "
+     "command-line tool, data format, and database engine",
+     "developer_reference_pages", "[Languages](languages/README.md)", "#/languages/README"),
+    ("Security platform pages", "One page per vendor platform a security program runs on, from endpoint "
+     "and exposure management to identity, cloud, OT, and backup",
+     "platform_pages", "[Security platforms](platforms/README.md)", "#/platforms/README"),
+    ("AI tooling pages", "AI tools and models in groups, a one-page manual for each tool, a learning path, "
+     "and hands-on labs",
+     "ai_tooling_pages", "[AI tooling](ai-tooling/README.md)", "#/ai-tooling/README"),
+    ("Case studies", "Evidence-graded studies of how the threat landscape is changing, written from primary "
+     "sources, with figures and PDF downloads",
+     "case_studies", "[Case studies](case-studies/README.md)", "#/case-studies/README"),
 ]
 
 

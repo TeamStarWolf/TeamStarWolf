@@ -2,11 +2,11 @@
 
 # Domains
 
-> The reference documents, grouped by domain. Each domain page lists its references with a one-line summary and a reading time, then the learning paths, how-to guides and framework pages that go with them.
+> The reference documents, grouped by domain. Each domain page lists its references with a one-line summary and a reading time, then the learning paths, how-to guides, platform and developer reference pages and framework pages that go with them.
 
 | Domain | What it covers | References |
 |---|---|---|
-| [Threat-informed defense and ATT&CK](/hubs/threat-informed-defense.md) | Using MITRE ATT&CK and the related MITRE frameworks to decide what to defend, detect, and test first. | 16 |
+| [Threat-informed defense and ATT&CK](/hubs/threat-informed-defense.md) | Decide what to defend, detect, and test first, with ATT&CK and the related MITRE frameworks as the shared map of how attacks work. | 16 |
 | [Detection and response](/hubs/detection-and-response.md) | Collecting telemetry, writing and tuning detections, hunting, and responding to and investigating incidents. | 24 |
 | [Threat intelligence and adversaries](/hubs/threat-intelligence.md) | Who attacks, with what, and how: intelligence practice, threat reporting, groups, malware, incidents, and OSINT. | 7 |
 | [Offensive security](/hubs/offensive-security.md) | Penetration testing, red and purple teaming, exploitation, and the attack techniques defenders need to understand. | 13 |

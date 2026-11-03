@@ -73,6 +73,8 @@ SOURCES = {
     "tsw_vocab": {"upstream": "TeamStarWolf (first-party): entity vocabulary built by scripts/build_vocab.py from the platform pages, the vendor crosswalk and MITRE ATT&CK groups and software; vendor spellings from the CISA KEV catalog",
                   "license": "MIT (derivation); ATT&CK names under MITRE Terms of Use; CISA KEV is a US-Government work",
                   "url": "https://github.com/TeamStarWolf/TeamStarWolf", "copyright": "(c) TeamStarWolf; ATT&CK (c) The MITRE Corporation"},
+    "tsw_hub": {"upstream": "TeamStarWolf Intelligence Hub (first-party): a pinned snapshot of the Hub's tag, year and CVE counts, written by scripts/build_hub_links.py --refresh",
+                "license": "MIT", "url": "https://teamstarwolf.github.io/intelligence-hub/", "copyright": "(c) TeamStarWolf"},
 }
 
 # Longest matching prefix wins. Paths are POSIX-relative to the repo root.
@@ -98,6 +100,7 @@ PROVENANCE = [
     ("data/vendor_to_technique.jsonl",         "tsw_ctid"),
     ("data/vendor_to_control.jsonl",           "tsw"),
     ("data/vocab/",                            "tsw_vocab"),
+    ("data/hub/",                              "tsw_hub"),
 ]
 
 VERSION_KEYS = ["attack_version", "capec_version", "cwe_version", "atlas_version", "d3fend_version",

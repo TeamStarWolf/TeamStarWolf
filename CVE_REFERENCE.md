@@ -847,7 +847,19 @@ Commands:
 
 ## 9. Notable CVEs & Case Studies
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [the CVE register](https://teamstarwolf.github.io/intelligence-hub/#/cves) · [KEV additions in the last 30 days](https://teamstarwolf.github.io/intelligence-hub/#/kev)
+
+<!-- hub-links:end -->
+
 ### CVE-2021-44228: Log4Shell
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [CVE-2021-44228 brief](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-44228)
+
+<!-- hub-links:end -->
 
 Affected: Apache Log4j 2.x (2.0-beta9 through 2.14.1)
 CVSS: 10.0 CRITICAL | AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
@@ -879,6 +891,12 @@ nation-state APTs (Hafnium, APT41), ransomware groups, and cryptominers.
 
 ### CVE-2017-0144: EternalBlue (MS17-010)
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [CVE-2017-0144 brief](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2017-0144)
+
+<!-- hub-links:end -->
+
 Affected: Windows XP through Server 2016 (SMBv1)
 CVSS v2: 8.1 HIGH (practical severity ~10.0; wormable)
 CWE: CWE-119 (Improper Memory Restriction)
@@ -903,6 +921,12 @@ Commands:
 
 ### CVE-2023-34362: MOVEit Transfer SQL Injection
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [CVE-2023-34362 brief](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-34362)
+
+<!-- hub-links:end -->
+
 Affected: Progress MOVEit Transfer (all versions, pre-June 2023 patches)
 CVSS: 9.8 CRITICAL | AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
 CWE: CWE-89 (SQL Injection)
@@ -920,6 +944,12 @@ Pure data-theft extortion model (no encryption). Supply chain via file transfer 
 ---
 
 ### CVE-2014-0160: Heartbleed
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [CVE-2014-0160 brief](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2014-0160)
+
+<!-- hub-links:end -->
 
 Affected: OpenSSL 1.0.1 through 1.0.1f, 1.0.2-beta
 CVSS v2: 5.0 MEDIUM (severely understated impact)
@@ -940,6 +970,12 @@ certificate revocation and reissuance.
 
 ### CVE-2020-1472: ZeroLogon
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [CVE-2020-1472 brief](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-1472)
+
+<!-- hub-links:end -->
+
 Affected: Windows Server (Netlogon / MS-NRPC)
 CVSS: 10.0 CRITICAL | AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
 CWE: CWE-330 (Use of Insufficiently Random Values)
@@ -957,6 +993,12 @@ mandatory. Microsoft delayed 6 months for legacy device compatibility.
 
 ### CVE-2023-4966: CitrixBleed
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [CVE-2023-4966 brief](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-4966)
+
+<!-- hub-links:end -->
+
 Affected: Citrix NetScaler ADC and Gateway
 CVSS: 9.4 CRITICAL | AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N
 CWE: CWE-125 (Out-of-bounds Read)
@@ -969,6 +1011,147 @@ AND MFA by replaying stolen tokens. No interception of traffic required.
 Notable: LockBit 3.0 affiliate exploited CitrixBleed in Boeing breach (Nov 2023,
 ~45GB exfiltrated). Thousands of appliances remained unpatched weeks after the
 Oct 10, 2023 patch release due to slow enterprise edge infrastructure patching.
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+CVEs the library discusses that the Hub also tracks, each with its brief on the Hub and the pages here that name it:
+
+| CVE | Named in |
+|---|---|
+| [CVE-2008-4250](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2008-4250) | [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md) |
+| [CVE-2010-2568](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2010-2568) | [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md) |
+| [CVE-2014-0160](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2014-0160) | [CVE Reference Guide](/CVE_REFERENCE.md), [Network Protocols Reference: Security Perspective](/NETWORK_PROTOCOLS_REFERENCE.md) |
+| [CVE-2014-6271](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2014-6271) | [HackTheBox Machine Index](/research/HTB_MACHINE_INDEX.md) |
+| [CVE-2014-6324](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2014-6324) | [Active Directory Attack Reference: Defender Edition](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md) |
+| [CVE-2016-5195](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2016-5195) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Privilege Escalation Reference](/PRIVESC_REFERENCE.md), [Container & Kubernetes Security](/disciplines/container-kubernetes-security.md) |
+| [CVE-2016-6277](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2016-6277) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| [CVE-2016-10174](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2016-10174) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| [CVE-2017-0144](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2017-0144) | [CVE Reference Guide](/CVE_REFERENCE.md), [Security Glossary](/GLOSSARY.md), [Internet-Facing Services and External Exposure](/INTERNET_FACING_SERVICES_REFERENCE.md), [Network Attacks Reference](/NETWORK_ATTACKS_REFERENCE.md), [Network Protocols Security Reference](/NETWORK_PROTOCOLS_SECURITY.md) |
+| [CVE-2017-5715](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2017-5715) | [Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md) |
+| [CVE-2017-5753](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2017-5753) | [Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md) |
+| [CVE-2017-5754](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2017-5754) | [Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md) |
+| [CVE-2017-6334](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2017-6334) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| [CVE-2017-7494](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2017-7494) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md) |
+| [CVE-2017-7921](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2017-7921) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| [CVE-2017-17562](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2017-17562) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| [CVE-2018-0171](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2018-0171) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Telecom & 5G Security Reference](/TELECOM_5G_SECURITY_REFERENCE.md) |
+| [CVE-2018-9276](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2018-9276) | [HackTheBox Machine Index](/research/HTB_MACHINE_INDEX.md) |
+| [CVE-2018-10561](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2018-10561) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| [CVE-2018-14847](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2018-14847) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| [CVE-2019-0708](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-0708) | [Network Protocols Security Reference](/NETWORK_PROTOCOLS_SECURITY.md) |
+| [CVE-2019-2215](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-2215) | [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md) |
+| [CVE-2019-5544](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-5544) | [Hypervisor & Virtualization Hardening Reference](/HYPERVISOR_SECURITY_REFERENCE.md) |
+| [CVE-2019-5736](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-5736) | [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md), [Kubernetes Security Reference](/KUBERNETES_SECURITY_REFERENCE.md), [Container & Kubernetes Security](/disciplines/container-kubernetes-security.md) |
+| [CVE-2019-7192](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-7192) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| [CVE-2019-16920](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-16920) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| [CVE-2019-17621](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-17621) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| [CVE-2019-19781](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-19781) | [HONEYPOT & DECEPTION TECHNOLOGY REFERENCE](/HONEYPOT_DECEPTION_REFERENCE.md) |
+| [CVE-2020-0796](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-0796) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md), [Windows Hardening Reference](/WINDOWS_HARDENING.md) |
+| [CVE-2020-1472](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-1472) | [CVE Reference Guide](/CVE_REFERENCE.md), [Penetration Testing Checklists](/PENTEST_CHECKLISTS.md), [Windows Hardening and GPO Reference](/WINDOWS_HARDENING_GPO.md) |
+| [CVE-2020-3992](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-3992) | [Hypervisor & Virtualization Hardening Reference](/HYPERVISOR_SECURITY_REFERENCE.md) |
+| [CVE-2020-25506](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-25506) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| [CVE-2021-1675](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-1675) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Penetration Testing Checklists](/PENTEST_CHECKLISTS.md), [Windows Hardening and GPO Reference](/WINDOWS_HARDENING_GPO.md) |
+| [CVE-2021-1879](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-1879) | [Browser Security Reference](/BROWSER_SECURITY_REFERENCE.md) |
+| [CVE-2021-4034](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-4034) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Privilege Escalation Reference](/PRIVESC_REFERENCE.md) |
+| [CVE-2021-20090](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-20090) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| [CVE-2021-22893](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-22893) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md) |
+| [CVE-2021-25394](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-25394) | [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md) |
+| [CVE-2021-26855](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-26855) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2021-27065](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-27065) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2021-27101](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-27101) | [The Cl0p MOVEit Breach and the File-Transfer Extortion Playbook: A 2023 Case Study](/case-studies/CL0P_FILE_TRANSFER_2023.md) |
+| [CVE-2021-27102](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-27102) | [The Cl0p MOVEit Breach and the File-Transfer Extortion Playbook: A 2023 Case Study](/case-studies/CL0P_FILE_TRANSFER_2023.md) |
+| [CVE-2021-27103](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-27103) | [The Cl0p MOVEit Breach and the File-Transfer Extortion Playbook: A 2023 Case Study](/case-studies/CL0P_FILE_TRANSFER_2023.md) |
+| [CVE-2021-27104](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-27104) | [The Cl0p MOVEit Breach and the File-Transfer Extortion Playbook: A 2023 Case Study](/case-studies/CL0P_FILE_TRANSFER_2023.md) |
+| [CVE-2021-28799](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-28799) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| [CVE-2021-30116](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-30116) | [Malware Families Reference](/MALWARE_FAMILIES.md) |
+| [CVE-2021-30551](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-30551) | [Browser Security Reference](/BROWSER_SECURITY_REFERENCE.md) |
+| [CVE-2021-30860](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-30860) | [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md), [Mobile Security](/disciplines/mobile-security.md) |
+| [CVE-2021-31207](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-31207) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2021-33044](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-33044) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md), [Physical Security Reference](/PHYSICAL_SECURITY_REFERENCE.md) |
+| [CVE-2021-34473](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-34473) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md), [Malware Families Reference](/MALWARE_FAMILIES.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2021-34523](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-34523) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2021-34527](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-34527) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Penetration Testing Checklists](/PENTEST_CHECKLISTS.md), [Vulnerability Management](/disciplines/vulnerability-management.md) |
+| [CVE-2021-36260](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-36260) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md), [Physical Security Reference](/PHYSICAL_SECURITY_REFERENCE.md) |
+| [CVE-2021-41773](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-41773) | [CVE Reference Guide](/CVE_REFERENCE.md) |
+| [CVE-2021-44228](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-44228) | [CVE Reference Guide](/CVE_REFERENCE.md), [Detection Rule Writing Reference](/DETECTION_RULES_REFERENCE.md), [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md), [HONEYPOT & DECEPTION TECHNOLOGY REFERENCE](/HONEYPOT_DECEPTION_REFERENCE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [OSINT Reference](/OSINT_REFERENCE.md), [Penetration Testing Methodology Reference](/PENETRATION_TESTING_METHODOLOGY.md), [Penetration Testing Checklists](/PENTEST_CHECKLISTS.md), [Red Team Reference: Authorized Operator Field Guide](/RED_TEAM_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Application Security](/disciplines/application-security.md), [Vulnerability Management](/disciplines/vulnerability-management.md), [Spring Boot](/frameworks/spring-boot.md), [Start a Vulnerability Management Program (First 90 Days)](/guides/START_A_VULN_MGMT_PROGRAM.md), [Tool Manuals and Repositories](/tools-research/TOOL_MANUALS_AND_REPOSITORIES.md), [AWS WAF](/tools/aws-waf.md) |
+| [CVE-2021-45046](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-45046) | [CVE Reference Guide](/CVE_REFERENCE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Penetration Testing Methodology Reference](/PENETRATION_TESTING_METHODOLOGY.md) |
+| [CVE-2022-0185](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-0185) | [Kubernetes Security Reference](/KUBERNETES_SECURITY_REFERENCE.md) |
+| [CVE-2022-0847](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-0847) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Privilege Escalation Reference](/PRIVESC_REFERENCE.md), [Container & Kubernetes Security](/disciplines/container-kubernetes-security.md), [Vulnerability Management](/disciplines/vulnerability-management.md) |
+| [CVE-2022-1388](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-1388) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md) |
+| [CVE-2022-21894](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-21894) | [Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md), [Malware Families Reference](/MALWARE_FAMILIES.md) |
+| [CVE-2022-22965](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-22965) | [Spring Boot](/frameworks/spring-boot.md) |
+| [CVE-2022-26134](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-26134) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md), [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| [CVE-2022-26143](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-26143) | [Wireless Security Reference](/WIRELESS_SECURITY_REFERENCE.md) |
+| [CVE-2022-30190](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-30190) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2022-38028](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-38028) | [ATT&CK Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md) |
+| [CVE-2022-40684](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-40684) | [Vulnerability Management](/disciplines/vulnerability-management.md) |
+| [CVE-2022-42475](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-42475) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md) |
+| [CVE-2022-42856](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-42856) | [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md) |
+| [CVE-2023-0266](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-0266) | [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md) |
+| [CVE-2023-0386](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-0386) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2023-0669](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-0669) | [The Cl0p MOVEit Breach and the File-Transfer Extortion Playbook: A 2023 Case Study](/case-studies/CL0P_FILE_TRANSFER_2023.md), [Case Studies](/case-studies/README.md) |
+| [CVE-2023-3519](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-3519) | [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2023-4863](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-4863) | [Browser Security Reference](/BROWSER_SECURITY_REFERENCE.md) |
+| [CVE-2023-4911](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-4911) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2023-4966](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-4966) | [CVE Reference Guide](/CVE_REFERENCE.md), [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Malware Families Reference](/MALWARE_FAMILIES.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Triage a New CVE in 30 Minutes](/guides/TRIAGE_A_CVE.md) |
+| [CVE-2023-20198](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-20198) | [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Network Attacks Reference](/NETWORK_ATTACKS_REFERENCE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Telecom & 5G Security Reference](/TELECOM_5G_SECURITY_REFERENCE.md) |
+| [CVE-2023-20269](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-20269) | [Malware Families Reference](/MALWARE_FAMILIES.md) |
+| [CVE-2023-20273](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-20273) | [Network Attacks Reference](/NETWORK_ATTACKS_REFERENCE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Telecom & 5G Security Reference](/TELECOM_5G_SECURITY_REFERENCE.md) |
+| [CVE-2023-20867](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-20867) | [Hypervisor & Virtualization Hardening Reference](/HYPERVISOR_SECURITY_REFERENCE.md) |
+| [CVE-2023-22518](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-22518) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md) |
+| [CVE-2023-27997](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-27997) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md) |
+| [CVE-2023-29357](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-29357) | [Starred Repositories Index](/STARRED_REPOS.md) |
+| [CVE-2023-34048](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-34048) | [Hypervisor & Virtualization Hardening Reference](/HYPERVISOR_SECURITY_REFERENCE.md) |
+| [CVE-2023-34362](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-34362) | [CVE Reference Guide](/CVE_REFERENCE.md), [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [The Cl0p MOVEit Breach and the File-Transfer Extortion Playbook: A 2023 Case Study](/case-studies/CL0P_FILE_TRANSFER_2023.md), [Case Studies](/case-studies/README.md) |
+| [CVE-2023-44487](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-44487) | [Network Protocols Reference: Security Perspective](/NETWORK_PROTOCOLS_REFERENCE.md) |
+| [CVE-2023-46747](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-46747) | [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md) |
+| [CVE-2023-46805](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-46805) | [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2024-0519](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-0519) | [Browser Security Reference](/BROWSER_SECURITY_REFERENCE.md) |
+| [CVE-2024-1086](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-1086) | [Linux Hardening Reference Library](/LINUX_HARDENING_REFERENCE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2024-1708](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-1708) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2024-1709](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-1709) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2024-3094](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-3094) | [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Case Studies](/case-studies/README.md), [The XZ Utils Backdoor: A 2024 Supply-Chain Case Study](/case-studies/XZ_UTILS_BACKDOOR_2024.md), [Supply Chain Security](/disciplines/supply-chain-security.md) |
+| [CVE-2024-3400](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-3400) | [ATT&CK Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md), [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Telecom & 5G Security Reference](/TELECOM_5G_SECURITY_REFERENCE.md), [Splunk Enterprise Security](/tools/splunk.md), [Tenable](/tools/tenable.md) |
+| [CVE-2024-4040](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-4040) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2024-4577](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-4577) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2024-20353](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-20353) | [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md) |
+| [CVE-2024-20359](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-20359) | [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md) |
+| [CVE-2024-21887](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-21887) | [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Telecom & 5G Security Reference](/TELECOM_5G_SECURITY_REFERENCE.md) |
+| [CVE-2024-24919](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-24919) | [Vulnerability Prioritization Reference (SSVC, KEV, EPSS)](/VULNERABILITY_PRIORITIZATION_REFERENCE.md) |
+| [CVE-2024-37085](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-37085) | [Hypervisor & Virtualization Hardening Reference](/HYPERVISOR_SECURITY_REFERENCE.md) |
+| [CVE-2024-38812](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-38812) | [Hypervisor & Virtualization Hardening Reference](/HYPERVISOR_SECURITY_REFERENCE.md) |
+| [CVE-2024-39717](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-39717) | [ATT&CK Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md) |
+| [CVE-2024-40766](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-40766) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2024-47575](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-47575) | [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2024-50623](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-50623) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [The Cl0p MOVEit Breach and the File-Transfer Extortion Playbook: A 2023 Case Study](/case-studies/CL0P_FILE_TRANSFER_2023.md), [Case Studies](/case-studies/README.md) |
+| [CVE-2024-55591](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-55591) | [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md) |
+| [CVE-2024-55956](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-55956) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [The Cl0p MOVEit Breach and the File-Transfer Extortion Playbook: A 2023 Case Study](/case-studies/CL0P_FILE_TRANSFER_2023.md), [Case Studies](/case-studies/README.md) |
+| [CVE-2025-0282](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2025-0282) | [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2025-3248](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2025-3248) | [Langflow](/ai-tooling/tools/LANGFLOW.md), [AI Threats in the Cybersecurity Industry: A 2026 Case Study](/case-studies/AI_THREATS_2026.md) |
+| [CVE-2025-5777](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2025-5777) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2025-7775](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2025-7775) | [AI Threats in the Cybersecurity Industry: A 2026 Case Study](/case-studies/AI_THREATS_2026.md) |
+| [CVE-2025-20333](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2025-20333) | [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md) |
+| [CVE-2025-20362](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2025-20362) | [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md) |
+| [CVE-2025-21333](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2025-21333) | [Starred Repositories Index](/STARRED_REPOS.md) |
+| [CVE-2025-22224](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2025-22224) | [Hypervisor & Virtualization Hardening Reference](/HYPERVISOR_SECURITY_REFERENCE.md) |
+| [CVE-2025-22225](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2025-22225) | [Hypervisor & Virtualization Hardening Reference](/HYPERVISOR_SECURITY_REFERENCE.md) |
+| [CVE-2025-22226](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2025-22226) | [Hypervisor & Virtualization Hardening Reference](/HYPERVISOR_SECURITY_REFERENCE.md) |
+| [CVE-2025-22457](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2025-22457) | [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md) |
+| [CVE-2025-31324](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2025-31324) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2025-32711](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2025-32711) | [AI Threats in the Cybersecurity Industry: A 2026 Case Study](/case-studies/AI_THREATS_2026.md) |
+| [CVE-2025-42999](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2025-42999) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2025-49704](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2025-49704) | [ATT&CK Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [The SharePoint ToolShell Mass Exploitation: A 2025 Case Study](/case-studies/SHAREPOINT_TOOLSHELL_2025.md) |
+| [CVE-2025-49706](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2025-49706) | [ATT&CK Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [The SharePoint ToolShell Mass Exploitation: A 2025 Case Study](/case-studies/SHAREPOINT_TOOLSHELL_2025.md) |
+| [CVE-2025-53770](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2025-53770) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Case Studies](/case-studies/README.md), [The SharePoint ToolShell Mass Exploitation: A 2025 Case Study](/case-studies/SHAREPOINT_TOOLSHELL_2025.md) |
+| [CVE-2025-53771](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2025-53771) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Case Studies](/case-studies/README.md), [The SharePoint ToolShell Mass Exploitation: A 2025 Case Study](/case-studies/SHAREPOINT_TOOLSHELL_2025.md) |
+| [CVE-2025-68613](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2025-68613) | [n8n](/ai-tooling/tools/N8N.md) |
+| [CVE-2026-33017](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2026-33017) | [Langflow](/ai-tooling/tools/LANGFLOW.md) |
+| [CVE-2026-98432](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2026-98432) | [The CVE-2026-98432 Linux Kernel Flaw and an AI-Written Exploit: A 2026 Case Study](/case-studies/LINUX_TCP_UAF_2026.md), [Case Studies](/case-studies/README.md) |
+| [CVE-2026-109618](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2026-109618) | [PHP2Shell and the October 2026 Attack Wave: A Case Study](/case-studies/PHP2SHELL_OCTOBER_2026.md), [Case Studies](/case-studies/README.md) |
+| [CVE-2026-109619](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2026-109619) | [PHP2Shell and the October 2026 Attack Wave: A Case Study](/case-studies/PHP2SHELL_OCTOBER_2026.md), [Case Studies](/case-studies/README.md) |
+| [CVE-2026-111943](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2026-111943) | [The eMudhra Certificate Authority Key Compromise: A 2026 Case Study](/case-studies/EMUDHRA_CA_COMPROMISE_2026.md), [Case Studies](/case-studies/README.md) |
+
+<!-- hub-links:end -->
 
 ---
 

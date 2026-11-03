@@ -82,3 +82,9 @@ In a stack that also runs a dedicated CNAPP such as Wiz or Orca Security, a team
 - [Palo Alto Networks](/platforms/palo-alto-networks.md)
 - [Wiz](/platforms/wiz.md)
 - [Orca Security](/platforms/orca-security.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [Prisma Cloud entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?product=prisma-cloud)
+
+<!-- hub-links:end -->

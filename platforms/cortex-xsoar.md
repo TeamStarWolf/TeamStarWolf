@@ -84,3 +84,9 @@ The platform's reach is also its risk. It can act across endpoint, network, and 
 - [Splunk](/platforms/splunk.md)
 - [Tines](/platforms/tines.md)
 - [ServiceNow VR](/platforms/servicenow-vr.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [Cortex XSOAR entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?product=cortex-xsoar)
+
+<!-- hub-links:end -->

@@ -30,6 +30,12 @@ Layers of checks:
      ATT&CK release would otherwise contradict the list printed under it (review
      findings gen-6/gen-7/gen-8: 167 technique pages, 8 mitigations).
 
+  7. Entity vocabulary (data/vocab/entities.jsonl, written by scripts/build_vocab.py):
+     each id is `<type>:<slug>` with a type in the locked set, an ATT&CK row's id is
+     its attack_id and that id is a group or software row of the pinned release, a
+     product's `vendor` is a vendor row, every `library_path` is a tracked page and
+     every `library_anchor` resolves on it with the docsify slugger.
+
 Previously only the three crosswalks were validated (3 of 41 datasets); this
 covers them all (Library Enhancement Roadmap Tier 1.9).
 """
@@ -43,6 +49,14 @@ from pathlib import Path
 from attack_ids import AttackIds
 
 ROOT = Path(__file__).resolve().parent.parent
+
+# Layer 7: the entity vocabulary's locked types and record fields (scripts/build_vocab.py).
+VOCAB = "data/vocab/entities.jsonl"
+VOCAB_TYPES = ("vendor", "product", "actor", "malware", "sector")
+VOCAB_FIELDS = ("id", "type", "label", "aliases", "match", "stop_aliases", "ambiguous_aliases",
+                "kev_vendor_project", "vendor", "attack_id", "attack_domains", "software_type",
+                "superseded_ids", "vendor_keys", "library_path", "library_anchor", "library_url",
+                "source", "reviewed_at")
 
 # Layer 3: rich per-field schemas for the vendor/control/technique crosswalks.
 SCHEMAS = {
@@ -83,6 +97,29 @@ SCHEMAS = {
         "field_values": {
             "domain": ["enterprise", "ics", "mobile"],
             "status": ["live", "revoked", "deprecated"],
+        }
+    },
+    # The shared entity vocabulary (scripts/build_vocab.py; field meanings in
+    # data/VOCABULARIES.md) and its two curated inputs.
+    "data/vocab/entities.jsonl": {
+        "required": list(VOCAB_FIELDS),
+        "field_values": {
+            "type": list(VOCAB_TYPES),
+            "software_type": [None, "malware", "tool"],
+        }
+    },
+    "data/vocab/curated.jsonl": {
+        "required": ["id", "type", "label", "aliases", "match", "kev_vendor_project", "vendor",
+                     "platform_page", "library", "library_heading", "vendor_keys", "basis",
+                     "reviewed_at"],
+        "field_values": {
+            "type": ["vendor", "product", "actor", "sector"],
+        }
+    },
+    "data/vocab/stop_aliases.jsonl": {
+        "required": ["alias", "reason"],
+        "field_values": {
+            "reason": ["ordinary-word", "command-name", "personal-name", "place-name", "legitimate-service"],
         }
     },
     # Per-technique prevalence extracted from the (uncommitted) 529-machine training
@@ -128,6 +165,9 @@ PRIMARY_KEYS = {
     "data/generated/corpus_signal.jsonl": "technique_id",
     "data/weaknesses/capec.jsonl": "capec_id",
     "data/weaknesses/cwe.jsonl": "cwe_id",
+    "data/vocab/entities.jsonl": "id",
+    "data/vocab/curated.jsonl": "id",
+    "data/vocab/stop_aliases.jsonl": "alias",
 }
 
 # Files whose true primary key is a tuple. detection_strategies lists a strategy
@@ -285,6 +325,49 @@ def count_consistency_errors():
                     f"  {nid}: '{stored}' = {have!r} but {edge_rel.split('/')[-1]} "
                     f"gives {want!r}")
     return out
+
+
+def vocab_errors():
+    """Layer 7: id shape, ATT&CK ids, vendor references and library links of every
+    entities.jsonl row. Returns a list of error strings."""
+    import re
+    from check_docsify_links import anchors_of
+    from repo_files import tracked_files
+
+    cache, errs = {}, []
+    rows = _rows(VOCAB, cache)
+    if not rows:
+        return [f"  {VOCAB} is missing or empty (run scripts/build_vocab.py)"]
+    tracked = set(tracked_files())
+    attack = {"actor": set(), "malware": set()}
+    for sub in ("", "ics/", "mobile/"):
+        attack["actor"].update(r.get("group_id") for r in _rows(f"data/attack/{sub}groups.jsonl", cache))
+        attack["malware"].update(r.get("software_id") for r in _rows(f"data/attack/{sub}software.jsonl", cache))
+    vendors = {r.get("id") for r in rows if r.get("type") == "vendor"}
+    id_re = re.compile(r"^(vendor|product|actor|malware|sector):[A-Za-z0-9][A-Za-z0-9-]*$")
+    for r in rows:
+        rid, typ = r.get("id"), r.get("type")
+        if not isinstance(rid, str) or not id_re.match(rid) or rid.split(":", 1)[0] != typ:
+            errs.append(f"  {rid!r}: id must be '<type>:<slug>' with the row's type ({typ!r})")
+            continue
+        aid = r.get("attack_id")
+        if aid is not None:
+            if typ not in attack or aid not in attack[typ] or rid != f"{typ}:{aid}":
+                errs.append(f"  {rid}: attack_id {aid!r} is not a {typ} row of the pinned ATT&CK release")
+        elif typ in attack and re.match(r"^[GS]\d{4}$", rid.split(":", 1)[1]):
+            errs.append(f"  {rid}: an ATT&CK-shaped id needs its attack_id")
+        if r.get("vendor") is not None and r.get("vendor") not in vendors:
+            errs.append(f"  {rid}: vendor {r.get('vendor')!r} is not a vendor row")
+        path, anchor = r.get("library_path"), r.get("library_anchor")
+        if path is not None:
+            rel = path[1:] if isinstance(path, str) and path.startswith("/") else None
+            if rel is None or rel not in tracked:
+                errs.append(f"  {rid}: library_path {path!r} is not a tracked page ('/'-prefixed, from the repo root)")
+            elif anchor is not None and anchor not in anchors_of(rel):
+                errs.append(f"  {rid}: library_anchor {anchor!r} does not resolve on {path}")
+        elif anchor is not None:
+            errs.append(f"  {rid}: library_anchor without a library_path")
+    return errs
 
 
 def _ref_errors(record, ref, ids):
@@ -482,6 +565,18 @@ def main():
             total_errors += len(errs)
         else:
             print(f"OK    {node_rel}  (count-vs-edge: {fields})")
+
+    # Layer 7 - the entity vocabulary's ids and library links (cross-file)
+    verrs = vocab_errors()
+    if verrs:
+        print(f"FAIL  {VOCAB}  vocabulary links: {len(verrs)} error(s) (rebuild with scripts/build_vocab.py)")
+        for e in verrs[:25]:
+            print(e)
+        if len(verrs) > 25:
+            print(f"  ... and {len(verrs) - 25} more")
+        total_errors += len(verrs)
+    else:
+        print(f"OK    {VOCAB}  (vocabulary: ids, attack_id, vendor refs, library_path + docsify anchors)")
 
     print("\n" + "=" * 60)
     print(f"Datasets validated: {len(files)}   Records: {total_lines}")

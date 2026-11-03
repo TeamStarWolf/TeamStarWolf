@@ -33,6 +33,17 @@ jobs:
       - name: Validate JSONL files
         run: python scripts/validate_jsonl.py
 
+      # data/vocab/entities.jsonl and vocabulary.json (the vendor, product, actor, malware
+      # and sector ids the Intelligence Hub tags with) are written by build_vocab.py from
+      # the platform pages, the vendor crosswalk, the ATT&CK groups and software and the
+      # curated rows in data/vocab/. Fails on any drift, an unclaimed platform page or
+      # vendor key, a missing library page or an anchor that does not resolve.
+      - name: Entity vocabulary build rules (planted cases)
+        run: python scripts/build_vocab.py --self-test
+
+      - name: Entity vocabulary (data/vocab) matches its sources
+        run: python scripts/build_vocab.py --check
+
       # Rebuilds the ATT&CK core (Enterprise, ICS, Mobile) and superseded_by.jsonl in
       # memory from the commit-pinned v20.0 STIX bundles and fails on any drift. It fetches
       # the three public bundles (about 64 MB) from raw.githubusercontent.com at the pinned

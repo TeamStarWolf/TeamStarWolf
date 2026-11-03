@@ -1,6 +1,6 @@
 # macOS Security Reference
 
-> macOS ships with a layered, hardware-rooted security architecture; the defender's job is to manage it, observe it, and know where it stops. [Apple's Platform Security Guide](https://support.apple.com/guide/security/welcome/web) documents a stack that runs from the Secure Enclave and a signed system volume up through Gatekeeper, XProtect, and TCC. This reference covers that architecture, the hardening baselines that configure it (NIST mSCP / SP 800-219, CIS, DISA STIG), the native telemetry planes (Endpoint Security framework, unified log), and how the platform maps into MITRE ATT&CK v19, for defenders running Mac fleets, not for admiring the marketing diagram.
+> macOS ships with a layered, hardware-rooted security architecture; the defender's job is to manage it, observe it, and know where it stops. [Apple's Platform Security Guide](https://support.apple.com/guide/security/welcome/web) documents a stack that runs from the Secure Enclave and a signed system volume up through Gatekeeper, XProtect, and TCC. This reference covers that architecture, the hardening baselines that configure it (NIST mSCP / SP 800-219, CIS, DISA STIG), the native telemetry planes (Endpoint Security framework, unified log), and how the platform maps into MITRE ATT&CK v20, for defenders running Mac fleets, not for admiring the marketing diagram.
 
 Two things changed the macOS defense picture in 2025-2026: macOS 27 "Golden Gate" (released 2026-09-14) is the first Apple-silicon-only release, so current-OS fleets can finally assume the Secure Enclave and the Apple silicon boot chain everywhere (macOS 26 Tahoe remains the last Intel-capable release in support); and infostealers are now the leading macOS crimeware concern in vendor reporting (Microsoft, Jamf Threat Labs), attacks that mostly succeed by talking users past the platform controls rather than through them.
 
@@ -21,7 +21,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 22 min (5,076 words at 230 words a minute)
+About 22 min (5,084 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -352,11 +352,11 @@ SELECT identifier, version, state, category FROM system_extensions;
 
 ---
 
-## macOS in MITRE ATT&CK v19
+## macOS in MITRE ATT&CK v20
 
-Version facts first, because they are perishable: MITRE ATT&CK is currently v19.2, its first "Agile" release (August 2026, updating Groups/Software/Campaigns); v19 proper was released 2026-04-28 ([version history](https://attack.mitre.org/resources/versions/)). The headline structural change in v19: the Defense Evasion tactic was split into Stealth (TA0005) and Defense Impairment (TA0112) ([v19 release notes](https://attack.mitre.org/resources/updates/updates-april-2026/)). Any macOS coverage matrix still showing "Defense Evasion" is pre-v19. Enterprise v19 totals: 15 tactics, 222 techniques, 475 sub-techniques, 44 mitigations, 697 detection strategies, 1,758 analytics, 106 data components. v20 is expected around late October 2026 on the biannual cadence; recheck all counts then.
+Version facts first, because they are perishable: MITRE ATT&CK is currently v20.0, released 2026-10-13 ([version history](https://attack.mitre.org/resources/versions/)). Before it, v19.2 (August 2026) was ATT&CK's first "Agile" release, updating Groups and Software outside the biannual cadence, and v19 proper was released 2026-04-28. The headline structural change in v19: the Defense Evasion tactic was split into Stealth (TA0005) and Defense Impairment (TA0112) ([v19 release notes](https://attack.mitre.org/resources/updates/updates-april-2026/)). Any macOS coverage matrix still showing "Defense Evasion" is pre-v19. Enterprise v20.0 totals: 15 tactics, 227 techniques, 479 sub-techniques, 44 mitigations, 703 detection strategies, 1,770 analytics, 106 data components ([v20 release notes](https://attack.mitre.org/resources/updates/updates-october-2026/)). Recheck all counts at the next release.
 
-The [Enterprise macOS platform matrix](https://attack.mitre.org/matrices/enterprise/macos/) (content v19.2) displays 13 tactics and 154 parent techniques. Per-tactic counts below sum to more than 154 because techniques appear under multiple tactics; sub-techniques are additional; Reconnaissance and Resource Development are not part of platform matrices.
+The [Enterprise macOS platform matrix](https://attack.mitre.org/matrices/enterprise/macos/) (content v20.0, checked 2026-11-03) displays 13 tactics and 154 parent techniques. Per-tactic counts below sum to more than 154 because techniques appear under multiple tactics; sub-techniques are additional; Reconnaissance and Resource Development are not part of platform matrices.
 
 | Tactic | macOS techniques | Where defenders get telemetry |
 |---|--:|---|
@@ -374,7 +374,7 @@ The [Enterprise macOS platform matrix](https://attack.mitre.org/matrices/enterpr
 | Exfiltration | 8 | Network telemetry; ES file events for staging/archiving |
 | Impact | 15 | ES file-modification bursts (encryption), unified log |
 
-Selected macOS techniques worth building detections around first (IDs, names, and macOS platform verified in this library's [`data/attack/technique_profiles.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/technique_profiles.jsonl), a pre-v19 ATT&CK snapshot that predates the Stealth/Defense-Impairment split, and re-checked against attack.mitre.org v19.2):
+Selected macOS techniques worth building detections around first (IDs, names, and macOS platform verified in this library's [`data/attack/technique_profiles.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/technique_profiles.jsonl), built from ATT&CK v20.0, and re-checked against the attack.mitre.org v20.0 macOS matrix):
 
 | Technique | Why it matters on macOS |
 |---|---|
@@ -450,7 +450,7 @@ Accessed 2026-09-24. The Apple Platform Security Guide is continuously updated w
 | [Protecting against malware](https://support.apple.com/guide/security/protecting-against-malware-sec469d47bd8/web), [Gatekeeper](https://support.apple.com/guide/security/gatekeeper-and-runtime-protection-sec5599b66df/web), [SSV](https://support.apple.com/guide/security/signed-system-volume-security-secd698747c9/web), [FileVault](https://support.apple.com/guide/security/volume-encryption-with-filevault-sec4c6dc1b6e/web), [Secure Enclave](https://support.apple.com/guide/security/secure-enclave-sec59b0b31ff/web), [SIP](https://support.apple.com/en-us/102149) | Apple, per control |
 | [PPPC payload](https://support.apple.com/guide/deployment/privacy-preferences-policy-control-payload-dep38df53c2a/web) | Apple Platform Deployment (TCC management) |
 | [Endpoint Security](https://developer.apple.com/documentation/endpointsecurity), [WWDC22 eslogger session](https://developer.apple.com/videos/play/wwdc2022/110345), [Gatekeeper change in Sequoia](https://developer.apple.com/news/?id=saqachfa) | Apple developer documentation |
-| [ATT&CK versions](https://attack.mitre.org/resources/versions/), [v19 release notes](https://attack.mitre.org/resources/updates/updates-april-2026/), [macOS matrix](https://attack.mitre.org/matrices/enterprise/macos/) | MITRE ATT&CK v19.2 facts and counts |
+| [ATT&CK versions](https://attack.mitre.org/resources/versions/), [v20 release notes](https://attack.mitre.org/resources/updates/updates-october-2026/), [v19 release notes](https://attack.mitre.org/resources/updates/updates-april-2026/), [macOS matrix](https://attack.mitre.org/matrices/enterprise/macos/) | MITRE ATT&CK v20.0 facts and counts |
 | [mSCP GitHub](https://github.com/usnistgov/macos_security), [project docs](https://pages.nist.gov/macos_security/), [SP 800-219 Rev. 2 IPD](https://csrc.nist.gov/pubs/sp/800/219/r2/ipd) | NIST mSCP and its formal publication |
 | [CIS Apple macOS benchmarks](https://www.cisecurity.org/benchmark/apple_os), [Tenable audit catalog (Tahoe: v1.0.0 page, deprecated in favor of v1.1.0)](https://www.tenable.com/audits/CIS_Apple_macOS_26_Tahoe_v1.0.0_L1) | CIS baseline status |
 | [osquery releases](https://github.com/osquery/osquery/releases) | osquery 5.23.1 |
@@ -458,7 +458,7 @@ Accessed 2026-09-24. The Apple Platform Security Guide is continuously updated w
 | [Eclectic Light Company (2023-02-25)](https://eclecticlight.co/2023/02/25/what-are-those-xprotects/), [module count (2025-01-03)](https://eclecticlight.co/2025/01/03/why-xprotect-remediator-scans-now-take-longer/), [XPR v163 (2026-09-18)](https://eclecticlight.co/2026/09/18/apple-has-released-an-update-to-xprotect-remediator-5/) | Third-party XProtect Remediator research (naming, module count, cadence) |
 | [Mandiant unified-log analysis](https://cloud.google.com/blog/topics/threat-intelligence/reviewing-macos-unified-logs/), [Intune DDM guidance](https://techcommunity.microsoft.com/blog/intunecustomersuccess/support-tip-move-to-declarative-device-management-for-apple-software-updates/4432177), [macOS 27 release (9to5Mac)](https://9to5mac.com/2026/09/09/apple-confirms-macos-27-golden-gate-launch-date-september-14/) | Telemetry tooling, DDM migration, release timing |
 
-Verification notes: "XProtect Remediator" as a name, its 24-module count (Eclectic Light, 2025-01-03; module list unchanged at the 2026-09-18 v163 update), and its scan cadence are third-party observations (Eclectic Light), not Apple documentation; the CloudKit delivery channel for notarization ticket revocation is likewise community-observed, not stated on Apple's malware-protection page. FileVault key length is deliberately omitted; Apple's current page states only AES-XTS. CIS exact version strings were confirmed via a secondary catalog (Tenable), not CIS WorkBench. eslogger's 80-event figure is its macOS 13 introduction count. ATT&CK counts are v19.2; v20 is expected ~October 2026. Technique IDs cited were verified against this library's `technique_profiles.jsonl`, a pre-v19 (v18-era) ATT&CK snapshot, and re-checked against attack.mitre.org v19.2.
+Verification notes: "XProtect Remediator" as a name, its 24-module count (Eclectic Light, 2025-01-03; module list unchanged at the 2026-09-18 v163 update), and its scan cadence are third-party observations (Eclectic Light), not Apple documentation; the CloudKit delivery channel for notarization ticket revocation is likewise community-observed, not stated on Apple's malware-protection page. FileVault key length is deliberately omitted; Apple's current page states only AES-XTS. CIS exact version strings were confirmed via a secondary catalog (Tenable), not CIS WorkBench. eslogger's 80-event figure is its macOS 13 introduction count. ATT&CK counts are v20.0 (checked 2026-11-03). Technique IDs cited were verified against this library's `technique_profiles.jsonl`, built from ATT&CK v20.0, and re-checked against the attack.mitre.org v20.0 macOS matrix.
 
 <!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
 

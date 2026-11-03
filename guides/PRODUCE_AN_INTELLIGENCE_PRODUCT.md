@@ -99,7 +99,7 @@ This is where data becomes judgment. Resist the pull to pattern-match to the act
    }
    ```
 
-   Pin the layer to the ATT&CK version you analyzed against (v19 is the current release as of 2026; record it, because technique IDs and tactics move between versions: Defense Evasion, for instance, split in v19). Confirm the layer-format field against the current [ATT&CK Navigator](https://github.com/mitre/attack-navigator) before importing.
+   Pin the layer to the ATT&CK version you analyzed against (v20 is the current release, published October 13, 2026; record it, because technique IDs and tactics move between versions: Defense Evasion, for instance, split in v19). Confirm the layer-format field against the current [ATT&CK Navigator](https://github.com/mitre/attack-navigator) before importing.
 4. State likelihood in calibrated estimative language, and keep it separate from confidence. Use the ODNI [ICD 203](https://www.intelligence.gov/assets/documents/intelligence-community-directives/ICD_203.pdf) yardstick so "likely" means the same thing to every reader:
 
    | Term | Probability | Term | Probability |

@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 12 min (2,686 words at 230 words a minute)
+About 12 min (2,692 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -363,7 +363,7 @@ sigma convert -t splunk -p sysmon rule.yml
 
 #### Using sigmac (legacy: deprecated, EOL)
 
-> Tooling/spec note (verified 2026-09-29): `sigmac` (the original `sigmatools` package) is end-of-life and no longer maintained; it now lives in the archived [`SigmaHQ/legacy-sigmatools`](https://github.com/SigmaHQ/legacy-sigmatools) repo. It was replaced by pySigma (library) and sigma-cli (the `sigma` command shown above). The current rule format is the [Sigma Specification v2.0](https://github.com/SigmaHQ/sigma-specification) (released August 8, 2024), which formalized correlation rules and other features. New rules and pipelines should target pySigma / sigma-cli.
+> Tooling/spec note (verified 2026-09-29): `sigmac` (the original `sigmatools` package) is end-of-life and no longer maintained; it now lives in the archived [`SigmaHQ/legacy-sigmatools`](https://github.com/SigmaHQ/legacy-sigmatools) repo. It was replaced by pySigma (library) and sigma-cli (the `sigma` command shown above). The current rule format is the [Sigma Specification v2.1.0](https://github.com/SigmaHQ/sigma-specification/releases/tag/v2.1.0) (released September 12, 2025); v2.0 (August 8, 2024) formalized correlation rules and other features. New rules and pipelines should target pySigma / sigma-cli.
 
 ```bash
 # Install
@@ -1652,7 +1652,7 @@ Detection validation workflow:
 
 Key Atomic Red Team resources:
 - Repository: [github.com/redcanaryco/atomic-red-team](https://github.com/redcanaryco/atomic-red-team)
-- ATT&CK technique index: [atomicredteam.io/atomics](https://atomicredteam.io/atomics)
+- Atomic test browser, mapped to ATT&CK: [atomicredteam.io/atomic-red-team](https://www.atomicredteam.io/atomic-red-team)
 - Windows test prerequisites: Windows Defender exclusions on lab VM required for many tests
 
 

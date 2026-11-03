@@ -54,7 +54,7 @@ Serves as a fast, code-free virtual-patching and compensating control for AWS-fr
 - WAFv2 web ACL logging to one of: CloudWatch Logs log group (name MUST start with aws-waf-logs-), S3 bucket (prefix aws-waf-logs-), or Kinesis Data Firehose delivery stream (aws-waf-logs-*).
 - CloudWatch metrics (AWS/WAFV2 namespace): BlockedRequests, AllowedRequests, CountedRequests, CaptchaRequests per Rule/WebACL — fast 'is it blocking' signal without parsing logs.
 - GetSampledRequests API — random sample (<=500) from the first 5,000 requests in the last <=3h, per rule metric name.
-- Splunk Add-on for AWS (sourcetype aws:waf via S3/SQS or aws:firehose:waf) mapped to CIM Web / Intrusion_Detection; Microsoft Sentinel AWS WAF connector -> AWSWAFLogs/AWSWAF table (Azure Monitor); Amazon Security Lake -> OCSF (I could NOT verify the exact OCSF class/event_class_uid for WAF from primary docs — confirm in the Security Lake source-mapping reference before relying on a class name).
+- Splunk Add-on for AWS (sourcetype aws:waf via S3/SQS or aws:firehose:waf) mapped to CIM Web / Intrusion_Detection; Microsoft Sentinel AWS WAF connector -> AWSWAFLogs/AWSWAF table (Azure Monitor); Amazon Security Lake -> OCSF (AWS WAFv2 logs are a [native Security Lake source](https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html); confirm the OCSF class and class_uid in the Security Lake source-mapping reference before relying on a class name).
 
 **Telemetry format / transport.** JSON log records (formatVersion 1), one per inspected request (subject to the web ACL's LoggingFilter). Delivered to CloudWatch Logs, S3, or Kinesis Data Firehose. Amazon Security Lake re-normalizes to OCSF Parquet.
 

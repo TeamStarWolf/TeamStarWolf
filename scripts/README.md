@@ -6,7 +6,7 @@
 
 | Script | What it does | CI job that runs it |
 |---|---|---|
-| `build_attack_core.py` | Rebuilds the ATT&CK Enterprise, ICS, and Mobile files in `data/attack/` from the v19.2 STIX bundles, pinned by commit and SHA-256, and writes `superseded_by.jsonl` | Validate Data Files: JSONL edge tables (`--check`) |
+| `build_attack_core.py` | Rebuilds the ATT&CK Enterprise, ICS, and Mobile files in `data/attack/` from the v20.0 STIX bundles, pinned by commit and SHA-256, and writes `superseded_by.jsonl` | Validate Data Files: JSONL edge tables (`--check`) |
 | `build_atlas.py` | Rebuilds the MITRE ATLAS files in `data/ai/` (tactics, techniques, mitigations and the retired technique IDs with their successors), the two `navigator/ai/` layers and the generated tables in `ATLAS_REFERENCE.md` from the ATLAS 2026.10 release file and release notes, pinned by commit and SHA-256, with a standard-library YAML reader. `--self-test` runs planted cases and `--self-check` proves the committed files re-serialize byte-identical | Validate Data Files: JSONL edge tables (`--self-test`, `--self-check`, `--check`) |
 | `build_ctid_edges.py` | Normalizes the CTID NIST SP 800-53 to ATT&CK table and builds the vendor-to-technique join | Validate Data Files: JSONL edge tables (`--check`) |
 | `backfill_capec_edges.py` | Writes the CAPEC edge on each technique profile from `data/weaknesses/capec.jsonl` | Validate Data Files: JSONL edge tables (`--check`) |
@@ -17,7 +17,7 @@
 | `build_attack_atlases.py` | Writes the four ATT&CK summary pages (`ATTACK_TECHNIQUE_ATLAS.md`, `THREAT_GROUP_PROFILES.md`, `ICS_ATTACK_ATLAS.md`, `MOBILE_ATTACK_ATLAS.md`) from `data/attack`, leaving their header card and related-pages footer to `build_doc_meta.py` and `build_crosslinks.py`. `--self-test` runs planted cases | Validate Data Files: generated page trees (`--self-test`, `--check`) |
 | `compute_coverage.py` | Writes the coverage files in `scores/` | Validate Data Files: Navigator layers (`--check`) |
 | `build_priority_gaps.py` | Writes the priority-gap page and JSON in `scores/` and the layers in `navigator/analytics/` | Validate Data Files: headline-number drift guard (`--check`) |
-| `build_navigator_layers.py` | Generates the vendor coverage layer, normalizes the curated layers to v19.2, and writes `navigator/index.md` | Validate Data Files: Navigator layers (`--check`) |
+| `build_navigator_layers.py` | Generates the vendor coverage layer, normalizes the curated layers to v20.0, and writes `navigator/index.md` | Validate Data Files: Navigator layers (`--check`) |
 | `validate_navigator.py` | Checks every Navigator layer's shape, domain, ATT&CK version, technique ids, and tactics against the data | Validate Data Files: Navigator layers |
 | `build_manifest.py` | Writes `data/MANIFEST.json` (rows, bytes, SHA-256, and provenance per file) | Validate Data Files: headline-number drift guard (`--check`) |
 | `build_stats.py` | Writes `data/generated/stats.json` and the "What's inside" table in README.md; `--check` fails when a front-door number differs from the data or the README table is stale | Validate Data Files: headline-number drift guard |

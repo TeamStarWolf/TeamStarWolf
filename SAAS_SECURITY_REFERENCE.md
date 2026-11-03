@@ -23,7 +23,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 21 min (4,784 words at 230 words a minute)
+About 21 min (4,792 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -180,11 +180,11 @@ Why it matters: customers were breached without their own credentials, users, or
 
 ## The ATT&CK lens on SaaS threats
 
-MITRE ATT&CK v19 (released April 28, 2026) covers Enterprise with 15 tactics, 222 techniques, 475 sub-techniques, and 44 mitigations; v19 split the old Defense Evasion tactic into Stealth (TA0005) and Defense Impairment (TA0112). The SaaS-relevant platform tags in Enterprise ATT&CK are SaaS, Office Suite, and Identity Provider; filter any matrix view to those three to get the SaaS-relevant technique set. ([v19 release notes](https://attack.mitre.org/resources/updates/updates-april-2026/))
+MITRE ATT&CK v20.0 (released October 13, 2026) covers Enterprise with 15 tactics, 227 techniques, 479 sub-techniques, and 44 mitigations; v19 (April 28, 2026) split the old Defense Evasion tactic into Stealth (TA0005) and Defense Impairment (TA0112). The SaaS-relevant platform tags in Enterprise ATT&CK are SaaS, Office Suite, and Identity Provider; filter any matrix view to those three to get the SaaS-relevant technique set. ([v20 release notes](https://attack.mitre.org/resources/updates/updates-october-2026/), [v19 release notes](https://attack.mitre.org/resources/updates/updates-april-2026/))
 
-The two anchor techniques for the OAuth-token threat class, verified current in v19 (both last modified May 12, 2026):
+The two anchor techniques for the OAuth-token threat class, verified current in v20.0 (both last modified May 12, 2026; checked 2026-11-03):
 
-| Technique | Tactic (v19) | Relevance |
+| Technique | Tactic (v20.0) | Relevance |
 |---|---|---|
 | [T1528 Steal Application Access Token](https://attack.mitre.org/techniques/T1528/) | Credential Access | Consent phishing and token theft: the acquisition side of every case study above |
 | [T1550.001 Application Access Token](https://attack.mitre.org/techniques/T1550/001/) (under T1550 Use Alternate Authentication Material) | Lateral Movement | Replaying stolen/issued tokens to act as the app or user: the Drift mechanism |

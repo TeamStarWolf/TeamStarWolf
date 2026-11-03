@@ -53,7 +53,7 @@ Invicti's VM role is Assess/Scan-Prioritize-Validate for the web/API layer: it f
 - Webhooks and send-to integrations (Jira, ServiceNow, etc.); report exports with a 'confirmed issues only' option (PDF/HTML, not JSON).
 - Third-party pull (e.g. Praetorian integration) reads scan results via the REST API and filters on issue STATE (processes 'new'/'confirmed', excludes 'fixed'/'ignored') - confirms a state filter exists even though the schema is not public.
 
-**Telemetry format / transport.** JSON over REST API + webhook POST payloads; report exports (PDF/HTML/XML/JSON). Could not verify the exact vulnerabilities endpoint path (e.g. /api/1.0/vulnerabilities) or its JSON field names from public docs.
+**Telemetry format / transport.** JSON over REST API + webhook POST payloads; report exports (PDF/HTML/XML/JSON). Confirm the vulnerabilities endpoint path (e.g. /api/1.0/vulnerabilities) and its JSON field names against the API reference on your own Invicti host before coding against them.
 
 **Control-presence check (present & configured?).** DAST confirms an app-layer control is present by actually exercising it. Invicti's Proof-Based Scanning issues a safe exploit and attaches PROOF (e.g. echoed command output / extracted data) when a finding is Confirmed. Issue statuses: Present (default on discovery), Accepted Risk, False Positive, Fixed (Unconfirmed), Fixed (Confirmed), Fixed (Can't Retest), Ignored. A WAF / input-validation / auth control being present and effective shows up as Invicti's attack being neutralized so the issue is NOT confirmed (or moves to Fixed (Confirmed) on retest).
 
@@ -67,14 +67,14 @@ Invicti's VM role is Assess/Scan-Prioritize-Validate for the web/API layer: it f
 - Issue status strings (seen raw via the ServiceNow integration mapping): Present, FixedConfirmed, FixedUnconfirmed, FixedCantRetest, AcceptedRisk, FalsePositive, Ignored, Revived/Rediscovered.
 - Per-issue: confirmed flag, severity, vulnerability type / CWE, proof/evidence content, retest scan status.
 - Scan REST API (scan create/status, API-definition import). Retest is driven from Scans > All scans in the UI.
-- NOTE: exact JSON field names (e.g. LastSeenDate) and whether a retest can be triggered via API are NOT confirmed from public docs - verify in your tenant's Swagger/API reference.
+- Confirm the exact JSON field names (e.g. LastSeenDate), and whether a retest can be triggered via the API, against your host's Swagger/API reference before coding against them.
 
 **Example queries**
 
 *List issues still in an exploitable state (Present/Confirmed) to prove controls are NOT yet effective* (API/REST (shape - verify in tenant Swagger))
 
 ```
-GET https://<enterprise-host>/api/1.0/vulnerabilities?state=Present,Confirmed  (Authorization: <API_TOKEN>) -- endpoint/param names unverified publicly; a known integration filters on state in {new, confirmed} and excludes {fixed, ignored}
+GET https://<enterprise-host>/api/1.0/vulnerabilities?state=Present,Confirmed  (Authorization: <API_TOKEN>) -- confirm endpoint/param names against your host's API reference; a known integration filters on state in {new, confirmed} and excludes {fixed, ignored}
 ```
 
 *Validate a fix for one vulnerability (produces Fixed (Confirmed) or Rediscovered)* (Native UI / retest)

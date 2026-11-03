@@ -19,7 +19,7 @@ Explore the library: [Languages](languages/README.md) · [Paradigms](paradigms/R
 
 [![license](https://img.shields.io/github/license/TeamStarWolf/TeamStarWolf?style=flat-square&color=2ea043)](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/LICENSE)
 [![last commit](https://img.shields.io/github/last-commit/TeamStarWolf/TeamStarWolf?style=flat-square)](https://github.com/TeamStarWolf/TeamStarWolf/commits/main)
-[![ATT&CK v19.2](https://img.shields.io/badge/ATT%26CK-v19.2-ff6b6b?style=flat-square)](ABOUT_THE_DATA.md)
+[![ATT&CK v20.0](https://img.shields.io/badge/ATT%26CK-v20.0-ff6b6b?style=flat-square)](ABOUT_THE_DATA.md)
 [![built with docsify](https://img.shields.io/badge/built%20with-docsify-42b983?style=flat-square)](https://teamstarwolf.github.io/TeamStarWolf/)
 
 [![X at WolfenLabs](https://img.shields.io/badge/X-%40WolfenLabs-000000?style=flat-square&logo=x&logoColor=white)](https://x.com/WolfenLabs)
@@ -52,7 +52,7 @@ New here? [How to use this library](guides/HOW_TO_USE_THIS_LIBRARY.md) shows wha
 | Framework pages | 3,019 | One page per Enterprise ATT&CK technique, tactic, group, software entry, campaign, and mitigation, CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, and F3 technique | [Framework pages](mitre/README.md) |
 <!-- stats:end -->
 
-The references, guides, and learning paths are written for defenders, learners, and anyone with a security job to do, and corrections from anyone are welcome. Where a published mapping exists, a technique page links the NIST SP 800-53 controls, MITRE detection strategies and analytics, CAPEC attack patterns, and D3FEND countermeasures that relate to it. The same relationships ship as JSONL files and ATT&CK Navigator layers. [About the data](ABOUT_THE_DATA.md) gives their sources, the ATT&CK version each part is built from (v19.2 for the data and framework pages), and what CI checks. The library also holds [vendor tool pages](tools/README.md), [AI tooling notes](ai-tooling/README.md), [case studies](case-studies/README.md), [tools research](tools-research/README.md), and [research notes](research/README.md).
+The references, guides, and learning paths are written for defenders, learners, and anyone with a security job to do, and corrections from anyone are welcome. Where a published mapping exists, a technique page links the NIST SP 800-53 controls, MITRE detection strategies and analytics, CAPEC attack patterns, and D3FEND countermeasures that relate to it. The same relationships ship as JSONL files and ATT&CK Navigator layers. [About the data](ABOUT_THE_DATA.md) gives their sources, the ATT&CK version each part is built from (v20.0 for the data and framework pages), and what CI checks. The library also holds [vendor tool pages](tools/README.md), [AI tooling notes](ai-tooling/README.md), [case studies](case-studies/README.md), [tools research](tools-research/README.md), and [research notes](research/README.md).
 
 ## Projects
 

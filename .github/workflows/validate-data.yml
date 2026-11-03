@@ -197,6 +197,9 @@ jobs:
       - name: Cross-link blocks match the pages and docs/crosslinks.json
         run: python scripts/build_crosslinks.py --check
 
+      - name: Planted cases for the voice rules (agent-note phrases and their pass cases)
+        run: python scripts/check_voice.py --self-test
+
       - name: No new voice-guide violations in hand-written pages (docs/VOICE.md)
         # On a pull request, fetch only the base branch tip (no credentials needed for a
         # public repository) so the baseline can be compared with it.

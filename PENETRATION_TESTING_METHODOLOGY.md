@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 10 min (2,345 words at 230 words a minute)
+About 10 min (2,365 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -71,7 +71,7 @@ No review recorded yet
 <!-- meta:end -->
 
 > Classification: Internal Use, Authorized Security Personnel Only
-> Standard: PTES, OWASP Testing Guide v4.2, NIST SP 800-115, MITRE ATT&CK v19.2
+> Standard: PTES, OWASP Testing Guide v4.2, NIST SP 800-115, MITRE ATT&CK v20.0
 > Last Updated: 2026-04-26
 
 ---
@@ -1484,7 +1484,7 @@ Prioritization Matrix:
 
 ### 10.1 Tactic and Technique Overview
 
-The MITRE ATT&CK Enterprise Matrix v14 covers 14 tactics:
+The MITRE ATT&CK Enterprise matrix (v20.0) has 15 tactics ([v20 release notes](https://attack.mitre.org/resources/updates/updates-october-2026/)):
 
 | Tactic | ID | Description |
 |--------|-----|-------------|
@@ -1494,7 +1494,8 @@ The MITRE ATT&CK Enterprise Matrix v14 covers 14 tactics:
 | Execution | TA0002 | Running adversary-controlled code |
 | Persistence | TA0003 | Maintaining foothold across restarts |
 | Privilege Escalation | TA0004 | Gaining higher permissions |
-| Defense Evasion | TA0005 | Avoiding detection |
+| Stealth | TA0005 | Avoiding detection |
+| Defense Impairment | TA0112 | Disabling or degrading defenses |
 | Credential Access | TA0006 | Stealing credentials |
 | Discovery | TA0007 | Learning about the environment |
 | Lateral Movement | TA0008 | Moving through the environment |
@@ -1642,7 +1643,7 @@ The MITRE ATT&CK Enterprise Matrix v14 covers 14 tactics:
 
 *This document is intended for authorized security professionals only. All techniques described must only be applied against systems for which explicit written authorization has been obtained. Unauthorized use may violate the Computer Fraud and Abuse Act, Computer Misuse Act, and other applicable laws.*
 
-*References: PTES (http://www.pentest-standard.org/), OWASP Testing Guide v4.2 (https://owasp.org/www-project-web-security-testing-guide/), MITRE ATT&CK v19.2 (https://attack.mitre.org/), NIST SP 800-115 (https://csrc.nist.gov/pubs/sp/800/115/final), CVSS v3.1 Specification (https://www.first.org/cvss/specification-document)*
+*References: PTES (Penetration Testing Execution Standard; its website did not answer on 2026-11-03), OWASP Testing Guide v4.2 (https://owasp.org/www-project-web-security-testing-guide/), MITRE ATT&CK v20.0 (https://attack.mitre.org/), NIST SP 800-115 (https://csrc.nist.gov/pubs/sp/800/115/final), CVSS v3.1 Specification (https://www.first.org/cvss/specification-document)*
 
 <!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
 

@@ -1356,4 +1356,4 @@ Year 4+: Optimize and Innovate
 
 ---
 
-*Reference compiled for security program management. Benchmarks from IBM Cost of a Data Breach 2024, Verizon DBIR 2024, CIS Controls v8, MITRE ATT&CK v19.2, FAIR Institute, and CISA advisories. Targets are aspirational; adjust based on organization size, industry, and risk appetite.*
+*Reference compiled for security program management. Benchmarks from IBM Cost of a Data Breach 2024, Verizon DBIR 2024, CIS Controls v8, MITRE ATT&CK v20.0, FAIR Institute, and CISA advisories. Targets are aspirational; adjust based on organization size, industry, and risk appetite.*

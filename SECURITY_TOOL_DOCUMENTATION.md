@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 21 min (4,931 words at 230 words a minute)
+About 21 min (4,862 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -83,7 +83,7 @@ _API & developer docs_
 - [Tanium API documentation (GraphQL API Gateway + Platform REST API; the full reference needs a Tanium login)](https://developer.tanium.com/apis/api_intro)
 
 _GitHub (official)_
-- [Tanium GitHub organization —  (NOTE: org existence not confirmable via search this run; verify the org is Tanium-verified before trusting)](https://github.com/Tanium)
+- [Tanium GitHub organization (github.com/tanium, four public repositories; GitHub does not mark it as a verified organization)](https://github.com/Tanium)
 
 _Community / integration / detection repos_
 - [pytan3 (newer Python client, docs on Read the Docs)](https://pytan3.readthedocs.io)
@@ -92,7 +92,7 @@ _Learning & reference_
 - [Tanium blog and Tech Talks series](https://www.tanium.com/blog)
 - [Tanium company / product overview](https://www.tanium.com/about)
 
-> Note: Docs consolidated onto docs.tanium.com; the old kb.tanium.com Knowledge Base is slated for retirement around 2026 and redirects to the Resource Center. Tanium now positions the GraphQL API Gateway as the preferred integration path over the older Platform REST API; module-specific REST docs are reached via help links inside the Tanium Console (auth required). Console and most API docs require a customer login. GitHub org and the PyTan repo paths rely on established knowledge — web-search budget for this run was exhausted before they could be re-verified live; confirm before publishing.
+> Note: Docs consolidated onto docs.tanium.com; the old kb.tanium.com Knowledge Base is slated for retirement around 2026 and redirects to the Resource Center. Tanium now positions the GraphQL API Gateway as the preferred integration path over the older Platform REST API; module-specific REST docs are reached via help links inside the Tanium Console (auth required). Console and most API docs require a customer login. The pytan3 documentation links to github.com/tanium/pytan3, which is no longer a public repository; the tanium GitHub organization lists four public repositories.
 
 
 ### Microsoft Defender for Endpoint / Defender Vulnerability Management
@@ -122,7 +122,7 @@ _Learning & reference_
 - [Microsoft Learn training catalog (Secure your organization with Defender for Endpoint)](https://learn.microsoft.com/en-us/training/)
 - [Microsoft Defender for Endpoint Ninja training (Tech Community)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/bg-p/MicrosoftDefenderATPBlog)
 
-> Note: Product is part of Microsoft Defender XDR; the operations portal is security.microsoft.com (was securitycenter.microsoft.com). Advanced hunting uses KQL. The legacy Defender for Endpoint REST API is being superseded by the unified Microsoft Graph Security API — build new automation against Graph. Localized Learn URLs exist (/en-us/ is canonical). The /defender-endpoint/api/apis-intro path reflects a recent restructure of the API docs section; verify the exact leaf page if deep-linking. API-reference and DVM URLs rely on established knowledge — search budget was exhausted before live re-verification this run.
+> Note: Product is part of Microsoft Defender XDR; the operations portal is security.microsoft.com (was securitycenter.microsoft.com). Advanced hunting uses KQL. The legacy Defender for Endpoint REST API is being superseded by the unified Microsoft Graph Security API; build new automation against Graph. Localized Learn URLs exist (/en-us/ is canonical). The API overview is at /defender-endpoint/api/apis-intro (Access the Microsoft Defender for Endpoint APIs) and the management overview at /defender-endpoint/api/management-apis.
 
 
 ### CrowdStrike Falcon
@@ -156,7 +156,7 @@ _Learning & reference_
 - [FalconPy documentation site & wiki](https://www.falconpy.io)
 - [CrowdStrike blog](https://www.crowdstrike.com/blog/)
 
-> Note: CrowdStrike has a strong, verified official GitHub presence at github.com/CrowdStrike (falconpy, psfalcon, gofalcon, rusty-falcon, falcon-scripts, falcon-operator, falcon-helm, community, helpful-links all confirmed). The SDKs are open-source and community-supported, not formal CrowdStrike products. In-console docs at falcon.crowdstrike.com require authentication; developer.crowdstrike.com is the public API reference. Falcon API uses OAuth2 with regional base URLs. A Terraform provider (CrowdStrike/terraform-provider-crowdstrike) also exists for IaC but was not re-verified live this run. crowdstrike-falconpy is the PyPI package name. developer.crowdstrike.com, falconpy.io, falcon.crowdstrike.com, CrowdStrike University and blog URLs rely on established knowledge — search budget was exhausted before live re-verification.
+> Note: CrowdStrike has a strong, verified official GitHub presence at github.com/CrowdStrike (falconpy, psfalcon, gofalcon, rusty-falcon, falcon-scripts, falcon-operator, falcon-helm, community, helpful-links all confirmed). The SDKs are open-source and community-supported, not formal CrowdStrike products. In-console docs at falcon.crowdstrike.com require authentication; developer.crowdstrike.com is the public API reference. Falcon API uses OAuth2 with regional base URLs. A Terraform provider (CrowdStrike/terraform-provider-crowdstrike) manages Falcon console resources as infrastructure as code. crowdstrike-falconpy is the PyPI package name. falconpy.io now redirects to the Python SDK page on developer.crowdstrike.com (/sdks/python/), and falcon.crowdstrike.com/documentation redirects to the console login.
 
 
 ## WAF & Edge
@@ -391,7 +391,7 @@ _Learning & reference_
 - [AWS Security Blog](https://aws.amazon.com/blogs/security/)
 - [AWS Security Maturity Model](https://maturitymodel.security.aws.dev/)
 
-> Note: Doc landing URLs are the long-stable AWS entry points (Inspector = Inspector2/v2; Config lives under the Developer Guide). IMPORTANT: Security Hub now has two variants — classic Security Hub CSPM (ASFF format, APIReference 1.0) and the newer Security Hub (OCSF); confirm which your account uses before wiring automation. The aws-samples GuardDuty multi-account repo and aws-solutions ASR repo are the canonical official examples. Search-session budget was exhausted before every GitHub path could be re-confirmed live this run; AWS doc hostnames (docs.aws.amazon.com) are authoritative and stable.
+> Note: Doc landing URLs are the long-stable AWS entry points (Inspector = Inspector2/v2; Config lives under the Developer Guide). IMPORTANT: Security Hub now has two variants: classic Security Hub CSPM (ASFF format, APIReference 1.0) and the newer Security Hub (OCSF); confirm which your account uses before wiring automation. The aws-samples GuardDuty multi-account repo and aws-solutions ASR repo are the canonical official examples. AWS documentation is served from docs.aws.amazon.com.
 
 
 ### Microsoft Defender for Cloud
@@ -550,16 +550,16 @@ _GitHub (official)_
 - [container-security-action / was-action — official GitHub Actions for Tenable container & WAS scans](https://github.com/tenable/container-security-action)
 
 _Community / integration / detection repos_
-- [Tenable App & Add-on for Splunk (SIEM integration) —  (verify exact app ID on Splunkbase)](https://splunkbase.splunk.com/app/4060)
+- [Tenable Add-On for Splunk (Splunkbase app 4060, TA-tenable; SIEM integration)](https://splunkbase.splunk.com/app/4060)
 - [Security-Hub — Tenable.io to AWS Security Hub integration](https://github.com/tenable/Security-Hub)
-- Navi — community CLI/automation tool for Tenable.io (github.com/tenable/navi — confirm slug before use)
+- [Navi (packetchaos/navi), a community command-line tool for the Tenable Vulnerability Management API](https://github.com/packetchaos/navi)
 
 _Learning & reference_
 - [Tenable University / training](https://www.tenable.com/education)
 - [Tenable Research blog](https://www.tenable.com/blog)
 - [Tenable Community (forums/knowledge)](https://community.tenable.com)
 
-> Note: Nessus guides are version-specific (URLs like docs.tenable.com/nessus/<ver>/...), so use the version selector on the Nessus docs page. Tenable One is the exposure-management umbrella that includes Tenable Vulnerability Management, Web App Scanning, Cloud Security, and Lumin. The legacy Nessus/SecurityCenter XMLRPC API reference is outdated — use the Developer Portal + API Explorer for current REST APIs. GitHub org has both Tenable-supported and community-supported (open-source) integrations. WebSearch budget was exhausted this turn; the org, pyTenable, connectors, and Jira repos were directly verified, Navi and the Splunk app ID were not fully re-verified live.
+> Note: Nessus documentation is versioned: each user guide (Tenable Nessus 10.12.x at the time of writing) has a version selector on [docs.tenable.com](https://docs.tenable.com/nessus/Content/GettingStarted.htm). For current REST APIs, use the [Tenable Developer Portal](https://developer.tenable.com/) and its API Explorer. [Tenable One](https://www.tenable.com/products/tenable-one) is Tenable's exposure-management platform; its product pages list Vulnerability Management, Web App Scanning, Cloud Security, OT Security, Identity Security and Attack Surface Management. The [Tenable GitHub organization](https://github.com/tenable) hosts pyTenable and Tenable's integration repositories.
 
 
 ### Zafran Security
@@ -730,7 +730,7 @@ _Learning & reference_
 - [Microsoft Entra blog (Tech Community)](https://techcommunity.microsoft.com/t5/microsoft-entra-blog/bg-p/Identity)
 - [Microsoft Entra admin center (hands-on console)](https://entra.microsoft.com/)
 
-> Note: LIVE-VERIFIED via WebSearch 2026-10-08. Product renamed from Azure Active Directory (Azure AD) to Microsoft Entra ID in 2023; docs moved from learn.microsoft.com/azure/active-directory to learn.microsoft.com/entra (old paths redirect). GitHub auth libraries still live under the legacy 'AzureAD' org, not an 'Entra' org. Microsoft Learn flagged the sample-v2-code page as undergoing maintenance with some possibly broken sample links — check live before relying on a specific sample repo. For the azuread Terraform provider, confirm the current major version/resource schema on the registry page.
+> Note: Microsoft renamed Azure Active Directory (Azure AD) to Microsoft Entra ID; service plan display names changed on October 1, 2023, and existing login URLs, APIs, PowerShell cmdlets and the Microsoft Authentication Libraries (MSAL) stay the same ([New name for Azure Active Directory](https://learn.microsoft.com/en-us/entra/fundamentals/new-name)). Old learn.microsoft.com/azure/active-directory paths redirect to learn.microsoft.com/entra. The MSAL repositories still live under the [AzureAD GitHub organization](https://github.com/AzureAD). The Terraform provider keeps the name azuread (hashicorp/azuread 3.10.0, published 2026-09-24); confirm the resource schema for your provider version on the registry page.
 
 
 ### Cisco Duo
@@ -767,7 +767,7 @@ _Learning & reference_
 - [Duo Security blog](https://duo.com/blog)
 - [Duo product/solutions knowledge base](https://duo.com/docs)
 
-> Note: LIVE-VERIFIED via WebSearch 2026-10-08. Duo is owned by Cisco. Admin onboarding is migrating to Cisco Security Cloud Control (SCC): admins created via SCC after 2026-05-11 must sign in through SCC rather than admin.duosecurity.com directly. Admin API and Auth API are SEPARATE Duo application types with separate key pairs; Admin API requires Essentials/Advantage/Premier plan while Auth API is also available on Free/trial. Auth API clients using certificate pinning required updates before 2026-04-15 (see Duo KB 9451). thebananastand.duo.com mirrors the same doc pages — use duo.com as the canonical host.
+> Note: Duo is part of Cisco. Admin API and Auth API are separate application types, each created in the Admin Panel with its own integration key and secret key; an Auth API key sent to an Admin API endpoint is rejected with 403 ([Auth API](https://duo.com/docs/authapi)). Admin API is available to paying Premier, Advantage and Essentials customers and to Advantage or Premier trials, while Auth API is also available on Duo Free and trial accounts ([Admin API](https://duo.com/docs/adminapi)). The Admin API Administrators endpoints are not available to customers provisioned through Cisco Security Cloud Control after May 11, 2026. Use duo.com as the canonical documentation host.
 
 
 ### CyberArk
@@ -803,7 +803,7 @@ _Learning & reference_
 - [CyberArk Technical Community (forums, Marketplace, how-tos)](https://community.cyberark.com/)
 - [Conjur tutorials & guides](https://docs.conjur.org/)
 
-> Note: NOT LIVE-VERIFIED THIS TURN: the shared WebSearch budget (200 calls/turn, shared by all concurrent workflow agents) was exhausted after the Entra ID and Duo queries, so these CyberArk URLs are compiled from high-confidence prior knowledge and should be re-confirmed. Product structure to be aware of: CyberArk splits into PAM Self-Hosted (on-prem, formerly 'PAS') vs Privilege Cloud (SaaS); CyberArk Identity is the former Idaptive (SSO/MFA/IGA); Conjur is the open-source developer/secrets product with its own site (conjur.org). Deep doc paths under docs.cyberark.com are versioned and change per release — navigate from the hub and pick the matching version. Confirm the exact product slugs (pam-self-hosted, privilege-cloud-shared-services, identity) and the ansible-security-automation-collection repo name against the live sites before publishing into the reference library.
+> Note: www.cyberark.com now redirects to [Idira by Palo Alto Networks](https://www.paloaltonetworks.com/idira), and docs.cyberark.com carries the Idira name. Privileged Access Manager - Self-Hosted keeps its own versioned documentation (version 15.2 at the time of writing); Privilege Cloud and Identity documentation moved into a "spaces" structure organized by workflow, and the two relocation pages linked above map old topics to new ones. www.conjur.org now redirects to a Palo Alto Networks secrets-management page, docs.conjur.org redirects to the Conjur Open Source documentation on docs.cyberark.com, and the [cyberark/conjur](https://github.com/cyberark/conjur) repository remains on GitHub. Deep doc paths are versioned and change per release, so navigate from the docs hub and pick the matching version.
 
 
 ## SIEM

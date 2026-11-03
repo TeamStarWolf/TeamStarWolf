@@ -11,7 +11,7 @@
 - Use ATT&CK's terms exactly: tactic, technique, sub-technique, procedure, group, software, campaign, mitigation, data component, detection strategy, analytic.
 - A mitigation (ATT&CK), countermeasure (D3FEND), and control (NIST SP 800-53) are different objects; say which.
 - Put identifiers, paths, and literal values in code font: `T1059.001`, `data/attack/technique_profiles.jsonl`.
-- Give the framework version a fact depends on: "in ATT&CK v19.2".
+- Give the framework version a fact depends on: "in ATT&CK v20.0".
 
 ## Claims and numbers
 
@@ -20,6 +20,7 @@
 - Cite a primary source for every claim about an external framework, standard, product, or incident.
 - State the limits: "The ICS and Mobile atlases carry no NIST SP 800-53 control mappings."
 - Separate measured from reported facts; say which went unchecked.
+- Leave no drafting or process notes in page text: no tool budgets, session stamps, or reminders to check something later. State the fact with its source, or leave it out. The lint fails any tracked Markdown page that carries one, generated or hand-written.
 
 ## Words we do not use
 

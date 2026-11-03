@@ -329,7 +329,7 @@ Official orgs: [ServiceNow](https://github.com/ServiceNow) (286 public repos), [
 | [Now Learning (legacy host)](https://nowlearning.servicenow.com/) | Training | Same portal | Gated (login) |
 | [Developer learning paths](https://developer.servicenow.com/dev.do#!/learn) | Training | Developer learning and personal instances | App shell (SPA returns 200 for any path) |
 
-- Specific Now Learning SecOps paths and certification pages sit behind SSO and could not be verified.
+- Specific Now Learning SecOps paths and certification pages sit behind SSO; sign in to Now Learning to reach them.
 - ServiceNow marketing product pages timed out during the check and are left out.
 
 ## Armis Centrix and VIPR
@@ -430,13 +430,13 @@ Manuals, API references, SDKs, GitHub repositories and training for these six to
 
 ## MITRE and threat-informed defense ecosystem
 
-The current ATT&CK release is v19.2 (published 2026-08-05; v19 was released on April 28, 2026). The STIX data, mitre/cti and TAXII collections are all at v19.2.
+The current ATT&CK release is v20.0 (October 13, 2026). Before it came v19.2 (published 2026-08-05) and v19 (April 28, 2026). The attack-stix-data collection index and the mitre/cti releases are both at v20.0.
 
 ### ATT&CK knowledge base
 
 | Resource | Type | What it is for | Status |
 |---|---|---|---|
-| [MITRE ATT&CK](https://attack.mitre.org/) | Docs | ATT&CK knowledge base, v19.2 | OK |
+| [MITRE ATT&CK](https://attack.mitre.org/) | Docs | ATT&CK knowledge base, v20.0 | OK |
 | [Enterprise matrix](https://attack.mitre.org/matrices/enterprise/) | Docs | Enterprise tactics and techniques | OK |
 | [ICS matrix](https://attack.mitre.org/matrices/ics/) | Docs | ICS matrix | OK |
 | [Mobile matrix](https://attack.mitre.org/matrices/mobile/) | Docs | Mobile matrix | OK |
@@ -453,6 +453,7 @@ The current ATT&CK release is v19.2 (published 2026-08-05; v19 was released on A
 | [Versions](https://attack.mitre.org/resources/versions/) | Docs | Version history and permalinks | OK |
 | [v19 permalink](https://attack.mitre.org/versions/v19/) | Docs | Frozen v19 site | OK |
 | [Updates index](https://attack.mitre.org/resources/updates/) | Release notes | All release notes | OK |
+| [Updates, October 2026 (v20)](https://attack.mitre.org/resources/updates/updates-october-2026/) | Release notes | v20 techniques, groups, campaigns and software update | OK |
 | [Updates, August 2026 (v19.2)](https://attack.mitre.org/resources/updates/updates-august-2026/) | Release notes | v19.2 groups and software update | OK |
 | [Updates, April 2026 (v19)](https://attack.mitre.org/resources/updates/updates-april-2026/) | Release notes | v19 | OK |
 | [Updates, October 2025 (v18)](https://attack.mitre.org/resources/updates/updates-october-2025/) | Release notes | v18, which introduced detection strategies | OK |
@@ -466,7 +467,7 @@ The current ATT&CK release is v19.2 (published 2026-08-05; v19 was released on A
 
 | Resource | Type | What it is for | Status |
 |---|---|---|---|
-| [attack-stix-data index.json](https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/index.json) | Feed | Collection index; latest files are the 19.2 Enterprise, Mobile and ICS bundles | OK |
+| [attack-stix-data index.json](https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/index.json) | Feed | Collection index; latest files are the 20.0 Enterprise, Mobile and ICS bundles | OK |
 | [ATT&CK TAXII 2.1 discovery](https://attack-taxii.mitre.org/taxii2/) | API | TAXII 2.1 server for ATT&CK STIX 2.1 | OK only with the TAXII Accept header |
 | [ATT&CK TAXII collections](https://attack-taxii.mitre.org/api/v21/collections/) | API | Enterprise, Mobile and ICS collections | OK only with the TAXII Accept header |
 | [ATT&CK Navigator (hosted)](https://mitre-attack.github.io/attack-navigator/) | GitHub Pages | Hosted Navigator | OK |
@@ -477,12 +478,12 @@ The current ATT&CK release is v19.2 (published 2026-08-05; v19 was released on A
 
 - **TAXII needs the Accept header.** Send `Accept: application/taxii+json;version=2.1`. Without it the server returns 400 on `/taxii2/` and `/api/v21/`, and 404 on `/`. That is normal TAXII behavior, not an outage. Versioned API roots start at `/api/v21/attack-1.0`.
 - **Workbench moved.** The ATT&CK Workbench repos now live in the `mitre-attack` org. The old `center-for-threat-informed-defense/attack-workbench-*` URLs redirect there. Workbench has no GitHub Pages site.
-- For a pipeline pinned to v19.2, use attack-stix-data (versioned file names) or TAXII. mitre/cti is STIX 2.0 legacy; use it for CAPEC links or backward compatibility.
+- For a pipeline pinned to v20.0, use attack-stix-data (versioned file names) or TAXII. mitre/cti is STIX 2.0 legacy; use it for CAPEC links or backward compatibility.
 
 | Repository | Purpose | Stars | Last push | Notes |
 |---|---|---|---|---|
-| [mitre-attack/attack-stix-data](https://github.com/mitre-attack/attack-stix-data) | Official STIX 2.1 bundles, versioned | 689 | n/a | Release v19.2 (2026-08-05) |
-| [mitre/cti](https://github.com/mitre/cti) | Legacy STIX 2.0 ATT&CK plus CAPEC | 2,154 | n/a | Release ATT&CK-v19.2 (2026-08-05); still maintained |
+| [mitre-attack/attack-stix-data](https://github.com/mitre-attack/attack-stix-data) | Official STIX 2.1 bundles, versioned | 709 | n/a | Release v20.0 (2026-10-13) |
+| [mitre/cti](https://github.com/mitre/cti) | Legacy STIX 2.0 ATT&CK plus CAPEC | 2,157 | n/a | Release ATT&CK-v20.0 (2026-10-13); still maintained |
 | [mitre-attack/attack-navigator](https://github.com/mitre-attack/attack-navigator) | Matrix annotation and layer web app | 2,475 | 2026-10-01 | v5.3.2 (2026-04-21); Apache-2.0 |
 | [mitre-attack/attack-workbench-frontend](https://github.com/mitre-attack/attack-workbench-frontend) | Explore, extend and annotate ATT&CK locally | 445 | 2026-10-06 | v4.6.10 (2026-06-25) |
 | [mitre-attack/attack-workbench-rest-api](https://github.com/mitre-attack/attack-workbench-rest-api) | Workbench backend REST API | n/a | 2026-10-07 | v4.17.3 (2026-07-06) |
@@ -544,7 +545,7 @@ Projects from the MITRE Center for Threat-Informed Defense (CTID). Several mappi
 | [attack_to_veris](https://github.com/center-for-threat-informed-defense/attack_to_veris) | VERIS to ATT&CK | n/a | n/a | Archived |
 | [m3tid](https://github.com/center-for-threat-informed-defense/m3tid) | Threat-informed defense maturity model | n/a | n/a | Archived 2025-06-25 |
 
-- Last tagged releases of Mappings Explorer, Top ATT&CK Techniques and Sightings Ecosystem (2024) predate ATT&CK v18 and v19. Check the ATT&CK version embedded in each dataset before treating it as v19.2-compatible.
+- Last tagged releases of Mappings Explorer, Top ATT&CK Techniques and Sightings Ecosystem (2024) predate ATT&CK v18, v19 and v20. Check the ATT&CK version embedded in each dataset before treating it as v20.0-compatible.
 - Other active CTID repos: defending-iaas-with-attack, defending-ot-with-attack, threat-modeling-with-attack, insider-threat-ttp-kb, cloud-analytics, cwe-calculator, fight-fraud-framework and public-resources.
 
 ### D3FEND, ATLAS, Engage, CAPEC and CWE
@@ -657,7 +658,7 @@ Projects from the MITRE Center for Threat-Informed Defense (CTID). Several mappi
 | [rabobank-cdc/dettect-editor](https://github.com/rabobank-cdc/dettect-editor) | DeTT&CT YAML editor | n/a | 2026-08-06 | |
 
 - **Caldera moved to Apache.** MITRE contributed Caldera to the Apache Software Foundation incubator. github.com/mitre/caldera redirects to apache/caldera, and caldera.mitre.org is now an announcement page. Update old links to apache/caldera and caldera.apache.org.
-- DeTT&CT v2.2.0 predates ATT&CK v19. Check its data-source model against the v18 and later detection-strategy model before relying on it for v19.2 layers.
+- DeTT&CT v2.2.0 predates ATT&CK v19. Check its data-source model against the v18 and later detection-strategy model before relying on it for v20.0 layers.
 
 ### Policy: CISA BOD 26-04 and NIST SP 800-40r4
 

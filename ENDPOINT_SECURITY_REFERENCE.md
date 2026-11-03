@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 9 min (2,014 words at 230 words a minute)
+About 9 min (2,018 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -965,4 +965,4 @@ Default indicators (operators should change these):
 
 ---
 
-*Last updated: 2026-04-24 | Category: Endpoint Security | Framework: MITRE ATT&CK v19.2*
+*Last updated: 2026-04-24 | Category: Endpoint Security | Framework: MITRE ATT&CK v20.0 (technique IDs checked 2026-11-03)*

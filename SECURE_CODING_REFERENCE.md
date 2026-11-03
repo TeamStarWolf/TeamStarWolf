@@ -1860,4 +1860,4 @@ def add_security_headers(response):
 
 ---
 
-*Mapped to OWASP SAMM v2.0, NIST SSDF SP 800-218, CWE Top 25 (2025), and MITRE ATT&CK Enterprise v19.2. See also [API Security Reference](API_SECURITY_REFERENCE.md), [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md), and [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md).*
+*Mapped to OWASP SAMM v2.0, NIST SSDF SP 800-218, CWE Top 25 (2025), and MITRE ATT&CK Enterprise v20.0. See also [API Security Reference](API_SECURITY_REFERENCE.md), [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md), and [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md).*

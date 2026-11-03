@@ -72,7 +72,7 @@ The definitive lateral-movement and privilege-escalation mitigation — it attac
 
 **Key events / fields / tables / APIs**
 - CEF: deviceEventClassId = the Vault audit action/message code; name = the action description; severity. Elastic's mapping: event.code = Vault audit action code, cyberarkpas.audit.message = description, cyberarkpas.audit.message_id = record code ID. Sentinel: CommonSecurityLog with DeviceVendor 'Cyber-Ark', DeviceEventClassID, Activity.
-- Confirmed Vault action codes: 295 (retrieve password), 300 (PSM connect), 301 (connect failure); 295/300/378 appear in the Elastic 'recommended-monitor' action-code set (meaning of 378 not verified here). Full enumeration = CyberArk 'Vault Audit Action Codes' reference, 'Recommended Action Codes for Monitoring' section.
+- Confirmed Vault action codes: 295 (retrieve password), 300 (PSM connect), 301 (connect failure); 295/300/378 appear in the Elastic 'recommended-monitor' action-code set. Full enumeration = CyberArk 'Vault Audit Action Codes' reference, 'Recommended Action Codes for Monitoring' section.
 - DBParm.ini [SYSLOG] keys: SyslogServerIP, SyslogServerPort, SyslogServerProtocol, SyslogMessageCodeFilter, SyslogTranslatorFile, UseLegacySyslogFormat.
 - PTA: sourcetype cyberark:pta:cef; CEF name + deviceEventClassId (e.g. 1 'Suspected credentials theft', 23 'irregular hours') + severity; forwarding in systemparm.properties syslog_outbound.
 - REST: GET /PasswordVault/API/Accounts/{id} and ?search=; POST /PasswordVault/API/Accounts/{id}/Change, /Verify, /Reconcile; response fields secretManagement.automaticManagementEnabled, secretManagement.manualManagementReason, secretManagement.lastModifiedTime.
@@ -115,7 +115,7 @@ CommonSecurityLog
 - SyslogMessageCodeFilter governs what is EVER emitted: the default can flood you with all user/safe activity, while a narrowed 'recommended' set can silently drop the exact CPM-change evidence you need to prove rotation. Audit this filter first.
 - UseLegacySyslogFormat=Yes produces inaccurate timestamps and UDP transport drops events under load — use TCP/TLS + RFC5424. Translator-file choice (SplunkCIM.xsl vs Arcsight CEF vs XSIAM.xsl) changes field names; multiple destinations require the IP / translator / code-filter lists to be matched in count and order.
 - automaticManagementEnabled==true is 'configured', not 'effective' — accounts in CPM 'Failed' or 'Disabled by CPM' state show management intent yet never rotate; always correlate an actual change audit event + moving lastModifiedTime.
-- Exact numeric CPM change/verify/reconcile action codes and the meaning of code 378 were NOT verified in this research — confirm them against the 'Vault Audit Action Codes' reference for your Vault version before hard-coding detections.
+- Before hard-coding detections on CPM change, verify or reconcile events, or on code 378, look up the numeric codes in the 'Vault Audit Action Codes' reference for your Vault version.
 - PTA event-class-ID ↔ name mapping is deployment/version-specific; validate the IDs in your own PTA. Component logs (CPM/PSM/PVWA) are not in the Vault syslog stream unless separately forwarded, so a rotation failure logged only on the CPM host can be invisible to the SIEM.
 
 ## Documentation & repositories
@@ -151,7 +151,7 @@ _Learning & reference_
 - [CyberArk Technical Community (forums, Marketplace, how-tos)](https://community.cyberark.com/)
 - [Conjur tutorials & guides](https://docs.conjur.org/)
 
-> Note: NOT LIVE-VERIFIED THIS TURN: the shared WebSearch budget (200 calls/turn, shared by all concurrent workflow agents) was exhausted after the Entra ID and Duo queries, so these CyberArk URLs are compiled from high-confidence prior knowledge and should be re-confirmed. Product structure to be aware of: CyberArk splits into PAM Self-Hosted (on-prem, formerly 'PAS') vs Privilege Cloud (SaaS); CyberArk Identity is the former Idaptive (SSO/MFA/IGA); Conjur is the open-source developer/secrets product with its own site (conjur.org). Deep doc paths under docs.cyberark.com are versioned and change per release — navigate from the hub and pick the matching version. Confirm the exact product slugs (pam-self-hosted, privilege-cloud-shared-services, identity) and the ansible-security-automation-collection repo name against the live sites before publishing into the reference library.
+> Note: www.cyberark.com now redirects to [Idira by Palo Alto Networks](https://www.paloaltonetworks.com/idira), and docs.cyberark.com carries the Idira name. Privileged Access Manager - Self-Hosted keeps its own versioned documentation (version 15.2 at the time of writing); Privilege Cloud and Identity documentation moved into a "spaces" structure organized by workflow, and the two relocation pages linked above map old topics to new ones. www.conjur.org now redirects to a Palo Alto Networks secrets-management page, docs.conjur.org redirects to the Conjur Open Source documentation on docs.cyberark.com, and the [cyberark/conjur](https://github.com/cyberark/conjur) repository remains on GitHub. Deep doc paths are versioned and change per release, so navigate from the docs hub and pick the matching version.
 
 ## Current state (2025-26)
 

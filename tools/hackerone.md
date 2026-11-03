@@ -65,7 +65,7 @@ HackerOne's VM role is Discover-Assess-Validate via human/agentic offensive test
 **Key events / fields / tables / APIs**
 - Report object attributes: state (new, triaged, resolved, duplicate, informative, not-applicable, spam, ...), created_at, triaged_at, closed_at, title, severity/rating, weakness (CWE), plus structured_scope and bounty relationships.
 - Endpoints: GET /v1/reports (list + filter by state/program), GET /v1/reports/{id}, POST /v1/reports/{id}/state_changes (change state), POST /v1/reports/{id}/activities (comments, incl. retest request), structured-scopes resource.
-- NOTE: exact attribute spellings (e.g. a bounty-amount field name, the retest relationship) are NOT confirmed from public docs and drift (hai_* were added recently) - verify in the Core Resources reference or by inspecting a real report response.
+- Attribute spellings (e.g. a bounty-amount field name, the retest relationship) drift (hai_* were added recently); confirm them in the Core Resources reference or by inspecting a real report response.
 
 **Example queries**
 

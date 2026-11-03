@@ -27,7 +27,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 19 min (4,291 words at 230 words a minute)
+About 19 min (4,301 words at 230 words a minute)
 
 </td></tr>
 </table>
@@ -319,7 +319,7 @@ This is a security library: the network is a control surface, and good architect
 | DDoS / availability (T1498/T1499) | Anycast, scrubbing, rate limiting, ADC health/drain, capacity + QoS scavenger class | CSF **PR.IR/RS**; CIS **13** |
 | Discovery via unmonitored flows (TA0007) | Flow telemetry (IPFIX) + analytics as a detection source; least-privilege reachability | CSF **DE.CM**; CIS **13** |
 
-> **Currency note:** ATT&CK technique IDs are stable across versions, but the framework is versioned — the latest confirmed release is **v18 (October 2025)**, which restructured detections into *Detection Strategies* + *Analytics*; a v19 was reported in development. Re-verify technique names and any tactic relabeling against the live source (attack.mitre.org) before publishing downstream, per this library's currency convention.
+> **Currency note:** ATT&CK technique IDs are stable across versions, but the framework is versioned: the current release is **v20.0 (October 13, 2026)**. v18 (October 2025) restructured detections into *Detection Strategies* + *Analytics*, and v19 (April 2026) split Defense Evasion into Stealth and Defense Impairment. Re-verify technique names and any tactic relabeling against the live source (attack.mitre.org) before publishing downstream, per this library's currency convention.
 
 ### 5.2 Design rules that bake in security
 
@@ -348,7 +348,7 @@ This document is the *design* half. Enforcement specifics — firewall architect
 | Control catalog | **NIST SP 800-53** Rev. 5 | SC (System & Comms Protection) / AC control families |
 | Cyber framework | **NIST CSF 2.0** (Feb 2024) | Adds the **Govern** function; map network controls to functions/categories |
 | Controls | **CIS Critical Security Controls v8.1** (Jun 2024) | **12** Network Infra Mgmt, **13** Network Monitoring & Defense, **4** Secure Config |
-| Threat model | **MITRE ATT&CK** (Enterprise/ICS/Mobile) | Latest confirmed **v18 (Oct 2025)**; verify current version |
+| Threat model | **MITRE ATT&CK** (Enterprise/ICS/Mobile) | **v20.0 (Oct 2026)**, current as of 2026-11-03; verify current version |
 | OT/ICS | **IEC 62443**; Purdue reference model | Zones-and-conduits segmentation for OT |
 | Payment | **PCI DSS v4.0.1** | Network segmentation to reduce scope; verify current point release |
 | EU regulation | **NIS2** | Network/infra security obligations (EU); verify applicability |

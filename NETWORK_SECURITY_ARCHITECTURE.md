@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 15 min (3,563 words at 230 words a minute)
+About 16 min (3,567 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -1076,4 +1076,4 @@ Use this checklist when evaluating or designing an enterprise network security a
 
 ---
 
-*Last updated: April 2026; mapped to NIST 800-53 Rev 5, CIS Controls v8, MITRE ATT&CK v19.2*
+*Last updated: April 2026; mapped to NIST 800-53 Rev 5, CIS Controls v8, MITRE ATT&CK v20.0 (technique IDs checked 2026-11-03)*

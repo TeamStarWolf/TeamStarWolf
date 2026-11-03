@@ -103,7 +103,7 @@ aws configservice get-compliance-details-by-config-rule --config-rule-name <rule
 - CloudTrail data events (S3 object-level, Lambda invoke) are OFF unless explicitly selected — data-plane exploitation can be invisible.
 - Config records only enabled resource types; INSUFFICIENT_DATA rolls a conformance pack up as effectively compliant.
 - Security Hub finding updates are throttled/deduplicated (UpdatedAt may lag); CloudTrail->S3 delivery can lag ~15 min, so real-time validation should use the EventBridge stream.
-- Could not verify the exact 2025 GuardDuty Runtime Monitoring finding-type list against official docs — confirm against the finding-type reference before alerting on specific type strings.
+- Check specific type strings (for example Execution:Runtime/ReverseShell) against the [GuardDuty Runtime Monitoring finding types](https://docs.aws.amazon.com/guardduty/latest/ug/findings-runtime-monitoring.html) reference before alerting on them; the list grows as AWS adds detections.
 
 ## Documentation & repositories
 
@@ -141,7 +141,7 @@ _Learning & reference_
 - [AWS Security Blog](https://aws.amazon.com/blogs/security/)
 - [AWS Security Maturity Model](https://maturitymodel.security.aws.dev/)
 
-> Note: Doc landing URLs are the long-stable AWS entry points (Inspector = Inspector2/v2; Config lives under the Developer Guide). IMPORTANT: Security Hub now has two variants — classic Security Hub CSPM (ASFF format, APIReference 1.0) and the newer Security Hub (OCSF); confirm which your account uses before wiring automation. The aws-samples GuardDuty multi-account repo and aws-solutions ASR repo are the canonical official examples. Search-session budget was exhausted before every GitHub path could be re-confirmed live this run; AWS doc hostnames (docs.aws.amazon.com) are authoritative and stable.
+> Note: Doc landing URLs are the long-stable AWS entry points (Inspector = Inspector2/v2; Config lives under the Developer Guide). IMPORTANT: Security Hub now has two variants: classic Security Hub CSPM (ASFF format, APIReference 1.0) and the newer Security Hub (OCSF); confirm which your account uses before wiring automation. The aws-samples GuardDuty multi-account repo and aws-solutions ASR repo are the canonical official examples. AWS documentation is served from docs.aws.amazon.com.
 
 ## Current state (2025-26)
 

@@ -70,7 +70,7 @@ CVE  →  CWE  →  CAPEC  →  ATT&CK  →  D3FEND
 
 Read it forward to go from a vulnerability to the defensive action that stops it; read it backward to go from an observed behavior to the root-cause weaknesses in your environment. Each hop has a home:
 
-- Behavior: [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md) scores all 691 Enterprise techniques; [Technique Detail Pages](/techniques/README.md) give the full per-technique write-up
+- Behavior: [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md) scores Enterprise techniques by how many groups and software use them and how many mitigations and controls address them; [Technique Detail Pages](/techniques/README.md) give the full per-technique write-up
 - Weakness and pattern: [CWE Reference](/CWE_REFERENCE.md) (969 weaknesses) and [CAPEC Reference](/CAPEC_REFERENCE.md) (615 patterns, 177 bridging to ATT&CK)
 - Defense: [D3FEND Reference](/D3FEND_REFERENCE.md) (156 countermeasures) and the 5,263 NIST 800-53 control->technique edges in [Controls Mapping](/CONTROLS_MAPPING.md), sourced from the [CTID Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/)
 - The on-disk shape: [Coverage Schema](/COVERAGE_SCHEMA.md) documents the vendor -> control -> technique edge tables that power the Navigator layers and gap scores
@@ -112,7 +112,7 @@ Worked example ("where are our coverage gaps?"):
 
 Checkpoint: A coverage heatmap open in ATT&CK Navigator and a shortlist of high-priority gap techniques for your program.
 
-Watch out: This library's ATT&CK layers are pinned to ATT&CK v19 (v19.2 technique IDs and tactics; the CTID control mappings underneath were published for ATT&CK v16.1 and are carried forward to the v19.2 successors of revoked IDs). Comparing them with a layer pinned to another ATT&CK version can silently drop or mismatch techniques: check the version column on the layer index and the version badge Navigator shows for each layer. Also, "no mapped control" means no *NIST 800-53 mapping exists*, not that a technique is impossible to defend: treat blind spots as prompts for detection engineering, not verdicts.
+Watch out: This library's ATT&CK layers are pinned to ATT&CK v20 (v20.0 technique IDs and tactics; the CTID control mappings underneath were published for ATT&CK v16.1 and are carried forward to the v20.0 successors of revoked IDs). Comparing them with a layer pinned to another ATT&CK version can silently drop or mismatch techniques: check the version column on the layer index and the version badge Navigator shows for each layer. Also, "no mapped control" means no *NIST 800-53 mapping exists*, not that a technique is impossible to defend: treat blind spots as prompts for detection engineering, not verdicts.
 
 ## Step 8: Take the data home
 

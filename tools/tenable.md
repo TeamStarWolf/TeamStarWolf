@@ -55,7 +55,7 @@ Tenable's primary VM role is Discover-Assess-Prioritize, telling teams which exp
 - SIEM: Tenable Add-on for Splunk (modular input URI tenable_io://<input>) with sourcetypes tenable:io:vuln, tenable:io:assets, tenable:io:plugin, tenable:io:compliance, tenable:io:audit_logs, and WAS sourcetype tenable:io:vuln:was; CIM field mapping via the CyberCX TA (search-head only). Sumo Logic Tenable cloud-to-cloud source also pulls via API.
 - Collection is scheduled API pull; retention/latency are governed by your SIEM and your export cadence, not by Tenable.
 
-**Telemetry format / transport.** JSON over REST (gzip export chunks); Splunk modular-input JSON events. TVM cloud is API-PULL, not a native CEF/syslog stream (Tenable.sc can syslog/CEF separately; could not verify a CEF push from TVM cloud).
+**Telemetry format / transport.** JSON over REST (gzip export chunks); Splunk modular-input JSON events. TVM cloud is API-PULL, not a native CEF/syslog stream (Tenable.sc can syslog/CEF separately; for TVM cloud, plan on pulling through the export API rather than expecting a CEF push).
 
 **Control-presence check (present & configured?).** Confirm the scanner can actually SEE the device's state (prerequisite for any 'fixed' claim): Nessus plugin 19506 'Nessus Scan Information' output must contain 'Credentialed checks : yes' (SSH form: 'yes as <user> via ssh'). Degraded/unauth scans show plugin 21745 (Authentication Failure - Local Checks Not Run) or 24786 (Windows admin privileges not used). To confirm a CONFIG/HARDENING control is present on a host, run a compliance audit (CIS/DISA .audit); each check returns result = Passed/Failed/Warning/Info/Skipped/Error/Unknown (Unix compliance = plugin 21157; Security Center renumbers compliance plugins into the 1,000,000+ range). A 'Passed' check means the control/setting is actually present and correctly configured on that device. Sensor/agent health: asset.last_scanned / agent last_seen + scan status via the scans API.
 
@@ -100,7 +100,7 @@ sourcetype="tenable:io:vuln" "plugin.cve"="CVE-2024-3400" | stats latest(state) 
 - Field names differ by surface: patch date is patch_publication_date in /plugins/plugin but definition.patch_published in the export; CSV vs JSON keys differ. Compliance plugin IDs are renumbered (1,000,000+) when imported into Security Center, so do not filter on 21157 alone there.
 - Per-plugin output is capped around 1 MB; long compliance actual_value strings get truncated.
 - TVM cloud has no native real-time CEF/syslog feed - it is API-pull via the Splunk add-on / Sumo, so detection latency = your export cadence.
-- Could not verify the exact compliance-export column names (e.g. check_result / check_name / actual_value) from public docs - inspect a sample compliance export before coding against them.
+- Inspect a sample compliance export before coding against column names such as check_result / check_name / actual_value.
 
 ## Documentation & repositories
 
@@ -124,20 +124,20 @@ _GitHub (official)_
 - [container-security-action / was-action — official GitHub Actions for Tenable container & WAS scans](https://github.com/tenable/container-security-action)
 
 _Community / integration / detection repos_
-- [Tenable App & Add-on for Splunk (SIEM integration) —  (verify exact app ID on Splunkbase)](https://splunkbase.splunk.com/app/4060)
+- [Tenable Add-On for Splunk (Splunkbase app 4060, TA-tenable; SIEM integration)](https://splunkbase.splunk.com/app/4060)
 - [Security-Hub — Tenable.io to AWS Security Hub integration](https://github.com/tenable/Security-Hub)
-- Navi — community CLI/automation tool for Tenable.io (github.com/tenable/navi — confirm slug before use)
+- [Navi (packetchaos/navi), a community command-line tool for the Tenable Vulnerability Management API](https://github.com/packetchaos/navi)
 
 _Learning & reference_
 - [Tenable University / training](https://www.tenable.com/education)
 - [Tenable Research blog](https://www.tenable.com/blog)
 - [Tenable Community (forums/knowledge)](https://community.tenable.com)
 
-> Note: Nessus guides are version-specific (URLs like docs.tenable.com/nessus/<ver>/...), so use the version selector on the Nessus docs page. Tenable One is the exposure-management umbrella that includes Tenable Vulnerability Management, Web App Scanning, Cloud Security, and Lumin. The legacy Nessus/SecurityCenter XMLRPC API reference is outdated — use the Developer Portal + API Explorer for current REST APIs. GitHub org has both Tenable-supported and community-supported (open-source) integrations. WebSearch budget was exhausted this turn; the org, pyTenable, connectors, and Jira repos were directly verified, Navi and the Splunk app ID were not fully re-verified live.
+> Note: Nessus documentation is versioned: each user guide (Tenable Nessus 10.12.x at the time of writing) has a version selector on [docs.tenable.com](https://docs.tenable.com/nessus/Content/GettingStarted.htm). For current REST APIs, use the [Tenable Developer Portal](https://developer.tenable.com/) and its API Explorer. [Tenable One](https://www.tenable.com/products/tenable-one) is Tenable's exposure-management platform; its product pages list Vulnerability Management, Web App Scanning, Cloud Security, OT Security, Identity Security and Attack Surface Management. The [Tenable GitHub organization](https://github.com/tenable) hosts pyTenable and Tenable's integration repositories.
 
 ## Current state (2025-26)
 
-Tenable acquired Vulcan Cyber (announced Jan 29 2025, closed Feb 7 2025, ~$148.5M) for third-party findings aggregation and remediation; acquired Apex Security (June 2025, ~$47.8M) for AI exposure, now Tenable AI Exposure; earlier acquired Eureka Security (June 2024, DSPM) and Ermetic (2023, CNAPP/CIEM). VPR has an 'enhanced' version weighting threat and impact equally. Product renames: Tenable.io -> Tenable Vulnerability Management, Tenable.sc -> Tenable Security Center. No product/acquisition named 'Aura' found - verify if seen elsewhere.
+Tenable acquired Vulcan Cyber (announced Jan 29 2025, closed Feb 7 2025, ~$148.5M) for third-party findings aggregation and remediation; acquired Apex Security (June 2025, ~$47.8M) for AI exposure, now Tenable AI Exposure; earlier acquired Eureka Security (June 2024, DSPM) and Ermetic (2023, CNAPP/CIEM). VPR has an 'enhanced' version weighting threat and impact equally. Product renames: Tenable.io -> Tenable Vulnerability Management, Tenable.sc -> Tenable Security Center.
 
 ---
 *Generic reference. Confirm product facts, event IDs, fields and URLs against current vendor sources. Descriptive, not an endorsement.*

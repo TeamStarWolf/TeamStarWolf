@@ -1332,4 +1332,4 @@ Tools: BGPmon, RIPE BGPlay, Cloudflare Radar BGP, Team Cymru BGP routing securit
 
 ---
 
-*Part of the [TeamStarWolf Security Reference](README.md) | ATT&CK technique IDs reference [MITRE ATT&CK v19.2](https://attack.mitre.org/) | All tool commands for authorized security testing only*
+*Part of the [TeamStarWolf Security Reference](README.md) | ATT&CK technique IDs reference [MITRE ATT&CK v20.0](https://attack.mitre.org/) | All tool commands for authorized security testing only*

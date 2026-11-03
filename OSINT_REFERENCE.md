@@ -1703,7 +1703,7 @@ Confidence levels:
 
 ## 12. ATT&CK Reconnaissance Mapping
 
-MITRE ATT&CK v19.2 Reconnaissance (TA0043) techniques and OSINT tool mapping:
+MITRE ATT&CK v20.0 Reconnaissance (TA0043) techniques and OSINT tool mapping:
 
 | Technique ID | Technique Name | OSINT Approach | Tools |
 |-------------|----------------|---------------|-------|

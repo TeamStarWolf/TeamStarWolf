@@ -36,6 +36,13 @@ Layers of checks:
      product's `vendor` is a vendor row, every `library_path` is a tracked page and
      every `library_anchor` resolves on it with the docsify slugger.
 
+  8. Technique enrichment (data/attack/technique_enrichment.jsonl, the library's notes
+     that scripts/generate_mitre_pages.py renders on new techniques): the name matches
+     the technique profile, every related ATLAS id is a technique of the pinned ATLAS
+     release, every reference is either linked (link_status ok, an https URL) or kept as
+     plain text (link_status unreachable, no URL), dates are ISO, and no text carries an
+     em dash (docs/VOICE.md).
+
 Previously only the three crosswalks were validated (3 of 41 datasets); this
 covers them all (Library Enhancement Roadmap Tier 1.9).
 """
@@ -57,6 +64,13 @@ VOCAB_FIELDS = ("id", "type", "label", "aliases", "match", "stop_aliases", "ambi
                 "kev_vendor_project", "vendor", "attack_id", "attack_domains", "software_type",
                 "superseded_ids", "vendor_keys", "library_path", "library_anchor", "library_url",
                 "source", "reviewed_at")
+
+# Layer 8: the technique enrichment rows (scripts/generate_mitre_pages.py renders them).
+ENRICH = "data/attack/technique_enrichment.jsonl"
+ENRICH_FIELDS = ("technique_id", "name", "narrative", "detection_notes", "references",
+                 "omitted_news", "related_atlas", "atlas_note", "capec_release",
+                 "ctid_attack_release", "mappings_checked_at", "reviewed_at")
+ENRICH_REF_FIELDS = ("author", "title", "date", "url", "link_status", "checked_at")
 
 # Layer 3: rich per-field schemas for the vendor/control/technique crosswalks.
 SCHEMAS = {
@@ -122,6 +136,12 @@ SCHEMAS = {
             "reason": ["ordinary-word", "command-name", "personal-name", "place-name", "legitimate-service"],
         }
     },
+    # The library's notes for new ATT&CK techniques (rendered by generate_mitre_pages.py);
+    # the cross-file rules are in enrichment_errors() (layer 8).
+    ENRICH: {
+        "required": list(ENRICH_FIELDS),
+        "field_values": {},
+    },
     # Per-technique prevalence extracted from the (uncommitted) 529-machine training
     # corpus; scripts/generate_mitre_pages.py renders the "corpus signal" paragraph from it.
     "data/generated/corpus_signal.jsonl": {
@@ -157,6 +177,7 @@ PRIMARY_KEYS = {
     "data/attack/software.jsonl": "software_id",
     "data/attack/software_profiles.jsonl": "software_id",
     "data/attack/technique_profiles.jsonl": "technique_id",
+    "data/attack/technique_enrichment.jsonl": "technique_id",
     "data/engage/engage_activities.jsonl": "activity_id",
     "data/engage/engage_approaches.jsonl": "approach_id",
     "data/engage/engage_goals.jsonl": "goal_id",
@@ -211,6 +232,7 @@ TECHNIQUE_REFS = {
     "data/attack/detection_strategies.jsonl":      ("technique_id", False, ENT, False),
     "data/attack/analytics.jsonl":                 ("technique_ids", True, ENT, False),
     "data/generated/corpus_signal.jsonl":          ("technique_id", False, ENT, False),
+    "data/attack/technique_enrichment.jsonl":      ("technique_id", False, ENT, False),
     "data/weaknesses/capec.jsonl":                 ("attack_techniques", True, ALL, False),
 }
 
@@ -523,6 +545,64 @@ def validate_file(rel: str, ids=None):
     return line_count, errors, checks
 
 
+def enrichment_errors():
+    """Layer 8: cross-file and content rules for data/attack/technique_enrichment.jsonl."""
+    import re
+    p = ROOT / ENRICH
+    if not p.exists():
+        return []
+    def rows(rel):
+        with open(ROOT / rel, encoding="utf-8") as f:
+            return [json.loads(x) for x in f if x.strip()]
+    names = {r["technique_id"]: r.get("name") for r in rows("data/attack/technique_profiles.jsonl")}
+    atlas = {r["technique_id"] for r in rows("data/ai/atlas_techniques.jsonl")}
+    day = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+    when = re.compile(r"^\d{4}(-\d{2}(-\d{2})?)?$")
+    errs = []
+    for n, r in enumerate(rows(ENRICH), start=1):
+        tid = r.get("technique_id")
+        at = f"  Line {n} ({tid}): "
+        if names.get(tid) != r.get("name"):
+            errs.append(at + f"name {r.get('name')!r} differs from technique_profiles ({names.get(tid)!r})")
+        nar = r.get("narrative")
+        if not (isinstance(nar, list) and nar and all(isinstance(x, str) and x.strip() for x in nar)):
+            errs.append(at + "narrative must be a non-empty list of paragraphs")
+        if not (isinstance(r.get("detection_notes"), str) and r["detection_notes"].strip()):
+            errs.append(at + "detection_notes must be a non-empty string")
+        for k in ("mappings_checked_at", "reviewed_at"):
+            if not day.match(str(r.get(k) or "")):
+                errs.append(at + f"{k} must be YYYY-MM-DD")
+        if not (isinstance(r.get("omitted_news"), int) and r["omitted_news"] >= 0):
+            errs.append(at + "omitted_news must be a count (int >= 0)")
+        for a in r.get("related_atlas") or []:
+            if a not in atlas:
+                errs.append(at + f"related ATLAS id {a} is not a technique in data/ai/atlas_techniques.jsonl")
+        refs = r.get("references")
+        if not (isinstance(refs, list) and refs):
+            errs.append(at + "references must be a non-empty list")
+            refs = []
+        for i, ref in enumerate(refs, start=1):
+            missing = [k for k in ENRICH_REF_FIELDS if k not in ref]
+            if missing:
+                errs.append(at + f"reference {i} lacks {missing}")
+                continue
+            if ref["link_status"] == "ok":
+                if not (isinstance(ref["url"], str) and ref["url"].startswith("https://")):
+                    errs.append(at + f"reference {i} is linked but has no https URL")
+            elif ref["link_status"] == "unreachable":
+                if ref["url"] is not None:
+                    errs.append(at + f"reference {i} did not open, so it must carry no URL (kept as plain text)")
+            else:
+                errs.append(at + f"reference {i} link_status {ref['link_status']!r} not in ['ok', 'unreachable']")
+            if ref["date"] is not None and not when.match(str(ref["date"])):
+                errs.append(at + f"reference {i} date {ref['date']!r} is not YYYY, YYYY-MM or YYYY-MM-DD")
+            if not day.match(str(ref["checked_at"])):
+                errs.append(at + f"reference {i} checked_at must be YYYY-MM-DD")
+        if "\u2014" in json.dumps(r, ensure_ascii=False):
+            errs.append(at + "contains an em dash (U+2014); docs/VOICE.md bans it")
+    return errs
+
+
 def main():
     ids = AttackIds(ROOT)
     files = sorted(
@@ -577,6 +657,16 @@ def main():
         total_errors += len(verrs)
     else:
         print(f"OK    {VOCAB}  (vocabulary: ids, attack_id, vendor refs, library_path + docsify anchors)")
+
+    # Layer 8 - the technique enrichment rows (cross-file and content rules)
+    eerrs = enrichment_errors()
+    if eerrs:
+        print(f"FAIL  {ENRICH}  enrichment: {len(eerrs)} error(s)")
+        for e in eerrs[:25]:
+            print(e)
+        total_errors += len(eerrs)
+    else:
+        print(f"OK    {ENRICH}  (enrichment: profile names, ATLAS ids, reference links, dates, no em dash)")
 
     print("\n" + "=" * 60)
     print(f"Datasets validated: {len(files)}   Records: {total_lines}")

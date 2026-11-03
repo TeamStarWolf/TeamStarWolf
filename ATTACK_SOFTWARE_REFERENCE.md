@@ -2,7 +2,7 @@
 
 <!-- local-id-links (written by scripts/build_crosslinks.py from docs/crosslinks.json): the "(local)" link after a MITRE ID opens that object's page in this library. Edit the MITRE link; the script rewrites the "(local)" link. -->
 
-> The 784 software entries in MITRE ATT&CK Enterprise (v19.2), 693 malware families and 91 tools, that adversaries use to carry out techniques. Each entry lists the number of ATT&CK techniques it implements and the threat groups known to use it. Pair with [Threat Group Profiles](THREAT_GROUP_PROFILES.md), the [Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md), and [Malware Families](MALWARE_FAMILIES.md).
+> The 842 software entries in MITRE ATT&CK Enterprise (v20.0), 747 malware families and 95 tools, that adversaries use to carry out techniques. Each entry lists the number of ATT&CK techniques it implements and the threat groups known to use it. Pair with [Threat Group Profiles](THREAT_GROUP_PROFILES.md), the [Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md), and [Malware Families](MALWARE_FAMILIES.md).
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 

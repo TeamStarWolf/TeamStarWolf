@@ -123,9 +123,9 @@ Transfer content that does not comply with policy to a quarantine zone.
 - [T1574.012: COR_PROFILER](/mitre/techniques/T1574-012.md): quarantines. Adversaries may leverage the COR_PROFILER environment variable to hijack the execution flow of programs that load the.NET CLR.
 - [T1647: Plist File Modification](/mitre/techniques/T1647.md): quarantines (D3FEND maps the revoked predecessor T1547.011). Adversaries may modify property list files (plist files) to enable other malicious activity, while also potentially evading and bypassing system defenses.
 - [T1649: Steal or Forge Authentication Certificates](/mitre/techniques/T1649.md): quarantines. Adversaries may steal or forge certificates used for authentication to access remote systems or resources.
-- [T1685.006: Clear Linux or Mac System Logs](/mitre/techniques/T1685-006.md): quarantines. Adversaries may clear system logs to hide evidence of an intrusion.
-- [T1688: Safe Mode Boot](/mitre/techniques/T1688.md): quarantines. Adversaries may abuse Windows safe mode to disable endpoint defenses.
-- [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): quarantines. Adversaries may impair command history logging to hide commands they run on a compromised system.
+- [T1685.006: Clear Linux or Mac System Logs](/mitre/techniques/T1685-006.md): quarantines (D3FEND maps the revoked predecessor T1070.002). Adversaries may clear system logs to hide evidence of an intrusion.
+- [T1688: Safe Mode Boot](/mitre/techniques/T1688.md): quarantines (D3FEND maps the revoked predecessor T1562.009). Adversaries may abuse Windows safe mode to disable endpoint defenses.
+- [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): quarantines (D3FEND maps the revoked predecessor T1562.003). Adversaries may impair command history logging to hide commands they run on a compromised system.
 
 _D3FEND also maps T0853, T1053.004, deprecated in ATT&CK with no successor; not counted above._
 

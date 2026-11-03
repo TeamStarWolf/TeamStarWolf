@@ -15,7 +15,7 @@ An attacker gets access to the database table where hashes of passwords are stor
 
 ## Related CWE (8)
 
-- [CWE-261: Weak Encoding for Password](https://cwe.mitre.org/data/definitions/261.html): Obscuring a password with a trivial encoding does not protect the password.
+- [CWE-261: Weak Encoding for Password](https://cwe.mitre.org/data/definitions/261.html): The product uses a weak or trivial encoding for a password.
 - [CWE-521: Weak Password Requirements](https://cwe.mitre.org/data/definitions/521.html): The product does not require that users should have strong passwords.
 - [CWE-262: Not Using Password Aging](https://cwe.mitre.org/data/definitions/262.html): The product does not have a mechanism in place for managing password aging.
 - [CWE-263: Password Aging with Long Expiration](https://cwe.mitre.org/data/definitions/263.html): The product supports password aging, but the expiration period is too long.

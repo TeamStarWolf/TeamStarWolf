@@ -9,7 +9,7 @@ Delete a registry key.
 
 ## ATT&CK techniques countered (1)
 
-- [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): deletes. Adversaries may impair command history logging to hide commands they run on a compromised system.
+- [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): deletes (D3FEND maps the revoked predecessor T1562.003). Adversaries may impair command history logging to hide commands they run on a compromised system.
 
 ---
 

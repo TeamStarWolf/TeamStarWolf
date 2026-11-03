@@ -58,12 +58,12 @@ Restoring an software configuration.
 - [T1614: System Location Discovery](/mitre/techniques/T1614.md): restores. Adversaries may gather information in an attempt to calculate the geographical location of a victim host.
 - [T1615: Group Policy Discovery](/mitre/techniques/T1615.md): restores. Adversaries may gather information on Group Policy settings to identify paths for privilege escalation, security measures applied within a domain, and to discover patterns in domain objects that can be manipulated or used to blend in the environment.
 - [T1666: Modify Cloud Resource Hierarchy](/mitre/techniques/T1666.md): restores. Adversaries may attempt to modify hierarchical structures in infrastructure-as-a-service (IaaS) environments in order to evade defenses.
-- [T1685.001: Disable or Modify Windows Event Log](/mitre/techniques/T1685-001.md): restores. Adversaries may disable or modify the Windows Event Log to limit data that can be leveraged for detections and audits.
-- [T1685.002: Disable or Modify Cloud Log](/mitre/techniques/T1685-002.md): restores. An adversary may disable or modify cloud logging capabilities and integrations to limit what data is collected on their activities and avoid detection.
-- [T1686: Disable or Modify System Firewall](/mitre/techniques/T1686.md): restores. Adversaries may disable or modify host-based or network firewalls to impair defensive mechanisms and enable further action.
-- [T1686.001: Cloud Firewall](/mitre/techniques/T1686-001.md): restores. Adversaries may disable or modify a firewall within a cloud environment to bypass controls that limit access to cloud resources.
-- [T1688: Safe Mode Boot](/mitre/techniques/T1688.md): restores. Adversaries may abuse Windows safe mode to disable endpoint defenses.
-- [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): restores. Adversaries may impair command history logging to hide commands they run on a compromised system.
+- [T1685.001: Disable or Modify Windows Event Log](/mitre/techniques/T1685-001.md): restores (D3FEND maps the revoked predecessor T1562.002). Adversaries may disable or modify the Windows Event Log to limit data that can be leveraged for detections and audits.
+- [T1685.002: Disable or Modify Cloud Log](/mitre/techniques/T1685-002.md): restores (D3FEND maps the revoked predecessor T1562.008). An adversary may disable or modify cloud logging capabilities and integrations to limit what data is collected on their activities and avoid detection.
+- [T1686: Disable or Modify System Firewall](/mitre/techniques/T1686.md): restores (D3FEND maps the revoked predecessor T1562.004). Adversaries may disable or modify host-based or network firewalls to impair defensive mechanisms and enable further action.
+- [T1686.001: Cloud Firewall](/mitre/techniques/T1686-001.md): restores (D3FEND maps the revoked predecessor T1562.007). Adversaries may disable or modify a firewall within a cloud environment to bypass controls that limit access to cloud resources.
+- [T1688: Safe Mode Boot](/mitre/techniques/T1688.md): restores (D3FEND maps the revoked predecessor T1562.009). Adversaries may abuse Windows safe mode to disable endpoint defenses.
+- [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): restores (D3FEND maps the revoked predecessor T1562.003). Adversaries may impair command history logging to hide commands they run on a compromised system.
 
 ---
 

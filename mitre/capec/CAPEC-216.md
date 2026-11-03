@@ -9,7 +9,7 @@ An adversary manipulates a setting or parameter on communications channel in ord
 
 ## Related CWE (1)
 
-- [CWE-306: Missing Authentication for Critical Function](https://cwe.mitre.org/data/definitions/306.html): The product does not perform any authentication for functionality that requires a provable user identity or consumes a significant amount of resources.
+- [CWE-306: Missing Authentication for Critical Functionality](https://cwe.mitre.org/data/definitions/306.html): The product does not perform any authentication for functionality that requires a provable user identity or consumes a significant amount of resources.
 
 ## Prerequisites
 

@@ -21,11 +21,11 @@ An adversary exploits well-known locations for resources for the purposes of und
 
 - [CWE-552: Files or Directories Accessible to External Parties](https://cwe.mitre.org/data/definitions/552.html): The product makes files or directories accessible to unauthorized actors, even though they should not be.
 - [CWE-1239: Improper Zeroization of Hardware Register](https://cwe.mitre.org/data/definitions/1239.html): The hardware product does not properly clear sensitive information from built-in registers when the user of the hardware block changes.
-- [CWE-1258: Exposure of Sensitive System Information Due to Uncleared Debug Information](https://cwe.mitre.org/data/definitions/1258.html): The hardware does not fully clear security-sensitive values, such as keys and intermediate values in cryptographic operations, when debug mode is entered.
+- [CWE-1258: Exposure of Sensitive System Information Due to Uncleared Debug Information](https://cwe.mitre.org/data/definitions/1258.html): The hardware product enters debug mode but does not fully clear security-sensitive values, such as keys and intermediate values in cryptographic operations.
 - [CWE-1266: Improper Scrubbing of Sensitive Data from Decommissioned Device](https://cwe.mitre.org/data/definitions/1266.html): The product does not properly provide a capability for the product administrator to remove sensitive data at the time the product is decommissioned.
 - [CWE-1272: Sensitive Information Uncleared Before Debug/Power State Transition](https://cwe.mitre.org/data/definitions/1272.html): The product performs a power or debug state transition, but it does not clear sensitive information that should no longer be accessible due to changes to information access restrictions.
 - [CWE-1323: Improper Management of Sensitive Trace Data](https://cwe.mitre.org/data/definitions/1323.html): Trace data collected from several sources on the System-on-Chip (SoC) is stored in unprotected locations or transported to untrusted agents.
-- [CWE-1330: Remanent Data Readable after Memory Erase](https://cwe.mitre.org/data/definitions/1330.html): Confidential information stored in memory circuits is readable or recoverable after being cleared or erased.
+- [CWE-1330: Remanent Data Readable after Memory Erase](https://cwe.mitre.org/data/definitions/1330.html): Confidential information stored in memory circuits is readable or recoverable after being cleared or erased, i.e., there is data remanence.
 
 ## Prerequisites
 

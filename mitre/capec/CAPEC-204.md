@@ -17,7 +17,7 @@ An adversary examines a target application's cache, or a browser cache, for sens
 - [CWE-524: Use of Cache Containing Sensitive Information](https://cwe.mitre.org/data/definitions/524.html): The code uses a cache that contains sensitive information, but the cache can be read by an actor outside of the intended control sphere.
 - [CWE-311: Missing Encryption of Sensitive Data](https://cwe.mitre.org/data/definitions/311.html): The product does not encrypt sensitive or critical information before storage or transmission.
 - [CWE-1239: Improper Zeroization of Hardware Register](https://cwe.mitre.org/data/definitions/1239.html): The hardware product does not properly clear sensitive information from built-in registers when the user of the hardware block changes.
-- [CWE-1258: Exposure of Sensitive System Information Due to Uncleared Debug Information](https://cwe.mitre.org/data/definitions/1258.html): The hardware does not fully clear security-sensitive values, such as keys and intermediate values in cryptographic operations, when debug mode is entered.
+- [CWE-1258: Exposure of Sensitive System Information Due to Uncleared Debug Information](https://cwe.mitre.org/data/definitions/1258.html): The hardware product enters debug mode but does not fully clear security-sensitive values, such as keys and intermediate values in cryptographic operations.
 
 ## Prerequisites
 

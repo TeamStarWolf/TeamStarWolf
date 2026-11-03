@@ -11,7 +11,7 @@ An adversary exploits missing or incorrectly configured access control within re
 
 ## Related CWE (5)
 
-- [CWE-1224: Improper Restriction of Write-Once Bit Fields](https://cwe.mitre.org/data/definitions/1224.html): The hardware design control register sticky bits or write-once bit fields are improperly implemented, such that they can be reprogrammed by software.
+- [CWE-1224: Improper Restriction of Write-Once Bit Fields](https://cwe.mitre.org/data/definitions/1224.html): The hardware design control register "sticky bits" or write-once bit fields are improperly implemented, such that they can be reprogrammed by software.
 - [CWE-1231: Improper Prevention of Lock Bit Modification](https://cwe.mitre.org/data/definitions/1231.html): The product uses a trusted lock bit for restricting access to registers, address regions, or other resources, but the product does not prevent the value of the lock bit from being modified after it has been set.
 - [CWE-1233: Security-Sensitive Hardware Controls with Missing Lock Bit Protection](https://cwe.mitre.org/data/definitions/1233.html): The product uses a register lock bit protection mechanism, but it does not ensure that the lock bit prevents modification of system registers or controls that perform changes to important hardware system configuration.
 - [CWE-1262: Improper Access Control for Register Interface](https://cwe.mitre.org/data/definitions/1262.html): The product uses memory-mapped I/O registers that act as an interface to hardware functionality from software, but there is improper access control to those registers.

@@ -65,7 +65,7 @@ Using a digital signature to authenticate a file before opening.
 - [T1574.007: Path Interception by PATH Environment Variable](/mitre/techniques/T1574-007.md): blocks. Adversaries may execute their own malicious payloads by hijacking environment variables used to load libraries.
 - [T1574.008: Path Interception by Search Order Hijacking](/mitre/techniques/T1574-008.md): blocks. Adversaries may execute their own malicious payloads by hijacking the search order used to load other programs.
 - [T1574.009: Path Interception by Unquoted Path](/mitre/techniques/T1574-009.md): blocks. Adversaries may execute their own malicious payloads by hijacking vulnerable file path references.
-- [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): blocks. Adversaries may impair command history logging to hide commands they run on a compromised system.
+- [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): blocks (D3FEND maps the revoked predecessor T1562.003). Adversaries may impair command history logging to hide commands they run on a compromised system.
 
 _D3FEND also maps T0853, deprecated in ATT&CK with no successor; not counted above._
 

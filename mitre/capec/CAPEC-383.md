@@ -17,7 +17,7 @@ An adversary hosts an event within an application framework and then monitors th
 - [CWE-311: Missing Encryption of Sensitive Data](https://cwe.mitre.org/data/definitions/311.html): The product does not encrypt sensitive or critical information before storage or transmission.
 - [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html): The product transmits sensitive or security-critical data in cleartext in a communication channel that can be sniffed by unauthorized actors.
 - [CWE-419: Unprotected Primary Channel](https://cwe.mitre.org/data/definitions/419.html): The product uses a primary channel for administration or restricted functionality, but it does not properly protect the channel.
-- [CWE-602: Client-Side Enforcement of Server-Side Security](https://cwe.mitre.org/data/definitions/602.html): The product is composed of a server that relies on the client to implement a mechanism that is intended to protect the server.
+- [CWE-602: Client-Side Enforcement of Server-Side Security](https://cwe.mitre.org/data/definitions/602.html): The product includes a server that relies on the client to implement a protection mechanism that is intended to protect the server.
 
 ## Prerequisites
 

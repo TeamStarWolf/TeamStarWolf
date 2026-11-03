@@ -645,6 +645,16 @@ Premium Path (Industry Standard)
 2. CISSP: management/architecture
 3. GREM or GCFA: specialization
 
+---
+
+## Key External Resources
+
+External tools and services for certification exam preparation.
+
+| Resource | URL |
+|---|---|
+| Boson (ExSim practice exams) | https://www.boson.com/ |
+
 <!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Related pages

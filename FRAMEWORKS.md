@@ -621,6 +621,25 @@ Access Control, Awareness & Training, Audit & Accountability, Configuration Mana
 - [Privacy Engineering](disciplines/privacy-engineering.md): GDPR/CCPA technical implementation
 - [ICS / OT Security](disciplines/ics-ot-security.md): IEC 62443 implementation
 
+---
+
+## Key External Resources
+
+Authoritative home pages and portals for the frameworks, threat-informed-defense knowledge bases, and control catalogs referenced throughout this guide.
+
+| Resource | URL |
+|---|---|
+| MITRE ATT&CK | https://attack.mitre.org/ |
+| MITRE D3FEND | https://d3fend.mitre.org/ |
+| MITRE ATLAS (AI) | https://atlas.mitre.org/ |
+| Center for Threat-Informed Defense | https://ctid.mitre.org/ |
+| CTID Mappings Explorer | https://center-for-threat-informed-defense.github.io/mappings-explorer/ |
+| NIST CSRC | https://csrc.nist.gov/ |
+| SP 800-53 Rev 5 | https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final |
+| CPRT (Control/Ref Toolkit) | https://csrc.nist.gov/projects/cprt |
+| CIS Controls | https://www.cisecurity.org/controls |
+| CIS Benchmarks | https://www.cisecurity.org/cis-benchmarks |
+
 <!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Related pages

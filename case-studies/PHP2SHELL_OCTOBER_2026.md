@@ -10,6 +10,19 @@ October 2026 compressed several years' worth of trust failures into a few weeks.
 
 Evidence grade: **Confirmed** overall (vendor, government and primary-research sources for each major item; single-source or claimed figures are marked below).
 
+### Key facts at a glance
+
+| Field | Value |
+|---|---|
+| Centerpiece | PHP2Shell: CVE-2026-109618 and CVE-2026-109619, pre-auth RCE in PHP core, CVSS v4.0 9.2 |
+| Affected | PHP 5.4 through 8.5; fixed in 8.5.12, 8.4.27, 8.3.36 and 8.2.35 (20 to 21 October 2026) |
+| Exploitation speed | Honeypot attempts four days before disclosure; tens of thousands of attempts within 45 minutes, millions within a day |
+| SaaS supply chain | ConnectWise Cloud Backup via stolen OAuth credential (Storm-0940, agentic framework ARTEX, about 2,900 sign-ins a minute) |
+| Web PKI | Eight eMudhra intermediate CA keys distrusted (see the dedicated study) |
+| Largest crypto theft | About $6.3 billion from Binance, North Korea's TraderTraitor, most moved in about 20 minutes |
+| AI toolchain hits | Trojanized LiteLLM 1.107.0 (un-rotated May key) and a malicious "Claude Code" Cursor extension |
+| Confirmed breach? | As of CISA's advisory, mass PHP2Shell scanning but no confirmed successful compromise |
+
 ### Key findings
 
 - **PHP2Shell put every PHP web server in scope.** Two memory-corruption bugs in PHP core (a use-after-free in the upload-progress feature and a partial-initialization fault under memory pressure) allow unauthenticated RCE. They affect PHP 5.4 through 8.5 and were fixed in 8.5.12, 8.4.27, 8.3.36 and 8.2.35.
@@ -44,7 +57,20 @@ PHP2Shell is the name researchers gave to two critical flaws in PHP core, each r
 
 The flaws affect PHP 5.4 through 8.5, which is effectively the entire supported and legacy range, and were fixed in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35, released 20–21 October 2026. CISA, NSA and NCSC-UK told organizations to patch or take PHP servers offline (**Confirmed**).
 
-The timeline is the lesson. Amazon Threat Intelligence observed exploitation attempts in its MadPot honeypots on 17 October, four days before public disclosure (**Confirmed**: Amazon). watchTowr reported in-the-wild exploitation of both CVEs (**Reported**). Cloudflare measured tens of thousands of attempts within about 45 minutes of the announcement, climbing to millions by 22 October (**Confirmed**: Cloudflare telemetry). Observed payloads included a Mirai botnet fork (Nokia Deepfield) and attempts to drop a web shell through a server-side session file from a China-based address (**Reported**). As of CISA's advisory, no successful compromise had been confirmed, which separates mass scanning from mass breach.
+Why PHP2Shell was so alarming is PHP's ubiquity. PHP still runs a large share of the web, from bespoke applications to the content-management systems, forums and admin panels that sit on the internet edge, and it is embedded inside countless vendor appliances and container images where operators may not even think of it as "their" PHP. A pre-authentication memory-corruption flaw in the interpreter itself therefore does not have a tidy asset list; the attack surface is "anything serving PHP," which is why the advisories reached for the blunt instruction to patch or take the server offline.
+
+The timeline is the lesson. Amazon Threat Intelligence observed exploitation attempts in its MadPot honeypots on 17 October, four days before public disclosure (**Confirmed**: Amazon). watchTowr reported in-the-wild exploitation of both CVEs (**Reported**). Cloudflare measured tens of thousands of attempts within about 45 minutes of the announcement, climbing to millions by 22 October (**Confirmed**: Cloudflare telemetry). Observed payloads included a Mirai botnet fork (Nokia Deepfield) and attempts to drop a web shell through a server-side session file from a China-based address (**Reported**). As of CISA's advisory, no successful compromise had been confirmed, which separates mass scanning from mass breach, and is the distinction a defender has to hold onto when the attempt count runs to the millions.
+
+### October 2026 timeline
+
+| Date | Event |
+|---|---|
+| 14 October | ConnectWise identifies the Cloud Backup issue |
+| 17 October | Amazon MadPot sees PHP2Shell attempts; ConnectWise suspends Cloud Backup |
+| 20 to 21 October | PHP2Shell disclosed and patched; eMudhra intermediate CA keys distrusted by browsers |
+| By 22 October | PHP2Shell exploit attempts climb from tens of thousands to millions |
+| 29 October | Binance drained of about $6.3 billion (TraderTraitor); trojanized "Claude Code" Cursor extension published |
+| Throughout the week | CISA adds eight CVEs to KEV; the Japanese consumer-breach cluster unfolds |
 
 ### PHP2Shell remediation
 
@@ -72,6 +98,23 @@ Alongside these, CISA added eight CVEs to its Known Exploited Vulnerabilities ca
 - **A trojanized AI coding extension (29 October).** Malicious builds 2.1.312 and 2.1.313 of a "Claude Code" extension sat in the Cursor marketplace for about 11 hours, planting an attacker SSH key and a reverse tunnel that survived uninstalling the extension; up to 5,000 users were exposed. The builds were not produced by Anthropic, and Cursor rebuilt its marketplace in response (**Confirmed**: Sophos, Microsoft, Cursor). A claim that the upload followed a breach at Anthropic is an unverified allegation (**Reported**).
 - **A cluster of Japanese breaches.** Sony's So-net and plala disclosed 2,585,481 exposed records (**Confirmed**); Burger King Japan disclosed about 11.18 million app records accessed between 2 and 7 October (**Confirmed**); Japanese cloud provider IDC Frontier's IDCF Cloud was disrupted by ransomware on 7–8 October, affecting 495 organizations (the 3.6 PB "encrypted" figure is an attacker claim, **Reported**); Advantest, Japan Airlines (about 90,000 passengers via a third party), and GMO were also hit (**Confirmed** / **Reported** by source).
 - **Other notable items.** A Florida financial-aid site breach exposed Social Security numbers for about 4.9 million people (**Reported**); ASOS confirmed a customer-data breach (**Confirmed**); the GlassWorm campaign abused OVHcloud GitHub infrastructure, and the Railway platform reported a supply-chain incident (**Reported**).
+
+## Part 4: the vulnerability-management lens
+
+The October wave is a stress test of a vulnerability management program's reflexes, and each strand points at a different muscle:
+
+- **Ubiquitous-runtime flaws need a surface map, not a host list.** PHP2Shell cannot be chased host by host, because PHP hides inside appliances, images and bundled stacks. The program that coped was the one that could answer "where does PHP run, including inside products we bought," from a software inventory and SBOMs, rather than a server list. Scan the package and the embedded interpreter, not just the banner.
+- **SaaS application credentials are privileged identities.** The ConnectWise intrusion ran on a stolen OAuth application secret, not a user password, and moved at machine speed with no interactive login. Treat app secrets and API keys like privileged accounts: scope them tightly, rotate them on any provider incident, and alert on high-rate non-interactive sign-ins, which is the signal a 2,900-per-minute agentic run produces.
+- **Leaked keys are incidents the moment they leak, not when they are abused.** The LiteLLM master key leaked in May and became an October breach because it was never rotated. Rotation on disclosure, not on a calendar, is the control that would have closed that gap.
+- **Developer tooling is supply chain.** The trojanized LiteLLM package and the malicious Cursor extension both entered through the developer's own toolchain, and the extension's SSH-key and reverse-tunnel persistence survived uninstalling it. Pin versions, verify publisher and marketplace integrity, and hunt for persistence that outlives the package.
+
+### Detection and hunting
+
+- **PHP servers**: watch for the public payload shapes (the Mirai fork, web-shell drops via session files), confirm the patched package is installed and the service restarted, and treat a spike of malformed upload-progress or session traffic as worth investigating.
+- **SaaS tenants**: alert on non-interactive sign-ins at high rate, new or unexpected OAuth application consents, and token use from unfamiliar infrastructure.
+- **Developer endpoints**: inventory installed editor extensions and their versions, and hunt for unexpected SSH keys and outbound reverse tunnels that persist after an uninstall.
+
+See [the Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md) and [the Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
 
 ## Cross-cutting themes
 

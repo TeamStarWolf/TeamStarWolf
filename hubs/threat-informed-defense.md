@@ -17,7 +17,7 @@ Part of the [domain hubs](/hubs/README.md). 16 reference documents in this domai
 | [ATT&CK Software Reference](/ATTACK_SOFTWARE_REFERENCE.md) | 842 MITRE ATT&CK malware families and tools with the techniques they implement and the groups that use them | 46 min |
 | [ATT&CK Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md) | 57 MITRE ATT&CK intrusion campaigns with active windows, techniques, software, and group attribution | 29 min |
 | [ATT&CK Mitigations Reference](/ATTACK_MITIGATIONS_REFERENCE.md) | All 44 ATT&CK Enterprise mitigations (M-codes) and the techniques each one addresses | 22 min |
-| [Mobile ATT&CK Atlas](/MOBILE_ATTACK_ATLAS.md) | MITRE ATT&CK for Mobile techniques and sub-techniques by tactic (page snapshot: ATT&CK v18.1), cross-referenced to groups, software, and mitigations | Lookup page (7 min end to end) |
+| [Mobile ATT&CK Atlas](/MOBILE_ATTACK_ATLAS.md) | MITRE ATT&CK for Mobile techniques and sub-techniques by tactic (generated from ATT&CK v20.0 data), cross-referenced to groups, software, and mitigations | Lookup page (8 min end to end) |
 
 ## Related MITRE frameworks
 

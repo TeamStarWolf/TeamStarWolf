@@ -269,7 +269,7 @@ pages:
     audience: "Detection engineers, threat-informed defense analysts, and anyone looking up an ATT&CK technique"
     level: "Intermediate"
     read_when: "You need to look up any ATT&CK technique fast, you want to see which techniques are heavily used by groups but light on mitigations or detections, or you are prioritizing coverage across a whole tactic"
-    start_at: "[Tactics](#tactics) for the per-tactic index, [Initial Access](#initial-access) or [Defense Evasion](#defense-evasion) to see the scoring columns in action"
+    start_at: "[Tactics](#tactics) for the per-tactic index, [Initial Access](#initial-access) or [Stealth](#stealth) to see the scoring columns in action"
     learning_path: []
     reviewed: null
   AUTOMOTIVE_SECURITY_REFERENCE.md:

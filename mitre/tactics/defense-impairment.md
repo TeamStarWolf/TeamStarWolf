@@ -64,6 +64,16 @@ New tactic in ATT&CK v19 (TA0112): split out from the former Defense Evasion; se
 - [T1689: Downgrade Attack](/mitre/techniques/T1689.md)
 - [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md)
 
+<!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Library references
+
+Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
+
+- [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md)
+
+<!-- library-refs:end -->
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

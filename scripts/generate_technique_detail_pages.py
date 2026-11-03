@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """Generate the tactic-grouped Technique-Detail (techniques/) and Detection-Strategies
-(detections/strategies/) subsystems from the committed v19.2 ATT&CK data.
+(detections/strategies/) subsystems from the committed ATT&CK data, at the release
+scripts/attack_ids.py names (ATTACK_VER, the one build_attack_core.py pins).
 
 These two subsystems predated the /mitre per-object pages and had NO generator in-repo
-(they were v18.1-era one-offs). This builds both deterministically at ATT&CK v19.2:
-the 15 v19.2 tactics (Defense Evasion -> Stealth + new Defense Impairment), the T1682-T1690
-block included, revoked techniques excluded (their /mitre pages carry banners). G1056 and
-the S9xxx software block are official ATT&CK v19.2 entries (verified against attack.mitre.org)
-and are INCLUDED in the external attribution lists.
+(they were v18.1-era one-offs). This builds both deterministically from the data: the 15
+current tactics (ATT&CK v19 split Defense Evasion into Stealth and Defense Impairment),
+every live technique included, revoked techniques excluded (their /mitre pages carry
+banners). G1056 and the S9xxx software block are official ATT&CK entries (verified against
+attack.mitre.org) and are INCLUDED in the external attribution lists.
 
 Outputs (repo root): techniques/README.md + techniques/<tactic>.md (x15);
 detections/strategies/README.md + detections/strategies/<tactic>.md (x15).
@@ -31,10 +32,11 @@ from collections import defaultdict
 from pathlib import Path
 
 from plain_markdown import plain
+from attack_ids import ATTACK_VER
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "attack" if (ROOT / "attack").exists() else ROOT / "data" / "attack"
-VER = "v19.2"
+VER = ATTACK_VER
 
 TACTIC_ORDER = [
     ("reconnaissance", "Reconnaissance", "TA0043"), ("resource-development", "Resource Development", "TA0042"),
@@ -48,8 +50,8 @@ TACTIC_ORDER = [
 ]
 TAC_NAME = {s: n for s, n, _ in TACTIC_ORDER}
 TAC_TAID = {s: t for s, _, t in TACTIC_ORDER}
-LAB_GROUPS = set()                     # G1056 is an official ATT&CK v19.2 group (verified live); include it
-OFFICIAL_SW = re.compile(r"S\d{4}")    # S9xxx are official v19.2 software too; include the full S#### range
+LAB_GROUPS = set()                     # G1056 is an official ATT&CK group (verified live); include it
+OFFICIAL_SW = re.compile(r"S\d{4}")    # S9xxx are official ATT&CK software too; include the full S#### range
 
 
 def load(p):
@@ -67,7 +69,7 @@ def att_url(tid):
 
 prof = {r["technique_id"]: r for r in load("technique_profiles.jsonl")}
 live = [t for t, p in prof.items() if not p.get("revoked")]
-# primary tactic = first v19.2 tactic; only keep techniques whose primary is a known tactic
+# primary tactic = first current tactic; only keep techniques whose primary is a known tactic
 primary = {}
 for t in live:
     tacs = prof[t].get("tactics") or []
@@ -140,9 +142,9 @@ def dedup(seq):
 # ---------------------------------------------------------------- technique-detail pages
 def tech_block(tid):
     p = prof[tid]
-    out = ["### " + tid + " — " + p["name"], '<a id="' + anchor(tid) + '"></a>', ""]
+    out = ["### " + tid + " – " + p["name"], '<a id="' + anchor(tid) + '"></a>', ""]
     tacs = ", ".join(TAC_NAME[x] for x in (p.get("tactics") or []) if x in TAC_NAME)
-    plats = ", ".join(p.get("platforms") or []) or "—"
+    plats = ", ".join(p.get("platforms") or []) or "N/A"
     head = ""
     if p.get("is_subtechnique") and p.get("parent_id") in prof:
         par = p["parent_id"]
@@ -203,7 +205,7 @@ def tech_block(tid):
 def render_tech_tactic(slug):
     ts = by_tac.get(slug, [])
     name = TAC_NAME[slug]
-    out = ["# " + name + " — Technique Detail", "",
+    out = ["# " + name + " – Technique Detail", "",
            "> Full detail pages for the **" + str(len(ts)) + " ATT&CK techniques** whose primary tactic is "
            "[" + name + "](https://attack.mitre.org/tactics/" + TAC_TAID[slug] + "/) (ATT&CK Enterprise " + VER +
            "). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection "
@@ -217,10 +219,11 @@ def render_tech_tactic(slug):
 
 def render_tech_readme():
     navs = " · ".join("[" + n + "](/techniques/" + s + ".md)" for s, n, _ in TACTIC_ORDER)
-    out = ["# ATT&CK Technique Detail — Index", "",
-           "> Consolidated detail pages for all **" + str(len(primary)) + " MITRE ATT&CK Enterprise techniques** "
-           "(" + VER + "), grouped by primary tactic. Each links its ATT&CK description, mitigations, NIST 800-53 "
-           "controls, detections, and the groups and software that use it.", "",
+    out = ["# ATT&CK Technique Detail – Index", "",
+           "> Read every technique of one tactic on a single page: what it is, how to mitigate and detect it, "
+           "the NIST 800-53 controls that apply, and the groups and software that use it. The pages cover all **" +
+           str(len(primary)) + " MITRE ATT&CK\N{REGISTERED SIGN} Enterprise techniques** (" + VER +
+           "), grouped by primary tactic.", "",
            "**By tactic:** " + navs, "",
            "See also: [Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · "
            "[Threat Group Profiles](/THREAT_GROUP_PROFILES.md) · "
@@ -239,7 +242,7 @@ def det_block(tid):
     if not strategies:
         return ""
     p = prof[tid]
-    out = ["### " + tid + " — " + p["name"], '<a id="' + anchor(tid) + '"></a>', ""]
+    out = ["### " + tid + " – " + p["name"], '<a id="' + anchor(tid) + '"></a>', ""]
     slug = primary.get(tid, "")
     n_an = sum(1 for st in strategies for aid in st.get("analytic_ids", []) if aid in an_by_id)
     what = "the detection strategy" if len(strategies) == 1 else count(len(strategies), "detection strategy")
@@ -248,7 +251,7 @@ def det_block(tid):
             "analytic" if n_an == 1 else count(n_an, "analytic"))
     out += [FOLD_OPEN.format("Show " + what), ""]
     for st in strategies:
-        plats = ", ".join(st.get("platforms") or []) or "—"
+        plats = ", ".join(st.get("platforms") or []) or "N/A"
         out.append("**Detection strategy:** " + st.get("name", "") + " (`" + st.get("strategy_id", "") + "`)  ")
         out.append("**Platforms:** " + plats + "  ")
         out.append("**ATT&CK:** [" + tid + "](" + att_url(tid) + "/) · [detail page](/techniques/" +
@@ -258,7 +261,7 @@ def det_block(tid):
             a = an_by_id.get(aid)
             if not a:
                 continue
-            ap = ", ".join(a.get("platforms") or []) or "—"
+            ap = ", ".join(a.get("platforms") or []) or "N/A"
             out.append("- **`" + aid + "` " + a.get("name", "") + "** · " + ap)
             if a.get("description"):
                 out.append("  " + a["description"].strip())
@@ -284,7 +287,7 @@ def det_block(tid):
 def render_det_tactic(slug):
     ts = [t for t in by_tac.get(slug, []) if det_by_t.get(t)]
     name = TAC_NAME[slug]
-    out = ["# " + name + " — Detection Strategies", "",
+    out = ["# " + name + " – Detection Strategies", "",
            "> MITRE ATT&CK detection strategies and analytics (" + VER + ") for techniques whose primary tactic is "
            "**" + name + "**. Each analytic lists the **log sources / channels** it needs, the **detection logic**, "
            "and the **tunable elements** to adapt it to your environment. Authoritative source: the ATT&CK "
@@ -302,10 +305,11 @@ def render_det_readme():
     navs = " · ".join("[" + n + "](/detections/strategies/" + s + ".md)" for s, n, _ in TACTIC_ORDER)
     n_strat = len({r["strategy_id"] for rs in det_by_t.values() for r in rs})
     n_an = len(an_by_id)
-    out = ["# ATT&CK Detection Strategies — Index", "",
-           "> **" + str(n_strat) + " MITRE ATT&CK detection strategies** and **" + str(n_an) + " analytics** (" + VER +
-           ") — the authoritative, MITRE-authored guidance for detecting each technique, with concrete log "
-           "sources, channels, detection logic, and tunable parameters. Complements the "
+    out = ["# ATT&CK Detection Strategies – Index", "",
+           "> Find out how to detect a technique: which logs and channels to collect, the detection logic, "
+           "and the parameters to tune. These are the **" + str(n_strat) + " MITRE ATT&CK\N{REGISTERED SIGN} "
+           "detection strategies** and **" + str(n_an) + " analytics** (" + VER + "), the guidance MITRE "
+           "writes for detecting each technique. They complement the "
            "[ready-to-run Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md).", "",
            "**By tactic:** " + navs]
     return "\n".join(with_notice(out))

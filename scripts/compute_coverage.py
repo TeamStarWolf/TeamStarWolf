@@ -2,7 +2,7 @@
 """
 TeamStarWolf Coverage Gap Scorer
 
-Reads the vendor -> technique edge table and the ATT&CK v19.2 technique profiles and
+Reads the vendor -> technique edge table and the ATT&CK technique profiles and
 computes tactic / technique coverage across the modeled vendor stack. Every number in the
 output is derived from the committed data on each run; nothing is hand-maintained.
 
@@ -39,12 +39,12 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-from attack_ids import AttackIds
+from attack_ids import ATTACK_RELEASE, AttackIds
 from build_ctid_edges import VENDOR_SLUG_ALIASES
 
 ROOT = Path(__file__).resolve().parents[1]
 
-ATTACK_VERSION = "20.0"
+ATTACK_VERSION = ATTACK_RELEASE  # the pinned release (scripts/attack_ids.py); typed nowhere else
 
 # Inputs, relative to the repo root. All are required: a missing file is an error, never
 # an empty table (an empty table used to produce an all-zero scores/ silently).
@@ -71,7 +71,7 @@ def repo_href(rel: str) -> str:
         return "/" + rel
     return f"{REPO_URL}/blob/main/{rel}"
 
-# ATT&CK Enterprise v19.2 tactics (15), in matrix order. v19 renamed Defense Evasion
+# ATT&CK Enterprise tactics (15), in matrix order. v19 renamed Defense Evasion
 # (TA0005) -> Stealth and split out Defense Impairment (TA0112). The technique universe
 # per tactic is derived from the committed profiles, never hardcoded.
 TACTIC_METADATA = {
@@ -104,7 +104,7 @@ GAP_RANKING = ("group_count desc, software_count desc, campaign_count desc, "
 # Worded so no number directly precedes "groups" (build_stats.py --check reads "<n> groups"
 # in scores/*.md as the library-wide group total).
 PRIORITY_BASIS = ("group_count (the number of ATT&CK groups documented using the technique, "
-                  "from the v19.2 profiles): critical >= 20, high >= 10, medium >= 3, low otherwise")
+                  "from the technique profiles): critical >= 20, high >= 10, medium >= 3, low otherwise")
 
 # Curated capability recommendations. The capability, example vendors, target tactics and
 # key technique families are editorial; every number in the rendered rationale (tactic
@@ -201,7 +201,7 @@ def compute() -> tuple[dict[str, str], dict[str, dict]]:
     if not live:
         fail(f"{PROFILES} has no live technique rows")
 
-    # technique -> v19.2 tactics, live techniques only
+    # technique -> current tactics, live techniques only
     tech_tactics: dict[str, list[str]] = {}
     for tid in sorted(live):
         tacs = profiles[tid].get("tactics") or []

@@ -7,8 +7,11 @@ than "ID — Name"; and colons, parentheses, or a sentence break in place of
 template em dashes. Fenced code, inline code, link targets, URLs, and HTML tags
 are left untouched, and every change is made within a single line.
 
-Text quoted from upstream sources (for example MITRE descriptions) can still
-contain dashes; only the template patterns below are rewritten.
+Template separators (the generators use an en dash) are rewritten by the patterns
+below. An em dash that is left after them comes from upstream text (MITRE
+descriptions and analytic notes), and is turned into a comma, the reading the
+voice guide (docs/VOICE.md) asks for in place of an em dash; no generated page
+carries U+2014.
 """
 import re
 
@@ -129,7 +132,7 @@ def plain_line(line):
         out = []
         for c in cells:
             c2 = _prose(c)
-            if re.fullmatch(r"\s*—\s*", c2):
+            if re.fullmatch(r"\s*[—–]\s*", c2):
                 c2 = " N/A "
             elif c2.count("—") + c2.count(" – ") == 1:
                 c2 = _term_lead(c2, keep, 60)
@@ -143,7 +146,21 @@ def plain_line(line):
     if not stripped.startswith("|") and line.strip() != work.strip():
         work = re.sub(r"(?<=\S) {2,}(?=\S)", " ", work)
     work = _templates(work)
+    work = _upstream_dash(work)
     return _restore(work, keep)
+
+
+def _upstream_dash(work):
+    """An em dash still in the line is upstream prose ("solutions—such as prompts—that",
+    "networks — requiring"): read as a comma pair, so write one. A dash next to other
+    punctuation drops instead of doubling it."""
+    if "—" not in work:
+        return work
+    work = re.sub(r"\s*—\s*(?=[,.;:)\]])", "", work)
+    work = re.sub(r"(?<=[,;:])\s*—\s*", " ", work)
+    work = re.sub(r"(?<=[(\[])\s*—\s*", "", work)
+    work = re.sub(r"(?<=\S)\s*—\s*(?=\S)", ", ", work)
+    return work.replace("—", ",")
 
 
 def plain(text):

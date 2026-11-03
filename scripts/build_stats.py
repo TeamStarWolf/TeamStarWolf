@@ -104,21 +104,23 @@ def compute():
         "technique_total": len(tp),
         "technique_parent": len(tp) - sub,
         "technique_sub": sub,
-        # MITRE currently lists 697 ACTIVE enterprise techniques; this file retains a
-        # small number of superseded records on purpose (no revoked flag in-file), so
-        # technique_total (file) legitimately exceeds MITRE-active. See docs footnote.
-        "mitre_active_enterprise_techniques_ref": 697,
-        # Authoritative entity counts come from the *_profiles files (the complete,
-        # v19.2-current sets). All entities are official MITRE ATT&CK v19.2, including
-        # the S9xxx software block and group G1056 (TeamPCP), which are genuine v19.2
-        # additions (verified on attack.mitre.org), not lab/fictional entries.
+        # The ACTIVE Enterprise techniques of the pinned release: the profile rows that
+        # are not flagged revoked or deprecated. The file keeps the revoked records on
+        # purpose (each keeps its page for lineage), so technique_total exceeds it.
+        # Computed, never typed: it was a hand-typed constant that went stale on a re-pin.
+        "mitre_active_enterprise_techniques_ref": sum(
+            1 for t in tp if not t.get("revoked") and not t.get("deprecated")),
+        # Authoritative entity counts come from the *_profiles files (the complete sets
+        # of the pinned release). All entities are official MITRE ATT&CK, including
+        # the S9xxx software block and group G1056 (TeamPCP), which are genuine ATT&CK
+        # entries (verified on attack.mitre.org), not lab/fictional ones.
         "groups": _count("data/attack/group_profiles.jsonl"),
         "software": _count("data/attack/software_profiles.jsonl"),
         "campaigns": _count("data/attack/campaign_profiles.jsonl"),
         "mitigations": _count("data/attack/mitigations.jsonl"),
         "data_components": _count("data/attack/data_components.jsonl"),
         # Count DISTINCT strategies, not rows: 15 strategies are listed against
-        # both a technique's superseded and current v19.2 id (e.g. DET0532 under
+        # both a technique's superseded and current id (e.g. DET0532 under
         # T1070.001 and T1685.005), so the file has more rows than strategies.
         "detection_strategies": (len({r.get("strategy_id") for r in ds}) if ds else None),
         "detection_strategy_technique_rows": (len(ds) if ds else None),
@@ -141,8 +143,9 @@ def compute():
     return {k: v for k, v in stats.items() if v is not None}
 
 # (regex on the doc, group(1) = the number)  ->  stats key it must equal
-# technique_total (714) = the technique RECORDS/pages the library publishes; 697 are
-# active per MITRE v19.2 (17 superseded records retained for lineage; see docs footnote).
+# technique_total = the technique RECORDS/pages the library publishes;
+# mitre_active_enterprise_techniques_ref = the live ones (the revoked records are retained
+# for lineage). Both are computed above; "N active" in a doc must equal the second.
 CHECKS = [
     # Skip relational subset claims like "the 426 ATT&CK techniques they counter"
     # (a cross-reference count, not the technique total) via the trailing lookahead.
@@ -151,6 +154,7 @@ CHECKS = [
     (r"([\d,]+)\s+(?:MITRE ATT&CK\s+)?malware", "software"),
     (r"([\d,]+)\s+(?:MITRE\s+)?detection strategies", "detection_strategies"),
     (r"([\d,]+)\s+analytics", "analytics"),
+    (r"([\d,]+)\s+active\b", "mitre_active_enterprise_techniques_ref"),
     (r"([\d,]+)\s+deception activities", "engage_activities"),
     (r"([\d,]+)\s+mappings? to ATT", "engage_mappings"),
     (r"([\d,]+)\s+(?:MITRE ATT&CK\s+)?(?:intrusion\s+)?campaigns", "campaigns"),

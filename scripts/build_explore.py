@@ -26,8 +26,8 @@ The rows come from the JSONL files in data/, not from the rendered pages:
 
 Each row links to its page under mitre/. The page for each object is found by the ID (or,
 for D3FEND, the name) in the H1 of the pages in its folder; an object without a page, or a
-page without an object, fails the build. A technique revoked or deprecated in ATT&CK v19.2
-(data/attack/superseded_by.jsonl) carries the ID that replaced it.
+page without an object, fails the build. A technique revoked or deprecated in the pinned
+ATT&CK release (data/attack/superseded_by.jsonl) carries the ID that replaced it.
 
 Usage:
     python scripts/build_explore.py            # write both files
@@ -46,11 +46,12 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from repo_files import ROOT, read_text, tracked_files  # noqa: E402
+from attack_ids import ATTACK_RELEASE  # noqa: E402  the pinned release, typed nowhere else
 
 JSON_OUT = "assets/explore.json"
 PAGE_OUT = "explore.md"
 GENERATED_BY = "written by scripts/build_explore.py from data/; do not edit"
-ATTACK_VERSION = "19.2"
+ATTACK_VERSION = ATTACK_RELEASE
 
 # kind key, singular label, plural label, page folder, source files, connection labels
 # (singular, plural)
@@ -85,7 +86,7 @@ FAMILY_INDEX = {
     "atlas-mitigation": "/mitre/atlas/README.md", "f3": "/mitre/f3/README.md",
 }
 
-# ATT&CK v19.2 Enterprise tactics in matrix order; a tactic in the data that is not here
+# ATT&CK Enterprise tactics of the pinned release in matrix order; a tactic in the data that is not here
 # fails the build, so a new ATT&CK release cannot drop one silently.
 ATTACK_TACTICS = [
     "reconnaissance", "resource-development", "initial-access", "execution", "persistence",
@@ -314,7 +315,7 @@ def render_page(data: dict, meta: dict) -> str:
     for i, (key, _lab, plural, _d, srcs, _reach) in enumerate(KINDS):
         n = format(counts[i], ",")
         if key == "technique" and revoked:
-            n += " (" + str(revoked) + " revoked or deprecated in v" + ATTACK_VERSION + ", kept for reference)"
+            n += " (" + str(revoked) + " revoked or deprecated, kept for reference)"
         if key == "capec" and deprecated:
             n += " (" + str(deprecated) + " deprecated or obsolete upstream)"
         src = ", ".join("`" + s + "`" for s in srcs)

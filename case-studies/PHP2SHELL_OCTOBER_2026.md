@@ -82,6 +82,23 @@ The timeline is the lesson. Amazon Threat Intelligence observed exploitation att
 | Appliances and products | Many vendor products embed PHP; apply the vendor's PHP2Shell advisory rather than assuming the OS patch covers it |
 | Interim only | A WAF or mod_security rule can blunt the public payloads but does not close the memory-corruption flaw; treat it as time bought, not a fix |
 
+### Per-platform and per-software remediation
+
+The by-surface table above says what to fix; this one says how, per platform and per software stack. In every case, after upgrading the PHP packages, restart the service that embeds PHP (PHP-FPM, the web server, or the app container), because a long-running process keeps the old interpreter in memory (**Confirmed** as general guidance from the PHP advisory and distributions):
+
+| Platform or software | How to remediate |
+|---|---|
+| Debian / Ubuntu | `dpkg -l 'php*'`; `sudo apt-get update && sudo apt-get install --only-upgrade php*` to the backported fix, then restart PHP-FPM or Apache |
+| RHEL / Alma / Rocky | `rpm -q php`; `sudo dnf upgrade php\*` (or the Remi module if used), then `systemctl restart php-fpm httpd` |
+| Alpine (common in containers) | `apk info -v php8*`; `apk upgrade php8*`, then rebuild the image rather than patching a running container |
+| Windows | Replace the PHP binaries with a patched 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35 build and restart IIS or the FastCGI handler |
+| PHP-FPM vs mod_php | Confirm which model each host uses (`php -v` reports the CLI, not the web SAPI); upgrade the matching package and restart the web SAPI, not only the CLI |
+| Docker and container images | Rebuild from a patched `php` base image, pin by digest, redeploy all replicas, and scan images and SBOMs for vulnerable PHP |
+| WordPress, Drupal, Laravel and other PHP apps | Patch the underlying PHP runtime, not just the application or its plugins; a current app on an unpatched interpreter is still exposed |
+| Managed and shared hosting (cPanel, Plesk) | Apply the host's PHP update (for example through EasyApache or the MultiPHP manager) across every PHP version offered |
+| Vendor appliances and products | Apply the vendor's PHP2Shell advisory for any product that embeds PHP, rather than assuming an OS patch reaches it |
+| WAF (interim only) | A rule blunting the public payloads buys time but does not close the memory-corruption flaw; keep patching |
+
 ## Part 2: three trust layers in 72 hours
 
 The Intelligence Hub's 2026-W43 report frames the week of 19–25 October as three distinct trust layers failing almost at once.

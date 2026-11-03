@@ -342,6 +342,25 @@ Phase one needs no new budget: it is inventory and policy. Each gate is the cond
 4. **Log every tool call.** Keep an audit trail that ties each action to the agent, the user it acted for and the input that triggered it.
 5. **Isolate tests from production.** Evaluation sandboxes get their own identity, network and egress, with no path to production secrets.
 
+## Remediation and mitigation by platform and technology
+
+The controls above are easier to act on when they are tied to the specific products and layers a team actually runs. The table maps each technology layer to its highest-value remediation and mitigation, with the case it most addresses. Product names are examples of a category, not endorsements.
+
+| Layer | Example technologies | Remediation and mitigation | Cases |
+| --- | --- | --- | --- |
+| Hosted model APIs | Azure OpenAI, AWS Bedrock, Google Vertex AI, Anthropic API | Put inference behind private endpoints, vault and rotate API keys, enable provider content filters and abuse logging, and allowlist which workloads may call each endpoint | 1, 3 |
+| Enterprise AI assistants (SaaS) | Microsoft 365 Copilot, Salesforce Agentforce, Google Gemini for Workspace, Glean | Enforce trusted-URL and output-domain allowlists, apply DLP to assistant inputs and outputs, restrict which connectors and data sources an assistant can read, and require confirmation for send, share and delete | 4 |
+| Agent and orchestration frameworks | LangChain and LangGraph, custom orchestrators, autonomous agent runners | Apply the Rule of Two per agent, tag input provenance, gate irreversible actions with a human click, cap tool scopes, and keep provider keys and cloud credentials out of the agent host | 1, 4 |
+| MCP servers and agent skills | Model Context Protocol servers, skill and plugin marketplaces | Install only from an allowlist, pin by version and verify publisher, review the human-facing setup steps for planted instructions, and run servers with least privilege and their own identity | 5 |
+| AI coding tools | Claude Code, Cursor, Gemini CLI, Amazon Q, IDE AI extensions | Ban permission-bypass flags (`--dangerously-skip-permissions`, `--yolo`, `--trust-all-tools`) through managed settings, pin extension versions, and hunt for persistence (SSH keys, reverse tunnels) that survives uninstall | 1, 5 |
+| Identity and access | Microsoft Entra ID, Okta, Auth0, cloud IAM | Register each agent as a non-human identity with an owner, issue short-lived OIDC credentials instead of long-lived tokens, apply conditional access, and alert on high-rate non-interactive sign-ins | 1, 5 |
+| Developer supply chain | PyPI and npm, GitHub Actions, container registries | Pin packages by hash and Actions by commit SHA, hold brand-new versions for a cooling-off period, keep an AI bill of materials, and scan images and SBOMs for poisoned AI packages | 5 |
+| Endpoint and EDR | CrowdStrike, Microsoft Defender for Endpoint, SentinelOne | Alert on behavior (script hosts spawning recon chains, document staging) rather than strings, inventory local model runtimes such as Ollama, and allowlist egress to model API endpoints | 1, 3 |
+| Email and collaboration | Proofpoint, Mimecast, Microsoft Defender for Office, Teams, Slack | Add out-of-band callback verification for payments and resets, treat voice and video as non-authenticating, and allowlist rendered links and images in channels an agent can post to | 2, 4 |
+| Network and egress | Secure web gateways, firewalls, CASB | Filter and log outbound connections from servers and agent hosts, allowlist model-API and package-registry destinations, and treat a new egress path as a change to review | 1, 3, 5 |
+| SIEM and SOAR | Splunk, Microsoft Sentinel, Google SecOps, Cortex XSOAR | Pre-approve automatic containment for high-confidence signals, and make sure AI-correlated detections raise severity and page a human rather than closing silently | 1, 6 |
+| Vulnerability management | Tenable, Qualys, Wiz, Rapid7 | Replace CVSS-only SLAs with risk tiers (exposure, KEV, EPSS, automatability), enrich beyond NVD, and point AI code review at your own software with triage capacity funded for the findings | 6 |
+
 ## Regulatory and standards landscape
 
 Rules are moving slower than the threat. The EU deferred its high-risk AI obligations to December 2027, while the US leaned on binding federal patch rules and voluntary coordination with frontier-model developers.

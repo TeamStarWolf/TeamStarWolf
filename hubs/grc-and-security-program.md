@@ -87,6 +87,17 @@ Time and difficulty are quoted in full from each guide's header table.
 | [Start a Vulnerability Management Program (First 90 Days)](/guides/START_A_VULN_MGMT_PROGRAM.md) | ~90 days elapsed; 2-4 hours to first scan | Intermediate |
 | [Triage a New CVE in 30 Minutes](/guides/TRIAGE_A_CVE.md) | ~30 minutes | Intermediate |
 
+## Platforms and developer reference
+
+| Page | What it covers |
+|---|---|
+| [Security Platforms](/platforms/README.md) | Reference pages for the vendor platforms a security program runs on, grouped by role: endpoint, exposure management, SIEM and SOAR, network, identity, application, cloud, OT, and backup |
+| [Tenable](/platforms/tenable.md) | Exposure management on Tenable One, with Nessus, VPR, and Identity Exposure |
+| [Qualys](/platforms/qualys.md) | The Qualys Cloud Platform with VMDR and TruRisk |
+| [Rapid7 InsightVM](/platforms/rapid7-insightvm.md) | Vulnerability management with Real Risk scoring on the Insight platform |
+| [ServiceNow Vulnerability Response](/platforms/servicenow-vr.md) | Turns scanner findings into owned, tracked remediation work mapped to the CMDB |
+| [Zafran](/platforms/zafran.md) | Threat exposure management that prioritizes by exploitability and existing control coverage, and drives mitigations |
+
 ## See also
 
 - [Vendor tool pages](/tools/README.md)

@@ -10,8 +10,9 @@ Writes, from the config and the pages themselves:
                                 ai-tooling/ and mitre/, each opening with the same
                                 "Library" block of ways back
     hubs/README.md, hubs/*.md   the domain hubs: each lists its references with a one-line
-                                summary and a reading time, then the learning paths, guides
-                                and framework pages that go with them
+                                summary and a reading time, then the learning paths, guides,
+                                platform and developer reference pages and framework pages
+                                that go with them
     assets/site-nav.json        the breadcrumb trail of every hand-written page, read by the
                                 breadcrumb plugin in index.html
     index.html                  the docsify alias block (between the nav-aliases markers),
@@ -32,7 +33,11 @@ Rules the --check run enforces (CI, validate-data.yml):
     superseded stub) is in exactly one hub, and every hub entry exists;
   * every hand-written page is in a nav section: linked from a sidebar, the navbar or a
     hub, or from a folder landing page (a README.md that one of those links to) in its
-    own folder. docs/site_nav.json "not_in_nav" lists the exceptions, each with a reason.
+    own folder. docs/site_nav.json "not_in_nav" lists the exceptions, each with a reason;
+  * every hub lists at least one platform or developer reference page ("pages"), each an
+    existing page under one of PAGE_FOLDERS;
+  * INDEX.md links every hand-written folder landing page (a README.md below the root),
+    so the A to Z index reaches every section of the library.
 
 Usage:
     python scripts/build_site_nav.py            # write every file above
@@ -66,6 +71,10 @@ GENERATED_BY = "written by scripts/build_site_nav.py from docs/site_nav.json; do
 GENERATED = ("mitre/", "techniques/", "detections/strategies/", "scores/", "navigator/index.md",
              "hubs/")
 GENERATED_FILES = {"explore.md"}
+# The folders a hub's "pages" (platform and developer reference pages) may come from.
+PAGE_FOLDERS = ("platforms/", "languages/", "paradigms/", "frameworks/", "commands/", "formats/",
+                "databases/", "ai-tooling/")
+FRAMEWORKS_SECTION = "MITRE frameworks"
 # Root pages that are not references (same set as build_stats.py, plus Explore).
 ROOT_META = {
     "README.md", "HOME.md", "INDEX.md", "ABOUT_THE_DATA.md", "CHANGELOG.md",
@@ -135,10 +144,11 @@ def title(rel: str) -> str:
     return bsi.title_of(page_text(rel), rel)
 
 
-def index_entries() -> dict[str, tuple[str, str]]:
-    """INDEX.md's (label, one-line description) of each page, keyed by repo path."""
+def index_entries(rel: str = "INDEX.md") -> dict[str, tuple[str, str]]:
+    """The (label, one-line description) of each page in a two-column link table (INDEX.md,
+    or a folder landing page), keyed by repo path."""
     out = {}
-    for line in (read_text("INDEX.md") or "").split("\n"):
+    for line in (read_text(rel) or "").split("\n"):
         m = re.match(r"^\|\s*\[([^\]]+)\]\(([^)\s]+)\)\s*\|\s*(.+?)\s*\|\s*$", line)
         if m and not cdl.SCHEME_RE.match(m.group(2)):
             out[m.group(2).lstrip("/")] = (bsi.strip_inline(m.group(1)),
@@ -152,6 +162,15 @@ def first_sentence(text: str) -> str:
     if len(s) > 240:
         s = s[:240].rsplit(" ", 1)[0].rstrip(",;:") + "..."
     return s
+
+
+def landing_entries() -> dict[str, tuple[str, str]]:
+    """The one-line description of each platform and developer reference page in its folder's
+    landing table (platforms/README.md, commands/README.md, ...)."""
+    out = {}
+    for folder in PAGE_FOLDERS:
+        out.update({k: v for k, v in index_entries(folder + "README.md").items() if k.startswith(folder)})
+    return out
 
 
 def summary(rel: str, descs: dict) -> str:
@@ -283,9 +302,9 @@ def navbar(cfg: dict) -> str:
 
 def frameworks_links(cfg: dict) -> list[tuple[str, str]]:
     for s in cfg["sections"]:
-        if s["label"] == "Frameworks":
+        if s["label"] == FRAMEWORKS_SECTION:
             return [tuple(x) for x in s["links"] if x[1] != "/explore.md"]
-    raise SystemExit(CONFIG + ": no Frameworks section")
+    raise SystemExit(CONFIG + ": no " + FRAMEWORKS_SECTION + " section")
 
 
 def nested_sidebars(cfg: dict) -> dict[str, str]:
@@ -293,7 +312,7 @@ def nested_sidebars(cfg: dict) -> dict[str, str]:
     out = {}
     for n in cfg["nested"]:
         lead = [tuple(x) for x in n.get("lead", [])]
-        if n.get("fixed") == "Frameworks":
+        if n.get("fixed") == FRAMEWORKS_SECTION:
             links = lead + frameworks_links(cfg)
         else:
             seen = {file_of(t) for _, t in lead} | {file_of(t) for _, t in header[1]}
@@ -349,6 +368,16 @@ def hub_page(h: dict, descs: dict) -> str:
             out.append("| " + md_link(cell(hd["title"]), "/guides/" + g + ".md") + " | "
                        + cell(bhg.plain(hd["time"])) + " | " + cell(difficulty(g, hd["level"])) + " |")
         out.append("")
+    if h.get("pages"):
+        out += ["## Platforms and developer reference", "",
+                "| Page | What it covers |", "|---|---|"]
+        landing = landing_entries()
+        for t in h["pages"]:
+            d = file_of(t)
+            label = descs[d][0] if d in descs else title(d)
+            what = descs[d][1] if d in descs and descs[d][1] else summary(d, landing)
+            out.append("| " + md_link(cell(label), t) + " | " + cell(what) + " |")
+        out.append("")
     if h.get("see_also"):
         out += ["## See also", ""]
         out += ["- " + md_link(lab, tgt) for lab, tgt in h["see_also"]]
@@ -361,8 +390,8 @@ def hubs_index(cfg: dict) -> str:
     out = ["<!-- hub:start (" + GENERATED_BY + ") -->", "",
            "# Domains", "",
            "> The reference documents, grouped by domain. Each domain page lists its references "
-           "with a one-line summary and a reading time, then the learning paths, how-to guides "
-           "and framework pages that go with them.", "",
+           "with a one-line summary and a reading time, then the learning paths, how-to guides, "
+           "platform and developer reference pages and framework pages that go with them.", "",
            "| Domain | What it covers | References |", "|---|---|---|"]
     for h in cfg["hubs"]:
         n = sum(len(g["docs"]) for g in h["groups"])
@@ -546,6 +575,7 @@ def problems(cfg: dict, gen: dict[str, str]) -> list[str]:
         for _, t in h.get("see_also", []):
             if file_of(t) and file_of(t) not in tracked:
                 out.append(CONFIG + ": hub " + h["slug"] + ": see-also target " + t + " does not exist")
+        out += page_problems(h, tracked)
     for f, text in gen.items():
         for t in re.findall(r"\]\((/[^)\s]*)\)", text):
             fl = file_of(t)
@@ -562,7 +592,43 @@ def problems(cfg: dict, gen: dict[str, str]) -> list[str]:
     for p in exempt:
         if p not in tracked:
             out.append(CONFIG + ": not_in_nav entry " + p + " does not exist")
+    out += index_problems(files, read_text("INDEX.md") or "")
     return out
+
+
+def page_problems(h: dict, tracked: set[str]) -> list[str]:
+    """A hub's "pages": at least one, each an existing page under PAGE_FOLDERS, no repeats."""
+    out = []
+    pages = h.get("pages", [])
+    if not pages:
+        out.append(CONFIG + ": hub " + h["slug"] + ": lists no platform or developer reference page ('pages')")
+    for t in pages:
+        f = file_of(t) if isinstance(t, str) else None
+        if not f or not t.startswith("/") or not f.startswith(PAGE_FOLDERS):
+            out.append(CONFIG + ": hub " + h["slug"] + ": page " + str(t) + " is not a page under "
+                       + ", ".join(PAGE_FOLDERS))
+        elif f not in tracked:
+            out.append(CONFIG + ": hub " + h["slug"] + ": page " + t + " does not exist")
+    for t, n in collections.Counter(x for x in pages if isinstance(x, str)).items():
+        if n > 1:
+            out.append(CONFIG + ": hub " + h["slug"] + ": page " + t + " is listed " + str(n) + " times")
+    return out
+
+
+def folder_landings(files: list[str]) -> list[str]:
+    """The hand-written folder landing pages: every README.md below the root."""
+    return [f for f in hand_written(files) if "/" in f and posixpath.basename(f) == "README.md"]
+
+
+def index_problems(files: list[str], index_text: str) -> list[str]:
+    """INDEX.md must link every hand-written folder landing page."""
+    linked = set()
+    for href in links_in(index_text):
+        path = href.split("?", 1)[0].split("#", 1)[0]
+        if path and not cdl.SCHEME_RE.match(path):
+            linked.add(path.lstrip("/").removeprefix("./"))
+    return ["INDEX.md: no link to the folder landing page " + f + " (add a row for it)"
+            for f in folder_landings(files) if f not in linked]
 
 
 def block_edits(cfg: dict) -> list[tuple[str, str, object]]:

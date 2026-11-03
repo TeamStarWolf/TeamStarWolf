@@ -28,6 +28,17 @@ Part of the [domain hubs](/hubs/README.md). 9 reference documents in this domain
 - [Physical Security](/disciplines/physical-security.md)
 - [Radio Frequency (RF) Security](/disciplines/radio-frequency-security.md)
 
+## Platforms and developer reference
+
+| Page | What it covers |
+|---|---|
+| [Dragos](/platforms/dragos.md) | OT and ICS threat detection, asset visibility, and vulnerability management |
+| [Claroty](/platforms/claroty.md) | Cyber-physical systems protection across OT, IoT, and healthcare devices |
+| [ARM Assembly](/languages/assembly-arm.md) | The ARM and AArch64 instruction set, registers, and the AAPCS calling convention |
+| [Verilog](/languages/verilog.md) | A hardware description language widely used in chip design |
+| [VHDL](/languages/vhdl.md) | A hardware description language for digital circuit design and simulation |
+| [SystemVerilog](/languages/systemverilog.md) | An extension of Verilog for design and hardware verification |
+
 ## See also
 
 - [SDR and RF security](/SDR_RF_SECURITY_REFERENCE.md)

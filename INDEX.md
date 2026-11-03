@@ -17,6 +17,7 @@
 | [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md) | AI-powered offensive security tools, CVE exploitation automation, MITRE ATT&CK mapping, defensive frameworks |
 | [AI Security Reference](AI_SECURITY_REFERENCE.md) | OWASP LLM Top 10, prompt injection attacks, adversarial ML, LLM deployment security, guardrails, and AI in security operations |
 | [AI Threats: A 2026 Case Study](case-studies/AI_THREATS_2026.md) | Case Studies: six AI threat classes from 2024 to 2026 (agentic intrusions, deepfakes, AI-native malware, prompt injection, AI supply chain, machine-speed vulnerability discovery), each event graded by evidence, with a defensive playbook and roadmap |
+| [AI Tool Manuals](ai-tooling/tools/README.md) | AI Tooling: one-page manuals for AI tools, A to Z, each with what it is for, a quick start, key concepts, security notes, and where to learn more |
 | [AI Tooling](ai-tooling/README.md) | Practical guide to AI tools and LLMs: a grouped index of tools, a one-page manual for each, a learning path, and hands-on labs |
 | [AI Tools and LLMs Index](ai-tooling/AI_TOOLS_INDEX.md) | AI Tooling: tools and model platforms grouped by category, each with license, official docs, repository, and a manual covering quick start and security notes |
 | [API Security Reference](API_SECURITY_REFERENCE.md) | OWASP API Top 10, REST and GraphQL attack techniques, JWT attacks, SSRF, BOLA/BFLA, and API security testing methodology |
@@ -47,6 +48,7 @@
 | [Cloud Network Security](CLOUD_NETWORK_SECURITY.md) | Network security controls across AWS, Azure and GCP: architecture, firewall policy, WAF, private connectivity, DDoS protection, flow logs, compliance mappings |
 | [Cloud Security Benchmark](CLOUD_SECURITY_BENCHMARK.md) | CIS Benchmarks for AWS, Azure, and GCP with automated remediation and detection queries |
 | [Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md) | AWS/Azure/GCP security services, IAM attacks, SSRF to IMDS, Pacu/ROADtools/AzureHound, CSPM, K8s security, cloud IR |
+| [Command Reference](commands/README.md) | Cheat-sheet pages for the command-line tools developers, administrators, and security engineers use: shells, version control, containers and infrastructure, the cloud CLIs, and security testing tools |
 | [Conference Talks & Papers](research/CONFERENCE_TALKS.md) | Black Hat, DEF CON, BSides, CCC, USENIX, and landmark talk archives, with guidance on finding associated research repos |
 | [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md) | Docker/container security, image hardening, runtime protection (Falco/seccomp/AppArmor), container escape defense, registry security, secrets management, SBOM, MITRE ATT&CK containers |
 | [Controls Mapping](CONTROLS_MAPPING.md) | The cross-reference chain from security vendors to the NIST 800-53 controls they implement and on to the ATT&CK techniques those controls mitigate |
@@ -66,11 +68,16 @@
 | Resource | Description |
 |---|---|
 | [D3FEND Countermeasure Reference](D3FEND_REFERENCE.md) | <!-- stat-d3fend_countermeasures:start -->156<!-- stat-d3fend_countermeasures:end --> MITRE D3FEND defensive techniques (7 tactics) mapped to the <!-- stat-d3fend_current_attack_techniques:start -->387<!-- stat-d3fend_current_attack_techniques:end --> current ATT&CK techniques they counter |
+| [Data and Edges](data/README.md) | The JSON Lines datasets behind the framework pages and the relationships between them, with the upstream release each file is built from |
+| [Data Formats and Regular Expressions](formats/README.md) | Reference pages for markup, data, and configuration formats and for regular expressions: syntax, tooling that parses and validates them, and format-specific security pitfalls |
 | [Data Security Reference](DATA_SECURITY_REFERENCE.md) | CSF 2.0 PR.DS, classification tiers and Purview sensitivity labels, DSPM discovery, DLP channels and false-positive economics, encryption at rest/in transit/in use, egress controls, SP 800-171r3/CMMC drivers, program metrics |
+| [Databases](databases/README.md) | Reference pages for database engines: relational, analytical, NoSQL, search, graph, and time-series stores, with each one's data model, query surface, and security |
 | [Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md) | Honeypots, honeytokens, canary tokens, deception platforms, breadcrumb strategy, and detection rules |
+| [Detections](detections/README.md) | Ready-to-adapt SIEM and EDR queries per technique, and the detection strategies and analytics MITRE publishes, with how each part is made |
 | [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) | Sigma, YARA, and Suricata rule writing with examples and conversion to Splunk, Elastic, and Sentinel |
 | [DevSecOps Reference](DEVSECOPS_REFERENCE.md) | SAST/DAST/SCA tools, GitHub Actions security, Semgrep/CodeQL/Trivy/Snyk, secrets detection, IaC scanning, pipeline security gates |
 | [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md) | Order of volatility, chain of custody, disk acquisition, Windows/Linux artifacts, Volatility 3 memory forensics, and log analysis |
+| [Discipline Learning Paths](disciplines/README.md) | One learning path per discipline, from first principles to working practice, with the references to read in order |
 | [Domain Hubs](hubs/README.md) | The reference documents grouped by domain, each with a one-line summary and a reading time, with the learning paths, how-to guides and framework pages that go with them |
 | [Edge & Network Device Security Reference](EDGE_DEVICE_SECURITY_REFERENCE.md) | BOD 23-02 management-interface isolation, BOD 26-04 KEV patch tiers, 2023-2026 edge exploitation record, Feb 2025 joint edge-device guidance, appliance integrity checking and forensic readiness, egress monitoring |
 | [Email Security Reference](EMAIL_SECURITY_REFERENCE.md) | SPF/DKIM/DMARC deep dive, phishing analysis, HTML smuggling, BEC, M365 Defender config, SMTP hardening, email forensics |
@@ -159,13 +166,17 @@
 | [Post-Quantum Migration Reference](POST_QUANTUM_MIGRATION_REFERENCE.md) | Harvest-now-decrypt-later risk, FIPS 203/204/205, NIST IR 8547 timelines, CNSA 2.0, CBOM discovery, crypto-agility, hybrid TLS/SSH deployment, PKI impact, program governance |
 | [Privacy Engineering Reference](PRIVACY_ENGINEERING_REFERENCE.md) | GDPR/CCPA/HIPAA, Privacy by Design, anonymization/pseudonymization, consent management, DPIA, field-level encryption |
 | [Privilege Escalation Reference](PRIVESC_REFERENCE.md) | Linux and Windows privilege escalation techniques with ATT&CK mappings and automated tools |
+| [Programming Languages](languages/README.md) | In-depth pages for programming and scripting languages: design, type system, toolchain, a syntax tour, common pitfalls, and secure coding |
+| [Programming Paradigms](paradigms/README.md) | The ways programs are organized, one paradigm per page, with runnable examples, trade-offs, the languages that use it, and its secure-coding failure modes |
 | [Purple Team Reference](PURPLE_TEAM_REFERENCE.md) | Adversary emulation, Atomic Red Team, CALDERA, detection validation, Sigma rules, BAS tools, ATT&CK Navigator coverage |
 | [Ransomware Defense & Resilience](RANSOMWARE_DEFENSE_REFERENCE.md) | CISA #StopRansomware program, NIST IR 8374r1, RaaS/IAB ecosystem literacy, 3-2-1 immutable backups and restore testing, OFAC payment policy, tabletops, resilience metrics |
 | [Red Team Reference](RED_TEAM_REFERENCE.md) | Red team methodology, ROE, C2 framework comparison (Cobalt Strike/Sliver/Havoc/Mythic), LOLBAS, persistence, lateral movement tradecraft |
+| [Research Notes](research/README.md) | Working notes and catalogs that feed the library: conference and training indexes, tool-coverage studies, the curated Stars Lists, and field notes |
 | [Resources](RESOURCES.md) | Books, courses, YouTube channels, podcasts, CTF platforms, and communities |
 | [Reverse Engineering Reference](REVERSE_ENGINEERING_REFERENCE.md) | x86, x86-64, AArch32, AArch64, MIPS, RISC-V, and PowerPC; Ghidra/IDA/Binary Ninja; firmware and malware RE |
 | [SaaS Security Reference](SAAS_SECURITY_REFERENCE.md) | OAuth consent abuse, token theft, shadow SaaS, Midnight Blizzard/Storm-0558/Okta case studies, CISA SCuBA (ScubaGear/ScubaGoggles), SSPM, M365/GWS/Salesforce/GitHub hardening |
 | [Scanner Platforms and Findings Catalog](SCANNER_PLATFORMS_REFERENCE.md) | How enterprise scanners (Tenable, Qualys, Rapid7, Wiz, Defender VM, CrowdStrike, Snyk, Invicti, Nessus) are deployed, their finding and severity taxonomies, a cross-scanner catalog of finding types, and where findings land in ServiceNow Vulnerability Response |
+| [Scripts and Checks](scripts/README.md) | The generators and CI checks that build the data and generated pages and keep the hand-written pages honest |
 | [SDR & RF Security Reference](SDR_RF_SECURITY_REFERENCE.md) | Software-Defined Radio and RF security: HackRF/RTL-SDR, GNU Radio, GSM/LTE/Bluetooth/Zigbee/P25 analysis, TEMPEST |
 | [Secrets Management Reference](SECRETS_MANAGEMENT_REFERENCE.md) | HashiCorp Vault, CyberArk Conjur, secret detection (gitleaks/ggshield/TruffleHog), cloud-native secrets, PKI/SSH, CI/CD OIDC |
 | [Secure Coding Reference](SECURE_CODING_REFERENCE.md) | OWASP Top 10 (2021), input validation, cryptography in code, SAST/DAST, and quick guides for Python, JavaScript, TypeScript, Java, Kotlin, C#, Go, Rust, C, C++, PHP, Ruby, Swift, and PowerShell |
@@ -174,6 +185,7 @@
 | [Security Gadgets Reference](SECURITY_GADGETS_REFERENCE.md) | Hak5 ecosystem, HackRF/Ubertooth, Samy Kamkar tools, Flipper Zero, Pi-hole, Meshtastic/LoRa, Proxmark3, Alfa/GL.iNet |
 | [Security Glossary](GLOSSARY.md) | 100+ cybersecurity terms, acronyms, and definitions from APT to ZTNA |
 | [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md) | SOC KPIs, vulnerability management SLAs, detection coverage scoring, risk metrics, and executive reporting frameworks |
+| [Security Platforms](platforms/README.md) | Reference pages for the vendor platforms a security program runs on, grouped by role: endpoint, exposure management, SIEM and SOAR, network, identity, application, cloud, OT, and backup |
 | [Security Tools Catalog](SECURITY_TOOLS_CATALOG.md) | A map of the security tool landscape by category, the named tools in each, and where the library covers them in depth |
 | [Security Tool Documentation](SECURITY_TOOL_DOCUMENTATION.md) | Index of official documentation, API docs, GitHub repositories, and learning resources for a representative enterprise security stack |
 | [Security Tools Reference](TOOLS.md) | Quick-reference matrices of 100+ security tools organized by category with OSS/commercial tags |
@@ -183,6 +195,7 @@
 | [SIEM Reference](SIEM_REFERENCE.md) | Splunk ES/SPL, Microsoft Sentinel/KQL, IBM QRadar/AQL, Elastic SIEM, log normalization, detection engineering, SOC operations, threat hunting |
 | [SOAR Automation Reference](SOAR_AUTOMATION_REFERENCE.md) | SOAR platforms, playbook design, Splunk SOAR/Phantom, XSOAR, Sentinel, QRadar SOAR, phishing/malware triage, threat intel automation, IR playbooks, metrics |
 | [Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md) | Phishing taxonomy, AiTM attacks, vishing, pretexting, physical SE, simulation programs, and awareness training |
+| [Software Frameworks](frameworks/README.md) | In-depth pages for backend, frontend, full-stack, and mobile application frameworks: architecture, request flow, and framework-specific security |
 | [Space Systems Security Reference](SPACE_SECURITY_REFERENCE.md) | SPARTA framework (9 tactics, 90 countermeasures), space/ground/link/user segments, CCSDS SDLS, GNSS interference resilience, Viasat KA-SAT case study, SPD-5 and NIST IR 8270/8401 |
 | [Starred Repositories](STARRED_REPOS.md) | Curated repos structured around Cybersecurity Technology |
 | [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md) | SBOM (CycloneDX/SPDX), Sigstore/cosign, SLSA framework, dependency security, CI/CD pipeline hardening, malicious package detection, OSS risk management |
@@ -204,6 +217,7 @@
 | [Tool Manuals and Repositories](tools-research/TOOL_MANUALS_AND_REPOSITORIES.md) | Tools Research: verified directory of manuals, API references, release notes, Store and Splunkbase listings, GitHub orgs, repositories and GitHub Pages for ServiceNow, Armis and the MITRE threat-informed defense ecosystem |
 | [Tools Research](tools-research/README.md) | Documentation-verified studies of security products and their integrations, with confidence labels, figures, and PDF downloads |
 | [Vendor Prevention Policies](VENDOR_PREVENTION_POLICIES.md) | Authoritative policy settings from Microsoft (ASR/MDE), CrowdStrike, SentinelOne, Palo Alto, Proofpoint, Zscaler, CISA, NSA, Elastic, and Splunk |
+| [Vendor Tool Pages](tools/README.md) | Per-vendor tool pages grouped by area: what each tool covers and how it fits a security program |
 | [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md) | CVSS v3.1/v4.0 scoring, EPSS prioritization, CISA KEV, scanning tools, patch management, and program KPIs |
 | [Vulnerability Prioritization Reference](VULNERABILITY_PRIORITIZATION_REFERENCE.md) | SSVC decision models (CERT/CC trees, CISA Track/Track*/Attend/Act), KEV semantics and BOD 26-04 timelines, EPSS probability vs percentile, Vulnrichment, CSAF/VEX/OpenVEX, CTID KEV->ATT&CK mappings, SLA policy design |
 | [Web App Pentesting](WEB_APPLICATION_PENTESTING.md) | Testing methodology, SQLi/XSS/SSRF/SSTI payloads, JWT attacks, auth bypass, business logic testing, Burp Suite and ffuf reference |

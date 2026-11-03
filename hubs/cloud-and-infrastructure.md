@@ -34,6 +34,23 @@ Time and difficulty are quoted in full from each guide's header table.
 | [Investigate a Cloud Account Compromise](/guides/INVESTIGATE_A_CLOUD_COMPROMISE.md) | First hour is containment; full investigation 1-5 days by scope | Advanced: cross-provider, and the evidence ages by the hour |
 | [Assess Your M365 Tenant with ScubaGear](/guides/ASSESS_M365_WITH_SCUBAGEAR.md) | 2-4 hours for the first full run and report review | Intermediate |
 
+## Platforms and developer reference
+
+| Page | What it covers |
+|---|---|
+| [AWS CLI Reference](/commands/aws-cli.md) | Operating AWS, credential handling, and least-privilege IAM |
+| [Azure CLI Reference](/commands/azure-cli.md) | Operating Azure, managed identities, and Key Vault |
+| [Google Cloud CLI (gcloud) Reference](/commands/gcloud.md) | Operating Google Cloud, service accounts, and workload identity |
+| [kubectl Command Reference](/commands/kubectl.md) | Operating Kubernetes, RBAC checks, and secret handling |
+| [Docker Command Reference](/commands/docker.md) | Building and running containers, with image and runtime hardening |
+| [Terraform Command Reference](/commands/terraform.md) | Infrastructure as code: plan, apply, state, and secret safety |
+| [HCL (HashiCorp Configuration Language)](/languages/hcl.md) | HashiCorp's configuration language, used by Terraform |
+| [Wiz](/platforms/wiz.md) | Agentless cloud-native application protection and the Security Graph |
+| [Prisma Cloud](/platforms/prisma-cloud.md) | Palo Alto Networks CNAPP across posture, workload, entitlements, and code security |
+| [Orca Security](/platforms/orca-security.md) | Agentless CNAPP using SideScanning with a unified cloud data model |
+| [Aqua Security](/platforms/aqua-security.md) | Container and cloud-native security with image assurance and runtime protection |
+| [Sysdig](/platforms/sysdig.md) | Cloud-native security on the Falco project, with runtime detection and response |
+
 ## See also
 
 - [Cloud attack reference](/CLOUD_ATTACK_REFERENCE.md)

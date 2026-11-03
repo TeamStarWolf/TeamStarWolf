@@ -8,7 +8,9 @@
     "python scripts/build_site_nav.py. Every root reference must sit in exactly one hub; the",
     "--check run in CI fails otherwise, and fails when a hand-written page is in no nav section.",
     "A hub's 'home' links are the three shown on its card under 'Browse by domain' in HOME.md;",
-    "each must be one of the hub's references or 'see_also' pages."
+    "each must be one of the hub's references or 'see_also' pages. A hub's 'pages' are the platform",
+    "and developer reference pages that go with it (platforms/, languages/, paradigms/, frameworks/,",
+    "commands/, formats/, databases/ and ai-tooling/); every hub lists at least one."
   ],
   "library_header": [
     ["Home", "/"],
@@ -24,6 +26,7 @@
     ["Domains", "/hubs/README.md"],
     ["Index", "/INDEX.md"],
     ["ATT&CK-Navi", "https://teamstarwolf.github.io/ATTACK-Navi/"],
+    ["Intelligence Hub", "https://teamstarwolf.github.io/intelligence-hub/"],
     ["GitHub", "https://github.com/TeamStarWolf/TeamStarWolf"]
   ],
   "sections": [
@@ -40,7 +43,7 @@
       ["All learning paths", "/disciplines/README.md"]
     ]},
     {"label": "Domains", "hubs": true},
-    {"label": "Frameworks", "links": [
+    {"label": "MITRE frameworks", "links": [
       ["Explore all objects", "/explore.md"],
       ["ATT&CK techniques", "/mitre/techniques/README.md"],
       ["ATT&CK tactics", "/mitre/tactics/README.md"],
@@ -103,7 +106,7 @@
               ["AI labs", "/ai-tooling/AI_LABS.md"],
               ["All tool manuals", "/ai-tooling/tools/README.md"]],
      "sub": {"folder": "ai-tooling/tools", "label": "Tool manuals", "landing": "ai-tooling/tools/README.md"}},
-    {"folder": "mitre", "label": "Frameworks", "fixed": "Frameworks",
+    {"folder": "mitre", "label": "MITRE frameworks", "fixed": "MITRE frameworks",
      "lead": [["Overview", "/mitre/README.md"]]},
     {"folder": "languages", "label": "Programming languages", "landing": "languages/README.md"},
     {"folder": "paradigms", "label": "Programming paradigms", "landing": "paradigms/README.md"},
@@ -140,7 +143,7 @@
     {
       "slug": "threat-informed-defense",
       "title": "Threat-informed defense and ATT&CK",
-      "summary": "Using MITRE ATT&CK and the related MITRE frameworks to decide what to defend, detect, and test first.",
+      "summary": "Decide what to defend, detect, and test first, with ATT&CK and the related MITRE frameworks as the shared map of how attacks work.",
       "home": [["ATT&CK Matrix Analysis", "/ATTACK_MATRIX_ANALYSIS_REFERENCE.md"], ["ATT&CK Technique Atlas", "/ATTACK_TECHNIQUE_ATLAS.md"], ["Priority Gap Analysis", "/scores/attack_priority_gaps.md"]],
       "groups": [
         {"heading": "ATT&CK and threat-informed defense", "docs": [
@@ -155,6 +158,7 @@
       ],
       "paths": ["detection-engineering", "purple-teaming", "threat-intelligence"],
       "guides": ["RUN_A_COVERAGE_GAP_ASSESSMENT", "RUN_A_PURPLE_TEAM_EXERCISE", "HOW_TO_USE_THIS_LIBRARY"],
+      "pages": ["/platforms/README.md", "/formats/json.md", "/commands/jq.md", "/languages/python.md"],
       "see_also": [
         ["Explore: framework objects in one table", "/explore.md"],
         ["ATT&CK priority gaps", "/scores/attack_priority_gaps.md"],
@@ -184,6 +188,7 @@
       "guides": ["BUILD_YOUR_FIRST_DETECTION", "ONBOARD_A_LOG_SOURCE", "HUNT_FOR_LOTL_ACTIVITY", "BUILD_A_DETECTION_HOMELAB",
                  "RESPOND_TO_RANSOMWARE", "RUN_A_RANSOMWARE_TABLETOP", "INVESTIGATE_A_PHISHING_EMAIL",
                  "ACQUIRE_AND_TRIAGE_AN_ENDPOINT", "INVESTIGATE_A_CLOUD_COMPROMISE"],
+      "pages": ["/platforms/splunk.md", "/platforms/qradar.md", "/platforms/crowdstrike-falcon.md", "/platforms/microsoft-defender.md", "/platforms/sentinelone.md", "/platforms/cortex-xsoar.md", "/platforms/tines.md", "/databases/elasticsearch.md", "/formats/regex.md", "/commands/powershell-commands.md", "/commands/linux-commands.md"],
       "see_also": [
         ["Technique detection library", "/detections/TECHNIQUE_DETECTION_LIBRARY.md"],
         ["ATT&CK detection strategies", "/detections/strategies/README.md"],
@@ -202,6 +207,7 @@
       ],
       "paths": ["threat-intelligence", "osint"],
       "guides": ["PRODUCE_AN_INTELLIGENCE_PRODUCT"],
+      "pages": ["/formats/json.md", "/formats/regex.md", "/commands/jq.md", "/commands/curl.md"],
       "see_also": [
         ["ATT&CK threat groups", "/mitre/groups/README.md"],
         ["ATT&CK software", "/mitre/software/README.md"],
@@ -223,6 +229,7 @@
       "paths": ["offensive-security", "penetration-testing", "red-teaming", "purple-teaming", "exploit-development",
                 "bug-bounty", "social-engineering", "active-directory", "hacker-hobbies"],
       "guides": ["RUN_A_PURPLE_TEAM_EXERCISE"],
+      "pages": ["/commands/nmap.md", "/commands/metasploit.md", "/commands/sqlmap.md", "/commands/gobuster.md", "/commands/hashcat.md", "/commands/gdb.md", "/platforms/hackerone.md"],
       "see_also": [
         ["Kali Linux tool coverage", "/research/KALI_TOOL_COVERAGE.md"],
         ["CTF methodology", "/CTF_METHODOLOGY.md"]
@@ -242,6 +249,7 @@
       ],
       "paths": ["network-security", "radio-frequency-security", "zero-trust-architecture"],
       "guides": [],
+      "pages": ["/commands/networking-commands.md", "/commands/nmap.md", "/commands/tshark.md", "/commands/ssh.md", "/platforms/fortinet.md", "/platforms/palo-alto-networks.md", "/platforms/check-point.md", "/platforms/cisco-ise.md", "/platforms/zscaler.md", "/platforms/cloudflare.md"],
       "see_also": [
         ["Network defense", "/NETWORK_DEFENSE_REFERENCE.md"],
         ["Network forensics", "/NETWORK_FORENSICS_REFERENCE.md"]
@@ -260,6 +268,7 @@
       ],
       "paths": ["cloud-security", "container-kubernetes-security"],
       "guides": ["HARDEN_A_KUBERNETES_CLUSTER", "INVESTIGATE_A_CLOUD_COMPROMISE", "ASSESS_M365_WITH_SCUBAGEAR"],
+      "pages": ["/commands/aws-cli.md", "/commands/azure-cli.md", "/commands/gcloud.md", "/commands/kubectl.md", "/commands/docker.md", "/commands/terraform.md", "/languages/hcl.md", "/platforms/wiz.md", "/platforms/prisma-cloud.md", "/platforms/orca-security.md", "/platforms/aqua-security.md", "/platforms/sysdig.md"],
       "see_also": [
         ["Cloud attack reference", "/CLOUD_ATTACK_REFERENCE.md"],
         ["Vendor tool pages", "/tools/README.md"]
@@ -277,6 +286,7 @@
       ],
       "paths": ["mobile-security", "security-architecture"],
       "guides": ["HARDEN_A_WINDOWS_BASELINE", "HARDEN_A_MACOS_FLEET"],
+      "pages": ["/commands/linux-commands.md", "/commands/systemctl.md", "/commands/macos-commands.md", "/commands/powershell-commands.md", "/commands/windows-cmd.md", "/platforms/tanium.md", "/platforms/microsoft-defender.md"],
       "see_also": [
         ["Endpoint security", "/ENDPOINT_SECURITY_REFERENCE.md"],
         ["Active Directory security", "/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md"]
@@ -295,6 +305,7 @@
       ],
       "paths": ["application-security", "devsecops", "supply-chain-security", "threat-modeling"],
       "guides": ["THREAT_MODEL_AN_APPLICATION"],
+      "pages": ["/languages/README.md", "/paradigms/README.md", "/frameworks/README.md", "/formats/README.md", "/databases/README.md", "/commands/git.md", "/platforms/snyk.md", "/platforms/invicti.md", "/platforms/chainguard.md"],
       "see_also": [
         ["Web application pentesting", "/WEB_APPLICATION_PENTESTING.md"],
         ["CAPEC attack patterns", "/mitre/capec/README.md"]
@@ -316,6 +327,7 @@
       "paths": ["identity-access-management", "active-directory", "zero-trust-architecture", "cryptography-pki",
                 "data-security", "privacy-engineering"],
       "guides": ["ROLL_OUT_PHISHING_RESISTANT_MFA"],
+      "pages": ["/platforms/entra-id.md", "/platforms/okta.md", "/platforms/ping-identity.md", "/platforms/cisco-duo.md", "/platforms/cyberark.md", "/platforms/beyondtrust.md", "/platforms/delinea.md", "/platforms/sailpoint.md", "/platforms/veeam.md", "/platforms/rubrik.md", "/databases/README.md"],
       "see_also": [
         ["Active Directory attacks", "/ACTIVE_DIRECTORY_ATTACKS.md"]
       ]
@@ -333,6 +345,7 @@
       ],
       "paths": ["ai-llm-security", "ai-ml-security", "adversarial-ai-attacks", "blockchain-web3-security"],
       "guides": [],
+      "pages": ["/ai-tooling/AI_TOOLS_INDEX.md", "/languages/python.md", "/languages/mojo.md", "/languages/solidity.md", "/languages/vyper.md", "/languages/move.md", "/platforms/abnormal.md"],
       "see_also": [
         ["AI tooling", "/ai-tooling/README.md"],
         ["ATLAS pages", "/mitre/atlas/README.md"],
@@ -352,6 +365,7 @@
       ],
       "paths": ["ics-ot-security", "hardware-security", "iot-security", "physical-security", "radio-frequency-security"],
       "guides": [],
+      "pages": ["/platforms/dragos.md", "/platforms/claroty.md", "/languages/assembly-arm.md", "/languages/verilog.md", "/languages/vhdl.md", "/languages/systemverilog.md"],
       "see_also": [
         ["SDR and RF security", "/SDR_RF_SECURITY_REFERENCE.md"]
       ]
@@ -383,6 +397,7 @@
       "paths": ["governance-risk-compliance", "cyber-risk-quantification", "vulnerability-management",
                 "security-architecture", "security-awareness"],
       "guides": ["START_A_VULN_MGMT_PROGRAM", "TRIAGE_A_CVE"],
+      "pages": ["/platforms/README.md", "/platforms/tenable.md", "/platforms/qualys.md", "/platforms/rapid7-insightvm.md", "/platforms/servicenow-vr.md", "/platforms/zafran.md"],
       "see_also": [
         ["Vendor tool pages", "/tools/README.md"],
         ["Tools research", "/tools-research/README.md"],

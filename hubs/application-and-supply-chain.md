@@ -36,6 +36,20 @@ Time and difficulty are quoted in full from each guide's header table.
 |---|---|---|
 | [Threat Model an Application](/guides/THREAT_MODEL_AN_APPLICATION.md) | 3-4 hours (first pass, one application) | Intermediate |
 
+## Platforms and developer reference
+
+| Page | What it covers |
+|---|---|
+| [Programming Languages](/languages/README.md) | In-depth pages for programming and scripting languages: design, type system, toolchain, a syntax tour, common pitfalls, and secure coding |
+| [Programming Paradigms](/paradigms/README.md) | The ways programs are organized, one paradigm per page, with runnable examples, trade-offs, the languages that use it, and its secure-coding failure modes |
+| [Software Frameworks](/frameworks/README.md) | In-depth pages for backend, frontend, full-stack, and mobile application frameworks: architecture, request flow, and framework-specific security |
+| [Data Formats and Regular Expressions](/formats/README.md) | Reference pages for markup, data, and configuration formats and for regular expressions: syntax, tooling that parses and validates them, and format-specific security pitfalls |
+| [Databases](/databases/README.md) | Reference pages for database engines: relational, analytical, NoSQL, search, graph, and time-series stores, with each one's data model, query surface, and security |
+| [Git Command Reference](/commands/git.md) | Version control: branching, merging, rebasing, history, and secret hygiene |
+| [Snyk](/platforms/snyk.md) | Developer-first SCA, SAST, container, and IaC security |
+| [Invicti](/platforms/invicti.md) | Proof-based dynamic and interactive application security testing |
+| [Chainguard](/platforms/chainguard.md) | Secure-by-default minimal container images and a hardened Wolfi base that cut image vulnerabilities |
+
 ## See also
 
 - [Web application pentesting](/WEB_APPLICATION_PENTESTING.md)

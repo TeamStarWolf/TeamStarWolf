@@ -2,7 +2,7 @@
 
 # Threat-informed defense and ATT&CK
 
-> Using MITRE ATT&CK and the related MITRE frameworks to decide what to defend, detect, and test first.
+> Decide what to defend, detect, and test first, with ATT&CK and the related MITRE frameworks as the shared map of how attacks work.
 
 Part of the [domain hubs](/hubs/README.md). 16 reference documents in this domain; reading time is the page's words at 230 words a minute.
 
@@ -52,6 +52,15 @@ Time and difficulty are quoted in full from each guide's header table.
 | [Run an ATT&CK Coverage Gap Assessment](/guides/RUN_A_COVERAGE_GAP_ASSESSMENT.md) | 2-4 hours (first run) | Intermediate |
 | [Run Your First Purple-Team Exercise](/guides/RUN_A_PURPLE_TEAM_EXERCISE.md) | Half a day to plan, 2-3 hours to run | Intermediate |
 | [How to Use This Library](/guides/HOW_TO_USE_THIS_LIBRARY.md) | 30-45 min | Beginner |
+
+## Platforms and developer reference
+
+| Page | What it covers |
+|---|---|
+| [Security Platforms](/platforms/README.md) | Reference pages for the vendor platforms a security program runs on, grouped by role: endpoint, exposure management, SIEM and SOAR, network, identity, application, cloud, OT, and backup |
+| [JSON](/formats/json.md) | JavaScript Object Notation: the data interchange format of the web, and prototype-pollution risk |
+| [jq Command Reference](/commands/jq.md) | Filtering and transforming JSON, with safe shell integration |
+| [Python](/languages/python.md) | Dynamically typed, readable, multi-paradigm; automation, data science, web, and security tooling |
 
 ## See also
 

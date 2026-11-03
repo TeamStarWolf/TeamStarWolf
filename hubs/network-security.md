@@ -28,6 +28,21 @@ Part of the [domain hubs](/hubs/README.md). 11 reference documents in this domai
 - [Radio Frequency (RF) Security](/disciplines/radio-frequency-security.md)
 - [Zero Trust Architecture](/disciplines/zero-trust-architecture.md)
 
+## Platforms and developer reference
+
+| Page | What it covers |
+|---|---|
+| [Networking Command Reference](/commands/networking-commands.md) | ip, ss, dig, ping, traceroute, nc, and DNS and connectivity checks |
+| [Nmap Command Reference](/commands/nmap.md) | Host discovery, port and service scanning, and the scripting engine |
+| [tshark Command Reference](/commands/tshark.md) | Command-line packet capture and analysis for authorized network work |
+| [SSH Command Reference](/commands/ssh.md) | Secure shell, key management, config, tunneling, and host verification |
+| [Fortinet](/platforms/fortinet.md) | The Security Fabric: FortiGate firewall, FortiNDR, and analytics |
+| [Palo Alto Networks](/platforms/palo-alto-networks.md) | Next-generation firewalls on PAN-OS, Prisma Access SASE, and the Cortex operations family |
+| [Check Point](/platforms/check-point.md) | Quantum gateways with IPS virtual patching and threat prevention |
+| [Cisco ISE](/platforms/cisco-ise.md) | Network access control with 802.1X, posture, and Change of Authorization |
+| [Zscaler](/platforms/zscaler.md) | The Zero Trust Exchange: secure web gateway and zero-trust network access |
+| [Cloudflare](/platforms/cloudflare.md) | Edge platform with a WAF, DDoS protection, and the Cloudflare One zero-trust services |
+
 ## See also
 
 - [Network defense](/NETWORK_DEFENSE_REFERENCE.md)

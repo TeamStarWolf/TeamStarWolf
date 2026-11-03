@@ -44,6 +44,22 @@ Time and difficulty are quoted in full from each guide's header table.
 |---|---|---|
 | [Roll Out Phishing-Resistant MFA and Conditional Access](/guides/ROLL_OUT_PHISHING_RESISTANT_MFA.md) | A week for the admin pilot; one to two quarters to full enforcement | Intermediate to advanced: identity changes lock people out when rushed |
 
+## Platforms and developer reference
+
+| Page | What it covers |
+|---|---|
+| [Microsoft Entra ID](/platforms/entra-id.md) | Cloud identity with Conditional Access, MFA, and Privileged Identity Management |
+| [Okta](/platforms/okta.md) | Workforce and customer identity: SSO, adaptive MFA, Universal Directory, and lifecycle |
+| [Ping Identity](/platforms/ping-identity.md) | Enterprise identity with PingOne, PingFederate federation, and PingAccess |
+| [Cisco Duo](/platforms/cisco-duo.md) | Multi-factor authentication and device trust |
+| [CyberArk](/platforms/cyberark.md) | Privileged access management, vaulting, and endpoint privilege |
+| [BeyondTrust](/platforms/beyondtrust.md) | Privileged access management: password vaulting, remote access, and endpoint privilege |
+| [Delinea](/platforms/delinea.md) | Privileged access management with Secret Server and endpoint privilege |
+| [SailPoint](/platforms/sailpoint.md) | Identity governance: provisioning, certifications, and the role model |
+| [Veeam](/platforms/veeam.md) | Backup and replication with immutable repositories and recovery verification |
+| [Rubrik](/platforms/rubrik.md) | Backup with immutable storage and ransomware anomaly detection |
+| [Databases](/databases/README.md) | Reference pages for database engines: relational, analytical, NoSQL, search, graph, and time-series stores, with each one's data model, query surface, and security |
+
 ## See also
 
 - [Active Directory attacks](/ACTIVE_DIRECTORY_ATTACKS.md)

@@ -32,6 +32,18 @@ Time and difficulty are quoted in full from each guide's header table.
 | [Harden a Windows Baseline](/guides/HARDEN_A_WINDOWS_BASELINE.md) | Half a day for a pilot; 2-4 weeks to full production | Intermediate |
 | [Harden a macOS Fleet with mSCP](/guides/HARDEN_A_MACOS_FLEET.md) | 1-2 days for a pilot cohort; 2-4 weeks to full fleet | Intermediate |
 
+## Platforms and developer reference
+
+| Page | What it covers |
+|---|---|
+| [Linux Command Reference](/commands/linux-commands.md) | Core GNU/Linux utilities: files, text, processes, permissions, disk, archives, packages |
+| [systemd and systemctl Reference](/commands/systemctl.md) | Service and unit management, journalctl, timers, and unit hardening |
+| [macOS Command Reference](/commands/macos-commands.md) | macOS-specific tools: brew, defaults, launchctl, codesign, spctl |
+| [PowerShell Command Reference](/commands/powershell-commands.md) | The cmdlet cheat sheet: verb-noun cmdlets, the pipeline, events, and ACLs |
+| [Windows Command Prompt Reference](/commands/windows-cmd.md) | cmd.exe builtins and utilities for files, services, accounts, and the registry |
+| [Tanium](/platforms/tanium.md) | Real-time endpoint query and action at scale, with patch and compliance |
+| [Microsoft Defender for Endpoint](/platforms/microsoft-defender.md) | Microsoft endpoint EDR with Defender Vulnerability Management |
+
 ## See also
 
 - [Endpoint security](/ENDPOINT_SECURITY_REFERENCE.md)

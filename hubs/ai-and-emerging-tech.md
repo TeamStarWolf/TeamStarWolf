@@ -27,6 +27,18 @@ Part of the [domain hubs](/hubs/README.md). 9 reference documents in this domain
 - [Adversarial AI Attacks](/disciplines/adversarial-ai-attacks.md)
 - [Blockchain & Web3 Security](/disciplines/blockchain-web3-security.md)
 
+## Platforms and developer reference
+
+| Page | What it covers |
+|---|---|
+| [AI Tools and LLMs Index](/ai-tooling/AI_TOOLS_INDEX.md) | AI Tooling: tools and model platforms grouped by category, each with license, official docs, repository, and a manual covering quick start and security notes |
+| [Python](/languages/python.md) | Dynamically typed, readable, multi-paradigm; automation, data science, web, and security tooling |
+| [Mojo](/languages/mojo.md) | A Python-family language (pre-1.0) for AI and systems performance |
+| [Solidity](/languages/solidity.md) | The main language for Ethereum smart contracts |
+| [Vyper](/languages/vyper.md) | A Python-like, security-focused language for Ethereum contracts |
+| [Move](/languages/move.md) | A resource-oriented language for safe digital assets on newer chains |
+| [Abnormal AI](/platforms/abnormal.md) | Behavioral-AI email security for business email compromise and account takeover |
+
 ## See also
 
 - [AI tooling](/ai-tooling/README.md)

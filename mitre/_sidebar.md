@@ -9,7 +9,7 @@
 
 ---
 
-- Frameworks
+- MITRE frameworks
   - [Overview](/mitre/README.md)
   - [ATT&CK techniques](/mitre/techniques/README.md)
   - [ATT&CK tactics](/mitre/tactics/README.md)

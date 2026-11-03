@@ -26,7 +26,7 @@ Detections produce vulnerability findings against assets. Each finding ties a sp
 
 The Real Risk score ranks vulnerabilities. It combines vulnerability severity with exploit and malware exposure and the age of the vulnerability into a score on a wider scale than base CVSS. Real Risk drives remediation order by reflecting actual exploitability, not severity alone.
 
-Remediation projects group vulnerabilities into tracked work for the teams that own them. A project sets a scope and a goal, then tracks progress as findings close. This turns a finding list into assigned, measurable work.
+Remediation projects group vulnerabilities into tracked work for the teams that own them. A project sets a scope and a goal, then tracks progress as findings close. That turns a finding list into assigned, measurable work.
 
 Live dashboards update as scan and agent data arrives. They show current risk, trends, and remediation progress without waiting for a scheduled report. Query-based cards let teams build views for their own scope.
 

@@ -156,7 +156,7 @@ _Learning & reference_
 - [Microsoft Entra blog (Tech Community)](https://techcommunity.microsoft.com/t5/microsoft-entra-blog/bg-p/Identity)
 - [Microsoft Entra admin center (hands-on console)](https://entra.microsoft.com/)
 
-> Note: LIVE-VERIFIED via WebSearch 2026-10-08. Product renamed from Azure Active Directory (Azure AD) to Microsoft Entra ID in 2023; docs moved from learn.microsoft.com/azure/active-directory to learn.microsoft.com/entra (old paths redirect). GitHub auth libraries still live under the legacy 'AzureAD' org, not an 'Entra' org. Microsoft Learn flagged the sample-v2-code page as undergoing maintenance with some possibly broken sample links — check live before relying on a specific sample repo. For the azuread Terraform provider, confirm the current major version/resource schema on the registry page.
+> Note: Microsoft renamed Azure Active Directory (Azure AD) to Microsoft Entra ID; service plan display names changed on October 1, 2023, and existing login URLs, APIs, PowerShell cmdlets and the Microsoft Authentication Libraries (MSAL) stay the same ([New name for Azure Active Directory](https://learn.microsoft.com/en-us/entra/fundamentals/new-name)). Old learn.microsoft.com/azure/active-directory paths redirect to learn.microsoft.com/entra. The MSAL repositories still live under the [AzureAD GitHub organization](https://github.com/AzureAD). The Terraform provider keeps the name azuread (hashicorp/azuread 3.10.0, published 2026-09-24); confirm the resource schema for your provider version on the registry page.
 
 ## Current state (2025-26)
 

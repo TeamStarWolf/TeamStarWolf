@@ -133,11 +133,11 @@ _Learning & reference_
 - [Tenable Research blog](https://www.tenable.com/blog)
 - [Tenable Community (forums/knowledge)](https://community.tenable.com)
 
-> Note: Nessus guides are version-specific (URLs like docs.tenable.com/nessus/<ver>/...), so use the version selector on the Nessus docs page. Tenable One is the exposure-management umbrella that includes Tenable Vulnerability Management, Web App Scanning, Cloud Security, and Lumin. The legacy Nessus/SecurityCenter XMLRPC API reference is outdated — use the Developer Portal + API Explorer for current REST APIs. GitHub org has both Tenable-supported and community-supported (open-source) integrations. WebSearch budget was exhausted this turn; the org, pyTenable, connectors, and Jira repos were directly verified, Navi and the Splunk app ID were not fully re-verified live.
+> Note: Nessus documentation is versioned: each user guide (Tenable Nessus 10.12.x at the time of writing) has a version selector on [docs.tenable.com](https://docs.tenable.com/nessus/Content/GettingStarted.htm). For current REST APIs, use the [Tenable Developer Portal](https://developer.tenable.com/) and its API Explorer. [Tenable One](https://www.tenable.com/products/tenable-one) is Tenable's exposure-management platform; its product pages list Vulnerability Management, Web App Scanning, Cloud Security, OT Security, Identity Security and Attack Surface Management. The [Tenable GitHub organization](https://github.com/tenable) hosts pyTenable and Tenable's integration repositories.
 
 ## Current state (2025-26)
 
-Tenable acquired Vulcan Cyber (announced Jan 29 2025, closed Feb 7 2025, ~$148.5M) for third-party findings aggregation and remediation; acquired Apex Security (June 2025, ~$47.8M) for AI exposure, now Tenable AI Exposure; earlier acquired Eureka Security (June 2024, DSPM) and Ermetic (2023, CNAPP/CIEM). VPR has an 'enhanced' version weighting threat and impact equally. Product renames: Tenable.io -> Tenable Vulnerability Management, Tenable.sc -> Tenable Security Center. No product/acquisition named 'Aura' found - verify if seen elsewhere.
+Tenable acquired Vulcan Cyber (announced Jan 29 2025, closed Feb 7 2025, ~$148.5M) for third-party findings aggregation and remediation; acquired Apex Security (June 2025, ~$47.8M) for AI exposure, now Tenable AI Exposure; earlier acquired Eureka Security (June 2024, DSPM) and Ermetic (2023, CNAPP/CIEM). VPR has an 'enhanced' version weighting threat and impact equally. Product renames: Tenable.io -> Tenable Vulnerability Management, Tenable.sc -> Tenable Security Center.
 
 ---
 *Generic reference. Confirm product facts, event IDs, fields and URLs against current vendor sources. Descriptive, not an endorsement.*

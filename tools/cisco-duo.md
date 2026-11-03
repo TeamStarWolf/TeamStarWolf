@@ -141,7 +141,7 @@ _Learning & reference_
 - [Duo Security blog](https://duo.com/blog)
 - [Duo product/solutions knowledge base](https://duo.com/docs)
 
-> Note: LIVE-VERIFIED via WebSearch 2026-10-08. Duo is owned by Cisco. Admin onboarding is migrating to Cisco Security Cloud Control (SCC): admins created via SCC after 2026-05-11 must sign in through SCC rather than admin.duosecurity.com directly. Admin API and Auth API are SEPARATE Duo application types with separate key pairs; Admin API requires Essentials/Advantage/Premier plan while Auth API is also available on Free/trial. Auth API clients using certificate pinning required updates before 2026-04-15 (see Duo KB 9451). thebananastand.duo.com mirrors the same doc pages — use duo.com as the canonical host.
+> Note: Duo is part of Cisco. Admin API and Auth API are separate application types, each created in the Admin Panel with its own integration key and secret key; an Auth API key sent to an Admin API endpoint is rejected with 403 ([Auth API](https://duo.com/docs/authapi)). Admin API is available to paying Premier, Advantage and Essentials customers and to Advantage or Premier trials, while Auth API is also available on Duo Free and trial accounts ([Admin API](https://duo.com/docs/adminapi)). The Admin API Administrators endpoints are not available to customers provisioned through Cisco Security Cloud Control after May 11, 2026. Use duo.com as the canonical documentation host.
 
 ## Current state (2025-26)
 

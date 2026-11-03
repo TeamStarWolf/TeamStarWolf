@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 13 min (2,961 words at 230 words a minute)
+About 13 min (2,964 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -56,7 +56,7 @@ No review recorded yet
 
 <!-- meta:end -->
 
-> Version note. Product versions, editions, and CVE facts below were live-verified on 2026-09-29 and carry inline sources. Databases move fast; confirm the linked original before pinning a control to a specific version or feature name.
+> Version note. Product versions, editions, and CVE facts below were checked against their sources on 2026-09-29 and carry inline sources. Databases move fast; confirm the linked original before pinning a control to a specific version or feature name.
 
 ---
 

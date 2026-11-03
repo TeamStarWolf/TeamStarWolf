@@ -11,7 +11,7 @@ A language model answers the prompt it is given, not the question in your head. 
 1. Specificity and context. State exactly what you want and the situation it sits in. Name the environment, the scope, and the constraint. "Across the production Windows fleet in the PCI scope" beats "on our systems."
 2. Structure and organization. Tell the model how to organize the answer: sections, a table, a ranked list. A request for "a table of affected hosts with owner and severity" removes guesswork.
 3. Data requirements. Name the fields and the sources you expect. Ask for asset name, owner, last-seen date, and the control that is missing, rather than an unspecified "details" column.
-4. Risk and impact. Ask the model to tie findings to risk: exploitability, exposure, business impact, and what an attacker could do. This turns a list into a prioritization.
+4. Risk and impact. Ask the model to tie findings to risk: exploitability, exposure, business impact, and what an attacker could do. That turns a list into a prioritization.
 5. Timeline and actions. Ask for next steps with an order and a rough timeframe: mitigate now, remediate this week, validate on rescan. Security output is only useful if it says what to do.
 6. Quality elements. Ask for the things that make the output trustworthy: assumptions stated, confidence noted, gaps flagged, and sources named. This also surfaces where the model is guessing.
 7. Accountability. Ask who owns each item and how completion is proven. A finding without an owner and an exit condition does not get fixed.

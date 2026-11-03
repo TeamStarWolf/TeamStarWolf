@@ -91,7 +91,7 @@
 
 ## Security notes
 
-- Know the guardrail boundaries. Input guardrails run only for the first agent and output guardrails only for the last. In workflows with handoffs or delegated specialists, attach tool guardrails to each function tool. Hosted tools (for example `WebSearchTool`, `CodeInterpreterTool`, `HostedMCPTool`) and execution tools (`ShellTool`, `ComputerTool`) do not use the tool-guardrail pipeline.
+- Know the guardrail boundaries. Input guardrails run only for the first agent and output guardrails only for the last. In workflows with handoffs or delegated specialists, attach tool guardrails to each function tool. Hosted tools (for example the hosted web search tool, `CodeInterpreterTool` and `HostedMCPTool`) and execution tools (`ShellTool`, `ComputerTool`) do not use the tool-guardrail pipeline.
 - Input guardrails run in parallel with the agent by default, so the agent may already have called tools when a tripwire fires. Set `run_in_parallel=False` on guardrails that must finish before any side effect.
 - Require approval for risky actions: `needs_approval=True` on function tools, and `require_approval` (`"always"` or per tool name) on MCP servers. Use `tool_filter` or `create_static_tool_filter` to expose only the MCP tools an agent needs.
 - Tracing is on by default and exports to OpenAI's backend, and `trace_include_sensitive_data` defaults to `True`, so spans can hold model and tool inputs and outputs. Set `RunConfig(trace_include_sensitive_data=False)` or `OPENAI_AGENTS_TRACE_INCLUDE_SENSITIVE_DATA=0`, or turn tracing off with `OPENAI_AGENTS_DISABLE_TRACING=1`. Tracing is unavailable for organizations under Zero Data Retention.

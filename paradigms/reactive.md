@@ -32,7 +32,7 @@ The pipeline above turns raw keystrokes into a clean stream of distinct search t
 
 Propagation needs a scheduling discipline so that dependents update in a consistent order. Naive propagation can cause glitches: a derived value briefly reads inconsistent inputs mid-update. FRP systems and careful reactive runtimes order updates topologically to avoid this. When you build your own propagation, order and consistency are the parts most likely to go wrong.
 
-Backpressure is the second hard problem. A fast producer can overwhelm a slow consumer. The reactive-streams specification addresses this with demand signaling: the consumer requests `n` items, and the producer may emit at most that many. This turns an unbounded push into a bounded pull-push hybrid, which keeps memory stable under load.
+Backpressure is the second hard problem. A fast producer can overwhelm a slow consumer. The reactive-streams specification addresses this with demand signaling: the consumer requests `n` items, and the producer may emit at most that many. That turns an unbounded push into a bounded pull-push hybrid, which keeps memory stable under load.
 
 ```javascript
 // A subscriber asks for a bounded number of items at a time.

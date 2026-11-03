@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 21 min (4,931 words at 230 words a minute)
+About 21 min (4,905 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -559,7 +559,7 @@ _Learning & reference_
 - [Tenable Research blog](https://www.tenable.com/blog)
 - [Tenable Community (forums/knowledge)](https://community.tenable.com)
 
-> Note: Nessus guides are version-specific (URLs like docs.tenable.com/nessus/<ver>/...), so use the version selector on the Nessus docs page. Tenable One is the exposure-management umbrella that includes Tenable Vulnerability Management, Web App Scanning, Cloud Security, and Lumin. The legacy Nessus/SecurityCenter XMLRPC API reference is outdated — use the Developer Portal + API Explorer for current REST APIs. GitHub org has both Tenable-supported and community-supported (open-source) integrations. WebSearch budget was exhausted this turn; the org, pyTenable, connectors, and Jira repos were directly verified, Navi and the Splunk app ID were not fully re-verified live.
+> Note: Nessus documentation is versioned: each user guide (Tenable Nessus 10.12.x at the time of writing) has a version selector on [docs.tenable.com](https://docs.tenable.com/nessus/Content/GettingStarted.htm). For current REST APIs, use the [Tenable Developer Portal](https://developer.tenable.com/) and its API Explorer. [Tenable One](https://www.tenable.com/products/tenable-one) is Tenable's exposure-management platform; its product pages list Vulnerability Management, Web App Scanning, Cloud Security, OT Security, Identity Security and Attack Surface Management. The [Tenable GitHub organization](https://github.com/tenable) hosts pyTenable and Tenable's integration repositories.
 
 
 ### Zafran Security
@@ -730,7 +730,7 @@ _Learning & reference_
 - [Microsoft Entra blog (Tech Community)](https://techcommunity.microsoft.com/t5/microsoft-entra-blog/bg-p/Identity)
 - [Microsoft Entra admin center (hands-on console)](https://entra.microsoft.com/)
 
-> Note: LIVE-VERIFIED via WebSearch 2026-10-08. Product renamed from Azure Active Directory (Azure AD) to Microsoft Entra ID in 2023; docs moved from learn.microsoft.com/azure/active-directory to learn.microsoft.com/entra (old paths redirect). GitHub auth libraries still live under the legacy 'AzureAD' org, not an 'Entra' org. Microsoft Learn flagged the sample-v2-code page as undergoing maintenance with some possibly broken sample links — check live before relying on a specific sample repo. For the azuread Terraform provider, confirm the current major version/resource schema on the registry page.
+> Note: Microsoft renamed Azure Active Directory (Azure AD) to Microsoft Entra ID; service plan display names changed on October 1, 2023, and existing login URLs, APIs, PowerShell cmdlets and the Microsoft Authentication Libraries (MSAL) stay the same ([New name for Azure Active Directory](https://learn.microsoft.com/en-us/entra/fundamentals/new-name)). Old learn.microsoft.com/azure/active-directory paths redirect to learn.microsoft.com/entra. The MSAL repositories still live under the [AzureAD GitHub organization](https://github.com/AzureAD). The Terraform provider keeps the name azuread (hashicorp/azuread 3.10.0, published 2026-09-24); confirm the resource schema for your provider version on the registry page.
 
 
 ### Cisco Duo
@@ -767,7 +767,7 @@ _Learning & reference_
 - [Duo Security blog](https://duo.com/blog)
 - [Duo product/solutions knowledge base](https://duo.com/docs)
 
-> Note: LIVE-VERIFIED via WebSearch 2026-10-08. Duo is owned by Cisco. Admin onboarding is migrating to Cisco Security Cloud Control (SCC): admins created via SCC after 2026-05-11 must sign in through SCC rather than admin.duosecurity.com directly. Admin API and Auth API are SEPARATE Duo application types with separate key pairs; Admin API requires Essentials/Advantage/Premier plan while Auth API is also available on Free/trial. Auth API clients using certificate pinning required updates before 2026-04-15 (see Duo KB 9451). thebananastand.duo.com mirrors the same doc pages — use duo.com as the canonical host.
+> Note: Duo is part of Cisco. Admin API and Auth API are separate application types, each created in the Admin Panel with its own integration key and secret key; an Auth API key sent to an Admin API endpoint is rejected with 403 ([Auth API](https://duo.com/docs/authapi)). Admin API is available to paying Premier, Advantage and Essentials customers and to Advantage or Premier trials, while Auth API is also available on Duo Free and trial accounts ([Admin API](https://duo.com/docs/adminapi)). The Admin API Administrators endpoints are not available to customers provisioned through Cisco Security Cloud Control after May 11, 2026. Use duo.com as the canonical documentation host.
 
 
 ### CyberArk
@@ -803,7 +803,7 @@ _Learning & reference_
 - [CyberArk Technical Community (forums, Marketplace, how-tos)](https://community.cyberark.com/)
 - [Conjur tutorials & guides](https://docs.conjur.org/)
 
-> Note: NOT LIVE-VERIFIED THIS TURN: the shared WebSearch budget (200 calls/turn, shared by all concurrent workflow agents) was exhausted after the Entra ID and Duo queries, so these CyberArk URLs are compiled from high-confidence prior knowledge and should be re-confirmed. Product structure to be aware of: CyberArk splits into PAM Self-Hosted (on-prem, formerly 'PAS') vs Privilege Cloud (SaaS); CyberArk Identity is the former Idaptive (SSO/MFA/IGA); Conjur is the open-source developer/secrets product with its own site (conjur.org). Deep doc paths under docs.cyberark.com are versioned and change per release — navigate from the hub and pick the matching version. Confirm the exact product slugs (pam-self-hosted, privilege-cloud-shared-services, identity) and the ansible-security-automation-collection repo name against the live sites before publishing into the reference library.
+> Note: www.cyberark.com now redirects to [Idira by Palo Alto Networks](https://www.paloaltonetworks.com/idira), and docs.cyberark.com carries the Idira name. Privileged Access Manager - Self-Hosted keeps its own versioned documentation (version 15.2 at the time of writing); Privilege Cloud and Identity documentation moved into a "spaces" structure organized by workflow, and the two relocation pages linked above map old topics to new ones. www.conjur.org now redirects to a Palo Alto Networks secrets-management page, docs.conjur.org redirects to the Conjur Open Source documentation on docs.cyberark.com, and the [cyberark/conjur](https://github.com/cyberark/conjur) repository remains on GitHub. Deep doc paths are versioned and change per release, so navigate from the docs hub and pick the matching version.
 
 
 ## SIEM

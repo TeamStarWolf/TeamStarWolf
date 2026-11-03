@@ -15,7 +15,9 @@ explicit PROVENANCE table below: edit it, never guess, when adding data.
 
 `inputs` records the upstream artifacts a generator fetches rather than ships
 (today: the ATT&CK Enterprise, ICS and Mobile STIX bundles behind
-scripts/build_attack_core.py), each pinned by commit and SHA-256. The values are
+scripts/build_attack_core.py, and the ATLAS release file and release notes behind
+scripts/build_atlas.py, with the ATLAS release in `version`), each pinned by commit and
+SHA-256. The values are
 read from the generator's own constants, so --check fails if the manifest and the
 generator's pins disagree.
 
@@ -27,6 +29,7 @@ import json, os, sys, glob, hashlib
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_attack_core  # noqa: E402  (owns the pinned STIX input constants)
+import build_atlas  # noqa: E402  (owns the pinned ATLAS input constants)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MANIFEST = os.path.join(ROOT, "data", "MANIFEST.json")
@@ -46,7 +49,7 @@ SOURCES = {
                 "url": "https://cwe.mitre.org/", "copyright": "(c) The MITRE Corporation"},
     "capec":   {"upstream": "MITRE CAPEC", "license": "MITRE Terms of Use",
                 "url": "https://capec.mitre.org/", "copyright": "(c) The MITRE Corporation"},
-    "atlas":   {"upstream": "MITRE ATLAS", "license": "MITRE Terms of Use",
+    "atlas":   {"upstream": "MITRE ATLAS", "license": "Apache License 2.0 (mitre-atlas/atlas-data)",
                 "url": "https://atlas.mitre.org/", "copyright": "(c) The MITRE Corporation"},
     "ctid_map":{"upstream": "Center for Threat-Informed Defense: Mappings Explorer (NIST SP 800-53 Rev 5; control text is US-Government public domain)",
                 "license": "Apache-2.0", "url": "https://center-for-threat-informed-defense.github.io/mappings-explorer/",
@@ -140,8 +143,11 @@ def _file_entry(path: str, rel: str):
 def inputs():
     """Pinned upstream inputs that generators fetch (not files under data/): one entry
     per ATT&CK STIX bundle (Enterprise, ICS, Mobile) in build_attack_core.STIX_INPUTS, then
-    the release index (index.json, build_attack_core.STIX_INDEX) read at the same commit."""
+    the release index (index.json, build_attack_core.STIX_INDEX) read at the same commit,
+    then the ATLAS release file and release notes in build_atlas.ATLAS_INPUTS, each with
+    the ATLAS release it pins."""
     core = build_attack_core
+    atlas = build_atlas
     return [{
         "name": "MITRE ATT&CK " + pin["label"] + " STIX bundle (" + os.path.basename(pin["path"]) + ")",
         "consumed_by": "scripts/build_attack_core.py",
@@ -162,7 +168,18 @@ def inputs():
         "bytes": core.STIX_INDEX["bytes"],
         "sha256": core.STIX_INDEX["sha256"],
         "provenance": SOURCES["attack"],
-    }]
+    }] + [{
+        "name": "MITRE " + pin["label"] + " (" + os.path.basename(pin["path"]) + ")",
+        "consumed_by": "scripts/build_atlas.py",
+        "repo": atlas.ATLAS_REPO,
+        "commit": atlas.ATLAS_COMMIT,
+        "version": atlas.ATLAS_RELEASE,
+        "path": pin["path"],
+        "url": pin["url"],
+        "bytes": pin["bytes"],
+        "sha256": pin["sha256"],
+        "provenance": SOURCES["atlas"],
+    } for pin in atlas.ATLAS_INPUTS.values()]
 
 
 def compute():

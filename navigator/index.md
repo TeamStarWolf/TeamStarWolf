@@ -107,8 +107,8 @@ MITRE ATLAS layers in ATLAS's own `atlas-atlas` Navigator domain, vendored with 
 
 | Layer | Description | Techniques | Version | Load |
 |---|---|---|---|---|
-| [ATLAS Matrix](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/ai/atlas-matrix.json) | The full ATLAS matrix of techniques against AI systems | 170 | ATLAS data 5.6.0 | [ATLAS Navigator](https://mitre-atlas.github.io/atlas-navigator/) |
-| [ATLAS Case Study Frequency](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/ai/atlas-case-study-frequency.json) | ATLAS techniques shaded by how often they appear in ATLAS case studies | 170 | ATLAS data 5.6.0 | [ATLAS Navigator](https://mitre-atlas.github.io/atlas-navigator/) |
+| [ATLAS Matrix](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/ai/atlas-matrix.json) | The full ATLAS matrix of techniques against AI systems | 221 | ATLAS data 2026.10 | [ATLAS Navigator](https://mitre-atlas.github.io/atlas-navigator/) |
+| [ATLAS Case Study Frequency](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/ai/atlas-case-study-frequency.json) | ATLAS techniques shaded by how often they appear in ATLAS case studies | 221 | ATLAS data 2026.10 | [ATLAS Navigator](https://mitre-atlas.github.io/atlas-navigator/) |
 
 ---
 

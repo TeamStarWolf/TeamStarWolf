@@ -10,7 +10,7 @@ Type an ID, a name or an alias (T1059, APT29, Cozy Bear, CAPEC-66), or filter by
 
 ## Browse by family
 
-On GitHub, the table does not load; the family index pages below list the same objects. The table is built from the JSONL files in [data/](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data) into [assets/explore.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/assets/explore.json): 2,943 objects, one index page per family.
+On GitHub, the table does not load; the family index pages below list the same objects. The table is built from the JSONL files in [data/](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data) into [assets/explore.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/assets/explore.json): 3,003 objects, one index page per family.
 
 | Family | Objects | Index | Built from |
 |---|---|---|---|
@@ -21,8 +21,8 @@ On GitHub, the table does not load; the family index pages below list the same o
 | ATT&CK mitigations | 44 | [ATT&CK mitigations](/mitre/mitigations/README.md) | `data/attack/mitigations.jsonl` |
 | CAPEC attack patterns | 615 (57 deprecated or obsolete upstream) | [CAPEC attack patterns](/mitre/capec/README.md) | `data/weaknesses/capec.jsonl` |
 | D3FEND countermeasures | 156 | [D3FEND countermeasures](/mitre/d3fend/README.md) | `data/attack/d3fend_countermeasures.jsonl` |
-| ATLAS techniques | 170 | [ATLAS techniques](/mitre/atlas/README.md) | `data/ai/atlas_techniques.jsonl` |
-| ATLAS mitigations | 35 | [ATLAS mitigations](/mitre/atlas/README.md) | `data/ai/atlas_mitigations.jsonl` |
+| ATLAS techniques | 221 | [ATLAS techniques](/mitre/atlas/README.md) | `data/ai/atlas_techniques.jsonl` |
+| ATLAS mitigations | 44 | [ATLAS mitigations](/mitre/atlas/README.md) | `data/ai/atlas_mitigations.jsonl` |
 | F3 techniques | 123 | [F3 techniques](/mitre/f3/README.md) | `data/fraud/f3_techniques.jsonl` |
 
 Versions: ATT&CK v20.0 (Enterprise), CAPEC 3.9. The licenses and notices for each framework are in [THIRD_PARTY_NOTICES.md](/THIRD_PARTY_NOTICES.md); how the data is built and checked is in [About the data](/ABOUT_THE_DATA.md).

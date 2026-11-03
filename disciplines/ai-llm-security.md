@@ -82,7 +82,7 @@ Practice in an isolated lab: Use synthetic data, mock tools, and a fixed budget 
 - Resource limits: Cap tool calls, retries, delegation depth, concurrency, and spend; verify that an induced loop stops at the boundary.
 - Act on signals: Correlate agent, run, identity, tool action, destination, and policy decision. Exercise pre-authorized runbooks that pause execution, revoke identities, and isolate a runtime at machine tempo when scope drift or unauthorized access is detected; preserve evidence and require review before resuming.
 
-This exercise applies the segmentation, authority-expansion, and scope-drift controls described in [ATLAS 2026.09 source data](https://github.com/mitre-atlas/atlas-data/blob/3259f388d19cbcca11bacf12a0ef97f4198f711b/dist/v6/ATLAS-2026.09.yaml) (AML.M0032, AML.M0037, AML.M0038). Record expected and observed outcomes; a passing exercise does not establish complete protection against agent-enabled attacks.
+This exercise applies the segmentation, authority-expansion, and scope-drift controls described in [ATLAS 2026.10 source data](https://github.com/mitre-atlas/atlas-data/blob/f56c1468731d6428e5bf875263b4643b46d67437/dist/v6/ATLAS-2026.10.yaml) (AML.M0032, AML.M0037, AML.M0038). Record expected and observed outcomes; a passing exercise does not establish complete protection against agent-enabled attacks.
 
 ---
 
@@ -176,7 +176,7 @@ NIST SP 800-53 predates the current AI security landscape, but many controls map
 
 ## MITRE ATLAS Coverage
 
-[MITRE ATLAS](https://atlas.mitre.org) (Adversarial Threat Landscape for Artificial-Intelligence Systems) organizes adversarial AI behaviors into tactics and techniques. The names and representative tactic associations below were checked against [ATLAS 2026.09 source data](https://github.com/mitre-atlas/atlas-data/blob/3259f388d19cbcca11bacf12a0ef97f4198f711b/dist/v6/ATLAS-2026.09.yaml); defensive guidance is practitioner curation, not an official MITRE mapping or a guarantee of prevention. Tactics describe adversary objectives, not a mandatory sequence, and inclusion in ATLAS does not itself prove observation in an incident.
+[MITRE ATLAS](https://atlas.mitre.org) (Adversarial Threat Landscape for Artificial-Intelligence Systems) organizes adversarial AI behaviors into tactics and techniques. The names and representative tactic associations below were checked against [ATLAS 2026.10 source data](https://github.com/mitre-atlas/atlas-data/blob/f56c1468731d6428e5bf875263b4643b46d67437/dist/v6/ATLAS-2026.10.yaml); defensive guidance is practitioner curation, not an official MITRE mapping or a guarantee of prevention. Tactics describe adversary objectives, not a mandatory sequence, and inclusion in ATLAS does not itself prove observation in an incident.
 
 | Tactic | Representative Technique | How the Discipline Addresses It |
 |---|---|---|

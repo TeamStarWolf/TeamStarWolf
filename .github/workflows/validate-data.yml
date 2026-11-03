@@ -51,6 +51,19 @@ jobs:
       - name: ATT&CK core matches the pinned v20.0 STIX (Enterprise, ICS, Mobile)
         run: python scripts/build_attack_core.py --check
 
+      # Rebuilds data/ai/ (ATLAS tactics, techniques, mitigations and retired IDs), the two
+      # navigator/ai/ layers and the generated ATLAS_REFERENCE.md blocks in memory from the
+      # commit-pinned ATLAS 2026.10 release file and release notes, and fails on any drift.
+      # It fetches both (about 1.2 MB) from raw.githubusercontent.com and aborts unless each
+      # matches its SHA-256 and size in build_atlas.py. The self-test runs planted cases for
+      # its standard-library YAML reader; the self-check proves every committed file is a
+      # fixed point of the serializer, so a drift report is always about content.
+      - name: ATLAS data, layers and reference tables match the pinned ATLAS 2026.10 release
+        run: |
+          python scripts/build_atlas.py --self-test
+          python scripts/build_atlas.py --self-check
+          python scripts/build_atlas.py --check
+
       - name: Check CAPEC edge integrity (profiles vs capec.jsonl)
         run: python scripts/backfill_capec_edges.py --check
 

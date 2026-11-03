@@ -44,7 +44,7 @@ from attack_ids import AttackIds
 
 ROOT = Path(__file__).resolve().parent.parent
 
-# Layer 3 — rich per-field schemas for the vendor/control/technique crosswalks.
+# Layer 3: rich per-field schemas for the vendor/control/technique crosswalks.
 SCHEMAS = {
     "data/vendor_to_control.jsonl": {
         "required": ["vendor", "vendor_normalized", "market_family", "pipeline_stage", "nist_control", "control_desc", "confidence"],
@@ -93,7 +93,7 @@ SCHEMAS = {
     },
 }
 
-# Layer 2 — the primary key of each node/entity file (must be unique per file).
+# Layer 2: the primary key of each node/entity file (must be unique per file).
 # Edge tables (paths containing "_to_") are intentionally omitted.
 PRIMARY_KEYS = {
     "data/ai/atlas_mitigations.jsonl": "mitigation_id",
@@ -173,7 +173,7 @@ TECHNIQUE_REFS = {
     "data/weaknesses/capec.jsonl":                 ("attack_techniques", True, ALL, False),
 }
 
-# Layer 4 — edge contract (see data/EDGES.md). Each edge dataset asserts a
+# Layer 4: edge contract (see data/EDGES.md). Each edge dataset asserts a
 # relationship from a source id to a target id; every row must carry a non-empty
 # source and a non-empty target (adjacency rows: a non-empty target list whose
 # items carry the declared id key). The normalized (source_type, target_type,
@@ -364,14 +364,14 @@ def validate_file(rel: str, ids=None):
             try:
                 record = json.loads(raw)
             except json.JSONDecodeError as e:
-                errors.append(f"  Line {lineno}: Invalid JSON — {e}")
+                errors.append(f"  Line {lineno}: Invalid JSON: {e}")
                 continue
 
             if not isinstance(record, dict):
                 errors.append(f"  Line {lineno}: record is not a JSON object ({type(record).__name__})")
                 continue
 
-            # Layer 2 — primary-key presence + uniqueness (single or composite)
+            # Layer 2: primary-key presence + uniqueness (single or composite)
             if pk:
                 val = record.get(pk)
                 if val in (None, ""):
@@ -390,7 +390,7 @@ def validate_file(rel: str, ids=None):
                     else:
                         seen_ids[val] = lineno
 
-            # Layer 3 — rich field schema
+            # Layer 3: rich field schema
             if schema:
                 for field in schema.get("required", []):
                     if field not in record:
@@ -403,7 +403,7 @@ def validate_file(rel: str, ids=None):
                     if not (isinstance(val, str) and val.startswith("T") and len(val) >= 5):
                         errors.append(f"  Line {lineno}: 'attack_technique' = '{val}' doesn't look like an ATT&CK technique ID")
 
-            # Layer 4 — edge contract (source/target presence; see data/EDGES.md)
+            # Layer 4: edge contract (source/target presence; see data/EDGES.md)
             if edge:
                 src = record.get(edge["source"])
                 if src in (None, ""):

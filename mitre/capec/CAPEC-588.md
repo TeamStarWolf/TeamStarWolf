@@ -38,6 +38,18 @@ This type of attack is a form of Cross-Site Scripting (XSS) where a malicious sc
 - Utilize proper character encoding for all output produced within client-site scripts manipulating the DOM.
 - Ensure that all user-supplied input is validated before use.
 
+## Related pages
+
+- [CAPEC-63: Cross-Site Scripting (XSS)](/mitre/capec/CAPEC-63.md), also related to CWE-20 and CWE-79
+- [CAPEC-85: AJAX Footprinting](/mitre/capec/CAPEC-85.md), also related to CWE-20 and CWE-79
+- [CAPEC-209: XSS Using MIME Type Mismatch](/mitre/capec/CAPEC-209.md), also related to CWE-20 and CWE-79
+- [CAPEC-243: XSS Targeting HTML Attributes](/mitre/capec/CAPEC-243.md), also related to CWE-83
+- [CAPEC-244: XSS Targeting URI Placeholders](/mitre/capec/CAPEC-244.md), also related to CWE-83
+- [CAPEC-591: Reflected XSS](/mitre/capec/CAPEC-591.md), also related to CWE-79
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

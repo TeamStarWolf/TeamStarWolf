@@ -42,6 +42,18 @@ An adversary may try certain common or default usernames and passwords to gain a
 - Put together a strong password policy and make sure that all user created passwords comply with it. Alternatively automatically generate strong passwords for users.
 - Passwords need to be recycled to prevent aging, that is every once in a while a new password must be chosen.
 
+## Related pages
+
+- [CAPEC-16: Dictionary-based Password Attack](/mitre/capec/CAPEC-16.md), also related to CWE-262, CWE-263 and 4 more
+- [CAPEC-49: Password Brute Forcing](/mitre/capec/CAPEC-49.md), also related to CWE-262, CWE-263 and 4 more
+- [CAPEC-55: Rainbow Table Password Cracking](/mitre/capec/CAPEC-55.md), also related to CWE-262, CWE-263 and 4 more
+- [CAPEC-565: Password Spraying](/mitre/capec/CAPEC-565.md), also related to CWE-262, CWE-263 and 4 more
+- [CAPEC-509: Kerberoasting](/mitre/capec/CAPEC-509.md), also related to CWE-262, CWE-263 and 3 more
+- [CAPEC-555: Remote Services with Stolen Credentials](/mitre/capec/CAPEC-555.md), also related to CWE-262, CWE-263 and 3 more
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

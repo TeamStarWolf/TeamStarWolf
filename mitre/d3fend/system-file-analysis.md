@@ -20,6 +20,19 @@ Monitoring system files such as authentication databases, configuration files, s
 - [T1574.006: Dynamic Linker Hijacking](/mitre/techniques/T1574-006.md): analyzes. Adversaries may execute their own malicious payloads by hijacking environment variables the dynamic linker uses to load shared libraries.
 - [T1685.006: Clear Linux or Mac System Logs](/mitre/techniques/T1685-006.md): analyzes (D3FEND maps the revoked predecessor T1070.002). Adversaries may clear system logs to hide evidence of an intrusion.
 
+## Related pages
+
+- [Content Filtering](/mitre/d3fend/content-filtering.md), which also counters 10 of these techniques
+- [Content Modification](/mitre/d3fend/content-modification.md), which also counters 10 of these techniques
+- [Content Quarantine](/mitre/d3fend/content-quarantine.md), which also counters 10 of these techniques
+- [Decoy File](/mitre/d3fend/decoy-file.md), which also counters 10 of these techniques
+- [File Analysis](/mitre/d3fend/file-analysis.md), which also counters 10 of these techniques
+- [File Encryption](/mitre/d3fend/file-encryption.md), which also counters 10 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

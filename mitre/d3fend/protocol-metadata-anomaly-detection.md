@@ -100,6 +100,19 @@ Collecting network communication protocol metadata and identifying statistical o
 - [T1573.001: Symmetric Cryptography](/mitre/techniques/T1573-001.md): analyzes. Adversaries may employ a known symmetric encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol.
 - [T1573.002: Asymmetric Cryptography](/mitre/techniques/T1573-002.md): analyzes. Adversaries may employ a known asymmetric encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol.
 
+## Related pages
+
+- [Application Protocol Command Analysis](/mitre/d3fend/application-protocol-command-analysis.md), which also counters 90 of these techniques
+- [Client-server Payload Profiling](/mitre/d3fend/client-server-payload-profiling.md), which also counters 90 of these techniques
+- [Network Traffic Community Deviation](/mitre/d3fend/network-traffic-community-deviation.md), which also counters 90 of these techniques
+- [Network Traffic Filtering](/mitre/d3fend/network-traffic-filtering.md), which also counters 90 of these techniques
+- [Network Traffic Signature Analysis](/mitre/d3fend/network-traffic-signature-analysis.md), which also counters 90 of these techniques
+- [Per Host Download-Upload Ratio Analysis](/mitre/d3fend/per-host-download-upload-ratio-analysis.md), which also counters 90 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

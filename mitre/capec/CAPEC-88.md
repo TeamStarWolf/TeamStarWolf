@@ -36,6 +36,18 @@ In this type of an attack, an adversary injects operating system commands into e
 - Filter all incoming data to escape or remove characters or strings that can be potentially misinterpreted as operating system or shell commands
 - All application processes should be run with the minimal privileges required. Also, processes must shed privileges as soon as they no longer require them.
 
+## Related pages
+
+- [CAPEC-43: Exploiting Multiple Input Interpretation Layers](/mitre/capec/CAPEC-43.md), also related to CWE-20, CWE-78 and 1 more
+- [CAPEC-6: Argument Injection](/mitre/capec/CAPEC-6.md), also related to CWE-78 and CWE-697
+- [CAPEC-15: Command Delimiters](/mitre/capec/CAPEC-15.md), also related to CWE-78 and CWE-697
+- [CAPEC-41: Using Meta-characters in E-mail Headers to Inject Malicious Payloads](/mitre/capec/CAPEC-41.md), also related to CWE-88 and CWE-697
+- [CAPEC-108: Command Line Execution through SQL Injection](/mitre/capec/CAPEC-108.md), also related to CWE-20 and CWE-78
+- [CAPEC-3: Using Leading 'Ghost' Character Sequences to Bypass Input Filters](/mitre/capec/CAPEC-3.md), also related to CWE-20 and CWE-697
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -37,6 +37,15 @@ An adversary masquerades as a legitimate Dynamic Host Configuration Protocol (DH
 - Implementation: Port Security and DHCP snooping
 - Implementation: Network-based Intrusion Detection Systems
 
+## Related pages
+
+- [CAPEC-161: Infrastructure Manipulation](/mitre/capec/CAPEC-161.md), also related to CWE-923
+- [CAPEC-481: Contradictory Destinations in Traffic Routing Schemes](/mitre/capec/CAPEC-481.md), also related to CWE-923
+- [CAPEC-501: Android Activity Hijack](/mitre/capec/CAPEC-501.md), also related to CWE-923
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

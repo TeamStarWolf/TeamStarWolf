@@ -45,6 +45,18 @@ This attack targets programs running with elevated privileges. The adversary tri
 - Monitor traffic and resource usage and pay attention if resource exhaustion occurs.
 - Protect your log file from unauthorized modification and log forging.
 
+## Related pages
+
+- [CAPEC-104: Cross Zone Scripting](/mitre/capec/CAPEC-104.md), also related to CWE-250
+- [CAPEC-470: Expanding Control over the Operating System from the Database](/mitre/capec/CAPEC-470.md), also related to CWE-250
+- [CAPEC-13: Subverting Environment Variable Values](/mitre/capec/CAPEC-13.md), also related to CWE-15
+- [CAPEC-76: Manipulating Web Input to File System Calls](/mitre/capec/CAPEC-76.md), also related to CWE-15
+- [CAPEC-77: Manipulating User-Controlled Variables](/mitre/capec/CAPEC-77.md), also related to CWE-15
+- [CAPEC-146: XML Schema Poisoning](/mitre/capec/CAPEC-146.md), also related to CWE-15
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

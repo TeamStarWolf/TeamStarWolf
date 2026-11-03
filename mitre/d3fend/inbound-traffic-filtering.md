@@ -19,6 +19,19 @@ Restricting network traffic originating from untrusted networks destined towards
 - [T1566.001: Spearphishing Attachment](/mitre/techniques/T1566-001.md): filters. Adversaries may send spearphishing emails with a malicious attachment in an attempt to gain access to victim systems.
 - [T1566.002: Spearphishing Link](/mitre/techniques/T1566-002.md): filters. Adversaries may send spearphishing emails with a malicious link in an attempt to gain access to victim systems.
 
+## Related pages
+
+- [Application Protocol Command Analysis](/mitre/d3fend/application-protocol-command-analysis.md), which also counters 9 of these techniques
+- [Client-server Payload Profiling](/mitre/d3fend/client-server-payload-profiling.md), which also counters 9 of these techniques
+- [Inbound Session Volume Analysis](/mitre/d3fend/inbound-session-volume-analysis.md), which also counters 9 of these techniques
+- [Network Traffic Community Deviation](/mitre/d3fend/network-traffic-community-deviation.md), which also counters 9 of these techniques
+- [Network Traffic Filtering](/mitre/d3fend/network-traffic-filtering.md), which also counters 9 of these techniques
+- [Network Traffic Signature Analysis](/mitre/d3fend/network-traffic-signature-analysis.md), which also counters 9 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

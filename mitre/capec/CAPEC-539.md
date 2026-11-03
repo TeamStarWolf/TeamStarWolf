@@ -22,6 +22,11 @@ An attacker with access to the development environment process of an application
 
 - [High] Able to develop and manufacture malicious subroutines for an ASIC environment without degradation of existing functions and processes.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

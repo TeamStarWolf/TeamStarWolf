@@ -36,6 +36,18 @@ An attacker targets a system that uses JavaScript Object Notation (JSON) as a tr
 - Make the URLs in the system used to retrieve JSON objects unpredictable and unique for each user session.
 - Ensure that to the extent possible, no sensitive data is passed from the server to the client via JSON objects. JavaScript was never intended to play that role, hence the same origin policy does not adequate address this scenario.
 
+## Related pages
+
+- [CAPEC-141: Cache Poisoning](/mitre/capec/CAPEC-141.md), also related to CWE-345 and CWE-346
+- [CAPEC-142: DNS Cache Poisoning](/mitre/capec/CAPEC-142.md), also related to CWE-345 and CWE-346
+- [CAPEC-384: Application API Message Manipulation via Man-in-the-Middle](/mitre/capec/CAPEC-384.md), also related to CWE-345 and CWE-346
+- [CAPEC-385: Transaction or Event Tampering via Application API Manipulation](/mitre/capec/CAPEC-385.md), also related to CWE-345 and CWE-346
+- [CAPEC-386: Application API Navigation Remapping](/mitre/capec/CAPEC-386.md), also related to CWE-345 and CWE-346
+- [CAPEC-387: Navigation Remapping To Propagate Malicious Content](/mitre/capec/CAPEC-387.md), also related to CWE-345 and CWE-346
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

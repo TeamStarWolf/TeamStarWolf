@@ -33,6 +33,13 @@ An adversary exploits incorrect chaining or granularity of hardware debug compon
 - Implement: Ensure that debug components are properly chained, and their granularity is maintained at different authorization levels
 - Perform Post-silicon validation tests at various authorization levels to ensure that debug components are only accessible to authorized users
 
+## Related pages
+
+- [CAPEC-121: Exploit Non-Production Interfaces](/mitre/capec/CAPEC-121.md), also related to CWE-1296
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

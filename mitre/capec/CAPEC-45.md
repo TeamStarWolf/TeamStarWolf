@@ -49,6 +49,18 @@ This type of attack leverages the use of symbolic links to cause buffer overflow
 - Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution.
 - Use OS-level preventative functionality. Not a complete solution.
 
+## Related pages
+
+- [CAPEC-10: Buffer Overflow via Environment Variables](/mitre/capec/CAPEC-10.md), also related to CWE-20, CWE-74 and 6 more
+- [CAPEC-8: Buffer Overflow in an API Call](/mitre/capec/CAPEC-8.md), also related to CWE-20, CWE-74 and 5 more
+- [CAPEC-9: Buffer Overflow in Local Command-Line Utilities](/mitre/capec/CAPEC-9.md), also related to CWE-20, CWE-74 and 5 more
+- [CAPEC-14: Client-side Injection-induced Buffer Overflow](/mitre/capec/CAPEC-14.md), also related to CWE-20, CWE-74 and 5 more
+- [CAPEC-24: Filter Failure through Buffer Overflow](/mitre/capec/CAPEC-24.md), also related to CWE-20, CWE-74 and 5 more
+- [CAPEC-46: Overflow Variables and Tags](/mitre/capec/CAPEC-46.md), also related to CWE-20, CWE-74 and 5 more
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

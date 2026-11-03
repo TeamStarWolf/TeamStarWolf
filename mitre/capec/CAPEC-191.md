@@ -20,6 +20,13 @@ An adversary engages in activities to discover any sensitive constants present w
 
 - Access to a binary or executable such that it can be analyzed by various utilities.
 
+## Related pages
+
+- [CAPEC-70: Try Common or Default Usernames and Passwords](/mitre/capec/CAPEC-70.md), also related to CWE-798
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

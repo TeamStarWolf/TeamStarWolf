@@ -39,6 +39,18 @@ Web Logs Tampering attacks involve an attacker injecting, deleting or otherwise 
 - Design: Use input validation before writing to web log
 - Design: Validate all log data before it is output
 
+## Related pages
+
+- [CAPEC-93: Log Injection-Tampering-Forging](/mitre/capec/CAPEC-93.md), also related to CWE-75, CWE-117 and 1 more
+- [CAPEC-73: User-Controlled Filename](/mitre/capec/CAPEC-73.md), also related to CWE-20, CWE-96 and 1 more
+- [CAPEC-85: AJAX Footprinting](/mitre/capec/CAPEC-85.md), also related to CWE-20, CWE-96 and 1 more
+- [CAPEC-104: Cross Zone Scripting](/mitre/capec/CAPEC-104.md), also related to CWE-20 and CWE-116
+- [CAPEC-15: Command Delimiters](/mitre/capec/CAPEC-15.md), also related to CWE-93
+- [CAPEC-1: Accessing Functionality Not Properly Constrained by ACLs](/mitre/capec/CAPEC-1.md), also related to CWE-276
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

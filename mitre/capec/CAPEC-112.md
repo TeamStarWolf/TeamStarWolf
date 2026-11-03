@@ -37,6 +37,18 @@ In this attack, some asset (information, functionality, identity, etc.) is prote
 - Use a secret space that is well known and with no known patterns that may reduce functional size.
 - Do not provide the means for an attacker to determine success independently. This forces the attacker to check their guesses against an external authority, which can slow the attack and warn the defender. This mitigation may not be possible if testing material must appear externally, such as with a transmitted cryptotext.
 
+## Related pages
+
+- [CAPEC-20: Encryption Brute Forcing](/mitre/capec/CAPEC-20.md), also related to CWE-326
+- [CAPEC-59: Session Credential Falsification through Prediction](/mitre/capec/CAPEC-59.md), also related to CWE-330
+- [CAPEC-192: Protocol Analysis](/mitre/capec/CAPEC-192.md), also related to CWE-326
+- [CAPEC-485: Signature Spoofing by Key Recreation](/mitre/capec/CAPEC-485.md), also related to CWE-330
+- [CAPEC-16: Dictionary-based Password Attack](/mitre/capec/CAPEC-16.md), also related to CWE-521
+- [CAPEC-49: Password Brute Forcing](/mitre/capec/CAPEC-49.md), also related to CWE-521
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

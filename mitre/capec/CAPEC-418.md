@@ -25,6 +25,11 @@ An adversary uses a social engineering techniques to produce a sense of obligati
 
 - An organization should provide regular, robust cybersecurity training to its employees to prevent social engineering attacks.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

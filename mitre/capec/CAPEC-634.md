@@ -35,6 +35,16 @@ The adversary exploits the target system's audio and video functionalities throu
 - Prevent unknown code from executing on a system through the use of an allowlist policy.
 - Patch installed applications as soon as new updates become available.
 
+## Related pages
+
+- [CAPEC-58: Restful Privilege Elevation](/mitre/capec/CAPEC-58.md), also related to CWE-267
+- [CAPEC-637: Collect Data from Clipboard](/mitre/capec/CAPEC-637.md), also related to CWE-267
+- [CAPEC-643: Identify Shared Files/Directories on System](/mitre/capec/CAPEC-643.md), also related to CWE-267
+- [CAPEC-648: Collect Data from Screen Capture](/mitre/capec/CAPEC-648.md), also related to CWE-267
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

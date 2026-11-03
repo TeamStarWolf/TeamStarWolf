@@ -35,6 +35,12 @@ This attack targets the WSDL interface made available by a web service. The atta
 - Pay attention to the function naming convention (within the WSDL interface). Easy to guess function name may be an entry point for attack.
 - Validate the received messages against the WSDL Schema. Incomplete solution.
 
+## Related pages
+
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -30,6 +30,11 @@ An adversary contaminates organizational information systems (including devices 
 - Design systems with redundancy in mind. This could mean creating backing servers that could be switched over to in the event that a server has to be taken down for investigation.
 - Have a planned and efficient response plan to limit the amount of time a system is offline while the contamination is investigated.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

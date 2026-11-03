@@ -16,6 +16,19 @@ Limiting access to a computing device which is not required through or from a no
 - [T1685.001: Disable or Modify Windows Event Log](/mitre/techniques/T1685-001.md): configures (D3FEND maps the revoked predecessor T1562.002). Adversaries may disable or modify the Windows Event Log to limit data that can be leveraged for detections and audits.
 - [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): configures (D3FEND maps the revoked predecessor T1562.003). Adversaries may impair command history logging to hide commands they run on a compromised system.
 
+## Related pages
+
+- [Application Configuration Hardening](/mitre/d3fend/application-configuration-hardening.md), which also counters 6 of these techniques
+- [Configuration Inventory](/mitre/d3fend/configuration-inventory.md), which also counters 6 of these techniques
+- [Restore Configuration](/mitre/d3fend/restore-configuration.md), which also counters 6 of these techniques
+- [Message Authentication](/mitre/d3fend/message-authentication.md), which also counters 2 of these techniques
+- [Message Encryption](/mitre/d3fend/message-encryption.md), which also counters 2 of these techniques
+- [Network Traffic Filtering](/mitre/d3fend/network-traffic-filtering.md), which also counters 2 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

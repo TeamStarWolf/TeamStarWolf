@@ -34,6 +34,14 @@ An attacker subverts an intermediate system used to process XML content and forc
 - Design: Specify maximum number intermediate nodes for the request and require SSL connections with mutual authentication.
 - Implementation: Use SSL for connections between all parties with mutual authentication.
 
+## Related pages
+
+- [CAPEC-94: Adversary in the Middle (AiTM)](/mitre/capec/CAPEC-94.md), named in the description above
+- [CAPEC-465: Transparent Proxy Abuse](/mitre/capec/CAPEC-465.md), also related to CWE-441
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

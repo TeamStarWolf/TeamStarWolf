@@ -43,6 +43,18 @@ The adversary takes advantage of a bug in an application failing to verify the i
 - Monitor API calls like SetWindowsHookEx and SetWinEventHook which install hook procedures for Windows.
 - Monitor processes and command-line arguments for unknown behavior related to code injection.
 
+## Related pages
+
+- [CAPEC-108: Command Line Execution through SQL Injection](/mitre/capec/CAPEC-108.md), also related to CWE-114
+- [CAPEC-175: Code Inclusion](/mitre/capec/CAPEC-175.md), also related to CWE-829
+- [CAPEC-201: Serialized Data External Linking](/mitre/capec/CAPEC-201.md), also related to CWE-829
+- [CAPEC-228: DTD Injection](/mitre/capec/CAPEC-228.md), also related to CWE-829
+- [CAPEC-251: Local Code Inclusion](/mitre/capec/CAPEC-251.md), also related to CWE-829
+- [CAPEC-252: PHP Local File Inclusion](/mitre/capec/CAPEC-252.md), also related to CWE-829
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

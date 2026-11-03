@@ -25,6 +25,18 @@ The use of cryptanalytic techniques to derive cryptographic keys or otherwise ef
 - Use of hardened baseband firmware on retransmission device to detect and prevent the use of weak cellular encryption.
 - Monitor cellular RF interface to detect the usage of weaker-than-expected cellular encryption.
 
+## Related pages
+
+- [CAPEC-20: Encryption Brute Forcing](/mitre/capec/CAPEC-20.md), also related to CWE-327
+- [CAPEC-97: Cryptanalysis](/mitre/capec/CAPEC-97.md), also related to CWE-327
+- [CAPEC-459: Creating a Rogue Certification Authority Certificate](/mitre/capec/CAPEC-459.md), also related to CWE-327
+- [CAPEC-473: Signature Spoof](/mitre/capec/CAPEC-473.md), also related to CWE-327
+- [CAPEC-475: Signature Spoofing by Improper Validation](/mitre/capec/CAPEC-475.md), also related to CWE-327
+- [CAPEC-614: Rooting SIM Cards](/mitre/capec/CAPEC-614.md), also related to CWE-327
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -38,6 +38,18 @@ This attack utilizes a REST(REpresentational State Transfer)-style applications'
 - Design: Utilize defense in depth, do not rely on a single security mechanism like SSL
 - Design: Enforce principle of least privilege
 
+## Related pages
+
+- [CAPEC-94: Adversary in the Middle (AiTM)](/mitre/capec/CAPEC-94.md), also related to CWE-287 and CWE-300
+- [CAPEC-22: Exploiting Trust in Client](/mitre/capec/CAPEC-22.md), also related to CWE-287 and CWE-693
+- [CAPEC-466: Leveraging Active Adversary in the Middle Attacks to Bypass Same Origin Policy](/mitre/capec/CAPEC-466.md), also related to CWE-300
+- [CAPEC-589: DNS Blocking](/mitre/capec/CAPEC-589.md), also related to CWE-300
+- [CAPEC-590: IP Address Blocking](/mitre/capec/CAPEC-590.md), also related to CWE-300
+- [CAPEC-612: WiFi MAC Address Tracking](/mitre/capec/CAPEC-612.md), also related to CWE-300
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

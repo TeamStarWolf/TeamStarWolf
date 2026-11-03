@@ -24,6 +24,12 @@ The extension of a file name is often used in various contexts to determine the 
 
 - Applications should insure that the content of the file is consistent with format it is expecting, and not depend solely on the file extension.
 
+## Related pages
+
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -18,6 +18,18 @@ An adversary exploits weaknesses in input validation on web-mail servers to exec
 - The web-mail server must fail to adequately sanitize fields received from users and passed on to the back-end mail server.
 - The back-end mail server must not be adequately secured against receiving malicious commands from the web-mail server.
 
+## Related pages
+
+- [CAPEC-15: Command Delimiters](/mitre/capec/CAPEC-15.md), also related to CWE-77
+- [CAPEC-40: Manipulating Writeable Terminal Devices](/mitre/capec/CAPEC-40.md), also related to CWE-77
+- [CAPEC-43: Exploiting Multiple Input Interpretation Layers](/mitre/capec/CAPEC-43.md), also related to CWE-77
+- [CAPEC-75: Manipulating Writeable Configuration Files](/mitre/capec/CAPEC-75.md), also related to CWE-77
+- [CAPEC-76: Manipulating Web Input to File System Calls](/mitre/capec/CAPEC-76.md), also related to CWE-77
+- [CAPEC-136: LDAP Injection](/mitre/capec/CAPEC-136.md), also related to CWE-77
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

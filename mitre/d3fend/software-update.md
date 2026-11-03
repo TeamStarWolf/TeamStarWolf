@@ -45,6 +45,19 @@ Replacing old software on a computer system component.
 - [T1649: Steal or Forge Authentication Certificates](/mitre/techniques/T1649.md): updates. Adversaries may steal or forge certificates used for authentication to access remote systems or resources.
 - [T1693.002: Module Firmware](https://attack.mitre.org/techniques/T1693/002): updates (D3FEND maps the revoked predecessor T0839)
 
+## Related pages
+
+- [Asset Vulnerability Enumeration](/mitre/d3fend/asset-vulnerability-enumeration.md), which also counters 35 of these techniques
+- [Restore Software](/mitre/d3fend/restore-software.md), which also counters 35 of these techniques
+- [Software Inventory](/mitre/d3fend/software-inventory.md), which also counters 35 of these techniques
+- [Service Binary Verification](/mitre/d3fend/service-binary-verification.md), which also counters 12 of these techniques
+- [Content Filtering](/mitre/d3fend/content-filtering.md), which also counters 8 of these techniques
+- [Content Modification](/mitre/d3fend/content-modification.md), which also counters 8 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

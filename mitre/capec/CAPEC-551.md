@@ -20,6 +20,18 @@ When an operating system starts, it also starts programs called services or daem
 
 - Limit privileges of user accounts so service changes can only be performed by authorized administrators. Also monitor any service changes that may occur inadvertently.
 
+## Related pages
+
+- [CAPEC-50: Password Recovery Exploitation](/mitre/capec/CAPEC-50.md), also related to CWE-522
+- [CAPEC-102: Session Sidejacking](/mitre/capec/CAPEC-102.md), also related to CWE-522
+- [CAPEC-474: Signature Spoofing by Key Theft](/mitre/capec/CAPEC-474.md), also related to CWE-522
+- [CAPEC-509: Kerberoasting](/mitre/capec/CAPEC-509.md), also related to CWE-522
+- [CAPEC-555: Remote Services with Stolen Credentials](/mitre/capec/CAPEC-555.md), also related to CWE-522
+- [CAPEC-560: Use of Known Domain Credentials](/mitre/capec/CAPEC-560.md), also related to CWE-522
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

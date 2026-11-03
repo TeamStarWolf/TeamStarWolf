@@ -39,6 +39,14 @@ An adversary takes advantage of missing or incorrectly configured security ident
 - Review security identifier decoders for design inconsistencies and common weaknesses.
 - Test security identifier definition, access, and programming flow in both pre-silicon and post-silicon environments.
 
+## Related pages
+
+- [CAPEC-121: Exploit Non-Production Interfaces](/mitre/capec/CAPEC-121.md), also related to CWE-1259, CWE-1267 and 3 more
+- [CAPEC-633: Token Impersonation](/mitre/capec/CAPEC-633.md), also related to CWE-1270
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

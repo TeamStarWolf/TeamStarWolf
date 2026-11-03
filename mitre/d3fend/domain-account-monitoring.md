@@ -15,6 +15,17 @@ Monitoring the existence of or changes to Domain User Accounts.
 - [T1098.003: Additional Cloud Roles](/mitre/techniques/T1098-003.md): monitors. An adversary may add additional roles or permissions to an adversary-controlled cloud account to maintain persistent access to a tenant.
 - [T1136.002: Domain Account](/mitre/techniques/T1136-002.md): monitors. Adversaries may create a domain account to maintain access to victim systems.
 
+## Related pages
+
+- [Access Modeling](/mitre/d3fend/access-modeling.md), which also counters 5 of these techniques
+- [Account Locking](/mitre/d3fend/account-locking.md), which also counters 5 of these techniques
+- [Agent Authentication](/mitre/d3fend/agent-authentication.md), which also counters 5 of these techniques
+- [Change Default Password](/mitre/d3fend/change-default-password.md), which also counters 5 of these techniques
+- [Restore User Account Access](/mitre/d3fend/restore-user-account-access.md), which also counters 5 of these techniques
+- [Unlock Account](/mitre/d3fend/unlock-account.md), which also counters 5 of these techniques
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

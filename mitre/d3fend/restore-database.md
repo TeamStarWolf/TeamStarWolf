@@ -33,6 +33,19 @@ Restoring the data in a database.
 - [T1564.005: Hidden File System](/mitre/techniques/T1564-005.md): restores. Adversaries may use a hidden file system to conceal malicious activity from users and security tools.
 - [T1614.001: System Language Discovery](/mitre/techniques/T1614-001.md): restores. Adversaries may attempt to gather information about the system language of a victim in order to infer the geographical location of that host.
 
+## Related pages
+
+- [Data Inventory](/mitre/d3fend/data-inventory.md), which also counters 23 of these techniques
+- [System Configuration Permissions](/mitre/d3fend/system-configuration-permissions.md), which also counters 14 of these techniques
+- [Content Filtering](/mitre/d3fend/content-filtering.md), which also counters 7 of these techniques
+- [Content Modification](/mitre/d3fend/content-modification.md), which also counters 7 of these techniques
+- [Content Quarantine](/mitre/d3fend/content-quarantine.md), which also counters 7 of these techniques
+- [Decoy File](/mitre/d3fend/decoy-file.md), which also counters 7 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

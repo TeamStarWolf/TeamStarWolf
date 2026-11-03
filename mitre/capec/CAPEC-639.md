@@ -32,6 +32,13 @@ An adversary obtains unauthorized information due to improperly protected files.
 
 - Verify that files have proper access controls set, and reduce the storage of sensitive information to only what is necessary.
 
+## Related pages
+
+- [CAPEC-150: Collect Data from Common Resource Locations](/mitre/capec/CAPEC-150.md), also related to CWE-552
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

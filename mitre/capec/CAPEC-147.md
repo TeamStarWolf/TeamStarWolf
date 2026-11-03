@@ -32,6 +32,18 @@ An attacker initiates a resource depletion attack where a large number of small 
 - Design: Build throttling mechanism into the resource allocation. Provide for a timeout mechanism for allocated resources whose transaction does not complete within a specified interval.
 - Implementation: Provide for network flow control and traffic shaping to control access to the resources.
 
+## Related pages
+
+- [CAPEC-227: Sustained Client Engagement](/mitre/capec/CAPEC-227.md), also related to CWE-400
+- [CAPEC-492: Regular Expression Exponential Blowup](/mitre/capec/CAPEC-492.md), also related to CWE-400
+- [CAPEC-125: Flooding](/mitre/capec/CAPEC-125.md), also related to CWE-770
+- [CAPEC-130: Excessive Allocation](/mitre/capec/CAPEC-130.md), also related to CWE-770
+- [CAPEC-197: Exponential Data Expansion](/mitre/capec/CAPEC-197.md), also related to CWE-770
+- [CAPEC-229: Serialized Data Parameter Blowup](/mitre/capec/CAPEC-229.md), also related to CWE-770
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

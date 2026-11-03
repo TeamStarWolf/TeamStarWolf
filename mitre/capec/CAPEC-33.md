@@ -47,6 +47,13 @@ An adversary abuses the flexibility and discrepancies in the parsing and interpr
 - Configuration: Ensure that HTTP infrastructure in the chain or network path utilize a strict uniform parsing process.
 - Implementation: Utilize intermediary HTTP infrastructure capable of filtering and/or sanitizing user-input.
 
+## Related pages
+
+- [CAPEC-273: HTTP Response Smuggling](/mitre/capec/CAPEC-273.md), also related to CWE-444
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

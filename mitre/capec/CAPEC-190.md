@@ -12,6 +12,13 @@ An attacker analyzes a binary file or executable for the purpose of discovering 
 
 - [CWE-912: Hidden Functionality](https://cwe.mitre.org/data/definitions/912.html): The product contains functionality that is not documented, not part of the specification, and not accessible through an interface or command sequence that is obvious to the product's users or administrators.
 
+## Related pages
+
+- [CAPEC-133: Try All Common Switches](/mitre/capec/CAPEC-133.md), also related to CWE-912
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

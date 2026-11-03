@@ -34,6 +34,18 @@ An adversary discovers connections between systems by exploiting the target syst
 
 - Identify unnecessary system utilities or potentially malicious software that may contain functionality to identify network share information, and audit and/or block them by using allowlist tools.
 
+## Related pages
+
+- [CAPEC-58: Restful Privilege Elevation](/mitre/capec/CAPEC-58.md), also related to CWE-267
+- [CAPEC-634: Probe Audio and Video Peripherals](/mitre/capec/CAPEC-634.md), also related to CWE-267
+- [CAPEC-637: Collect Data from Clipboard](/mitre/capec/CAPEC-637.md), also related to CWE-267
+- [CAPEC-648: Collect Data from Screen Capture](/mitre/capec/CAPEC-648.md), also related to CWE-267
+- [CAPEC-13: Subverting Environment Variable Values](/mitre/capec/CAPEC-13.md), also related to CWE-200
+- [CAPEC-22: Exploiting Trust in Client](/mitre/capec/CAPEC-22.md), also related to CWE-200
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

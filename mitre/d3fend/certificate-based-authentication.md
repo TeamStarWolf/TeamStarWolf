@@ -11,6 +11,17 @@ Requiring a digital certificate in order to authenticate a user.
 
 - [T1649: Steal or Forge Authentication Certificates](/mitre/techniques/T1649.md): reads. Adversaries may steal or forge certificates used for authentication to access remote systems or resources.
 
+## Related pages
+
+- [Asset Vulnerability Enumeration](/mitre/d3fend/asset-vulnerability-enumeration.md), which also counters 1 of these techniques
+- [Certificate Analysis](/mitre/d3fend/certificate-analysis.md), which also counters 1 of these techniques
+- [Certificate Pinning](/mitre/d3fend/certificate-pinning.md), which also counters 1 of these techniques
+- [Certificate Rotation](/mitre/d3fend/certificate-rotation.md), which also counters 1 of these techniques
+- [Content Filtering](/mitre/d3fend/content-filtering.md), which also counters 1 of these techniques
+- [Content Modification](/mitre/d3fend/content-modification.md), which also counters 1 of these techniques
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -29,6 +29,18 @@ An attacker exploits the underlying complexity of a data structure that allows f
 
 - Ensure the application is fully patched and does not allow the processing of unsigned data as if it is signed data.
 
+## Related pages
+
+- [CAPEC-65: Sniff Application Code](/mitre/capec/CAPEC-65.md), also related to CWE-311, CWE-319 and 1 more
+- [CAPEC-383: Harvesting Information via API Event Monitoring](/mitre/capec/CAPEC-383.md), also related to CWE-311 and CWE-319
+- [CAPEC-102: Session Sidejacking](/mitre/capec/CAPEC-102.md), also related to CWE-319
+- [CAPEC-117: Interception](/mitre/capec/CAPEC-117.md), also related to CWE-319
+- [CAPEC-31: Accessing/Intercepting/Modifying HTTP Cookies](/mitre/capec/CAPEC-31.md), also related to CWE-311
+- [CAPEC-37: Retrieve Embedded Sensitive Data](/mitre/capec/CAPEC-37.md), also related to CWE-311
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

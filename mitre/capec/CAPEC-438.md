@@ -11,6 +11,11 @@ An attacker modifies a technology, product, or component during a stage in its m
 
 - [T1195: Supply Chain Compromise](/mitre/techniques/T1195.md): Adversaries may manipulate products or product delivery mechanisms prior to receipt by a final consumer for the purpose of data or system compromise.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

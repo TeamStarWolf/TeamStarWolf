@@ -48,6 +48,18 @@ An attack of this type exploits a system's trust in configuration and resource f
 - Implementation: Implement host integrity monitoring to detect any unwanted altering of configuration files.
 - Implementation: Ensure that files that are not required to execute, such as configuration files, are not over-privileged, i.e. not allowed to execute.
 
+## Related pages
+
+- [CAPEC-17: Using Malicious Files](/mitre/capec/CAPEC-17.md), also related to CWE-59, CWE-270 and 2 more
+- [CAPEC-76: Manipulating Web Input to File System Calls](/mitre/capec/CAPEC-76.md), also related to CWE-59 and CWE-272
+- [CAPEC-77: Manipulating User-Controlled Variables](/mitre/capec/CAPEC-77.md), also related to CWE-94 and CWE-96
+- [CAPEC-101: Server Side Include (SSI) Injection](/mitre/capec/CAPEC-101.md), also related to CWE-97
+- [CAPEC-30: Hijacking a Privileged Thread of Execution](/mitre/capec/CAPEC-30.md), also related to CWE-270
+- [CAPEC-242: Code Injection](/mitre/capec/CAPEC-242.md), also related to CWE-94
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

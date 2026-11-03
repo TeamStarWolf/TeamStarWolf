@@ -29,6 +29,11 @@ An adversary engages in pretexting behavior to solicit information from target p
 
 - An organization should provide regular, robust cybersecurity training to its employees to prevent successful social engineering attacks.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -35,6 +35,11 @@ An adversary which has gained elevated access to network boundary devices may us
 - Implementation: Perform integrity checks on audit logs for network device management and review them to identify abnormalities in configurations.
 - Implementation: Prevent network boundary devices from being physically accessed by unauthorized personnel to prevent tampering.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

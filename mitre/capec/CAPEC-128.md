@@ -17,6 +17,13 @@ An attacker takes advantage of the structure of integer variables to cause these
 - The target application must have an integer variable for which only some of the possible integer values are expected by the application and where there are no checks on the value of the variable before use.
 - The attacker must be able to manipulate the targeted integer variable such that normal operations result in non-standard values due to the storage structure of integers.
 
+## Related pages
+
+- [CAPEC-129: Pointer Manipulation](/mitre/capec/CAPEC-129.md), also related to CWE-682
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

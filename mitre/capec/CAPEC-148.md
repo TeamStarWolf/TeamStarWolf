@@ -25,6 +25,18 @@ An adversary modifies content to make it contain something other than what the o
 
 - Integrity / Modify Data
 
+## Related pages
+
+- [CAPEC-111: JSON Hijacking (aka JavaScript Hijacking)](/mitre/capec/CAPEC-111.md), also related to CWE-345
+- [CAPEC-141: Cache Poisoning](/mitre/capec/CAPEC-141.md), also related to CWE-345
+- [CAPEC-142: DNS Cache Poisoning](/mitre/capec/CAPEC-142.md), also related to CWE-345
+- [CAPEC-218: Spoofing of UDDI/ebXML Messages](/mitre/capec/CAPEC-218.md), also related to CWE-345
+- [CAPEC-384: Application API Message Manipulation via Man-in-the-Middle](/mitre/capec/CAPEC-384.md), also related to CWE-345
+- [CAPEC-385: Transaction or Event Tampering via Application API Manipulation](/mitre/capec/CAPEC-385.md), also related to CWE-345
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

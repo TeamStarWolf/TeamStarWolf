@@ -20,6 +20,11 @@ An adversary deploys a keylogger in an effort to obtain credentials directly fro
 
 - Strong physical security can help reduce the ability of an adversary to install a keylogger.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

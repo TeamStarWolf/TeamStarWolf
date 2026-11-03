@@ -24,6 +24,19 @@ Monitoring physical parameters and operator actions related to an operational en
 - [T1548.003: Sudo and Sudo Caching](/mitre/techniques/T1548-003.md): monitors. Adversaries may perform sudo caching and/or use the sudoers file to elevate privileges.
 - [T1685.005: Clear Windows Event Logs](/mitre/techniques/T1685-005.md): monitors (D3FEND maps the revoked predecessor T1070.001). Adversaries may clear Windows Event Logs to hide the activity of an intrusion.
 
+## Related pages
+
+- [Application Exception Monitoring](/mitre/d3fend/application-exception-monitoring.md), which also counters 13 of these techniques
+- [Network Traffic Filtering](/mitre/d3fend/network-traffic-filtering.md), which also counters 5 of these techniques
+- [Administrative Network Activity Analysis](/mitre/d3fend/administrative-network-activity-analysis.md), which also counters 4 of these techniques
+- [Application Protocol Command Analysis](/mitre/d3fend/application-protocol-command-analysis.md), which also counters 4 of these techniques
+- [Authentication Cache Invalidation](/mitre/d3fend/authentication-cache-invalidation.md), which also counters 4 of these techniques
+- [Client-server Payload Profiling](/mitre/d3fend/client-server-payload-profiling.md), which also counters 4 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

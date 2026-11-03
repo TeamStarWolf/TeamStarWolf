@@ -30,6 +30,12 @@ An adversary registers a domain name containing a homoglyph, leading the registe
 - Authenticate all servers and perform redundant checks when using DNS hostnames.
 - Utilize browsers that can warn users if URLs contain characters from different character sets.
 
+## Related pages
+
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

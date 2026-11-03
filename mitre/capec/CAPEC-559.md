@@ -17,6 +17,11 @@ In this attack pattern, the adversary sends disruptive signals at a target satel
 
 - Availability / Other
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -31,6 +31,18 @@ An adversary exploits well-known locations for resources for the purposes of und
 
 - The targeted applications must either expect files to be located at a specific location or, if the location of the files can be configured by the user, the user either failed to move the files from the default location or placed them in a conventional location for files of the given type.
 
+## Related pages
+
+- [CAPEC-545: Pull Data from System Resources](/mitre/capec/CAPEC-545.md), also related to CWE-1239, CWE-1258 and 4 more
+- [CAPEC-37: Retrieve Embedded Sensitive Data](/mitre/capec/CAPEC-37.md), also related to CWE-1239, CWE-1258 and 3 more
+- [CAPEC-204: Lifting Sensitive Data Embedded in Cache](/mitre/capec/CAPEC-204.md), also related to CWE-1239 and CWE-1258
+- [CAPEC-546: Incomplete Data Deletion in a Multi-Tenant Environment](/mitre/capec/CAPEC-546.md), also related to CWE-1266 and CWE-1272
+- [CAPEC-639: Probe System Files](/mitre/capec/CAPEC-639.md), also related to CWE-552
+- [CAPEC-167: White Box Reverse Engineering](/mitre/capec/CAPEC-167.md), also related to CWE-1323
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

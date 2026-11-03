@@ -37,6 +37,18 @@ An attacker manipulates or crafts an LDAP query for the purpose of undermining t
 - Strong input validation - All user-controllable input must be validated and filtered for illegal characters as well as LDAP content.
 - Use of custom error pages - Attackers can glean information about the nature of queries from descriptive error messages. Input validation must be coupled with customized error pages that inform about an error without disclosing information about the LDAP or application.
 
+## Related pages
+
+- [CAPEC-43: Exploiting Multiple Input Interpretation Layers](/mitre/capec/CAPEC-43.md), also related to CWE-20 and CWE-77
+- [CAPEC-15: Command Delimiters](/mitre/capec/CAPEC-15.md), also related to CWE-77
+- [CAPEC-40: Manipulating Writeable Terminal Devices](/mitre/capec/CAPEC-40.md), also related to CWE-77
+- [CAPEC-75: Manipulating Writeable Configuration Files](/mitre/capec/CAPEC-75.md), also related to CWE-77
+- [CAPEC-76: Manipulating Web Input to File System Calls](/mitre/capec/CAPEC-76.md), also related to CWE-77
+- [CAPEC-183: IMAP/SMTP Command Injection](/mitre/capec/CAPEC-183.md), also related to CWE-77
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

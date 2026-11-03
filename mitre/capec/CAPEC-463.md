@@ -28,6 +28,18 @@ An adversary is able to efficiently decrypt data without knowing the decryption 
 - Design: Use a message authentication code (MAC) or another mechanism to perform verification of message authenticity / integrity prior to decryption
 - Implementation: Do not leak information back to the user as to any cryptography (e.g., padding) encountered during decryption.
 
+## Related pages
+
+- [CAPEC-475: Signature Spoofing by Improper Validation](/mitre/capec/CAPEC-475.md), also related to CWE-347
+- [CAPEC-75: Manipulating Writeable Configuration Files](/mitre/capec/CAPEC-75.md), also related to CWE-354
+- [CAPEC-145: Checksum Spoofing](/mitre/capec/CAPEC-145.md), also related to CWE-354
+- [CAPEC-7: Blind SQL Injection](/mitre/capec/CAPEC-7.md), also related to CWE-209
+- [CAPEC-54: Query System for Information](/mitre/capec/CAPEC-54.md), also related to CWE-209
+- [CAPEC-215: Fuzzing for application mapping](/mitre/capec/CAPEC-215.md), also related to CWE-209
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

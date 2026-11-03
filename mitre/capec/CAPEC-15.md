@@ -43,6 +43,18 @@ An attack of this type exploits a programs' vulnerabilities that allows an attac
 - Implementation: Perform input validation for all remote content.
 - Implementation: Use type conversions such as JDBC prepared statements.
 
+## Related pages
+
+- [CAPEC-6: Argument Injection](/mitre/capec/CAPEC-6.md), also related to CWE-78, CWE-146 and 3 more
+- [CAPEC-43: Exploiting Multiple Input Interpretation Layers](/mitre/capec/CAPEC-43.md), also related to CWE-77, CWE-78 and 2 more
+- [CAPEC-79: Using Slashes in Alternate Encoding](/mitre/capec/CAPEC-79.md), also related to CWE-185 and CWE-697
+- [CAPEC-88: OS Command Injection](/mitre/capec/CAPEC-88.md), also related to CWE-78 and CWE-697
+- [CAPEC-3: Using Leading 'Ghost' Character Sequences to Bypass Input Filters](/mitre/capec/CAPEC-3.md), also related to CWE-184 and CWE-697
+- [CAPEC-71: Using Unicode Encoding to Bypass Validation Logic](/mitre/capec/CAPEC-71.md), also related to CWE-184 and CWE-697
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

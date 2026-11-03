@@ -12,6 +12,11 @@ Adversary creates duplicates of legitimate websites. When users visit a counterf
 
 - [T1036.005: Match Legitimate Resource Name or Location](/mitre/techniques/T1036-005.md): Adversaries may match or approximate the name or location of legitimate files, Registry keys, or other resources when naming/placing them.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

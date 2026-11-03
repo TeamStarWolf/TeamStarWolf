@@ -46,6 +46,18 @@ An adversary targets the communication between two components (typically client 
 - Use Strong mutual authentication to always fully authenticate both ends of any communications channel.
 - Exchange public keys using a secure channel
 
+## Related pages
+
+- [CAPEC-57: Utilizing REST's Trust in the System Resource to Obtain Sensitive Data](/mitre/capec/CAPEC-57.md), also related to CWE-287 and CWE-300
+- [CAPEC-22: Exploiting Trust in Client](/mitre/capec/CAPEC-22.md), also related to CWE-287 and CWE-290
+- [CAPEC-60: Reusing Session IDs (aka Session Replay)](/mitre/capec/CAPEC-60.md), also related to CWE-290 and CWE-294
+- [CAPEC-466: Leveraging Active Adversary in the Middle Attacks to Bypass Same Origin Policy](/mitre/capec/CAPEC-466.md), also related to CWE-300
+- [CAPEC-589: DNS Blocking](/mitre/capec/CAPEC-589.md), also related to CWE-300
+- [CAPEC-590: IP Address Blocking](/mitre/capec/CAPEC-590.md), also related to CWE-300
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

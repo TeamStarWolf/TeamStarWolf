@@ -49,6 +49,18 @@ An adversary abuses the flexibility and discrepancies in the parsing and interpr
 - Configuration: Ensure that HTTP infrastructure in the chain or network path utilize a strict uniform parsing process.
 - Implementation: Utilize intermediary HTTP infrastructure capable of filtering and/or sanitizing user-input.
 
+## Related pages
+
+- [CAPEC-34: HTTP Response Splitting](/mitre/capec/CAPEC-34.md), also related to CWE-74, CWE-113 and 2 more
+- [CAPEC-273: HTTP Response Smuggling](/mitre/capec/CAPEC-273.md), also related to CWE-74 and CWE-436
+- [CAPEC-15: Command Delimiters](/mitre/capec/CAPEC-15.md), also related to CWE-138
+- [CAPEC-31: Accessing/Intercepting/Modifying HTTP Cookies](/mitre/capec/CAPEC-31.md), also related to CWE-113
+- [CAPEC-85: AJAX Footprinting](/mitre/capec/CAPEC-85.md), also related to CWE-113
+- [CAPEC-3: Using Leading 'Ghost' Character Sequences to Bypass Input Filters](/mitre/capec/CAPEC-3.md), also related to CWE-74
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

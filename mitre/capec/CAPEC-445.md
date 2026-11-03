@@ -26,6 +26,11 @@ An adversary exploits a configuration management system so that malicious logic 
 - Assess software during development and prior to deployment to ensure that it functions as intended and without any malicious functionality.
 - Leverage anti-virus products to detect and quarantine software with known virus.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

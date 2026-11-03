@@ -36,6 +36,15 @@ This attack relies on client side code to access local files and resources inste
 - Implementation: Perform output validation for all remote content.
 - Implementation: Disable scripting languages such as JavaScript in browser
 
+## Related pages
+
+- [CAPEC-159: Redirect Access to Libraries](/mitre/capec/CAPEC-159.md), also related to CWE-706
+- [CAPEC-177: Create files with the same name as files protected with a higher classification](/mitre/capec/CAPEC-177.md), also related to CWE-706
+- [CAPEC-641: DLL Side-Loading](/mitre/capec/CAPEC-641.md), also related to CWE-706
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

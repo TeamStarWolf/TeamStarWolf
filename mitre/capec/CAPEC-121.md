@@ -40,6 +40,16 @@ An adversary exploits a sample, demonstration, test, or debug interface that is 
 
 - Ensure that production systems do not contain non-production interfaces and that these interfaces are only used in development environments.
 
+## Related pages
+
+- [CAPEC-681: Exploitation of Improperly Controlled Hardware Security Identifiers](/mitre/capec/CAPEC-681.md), also related to CWE-1259, CWE-1267 and 3 more
+- [CAPEC-661: Root/Jailbreak Detection Evasion via Debugging](/mitre/capec/CAPEC-661.md), also related to CWE-489
+- [CAPEC-702: Exploiting Incorrect Chaining or Granularity of Hardware Debug Components](/mitre/capec/CAPEC-702.md), also related to CWE-1296
+- [CAPEC-633: Token Impersonation](/mitre/capec/CAPEC-633.md), also related to CWE-1270
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

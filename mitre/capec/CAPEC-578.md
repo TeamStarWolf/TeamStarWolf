@@ -35,6 +35,24 @@ An adversary exploits a weakness in access control to disable security tools so 
 
 - Ensure proper permissions are in place to prevent adversaries from altering the execution status of security tools.
 
+## Related pages
+
+- [T1685: Disable or Modify Tools](/mitre/techniques/T1685.md), whose ATT&CK profile lists this pattern
+- [T1685.001: Disable or Modify Windows Event Log](/mitre/techniques/T1685-001.md), whose ATT&CK profile lists this pattern
+- [T1685.002: Disable or Modify Cloud Log](/mitre/techniques/T1685-002.md), whose ATT&CK profile lists this pattern
+- [T1686: Disable or Modify System Firewall](/mitre/techniques/T1686.md), whose ATT&CK profile lists this pattern
+- [T1686.001: Cloud Firewall](/mitre/techniques/T1686-001.md), whose ATT&CK profile lists this pattern
+- [T1688: Safe Mode Boot](/mitre/techniques/T1688.md), whose ATT&CK profile lists this pattern
+- [CAPEC-19: Embedding Scripts within Scripts](/mitre/capec/CAPEC-19.md), also related to CWE-284
+- [CAPEC-441: Malicious Logic Insertion](/mitre/capec/CAPEC-441.md), also related to CWE-284
+- [CAPEC-478: Modification of Windows Service Configuration](/mitre/capec/CAPEC-478.md), also related to CWE-284
+- [CAPEC-479: Malicious Root Certificate](/mitre/capec/CAPEC-479.md), also related to CWE-284
+- [CAPEC-502: Intent Spoof](/mitre/capec/CAPEC-502.md), also related to CWE-284
+- [CAPEC-503: WebView Exposure](/mitre/capec/CAPEC-503.md), also related to CWE-284
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

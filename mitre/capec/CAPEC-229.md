@@ -22,6 +22,18 @@ This attack exploits certain serialized data parsers (e.g., XML, YAML, etc.) whi
 - This attack may be mitigated completely by using a parser that is not using a vulnerable container.
 - Mitigation may limit the number of configuration parameters per dataset.
 
+## Related pages
+
+- [CAPEC-125: Flooding](/mitre/capec/CAPEC-125.md), also related to CWE-770
+- [CAPEC-130: Excessive Allocation](/mitre/capec/CAPEC-130.md), also related to CWE-770
+- [CAPEC-147: XML Ping of the Death](/mitre/capec/CAPEC-147.md), also related to CWE-770
+- [CAPEC-197: Exponential Data Expansion](/mitre/capec/CAPEC-197.md), also related to CWE-770
+- [CAPEC-230: Serialized Data with Nested Payloads](/mitre/capec/CAPEC-230.md), also related to CWE-770
+- [CAPEC-231: Oversized Serialized Data Payloads](/mitre/capec/CAPEC-231.md), also related to CWE-770
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -35,6 +35,12 @@ An attacker leverages the security functionality of the system aimed at thwartin
 - Implement intelligent password throttling mechanisms such as those which take IP address into account, in addition to the login name.
 - When implementing security features, consider how they can be misused and made to turn on themselves.
 
+## Related pages
+
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

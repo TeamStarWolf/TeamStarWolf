@@ -34,6 +34,16 @@ An adversary targets mobile phone users with a phishing attack for the purpose o
 
 - Do not follow any links that you receive within text messages and do not input any login credentials on the page that they take you too. Instead, call your Bank, PayPal, eBay, etc., and inquire about the problem. Safe practices also include leveraging the entity's mobile application or directly typing the entity's URL in the browser and only then logging in. Never reply to any text messages that ask you to provide sensitive information of any kind.
 
+## Related pages
+
+- [CAPEC-98: Phishing](/mitre/capec/CAPEC-98.md), also related to CWE-451
+- [CAPEC-154: Resource Location Spoofing](/mitre/capec/CAPEC-154.md), also related to CWE-451
+- [CAPEC-163: Spear Phishing](/mitre/capec/CAPEC-163.md), also related to CWE-451
+- [CAPEC-173: Action Spoofing](/mitre/capec/CAPEC-173.md), also related to CWE-451
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

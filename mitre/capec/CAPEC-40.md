@@ -32,6 +32,18 @@ This attack exploits terminal devices that allow themselves to be written to by 
 - Design: Ensure that terminals are only writeable by named owner user and/or administrator
 - Design: Enforce principle of least privilege
 
+## Related pages
+
+- [CAPEC-15: Command Delimiters](/mitre/capec/CAPEC-15.md), also related to CWE-77
+- [CAPEC-43: Exploiting Multiple Input Interpretation Layers](/mitre/capec/CAPEC-43.md), also related to CWE-77
+- [CAPEC-75: Manipulating Writeable Configuration Files](/mitre/capec/CAPEC-75.md), also related to CWE-77
+- [CAPEC-76: Manipulating Web Input to File System Calls](/mitre/capec/CAPEC-76.md), also related to CWE-77
+- [CAPEC-136: LDAP Injection](/mitre/capec/CAPEC-136.md), also related to CWE-77
+- [CAPEC-183: IMAP/SMTP Command Injection](/mitre/capec/CAPEC-183.md), also related to CWE-77
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

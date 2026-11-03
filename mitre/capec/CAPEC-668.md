@@ -37,6 +37,18 @@ An adversary can exploit a flaw in Bluetooth key negotiation allowing them to de
 
 - Newer Bluetooth firmwares ensure that the KNOB is not negotaited in plaintext. Update your device.
 
+## Related pages
+
+- [CAPEC-87: Forceful Browsing](/mitre/capec/CAPEC-87.md), also related to CWE-285, CWE-425 and 1 more
+- [CAPEC-127: Directory Indexing](/mitre/capec/CAPEC-127.md), also related to CWE-285, CWE-425 and 1 more
+- [CAPEC-1: Accessing Functionality Not Properly Constrained by ACLs](/mitre/capec/CAPEC-1.md), also related to CWE-285 and CWE-693
+- [CAPEC-17: Using Malicious Files](/mitre/capec/CAPEC-17.md), also related to CWE-285 and CWE-693
+- [CAPEC-51: Poison Web Service Registry](/mitre/capec/CAPEC-51.md), also related to CWE-285 and CWE-693
+- [CAPEC-59: Session Credential Falsification through Prediction](/mitre/capec/CAPEC-59.md), also related to CWE-285 and CWE-693
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

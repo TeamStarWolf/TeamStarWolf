@@ -19,6 +19,18 @@ An adversary creates a file with scripting content but where the specified MIME 
 - The victim must follow a crafted link that references a scripting file that is mis-typed as a non-executable file.
 - The victim's browser must detect the true type of a mis-labeled scripting file and invoke the appropriate script interpreter without first performing filtering on the content.
 
+## Related pages
+
+- [CAPEC-63: Cross-Site Scripting (XSS)](/mitre/capec/CAPEC-63.md), also related to CWE-20 and CWE-79
+- [CAPEC-85: AJAX Footprinting](/mitre/capec/CAPEC-85.md), also related to CWE-20 and CWE-79
+- [CAPEC-588: DOM-Based XSS](/mitre/capec/CAPEC-588.md), also related to CWE-20 and CWE-79
+- [CAPEC-591: Reflected XSS](/mitre/capec/CAPEC-591.md), also related to CWE-79
+- [CAPEC-592: Stored XSS](/mitre/capec/CAPEC-592.md), also related to CWE-79
+- [CAPEC-3: Using Leading 'Ghost' Character Sequences to Bypass Input Filters](/mitre/capec/CAPEC-3.md), also related to CWE-20
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -33,6 +33,18 @@ An adversary identifies a Rest HTTP (Get, Put, Delete) style permission method a
 - Implementation: Ensure that HTTP Get methods only retrieve state and do not alter state on the server side
 - Implementation: Ensure that HTTP methods have proper ACLs based on what the functionality they expose
 
+## Related pages
+
+- [CAPEC-122: Privilege Abuse](/mitre/capec/CAPEC-122.md), also related to CWE-269
+- [CAPEC-233: Privilege Escalation](/mitre/capec/CAPEC-233.md), also related to CWE-269
+- [CAPEC-634: Probe Audio and Video Peripherals](/mitre/capec/CAPEC-634.md), also related to CWE-267
+- [CAPEC-637: Collect Data from Clipboard](/mitre/capec/CAPEC-637.md), also related to CWE-267
+- [CAPEC-643: Identify Shared Files/Directories on System](/mitre/capec/CAPEC-643.md), also related to CWE-267
+- [CAPEC-648: Collect Data from Screen Capture](/mitre/capec/CAPEC-648.md), also related to CWE-267
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

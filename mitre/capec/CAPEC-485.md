@@ -32,6 +32,14 @@ An attacker obtains an authoritative or reputable signer's private signature key
 
 - Ensure cryptographic elements have been sufficiently tested for weaknesses.
 
+## Related pages
+
+- [CAPEC-59: Session Credential Falsification through Prediction](/mitre/capec/CAPEC-59.md), also related to CWE-330
+- [CAPEC-112: Brute Force](/mitre/capec/CAPEC-112.md), also related to CWE-330
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -25,6 +25,17 @@ An adversary monitors data streams to or from the target for information gatheri
 
 - Leverage encryption to encode the transmission of data thus making it accessible only to authorized parties.
 
+## Related pages
+
+- [CAPEC-94: Adversary in the Middle (AiTM)](/mitre/capec/CAPEC-94.md), named in the description above
+- [CAPEC-65: Sniff Application Code](/mitre/capec/CAPEC-65.md), also related to CWE-319
+- [CAPEC-102: Session Sidejacking](/mitre/capec/CAPEC-102.md), also related to CWE-319
+- [CAPEC-383: Harvesting Information via API Event Monitoring](/mitre/capec/CAPEC-383.md), also related to CWE-319
+- [CAPEC-477: Signature Spoofing by Mixing Signed and Unsigned Content](/mitre/capec/CAPEC-477.md), also related to CWE-319
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

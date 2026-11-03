@@ -47,6 +47,15 @@ This attack targets a race condition occurring between the time of check (state)
 - Use static analysis tools to find race conditions.
 - Pay attention to concurrency problems related to the access of resources.
 
+## Related pages
+
+- [CAPEC-26: Leveraging Race Conditions](/mitre/capec/CAPEC-26.md), also related to CWE-362, CWE-366 and 4 more
+- [CAPEC-27: Leveraging Race Conditions via Symbolic Links](/mitre/capec/CAPEC-27.md), also related to CWE-367 and CWE-662
+- [CAPEC-25: Forced Deadlock](/mitre/capec/CAPEC-25.md), also related to CWE-662
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

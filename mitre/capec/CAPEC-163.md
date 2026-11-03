@@ -41,6 +41,16 @@ An adversary targets a specific user or group with a Phishing (CAPEC-98) attack 
 
 - Do not follow any links that you receive within your e-mails and certainly do not input any login credentials on the page that they take you too. Instead, call your Bank, PayPal, eBay, etc., and inquire about the problem. A safe practice would also be to type the URL of your bank in the browser directly and only then log in. Also, never reply to any e-mails that ask you to provide sensitive information of any kind.
 
+## Related pages
+
+- [CAPEC-98: Phishing](/mitre/capec/CAPEC-98.md), named in the description above
+- [CAPEC-154: Resource Location Spoofing](/mitre/capec/CAPEC-154.md), also related to CWE-451
+- [CAPEC-164: Mobile Phishing](/mitre/capec/CAPEC-164.md), also related to CWE-451
+- [CAPEC-173: Action Spoofing](/mitre/capec/CAPEC-173.md), also related to CWE-451
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

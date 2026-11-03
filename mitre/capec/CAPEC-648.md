@@ -35,6 +35,16 @@ An adversary gathers sensitive information by exploiting the system's screen cap
 - Identify potentially malicious software that may have functionality to acquire screen captures, and audit and/or block it by using allowlist tools.
 - While screen capture is a legitimate and practical function, certain situations and context may require the disabling of this feature.
 
+## Related pages
+
+- [CAPEC-58: Restful Privilege Elevation](/mitre/capec/CAPEC-58.md), also related to CWE-267
+- [CAPEC-634: Probe Audio and Video Peripherals](/mitre/capec/CAPEC-634.md), also related to CWE-267
+- [CAPEC-637: Collect Data from Clipboard](/mitre/capec/CAPEC-637.md), also related to CWE-267
+- [CAPEC-643: Identify Shared Files/Directories on System](/mitre/capec/CAPEC-643.md), also related to CWE-267
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

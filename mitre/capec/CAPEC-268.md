@@ -23,6 +23,17 @@ The attacker injects, manipulates, deletes, or forges malicious log entries into
 - The target host is logging the action and data of the user.
 - The target host insufficiently protects access to the logs or logging mechanisms.
 
+## Related pages
+
+- [T1685.001: Disable or Modify Windows Event Log](/mitre/techniques/T1685-001.md), whose ATT&CK profile lists this pattern
+- [T1685.002: Disable or Modify Cloud Log](/mitre/techniques/T1685-002.md), whose ATT&CK profile lists this pattern
+- [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md), whose ATT&CK profile lists this pattern
+- [CAPEC-81: Web Server Logs Tampering](/mitre/capec/CAPEC-81.md), also related to CWE-117
+- [CAPEC-93: Log Injection-Tampering-Forging](/mitre/capec/CAPEC-93.md), also related to CWE-117
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

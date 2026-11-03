@@ -46,6 +46,15 @@ The adversary targets a race condition occurring when multiple processes access 
 - Use static analysis tools to find race conditions.
 - Pay attention to concurrency problems related to the access of resources.
 
+## Related pages
+
+- [CAPEC-29: Leveraging Time-of-Check and Time-of-Use (TOCTOU) Race Conditions](/mitre/capec/CAPEC-29.md), also related to CWE-362, CWE-366 and 4 more
+- [CAPEC-27: Leveraging Race Conditions via Symbolic Links](/mitre/capec/CAPEC-27.md), also related to CWE-662, CWE-667 and 1 more
+- [CAPEC-25: Forced Deadlock](/mitre/capec/CAPEC-25.md), also related to CWE-662 and CWE-667
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

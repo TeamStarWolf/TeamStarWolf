@@ -34,6 +34,13 @@ An Adversary can eavesdrop on the content of an external monitor through the air
 - Design: Lock away the video cables, making it difficult for the attacker to access the cables and place the antenna near them (If the distance condition between the antenna and display port/cable is not satisfied, the attack will not be possible).
 - Implement: Use wireless technologies to connect to external display devices.
 
+## Related pages
+
+- [CAPEC-189: Black Box Reverse Engineering](/mitre/capec/CAPEC-189.md), also related to CWE-1300
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

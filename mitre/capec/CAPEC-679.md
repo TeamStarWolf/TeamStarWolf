@@ -44,6 +44,15 @@ An adversary takes advantage of missing or incorrectly configured access control
 - Ensure that original and mirrored memory regions apply the same protections.
 - Ensure immutable code or data is programmed into ROM or write-once memory.
 
+## Related pages
+
+- [CAPEC-456: Infected Memory](/mitre/capec/CAPEC-456.md), also related to CWE-1257, CWE-1260 and 3 more
+- [CAPEC-68: Subvert Code-signing Facilities](/mitre/capec/CAPEC-68.md), also related to CWE-1326
+- [CAPEC-458: Flash Memory Attacks](/mitre/capec/CAPEC-458.md), also related to CWE-1282
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -37,6 +37,11 @@ An adversary exploits systems features and/or improperly protected firmware of h
 - Leverage hardware components known to not be susceptible to these types of attacks.
 - Implement hardware RAID infrastructure.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

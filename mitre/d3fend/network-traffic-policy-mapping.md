@@ -18,6 +18,17 @@ Network traffic policy mapping identifies and models the allowed pathways of dat
 - [T1556.009: Conditional Access Policies](/mitre/techniques/T1556-009.md): maps. Adversaries may disable or modify conditional access policies to enable persistent access to compromised accounts.
 - [T1615: Group Policy Discovery](/mitre/techniques/T1615.md): maps. Adversaries may gather information on Group Policy settings to identify paths for privilege escalation, security measures applied within a domain, and to discover patterns in domain objects that can be manipulated or used to blend in the environment.
 
+## Related pages
+
+- [Access Modeling](/mitre/d3fend/access-modeling.md), which also counters 8 of these techniques
+- [Configuration Inventory](/mitre/d3fend/configuration-inventory.md), which also counters 8 of these techniques
+- [Restore Configuration](/mitre/d3fend/restore-configuration.md), which also counters 8 of these techniques
+- [Account Locking](/mitre/d3fend/account-locking.md), which also counters 1 of these techniques
+- [Agent Authentication](/mitre/d3fend/agent-authentication.md), which also counters 1 of these techniques
+- [Change Default Password](/mitre/d3fend/change-default-password.md), which also counters 1 of these techniques
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

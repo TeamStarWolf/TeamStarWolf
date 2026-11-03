@@ -34,6 +34,18 @@ An attacker crafts malicious web links and distributes them (via web pages, emai
 - Additionally, the user can also be prompted to confirm an action every time an action concerning potentially sensitive data is invoked. This way, even if the attacker manages to get the user to click on a malicious link and request the desired action, the user has a chance to recover by denying confirmation. This solution is also implicitly tied to using a second factor of authentication before performing such actions.
 - In general, every request must be checked for the appropriate authentication token as well as authorization in the current session context.
 
+## Related pages
+
+- [CAPEC-60: Reusing Session IDs (aka Session Replay)](/mitre/capec/CAPEC-60.md), also related to CWE-664 and CWE-732
+- [CAPEC-61: Session Fixation](/mitre/capec/CAPEC-61.md), also related to CWE-664 and CWE-732
+- [CAPEC-111: JSON Hijacking (aka JavaScript Hijacking)](/mitre/capec/CAPEC-111.md), also related to CWE-352
+- [CAPEC-462: Cross-Domain Search Timing](/mitre/capec/CAPEC-462.md), also related to CWE-352
+- [CAPEC-467: Cross Site Identification](/mitre/capec/CAPEC-467.md), also related to CWE-352
+- [CAPEC-12: Choosing Message Identifier](/mitre/capec/CAPEC-12.md), also related to CWE-306
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -42,6 +42,15 @@ An adversary positions a symbolic link in such a manner that the targeted user o
 - Design: Check for the existence of files to be created, if in existence verify they are neither symlinks nor hard links before opening them.
 - Implementation: Use randomly generated file names for temporary files. Give the files restrictive permissions.
 
+## Related pages
+
+- [CAPEC-17: Using Malicious Files](/mitre/capec/CAPEC-17.md), also related to CWE-59
+- [CAPEC-35: Leverage Executable Code in Non-Executable Files](/mitre/capec/CAPEC-35.md), also related to CWE-59
+- [CAPEC-76: Manipulating Web Input to File System Calls](/mitre/capec/CAPEC-76.md), also related to CWE-59
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

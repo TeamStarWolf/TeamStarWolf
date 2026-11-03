@@ -26,6 +26,11 @@ An adversary uses framing techniques to contextualize a conversation so that the
 - An organization should provide regular, robust cybersecurity training to its employees to prevent social engineering attacks.
 - Avoid sharing unnecessary information during interactions beyond what is absolutely required for effective communication.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

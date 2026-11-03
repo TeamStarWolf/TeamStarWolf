@@ -49,6 +49,18 @@ An adversary manipulates and injects malicious content in the form of secret una
 - Configuration: Ensure that HTTP infrastructure in the chain or network path utilize a strict uniform parsing process.
 - Implementation: Utilize intermediary HTTP infrastructure capable of filtering and/or sanitizing user-input.
 
+## Related pages
+
+- [CAPEC-34: HTTP Response Splitting](/mitre/capec/CAPEC-34.md), also related to CWE-74 and CWE-436
+- [CAPEC-105: HTTP Request Splitting](/mitre/capec/CAPEC-105.md), also related to CWE-74 and CWE-436
+- [CAPEC-33: HTTP Request Smuggling](/mitre/capec/CAPEC-33.md), also related to CWE-444
+- [CAPEC-3: Using Leading 'Ghost' Character Sequences to Bypass Input Filters](/mitre/capec/CAPEC-3.md), also related to CWE-74
+- [CAPEC-6: Argument Injection](/mitre/capec/CAPEC-6.md), also related to CWE-74
+- [CAPEC-7: Blind SQL Injection](/mitre/capec/CAPEC-7.md), also related to CWE-74
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

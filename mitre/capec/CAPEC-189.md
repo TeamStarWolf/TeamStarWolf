@@ -14,6 +14,13 @@ An adversary discovers the structure, function, and composition of a type of com
 - [CWE-1255: Comparison Logic is Vulnerable to Power Side-Channel Attacks](https://cwe.mitre.org/data/definitions/1255.html): A device's real time power consumption may be monitored during security token evaluation and the information gleaned may be used to determine the value of the reference token.
 - [CWE-1300: Improper Protection of Physical Side Channels](https://cwe.mitre.org/data/definitions/1300.html): The device does not contain sufficient protection mechanisms to prevent physical side channels from exposing sensitive information due to patterns in physically observable phenomena such as variations in power consumption, electromagnetic emissions (EME), or acoustic emissions.
 
+## Related pages
+
+- [CAPEC-699: Eavesdropping on a Monitor](/mitre/capec/CAPEC-699.md), also related to CWE-1300
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

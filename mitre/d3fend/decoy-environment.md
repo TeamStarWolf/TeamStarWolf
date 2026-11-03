@@ -11,6 +11,17 @@ A Decoy Environment comprises hosts and networks for the purposes of deceiving a
 
 - [T1082: System Information Discovery](/mitre/techniques/T1082.md): manages. An adversary may attempt to get detailed information about the operating system and hardware, including version, patches, hotfixes, service packs, and architecture.
 
+## Related pages
+
+- [Executable Allowlisting](/mitre/d3fend/executable-allowlisting.md), which also counters 1 of these techniques
+- [Executable Denylisting](/mitre/d3fend/executable-denylisting.md), which also counters 1 of these techniques
+- [Hardware-based Process Isolation](/mitre/d3fend/hardware-based-process-isolation.md), which also counters 1 of these techniques
+- [Process Spawn Analysis](/mitre/d3fend/process-spawn-analysis.md), which also counters 1 of these techniques
+- [System Call Analysis](/mitre/d3fend/system-call-analysis.md), which also counters 1 of these techniques
+- [System Call Filtering](/mitre/d3fend/system-call-filtering.md), which also counters 1 of these techniques
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

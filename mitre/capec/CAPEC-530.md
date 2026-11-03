@@ -21,6 +21,11 @@ An attacker provides a counterfeit component during the procurement process of a
 
 - There are various methods to detect if the component is a counterfeit. See section II of [REF-703] for many techniques.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

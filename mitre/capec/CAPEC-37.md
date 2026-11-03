@@ -46,6 +46,18 @@ An attacker examines a target system to find sensitive data that has been embedd
 - Integrity / Modify Data
 - Confidentiality, Access Control, Authorization / Gain Privileges
 
+## Related pages
+
+- [CAPEC-545: Pull Data from System Resources](/mitre/capec/CAPEC-545.md), also related to CWE-1239, CWE-1258 and 4 more
+- [CAPEC-150: Collect Data from Common Resource Locations](/mitre/capec/CAPEC-150.md), also related to CWE-1239, CWE-1258 and 3 more
+- [CAPEC-204: Lifting Sensitive Data Embedded in Cache](/mitre/capec/CAPEC-204.md), also related to CWE-311, CWE-1239 and 1 more
+- [CAPEC-65: Sniff Application Code](/mitre/capec/CAPEC-65.md), also related to CWE-311 and CWE-318
+- [CAPEC-31: Accessing/Intercepting/Modifying HTTP Cookies](/mitre/capec/CAPEC-31.md), also related to CWE-311 and CWE-315
+- [CAPEC-546: Incomplete Data Deletion in a Multi-Tenant Environment](/mitre/capec/CAPEC-546.md), also related to CWE-1266 and CWE-1272
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

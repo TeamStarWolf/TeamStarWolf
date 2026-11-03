@@ -21,6 +21,13 @@ An attacker attempts to invoke all common switches and options in the target app
 - Design: Minimize switch and option functionality to only that necessary for correct function of the command.
 - Implementation: Remove all debug and testing options from production code.
 
+## Related pages
+
+- [CAPEC-190: Reverse Engineer an Executable to Expose Assumed Hidden Functionality](/mitre/capec/CAPEC-190.md), also related to CWE-912
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

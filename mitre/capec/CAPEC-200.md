@@ -12,6 +12,11 @@ An attacker removes or disables filtering mechanisms on the target application. 
 
 - The target application must utilize some sort of filtering mechanism (input, output, or data masking).
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

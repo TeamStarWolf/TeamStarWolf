@@ -36,6 +36,18 @@ An adversary removes or disables functionality on the client that the server ass
 - Design: Ship client-side application with integrity checks (code signing) when possible.
 - Design: Use obfuscation and other techniques to prevent reverse engineering the client code.
 
+## Related pages
+
+- [CAPEC-21: Exploitation of Trusted Identifiers](/mitre/capec/CAPEC-21.md), also related to CWE-602
+- [CAPEC-31: Accessing/Intercepting/Modifying HTTP Cookies](/mitre/capec/CAPEC-31.md), also related to CWE-602
+- [CAPEC-162: Manipulating Hidden Fields](/mitre/capec/CAPEC-162.md), also related to CWE-602
+- [CAPEC-202: Create Malicious Client](/mitre/capec/CAPEC-202.md), also related to CWE-602
+- [CAPEC-208: Removing/short-circuiting 'Purse' logic: removing/mutating 'cash' decrements](/mitre/capec/CAPEC-208.md), also related to CWE-602
+- [CAPEC-383: Harvesting Information via API Event Monitoring](/mitre/capec/CAPEC-383.md), also related to CWE-602
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

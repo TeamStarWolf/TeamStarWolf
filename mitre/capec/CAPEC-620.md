@@ -20,6 +20,14 @@ An attacker forces the encryption level to be lowered, thus enabling a successfu
 
 - Access Control / Bypass Protection Mechanism
 
+## Related pages
+
+- [CAPEC-220: Client-Server Protocol Manipulation](/mitre/capec/CAPEC-220.md), also related to CWE-757
+- [CAPEC-606: Weakening of Cellular Encryption](/mitre/capec/CAPEC-606.md), also related to CWE-757
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

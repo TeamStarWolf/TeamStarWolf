@@ -33,6 +33,11 @@ An attacker with access to download and update system software sends a malicious
 - Sign update packages and BIOS patches.
 - Use hardware security modules/trusted platform modules to verify authenticity using hardware-based cryptography.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

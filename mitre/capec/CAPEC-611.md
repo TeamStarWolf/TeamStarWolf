@@ -26,6 +26,11 @@ An adversary registers a domain name one bit different than a trusted domain. A 
 - Authenticate all servers and perform redundant checks when using DNS hostnames.
 - When possible, use error-correcting (ECC) memory in local devices as non-ECC memory is significantly more vulnerable to faults.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

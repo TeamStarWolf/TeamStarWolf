@@ -31,6 +31,12 @@ Software produced by a reputable developer is clandestinely infected with malici
 - Have a security concept of operations (CONOPS) for the IDE that includes: Protecting the IDE via logical isolation using firewall and DMZ technologies/architectures; Maintaining strict security administration and configuration management of configuration management tools, developmental software and dependency code repositories, compilers, and system build tools.
 - Employ intrusion detection and malware detection capabilities on IDE systems where feasible.
 
+## Related pages
+
+- [CAPEC-206: Signing Malicious Code](/mitre/capec/CAPEC-206.md), named in the description above
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -28,6 +28,14 @@ Files on various operating systems can have a complex format which allows for th
 
 - Many tools are available to search for the hidden data. Scan regularly for such data using one of these tools.
 
+## Related pages
+
+- [CAPEC-442: Infected Software](/mitre/capec/CAPEC-442.md), also related to CWE-506
+- [CAPEC-448: Embed Virus into DLL](/mitre/capec/CAPEC-448.md), also related to CWE-506
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

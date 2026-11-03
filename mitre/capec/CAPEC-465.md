@@ -29,6 +29,13 @@ A transparent proxy serves as an intermediate between the client and the interne
 - Design: Ensure that the transparent proxy uses an actual network layer IP address for routing requests. On the transparent proxy, disable the use of routing based on address information in the HTTP host header.
 - Configuration: Disable in the browser the execution of Java Script, Flash, SilverLight, etc.
 
+## Related pages
+
+- [CAPEC-219: XML Routing Detour Attacks](/mitre/capec/CAPEC-219.md), also related to CWE-441
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

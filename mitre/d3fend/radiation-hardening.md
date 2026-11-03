@@ -23,6 +23,19 @@ Radiation hardening is the process of making electronic components and circuits 
 - [T1200: Hardware Additions](/mitre/techniques/T1200.md): hardens. Adversaries may physically introduce computer accessories, networking hardware, or other computing devices into a system or network that can be used as a vector to gain access.
 - [T1619: Cloud Storage Object Discovery](/mitre/techniques/T1619.md): hardens. Adversaries may enumerate objects in cloud storage infrastructure.
 
+## Related pages
+
+- [Hardware Component Inventory](/mitre/d3fend/hardware-component-inventory.md), which also counters 13 of these techniques
+- [IO Port Restriction](/mitre/d3fend/io-port-restriction.md), which also counters 9 of these techniques
+- [Input Device Analysis](/mitre/d3fend/input-device-analysis.md), which also counters 3 of these techniques
+- [Directional Network Link](/mitre/d3fend/directional-network-link.md), which also counters 1 of these techniques
+- [Disk Encryption](/mitre/d3fend/disk-encryption.md), which also counters 1 of these techniques
+- [Disk Erasure](/mitre/d3fend/disk-erasure.md), which also counters 1 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

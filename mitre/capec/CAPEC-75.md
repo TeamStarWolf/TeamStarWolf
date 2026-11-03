@@ -38,6 +38,18 @@ Generally these are manually edited files that are not in the preview of the sys
 - Implementation: Enforce audit logging on code and configuration promotion procedures.
 - Implementation: Load configuration from separate process and memory space, for example a separate physical device like a CD
 
+## Related pages
+
+- [CAPEC-141: Cache Poisoning](/mitre/capec/CAPEC-141.md), also related to CWE-346 and CWE-349
+- [CAPEC-142: DNS Cache Poisoning](/mitre/capec/CAPEC-142.md), also related to CWE-346 and CWE-349
+- [CAPEC-76: Manipulating Web Input to File System Calls](/mitre/capec/CAPEC-76.md), also related to CWE-77 and CWE-346
+- [CAPEC-10: Buffer Overflow via Environment Variables](/mitre/capec/CAPEC-10.md), also related to CWE-99
+- [CAPEC-145: Checksum Spoofing](/mitre/capec/CAPEC-145.md), also related to CWE-354
+- [CAPEC-240: Resource Injection](/mitre/capec/CAPEC-240.md), also related to CWE-99
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

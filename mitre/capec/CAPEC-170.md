@@ -36,6 +36,13 @@ An attacker sends a series of probes to a web application in order to elicit ver
 - Implementation: Appropriately deal with error messages.
 - Implementation: Obfuscate database type in Database API's error message.
 
+## Related pages
+
+- [CAPEC-694: System Location Discovery](/mitre/capec/CAPEC-694.md), also related to CWE-497
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -38,6 +38,18 @@ An adversary uses stolen Kerberos tickets to access systems/resources that lever
 - Reset the built-in KRBTGT account password twice to invalidate the existence of any current Golden Tickets and any tickets derived from them.
 - Monitor system and domain logs for abnormal access.
 
+## Related pages
+
+- [CAPEC-509: Kerberoasting](/mitre/capec/CAPEC-509.md), also related to CWE-294, CWE-308 and 1 more
+- [CAPEC-555: Remote Services with Stolen Credentials](/mitre/capec/CAPEC-555.md), also related to CWE-294, CWE-308 and 1 more
+- [CAPEC-561: Windows Admin Shares with Stolen Credentials](/mitre/capec/CAPEC-561.md), also related to CWE-294, CWE-308 and 1 more
+- [CAPEC-644: Use of Captured Hashes (Pass The Hash)](/mitre/capec/CAPEC-644.md), also related to CWE-294, CWE-308 and 1 more
+- [CAPEC-652: Use of Known Kerberos Credentials](/mitre/capec/CAPEC-652.md), also related to CWE-294, CWE-308 and 1 more
+- [CAPEC-102: Session Sidejacking](/mitre/capec/CAPEC-102.md), also related to CWE-294 and CWE-522
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

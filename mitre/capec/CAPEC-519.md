@@ -27,6 +27,11 @@ An attacker with access to a manufacturer's documentation containing requirement
 - Ensure deleted files are actually deleted.
 - Maintain multiple instances of the document across different privileged users for recovery and verification.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

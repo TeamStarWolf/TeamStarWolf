@@ -22,6 +22,11 @@ An attacker maliciously alters hardware components that will be sold on the gray
 - Purchase only from authorized resellers.
 - Validate serial numbers from multiple sources
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

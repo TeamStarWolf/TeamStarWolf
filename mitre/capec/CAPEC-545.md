@@ -24,6 +24,19 @@ An adversary who is authorized or has the ability to search known system resourc
 - [CWE-1258: Exposure of Sensitive System Information Due to Uncleared Debug Information](https://cwe.mitre.org/data/definitions/1258.html): The hardware product enters debug mode but does not fully clear security-sensitive values, such as keys and intermediate values in cryptographic operations.
 - [CWE-1330: Remanent Data Readable after Memory Erase](https://cwe.mitre.org/data/definitions/1330.html): Confidential information stored in memory circuits is readable or recoverable after being cleared or erased, i.e., there is data remanence.
 
+## Related pages
+
+- [CAPEC-150: Collect Data from Common Resource Locations](/mitre/capec/CAPEC-150.md), named in the description above
+- [CAPEC-37: Retrieve Embedded Sensitive Data](/mitre/capec/CAPEC-37.md), also related to CWE-1239, CWE-1258 and 5 more
+- [CAPEC-204: Lifting Sensitive Data Embedded in Cache](/mitre/capec/CAPEC-204.md), also related to CWE-1239, CWE-1258 and 1 more
+- [CAPEC-546: Incomplete Data Deletion in a Multi-Tenant Environment](/mitre/capec/CAPEC-546.md), also related to CWE-1266 and CWE-1272
+- [CAPEC-116: Excavation](/mitre/capec/CAPEC-116.md), also related to CWE-1243
+- [CAPEC-167: White Box Reverse Engineering](/mitre/capec/CAPEC-167.md), also related to CWE-1323
+- [CAPEC-188: Reverse Engineering](/mitre/capec/CAPEC-188.md), also related to CWE-1278
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

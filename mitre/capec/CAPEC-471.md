@@ -31,6 +31,13 @@ An adversary exploits a weakness in an application's specification of external l
 - Design: Fix the Windows loading process to eliminate the preferential search order by looking for DLLs in the precise location where they are expected
 - Design: Sign system DLLs so that unauthorized DLLs can be detected.
 
+## Related pages
+
+- [CAPEC-38: Leveraging/Manipulating Configuration File Search Paths](/mitre/capec/CAPEC-38.md), also related to CWE-427
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -22,6 +22,14 @@ An adversary inserts commands to perform cross-site scripting (XSS) actions in H
 - Implementation: Normalize, filter and use an allowlist for all input including that which is not expected to have any scripting content.
 - Implementation: The victim should configure the browser to minimize active content from untrusted sources.
 
+## Related pages
+
+- [CAPEC-244: XSS Targeting URI Placeholders](/mitre/capec/CAPEC-244.md), also related to CWE-83
+- [CAPEC-588: DOM-Based XSS](/mitre/capec/CAPEC-588.md), also related to CWE-83
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

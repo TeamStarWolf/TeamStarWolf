@@ -29,6 +29,19 @@ Restricting a user account's access to resources.
 - [T1548.005: Temporary Elevated Cloud Access](/mitre/techniques/T1548-005.md): restricts. Adversaries may abuse permission configurations that allow them to gain temporarily elevated access to cloud resources.
 - [T1694.001: Default Credentials](https://attack.mitre.org/techniques/T1694/001): restricts (D3FEND maps the revoked predecessor T0812)
 
+## Related pages
+
+- [Access Modeling](/mitre/d3fend/access-modeling.md), which also counters 19 of these techniques
+- [Account Locking](/mitre/d3fend/account-locking.md), which also counters 19 of these techniques
+- [Agent Authentication](/mitre/d3fend/agent-authentication.md), which also counters 19 of these techniques
+- [Change Default Password](/mitre/d3fend/change-default-password.md), which also counters 19 of these techniques
+- [Restore User Account Access](/mitre/d3fend/restore-user-account-access.md), which also counters 19 of these techniques
+- [Unlock Account](/mitre/d3fend/unlock-account.md), which also counters 19 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -411,6 +411,19 @@ class DB:
         self.capec = {r["capec_id"]: r for r in load_jsonl(DATA / "weaknesses/capec.jsonl")}
         self.cwe = {r["cwe_id"]: r for r in load_jsonl(DATA / "weaknesses/cwe.jsonl")}
         self.cwe_name = {k: v.get("name", "") for k, v in self.cwe.items()}
+        # For each CAPEC page's "Related pages": the patterns that share a CWE (from
+        # capec.jsonl related_cwe) and the ATT&CK techniques whose profile lists the
+        # pattern (technique_profiles.jsonl capec, which carries revoked-id edges forward).
+        self.capec_by_cwe = defaultdict(set)
+        for cid, c in self.capec.items():
+            for w in as_list(c.get("related_cwe")):
+                self.capec_by_cwe[w].add(cid)
+        self.capec_listed_by = defaultdict(set)
+        for tid, pr in self.prof.items():
+            for c in pr.get("capec") or []:
+                self.capec_listed_by[c.get("id") if isinstance(c, dict) else c].add(tid)
+        # names of the countermeasures that have a mitre/d3fend/ page (set by generate())
+        self.d3_page_names = set()
 
         # --- ATLAS ---
         self.atlas = {r["technique_id"]: r for r in load_jsonl(DATA / "ai/atlas_techniques.jsonl")}
@@ -1167,6 +1180,93 @@ def render_mitigation_landing(db, mids):
     return "\n".join(out) + "\n"
 
 
+# ----------------------------------------------------------------------------- related pages
+RELATED_MAX = 6   # data-derived sibling links per "Related pages" block
+
+
+def root_link(rel):
+    """A Markdown link to a hand-written page, titled with its H1 (the file name if it has none)."""
+    title = rel.rsplit("/", 1)[-1][:-3]
+    try:
+        for line in (ROOT / rel).read_text(encoding="utf-8").splitlines():
+            if line.startswith("# "):
+                title = re.sub(r"[`*_]", "", line[2:]).strip()
+                break
+    except OSError:
+        pass
+    return "[" + title + "](/" + rel + ")"
+
+
+def capec_num(cid):
+    m = re.search(r"\d+", cid)
+    return int(m.group(0)) if m else 0
+
+
+def capec_link(db, cid):
+    return "[" + cid + " " + DASH + " " + db.capec[cid].get("name", "") + "](/mitre/capec/" + cid + ".md)"
+
+
+def capec_related(db, cid):
+    """'Related pages' for a CAPEC page, from the data's own edges only: patterns its
+    description names, ATT&CK techniques whose profile lists it (beyond the mapped list
+    above), patterns that share one of its CWE (most shared first, deprecated ones left
+    out), then the CWE and CAPEC references and the CAPEC index."""
+    c = db.capec[cid]
+    rows = []
+    named = sorted({m for m in re.findall(r"CAPEC-\d+", str(c.get("description") or ""))
+                    if m != cid and m in db.capec}, key=capec_num)
+    rows += ["- " + capec_link(db, n) + ", named in the description above" for n in named]
+    mapped = set(as_list(c.get("attack_techniques")))
+    for tid in sorted(db.capec_listed_by.get(cid, set()) - mapped):
+        rows.append("- " + link_tech(db, tid) + ", whose ATT&CK profile lists this pattern")
+    cwes = as_list(c.get("related_cwe"))
+    shared = defaultdict(list)
+    for w in cwes:
+        for other in db.capec_by_cwe.get(w, ()):
+            if other != cid and other not in named and \
+                    str(db.capec[other].get("status") or "").lower() != "deprecated":
+                shared[other].append(w)
+    # most shared CWE first; on a tie, the pattern sharing the rarest CWE (a narrow
+    # weakness says more than CWE-20, which hundreds of patterns cite), then by id
+    rarity = lambda o: min(len(db.capec_by_cwe[w]) for w in shared[o])
+    for other in sorted(shared, key=lambda o: (-len(shared[o]), rarity(o), capec_num(o)))[:RELATED_MAX]:
+        ws = sorted(shared[other], key=capec_num)
+        rows.append("- " + capec_link(db, other) + ", also related to " +
+                    (" and ".join(ws) if len(ws) <= 2 else
+                     ", ".join(ws[:2]) + " and " + str(len(ws) - 2) + " more"))
+    if cwes:
+        rows.append("- " + root_link("CWE_REFERENCE.md"))
+    rows.append("- " + root_link("CAPEC_REFERENCE.md"))
+    rows.append("- [All CAPEC attack patterns](/mitre/capec/README.md)")
+    return "## Related pages\n\n" + "\n".join(rows) + "\n"
+
+
+def d3fend_related(db, name, page):
+    """'Related pages' for a D3FEND page: the countermeasures with a page that counter the
+    most of the same ATT&CK techniques (from technique_to_d3fend.jsonl), the ICS atlas and
+    ICS/OT reference when it counters ICS techniques (they have no page of their own here),
+    then the D3FEND reference and index."""
+    rows = []
+    mine = set((page or {}).get("counters") or {})
+    if mine:
+        overlap = []
+        for other in db.d3_page_names:
+            if other == name or other not in db.d3_pages:
+                continue
+            n = len(mine & set(db.d3_pages[other]["counters"]))
+            if n:
+                overlap.append((-n, other))
+        for neg, other in sorted(overlap)[:RELATED_MAX]:
+            rows.append("- [" + other + "](/mitre/d3fend/" + dslug(other) + ".md), which also counters " +
+                        str(-neg) + " of these techniques")
+    if any(dom == "ics" for dom, _ in mine):
+        rows.append("- " + root_link("ICS_ATTACK_ATLAS.md"))
+        rows.append("- " + root_link("ICS_OT_SECURITY_REFERENCE.md"))
+    rows.append("- " + root_link("D3FEND_REFERENCE.md"))
+    rows.append("- [All D3FEND countermeasures](/mitre/d3fend/README.md)")
+    return "## Related pages\n\n" + "\n".join(rows) + "\n"
+
+
 # ----------------------------------------------------------------------------- d3fend
 def render_d3fend(db, slug, existing):
     # find this page's countermeasure name from the existing H1
@@ -1209,7 +1309,8 @@ def render_d3fend(db, slug, existing):
         if page["retired"]:
             out.append("\n_D3FEND also maps " + ", ".join(page["retired"]) + ", deprecated in ATT&CK "
                        "with no successor; not counted above._")
-    out.append("\n" + SHORT_FOOTER)
+    out.append("\n" + d3fend_related(db, name, page))
+    out.append(SHORT_FOOTER)
     return "\n".join(out)
 
 
@@ -1299,6 +1400,7 @@ def render_capec(db, cid):
         if items:
             out.append("## " + heading + "\n")
             out.append("\n".join("- " + it for it in items) + "\n")
+    out.append(capec_related(db, cid))
     out.append(SHORT_FOOTER)
     return "\n".join(out)
 
@@ -1907,9 +2009,13 @@ def generate(db, only, out_root):
         d = out_root / "d3fend"
         d.mkdir(parents=True, exist_ok=True)
         names = []
-        for f in sorted((MITRE / "d3fend").glob("*.md")):
-            if f.name == "README.md":
-                continue
+        d3_files = [f for f in sorted((MITRE / "d3fend").glob("*.md")) if f.name != "README.md"]
+        db.d3_page_names = set()
+        for f in d3_files:
+            first = (f.read_text(encoding="utf-8").splitlines() or [""])[0]
+            if first.startswith("# D3FEND:"):
+                db.d3_page_names.add(first[len("# D3FEND:"):].strip())
+        for f in d3_files:
             existing = xl.strip_library_refs(f.read_text(encoding="utf-8"))
             emit(out_root, d / f.name, plain(render_d3fend(db, f.stem, existing)))
             first = existing.splitlines()[0] if existing.splitlines() else ""

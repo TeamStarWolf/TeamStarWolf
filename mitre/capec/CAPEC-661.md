@@ -32,6 +32,13 @@ An adversary inserts a debugger into the program entry point of a mobile applica
 
 - Instantiate checks within the application code that ensures debuggers are not attached.
 
+## Related pages
+
+- [CAPEC-121: Exploit Non-Production Interfaces](/mitre/capec/CAPEC-121.md), also related to CWE-489
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

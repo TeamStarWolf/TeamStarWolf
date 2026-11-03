@@ -12,6 +12,11 @@ An attacker is able to discover and query Micro-services at a web location and t
 
 - The target site must use micro-services that interact with the server and one or more of these micro-services must be vulnerable to some other attack pattern.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

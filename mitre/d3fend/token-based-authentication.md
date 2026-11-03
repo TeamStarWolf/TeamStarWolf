@@ -17,6 +17,17 @@ Token-based authentication is an authentication protocol where users verify thei
 - [T1558: Steal or Forge Kerberos Tickets](/mitre/techniques/T1558.md): uses. Adversaries may attempt to subvert Kerberos authentication by stealing or forging Kerberos tickets to enable [Pass the Ticket](https://attack.mitre.org/techniques/T1550/003).
 - [T1558.001: Golden Ticket](/mitre/techniques/T1558-001.md): uses. Adversaries who have the KRBTGT account password hash may forge Kerberos ticket-granting tickets (TGT), also known as a golden ticket.
 
+## Related pages
+
+- [Authentication Cache Invalidation](/mitre/d3fend/authentication-cache-invalidation.md), which also counters 7 of these techniques
+- [Credential Compromise Scope Analysis](/mitre/d3fend/credential-compromise-scope-analysis.md), which also counters 7 of these techniques
+- [Credential Hardening](/mitre/d3fend/credential-hardening.md), which also counters 7 of these techniques
+- [Credential Revocation](/mitre/d3fend/credential-revocation.md), which also counters 7 of these techniques
+- [Credential Rotation](/mitre/d3fend/credential-rotation.md), which also counters 7 of these techniques
+- [Credential Transmission Scoping](/mitre/d3fend/credential-transmission-scoping.md), which also counters 7 of these techniques
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

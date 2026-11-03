@@ -43,6 +43,18 @@ In circumstances where an application holds important data client-side in tokens
 - Make sure that all session tokens use a good source of randomness
 - Perform validation on the server side to make sure that client side data tokens are consistent with what is expected.
 
+## Related pages
+
+- [CAPEC-31: Accessing/Intercepting/Modifying HTTP Cookies](/mitre/capec/CAPEC-31.md), also related to CWE-302, CWE-315 and 4 more
+- [CAPEC-21: Exploitation of Trusted Identifiers](/mitre/capec/CAPEC-21.md), also related to CWE-302, CWE-384 and 1 more
+- [CAPEC-59: Session Credential Falsification through Prediction](/mitre/capec/CAPEC-59.md), also related to CWE-285, CWE-384 and 1 more
+- [CAPEC-60: Reusing Session IDs (aka Session Replay)](/mitre/capec/CAPEC-60.md), also related to CWE-285, CWE-384 and 1 more
+- [CAPEC-13: Subverting Environment Variable Values](/mitre/capec/CAPEC-13.md), also related to CWE-285, CWE-302 and 1 more
+- [CAPEC-226: Session Credential Falsification through Manipulation](/mitre/capec/CAPEC-226.md), also related to CWE-472 and CWE-565
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

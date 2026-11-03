@@ -12,6 +12,17 @@ Analysis of source files, processes, destination files, or destination servers a
 - [T1036.004: Masquerade Task or Service](/mitre/techniques/T1036-004.md): analyzes. Adversaries may attempt to manipulate the name of a task or service to make it appear legitimate or benign.
 - [T1053: Scheduled Task/Job](/mitre/techniques/T1053.md): analyzes. Adversaries may abuse task scheduling functionality to facilitate initial or recurring execution of malicious code.
 
+## Related pages
+
+- [Application-based Process Isolation](/mitre/d3fend/application-based-process-isolation.md), which also counters 1 of these techniques
+- [Executable Allowlisting](/mitre/d3fend/executable-allowlisting.md), which also counters 1 of these techniques
+- [Executable Denylisting](/mitre/d3fend/executable-denylisting.md), which also counters 1 of these techniques
+- [Hardware-based Process Isolation](/mitre/d3fend/hardware-based-process-isolation.md), which also counters 1 of these techniques
+- [Host Reboot](/mitre/d3fend/host-reboot.md), which also counters 1 of these techniques
+- [Host Shutdown](/mitre/d3fend/host-shutdown.md), which also counters 1 of these techniques
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

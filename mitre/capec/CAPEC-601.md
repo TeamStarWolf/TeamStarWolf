@@ -13,6 +13,11 @@ An adversary uses radio noise or signals in an attempt to disrupt communications
 
 - Availability / Other
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

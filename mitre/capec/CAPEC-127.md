@@ -45,6 +45,18 @@ An adversary crafts a request to a target that results in the target listing/ind
 - 2. Preventing with .htaccess in Apache web server: In .htaccess, write "Options-indexes".
 - 3. Suppressing error messages: using error 403 "Forbidden" message exactly like error 404 "Not Found" message.
 
+## Related pages
+
+- [CAPEC-1: Accessing Functionality Not Properly Constrained by ACLs](/mitre/capec/CAPEC-1.md), also related to CWE-276, CWE-285 and 2 more
+- [CAPEC-87: Forceful Browsing](/mitre/capec/CAPEC-87.md), also related to CWE-285, CWE-425 and 1 more
+- [CAPEC-668: Key Negotiation of Bluetooth Attack (KNOB)](/mitre/capec/CAPEC-668.md), also related to CWE-285, CWE-425 and 1 more
+- [CAPEC-17: Using Malicious Files](/mitre/capec/CAPEC-17.md), also related to CWE-285, CWE-693 and 1 more
+- [CAPEC-60: Reusing Session IDs (aka Session Replay)](/mitre/capec/CAPEC-60.md), also related to CWE-285 and CWE-732
+- [CAPEC-51: Poison Web Service Registry](/mitre/capec/CAPEC-51.md), also related to CWE-285 and CWE-693
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

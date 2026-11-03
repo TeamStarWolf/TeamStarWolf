@@ -19,6 +19,15 @@ An adversary examines screenshot images created by iOS in an attempt to obtain s
 
 - To mitigate this type of an attack, an application that may display sensitive information should clear the screen contents before a screenshot is taken. This can be accomplished by setting the key window's hidden property to YES. This code to hide the contents should be placed in both the applicationWillResignActive() and applicationDidEnterBackground() methods.
 
+## Related pages
+
+- [CAPEC-464: Evercookie](/mitre/capec/CAPEC-464.md), also related to CWE-359
+- [CAPEC-467: Cross Site Identification](/mitre/capec/CAPEC-467.md), also related to CWE-359
+- [CAPEC-508: Shoulder Surfing](/mitre/capec/CAPEC-508.md), also related to CWE-359
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

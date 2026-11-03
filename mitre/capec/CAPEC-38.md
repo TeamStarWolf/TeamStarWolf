@@ -38,6 +38,13 @@ This pattern of attack sees an adversary load a malicious resource into a progra
 - Design: Ensure that the program's compound parts, including all system dependencies, classpath, path, and so on, are secured to the same or higher level assurance as the program
 - Implementation: Host integrity monitoring
 
+## Related pages
+
+- [CAPEC-471: Search Order Hijacking](/mitre/capec/CAPEC-471.md), also related to CWE-427
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

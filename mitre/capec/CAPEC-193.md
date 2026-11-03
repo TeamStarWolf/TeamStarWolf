@@ -39,6 +39,15 @@ In this pattern the adversary is able to load and execute arbitrary code remotel
 - Implementation: Make use of indirect references passed in URL parameters instead of file names
 - Configuration: Ensure that remote scripts cannot be include in the "include" or "require" PHP directives
 
+## Related pages
+
+- [CAPEC-18: XSS Targeting Non-Script Elements](/mitre/capec/CAPEC-18.md), also related to CWE-80
+- [CAPEC-32: XSS Through HTTP Query Strings](/mitre/capec/CAPEC-32.md), also related to CWE-80
+- [CAPEC-86: XSS Through HTTP Headers](/mitre/capec/CAPEC-86.md), also related to CWE-80
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

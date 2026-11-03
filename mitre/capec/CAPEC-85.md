@@ -38,6 +38,18 @@ This attack utilizes the frequent client-server roundtrips in Ajax conversation 
 - Design: Use browser technologies that do not allow client side scripting.
 - Implementation: Perform input validation for all remote content.
 
+## Related pages
+
+- [CAPEC-73: User-Controlled Filename](/mitre/capec/CAPEC-73.md), also related to CWE-20, CWE-86 and 4 more
+- [CAPEC-81: Web Server Logs Tampering](/mitre/capec/CAPEC-81.md), also related to CWE-20, CWE-96 and 1 more
+- [CAPEC-71: Using Unicode Encoding to Bypass Validation Logic](/mitre/capec/CAPEC-71.md), also related to CWE-20, CWE-184 and 1 more
+- [CAPEC-120: Double Encoding](/mitre/capec/CAPEC-120.md), also related to CWE-20, CWE-184 and 1 more
+- [CAPEC-31: Accessing/Intercepting/Modifying HTTP Cookies](/mitre/capec/CAPEC-31.md), also related to CWE-20 and CWE-113
+- [CAPEC-104: Cross Zone Scripting](/mitre/capec/CAPEC-104.md), also related to CWE-20 and CWE-116
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -31,6 +31,11 @@ An attacker implants malicious software into the system in the supply chain dist
 - Sign everything, including configuration files, XML files and packages.
 - Develop an incident response process, disclose supply chain incidents and notify customers with accurate and timely information.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -40,6 +40,15 @@ This attack leverages the use of symbolic links (Symlinks) in order to write to 
 - Follow the principle of least privilege when assigning access rights to files.
 - Ensure good compartmentalization in the system to provide protected areas that can be trusted.
 
+## Related pages
+
+- [CAPEC-26: Leveraging Race Conditions](/mitre/capec/CAPEC-26.md), also related to CWE-662, CWE-667 and 1 more
+- [CAPEC-29: Leveraging Time-of-Check and Time-of-Use (TOCTOU) Race Conditions](/mitre/capec/CAPEC-29.md), also related to CWE-367 and CWE-662
+- [CAPEC-25: Forced Deadlock](/mitre/capec/CAPEC-25.md), also related to CWE-662 and CWE-667
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

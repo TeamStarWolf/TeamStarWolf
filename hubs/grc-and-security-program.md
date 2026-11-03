@@ -33,7 +33,7 @@ Part of the [domain hubs](/hubs/README.md). 39 reference documents in this domai
 
 | Reference | What it covers | Reading time |
 |---|---|---|
-| [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md) | CVSS v3.1/v4.0 scoring, EPSS prioritization, CISA KEV, scanning tools, patch management, and program KPIs | 12 min |
+| [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md) | CVSS v3.1/v4.0 scoring, EPSS prioritization, CISA KEV, scanning tools, patch management, and program KPIs | 13 min |
 | [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md) | SSVC decision models (CERT/CC trees, CISA Track/Track*/Attend/Act), KEV semantics and BOD 26-04 timelines, EPSS probability vs percentile, Vulnrichment, CSAF/VEX/OpenVEX, CTID KEV->ATT&CK mappings, SLA policy design | 23 min |
 | [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md) | How enterprise scanners (Tenable, Qualys, Rapid7, Wiz, Defender VM, CrowdStrike, Snyk, Invicti, Nessus) are deployed, their finding and severity taxonomies, a cross-scanner catalog of finding types, and where findings land in ServiceNow Vulnerability Response | 8 min |
 | [CTEM Reference](/CTEM_REFERENCE.md) | Continuous Threat Exposure Management: Gartner's 5-stage loop in operational depth, attack-path/choke-point analysis, the EASM/CAASM/BAS->AEV/EAP category taxonomy, validation governance, maturity, failure modes, metrics, and a 90-day plan | 34 min |
@@ -50,7 +50,7 @@ Part of the [domain hubs](/hubs/README.md). 39 reference documents in this domai
 | [CISSP Domain Crosswalk](/CISSP_DOMAIN_CROSSWALK.md) | ISC2 CISSP 8 domains (April 2024 weights) mapped onto the library, with a 12-week plan and honest coverage gaps | 17 min |
 | [CEH Domain Crosswalk](/CEH_DOMAIN_CROSSWALK.md) | EC-Council CEH v13 exam blueprint (9 domains) mapped onto the library, with study sequence, honest gaps, and legal-practice pointers | 12 min |
 | [Interview Prep](/INTERVIEW_PREP.md) | Common interview questions by role: SOC analyst, pentester, DFIR, cloud security, AppSec | Lookup page (20 min end to end) |
-| [Hands-On Labs](/LABS.md) | Free lab environments, CTF platforms, and home lab builds mapped to each security discipline | Lookup page (6 min end to end) |
+| [Hands-On Labs](/LABS.md) | Free lab environments, CTF platforms, and home lab builds mapped to each security discipline | Lookup page (7 min end to end) |
 | [Home Lab Setup](/HOMELAB_SETUP.md) | Hardware, hypervisors, network architecture, and detection stacks for building a security lab | 27 min |
 | [CTF Methodology](/CTF_METHODOLOGY.md) | Systematic approach to web, forensics, crypto, reverse engineering, binary exploitation, and OSINT challenges | 14 min |
 | [Security Glossary](/GLOSSARY.md) | 100+ cybersecurity terms, acronyms, and definitions from APT to ZTNA | Lookup page (13 min end to end) |
@@ -59,12 +59,12 @@ Part of the [domain hubs](/hubs/README.md). 39 reference documents in this domai
 
 | Reference | What it covers | Reading time |
 |---|---|---|
-| [Resources](/RESOURCES.md) | Books, courses, YouTube channels, podcasts, CTF platforms, and communities | Lookup page (7 min end to end) |
+| [Resources](/RESOURCES.md) | Books, courses, YouTube channels, podcasts, CTF platforms, and communities | Lookup page (8 min end to end) |
 | [Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md) | Books, labs, and companion repos grouped for practical learning, with cert roadmaps and learning paths | 35 min |
 | [YouTube Channel Library](/YOUTUBE_CHANNELS.md) | Active channels across multiple security disciplines | 7 min |
 | [X / Twitter Follow List](/TWITTER_FOLLOW_LIST.md) | Vetted accounts that regularly share original research, tooling, or operational insight | 7 min |
 | [Starred Repositories](/STARRED_REPOS.md) | Curated repos structured around Cybersecurity Technology | 14 min |
-| [Open Source Toolkit](/OPEN_SOURCE_TOOLKIT.md) | Open source security tools and bookmarks, organized by category and discipline | Lookup page (13 min end to end) |
+| [Open Source Toolkit](/OPEN_SOURCE_TOOLKIT.md) | Open source security tools and bookmarks, organized by category and discipline | Lookup page (14 min end to end) |
 | [Security Tools Reference](/TOOLS.md) | Quick-reference matrices of 100+ security tools organized by category with OSS/commercial tags | Lookup page (14 min end to end) |
 | [Security Tool Documentation](/SECURITY_TOOL_DOCUMENTATION.md) | Index of official documentation, API docs, GitHub repositories, and learning resources for a representative enterprise security stack | 21 min |
 | [Security Tools Catalog](/SECURITY_TOOLS_CATALOG.md) | A map of the security tool landscape by category, the named tools in each, and where the library covers them in depth | 7 min |

@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 11 min (2,634 words at 230 words a minute)
+About 12 min (2,686 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -1677,6 +1677,12 @@ Key Atomic Red Team resources:
 | CAPE Sandbox | https://github.com/kevoreilly/CAPEv2 | Malware sandbox with YARA extraction |
 | Splunk Security Content | https://research.splunk.com | Splunk-maintained detection rules and analytics |
 | Microsoft Sentinel GitHub | https://github.com/Azure/Azure-Sentinel | Sentinel analytics rules and hunting queries |
+| Uncoder.io | https://uncoder.io/ | Online converter for Sigma and other detection rule formats |
+| MITRE Caldera | https://github.com/mitre/caldera | Automated adversary emulation and purple-team platform |
+| DetectionLab | https://github.com/clong/DetectionLab | Pre-built, instrumented lab for building and testing detections |
+| EVTX-ATTACK-SAMPLES | https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES | Windows EVTX attack sample logs for detection validation |
+| Wazuh | https://wazuh.com/ | Open-source XDR/SIEM with built-in detection rulesets |
+| YARA | https://virustotal.github.io/yara/ | Official YARA pattern-matching engine docs and downloads |
 ---
 
 ## Sigma Rule Writing Reference

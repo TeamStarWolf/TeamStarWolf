@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 16 min (3,669 words at 230 words a minute)
+About 16 min (3,718 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -1746,6 +1746,30 @@ MITRE ATT&CK v19.2 Reconnaissance (TA0043) techniques and OSINT tool mapping:
 | T1598.001 | Spearphishing Service | Via third-party messaging service | N/A |
 | T1598.002 | Spearphishing Attachment | Weaponized document with tracking | N/A |
 | T1598.003 | Spearphishing Link | Credential harvesting page | N/A |
+
+---
+
+## Key External Resources
+
+Curated starting points for the infrastructure-intelligence, internet-scanning, and threat/IoC lookup services referenced throughout this document.
+
+| Resource | URL |
+|----------|-----|
+| abuse.ch URLhaus | https://urlhaus.abuse.ch/ |
+| abuse.ch MalwareBazaar | https://bazaar.abuse.ch/ |
+| abuse.ch ThreatFox | https://threatfox.abuse.ch/ |
+| abuse.ch Feodo Tracker | https://feodotracker.abuse.ch/ |
+| abuse.ch YARAify | https://yaraify.abuse.ch/ |
+| AlienVault OTX | https://otx.alienvault.com/ |
+| GreyNoise | viz.greynoise.io |
+| Shodan | https://www.shodan.io/ |
+| Censys Search | https://search.censys.io/ |
+| Onyphe | https://www.onyphe.io/ |
+| theHarvester | https://github.com/laramies/theHarvester |
+| SpiderFoot | https://github.com/smicallef/spiderfoot |
+| recon-ng | https://github.com/lanmaster53/recon-ng |
+| Sherlock Project (username OSINT) | https://sherlockproject.xyz/ |
+| IntelTechniques Tools | https://inteltechniques.com/tools/ |
 
 <!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
 

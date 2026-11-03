@@ -18,7 +18,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 20 min (4,513 words at 230 words a minute)
+About 20 min (4,575 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -1144,6 +1144,33 @@ often 24-72 hours before NVD updates. Key signals:
 
 `Exploitation: active` in CISA-ADP data is an early warning signal equivalent to
 KEV membership. It often appears before formal KEV catalog addition.
+
+---
+
+## Key External Resources
+
+Curated vulnerability databases, exploit intelligence, and PoC sources for CVE research and enrichment.
+
+| Resource | URL |
+|---|---|
+| CVE Details | cvedetails.com |
+| OpenCVE | https://www.opencve.io/ |
+| GitHub Advisory Database | https://github.com/advisories |
+| VulnCheck | https://vulncheck.com/ |
+| Vulners | https://vulners.com/ |
+| VulDB | vuldb.com |
+| Snyk Vulnerability DB | https://security.snyk.io/ |
+| Mend Vulnerability DB | https://www.mend.io/vulnerability-database/ |
+| Rapid7 Vuln & Exploit DB | https://www.rapid7.com/db/ |
+| Tenable CVE Database | https://www.tenable.com/cve |
+| cvecrowd (trending CVEs) | https://cvecrowd.com/ |
+| Metasploit Modules (Rapid7 DB) | https://www.rapid7.com/db/?type=metasploit |
+| Nuclei Templates | https://github.com/projectdiscovery/nuclei-templates |
+| PoC-in-GitHub (nomi-sec) | https://github.com/nomi-sec/PoC-in-GitHub |
+| Trickest CVE → PoC | https://github.com/trickest/cve |
+| Packet Storm | https://packetstormsecurity.com/ |
+| Sploitus | https://sploitus.com/ |
+| VulnCheck XDB (exploits) | https://vulncheck.com/xdb |
 
 ---
 

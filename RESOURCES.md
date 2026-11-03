@@ -17,7 +17,7 @@ Beginner
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Length</th><td>
 
-Lookup page: 1,723 words, 92% in tables; look entries up from Start at or the search (about 7 min end to end at 230 words a minute)
+Lookup page: 1,766 words, 92% in tables; look entries up from Start at or the search (about 8 min end to end at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -279,6 +279,28 @@ A curated reference of books, courses, platforms, communities, and standards for
 | Exploit-DB | Database | CVE and exploit database | exploit-db.com |
 | Packet Storm | Database | Security news, exploits, tools | packetstormsecurity.com |
 | TryHackMe Discord | Discord | Learning community | tryhackme.com community |
+
+---
+
+## Key External Resources
+
+| Resource | URL |
+|---|---|
+| Detection Engineering Weekly | https://www.detectionengineering.net/ |
+| This Week in 4n6 (DFIR) | thisweekin4n6.com |
+| Return on Security | https://www.returnonsecurity.com/ |
+| CloudSecList | https://cloudseclist.com/ |
+| Risky Biz News | https://news.risky.biz/ |
+| SANS NewsBites | https://www.sans.org/newsletters/newsbites/ |
+| tl;dr sec | https://tldrsec.com/ |
+| Phrack Magazine | http://phrack.org/ |
+| USENIX Security Proceedings | https://www.usenix.org/conferences/byname/108 |
+| vx-underground (malware papers) | vx-underground.org |
+| APTnotes (threat report archive) | https://github.com/aptnotes/data |
+| awesome-security | https://github.com/sbilly/awesome-security |
+| awesome-threat-intelligence | https://github.com/hslatman/awesome-threat-intelligence |
+| awesome-incident-response | https://github.com/meirwah/awesome-incident-response |
+| awesome-pentest | https://github.com/enaqx/awesome-pentest |
 
 <!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
 

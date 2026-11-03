@@ -17,7 +17,7 @@ Intermediate to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 33 min (7,546 words at 230 words a minute)
+About 33 min (7,585 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -2650,6 +2650,27 @@ Study resources:
 - Azure: Microsoft Learn, SC-100/SC-200/SC-300 content
 - GCP: Google Cloud Skills Boost, Security Engineer learning path
 - General: SANS FOR509 (Cloud Forensics), SEC510 (Cloud Security Controls)
+
+---
+
+## Key External Resources
+
+Curated cloud security tooling, offensive frameworks, hands-on labs, and vendor documentation referenced throughout this guide.
+
+| Resource | URL |
+|---|---|
+| Prowler | https://github.com/prowler-cloud/prowler |
+| ScoutSuite | https://github.com/nccgroup/ScoutSuite |
+| CloudFox | https://github.com/BishopFox/cloudfox |
+| kube-bench | https://github.com/aquasecurity/kube-bench |
+| kube-hunter | https://github.com/aquasecurity/kube-hunter |
+| Trivy | https://github.com/aquasecurity/trivy |
+| Falco | https://github.com/falcosecurity/falco |
+| Wiz Blog | https://www.wiz.io/blog |
+| Hacking the Cloud | https://hackingthe.cloud/ |
+| AWS Security | https://aws.amazon.com/security/ |
+| Azure Security | https://learn.microsoft.com/en-us/azure/security/ |
+| Google Cloud Security | https://cloud.google.com/security |
 
 <!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
 

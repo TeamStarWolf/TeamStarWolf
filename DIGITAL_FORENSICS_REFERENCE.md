@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 28 min (6,326 words at 230 words a minute)
+About 28 min (6,367 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -2811,6 +2811,30 @@ def chrome_to_dt(t):
 def mac_abs_to_dt(t):
     return datetime.datetime(2001, 1, 1) + datetime.timedelta(seconds=t)
 ```
+
+---
+
+## Key External Resources
+
+Curated malware-analysis sandboxes, DFIR tooling, and reverse-engineering resources that complement the artifacts and workflows above.
+
+| Resource | URL |
+|----------|-----|
+| Any.run | https://any.run/ |
+| Hybrid Analysis | https://www.hybrid-analysis.com/ |
+| Joe Sandbox | joesandbox.com |
+| Hatching Triage | https://tria.ge/ |
+| MalwareBazaar | https://bazaar.abuse.ch/ |
+| VirusTotal | https://www.virustotal.com/ |
+| UnpacMe | https://www.unpac.me/ |
+| Malpedia | https://malpedia.caad.fkie.fraunhofer.de/ |
+| Autopsy | https://www.autopsy.com/ |
+| KAPE | https://www.kroll.com/en/insights/publications/cyber/kroll-artifact-parser-extractor-kape |
+| Velociraptor | https://github.com/Velocidex/velociraptor |
+| Chainsaw | https://github.com/WithSecureLabs/chainsaw |
+| Timesketch | https://github.com/google/timesketch |
+| plaso (log2timeline) | https://github.com/log2timeline/plaso |
+| SANS DFIR | https://www.sans.org/cyber-security-courses/?focus-area=digital-forensics-incident-response |
 
 <!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
 

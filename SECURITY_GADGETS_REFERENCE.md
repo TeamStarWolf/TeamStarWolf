@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 28 min (6,548 words at 230 words a minute)
+About 29 min (6,572 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -2162,6 +2162,16 @@ Annual security conference calendar:
 - FCC License Search: `wireless.fcc.gov/uls/`
 - NVD CVE Database: `nvd.nist.gov`: vulnerability reference
 - MITRE ATT&CK: `attack.mitre.org`: adversarial tactic reference
+
+---
+
+## Key External Resources
+
+Official product sites and primary code repositories for the gadgets and platforms covered in this reference.
+
+| Resource | URL |
+|----------|-----|
+| Flipper Devices (GitHub) | https://github.com/flipperdevices |
 
 <!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
 

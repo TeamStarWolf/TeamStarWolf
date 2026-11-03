@@ -144,6 +144,24 @@ The upstream fix existed before most organizations could deploy it, which is the
 | Rocky Linux 8 to 10 and other RHEL rebuilds | Followed RHEL; no fixed kernel at the time of writing |
 | Ubuntu 22.04, 24.04, 26.04, 26.10 | Fix in progress, not yet released |
 
+### Per-platform remediation
+
+The fix is always "run a patched kernel and reboot into it," but the command and the live-patch option differ by platform. Confirm the running kernel with `uname -r` after rebooting, not just the installed package.
+
+| Platform | How to check and remediate |
+|---|---|
+| Debian / Ubuntu | `uname -r`; `sudo apt-get update && sudo apt-get install --only-upgrade linux-image-generic` (or your flavour's kernel meta-package), then reboot; Ubuntu Pro Livepatch may cover it before the reboot |
+| RHEL / Alma / Rocky | `rpm -q kernel`; `sudo dnf upgrade kernel` then reboot; where a live patch is published, `kpatch` can close it without a reboot (confirm coverage for this CVE) |
+| Fedora | `sudo dnf upgrade kernel` and reboot |
+| SUSE / openSUSE | `sudo zypper up kernel-default` then reboot; SLES Live Patching can bridge the reboot gap where a patch exists |
+| Oracle Linux (UEK) | `sudo dnf upgrade kernel-uek` then reboot (UEK fixes shipped 16 October 2026); Ksplice can apply the fix live where available |
+| Amazon Linux | `sudo dnf upgrade kernel` (AL2023) or `sudo yum update kernel` (AL2) then reboot; AL2023 instances pinned to a release need version 2023.12.20261102 or later |
+| Arch | `sudo pacman -Syu linux` then reboot |
+| Containers | Containers share the host kernel, so patch the node, not the image: a container cannot be patched for a kernel CVE. Cordon and drain the node, patch and reboot it, then uncordon |
+| Managed Kubernetes | Roll node groups to a patched node image: EKS to a patched AL2023 AMI, GKE and AKS to a patched node image, draining nodes as they cycle |
+| MPTCP mitigation | Find listeners with `ss` and check `sysctl net.mptcp.enabled`; disabling MPTCP removes the reported remote-code-execution path but leaves the plain-TCP crash-and-corruption path, so it is a severity reduction, not a fix |
+| Network mitigation | As a bridge, drop inbound IPv4 TCP packets carrying IP options at the host or edge (for example an nftables rule), after testing against legitimate traffic; it is not a substitute for patching |
+
 ### Two operational traps
 
 First, a kernel fix is not live until the host reboots into the new kernel, so "package updated" is not the same as "no longer vulnerable" for a box that has not been restarted. For fleets that cannot reboot immediately, kernel live-patching (such as the live-patch services the major distributions offer) can close some classes of flaw without a reboot, but live-patch coverage for any given CVE varies and should be confirmed with the vendor rather than assumed; it is a way to buy time, not a replacement for the eventual reboot.

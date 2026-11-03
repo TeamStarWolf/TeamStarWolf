@@ -62,6 +62,9 @@ SOURCES = {
     "tsw_ctid": {"upstream": "TeamStarWolf (first-party): derived by joining vendor->control with CTID control->technique",
                  "license": "MIT (derivation); underlying CTID mappings Apache-2.0",
                  "url": "https://github.com/TeamStarWolf/TeamStarWolf", "copyright": "(c) TeamStarWolf; CTID mappings (c) The MITRE Corporation (Apache-2.0)"},
+    "tsw_vocab": {"upstream": "TeamStarWolf (first-party): entity vocabulary built by scripts/build_vocab.py from the platform pages, the vendor crosswalk and MITRE ATT&CK groups and software; vendor spellings from the CISA KEV catalog",
+                  "license": "MIT (derivation); ATT&CK names under MITRE Terms of Use; CISA KEV is a US-Government work",
+                  "url": "https://github.com/TeamStarWolf/TeamStarWolf", "copyright": "(c) TeamStarWolf; ATT&CK (c) The MITRE Corporation"},
 }
 
 # Longest matching prefix wins. Paths are POSIX-relative to the repo root.
@@ -85,6 +88,7 @@ PROVENANCE = [
     ("data/control_to_technique.jsonl",        "ctid_map"),
     ("data/vendor_to_technique.jsonl",         "tsw_ctid"),
     ("data/vendor_to_control.jsonl",           "tsw"),
+    ("data/vocab/",                            "tsw_vocab"),
 ]
 
 VERSION_KEYS = ["attack_version", "capec_version", "cwe_version", "atlas_version",

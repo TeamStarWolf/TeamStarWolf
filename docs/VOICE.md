@@ -20,6 +20,7 @@
 - Cite a primary source for every claim about an external framework, standard, product, or incident.
 - State the limits: "The ICS and Mobile atlases carry no NIST SP 800-53 control mappings."
 - Separate measured from reported facts; say which went unchecked.
+- Leave no drafting or process notes in page text: no tool budgets, session stamps, or reminders to check something later. State the fact with its source, or leave it out. The lint fails any tracked Markdown page that carries one, generated or hand-written.
 
 ## Words we do not use
 

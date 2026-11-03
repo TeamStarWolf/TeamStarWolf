@@ -36,6 +36,14 @@ Rules (the rule key is what the baseline counts):
                 ("**140** references"). Counts belong in script output: text between
                 a script-written marker pair, `<!-- name:start ... -->` and
                 `<!-- name:end -->`, is skipped.
+  agent-note    A drafting or process note left in page text by an assistant or a
+                workflow: a search-tool name or budget, a "this turn" or
+                "live-verified" stamp, "workflow agents", "compiled from prior
+                knowledge", "verify if seen elsewhere", "drafted with an AI". It is
+                not a fact for the reader. Unlike the rules above it covers every
+                tracked Markdown file, generated or hand-written, whatever SCOPE_RE
+                says, matches code and prose alike, and has no baseline: one hit
+                fails the gate.
 
 Upstream text is not voice debt. Object names and quoted descriptions from ATT&CK,
 CAPEC, CWE, ATLAS, D3FEND, Engage and F3 are reproduced verbatim (docs/VOICE.md), so an
@@ -176,6 +184,19 @@ COUNT_RE = re.compile(r"(?<![\w.,\u2013-])(?<![Ll]evel )" + EMPH +
                       r"\s+(?!(?:hundred|thousand|million|billion)\b)"
                       r"(?:" + EMPH + r"[A-Za-z][\w-]*" + EMPH + r"\s+)?"
                       r"((?i:references|guides|paths|pages))\b")
+# Agent process notes (rule agent-note). Phrases an assistant or a workflow wrote about
+# its own process, never about the subject: the search tool's name and budget, session
+# stamps, notes to itself. "this turn" must not run on into "this turns" or
+# "this turn-based"; `WebSearchTool` (an SDK class) is not the bare tool name.
+AGENT_NOTE_RE = re.compile(
+    r"\bWebSearch\b"
+    r"|\bthis turn\b(?!-)"
+    r"|\bworkflow agents\b"
+    r"|\blive[- ]verified\b"
+    r"|\bcompiled from (?:high-confidence )?prior knowledge\b"
+    r"|\bverify if seen elsewhere\b"
+    r"|\bdrafted (?:with|by) an? (?:AI|LLM)\b",
+    re.I)
 # CHANGELOG entries are dated records: a count there is true as of its date and does
 # not go stale the way a headline does.
 COUNT_EXEMPT = ("CHANGELOG.md",)
@@ -417,6 +438,23 @@ def scan(rel: str, raw: str) -> list[tuple[str, int, str, str]]:
     return hits
 
 
+def agent_notes(rel: str, raw: str) -> list[tuple[str, int, str, str]]:
+    """Every agent process note in one file as (file, line, "agent-note", excerpt).
+    Raw lines, code included: a note in a code comment is still published."""
+    hits = []
+    for i, line in enumerate(raw.split("\n"), 1):
+        for m in AGENT_NOTE_RE.finditer(line):
+            s = line.strip()
+            hits.append((rel, i, "agent-note", '"%s" in: %s' % (
+                m.group(0), s if len(s) <= 110 else s[:107] + "...")))
+    return hits
+
+
+def markdown_files(files: list[str]) -> list[str]:
+    """Every tracked Markdown file, in or out of SCOPE_RE (the agent-note rule's scope)."""
+    return [f for f in files if f.endswith(".md")]
+
+
 GUIDE = os.path.join(ROOT, "docs", "VOICE.md")
 GUIDE_REL = "docs/VOICE.md"
 GUIDE_SECTION = "## Words we do not use"
@@ -586,6 +624,25 @@ SELF_TEST = (
     ('<a href="seamless.html" class="cutting-edge">link</a>', ()),
 )
 
+# Planted cases for the agent-note rule, scanned as a tools/ page: tools/ is outside
+# SCOPE_RE, so a hit here shows the rule does not depend on it.
+AGENT_SELF_TEST_FILE = "tools/_agent_note_self_test.md"
+AGENT_SELF_TEST = (
+    ("> Note: LIVE-VERIFIED via WebSearch 2026-10-08. Duo is part of Cisco.",
+     ("agent-note", "agent-note")),
+    ("The shared WebSearch budget was exhausted this turn.", ("agent-note", "agent-note")),
+    ("NOT LIVE-VERIFIED THIS TURN: shared by all concurrent workflow agents.",
+     ("agent-note", "agent-note", "agent-note")),
+    ("These URLs are compiled from high-confidence prior knowledge.", ("agent-note",)),
+    ("No product named 'Aura' found - verify if seen elsewhere.", ("agent-note",)),
+    ("Drafted with an AI assistant.", ("agent-note",)),
+    ("```bash\n# live verified on 2026-09-29\n```\n", ("agent-note",)),
+    # Ordinary English and real API names pass.
+    ("This turns a list into a plan, in this turn-based game.", ()),
+    ("Hosted tools such as `WebSearchTool` skip the guardrail pipeline.", ()),
+    ("Attackers with no prior knowledge of the target guess passwords.", ()),
+)
+
 
 def self_test() -> int:
     """Scan every SELF_TEST case and compare its rules with the expected ones."""
@@ -595,7 +652,17 @@ def self_test() -> int:
         if got != sorted(want):
             failed += 1
             print("FAIL self-test: %r\n  want %s\n  got  %s" % (text, sorted(want), got))
-    print("voice self-test: %d of %d cases pass" % (len(SELF_TEST) - failed, len(SELF_TEST)))
+    if SCOPE_RE.match(AGENT_SELF_TEST_FILE):
+        failed += 1
+        print("FAIL self-test: %s must be outside SCOPE_RE" % AGENT_SELF_TEST_FILE)
+    for text, want in AGENT_SELF_TEST:
+        got = sorted(h[2] for h in scan(AGENT_SELF_TEST_FILE, text) +
+                     agent_notes(AGENT_SELF_TEST_FILE, text))
+        if got != sorted(want):
+            failed += 1
+            print("FAIL self-test: %r\n  want %s\n  got  %s" % (text, sorted(want), got))
+    total = len(SELF_TEST) + len(AGENT_SELF_TEST)
+    print("voice self-test: %d of %d cases pass" % (total - failed, total))
     return 1 if failed else 0
 
 
@@ -626,20 +693,30 @@ def main() -> int:
     if args.allow_growth and not args.update_baseline:
         ap.error("--allow-growth only applies to --update-baseline")
 
-    files = [f.replace(os.sep, "/") for f in args.files] if args.files else in_scope(tracked_files())
+    named = [f.replace(os.sep, "/") for f in args.files]
+    files = named or in_scope(tracked_files())
     hits = []
     for f in files:
         t = read_text(f)
         if t is not None:
             hits.extend(scan(f, t))
+    # agent-note: every tracked Markdown file (or the named ones), never baselined.
+    notes = []
+    for f in markdown_files(named or tracked_files()):
+        t = read_text(f)
+        if t is not None:
+            notes.extend(agent_notes(f, t))
     counts = collections.Counter((h[0], h[2]) for h in hits)
     fam = collections.Counter(rule_family(h[2]) for h in hits)
     print("voice: %d hits in %d of %d files (%s)" % (
         len(hits), len({h[0] for h in hits}), len(files),
         ", ".join("%s %d" % (k, fam[k]) for k in ("em-dash", "emoji", "exclamation", "hype", "count"))))
 
+    print("voice: %d agent-note hits in %d Markdown files (no baseline)" % (
+        len(notes), len(markdown_files(named or tracked_files()))))
+
     if args.summary:
-        for rule, n in sorted(collections.Counter(h[2] for h in hits).items()):
+        for rule, n in sorted(collections.Counter(h[2] for h in hits + notes).items()):
             print("  %-26s %d" % (rule, n))
         return 0
     if args.update_baseline:
@@ -647,12 +724,18 @@ def main() -> int:
             ap.error("--update-baseline scans the whole scope; do not name files")
         return update_baseline(counts, args.allow_growth)
     if args.report or args.files:
-        for h in hits:
+        for h in hits + notes:
             print("  %s:%d: %s: %s" % h)
     if args.files:
-        return 1 if hits else 0
+        return 1 if hits or notes else 0
 
     failed = False
+    if notes:
+        print("FAIL voice: agent process notes in published pages (state the fact and its "
+              "source, or delete the note; docs/VOICE.md):")
+        for h in notes:
+            print("  %s:%d: %s" % (h[0], h[1], h[3]))
+        failed = True
     for p in guide_drift():
         print("FAIL voice: " + p)
         failed = True

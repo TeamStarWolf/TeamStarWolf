@@ -118,7 +118,7 @@ _API & developer docs_
 - [Tanium API documentation (GraphQL API Gateway + Platform REST API; the full reference needs a Tanium login)](https://developer.tanium.com/apis/api_intro)
 
 _GitHub (official)_
-- [Tanium GitHub organization —  (NOTE: org existence not confirmable via search this run; verify the org is Tanium-verified before trusting)](https://github.com/Tanium)
+- [Tanium GitHub organization (github.com/tanium, four public repositories; GitHub does not mark it as a verified organization)](https://github.com/Tanium)
 
 _Community / integration / detection repos_
 - [pytan3 (newer Python client, docs on Read the Docs)](https://pytan3.readthedocs.io)
@@ -127,7 +127,7 @@ _Learning & reference_
 - [Tanium blog and Tech Talks series](https://www.tanium.com/blog)
 - [Tanium company / product overview](https://www.tanium.com/about)
 
-> Note: Docs consolidated onto docs.tanium.com; the old kb.tanium.com Knowledge Base is slated for retirement around 2026 and redirects to the Resource Center. Tanium now positions the GraphQL API Gateway as the preferred integration path over the older Platform REST API; module-specific REST docs are reached via help links inside the Tanium Console (auth required). Console and most API docs require a customer login. GitHub org and the PyTan repo paths rely on established knowledge — web-search budget for this run was exhausted before they could be re-verified live; confirm before publishing.
+> Note: Docs consolidated onto docs.tanium.com; the old kb.tanium.com Knowledge Base is slated for retirement around 2026 and redirects to the Resource Center. Tanium now positions the GraphQL API Gateway as the preferred integration path over the older Platform REST API; module-specific REST docs are reached via help links inside the Tanium Console (auth required). Console and most API docs require a customer login. The pytan3 documentation links to github.com/tanium/pytan3, which is no longer a public repository; the tanium GitHub organization lists four public repositories.
 
 ## Current state (2025-26)
 

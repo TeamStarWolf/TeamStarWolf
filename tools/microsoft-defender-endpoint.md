@@ -147,7 +147,7 @@ _Learning & reference_
 - [Microsoft Learn training catalog (Secure your organization with Defender for Endpoint)](https://learn.microsoft.com/en-us/training/)
 - [Microsoft Defender for Endpoint Ninja training (Tech Community)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/bg-p/MicrosoftDefenderATPBlog)
 
-> Note: Product is part of Microsoft Defender XDR; the operations portal is security.microsoft.com (was securitycenter.microsoft.com). Advanced hunting uses KQL. The legacy Defender for Endpoint REST API is being superseded by the unified Microsoft Graph Security API — build new automation against Graph. Localized Learn URLs exist (/en-us/ is canonical). The /defender-endpoint/api/apis-intro path reflects a recent restructure of the API docs section; verify the exact leaf page if deep-linking. API-reference and DVM URLs rely on established knowledge — search budget was exhausted before live re-verification this run.
+> Note: Product is part of Microsoft Defender XDR; the operations portal is security.microsoft.com (was securitycenter.microsoft.com). Advanced hunting uses KQL. The legacy Defender for Endpoint REST API is being superseded by the unified Microsoft Graph Security API; build new automation against Graph. Localized Learn URLs exist (/en-us/ is canonical). The API overview is at /defender-endpoint/api/apis-intro (Access the Microsoft Defender for Endpoint APIs) and the management overview at /defender-endpoint/api/management-apis.
 
 ## Current state (2025-26)
 

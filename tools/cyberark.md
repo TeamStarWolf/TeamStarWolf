@@ -72,7 +72,7 @@ The definitive lateral-movement and privilege-escalation mitigation — it attac
 
 **Key events / fields / tables / APIs**
 - CEF: deviceEventClassId = the Vault audit action/message code; name = the action description; severity. Elastic's mapping: event.code = Vault audit action code, cyberarkpas.audit.message = description, cyberarkpas.audit.message_id = record code ID. Sentinel: CommonSecurityLog with DeviceVendor 'Cyber-Ark', DeviceEventClassID, Activity.
-- Confirmed Vault action codes: 295 (retrieve password), 300 (PSM connect), 301 (connect failure); 295/300/378 appear in the Elastic 'recommended-monitor' action-code set (meaning of 378 not verified here). Full enumeration = CyberArk 'Vault Audit Action Codes' reference, 'Recommended Action Codes for Monitoring' section.
+- Confirmed Vault action codes: 295 (retrieve password), 300 (PSM connect), 301 (connect failure); 295/300/378 appear in the Elastic 'recommended-monitor' action-code set. Full enumeration = CyberArk 'Vault Audit Action Codes' reference, 'Recommended Action Codes for Monitoring' section.
 - DBParm.ini [SYSLOG] keys: SyslogServerIP, SyslogServerPort, SyslogServerProtocol, SyslogMessageCodeFilter, SyslogTranslatorFile, UseLegacySyslogFormat.
 - PTA: sourcetype cyberark:pta:cef; CEF name + deviceEventClassId (e.g. 1 'Suspected credentials theft', 23 'irregular hours') + severity; forwarding in systemparm.properties syslog_outbound.
 - REST: GET /PasswordVault/API/Accounts/{id} and ?search=; POST /PasswordVault/API/Accounts/{id}/Change, /Verify, /Reconcile; response fields secretManagement.automaticManagementEnabled, secretManagement.manualManagementReason, secretManagement.lastModifiedTime.
@@ -115,7 +115,7 @@ CommonSecurityLog
 - SyslogMessageCodeFilter governs what is EVER emitted: the default can flood you with all user/safe activity, while a narrowed 'recommended' set can silently drop the exact CPM-change evidence you need to prove rotation. Audit this filter first.
 - UseLegacySyslogFormat=Yes produces inaccurate timestamps and UDP transport drops events under load — use TCP/TLS + RFC5424. Translator-file choice (SplunkCIM.xsl vs Arcsight CEF vs XSIAM.xsl) changes field names; multiple destinations require the IP / translator / code-filter lists to be matched in count and order.
 - automaticManagementEnabled==true is 'configured', not 'effective' — accounts in CPM 'Failed' or 'Disabled by CPM' state show management intent yet never rotate; always correlate an actual change audit event + moving lastModifiedTime.
-- Exact numeric CPM change/verify/reconcile action codes and the meaning of code 378 were NOT verified in this research — confirm them against the 'Vault Audit Action Codes' reference for your Vault version before hard-coding detections.
+- Before hard-coding detections on CPM change, verify or reconcile events, or on code 378, look up the numeric codes in the 'Vault Audit Action Codes' reference for your Vault version.
 - PTA event-class-ID ↔ name mapping is deployment/version-specific; validate the IDs in your own PTA. Component logs (CPM/PSM/PVWA) are not in the Vault syslog stream unless separately forwarded, so a rotation failure logged only on the CPM host can be invisible to the SIEM.
 
 ## Documentation & repositories

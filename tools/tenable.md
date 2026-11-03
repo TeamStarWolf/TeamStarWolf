@@ -124,9 +124,9 @@ _GitHub (official)_
 - [container-security-action / was-action — official GitHub Actions for Tenable container & WAS scans](https://github.com/tenable/container-security-action)
 
 _Community / integration / detection repos_
-- [Tenable App & Add-on for Splunk (SIEM integration) —  (verify exact app ID on Splunkbase)](https://splunkbase.splunk.com/app/4060)
+- [Tenable Add-On for Splunk (Splunkbase app 4060, TA-tenable; SIEM integration)](https://splunkbase.splunk.com/app/4060)
 - [Security-Hub — Tenable.io to AWS Security Hub integration](https://github.com/tenable/Security-Hub)
-- Navi — community CLI/automation tool for Tenable.io (github.com/tenable/navi — confirm slug before use)
+- [Navi (packetchaos/navi), a community command-line tool for the Tenable Vulnerability Management API](https://github.com/packetchaos/navi)
 
 _Learning & reference_
 - [Tenable University / training](https://www.tenable.com/education)

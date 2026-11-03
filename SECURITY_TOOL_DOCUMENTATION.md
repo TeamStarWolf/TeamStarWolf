@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 21 min (4,905 words at 230 words a minute)
+About 21 min (4,862 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -83,7 +83,7 @@ _API & developer docs_
 - [Tanium API documentation (GraphQL API Gateway + Platform REST API; the full reference needs a Tanium login)](https://developer.tanium.com/apis/api_intro)
 
 _GitHub (official)_
-- [Tanium GitHub organization —  (NOTE: org existence not confirmable via search this run; verify the org is Tanium-verified before trusting)](https://github.com/Tanium)
+- [Tanium GitHub organization (github.com/tanium, four public repositories; GitHub does not mark it as a verified organization)](https://github.com/Tanium)
 
 _Community / integration / detection repos_
 - [pytan3 (newer Python client, docs on Read the Docs)](https://pytan3.readthedocs.io)
@@ -92,7 +92,7 @@ _Learning & reference_
 - [Tanium blog and Tech Talks series](https://www.tanium.com/blog)
 - [Tanium company / product overview](https://www.tanium.com/about)
 
-> Note: Docs consolidated onto docs.tanium.com; the old kb.tanium.com Knowledge Base is slated for retirement around 2026 and redirects to the Resource Center. Tanium now positions the GraphQL API Gateway as the preferred integration path over the older Platform REST API; module-specific REST docs are reached via help links inside the Tanium Console (auth required). Console and most API docs require a customer login. GitHub org and the PyTan repo paths rely on established knowledge — web-search budget for this run was exhausted before they could be re-verified live; confirm before publishing.
+> Note: Docs consolidated onto docs.tanium.com; the old kb.tanium.com Knowledge Base is slated for retirement around 2026 and redirects to the Resource Center. Tanium now positions the GraphQL API Gateway as the preferred integration path over the older Platform REST API; module-specific REST docs are reached via help links inside the Tanium Console (auth required). Console and most API docs require a customer login. The pytan3 documentation links to github.com/tanium/pytan3, which is no longer a public repository; the tanium GitHub organization lists four public repositories.
 
 
 ### Microsoft Defender for Endpoint / Defender Vulnerability Management
@@ -122,7 +122,7 @@ _Learning & reference_
 - [Microsoft Learn training catalog (Secure your organization with Defender for Endpoint)](https://learn.microsoft.com/en-us/training/)
 - [Microsoft Defender for Endpoint Ninja training (Tech Community)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/bg-p/MicrosoftDefenderATPBlog)
 
-> Note: Product is part of Microsoft Defender XDR; the operations portal is security.microsoft.com (was securitycenter.microsoft.com). Advanced hunting uses KQL. The legacy Defender for Endpoint REST API is being superseded by the unified Microsoft Graph Security API — build new automation against Graph. Localized Learn URLs exist (/en-us/ is canonical). The /defender-endpoint/api/apis-intro path reflects a recent restructure of the API docs section; verify the exact leaf page if deep-linking. API-reference and DVM URLs rely on established knowledge — search budget was exhausted before live re-verification this run.
+> Note: Product is part of Microsoft Defender XDR; the operations portal is security.microsoft.com (was securitycenter.microsoft.com). Advanced hunting uses KQL. The legacy Defender for Endpoint REST API is being superseded by the unified Microsoft Graph Security API; build new automation against Graph. Localized Learn URLs exist (/en-us/ is canonical). The API overview is at /defender-endpoint/api/apis-intro (Access the Microsoft Defender for Endpoint APIs) and the management overview at /defender-endpoint/api/management-apis.
 
 
 ### CrowdStrike Falcon
@@ -156,7 +156,7 @@ _Learning & reference_
 - [FalconPy documentation site & wiki](https://www.falconpy.io)
 - [CrowdStrike blog](https://www.crowdstrike.com/blog/)
 
-> Note: CrowdStrike has a strong, verified official GitHub presence at github.com/CrowdStrike (falconpy, psfalcon, gofalcon, rusty-falcon, falcon-scripts, falcon-operator, falcon-helm, community, helpful-links all confirmed). The SDKs are open-source and community-supported, not formal CrowdStrike products. In-console docs at falcon.crowdstrike.com require authentication; developer.crowdstrike.com is the public API reference. Falcon API uses OAuth2 with regional base URLs. A Terraform provider (CrowdStrike/terraform-provider-crowdstrike) also exists for IaC but was not re-verified live this run. crowdstrike-falconpy is the PyPI package name. developer.crowdstrike.com, falconpy.io, falcon.crowdstrike.com, CrowdStrike University and blog URLs rely on established knowledge — search budget was exhausted before live re-verification.
+> Note: CrowdStrike has a strong, verified official GitHub presence at github.com/CrowdStrike (falconpy, psfalcon, gofalcon, rusty-falcon, falcon-scripts, falcon-operator, falcon-helm, community, helpful-links all confirmed). The SDKs are open-source and community-supported, not formal CrowdStrike products. In-console docs at falcon.crowdstrike.com require authentication; developer.crowdstrike.com is the public API reference. Falcon API uses OAuth2 with regional base URLs. A Terraform provider (CrowdStrike/terraform-provider-crowdstrike) manages Falcon console resources as infrastructure as code. crowdstrike-falconpy is the PyPI package name. falconpy.io now redirects to the Python SDK page on developer.crowdstrike.com (/sdks/python/), and falcon.crowdstrike.com/documentation redirects to the console login.
 
 
 ## WAF & Edge
@@ -391,7 +391,7 @@ _Learning & reference_
 - [AWS Security Blog](https://aws.amazon.com/blogs/security/)
 - [AWS Security Maturity Model](https://maturitymodel.security.aws.dev/)
 
-> Note: Doc landing URLs are the long-stable AWS entry points (Inspector = Inspector2/v2; Config lives under the Developer Guide). IMPORTANT: Security Hub now has two variants — classic Security Hub CSPM (ASFF format, APIReference 1.0) and the newer Security Hub (OCSF); confirm which your account uses before wiring automation. The aws-samples GuardDuty multi-account repo and aws-solutions ASR repo are the canonical official examples. Search-session budget was exhausted before every GitHub path could be re-confirmed live this run; AWS doc hostnames (docs.aws.amazon.com) are authoritative and stable.
+> Note: Doc landing URLs are the long-stable AWS entry points (Inspector = Inspector2/v2; Config lives under the Developer Guide). IMPORTANT: Security Hub now has two variants: classic Security Hub CSPM (ASFF format, APIReference 1.0) and the newer Security Hub (OCSF); confirm which your account uses before wiring automation. The aws-samples GuardDuty multi-account repo and aws-solutions ASR repo are the canonical official examples. AWS documentation is served from docs.aws.amazon.com.
 
 
 ### Microsoft Defender for Cloud
@@ -550,9 +550,9 @@ _GitHub (official)_
 - [container-security-action / was-action — official GitHub Actions for Tenable container & WAS scans](https://github.com/tenable/container-security-action)
 
 _Community / integration / detection repos_
-- [Tenable App & Add-on for Splunk (SIEM integration) —  (verify exact app ID on Splunkbase)](https://splunkbase.splunk.com/app/4060)
+- [Tenable Add-On for Splunk (Splunkbase app 4060, TA-tenable; SIEM integration)](https://splunkbase.splunk.com/app/4060)
 - [Security-Hub — Tenable.io to AWS Security Hub integration](https://github.com/tenable/Security-Hub)
-- Navi — community CLI/automation tool for Tenable.io (github.com/tenable/navi — confirm slug before use)
+- [Navi (packetchaos/navi), a community command-line tool for the Tenable Vulnerability Management API](https://github.com/packetchaos/navi)
 
 _Learning & reference_
 - [Tenable University / training](https://www.tenable.com/education)

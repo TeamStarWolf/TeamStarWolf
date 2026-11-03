@@ -37,10 +37,13 @@ Rules (the rule key is what the baseline counts):
                 a script-written marker pair, `<!-- name:start ... -->` and
                 `<!-- name:end -->`, is skipped.
   agent-note    A drafting or process note left in page text by an assistant or a
-                workflow: a search-tool name or budget, a "this turn" or
-                "live-verified" stamp, "workflow agents", "compiled from prior
-                knowledge", "verify if seen elsewhere", "drafted with an AI". It is
-                not a fact for the reader. Unlike the rules above it covers every
+                workflow: a search-tool name or budget ("search budget was
+                exhausted"), a session stamp ("this turn", "live-verified",
+                "re-verified live this run", "in this research"), "workflow
+                agents", "compiled from prior knowledge", "rely on established
+                knowledge", and notes to itself ("verify if seen elsewhere",
+                "confirm before publishing", "confirm slug before use"), or
+                "drafted with an AI". It is not a fact for the reader. Unlike the rules above it covers every
                 tracked Markdown file, generated or hand-written, whatever SCOPE_RE
                 says, matches code and prose alike, and has no baseline: one hit
                 fails the gate.
@@ -187,7 +190,9 @@ COUNT_RE = re.compile(r"(?<![\w.,\u2013-])(?<![Ll]evel )" + EMPH +
 # Agent process notes (rule agent-note). Phrases an assistant or a workflow wrote about
 # its own process, never about the subject: the search tool's name and budget, session
 # stamps, notes to itself. "this turn" must not run on into "this turns" or
-# "this turn-based"; `WebSearchTool` (an SDK class) is not the bare tool name.
+# "this turn-based"; `WebSearchTool` (an SDK class) is not the bare tool name. A bare
+# "this run" is ordinary English in the procedure guides ("wiped before this run"), so
+# it counts only after "search", "live" or "budget for".
 AGENT_NOTE_RE = re.compile(
     r"\bWebSearch\b"
     r"|\bthis turn\b(?!-)"
@@ -195,7 +200,19 @@ AGENT_NOTE_RE = re.compile(
     r"|\blive[- ]verified\b"
     r"|\bcompiled from (?:high-confidence )?prior knowledge\b"
     r"|\bverify if seen elsewhere\b"
-    r"|\bdrafted (?:with|by) an? (?:AI|LLM)\b",
+    r"|\bdrafted (?:with|by) an? (?:AI|LLM)\b"
+    r"|\bsearch(?:-session)? budget\b"
+    r"|\bbudget (?:for this run )?was exhausted\b"
+    r"|\b(?:search|live|budget for) this run\b"
+    r"|\bre-(?:verified|confirmed) live\b"
+    r"|\blive re-verification\b"
+    r"|\bnot confirmable via search\b"
+    r"|\bin this research\b"
+    r"|\bnot verified here\b"
+    r"|\brely on established knowledge\b"
+    r"|\bconfirm before publishing\b"
+    r"|\bconfirm slug before use\b"
+    r"|\bverify exact app ID\b",
     re.I)
 # CHANGELOG entries are dated records: a count there is true as of its date and does
 # not go stale the way a headline does.
@@ -630,17 +647,36 @@ AGENT_SELF_TEST_FILE = "tools/_agent_note_self_test.md"
 AGENT_SELF_TEST = (
     ("> Note: LIVE-VERIFIED via WebSearch 2026-10-08. Duo is part of Cisco.",
      ("agent-note", "agent-note")),
-    ("The shared WebSearch budget was exhausted this turn.", ("agent-note", "agent-note")),
+    ("The shared WebSearch budget was exhausted this turn.",
+     ("agent-note", "agent-note", "agent-note")),
     ("NOT LIVE-VERIFIED THIS TURN: shared by all concurrent workflow agents.",
      ("agent-note", "agent-note", "agent-note")),
     ("These URLs are compiled from high-confidence prior knowledge.", ("agent-note",)),
     ("No product named 'Aura' found - verify if seen elsewhere.", ("agent-note",)),
     ("Drafted with an AI assistant.", ("agent-note",)),
     ("```bash\n# live verified on 2026-09-29\n```\n", ("agent-note",)),
+    ("Search-session budget was exhausted before re-verification this run.",
+     ("agent-note",)),
+    ("The web-search budget for this run was exhausted.", ("agent-note",)),
+    ("The quota budget was exhausted early.", ("agent-note",)),
+    ("Paths were not re-verified live this run.", ("agent-note",)),
+    ("Every GitHub path was re-confirmed live today.", ("agent-note",)),
+    ("Checked live this run against the vendor page.", ("agent-note",)),
+    ("Exhausted before live re-verification.", ("agent-note",)),
+    ("(NOTE: org existence not confirmable via search; check it)", ("agent-note",)),
+    ("The codes were NOT verified in this research.", ("agent-note",)),
+    ("The meaning of 378 is not verified here.", ("agent-note",)),
+    ("These URLs rely on established knowledge.", ("agent-note",)),
+    ("Repo paths are unchecked; confirm before publishing.", ("agent-note",)),
+    ("github.com/tenable/navi (confirm slug before use)", ("agent-note",)),
+    ("Splunk add-on (verify exact app ID on Splunkbase)", ("agent-note",)),
     # Ordinary English and real API names pass.
     ("This turns a list into a plan, in this turn-based game.", ()),
     ("Hosted tools such as `WebSearchTool` skip the guardrail pipeline.", ()),
     ("Attackers with no prior knowledge of the target guess passwords.", ()),
+    ("Confirm free capacity and that the destination was wiped before this run.", ()),
+    ("Set a budget per run and research this topic before publishing.", ()),
+    ("Analysts rely on established playbooks; verify the exact hash.", ()),
 )
 
 

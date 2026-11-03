@@ -12,6 +12,19 @@ MOVEit was not a one-off. It was the fourth and largest in a pattern: Cl0p had a
 
 Evidence grade: **Confirmed** overall (Progress, CISA, FBI and Microsoft for the vulnerabilities and attribution; victim-count totals are **Reported** tallies marked below).
 
+### Key facts at a glance
+
+| Field | Value |
+|---|---|
+| Lead vulnerability | CVE-2023-34362, SQL injection in MOVEit Transfer, CVSS 9.8, unauthenticated remote |
+| Related MOVEit flaws | CVE-2023-35036 and CVE-2023-35708, found in the hardening review and fixed in June 2023 |
+| Post-exploitation | `human2.aspx` web shell (LEMURLOOT family): file theft plus Azure Storage key harvest |
+| Extortion model | Data theft only, no encryption; leak-site naming and a payment deadline |
+| Actor | Cl0p, also tracked as TA505, FIN11, LACE Tempest and Graceful Spider |
+| First exploitation | Observed from around 27 May 2023, before the 31 May advisory |
+| Scale | About 2,773 organizations and about 95.8 million individuals (Emsisoft tally, August 2024, a floor) |
+| The pattern | Fourth MFT campaign: Accellion FTA (2020 to 2021), GoAnywhere (2023), MOVEit (2023), Cleo (2024) |
+
 ### Key findings
 
 - **A single unauthenticated SQL injection caused a global data breach.** CVE-2023-34362 (CVSS 9.8) let an attacker inject SQL into the MOVEit Transfer web application without credentials, read and alter the database, and install a web shell. Two further SQL injection flaws, CVE-2023-35036 and CVE-2023-35708, were found during the code review that followed and were patched in June 2023.
@@ -40,27 +53,63 @@ This study covers the Cl0p MOVEit campaign of 2023 as its center, with the surro
 
 ## Part 1: the playbook, four times
 
-Cl0p's file-transfer campaigns are best understood as one method applied to one target class across four years (**Confirmed** for each vulnerability and for Cl0p's involvement):
+Cl0p's file-transfer campaigns are best understood as one method applied to one target class across four years. The method is always the same four moves: find or buy a zero-day in an internet-facing file-transfer product, fire it at scale in a short burst before defenders can react, exfiltrate the stored data, and extort by threatening to publish. What changes each time is only the product (**Confirmed** for each vulnerability and for Cl0p's involvement).
 
-- **Accellion File Transfer Appliance (2020 to 2021).** The origin of the pattern. A chain of flaws in Accellion's legacy FTA (including CVE-2021-27101, a SQL injection, with command-injection and server-side request forgery flaws alongside it) let attackers deploy the DEWMODE web shell and steal files, after which Cl0p extorted the victims. The appliance was end-of-life, which is itself the lesson: an unsupported edge box holding live data is a standing liability.
-- **Fortra GoAnywhere MFT (early 2023).** CVE-2023-0669, a pre-authentication flaw in the License Response Servlet caused by insecure deserialization, gave remote code execution. Cl0p claimed on the order of 130 organizations. The same month set the stage for MOVEit.
-- **Progress MOVEit Transfer (May to June 2023).** CVE-2023-34362, the subject of Part 2, and the largest of the four by a wide margin.
-- **Cleo Harmony, VLTrader and LexiCom (late 2024).** CVE-2024-50623, an unrestricted file upload and download flaw, was followed by CVE-2024-55956, which Rapid7 assessed as a distinct unauthenticated command-execution flaw in the Autorun feature rather than a bypass of the first. CISA added the activity to its Known Exploited Vulnerabilities catalog, and Cl0p confirmed to reporters that it was behind the exploitation. About 200 victims were listed.
+### Accellion File Transfer Appliance (2020 to 2021)
+
+The origin of the pattern. Accellion's FTA was a legacy, end-of-life file-transfer appliance. A chain of flaws in it, including CVE-2021-27101 (SQL injection) together with command-injection and server-side request forgery flaws (CVE-2021-27102, CVE-2021-27103, CVE-2021-27104), let attackers deploy the DEWMODE web shell and steal files, after which Cl0p extorted the victims. That an unsupported appliance was still holding live data on the internet edge is itself the first lesson of the whole series.
+
+### Fortra GoAnywhere MFT (early 2023)
+
+CVE-2023-0669, a pre-authentication flaw in the License Response Servlet of the GoAnywhere administrative console, caused by insecure deserialization, gave remote code execution. Cl0p claimed on the order of 130 organizations on its leak site. This campaign, months before MOVEit, showed the group had settled on managed file transfer as a repeatable target and was willing to spend zero-days on it.
+
+### Progress MOVEit Transfer (May to June 2023)
+
+CVE-2023-34362, the subject of Parts 2 and 3, and the largest of the four by a wide margin.
+
+### Cleo Harmony, VLTrader and LexiCom (late 2024)
+
+CVE-2024-50623, an unrestricted file upload and download flaw, was followed by CVE-2024-55956, which Rapid7 assessed as a distinct unauthenticated command-execution flaw in the Autorun feature rather than a bypass of the first. CISA added the activity to its Known Exploited Vulnerabilities catalog, and Cl0p confirmed to reporters that it was behind the exploitation. About 200 victims were listed. The Cleo round proved the playbook still worked eighteen months after MOVEit, against a different vendor, with the same model.
 
 Four products, four vendors, one method. The attacker did not need a new idea each time, only a new unpatched file-transfer product exposed to the internet.
 
 ## Part 2: the MOVEit zero-day
 
-MOVEit Transfer is a product organizations run to exchange files securely with partners, often as the automated backbone of payroll, benefits, healthcare and financial data flows. That is exactly what made it valuable to steal from.
+MOVEit Transfer is a product organizations run to exchange files securely with partners, often as the automated backbone of payroll, benefits, healthcare and financial data flows. That is exactly what made it valuable to steal from: the data an organization most needs to move securely is the data an attacker most wants.
 
-CVE-2023-34362 is a SQL injection vulnerability in the MOVEit Transfer web application (**Confirmed**: Progress, CVSS 9.8). An unauthenticated attacker sends crafted input that the application passes into a database query, which lets the attacker read and modify the contents of the MOVEit database and, in the observed attacks, stage a web shell on the server. Progress published its advisory and an emergency patch on 31 May 2023. During the hardening review that followed, two more SQL injection flaws were identified and fixed in June 2023 (**Confirmed**):
+### The vulnerability
+
+CVE-2023-34362 is a SQL injection vulnerability in the MOVEit Transfer web application (**Confirmed**: Progress, CVSS 9.8). An unauthenticated attacker sends crafted input that the application passes into a database query, which lets the attacker read and modify the contents of the MOVEit database and, in the observed attacks, stage a web shell on the server. The attack typically lands as a crafted request to the MOVEit web front end. Progress published its advisory and an emergency patch on 31 May 2023. During the hardening review that followed, two more SQL injection flaws were identified and fixed in June 2023 (**Confirmed**):
 
 - **CVE-2023-35036**: additional SQL injection in MOVEit Transfer.
 - **CVE-2023-35708**: a SQL injection and privilege-escalation flaw addressed in a follow-up fix.
 
-The post-exploitation payload is what turned a web vulnerability into a mass breach. Attackers installed a web shell, most often a file named `human2.aspx` and tracked as the LEMURLOOT family, that let them list the files held in MOVEit, pull them out, and in cloud-backed deployments retrieve the Azure Storage account keys the service used (**Confirmed**: CISA and FBI advisory AA23-158A, and multiple vendors). The attacker's goal was the stored data, and the web shell was the pipe that drained it.
+That two more injection flaws surfaced the moment anyone looked hard is its own signal: the web application had a class problem, not a single defect, which is why patching one build and moving on was never going to be enough.
 
-Cl0p did not deploy encrypting ransomware here. Starting around 14 June 2023 it published victim names on its leak site and told organizations to make contact before a deadline or see their files released (**Confirmed**). That choice matters for defenders: there was no encryption event, no ransom-note-on-every-host moment, and no clean backup that could undo the harm, because the harm was that the data had already left. Detection had to come from the exploitation and exfiltration itself, not from a later encryption stage.
+### The payload
+
+The post-exploitation payload is what turned a web vulnerability into a mass breach. Attackers installed a web shell, most often a file named `human2.aspx` and tracked as the LEMURLOOT family, that let them list the files held in MOVEit, pull them out, and in cloud-backed deployments retrieve the Azure Storage account keys the service used (**Confirmed**: CISA and FBI advisory AA23-158A, and multiple vendors). The web shell masqueraded as a legitimate MOVEit component and checked for a hardcoded header before acting, which helped it blend in. The attacker's goal was the stored data, and the web shell was the pipe that drained it.
+
+### Theft, not encryption
+
+Cl0p did not deploy encrypting ransomware here. Starting around 14 June 2023 it published victim names on its leak site and told organizations to make contact before a deadline or see their files released (**Confirmed**). That choice matters for defenders, and it is worth being precise about why:
+
+- There was no encryption event, so no ransom note appeared on every host and no service went down in a way that triggers an obvious incident.
+- There was no clean backup that could undo the harm, because the harm was that the data had already left.
+- Detection had to come from the exploitation and exfiltration itself, during the short window of the attack, not from a later and louder encryption stage.
+
+A data-theft-only model is quieter going in and just as damaging coming out, and it is increasingly the default for financially motivated groups because it sidesteps the one control, reliable backups, that most blunts classic ransomware.
+
+### MOVEit timeline
+
+| Date (2023) | Event |
+|---|---|
+| Around 27 May | Mass exploitation of CVE-2023-34362 begins, over the US Memorial Day weekend |
+| 31 May | Progress publishes its advisory and emergency patch |
+| Early June | CISA and the FBI publish advisory AA23-158A; CVE added to the KEV catalog |
+| Throughout June | Progress fixes CVE-2023-35036 and CVE-2023-35708 from the hardening review |
+| From 14 June | Cl0p begins naming victims on its leak site with payment deadlines |
+| June 2023 onward | Downstream victims disclose for more than a year as the count climbs |
 
 ### MOVEit remediation and detection
 
@@ -74,15 +123,31 @@ Cl0p did not deploy encrypting ransomware here. Starting around 14 June 2023 it 
 
 ## Part 3: who did it, and the scale
 
-The campaigns were run by Cl0p, a financially motivated group also tracked as TA505, FIN11, LACE Tempest (Microsoft) and Graceful Spider, and known for large-scale extortion rather than quiet espionage (**Confirmed**: Microsoft and CISA). The group's distinguishing trait across these campaigns was patience in the target choice: it repeatedly found and stockpiled file-transfer zero-days, then fired them at internet scale in a short burst to beat the patch cycle.
+### The actor
+
+The campaigns were run by Cl0p, a financially motivated group also tracked as TA505, FIN11, LACE Tempest (Microsoft) and Graceful Spider, and known for large-scale extortion rather than quiet espionage (**Confirmed**: Microsoft and CISA). The group's distinguishing trait across these campaigns was patience in the target choice: it repeatedly found or acquired file-transfer zero-days, stockpiled them, and then fired them at internet scale in a short burst to beat the patch cycle. The MOVEit burst over a holiday weekend was deliberate timing against thinly staffed defenders.
+
+### The scale
 
 The scale of MOVEit specifically grew for more than a year as downstream victims filed notifications (**Reported** except where noted):
 
 - By mid-2023, early tallies already reached roughly 1,000 organizations and about 60 million individuals.
 - By August 2024, the most-cited running tally stood at about 2,773 organizations and roughly 95.8 million individuals, and the trackers that maintain it caution that the figure is a floor, since several victims were service providers whose own customers were affected.
-- Victims spanned government, education, finance, healthcare, insurance and large enterprises across several continents, and many were breached through a third party's MOVEit server rather than their own, for example through the payroll provider Zellis.
+- Victims spanned government, education, finance, healthcare, insurance and large enterprises across several continents.
+- Many organizations were breached through a third party's MOVEit server rather than their own, most visibly through the payroll provider Zellis, whose compromise exposed a set of unrelated large employers downstream of it.
 
-The spread through third parties is the part a vulnerability management program must internalize. The number of organizations that ran MOVEit was a fraction of the number of organizations whose data was in a MOVEit server somewhere. Exposure was not bounded by your own asset inventory.
+The spread through third parties is the part a vulnerability management program must internalize. The number of organizations that ran MOVEit was a fraction of the number of organizations whose data was in a MOVEit server somewhere. Exposure was not bounded by your own asset inventory, and for many victims the first they knew of it was a notification from a supplier.
+
+## Part 4: managed file transfer as an asset class
+
+The reason Cl0p returned to this well four times is structural, and naming the structure is the most transferable part of the case:
+
+- **It is internet-facing by design.** A file-transfer product has to accept connections from outside to do its job, so it is always on the edge, always reachable, and always a first-rank target.
+- **It concentrates other people's most sensitive data.** Payroll, health, financial and benefits data funnel through these systems precisely because they are the secure channel, which makes one server a dense target.
+- **It is often owned as plumbing.** These products are frequently bought and run by lines of business or operations teams, patched on a slow cadence, and under-monitored, because they are seen as infrastructure rather than as a crown-jewel application.
+- **Its blast radius is other organizations.** Because so many of these deployments are run by service providers, a single compromise cascades to that provider's customers, which is fourth-party risk made concrete.
+
+Put together, those four properties make managed file transfer a category that deserves standing, elevated treatment in a vulnerability management program: a named asset class with its own inventory, its own shortest-clock patch SLA, its own monitoring, and its own place in third-party risk reviews. See [the Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md) and [the Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md).
 
 ## Cross-cutting themes
 
@@ -90,12 +155,13 @@ The spread through third parties is the part a vulnerability management program 
 - **Managed file transfer is a crown-jewel attack surface, not plumbing.** These products are internet-facing, aggregate many parties' sensitive data, and are often operated outside the security team's close attention. That combination is why the same actor hit the same product class four times.
 - **Zero-day exploitation defeats patch cadence by definition.** MOVEit and Cleo were exploited before a patch existed. Defense of this asset class therefore cannot rest on patching alone; it needs exposure reduction, egress control, web-shell detection and a rehearsed take-offline option. This mirrors the edge-device lesson in [the SharePoint ToolShell case study](/case-studies/SHAREPOINT_TOOLSHELL_2025.md).
 - **Your exposure includes your vendors' assets.** Much of the MOVEit harm reached organizations that never ran MOVEit. Fourth-party risk is real risk, and mapping which vendors hold your data in which transfer systems is part of vulnerability management, not a separate compliance exercise. See [the Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+- **Minimize the data at rest.** The single control that would have most reduced the harm is one that is easy to overlook: not leaving months or years of transferred files sitting on an internet-facing transfer server. Data that is delivered and promptly removed cannot be stolen in bulk from the staging point.
 
 ## Sources
 
 - Progress Software advisories for CVE-2023-34362, CVE-2023-35036 and CVE-2023-35708, and the MOVEit Transfer security notifications.
 - The joint CISA and FBI advisory AA23-158A on Cl0p ransomware exploitation of MOVEit Transfer, and the CISA Known Exploited Vulnerabilities catalog entries for the MOVEit, GoAnywhere and Cleo flaws.
-- Fortra advisory for CVE-2023-0669 (GoAnywhere MFT) and Cleo advisories for CVE-2024-50623 and CVE-2024-55956, with Rapid7's analysis distinguishing the two Cleo flaws.
+- Fortra advisory for CVE-2023-0669 (GoAnywhere MFT), Cleo advisories for CVE-2024-50623 and CVE-2024-55956 with Rapid7's analysis distinguishing the two, and reporting on the Accellion FTA chain (CVE-2021-27101 and related) and the DEWMODE web shell.
 - Microsoft Threat Intelligence attribution of the MOVEit exploitation to Lace Tempest (Cl0p), and reporting from Mandiant and Huntress on the LEMURLOOT web shell.
 - Emsisoft's running MOVEit impact tally (about 2,773 organizations and about 95.8 million individuals as of August 2024) and corroborating reporting from BleepingComputer, The Record and security trackers; figures are reported totals and best treated as a floor.
 

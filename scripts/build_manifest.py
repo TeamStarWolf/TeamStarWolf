@@ -133,7 +133,8 @@ def _file_entry(path: str, rel: str):
 
 def inputs():
     """Pinned upstream inputs that generators fetch (not files under data/): one entry
-    per ATT&CK STIX bundle (Enterprise, ICS, Mobile) in build_attack_core.STIX_INPUTS."""
+    per ATT&CK STIX bundle (Enterprise, ICS, Mobile) in build_attack_core.STIX_INPUTS, then
+    the release index (index.json, build_attack_core.STIX_INDEX) read at the same commit."""
     core = build_attack_core
     return [{
         "name": "MITRE ATT&CK " + pin["label"] + " STIX bundle (" + os.path.basename(pin["path"]) + ")",
@@ -145,7 +146,17 @@ def inputs():
         "bytes": pin["bytes"],
         "sha256": pin["sha256"],
         "provenance": SOURCES["attack"],
-    } for pin in core.STIX_INPUTS.values()]
+    } for pin in core.STIX_INPUTS.values()] + [{
+        "name": "MITRE ATT&CK STIX release index (index.json)",
+        "consumed_by": "scripts/build_attack_core.py",
+        "repo": core.STIX_REPO,
+        "commit": core.STIX_COMMIT,
+        "path": core.STIX_INDEX["path"],
+        "url": core.STIX_INDEX["url"],
+        "bytes": core.STIX_INDEX["bytes"],
+        "sha256": core.STIX_INDEX["sha256"],
+        "provenance": SOURCES["attack"],
+    }]
 
 
 def compute():

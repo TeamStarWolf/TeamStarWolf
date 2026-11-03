@@ -1,0 +1,1184 @@
+{"technique_id": "T0800", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0801", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0802", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0803", "domain": "ics", "status": "revoked", "added_in": "8.0", "revoked_in": "19.0"}
+{"technique_id": "T0804", "domain": "ics", "status": "revoked", "added_in": "8.0", "revoked_in": "19.0"}
+{"technique_id": "T0805", "domain": "ics", "status": "revoked", "added_in": "8.0", "revoked_in": "19.0"}
+{"technique_id": "T0806", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0807", "domain": "ics", "status": "deprecated", "added_in": "8.0"}
+{"technique_id": "T0808", "domain": "ics", "status": "deprecated", "added_in": "8.0"}
+{"technique_id": "T0809", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0810", "domain": "ics", "status": "deprecated", "added_in": "8.0"}
+{"technique_id": "T0811", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0812", "domain": "ics", "status": "revoked", "added_in": "8.0", "revoked_in": "19.0"}
+{"technique_id": "T0813", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0814", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0815", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0816", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0817", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0818", "domain": "ics", "status": "deprecated", "added_in": "8.0"}
+{"technique_id": "T0819", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0820", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0821", "domain": "ics", "status": "live", "added_in": "9.0"}
+{"technique_id": "T0822", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0823", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0824", "domain": "ics", "status": "deprecated", "added_in": "8.0"}
+{"technique_id": "T0825", "domain": "ics", "status": "deprecated", "added_in": "8.0"}
+{"technique_id": "T0826", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0827", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0828", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0829", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0830", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0831", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0832", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0833", "domain": "ics", "status": "deprecated", "added_in": "8.0"}
+{"technique_id": "T0834", "domain": "ics", "status": "live", "added_in": "9.0"}
+{"technique_id": "T0835", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0836", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0837", "domain": "ics", "status": "live", "added_in": "9.0"}
+{"technique_id": "T0838", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0839", "domain": "ics", "status": "revoked", "added_in": "8.0", "revoked_in": "19.0"}
+{"technique_id": "T0840", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0841", "domain": "ics", "status": "deprecated", "added_in": "8.0"}
+{"technique_id": "T0842", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0843", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0843.001", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T0843.002", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T0843.003", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T0844", "domain": "ics", "status": "deprecated", "added_in": "8.0"}
+{"technique_id": "T0845", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0846", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0846.001", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T0846.002", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T0846.003", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T0847", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0848", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0849", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0850", "domain": "ics", "status": "deprecated", "added_in": "8.0"}
+{"technique_id": "T0851", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0852", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0853", "domain": "ics", "status": "deprecated", "added_in": "8.0"}
+{"technique_id": "T0854", "domain": "ics", "status": "deprecated", "added_in": "8.0"}
+{"technique_id": "T0855", "domain": "ics", "status": "revoked", "added_in": "8.0", "revoked_in": "19.0"}
+{"technique_id": "T0856", "domain": "ics", "status": "revoked", "added_in": "8.0", "revoked_in": "19.0"}
+{"technique_id": "T0857", "domain": "ics", "status": "revoked", "added_in": "8.0", "revoked_in": "19.0"}
+{"technique_id": "T0858", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0859", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0860", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0861", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0862", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0863", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0864", "domain": "ics", "status": "live", "added_in": "10.0"}
+{"technique_id": "T0865", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0866", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0867", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0868", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0869", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0869.001", "domain": "ics", "status": "live", "added_in": "20.0"}
+{"technique_id": "T0869.002", "domain": "ics", "status": "live", "added_in": "20.0"}
+{"technique_id": "T0870", "domain": "ics", "status": "deprecated", "added_in": "8.0"}
+{"technique_id": "T0871", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0872", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0873", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0873.001", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T0874", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0875", "domain": "ics", "status": "deprecated", "added_in": "8.0"}
+{"technique_id": "T0877", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0878", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0879", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0880", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0881", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0882", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0883", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0884", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0885", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0886", "domain": "ics", "status": "live", "added_in": "9.0"}
+{"technique_id": "T0887", "domain": "ics", "status": "live", "added_in": "8.0"}
+{"technique_id": "T0888", "domain": "ics", "status": "live", "added_in": "9.0"}
+{"technique_id": "T0889", "domain": "ics", "status": "live", "added_in": "9.0"}
+{"technique_id": "T0890", "domain": "ics", "status": "live", "added_in": "9.0"}
+{"technique_id": "T0891", "domain": "ics", "status": "revoked", "added_in": "12.0", "revoked_in": "19.0"}
+{"technique_id": "T0892", "domain": "ics", "status": "live", "added_in": "13.0"}
+{"technique_id": "T0893", "domain": "ics", "status": "live", "added_in": "13.0"}
+{"technique_id": "T0894", "domain": "ics", "status": "live", "added_in": "15.0"}
+{"technique_id": "T0895", "domain": "ics", "status": "live", "added_in": "15.0"}
+{"technique_id": "T1001", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1001.001", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1001.002", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1001.003", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1002", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1003", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1003.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1003.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1003.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1003.004", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1003.005", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1003.006", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1003.007", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1003.008", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1004", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1005", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1006", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1007", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1008", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1009", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1010", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1011", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1011.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1012", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1013", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1014", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1015", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1016", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1016.001", "domain": "enterprise", "status": "live", "added_in": "9.0"}
+{"technique_id": "T1016.002", "domain": "enterprise", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1017", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1018", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1019", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1020", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1020.001", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1021", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1021.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1021.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1021.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1021.004", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1021.005", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1021.006", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1021.007", "domain": "enterprise", "status": "live", "added_in": "13.0"}
+{"technique_id": "T1021.008", "domain": "enterprise", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1022", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1023", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1024", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1025", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1026", "domain": "enterprise", "status": "deprecated", "added_in": "1.0"}
+{"technique_id": "T1027", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1027.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1027.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1027.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1027.004", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1027.005", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1027.006", "domain": "enterprise", "status": "live", "added_in": "10.0"}
+{"technique_id": "T1027.007", "domain": "enterprise", "status": "live", "added_in": "12.0"}
+{"technique_id": "T1027.008", "domain": "enterprise", "status": "live", "added_in": "12.0"}
+{"technique_id": "T1027.009", "domain": "enterprise", "status": "live", "added_in": "12.0"}
+{"technique_id": "T1027.010", "domain": "enterprise", "status": "live", "added_in": "13.0"}
+{"technique_id": "T1027.011", "domain": "enterprise", "status": "live", "added_in": "13.0"}
+{"technique_id": "T1027.012", "domain": "enterprise", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1027.013", "domain": "enterprise", "status": "live", "added_in": "15.0"}
+{"technique_id": "T1027.014", "domain": "enterprise", "status": "live", "added_in": "16.0"}
+{"technique_id": "T1027.015", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1027.016", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1027.017", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1027.018", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1028", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1029", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1030", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1031", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1032", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1033", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1034", "domain": "enterprise", "status": "deprecated", "added_in": "1.0"}
+{"technique_id": "T1035", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1036", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1036.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1036.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1036.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1036.004", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1036.005", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1036.006", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1036.007", "domain": "enterprise", "status": "live", "added_in": "10.0"}
+{"technique_id": "T1036.008", "domain": "enterprise", "status": "live", "added_in": "13.0"}
+{"technique_id": "T1036.009", "domain": "enterprise", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1036.010", "domain": "enterprise", "status": "live", "added_in": "16.0"}
+{"technique_id": "T1036.011", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1036.012", "domain": "enterprise", "status": "live", "added_in": "18.0"}
+{"technique_id": "T1037", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1037.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1037.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1037.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1037.004", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1037.005", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1038", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1039", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1040", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1041", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1042", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1043", "domain": "enterprise", "status": "deprecated", "added_in": "1.0"}
+{"technique_id": "T1044", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1045", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1046", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1047", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1048", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1048.001", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1048.002", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1048.003", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1049", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1050", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1051", "domain": "enterprise", "status": "deprecated", "added_in": "1.0"}
+{"technique_id": "T1052", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1052.001", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1053", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1053.001", "domain": "enterprise", "status": "revoked", "added_in": "6.3", "revoked_in": "11.0"}
+{"technique_id": "T1053.002", "domain": "enterprise", "status": "live", "added_in": "6.2"}
+{"technique_id": "T1053.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1053.004", "domain": "enterprise", "status": "deprecated", "added_in": "6.3"}
+{"technique_id": "T1053.005", "domain": "enterprise", "status": "live", "added_in": "6.2"}
+{"technique_id": "T1053.006", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1053.007", "domain": "enterprise", "status": "live", "added_in": "9.0"}
+{"technique_id": "T1054", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1055", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1055.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1055.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1055.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1055.004", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1055.005", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1055.008", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1055.009", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1055.011", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1055.012", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1055.013", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1055.014", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1055.015", "domain": "enterprise", "status": "live", "added_in": "11.0"}
+{"technique_id": "T1056", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1056.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1056.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1056.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1056.004", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1057", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1058", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1059", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1059.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1059.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1059.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1059.004", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1059.005", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1059.006", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1059.007", "domain": "enterprise", "status": "live", "added_in": "7.1"}
+{"technique_id": "T1059.008", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1059.009", "domain": "enterprise", "status": "live", "added_in": "11.0"}
+{"technique_id": "T1059.010", "domain": "enterprise", "status": "live", "added_in": "15.0"}
+{"technique_id": "T1059.011", "domain": "enterprise", "status": "live", "added_in": "16.0"}
+{"technique_id": "T1059.012", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1059.013", "domain": "enterprise", "status": "live", "added_in": "18.0"}
+{"technique_id": "T1060", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1061", "domain": "enterprise", "status": "deprecated", "added_in": "1.0"}
+{"technique_id": "T1062", "domain": "enterprise", "status": "deprecated", "added_in": "1.0"}
+{"technique_id": "T1063", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1064", "domain": "enterprise", "status": "deprecated", "added_in": "1.0"}
+{"technique_id": "T1065", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1066", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1067", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1068", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1069", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1069.001", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1069.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1069.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1070", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1070.001", "domain": "enterprise", "status": "revoked", "added_in": "6.3", "revoked_in": "19.0"}
+{"technique_id": "T1070.002", "domain": "enterprise", "status": "revoked", "added_in": "6.3", "revoked_in": "19.0"}
+{"technique_id": "T1070.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1070.004", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1070.005", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1070.006", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1070.007", "domain": "enterprise", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1070.008", "domain": "enterprise", "status": "live", "added_in": "12.0"}
+{"technique_id": "T1070.009", "domain": "enterprise", "status": "live", "added_in": "12.0"}
+{"technique_id": "T1070.010", "domain": "enterprise", "status": "live", "added_in": "16.0"}
+{"technique_id": "T1071", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1071.001", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1071.002", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1071.003", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1071.004", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1071.005", "domain": "enterprise", "status": "live", "added_in": "16.0"}
+{"technique_id": "T1072", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1073", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1074", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1074.001", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1074.002", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1075", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1076", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1077", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1078", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1078.001", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1078.002", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1078.003", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1078.004", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1079", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1080", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1081", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1082", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1083", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1084", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1085", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1086", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1087", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1087.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1087.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1087.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1087.004", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1088", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1089", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1090", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1090.001", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1090.002", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1090.003", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1090.004", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1091", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1092", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1093", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1094", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1095", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1096", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1097", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1098", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1098.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1098.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1098.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1098.004", "domain": "enterprise", "status": "live", "added_in": "7.1"}
+{"technique_id": "T1098.005", "domain": "enterprise", "status": "live", "added_in": "11.0"}
+{"technique_id": "T1098.006", "domain": "enterprise", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1098.007", "domain": "enterprise", "status": "live", "added_in": "16.0"}
+{"technique_id": "T1099", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1100", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1101", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1102", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1102.001", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1102.002", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1102.003", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1103", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1104", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1105", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1106", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1107", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1108", "domain": "enterprise", "status": "deprecated", "added_in": "1.0"}
+{"technique_id": "T1109", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "8.0"}
+{"technique_id": "T1110", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1110.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1110.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1110.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1110.004", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1111", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1112", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1113", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1114", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1114.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1114.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1114.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1115", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1116", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1117", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1118", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1119", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1120", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1121", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1122", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1123", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1124", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1125", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1126", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1127", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1127.001", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1127.002", "domain": "enterprise", "status": "live", "added_in": "16.0"}
+{"technique_id": "T1127.003", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1128", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1129", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1130", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1131", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1132", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1132.001", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1132.002", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1133", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1134", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1134.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1134.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1134.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1134.004", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1134.005", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1135", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1136", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1136.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1136.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1136.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1137", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1137.001", "domain": "enterprise", "status": "live", "added_in": "6.1"}
+{"technique_id": "T1137.002", "domain": "enterprise", "status": "live", "added_in": "6.1"}
+{"technique_id": "T1137.003", "domain": "enterprise", "status": "live", "added_in": "6.1"}
+{"technique_id": "T1137.004", "domain": "enterprise", "status": "live", "added_in": "6.1"}
+{"technique_id": "T1137.005", "domain": "enterprise", "status": "live", "added_in": "6.1"}
+{"technique_id": "T1137.006", "domain": "enterprise", "status": "live", "added_in": "6.1"}
+{"technique_id": "T1138", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1139", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1140", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1141", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1142", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1143", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1144", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1145", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1146", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1147", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1148", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1149", "domain": "enterprise", "status": "deprecated", "added_in": "1.0"}
+{"technique_id": "T1150", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "11.0"}
+{"technique_id": "T1151", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1152", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1153", "domain": "enterprise", "status": "deprecated", "added_in": "1.0"}
+{"technique_id": "T1154", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1155", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1156", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1157", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1158", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1159", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1160", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1161", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1162", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "11.0"}
+{"technique_id": "T1163", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1164", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1165", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1166", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1167", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1168", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1169", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1170", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1171", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1172", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1173", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1174", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1175", "domain": "enterprise", "status": "deprecated", "added_in": "1.0"}
+{"technique_id": "T1176", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1176.001", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1176.002", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1177", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1178", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1179", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1180", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1181", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1182", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1183", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1184", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1185", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1186", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "6.3"}
+{"technique_id": "T1187", "domain": "enterprise", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1188", "domain": "enterprise", "status": "revoked", "added_in": "1.0", "revoked_in": "7.0"}
+{"technique_id": "T1189", "domain": "enterprise", "status": "live", "added_in": "2.0"}
+{"technique_id": "T1190", "domain": "enterprise", "status": "live", "added_in": "2.0"}
+{"technique_id": "T1191", "domain": "enterprise", "status": "revoked", "added_in": "2.0", "revoked_in": "6.3"}
+{"technique_id": "T1192", "domain": "enterprise", "status": "revoked", "added_in": "2.0", "revoked_in": "6.3"}
+{"technique_id": "T1193", "domain": "enterprise", "status": "revoked", "added_in": "2.0", "revoked_in": "6.3"}
+{"technique_id": "T1194", "domain": "enterprise", "status": "revoked", "added_in": "2.0", "revoked_in": "6.3"}
+{"technique_id": "T1195", "domain": "enterprise", "status": "live", "added_in": "2.0"}
+{"technique_id": "T1195.001", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1195.002", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1195.003", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1196", "domain": "enterprise", "status": "revoked", "added_in": "2.0", "revoked_in": "6.3"}
+{"technique_id": "T1197", "domain": "enterprise", "status": "live", "added_in": "2.0"}
+{"technique_id": "T1198", "domain": "enterprise", "status": "revoked", "added_in": "2.0", "revoked_in": "6.3"}
+{"technique_id": "T1199", "domain": "enterprise", "status": "live", "added_in": "2.0"}
+{"technique_id": "T1200", "domain": "enterprise", "status": "live", "added_in": "2.0"}
+{"technique_id": "T1201", "domain": "enterprise", "status": "live", "added_in": "2.0"}
+{"technique_id": "T1202", "domain": "enterprise", "status": "live", "added_in": "2.0"}
+{"technique_id": "T1203", "domain": "enterprise", "status": "live", "added_in": "2.0"}
+{"technique_id": "T1204", "domain": "enterprise", "status": "live", "added_in": "2.0"}
+{"technique_id": "T1204.001", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1204.002", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1204.003", "domain": "enterprise", "status": "live", "added_in": "9.0"}
+{"technique_id": "T1204.004", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1204.005", "domain": "enterprise", "status": "live", "added_in": "18.0"}
+{"technique_id": "T1205", "domain": "enterprise", "status": "live", "added_in": "2.0"}
+{"technique_id": "T1205.001", "domain": "enterprise", "status": "live", "added_in": "7.1"}
+{"technique_id": "T1205.002", "domain": "enterprise", "status": "live", "added_in": "12.0"}
+{"technique_id": "T1206", "domain": "enterprise", "status": "revoked", "added_in": "2.0", "revoked_in": "6.3"}
+{"technique_id": "T1207", "domain": "enterprise", "status": "live", "added_in": "2.0"}
+{"technique_id": "T1208", "domain": "enterprise", "status": "revoked", "added_in": "2.0", "revoked_in": "6.3"}
+{"technique_id": "T1209", "domain": "enterprise", "status": "revoked", "added_in": "2.0", "revoked_in": "6.3"}
+{"technique_id": "T1210", "domain": "enterprise", "status": "live", "added_in": "2.0"}
+{"technique_id": "T1211", "domain": "enterprise", "status": "live", "added_in": "2.0"}
+{"technique_id": "T1212", "domain": "enterprise", "status": "live", "added_in": "2.0"}
+{"technique_id": "T1213", "domain": "enterprise", "status": "live", "added_in": "2.0"}
+{"technique_id": "T1213.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1213.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1213.003", "domain": "enterprise", "status": "live", "added_in": "10.0"}
+{"technique_id": "T1213.004", "domain": "enterprise", "status": "live", "added_in": "16.0"}
+{"technique_id": "T1213.005", "domain": "enterprise", "status": "live", "added_in": "16.0"}
+{"technique_id": "T1213.006", "domain": "enterprise", "status": "live", "added_in": "18.0"}
+{"technique_id": "T1214", "domain": "enterprise", "status": "revoked", "added_in": "2.0", "revoked_in": "6.3"}
+{"technique_id": "T1215", "domain": "enterprise", "status": "revoked", "added_in": "2.0", "revoked_in": "6.3"}
+{"technique_id": "T1216", "domain": "enterprise", "status": "live", "added_in": "2.0"}
+{"technique_id": "T1216.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1216.002", "domain": "enterprise", "status": "live", "added_in": "15.0"}
+{"technique_id": "T1217", "domain": "enterprise", "status": "live", "added_in": "2.0"}
+{"technique_id": "T1218", "domain": "enterprise", "status": "live", "added_in": "2.0"}
+{"technique_id": "T1218.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1218.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1218.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1218.004", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1218.005", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1218.007", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1218.008", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1218.009", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1218.010", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1218.011", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1218.012", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1218.013", "domain": "enterprise", "status": "live", "added_in": "10.0"}
+{"technique_id": "T1218.014", "domain": "enterprise", "status": "live", "added_in": "10.0"}
+{"technique_id": "T1218.015", "domain": "enterprise", "status": "live", "added_in": "15.0"}
+{"technique_id": "T1219", "domain": "enterprise", "status": "live", "added_in": "2.0"}
+{"technique_id": "T1219.001", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1219.002", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1219.003", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1220", "domain": "enterprise", "status": "live", "added_in": "3.0"}
+{"technique_id": "T1221", "domain": "enterprise", "status": "live", "added_in": "3.0"}
+{"technique_id": "T1222", "domain": "enterprise", "status": "live", "added_in": "3.0"}
+{"technique_id": "T1222.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1222.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1223", "domain": "enterprise", "status": "revoked", "added_in": "3.0", "revoked_in": "6.3"}
+{"technique_id": "T1398", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1399", "domain": "mobile", "status": "deprecated", "added_in": "1.0"}
+{"technique_id": "T1400", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1401", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1402", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1403", "domain": "mobile", "status": "deprecated", "added_in": "1.0"}
+{"technique_id": "T1404", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1405", "domain": "mobile", "status": "deprecated", "added_in": "1.0"}
+{"technique_id": "T1406", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1406.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1406.002", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1407", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1408", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1409", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1410", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1411", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1412", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1413", "domain": "mobile", "status": "deprecated", "added_in": "1.0"}
+{"technique_id": "T1414", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1415", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "18.0"}
+{"technique_id": "T1416", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1417", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1417.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1417.002", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1418", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1418.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1419", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "18.0"}
+{"technique_id": "T1420", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1421", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1422", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1422.001", "domain": "mobile", "status": "live", "added_in": "15.0"}
+{"technique_id": "T1422.002", "domain": "mobile", "status": "live", "added_in": "15.0"}
+{"technique_id": "T1423", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1424", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1425", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "3.0"}
+{"technique_id": "T1426", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1427", "domain": "mobile", "status": "deprecated", "added_in": "1.0"}
+{"technique_id": "T1428", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1429", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1430", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1430.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1430.002", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1431", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "3.0"}
+{"technique_id": "T1432", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1433", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1434", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "3.0"}
+{"technique_id": "T1435", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1436", "domain": "mobile", "status": "deprecated", "added_in": "1.0"}
+{"technique_id": "T1437", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1437.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1438", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1439", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1440", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "3.0"}
+{"technique_id": "T1441", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "3.0"}
+{"technique_id": "T1442", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "3.0"}
+{"technique_id": "T1443", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "3.0"}
+{"technique_id": "T1444", "domain": "mobile", "status": "deprecated", "added_in": "1.0"}
+{"technique_id": "T1445", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "3.0"}
+{"technique_id": "T1446", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1447", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1448", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1449", "domain": "mobile", "status": "deprecated", "added_in": "1.0"}
+{"technique_id": "T1450", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1451", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1452", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1453", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1454", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": null}
+{"technique_id": "T1455", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "3.0"}
+{"technique_id": "T1456", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1457", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "3.0"}
+{"technique_id": "T1458", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1459", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "3.0"}
+{"technique_id": "T1460", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "3.0"}
+{"technique_id": "T1461", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1462", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "3.0"}
+{"technique_id": "T1463", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1464", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1465", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1466", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1467", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1468", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1469", "domain": "mobile", "status": "deprecated", "added_in": "1.0"}
+{"technique_id": "T1470", "domain": "mobile", "status": "deprecated", "added_in": "1.0"}
+{"technique_id": "T1471", "domain": "mobile", "status": "live", "added_in": "1.0"}
+{"technique_id": "T1472", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "11.3"}
+{"technique_id": "T1473", "domain": "mobile", "status": "revoked", "added_in": "1.0", "revoked_in": "3.0"}
+{"technique_id": "T1474", "domain": "mobile", "status": "live", "added_in": "3.0"}
+{"technique_id": "T1474.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1474.002", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1474.003", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1475", "domain": "mobile", "status": "deprecated", "added_in": "3.0"}
+{"technique_id": "T1476", "domain": "mobile", "status": "live", "added_in": "3.0"}
+{"technique_id": "T1477", "domain": "mobile", "status": "deprecated", "added_in": "3.0"}
+{"technique_id": "T1478", "domain": "mobile", "status": "revoked", "added_in": "3.0", "revoked_in": "11.3"}
+{"technique_id": "T1480", "domain": "enterprise", "status": "live", "added_in": "4.0"}
+{"technique_id": "T1480.001", "domain": "enterprise", "status": "live", "added_in": "7.1"}
+{"technique_id": "T1480.002", "domain": "enterprise", "status": "live", "added_in": "16.0"}
+{"technique_id": "T1481", "domain": "mobile", "status": "live", "added_in": "4.0"}
+{"technique_id": "T1481.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1481.002", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1481.003", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1482", "domain": "enterprise", "status": "live", "added_in": "4.0"}
+{"technique_id": "T1483", "domain": "enterprise", "status": "revoked", "added_in": "4.0", "revoked_in": "7.0"}
+{"technique_id": "T1484", "domain": "enterprise", "status": "live", "added_in": "4.0"}
+{"technique_id": "T1484.001", "domain": "enterprise", "status": "live", "added_in": "8.2"}
+{"technique_id": "T1484.002", "domain": "enterprise", "status": "live", "added_in": "8.2"}
+{"technique_id": "T1485", "domain": "enterprise", "status": "live", "added_in": "4.0"}
+{"technique_id": "T1485.001", "domain": "enterprise", "status": "live", "added_in": "16.0"}
+{"technique_id": "T1486", "domain": "enterprise", "status": "live", "added_in": "4.0"}
+{"technique_id": "T1487", "domain": "enterprise", "status": "revoked", "added_in": "4.0", "revoked_in": "6.3"}
+{"technique_id": "T1488", "domain": "enterprise", "status": "revoked", "added_in": "4.0", "revoked_in": "6.3"}
+{"technique_id": "T1489", "domain": "enterprise", "status": "live", "added_in": "4.0"}
+{"technique_id": "T1490", "domain": "enterprise", "status": "live", "added_in": "4.0"}
+{"technique_id": "T1491", "domain": "enterprise", "status": "live", "added_in": "4.0"}
+{"technique_id": "T1491.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1491.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1492", "domain": "enterprise", "status": "revoked", "added_in": "4.0", "revoked_in": "6.3"}
+{"technique_id": "T1493", "domain": "enterprise", "status": "revoked", "added_in": "4.0", "revoked_in": "6.3"}
+{"technique_id": "T1494", "domain": "enterprise", "status": "revoked", "added_in": "4.0", "revoked_in": "6.3"}
+{"technique_id": "T1495", "domain": "enterprise", "status": "live", "added_in": "4.0"}
+{"technique_id": "T1496", "domain": "enterprise", "status": "live", "added_in": "4.0"}
+{"technique_id": "T1496.001", "domain": "enterprise", "status": "live", "added_in": "16.0"}
+{"technique_id": "T1496.002", "domain": "enterprise", "status": "live", "added_in": "16.0"}
+{"technique_id": "T1496.003", "domain": "enterprise", "status": "live", "added_in": "16.0"}
+{"technique_id": "T1496.004", "domain": "enterprise", "status": "live", "added_in": "16.0"}
+{"technique_id": "T1497", "domain": "enterprise", "status": "live", "added_in": "4.0"}
+{"technique_id": "T1497.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1497.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1497.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1498", "domain": "enterprise", "status": "live", "added_in": "4.0"}
+{"technique_id": "T1498.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1498.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1499", "domain": "enterprise", "status": "live", "added_in": "4.0"}
+{"technique_id": "T1499.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1499.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1499.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1499.004", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1500", "domain": "enterprise", "status": "revoked", "added_in": "4.0", "revoked_in": "7.0"}
+{"technique_id": "T1501", "domain": "enterprise", "status": "revoked", "added_in": "4.0", "revoked_in": "6.3"}
+{"technique_id": "T1502", "domain": "enterprise", "status": "revoked", "added_in": "5.0", "revoked_in": "6.3"}
+{"technique_id": "T1503", "domain": "enterprise", "status": "revoked", "added_in": "5.0", "revoked_in": "6.3"}
+{"technique_id": "T1504", "domain": "enterprise", "status": "revoked", "added_in": "5.0", "revoked_in": "6.3"}
+{"technique_id": "T1505", "domain": "enterprise", "status": "live", "added_in": "5.0"}
+{"technique_id": "T1505.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1505.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1505.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1505.004", "domain": "enterprise", "status": "live", "added_in": "10.0"}
+{"technique_id": "T1505.005", "domain": "enterprise", "status": "live", "added_in": "11.0"}
+{"technique_id": "T1505.006", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1506", "domain": "enterprise", "status": "revoked", "added_in": "6.0", "revoked_in": "6.3"}
+{"technique_id": "T1507", "domain": "mobile", "status": "revoked", "added_in": "5.0", "revoked_in": "11.3"}
+{"technique_id": "T1508", "domain": "mobile", "status": "revoked", "added_in": "5.0", "revoked_in": "11.3"}
+{"technique_id": "T1509", "domain": "mobile", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1510", "domain": "mobile", "status": "revoked", "added_in": "5.1", "revoked_in": "11.3"}
+{"technique_id": "T1512", "domain": "mobile", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1513", "domain": "mobile", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1514", "domain": "enterprise", "status": "revoked", "added_in": "6.0", "revoked_in": "6.3"}
+{"technique_id": "T1516", "domain": "mobile", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1517", "domain": "mobile", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1518", "domain": "enterprise", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1518.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1518.002", "domain": "enterprise", "status": "live", "added_in": "18.0"}
+{"technique_id": "T1519", "domain": "enterprise", "status": "revoked", "added_in": "6.0", "revoked_in": "6.3"}
+{"technique_id": "T1520", "domain": "mobile", "status": "revoked", "added_in": "6.0", "revoked_in": "11.3"}
+{"technique_id": "T1521", "domain": "mobile", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1521.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1521.002", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1521.003", "domain": "mobile", "status": "live", "added_in": "15.0"}
+{"technique_id": "T1522", "domain": "enterprise", "status": "revoked", "added_in": "6.0", "revoked_in": "6.3"}
+{"technique_id": "T1523", "domain": "mobile", "status": "revoked", "added_in": "6.0", "revoked_in": "11.3"}
+{"technique_id": "T1525", "domain": "enterprise", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1526", "domain": "enterprise", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1527", "domain": "enterprise", "status": "revoked", "added_in": "6.0", "revoked_in": "6.3"}
+{"technique_id": "T1528", "domain": "enterprise", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1529", "domain": "enterprise", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1530", "domain": "enterprise", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1531", "domain": "enterprise", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1532", "domain": "mobile", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1533", "domain": "mobile", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1534", "domain": "enterprise", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1535", "domain": "enterprise", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1536", "domain": "enterprise", "status": "revoked", "added_in": "6.0", "revoked_in": "7.1"}
+{"technique_id": "T1537", "domain": "enterprise", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1538", "domain": "enterprise", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1539", "domain": "enterprise", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1540", "domain": "mobile", "status": "revoked", "added_in": "6.1", "revoked_in": "11.3"}
+{"technique_id": "T1541", "domain": "mobile", "status": "live", "added_in": "6.1"}
+{"technique_id": "T1542", "domain": "enterprise", "status": "live", "added_in": "6.1"}
+{"technique_id": "T1542.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1542.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1542.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1542.004", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1542.005", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1543", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1543.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1543.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1543.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1543.004", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1543.005", "domain": "enterprise", "status": "live", "added_in": "15.0"}
+{"technique_id": "T1544", "domain": "mobile", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1546", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1546.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1546.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1546.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1546.004", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1546.005", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1546.006", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1546.007", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1546.008", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1546.009", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1546.010", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1546.011", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1546.012", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1546.013", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1546.014", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1546.015", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1546.016", "domain": "enterprise", "status": "live", "added_in": "12.0"}
+{"technique_id": "T1546.017", "domain": "enterprise", "status": "live", "added_in": "16.0"}
+{"technique_id": "T1546.018", "domain": "enterprise", "status": "live", "added_in": "18.0"}
+{"technique_id": "T1547", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1547.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1547.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1547.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1547.004", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1547.005", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1547.006", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1547.007", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1547.008", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1547.009", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1547.010", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1547.011", "domain": "enterprise", "status": "revoked", "added_in": "6.3", "revoked_in": "11.0"}
+{"technique_id": "T1547.012", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1547.013", "domain": "enterprise", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1547.014", "domain": "enterprise", "status": "live", "added_in": "8.2"}
+{"technique_id": "T1547.015", "domain": "enterprise", "status": "live", "added_in": "10.0"}
+{"technique_id": "T1548", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1548.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1548.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1548.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1548.004", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1548.005", "domain": "enterprise", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1548.006", "domain": "enterprise", "status": "live", "added_in": "15.0"}
+{"technique_id": "T1550", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1550.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1550.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1550.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1550.004", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1552", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1552.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1552.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1552.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1552.004", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1552.005", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1552.006", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1552.007", "domain": "enterprise", "status": "live", "added_in": "9.0"}
+{"technique_id": "T1552.008", "domain": "enterprise", "status": "live", "added_in": "13.0"}
+{"technique_id": "T1553", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1553.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1553.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1553.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1553.004", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1553.005", "domain": "enterprise", "status": "live", "added_in": "9.0"}
+{"technique_id": "T1553.006", "domain": "enterprise", "status": "live", "added_in": "9.0"}
+{"technique_id": "T1554", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1555", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1555.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1555.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1555.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1555.004", "domain": "enterprise", "status": "live", "added_in": "8.2"}
+{"technique_id": "T1555.005", "domain": "enterprise", "status": "live", "added_in": "8.2"}
+{"technique_id": "T1555.006", "domain": "enterprise", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1556", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1556.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1556.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1556.003", "domain": "enterprise", "status": "live", "added_in": "7.1"}
+{"technique_id": "T1556.004", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1556.005", "domain": "enterprise", "status": "live", "added_in": "11.0"}
+{"technique_id": "T1556.006", "domain": "enterprise", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1556.007", "domain": "enterprise", "status": "live", "added_in": "12.0"}
+{"technique_id": "T1556.008", "domain": "enterprise", "status": "live", "added_in": "13.0"}
+{"technique_id": "T1556.009", "domain": "enterprise", "status": "live", "added_in": "15.0"}
+{"technique_id": "T1557", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1557.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1557.002", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1557.003", "domain": "enterprise", "status": "live", "added_in": "11.0"}
+{"technique_id": "T1557.004", "domain": "enterprise", "status": "live", "added_in": "16.0"}
+{"technique_id": "T1558", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1558.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1558.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1558.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1558.004", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1558.005", "domain": "enterprise", "status": "live", "added_in": "16.0"}
+{"technique_id": "T1559", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1559.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1559.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1559.003", "domain": "enterprise", "status": "live", "added_in": "10.0"}
+{"technique_id": "T1560", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1560.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1560.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1560.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1561", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1561.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1561.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1562", "domain": "enterprise", "status": "revoked", "added_in": "6.3", "revoked_in": "19.0"}
+{"technique_id": "T1562.001", "domain": "enterprise", "status": "revoked", "added_in": "6.3", "revoked_in": "19.0"}
+{"technique_id": "T1562.002", "domain": "enterprise", "status": "revoked", "added_in": "6.3", "revoked_in": "19.0"}
+{"technique_id": "T1562.003", "domain": "enterprise", "status": "revoked", "added_in": "6.3", "revoked_in": "19.0"}
+{"technique_id": "T1562.004", "domain": "enterprise", "status": "revoked", "added_in": "6.3", "revoked_in": "19.0"}
+{"technique_id": "T1562.006", "domain": "enterprise", "status": "revoked", "added_in": "7.0", "revoked_in": "19.0"}
+{"technique_id": "T1562.007", "domain": "enterprise", "status": "revoked", "added_in": "7.1", "revoked_in": "19.0"}
+{"technique_id": "T1562.008", "domain": "enterprise", "status": "revoked", "added_in": "8.0", "revoked_in": "19.0"}
+{"technique_id": "T1562.009", "domain": "enterprise", "status": "revoked", "added_in": "10.0", "revoked_in": "19.0"}
+{"technique_id": "T1562.010", "domain": "enterprise", "status": "revoked", "added_in": "10.0", "revoked_in": "19.0"}
+{"technique_id": "T1562.011", "domain": "enterprise", "status": "revoked", "added_in": "13.0", "revoked_in": "19.0"}
+{"technique_id": "T1562.012", "domain": "enterprise", "status": "revoked", "added_in": "14.0", "revoked_in": "19.0"}
+{"technique_id": "T1562.013", "domain": "enterprise", "status": "revoked", "added_in": "18.0", "revoked_in": "19.0"}
+{"technique_id": "T1563", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1563.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1563.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1564", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1564.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1564.002", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1564.003", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1564.004", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1564.005", "domain": "enterprise", "status": "live", "added_in": "7.1"}
+{"technique_id": "T1564.006", "domain": "enterprise", "status": "live", "added_in": "7.1"}
+{"technique_id": "T1564.007", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1564.008", "domain": "enterprise", "status": "live", "added_in": "10.0"}
+{"technique_id": "T1564.009", "domain": "enterprise", "status": "live", "added_in": "10.0"}
+{"technique_id": "T1564.010", "domain": "enterprise", "status": "live", "added_in": "11.0"}
+{"technique_id": "T1564.011", "domain": "enterprise", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1564.012", "domain": "enterprise", "status": "live", "added_in": "15.0"}
+{"technique_id": "T1564.013", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1564.014", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1565", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1565.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1565.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1565.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1566", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1566.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1566.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1566.003", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1566.004", "domain": "enterprise", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1567", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1567.001", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1567.002", "domain": "enterprise", "status": "live", "added_in": "6.3"}
+{"technique_id": "T1567.003", "domain": "enterprise", "status": "live", "added_in": "13.0"}
+{"technique_id": "T1567.004", "domain": "enterprise", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1568", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1568.001", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1568.002", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1568.003", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1569", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1569.001", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1569.002", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1569.003", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1570", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1571", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1572", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1573", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1573.001", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1573.002", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1574", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1574.001", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1574.002", "domain": "enterprise", "status": "revoked", "added_in": "7.0", "revoked_in": "17.0"}
+{"technique_id": "T1574.004", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1574.005", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1574.006", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1574.007", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1574.008", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1574.009", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1574.010", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1574.011", "domain": "enterprise", "status": "live", "added_in": "7.0"}
+{"technique_id": "T1574.012", "domain": "enterprise", "status": "live", "added_in": "7.1"}
+{"technique_id": "T1574.013", "domain": "enterprise", "status": "live", "added_in": "11.0"}
+{"technique_id": "T1574.014", "domain": "enterprise", "status": "live", "added_in": "15.0"}
+{"technique_id": "T1575", "domain": "mobile", "status": "live", "added_in": "7.1"}
+{"technique_id": "T1576", "domain": "mobile", "status": "revoked", "added_in": "7.1", "revoked_in": "11.3"}
+{"technique_id": "T1577", "domain": "mobile", "status": "live", "added_in": "7.1"}
+{"technique_id": "T1578", "domain": "enterprise", "status": "live", "added_in": "6.0"}
+{"technique_id": "T1578.001", "domain": "enterprise", "status": "live", "added_in": "7.1"}
+{"technique_id": "T1578.002", "domain": "enterprise", "status": "live", "added_in": "7.1"}
+{"technique_id": "T1578.003", "domain": "enterprise", "status": "live", "added_in": "7.1"}
+{"technique_id": "T1578.004", "domain": "enterprise", "status": "live", "added_in": "7.1"}
+{"technique_id": "T1578.005", "domain": "enterprise", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1579", "domain": "mobile", "status": "revoked", "added_in": "7.1", "revoked_in": "11.3"}
+{"technique_id": "T1580", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1581", "domain": "mobile", "status": "revoked", "added_in": "8.0", "revoked_in": "11.3"}
+{"technique_id": "T1582", "domain": "mobile", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1583", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1583.001", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1583.002", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1583.003", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1583.004", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1583.005", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1583.006", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1583.007", "domain": "enterprise", "status": "live", "added_in": "12.0"}
+{"technique_id": "T1583.008", "domain": "enterprise", "status": "live", "added_in": "13.0"}
+{"technique_id": "T1584", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1584.001", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1584.002", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1584.003", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1584.004", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1584.005", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1584.006", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1584.007", "domain": "enterprise", "status": "live", "added_in": "12.0"}
+{"technique_id": "T1584.008", "domain": "enterprise", "status": "live", "added_in": "15.0"}
+{"technique_id": "T1585", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1585.001", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1585.002", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1585.003", "domain": "enterprise", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1586", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1586.001", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1586.002", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1586.003", "domain": "enterprise", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1587", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1587.001", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1587.002", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1587.003", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1587.004", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1588", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1588.001", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1588.002", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1588.003", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1588.004", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1588.005", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1588.006", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1588.007", "domain": "enterprise", "status": "live", "added_in": "15.0"}
+{"technique_id": "T1589", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1589.001", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1589.002", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1589.003", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1590", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1590.001", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1590.002", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1590.003", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1590.004", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1590.005", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1590.006", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1591", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1591.001", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1591.002", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1591.003", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1591.004", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1592", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1592.001", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1592.002", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1592.003", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1592.004", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1593", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1593.001", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1593.002", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1593.003", "domain": "enterprise", "status": "live", "added_in": "12.0"}
+{"technique_id": "T1594", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1595", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1595.001", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1595.002", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1595.003", "domain": "enterprise", "status": "live", "added_in": "11.0"}
+{"technique_id": "T1596", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1596.001", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1596.002", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1596.003", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1596.004", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1596.005", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1597", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1597.001", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1597.002", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1598", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1598.001", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1598.002", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1598.003", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1598.004", "domain": "enterprise", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1599", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1599.001", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1600", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1600.001", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1600.002", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1601", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1601.001", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1601.002", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1602", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1602.001", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1602.002", "domain": "enterprise", "status": "live", "added_in": "8.0"}
+{"technique_id": "T1603", "domain": "mobile", "status": "live", "added_in": "8.1"}
+{"technique_id": "T1604", "domain": "mobile", "status": "live", "added_in": "8.2"}
+{"technique_id": "T1605", "domain": "mobile", "status": "revoked", "added_in": "8.2", "revoked_in": "11.3"}
+{"technique_id": "T1606", "domain": "enterprise", "status": "live", "added_in": "8.2"}
+{"technique_id": "T1606.001", "domain": "enterprise", "status": "live", "added_in": "8.2"}
+{"technique_id": "T1606.002", "domain": "enterprise", "status": "live", "added_in": "8.2"}
+{"technique_id": "T1608", "domain": "enterprise", "status": "live", "added_in": "9.0"}
+{"technique_id": "T1608.001", "domain": "enterprise", "status": "live", "added_in": "9.0"}
+{"technique_id": "T1608.002", "domain": "enterprise", "status": "live", "added_in": "9.0"}
+{"technique_id": "T1608.003", "domain": "enterprise", "status": "live", "added_in": "9.0"}
+{"technique_id": "T1608.004", "domain": "enterprise", "status": "live", "added_in": "9.0"}
+{"technique_id": "T1608.005", "domain": "enterprise", "status": "live", "added_in": "9.0"}
+{"technique_id": "T1608.006", "domain": "enterprise", "status": "live", "added_in": "12.0"}
+{"technique_id": "T1608.007", "domain": "enterprise", "status": "live", "added_in": "20.0"}
+{"technique_id": "T1609", "domain": "enterprise", "status": "live", "added_in": "9.0"}
+{"technique_id": "T1610", "domain": "enterprise", "status": "live", "added_in": "9.0"}
+{"technique_id": "T1611", "domain": "enterprise", "status": "live", "added_in": "9.0"}
+{"technique_id": "T1612", "domain": "enterprise", "status": "live", "added_in": "9.0"}
+{"technique_id": "T1613", "domain": "enterprise", "status": "live", "added_in": "9.0"}
+{"technique_id": "T1614", "domain": "enterprise", "status": "live", "added_in": "9.0"}
+{"technique_id": "T1614.001", "domain": "enterprise", "status": "live", "added_in": "10.0"}
+{"technique_id": "T1615", "domain": "enterprise", "status": "live", "added_in": "10.0"}
+{"technique_id": "T1616", "domain": "mobile", "status": "live", "added_in": "10.0"}
+{"technique_id": "T1617", "domain": "mobile", "status": "live", "added_in": "10.0"}
+{"technique_id": "T1618", "domain": "mobile", "status": "revoked", "added_in": "10.0", "revoked_in": "11.3"}
+{"technique_id": "T1619", "domain": "enterprise", "status": "live", "added_in": "10.0"}
+{"technique_id": "T1620", "domain": "enterprise", "status": "live", "added_in": "10.0"}
+{"technique_id": "T1621", "domain": "enterprise", "status": "live", "added_in": "11.0"}
+{"technique_id": "T1622", "domain": "enterprise", "status": "live", "added_in": "11.0"}
+{"technique_id": "T1623", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1623.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1624", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1624.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1625", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1625.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1626", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1626.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1627", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1627.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1628", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1628.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1628.002", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1628.003", "domain": "mobile", "status": "live", "added_in": "15.0"}
+{"technique_id": "T1629", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1629.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1629.002", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1629.003", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1630", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1630.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1630.002", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1630.003", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1631", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1631.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1632", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1632.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1633", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1633.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1634", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1634.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1635", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1635.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1636", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1636.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1636.002", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1636.003", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1636.004", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1636.005", "domain": "mobile", "status": "live", "added_in": "18.0"}
+{"technique_id": "T1637", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1637.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1638", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1639", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1639.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1640", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1641", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1641.001", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1642", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1643", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1644", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1645", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1646", "domain": "mobile", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1647", "domain": "enterprise", "status": "live", "added_in": "11.0"}
+{"technique_id": "T1648", "domain": "enterprise", "status": "live", "added_in": "11.3"}
+{"technique_id": "T1649", "domain": "enterprise", "status": "live", "added_in": "12.0"}
+{"technique_id": "T1650", "domain": "enterprise", "status": "live", "added_in": "13.0"}
+{"technique_id": "T1651", "domain": "enterprise", "status": "live", "added_in": "13.0"}
+{"technique_id": "T1652", "domain": "enterprise", "status": "live", "added_in": "13.0"}
+{"technique_id": "T1653", "domain": "enterprise", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1654", "domain": "enterprise", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1655", "domain": "mobile", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1655.001", "domain": "mobile", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1656", "domain": "enterprise", "status": "revoked", "added_in": "14.0", "revoked_in": "19.0"}
+{"technique_id": "T1657", "domain": "enterprise", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1658", "domain": "mobile", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1659", "domain": "enterprise", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1660", "domain": "mobile", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1661", "domain": "mobile", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1662", "domain": "mobile", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1663", "domain": "mobile", "status": "live", "added_in": "14.0"}
+{"technique_id": "T1664", "domain": "mobile", "status": "live", "added_in": "15.0"}
+{"technique_id": "T1665", "domain": "enterprise", "status": "live", "added_in": "15.0"}
+{"technique_id": "T1666", "domain": "enterprise", "status": "live", "added_in": "16.0"}
+{"technique_id": "T1667", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1668", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1669", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1670", "domain": "mobile", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1671", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1672", "domain": "enterprise", "status": "revoked", "added_in": "17.0", "revoked_in": "19.0"}
+{"technique_id": "T1673", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1674", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1675", "domain": "enterprise", "status": "live", "added_in": "17.0"}
+{"technique_id": "T1676", "domain": "mobile", "status": "live", "added_in": "18.0"}
+{"technique_id": "T1677", "domain": "enterprise", "status": "live", "added_in": "18.0"}
+{"technique_id": "T1678", "domain": "enterprise", "status": "live", "added_in": "18.0"}
+{"technique_id": "T1679", "domain": "enterprise", "status": "live", "added_in": "18.0"}
+{"technique_id": "T1680", "domain": "enterprise", "status": "live", "added_in": "18.0"}
+{"technique_id": "T1681", "domain": "enterprise", "status": "live", "added_in": "18.0"}
+{"technique_id": "T1682", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1683", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1683.001", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1683.002", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1684", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1684.001", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1684.002", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1685", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1685.001", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1685.002", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1685.003", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1685.004", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1685.005", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1685.006", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1685.007", "domain": "enterprise", "status": "live", "added_in": "20.0"}
+{"technique_id": "T1686", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1686.001", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1686.002", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1686.003", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1687", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1688", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1689", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1690", "domain": "enterprise", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1691", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1691.001", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1691.002", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1692", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1692.001", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1692.002", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1693", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1693.001", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1693.002", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1694", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1694.001", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1694.002", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1695", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1695.001", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1695.002", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1695.003", "domain": "ics", "status": "live", "added_in": "19.0"}
+{"technique_id": "T1696", "domain": "enterprise", "status": "live", "added_in": "20.0"}
+{"technique_id": "T1696.001", "domain": "enterprise", "status": "live", "added_in": "20.0"}
+{"technique_id": "T1696.002", "domain": "enterprise", "status": "live", "added_in": "20.0"}
+{"technique_id": "T1697", "domain": "enterprise", "status": "live", "added_in": "20.0"}
+{"technique_id": "T1698", "domain": "enterprise", "status": "live", "added_in": "20.0"}
+{"technique_id": "T1699", "domain": "enterprise", "status": "live", "added_in": "20.0"}
+{"technique_id": "T1700", "domain": "enterprise", "status": "live", "added_in": "20.0"}
+{"technique_id": "T1701", "domain": "ics", "status": "live", "added_in": "20.0"}
+{"technique_id": "T1701.001", "domain": "ics", "status": "live", "added_in": "20.0"}
+{"technique_id": "T1701.002", "domain": "ics", "status": "live", "added_in": "20.0"}
+{"technique_id": "T1701.003", "domain": "ics", "status": "live", "added_in": "20.0"}
+{"technique_id": "T1701.004", "domain": "ics", "status": "live", "added_in": "20.0"}
+{"technique_id": "T1701.005", "domain": "ics", "status": "live", "added_in": "20.0"}
+{"technique_id": "T1701.006", "domain": "ics", "status": "live", "added_in": "20.0"}

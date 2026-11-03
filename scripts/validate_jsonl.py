@@ -76,6 +76,15 @@ SCHEMAS = {
             "reason": ["revoked", "deprecated"],
         }
     },
+    # which ATT&CK release added (and, for a revoked id, revoked) each technique;
+    # written by scripts/build_attack_core.py from the pinned STIX and index.json
+    "data/attack/technique_releases.jsonl": {
+        "required": ["technique_id", "domain", "status", "added_in"],
+        "field_values": {
+            "domain": ["enterprise", "ics", "mobile"],
+            "status": ["live", "revoked", "deprecated"],
+        }
+    },
     # Per-technique prevalence extracted from the (uncommitted) 529-machine training
     # corpus; scripts/generate_mitre_pages.py renders the "corpus signal" paragraph from it.
     "data/generated/corpus_signal.jsonl": {
@@ -122,9 +131,11 @@ PRIMARY_KEYS = {
 
 # Files whose true primary key is a tuple. detection_strategies lists a strategy
 # once per technique it covers (15 strategies appear against both a superseded
-# and current v19.2 technique id), so (strategy_id, technique_id) is the unique key.
+# and current technique id), so (strategy_id, technique_id) is the unique key.
 COMPOSITE_KEYS = {
     "data/attack/detection_strategies.jsonl": ("strategy_id", "technique_id"),
+    # one row per technique per domain (ICS and Enterprise share the T16xx range)
+    "data/attack/technique_releases.jsonl": ("technique_id", "domain"),
     # edge tables: one row per (source, target)
     "data/control_to_technique.jsonl":                ("nist_control", "attack_technique"),
     "data/vendor_to_control.jsonl":                   ("vendor_normalized", "nist_control"),

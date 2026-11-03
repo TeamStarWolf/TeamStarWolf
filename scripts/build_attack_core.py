@@ -1,49 +1,51 @@
 #!/usr/bin/env python3
 r"""
-Regenerate the ATT&CK core JSONL from the authoritative MITRE ATT&CK v19.2 STIX
-bundles: Enterprise, ICS and Mobile.
+Regenerate the ATT&CK core JSONL from the authoritative MITRE ATT&CK STIX bundles
+(Enterprise, ICS and Mobile) of the pinned release, ATTACK_RELEASE in
+scripts/attack_ids.py.
 
-This is the audit's #1 remediation ("re-pin the ATT&CK core to v19.2 end to
-end"). It (over)writes the ATT&CK-native files under data/attack/ (Enterprise),
+This began as the audit's #1 remediation ("re-pin the ATT&CK core end to end").
+It (over)writes the ATT&CK-native files under data/attack/ (Enterprise),
 data/attack/ics/ and data/attack/mobile/ from the three bundles, derives
-data/attack/superseded_by.jsonl from their revoked and deprecated objects, and
+data/attack/superseded_by.jsonl from their revoked and deprecated objects and
+data/attack/technique_releases.jsonl from their dates, and
 patches the Enterprise technique_profiles.jsonl in place without disturbing its
 downstream enrichment. Every field this script can derive from the STIX is
 re-derived on every run, so no count or list is left as a snapshot of an older
 release.
 
-Source of truth, pinned to a commit. The "-19.2" filename alone pins nothing: the
-files live on the mutable `master` branch, and on release day the Enterprise bundle
-was added in commit 8ce3fd8f and then replaced with different content in 6cda5ad8.
-All three bundles are read at the same commit:
-    mitre-attack/attack-stix-data @ 6cda5ad8462c79e14fbb872f4e09059b18e0cfc4 (tag v19.2)
-    enterprise-attack/enterprise-attack-19.2.json
-        SHA-256 dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4
-    ics-attack/ics-attack-19.2.json
-        SHA-256 08b83d2cea6b6d6752468ef0e62e2ab2a53c9443ef72c439ecccb07ab9e89da9
-    mobile-attack/mobile-attack-19.2.json
-        SHA-256 acfa5ca2d93484476f79bf38590e2b55bb675fc0ce85e76bffa0af2c82dada64
-Each bundle's SHA-256 is verified before it is parsed, whether it was fetched or
-read from a local file, and a mismatch aborts the run. data/MANIFEST.json records
-the same pins under `inputs` (scripts/build_manifest.py reads them from STIX_INPUTS).
+Source of truth, pinned to a commit. A release filename alone pins nothing: the
+files live on the mutable `master` branch, and on the v19.2 release day the
+Enterprise bundle was added in commit 8ce3fd8f and then replaced with different
+content in 6cda5ad8. All three bundles, and the repository's index.json (the list of
+every release with its date), are read at the same commit, STIX_COMMIT below; their
+paths, SHA-256 digests and sizes are in STIX_INPUTS and STIX_INDEX. Each file's
+SHA-256 is verified before it is parsed, whether it was fetched or read from a local
+file, and a mismatch aborts the run. A bundle whose x-mitre-collection object names a
+release other than ATTACK_RELEASE also aborts it. data/MANIFEST.json records the
+bundle pins under `inputs` (scripts/build_manifest.py reads them from STIX_INPUTS).
 
-Offline / CI override, per bundle: an option or an environment variable.
+Offline / CI override, per input: an option or an environment variable.
     --stix FILE         or ATTACK_STIX_PATH          (Enterprise)
     --stix-ics FILE     or ATTACK_STIX_ICS_PATH      (ICS)
     --stix-mobile FILE  or ATTACK_STIX_MOBILE_PATH   (Mobile)
-A local file must be byte-identical to its pinned bundle (same SHA-256). A bundle
-with no override is fetched from its commit-pinned URL (about 64 MB for all three).
+    --stix-index FILE   or ATTACK_STIX_INDEX_PATH    (index.json, the release dates)
+A local file must be byte-identical to its pin (same SHA-256). An input with no
+override is fetched from its commit-pinned URL (about 64 MB for all four).
 
-Re-pinning to a new ATT&CK release is a deliberate edit: set STIX_COMMIT to the
+Re-pinning to a new ATT&CK release is a deliberate edit: set ATTACK_RELEASE in
+scripts/attack_ids.py (the bundle file names are built from it), STIX_COMMIT to the
 attack-stix-data commit that carries the new bundles (its release tag), and each
-bundle's path, SHA-256 and size in STIX_INPUTS (a mismatch error prints the actual
-values), then regenerate.
+input's SHA-256 and size in STIX_INPUTS and STIX_INDEX (a mismatch error prints the
+actual values), then regenerate. Every generator that prints the release reads it
+from attack_ids.py, so nothing else is edited by hand.
 
 Every file is opened with encoding="utf-8" (the STIX is UTF-8; the Windows
 cp1252 default crashes on it). Output is deterministic and written as bytes, so no
 newline translation happens on any OS: one JSON object per line with a trailing
 newline, each file keeping the line ending it is committed with (CRLF for the
-Enterprise core and the ICS/Mobile files, LF for superseded_by.jsonl; see EOL).
+Enterprise core and the ICS/Mobile files, LF for superseded_by.jsonl and
+technique_releases.jsonl; see EOL).
 
 Generated, Enterprise (data/attack/, sorted by primary id; edge tables by their
 (source, target) tuple):
@@ -81,6 +83,24 @@ Generated from all three bundles:
                               chain when that end is a live technique; it is null for
                               a deprecation and for a chain that ends at a deprecated
                               technique.
+    technique_releases.jsonl  one row per technique of the three bundles (live,
+                              revoked or deprecated), by (technique_id, domain):
+                              `status`, `added_in` (the first release in index.json
+                              dated on or after the object's `created` date; the
+                              domain's first STIX release for anything older) and,
+                              for a revoked technique, `revoked_in` (the same rule
+                              applied to its revoked-by relationship's `created`
+                              date; null when the bundle has no such relationship).
+                              The rule is exact for the pinned release (an object
+                              created after the previous release shipped is new in
+                              this one); for an object authored long before the
+                              release that first published it, it can name an
+                              earlier release. ATT&CK records no date for a
+                              deprecation, so a deprecated row has no release for
+                              it. Pre-releases ("11.0-beta") are not releases. Pages print
+                              these releases for history ("Revoked in ATT&CK v19.0",
+                              "New in ATT&CK v20.0") and ATTACK_RELEASE only for
+                              what is current.
 
 Carried, not derived: `description` on technique_profiles (all three domains) and on
 the ICS/Mobile groups and mitigations, and the Enterprise mitigations. No
@@ -96,7 +116,7 @@ committed order.
 
 The profile fields come from the same relationship maps that write the edge
 tables, so `group_count` equals the technique's rows in group_to_technique.jsonl,
-and so on; scripts/validate_jsonl.py enforces that. A technique revoked in v19.2
+and so on; scripts/validate_jsonl.py enforces that. A revoked technique
 has no relationships of its own (ATT&CK moved its `uses`, `mitigates` and
 `detects` edges to the successor recorded in superseded_by.jsonl), so its
 ATT&CK-native counts are 0 and its page points at the successor. The third-party
@@ -128,6 +148,8 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
+from attack_ids import ATTACK_MAJOR, ATTACK_RELEASE, ATTACK_VER
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "attack"
 
@@ -142,16 +164,17 @@ def _raw_url(path: str) -> str:
 
 
 # Enterprise (the names predate the ICS/Mobile pins and are kept for their readers).
-STIX_FILE = "enterprise-attack/enterprise-attack-20.0.json"
+# The file names carry ATTACK_RELEASE, so the pin and the release pages print are one.
+STIX_FILE = f"enterprise-attack/enterprise-attack-{ATTACK_RELEASE}.json"
 STIX_SHA256 = "81113ba98afa2928f3dcff62022539f7ce30c315c32e14422f11ff95ce534352"
 STIX_BYTES = 55271014
 STIX_URL = _raw_url(STIX_FILE)
 
-ICS_STIX_FILE = "ics-attack/ics-attack-20.0.json"
+ICS_STIX_FILE = f"ics-attack/ics-attack-{ATTACK_RELEASE}.json"
 ICS_STIX_SHA256 = "c9ca0ce523a1b5e512060a390415e8aefe8f6d32c5f82d7de81264960c1e1183"
 ICS_STIX_BYTES = 5266683
 
-MOBILE_STIX_FILE = "mobile-attack/mobile-attack-20.0.json"
+MOBILE_STIX_FILE = f"mobile-attack/mobile-attack-{ATTACK_RELEASE}.json"
 MOBILE_STIX_SHA256 = "824f7d8a37e7893b29e4c6ca6d87b5fbbf3b228ec6384f1a69ee20d523ff59e5"
 MOBILE_STIX_BYTES = 6095145
 
@@ -169,6 +192,15 @@ STIX_INPUTS = {
                "env": "ATTACK_STIX_MOBILE_PATH", "option": "--stix-mobile"},
 }
 
+# index.json at the same commit: every release of every domain with its date. It dates
+# the history in technique_releases.jsonl (which release added or revoked a technique).
+STIX_INDEX = {"label": "release index", "path": "index.json",
+              "sha256": "b73053d400960b389915ed5a6fd9bd6f1e02a7b86f23c5836674a5ed538758d6",
+              "bytes": 34983, "url": _raw_url("index.json"),
+              "env": "ATTACK_STIX_INDEX_PATH", "option": "--stix-index"}
+# index.json collection name -> domain
+INDEX_COLLECTIONS = {"Enterprise ATT&CK": "enterprise", "ICS ATT&CK": "ics", "Mobile ATT&CK": "mobile"}
+
 ATTACK = "mitre-attack"
 FETCH_ATTEMPTS = 3  # a transient network error is retried; the last one is raised
 # Pre-v8 ICS and Mobile objects (all of them now revoked or deprecated) carry their
@@ -176,15 +208,15 @@ FETCH_ATTEMPTS = 3  # a transient network error is retried; the last one is rais
 LEGACY_ATTACK_SOURCES = (ATTACK, "mitre-ics-attack", "mitre-mobile-attack")
 
 # Line ending of each output, as committed. Every other file is CRLF.
-EOL = {"superseded_by.jsonl": "\n"}
+EOL = {"superseded_by.jsonl": "\n", "technique_releases.jsonl": "\n"}
 
 
 # --------------------------------------------------------------------------- #
 # STIX loading + helpers
 # --------------------------------------------------------------------------- #
-def verify_stix(raw: bytes, origin: str, domain: str = "enterprise") -> None:
-    """Abort unless `raw` is byte-identical to the domain's pinned bundle."""
-    pin = STIX_INPUTS[domain]
+def verify_stix(raw: bytes, origin: str, domain: str = "enterprise", pin: dict | None = None) -> None:
+    """Abort unless `raw` is byte-identical to the domain's pinned bundle (or `pin`)."""
+    pin = pin or STIX_INPUTS[domain]
     digest = hashlib.sha256(raw).hexdigest()
     if digest != pin["sha256"]:
         sys.exit(
@@ -192,15 +224,13 @@ def verify_stix(raw: bytes, origin: str, domain: str = "enterprise") -> None:
             f"  expected sha256 {pin['sha256']} ({pin['bytes']:,} bytes, {STIX_REPO}@{STIX_COMMIT[:12]})\n"
             f"  actual   sha256 {digest} ({len(raw):,} bytes)\n"
             "  Nothing was written. Use the pinned bundle, or re-pin deliberately "
-            "(STIX_COMMIT and STIX_INPUTS; see the module docstring)."
+            "(STIX_COMMIT, STIX_INPUTS and STIX_INDEX; see the module docstring)."
         )
 
 
-def load_stix(path: str | None, domain: str = "enterprise") -> list[dict]:
-    """Load one domain's STIX bundle `objects`. Prefer an explicit path/env override;
-    otherwise fetch the commit-pinned URL. Either way the bytes must match the
-    domain's pinned SHA-256 before anything is parsed."""
-    pin = STIX_INPUTS[domain]
+def read_pinned(path: str | None, pin: dict, domain: str = "enterprise") -> bytes:
+    """The bytes of one pinned input: an explicit path/env override, else the
+    commit-pinned URL. Either way they must match the pinned SHA-256."""
     src = path or os.environ.get(pin["env"])
     if src:
         print(f"[build_attack_core] reading {pin['label']} STIX from {src}", file=sys.stderr)
@@ -209,7 +239,7 @@ def load_stix(path: str | None, domain: str = "enterprise") -> list[dict]:
     else:
         src = pin["url"]
         print(f"[build_attack_core] fetching {pin['label']} STIX from {src}", file=sys.stderr)
-        req = urllib.request.Request(src, headers={"User-Agent": "attack-lib-v19/build_attack_core"})
+        req = urllib.request.Request(src, headers={"User-Agent": f"attack-lib-v{ATTACK_MAJOR}/build_attack_core"})
         for attempt in range(1, FETCH_ATTEMPTS + 1):
             try:
                 with urllib.request.urlopen(req, timeout=120) as resp:  # noqa: S310 (fixed URL, hash-checked)
@@ -220,9 +250,48 @@ def load_stix(path: str | None, domain: str = "enterprise") -> list[dict]:
                     raise
                 print(f"[build_attack_core] fetch attempt {attempt} failed ({exc}); retrying",
                       file=sys.stderr)
-    verify_stix(raw, src, domain)
-    bundle = json.loads(raw.decode("utf-8"))
+    verify_stix(raw, src, domain, pin)
+    return raw
+
+
+def load_stix(path: str | None, domain: str = "enterprise") -> list[dict]:
+    """Load one domain's STIX bundle `objects` (see read_pinned). The bundle's
+    x-mitre-collection object must name ATTACK_RELEASE."""
+    pin = STIX_INPUTS[domain]
+    bundle = json.loads(read_pinned(path, pin, domain).decode("utf-8"))
+    named = sorted({o.get("x_mitre_version") for o in bundle["objects"] if o.get("type") == "x-mitre-collection"})
+    if named != [ATTACK_RELEASE]:
+        sys.exit(f"[build_attack_core] the {pin['label']} bundle is ATT&CK {named}, but "
+                 f"scripts/attack_ids.py pins ATTACK_RELEASE = {ATTACK_RELEASE!r}. Nothing was written.")
     return bundle["objects"]
+
+
+def load_release_dates(path: str | None) -> dict[str, list[tuple[str, str]]]:
+    """domain -> [(release date YYYY-MM-DD, release)], oldest first, from the pinned
+    index.json. The pinned release must be the newest one of every domain."""
+    index = json.loads(read_pinned(path, STIX_INDEX).decode("utf-8"))
+    out: dict[str, set[tuple[str, str]]] = {d: set() for d in INDEX_COLLECTIONS.values()}
+    for c in index.get("collections", []):
+        dom = INDEX_COLLECTIONS.get(c.get("name"))
+        if dom:  # releases only: a pre-release such as "11.0-beta" is skipped
+            out[dom].update((v["modified"][:10], v["version"]) for v in c.get("versions", [])
+                            if re.fullmatch(r"\d+(\.\d+)*", v["version"]))
+    dates = {d: sorted(v) for d, v in out.items()}
+    for d, rel in dates.items():
+        if not rel or rel[-1][1] != ATTACK_RELEASE:
+            sys.exit(f"[build_attack_core] index.json: the newest {d} release is "
+                     f"{rel[-1][1] if rel else None}, not ATTACK_RELEASE {ATTACK_RELEASE}")
+    return dates
+
+
+def release_of(dates: list[tuple[str, str]], when: str) -> str:
+    """The first release dated on or after `when` (an ISO timestamp); the oldest
+    release for anything that predates it."""
+    day = when[:10]
+    for released, version in dates:
+        if released >= day:
+            return version
+    sys.exit(f"[build_attack_core] {when} is after the newest release in index.json")
 
 
 def is_active(o: dict) -> bool:
@@ -249,7 +318,7 @@ def attack_url(o: dict) -> str | None:
 
 
 def technique_tactics(ap: dict) -> list[str]:
-    """A technique's v19.2 tactic shortnames (kill-chain phase names), in STIX order."""
+    """A technique's tactic shortnames (kill-chain phase names), in STIX order."""
     return [
         p["phase_name"]
         for p in ap.get("kill_chain_phases", [])
@@ -342,13 +411,17 @@ class Index:
         self.strategies = [o for o in objs if o["type"] == "x-mitre-detection-strategy" and is_active(o)]
         self.data_component_by_id = {o["id"]: o for o in objs if o["type"] == "x-mitre-data-component"}
 
-        # revoked-by: revoked attack-pattern -> successor attack-pattern
+        # revoked-by: revoked attack-pattern -> successor attack-pattern, and when the
+        # revocation was made (the relationship's `created`, the earliest if several)
         self.revoked_by: dict[str, str] = {}
+        self.revoked_at: dict[str, str] = {}
         for o in objs:
             if o["type"] == "relationship" and o.get("relationship_type") == "revoked-by":
                 s, t = o["source_ref"], o["target_ref"]
                 if s.startswith("attack-pattern--") and t.startswith("attack-pattern--"):
                     self.revoked_by[s] = t
+                    if s not in self.revoked_at or o["created"] < self.revoked_at[s]:
+                        self.revoked_at[s] = o["created"]
 
         # detects: detection-strategy -> technique (strategy detects exactly one)
         self.detects: dict[str, str] = {}
@@ -722,9 +795,9 @@ def _invert(edges: dict[str, set]) -> dict[str, set]:
 
 def patch_technique_profiles(idx: Index, m, strategies: list[dict]) -> tuple[dict, list[dict]]:
     """Re-derive, on every technique_profiles.jsonl row, the fields this script owns
-    (see the module docstring) from the v19.2 STIX and from the same relationship
+    (see the module docstring) from the pinned STIX and from the same relationship
     maps that write the edge tables, and add `revoked: true` for techniques revoked
-    or deprecated in v19.2. Every other field (the NIST/CAPEC enrichment owned by
+    or deprecated in the pinned release. Every other field (the NIST/CAPEC enrichment owned by
     the downstream scripts, descriptions, ...) and the row order are preserved.
     Returns (stats, rows); nothing is written here."""
     path = DATA / "technique_profiles.jsonl"
@@ -991,6 +1064,29 @@ def build_superseded(indexes: dict[str, Index]) -> list[dict]:
     return sorted(rows, key=lambda r: (r["old_id"], r["domain"]))
 
 
+def build_technique_releases(indexes: dict[str, Index], dates: dict[str, list[tuple[str, str]]]) -> list[dict]:
+    """technique_releases.jsonl: for every attack-pattern of the three bundles that
+    has an ATT&CK id, the release that added it and, if revoked, the release that
+    revoked it (see the module docstring)."""
+    rows, seen = [], set()
+    for domain, idx in indexes.items():
+        for ap in idx.ap:
+            tid = lineage_id(ap)
+            if not tid:
+                continue
+            if (tid, domain) in seen:
+                sys.exit(f"[build_attack_core] {domain} technique id {tid} is on two attack-patterns")
+            seen.add((tid, domain))
+            status = "revoked" if ap.get("revoked") else "deprecated" if ap.get("x_mitre_deprecated") else "live"
+            row = {"technique_id": tid, "domain": domain, "status": status,
+                   "added_in": release_of(dates[domain], ap["created"])}
+            if status == "revoked":
+                when = idx.revoked_at.get(ap["id"])
+                row["revoked_in"] = release_of(dates[domain], when) if when else None
+            rows.append(row)
+    return sorted(rows, key=lambda r: (r["technique_id"], r["domain"]))
+
+
 DOWNSTREAM = ("build_ctid_edges.py", "build_control_rollup.py", "backfill_capec_edges.py")
 
 
@@ -1009,11 +1105,13 @@ def run_downstream() -> None:
 # Main
 # --------------------------------------------------------------------------- #
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Regenerate the ATT&CK core JSONL from the MITRE v19.2 STIX bundles.")
+    ap = argparse.ArgumentParser(description=f"Regenerate the ATT&CK core JSONL from the MITRE ATT&CK {ATTACK_VER} STIX bundles.")
     for domain, pin in STIX_INPUTS.items():
         ap.add_argument(pin["option"], dest=f"stix_{domain}", metavar="FILE",
                         help=f"Local {pin['path'].rsplit('/', 1)[-1]} (overrides the fetch; "
                              f"env {pin['env']}).")
+    ap.add_argument(STIX_INDEX["option"], dest="stix_index", metavar="FILE",
+                    help=f"Local index.json (overrides the fetch; env {STIX_INDEX['env']}).")
     ap.add_argument("--check", action="store_true",
                     help="Rebuild in memory and exit 1 if any committed file differs; write nothing.")
     ap.add_argument("--no-downstream", action="store_true",
@@ -1047,6 +1145,8 @@ def main() -> None:
     outputs += build_domain(indexes["ics"], "ics")
     outputs += build_domain(indexes["mobile"], "mobile")
     outputs.append(("superseded_by.jsonl", build_superseded(indexes)))
+    outputs.append(("technique_releases.jsonl",
+                    build_technique_releases(indexes, load_release_dates(args.stix_index))))
 
     if args.check:
         stale = [name for name, rows in outputs
@@ -1055,7 +1155,7 @@ def main() -> None:
         if stale:
             print("ATT&CK CORE DRIFT (run scripts/build_attack_core.py): " + ", ".join(stale))
             sys.exit(1)
-        print(f"OK: {len(outputs)} data/attack files match the v19.2 STIX (Enterprise, ICS, Mobile)")
+        print(f"OK: {len(outputs)} data/attack files match the ATT&CK {ATTACK_VER} STIX (Enterprise, ICS, Mobile)")
         return
 
     for name, rows in outputs:

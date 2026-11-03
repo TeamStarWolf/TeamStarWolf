@@ -10,6 +10,20 @@ In March 2024 a backdoor was found in XZ Utils, the compression project whose `l
 
 Evidence grade: **Confirmed** (a tracked CVE, extensive independent analysis, and a reconstructed multi-year campaign).
 
+### Key facts at a glance
+
+| Field | Value |
+|---|---|
+| Identifier | CVE-2024-3094, CVSS 10.0 |
+| Component | XZ Utils `liblzma`, backdoored in release tarballs 5.6.0 and 5.6.1 |
+| Nature | Maintainer compromise and build-time injection, not a code-level vulnerability |
+| Target | sshd on x86-64 glibc distributions that link `libsystemd` (and thus `liblzma`) |
+| Effect | Pre-authentication remote code execution as root for a client holding the attacker's key |
+| Exposure window | Backdoored tarballs shipped 24 February to 9 March 2024 |
+| Who shipped it | Rolling and pre-release channels (Debian sid/testing, Fedora Rawhide/41 beta, Arch, openSUSE Tumbleweed, Kali, Homebrew); stable LTS releases did not |
+| Discovery | Andres Freund traced a 500 ms SSH login slowdown, disclosed 29 March 2024 |
+| Known in-the-wild use | None publicly evidenced before discovery |
+
 ### Key findings
 
 - **The compromise was the maintainer, not a vulnerability.** An identity operating as "Jia Tan" (JiaT75) built credibility over about two to two and a half years, became a co-maintainer and release manager, and used the trust to ship the backdoor. Sockpuppet accounts pressured the original, overworked sole maintainer to cede control.
@@ -63,9 +77,29 @@ The exposure was limited by timing. The backdoored 5.6.0 and 5.6.1 had reached r
 | openSUSE Tumbleweed, Kali | RHEL and derivatives on the 5.4 series |
 | Homebrew formulae on 5.6.1 | Any system still on xz 5.4.x |
 
+## Timeline
+
+| Date (2024) | Event |
+|---|---|
+| ~2021 to 2024 | The "Jia Tan" identity builds trust and gains co-maintainer then release authority |
+| 24 February | XZ Utils 5.6.0 tarball, carrying the backdoor, released |
+| 9 March | 5.6.1 tarball released |
+| 29 March | Andres Freund discloses the backdoor to oss-security; distributions pull the versions; CISA issues an alert |
+| Following days | Distributions ship reverted or patched packages and advise downgrading to the 5.4 series |
+
+## Detection
+
+Detection has two layers, because a version check alone can miss a transitively pulled copy (**Confirmed** as general guidance):
+
+- **Version and inventory.** Check the installed `xz`/`liblzma` version on every host and image (`xz --version`, and the per-platform package queries below), and query your SBOMs for 5.6.0 and 5.6.1 anywhere in the estate, including base images and vendored builds.
+- **Known-signature checks.** Community detection scripts (including the one CISA referenced) inspect the loaded `liblzma` for the backdoor's tell-tale function signatures and IFUNC hook rather than trusting the version string; run one against affected hosts to confirm a replaced library is genuinely clean.
+- **Behavioral.** The backdoor was found by latency: unexplained extra time or resource use in the SSH authentication path is the behavioral signal, and it is worth alerting on for any auth-path regression, not just this bug.
+
+As an interim mitigation before a host can be remediated, reduce sshd exposure: restrict SSH to management networks or a VPN, limit source addresses at the firewall, and on affected hosts consider stopping sshd or temporarily removing the `liblzma` link until the package is replaced. These reduce reachability; they are not a fix.
+
 ## Remediation by platform
 
-The fix is to get off 5.6.0 and 5.6.1 and back to a known-good build (the 5.4 series, or a distro package explicitly marked as reverted or patched).
+The fix is to get off 5.6.0 and 5.6.1 and back to a known-good build (the 5.4 series, or a distro package explicitly marked as reverted or patched). After replacing the library, restart sshd so the clean `liblzma` is actually loaded.
 
 | Platform | How to check and remediate |
 |---|---|

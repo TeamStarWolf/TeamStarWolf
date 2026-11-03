@@ -85,3 +85,9 @@ For leadership it provides detection coverage and compliance reporting. For anal
 - [Vulnerability Management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
 - [Splunk Enterprise Security](/platforms/splunk.md)
 - [Cortex XSOAR](/platforms/cortex-xsoar.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [IBM QRadar entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?product=ibm-qradar)
+
+<!-- hub-links:end -->

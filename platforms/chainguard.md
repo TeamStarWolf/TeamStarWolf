@@ -46,3 +46,9 @@ Chainguard is a logical-plane preventive control for the software supply chain: 
 - [Application Security Testing](/APPSEC_TESTING_REFERENCE.md)
 - [Package Managers](/PACKAGE_MANAGERS_REFERENCE.md)
 - [Docker](/commands/docker.md), [Snyk](/platforms/snyk.md), [Wiz](/platforms/wiz.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [Chainguard entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?vendor=chainguard)
+
+<!-- hub-links:end -->

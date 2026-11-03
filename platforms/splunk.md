@@ -92,3 +92,9 @@ For leadership, ES dashboards show detection coverage and incident trends. For a
 - [QRadar](/platforms/qradar.md)
 - [Cortex XSOAR](/platforms/cortex-xsoar.md)
 - [Tines](/platforms/tines.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [Splunk entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?vendor=splunk) · [Splunk Enterprise Security entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?product=splunk-enterprise-security) · [Splunk entries linked to CISA KEV](https://teamstarwolf.github.io/intelligence-hub/#/explore?kev=1&vendor=splunk)
+
+<!-- hub-links:end -->

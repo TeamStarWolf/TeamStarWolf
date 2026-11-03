@@ -105,3 +105,9 @@ This page pairs with the program-level references. See `/RANSOMWARE_DEFENSE_REFE
 - [Rubrik](/platforms/rubrik.md)
 - [Commvault](/platforms/commvault.md)
 - [Veritas NetBackup](/platforms/veritas-netbackup.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [Veeam entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?vendor=veeam) · [Veeam entries linked to CISA KEV](https://teamstarwolf.github.io/intelligence-hub/#/explore?kev=1&vendor=veeam)
+
+<!-- hub-links:end -->

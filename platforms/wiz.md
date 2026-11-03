@@ -77,3 +77,9 @@ In a mature program, Wiz findings open tickets for the owning cloud teams and fe
 - [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
 - [Tenable](/platforms/tenable.md)
 - [Qualys](/platforms/qualys.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [Wiz entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?vendor=wiz)
+
+<!-- hub-links:end -->

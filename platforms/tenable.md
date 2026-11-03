@@ -81,3 +81,9 @@ In a mature program, Tenable findings open tickets in ServiceNow Vulnerability R
 - [Qualys](/platforms/qualys.md)
 - [Rapid7 InsightVM](/platforms/rapid7-insightvm.md)
 - [ServiceNow Vulnerability Response](/platforms/servicenow-vr.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [Tenable entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?vendor=tenable) · [Tenable entries linked to CISA KEV](https://teamstarwolf.github.io/intelligence-hub/#/explore?kev=1&vendor=tenable)
+
+<!-- hub-links:end -->

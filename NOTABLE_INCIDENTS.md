@@ -91,6 +91,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 
 ### 2010: Stuxnet
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2010](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2010)
+
+<!-- hub-links:end -->
+
 - Target: Natanz uranium enrichment facility, Iran
 - Attribution: Joint US/Israel operation (attributed, not officially confirmed until 2011 leaks)
 - Method: Four zero-days chained together; spread via USB; targeted Siemens S7-315/S7-417 PLCs controlling IR-1 centrifuges; caused centrifuges to spin out of spec while reporting normal status to operators
@@ -98,6 +104,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 - Significance: First known cyberweapon specifically designed to cause physical destruction of industrial equipment; established ICS/SCADA as a legitimate warfare domain; inspired every subsequent ICS-targeting malware family (Industroyer, TRITON, etc.)
 
 ### 2011: RSA SecurID Breach
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2011](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2011)
+
+<!-- hub-links:end -->
 
 - Target: RSA Security (EMC)
 - Attribution: APT1 / Comment Crew (Chinese PLA Unit 61398)
@@ -107,6 +119,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 
 ### 2011: Operation Shady RAT
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2011](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2011)
+
+<!-- hub-links:end -->
+
 - Target: 72+ organizations including US government agencies, defense contractors, the UN, the IOC, and various national Olympic committees
 - Attribution: Chinese government (attributed by McAfee)
 - Method: Spear-phishing leading to remote access trojans; longest-running APT campaign disclosed at the time; active for 5+ years
@@ -114,6 +132,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 - Significance: McAfee's disclosure report coined "RAT" as a standard term and brought APT campaigns to board-level attention worldwide
 
 ### 2012: Shamoon (Disttrack)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2012](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2012)
+
+<!-- hub-links:end -->
 
 - Target: Saudi Aramco and RasGas (Qatar)
 - Attribution: Iranian IRGC / APT33 (Elfin)
@@ -123,6 +147,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 
 ### 2013: Target Data Breach
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2013](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2013)
+
+<!-- hub-links:end -->
+
 - Target: Target Corporation (US retail)
 - Attribution: Eastern European cybercriminals (Rescator marketplace)
 - Method: Phishing email to Fazio Mechanical (HVAC vendor); used vendor VPN credentials to pivot to Target POS systems; installed RAM-scraping malware on 1,800+ POS terminals
@@ -130,6 +160,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 - Significance: First major high-profile supply-chain breach; established that vendor trust relationships are a primary attack vector; reshaped PCI-DSS enforcement
 
 ### 2014: Sony Pictures Hack
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2014](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2014)
+
+<!-- hub-links:end -->
 
 - Target: Sony Pictures Entertainment
 - Attribution: Lazarus Group / Bureau 121 (DPRK, attributed by FBI)
@@ -139,6 +175,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 
 ### 2015: OPM Breach
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2015](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2015)
+
+<!-- hub-links:end -->
+
 - Target: US Office of Personnel Management
 - Attribution: Chinese APT (Axiom group / APT17, attributed)
 - Method: Stolen contractor credentials (KeyPoint Government Solutions); persistent access over ~14 months; exfiltrated SF-86 security clearance investigation files
@@ -146,6 +188,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 - Significance: Worst known US government intelligence breach in history; SF-86 data allows identification and potential blackmail of intelligence officers worldwide; catalyzed DHS CDM program
 
 ### 2016: SWIFT Banking Heists
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2016](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2016)
+
+<!-- hub-links:end -->
 
 - Target: Bangladesh Bank, Banco del Austro (Ecuador), RCBC (Philippines), and others
 - Attribution: Lazarus Group / DPRK (attributed by BAE Systems, Symantec)
@@ -155,6 +203,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 
 ### 2016: DNC Hack & Election Interference
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2016](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2016)
+
+<!-- hub-links:end -->
+
 - Target: Democratic National Committee, Hillary Clinton campaign (John Podesta), DCCC
 - Attribution: APT28 / Fancy Bear (Russian GRU Unit 26165 and Unit 74455)
 - Method: Spear-phishing (Podesta's "legitimate email" click); X-Agent keylogger/implant; data exfiltrated and released via Guccifer 2.0 persona and WikiLeaks
@@ -162,6 +216,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 - Significance: Established cyber operations as a primary tool of election interference; introduced "hack and leak" as an influence operation technique; triggered Mueller investigation and IC Community Assessment
 
 ### 2016: Mirai Botnet
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2016](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2016)
+
+<!-- hub-links:end -->
 
 - Target: Dyn DNS provider (and internet at large)
 - Attribution: Paras Jha, Josiah White, Dalton Norman (US college students)
@@ -171,6 +231,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 
 ### 2016-2017: Shadow Brokers Leaks
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2016](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2016) · [2017](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2017)
+
+<!-- hub-links:end -->
+
 - Target: NSA's Equation Group (TAO division)
 - Attribution: Unclear; possibly Russian GRU or insider (never formally charged)
 - Method: Unknown initial theft vector; NSA offensive toolset posted publicly in stages
@@ -178,6 +244,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 - Significance: Largest public leak of offensive cyber capabilities in history; demonstrated that nation-state zero-days cannot be safely stockpiled; reignited Vulnerabilities Equities Process debate
 
 ### 2017: WannaCry
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2017](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2017)
+
+<!-- hub-links:end -->
 
 - Target: Global (indiscriminate); notably NHS UK, FedEx/TNT, Telefónica, Renault, Russian Interior Ministry
 - Attribution: Lazarus Group / DPRK (attributed by US, UK, Australia)
@@ -187,6 +259,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 
 ### 2017: NotPetya
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2017](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2017)
+
+<!-- hub-links:end -->
+
 - Target: Initially Ukrainian businesses; spread globally to Maersk, Merck, FedEx/TNT, Mondelez, Reckitt Benckiser, Saint-Gobain
 - Attribution: Sandworm / GRU Unit 74455 (attributed by US, UK, EU)
 - Method: Distributed via trojanized update to M.E.Doc Ukrainian accounting software; EternalBlue for lateral spread; MBR wiper disguised as ransomware; no functional decryption capability
@@ -194,6 +272,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 - Significance: Definitively classified as a cyberweapon, not ransomware; established supply-chain software updates as a top-tier attack vector; demonstrated that destructive cyberattacks cause kinetic-level economic damage; directly inspired NIST supply chain security guidance
 
 ### 2020: SolarWinds / SUNBURST
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2020](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2020)
+
+<!-- hub-links:end -->
 
 - Target: SolarWinds Orion platform customers; confirmed victims include US Treasury, State, DHS, DOJ, NSA, and 100+ private companies
 - Attribution: APT29 / Cozy Bear (SVR, Russian Foreign Intelligence Service)
@@ -207,6 +291,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 
 ### 2021: Colonial Pipeline (DarkSide Ransomware)
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2021](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2021)
+
+<!-- hub-links:end -->
+
 - Date: May 7, 2021
 - Actor: DarkSide (RaaS affiliate, Eastern European)
 - Method: Compromised VPN account (no MFA) using a leaked password found in a dark web dump; deployed DarkSide ransomware to IT network; operators proactively shut down OT pipeline operations out of caution
@@ -215,6 +305,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 
 ### 2021: Kaseya VSA (REvil)
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2021](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2021)
+
+<!-- hub-links:end -->
+
 - Date: July 2, 2021 (timed to US Independence Day weekend)
 - Actor: REvil / Sodinokibi (RaaS)
 - Method: Zero-day in Kaseya VSA on-premises RMM software (auth bypass + arbitrary file upload); compromised ~60 MSPs, pushing ransomware to all managed endpoints; 1,500+ downstream businesses affected
@@ -222,6 +318,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 - Significance: Largest MSP supply-chain ransomware attack; demonstrated that MSPs are a force-multiplier for ransomware; REvil subsequently shut down, re-emerged, and was finally disrupted in January 2022
 
 ### 2021: Log4Shell (CVE-2021-44228)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2021](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2021) · [CVE-2021-44228 brief](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-44228)
+
+<!-- hub-links:end -->
 
 - Date: Disclosed December 9, 2021
 - Affected Software: Apache Log4j 2 (versions 2.0-beta9 through 2.14.1): ubiquitous Java logging library
@@ -232,12 +334,24 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 
 ### 2021: Microsoft Exchange ProxyLogon / ProxyShell
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2021](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2021)
+
+<!-- hub-links:end -->
+
 - ProxyLogon (CVE-2021-26855): Pre-auth SSRF + CVE-2021-27065 post-auth file write = pre-auth RCE; disclosed March 2021; HAFNIUM exploited as zero-day
 - ProxyShell (CVE-2021-34473 / 34523 / 31207): URL normalization bypass + privilege escalation + arbitrary file write; exploited in mass exploitation waves August 2021 by LockBit, Conti, BlackByte, Babuk affiliates
 - Impact: Tens of thousands of Exchange servers compromised globally; web shells planted en masse; CISA emergency directive issued; hundreds of US government agencies affected
 - Significance: Illustrated how a single product's widespread deployment makes it a strategic target; ProxyShell exploitation continued 18+ months after patches were available
 
 ### 2022: Viasat KA-SAT Attack (AcidRain)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2022](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2022)
+
+<!-- hub-links:end -->
 
 - Date: February 24, 2022 (beginning roughly one hour before Russia's invasion of Ukraine)
 - Actor: Russian Federation (formally attributed May 10, 2022 by the EU together with the US, UK, and other partner governments)
@@ -247,6 +361,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 
 ### 2022: Lapsus$ Group
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2022](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2022)
+
+<!-- hub-links:end -->
+
 - Targets: Microsoft (Bing/Cortana source code), Okta (customer support systems), Nvidia (DLSS source code, employee credentials), Samsung (Galaxy source code), T-Mobile, Ubisoft, Vodafone, Globant
 - Actor: Loosely organized teenagers, primarily UK and Brazilian, ages 16-21
 - Method: SIM swapping; social engineering help desks; purchasing insider access; MFA fatigue attacks (repeated push notification bombing); recruiting insiders on Telegram
@@ -254,6 +374,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 - Significance: Demonstrated that sophisticated technical attacks are unnecessary when humans are the weakest link; forced industry-wide re-evaluation of MFA (TOTP/hardware keys over push notifications); Okta's handling criticized as inadequate
 
 ### 2022: Uber Breach
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2022](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2022)
+
+<!-- hub-links:end -->
 
 - Date: September 15, 2022
 - Actor: 18-year-old (claimed affiliation with Lapsus$)
@@ -263,6 +389,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 
 ### 2022-2023: LastPass Breach
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2022](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2022) · [2023](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2023)
+
+<!-- hub-links:end -->
+
 - Date: Initial breach August 2022; vault theft November/December 2022; disclosed fully January 2023
 - Actor: Unattributed (financially motivated)
 - Method: Compromised a DevOps engineer's home computer (via vulnerable media software); used stolen credentials to access LastPass cloud backup storage containing encrypted password vaults
@@ -270,6 +402,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 - Significance: Demonstrated that password managers themselves are high-value targets; weak master passwords (under 12 characters, reused) are crackable offline; incident response transparency failures eroded trust; catalyzed industry discussion of zero-knowledge architecture limits
 
 ### 2023: MOVEit Transfer (Cl0p)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2023](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2023)
+
+<!-- hub-links:end -->
 
 - Date: May 27-28, 2023 (mass exploitation); June 2023 (disclosure cascade)
 - Actor: Cl0p ransomware gang (TA505, Russian-speaking)
@@ -280,6 +418,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 
 ### 2023: MGM Resorts (Scattered Spider)
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2023](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2023) · [Scattered Spider entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?actor=G1015)
+
+<!-- hub-links:end -->
+
 - Date: September 2023
 - Actor: Scattered Spider (UNC3944): English-speaking teenagers/young adults, some US/UK nationals
 - Method: LinkedIn OSINT to identify IT help desk employees; vishing (voice phishing) to impersonate employee and reset MFA; pivoted to Okta, then Azure, then ESXi hypervisors; deployed ALPHV/BlackCat ransomware to encrypt ESXi hosts
@@ -287,6 +431,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 - Significance: Demonstrated that Scattered Spider's combination of social engineering + legitimate tool abuse (living-off-the-land) could defeat enterprise security stacks; contrast with Caesars Entertainment (paid ~$15M ransom quietly same month); vishing remains devastatingly effective
 
 ### 2024: Change Healthcare (BlackCat/ALPHV)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2024](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2024)
+
+<!-- hub-links:end -->
 
 - Date: February 21, 2024
 - Actor: BlackCat/ALPHV ransomware (affiliate-driven)
@@ -296,6 +446,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 
 ### 2024: CDK Global (BlackSuit)
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2024](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2024)
+
+<!-- hub-links:end -->
+
 - Date: June 2024
 - Actor: BlackSuit ransomware (successor to Royal ransomware)
 - Method: Social engineering for initial access; ransomware deployed to CDK's SaaS platform
@@ -303,6 +459,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 - Significance: Demonstrated SaaS platform single points of failure; automotive industry has no manual fallback for modern dealership operations; reinforced concentration risk concerns raised by Change Healthcare
 
 ### 2024: CrowdStrike Falcon Content Update Outage
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2024](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2024)
+
+<!-- hub-links:end -->
 
 - Date: July 19, 2024 (faulty update live 04:09 to 05:27 UTC)
 - Cause: Not a cyberattack. A faulty Falcon sensor Rapid Response Content update, Channel File 291
@@ -312,6 +474,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 
 ### 2023-2025: Volt Typhoon (Chinese Pre-Positioning)
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2023](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2023) · [2024](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2024) · [2025](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2025) · [Volt Typhoon entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?actor=G1017)
+
+<!-- hub-links:end -->
+
 - Actor: Volt Typhoon (Bronze Silhouette): Chinese MSS/PLA (attributed by US IC, Five Eyes)
 - Targets: US critical infrastructure: power utilities, water systems, telecommunications, transportation, military logistics nodes; Guam infrastructure specifically targeted
 - Method: Living-off-the-land (LOTL): exclusively uses native OS tools (wmic, ntdsutil, netsh, PowerShell); no custom malware deployed; compromises SOHO routers (Cisco, Netgear, ASUS) as proxy infrastructure; long-dwell persistent access
@@ -319,6 +487,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 - Significance: Shift from intelligence collection to sabotage pre-positioning; LOTL techniques defeat signature-based detection; assessed as preparation for potential conflict over Taiwan; forced rethinking of OT/IT network segmentation and SOHO router security
 
 ### 2024-2025: Salt Typhoon (Chinese Telecom Espionage)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [entries from 2024](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2024) · [2025](https://teamstarwolf.github.io/intelligence-hub/#/explore?year=2025)
+
+<!-- hub-links:end -->
 
 - Actor: PRC state-sponsored actors: activity overlapping industry reporting on Salt Typhoon, OPERATOR PANDA, RedMike, UNC5807, and GhostEmperor; joint advisory AA25-239A names three PRC companies providing cyber services to Chinese intelligence
 - Targets: Commercial telecommunications carriers (multiple US providers confirmed compromised in FBI/CISA joint statements, October-November 2024), plus government, transportation, lodging, and military infrastructure worldwide

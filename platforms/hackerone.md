@@ -91,3 +91,9 @@ HackerOne does not replace continuous internal scanning or static and dynamic ap
 - [Incident response reference](/INCIDENT_RESPONSE_REFERENCE.md)
 - [Snyk](/platforms/snyk.md)
 - [Invicti](/platforms/invicti.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [HackerOne entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?vendor=hackerone)
+
+<!-- hub-links:end -->

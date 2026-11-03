@@ -80,3 +80,9 @@ Alongside a broad CNAPP such as Wiz, Prisma Cloud, or Orca Security, Aqua often 
 - [Sysdig](/platforms/sysdig.md)
 - [Prisma Cloud](/platforms/prisma-cloud.md)
 - [Snyk](/platforms/snyk.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [Aqua Security entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?vendor=aqua-security) · [Aqua Security entries linked to CISA KEV](https://teamstarwolf.github.io/intelligence-hub/#/explore?kev=1&vendor=aqua-security)
+
+<!-- hub-links:end -->

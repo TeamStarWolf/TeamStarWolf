@@ -163,3 +163,9 @@ See `/INTERNET_FACING_SERVICES_REFERENCE.md` for exposure tracking.
 - [Akamai](/platforms/akamai.md)
 - [Citrix NetScaler](/platforms/citrix-netscaler.md)
 - [F5](/platforms/f5.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [Cloudflare entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?vendor=cloudflare) · [Cloudflare entries linked to CISA KEV](https://teamstarwolf.github.io/intelligence-hub/#/explore?kev=1&vendor=cloudflare)
+
+<!-- hub-links:end -->

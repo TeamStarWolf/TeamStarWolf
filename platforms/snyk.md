@@ -96,3 +96,9 @@ Snyk does not replace dynamic testing of running applications or network-level s
 - [Invicti](/platforms/invicti.md)
 - [HackerOne](/platforms/hackerone.md)
 - [Wiz](/platforms/wiz.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [Snyk entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?vendor=snyk)
+
+<!-- hub-links:end -->

@@ -169,6 +169,12 @@ Survey-heavy vendor "state of X" reports beyond these exist by the hundred; appl
 
 ## Cover year versus data window
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [press reporting from the last 24 months](https://teamstarwolf.github.io/intelligence-hub/#/explore?kind=reporting) · [reporting published in 2026](https://teamstarwolf.github.io/intelligence-hub/#/explore?kind=reporting&year=2026)
+
+<!-- hub-links:end -->
+
 A report's cover year is a marketing label; its data window is a methodology fact, and the two rarely match. Most "2026" reports describe calendar 2025 (or an offset year that ends the previous autumn), so two same-year covers can describe periods that barely overlap. The windows below are as stated by the publishers for the current editions:
 
 | Edition | Actual data window |

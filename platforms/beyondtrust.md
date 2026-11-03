@@ -147,3 +147,9 @@ the access path, and feeds the SIEM with privileged activity for correlation.
 - [Incident response reference](/INCIDENT_RESPONSE_REFERENCE.md)
 - [CyberArk](/platforms/cyberark.md)
 - [Delinea](/platforms/delinea.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [BeyondTrust entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?vendor=beyondtrust) · [BeyondTrust entries linked to CISA KEV](https://teamstarwolf.github.io/intelligence-hub/#/explore?kev=1&vendor=beyondtrust)
+
+<!-- hub-links:end -->

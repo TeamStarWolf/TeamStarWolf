@@ -77,3 +77,9 @@ The Security Advisory feed connects NetScaler directly to the vulnerability mana
 - [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)
 - [Check Point](/platforms/check-point.md)
 - [Fortinet](/platforms/fortinet.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [Citrix entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?vendor=citrix) · [Citrix NetScaler entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?product=citrix-netscaler) · [Citrix entries linked to CISA KEV](https://teamstarwolf.github.io/intelligence-hub/#/explore?kev=1&vendor=citrix)
+
+<!-- hub-links:end -->

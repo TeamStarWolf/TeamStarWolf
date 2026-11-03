@@ -86,3 +86,9 @@ For a team that runs several scanners, VR is the place that reconciles them into
 - [Tenable](/platforms/tenable.md)
 - [Qualys](/platforms/qualys.md)
 - [Rapid7 InsightVM](/platforms/rapid7-insightvm.md)
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [ServiceNow entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?vendor=servicenow)
+
+<!-- hub-links:end -->

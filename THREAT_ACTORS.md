@@ -225,6 +225,12 @@ Intelligence sharing platforms: ISACs (sector-specific), MISP communities, FS-IS
 - Signature TTPs: X-Agent implant, Sofacy/CHOPSTICK malware, spearphishing with zero-days, credential harvesting, Responder tool usage
 - Primary targets: Political parties, government agencies, defense contractors, sports/anti-doping organizations
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [APT28 entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?actor=G0007)
+
+<!-- hub-links:end -->
+
 ### APT29 / Cozy Bear (SVR)
 - Attribution: Russian SVR (Foreign Intelligence Service)
 - Notable operations: DNC hack (2016), SolarWinds/SUNBURST (2020), COVID-19 vaccine research theft, Microsoft breach (2024, Midnight Blizzard/Nobelium)
@@ -236,6 +242,12 @@ Intelligence sharing platforms: ISACs (sector-specific), MISP communities, FS-IS
 - Notable operations: Uroburos/Snake rootkit (30+ countries), Carbon backdoor, KazVar backdoor, hijacked Iranian APT infrastructure for operations
 - Signature TTPs: Rootkit-level persistence, satellite C2, watering hole attacks, Snake malware framework, using compromised Komodo C2 from OilRig
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [Turla entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?actor=G0010)
+
+<!-- hub-links:end -->
+
 ---
 
 ## Chinese Threat Actors (Deep Dive)
@@ -246,11 +258,23 @@ Intelligence sharing platforms: ISACs (sector-specific), MISP communities, FS-IS
 - Signature TTPs: ShadowPad modular implant, Winnti malware, supply chain compromise of software vendors, DLL side-loading, rootkit deployment
 - Primary targets: Healthcare, pharma, gaming, media, semiconductors
 
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [APT41 entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?actor=G0096)
+
+<!-- hub-links:end -->
+
 ### Volt Typhoon (Vanguard Panda)
 - Attribution: Chinese state-sponsored, PRC
 - Notable operations: US critical infrastructure pre-positioning (2023-present), Guam military networks, living-off-the-land confirmed by CISA/NSA/FBI joint advisory
 - Signature TTPs: Zero use of custom malware (LOL only), KV-Botnet SOHO router proxy network, LOTL (wmic, netsh, ntdsutil, certutil), web shells on edge devices
 - Primary targets: US military bases, communications infrastructure, power grid, water: pre-positioning for potential conflict
+
+<!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
+
+On the Intelligence Hub: [Volt Typhoon entries](https://teamstarwolf.github.io/intelligence-hub/#/explore?actor=G1017)
+
+<!-- hub-links:end -->
 
 ### APT10 / Stone Panda / MenuPass
 - Attribution: Chinese MSS (Tianjin State Security Bureau)

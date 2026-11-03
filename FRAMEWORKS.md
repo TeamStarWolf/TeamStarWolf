@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 14 min (3,255 words at 230 words a minute)
+About 14 min (3,307 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -645,7 +645,10 @@ Authoritative home pages and portals for the frameworks, threat-informed-defense
 ## Related pages
 
 - Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+- [Controls Mapping](/CONTROLS_MAPPING.md)
+- [Enterprise Security Pipeline](/SECURITY_PIPELINE.md)
+- [Governance, Risk & Compliance (GRC)](/disciplines/governance-risk-compliance.md)
+- [Regulatory Landscape Reference](/REGULATORY_LANDSCAPE_REFERENCE.md)
 - [Security-Program Management / CISO Handbook](/SECURITY_PROGRAM_MANAGEMENT_REFERENCE.md)
-- [Security Awareness Program](/SECURITY_AWARENESS_REFERENCE.md)
 
 <!-- related:end -->

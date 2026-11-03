@@ -10,8 +10,8 @@ Part of the [domain hubs](/hubs/README.md). 24 reference documents in this domai
 
 | Reference | What it covers | Reading time |
 |---|---|---|
-| [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md) | Sigma, YARA, and Suricata rule writing with examples and conversion to Splunk, Elastic, and Sentinel | 11 min |
-| [SIEM Reference](/SIEM_REFERENCE.md) | Splunk ES/SPL, Microsoft Sentinel/KQL, IBM QRadar/AQL, Elastic SIEM, log normalization, detection engineering, SOC operations, threat hunting | 14 min |
+| [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md) | Sigma, YARA, and Suricata rule writing with examples and conversion to Splunk, Elastic, and Sentinel | 12 min |
+| [SIEM Reference](/SIEM_REFERENCE.md) | Splunk ES/SPL, Microsoft Sentinel/KQL, IBM QRadar/AQL, Elastic SIEM, log normalization, detection engineering, SOC operations, threat hunting | 15 min |
 | [SIEM Detection Content](/SIEM_DETECTION_CONTENT.md) | Official detection rules from Sigma, Elastic, Splunk ESCU, Microsoft Sentinel, MITRE ATT&CK mitigations, CIS Controls, and DISA STIGs | 6 min |
 | [Security Data Engineering Reference](/SECURITY_DATA_ENGINEERING_REFERENCE.md) | OCSF/ECS/CIM/ASIM normalization schemas, log pipeline architecture, security data lakes, cost-driven routing, schema-on-read vs schema-on-write, telemetry quality, retention design, ATT&CK data-component mapping | 32 min |
 | [SOAR Automation Reference](/SOAR_AUTOMATION_REFERENCE.md) | SOAR platforms, playbook design, Splunk SOAR/Phantom, XSOAR, Sentinel, QRadar SOAR, phishing/malware triage, threat intel automation, IR playbooks, metrics | 20 min |

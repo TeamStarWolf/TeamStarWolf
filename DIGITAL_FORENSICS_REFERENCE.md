@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 28 min (6,326 words at 230 words a minute)
+About 28 min (6,367 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -2812,19 +2812,6 @@ def mac_abs_to_dt(t):
     return datetime.datetime(2001, 1, 1) + datetime.timedelta(seconds=t)
 ```
 
-<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
-
-## Related pages
-
-- Domain: [Detection and response](/hubs/detection-and-response.md)
-- Learning path: [Digital Forensics](/disciplines/digital-forensics.md)
-- [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)
-- [Network Forensics Reference](/NETWORK_FORENSICS_REFERENCE.md)
-- [IR Playbooks](/IR_PLAYBOOKS.md)
-- [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md)
-
-<!-- related:end -->
-
 ---
 
 ## Key External Resources
@@ -2848,6 +2835,19 @@ Curated malware-analysis sandboxes, DFIR tooling, and reverse-engineering resour
 | Timesketch | https://github.com/google/timesketch |
 | plaso (log2timeline) | https://github.com/log2timeline/plaso |
 | SANS DFIR | https://www.sans.org/cyber-security-courses/?focus-area=digital-forensics-incident-response |
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Detection and response](/hubs/detection-and-response.md)
+- Learning path: [Digital Forensics](/disciplines/digital-forensics.md)
+- [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)
+- [Network Forensics Reference](/NETWORK_FORENSICS_REFERENCE.md)
+- [IR Playbooks](/IR_PLAYBOOKS.md)
+- [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md)
+
+<!-- related:end -->
 
 ---
 

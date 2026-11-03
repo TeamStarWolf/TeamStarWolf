@@ -18,7 +18,7 @@ Part of the [domain hubs](/hubs/README.md). 9 reference documents in this domain
 | [Automotive Security Reference](/AUTOMOTIVE_SECURITY_REFERENCE.md) | CAN bus attacks, ECU security, OTA update integrity, V2X/DSRC/C-V2X, key fob relay attacks, ADAS sensor spoofing, ISO 21434 | 41 min |
 | [Space Systems Security Reference](/SPACE_SECURITY_REFERENCE.md) | SPARTA framework (9 tactics, 90 countermeasures), space/ground/link/user segments, CCSDS SDLS, GNSS interference resilience, Viasat KA-SAT case study, SPD-5 and NIST IR 8270/8401 | 29 min |
 | [Physical Security Reference](/PHYSICAL_SECURITY_REFERENCE.md) | Lock picking, RFID badge cloning (Proxmark3/Flipper Zero), physical pentesting, drop boxes, CCTV assessment, NIST PE controls | 25 min |
-| [Security Gadgets Reference](/SECURITY_GADGETS_REFERENCE.md) | Hak5 ecosystem, HackRF/Ubertooth, Samy Kamkar tools, Flipper Zero, Pi-hole, Meshtastic/LoRa, Proxmark3, Alfa/GL.iNet | 28 min |
+| [Security Gadgets Reference](/SECURITY_GADGETS_REFERENCE.md) | Hak5 ecosystem, HackRF/Ubertooth, Samy Kamkar tools, Flipper Zero, Pi-hole, Meshtastic/LoRa, Proxmark3, Alfa/GL.iNet | 29 min |
 
 ## Learning paths
 

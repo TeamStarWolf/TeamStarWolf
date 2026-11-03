@@ -17,7 +17,7 @@ Intermediate to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 33 min (7,546 words at 230 words a minute)
+About 33 min (7,585 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -2651,19 +2651,6 @@ Study resources:
 - GCP: Google Cloud Skills Boost, Security Engineer learning path
 - General: SANS FOR509 (Cloud Forensics), SEC510 (Cloud Security Controls)
 
-<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
-
-## Related pages
-
-- Domain: [Cloud and infrastructure](/hubs/cloud-and-infrastructure.md)
-- Learning path: [Cloud Security](/disciplines/cloud-security.md)
-- [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md)
-- [Cloud Security Benchmark](/CLOUD_SECURITY_BENCHMARK.md)
-- [Kubernetes Security Reference](/KUBERNETES_SECURITY_REFERENCE.md)
-- [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md)
-
-<!-- related:end -->
-
 ---
 
 ## Key External Resources
@@ -2684,6 +2671,19 @@ Curated cloud security tooling, offensive frameworks, hands-on labs, and vendor 
 | AWS Security | https://aws.amazon.com/security/ |
 | Azure Security | https://learn.microsoft.com/en-us/azure/security/ |
 | Google Cloud Security | https://cloud.google.com/security |
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Cloud and infrastructure](/hubs/cloud-and-infrastructure.md)
+- Learning path: [Cloud Security](/disciplines/cloud-security.md)
+- [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md)
+- [Cloud Security Benchmark](/CLOUD_SECURITY_BENCHMARK.md)
+- [Kubernetes Security Reference](/KUBERNETES_SECURITY_REFERENCE.md)
+- [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md)
+
+<!-- related:end -->
 
 ---
 

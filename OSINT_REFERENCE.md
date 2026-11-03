@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 16 min (3,669 words at 230 words a minute)
+About 16 min (3,717 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -1747,19 +1747,6 @@ MITRE ATT&CK v19.2 Reconnaissance (TA0043) techniques and OSINT tool mapping:
 | T1598.002 | Spearphishing Attachment | Weaponized document with tracking | N/A |
 | T1598.003 | Spearphishing Link | Credential harvesting page | N/A |
 
-<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
-
-## Related pages
-
-- Domain: [Threat intelligence and adversaries](/hubs/threat-intelligence.md)
-- Learning path: [OSINT](/disciplines/osint.md)
-- [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md)
-- [Red Team Reference](/RED_TEAM_REFERENCE.md)
-- [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md)
-- [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md)
-
-<!-- related:end -->
-
 ---
 
 ## Key External Resources
@@ -1783,6 +1770,19 @@ Curated starting points for the infrastructure-intelligence, internet-scanning, 
 | recon-ng | https://github.com/lanmaster53/recon-ng |
 | Sherlock Project (username OSINT) | https://sherlockproject.xyz/ |
 | IntelTechniques Tools | https://inteltechniques.com/tools/ |
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [Threat intelligence and adversaries](/hubs/threat-intelligence.md)
+- Learning path: [OSINT](/disciplines/osint.md)
+- [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md)
+- [Red Team Reference](/RED_TEAM_REFERENCE.md)
+- [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md)
+- [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md)
+
+<!-- related:end -->
 
 ---
 

@@ -196,7 +196,8 @@ COUNT_RE = re.compile(r"(?<![\w.,\u2013-])(?<![Ll]evel )" + EMPH +
 # note ("I could not verify ...") is a process note; so is a subjectless "could not
 # verify" (sentence start, list item, after a semicolon). A product with a subject
 # ("Invicti could not verify the fix") is a vendor status and passes, and "could not
-# confirm" stays legal reader guidance.
+# confirm" stays legal reader guidance. The passive forms of the same note ("NOT
+# confirmed from public docs", "could not be verified") are process notes too.
 AGENT_NOTE_RE = re.compile(
     r"\bWebSearch\b"
     r"|\bthis turn\b(?!-)"
@@ -219,7 +220,9 @@ AGENT_NOTE_RE = re.compile(
     r"|\bverify exact app ID\b"
     r"|\bI (?:could not|couldn['\u2019]t|was unable to|did not|didn['\u2019]t) (?:verify|confirm)\b"
     r"|(?<![A-Za-z] )\bcould not verify\b"
-    r"|\bunverified publicly\b",
+    r"|\bunverified publicly\b"
+    r"|\bnot confirmed from (?:public|official) docs\b"
+    r"|\bcould not be verified\b",
     re.I)
 # CHANGELOG entries are dated records: a count there is true as of its date and does
 # not go stale the way a headline does.
@@ -686,6 +689,8 @@ AGENT_SELF_TEST = (
     ("- Could not verify the exact finding-type list against official docs.", ("agent-note",)),
     ("Push from the cloud tier; could not verify a CEF push.", ("agent-note",)),
     ("GET /api/1.0/scans -- endpoint names unverified publicly", ("agent-note",)),
+    ("Field names are NOT confirmed from public docs.", ("agent-note",)),
+    ("The SSO pages could not be verified.", ("agent-note",)),
     # Ordinary English and real API names pass.
     ("This turns a list into a plan, in this turn-based game.", ()),
     ("Hosted tools such as `WebSearchTool` skip the guardrail pipeline.", ()),

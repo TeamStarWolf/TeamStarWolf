@@ -329,7 +329,7 @@ Official orgs: [ServiceNow](https://github.com/ServiceNow) (286 public repos), [
 | [Now Learning (legacy host)](https://nowlearning.servicenow.com/) | Training | Same portal | Gated (login) |
 | [Developer learning paths](https://developer.servicenow.com/dev.do#!/learn) | Training | Developer learning and personal instances | App shell (SPA returns 200 for any path) |
 
-- Specific Now Learning SecOps paths and certification pages sit behind SSO and could not be verified.
+- Specific Now Learning SecOps paths and certification pages sit behind SSO; sign in to Now Learning to reach them.
 - ServiceNow marketing product pages timed out during the check and are left out.
 
 ## Armis Centrix and VIPR

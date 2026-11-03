@@ -67,7 +67,7 @@ Invicti's VM role is Assess/Scan-Prioritize-Validate for the web/API layer: it f
 - Issue status strings (seen raw via the ServiceNow integration mapping): Present, FixedConfirmed, FixedUnconfirmed, FixedCantRetest, AcceptedRisk, FalsePositive, Ignored, Revived/Rediscovered.
 - Per-issue: confirmed flag, severity, vulnerability type / CWE, proof/evidence content, retest scan status.
 - Scan REST API (scan create/status, API-definition import). Retest is driven from Scans > All scans in the UI.
-- NOTE: exact JSON field names (e.g. LastSeenDate) and whether a retest can be triggered via API are NOT confirmed from public docs - verify in your tenant's Swagger/API reference.
+- Confirm the exact JSON field names (e.g. LastSeenDate), and whether a retest can be triggered via the API, against your host's Swagger/API reference before coding against them.
 
 **Example queries**
 

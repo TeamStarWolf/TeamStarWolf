@@ -1,6 +1,6 @@
 # MITRE Engage Reference: Denial, Deception & Adversary Engagement
 
-> Some defenders do more than block an intruder: they steer it toward decoys, watch what it does, and feed it false information. [MITRE Engage™](https://engage.mitre.org/) is the framework for planning and running those adversary engagement, denial, and deception operations. Where ATT&CK describes what the adversary does and D3FEND describes countermeasures, Engage describes what *you* do to expose, affect, and learn from an adversary already in your environment: <!-- stat-engage_goals:start -->5<!-- stat-engage_goals:end --> goals, <!-- stat-engage_approaches:start -->9<!-- stat-engage_approaches:end --> approaches, and <!-- stat-engage_activities:start -->31<!-- stat-engage_activities:end --> activities, with <!-- stat-engage_activity_mappings:start -->596<!-- stat-engage_activity_mappings:end --> activity mappings across <!-- stat-engage_mappings:start -->175<!-- stat-engage_mappings:end --> ATT&CK techniques.
+> Some defenders do more than block an intruder: they steer it toward decoys, watch what it does, and feed it false information. MITRE Engage™ (engage.mitre.org; its data is published in the [mitre/engage repository](https://github.com/mitre/engage)) is the framework for planning and running those adversary engagement, denial, and deception operations. Where ATT&CK describes what the adversary does and D3FEND describes countermeasures, Engage describes what *you* do to expose, affect, and learn from an adversary already in your environment: <!-- stat-engage_goals:start -->5<!-- stat-engage_goals:end --> goals, <!-- stat-engage_approaches:start -->9<!-- stat-engage_approaches:end --> approaches, and <!-- stat-engage_activities:start -->31<!-- stat-engage_activities:end --> activities, with <!-- stat-engage_activity_mappings:start -->596<!-- stat-engage_activity_mappings:end --> activity mappings across <!-- stat-engage_mappings:start -->175<!-- stat-engage_mappings:end --> ATT&CK techniques.
 
 | | |
 |---|---|
@@ -31,7 +31,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Length</th><td>
 
-Lookup page: 2,102 words, 78% in tables; look entries up from Start at or the search (about 9 min end to end at 230 words a minute)
+Lookup page: 2,112 words, 77% in tables; look entries up from Start at or the search (about 9 min end to end at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>

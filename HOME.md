@@ -79,6 +79,10 @@
   <a class="tsw-count" href="#/guides/README"><span class="tsw-count-n">21</span> <span class="tsw-count-l">How-to guides</span> <span class="tsw-count-d">One task, step by step, with the time it takes, what you need, and what you produce</span></a>
   <a class="tsw-count" href="#/disciplines/README"><span class="tsw-count-n">47</span> <span class="tsw-count-l">Learning paths</span> <span class="tsw-count-d">An order of study for one discipline, with training, tools, books, and certifications</span></a>
   <a class="tsw-count" href="#/mitre/README"><span class="tsw-count-n">3,019</span> <span class="tsw-count-l">Framework pages</span> <span class="tsw-count-d">One page per Enterprise ATT&amp;CK technique, tactic, group, software entry, campaign, and mitigation, CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, and F3 technique</span></a>
+  <a class="tsw-count" href="#/languages/README"><span class="tsw-count-n">191</span> <span class="tsw-count-l">Developer reference pages</span> <span class="tsw-count-d">One page per programming language, paradigm, software framework, command-line tool, data format, and database engine</span></a>
+  <a class="tsw-count" href="#/platforms/README"><span class="tsw-count-n">59</span> <span class="tsw-count-l">Security platform pages</span> <span class="tsw-count-d">One page per vendor platform a security program runs on, from endpoint and exposure management to identity, cloud, OT, and backup</span></a>
+  <a class="tsw-count" href="#/ai-tooling/README"><span class="tsw-count-n">50</span> <span class="tsw-count-l">AI tooling pages</span> <span class="tsw-count-d">AI tools and models in groups, a one-page manual for each tool, a learning path, and hands-on labs</span></a>
+  <a class="tsw-count" href="#/case-studies/README"><span class="tsw-count-n">7</span> <span class="tsw-count-l">Case studies</span> <span class="tsw-count-d">Evidence-graded studies of how the threat landscape is changing, written from primary sources, with figures and PDF downloads</span></a>
 </div>
 <!-- stats:end -->
 

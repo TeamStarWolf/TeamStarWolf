@@ -171,9 +171,9 @@ Cleartext protocols leak. `nc host 25`, `ftp`, `telnet`, and plain HTTP expose c
 
 ## Related pages
 
-- /commands/README.md
-- /SECURE_CODING_REFERENCE.md
-- /commands/tshark.md
-- /commands/nmap.md
-- /commands/curl.md
-- /commands/ssh.md
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [tshark Command Reference](/commands/tshark.md)
+- [Nmap Command Reference](/commands/nmap.md)
+- [curl Command Reference](/commands/curl.md)
+- [SSH Command Reference](/commands/ssh.md)

@@ -68,9 +68,9 @@ Its session recordings and checkout logs are primary evidence during incident re
 
 ## Related pages
 
-- `/platforms/README.md`
-- `/VULNERABILITY_MANAGEMENT_REFERENCE.md`
-- `/INCIDENT_RESPONSE_REFERENCE.md`
-- `/SECURE_CODING_REFERENCE.md`
-- `/platforms/entra-id.md`
-- `/platforms/sailpoint.md`
+- [Security platforms](/platforms/README.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Microsoft Entra ID](/platforms/entra-id.md)
+- [SailPoint](/platforms/sailpoint.md)

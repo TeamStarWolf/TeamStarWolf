@@ -69,8 +69,8 @@ For incident response, Dragos scopes an operational-technology intrusion and sho
 
 ## Related pages
 
-- /platforms/README.md
-- /hubs/ics-ot-and-hardware.md
-- /INCIDENT_RESPONSE_REFERENCE.md
-- /VULNERABILITY_MANAGEMENT_REFERENCE.md
-- /platforms/claroty.md
+- [Security platforms](/platforms/README.md)
+- [ICS, OT, and hardware](/hubs/ics-ot-and-hardware.md)
+- [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Claroty](/platforms/claroty.md)

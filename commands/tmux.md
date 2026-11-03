@@ -158,8 +158,8 @@ A detached session keeps its scrollback, environment variables, and any running 
 
 ## Related pages
 
-- `/commands/README.md`
-- `/SECURE_CODING_REFERENCE.md`
-- `/commands/vim.md`
-- `/commands/ssh.md`
-- `/commands/linux-commands.md`
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Vim Command Reference](/commands/vim.md)
+- [SSH Command Reference](/commands/ssh.md)
+- [Linux Command Reference](/commands/linux-commands.md)

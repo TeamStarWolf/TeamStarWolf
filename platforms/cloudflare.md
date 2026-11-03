@@ -156,10 +156,10 @@ See `/INTERNET_FACING_SERVICES_REFERENCE.md` for exposure tracking.
 
 ## Related pages
 
-- /platforms/README.md
-- /INTERNET_FACING_SERVICES_REFERENCE.md
-- /WEB_APPLICATION_SECURITY_REFERENCE.md
-- /VULNERABILITY_MANAGEMENT_REFERENCE.md
-- /platforms/akamai.md
-- /platforms/citrix-netscaler.md
-- /platforms/f5.md
+- [Security platforms](/platforms/README.md)
+- [Internet-Facing Services and External Exposure](/INTERNET_FACING_SERVICES_REFERENCE.md)
+- [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Akamai](/platforms/akamai.md)
+- [Citrix NetScaler](/platforms/citrix-netscaler.md)
+- [F5](/platforms/f5.md)

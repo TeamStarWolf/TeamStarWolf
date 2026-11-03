@@ -64,9 +64,9 @@ Silent broadcasting is a second hazard. When two arrays almost conform, some run
 
 ## Related pages
 
-- /paradigms/README.md
-- /SECURE_CODING_REFERENCE.md
-- /paradigms/functional.md
-- /paradigms/declarative.md
-- /paradigms/dataflow.md
-- /paradigms/data-oriented.md
+- [Programming paradigms](/paradigms/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Functional Programming](/paradigms/functional.md)
+- [Declarative Programming](/paradigms/declarative.md)
+- [Dataflow Programming](/paradigms/dataflow.md)
+- [Data-Oriented Design](/paradigms/data-oriented.md)

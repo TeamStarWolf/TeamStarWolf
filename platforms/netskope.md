@@ -152,10 +152,10 @@ hiding private applications behind per-user grants. See
 
 ## Related pages
 
-- /platforms/README.md
-- /VULNERABILITY_MANAGEMENT_REFERENCE.md
-- /INTERNET_FACING_SERVICES_REFERENCE.md
-- /WEB_APPLICATION_SECURITY_REFERENCE.md
-- /platforms/zscaler.md
-- /platforms/cisco-secure-access.md
-- /platforms/forcepoint.md
+- [Security platforms](/platforms/README.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Internet-Facing Services and External Exposure](/INTERNET_FACING_SERVICES_REFERENCE.md)
+- [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+- [Zscaler](/platforms/zscaler.md)
+- [Cisco Secure Access](/platforms/cisco-secure-access.md)
+- [Forcepoint](/platforms/forcepoint.md)

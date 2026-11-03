@@ -82,10 +82,10 @@ Treat deserialization of symbolic data as code execution, because a reader that 
 
 ## Related pages
 
-- /paradigms/README.md
-- /SECURE_CODING_REFERENCE.md
-- /paradigms/functional.md
-- /paradigms/logic.md
-- /paradigms/metaprogramming.md
-- /paradigms/declarative.md
-- /paradigms/data-oriented.md
+- [Programming paradigms](/paradigms/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Functional Programming](/paradigms/functional.md)
+- [Logic Programming](/paradigms/logic.md)
+- [Metaprogramming](/paradigms/metaprogramming.md)
+- [Declarative Programming](/paradigms/declarative.md)
+- [Data-Oriented Design](/paradigms/data-oriented.md)

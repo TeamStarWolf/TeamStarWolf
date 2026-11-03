@@ -114,9 +114,9 @@ Defenders see sqlmap through its traffic pattern. A web application firewall fla
 
 ## Related pages
 
-- /commands/README.md
-- /SECURE_CODING_REFERENCE.md
-- /commands/gobuster.md
-- /commands/nmap.md
-- /commands/curl.md
-- /commands/metasploit.md
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [gobuster Command Reference](/commands/gobuster.md)
+- [Nmap Command Reference](/commands/nmap.md)
+- [curl Command Reference](/commands/curl.md)
+- [Metasploit Framework Reference](/commands/metasploit.md)

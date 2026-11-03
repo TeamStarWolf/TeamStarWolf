@@ -165,9 +165,9 @@ Scope IAM policies to the specific actions and resource ARNs a task needs rather
 
 ## Related pages
 
-- `/commands/README.md`
-- `/SECURE_CODING_REFERENCE.md`
-- `/commands/azure-cli.md`
-- `/commands/gcloud.md`
-- `/commands/jq.md`
-- `/commands/terraform.md`
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Azure CLI Reference](/commands/azure-cli.md)
+- [Google Cloud CLI (gcloud) Reference](/commands/gcloud.md)
+- [jq Command Reference](/commands/jq.md)
+- [Terraform Command Reference](/commands/terraform.md)

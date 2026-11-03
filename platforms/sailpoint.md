@@ -68,8 +68,8 @@ Its certification records and policy evidence support audit and compliance attes
 
 ## Related pages
 
-- `/platforms/README.md`
-- `/VULNERABILITY_MANAGEMENT_REFERENCE.md`
-- `/INCIDENT_RESPONSE_REFERENCE.md`
-- `/platforms/entra-id.md`
-- `/platforms/cyberark.md`
+- [Security platforms](/platforms/README.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
+- [Microsoft Entra ID](/platforms/entra-id.md)
+- [CyberArk](/platforms/cyberark.md)

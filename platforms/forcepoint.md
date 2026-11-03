@@ -91,8 +91,8 @@ Its data loss prevention events support detection and incident response by flagg
 
 ## Related pages
 
-- /platforms/README.md
-- /SECURE_CODING_REFERENCE.md
-- /INCIDENT_RESPONSE_REFERENCE.md
-- /platforms/zscaler.md
-- /platforms/cisco-secure-access.md
+- [Security platforms](/platforms/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
+- [Zscaler](/platforms/zscaler.md)
+- [Cisco Secure Access](/platforms/cisco-secure-access.md)

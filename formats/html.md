@@ -121,9 +121,9 @@ The WHATWG HTML Living Standard is the authoritative specification. MDN Web Docs
 
 ## Related pages
 
-- /formats/README.md
-- /SECURE_CODING_REFERENCE.md
-- /WEB_APPLICATION_SECURITY_REFERENCE.md
-- /formats/css.md
-- /formats/markdown.md
-- /formats/xml.md
+- [Data formats and regular expressions](/formats/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+- [CSS](/formats/css.md)
+- [Markdown](/formats/markdown.md)
+- [XML](/formats/xml.md)

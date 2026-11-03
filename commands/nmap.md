@@ -119,9 +119,9 @@ Mitigation reduces what a scan can find. Close unused ports, restrict services t
 
 ## Related pages
 
-- /commands/README.md
-- /SECURE_CODING_REFERENCE.md
-- /commands/networking-commands.md
-- /commands/metasploit.md
-- /commands/tshark.md
-- /commands/ssh.md
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Networking Command Reference](/commands/networking-commands.md)
+- [Metasploit Framework Reference](/commands/metasploit.md)
+- [tshark Command Reference](/commands/tshark.md)
+- [SSH Command Reference](/commands/ssh.md)

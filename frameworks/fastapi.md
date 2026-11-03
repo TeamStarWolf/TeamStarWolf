@@ -96,11 +96,11 @@ Pinning the wrong Pydantic major version breaks validators and model config sile
 
 ## Related pages
 
-- /languages/python.md
-- /frameworks/README.md
-- /SECURE_CODING_REFERENCE.md
-- /WEB_APPLICATION_SECURITY_REFERENCE.md
-- /API_SECURITY_REFERENCE.md
-- /frameworks/flask.md
-- /frameworks/django.md
-- /frameworks/express.md
+- [Python](/languages/python.md)
+- [Software frameworks](/frameworks/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+- [API Security Reference Library](/API_SECURITY_REFERENCE.md)
+- [Flask](/frameworks/flask.md)
+- [Django](/frameworks/django.md)
+- [Express.js](/frameworks/express.md)

@@ -129,8 +129,8 @@ Enforce boundaries in the cluster. Apply NetworkPolicies so pods cannot talk fre
 
 ## Related pages
 
-- /commands/README.md
-- /SECURE_CODING_REFERENCE.md
-- /commands/docker.md
-- /commands/terraform.md
-- /commands/curl.md
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Docker Command Reference](/commands/docker.md)
+- [Terraform Command Reference](/commands/terraform.md)
+- [curl Command Reference](/commands/curl.md)

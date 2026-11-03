@@ -139,9 +139,9 @@ SQLite does not scale to many concurrent writers or to clustered deployments. A 
 
 ## Related pages
 
-- /languages/sql.md
-- /databases/README.md
-- /SECURE_CODING_REFERENCE.md
-- /databases/postgresql.md
-- /databases/mysql.md
-- /databases/sql-server.md
+- [SQL](/languages/sql.md)
+- [Databases](/databases/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [PostgreSQL](/databases/postgresql.md)
+- [MySQL and MariaDB](/databases/mysql.md)
+- [Microsoft SQL Server](/databases/sql-server.md)

@@ -148,8 +148,8 @@ Defenders cannot watch the cracking itself, since it happens offline. They detec
 
 ## Related pages
 
-- /commands/README.md
-- /SECURE_CODING_REFERENCE.md
-- /commands/metasploit.md
-- /commands/nmap.md
-- /commands/sqlmap.md
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Metasploit Framework Reference](/commands/metasploit.md)
+- [Nmap Command Reference](/commands/nmap.md)
+- [sqlmap Command Reference](/commands/sqlmap.md)

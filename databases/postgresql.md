@@ -120,10 +120,10 @@ Streaming replication ships WAL to one or more replicas for read scaling and fai
 
 ## Related pages
 
-- /languages/sql.md
-- /databases/README.md
-- /SECURE_CODING_REFERENCE.md
-- /databases/mysql.md
-- /databases/oracle.md
-- /databases/sqlite.md
-- /databases/clickhouse.md
+- [SQL](/languages/sql.md)
+- [Databases](/databases/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [MySQL and MariaDB](/databases/mysql.md)
+- [Oracle Database](/databases/oracle.md)
+- [SQLite](/databases/sqlite.md)
+- [ClickHouse](/databases/clickhouse.md)

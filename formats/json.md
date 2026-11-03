@@ -99,8 +99,8 @@ JSON is data, but parsing and merging untrusted JSON carries real risk. See `/SE
 
 ## Related pages
 
-- `/formats/README.md`
-- `/SECURE_CODING_REFERENCE.md`
-- `/formats/yaml.md`
-- `/formats/xml.md`
-- `/formats/toml.md`
+- [Data formats and regular expressions](/formats/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [YAML](/formats/yaml.md)
+- [XML](/formats/xml.md)
+- [TOML](/formats/toml.md)

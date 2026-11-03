@@ -133,8 +133,8 @@ TOML is a configuration format, so its main risks come from what people store in
 
 ## Related pages
 
-- /formats/README.md
-- /SECURE_CODING_REFERENCE.md
-- /formats/ini.md
-- /formats/yaml.md
-- /formats/json.md
+- [Data formats and regular expressions](/formats/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [INI](/formats/ini.md)
+- [YAML](/formats/yaml.md)
+- [JSON](/formats/json.md)

@@ -83,12 +83,12 @@ Returning large objects from `load` bloats the serialized payload. Trim the shap
 
 ## Related pages
 
-- `/languages/javascript.md`
-- `/languages/typescript.md`
-- `/frameworks/README.md`
-- `/SECURE_CODING_REFERENCE.md`
-- `/WEB_APPLICATION_SECURITY_REFERENCE.md`
-- `/API_SECURITY_REFERENCE.md`
-- `/frameworks/react.md`
-- `/frameworks/vue.md`
-- `/frameworks/nextjs.md`
+- [JavaScript](/languages/javascript.md)
+- [TypeScript](/languages/typescript.md)
+- [Software frameworks](/frameworks/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+- [API Security Reference Library](/API_SECURITY_REFERENCE.md)
+- [React](/frameworks/react.md)
+- [Vue.js](/frameworks/vue.md)
+- [Next.js](/frameworks/nextjs.md)

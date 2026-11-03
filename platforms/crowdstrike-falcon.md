@@ -63,9 +63,9 @@ A vulnerability management and security operations team uses Falcon as the endpo
 
 ## Related pages
 
-- /platforms/README.md
-- /SCANNER_PLATFORMS_REFERENCE.md
-- /VULNERABILITY_MANAGEMENT_REFERENCE.md
-- /INCIDENT_RESPONSE_REFERENCE.md
-- /platforms/microsoft-defender.md
-- /platforms/tanium.md
+- [Security platforms](/platforms/README.md)
+- [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
+- [Microsoft Defender for Endpoint](/platforms/microsoft-defender.md)
+- [Tanium](/platforms/tanium.md)

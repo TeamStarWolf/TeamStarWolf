@@ -63,9 +63,9 @@ Messages crossing a trust boundary are untrusted input. A process that deseriali
 
 ## Related pages
 
-- /paradigms/README.md
-- /SECURE_CODING_REFERENCE.md
-- /paradigms/concurrent.md
-- /paradigms/event-driven.md
-- /paradigms/functional.md
-- /paradigms/reactive.md
+- [Programming paradigms](/paradigms/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Concurrent Programming](/paradigms/concurrent.md)
+- [Event-Driven Programming](/paradigms/event-driven.md)
+- [Functional Programming](/paradigms/functional.md)
+- [Reactive Programming](/paradigms/reactive.md)

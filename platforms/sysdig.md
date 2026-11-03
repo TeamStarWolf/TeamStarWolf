@@ -73,10 +73,10 @@ Alongside a posture-focused CNAPP such as Wiz, Prisma Cloud, or Orca Security, S
 
 ## Related pages
 
-- /platforms/README.md
-- /CLOUD_SECURITY_REFERENCE.md
-- /CONTAINER_SECURITY_REFERENCE.md
-- /VULNERABILITY_MANAGEMENT_REFERENCE.md
-- /platforms/aqua-security.md
-- /platforms/wiz.md
-- /platforms/crowdstrike-falcon.md
+- [Security platforms](/platforms/README.md)
+- [Cloud Security Reference Library](/CLOUD_SECURITY_REFERENCE.md)
+- [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Aqua Security](/platforms/aqua-security.md)
+- [Wiz](/platforms/wiz.md)
+- [CrowdStrike Falcon](/platforms/crowdstrike-falcon.md)

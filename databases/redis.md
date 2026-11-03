@@ -140,8 +140,8 @@ Consistency is asynchronous by default, so a write acknowledged by the primary c
 
 ## Related pages
 
-- /databases/README.md
-- /SECURE_CODING_REFERENCE.md
-- /databases/mongodb.md
-- /databases/cassandra.md
-- /databases/dynamodb.md
+- [Databases](/databases/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [MongoDB](/databases/mongodb.md)
+- [Apache Cassandra](/databases/cassandra.md)
+- [Amazon DynamoDB](/databases/dynamodb.md)

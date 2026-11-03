@@ -90,10 +90,10 @@ Place its recovery objectives inside the broader continuity plan in `/CYBER_RESI
 
 ## Related pages
 
-- `/platforms/README.md`
-- `/RANSOMWARE_DEFENSE_REFERENCE.md`
-- `/CYBER_RESILIENCE_BCDR_REFERENCE.md`
-- `/INCIDENT_RESPONSE_REFERENCE.md`
-- `/platforms/cohesity.md`
-- `/platforms/commvault.md`
-- `/platforms/dell-powerprotect.md`
+- [Security platforms](/platforms/README.md)
+- [Ransomware Defense & Resilience Reference](/RANSOMWARE_DEFENSE_REFERENCE.md)
+- [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md)
+- [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
+- [Cohesity](/platforms/cohesity.md)
+- [Commvault](/platforms/commvault.md)
+- [Dell PowerProtect](/platforms/dell-powerprotect.md)

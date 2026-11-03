@@ -166,8 +166,8 @@ Remoting over `Enter-PSSession` and `Invoke-Command` uses WinRM. Restrict it to 
 
 ## Related pages
 
-- /commands/README.md
-- /SECURE_CODING_REFERENCE.md
-- /commands/windows-cmd.md
-- /commands/systemctl.md
-- /commands/networking-commands.md
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Windows Command Prompt Reference](/commands/windows-cmd.md)
+- [systemd and systemctl Reference](/commands/systemctl.md)
+- [Networking Command Reference](/commands/networking-commands.md)

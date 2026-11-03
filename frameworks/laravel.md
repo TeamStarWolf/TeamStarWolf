@@ -75,11 +75,11 @@ Using `{!! !!}` or `DB::raw` with request data reintroduces injection flaws the 
 
 ## Related pages
 
-- `/languages/php.md`
-- `/frameworks/README.md`
-- `/SECURE_CODING_REFERENCE.md`
-- `/WEB_APPLICATION_SECURITY_REFERENCE.md`
-- `/API_SECURITY_REFERENCE.md`
-- `/frameworks/symfony.md`
-- `/frameworks/rails.md`
-- `/frameworks/django.md`
+- [PHP](/languages/php.md)
+- [Software frameworks](/frameworks/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+- [API Security Reference Library](/API_SECURITY_REFERENCE.md)
+- [Symfony](/frameworks/symfony.md)
+- [Ruby on Rails](/frameworks/rails.md)
+- [Django](/frameworks/django.md)

@@ -192,8 +192,8 @@ Masking is stronger than disabling. A disabled unit can still be started by a de
 
 ## Related pages
 
-- /commands/README.md
-- /SECURE_CODING_REFERENCE.md
-- /commands/linux-commands.md
-- /commands/networking-commands.md
-- /commands/ssh.md
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Linux Command Reference](/commands/linux-commands.md)
+- [Networking Command Reference](/commands/networking-commands.md)
+- [SSH Command Reference](/commands/ssh.md)

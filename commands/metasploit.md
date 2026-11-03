@@ -172,8 +172,8 @@ Authorized scope is a control, not paperwork. A rules-of-engagement document nam
 
 ## Related pages
 
-- /commands/README.md
-- /SECURE_CODING_REFERENCE.md
-- /commands/nmap.md
-- /commands/sqlmap.md
-- /commands/hashcat.md
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Nmap Command Reference](/commands/nmap.md)
+- [sqlmap Command Reference](/commands/sqlmap.md)
+- [hashcat Command Reference](/commands/hashcat.md)

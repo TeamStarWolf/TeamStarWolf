@@ -182,8 +182,8 @@ Swap files (`.file.swp`) and the undo history hold the content you edit, includi
 
 ## Related pages
 
-- `/commands/README.md`
-- `/SECURE_CODING_REFERENCE.md`
-- `/commands/tmux.md`
-- `/commands/linux-commands.md`
-- `/commands/ssh.md`
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [tmux Command Reference](/commands/tmux.md)
+- [Linux Command Reference](/commands/linux-commands.md)
+- [SSH Command Reference](/commands/ssh.md)

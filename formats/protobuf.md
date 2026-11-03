@@ -138,8 +138,8 @@ See `/SECURE_CODING_REFERENCE.md` for input-validation and resource-limit guidan
 
 ## Related pages
 
-- /formats/README.md
-- /SECURE_CODING_REFERENCE.md
-- /formats/json.md
-- /formats/xml.md
-- /formats/yaml.md
+- [Data formats and regular expressions](/formats/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [JSON](/formats/json.md)
+- [XML](/formats/xml.md)
+- [YAML](/formats/yaml.md)

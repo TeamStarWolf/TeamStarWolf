@@ -109,8 +109,8 @@ Neo4j scales reads with clustering: a primary handles writes and replicas serve 
 
 ## Related pages
 
-- /databases/README.md
-- /SECURE_CODING_REFERENCE.md
-- /databases/mongodb.md
-- /databases/postgresql.md
-- /databases/redis.md
+- [Databases](/databases/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [MongoDB](/databases/mongodb.md)
+- [PostgreSQL](/databases/postgresql.md)
+- [Redis](/databases/redis.md)

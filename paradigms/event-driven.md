@@ -95,9 +95,9 @@ Handlers often act on event payloads that originate outside your trust boundary.
 
 ## Related pages
 
-- /paradigms/README.md
-- /SECURE_CODING_REFERENCE.md
-- /paradigms/reactive.md
-- /paradigms/dataflow.md
-- /paradigms/concurrent.md
-- /paradigms/actor-model.md
+- [Programming paradigms](/paradigms/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Reactive Programming](/paradigms/reactive.md)
+- [Dataflow Programming](/paradigms/dataflow.md)
+- [Concurrent Programming](/paradigms/concurrent.md)
+- [The Actor Model](/paradigms/actor-model.md)

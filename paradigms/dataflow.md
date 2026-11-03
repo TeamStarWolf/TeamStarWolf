@@ -64,9 +64,9 @@ Nodes that evaluate externally supplied formulas or expressions are dangerous. A
 
 ## Related pages
 
-- /paradigms/README.md
-- /SECURE_CODING_REFERENCE.md
-- /paradigms/reactive.md
-- /paradigms/declarative.md
-- /paradigms/concurrent.md
-- /paradigms/functional.md
+- [Programming paradigms](/paradigms/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Reactive Programming](/paradigms/reactive.md)
+- [Declarative Programming](/paradigms/declarative.md)
+- [Concurrent Programming](/paradigms/concurrent.md)
+- [Functional Programming](/paradigms/functional.md)

@@ -69,9 +69,9 @@ Replacing pointers with indices is safer against use-after-free but introduces a
 
 ## Related pages
 
-- /paradigms/README.md
-- /SECURE_CODING_REFERENCE.md
-- /paradigms/object-oriented.md
-- /paradigms/array-oriented.md
-- /paradigms/procedural.md
-- /paradigms/generic.md
+- [Programming paradigms](/paradigms/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Object-Oriented Programming](/paradigms/object-oriented.md)
+- [Array-Oriented Programming](/paradigms/array-oriented.md)
+- [Procedural Programming](/paradigms/procedural.md)
+- [Generic Programming](/paradigms/generic.md)

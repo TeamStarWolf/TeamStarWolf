@@ -64,9 +64,9 @@ A vulnerability management and security operations team uses Tanium for live, es
 
 ## Related pages
 
-- /platforms/README.md
-- /SCANNER_PLATFORMS_REFERENCE.md
-- /VULNERABILITY_MANAGEMENT_REFERENCE.md
-- /INCIDENT_RESPONSE_REFERENCE.md
-- /platforms/crowdstrike-falcon.md
-- /platforms/servicenow-vr.md
+- [Security platforms](/platforms/README.md)
+- [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
+- [CrowdStrike Falcon](/platforms/crowdstrike-falcon.md)
+- [ServiceNow Vulnerability Response](/platforms/servicenow-vr.md)

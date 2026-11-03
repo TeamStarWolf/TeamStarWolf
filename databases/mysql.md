@@ -110,9 +110,9 @@ Asynchronous replication streams the binary log from a primary to replicas for r
 
 ## Related pages
 
-- /languages/sql.md
-- /databases/README.md
-- /SECURE_CODING_REFERENCE.md
-- /databases/postgresql.md
-- /databases/oracle.md
-- /databases/sqlite.md
+- [SQL](/languages/sql.md)
+- [Databases](/databases/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [PostgreSQL](/databases/postgresql.md)
+- [Oracle Database](/databases/oracle.md)
+- [SQLite](/databases/sqlite.md)

@@ -82,9 +82,9 @@ Doing work directly in a composable body, rather than in an effect, runs it on e
 
 ## Related pages
 
-- /languages/kotlin.md
-- /frameworks/README.md
-- /SECURE_CODING_REFERENCE.md
-- /frameworks/flutter.md
-- /frameworks/swiftui.md
-- /frameworks/react-native.md
+- [Kotlin](/languages/kotlin.md)
+- [Software frameworks](/frameworks/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Flutter](/frameworks/flutter.md)
+- [SwiftUI](/frameworks/swiftui.md)
+- [React Native](/frameworks/react-native.md)

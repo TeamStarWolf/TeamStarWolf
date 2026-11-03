@@ -90,11 +90,11 @@ Blocking on async calls with `.Result` or `.Wait()` can deadlock and starves the
 
 ## Related pages
 
-- /languages/csharp.md
-- /frameworks/README.md
-- /SECURE_CODING_REFERENCE.md
-- /WEB_APPLICATION_SECURITY_REFERENCE.md
-- /API_SECURITY_REFERENCE.md
-- /frameworks/spring-boot.md
-- /frameworks/django.md
-- /frameworks/express.md
+- [C#](/languages/csharp.md)
+- [Software frameworks](/frameworks/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+- [API Security Reference Library](/API_SECURITY_REFERENCE.md)
+- [Spring Boot](/frameworks/spring-boot.md)
+- [Django](/frameworks/django.md)
+- [Express.js](/frameworks/express.md)

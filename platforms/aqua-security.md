@@ -73,10 +73,10 @@ Alongside a broad CNAPP such as Wiz, Prisma Cloud, or Orca Security, Aqua often 
 
 ## Related pages
 
-- /platforms/README.md
-- /CONTAINER_SECURITY_REFERENCE.md
-- /CLOUD_SECURITY_REFERENCE.md
-- /VULNERABILITY_MANAGEMENT_REFERENCE.md
-- /platforms/sysdig.md
-- /platforms/prisma-cloud.md
-- /platforms/snyk.md
+- [Security platforms](/platforms/README.md)
+- [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md)
+- [Cloud Security Reference Library](/CLOUD_SECURITY_REFERENCE.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Sysdig](/platforms/sysdig.md)
+- [Prisma Cloud](/platforms/prisma-cloud.md)
+- [Snyk](/platforms/snyk.md)

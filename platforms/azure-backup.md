@@ -90,10 +90,10 @@ Place its objectives inside the continuity plan in `/CYBER_RESILIENCE_BCDR_REFER
 
 ## Related pages
 
-- `/platforms/README.md`
-- `/RANSOMWARE_DEFENSE_REFERENCE.md`
-- `/CYBER_RESILIENCE_BCDR_REFERENCE.md`
-- `/INCIDENT_RESPONSE_REFERENCE.md`
-- `/platforms/aws-backup.md`
-- `/platforms/entra-id.md`
-- `/platforms/veeam.md`
+- [Security platforms](/platforms/README.md)
+- [Ransomware Defense & Resilience Reference](/RANSOMWARE_DEFENSE_REFERENCE.md)
+- [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md)
+- [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
+- [AWS Backup](/platforms/aws-backup.md)
+- [Microsoft Entra ID](/platforms/entra-id.md)
+- [Veeam](/platforms/veeam.md)

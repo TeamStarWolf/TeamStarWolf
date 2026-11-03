@@ -44,6 +44,18 @@ jobs:
       - name: Entity vocabulary (data/vocab) matches its sources
         run: python scripts/build_vocab.py --check
 
+      # The "On the Intelligence Hub" lines on platform pages, NOTABLE_INCIDENTS years, the
+      # almanac, the CVE and KEV sections and the actor and malware profiles are written by
+      # build_hub_links.py from the vocabulary above and the pinned Hub snapshot in
+      # data/hub/tag_counts.json, following the Hub's route contract (docs/URLS.md in
+      # TeamStarWolf/intelligence-hub). No network: the snapshot is re-pinned by hand with
+      # --refresh. Fails on a stale or missing line and on a marker outside the target pages.
+      - name: Hub link rules (planted cases)
+        run: python scripts/build_hub_links.py --self-test
+
+      - name: On the Intelligence Hub lines match the vocabulary and the pinned Hub snapshot
+        run: python scripts/build_hub_links.py --check
+
       # Rebuilds the ATT&CK core (Enterprise, ICS, Mobile) and superseded_by.jsonl in
       # memory from the commit-pinned v20.0 STIX bundles and fails on any drift. It fetches
       # the three public bundles (about 64 MB) from raw.githubusercontent.com at the pinned

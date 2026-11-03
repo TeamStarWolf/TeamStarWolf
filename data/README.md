@@ -16,6 +16,7 @@
 | `engage/` | Engage goals, approaches, activities, and their ATT&CK mappings | MITRE Engage |
 | `fraud/` | F3 tactics and techniques | CTID F3 (Apache-2.0) |
 | `weaknesses/` | CWE weaknesses and CAPEC attack patterns, with CAPEC's ATT&CK links | MITRE CWE, CAPEC |
+| `hub/` | `tag_counts.json`: a pinned snapshot of the Intelligence Hub (entries per vocabulary tag, KEV-linked entries, entries per year, and the CVEs with a brief), read by `scripts/build_hub_links.py` | Written by `scripts/build_hub_links.py --refresh` from the live Hub |
 | `generated/` | `stats.json` (headline counts) and `corpus_signal.jsonl` (the corpus-signal paragraphs on technique pages) | Written by scripts |
 | `doc_meta.yaml` | The hand-written fields of each root reference's and learning path's header card, the recorded corrections and owner reviews, the overlap clusters, and the folds, read by `scripts/build_doc_meta.py` | This library |
 | `doc_takeaways.yaml`, `doc_takeaways.draft.yaml` | Key takeaways: the ones the owner has reviewed (shown on the pages) and the drafts awaiting review (never shown) | This library |

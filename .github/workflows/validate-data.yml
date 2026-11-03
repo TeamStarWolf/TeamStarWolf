@@ -116,6 +116,15 @@ jobs:
       - name: techniques/ and detections/strategies/ match the data
         run: python scripts/generate_technique_detail_pages.py --check
 
+      # The Technique, ICS and Mobile atlases and Threat Group Profiles are written from
+      # data/attack by build_attack_atlases.py; the header card and the related-pages footer
+      # on them are left to build_doc_meta.py and build_crosslinks.py, whose own checks run
+      # in the site jobs.
+      - name: ATT&CK atlases and Threat Group Profiles match the data
+        run: |
+          python scripts/build_attack_atlases.py --self-test
+          python scripts/build_attack_atlases.py --check
+
   repo-hygiene:
     name: Tracked junk, text encoding, revoked ATT&CK IDs, voice in hand-written pages, theme contrast
     # junk: nothing build/editor/OS-generated is tracked (all of it would be published).

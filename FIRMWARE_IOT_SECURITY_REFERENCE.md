@@ -17,7 +17,7 @@ Intermediate to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 14 min (3,260 words at 230 words a minute)
+About 14 min (3,264 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -2679,7 +2679,7 @@ Tactic-Technique Mapping (Key T0800-T0900 Range):
 | Initial Access | T0819 | Exploit Public-Facing Application | HMI/SCADA web interfaces |
 | Initial Access | T0866 | Exploitation of Remote Services | RDP, VPN, OT protocols |
 | Initial Access | T0862 | Supply Chain Compromise | Compromised firmware/components |
-| Execution | T0807 | Command-Line Interface | Linux shell via UART/SSH |
+| Execution | T1701.003 | Command and Scripting Interpreter: Unix Shell | Linux shell via UART/SSH |
 | Execution | T0821 | Modify Controller Tasking | Direct PLC program modification |
 | Execution | T0871 | Execution through API | SCADA/DCS API abuse |
 | Persistence | T1693.002 | Module Firmware | Malicious firmware in PLC modules |

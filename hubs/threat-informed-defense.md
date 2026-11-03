@@ -11,13 +11,13 @@ Part of the [domain hubs](/hubs/README.md). 16 reference documents in this domai
 | Reference | What it covers | Reading time |
 |---|---|---|
 | [Threat-Informed Defense Reference](/THREAT_INFORMED_DEFENSE_REFERENCE.md) | ATT&CK-centric knowledge graph (CVE -> CWE -> CAPEC -> ATT&CK -> D3FEND), open-source data-source stack, and per-technique coverage-stack model | 7 min |
-| [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md) | All 723 ATT&CK techniques by tactic (706 active in ATT&CK v20.0, plus the revoked records kept so old links resolve), cross-referenced to threat groups, software, mitigations, NIST controls, and detection | Lookup page (51 min end to end) |
+| [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md) | The 706 active Enterprise techniques and sub-techniques of ATT&CK v20.0 by tactic (the 17 revoked records are left out; their mitre/techniques/ pages keep old links working), cross-referenced to threat groups, software, mitigations, NIST controls, and detection | Lookup page (51 min end to end) |
 | [ATT&CK Matrix Analysis Reference](/ATTACK_MATRIX_ANALYSIS_REFERENCE.md) | 24 analytic lenses for reading an ATT&CK matrix: mitigation, threat activity, exposure, detection, compliance, and composite risk | 5 min |
 | [ATT&CK Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md) | 106 telemetry categories mapped to the techniques they detect, with concrete log sources and channels | Lookup page (135 min end to end) |
 | [ATT&CK Software Reference](/ATTACK_SOFTWARE_REFERENCE.md) | 842 MITRE ATT&CK malware families and tools with the techniques they implement and the groups that use them | 46 min |
 | [ATT&CK Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md) | 57 MITRE ATT&CK intrusion campaigns with active windows, techniques, software, and group attribution | 29 min |
 | [ATT&CK Mitigations Reference](/ATTACK_MITIGATIONS_REFERENCE.md) | All 44 ATT&CK Enterprise mitigations (M-codes) and the techniques each one addresses | 22 min |
-| [Mobile ATT&CK Atlas](/MOBILE_ATTACK_ATLAS.md) | MITRE ATT&CK for Mobile techniques and sub-techniques by tactic (page snapshot: ATT&CK v18.1), cross-referenced to groups, software, and mitigations | Lookup page (7 min end to end) |
+| [Mobile ATT&CK Atlas](/MOBILE_ATTACK_ATLAS.md) | MITRE ATT&CK for Mobile techniques and sub-techniques by tactic (generated from ATT&CK v20.0 data), cross-referenced to groups, software, and mitigations | Lookup page (8 min end to end) |
 
 ## Related MITRE frameworks
 

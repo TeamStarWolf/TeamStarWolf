@@ -146,9 +146,9 @@ Result caching returns identical queries without recompute. Materialized views a
 
 ## Related pages
 
-- /languages/sql.md
-- /databases/README.md
-- /SECURE_CODING_REFERENCE.md
-- /databases/databricks.md
-- /databases/clickhouse.md
-- /databases/postgresql.md
+- [SQL](/languages/sql.md)
+- [Databases](/databases/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Databricks and Spark SQL](/databases/databricks.md)
+- [ClickHouse](/databases/clickhouse.md)
+- [PostgreSQL](/databases/postgresql.md)

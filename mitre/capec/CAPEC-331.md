@@ -22,6 +22,15 @@ An adversary sends a UDP packet to a closed port on the target machine to solici
 - Confidentiality / Read Data
 - Confidentiality, Access Control, Authorization / Bypass Protection Mechanism, Hide Activities
 
+## Related pages
+
+- [CAPEC-332: ICMP IP 'ID' Field Error Message Probe](/mitre/capec/CAPEC-332.md), also related to CWE-204
+- [CAPEC-541: Application Fingerprinting](/mitre/capec/CAPEC-541.md), also related to CWE-204
+- [CAPEC-580: System Footprinting](/mitre/capec/CAPEC-580.md), also related to CWE-204
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

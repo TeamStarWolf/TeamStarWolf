@@ -76,10 +76,10 @@ Error channels deserve care. Swallowing `onError` hides failures and can leave s
 
 ## Related pages
 
-- /paradigms/README.md
-- /SECURE_CODING_REFERENCE.md
-- /paradigms/dataflow.md
-- /paradigms/event-driven.md
-- /paradigms/functional.md
-- /paradigms/declarative.md
-- /paradigms/concurrent.md
+- [Programming paradigms](/paradigms/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Dataflow Programming](/paradigms/dataflow.md)
+- [Event-Driven Programming](/paradigms/event-driven.md)
+- [Functional Programming](/paradigms/functional.md)
+- [Declarative Programming](/paradigms/declarative.md)
+- [Concurrent Programming](/paradigms/concurrent.md)

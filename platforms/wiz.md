@@ -72,8 +72,8 @@ In a mature program, Wiz findings open tickets for the owning cloud teams and fe
 
 ## Related pages
 
-- /platforms/README.md
-- /SCANNER_PLATFORMS_REFERENCE.md
-- /VULNERABILITY_MANAGEMENT_REFERENCE.md
-- /platforms/tenable.md
-- /platforms/qualys.md
+- [Security platforms](/platforms/README.md)
+- [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Tenable](/platforms/tenable.md)
+- [Qualys](/platforms/qualys.md)

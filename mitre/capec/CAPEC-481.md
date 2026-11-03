@@ -34,6 +34,15 @@ Adversaries can provide contradictory destinations when sending messages. Traffi
 
 - Monitor connections, checking headers in traffic for contradictory domain names, or empty domain names.
 
+## Related pages
+
+- [CAPEC-161: Infrastructure Manipulation](/mitre/capec/CAPEC-161.md), also related to CWE-923
+- [CAPEC-501: Android Activity Hijack](/mitre/capec/CAPEC-501.md), also related to CWE-923
+- [CAPEC-697: DHCP Spoofing](/mitre/capec/CAPEC-697.md), also related to CWE-923
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

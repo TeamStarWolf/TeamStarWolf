@@ -33,6 +33,18 @@ An adversary searches for and invokes interfaces or functionality that the targe
 
 - Authenticating both services and their discovery, and protecting that authentication mechanism simply fixes the bulk of this problem. Protecting the authentication involves the standard means, including: 1) protecting the channel over which authentication occurs, 2) preventing the theft, forgery, or prediction of authentication credentials or the resultant tokens, or 3) subversion of password reset and the like.
 
+## Related pages
+
+- [CAPEC-212: Functionality Misuse](/mitre/capec/CAPEC-212.md), also related to CWE-1242
+- [CAPEC-12: Choosing Message Identifier](/mitre/capec/CAPEC-12.md), also related to CWE-306
+- [CAPEC-62: Cross Site Request Forgery](/mitre/capec/CAPEC-62.md), also related to CWE-306
+- [CAPEC-166: Force the System to Reset Values](/mitre/capec/CAPEC-166.md), also related to CWE-306
+- [CAPEC-216: Communication Channel Manipulation](/mitre/capec/CAPEC-216.md), also related to CWE-306
+- [CAPEC-1: Accessing Functionality Not Properly Constrained by ACLs](/mitre/capec/CAPEC-1.md), also related to CWE-693
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

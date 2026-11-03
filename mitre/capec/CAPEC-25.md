@@ -40,6 +40,15 @@ The adversary triggers and exploits a deadlock condition in the target software 
 - Use known algorithm to avoid deadlock condition (for instance non-blocking synchronization algorithms).
 - For competing actions, use well-known libraries which implement synchronization.
 
+## Related pages
+
+- [CAPEC-26: Leveraging Race Conditions](/mitre/capec/CAPEC-26.md), also related to CWE-662 and CWE-667
+- [CAPEC-27: Leveraging Race Conditions via Symbolic Links](/mitre/capec/CAPEC-27.md), also related to CWE-662 and CWE-667
+- [CAPEC-29: Leveraging Time-of-Check and Time-of-Use (TOCTOU) Race Conditions](/mitre/capec/CAPEC-29.md), also related to CWE-662
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

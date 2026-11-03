@@ -20,6 +20,11 @@ An adversary suppresses the Border Gateway Protocol (BGP) advertisement for a ro
 - Implement Ingress filters to check the validity of received routes. However, this relies on the accuracy of Internet Routing Registries (IRRs) databases which are often not well-maintained.
 - Implement Secure BGP (S-BGP protocol), which improves authorization and authentication capabilities based on public-key cryptography.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

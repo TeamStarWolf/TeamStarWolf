@@ -13,6 +13,15 @@ Operating system level mechanisms to prevent abusive input device exploitation.
 - [T1123: Audio Capture](/mitre/techniques/T1123.md): analyzes. An adversary can leverage a computer's peripheral devices (e.g., microphones and webcams) or applications (e.g., voice and video call services) to capture audio recordings for the purpose of listening into sensitive conversations to gather information.
 - [T1125: Video Capture](/mitre/techniques/T1125.md): analyzes. An adversary can leverage a computer's peripheral devices (e.g., integrated cameras or webcams) or applications (e.g., video call services) to capture video recordings for the purpose of gathering information.
 
+## Related pages
+
+- [Hardware Component Inventory](/mitre/d3fend/hardware-component-inventory.md), which also counters 3 of these techniques
+- [IO Port Restriction](/mitre/d3fend/io-port-restriction.md), which also counters 3 of these techniques
+- [Radiation Hardening](/mitre/d3fend/radiation-hardening.md), which also counters 3 of these techniques
+- [Video Surveillance](/mitre/d3fend/video-surveillance.md), which also counters 1 of these techniques
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

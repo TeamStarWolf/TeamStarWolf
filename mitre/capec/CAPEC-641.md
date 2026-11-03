@@ -37,6 +37,16 @@ An adversary places a malicious version of a Dynamic-Link Library (DLL) in the W
 - Use of sxstrace.exe on Windows as well as manual inspection of the manifests.
 - Require code signing and avoid using relative paths for resources.
 
+## Related pages
+
+- [T1574.001: DLL](/mitre/techniques/T1574-001.md), whose ATT&CK profile lists this pattern
+- [CAPEC-48: Passing Local Filenames to Functions That Expect a URL](/mitre/capec/CAPEC-48.md), also related to CWE-706
+- [CAPEC-159: Redirect Access to Libraries](/mitre/capec/CAPEC-159.md), also related to CWE-706
+- [CAPEC-177: Create files with the same name as files protected with a higher classification](/mitre/capec/CAPEC-177.md), also related to CWE-706
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -39,6 +39,18 @@ An attacker changes the behavior or state of a targeted application through inje
 - Design: Limit program privileges, so if metacharacters or other methods circumvent program input validation routines and shell access is attained then it is not running under a privileged account. chroot jails create a sandbox for the application to execute in, making it more difficult for an attacker to elevate privilege even in the case that a compromise has occurred.
 - Implementation: Implement an audit log that is written to a separate host, in the event of a compromise the audit log may be able to provide evidence and details of the compromise.
 
+## Related pages
+
+- [CAPEC-15: Command Delimiters](/mitre/capec/CAPEC-15.md), also related to CWE-78, CWE-146 and 3 more
+- [CAPEC-43: Exploiting Multiple Input Interpretation Layers](/mitre/capec/CAPEC-43.md), also related to CWE-74, CWE-78 and 2 more
+- [CAPEC-79: Using Slashes in Alternate Encoding](/mitre/capec/CAPEC-79.md), also related to CWE-74, CWE-185 and 1 more
+- [CAPEC-3: Using Leading 'Ghost' Character Sequences to Bypass Input Filters](/mitre/capec/CAPEC-3.md), also related to CWE-74, CWE-184 and 1 more
+- [CAPEC-71: Using Unicode Encoding to Bypass Validation Logic](/mitre/capec/CAPEC-71.md), also related to CWE-74, CWE-184 and 1 more
+- [CAPEC-120: Double Encoding](/mitre/capec/CAPEC-120.md), also related to CWE-74, CWE-184 and 1 more
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

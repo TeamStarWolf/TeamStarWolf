@@ -205,8 +205,8 @@ Mitigations:
 
 ## Related pages
 
-- `/formats/README.md`
-- `/SECURE_CODING_REFERENCE.md`
-- `/formats/json.md`
-- `/formats/csv.md`
-- `/formats/markdown.md`
+- [Data formats and regular expressions](/formats/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [JSON](/formats/json.md)
+- [CSV](/formats/csv.md)
+- [Markdown](/formats/markdown.md)

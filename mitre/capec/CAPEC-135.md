@@ -36,6 +36,18 @@ An adversary includes formatting characters in a string input field on the targe
 - Limit the usage of formatting string functions.
 - Strong input validation - All user-controllable input must be validated and filtered for illegal formatting characters.
 
+## Related pages
+
+- [CAPEC-67: String Format Overflow in syslog()](/mitre/capec/CAPEC-67.md), also related to CWE-20, CWE-74 and 1 more
+- [CAPEC-3: Using Leading 'Ghost' Character Sequences to Bypass Input Filters](/mitre/capec/CAPEC-3.md), also related to CWE-20 and CWE-74
+- [CAPEC-7: Blind SQL Injection](/mitre/capec/CAPEC-7.md), also related to CWE-20 and CWE-74
+- [CAPEC-8: Buffer Overflow in an API Call](/mitre/capec/CAPEC-8.md), also related to CWE-20 and CWE-74
+- [CAPEC-9: Buffer Overflow in Local Command-Line Utilities](/mitre/capec/CAPEC-9.md), also related to CWE-20 and CWE-74
+- [CAPEC-10: Buffer Overflow via Environment Variables](/mitre/capec/CAPEC-10.md), also related to CWE-20 and CWE-74
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

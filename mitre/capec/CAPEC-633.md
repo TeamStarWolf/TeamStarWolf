@@ -27,6 +27,18 @@ An adversary exploits a weakness in authentication to create an access token (or
 - Integrity / Gain Privileges
 - Integrity / Hide Activities
 
+## Related pages
+
+- [CAPEC-121: Exploit Non-Production Interfaces](/mitre/capec/CAPEC-121.md), also related to CWE-1270
+- [CAPEC-681: Exploitation of Improperly Controlled Hardware Security Identifiers](/mitre/capec/CAPEC-681.md), also related to CWE-1270
+- [CAPEC-22: Exploiting Trust in Client](/mitre/capec/CAPEC-22.md), also related to CWE-287
+- [CAPEC-57: Utilizing REST's Trust in the System Resource to Obtain Sensitive Data](/mitre/capec/CAPEC-57.md), also related to CWE-287
+- [CAPEC-94: Adversary in the Middle (AiTM)](/mitre/capec/CAPEC-94.md), also related to CWE-287
+- [CAPEC-114: Authentication Abuse](/mitre/capec/CAPEC-114.md), also related to CWE-287
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

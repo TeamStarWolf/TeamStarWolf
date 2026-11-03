@@ -75,10 +75,10 @@ In a stack that also runs a dedicated CNAPP such as Wiz or Orca Security, a team
 
 ## Related pages
 
-- /platforms/README.md
-- /CLOUD_SECURITY_REFERENCE.md
-- /CONTAINER_SECURITY_REFERENCE.md
-- /VULNERABILITY_MANAGEMENT_REFERENCE.md
-- /platforms/palo-alto-networks.md
-- /platforms/wiz.md
-- /platforms/orca-security.md
+- [Security platforms](/platforms/README.md)
+- [Cloud Security Reference Library](/CLOUD_SECURITY_REFERENCE.md)
+- [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Palo Alto Networks](/platforms/palo-alto-networks.md)
+- [Wiz](/platforms/wiz.md)
+- [Orca Security](/platforms/orca-security.md)

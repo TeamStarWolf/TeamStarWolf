@@ -29,6 +29,11 @@ An attacker uses common delivery mechanisms such as email attachments or removab
 
 - Avoid the common delivery mechanisms of adversaries, such as email attachments, which could introduce the malware.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

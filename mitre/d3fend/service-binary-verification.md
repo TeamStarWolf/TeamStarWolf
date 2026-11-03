@@ -22,6 +22,19 @@ Analyzing changes in service binary files by comparing to a source of truth.
 - [T1574.010: Services File Permissions Weakness](/mitre/techniques/T1574-010.md): verifies. Adversaries may execute their own malicious payloads by hijacking the binaries used by services.
 - [T1649: Steal or Forge Authentication Certificates](/mitre/techniques/T1649.md): verifies. Adversaries may steal or forge certificates used for authentication to access remote systems or resources.
 
+## Related pages
+
+- [Asset Vulnerability Enumeration](/mitre/d3fend/asset-vulnerability-enumeration.md), which also counters 12 of these techniques
+- [Restore Software](/mitre/d3fend/restore-software.md), which also counters 12 of these techniques
+- [Software Inventory](/mitre/d3fend/software-inventory.md), which also counters 12 of these techniques
+- [Software Update](/mitre/d3fend/software-update.md), which also counters 12 of these techniques
+- [Message Authentication](/mitre/d3fend/message-authentication.md), which also counters 4 of these techniques
+- [Message Encryption](/mitre/d3fend/message-encryption.md), which also counters 4 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

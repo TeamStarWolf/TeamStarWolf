@@ -46,6 +46,18 @@ In a Password Spraying attack, an adversary tries a small list (e.g. 3-5) of com
 - Implement an intelligent password throttling mechanism. Care must be taken to assure that these mechanisms do not excessively enable account lockout attacks such as CAPEC-2.
 - Leverage multi-factor authentication for all authentication services and prior to granting an entity access to the domain network.
 
+## Related pages
+
+- [CAPEC-16: Dictionary-based Password Attack](/mitre/capec/CAPEC-16.md), also related to CWE-262, CWE-263 and 5 more
+- [CAPEC-49: Password Brute Forcing](/mitre/capec/CAPEC-49.md), also related to CWE-262, CWE-263 and 5 more
+- [CAPEC-560: Use of Known Domain Credentials](/mitre/capec/CAPEC-560.md), also related to CWE-262, CWE-263 and 4 more
+- [CAPEC-600: Credential Stuffing](/mitre/capec/CAPEC-600.md), also related to CWE-262, CWE-263 and 4 more
+- [CAPEC-652: Use of Known Kerberos Credentials](/mitre/capec/CAPEC-652.md), also related to CWE-262, CWE-263 and 4 more
+- [CAPEC-653: Use of Known Operating System Credentials](/mitre/capec/CAPEC-653.md), also related to CWE-262, CWE-263 and 4 more
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

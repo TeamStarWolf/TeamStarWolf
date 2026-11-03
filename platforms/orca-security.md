@@ -73,8 +73,8 @@ Where a team also runs agent-based runtime tools or another CNAPP such as Wiz or
 
 ## Related pages
 
-- /platforms/README.md
-- /CLOUD_SECURITY_REFERENCE.md
-- /VULNERABILITY_MANAGEMENT_REFERENCE.md
-- /platforms/wiz.md
-- /platforms/prisma-cloud.md
+- [Security platforms](/platforms/README.md)
+- [Cloud Security Reference Library](/CLOUD_SECURITY_REFERENCE.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Wiz](/platforms/wiz.md)
+- [Prisma Cloud](/platforms/prisma-cloud.md)

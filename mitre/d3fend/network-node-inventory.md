@@ -26,6 +26,19 @@ Network node inventorying identifies and records all the network nodes (hosts, r
 
 _D3FEND also maps T0807, deprecated in ATT&CK with no successor; not counted above._
 
+## Related pages
+
+- [Endpoint Health Beacon](/mitre/d3fend/endpoint-health-beacon.md), which also counters 14 of these techniques
+- [Logical Link Mapping](/mitre/d3fend/logical-link-mapping.md), which also counters 14 of these techniques
+- [Physical Link Mapping](/mitre/d3fend/physical-link-mapping.md), which also counters 14 of these techniques
+- [Restore Network Access](/mitre/d3fend/restore-network-access.md), which also counters 13 of these techniques
+- [Network Traffic Filtering](/mitre/d3fend/network-traffic-filtering.md), which also counters 4 of these techniques
+- [Configuration Inventory](/mitre/d3fend/configuration-inventory.md), which also counters 3 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

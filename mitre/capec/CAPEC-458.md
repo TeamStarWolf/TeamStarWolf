@@ -11,6 +11,13 @@ An adversary inserts malicious logic into a product or technology via flashing t
 
 - [CWE-1282: Assumed-Immutable Data is Stored in Writable Memory](https://cwe.mitre.org/data/definitions/1282.html): Immutable data, such as a first-stage bootloader, device identifiers, and "write-once" configuration settings are stored in writable memory that can be re-programmed or updated in the field.
 
+## Related pages
+
+- [CAPEC-679: Exploitation of Improperly Configured or Implemented Memory Protections](/mitre/capec/CAPEC-679.md), also related to CWE-1282
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

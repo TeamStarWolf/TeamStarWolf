@@ -86,8 +86,8 @@ Sanitize fields on export and validate structure on import. Treat any CSV from a
 
 ## Related pages
 
-- /formats/README.md
-- /SECURE_CODING_REFERENCE.md
-- /formats/json.md
-- /formats/ini.md
-- /formats/xml.md
+- [Data formats and regular expressions](/formats/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [JSON](/formats/json.md)
+- [INI](/formats/ini.md)
+- [XML](/formats/xml.md)

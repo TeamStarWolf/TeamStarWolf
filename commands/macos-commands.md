@@ -143,8 +143,8 @@ System Integrity Protection (SIP) blocks writes to protected locations such as `
 
 ## Related pages
 
-- /commands/README.md
-- /SECURE_CODING_REFERENCE.md
-- /commands/linux-commands.md
-- /commands/ssh.md
-- /commands/networking-commands.md
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Linux Command Reference](/commands/linux-commands.md)
+- [SSH Command Reference](/commands/ssh.md)
+- [Networking Command Reference](/commands/networking-commands.md)

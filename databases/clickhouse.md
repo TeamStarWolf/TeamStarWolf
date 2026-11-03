@@ -164,9 +164,9 @@ Scale out with sharding and replication. A `Distributed` table spreads queries a
 
 ## Related pages
 
-- /languages/sql.md
-- /databases/README.md
-- /SECURE_CODING_REFERENCE.md
-- /databases/postgresql.md
-- /databases/snowflake.md
-- /databases/databricks.md
+- [SQL](/languages/sql.md)
+- [Databases](/databases/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [PostgreSQL](/databases/postgresql.md)
+- [Snowflake](/databases/snowflake.md)
+- [Databricks and Spark SQL](/databases/databricks.md)

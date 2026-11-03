@@ -42,6 +42,18 @@ The adversary modifies state information maintained by the target software or ca
 - Sensitive information that is part of the user state must be appropriately protected to ensure confidentiality and integrity at each request.
 - All possible states must be handled by hardware finite state machines.
 
+## Related pages
+
+- [CAPEC-39: Manipulating Opaque Client-based Data Tokens](/mitre/capec/CAPEC-39.md), also related to CWE-315 and CWE-353
+- [CAPEC-140: Bypassing of Intermediate Forms in Multiple-Form Sets](/mitre/capec/CAPEC-140.md), also related to CWE-372
+- [CAPEC-31: Accessing/Intercepting/Modifying HTTP Cookies](/mitre/capec/CAPEC-31.md), also related to CWE-315
+- [CAPEC-37: Retrieve Embedded Sensitive Data](/mitre/capec/CAPEC-37.md), also related to CWE-315
+- [CAPEC-13: Subverting Environment Variable Values](/mitre/capec/CAPEC-13.md), also related to CWE-353
+- [CAPEC-14: Client-side Injection-induced Buffer Overflow](/mitre/capec/CAPEC-14.md), also related to CWE-353
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

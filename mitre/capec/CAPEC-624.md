@@ -38,6 +38,13 @@ The adversary uses disruptive signals or events, or alters the physical environm
 
 - Implement robust physical security countermeasures and monitoring.
 
+## Related pages
+
+- [CAPEC-625: Mobile Device Fault Injection](/mitre/capec/CAPEC-625.md), also related to CWE-1247, CWE-1248 and 6 more
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

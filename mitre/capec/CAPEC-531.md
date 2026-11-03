@@ -21,6 +21,11 @@ An attacker substitutes out a tested and approved hardware component for a malic
 
 - [High] Able to develop and manufacture malicious system components that perform the same functions and processes as their non-malicious counterparts.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

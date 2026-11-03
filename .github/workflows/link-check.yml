@@ -55,7 +55,10 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Check internal links and anchors
+      - name: Bare-path rule fires on planted lines
+        run: python scripts/check_docsify_links.py --self-test
+
+      - name: Check internal links, anchors and bare-path list items
         run: python scripts/check_docsify_links.py
 
       # Routes sampled from the sidebar and INDEX before the site revamp (scripts/old_urls.txt):

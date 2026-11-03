@@ -51,6 +51,18 @@ This attack relies on the use of HTTP Cookies to store credentials, state inform
 - Implementation: Use SSL/TLS to protect cookie in transit
 - Implementation: Ensure the web server implements all relevant security patches, many exploitable buffer overflows are fixed in patches issued for the software.
 
+## Related pages
+
+- [CAPEC-39: Manipulating Opaque Client-based Data Tokens](/mitre/capec/CAPEC-39.md), also related to CWE-302, CWE-315 and 4 more
+- [CAPEC-21: Exploitation of Trusted Identifiers](/mitre/capec/CAPEC-21.md), also related to CWE-302, CWE-384 and 3 more
+- [CAPEC-226: Session Credential Falsification through Manipulation](/mitre/capec/CAPEC-226.md), also related to CWE-472 and CWE-565
+- [CAPEC-37: Retrieve Embedded Sensitive Data](/mitre/capec/CAPEC-37.md), also related to CWE-311 and CWE-315
+- [CAPEC-85: AJAX Footprinting](/mitre/capec/CAPEC-85.md), also related to CWE-20 and CWE-113
+- [CAPEC-59: Session Credential Falsification through Prediction](/mitre/capec/CAPEC-59.md), also related to CWE-384 and CWE-539
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

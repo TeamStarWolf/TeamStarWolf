@@ -32,6 +32,18 @@ An attacker is able to leverage access gained to the database to read / write da
 - Usage: Use an intrusion detection system to monitor network connections and logs on the database host.
 - Implementation: Remove / disable all unneeded / unused functions of the DBMS system that may allow an attacker to elevate privileges if compromised
 
+## Related pages
+
+- [CAPEC-69: Target Programs with Elevated Privileges](/mitre/capec/CAPEC-69.md), also related to CWE-250
+- [CAPEC-104: Cross Zone Scripting](/mitre/capec/CAPEC-104.md), also related to CWE-250
+- [CAPEC-7: Blind SQL Injection](/mitre/capec/CAPEC-7.md), also related to CWE-89
+- [CAPEC-66: SQL Injection](/mitre/capec/CAPEC-66.md), also related to CWE-89
+- [CAPEC-108: Command Line Execution through SQL Injection](/mitre/capec/CAPEC-108.md), also related to CWE-89
+- [CAPEC-109: Object Relational Mapping Injection](/mitre/capec/CAPEC-109.md), also related to CWE-89
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

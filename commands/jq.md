@@ -133,8 +133,8 @@ When feeding values back into another jq program or an API body, prefer `--arg` 
 
 ## Related pages
 
-- /commands/README.md
-- /SECURE_CODING_REFERENCE.md
-- /commands/curl.md
-- /commands/linux-commands.md
-- /commands/powershell-commands.md
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [curl Command Reference](/commands/curl.md)
+- [Linux Command Reference](/commands/linux-commands.md)
+- [PowerShell Command Reference](/commands/powershell-commands.md)

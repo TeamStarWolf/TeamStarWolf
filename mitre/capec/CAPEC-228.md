@@ -22,6 +22,18 @@ An attacker injects malicious content into an application's DTD in an attempt to
 - Implementation: Disallow the inclusion of DTDs as part of incoming messages.
 - Implementation: Use XML parsing tools that protect against DTD attacks.
 
+## Related pages
+
+- [CAPEC-175: Code Inclusion](/mitre/capec/CAPEC-175.md), also related to CWE-829
+- [CAPEC-201: Serialized Data External Linking](/mitre/capec/CAPEC-201.md), also related to CWE-829
+- [CAPEC-251: Local Code Inclusion](/mitre/capec/CAPEC-251.md), also related to CWE-829
+- [CAPEC-252: PHP Local File Inclusion](/mitre/capec/CAPEC-252.md), also related to CWE-829
+- [CAPEC-253: Remote Code Inclusion](/mitre/capec/CAPEC-253.md), also related to CWE-829
+- [CAPEC-263: Force Use of Corrupted Files](/mitre/capec/CAPEC-263.md), also related to CWE-829
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

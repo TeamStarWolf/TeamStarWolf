@@ -33,6 +33,18 @@ An adversary consumes the resources of a target by rapidly engaging in a large n
 - Specify expectations for capabilities and dictate which behaviors are acceptable when resource allocation reaches limits.
 - Uniformly throttle all requests in order to make it more difficult to consume resources more quickly than they can again be freed.
 
+## Related pages
+
+- [CAPEC-130: Excessive Allocation](/mitre/capec/CAPEC-130.md), also related to CWE-404 and CWE-770
+- [CAPEC-494: TCP Fragmentation](/mitre/capec/CAPEC-494.md), also related to CWE-404 and CWE-770
+- [CAPEC-495: UDP Fragmentation](/mitre/capec/CAPEC-495.md), also related to CWE-404 and CWE-770
+- [CAPEC-496: ICMP Fragmentation](/mitre/capec/CAPEC-496.md), also related to CWE-404 and CWE-770
+- [CAPEC-131: Resource Leak Exposure](/mitre/capec/CAPEC-131.md), also related to CWE-404
+- [CAPEC-666: BlueSmacking](/mitre/capec/CAPEC-666.md), also related to CWE-404
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

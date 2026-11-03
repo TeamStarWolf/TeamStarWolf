@@ -144,5 +144,16 @@ _Learning & reference_
 
 Now branded NetScaler (reverted from Citrix ADC) under NetScaler, a business unit of Cloud Software Group. Cloud Software Group was formed when Vista Equity Partners and Evergreen Coast Capital (Elliott) completed the $16.5B take-private acquisition of Citrix on September 30, 2022 and combined it with TIBCO. Current release line is NetScaler 14.1 (VPX/Console v14.1); from 14.1 build 21.57, WAF can protect Gateway, traffic-management, and authentication virtual servers with pre-auth API-schema validation. Editions: Standard is End-of-Sale (renewal only, since ~March 2023); Advanced and Premium are current, with WAF gated to Premium. Licensing shifting to Pooled/Flexed Capacity subscriptions via NetScaler Console; file-based licensing reached EOL April 15, 2026, leaving the License Activation Service (LAS) as the activation path. Specific 2025-2026 WAF feature launches beyond 14.1: verify against NetScaler release notes.
 
+## Related pages
+
+- [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md)
+- [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+- [Internet-Facing Services and External Exposure](/INTERNET_FACING_SERVICES_REFERENCE.md)
+- [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md)
+- [Akamai App & API Protector](/tools/akamai-app-api-protector.md)
+- [AWS WAF](/tools/aws-waf.md)
+- [Vendor Tool Pages](/tools/README.md)
+- [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)
+
 ---
 *Generic reference. Confirm product facts, event IDs, fields and URLs against current vendor sources. Descriptive, not an endorsement.*

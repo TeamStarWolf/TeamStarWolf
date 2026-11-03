@@ -27,6 +27,14 @@ An adversary engages in activities to decipher and/or decode protocol informatio
 - Confidentiality / Read Data
 - Integrity / Modify Data
 
+## Related pages
+
+- [CAPEC-20: Encryption Brute Forcing](/mitre/capec/CAPEC-20.md), also related to CWE-326
+- [CAPEC-112: Brute Force](/mitre/capec/CAPEC-112.md), also related to CWE-326
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

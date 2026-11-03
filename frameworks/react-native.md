@@ -81,9 +81,9 @@ Loading untrusted content in a permissive `WebView` opens a direct injection pat
 
 ## Related pages
 
-- /languages/typescript.md
-- /frameworks/README.md
-- /SECURE_CODING_REFERENCE.md
-- /frameworks/flutter.md
-- /frameworks/react.md
-- /frameworks/swiftui.md
+- [TypeScript](/languages/typescript.md)
+- [Software frameworks](/frameworks/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Flutter](/frameworks/flutter.md)
+- [React](/frameworks/react.md)
+- [SwiftUI](/frameworks/swiftui.md)

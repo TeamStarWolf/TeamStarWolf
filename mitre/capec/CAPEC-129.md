@@ -18,6 +18,13 @@ This attack pattern involves an adversary manipulating a pointer within a target
 
 - The target application must have a pointer variable that the attacker can influence to hold an arbitrary value.
 
+## Related pages
+
+- [CAPEC-128: Integer Attacks](/mitre/capec/CAPEC-128.md), also related to CWE-682
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -166,9 +166,9 @@ For defenders, these tools drive triage: `find -mtime` surfaces recently changed
 
 ## Related pages
 
-- /commands/README.md
-- /SECURE_CODING_REFERENCE.md
-- /commands/macos-commands.md
-- /commands/systemctl.md
-- /commands/ssh.md
-- /commands/tmux.md
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [macOS Command Reference](/commands/macos-commands.md)
+- [systemd and systemctl Reference](/commands/systemctl.md)
+- [SSH Command Reference](/commands/ssh.md)
+- [tmux Command Reference](/commands/tmux.md)

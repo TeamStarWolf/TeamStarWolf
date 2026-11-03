@@ -90,10 +90,10 @@ Place its objectives inside the continuity plan in `/CYBER_RESILIENCE_BCDR_REFER
 
 ## Related pages
 
-- `/platforms/README.md`
-- `/RANSOMWARE_DEFENSE_REFERENCE.md`
-- `/CYBER_RESILIENCE_BCDR_REFERENCE.md`
-- `/INCIDENT_RESPONSE_REFERENCE.md`
-- `/platforms/veritas-netbackup.md`
-- `/platforms/rubrik.md`
-- `/platforms/cohesity.md`
+- [Security platforms](/platforms/README.md)
+- [Ransomware Defense & Resilience Reference](/RANSOMWARE_DEFENSE_REFERENCE.md)
+- [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md)
+- [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
+- [Veritas NetBackup](/platforms/veritas-netbackup.md)
+- [Rubrik](/platforms/rubrik.md)
+- [Cohesity](/platforms/cohesity.md)

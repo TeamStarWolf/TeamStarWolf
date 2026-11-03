@@ -46,6 +46,18 @@ An adversary tries every possible value for a password until they succeed. A bru
 - Put together a strong password policy and make sure that all user created passwords comply with it. Alternatively automatically generate strong passwords for users.
 - Passwords need to be recycled to prevent aging, that is every once in a while a new password must be chosen.
 
+## Related pages
+
+- [CAPEC-16: Dictionary-based Password Attack](/mitre/capec/CAPEC-16.md), also related to CWE-262, CWE-263 and 5 more
+- [CAPEC-565: Password Spraying](/mitre/capec/CAPEC-565.md), also related to CWE-262, CWE-263 and 5 more
+- [CAPEC-560: Use of Known Domain Credentials](/mitre/capec/CAPEC-560.md), also related to CWE-262, CWE-263 and 4 more
+- [CAPEC-600: Credential Stuffing](/mitre/capec/CAPEC-600.md), also related to CWE-262, CWE-263 and 4 more
+- [CAPEC-652: Use of Known Kerberos Credentials](/mitre/capec/CAPEC-652.md), also related to CWE-262, CWE-263 and 4 more
+- [CAPEC-653: Use of Known Operating System Credentials](/mitre/capec/CAPEC-653.md), also related to CWE-262, CWE-263 and 4 more
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -81,9 +81,9 @@ Forgetting identities in a `ForEach` causes wrong animations and reused state. A
 
 ## Related pages
 
-- /languages/swift.md
-- /frameworks/README.md
-- /SECURE_CODING_REFERENCE.md
-- /frameworks/flutter.md
-- /frameworks/jetpack-compose.md
-- /frameworks/react-native.md
+- [Swift](/languages/swift.md)
+- [Software frameworks](/frameworks/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Flutter](/frameworks/flutter.md)
+- [Jetpack Compose](/frameworks/jetpack-compose.md)
+- [React Native](/frameworks/react-native.md)

@@ -15,6 +15,12 @@ An attacker undermines the integrity of a product, software, or technology at so
 
 - [CWE-1269: Product Released in Non-Release Configuration](https://cwe.mitre.org/data/definitions/1269.html): The product released to market is released in pre-production or manufacturing configuration.
 
+## Related pages
+
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

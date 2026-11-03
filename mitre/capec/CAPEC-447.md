@@ -25,6 +25,11 @@ An adversary modifies the design of a technology, product, or component to achei
 - Assess design documentation prior to development to ensure that they function as intended and without any malicious functionality.
 - Ensure that design documentation is saved in a secure location and has proper access controls set in place to avoid unnecessary modification.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

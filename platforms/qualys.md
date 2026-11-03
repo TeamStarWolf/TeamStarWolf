@@ -75,9 +75,9 @@ In a mature program, Qualys findings open tickets in ServiceNow Vulnerability Re
 
 ## Related pages
 
-- /platforms/README.md
-- /SCANNER_PLATFORMS_REFERENCE.md
-- /VULNERABILITY_MANAGEMENT_REFERENCE.md
-- /platforms/tenable.md
-- /platforms/rapid7-insightvm.md
-- /platforms/servicenow-vr.md
+- [Security platforms](/platforms/README.md)
+- [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Tenable](/platforms/tenable.md)
+- [Rapid7 InsightVM](/platforms/rapid7-insightvm.md)
+- [ServiceNow Vulnerability Response](/platforms/servicenow-vr.md)

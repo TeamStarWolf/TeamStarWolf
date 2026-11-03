@@ -34,6 +34,18 @@ This attack utilizes XQuery to probe and attack server systems; in a similar man
 - Design: Perform input allowlist validation on all XML input
 - Implementation: Run xml parsing and query infrastructure with minimal privileges so that an attacker is limited in their ability to probe other system resources from XQL.
 
+## Related pages
+
+- [CAPEC-3: Using Leading 'Ghost' Character Sequences to Bypass Input Filters](/mitre/capec/CAPEC-3.md), also related to CWE-74 and CWE-707
+- [CAPEC-7: Blind SQL Injection](/mitre/capec/CAPEC-7.md), also related to CWE-74 and CWE-707
+- [CAPEC-43: Exploiting Multiple Input Interpretation Layers](/mitre/capec/CAPEC-43.md), also related to CWE-74 and CWE-707
+- [CAPEC-52: Embedding NULL Bytes](/mitre/capec/CAPEC-52.md), also related to CWE-74 and CWE-707
+- [CAPEC-53: Postfix, Null Terminate, and Backslash](/mitre/capec/CAPEC-53.md), also related to CWE-74 and CWE-707
+- [CAPEC-64: Using Slashes and URL Encoding Combined to Bypass Validation Logic](/mitre/capec/CAPEC-64.md), also related to CWE-74 and CWE-707
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

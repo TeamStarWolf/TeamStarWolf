@@ -26,6 +26,16 @@ An adversary takes advantage of improper data validation to inject malicious glo
 
 - User input must be sanitized according to context before reflected back to the user. The JavaScript function 'encodeURI' is not always sufficient for sanitizing input intended for global Flash parameters. Extreme caution should be taken when saving user input in Flash cookies. In such cases the Flash file itself will need to be fixed and recompiled, changing the name of the local shared objects (Flash cookies).
 
+## Related pages
+
+- [CAPEC-41: Using Meta-characters in E-mail Headers to Inject Malicious Payloads](/mitre/capec/CAPEC-41.md), also related to CWE-88
+- [CAPEC-88: OS Command Injection](/mitre/capec/CAPEC-88.md), also related to CWE-88
+- [CAPEC-137: Parameter Injection](/mitre/capec/CAPEC-137.md), also related to CWE-88
+- [CAPEC-460: HTTP Parameter Pollution (HPP)](/mitre/capec/CAPEC-460.md), also related to CWE-88
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

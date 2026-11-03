@@ -90,8 +90,8 @@ Its DNS, web, and access logs support detection and incident response by showing
 
 ## Related pages
 
-- /platforms/README.md
-- /INCIDENT_RESPONSE_REFERENCE.md
-- /SCANNER_PLATFORMS_REFERENCE.md
-- /platforms/zscaler.md
-- /platforms/cisco-ise.md
+- [Security platforms](/platforms/README.md)
+- [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
+- [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md)
+- [Zscaler](/platforms/zscaler.md)
+- [Cisco ISE](/platforms/cisco-ise.md)

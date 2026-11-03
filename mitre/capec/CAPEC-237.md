@@ -30,6 +30,18 @@ The attacker may submit malicious code of another language to obtain access to p
 - Assurance: Use static analysis tool to do code review and dynamic tool to do penetration test on the standard library.
 - Configuration: Get latest updates for the computer.
 
+## Related pages
+
+- [CAPEC-1: Accessing Functionality Not Properly Constrained by ACLs](/mitre/capec/CAPEC-1.md), also related to CWE-693
+- [CAPEC-17: Using Malicious Files](/mitre/capec/CAPEC-17.md), also related to CWE-693
+- [CAPEC-20: Encryption Brute Forcing](/mitre/capec/CAPEC-20.md), also related to CWE-693
+- [CAPEC-22: Exploiting Trust in Client](/mitre/capec/CAPEC-22.md), also related to CWE-693
+- [CAPEC-36: Using Unpublished Interfaces or Functionality](/mitre/capec/CAPEC-36.md), also related to CWE-693
+- [CAPEC-51: Poison Web Service Registry](/mitre/capec/CAPEC-51.md), also related to CWE-693
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

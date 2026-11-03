@@ -40,6 +40,13 @@ An adversary exploits a hardware design flaw in a CPU implementation of transien
 - Configuration: Privilege Checks on Cache Flush Instructions
 - Implementation: Non-inclusive Cache Memories to prevent Flush+Reload Attacks
 
+## Related pages
+
+- [CAPEC-233: Privilege Escalation](/mitre/capec/CAPEC-233.md), also related to CWE-1264
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -44,6 +44,18 @@ An adversary directly installs or tricks a user into installing a malicious exte
 - If applicable, confirm extensions/plugins are properly signed by the official developers.
 - For web browsers, close sessions when finished to prevent malicious extensions/plugins from executing the the background.
 
+## Related pages
+
+- [CAPEC-175: Code Inclusion](/mitre/capec/CAPEC-175.md), also related to CWE-829
+- [CAPEC-201: Serialized Data External Linking](/mitre/capec/CAPEC-201.md), also related to CWE-829
+- [CAPEC-228: DTD Injection](/mitre/capec/CAPEC-228.md), also related to CWE-829
+- [CAPEC-251: Local Code Inclusion](/mitre/capec/CAPEC-251.md), also related to CWE-829
+- [CAPEC-252: PHP Local File Inclusion](/mitre/capec/CAPEC-252.md), also related to CWE-829
+- [CAPEC-253: Remote Code Inclusion](/mitre/capec/CAPEC-253.md), also related to CWE-829
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

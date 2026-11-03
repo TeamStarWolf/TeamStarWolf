@@ -44,6 +44,18 @@ An attacker manipulates inputs to the target software which the target software 
 - Design: For interactive user applications, consider if direct file system interface is necessary, instead consider having the application proxy communication.
 - Implementation: Perform testing such as pen-testing and vulnerability scanning to identify directories, programs, and interfaces that grant direct access to executables.
 
+## Related pages
+
+- [CAPEC-13: Subverting Environment Variable Values](/mitre/capec/CAPEC-13.md), also related to CWE-15, CWE-73 and 2 more
+- [CAPEC-17: Using Malicious Files](/mitre/capec/CAPEC-17.md), also related to CWE-59, CWE-272 and 1 more
+- [CAPEC-64: Using Slashes and URL Encoding Combined to Bypass Validation Logic](/mitre/capec/CAPEC-64.md), also related to CWE-22, CWE-73 and 1 more
+- [CAPEC-78: Using Escaped Slashes in Alternate Encoding](/mitre/capec/CAPEC-78.md), also related to CWE-22, CWE-73 and 1 more
+- [CAPEC-79: Using Slashes in Alternate Encoding](/mitre/capec/CAPEC-79.md), also related to CWE-22, CWE-73 and 1 more
+- [CAPEC-35: Leverage Executable Code in Non-Executable Files](/mitre/capec/CAPEC-35.md), also related to CWE-59 and CWE-272
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

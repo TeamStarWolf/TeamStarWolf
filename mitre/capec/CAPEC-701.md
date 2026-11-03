@@ -32,6 +32,18 @@ An adversary exploits the inherent functionalities of a web browser, in order to
 
 - Implementation: Use strong, mutual authentication to fully authenticate with both ends of any communications channel
 
+## Related pages
+
+- [CAPEC-60: Reusing Session IDs (aka Session Replay)](/mitre/capec/CAPEC-60.md), also related to CWE-294
+- [CAPEC-94: Adversary in the Middle (AiTM)](/mitre/capec/CAPEC-94.md), also related to CWE-294
+- [CAPEC-102: Session Sidejacking](/mitre/capec/CAPEC-102.md), also related to CWE-294
+- [CAPEC-509: Kerberoasting](/mitre/capec/CAPEC-509.md), also related to CWE-294
+- [CAPEC-555: Remote Services with Stolen Credentials](/mitre/capec/CAPEC-555.md), also related to CWE-294
+- [CAPEC-561: Windows Admin Shares with Stolen Credentials](/mitre/capec/CAPEC-561.md), also related to CWE-294
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

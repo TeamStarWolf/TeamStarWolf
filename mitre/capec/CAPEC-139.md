@@ -39,6 +39,13 @@ An attacker exploits a weakness in input validation on the target by supplying a
 - Implementation: Use indirect references rather than actual file names.
 - Implementation: Use possible permissions on file access when developing and deploying web applications.
 
+## Related pages
+
+- [CAPEC-76: Manipulating Web Input to File System Calls](/mitre/capec/CAPEC-76.md), also related to CWE-23
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

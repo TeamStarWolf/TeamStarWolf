@@ -103,8 +103,8 @@ The safe baseline: disable DTD processing and external entity resolution on ever
 
 ## Related pages
 
-- `/formats/README.md`
-- `/SECURE_CODING_REFERENCE.md`
-- `/formats/json.md`
-- `/formats/yaml.md`
-- `/formats/html.md`
+- [Data formats and regular expressions](/formats/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [JSON](/formats/json.md)
+- [YAML](/formats/yaml.md)
+- [HTML](/formats/html.md)

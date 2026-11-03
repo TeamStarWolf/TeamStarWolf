@@ -36,6 +36,18 @@ Cross Site Tracing (XST) enables an adversary to steal the victim's session cook
 - Administrators should disable support for HTTP TRACE at the destination's web server. Vendors should disable TRACE by default.
 - Patch web browser against known security origin policy bypass exploits.
 
+## Related pages
+
+- [CAPEC-234: Hijacking a privileged process](/mitre/capec/CAPEC-234.md), also related to CWE-648
+- [CAPEC-1: Accessing Functionality Not Properly Constrained by ACLs](/mitre/capec/CAPEC-1.md), also related to CWE-693
+- [CAPEC-17: Using Malicious Files](/mitre/capec/CAPEC-17.md), also related to CWE-693
+- [CAPEC-20: Encryption Brute Forcing](/mitre/capec/CAPEC-20.md), also related to CWE-693
+- [CAPEC-22: Exploiting Trust in Client](/mitre/capec/CAPEC-22.md), also related to CWE-693
+- [CAPEC-36: Using Unpublished Interfaces or Functionality](/mitre/capec/CAPEC-36.md), also related to CWE-693
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

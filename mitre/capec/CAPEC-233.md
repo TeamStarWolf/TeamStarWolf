@@ -17,6 +17,17 @@ An adversary exploits a weakness enabling them to elevate their privilege and pe
 - [CWE-1264: Hardware Logic with Insecure De-Synchronization between Control and Data Channels](https://cwe.mitre.org/data/definitions/1264.html): The hardware logic for error handling and security checks can incorrectly forward data before the security check is complete.
 - [CWE-1311: Improper Translation of Security Attributes by Fabric Bridge](https://cwe.mitre.org/data/definitions/1311.html): The fabric bridge incorrectly translates security attributes from either trusted to untrusted or from untrusted to trusted when converting from one fabric protocol to another.
 
+## Related pages
+
+- [CAPEC-663: Exploitation of Transient Instruction Execution](/mitre/capec/CAPEC-663.md), also related to CWE-1264
+- [CAPEC-1: Accessing Functionality Not Properly Constrained by ACLs](/mitre/capec/CAPEC-1.md), also related to CWE-1311
+- [CAPEC-58: Restful Privilege Elevation](/mitre/capec/CAPEC-58.md), also related to CWE-269
+- [CAPEC-122: Privilege Abuse](/mitre/capec/CAPEC-122.md), also related to CWE-269
+- [CAPEC-180: Exploiting Incorrectly Configured Access Control Security Levels](/mitre/capec/CAPEC-180.md), also related to CWE-1311
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

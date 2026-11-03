@@ -115,8 +115,8 @@ Scripting `curl` against a URL that comes from untrusted input is a server-side 
 
 ## Related pages
 
-- /commands/README.md
-- /SECURE_CODING_REFERENCE.md
-- /commands/jq.md
-- /commands/ssh.md
-- /commands/networking-commands.md
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [jq Command Reference](/commands/jq.md)
+- [SSH Command Reference](/commands/ssh.md)
+- [Networking Command Reference](/commands/networking-commands.md)

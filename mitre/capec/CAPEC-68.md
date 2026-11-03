@@ -38,6 +38,14 @@ Many languages use code signing facilities to vouch for code's identity and to t
 - A given code signing scheme may be fallible due to improper use of cryptography. Developers must never roll out their own cryptography, nor should existing primitives be modified or ignored.
 - If an attacker cannot attack the scheme directly, they might try to alter the environment that affects the signing and verification processes. A possible mitigation is to avoid reliance on flags or environment variables that are user-controllable.
 
+## Related pages
+
+- [CAPEC-461: Web Services API Signature Forgery Leveraging Hash Function Extension Weakness](/mitre/capec/CAPEC-461.md), also related to CWE-328
+- [CAPEC-679: Exploitation of Improperly Configured or Implemented Memory Protections](/mitre/capec/CAPEC-679.md), also related to CWE-1326
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

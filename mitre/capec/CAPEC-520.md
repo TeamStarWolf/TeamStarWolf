@@ -27,6 +27,11 @@ An adversary with either direct access to the product assembly process or to the
 - Hardware attacks are often difficult to detect, as inserted components can be difficult to identify or remain dormant for an extended period of time.
 - Acquire hardware and hardware components from trusted vendors. Additionally, determine where vendors purchase components or if any components are created/acquired via subcontractors to determine where supply chain risks may exist.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

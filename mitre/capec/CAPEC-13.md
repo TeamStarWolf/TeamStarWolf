@@ -53,6 +53,19 @@ The adversary directly or indirectly modifies environment variables used by or c
 - Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on the requirements specifications. Input that does not match against the allowlist should not be permitted to enter into the system.
 - Apply the least privilege principles. If a process has no legitimate reason to read an environment variable do not give that privilege.
 
+## Related pages
+
+- [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md), whose ATT&CK profile lists this pattern
+- [CAPEC-45: Buffer Overflow via Symbolic Links](/mitre/capec/CAPEC-45.md), also related to CWE-20, CWE-74 and 2 more
+- [CAPEC-76: Manipulating Web Input to File System Calls](/mitre/capec/CAPEC-76.md), also related to CWE-15, CWE-73 and 2 more
+- [CAPEC-79: Using Slashes in Alternate Encoding](/mitre/capec/CAPEC-79.md), also related to CWE-20, CWE-73 and 2 more
+- [CAPEC-14: Client-side Injection-induced Buffer Overflow](/mitre/capec/CAPEC-14.md), also related to CWE-20, CWE-74 and 1 more
+- [CAPEC-39: Manipulating Opaque Client-based Data Tokens](/mitre/capec/CAPEC-39.md), also related to CWE-285, CWE-302 and 1 more
+- [CAPEC-10: Buffer Overflow via Environment Variables](/mitre/capec/CAPEC-10.md), also related to CWE-20, CWE-74 and 1 more
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

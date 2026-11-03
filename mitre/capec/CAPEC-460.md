@@ -25,6 +25,16 @@ An adversary adds duplicate HTTP GET/POST parameters by injecting query string d
 - Implementation: Use strict regular expressions in URL rewriting
 - Implementation: Beware of multiple occurrences of a parameter in a Query String
 
+## Related pages
+
+- [CAPEC-41: Using Meta-characters in E-mail Headers to Inject Malicious Payloads](/mitre/capec/CAPEC-41.md), also related to CWE-88
+- [CAPEC-88: OS Command Injection](/mitre/capec/CAPEC-88.md), also related to CWE-88
+- [CAPEC-137: Parameter Injection](/mitre/capec/CAPEC-137.md), also related to CWE-88
+- [CAPEC-174: Flash Parameter Injection](/mitre/capec/CAPEC-174.md), also related to CWE-88
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

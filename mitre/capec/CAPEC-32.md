@@ -40,6 +40,15 @@ An adversary embeds malicious script code in the parameters of an HTTP query str
 - Implementation: Patching software. There are many attack vectors for XSS on the client side and the server side. Many vulnerabilities are fixed in service packs for browser, web servers, and plug in technologies, staying current on patch release that deal with XSS countermeasures mitigates this.
 - Implementation: Privileges are constrained, if a script is loaded, ensure system runs in chroot jail or other limited authority mode
 
+## Related pages
+
+- [CAPEC-18: XSS Targeting Non-Script Elements](/mitre/capec/CAPEC-18.md), also related to CWE-80
+- [CAPEC-86: XSS Through HTTP Headers](/mitre/capec/CAPEC-86.md), also related to CWE-80
+- [CAPEC-193: PHP Remote File Inclusion](/mitre/capec/CAPEC-193.md), also related to CWE-80
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -29,6 +29,12 @@ against the live site's own compiler on 2026-10-13, it produced the identical id
 331 of the 333 hand-written pages; the residue is marked's lazy-list handling of a fence
 that directly follows a list line, where this script may accept an anchor the site lacks.
 
+A list item whose whole text is an in-repo Markdown path ("- /platforms/qualys.md",
+or the same path in backticks) is reported as kind "bare-path": docsify renders it as
+plain text, so the reader sees a route but cannot follow it. Write it as a link instead,
+"- [Qualys](/platforms/qualys.md)"; --fix-bare-paths does that in place, taking each
+link text from the target page's H1 and keeping the file's line endings.
+
 Pre-existing broken links are listed in scripts/baselines/docsify_links.json (one key
 per file + kind + href, with a count). The check fails when a key is new or its count
 grows, so the debt can only shrink; it reports, but does not fail on, baseline entries
@@ -38,6 +44,8 @@ Usage:
     python scripts/check_docsify_links.py                    # gate (exit 1 on new breakage)
     python scripts/check_docsify_links.py --report           # list every broken link
     python scripts/check_docsify_links.py --update-baseline  # rewrite the baseline file
+    python scripts/check_docsify_links.py --fix-bare-paths   # turn bare-path list items into links
+    python scripts/check_docsify_links.py --self-test        # prove the bare-path rule fires
 """
 from __future__ import annotations
 
@@ -61,6 +69,8 @@ KINDS = {
     "missing-anchor": "the target page has no heading/id with this docsify slug",
     "missing-image": "the image file does not exist",
     "missing-html-target": "the raw-HTML href/src target does not exist",
+    "bare-path": "a list item that is only an in-repo .md path renders as plain text; write it as "
+                 "[Title](/path.md) (--fix-bare-paths does this)",
 }
 
 # ----------------------------------------------------------------------------- files
@@ -90,6 +100,11 @@ HTML_ID_RE = re.compile(r"""\s(?:id|name)\s*=\s*["']([^"']+)["']""", re.I)
 ATX_RE = re.compile(r"^ {0,3}(#{1,6})[ \t]+(.*?)(?:[ \t]+#+)?[ \t]*$")
 SETEXT_RE = re.compile(r"^ {0,3}(=+|-+)[ \t]*$")
 SCHEME_RE = re.compile(r"^(?:[a-zA-Z][a-zA-Z0-9+.\-]*:|//)")
+# A list item whose whole text is a repo path ending in .md, optionally in backticks and
+# optionally with an #anchor: "- /platforms/qualys.md", "* `commands/ssh.md`".
+BARE_PATH_RE = re.compile(r"^(?P<lead>\s*(?:[-*+]|\d+[.)])\s+)(?P<tick>`?)(?P<path>/?(?:[A-Za-z0-9_.-]+/)*"
+                          r"[A-Za-z0-9_.-]+\.md)(?P<anchor>#[A-Za-z0-9_-]*)?(?P=tick)\s*$")
+H1_RE = re.compile(r"^ {0,3}#[ \t]+(.*?)(?:[ \t]+#+)?[ \t]*$")
 
 
 def code_free_lines(text: str):
@@ -259,6 +274,11 @@ def check(files: list[str]) -> list[tuple[str, int, str, str, str]]:
         for ln, line, in_fence, _raw in code_free_lines(text):
             if in_fence or not line.strip():
                 continue
+            bare = BARE_PATH_RE.match(_raw)
+            if bare:
+                broken.append((rel, ln, "bare-path", bare.group("path") + (bare.group("anchor") or ""),
+                               route_to_file("/" + bare.group("path"), aliases)[0] or ""))
+                continue
             hits = [(m.group(1) == "!", m.group(2), m.group(3) or "") for m in LINK_RE.finditer(line)]
             m = REFDEF_RE.match(line)
             if m:
@@ -328,6 +348,95 @@ def check(files: list[str]) -> list[tuple[str, int, str, str, str]]:
     return broken
 
 
+def page_title(rel: str) -> str | None:
+    """The first ATX H1 of a page, as plain text, or None."""
+    for _, _line, in_fence, raw in code_free_lines(read_text(rel) or ""):
+        if in_fence:
+            continue
+        m = H1_RE.match(raw)
+        if m:
+            title = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", m.group(1))    # links -> text
+            title = re.sub(r"[`*_]", "", title).strip()
+            return title.replace("[", "(").replace("]", ")") or None
+    return None
+
+
+def linkify_line(raw: str, tracked: set, aliases: dict) -> str | None:
+    """Rewrite one bare-path list item as a Markdown link, or None if it is not one or the
+    target does not exist (left for the gate to report)."""
+    m = BARE_PATH_RE.match(raw)
+    if not m:
+        return None
+    target, kind = route_to_file("/" + m.group("path"), aliases)
+    if kind or target not in tracked:
+        return None
+    title = page_title(target) or posixpath.splitext(posixpath.basename(target))[0]
+    return m.group("lead") + "[" + title + "](/" + target + (m.group("anchor") or "") + ")"
+
+
+def fix_bare_paths(files: list[str]) -> tuple[int, int]:
+    """Rewrite every bare-path list item in the served Markdown in place, keeping each
+    file's line endings. Returns (lines rewritten, files changed)."""
+    from repo_files import read_bytes
+    tracked = set(files)
+    aliases = load_aliases()
+    n_lines = n_files = 0
+    for rel in sorted(f for f in files if f.endswith(".md") and not f.startswith(".github/")):
+        data = read_bytes(rel)
+        if data is None:
+            continue
+        text = data.decode("utf-8")
+        crlf = "\r\n" in text
+        lines = text.replace("\r\n", "\n").split("\n")
+        changed = 0
+        for ln, _line, in_fence, raw in code_free_lines("\n".join(lines)):
+            if in_fence:
+                continue
+            new = linkify_line(raw, tracked, aliases)
+            if new is not None:
+                lines[ln - 1] = new
+                changed += 1
+        if changed:
+            out = "\n".join(lines)
+            with open(os.path.join(ROOT, rel), "wb") as f:
+                f.write((out.replace("\n", "\r\n") if crlf else out).encode("utf-8"))
+            n_lines += changed
+            n_files += 1
+    return n_lines, n_files
+
+
+def self_test() -> int:
+    """The bare-path rule fires on planted lines and leaves real links and code alone."""
+    planted = ["- /platforms/qualys.md", "* `commands/ssh.md`", "  - /SECURE_CODING_REFERENCE.md#scope ",
+               "1. /databases/README.md"]
+    clean = ["- [Qualys](/platforms/qualys.md)", "- /platforms/qualys.md is the scanner page",
+             "- `/platforms/qualys.md` and more", "Text /platforms/qualys.md", "- https://x.test/a.md"]
+    ok = True
+    for s in planted:
+        if not BARE_PATH_RE.match(s):
+            print("FAIL self-test: missed planted bare path: " + repr(s))
+            ok = False
+    for s in clean:
+        if BARE_PATH_RE.match(s):
+            print("FAIL self-test: flagged a line that is not a bare path: " + repr(s))
+            ok = False
+    got = linkify_line("  - `/platforms/qualys.md`", {"platforms/qualys.md"}, {})
+    if got is None or not got.startswith("  - [") or not got.endswith("](/platforms/qualys.md)"):
+        print("FAIL self-test: linkify produced " + repr(got))
+        ok = False
+    if linkify_line("- /no/such/page.md", {"platforms/qualys.md"}, {}) is not None:
+        print("FAIL self-test: linkified a path to a missing page")
+        ok = False
+    # end to end: a planted line inside a fenced block is ignored, outside it is reported
+    text = "# T\n\n```\n- /platforms/qualys.md\n```\n\n- /platforms/qualys.md\n"
+    hits = [ln for ln, _l, fence, raw in code_free_lines(text) if not fence and BARE_PATH_RE.match(raw)]
+    if hits != [7]:
+        print("FAIL self-test: expected the bare path on line 7 only, got " + repr(hits))
+        ok = False
+    print("self-test " + ("OK" if ok else "FAILED"))
+    return 0 if ok else 1
+
+
 def key(b) -> str:
     return b[0] + "\t" + b[2] + "\t" + b[3]
 
@@ -336,9 +445,18 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--report", action="store_true", help="print every broken link, baselined or not")
     ap.add_argument("--update-baseline", action="store_true", help="rewrite " + os.path.relpath(BASELINE, ROOT))
+    ap.add_argument("--fix-bare-paths", action="store_true",
+                    help="rewrite bare-path list items as [Title](/path.md) links in place")
+    ap.add_argument("--self-test", action="store_true", help="prove the bare-path rule on planted lines")
     args = ap.parse_args()
 
+    if args.self_test:
+        return self_test()
     files = tracked_files()
+    if args.fix_bare_paths:
+        n_lines, n_files = fix_bare_paths(files)
+        print("fixed " + str(n_lines) + " bare-path list items in " + str(n_files) + " files")
+        _ANCHOR_CACHE.clear()
     broken = check(files)
     counts = collections.Counter(key(b) for b in broken)
     by_kind = collections.Counter(b[2] for b in broken)

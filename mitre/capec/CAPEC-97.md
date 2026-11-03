@@ -37,6 +37,18 @@ Cryptanalysis is a process of finding weaknesses in cryptographic algorithms and
 - Use proven cryptographic algorithms with recommended key sizes.
 - Ensure that the algorithms are used properly. That means: 1. Not rolling out your own crypto; Use proven algorithms and implementations. 2. Choosing initialization vectors with sufficiently random numbers 3. Generating key material using good sources of randomness and avoiding known weak keys 4. Using proven protocols and their implementations. 5. Picking the most appropriate cryptographic algorithm for your usage context and data
 
+## Related pages
+
+- [CAPEC-20: Encryption Brute Forcing](/mitre/capec/CAPEC-20.md), also related to CWE-327 and CWE-1204
+- [CAPEC-459: Creating a Rogue Certification Authority Certificate](/mitre/capec/CAPEC-459.md), also related to CWE-327
+- [CAPEC-473: Signature Spoof](/mitre/capec/CAPEC-473.md), also related to CWE-327
+- [CAPEC-475: Signature Spoofing by Improper Validation](/mitre/capec/CAPEC-475.md), also related to CWE-327
+- [CAPEC-608: Cryptanalysis of Cellular Encryption](/mitre/capec/CAPEC-608.md), also related to CWE-327
+- [CAPEC-614: Rooting SIM Cards](/mitre/capec/CAPEC-614.md), also related to CWE-327
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

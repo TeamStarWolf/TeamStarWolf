@@ -80,10 +80,10 @@ Review declarative code against the declared state, not the apparent intent, and
 
 ## Related pages
 
-- /paradigms/README.md
-- /SECURE_CODING_REFERENCE.md
-- /paradigms/functional.md
-- /paradigms/logic.md
-- /paradigms/constraint.md
-- /paradigms/dataflow.md
-- /paradigms/imperative.md
+- [Programming paradigms](/paradigms/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Functional Programming](/paradigms/functional.md)
+- [Logic Programming](/paradigms/logic.md)
+- [Constraint Programming](/paradigms/constraint.md)
+- [Dataflow Programming](/paradigms/dataflow.md)
+- [Imperative Programming](/paradigms/imperative.md)

@@ -32,6 +32,19 @@ An attacker leverages an adversary in the middle attack (CAPEC-94) in order to b
 - Design: Tunnel communications through a secure proxy
 - Design: Trust level separation for privileged / non privileged interactions (e.g., two different browsers, two different users, two different operating systems, two different virtual machines)
 
+## Related pages
+
+- [CAPEC-94: Adversary in the Middle (AiTM)](/mitre/capec/CAPEC-94.md), named in the description above
+- [CAPEC-57: Utilizing REST's Trust in the System Resource to Obtain Sensitive Data](/mitre/capec/CAPEC-57.md), also related to CWE-300
+- [CAPEC-589: DNS Blocking](/mitre/capec/CAPEC-589.md), also related to CWE-300
+- [CAPEC-590: IP Address Blocking](/mitre/capec/CAPEC-590.md), also related to CWE-300
+- [CAPEC-612: WiFi MAC Address Tracking](/mitre/capec/CAPEC-612.md), also related to CWE-300
+- [CAPEC-613: WiFi SSID Tracking](/mitre/capec/CAPEC-613.md), also related to CWE-300
+- [CAPEC-615: Evil Twin Wi-Fi Attack](/mitre/capec/CAPEC-615.md), also related to CWE-300
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

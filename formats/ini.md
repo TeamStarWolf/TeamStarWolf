@@ -115,8 +115,8 @@ INI has no formal standard. For concrete behavior, cite platform and library doc
 
 ## Related pages
 
-- /formats/README.md
-- /SECURE_CODING_REFERENCE.md
-- /formats/toml.md
-- /formats/yaml.md
-- /formats/csv.md
+- [Data formats and regular expressions](/formats/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [TOML](/formats/toml.md)
+- [YAML](/formats/yaml.md)
+- [CSV](/formats/csv.md)

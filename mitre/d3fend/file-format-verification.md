@@ -11,6 +11,11 @@ Verifying that a file conforms to its expected format specifications
 
 - [T1564.009: Resource Forking](/mitre/techniques/T1564-009.md): analyzes. Adversaries may abuse resource forks to hide malicious code or executables to evade detection and bypass security applications.
 
+## Related pages
+
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

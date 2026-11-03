@@ -42,6 +42,19 @@ Authenticating the sender of a message and ensuring message integrity.
 - [T1693.002: Module Firmware](https://attack.mitre.org/techniques/T1693/002): authenticates (D3FEND maps the revoked predecessor T0839)
 - [T1695.001: Serial COM](https://attack.mitre.org/techniques/T1695/001): authenticates (D3FEND maps the revoked predecessor T0805)
 
+## Related pages
+
+- [Message Encryption](/mitre/d3fend/message-encryption.md), which also counters 32 of these techniques
+- [Network Traffic Filtering](/mitre/d3fend/network-traffic-filtering.md), which also counters 32 of these techniques
+- [OT Variable Access Restriction](/mitre/d3fend/ot-variable-access-restriction.md), which also counters 7 of these techniques
+- [Application Protocol Command Analysis](/mitre/d3fend/application-protocol-command-analysis.md), which also counters 6 of these techniques
+- [Asset Vulnerability Enumeration](/mitre/d3fend/asset-vulnerability-enumeration.md), which also counters 6 of these techniques
+- [Client-server Payload Profiling](/mitre/d3fend/client-server-payload-profiling.md), which also counters 6 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

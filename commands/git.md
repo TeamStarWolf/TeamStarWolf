@@ -152,8 +152,8 @@ Turn on secret scanning and push protection at the host level. These block a pus
 
 ## Related pages
 
-- /commands/README.md
-- /SECURE_CODING_REFERENCE.md
-- /commands/ssh.md
-- /commands/curl.md
-- /commands/linux-commands.md
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [SSH Command Reference](/commands/ssh.md)
+- [curl Command Reference](/commands/curl.md)
+- [Linux Command Reference](/commands/linux-commands.md)

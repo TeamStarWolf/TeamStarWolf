@@ -37,6 +37,16 @@ This attack targets the log files of the target host. The attacker injects, mani
 - Use static analysis tools to identify log forging vulnerabilities.
 - Avoid viewing logs with tools that may interpret control characters in the file, such as command-line shells.
 
+## Related pages
+
+- [CAPEC-81: Web Server Logs Tampering](/mitre/capec/CAPEC-81.md), also related to CWE-75, CWE-117 and 1 more
+- [CAPEC-268: Audit Log Manipulation](/mitre/capec/CAPEC-268.md), also related to CWE-117
+- [CAPEC-41: Using Meta-characters in E-mail Headers to Inject Malicious Payloads](/mitre/capec/CAPEC-41.md), also related to CWE-150
+- [CAPEC-134: Email Injection](/mitre/capec/CAPEC-134.md), also related to CWE-150
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

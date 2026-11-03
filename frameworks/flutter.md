@@ -92,9 +92,9 @@ Shipping secrets in assets or `dart` constants exposes them to anyone who unpack
 
 ## Related pages
 
-- /languages/dart.md
-- /frameworks/README.md
-- /SECURE_CODING_REFERENCE.md
-- /frameworks/react-native.md
-- /frameworks/swiftui.md
-- /frameworks/dotnet-maui.md
+- [Dart](/languages/dart.md)
+- [Software frameworks](/frameworks/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [React Native](/frameworks/react-native.md)
+- [SwiftUI](/frameworks/swiftui.md)
+- [.NET MAUI](/frameworks/dotnet-maui.md)

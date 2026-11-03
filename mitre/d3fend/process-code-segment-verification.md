@@ -21,6 +21,19 @@ Comparing the "text" or "code" memory segments to a source of truth.
 - [T1211: Exploitation for Stealth](/mitre/techniques/T1211.md): verifies. Adversaries may exploit vulnerabilities to evade detection by hiding activity, suppressing logging, or operating within trusted or unmonitored components.
 - [T1212: Exploitation for Credential Access](/mitre/techniques/T1212.md): verifies. Adversaries may exploit software vulnerabilities in an attempt to collect credentials.
 
+## Related pages
+
+- [Memory Boundary Tracking](/mitre/d3fend/memory-boundary-tracking.md), which also counters 11 of these techniques
+- [Process Segment Execution Prevention](/mitre/d3fend/process-segment-execution-prevention.md), which also counters 11 of these techniques
+- [Segment Address Offset Randomization](/mitre/d3fend/segment-address-offset-randomization.md), which also counters 11 of these techniques
+- [Shadow Stack Comparisons](/mitre/d3fend/shadow-stack-comparisons.md), which also counters 8 of these techniques
+- [Stack Frame Canary Validation](/mitre/d3fend/stack-frame-canary-validation.md), which also counters 8 of these techniques
+- [Application Protocol Command Analysis](/mitre/d3fend/application-protocol-command-analysis.md), which also counters 2 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

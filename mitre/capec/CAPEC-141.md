@@ -34,6 +34,18 @@ An attacker exploits the functionality of cache technologies to cause specific d
 - Configuration: Disable client side caching.
 - Implementation: Listens for query replies on a network, and sends a notification via email when an entry changes.
 
+## Related pages
+
+- [CAPEC-142: DNS Cache Poisoning](/mitre/capec/CAPEC-142.md), also related to CWE-345, CWE-346 and 2 more
+- [CAPEC-75: Manipulating Writeable Configuration Files](/mitre/capec/CAPEC-75.md), also related to CWE-346 and CWE-349
+- [CAPEC-76: Manipulating Web Input to File System Calls](/mitre/capec/CAPEC-76.md), also related to CWE-346 and CWE-348
+- [CAPEC-111: JSON Hijacking (aka JavaScript Hijacking)](/mitre/capec/CAPEC-111.md), also related to CWE-345 and CWE-346
+- [CAPEC-384: Application API Message Manipulation via Man-in-the-Middle](/mitre/capec/CAPEC-384.md), also related to CWE-345 and CWE-346
+- [CAPEC-385: Transaction or Event Tampering via Application API Manipulation](/mitre/capec/CAPEC-385.md), also related to CWE-345 and CWE-346
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

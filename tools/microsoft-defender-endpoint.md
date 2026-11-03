@@ -153,5 +153,16 @@ _Learning & reference_
 
 VERIFIED 2025-2026: Current product family is Microsoft Defender for Endpoint Plan 1 / Plan 2, Microsoft Defender Vulnerability Management (core in P2, plus Add-on and Standalone SKUs), under the Microsoft Defender XDR umbrella managed in the unified Microsoft Defender portal (security.microsoft.com). Defender Vulnerability Management Standalone is GA for new customers and for existing P1/M365 E3 customers. Microsoft Security Copilot is integrated into the Defender portal for AI-assisted triage/remediation. Server/cloud-workload vulnerability assessment is delivered via Defender for Servers / Defender for Cloud. Exact premium-feature list and per-seat pricing should be verified against Microsoft's current licensing pages/reseller.
 
+## Related pages
+
+- [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md)
+- [Zero Trust Reference: Comprehensive Cybersecurity Guide](/ZERO_TRUST_REFERENCE.md)
+- [CrowdStrike Falcon](/tools/crowdstrike-falcon.md)
+- [Microsoft Defender for Cloud](/tools/microsoft-defender-for-cloud.md)
+- [Vendor Tool Pages](/tools/README.md)
+- [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)
+
 ---
 *Generic reference. Confirm product facts, event IDs, fields and URLs against current vendor sources. Descriptive, not an endorsement.*

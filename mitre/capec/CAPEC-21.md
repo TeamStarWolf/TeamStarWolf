@@ -53,6 +53,18 @@ An adversary guesses, obtains, or "rides" a trusted identifier (e.g. session ID,
 - Implementation: Utilize a session timeout for all sessions, for example 20 minutes. If the user does not explicitly logout, the server terminates their session after this period of inactivity. If the user logs back in then a new session key is generated.
 - Implementation: Verify authenticity of all identifiers at runtime.
 
+## Related pages
+
+- [CAPEC-31: Accessing/Intercepting/Modifying HTTP Cookies](/mitre/capec/CAPEC-31.md), also related to CWE-302, CWE-384 and 3 more
+- [CAPEC-59: Session Credential Falsification through Prediction](/mitre/capec/CAPEC-59.md), also related to CWE-6, CWE-290 and 3 more
+- [CAPEC-60: Reusing Session IDs (aka Session Replay)](/mitre/capec/CAPEC-60.md), also related to CWE-290, CWE-346 and 3 more
+- [CAPEC-39: Manipulating Opaque Client-based Data Tokens](/mitre/capec/CAPEC-39.md), also related to CWE-302, CWE-384 and 1 more
+- [CAPEC-61: Session Fixation](/mitre/capec/CAPEC-61.md), also related to CWE-384 and CWE-664
+- [CAPEC-196: Session Credential Falsification through Forging](/mitre/capec/CAPEC-196.md), also related to CWE-384 and CWE-664
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

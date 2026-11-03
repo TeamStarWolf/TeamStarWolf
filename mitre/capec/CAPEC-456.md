@@ -25,6 +25,13 @@ An adversary inserts malicious logic into memory enabling them to achieve a nega
 
 - Leverage anti-virus products to detect stop operations with known virus.
 
+## Related pages
+
+- [CAPEC-679: Exploitation of Improperly Configured or Implemented Memory Protections](/mitre/capec/CAPEC-679.md), also related to CWE-1257, CWE-1260 and 3 more
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

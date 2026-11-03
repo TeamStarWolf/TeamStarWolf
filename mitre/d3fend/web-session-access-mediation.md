@@ -24,6 +24,19 @@ Web session access mediation secures user sessions in web applications by employ
 - [T1556: Modify Authentication Process](/mitre/techniques/T1556.md): isolates. Adversaries may modify authentication mechanisms and processes to access user credentials or enable otherwise unwarranted access to accounts.
 - [T1621: Multi-Factor Authentication Request Generation](/mitre/techniques/T1621.md): isolates. Adversaries may attempt to bypass multi-factor authentication (MFA) mechanisms and gain access to accounts by generating MFA requests sent to users.
 
+## Related pages
+
+- [Application-based Process Isolation](/mitre/d3fend/application-based-process-isolation.md), which also counters 14 of these techniques
+- [Hardware-based Process Isolation](/mitre/d3fend/hardware-based-process-isolation.md), which also counters 14 of these techniques
+- [Host Reboot](/mitre/d3fend/host-reboot.md), which also counters 14 of these techniques
+- [Host Shutdown](/mitre/d3fend/host-shutdown.md), which also counters 14 of these techniques
+- [Kernel-based Process Isolation](/mitre/d3fend/kernel-based-process-isolation.md), which also counters 14 of these techniques
+- [Process Lineage Analysis](/mitre/d3fend/process-lineage-analysis.md), which also counters 14 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

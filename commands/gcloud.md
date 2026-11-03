@@ -156,9 +156,9 @@ Grant predefined or custom IAM roles scoped to the project or resource a member 
 
 ## Related pages
 
-- `/commands/README.md`
-- `/SECURE_CODING_REFERENCE.md`
-- `/commands/aws-cli.md`
-- `/commands/azure-cli.md`
-- `/commands/jq.md`
-- `/commands/terraform.md`
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [AWS CLI Reference](/commands/aws-cli.md)
+- [Azure CLI Reference](/commands/azure-cli.md)
+- [jq Command Reference](/commands/jq.md)
+- [Terraform Command Reference](/commands/terraform.md)

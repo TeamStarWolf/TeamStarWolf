@@ -38,6 +38,18 @@ An adversary tricks a victim into unknowingly initiating some action in one syst
 - Turn off JavaScript, Flash and disable CSS.
 - When maintaining an authenticated session with a privileged target system, do not use the same browser to navigate to unfamiliar sites to perform other activities. Finish working with the target system and logout first before proceeding to other tasks.
 
+## Related pages
+
+- [CAPEC-181: Flash File Overlay](/mitre/capec/CAPEC-181.md), also related to CWE-1021
+- [CAPEC-222: iFrame Overlay](/mitre/capec/CAPEC-222.md), also related to CWE-1021
+- [CAPEC-504: Task Impersonation](/mitre/capec/CAPEC-504.md), also related to CWE-1021
+- [CAPEC-506: Tapjacking](/mitre/capec/CAPEC-506.md), also related to CWE-1021
+- [CAPEC-587: Cross Frame Scripting (XFS)](/mitre/capec/CAPEC-587.md), also related to CWE-1021
+- [CAPEC-654: Credential Prompt Impersonation](/mitre/capec/CAPEC-654.md), also related to CWE-1021
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

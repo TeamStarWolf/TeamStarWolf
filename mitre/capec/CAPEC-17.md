@@ -45,6 +45,18 @@ An attack of this type exploits a system's configuration that allows an adversar
 - Design: Run server interfaces with a non-root account and/or utilize chroot jails or other configuration techniques to constrain privileges even if attacker gains some limited access to commands.
 - Implementation: Perform testing such as pen-testing and vulnerability scanning to identify directories, programs, and interfaces that grant direct access to executables.
 
+## Related pages
+
+- [CAPEC-35: Leverage Executable Code in Non-Executable Files](/mitre/capec/CAPEC-35.md), also related to CWE-59, CWE-270 and 2 more
+- [CAPEC-76: Manipulating Web Input to File System Calls](/mitre/capec/CAPEC-76.md), also related to CWE-59, CWE-272 and 1 more
+- [CAPEC-1: Accessing Functionality Not Properly Constrained by ACLs](/mitre/capec/CAPEC-1.md), also related to CWE-285, CWE-693 and 1 more
+- [CAPEC-127: Directory Indexing](/mitre/capec/CAPEC-127.md), also related to CWE-285, CWE-693 and 1 more
+- [CAPEC-60: Reusing Session IDs (aka Session Replay)](/mitre/capec/CAPEC-60.md), also related to CWE-285 and CWE-732
+- [CAPEC-51: Poison Web Service Registry](/mitre/capec/CAPEC-51.md), also related to CWE-285 and CWE-693
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -57,9 +57,9 @@ Forth also exposes direct memory words such as fetch and store, which trust the 
 
 ## Related pages
 
-- /paradigms/README.md
-- /SECURE_CODING_REFERENCE.md
-- /paradigms/imperative.md
-- /paradigms/functional.md
-- /paradigms/procedural.md
-- /paradigms/metaprogramming.md
+- [Programming paradigms](/paradigms/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Imperative Programming](/paradigms/imperative.md)
+- [Functional Programming](/paradigms/functional.md)
+- [Procedural Programming](/paradigms/procedural.md)
+- [Metaprogramming](/paradigms/metaprogramming.md)

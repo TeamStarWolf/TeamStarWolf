@@ -66,7 +66,7 @@ Flavors differ. The original Markdown, CommonMark, and GitHub Flavored Markdown 
 
 ## A worked example
 
-```markdown
+````markdown
 # Deployment runbook
 
 A short guide to shipping the service.
@@ -96,7 +96,7 @@ for the escalation path.
 | ----------- | ------- | ----------- |
 | staging     | main    | yes         |
 | production  | release | no          |
-```
+````
 
 ## Tooling
 
@@ -124,8 +124,8 @@ John Gruber's original Markdown description defines the base syntax. The CommonM
 
 ## Related pages
 
-- /formats/README.md
-- /SECURE_CODING_REFERENCE.md
-- /formats/html.md
-- /formats/css.md
-- /formats/xml.md
+- [Data formats and regular expressions](/formats/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [HTML](/formats/html.md)
+- [CSS](/formats/css.md)
+- [XML](/formats/xml.md)

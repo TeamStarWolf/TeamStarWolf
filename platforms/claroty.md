@@ -69,9 +69,9 @@ For incident response, Claroty scopes an intrusion into the cyber-physical estat
 
 ## Related pages
 
-- /platforms/README.md
-- /hubs/ics-ot-and-hardware.md
-- /INCIDENT_RESPONSE_REFERENCE.md
-- /VULNERABILITY_MANAGEMENT_REFERENCE.md
-- /platforms/dragos.md
-- /platforms/cisco-ise.md
+- [Security platforms](/platforms/README.md)
+- [ICS, OT, and hardware](/hubs/ics-ot-and-hardware.md)
+- [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Dragos](/platforms/dragos.md)
+- [Cisco ISE](/platforms/cisco-ise.md)

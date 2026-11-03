@@ -22,6 +22,12 @@ An adversary attacks a target by providing input that causes an application to r
 - Confidentiality / Read Data
 - Availability / Unreliable Execution
 
+## Related pages
+
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

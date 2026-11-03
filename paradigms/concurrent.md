@@ -86,9 +86,9 @@ Unbounded concurrency is itself a weakness. Creating a thread or task per reques
 
 ## Related pages
 
-- /paradigms/README.md
-- /SECURE_CODING_REFERENCE.md
-- /paradigms/actor-model.md
-- /paradigms/event-driven.md
-- /paradigms/reactive.md
-- /paradigms/dataflow.md
+- [Programming paradigms](/paradigms/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [The Actor Model](/paradigms/actor-model.md)
+- [Event-Driven Programming](/paradigms/event-driven.md)
+- [Reactive Programming](/paradigms/reactive.md)
+- [Dataflow Programming](/paradigms/dataflow.md)

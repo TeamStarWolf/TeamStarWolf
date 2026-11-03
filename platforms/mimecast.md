@@ -72,9 +72,9 @@ For incident response, Mimecast message tracking and search help scope a phishin
 
 ## Related pages
 
-- /platforms/README.md
-- /INCIDENT_RESPONSE_REFERENCE.md
-- /VULNERABILITY_MANAGEMENT_REFERENCE.md
-- /platforms/proofpoint.md
-- /platforms/abnormal.md
-- /platforms/microsoft-defender.md
+- [Security platforms](/platforms/README.md)
+- [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Proofpoint](/platforms/proofpoint.md)
+- [Abnormal AI](/platforms/abnormal.md)
+- [Microsoft Defender for Endpoint](/platforms/microsoft-defender.md)

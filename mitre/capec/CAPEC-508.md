@@ -31,6 +31,18 @@ In a shoulder surfing attack, an adversary observes an unaware individual's keys
 - Be mindful of your surroundings when discussing or viewing sensitive information in public areas.
 - Pertaining to insider threats, ensure that sensitive information is not displayed to nor discussed around individuals without need-to-know access to said information.
 
+## Related pages
+
+- [CAPEC-464: Evercookie](/mitre/capec/CAPEC-464.md), also related to CWE-359
+- [CAPEC-467: Cross Site Identification](/mitre/capec/CAPEC-467.md), also related to CWE-359
+- [CAPEC-498: Probe iOS Screenshots](/mitre/capec/CAPEC-498.md), also related to CWE-359
+- [CAPEC-13: Subverting Environment Variable Values](/mitre/capec/CAPEC-13.md), also related to CWE-200
+- [CAPEC-22: Exploiting Trust in Client](/mitre/capec/CAPEC-22.md), also related to CWE-200
+- [CAPEC-59: Session Credential Falsification through Prediction](/mitre/capec/CAPEC-59.md), also related to CWE-200
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

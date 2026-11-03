@@ -105,9 +105,9 @@ Mitigation starts with not relying on obscurity. A resource that is only hidden 
 
 ## Related pages
 
-- /commands/README.md
-- /SECURE_CODING_REFERENCE.md
-- /commands/sqlmap.md
-- /commands/nmap.md
-- /commands/curl.md
-- /commands/networking-commands.md
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [sqlmap Command Reference](/commands/sqlmap.md)
+- [Nmap Command Reference](/commands/nmap.md)
+- [curl Command Reference](/commands/curl.md)
+- [Networking Command Reference](/commands/networking-commands.md)

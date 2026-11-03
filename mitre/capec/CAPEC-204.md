@@ -24,6 +24,18 @@ An adversary examines a target application's cache, or a browser cache, for sens
 - The target application must store sensitive information in a cache.
 - The cache must be inadequately protected against attacker access.
 
+## Related pages
+
+- [CAPEC-37: Retrieve Embedded Sensitive Data](/mitre/capec/CAPEC-37.md), also related to CWE-311, CWE-1239 and 1 more
+- [CAPEC-150: Collect Data from Common Resource Locations](/mitre/capec/CAPEC-150.md), also related to CWE-1239 and CWE-1258
+- [CAPEC-545: Pull Data from System Resources](/mitre/capec/CAPEC-545.md), also related to CWE-1239 and CWE-1258
+- [CAPEC-31: Accessing/Intercepting/Modifying HTTP Cookies](/mitre/capec/CAPEC-31.md), also related to CWE-311
+- [CAPEC-65: Sniff Application Code](/mitre/capec/CAPEC-65.md), also related to CWE-311
+- [CAPEC-157: Sniffing Attacks](/mitre/capec/CAPEC-157.md), also related to CWE-311
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

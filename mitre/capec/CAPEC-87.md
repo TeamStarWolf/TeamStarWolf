@@ -33,6 +33,18 @@ An attacker employs forceful browsing (direct URL entry) to access portions of a
 - Authenticate request to every resource. In addition, every page or resource must ensure that the request it is handling has been made in an authorized context.
 - Forceful browsing can also be made difficult to a large extent by not hard-coding names of application pages or resources. This way, the attacker cannot figure out, from the application alone, the resources available from the present context.
 
+## Related pages
+
+- [CAPEC-127: Directory Indexing](/mitre/capec/CAPEC-127.md), also related to CWE-285, CWE-425 and 1 more
+- [CAPEC-668: Key Negotiation of Bluetooth Attack (KNOB)](/mitre/capec/CAPEC-668.md), also related to CWE-285, CWE-425 and 1 more
+- [CAPEC-1: Accessing Functionality Not Properly Constrained by ACLs](/mitre/capec/CAPEC-1.md), also related to CWE-285 and CWE-693
+- [CAPEC-17: Using Malicious Files](/mitre/capec/CAPEC-17.md), also related to CWE-285 and CWE-693
+- [CAPEC-51: Poison Web Service Registry](/mitre/capec/CAPEC-51.md), also related to CWE-285 and CWE-693
+- [CAPEC-59: Session Credential Falsification through Prediction](/mitre/capec/CAPEC-59.md), also related to CWE-285 and CWE-693
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

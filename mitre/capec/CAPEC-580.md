@@ -36,6 +36,16 @@ An adversary engages in active probing and exploration activities to determine s
 - Keep patches up to date by installing weekly or daily if possible.
 - Identify programs that may be used to acquire peripheral information and block them by using a software restriction policy or tools that restrict program execution by using a process allowlist.
 
+## Related pages
+
+- [CAPEC-541: Application Fingerprinting](/mitre/capec/CAPEC-541.md), also related to CWE-204, CWE-205 and 1 more
+- [CAPEC-462: Cross-Domain Search Timing](/mitre/capec/CAPEC-462.md), also related to CWE-208
+- [CAPEC-331: ICMP IP Total Length Field Probe](/mitre/capec/CAPEC-331.md), also related to CWE-204
+- [CAPEC-332: ICMP IP 'ID' Field Error Message Probe](/mitre/capec/CAPEC-332.md), also related to CWE-204
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

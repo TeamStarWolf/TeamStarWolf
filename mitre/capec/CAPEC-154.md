@@ -25,6 +25,16 @@ An adversary deceives an application or user and convinces them to request a res
 
 - Monitor network activity to detect any anomalous or unauthorized communication exchanges.
 
+## Related pages
+
+- [CAPEC-98: Phishing](/mitre/capec/CAPEC-98.md), also related to CWE-451
+- [CAPEC-163: Spear Phishing](/mitre/capec/CAPEC-163.md), also related to CWE-451
+- [CAPEC-164: Mobile Phishing](/mitre/capec/CAPEC-164.md), also related to CWE-451
+- [CAPEC-173: Action Spoofing](/mitre/capec/CAPEC-173.md), also related to CWE-451
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

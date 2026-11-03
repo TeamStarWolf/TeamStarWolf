@@ -26,6 +26,19 @@ The adversary extracts credentials used for code signing from a production envir
 - If a digital certificate has been compromised it should be revoked and regenerated.
 - Even if a piece of software has a valid and trusted digital signature, it should be assessed for any weaknesses and vulnerabilities.
 
+## Related pages
+
+- [CAPEC-673: Developer Signing Maliciously Altered Software](/mitre/capec/CAPEC-673.md), named in the description above
+- [CAPEC-1: Accessing Functionality Not Properly Constrained by ACLs](/mitre/capec/CAPEC-1.md), also related to CWE-732
+- [CAPEC-17: Using Malicious Files](/mitre/capec/CAPEC-17.md), also related to CWE-732
+- [CAPEC-60: Reusing Session IDs (aka Session Replay)](/mitre/capec/CAPEC-60.md), also related to CWE-732
+- [CAPEC-61: Session Fixation](/mitre/capec/CAPEC-61.md), also related to CWE-732
+- [CAPEC-62: Cross Site Request Forgery](/mitre/capec/CAPEC-62.md), also related to CWE-732
+- [CAPEC-122: Privilege Abuse](/mitre/capec/CAPEC-122.md), also related to CWE-732
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

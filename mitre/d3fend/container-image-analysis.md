@@ -11,6 +11,11 @@ Analyzing a Container Image with respect to a set of policies.
 
 - [T1525: Implant Internal Image](/mitre/techniques/T1525.md): analyzes. Adversaries may implant cloud or container images with malicious code to establish persistence after gaining access to an environment.
 
+## Related pages
+
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

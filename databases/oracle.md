@@ -105,10 +105,10 @@ Real Application Clusters (RAC) runs one database across several nodes for avail
 
 ## Related pages
 
-- /languages/plsql.md
-- /languages/sql.md
-- /databases/README.md
-- /SECURE_CODING_REFERENCE.md
-- /databases/postgresql.md
-- /databases/mysql.md
-- /databases/sql-server.md
+- [PL/SQL](/languages/plsql.md)
+- [SQL](/languages/sql.md)
+- [Databases](/databases/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [PostgreSQL](/databases/postgresql.md)
+- [MySQL and MariaDB](/databases/mysql.md)
+- [Microsoft SQL Server](/databases/sql-server.md)

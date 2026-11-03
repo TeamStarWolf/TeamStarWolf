@@ -19,6 +19,19 @@ Comparing strings using a variety of techniques to determine if a deceptive or m
 - [T1566.002: Spearphishing Link](/mitre/techniques/T1566-002.md): analyzes. Adversaries may send spearphishing emails with a malicious link in an attempt to gain access to victim systems.
 - [T1566.003: Spearphishing via Service](/mitre/techniques/T1566-003.md): analyzes. Adversaries may send spearphishing messages via third-party services in an attempt to gain access to victim systems.
 
+## Related pages
+
+- [Application Protocol Command Analysis](/mitre/d3fend/application-protocol-command-analysis.md), which also counters 6 of these techniques
+- [Client-server Payload Profiling](/mitre/d3fend/client-server-payload-profiling.md), which also counters 6 of these techniques
+- [Content Filtering](/mitre/d3fend/content-filtering.md), which also counters 6 of these techniques
+- [Content Modification](/mitre/d3fend/content-modification.md), which also counters 6 of these techniques
+- [Content Quarantine](/mitre/d3fend/content-quarantine.md), which also counters 6 of these techniques
+- [Decoy File](/mitre/d3fend/decoy-file.md), which also counters 6 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

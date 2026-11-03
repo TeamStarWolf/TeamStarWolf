@@ -122,8 +122,8 @@ Agent forwarding (`-A`) lets a remote host use your local keys for the duration 
 
 ## Related pages
 
-- /commands/README.md
-- /SECURE_CODING_REFERENCE.md
-- /commands/git.md
-- /commands/networking-commands.md
-- /commands/linux-commands.md
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Git Command Reference](/commands/git.md)
+- [Networking Command Reference](/commands/networking-commands.md)
+- [Linux Command Reference](/commands/linux-commands.md)

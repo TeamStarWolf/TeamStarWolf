@@ -17,6 +17,11 @@ A common form of a GPS spoofing attack, commonly termed a carry-off attack begin
 
 - [High] This attack requires advanced knoweldge in GPS technology.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

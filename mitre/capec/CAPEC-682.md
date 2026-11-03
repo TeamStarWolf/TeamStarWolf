@@ -35,6 +35,12 @@ An adversary may exploit vulnerable code (i.e., firmware or ROM) that is unpatch
 - Design systems and products with the ability to patch firmware or ROM code after deployment to fix vulnerabilities.
 - Make use of OTA (Over-the-air) updates so that firmware can be patched remotely either through manual or automatic means
 
+## Related pages
+
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

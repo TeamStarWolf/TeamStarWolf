@@ -18,6 +18,17 @@ Detection of unauthorized use of administrative network protocols by analyzing n
 - [T1546.003: Windows Management Instrumentation Event Subscription](/mitre/techniques/T1546-003.md): analyzes. Adversaries may establish persistence and elevate privileges by executing malicious content triggered by a Windows Management Instrumentation (WMI) event subscription.
 - [T1546.008: Accessibility Features](/mitre/techniques/T1546-008.md): analyzes. Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by accessibility features.
 
+## Related pages
+
+- [Application Protocol Command Analysis](/mitre/d3fend/application-protocol-command-analysis.md), which also counters 8 of these techniques
+- [Client-server Payload Profiling](/mitre/d3fend/client-server-payload-profiling.md), which also counters 8 of these techniques
+- [Connection Attempt Analysis](/mitre/d3fend/connection-attempt-analysis.md), which also counters 8 of these techniques
+- [Network Traffic Community Deviation](/mitre/d3fend/network-traffic-community-deviation.md), which also counters 8 of these techniques
+- [Network Traffic Filtering](/mitre/d3fend/network-traffic-filtering.md), which also counters 8 of these techniques
+- [Network Traffic Signature Analysis](/mitre/d3fend/network-traffic-signature-analysis.md), which also counters 8 of these techniques
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

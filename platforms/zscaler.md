@@ -97,8 +97,8 @@ Its logs support incident response by showing what a compromised account or devi
 
 ## Related pages
 
-- /platforms/README.md
-- /SCANNER_PLATFORMS_REFERENCE.md
-- /INCIDENT_RESPONSE_REFERENCE.md
-- /platforms/cisco-secure-access.md
-- /platforms/forcepoint.md
+- [Security platforms](/platforms/README.md)
+- [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md)
+- [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
+- [Cisco Secure Access](/platforms/cisco-secure-access.md)
+- [Forcepoint](/platforms/forcepoint.md)

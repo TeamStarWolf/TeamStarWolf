@@ -71,3 +71,10 @@ version 2.1, available at
 <https://www.contributor-covenant.org/version/2/1/code_of_conduct.html>.
 
 [homepage]: https://www.contributor-covenant.org
+
+## Related pages
+
+- [Contributing to TeamStarWolf](/CONTRIBUTING.md)
+- [Security Policy](/SECURITY.md)
+- [Voice and Credibility Guide](/docs/VOICE.md)
+- [About the Library and Its Data](/ABOUT_THE_DATA.md)

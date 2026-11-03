@@ -31,6 +31,18 @@ An adversary takes advantage of incorrectly configured SSL/TLS communications th
 - Only use TLS version 1.2+, as versions 1.0 and 1.1 are insecure.
 - Configure TLS to use secure algorithms. The current recommendation is to use ECDH, ECDSA, AES256-GCM, and SHA384 for the most security.
 
+## Related pages
+
+- [CAPEC-12: Choosing Message Identifier](/mitre/capec/CAPEC-12.md), also related to CWE-201
+- [CAPEC-612: WiFi MAC Address Tracking](/mitre/capec/CAPEC-612.md), also related to CWE-201
+- [CAPEC-613: WiFi SSID Tracking](/mitre/capec/CAPEC-613.md), also related to CWE-201
+- [CAPEC-618: Cellular Broadcast Message Request](/mitre/capec/CAPEC-618.md), also related to CWE-201
+- [CAPEC-619: Signal Strength Tracking](/mitre/capec/CAPEC-619.md), also related to CWE-201
+- [CAPEC-621: Analysis of Packet Timing and Sizes](/mitre/capec/CAPEC-621.md), also related to CWE-201
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

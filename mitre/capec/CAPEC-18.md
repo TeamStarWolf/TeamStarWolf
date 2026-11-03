@@ -32,6 +32,15 @@ This attack is a form of Cross-Site Scripting (XSS) where malicious scripts are 
 - In addition to the traditional input fields, all other user controllable inputs, such as image tags within messages or the likes, must also be subjected to input validation. Such validation should ensure that content that can be potentially interpreted as script by the browser is appropriately filtered.
 - All output displayed to clients must be properly escaped. Escaping ensures that the browser interprets special scripting characters literally and not as script to be executed.
 
+## Related pages
+
+- [CAPEC-32: XSS Through HTTP Query Strings](/mitre/capec/CAPEC-32.md), also related to CWE-80
+- [CAPEC-86: XSS Through HTTP Headers](/mitre/capec/CAPEC-86.md), also related to CWE-80
+- [CAPEC-193: PHP Remote File Inclusion](/mitre/capec/CAPEC-193.md), also related to CWE-80
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

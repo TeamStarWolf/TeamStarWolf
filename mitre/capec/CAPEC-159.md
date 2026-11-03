@@ -38,6 +38,15 @@ An adversary exploits a weakness in the way an application searches for external
 - Implementation: Check the integrity of the dynamically linked libraries before use them.
 - Implementation: Use obfuscation and other techniques to prevent reverse engineering the libraries.
 
+## Related pages
+
+- [CAPEC-48: Passing Local Filenames to Functions That Expect a URL](/mitre/capec/CAPEC-48.md), also related to CWE-706
+- [CAPEC-177: Create files with the same name as files protected with a higher classification](/mitre/capec/CAPEC-177.md), also related to CWE-706
+- [CAPEC-641: DLL Side-Loading](/mitre/capec/CAPEC-641.md), also related to CWE-706
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

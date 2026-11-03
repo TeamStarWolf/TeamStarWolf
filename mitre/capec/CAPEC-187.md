@@ -21,6 +21,18 @@ An attacker exploits two layers of weaknesses in server or client software for a
 
 - Access Control, Availability, Confidentiality / Execute Unauthorized Commands
 
+## Related pages
+
+- [CAPEC-184: Software Integrity Attack](/mitre/capec/CAPEC-184.md), also related to CWE-494
+- [CAPEC-185: Malicious Software Download](/mitre/capec/CAPEC-185.md), also related to CWE-494
+- [CAPEC-186: Malicious Software Update](/mitre/capec/CAPEC-186.md), also related to CWE-494
+- [CAPEC-533: Malicious Manual Software Update](/mitre/capec/CAPEC-533.md), also related to CWE-494
+- [CAPEC-538: Open-Source Library Manipulation](/mitre/capec/CAPEC-538.md), also related to CWE-494
+- [CAPEC-657: Malicious Automated Software Update via Spoofing](/mitre/capec/CAPEC-657.md), also related to CWE-494
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

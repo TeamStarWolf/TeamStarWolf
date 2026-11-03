@@ -142,5 +142,15 @@ _Learning & reference_
 
 AWS WAF (WAFv2) remains the current product. June 2025: AWS launched the AWS WAF Anti-DDoS managed rule group for application-layer (L7) DDoS, detecting/mitigating HTTP floods in seconds after ~15 min baselining; it uses 50 WCUs vs 150 for Shield's prior automatic mitigation and supports Count/Block/Challenge. Shield Advanced is transitioning to this rule group as its default (then sole) L7 mitigation, starting to add it to eligible web ACLs in Count mode (verify exact 2025 rollout dates on the AWS Security Blog). December 2025: Bot Control expanded category detection (Advertising, AI, Content Fetcher, Social Media). October 2025: CRS/common rule set updated. November 2025: CloudFront flat-rate pricing plans can apply to WAF-associated distributions; default ALB-associations-per-web-ACL quota is 100. Confirm current per-request/WCU rates on the AWS WAF pricing page.
 
+## Related pages
+
+- [Cloud Network Security Reference](/CLOUD_NETWORK_SECURITY.md)
+- [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+- [Cloud Architecture](/CLOUD_ARCHITECTURE_REFERENCE.md)
+- [AWS Native Security (Inspector / GuardDuty / Security Hub / Config)](/tools/aws-native-security.md)
+- [Akamai App & API Protector](/tools/akamai-app-api-protector.md)
+- [Vendor Tool Pages](/tools/README.md)
+- [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)
+
 ---
 *Generic reference. Confirm product facts, event IDs, fields and URLs against current vendor sources. Descriptive, not an endorsement.*

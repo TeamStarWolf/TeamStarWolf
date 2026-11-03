@@ -27,6 +27,16 @@ An adversary is able to disguise one action for another and therefore trick a us
 - Avoid interacting with suspicious sites or clicking suspicious links.
 - An organization should provide regular, robust cybersecurity training to its employees.
 
+## Related pages
+
+- [CAPEC-98: Phishing](/mitre/capec/CAPEC-98.md), also related to CWE-451
+- [CAPEC-154: Resource Location Spoofing](/mitre/capec/CAPEC-154.md), also related to CWE-451
+- [CAPEC-163: Spear Phishing](/mitre/capec/CAPEC-163.md), also related to CWE-451
+- [CAPEC-164: Mobile Phishing](/mitre/capec/CAPEC-164.md), also related to CWE-451
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

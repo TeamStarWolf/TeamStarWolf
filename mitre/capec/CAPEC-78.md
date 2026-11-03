@@ -49,6 +49,18 @@ This attack targets the use of the backslash in alternate encoding. An adversary
 - Any security checks should occur after the data has been decoded and validated as correct data format. Do not repeat decoding process, if bad character are left after decoding process, treat the data as suspicious, and fail the validation process.
 - Avoid making decisions based on names of resources (e.g. files) if those resources can have alternate names.
 
+## Related pages
+
+- [CAPEC-79: Using Slashes in Alternate Encoding](/mitre/capec/CAPEC-79.md), also related to CWE-20, CWE-22 and 7 more
+- [CAPEC-64: Using Slashes and URL Encoding Combined to Bypass Validation Logic](/mitre/capec/CAPEC-64.md), also related to CWE-20, CWE-22 and 6 more
+- [CAPEC-3: Using Leading 'Ghost' Character Sequences to Bypass Input Filters](/mitre/capec/CAPEC-3.md), also related to CWE-20, CWE-74 and 6 more
+- [CAPEC-80: Using UTF-8 Encoding to Bypass Validation Logic](/mitre/capec/CAPEC-80.md), also related to CWE-20, CWE-73 and 6 more
+- [CAPEC-267: Leverage Alternate Encoding](/mitre/capec/CAPEC-267.md), also related to CWE-20, CWE-73 and 6 more
+- [CAPEC-71: Using Unicode Encoding to Bypass Validation Logic](/mitre/capec/CAPEC-71.md), also related to CWE-20, CWE-74 and 4 more
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

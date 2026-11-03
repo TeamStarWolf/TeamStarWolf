@@ -30,6 +30,14 @@ An adversary adds malicious logic, often in the form of a computer virus, to oth
 
 - Leverage anti-virus products to detect and quarantine software with known virus.
 
+## Related pages
+
+- [CAPEC-448: Embed Virus into DLL](/mitre/capec/CAPEC-448.md), also related to CWE-506
+- [CAPEC-636: Hiding Malicious Data or Code within Files](/mitre/capec/CAPEC-636.md), also related to CWE-506
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

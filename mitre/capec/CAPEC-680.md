@@ -39,6 +39,13 @@ An adversary exploits missing or incorrectly configured access control within re
 - Leverage automated tools to test that values are not reprogrammable and that write-once fields lock on writing zeros.
 - Ensure that measurement data is stored in registers that are read-only or otherwise have access controls that prevent modification by an untrusted agent.
 
+## Related pages
+
+- [CAPEC-176: Configuration/Environment Manipulation](/mitre/capec/CAPEC-176.md), also related to CWE-1233
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

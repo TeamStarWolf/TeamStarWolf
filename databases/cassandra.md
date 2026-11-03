@@ -137,9 +137,9 @@ Consistency is tunable per request. A query sets a consistency level such as `ON
 
 ## Related pages
 
-- /databases/README.md
-- /SECURE_CODING_REFERENCE.md
-- /databases/mongodb.md
-- /databases/redis.md
-- /databases/dynamodb.md
-- /databases/clickhouse.md
+- [Databases](/databases/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [MongoDB](/databases/mongodb.md)
+- [Redis](/databases/redis.md)
+- [Amazon DynamoDB](/databases/dynamodb.md)
+- [ClickHouse](/databases/clickhouse.md)

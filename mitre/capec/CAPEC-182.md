@@ -40,6 +40,18 @@ An attacker tricks a victim to execute malicious flash content that executes com
 - Implementation: use SSL when loading external data
 - Implementation: use crossdomain.xml file to allow the application domain to load stuff or the SWF file called by other domain.
 
+## Related pages
+
+- [CAPEC-3: Using Leading 'Ghost' Character Sequences to Bypass Input Filters](/mitre/capec/CAPEC-3.md), also related to CWE-20, CWE-184 and 1 more
+- [CAPEC-43: Exploiting Multiple Input Interpretation Layers](/mitre/capec/CAPEC-43.md), also related to CWE-20, CWE-184 and 1 more
+- [CAPEC-71: Using Unicode Encoding to Bypass Validation Logic](/mitre/capec/CAPEC-71.md), also related to CWE-20, CWE-184 and 1 more
+- [CAPEC-73: User-Controlled Filename](/mitre/capec/CAPEC-73.md), also related to CWE-20, CWE-184 and 1 more
+- [CAPEC-120: Double Encoding](/mitre/capec/CAPEC-120.md), also related to CWE-20, CWE-184 and 1 more
+- [CAPEC-6: Argument Injection](/mitre/capec/CAPEC-6.md), also related to CWE-184 and CWE-697
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

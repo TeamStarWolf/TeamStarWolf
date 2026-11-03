@@ -144,8 +144,8 @@ Add policy-as-code and keep variables out of logs. Enforce guardrails with Open 
 
 ## Related pages
 
-- /commands/README.md
-- /SECURE_CODING_REFERENCE.md
-- /commands/aws-cli.md
-- /commands/kubectl.md
-- /commands/docker.md
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [AWS CLI Reference](/commands/aws-cli.md)
+- [kubectl Command Reference](/commands/kubectl.md)
+- [Docker Command Reference](/commands/docker.md)

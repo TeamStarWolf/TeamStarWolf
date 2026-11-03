@@ -146,5 +146,16 @@ _Learning & reference_
 
 Chainguard positions a broad product line: Containers/Images (2,000+ zero-CVE images on Wolfi), Libraries (Python/Java/JS, built from source), VMs, OS Packages, Chainguard OS, Actions, and AI Agent Skills, all produced by the Chainguard Factory (reported Factory 2.0 / DriftlessAF rebuilding from source on upstream drift). Raised a $356M Series D in April 2025 (co-led by Kleiner Perkins and IVP; ~$612M total funding). Chainguard Libraries reported free until June 30, 2026 (verify current status). Integrations with Trivy, Grype, Snyk and Wiz. The 'zero-CVE' marketing is independently contested (Feb 2026 analysis) and is best described as minimal-surface, near-zero known CVEs with an SLA. Remains independent; verify catalog size and specific FIPS/SLA terms on Chainguard's own docs.
 
+## Related pages
+
+- [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+- [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md)
+- [Security Operating Systems and Distributions](/SECURITY_OPERATING_SYSTEMS_REFERENCE.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Snyk](/tools/snyk.md)
+- [Wiz](/tools/wiz.md)
+- [Vendor Tool Pages](/tools/README.md)
+- [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)
+
 ---
 *Generic reference. Confirm product facts, event IDs, fields and URLs against current vendor sources. Descriptive, not an endorsement.*

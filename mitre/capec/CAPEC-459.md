@@ -33,6 +33,18 @@ An adversary exploits a weakness resulting from using a hashing algorithm with w
 
 - Certification Authorities need to stop using deprecated or cryptographically insecure hashing algorithms to hash the certificates that they are about to sign. Instead they should be using stronger hashing functions such as SHA-256 or SHA-512.
 
+## Related pages
+
+- [CAPEC-475: Signature Spoofing by Improper Validation](/mitre/capec/CAPEC-475.md), also related to CWE-295 and CWE-327
+- [CAPEC-473: Signature Spoof](/mitre/capec/CAPEC-473.md), also related to CWE-290 and CWE-327
+- [CAPEC-20: Encryption Brute Forcing](/mitre/capec/CAPEC-20.md), also related to CWE-327
+- [CAPEC-97: Cryptanalysis](/mitre/capec/CAPEC-97.md), also related to CWE-327
+- [CAPEC-608: Cryptanalysis of Cellular Encryption](/mitre/capec/CAPEC-608.md), also related to CWE-327
+- [CAPEC-614: Rooting SIM Cards](/mitre/capec/CAPEC-614.md), also related to CWE-327
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

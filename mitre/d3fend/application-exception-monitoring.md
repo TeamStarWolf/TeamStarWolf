@@ -24,6 +24,17 @@ Monitoring the failures of system counters and timers.
 - [T1548.003: Sudo and Sudo Caching](/mitre/techniques/T1548-003.md): monitors. Adversaries may perform sudo caching and/or use the sudoers file to elevate privileges.
 - [T1685.005: Clear Windows Event Logs](/mitre/techniques/T1685-005.md): monitors (D3FEND maps the revoked predecessor T1070.001). Adversaries may clear Windows Event Logs to hide the activity of an intrusion.
 
+## Related pages
+
+- [Operational Process Monitoring](/mitre/d3fend/operational-process-monitoring.md), which also counters 13 of these techniques
+- [Authentication Cache Invalidation](/mitre/d3fend/authentication-cache-invalidation.md), which also counters 5 of these techniques
+- [Credential Compromise Scope Analysis](/mitre/d3fend/credential-compromise-scope-analysis.md), which also counters 5 of these techniques
+- [Credential Hardening](/mitre/d3fend/credential-hardening.md), which also counters 5 of these techniques
+- [Credential Revocation](/mitre/d3fend/credential-revocation.md), which also counters 5 of these techniques
+- [Credential Rotation](/mitre/d3fend/credential-rotation.md), which also counters 5 of these techniques
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

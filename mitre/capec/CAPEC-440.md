@@ -22,6 +22,11 @@ An adversary exploits a weakness in the system maintenance process and causes a 
 
 - Integrity / Execute Unauthorized Commands
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

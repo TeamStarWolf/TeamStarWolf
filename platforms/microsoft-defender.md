@@ -59,9 +59,9 @@ A vulnerability management and security operations team uses Defender for Endpoi
 
 ## Related pages
 
-- /platforms/README.md
-- /SCANNER_PLATFORMS_REFERENCE.md
-- /VULNERABILITY_MANAGEMENT_REFERENCE.md
-- /INCIDENT_RESPONSE_REFERENCE.md
-- /platforms/crowdstrike-falcon.md
-- /platforms/entra-id.md
+- [Security platforms](/platforms/README.md)
+- [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
+- [CrowdStrike Falcon](/platforms/crowdstrike-falcon.md)
+- [Microsoft Entra ID](/platforms/entra-id.md)

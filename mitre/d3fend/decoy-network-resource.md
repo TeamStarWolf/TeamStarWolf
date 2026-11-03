@@ -18,6 +18,17 @@ Deploying a network resource for the purposes of deceiving an adversary.
 - [T1213.002: Sharepoint](/mitre/techniques/T1213-002.md): spoofs. Adversaries may leverage the SharePoint repository as a source to mine valuable information.
 - [T1491.002: External Defacement](/mitre/techniques/T1491-002.md): spoofs. An adversary may deface systems external to an organization in an attempt to deliver messaging, intimidate, or otherwise mislead an organization or users.
 
+## Related pages
+
+- [Network Resource Access Mediation](/mitre/d3fend/network-resource-access-mediation.md), which also counters 8 of these techniques
+- [Content Filtering](/mitre/d3fend/content-filtering.md), which also counters 1 of these techniques
+- [Content Modification](/mitre/d3fend/content-modification.md), which also counters 1 of these techniques
+- [Content Quarantine](/mitre/d3fend/content-quarantine.md), which also counters 1 of these techniques
+- [Decoy File](/mitre/d3fend/decoy-file.md), which also counters 1 of these techniques
+- [Dynamic Analysis](/mitre/d3fend/dynamic-analysis.md), which also counters 1 of these techniques
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -27,6 +27,16 @@ An adversary manipulates the content of request parameters for the purpose of un
 - Implement an audit log written to a separate host. In the event of a compromise, the audit log may be able to provide evidence and details of the compromise.
 - Treat all user input as untrusted data that must be validated before use.
 
+## Related pages
+
+- [CAPEC-41: Using Meta-characters in E-mail Headers to Inject Malicious Payloads](/mitre/capec/CAPEC-41.md), also related to CWE-88
+- [CAPEC-88: OS Command Injection](/mitre/capec/CAPEC-88.md), also related to CWE-88
+- [CAPEC-174: Flash Parameter Injection](/mitre/capec/CAPEC-174.md), also related to CWE-88
+- [CAPEC-460: HTTP Parameter Pollution (HPP)](/mitre/capec/CAPEC-460.md), also related to CWE-88
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

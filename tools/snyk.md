@@ -140,5 +140,16 @@ _Learning & reference_
 
 Acquired Probely (Nov 2024, developer-first DAST) and Invariant Labs (June 2025, AI/agentic security Guardrails - now part of the Snyk AI Trust Platform); earlier DeepCode (2020 -> Snyk Code). Platform positioned around securing AI-generated code and agentic applications. Pricing remains per-contributing-developer with Free/Team/Ignite/Enterprise tiers; AppRisk is an Enterprise add-on. Exact free-tier test limits and Enterprise pricing vary by source - verify at snyk.io.
 
+## Related pages
+
+- [DevSecOps Reference Library](/DEVSECOPS_REFERENCE.md)
+- [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+- [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Chainguard](/tools/chainguard.md)
+- [Invicti](/tools/invicti.md)
+- [Vendor Tool Pages](/tools/README.md)
+- [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)
+
 ---
 *Generic reference. Confirm product facts, event IDs, fields and URLs against current vendor sources. Descriptive, not an endorsement.*

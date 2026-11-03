@@ -31,6 +31,13 @@ Fault injection attacks against mobile devices use disruptive signals or events 
 - Strong physical security of all devices that contain secret key information. (even when devices are not in use)
 - Frequent changes to secret keys and certificates.
 
+## Related pages
+
+- [CAPEC-624: Hardware Fault Injection](/mitre/capec/CAPEC-624.md), also related to CWE-1247, CWE-1248 and 6 more
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

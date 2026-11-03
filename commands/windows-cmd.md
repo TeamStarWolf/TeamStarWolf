@@ -138,8 +138,8 @@ Many of these binaries are living-off-the-land binaries (LOLBins). `certutil`, `
 
 ## Related pages
 
-- /commands/README.md
-- /SECURE_CODING_REFERENCE.md
-- /commands/powershell-commands.md
-- /commands/networking-commands.md
-- /commands/linux-commands.md
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [PowerShell Command Reference](/commands/powershell-commands.md)
+- [Networking Command Reference](/commands/networking-commands.md)
+- [Linux Command Reference](/commands/linux-commands.md)

@@ -39,6 +39,18 @@ An attack of this type exploits vulnerabilities in client/server communication c
 - Design: Utilize two factor authentication to increase authentication assurance.
 - Implementation: Perform input validation for all remote content.
 
+## Related pages
+
+- [CAPEC-59: Session Credential Falsification through Prediction](/mitre/capec/CAPEC-59.md), also related to CWE-200, CWE-290 and 1 more
+- [CAPEC-57: Utilizing REST's Trust in the System Resource to Obtain Sensitive Data](/mitre/capec/CAPEC-57.md), also related to CWE-287 and CWE-693
+- [CAPEC-60: Reusing Session IDs (aka Session Replay)](/mitre/capec/CAPEC-60.md), also related to CWE-200 and CWE-290
+- [CAPEC-94: Adversary in the Middle (AiTM)](/mitre/capec/CAPEC-94.md), also related to CWE-287 and CWE-290
+- [CAPEC-473: Signature Spoof](/mitre/capec/CAPEC-473.md), also related to CWE-20 and CWE-290
+- [CAPEC-13: Subverting Environment Variable Values](/mitre/capec/CAPEC-13.md), also related to CWE-20 and CWE-200
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

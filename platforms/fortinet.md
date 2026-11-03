@@ -93,9 +93,9 @@ Its logs feed incident response by showing boundary decisions, network behavior,
 
 ## Related pages
 
-- /platforms/README.md
-- /SCANNER_PLATFORMS_REFERENCE.md
-- /VULNERABILITY_MANAGEMENT_REFERENCE.md
-- /INCIDENT_RESPONSE_REFERENCE.md
-- /platforms/check-point.md
-- /platforms/cisco-secure-access.md
+- [Security platforms](/platforms/README.md)
+- [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
+- [Check Point](/platforms/check-point.md)
+- [Cisco Secure Access](/platforms/cisco-secure-access.md)

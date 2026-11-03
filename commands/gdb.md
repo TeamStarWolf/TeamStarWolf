@@ -179,8 +179,8 @@ Core dumps and the memory of an attached process can contain secrets: passwords,
 
 ## Related pages
 
-- `/commands/README.md`
-- `/SECURE_CODING_REFERENCE.md`
-- `/commands/metasploit.md`
-- `/commands/linux-commands.md`
-- `/commands/vim.md`
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Metasploit Framework Reference](/commands/metasploit.md)
+- [Linux Command Reference](/commands/linux-commands.md)
+- [Vim Command Reference](/commands/vim.md)

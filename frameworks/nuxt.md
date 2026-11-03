@@ -79,12 +79,12 @@ Returning large payloads from `useAsyncData` bloats the hydration state. Trim re
 
 ## Related pages
 
-- `/languages/javascript.md`
-- `/languages/typescript.md`
-- `/frameworks/README.md`
-- `/SECURE_CODING_REFERENCE.md`
-- `/WEB_APPLICATION_SECURITY_REFERENCE.md`
-- `/API_SECURITY_REFERENCE.md`
-- `/frameworks/vue.md`
-- `/frameworks/nextjs.md`
-- `/frameworks/remix.md`
+- [JavaScript](/languages/javascript.md)
+- [TypeScript](/languages/typescript.md)
+- [Software frameworks](/frameworks/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+- [API Security Reference Library](/API_SECURITY_REFERENCE.md)
+- [Vue.js](/frameworks/vue.md)
+- [Next.js](/frameworks/nextjs.md)
+- [Remix](/frameworks/remix.md)

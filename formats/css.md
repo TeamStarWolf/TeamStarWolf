@@ -147,8 +147,8 @@ The W3C CSS specifications define the language across modules such as Selectors,
 
 ## Related pages
 
-- /formats/README.md
-- /SECURE_CODING_REFERENCE.md
-- /formats/html.md
-- /formats/markdown.md
-- /formats/xml.md
+- [Data formats and regular expressions](/formats/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [HTML](/formats/html.md)
+- [Markdown](/formats/markdown.md)
+- [XML](/formats/xml.md)

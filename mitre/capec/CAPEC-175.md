@@ -18,6 +18,18 @@ An adversary exploits a weakness on the target to force arbitrary code to be ret
 - The target application must include external code/libraries that are executed when the application runs and the adversary must be able to influence the specific files that get included.
 - The victim must run the targeted application, possibly using the crafted parameters that the adversary uses to identify the code to include.
 
+## Related pages
+
+- [CAPEC-201: Serialized Data External Linking](/mitre/capec/CAPEC-201.md), also related to CWE-829
+- [CAPEC-228: DTD Injection](/mitre/capec/CAPEC-228.md), also related to CWE-829
+- [CAPEC-251: Local Code Inclusion](/mitre/capec/CAPEC-251.md), also related to CWE-829
+- [CAPEC-252: PHP Local File Inclusion](/mitre/capec/CAPEC-252.md), also related to CWE-829
+- [CAPEC-253: Remote Code Inclusion](/mitre/capec/CAPEC-253.md), also related to CWE-829
+- [CAPEC-263: Force Use of Corrupted Files](/mitre/capec/CAPEC-263.md), also related to CWE-829
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

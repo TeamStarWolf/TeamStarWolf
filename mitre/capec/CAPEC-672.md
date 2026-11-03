@@ -32,6 +32,11 @@ During the programming step of chip manufacture, an adversary with access and ne
 - Require that provenance of COTS microelectronic components be known whenever procured.
 - Conduct detailed vendor assessment before acquiring COTS hardware.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

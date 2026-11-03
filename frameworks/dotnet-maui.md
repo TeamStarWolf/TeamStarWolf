@@ -75,9 +75,9 @@ Aggressive trimming can strip types that reflection or serialization needs at ru
 
 ## Related pages
 
-- /languages/csharp.md
-- /frameworks/README.md
-- /SECURE_CODING_REFERENCE.md
-- /frameworks/flutter.md
-- /frameworks/aspnet-core.md
-- /frameworks/swiftui.md
+- [C#](/languages/csharp.md)
+- [Software frameworks](/frameworks/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Flutter](/frameworks/flutter.md)
+- [ASP.NET Core](/frameworks/aspnet-core.md)
+- [SwiftUI](/frameworks/swiftui.md)

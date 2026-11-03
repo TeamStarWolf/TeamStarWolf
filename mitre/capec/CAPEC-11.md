@@ -36,6 +36,12 @@ An attack of this type exploits a Web server's decision to take action based on 
 
 - Implementation: Server routines should be determined by content not determined by filename or file extension.
 
+## Related pages
+
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

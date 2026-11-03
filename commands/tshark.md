@@ -137,8 +137,8 @@ The finding in a capture is usually cleartext traffic itself. HTTP, FTP, Telnet,
 
 ## Related pages
 
-- /commands/README.md
-- /SECURE_CODING_REFERENCE.md
-- /commands/networking-commands.md
-- /commands/nmap.md
-- /commands/ssh.md
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Networking Command Reference](/commands/networking-commands.md)
+- [Nmap Command Reference](/commands/nmap.md)
+- [SSH Command Reference](/commands/ssh.md)

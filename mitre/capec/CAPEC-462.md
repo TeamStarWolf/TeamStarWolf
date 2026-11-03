@@ -31,6 +31,17 @@ An attacker initiates cross domain HTTP / GET requests and times the server resp
 - Design: The victim's site could protect all potentially sensitive functionality (e.g. search functions) with cross site request forgery (CSRF) protection and not perform any work on behalf of forged requests
 - Design: The browser's security model could be fixed to not leak timing information for cross domain requests
 
+## Related pages
+
+- [CAPEC-541: Application Fingerprinting](/mitre/capec/CAPEC-541.md), also related to CWE-208
+- [CAPEC-580: System Footprinting](/mitre/capec/CAPEC-580.md), also related to CWE-208
+- [CAPEC-62: Cross Site Request Forgery](/mitre/capec/CAPEC-62.md), also related to CWE-352
+- [CAPEC-111: JSON Hijacking (aka JavaScript Hijacking)](/mitre/capec/CAPEC-111.md), also related to CWE-352
+- [CAPEC-467: Cross Site Identification](/mitre/capec/CAPEC-467.md), also related to CWE-352
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

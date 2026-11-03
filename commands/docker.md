@@ -152,8 +152,8 @@ Harden the runtime. Use `--read-only` for the root filesystem with explicit writ
 
 ## Related pages
 
-- /commands/README.md
-- /SECURE_CODING_REFERENCE.md
-- /commands/kubectl.md
-- /commands/linux-commands.md
-- /commands/systemctl.md
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [kubectl Command Reference](/commands/kubectl.md)
+- [Linux Command Reference](/commands/linux-commands.md)
+- [systemd and systemctl Reference](/commands/systemctl.md)

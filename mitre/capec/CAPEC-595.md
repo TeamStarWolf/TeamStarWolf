@@ -15,6 +15,15 @@ In this attack pattern, an adversary injects a connection reset packet to one or
 
 - This attack requires the ability to monitor the target's network connection.
 
+## Related pages
+
+- [CAPEC-500: WebView Injection](/mitre/capec/CAPEC-500.md), also related to CWE-940
+- [CAPEC-594: Traffic Injection](/mitre/capec/CAPEC-594.md), also related to CWE-940
+- [CAPEC-596: TCP RST Injection](/mitre/capec/CAPEC-596.md), also related to CWE-940
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

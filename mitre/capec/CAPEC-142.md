@@ -35,6 +35,18 @@ A domain name server translates a domain name (such as www.example.com) into an 
 - Configuration: UNIX services like rlogin, rsh/rcp, xhost, and nfs are all susceptible to wrong information being held in a cache. Care should be taken with these services so they do not rely upon DNS caches that have been exposed to the Internet.
 - Configuration: Disable client side DNS caching.
 
+## Related pages
+
+- [CAPEC-141: Cache Poisoning](/mitre/capec/CAPEC-141.md), also related to CWE-345, CWE-346 and 2 more
+- [CAPEC-75: Manipulating Writeable Configuration Files](/mitre/capec/CAPEC-75.md), also related to CWE-346 and CWE-349
+- [CAPEC-73: User-Controlled Filename](/mitre/capec/CAPEC-73.md), also related to CWE-348 and CWE-350
+- [CAPEC-89: Pharming](/mitre/capec/CAPEC-89.md), also related to CWE-346 and CWE-350
+- [CAPEC-76: Manipulating Web Input to File System Calls](/mitre/capec/CAPEC-76.md), also related to CWE-346 and CWE-348
+- [CAPEC-111: JSON Hijacking (aka JavaScript Hijacking)](/mitre/capec/CAPEC-111.md), also related to CWE-345 and CWE-346
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

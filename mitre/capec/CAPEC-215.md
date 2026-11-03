@@ -37,6 +37,15 @@ An attacker sends random, malformed, or otherwise unexpected messages to a targe
 - Implementation: Hide cookie's software information filed.
 - Implementation: Obfuscate database type in Database API's error message.
 
+## Related pages
+
+- [CAPEC-7: Blind SQL Injection](/mitre/capec/CAPEC-7.md), also related to CWE-209
+- [CAPEC-54: Query System for Information](/mitre/capec/CAPEC-54.md), also related to CWE-209
+- [CAPEC-463: Padding Oracle Crypto Attack](/mitre/capec/CAPEC-463.md), also related to CWE-209
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

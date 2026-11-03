@@ -45,6 +45,18 @@ This attack targets the encoding of the URL. An adversary can take advantage of 
 - Be aware of the threat of alternative method of data encoding and obfuscation technique such as IP address encoding. (See related guideline section)
 - When client input is required from web-based forms, avoid using the "GET" method to submit data, as the method causes the form data to be appended to the URL and is easily manipulated. Instead, use the "POST method whenever possible.
 
+## Related pages
+
+- [CAPEC-64: Using Slashes and URL Encoding Combined to Bypass Validation Logic](/mitre/capec/CAPEC-64.md), also related to CWE-20, CWE-73 and 4 more
+- [CAPEC-120: Double Encoding](/mitre/capec/CAPEC-120.md), also related to CWE-20, CWE-74 and 3 more
+- [CAPEC-78: Using Escaped Slashes in Alternate Encoding](/mitre/capec/CAPEC-78.md), also related to CWE-20, CWE-73 and 3 more
+- [CAPEC-80: Using UTF-8 Encoding to Bypass Validation Logic](/mitre/capec/CAPEC-80.md), also related to CWE-20, CWE-73 and 3 more
+- [CAPEC-267: Leverage Alternate Encoding](/mitre/capec/CAPEC-267.md), also related to CWE-20, CWE-73 and 3 more
+- [CAPEC-79: Using Slashes in Alternate Encoding](/mitre/capec/CAPEC-79.md), also related to CWE-20, CWE-73 and 2 more
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

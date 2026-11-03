@@ -40,6 +40,18 @@ Session sidejacking takes advantage of an unencrypted communication channel betw
 - Make sure that HTTPS is used to communicate with the target system. Alternatively, use VPN if possible. It is important to ensure that all communication between the client and the server happens via an encrypted secure channel.
 - Modify the session token with each transmission and protect it with cryptography. Add the idea of request sequencing that gives the server an ability to detect replay attacks.
 
+## Related pages
+
+- [CAPEC-509: Kerberoasting](/mitre/capec/CAPEC-509.md), also related to CWE-294 and CWE-522
+- [CAPEC-555: Remote Services with Stolen Credentials](/mitre/capec/CAPEC-555.md), also related to CWE-294 and CWE-522
+- [CAPEC-561: Windows Admin Shares with Stolen Credentials](/mitre/capec/CAPEC-561.md), also related to CWE-294 and CWE-522
+- [CAPEC-644: Use of Captured Hashes (Pass The Hash)](/mitre/capec/CAPEC-644.md), also related to CWE-294 and CWE-522
+- [CAPEC-645: Use of Captured Tickets (Pass The Ticket)](/mitre/capec/CAPEC-645.md), also related to CWE-294 and CWE-522
+- [CAPEC-652: Use of Known Kerberos Credentials](/mitre/capec/CAPEC-652.md), also related to CWE-294 and CWE-522
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

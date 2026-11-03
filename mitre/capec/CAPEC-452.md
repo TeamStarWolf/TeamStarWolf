@@ -17,6 +17,11 @@ An adversary inserts malicious logic into hardware, typically in the form of a c
 
 - Authorization / Execute Unauthorized Commands
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

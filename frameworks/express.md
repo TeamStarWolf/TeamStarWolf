@@ -76,11 +76,11 @@ Middleware order bugs cause silent failures, such as reading `req.body` before t
 
 ## Related pages
 
-- `/languages/javascript.md`
-- `/languages/typescript.md`
-- `/frameworks/README.md`
-- `/SECURE_CODING_REFERENCE.md`
-- `/WEB_APPLICATION_SECURITY_REFERENCE.md`
-- `/API_SECURITY_REFERENCE.md`
-- `/frameworks/nestjs.md`
-- `/frameworks/fastapi.md`
+- [JavaScript](/languages/javascript.md)
+- [TypeScript](/languages/typescript.md)
+- [Software frameworks](/frameworks/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+- [API Security Reference Library](/API_SECURITY_REFERENCE.md)
+- [NestJS](/frameworks/nestjs.md)
+- [FastAPI](/frameworks/fastapi.md)

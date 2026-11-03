@@ -99,6 +99,13 @@ and `data/vendor_to_control.jsonl`.
 > of the U.S. Government, it is in the public domain (17 U.S.C. § 105).
 > https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final
 
+## Related pages
+
+- [About the Library and Its Data](/ABOUT_THE_DATA.md)
+- [Contributing to TeamStarWolf](/CONTRIBUTING.md)
+- [Security Policy](/SECURITY.md)
+- [Contributor Code of Conduct](/CODE_OF_CONDUCT.md)
+
 ---
 
 *Corrections to attribution or licensing are welcome; open an issue. When adding

@@ -34,6 +34,18 @@ An adversary causes the target to allocate excessive resources to servicing the 
 - Consider uniformly throttling all requests in order to make it more difficult to consume resources more quickly than they can again be freed.
 - Use resource-limiting settings, if possible.
 
+## Related pages
+
+- [CAPEC-125: Flooding](/mitre/capec/CAPEC-125.md), also related to CWE-404 and CWE-770
+- [CAPEC-494: TCP Fragmentation](/mitre/capec/CAPEC-494.md), also related to CWE-404 and CWE-770
+- [CAPEC-495: UDP Fragmentation](/mitre/capec/CAPEC-495.md), also related to CWE-404 and CWE-770
+- [CAPEC-496: ICMP Fragmentation](/mitre/capec/CAPEC-496.md), also related to CWE-404 and CWE-770
+- [CAPEC-131: Resource Leak Exposure](/mitre/capec/CAPEC-131.md), also related to CWE-404
+- [CAPEC-666: BlueSmacking](/mitre/capec/CAPEC-666.md), also related to CWE-404
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

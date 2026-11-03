@@ -139,8 +139,8 @@ Replicas improve read capacity and availability but cost storage and indexing wo
 
 ## Related pages
 
-- /databases/README.md
-- /SECURE_CODING_REFERENCE.md
-- /databases/clickhouse.md
-- /databases/mongodb.md
-- /databases/redis.md
+- [Databases](/databases/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [ClickHouse](/databases/clickhouse.md)
+- [MongoDB](/databases/mongodb.md)
+- [Redis](/databases/redis.md)

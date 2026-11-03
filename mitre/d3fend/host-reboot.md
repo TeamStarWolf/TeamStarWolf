@@ -31,6 +31,19 @@ Initiating a host's reboot sequence to terminate all running processes.
 - [T1621: Multi-Factor Authentication Request Generation](/mitre/techniques/T1621.md): terminates. Adversaries may attempt to bypass multi-factor authentication (MFA) mechanisms and gain access to accounts by generating MFA requests sent to users.
 - [T1685: Disable or Modify Tools](/mitre/techniques/T1685.md): terminates (D3FEND maps the revoked predecessor T1562.001). Adversaries may disable, degrade, or tamper with security tools or applications (e.g., endpoint detection and response (EDR) tools, intrusion detection systems (IDS), antivirus, logging agents, sensors, etc.) to impair or reduce visibility of defensive capabilities.
 
+## Related pages
+
+- [Application-based Process Isolation](/mitre/d3fend/application-based-process-isolation.md), which also counters 21 of these techniques
+- [Hardware-based Process Isolation](/mitre/d3fend/hardware-based-process-isolation.md), which also counters 21 of these techniques
+- [Host Shutdown](/mitre/d3fend/host-shutdown.md), which also counters 21 of these techniques
+- [Kernel-based Process Isolation](/mitre/d3fend/kernel-based-process-isolation.md), which also counters 21 of these techniques
+- [Process Lineage Analysis](/mitre/d3fend/process-lineage-analysis.md), which also counters 21 of these techniques
+- [Process Self-Modification Detection](/mitre/d3fend/process-self-modification-detection.md), which also counters 21 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

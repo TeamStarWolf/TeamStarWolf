@@ -16,6 +16,11 @@ An attacker modifies file contents or attributes (such as extensions or names) o
 
 - The target must use the affected file without verifying its integrity.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

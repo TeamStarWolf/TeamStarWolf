@@ -34,6 +34,18 @@ An attacker, armed with the cipher text and the encryption algorithm used, perfo
 - Use commonly accepted algorithms and recommended key sizes. The key size used will depend on how important it is to keep the data confidential and for how long.
 - In theory a brute force attack performing an exhaustive key space search will always succeed, so the goal is to have computational security. Moore's law needs to be taken into account that suggests that computing resources double every eighteen months.
 
+## Related pages
+
+- [CAPEC-97: Cryptanalysis](/mitre/capec/CAPEC-97.md), also related to CWE-327 and CWE-1204
+- [CAPEC-112: Brute Force](/mitre/capec/CAPEC-112.md), also related to CWE-326
+- [CAPEC-192: Protocol Analysis](/mitre/capec/CAPEC-192.md), also related to CWE-326
+- [CAPEC-459: Creating a Rogue Certification Authority Certificate](/mitre/capec/CAPEC-459.md), also related to CWE-327
+- [CAPEC-473: Signature Spoof](/mitre/capec/CAPEC-473.md), also related to CWE-327
+- [CAPEC-475: Signature Spoofing by Improper Validation](/mitre/capec/CAPEC-475.md), also related to CWE-327
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

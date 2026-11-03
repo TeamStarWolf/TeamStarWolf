@@ -35,6 +35,18 @@ An adversary uses Bluetooth flooding to transfer large packets to Bluetooth enab
 - Disable Bluetooth when not being used.
 - When using Bluetooth, set it to hidden or non-discoverable mode.
 
+## Related pages
+
+- [CAPEC-125: Flooding](/mitre/capec/CAPEC-125.md), also related to CWE-404
+- [CAPEC-130: Excessive Allocation](/mitre/capec/CAPEC-130.md), also related to CWE-404
+- [CAPEC-131: Resource Leak Exposure](/mitre/capec/CAPEC-131.md), also related to CWE-404
+- [CAPEC-494: TCP Fragmentation](/mitre/capec/CAPEC-494.md), also related to CWE-404
+- [CAPEC-495: UDP Fragmentation](/mitre/capec/CAPEC-495.md), also related to CWE-404
+- [CAPEC-496: ICMP Fragmentation](/mitre/capec/CAPEC-496.md), also related to CWE-404
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

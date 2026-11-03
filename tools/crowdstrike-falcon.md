@@ -152,5 +152,16 @@ _Learning & reference_
 
 VERIFIED 2025-2026: Falcon Exposure Management (FEM) is the current umbrella for exposure/vulnerability, built on Falcon Spotlight (vuln mgmt), Falcon Surface (EASM) and Falcon Discover; Spotlight remains the scanless vuln engine (no confirmed formal rename — treat Spotlight as the component inside FEM). AI-powered Network Vulnerability Assessment reached GA in March 2025 (free for existing FEM customers up to 10% of licensed managed assets, capped at 10,000 assets). Falcon Flex consumption licensing is the current commercial model, extended to services as 'Flex for Services' in 2026. CrowdStrike was named a Leader in the 2025 IDC MarketScape: Worldwide Exposure Management. Charlotte AI (agentic AI) and Falcon Next-Gen SIEM are current. Verify exact tier contents and per-asset pricing with CrowdStrike/reseller, as bundle composition and Flex entitlements vary by contract.
 
+## Related pages
+
+- [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md)
+- [Enterprise Security Controls Reference](/ENTERPRISE_SECURITY_CONTROLS.md)
+- [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
+- [Threat Intelligence Reference Library](/THREAT_INTELLIGENCE_REFERENCE.md)
+- [Microsoft Defender for Endpoint & Vulnerability Management](/tools/microsoft-defender-endpoint.md)
+- [Tanium](/tools/tanium.md)
+- [Vendor Tool Pages](/tools/README.md)
+- [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)
+
 ---
 *Generic reference. Confirm product facts, event IDs, fields and URLs against current vendor sources. Descriptive, not an endorsement.*

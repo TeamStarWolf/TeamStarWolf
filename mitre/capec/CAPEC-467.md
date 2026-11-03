@@ -27,6 +27,18 @@ An attacker harvests identifying information about a victim via an active sessio
 - Usage: Users should always explicitly log out from the social networking sites when done using them.
 - Usage: Users should not open other tabs in the browser when using a social networking site.
 
+## Related pages
+
+- [CAPEC-62: Cross Site Request Forgery](/mitre/capec/CAPEC-62.md), also related to CWE-352
+- [CAPEC-111: JSON Hijacking (aka JavaScript Hijacking)](/mitre/capec/CAPEC-111.md), also related to CWE-352
+- [CAPEC-462: Cross-Domain Search Timing](/mitre/capec/CAPEC-462.md), also related to CWE-352
+- [CAPEC-464: Evercookie](/mitre/capec/CAPEC-464.md), also related to CWE-359
+- [CAPEC-498: Probe iOS Screenshots](/mitre/capec/CAPEC-498.md), also related to CWE-359
+- [CAPEC-508: Shoulder Surfing](/mitre/capec/CAPEC-508.md), also related to CWE-359
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

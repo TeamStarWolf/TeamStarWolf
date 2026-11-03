@@ -12,6 +12,11 @@ An adversary develops targeted malware that takes advantage of a known vulnerabi
 - [T1587.001: Malware](/mitre/techniques/T1587-001.md): Adversaries may develop malware and malware components that can be used during targeting.
 - [T1027: Obfuscated Files or Information](/mitre/techniques/T1027.md): Adversaries may attempt to make an executable or file difficult to discover or analyze by encrypting, encoding, or otherwise obfuscating its contents on the system or in transit.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -73,9 +73,9 @@ In a mature program, InsightVM findings open tickets in ServiceNow Vulnerability
 
 ## Related pages
 
-- /platforms/README.md
-- /SCANNER_PLATFORMS_REFERENCE.md
-- /VULNERABILITY_MANAGEMENT_REFERENCE.md
-- /platforms/tenable.md
-- /platforms/qualys.md
-- /platforms/servicenow-vr.md
+- [Security platforms](/platforms/README.md)
+- [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Tenable](/platforms/tenable.md)
+- [Qualys](/platforms/qualys.md)
+- [ServiceNow Vulnerability Response](/platforms/servicenow-vr.md)

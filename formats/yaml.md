@@ -116,8 +116,8 @@ YAML's convenience features are also its most serious risks. See `/SECURE_CODING
 
 ## Related pages
 
-- `/formats/README.md`
-- `/SECURE_CODING_REFERENCE.md`
-- `/formats/json.md`
-- `/formats/toml.md`
-- `/formats/xml.md`
+- [Data formats and regular expressions](/formats/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [JSON](/formats/json.md)
+- [TOML](/formats/toml.md)
+- [XML](/formats/xml.md)

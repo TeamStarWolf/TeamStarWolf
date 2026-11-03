@@ -128,9 +128,9 @@ Reads offer tunable consistency. Read concern ranges from `local` to `majority` 
 
 ## Related pages
 
-- /databases/README.md
-- /SECURE_CODING_REFERENCE.md
-- /databases/redis.md
-- /databases/cassandra.md
-- /databases/dynamodb.md
-- /databases/elasticsearch.md
+- [Databases](/databases/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Redis](/databases/redis.md)
+- [Apache Cassandra](/databases/cassandra.md)
+- [Amazon DynamoDB](/databases/dynamodb.md)
+- [Elasticsearch](/databases/elasticsearch.md)

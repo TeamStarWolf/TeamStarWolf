@@ -25,6 +25,14 @@ An adversary discovers the structure, function, and composition of an object, re
 
 - Employ code obfuscation techniques to prevent the adversary from reverse engineering the targeted entity.
 
+## Related pages
+
+- [CAPEC-37: Retrieve Embedded Sensitive Data](/mitre/capec/CAPEC-37.md), also related to CWE-1278
+- [CAPEC-545: Pull Data from System Resources](/mitre/capec/CAPEC-545.md), also related to CWE-1278
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

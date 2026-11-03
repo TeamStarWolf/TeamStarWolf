@@ -65,6 +65,19 @@ Restoring an software configuration.
 - [T1688: Safe Mode Boot](/mitre/techniques/T1688.md): restores (D3FEND maps the revoked predecessor T1562.009). Adversaries may abuse Windows safe mode to disable endpoint defenses.
 - [T1690: Prevent Command History Logging](/mitre/techniques/T1690.md): restores (D3FEND maps the revoked predecessor T1562.003). Adversaries may impair command history logging to hide commands they run on a compromised system.
 
+## Related pages
+
+- [Configuration Inventory](/mitre/d3fend/configuration-inventory.md), which also counters 55 of these techniques
+- [Content Quarantine](/mitre/d3fend/content-quarantine.md), which also counters 25 of these techniques
+- [Local File Permissions](/mitre/d3fend/local-file-permissions.md), which also counters 13 of these techniques
+- [Content Filtering](/mitre/d3fend/content-filtering.md), which also counters 12 of these techniques
+- [Content Modification](/mitre/d3fend/content-modification.md), which also counters 12 of these techniques
+- [Decoy File](/mitre/d3fend/decoy-file.md), which also counters 12 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

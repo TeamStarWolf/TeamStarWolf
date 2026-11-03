@@ -29,6 +29,14 @@ An attacker, with control of a Cellular Rogue Base Station or through cooperatio
 - Use of hardened baseband firmware on retransmission device to detect and prevent the use of weak cellular encryption.
 - Monitor cellular RF interface to detect the usage of weaker-than-expected cellular encryption.
 
+## Related pages
+
+- [CAPEC-220: Client-Server Protocol Manipulation](/mitre/capec/CAPEC-220.md), also related to CWE-757
+- [CAPEC-620: Drop Encryption Level](/mitre/capec/CAPEC-620.md), also related to CWE-757
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -121,9 +121,9 @@ Scale out by splitting work across processes: multiple HDB workers behind a gate
 
 ## Related pages
 
-- /languages/k-q.md
-- /databases/README.md
-- /SECURE_CODING_REFERENCE.md
-- /databases/clickhouse.md
-- /databases/redis.md
-- /databases/cassandra.md
+- [K and Q](/languages/k-q.md)
+- [Databases](/databases/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [ClickHouse](/databases/clickhouse.md)
+- [Redis](/databases/redis.md)
+- [Apache Cassandra](/databases/cassandra.md)

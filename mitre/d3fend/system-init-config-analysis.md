@@ -15,6 +15,17 @@ Analysis of any system process startup configuration.
 - [T1574.011: Services Registry Permissions Weakness](/mitre/techniques/T1574-011.md): analyzes. Adversaries may execute their own malicious payloads by hijacking the Registry entries used by services.
 - [T1688: Safe Mode Boot](/mitre/techniques/T1688.md): analyzes (D3FEND maps the revoked predecessor T1562.009). Adversaries may abuse Windows safe mode to disable endpoint defenses.
 
+## Related pages
+
+- [Configuration Inventory](/mitre/d3fend/configuration-inventory.md), which also counters 5 of these techniques
+- [Restore Configuration](/mitre/d3fend/restore-configuration.md), which also counters 5 of these techniques
+- [Content Quarantine](/mitre/d3fend/content-quarantine.md), which also counters 4 of these techniques
+- [Local File Permissions](/mitre/d3fend/local-file-permissions.md), which also counters 3 of these techniques
+- [Content Filtering](/mitre/d3fend/content-filtering.md), which also counters 2 of these techniques
+- [Content Modification](/mitre/d3fend/content-modification.md), which also counters 2 of these techniques
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

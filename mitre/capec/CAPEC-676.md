@@ -44,6 +44,13 @@ An adversary targets software that constructs NoSQL statements based on user inp
 - If using PHP with MongoDB, ensure all special query operators (starting with $) use single quotes to prevent operator replacement attacks.
 - Additional mitigations will depend on the NoSQL database, API, and programming language leveraged by the application.
 
+## Related pages
+
+- [CAPEC-66: SQL Injection](/mitre/capec/CAPEC-66.md), also related to CWE-1286
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

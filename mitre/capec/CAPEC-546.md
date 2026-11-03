@@ -32,6 +32,18 @@ An adversary obtains unauthorized information due to insecure or incomplete data
 - Cloud providers should completely delete data to render it irrecoverable and inaccessible from any layer and component of infrastructure resources.
 - Deletion of data should be completed promptly when requested.
 
+## Related pages
+
+- [CAPEC-37: Retrieve Embedded Sensitive Data](/mitre/capec/CAPEC-37.md), also related to CWE-1266 and CWE-1272
+- [CAPEC-150: Collect Data from Common Resource Locations](/mitre/capec/CAPEC-150.md), also related to CWE-1266 and CWE-1272
+- [CAPEC-545: Pull Data from System Resources](/mitre/capec/CAPEC-545.md), also related to CWE-1266 and CWE-1272
+- [CAPEC-675: Retrieve Data from Decommissioned Devices](/mitre/capec/CAPEC-675.md), also related to CWE-1266
+- [CAPEC-19: Embedding Scripts within Scripts](/mitre/capec/CAPEC-19.md), also related to CWE-284
+- [CAPEC-441: Malicious Logic Insertion](/mitre/capec/CAPEC-441.md), also related to CWE-284
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

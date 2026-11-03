@@ -18,6 +18,16 @@ An adversary engages in fingerprinting activities to determine the type or versi
 - [CWE-205: Observable Behavioral Discrepancy](https://cwe.mitre.org/data/definitions/205.html): The product's behaviors indicate important differences that may be observed by unauthorized actors in a way that reveals (1) its internal state or decision process, or (2) differences from other products with equivalent functionality.
 - [CWE-208: Observable Timing Discrepancy](https://cwe.mitre.org/data/definitions/208.html): Two separate operations in a product require different amounts of time to complete, in a way that is observable to an actor and reveals security-relevant information about the state of the product, such as whether a particular operation was successful or not.
 
+## Related pages
+
+- [CAPEC-580: System Footprinting](/mitre/capec/CAPEC-580.md), also related to CWE-204, CWE-205 and 1 more
+- [CAPEC-462: Cross-Domain Search Timing](/mitre/capec/CAPEC-462.md), also related to CWE-208
+- [CAPEC-331: ICMP IP Total Length Field Probe](/mitre/capec/CAPEC-331.md), also related to CWE-204
+- [CAPEC-332: ICMP IP 'ID' Field Error Message Probe](/mitre/capec/CAPEC-332.md), also related to CWE-204
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

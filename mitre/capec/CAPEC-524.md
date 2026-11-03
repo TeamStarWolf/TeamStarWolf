@@ -28,6 +28,11 @@ An attacker alters or establishes rogue processes in an integration facility in 
 - Develop an incident response process, disclose supply chain incidents and notify customers with accurate and timely information.
 - Maintain strong physical system access controls and monitor networks and physical facilities for insider threats.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

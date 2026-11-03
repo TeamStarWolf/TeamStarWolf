@@ -33,6 +33,18 @@ This type of attack involves an attacker leveraging meta-characters in email hea
 - Implementation: Implement email filtering solutions on mail server or on MTA, relay server.
 - Implementation: Mail servers that perform strict validation may catch these attacks, because metacharacters are not allowed in many header variables such as dns names
 
+## Related pages
+
+- [CAPEC-88: OS Command Injection](/mitre/capec/CAPEC-88.md), also related to CWE-88 and CWE-697
+- [CAPEC-81: Web Server Logs Tampering](/mitre/capec/CAPEC-81.md), also related to CWE-150
+- [CAPEC-93: Log Injection-Tampering-Forging](/mitre/capec/CAPEC-93.md), also related to CWE-150
+- [CAPEC-134: Email Injection](/mitre/capec/CAPEC-134.md), also related to CWE-150
+- [CAPEC-137: Parameter Injection](/mitre/capec/CAPEC-137.md), also related to CWE-88
+- [CAPEC-174: Flash Parameter Injection](/mitre/capec/CAPEC-174.md), also related to CWE-88
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

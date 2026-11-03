@@ -17,6 +17,18 @@ An adversary gains control of a process that is assigned elevated privileges in 
 
 - The targeted process or operating system must contain a bug that allows attackers to hijack the targeted process.
 
+## Related pages
+
+- [CAPEC-107: Cross Site Tracing](/mitre/capec/CAPEC-107.md), also related to CWE-648
+- [CAPEC-1: Accessing Functionality Not Properly Constrained by ACLs](/mitre/capec/CAPEC-1.md), also related to CWE-732
+- [CAPEC-17: Using Malicious Files](/mitre/capec/CAPEC-17.md), also related to CWE-732
+- [CAPEC-60: Reusing Session IDs (aka Session Replay)](/mitre/capec/CAPEC-60.md), also related to CWE-732
+- [CAPEC-61: Session Fixation](/mitre/capec/CAPEC-61.md), also related to CWE-732
+- [CAPEC-62: Cross Site Request Forgery](/mitre/capec/CAPEC-62.md), also related to CWE-732
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

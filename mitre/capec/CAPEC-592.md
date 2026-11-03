@@ -36,6 +36,17 @@ An adversary utilizes a form of Cross-site Scripting (XSS) where a malicious scr
 - Utilize strict type, character, and encoding enforcement.
 - Ensure that all user-supplied input is validated before being stored.
 
+## Related pages
+
+- [CAPEC-63: Cross-Site Scripting (XSS)](/mitre/capec/CAPEC-63.md), also related to CWE-79
+- [CAPEC-85: AJAX Footprinting](/mitre/capec/CAPEC-85.md), also related to CWE-79
+- [CAPEC-209: XSS Using MIME Type Mismatch](/mitre/capec/CAPEC-209.md), also related to CWE-79
+- [CAPEC-588: DOM-Based XSS](/mitre/capec/CAPEC-588.md), also related to CWE-79
+- [CAPEC-591: Reflected XSS](/mitre/capec/CAPEC-591.md), also related to CWE-79
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -27,6 +27,18 @@ An adversary looking to execute a command of their choosing, injects new items i
 - Input should be encoded prior to use in commands to make sure command related characters are not treated as part of the command. For example, quotation characters may need to be encoded so that the application does not treat the quotation as a delimiter.
 - Input should be parameterized, or restricted to data sections of a command, thus removing the chance that the input will be treated as part of the command itself.
 
+## Related pages
+
+- [CAPEC-15: Command Delimiters](/mitre/capec/CAPEC-15.md), also related to CWE-77
+- [CAPEC-40: Manipulating Writeable Terminal Devices](/mitre/capec/CAPEC-40.md), also related to CWE-77
+- [CAPEC-43: Exploiting Multiple Input Interpretation Layers](/mitre/capec/CAPEC-43.md), also related to CWE-77
+- [CAPEC-75: Manipulating Writeable Configuration Files](/mitre/capec/CAPEC-75.md), also related to CWE-77
+- [CAPEC-76: Manipulating Web Input to File System Calls](/mitre/capec/CAPEC-76.md), also related to CWE-77
+- [CAPEC-136: LDAP Injection](/mitre/capec/CAPEC-136.md), also related to CWE-77
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -39,6 +39,18 @@ An attacker modifies the parameters of the SOAP message that is sent from the se
 - Ensure that prepared statements or other mechanism that enables parameter binding is used when accessing the database in a way that would prevent the attackers' supplied data from controlling the structure of the executed query.
 - At the database level, ensure that the database user used by the application in a particular context has the minimum needed privileges to the database that are needed to perform the operation. When possible, run queries against pre-generated views rather than the tables directly.
 
+## Related pages
+
+- [CAPEC-7: Blind SQL Injection](/mitre/capec/CAPEC-7.md), also related to CWE-20 and CWE-89
+- [CAPEC-108: Command Line Execution through SQL Injection](/mitre/capec/CAPEC-108.md), also related to CWE-20 and CWE-89
+- [CAPEC-109: Object Relational Mapping Injection](/mitre/capec/CAPEC-109.md), also related to CWE-20 and CWE-89
+- [CAPEC-66: SQL Injection](/mitre/capec/CAPEC-66.md), also related to CWE-89
+- [CAPEC-470: Expanding Control over the Operating System from the Database](/mitre/capec/CAPEC-470.md), also related to CWE-89
+- [CAPEC-3: Using Leading 'Ghost' Character Sequences to Bypass Input Filters](/mitre/capec/CAPEC-3.md), also related to CWE-20
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

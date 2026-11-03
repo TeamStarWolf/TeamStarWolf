@@ -27,6 +27,19 @@ Randomizing the base (start) address of one or more segments of memory during th
 - [T1218.013: Mavinject](/mitre/techniques/T1218-013.md): obfuscates. Adversaries may abuse mavinject.exe to proxy execution of malicious code.
 - [T1620: Reflective Code Loading](/mitre/techniques/T1620.md): obfuscates. Adversaries may reflectively load code into a process in order to conceal the execution of malicious payloads.
 
+## Related pages
+
+- [Process Segment Execution Prevention](/mitre/d3fend/process-segment-execution-prevention.md), which also counters 17 of these techniques
+- [Memory Boundary Tracking](/mitre/d3fend/memory-boundary-tracking.md), which also counters 11 of these techniques
+- [Process Code Segment Verification](/mitre/d3fend/process-code-segment-verification.md), which also counters 11 of these techniques
+- [Shadow Stack Comparisons](/mitre/d3fend/shadow-stack-comparisons.md), which also counters 8 of these techniques
+- [Stack Frame Canary Validation](/mitre/d3fend/stack-frame-canary-validation.md), which also counters 8 of these techniques
+- [Application Protocol Command Analysis](/mitre/d3fend/application-protocol-command-analysis.md), which also counters 5 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -25,6 +25,15 @@ An attacker creates a very persistent cookie that stays present even after the u
 - Design: Browser's design needs to be changed to limit where cookies can be stored on the client side and provide an option to clear these cookies in all places, as well as another option to stop these cookies from being written in the first place.
 - Design: Safari browser's private browsing mode is currently effective against evercookies.
 
+## Related pages
+
+- [CAPEC-467: Cross Site Identification](/mitre/capec/CAPEC-467.md), also related to CWE-359
+- [CAPEC-498: Probe iOS Screenshots](/mitre/capec/CAPEC-498.md), also related to CWE-359
+- [CAPEC-508: Shoulder Surfing](/mitre/capec/CAPEC-508.md), also related to CWE-359
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

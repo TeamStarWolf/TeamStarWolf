@@ -18,6 +18,11 @@ An adversary adds data to a file to increase the file size beyond what security 
 - Accountability / Hide Activities, Bypass Protection Mechanism
 - Integrity / Modify Data
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

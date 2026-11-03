@@ -33,6 +33,19 @@ Removing tokens or credentials from an authentication cache to prevent further u
 - [T1694.001: Default Credentials](https://attack.mitre.org/techniques/T1694/001): deletes (D3FEND maps the revoked predecessor T0812)
 - [T1694.002: Hardcoded Credentials](https://attack.mitre.org/techniques/T1694/002): deletes (D3FEND maps the revoked predecessor T0891)
 
+## Related pages
+
+- [Credential Compromise Scope Analysis](/mitre/d3fend/credential-compromise-scope-analysis.md), which also counters 23 of these techniques
+- [Credential Hardening](/mitre/d3fend/credential-hardening.md), which also counters 23 of these techniques
+- [Credential Revocation](/mitre/d3fend/credential-revocation.md), which also counters 23 of these techniques
+- [Credential Rotation](/mitre/d3fend/credential-rotation.md), which also counters 23 of these techniques
+- [Credential Transmission Scoping](/mitre/d3fend/credential-transmission-scoping.md), which also counters 23 of these techniques
+- [Decoy User Credential](/mitre/d3fend/decoy-user-credential.md), which also counters 23 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

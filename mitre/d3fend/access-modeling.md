@@ -36,6 +36,19 @@ Access modeling captures and records the access permissions granted to identitie
 - [T1615: Group Policy Discovery](/mitre/techniques/T1615.md): maps. Adversaries may gather information on Group Policy settings to identify paths for privilege escalation, security measures applied within a domain, and to discover patterns in domain objects that can be manipulated or used to blend in the environment.
 - [T1694.001: Default Credentials](https://attack.mitre.org/techniques/T1694/001): maps (D3FEND maps the revoked predecessor T0812)
 
+## Related pages
+
+- [Account Locking](/mitre/d3fend/account-locking.md), which also counters 19 of these techniques
+- [Agent Authentication](/mitre/d3fend/agent-authentication.md), which also counters 19 of these techniques
+- [Change Default Password](/mitre/d3fend/change-default-password.md), which also counters 19 of these techniques
+- [Restore User Account Access](/mitre/d3fend/restore-user-account-access.md), which also counters 19 of these techniques
+- [Unlock Account](/mitre/d3fend/unlock-account.md), which also counters 19 of these techniques
+- [User Account Permissions](/mitre/d3fend/user-account-permissions.md), which also counters 19 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -159,5 +159,15 @@ _Learning & reference_
 
 Core platform remains the Zero Trust Exchange with ZIA, ZPA, and ZDX. Confirmed recent acquisitions: Avalor (closed March 2024, ~$350M, data fabric now powering Risk360 and Unified Vulnerability Management); Airgap Networks (2024, agentless segmentation / Zero Trust SD-WAN for IoT/OT); Red Canary (completed August 1 2025, ~$675M, MDR/SecOps now operating as 'Red Canary, a Zscaler company' for agentic AI-driven security operations). 2025-2026 direction set at Zenith Live 2025: 'Zero Trust Everywhere' across users, branches, workloads, and IoT/OT, plus an Agentic SecOps/exposure-management push - Asset Exposure Management (CAASM) launched to combine with UVM, EASM, and Risk360. Reported as an SSE Magic Quadrant Leader (verify current-year placement with Gartner directly). Specific module names/edition contents and ITDR/Zscaler Cellular/Breach Predictor details: verify against Zscaler's current product pages.
 
+## Related pages
+
+- [Zero Trust Reference: Comprehensive Cybersecurity Guide](/ZERO_TRUST_REFERENCE.md)
+- [Network Security Architecture Reference](/NETWORK_SECURITY_ARCHITECTURE.md)
+- [Cloud Network Security Reference](/CLOUD_NETWORK_SECURITY.md)
+- [Enterprise Security Controls Reference](/ENTERPRISE_SECURITY_CONTROLS.md)
+- [Check Point Quantum & Infinity](/tools/check-point.md)
+- [Vendor Tool Pages](/tools/README.md)
+- [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)
+
 ---
 *Generic reference. Confirm product facts, event IDs, fields and URLs against current vendor sources. Descriptive, not an endorsement.*

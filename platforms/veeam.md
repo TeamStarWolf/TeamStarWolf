@@ -98,10 +98,10 @@ This page pairs with the program-level references. See `/RANSOMWARE_DEFENSE_REFE
 
 ## Related pages
 
-- `/platforms/README.md`
-- `/RANSOMWARE_DEFENSE_REFERENCE.md`
-- `/CYBER_RESILIENCE_BCDR_REFERENCE.md`
-- `/INCIDENT_RESPONSE_REFERENCE.md`
-- `/platforms/rubrik.md`
-- `/platforms/commvault.md`
-- `/platforms/veritas-netbackup.md`
+- [Security platforms](/platforms/README.md)
+- [Ransomware Defense & Resilience Reference](/RANSOMWARE_DEFENSE_REFERENCE.md)
+- [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md)
+- [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
+- [Rubrik](/platforms/rubrik.md)
+- [Commvault](/platforms/commvault.md)
+- [Veritas NetBackup](/platforms/veritas-netbackup.md)

@@ -41,6 +41,20 @@ An attacker tries each of the words in a dictionary as passwords to gain access 
 - Implement an intelligent password throttling mechanism. Care must be taken to assure that these mechanisms do not excessively enable account lockout attacks such as CAPEC-2.
 - Leverage multi-factor authentication for all authentication services.
 
+## Related pages
+
+- [CAPEC-565: Password Spraying](/mitre/capec/CAPEC-565.md), named in the description above
+- [CAPEC-600: Credential Stuffing](/mitre/capec/CAPEC-600.md), named in the description above
+- [CAPEC-49: Password Brute Forcing](/mitre/capec/CAPEC-49.md), also related to CWE-262, CWE-263 and 5 more
+- [CAPEC-560: Use of Known Domain Credentials](/mitre/capec/CAPEC-560.md), also related to CWE-262, CWE-263 and 4 more
+- [CAPEC-652: Use of Known Kerberos Credentials](/mitre/capec/CAPEC-652.md), also related to CWE-262, CWE-263 and 4 more
+- [CAPEC-653: Use of Known Operating System Credentials](/mitre/capec/CAPEC-653.md), also related to CWE-262, CWE-263 and 4 more
+- [CAPEC-55: Rainbow Table Password Cracking](/mitre/capec/CAPEC-55.md), also related to CWE-262, CWE-263 and 4 more
+- [CAPEC-70: Try Common or Default Usernames and Passwords](/mitre/capec/CAPEC-70.md), also related to CWE-262, CWE-263 and 4 more
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

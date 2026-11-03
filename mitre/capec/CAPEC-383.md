@@ -31,6 +31,19 @@ An adversary hosts an event within an application framework and then monitors th
 
 - Leverage encryption techniques during information transactions so as to protect them from attack patterns of this kind.
 
+## Related pages
+
+- [CAPEC-94: Adversary in the Middle (AiTM)](/mitre/capec/CAPEC-94.md), named in the description above
+- [CAPEC-65: Sniff Application Code](/mitre/capec/CAPEC-65.md), also related to CWE-311 and CWE-319
+- [CAPEC-477: Signature Spoofing by Mixing Signed and Unsigned Content](/mitre/capec/CAPEC-477.md), also related to CWE-311 and CWE-319
+- [CAPEC-31: Accessing/Intercepting/Modifying HTTP Cookies](/mitre/capec/CAPEC-31.md), also related to CWE-311 and CWE-602
+- [CAPEC-384: Application API Message Manipulation via Man-in-the-Middle](/mitre/capec/CAPEC-384.md), also related to CWE-311 and CWE-602
+- [CAPEC-385: Transaction or Event Tampering via Application API Manipulation](/mitre/capec/CAPEC-385.md), also related to CWE-311 and CWE-602
+- [CAPEC-386: Application API Navigation Remapping](/mitre/capec/CAPEC-386.md), also related to CWE-311 and CWE-602
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

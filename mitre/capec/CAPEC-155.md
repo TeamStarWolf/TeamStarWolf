@@ -17,6 +17,13 @@ An adversary exploits the temporary, insecure storage of information by monitori
 
 - The target application must utilize temporary files and must fail to adequately secure them against other parties reading them.
 
+## Related pages
+
+- [CAPEC-149: Explore for Predictable Temporary File Names](/mitre/capec/CAPEC-149.md), also related to CWE-377
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -34,6 +34,18 @@ Applications often need to transform data in and out of a data format (e.g., XML
 - Perform validation on canonical data.
 - Pick a robust implementation of the data parser.
 
+## Related pages
+
+- [CAPEC-231: Oversized Serialized Data Payloads](/mitre/capec/CAPEC-231.md), also related to CWE-20, CWE-112 and 2 more
+- [CAPEC-125: Flooding](/mitre/capec/CAPEC-125.md), also related to CWE-770
+- [CAPEC-130: Excessive Allocation](/mitre/capec/CAPEC-130.md), also related to CWE-770
+- [CAPEC-147: XML Ping of the Death](/mitre/capec/CAPEC-147.md), also related to CWE-770
+- [CAPEC-197: Exponential Data Expansion](/mitre/capec/CAPEC-197.md), also related to CWE-770
+- [CAPEC-229: Serialized Data Parameter Blowup](/mitre/capec/CAPEC-229.md), also related to CWE-770
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -36,6 +36,18 @@ This attack exploits target software that constructs SQL statements based on use
 - Use of parameterized queries or stored procedures - Parameterization causes the input to be restricted to certain domains, such as strings or integers, and any input outside such domains is considered invalid and the query fails. Note that SQL Injection is possible even in the presence of stored procedures if the eventual query is constructed dynamically.
 - Use of custom error pages - Attackers can glean information about the nature of queries from descriptive error messages. Input validation must be coupled with customized error pages that inform about an error without disclosing information about the database or application.
 
+## Related pages
+
+- [CAPEC-676: NoSQL Injection](/mitre/capec/CAPEC-676.md), also related to CWE-1286
+- [CAPEC-7: Blind SQL Injection](/mitre/capec/CAPEC-7.md), also related to CWE-89
+- [CAPEC-108: Command Line Execution through SQL Injection](/mitre/capec/CAPEC-108.md), also related to CWE-89
+- [CAPEC-109: Object Relational Mapping Injection](/mitre/capec/CAPEC-109.md), also related to CWE-89
+- [CAPEC-110: SQL Injection through SOAP Parameter Tampering](/mitre/capec/CAPEC-110.md), also related to CWE-89
+- [CAPEC-470: Expanding Control over the Operating System from the Database](/mitre/capec/CAPEC-470.md), also related to CWE-89
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

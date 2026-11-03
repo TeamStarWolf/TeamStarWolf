@@ -50,6 +50,18 @@ An attacker exploits a weakness in the configuration of access controls and is a
 
 - Design: Configure the access control correctly.
 
+## Related pages
+
+- [CAPEC-1: Accessing Functionality Not Properly Constrained by ACLs](/mitre/capec/CAPEC-1.md), also related to CWE-732, CWE-1191 and 8 more
+- [CAPEC-77: Manipulating User-Controlled Variables](/mitre/capec/CAPEC-77.md), also related to CWE-1321
+- [CAPEC-233: Privilege Escalation](/mitre/capec/CAPEC-233.md), also related to CWE-1311
+- [CAPEC-17: Using Malicious Files](/mitre/capec/CAPEC-17.md), also related to CWE-732
+- [CAPEC-60: Reusing Session IDs (aka Session Replay)](/mitre/capec/CAPEC-60.md), also related to CWE-732
+- [CAPEC-61: Session Fixation](/mitre/capec/CAPEC-61.md), also related to CWE-732
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

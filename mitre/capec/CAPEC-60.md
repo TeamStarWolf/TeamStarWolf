@@ -51,6 +51,18 @@ This attack targets the reuse of valid session ID to spoof the target system in 
 - Encrypt the session data associated with the session ID.
 - Use multifactor authentication.
 
+## Related pages
+
+- [CAPEC-59: Session Credential Falsification through Prediction](/mitre/capec/CAPEC-59.md), also related to CWE-200, CWE-285 and 5 more
+- [CAPEC-21: Exploitation of Trusted Identifiers](/mitre/capec/CAPEC-21.md), also related to CWE-290, CWE-346 and 3 more
+- [CAPEC-39: Manipulating Opaque Client-based Data Tokens](/mitre/capec/CAPEC-39.md), also related to CWE-285, CWE-384 and 1 more
+- [CAPEC-61: Session Fixation](/mitre/capec/CAPEC-61.md), also related to CWE-384, CWE-664 and 1 more
+- [CAPEC-31: Accessing/Intercepting/Modifying HTTP Cookies](/mitre/capec/CAPEC-31.md), also related to CWE-384 and CWE-539
+- [CAPEC-62: Cross Site Request Forgery](/mitre/capec/CAPEC-62.md), also related to CWE-664 and CWE-732
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

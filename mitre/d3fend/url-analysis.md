@@ -15,6 +15,19 @@ Determining if a URL is benign or malicious by analyzing the URL or its componen
 - [T1566.002: Spearphishing Link](/mitre/techniques/T1566-002.md): analyzes. Adversaries may send spearphishing emails with a malicious link in an attempt to gain access to victim systems.
 - [T1566.003: Spearphishing via Service](/mitre/techniques/T1566-003.md): analyzes. Adversaries may send spearphishing messages via third-party services in an attempt to gain access to victim systems.
 
+## Related pages
+
+- [Homoglyph Detection](/mitre/d3fend/homoglyph-detection.md), which also counters 5 of these techniques
+- [Identifier Activity Analysis](/mitre/d3fend/identifier-activity-analysis.md), which also counters 5 of these techniques
+- [URL Reputation Analysis](/mitre/d3fend/url-reputation-analysis.md), which also counters 5 of these techniques
+- [Application Protocol Command Analysis](/mitre/d3fend/application-protocol-command-analysis.md), which also counters 4 of these techniques
+- [Client-server Payload Profiling](/mitre/d3fend/client-server-payload-profiling.md), which also counters 4 of these techniques
+- [Network Traffic Community Deviation](/mitre/d3fend/network-traffic-community-deviation.md), which also counters 4 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

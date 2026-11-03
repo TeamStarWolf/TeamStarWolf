@@ -71,9 +71,9 @@ Its logs feed detection and vulnerability management. A sign-in from an impossib
 
 ## Related pages
 
-- `/platforms/README.md`
-- `/VULNERABILITY_MANAGEMENT_REFERENCE.md`
-- `/INCIDENT_RESPONSE_REFERENCE.md`
-- `/platforms/cisco-duo.md`
-- `/platforms/cyberark.md`
-- `/platforms/sailpoint.md`
+- [Security platforms](/platforms/README.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
+- [Cisco Duo](/platforms/cisco-duo.md)
+- [CyberArk](/platforms/cyberark.md)
+- [SailPoint](/platforms/sailpoint.md)

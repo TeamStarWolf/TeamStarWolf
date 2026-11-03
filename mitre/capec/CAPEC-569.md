@@ -11,6 +11,11 @@ An attacker leverages a tool, device, or program to obtain specific information 
 
 - [T1056: Input Capture](/mitre/techniques/T1056.md): Adversaries may use methods of capturing user input to obtain credentials or collect information.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

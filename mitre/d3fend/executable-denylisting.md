@@ -69,6 +69,19 @@ Blocking the execution of files on a host in accordance with defined application
 
 _D3FEND also maps T0853, deprecated in ATT&CK with no successor; not counted above._
 
+## Related pages
+
+- [Executable Allowlisting](/mitre/d3fend/executable-allowlisting.md), which also counters 57 of these techniques
+- [Content Quarantine](/mitre/d3fend/content-quarantine.md), which also counters 42 of these techniques
+- [Content Filtering](/mitre/d3fend/content-filtering.md), which also counters 41 of these techniques
+- [Content Modification](/mitre/d3fend/content-modification.md), which also counters 41 of these techniques
+- [Decoy File](/mitre/d3fend/decoy-file.md), which also counters 41 of these techniques
+- [File Analysis](/mitre/d3fend/file-analysis.md), which also counters 41 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -45,6 +45,18 @@ An adversary obtains (i.e. steals or purchases) legitimate Windows domain creden
 - Create a strong password policy and ensure that your system enforces this policy.
 - Leverage system penetration testing and other defense in depth methods to determine vulnerable systems within a domain.
 
+## Related pages
+
+- [CAPEC-652: Use of Known Kerberos Credentials](/mitre/capec/CAPEC-652.md), also related to CWE-294, CWE-308 and 3 more
+- [CAPEC-509: Kerberoasting](/mitre/capec/CAPEC-509.md), also related to CWE-294, CWE-308 and 2 more
+- [CAPEC-555: Remote Services with Stolen Credentials](/mitre/capec/CAPEC-555.md), also related to CWE-294, CWE-308 and 2 more
+- [CAPEC-561: Windows Admin Shares with Stolen Credentials](/mitre/capec/CAPEC-561.md), also related to CWE-294, CWE-308 and 2 more
+- [CAPEC-645: Use of Captured Tickets (Pass The Ticket)](/mitre/capec/CAPEC-645.md), also related to CWE-294, CWE-308 and 2 more
+- [CAPEC-560: Use of Known Domain Credentials](/mitre/capec/CAPEC-560.md), also related to CWE-308, CWE-308 and 1 more
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

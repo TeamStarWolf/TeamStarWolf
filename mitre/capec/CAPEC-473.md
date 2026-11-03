@@ -31,6 +31,18 @@ An attacker generates a message or datablock that causes the recipient to believ
 
 - Access Control, Authentication / Gain Privileges
 
+## Related pages
+
+- [CAPEC-459: Creating a Rogue Certification Authority Certificate](/mitre/capec/CAPEC-459.md), also related to CWE-290 and CWE-327
+- [CAPEC-22: Exploiting Trust in Client](/mitre/capec/CAPEC-22.md), also related to CWE-20 and CWE-290
+- [CAPEC-20: Encryption Brute Forcing](/mitre/capec/CAPEC-20.md), also related to CWE-327
+- [CAPEC-97: Cryptanalysis](/mitre/capec/CAPEC-97.md), also related to CWE-327
+- [CAPEC-475: Signature Spoofing by Improper Validation](/mitre/capec/CAPEC-475.md), also related to CWE-327
+- [CAPEC-608: Cryptanalysis of Cellular Encryption](/mitre/capec/CAPEC-608.md), also related to CWE-327
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

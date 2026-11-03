@@ -90,10 +90,10 @@ Explicit effect typing is a security advantage. When `IO` or an equivalent appea
 
 ## Related pages
 
-- /paradigms/README.md
-- /SECURE_CODING_REFERENCE.md
-- /paradigms/declarative.md
-- /paradigms/reactive.md
-- /paradigms/logic.md
-- /paradigms/object-oriented.md
-- /paradigms/concurrent.md
+- [Programming paradigms](/paradigms/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Declarative Programming](/paradigms/declarative.md)
+- [Reactive Programming](/paradigms/reactive.md)
+- [Logic Programming](/paradigms/logic.md)
+- [Object-Oriented Programming](/paradigms/object-oriented.md)
+- [Concurrent Programming](/paradigms/concurrent.md)

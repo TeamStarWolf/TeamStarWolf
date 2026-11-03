@@ -33,6 +33,18 @@ An attacker obtains an authoritative or reputable signer's private signature key
 - Ensure all remote methods are secured
 - Ensure all services are patched and up to date
 
+## Related pages
+
+- [CAPEC-50: Password Recovery Exploitation](/mitre/capec/CAPEC-50.md), also related to CWE-522
+- [CAPEC-102: Session Sidejacking](/mitre/capec/CAPEC-102.md), also related to CWE-522
+- [CAPEC-509: Kerberoasting](/mitre/capec/CAPEC-509.md), also related to CWE-522
+- [CAPEC-551: Modify Existing Service](/mitre/capec/CAPEC-551.md), also related to CWE-522
+- [CAPEC-555: Remote Services with Stolen Credentials](/mitre/capec/CAPEC-555.md), also related to CWE-522
+- [CAPEC-560: Use of Known Domain Credentials](/mitre/capec/CAPEC-560.md), also related to CWE-522
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

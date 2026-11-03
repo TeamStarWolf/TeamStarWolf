@@ -33,6 +33,13 @@ An adversary collects information about the target system in an attempt to ident
 
 - To reduce the amount of information gathered, one could disable various geolocation features of the operating system not required for system operation.
 
+## Related pages
+
+- [CAPEC-170: Web Application Fingerprinting](/mitre/capec/CAPEC-170.md), also related to CWE-497
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

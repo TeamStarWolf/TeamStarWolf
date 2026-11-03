@@ -15,6 +15,15 @@ An adversary injects one or more TCP RST packets to a target after the target ha
 
 - An On/In Path Device
 
+## Related pages
+
+- [CAPEC-500: WebView Injection](/mitre/capec/CAPEC-500.md), also related to CWE-940
+- [CAPEC-594: Traffic Injection](/mitre/capec/CAPEC-594.md), also related to CWE-940
+- [CAPEC-595: Connection Reset](/mitre/capec/CAPEC-595.md), also related to CWE-940
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

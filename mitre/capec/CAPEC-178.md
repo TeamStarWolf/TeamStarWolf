@@ -34,6 +34,12 @@ An attacker is able to trick the victim into executing a Flash document that pas
 - Implementation: Only allow known URL to be included as remote flash movies in a flash application
 - Configuration: Properly configure the crossdomain.xml file to only include the known domains that should host remote flash movies.
 
+## Related pages
+
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

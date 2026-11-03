@@ -40,6 +40,15 @@ An adversary exploits web applications that generate web content, such as links 
 - Implementation: Session tokens for specific host
 - Implementation: Patching software. There are many attack vectors for XSS on the client side and the server side. Many vulnerabilities are fixed in service packs for browser, web servers, and plug in technologies, staying current on patch release that deal with XSS countermeasures mitigates this.
 
+## Related pages
+
+- [CAPEC-18: XSS Targeting Non-Script Elements](/mitre/capec/CAPEC-18.md), also related to CWE-80
+- [CAPEC-32: XSS Through HTTP Query Strings](/mitre/capec/CAPEC-32.md), also related to CWE-80
+- [CAPEC-193: PHP Remote File Inclusion](/mitre/capec/CAPEC-193.md), also related to CWE-80
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

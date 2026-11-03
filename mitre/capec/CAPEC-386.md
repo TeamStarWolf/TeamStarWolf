@@ -20,6 +20,18 @@ An attacker manipulates either egress or ingress data from a client within an ap
 
 - Targeted software is utilizing application framework APIs
 
+## Related pages
+
+- [CAPEC-384: Application API Message Manipulation via Man-in-the-Middle](/mitre/capec/CAPEC-384.md), also related to CWE-311, CWE-345 and 3 more
+- [CAPEC-385: Transaction or Event Tampering via Application API Manipulation](/mitre/capec/CAPEC-385.md), also related to CWE-311, CWE-345 and 3 more
+- [CAPEC-387: Navigation Remapping To Propagate Malicious Content](/mitre/capec/CAPEC-387.md), also related to CWE-311, CWE-345 and 3 more
+- [CAPEC-388: Application API Button Hijacking](/mitre/capec/CAPEC-388.md), also related to CWE-311, CWE-345 and 3 more
+- [CAPEC-21: Exploitation of Trusted Identifiers](/mitre/capec/CAPEC-21.md), also related to CWE-346 and CWE-602
+- [CAPEC-31: Accessing/Intercepting/Modifying HTTP Cookies](/mitre/capec/CAPEC-31.md), also related to CWE-311 and CWE-602
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

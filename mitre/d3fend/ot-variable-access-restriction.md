@@ -17,6 +17,19 @@ Assign read/write access controls on designated registers or data tags to preven
 - [T0861: Point & Tag Identification](https://attack.mitre.org/techniques/T0861): limits
 - [T0877: I/O Image](https://attack.mitre.org/techniques/T0877): limits
 
+## Related pages
+
+- [Message Authentication](/mitre/d3fend/message-authentication.md), which also counters 7 of these techniques
+- [Message Encryption](/mitre/d3fend/message-encryption.md), which also counters 7 of these techniques
+- [Network Traffic Filtering](/mitre/d3fend/network-traffic-filtering.md), which also counters 7 of these techniques
+- [Application-based Process Isolation](/mitre/d3fend/application-based-process-isolation.md), which also counters 1 of these techniques
+- [Endpoint Health Beacon](/mitre/d3fend/endpoint-health-beacon.md), which also counters 1 of these techniques
+- [Hardware-based Process Isolation](/mitre/d3fend/hardware-based-process-isolation.md), which also counters 1 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -153,5 +153,15 @@ _Learning & reference_
 
 CEO Nadav Zafrir (ex-Unit 8200/Team8) took over in December 2024; founder Gil Shwed is Executive Chairman. Current firewall generation is Quantum Force (AI-powered; ~10 new gateways launched, flagship 19200; AI-powered Quantum Force Branch Office gateways announced May 2025, with a 15-25% automatic threat-prevention throughput boost to existing perimeter/DC gateways). Infinity Platform is the umbrella brand with four pillars: Quantum (network), Harmony (workspace/SASE/endpoint/email), CloudGuard (cloud/CNAPP), and Infinity Core Services (XDR/XPR, Playblocks, Events, AI Copilot, MPR, ThreatCloud AI). Recent acquisitions: Perimeter 81 (2023, SASE/ZTNA ~ $490-503M), Cyberint (2024, external risk management), Veriti (announced May 2025, automated multi-vendor pre-emptive exposure & mitigation), Lakera (closed Oct 22 2025, AI-native/agentic-AI security), and Cyata + Cyclops + Rotate (announced with Q4/FY2025 results, ~$150M total, ~$85M for Cyclops). Infinity Playblocks was formerly branded Horizon Playblocks. Exact current blade-bundle contents and ELA pricing: verify with a Check Point quote.
 
+## Related pages
+
+- [Network Security Architecture Reference](/NETWORK_SECURITY_ARCHITECTURE.md)
+- [Network Defense Reference Library](/NETWORK_DEFENSE_REFERENCE.md)
+- [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md)
+- [Zero Trust Reference: Comprehensive Cybersecurity Guide](/ZERO_TRUST_REFERENCE.md)
+- [Zscaler Zero Trust Exchange](/tools/zscaler.md)
+- [Vendor Tool Pages](/tools/README.md)
+- [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)
+
 ---
 *Generic reference. Confirm product facts, event IDs, fields and URLs against current vendor sources. Descriptive, not an endorsement.*

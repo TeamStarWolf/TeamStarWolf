@@ -76,6 +76,19 @@ Controlling access to local computer system resources with kernel-level capabili
 - [T1621: Multi-Factor Authentication Request Generation](/mitre/techniques/T1621.md): isolates. Adversaries may attempt to bypass multi-factor authentication (MFA) mechanisms and gain access to accounts by generating MFA requests sent to users.
 - [T1685: Disable or Modify Tools](/mitre/techniques/T1685.md): isolates (D3FEND maps the revoked predecessor T1562.001). Adversaries may disable, degrade, or tamper with security tools or applications (e.g., endpoint detection and response (EDR) tools, intrusion detection systems (IDS), antivirus, logging agents, sensors, etc.) to impair or reduce visibility of defensive capabilities.
 
+## Related pages
+
+- [Hardware-based Process Isolation](/mitre/d3fend/hardware-based-process-isolation.md), which also counters 48 of these techniques
+- [Process Spawn Analysis](/mitre/d3fend/process-spawn-analysis.md), which also counters 48 of these techniques
+- [System Call Analysis](/mitre/d3fend/system-call-analysis.md), which also counters 47 of these techniques
+- [Executable Allowlisting](/mitre/d3fend/executable-allowlisting.md), which also counters 31 of these techniques
+- [Executable Denylisting](/mitre/d3fend/executable-denylisting.md), which also counters 31 of these techniques
+- [Content Quarantine](/mitre/d3fend/content-quarantine.md), which also counters 23 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

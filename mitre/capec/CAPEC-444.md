@@ -23,6 +23,11 @@ An adversary modifies a technology, product, or component during its development
 
 - Assess software and software components during development and prior to deployment to ensure that they function as intended and without any malicious functionality.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

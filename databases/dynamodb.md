@@ -110,8 +110,8 @@ Use `Query` and `GetItem`, not `Scan`, for predictable cost and latency. Project
 
 ## Related pages
 
-- /databases/README.md
-- /SECURE_CODING_REFERENCE.md
-- /databases/mongodb.md
-- /databases/redis.md
-- /databases/cassandra.md
+- [Databases](/databases/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [MongoDB](/databases/mongodb.md)
+- [Redis](/databases/redis.md)
+- [Apache Cassandra](/databases/cassandra.md)

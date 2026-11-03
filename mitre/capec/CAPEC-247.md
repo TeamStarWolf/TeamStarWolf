@@ -22,6 +22,14 @@ An adversary inserts invalid characters in identifiers to bypass application fil
 - Implementation: Normalize, filter and use an allowlist for any input that will be included in any subsequent web pages or back end operations.
 - Implementation: The victim should configure the browser to minimize active content from untrusted sources.
 
+## Related pages
+
+- [CAPEC-73: User-Controlled Filename](/mitre/capec/CAPEC-73.md), also related to CWE-86
+- [CAPEC-85: AJAX Footprinting](/mitre/capec/CAPEC-85.md), also related to CWE-86
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

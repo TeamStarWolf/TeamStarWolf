@@ -24,6 +24,19 @@ In this attack pattern, the adversary intercepts information transmitted between
 
 - Encrypt sensitive information when transmitted on insecure mediums to prevent interception.
 
+## Related pages
+
+- [CAPEC-94: Adversary in the Middle (AiTM)](/mitre/capec/CAPEC-94.md), named in the description above
+- [CAPEC-31: Accessing/Intercepting/Modifying HTTP Cookies](/mitre/capec/CAPEC-31.md), also related to CWE-311
+- [CAPEC-37: Retrieve Embedded Sensitive Data](/mitre/capec/CAPEC-37.md), also related to CWE-311
+- [CAPEC-65: Sniff Application Code](/mitre/capec/CAPEC-65.md), also related to CWE-311
+- [CAPEC-158: Sniffing Network Traffic](/mitre/capec/CAPEC-158.md), also related to CWE-311
+- [CAPEC-204: Lifting Sensitive Data Embedded in Cache](/mitre/capec/CAPEC-204.md), also related to CWE-311
+- [CAPEC-383: Harvesting Information via API Event Monitoring](/mitre/capec/CAPEC-383.md), also related to CWE-311
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

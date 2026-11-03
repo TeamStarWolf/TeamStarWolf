@@ -23,6 +23,18 @@ An adversary may execute an amplification where the size of a response is far gr
 
 - To mitigate this type of an attack, an organization can attempt to identify the 3rd party services being used in an active attack and blocking them until the attack ends. This can be accomplished by filtering traffic for suspicious message patterns such as a spike in traffic where each response contains the same large block of data. Care should be taken to prevent false positive rates so legitimate traffic isn't blocked.
 
+## Related pages
+
+- [CAPEC-125: Flooding](/mitre/capec/CAPEC-125.md), also related to CWE-770
+- [CAPEC-130: Excessive Allocation](/mitre/capec/CAPEC-130.md), also related to CWE-770
+- [CAPEC-147: XML Ping of the Death](/mitre/capec/CAPEC-147.md), also related to CWE-770
+- [CAPEC-197: Exponential Data Expansion](/mitre/capec/CAPEC-197.md), also related to CWE-770
+- [CAPEC-229: Serialized Data Parameter Blowup](/mitre/capec/CAPEC-229.md), also related to CWE-770
+- [CAPEC-230: Serialized Data with Nested Payloads](/mitre/capec/CAPEC-230.md), also related to CWE-770
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

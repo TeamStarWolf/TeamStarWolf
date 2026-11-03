@@ -26,6 +26,16 @@ An adversary manipulates a setting or parameter on communications channel in ord
 - Encrypt all sensitive communications using properly-configured cryptography.
 - Design the communication system such that it associates proper authentication/authorization with each channel/message.
 
+## Related pages
+
+- [CAPEC-12: Choosing Message Identifier](/mitre/capec/CAPEC-12.md), also related to CWE-306
+- [CAPEC-36: Using Unpublished Interfaces or Functionality](/mitre/capec/CAPEC-36.md), also related to CWE-306
+- [CAPEC-62: Cross Site Request Forgery](/mitre/capec/CAPEC-62.md), also related to CWE-306
+- [CAPEC-166: Force the System to Reset Values](/mitre/capec/CAPEC-166.md), also related to CWE-306
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

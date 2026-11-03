@@ -12,6 +12,11 @@ A Principal Spoof is a form of Identity Spoofing where an adversary pretends to 
 
 - The target must associate data or activities with a person's identity and the adversary must be able to modify this identity without detection.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

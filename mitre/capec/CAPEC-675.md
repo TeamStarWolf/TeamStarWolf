@@ -39,6 +39,16 @@ An adversary obtains decommissioned, recycled, or discarded systems and devices 
 - Physically destroy memory and SIM cards for mobile devices not intended to be reused.
 - Ensure that the user account has been terminated or switched to a new device before destroying.
 
+## Related pages
+
+- [CAPEC-37: Retrieve Embedded Sensitive Data](/mitre/capec/CAPEC-37.md), also related to CWE-1266
+- [CAPEC-150: Collect Data from Common Resource Locations](/mitre/capec/CAPEC-150.md), also related to CWE-1266
+- [CAPEC-545: Pull Data from System Resources](/mitre/capec/CAPEC-545.md), also related to CWE-1266
+- [CAPEC-546: Incomplete Data Deletion in a Multi-Tenant Environment](/mitre/capec/CAPEC-546.md), also related to CWE-1266
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

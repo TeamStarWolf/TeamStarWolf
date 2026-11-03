@@ -41,6 +41,19 @@ Data inventorying identifies and records the schemas, formats, volumes, and loca
 - [T1566.002: Spearphishing Link](/mitre/techniques/T1566-002.md): inventories. Adversaries may send spearphishing emails with a malicious link in an attempt to gain access to victim systems.
 - [T1614.001: System Language Discovery](/mitre/techniques/T1614-001.md): inventories. Adversaries may attempt to gather information about the system language of a victim in order to infer the geographical location of that host.
 
+## Related pages
+
+- [Restore Database](/mitre/d3fend/restore-database.md), which also counters 23 of these techniques
+- [Content Filtering](/mitre/d3fend/content-filtering.md), which also counters 15 of these techniques
+- [Content Modification](/mitre/d3fend/content-modification.md), which also counters 15 of these techniques
+- [Content Quarantine](/mitre/d3fend/content-quarantine.md), which also counters 15 of these techniques
+- [Decoy File](/mitre/d3fend/decoy-file.md), which also counters 15 of these techniques
+- [File Analysis](/mitre/d3fend/file-analysis.md), which also counters 15 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

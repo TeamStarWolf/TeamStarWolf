@@ -16,6 +16,17 @@ Analyzing Public Key Infrastructure certificates to detect if they have been mis
 - [T1573.002: Asymmetric Cryptography](/mitre/techniques/T1573-002.md): analyzes. Adversaries may employ a known asymmetric encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol.
 - [T1649: Steal or Forge Authentication Certificates](/mitre/techniques/T1649.md): analyzes. Adversaries may steal or forge certificates used for authentication to access remote systems or resources.
 
+## Related pages
+
+- [Content Filtering](/mitre/d3fend/content-filtering.md), which also counters 6 of these techniques
+- [Content Modification](/mitre/d3fend/content-modification.md), which also counters 6 of these techniques
+- [Content Quarantine](/mitre/d3fend/content-quarantine.md), which also counters 6 of these techniques
+- [Decoy File](/mitre/d3fend/decoy-file.md), which also counters 6 of these techniques
+- [File Analysis](/mitre/d3fend/file-analysis.md), which also counters 6 of these techniques
+- [File Encryption](/mitre/d3fend/file-encryption.md), which also counters 6 of these techniques
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -107,11 +107,11 @@ Ignoring dependency updates leaves known-vulnerable libraries in place. The Log4
 
 ## Related pages
 
-- /languages/java.md
-- /frameworks/README.md
-- /SECURE_CODING_REFERENCE.md
-- /WEB_APPLICATION_SECURITY_REFERENCE.md
-- /API_SECURITY_REFERENCE.md
-- /frameworks/aspnet-core.md
-- /frameworks/django.md
-- /frameworks/nestjs.md
+- [Java](/languages/java.md)
+- [Software frameworks](/frameworks/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+- [API Security Reference Library](/API_SECURITY_REFERENCE.md)
+- [ASP.NET Core](/frameworks/aspnet-core.md)
+- [Django](/frameworks/django.md)
+- [NestJS](/frameworks/nestjs.md)

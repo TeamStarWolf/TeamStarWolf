@@ -50,6 +50,18 @@ An adversary leverages a firmware weakness within the Thunderbolt protocol, on a
 - Configuration: Disable PCIe tunneling to set Security Level to SL3
 - Configuration: Disable Boot Camp upon MacOS systems
 
+## Related pages
+
+- [CAPEC-127: Directory Indexing](/mitre/capec/CAPEC-127.md), also related to CWE-288
+- [CAPEC-13: Subverting Environment Variable Values](/mitre/capec/CAPEC-13.md), also related to CWE-353
+- [CAPEC-14: Client-side Injection-induced Buffer Overflow](/mitre/capec/CAPEC-14.md), also related to CWE-353
+- [CAPEC-39: Manipulating Opaque Client-based Data Tokens](/mitre/capec/CAPEC-39.md), also related to CWE-353
+- [CAPEC-74: Manipulating State](/mitre/capec/CAPEC-74.md), also related to CWE-353
+- [CAPEC-75: Manipulating Writeable Configuration Files](/mitre/capec/CAPEC-75.md), also related to CWE-353
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

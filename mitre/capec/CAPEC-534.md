@@ -13,6 +13,11 @@ An adversary introduces malicious hardware during an update or replacement proce
 
 - [High] Able to develop and manufacture malicious hardware components that perform the same functions and processes as their non-malicious counterparts.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

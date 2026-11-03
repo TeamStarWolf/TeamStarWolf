@@ -23,6 +23,12 @@ An adversary distributes a link (or possibly some other query structure) with a 
 - Implementation: Normalize, filter and use an allowlist for any input that will be used in error messages.
 - Implementation: The victim should configure the browser to minimize active content from untrusted sources.
 
+## Related pages
+
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

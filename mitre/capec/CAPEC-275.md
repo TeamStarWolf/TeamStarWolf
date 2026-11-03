@@ -35,6 +35,15 @@ An adversary serves content whose IP address is resolved by a DNS server that th
 - Implementation: Reject HTTP request with a malicious Host header.
 - Implementation: Employ DNS resolvers that prevent external names from resolving to internal addresses.
 
+## Related pages
+
+- [CAPEC-73: User-Controlled Filename](/mitre/capec/CAPEC-73.md), also related to CWE-350
+- [CAPEC-89: Pharming](/mitre/capec/CAPEC-89.md), also related to CWE-350
+- [CAPEC-142: DNS Cache Poisoning](/mitre/capec/CAPEC-142.md), also related to CWE-350
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

@@ -160,10 +160,10 @@ also an internet-facing device that needs the same discipline as any other. See
 
 ## Related pages
 
-- /platforms/README.md
-- /SCANNER_PLATFORMS_REFERENCE.md
-- /VULNERABILITY_MANAGEMENT_REFERENCE.md
-- /INTERNET_FACING_SERVICES_REFERENCE.md
-- /platforms/cortex-xsoar.md
-- /platforms/prisma-cloud.md
-- /platforms/splunk.md
+- [Security platforms](/platforms/README.md)
+- [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Internet-Facing Services and External Exposure](/INTERNET_FACING_SERVICES_REFERENCE.md)
+- [Cortex XSOAR](/platforms/cortex-xsoar.md)
+- [Prisma Cloud](/platforms/prisma-cloud.md)
+- [Splunk Enterprise Security](/platforms/splunk.md)

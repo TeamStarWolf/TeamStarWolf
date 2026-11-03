@@ -57,6 +57,19 @@ Analyzing system calls to determine whether a process is exhibiting unauthorized
 - [T1548.004: Elevated Execution with Prompt](/mitre/techniques/T1548-004.md): analyzes. Adversaries may leverage the <code>AuthorizationExecuteWithPrivileges</code> API to escalate privileges by prompting the user for credentials.
 - [T1555.003: Credentials from Web Browsers](/mitre/techniques/T1555-003.md): analyzes. Adversaries may acquire credentials from web browsers by reading files specific to the target browser.
 
+## Related pages
+
+- [System Call Filtering](/mitre/d3fend/system-call-filtering.md), which also counters 47 of these techniques
+- [Executable Allowlisting](/mitre/d3fend/executable-allowlisting.md), which also counters 30 of these techniques
+- [Executable Denylisting](/mitre/d3fend/executable-denylisting.md), which also counters 30 of these techniques
+- [Hardware-based Process Isolation](/mitre/d3fend/hardware-based-process-isolation.md), which also counters 29 of these techniques
+- [Process Spawn Analysis](/mitre/d3fend/process-spawn-analysis.md), which also counters 29 of these techniques
+- [Content Quarantine](/mitre/d3fend/content-quarantine.md), which also counters 21 of these techniques
+- [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md)
+- [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
+- [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
+- [All D3FEND countermeasures](/mitre/d3fend/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

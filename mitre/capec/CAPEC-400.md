@@ -7,6 +7,11 @@ Status: Draft
 
 An attacker uses methods to deactivate a passive RFID tag for the purpose of rendering the tag, badge, card, or object containing the tag unresponsive. RFID tags are used primarily for access control, inventory, or anti-theft devices. The purpose of attacking the RFID chip is to disable or damage the chip without causing damage to the object housing it.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

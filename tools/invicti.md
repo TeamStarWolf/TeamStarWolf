@@ -134,5 +134,15 @@ _Learning & reference_
 
 Invicti acquired Kondukto (announced Aug 14 2025, Istanbul-based ASPM pioneer) to deliver proof-based ASPM, and now markets a unified platform spanning DAST, SAST, IAST, SCA, API security, secrets, container security and ASPM. Ownership: Summit Partners majority (since Oct 2021 $625M growth investment), Turn/River Capital remains a shareholder - NOT Third Rock (that is an unrelated biotech VC). Netsparker->Invicti rebrand was March 2022; Acunetix remains a distinct SMB-oriented product line under Invicti.
 
+## Related pages
+
+- [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md)
+- [Application Security Testing](/APPSEC_TESTING_REFERENCE.md)
+- [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+- [Snyk](/tools/snyk.md)
+- [HackerOne](/tools/hackerone.md)
+- [Vendor Tool Pages](/tools/README.md)
+- [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)
+
 ---
 *Generic reference. Confirm product facts, event IDs, fields and URLs against current vendor sources. Descriptive, not an endorsement.*

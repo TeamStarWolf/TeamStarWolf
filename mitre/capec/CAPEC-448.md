@@ -29,6 +29,14 @@ An adversary tampers with a DLL and embeds a computer virus into gaps between le
 
 - Leverage anti-virus products to detect and quarantine software with known virus.
 
+## Related pages
+
+- [CAPEC-442: Infected Software](/mitre/capec/CAPEC-442.md), also related to CWE-506
+- [CAPEC-636: Hiding Malicious Data or Code within Files](/mitre/capec/CAPEC-636.md), also related to CWE-506
+- [CWE Weakness Reference](/CWE_REFERENCE.md)
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

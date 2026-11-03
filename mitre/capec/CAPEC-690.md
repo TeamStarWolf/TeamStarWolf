@@ -29,6 +29,11 @@ An adversary alters the metadata of a resource (e.g., file, directory, repositor
 - Confirm the pedigree of open source packages and ensure the code being downloaded does not originate from another source.
 - Even if the metadata is properly checked and a user believes it to be legitimate, there may still be a chance that they've been duped. Therefore, leverage automated testing techniques to determine where malicious areas of the code may exist.
 
+## Related pages
+
+- [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [All CAPEC attack patterns](/mitre/capec/README.md)
+
 <!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
 
 ## Library references

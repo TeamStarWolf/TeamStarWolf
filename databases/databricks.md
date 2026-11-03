@@ -139,9 +139,9 @@ Partition large tables on a low-cardinality column that matches common filters. 
 
 ## Related pages
 
-- /languages/sql.md
-- /databases/README.md
-- /SECURE_CODING_REFERENCE.md
-- /databases/snowflake.md
-- /databases/clickhouse.md
-- /databases/cassandra.md
+- [SQL](/languages/sql.md)
+- [Databases](/databases/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [Snowflake](/databases/snowflake.md)
+- [ClickHouse](/databases/clickhouse.md)
+- [Apache Cassandra](/databases/cassandra.md)

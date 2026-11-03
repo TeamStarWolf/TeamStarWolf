@@ -156,9 +156,9 @@ Assign RBAC roles with `az role assignment create` scoped to the smallest resour
 
 ## Related pages
 
-- `/commands/README.md`
-- `/SECURE_CODING_REFERENCE.md`
-- `/commands/aws-cli.md`
-- `/commands/gcloud.md`
-- `/commands/jq.md`
-- `/commands/terraform.md`
+- [Command reference](/commands/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [AWS CLI Reference](/commands/aws-cli.md)
+- [Google Cloud CLI (gcloud) Reference](/commands/gcloud.md)
+- [jq Command Reference](/commands/jq.md)
+- [Terraform Command Reference](/commands/terraform.md)

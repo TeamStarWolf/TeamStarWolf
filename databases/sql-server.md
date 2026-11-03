@@ -150,10 +150,10 @@ Scale reads with Availability Groups and readable secondaries. Scale write-heavy
 
 ## Related pages
 
-- /languages/tsql.md
-- /languages/sql.md
-- /databases/README.md
-- /SECURE_CODING_REFERENCE.md
-- /databases/postgresql.md
-- /databases/mysql.md
-- /databases/oracle.md
+- [T-SQL](/languages/tsql.md)
+- [SQL](/languages/sql.md)
+- [Databases](/databases/README.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [PostgreSQL](/databases/postgresql.md)
+- [MySQL and MariaDB](/databases/mysql.md)
+- [Oracle Database](/databases/oracle.md)

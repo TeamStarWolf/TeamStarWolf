@@ -65,7 +65,11 @@ Datasets under `data/engage/`.
 
 ## MITRE ATLAS™
 
-Datasets under `data/ai/`.
+Datasets under `data/ai/`, the ATLAS pages under `mitre/atlas/`, the layers under
+`navigator/ai/` and the tables in `ATLAS_REFERENCE.md`, built by `scripts/build_atlas.py`
+from ATLAS 2026.10 (`dist/v6/ATLAS-2026.10.yaml` in mitre-atlas/atlas-data at commit
+f56c1468731d6428e5bf875263b4643b46d67437). The atlas-data repository is licensed
+under the Apache License, Version 2.0.
 
 > © The MITRE Corporation. Includes material from MITRE ATLAS™ (Adversarial
 > Threat Landscape for Artificial-Intelligence Systems). https://atlas.mitre.org/

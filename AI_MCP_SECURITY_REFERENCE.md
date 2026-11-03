@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 48 min (11,040 words at 230 words a minute)
+About 48 min (11,075 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -974,25 +974,25 @@ Reference: [https://atlas.mitre.org/](https://atlas.mitre.org/)
 
 ## 6. MITRE ATLAS Mitigations
 
-Partial reconciliation: The seven entries AML.M0002/0003/0004/0006/0009/0010/0015 use names checked against the [pinned ATLAS 2026.09 release](https://github.com/mitre-atlas/atlas-data/blob/3259f388d19cbcca11bacf12a0ef97f4198f711b/dist/v6/ATLAS-2026.09.yaml). Other legacy ID/name mappings in this page remain unreconciled; do not treat this table as an authoritative mapping. Use the [ATLAS Reference](/ATLAS_REFERENCE.md#atlas-mitigations) and upstream source to verify IDs. Implementation guidance is practitioner curation, not an official mitigation relationship.
+Partial reconciliation: Every name in this table except two was checked against the [pinned ATLAS 2026.10 release](https://github.com/mitre-atlas/atlas-data/blob/f56c1468731d6428e5bf875263b4643b46d67437/dist/v6/ATLAS-2026.10.yaml) on 2026-11-03. The AML.M0017 and AML.M0019 rows describe controls that ATLAS 2026.10 does not file under those IDs (it names them AI Model Distribution Methods and Control Access to AI Models and Data in Production), and the descriptions elsewhere are the library's own summaries, so do not treat this table as an authoritative mapping. Use the [ATLAS Reference](/ATLAS_REFERENCE.md#atlas-mitigations) and upstream source to verify IDs. Implementation guidance is practitioner curation, not an official mitigation relationship.
 
 | ID | Name | Description | Implementation Guidance |
 |----|------|-------------|------------------------|
-| AML.M0000 | Limit Public Information | Limit the amount of information about ML systems available publicly to reduce attacker reconnaissance capability. | Avoid publishing model architectures, training data details, and performance benchmarks. Sanitize job postings. Review public GitHub repositories. |
+| AML.M0000 | Limit Public Release of Information | Limit the amount of information about ML systems available publicly to reduce attacker reconnaissance capability. | Avoid publishing model architectures, training data details, and performance benchmarks. Sanitize job postings. Review public GitHub repositories. |
 | AML.M0001 | Limit Model Artifact Release | Carefully control public release of model weights and checkpoints to prevent use in attack development. | Use gated model releases requiring registration. Apply export controls for highly capable models. Monitor distribution. |
 | AML.M0002 | Predictive AI Output Obfuscation | Obfuscate ML model outputs (e.g., top-k truncation, rounding confidence scores) to hinder model extraction and membership inference. | Return only top-1 prediction label rather than full probability distribution. Round confidence scores to nearest 10%. |
 | AML.M0003 | Predictive AI Model Hardening | Apply robustness techniques during training to make the model more resilient to adversarial inputs. | Adversarial training (PGD, FGSM). Randomized smoothing. Input preprocessing (feature squeezing, denoising). Ensemble methods. |
 | AML.M0004 | Limit AI Service Query Volume and Rate | Implement rate limits and query restrictions on ML inference APIs to prevent model extraction and cost attacks. | Per-user rate limits (requests/minute, requests/day). Adaptive rate limiting based on query patterns. Require authentication for API access. |
-| AML.M0005 | Control Access to ML Models and Data | Implement access controls to limit who can access model artifacts and training data. | Role-based access control for model registry. Encryption of model weights at rest. Audit logs for all model and data access. |
+| AML.M0005 | Control Access to AI Models and Data at Rest | Implement access controls to limit who can access model artifacts and training data. | Role-based access control for model registry. Encryption of model weights at rest. Audit logs for all model and data access. |
 | AML.M0006 | Predictive AI Ensembles | Use multiple models or multiple predictions to make the system more robust. | Ensemble of models trained on different data or architectures. Majority voting for classification. Disagreement detection for anomaly flagging. |
 | AML.M0007 | Sanitize Training Data | Validate and clean training data to remove poisoned or malicious samples. | Data validation pipeline with anomaly detection. Statistical outlier removal. Human review of suspicious samples. Cryptographic verification of data provenance. |
-| AML.M0008 | Validate ML Model | Validate model behavior before deployment, including testing for backdoors and unexpected behaviors. | Red team testing with adversarial inputs. Backdoor scanning (Neural Cleanse, ABS, STRIP). Behavioral testing across edge cases. Regression testing against known attack patterns. |
+| AML.M0008 | Validate AI Model | Validate model behavior before deployment, including testing for backdoors and unexpected behaviors. | Red team testing with adversarial inputs. Backdoor scanning (Neural Cleanse, ABS, STRIP). Behavioral testing across edge cases. Regression testing against known attack patterns. |
 | AML.M0009 | Predictive AI Multi-Sensor Fusion | Corroborate predictions across independent physical sensors. | Test sensor disagreement and single-sensor compromise. This ID does not mean federated learning. |
 | AML.M0010 | Predictive AI Input Restoration | Transform inference inputs to reduce adversarial perturbations. | Test preprocessing against adaptive attacks and benign inputs. This ID does not mean differential privacy. |
 | AML.M0011 | Restrict Library Loading | Restrict which ML libraries and versions can be loaded to prevent supply chain attacks. | Pin dependency versions. Use lockfiles (requirements.txt, poetry.lock). Scan dependencies with tools (pip-audit, safety). Use private package repositories. |
 | AML.M0012 | Encrypt Sensitive Information | Encrypt ML models, training data, and inference outputs to prevent unauthorized access. | Encrypt model weights at rest (AES-256). Use TLS for all model serving. Encrypt training data with keys managed by HSM. |
 | AML.M0013 | Code Signing | Sign ML code and model artifacts to verify integrity and provenance. | Sign model files with GPG or Sigstore. Verify signatures before loading. Use SLSA framework for model build provenance. |
-| AML.M0014 | Verify ML Artifacts | Verify integrity of ML artifacts (datasets, pre-trained models) before use. | Verify SHA-256 checksums of downloaded models. Verify digital signatures. Scan models for embedded malicious code. |
+| AML.M0014 | Verify AI Artifacts | Verify integrity of ML artifacts (datasets, pre-trained models) before use. | Verify SHA-256 checksums of downloaded models. Verify digital signatures. Scan models for embedded malicious code. |
 | AML.M0015 | Predictive AI Adversarial Input Detection | Deploy detection mechanisms that identify adversarial inputs before they reach the model. | Feature squeezing detector. Statistical input validation. Prediction consistency check (multiple perturbations). Neural network-based adversarial detectors. |
 | AML.M0016 | Vulnerability Scanning | Regularly scan ML systems and infrastructure for vulnerabilities. | Use standard vulnerability scanners (Trivy, Snyk) on ML serving containers. Scan ML framework dependencies. Test for known ML attack patterns. |
 | AML.M0017 | Assess Funding and Provenance | Assess the funding sources and provenance of ML datasets and models from third parties. | Review dataset documentation cards. Investigate model card provenance. Apply export controls for sensitive applications. |

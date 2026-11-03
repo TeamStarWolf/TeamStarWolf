@@ -64,6 +64,20 @@ jobs:
           python scripts/build_atlas.py --self-check
           python scripts/build_atlas.py --check
 
+      # Rebuilds the three D3FEND files in data/attack/ and the D3FEND_REFERENCE.md tables in
+      # memory from the D3FEND 1.6.0 release (full inferred mappings CSV and ontology JSON,
+      # about 20 MB from d3fend.mitre.org's versioned path) and fails on any drift. Each
+      # input must match its size and SHA-256 in build_d3fend.py.
+      - name: D3FEND data and reference tables match the pinned D3FEND 1.6.0 release
+        run: python scripts/build_d3fend.py --check
+
+      # Rebuilds data/weaknesses/cwe.jsonl and the CWE_REFERENCE.md tables from CWE List 5.0
+      # and checks data/weaknesses/capec.jsonl against CAPEC List 3.9 (ids, names, statuses,
+      # severity, likelihood, related CWEs). Both downloads (about 2.7 MB) must match their
+      # size and SHA-256 in build_weaknesses.py.
+      - name: CWE data matches CWE 5.0 and CAPEC data matches CAPEC 3.9
+        run: python scripts/build_weaknesses.py --check
+
       - name: Check CAPEC edge integrity (profiles vs capec.jsonl)
         run: python scripts/backfill_capec_edges.py --check
 
@@ -244,6 +258,12 @@ jobs:
 
       - name: Full-stack layer, curated-layer normalization and navigator/index.md match the data
         run: python scripts/build_navigator_layers.py --check
+
+      # Re-derives each computed layer's technique set (navigator/computed/) from its quoted
+      # rule with code independent of the generator, and fails if a layer's description no
+      # longer quotes its rule and the not-an-official-MITRE-mapping note.
+      - name: Computed layers reproduce from their quoted rules
+        run: python scripts/computed_layers.py --self-check
 
       - name: scores/ (coverage scores + rendered coverage_gaps.md) match the data
         run: python scripts/compute_coverage.py --check

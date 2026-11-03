@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 14 min (3,305 words at 230 words a minute)
+About 14 min (3,307 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -894,7 +894,7 @@ Key AI RMF security outcomes:
 
 Adversarial threat landscape for AI-enabled systems, the ATT&CK framework equivalent for ML attacks.
 
-Selected ATLAS tactics (see the [ATLAS reference](/ATLAS_REFERENCE.md) for the pinned 2026.09 source and snapshot limits):
+Selected ATLAS tactics (see the [ATLAS reference](/ATLAS_REFERENCE.md) for the pinned 2026.10 source and snapshot limits):
 - Reconnaissance: gather information about target ML system
 - Resource Development: acquire tools, datasets, accounts
 - Initial Access: gain access to ML system or its infrastructure
@@ -909,7 +909,7 @@ Key ATLAS Techniques:
 | AML.T0000 | Search Open Technical Databases | Gather public technical information about AI deployments and capabilities |
 | AML.T0012 | Valid Accounts | Abuse legitimate accounts to obtain access or act within an environment |
 | AML.T0043 | Craft Adversarial Data | Create inputs that cause model misclassification |
-| AML.T0019 | Publish Poisoned Datasets (historical snapshot entry) | Upload poisoned datasets; this ID is absent from the pinned 2026.09 technique collection |
+| AML.T0115.000 | Publish Poisoned AI Artifacts: Datasets | Upload poisoned datasets to a public location; supersedes AML.T0019 Publish Poisoned Datasets, retired in ATLAS 2026.07 |
 | AML.T0035 | AI Artifact Collection | Collect models, datasets, or related telemetry |
 | AML.T0040 | AI Model Inference API Access | Access a model through its inference interface; access alone does not establish data theft |
 | AML.T0044 | Full AI Model Access | Obtain access to model internals such as architecture and parameters |

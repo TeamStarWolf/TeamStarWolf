@@ -273,4 +273,17 @@
 - [AML.M0042: Threat Intelligence Program](/mitre/atlas/AML-M0042.md)
 - [AML.M0043: AI Agent External Resource Lifecycle Management](/mitre/atlas/AML-M0043.md)
 
+## Retired techniques
+
+IDs a release retired; each page names the release and the successor.
+
+- [AML.T0019: Publish Poisoned Datasets](/mitre/atlas/AML-T0019.md): retired in 2026.07, superseded by AML.T0115.000
+- [AML.T0024.000: Exfiltration via AI Inference API: Infer Training Data Membership](/mitre/atlas/AML-T0024-000.md): retired in 2026.10, superseded by AML.T0137.000
+- [AML.T0024.001: Exfiltration via AI Inference API: Invert AI Model](/mitre/atlas/AML-T0024-001.md): retired in 2026.10, superseded by AML.T0137.002
+- [AML.T0024.002: Exfiltration via AI Inference API: Extract AI Model](/mitre/atlas/AML-T0024-002.md): retired in 2026.10, no successor named
+- [AML.T0056: Extract LLM System Prompt](/mitre/atlas/AML-T0056.md): retired in 2026.10, superseded by AML.T0085.003
+- [AML.T0057: LLM Data Leakage](/mitre/atlas/AML-T0057.md): retired in 2026.10, superseded by AML.T0085.002
+- [AML.T0058: Publish Poisoned Models](/mitre/atlas/AML-T0058.md): retired in 2026.07, superseded by AML.T0115.001
+- [AML.T0104: Publish Poisoned AI Agent Tool](/mitre/atlas/AML-T0104.md): retired in 2026.07, superseded by AML.T0115.002
+
 [MITRE Hub](/mitre/README.md)

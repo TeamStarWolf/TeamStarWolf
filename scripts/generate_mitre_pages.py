@@ -413,6 +413,12 @@ class DB:
         for r in self.atlas.values():
             if r.get("parent_id"):
                 self.atlas_subs[r["parent_id"]].append(r["technique_id"])
+        # ATLAS ids retired by a release keep a stub page (title + successor banner), the
+        # same rule revoked ATT&CK techniques follow, so old #/mitre/atlas/<id> links and
+        # other repos' references still land somewhere useful. Rows that are live again
+        # in the current release are skipped.
+        self.atlas_retired = {r["old_id"]: r for r in load_jsonl(DATA / "ai/atlas_superseded_by.jsonl")
+                              if r["old_id"] not in self.atlas}
 
         # --- D3FEND (reverse map: countermeasure -> tactic, artifacts, ATT&CK techniques it counters) ---
         # D3FEND publishes its ATT&CK mappings against whatever id they were authored for,
@@ -1165,6 +1171,28 @@ def render_atlas_technique(db, tid):
     return "\n".join(out)
 
 
+def render_atlas_retired(db, tid):
+    """Stub page for an ATLAS technique id a release retired (data/ai/atlas_superseded_by.jsonl):
+    the old name, the release that retired it and its successor, or a note that the release
+    notes name none."""
+    r = db.atlas_retired[tid]
+    out = ["# " + tid + " " + DASH + " " + (r.get("old_name") or "") + "\n", '<a id="' + aml_anchor(tid) + '"></a>\n']
+    new = r.get("new_id")
+    if new:
+        # the superseded row carries the full "Parent: Sub" name; the technique row only the sub name
+        nm = r.get("new_name") or db.atlas.get(new, {}).get("name") or ""
+        banner = ("> Retired in ATLAS " + str(r.get("retired_in")) + " and superseded by [" + new + ": " + nm +
+                  "](/mitre/atlas/" + aml_slug(new) + ".md).")
+    else:
+        banner = ("> Retired in ATLAS " + str(r.get("retired_in")) +
+                  "; no successor named in the release notes.")
+    out.append(banner + "\n")
+    out.append("This ID is no longer part of the current ATLAS release. The page stays so that older links "
+               "keep working; see the [ATLAS index](/mitre/atlas/README.md) for the live techniques.\n")
+    out.append(SHORT_FOOTER)
+    return "\n".join(out)
+
+
 def render_atlas_mitigation(db, mid):
     r = db.atlas_mit[mid]
     out = ["# " + mid + " " + DASH + " " + r.get("name", "") + "\n", '<a id="' + aml_anchor(mid) + '"></a>\n']
@@ -1189,6 +1217,15 @@ def render_atlas_index(db):
     out += ["", "## Mitigations", ""]
     out += ["- [" + mid + " " + DASH + " " + db.atlas_mit[mid].get("name", "") + "](/mitre/atlas/" + aml_slug(mid) + ".md)"
             for mid in sorted(db.atlas_mit)]
+    if db.atlas_retired:
+        out += ["", "## Retired techniques", "",
+                "IDs a release retired; each page names the release and the successor.", ""]
+        for tid in sorted(db.atlas_retired):
+            r = db.atlas_retired[tid]
+            line = ("- [" + tid + " " + DASH + " " + (r.get("old_name") or "") + "](/mitre/atlas/" + aml_slug(tid) +
+                    ".md): retired in " + str(r.get("retired_in")))
+            line += (", superseded by " + r["new_id"]) if r.get("new_id") else ", no successor named"
+            out.append(line)
     out += ["", "[MITRE Hub](/mitre/README.md)", ""]
     return "\n".join(out)
 
@@ -1387,7 +1424,8 @@ def render_landing(db):
                  if p.name != "README.md" and p.stem not in RENAMED_TACTICS])
     n_d3 = len([p for p in (MITRE / "d3fend").glob("*.md") if p.name != "README.md"])
     n_cap = len(list((MITRE / "capec").glob("CAPEC-*.md")))
-    n_atl = len(list((MITRE / "atlas").glob("AML-*.md")))
+    # retired-id stubs are pointers, not techniques, so they are not counted
+    n_atl = len(db.atlas) + len(db.atlas_mit)
     n_f3 = len(db.f3)
     n_groups = len(db.group_prof)
     n_software = len(db.sw_prof)
@@ -1709,8 +1747,11 @@ def generate(db, only, out_root):
         for mid in db.atlas_mit:
             emit(out_root, d / (aml_slug(mid) + ".md"), plain(render_atlas_mitigation(db, mid)))
             nm += 1
+        for tid in db.atlas_retired:
+            emit(out_root, d / (aml_slug(tid) + ".md"), plain(render_atlas_retired(db, tid)))
         emit(out_root, d / "README.md", plain(render_atlas_index(db)))
-        print("atlas: wrote " + str(nt) + " technique + " + str(nm) + " mitigation pages + README")
+        print("atlas: wrote " + str(nt) + " technique + " + str(nm) + " mitigation pages + " +
+              str(len(db.atlas_retired)) + " retired-id stubs + README")
 
     if "f3" in only:
         d = out_root / "f3"

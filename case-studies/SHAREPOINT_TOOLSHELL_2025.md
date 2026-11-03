@@ -107,6 +107,22 @@ For a vulnerability management program, this is the transferable point: a flaw t
 | Reduce exposure | Enable AMSI full mode and an endpoint agent on SharePoint, put the server behind authenticated access or a VPN, and take any unpatchable server offline |
 | Assume breach | If the server was internet-facing and unpatched between roughly 18 and 21 July 2025, treat it as compromised, rotate secrets, and investigate, do not assume the later patch was in time |
 
+### Per-edition and per-technology remediation
+
+The remediation is the same shape everywhere (patch, rotate keys, `iisreset`), but the exact build and the supporting controls differ by edition and technology (**Confirmed**: Microsoft guidance):
+
+| Platform or technology | How to remediate |
+|---|---|
+| SharePoint Subscription Edition | Apply the 19 to 20 July 2025 out-of-band update, confirm the farm build, then rotate machine keys and `iisreset` |
+| SharePoint Server 2019 | Apply the fixed build (KB5002754 and its pair), confirm across the farm, rotate keys and `iisreset` |
+| SharePoint Server 2016 | Apply the follow-on 2016 update when available, then rotate keys and `iisreset`; until then, reduce exposure or take offline |
+| SharePoint Online (Microsoft 365) | Not affected; no action, which is itself the argument for the managed service where feasible |
+| ASP.NET machine keys (IIS) | Rotate `ValidationKey` and `DecryptionKey` with `Update-SPMachineKey` or the Central Administration timer job, then `iisreset.exe` on every farm server so forged `__VIEWSTATE` payloads stop validating |
+| Microsoft Defender / AMSI | Enable AMSI in full mode on SharePoint and keep an endpoint agent running, so a dropped web shell and `w3wp.exe` spawning shells are caught |
+| Network and edge | Put the server behind authenticated access or a VPN, block or inspect POSTs to `ToolPane.aspx` at a WAF, and take any unpatchable server offline as CISA advised |
+| OpenShift and containerized hosts | Apply Red Hat's interim guidance; note a host-level network rule covers only the host namespace, not pod-to-pod traffic |
+| SIEM and detection | Alert on `spinstall0.aspx` and other unexpected `.aspx` files in the LAYOUTS path, anomalous `ToolPane.aspx` POSTs, and new administrator accounts |
+
 ## Part 3: who exploited it, and the scale
 
 Microsoft attributed the exploitation to three China-linked actors, with different aims (**Confirmed**: Microsoft):

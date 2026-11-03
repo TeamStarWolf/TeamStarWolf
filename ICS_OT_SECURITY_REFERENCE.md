@@ -17,7 +17,7 @@ Intermediate to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 23 min (5,373 words at 230 words a minute)
+About 23 min (5,381 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -472,8 +472,8 @@ MITRE ATT&CK for ICS is the definitive framework for mapping adversary behaviors
 
 | Technique | ID | Description |
 |---|---|---|
-| Command-Line Interface | T0807 | CLI execution on EWS/HMI |
-| Scripting | T0853 | PowerShell/Python ICS interactions |
+| Command and Scripting Interpreter | T1701 | CLI execution on EWS/HMI |
+| Command and Scripting Interpreter: PowerShell, Python | T1701.001, T1701.005 | PowerShell/Python ICS interactions |
 | Modify Controller Tasking | T0821 | Altering PLC task scheduling |
 | Project File Infection | T0873 | Malicious code in Step 7/TIA Portal projects |
 | User Execution | T0863 | Engineer opens malicious project file |

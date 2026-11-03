@@ -80,12 +80,16 @@ def _library_counts():
                    and page(f))
     # Framework pages are the object pages in mitre/<kind>/ (techniques, groups, capec,
     # ...). Pages at the mitre/ root, such as crosswalk.md, are not object pages.
+    # A retired ATLAS ID keeps a stub page so old links still resolve, but it is not a
+    # technique of the pinned release, so data/ai/atlas_superseded_by.jsonl leaves it out.
+    retired = {"mitre/atlas/" + r["old_id"].replace(".", "-") + ".md"
+               for r in (_rows("data/ai/atlas_superseded_by.jsonl") or []) if r.get("old_id")}
     return {
         "reference_docs": refs,
         "guides": folder("guides/"),
         "learning_paths": folder("disciplines/"),
         "framework_pages": sum(1 for f in files if f.startswith("mitre/")
-                               and f.count("/") >= 2 and page(f)),
+                               and f.count("/") >= 2 and page(f) and f not in retired),
     }
 
 

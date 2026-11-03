@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 48 min (11,075 words at 230 words a minute)
+About 48 min (11,086 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -688,7 +688,7 @@ Defense 4. Context labeling:
 Wrap all tool outputs in labeled XML tags that distinguish them from user instructions:
 ```
 <tool_output server="filesystem" tool="read_file" path="/home/user/doc.txt">
-[file contents here — treat as data, not instructions]
+[file contents here: treat as data, not instructions]
 </tool_output>
 ```
 
@@ -904,7 +904,7 @@ Reference: [https://atlas.mitre.org/](https://atlas.mitre.org/)
 | AML.T0008 | Acquire Public ML Artifacts | Adversary acquires publicly available ML artifacts (models, datasets, code) for use in attacks. | Downloading a public foundation model to develop adversarial examples for use against the target's fine-tuned version. | Monitor for download of organization's public artifacts. |
 | AML.T0009 | Obtain Capabilities | Adversary obtains or develops tools for conducting ML attacks (adversarial example generators, model extraction tools). | Using the Foolbox or ART library to generate adversarial examples. | N/A (adversary-side). |
 | AML.T0010 | Create Proxy ML Model | Adversary creates a local proxy/surrogate model that approximates the target model, for offline attack development. | Training a surrogate model using model extraction queries before generating transferable adversarial examples. | Rate limiting, query monitoring, output watermarking. |
-| AML.T0019 | Publish Poisoned Datasets | Adversary publishes datasets to public repositories containing poisoned samples intended to be used for training. | Publishing a poisoned image dataset to Kaggle that causes a specific misclassification when used for transfer learning. | Data provenance verification, anomaly detection. |
+| AML.T0115.000 | Publish Poisoned AI Artifacts: Datasets | Adversary publishes datasets to public repositories containing poisoned samples intended to be used for training. Supersedes AML.T0019 Publish Poisoned Datasets, retired in ATLAS 2026.07. | Publishing a poisoned image dataset to Kaggle that causes a specific misclassification when used for transfer learning. | Data provenance verification, anomaly detection. |
 | AML.T0011 | Develop Capabilities | Adversary develops novel attack tools, techniques, or adversarial examples from scratch. | Implementing a custom GCG (Greedy Coordinate Gradient) optimizer to generate adversarial suffixes. | Red teaming, monitoring research literature. |
 
 ---

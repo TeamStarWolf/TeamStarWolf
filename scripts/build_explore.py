@@ -114,8 +114,9 @@ def h1(rel: str) -> str:
     return ""
 
 
-def pages_by_id(folder: str, id_re: str) -> dict[str, str]:
-    """ID (or D3FEND name) from the H1 of each page in folder -> file stem."""
+def pages_by_id(folder: str, id_re: str, skip: frozenset = frozenset()) -> dict[str, str]:
+    """ID (or D3FEND name) from the H1 of each page in folder -> file stem. IDs in skip
+    (retired IDs that keep a stub page only for old links) are left out."""
     out = {}
     rx = re.compile(id_re)
     for f in tracked_files():
@@ -124,6 +125,8 @@ def pages_by_id(folder: str, id_re: str) -> dict[str, str]:
             m = rx.match(h1(f))
             if m:
                 key = m.group(1)
+                if key in skip:
+                    continue
                 if key in out:
                     raise SystemExit(folder + ": two pages for " + key)
                 out[key] = os.path.basename(f)[:-3]
@@ -178,6 +181,9 @@ def build() -> tuple[dict, dict]:
 
     superseded = {r["old_id"]: r["new_id"] for r in rows_of("data/attack/superseded_by.jsonl")
                   if r.get("domain") == "enterprise"}
+    # Retired ATLAS IDs keep a stub page so old links resolve; they have no data row.
+    atlas_retired = frozenset(r["old_id"] for r in rows_of("data/ai/atlas_superseded_by.jsonl")
+                              if r.get("old_id"))
     page_maps = {
         "technique": pages_by_id("mitre/techniques/", r"^(T\d{4}(?:\.\d{3})?):"),
         "group": pages_by_id("mitre/groups/", r"^(G\d{4}):"),
@@ -186,7 +192,7 @@ def build() -> tuple[dict, dict]:
         "mitigation": pages_by_id("mitre/mitigations/", r"^(M\d{4}):"),
         "capec": pages_by_id("mitre/capec/", r"^(CAPEC-\d+):"),
         "d3fend": pages_by_id("mitre/d3fend/", r"^D3FEND:\s+(.+)$"),
-        "atlas": pages_by_id("mitre/atlas/", r"^(AML\.T\d{4}(?:\.\d{3})?):"),
+        "atlas": pages_by_id("mitre/atlas/", r"^(AML\.T\d{4}(?:\.\d{3})?):", atlas_retired),
         "atlas-mitigation": pages_by_id("mitre/atlas/", r"^(AML\.M\d{4}):"),
         "f3": pages_by_id("mitre/f3/", r"^((?:F|T)\d{4}(?:\.\d{3})?):"),
     }

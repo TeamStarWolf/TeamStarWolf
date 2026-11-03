@@ -10,6 +10,20 @@ In October 2026 a researcher showed that eight intermediate certificate authorit
 
 Evidence grade: **Confirmed** (a researcher proved key control to the browser root programs, multiple root programs acted, and eMudhra admitted the cause).
 
+### Key facts at a glance
+
+| Field | Value |
+|---|---|
+| Failure | Eight eMudhra (emSign) intermediate CA private keys recoverable from their public certificates |
+| Root cause | A key ceremony on 30 April 2025 ran a test code path that produced weak ECC keys (one effectively the integer 4) |
+| Keyspace expected vs actual | About 10^115 values expected; recoverable in at most 256 guesses |
+| Scope | Eight intermediates (six TLS, two code-signing); sixteen certificates (one emSign-issued and one Sectigo cross-certificate each) |
+| Leaf certificates issued | None from the eight; the risk was forging new certificates, not existing mis-issued ones |
+| Discovery | Researcher "Wayne" via a CCADB check on 17 October 2026, proven with signed attestations |
+| Browser response | Chrome and Firefox blocked within hours to days; Mozilla root removal 20 October, Chrome 27 October |
+| The gap | Non-browser clients (curl, Python, Node, Go, Git, containers) carry their own bundles and lagged |
+| Outcome | eMudhra announced exit from the global TLS certificate business on 22 October 2026 |
+
 ### Key findings
 
 - **The failure was in key generation, not in a broken algorithm.** eMudhra traced it to a key ceremony on 30 April 2025: an approved deviation to test key wrap and unwrap ran code that produced a weaker second key pair, and similar key labels led to that pair being used for the certificate signing request.
@@ -133,6 +147,33 @@ There are two audiences: relying parties (anything that trusts the CA, below) an
 - Mail transfer agents (Postfix, Exim), SIEM and log forwarders, databases with TLS client verification, and VPN concentrators each have their own trust configuration; update and restart them.
 - Code signing: two of the eight were code-signing CAs. Verify that no in-use software was signed under them, refresh the code-signing trust the verifier uses (for example the Windows Authenticode trust list), and treat any artifact signed under an affected key as unverified until re-signed.
 - Managed cloud and SaaS trust (AWS, Azure, GCP, and identity providers such as Okta and Auth0, which removed the root in October 2026) is updated by the provider; obtain their confirmation and rotate any served certificate whose chain is affected.
+
+## Incident timeline
+
+| Date | Event |
+|---|---|
+| 30 April 2025 | eMudhra key ceremony produces a batch of 24 intermediates; a test deviation generates the weak keys |
+| 17 October 2026 | Researcher "Wayne" identifies the weak keys against CCADB and proves control with signed attestations |
+| 20 October 2026 | Mozilla removes the root from NSS (3.131.1); Microsoft blocks the eight intermediates |
+| 22 October 2026 | eMudhra announces it will exit the global SSL/TLS certificate business |
+| 27 October 2026 | Chrome Root Store removes the emSign ECC Root CA G3 (interim CRLSet block earlier) |
+| October 2026 | Apple, Go (CVE-2026-111943), Okta and Auth0, and downstream bundles follow |
+
+## Detection and the vulnerability-management lens
+
+This incident is a clean teaching case for a specific blind spot: a vulnerability management program that measures its browser fleet and its operating-system patch level can report fully remediated while its servers still trust forged certificates on their outbound connections.
+
+- **Enumerate trust sources, not just hosts.** The unit of exposure here is a trust store, and a single host can have several: the OS store, a language runtime's bundle, a container image's baked-in bundle, and an appliance's own configuration. Asking "which hosts are patched" misses most of them. The right question is "which outbound clients, in which trust stores, still trust the eight keys."
+- **Detect by test, not by version.** Because the exposure is forward-looking (an attacker can mint new certificates), there are no mis-issued leaves to hunt for in certificate transparency logs. The practical detection is active: from each client path, confirm that a certificate chaining to the affected keys is now rejected while a known-good endpoint still validates. A version check is not proof, because a service may pin an old bundle.
+- **Find your own affected certificates too.** Site operators whose own certificates chained to the emSign ECC Root CA G3 must reissue from a different hierarchy before the root removals break validation. Scan the certificates your public and internal endpoints serve for the affected chain.
+- **Prioritize by where secrets flow.** The highest-risk client paths are the ones that make sensitive outbound calls (to payment APIs, package registries, identity providers, webhooks), because those are where a forged certificate would do the most harm during the fix-to-bundle-update window. Rank the client-path remediation by what each path connects to, not alphabetically. See [the Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md).
+
+## Cross-cutting themes
+
+- **Entropy failures beat strong algorithms.** The cryptography was sound; the randomness that fed it was not. A P-384 key resists attack only if it is actually chosen from the full keyspace, and a test code path that returned near-zero values made eight of them trivially recoverable. Key generation is part of the attack surface.
+- **Trust is federated, and so is remediation.** There is no single switch to distrust a CA. Browsers, operating systems, language runtimes, containers and appliances each decide trust independently and update on their own cadence, so a CA distrust is a multi-front remediation, not one patch.
+- **The browser is the fast lane; everything else is slow.** Browsers check revocation and take fast-pushed blocklists; most software clients do neither by default. The dangerous window is between the browser fix and the client-bundle rebuild, and it is exactly the window a server-to-server attacker would use.
+- **Block by key, survive the cross-signature.** Because each weak key lived under both an emSign root and a Sectigo cross-certificate, name-level distrust of one root was not enough. Blocking the eight public-key hashes is the control that holds regardless of which path a client tries to build.
 
 ## Sources
 

@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 16 min (3,717 words at 230 words a minute)
+About 16 min (3,718 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -1761,7 +1761,7 @@ Curated starting points for the infrastructure-intelligence, internet-scanning, 
 | abuse.ch Feodo Tracker | https://feodotracker.abuse.ch/ |
 | abuse.ch YARAify | https://yaraify.abuse.ch/ |
 | AlienVault OTX | https://otx.alienvault.com/ |
-| GreyNoise | https://viz.greynoise.io/ |
+| GreyNoise | viz.greynoise.io |
 | Shodan | https://www.shodan.io/ |
 | Censys Search | https://search.censys.io/ |
 | Onyphe | https://www.onyphe.io/ |

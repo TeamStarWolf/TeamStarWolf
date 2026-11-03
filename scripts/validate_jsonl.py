@@ -97,6 +97,7 @@ SCHEMAS = {
 # Edge tables (paths containing "_to_") are intentionally omitted.
 PRIMARY_KEYS = {
     "data/ai/atlas_mitigations.jsonl": "mitigation_id",
+    "data/ai/atlas_superseded_by.jsonl": "old_id",
     "data/ai/atlas_tactics.jsonl": "tactic_id",
     "data/ai/atlas_techniques.jsonl": "technique_id",
     "data/attack/analytics.jsonl": "analytic_id",

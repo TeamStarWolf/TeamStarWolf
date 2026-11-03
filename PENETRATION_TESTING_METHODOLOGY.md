@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 10 min (2,345 words at 230 words a minute)
+About 10 min (2,356 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -1642,7 +1642,7 @@ The MITRE ATT&CK Enterprise Matrix v14 covers 14 tactics:
 
 *This document is intended for authorized security professionals only. All techniques described must only be applied against systems for which explicit written authorization has been obtained. Unauthorized use may violate the Computer Fraud and Abuse Act, Computer Misuse Act, and other applicable laws.*
 
-*References: PTES (http://www.pentest-standard.org/), OWASP Testing Guide v4.2 (https://owasp.org/www-project-web-security-testing-guide/), MITRE ATT&CK v20.0 (https://attack.mitre.org/), NIST SP 800-115 (https://csrc.nist.gov/pubs/sp/800/115/final), CVSS v3.1 Specification (https://www.first.org/cvss/specification-document)*
+*References: PTES (Penetration Testing Execution Standard; its website did not answer on 2026-11-03), OWASP Testing Guide v4.2 (https://owasp.org/www-project-web-security-testing-guide/), MITRE ATT&CK v20.0 (https://attack.mitre.org/), NIST SP 800-115 (https://csrc.nist.gov/pubs/sp/800/115/final), CVSS v3.1 Specification (https://www.first.org/cvss/specification-document)*
 
 <!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
 

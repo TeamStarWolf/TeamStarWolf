@@ -11,7 +11,7 @@ Start from a technique, a mitigation, a threat group or a tool and follow it acr
 | [Tactics](/mitre/tactics/README.md) | 15 | the "why" of each stage, its techniques, top corpus-observed techniques |
 | [D3FEND](/mitre/d3fend/README.md) | 156 | defensive technique, D3FEND tactic, digital artifacts, ATT&CK techniques countered |
 | [CAPEC](/mitre/capec/README.md) | 615 | abstraction, severity, likelihood, mapped ATT&CK, related CWE, prerequisites, mitigations |
-| [ATLAS (AI/ML)](/mitre/atlas/README.md) | 205 | adversarial-AI techniques + mitigations |
+| [ATLAS (AI/ML)](/mitre/atlas/README.md) | 265 | adversarial-AI techniques + mitigations |
 | [F3 (Fight Fraud)](/mitre/f3/README.md) | 123 | CTID fraud-lifecycle techniques; ATT&CK-derived ones cross-link to their technique pages |
 | [Threat Groups](/mitre/groups/README.md) | 178 | ATT&CK adversary groups (intrusion sets): aliases, techniques used (linked), and software wielded |
 | [Software & Tools](/mitre/software/README.md) | 842 | ATT&CK malware & tools: type, platforms, aliases, techniques implemented (linked), and the groups that wield them |

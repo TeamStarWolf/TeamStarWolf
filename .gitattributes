@@ -1,0 +1,3 @@
+# Keep PDF exports binary so Windows autocrlf never corrupts them on checkout
+*.pdf binary
+*.pptx binary

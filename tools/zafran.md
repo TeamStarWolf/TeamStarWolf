@@ -65,7 +65,7 @@ This is the case-study exemplar for mitigation-as-compensating-control. Zafran's
 **Key events / fields / tables / APIs**
 - ServiceNow-surfaced objects (documented): Zafran Assets (CMDB match), Zafran findings carrying 'Mitigative Factors', 'Internet-Facing Evidence', and a recalculated 'Applicable Risk Score'; Zafran Remediation Items (ZRIs) -> ServiceNow Vulnerable Items (VIT).
 - Auth: Zafran API key.
-- NOTE: Zafran does not publish its REST endpoint paths or exact JSON field names publicly (sources are vendor one-pagers + the ServiceNow store listing) - could not verify field-level schema; obtain from your tenant's API docs.
+- NOTE: Zafran does not publish its REST endpoint paths or exact JSON field names publicly (public sources are vendor one-pagers + the ServiceNow store listing); obtain the field-level schema from your tenant's API docs.
 
 **Example queries**
 

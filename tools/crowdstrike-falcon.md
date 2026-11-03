@@ -66,7 +66,7 @@ Falcon's primary mitigation value in the pre-patch window is detection-and-respo
 
 **Validation signals (actually working?)**
 - Vulnerability remediated: Spotlight record status open -> closed with a populated closed_timestamp (and per-app sub_status closed). That proves the exposure was removed. Do NOT count status=expired as remediation — that is set when a host is deleted or inactive 45 days, then dropped 3 days later, and is visible only in API responses (not console/reports).
-- Prevention actually BLOCKED vs merely detected: a Prevention policy in Prevent mode produces a detection/alert where an action was taken (process killed/blocked); the same activity under a Detect-only policy produces telemetry with no block. This Detect-vs-Prevent distinction is the configured-vs-effective line. (I could not verify the exact FDR event_simpleName for a prevention/EPP block from public docs — confirm the EppDetectionSummary-style event name and PatternDisposition bits in your own tenant schema.)
+- Prevention actually BLOCKED vs merely detected: a Prevention policy in Prevent mode produces a detection/alert where an action was taken (process killed/blocked); the same activity under a Detect-only policy produces telemetry with no block. This Detect-vs-Prevent distinction is the configured-vs-effective line. Confirm the FDR event_simpleName for a prevention block (an EppDetectionSummary-style event) and its PatternDisposition bits in your own tenant's FDR schema before alerting on them.
 - Sensor effective, not just installed: Hosts API status normal + reduced_functionality_mode=false. RFM=true is the key trap — the sensor is present and reporting but its prevention/collection is degraded.
 
 **Key events / fields / tables / APIs**
@@ -113,7 +113,7 @@ CrowdStrikeVulnerabilities
 - Detect-only vs Prevent: a policy in Detect mode logs the behaviour but does NOT block it; a detection record alone does not prove mitigation — confirm the policy mode and that an action was taken.
 - FDR must be enabled by CrowdStrike support, and SIEM ingestion pipelines commonly DROP sensor-health/telemetry-only events as low-signal — a 'silent' host may be a filtered pipeline, not a dead sensor.
 - Spotlight endpoints REQUIRE a filter and reject wildcards; host_last_seen_timestamp is only populated after >=3 days offline, so it is not a general 'last seen' field (use the Hosts API last_seen for that).
-- I could NOT verify from public docs the exact /spotlight/combined/vulnerabilities/v1 vs /queries path pairing for every Falcon region/version, the Windows sensor version command for current builds, or the FDR prevention event_simpleName — verify these against the Falcon API reference and your tenant before operationalizing.
+- Spotlight exposes vulnerabilities at GET /spotlight/combined/vulnerabilities/v1 (full records from an FQL filter) and GET /spotlight/queries/vulnerabilities/v1 (IDs only), per the [FalconPy Spotlight Vulnerabilities reference](https://www.falconpy.io/Service-Collections/Spotlight-Vulnerabilities.html). Before operationalizing, confirm the base URL for your Falcon cloud region, the Windows sensor version command for current builds, and the FDR prevention event_simpleName against the Falcon API reference in your console.
 
 ## Documentation & repositories
 

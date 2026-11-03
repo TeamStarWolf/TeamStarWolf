@@ -110,7 +110,7 @@ SecurityAlert
 - Posture in Resource Graph refreshes on a scan cadence (not real-time), so a freshly patched host can show Unhealthy for a cycle.
 - Defender for Cloud is largely posture+detection and does not block inline — prevention proof must come from the enforcing service's logs (Azure WAF diagnostic action=Block, Just-in-Time records, Entra SigninLogs appliedConditionalAccessPolicies), not SecurityAlert.
 - The legacy subscription-based Sentinel connector writes only to SecurityAlert and does not support DCRs.
-- Could not verify a dedicated SecurityRecommendation/SecurityRegulatoryCompliance Advanced Hunting table from official docs — read recommendations via Azure Resource Graph securityresources or Continuous Export, and confirm any table name with getschema before building detections.
+- Read recommendations and regulatory compliance state via the Azure Resource Graph securityresources table ([Resource Graph samples](https://learn.microsoft.com/en-us/azure/governance/resource-graph/samples/samples-by-category)) or Continuous Export, and confirm any Advanced Hunting table name with getschema before building detections on it.
 
 ## Documentation & repositories
 

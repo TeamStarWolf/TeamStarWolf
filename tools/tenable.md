@@ -55,7 +55,7 @@ Tenable's primary VM role is Discover-Assess-Prioritize, telling teams which exp
 - SIEM: Tenable Add-on for Splunk (modular input URI tenable_io://<input>) with sourcetypes tenable:io:vuln, tenable:io:assets, tenable:io:plugin, tenable:io:compliance, tenable:io:audit_logs, and WAS sourcetype tenable:io:vuln:was; CIM field mapping via the CyberCX TA (search-head only). Sumo Logic Tenable cloud-to-cloud source also pulls via API.
 - Collection is scheduled API pull; retention/latency are governed by your SIEM and your export cadence, not by Tenable.
 
-**Telemetry format / transport.** JSON over REST (gzip export chunks); Splunk modular-input JSON events. TVM cloud is API-PULL, not a native CEF/syslog stream (Tenable.sc can syslog/CEF separately; could not verify a CEF push from TVM cloud).
+**Telemetry format / transport.** JSON over REST (gzip export chunks); Splunk modular-input JSON events. TVM cloud is API-PULL, not a native CEF/syslog stream (Tenable.sc can syslog/CEF separately; for TVM cloud, plan on pulling through the export API rather than expecting a CEF push).
 
 **Control-presence check (present & configured?).** Confirm the scanner can actually SEE the device's state (prerequisite for any 'fixed' claim): Nessus plugin 19506 'Nessus Scan Information' output must contain 'Credentialed checks : yes' (SSH form: 'yes as <user> via ssh'). Degraded/unauth scans show plugin 21745 (Authentication Failure - Local Checks Not Run) or 24786 (Windows admin privileges not used). To confirm a CONFIG/HARDENING control is present on a host, run a compliance audit (CIS/DISA .audit); each check returns result = Passed/Failed/Warning/Info/Skipped/Error/Unknown (Unix compliance = plugin 21157; Security Center renumbers compliance plugins into the 1,000,000+ range). A 'Passed' check means the control/setting is actually present and correctly configured on that device. Sensor/agent health: asset.last_scanned / agent last_seen + scan status via the scans API.
 
@@ -100,7 +100,7 @@ sourcetype="tenable:io:vuln" "plugin.cve"="CVE-2024-3400" | stats latest(state) 
 - Field names differ by surface: patch date is patch_publication_date in /plugins/plugin but definition.patch_published in the export; CSV vs JSON keys differ. Compliance plugin IDs are renumbered (1,000,000+) when imported into Security Center, so do not filter on 21157 alone there.
 - Per-plugin output is capped around 1 MB; long compliance actual_value strings get truncated.
 - TVM cloud has no native real-time CEF/syslog feed - it is API-pull via the Splunk add-on / Sumo, so detection latency = your export cadence.
-- Could not verify the exact compliance-export column names (e.g. check_result / check_name / actual_value) from public docs - inspect a sample compliance export before coding against them.
+- Inspect a sample compliance export before coding against column names such as check_result / check_name / actual_value.
 
 ## Documentation & repositories
 

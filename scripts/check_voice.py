@@ -192,7 +192,11 @@ COUNT_RE = re.compile(r"(?<![\w.,\u2013-])(?<![Ll]evel )" + EMPH +
 # stamps, notes to itself. "this turn" must not run on into "this turns" or
 # "this turn-based"; `WebSearchTool` (an SDK class) is not the bare tool name. A bare
 # "this run" is ordinary English in the procedure guides ("wiped before this run"), so
-# it counts only after "search", "live" or "budget for".
+# it counts only after "search", "live" or "budget for". A first-person verification
+# note ("I could not verify ...") is a process note; so is a subjectless "could not
+# verify" (sentence start, list item, after a semicolon). A product with a subject
+# ("Invicti could not verify the fix") is a vendor status and passes, and "could not
+# confirm" stays legal reader guidance.
 AGENT_NOTE_RE = re.compile(
     r"\bWebSearch\b"
     r"|\bthis turn\b(?!-)"
@@ -212,7 +216,10 @@ AGENT_NOTE_RE = re.compile(
     r"|\brely on established knowledge\b"
     r"|\bconfirm before publishing\b"
     r"|\bconfirm slug before use\b"
-    r"|\bverify exact app ID\b",
+    r"|\bverify exact app ID\b"
+    r"|\bI (?:could not|couldn['\u2019]t|was unable to|did not|didn['\u2019]t) (?:verify|confirm)\b"
+    r"|(?<![A-Za-z] )\bcould not verify\b"
+    r"|\bunverified publicly\b",
     re.I)
 # CHANGELOG entries are dated records: a count there is true as of its date and does
 # not go stale the way a headline does.
@@ -670,6 +677,13 @@ AGENT_SELF_TEST = (
     ("Repo paths are unchecked; confirm before publishing.", ("agent-note",)),
     ("github.com/tenable/navi (confirm slug before use)", ("agent-note",)),
     ("Splunk add-on (verify exact app ID on Splunkbase)", ("agent-note",)),
+    ("I could NOT verify the exact field from public docs.", ("agent-note",)),
+    ("NOTE: I could not confirm native CEF output from the docs.", ("agent-note",)),
+    ("I couldn't verify the path; I was unable to confirm the column.",
+     ("agent-note", "agent-note")),
+    ("- Could not verify the exact finding-type list against official docs.", ("agent-note",)),
+    ("Push from the cloud tier; could not verify a CEF push.", ("agent-note",)),
+    ("GET /api/1.0/scans -- endpoint names unverified publicly", ("agent-note",)),
     # Ordinary English and real API names pass.
     ("This turns a list into a plan, in this turn-based game.", ()),
     ("Hosted tools such as `WebSearchTool` skip the guardrail pipeline.", ()),
@@ -677,6 +691,9 @@ AGENT_SELF_TEST = (
     ("Confirm free capacity and that the destination was wiped before this run.", ()),
     ("Set a budget per run and research this topic before publishing.", ()),
     ("Analysts rely on established playbooks; verify the exact hash.", ()),
+    ("If I could verify it, I would.", ()),
+    ("Fixed (Can't Retest) means Invicti could not verify the fix.", ()),
+    ("If the browser could not confirm the chain, treat the site as untrusted.", ()),
 )
 
 

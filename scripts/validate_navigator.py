@@ -67,7 +67,7 @@ OTHER_DOMAINS = {
 }
 ATTACK_ID = re.compile(r"^T\d{4}(\.\d{3})?$")
 COLOR = re.compile(r"^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$")
-STAGE_NAME = re.compile(r"^Stage (\d+)\s*[—–:-]\s*(.+)$")
+STAGE_NAME = re.compile(r"^Stage (\d+)\s*[\u2014–:-]\s*(.+)$")
 TACTIC_POLICY_ALL = "Each selected technique is shown under all tactics"
 COUNT_META = {"techniques_scored": "distinct", "blind_spot_count": "distinct",
               "technique_tactic_entries": "entries"}

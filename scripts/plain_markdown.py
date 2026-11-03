@@ -3,7 +3,7 @@
 The page generators pass every page through ``plain()`` before writing it, so
 generated pages follow the same conventions as the hand-written references:
 no bold markers, emoji, middot separators, or Unicode arrows; "ID: Name" rather
-than "ID — Name"; and colons, parentheses, or a sentence break in place of
+than "ID <em dash> Name"; and colons, parentheses, or a sentence break in place of
 template em dashes. Fenced code, inline code, link targets, URLs, and HTML tags
 are left untouched, and every change is made within a single line.
 
@@ -32,7 +32,7 @@ NO = ["❌", "✖️", "✖", "✗", "✘", "❎"]
 ARROWS = (("⟶", "->"), ("⟵", "<-"), ("→", "->"), ("←", "<-"), ("↔", "<->"),
           ("⇒", "=>"), ("⇐", "<="), ("➜", "->"), ("➡️", "->"), ("➡", "->"),
           ("⬅️", "<-"), ("⬅", "<-"))
-DASH = r"\s+[—–]\s+"
+DASH = r"\s+[\u2014–]\s+"
 STAR = "⭐"
 
 
@@ -51,8 +51,8 @@ def _restore(line, keep):
 
 
 def _term_lead(text, keep, maxlen=90):
-    """'Term — rest' becomes 'Term: rest' when Term reads as a short label."""
-    m = re.match(r"^(\s*)(.+?)\s+[—–]\s+(\S.*)$", text)
+    """'Term <em dash> rest' becomes 'Term: rest' when Term reads as a short label."""
+    m = re.match(r"^(\s*)(.+?)\s+[\u2014–]\s+(\S.*)$", text)
     if not m:
         return text
     pre, left, rest = m.groups()
@@ -60,7 +60,7 @@ def _term_lead(text, keep, maxlen=90):
     if tail and keep[int(tail.group(1))].lstrip("<").startswith("http"):
         return text
     bare = re.sub(r"\x00\d+\x00", "X", left)
-    if (len(bare) > maxlen or len(bare.split()) > 12 or re.search(r"[.!?;—–]\s|[—–]", bare)
+    if (len(bare) > maxlen or len(bare.split()) > 12 or re.search(r"[.!?;\u2014–]\s|[\u2014–]", bare)
             or bare.rstrip().endswith(":")):
         return text
     return "%s%s: %s" % (pre, left, rest)
@@ -109,7 +109,7 @@ def _templates(work):
     if m:
         marker, body = m.groups()
         body = re.sub(r"^(\[[^\]\x00]*\x00\d+\x00)" + DASH + r"(?=\S)", r"\1: ", body, count=1)
-        mm = re.match(r"^([A-Z][\w.\-]*\d[\w.\-]*: [^—–:.!?]{1,80}?)" + DASH + r"(\S.*)$", body)
+        mm = re.match(r"^([A-Z][\w.\-]*\d[\w.\-]*: [^\u2014–:.!?]{1,80}?)" + DASH + r"(\S.*)$", body)
         if mm:
             body = "%s. %s" % (mm.group(1), _cap(mm.group(2)))
         work = marker + body
@@ -132,9 +132,9 @@ def plain_line(line):
         out = []
         for c in cells:
             c2 = _prose(c)
-            if re.fullmatch(r"\s*[—–]\s*", c2):
+            if re.fullmatch(r"\s*[\u2014–]\s*", c2):
                 c2 = " N/A "
-            elif c2.count("—") + c2.count(" – ") == 1:
+            elif c2.count("\u2014") + c2.count(" – ") == 1:
                 c2 = _term_lead(c2, keep, 60)
             out.append(c2)
         work = "|".join(out)
@@ -151,16 +151,16 @@ def plain_line(line):
 
 
 def _upstream_dash(work):
-    """An em dash still in the line is upstream prose ("solutions—such as prompts—that",
-    "networks — requiring"): read as a comma pair, so write one. A dash next to other
+    """An em dash still in the line is upstream prose ("solutions<em dash>such as prompts<em dash>that",
+    "networks <em dash> requiring"): read as a comma pair, so write one. A dash next to other
     punctuation drops instead of doubling it."""
-    if "—" not in work:
+    if "\u2014" not in work:
         return work
-    work = re.sub(r"\s*—\s*(?=[,.;:)\]])", "", work)
-    work = re.sub(r"(?<=[,;:])\s*—\s*", " ", work)
-    work = re.sub(r"(?<=[(\[])\s*—\s*", "", work)
-    work = re.sub(r"(?<=\S)\s*—\s*(?=\S)", ", ", work)
-    return work.replace("—", ",")
+    work = re.sub(r"\s*\u2014\s*(?=[,.;:)\]])", "", work)
+    work = re.sub(r"(?<=[,;:])\s*\u2014\s*", " ", work)
+    work = re.sub(r"(?<=[(\[])\s*\u2014\s*", "", work)
+    work = re.sub(r"(?<=\S)\s*\u2014\s*(?=\S)", ", ", work)
+    return work.replace("\u2014", ",")
 
 
 def plain(text):

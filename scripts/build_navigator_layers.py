@@ -53,7 +53,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-from attack_ids import AttackIds
+from attack_ids import AttackIds, technique_releases
 from build_priority_gaps import NAVIGATOR_VERSIONS
 from compute_coverage import ATTACK_VERSION, TACTIC_METADATA, repo_href
 
@@ -245,6 +245,18 @@ def merge_into(kept: dict, dup: dict) -> None:
         kept["comment"] = f"{a} | {b}" if a else b
 
 
+_RELEASES: dict | None = None
+
+
+def releases() -> dict:
+    """data/attack/technique_releases.jsonl, read once: the release that revoked a
+    re-keyed id comes from the data, never from ATTACK_RELEASE."""
+    global _RELEASES
+    if _RELEASES is None:
+        _RELEASES = technique_releases(ROOT)
+    return _RELEASES
+
+
 def normalize(rel: str, layer: dict, ids: AttackIds, log: list[str]) -> dict:
     if layer.get("domain") != "enterprise-attack":
         fail(f"{rel}: curated layers must be enterprise-attack, found {layer.get('domain')!r}")
@@ -262,7 +274,9 @@ def normalize(rel: str, layer: dict, ids: AttackIds, log: list[str]) -> dict:
         if state == "revoked":
             n = dict(e)
             n["techniqueID"] = succ
-            note = (f"(Re-keyed from {tid}, which ATT&CK v19 revoked in favour of {succ}; "
+            rel_in = (releases().get(("enterprise", tid)) or {}).get("revoked_in")
+            when = f"ATT&CK v{rel_in}" if rel_in else "ATT&CK"
+            note = (f"(Re-keyed from {tid}, which {when} revoked in favour of {succ}; "
                     "data/attack/superseded_by.jsonl.)")
             n["comment"] = f"{n['comment']} {note}" if n.get("comment") else note
             rekeyed.append(n)

@@ -1,6 +1,6 @@
 # Stealth: Detection Strategies
 
-> MITRE ATT&CK detection strategies and analytics (v19.2) for techniques whose primary tactic is Stealth. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
+> MITRE ATT&CK detection strategies and analytics (v20.0) for techniques whose primary tactic is Stealth. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
 
 See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](/techniques/README.md)
 
@@ -420,7 +420,7 @@ Platforms: Linux, Windows, macOS
 ATT&CK: [T1027.014](https://attack.mitre.org/techniques/T1027/014/), [detail page](/techniques/stealth.md#t1027014)
 
 - `AN0919` Analytic 0919, Windows
-  Identifies self-modifying executables that exhibit changes in binary hash, entropy, or memory sections during or between executions—often tied to dynamic unpacking or decryption behaviors.
+  Identifies self-modifying executables that exhibit changes in binary hash, entropy, or memory sections during or between executions, often tied to dynamic unpacking or decryption behaviors.
   - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=7)`; `WinEventLog:Sysmon (EventCode=10)`
   - *Tune:* `EntropyThreshold`: Tune based on expected baseline entropy for executables; higher values may indicate polymorphic packing.; `TimeWindow`: Correlate rapid process spawn + image load activity suggesting mutation engine usage.; `ParentProcessPatterns`: Define expected or suspicious parent-child chains (e.g., script runner -> encoded PE)
 - `AN0920` Analytic 0920, Linux
@@ -428,7 +428,7 @@ ATT&CK: [T1027.014](https://attack.mitre.org/techniques/T1027/014/), [detail pag
   - *Log sources:* `auditd:SYSCALL (execve)`; `auditd:SYSCALL (mmap)`; `auditd:SYSCALL (chmod)`
   - *Tune:* `WriteExecThreshold`: Tune to alert on write followed by chmod + exec in quick succession.; `FileEntropyDeviation`: Detect high deviation from average entropy score of baseline ELF/script files.; `ExecutionFrequency`: Abnormal burst executions of file with identical functionality but varying hash.
 - `AN0921` Analytic 0921, macOS
-  Tracks modification of executables or interpreter payloads (e.g., Mach-O, dylib) that mutate across runs—using scripting engines, JIT compilers, or side-loaded plugins.
+  Tracks modification of executables or interpreter payloads (e.g., Mach-O, dylib) that mutate across runs, using scripting engines, JIT compilers, or side-loaded plugins.
   - *Log sources:* `macos:unifiedlog (code signature/memory protection)`; `fs:fsusage (file open/write)`; `macos:endpointsecurity (ES_EVENT_TYPE_NOTIFY_EXEC)`; `macos:endpointsecurity (ES_EVENT_TYPE_NOTIFY_MMAP)`
   - *Tune:* `ScriptEnginePatterns`: Detection may vary based on whether Python/Swift/AppleScript is used to mutate payloads.; `MachOEntropyThreshold`: Entropy tuning based on expected baseline for system vs user binaries.; `SignedBinaryChangeRate`: Helps flag apps that change but maintain signed status across invocations.
 
@@ -924,7 +924,7 @@ Platforms: Windows
 ATT&CK: [T1055.002](https://attack.mitre.org/techniques/T1055/002/), [detail page](/techniques/stealth.md#t1055002)
 
 - `AN0297` Analytic 0297, Windows
-  Detects PE injection through a behavioral sequence where one process opens (OpenProcess) a handle to another, allocates remote memory (VirtualAllocEx), writes a PE header (MZ) or shellcode (WriteProcessMemory), then initiates a new thread (CreateRemoteThread or NtCreateThreadEx) in that process—executing injected code in memory without touching disk. Optional: injects a trampoline or shellcode that unpacks/reflectively maps the payload.
+  Detects PE injection through a behavioral sequence where one process opens (OpenProcess) a handle to another, allocates remote memory (VirtualAllocEx), writes a PE header (MZ) or shellcode (WriteProcessMemory), then initiates a new thread (CreateRemoteThread or NtCreateThreadEx) in that process, executing injected code in memory without touching disk. Optional: injects a trampoline or shellcode that unpacks/reflectively maps the payload.
   - *Log sources:* `WinEventLog:Sysmon (EventCode=10)`; `WinEventLog:Sysmon (EventCode=8)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=11)`
   - *Tune:* `PayloadEntropyThreshold`: Controls for detecting high-entropy memory writes indicating shellcode or encrypted PE; `TargetProcessList`: High-value or sensitive processes that should never have remote threads injected; `TimeWindow`: Max allowed delay between memory write and thread execution; `ParentProcessAnomalyThreshold`: Used to filter legitimate process hierarchies vs anomalous injection sources
 
@@ -942,7 +942,7 @@ Platforms: Windows
 ATT&CK: [T1055.003](https://attack.mitre.org/techniques/T1055/003/), [detail page](/techniques/stealth.md#t1055003)
 
 - `AN0822` Analytic 0822, Windows
-  Detects hijacking of an existing thread (OpenThread) through a behavioral chain involving thread suspension (SuspendThread), memory modification (VirtualAllocEx + WriteProcessMemory), context manipulation (SetThreadContext), and thread resumption—all within another live process's address space (ResumeThread).
+  Detects hijacking of an existing thread (OpenThread) through a behavioral chain involving thread suspension (SuspendThread), memory modification (VirtualAllocEx + WriteProcessMemory), context manipulation (SetThreadContext), and thread resumption, all within another live process's address space (ResumeThread).
   - *Log sources:* `WinEventLog:Sysmon (EventCode=10)`; `WinEventLog:Sysmon (EventCode=8)`; `etw:Microsoft-Windows-Kernel-Process (API Calls)`; `WinEventLog:Sysmon (EventCode=1)`
   - *Tune:* `TargetProcessList`: Sensitive processes that should never be targeted for thread hijack attempts; `TimeWindow`: Expected delay between SuspendThread and ResumeThread events; tight thresholds reduce evasion; `SuspiciousThreadContextRegions`: Memory regions or offsets that should not be targeted for SetThreadContext; `ParentProcessAnomalyThreshold`: Score deviation of the parent/child relationship in a thread injection chain
 
@@ -1178,7 +1178,7 @@ ATT&CK: [T1070.003](https://attack.mitre.org/techniques/T1070/003/), [detail pag
 - `AN0471` Analytic 0471, Network Devices
   Detects use of `clear history` or `clear logging` commands on network device CLI to remove past activity logs.
   - *Log sources:* `networkdevice:syslog (CLI command audit)`
-  - *Tune:* `CommandPattern`: Support detection of known variants: 'clear history', 'clear logging', etc.; `DeviceType`: Router, switch, firewall—may have different CLI behaviors.
+  - *Tune:* `CommandPattern`: Support detection of known variants: 'clear history', 'clear logging', etc.; `DeviceType`: Router, switch, firewall, may have different CLI behaviors.
 
 </details>
 
@@ -3266,7 +3266,7 @@ Platforms: Linux, Windows, macOS
 ATT&CK: [T1620](https://attack.mitre.org/techniques/T1620/), [detail page](/techniques/stealth.md#t1620)
 
 - `AN0838` Analytic 0838, Windows
-  Detect anomalous chains of memory allocation and execution inside the same process (e.g., VirtualAlloc -> memcpy -> VirtualProtect -> CreateThread). Unlike process injection, reflective code loading does not perform cross-process memory writes — the suspicious activity occurs entirely within the process’s own PID context.
+  Detect anomalous chains of memory allocation and execution inside the same process (e.g., VirtualAlloc -> memcpy -> VirtualProtect -> CreateThread). Unlike process injection, reflective code loading does not perform cross-process memory writes, the suspicious activity occurs entirely within the process’s own PID context.
   - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=7)`; `etw:Microsoft-Windows-DotNETRuntime (AssemblyLoad/ModuleLoad (Loader keyword) from Microsoft-Windows-DotNETRuntime)`; `etw:Microsoft-Antimalware-Scan-Interface (Amsi/Script content + API verdicts during in-memory staging)`; `WinEventLog:Sysmon (EventCode=10)`
   - *Tune:* `ParentProcessWhitelist`: Certain processes may legitimately use Assembly.Load(); defenders may whitelist known developer/admin tools.; `MemoryRegionPermissions`: Detection logic can tune for RWX memory allocations; some legitimate tools may allocate with RW permissions only.
 - `AN0839` Analytic 0839, Linux

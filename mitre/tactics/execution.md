@@ -4,13 +4,13 @@
 
 The adversary is trying to run malicious code.
 
-## Most-observed in the Team Star Wolf corpus
+## Most-observed in the TeamStarWolf corpus
 
 - [T1059.001: PowerShell](/mitre/techniques/T1059-001.md) (18.5% of machines)
 - [T1053.003: Cron](/mitre/techniques/T1053-003.md) (10.4% of machines)
 - [T1574: Hijack Execution Flow](/mitre/techniques/T1574.md) (2.5% of machines)
 
-66 techniques in this tactic (Team Star Wolf enriched pages):
+66 techniques in this tactic (TeamStarWolf enriched pages):
 
 - [T1047: Windows Management Instrumentation](/mitre/techniques/T1047.md)
 - [T1053: Scheduled Task/Job](/mitre/techniques/T1053.md)

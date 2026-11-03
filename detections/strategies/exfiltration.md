@@ -1,6 +1,6 @@
 # Exfiltration: Detection Strategies
 
-> MITRE ATT&CK detection strategies and analytics (v19.2) for techniques whose primary tactic is Exfiltration. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
+> MITRE ATT&CK detection strategies and analytics (v20.0) for techniques whose primary tactic is Exfiltration. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
 
 See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](/techniques/README.md)
 
@@ -74,7 +74,7 @@ ATT&CK: [T1020](https://attack.mitre.org/techniques/T1020/), [detail page](/tech
 - `AN1114` Analytic 1114, Linux
   Background scripts (e.g., via cron) or daemons transmitting data repeatedly to remote IPs or URLs.
   - *Log sources:* `auditd:SYSCALL (execve)`; `NSM:Flow (Outbound Connections)`
-  - *Tune:* `CronJobInterval`: Tunable time range for recurring tasks seen creating outbound connections.; `UserContext`: Tunable for scope — service accounts vs user accounts.
+  - *Tune:* `CronJobInterval`: Tunable time range for recurring tasks seen creating outbound connections.; `UserContext`: Tunable for scope, service accounts vs user accounts.
 - `AN1115` Analytic 1115, macOS
   Observation of LaunchAgents or LaunchDaemons establishing periodic external connections indicative of automated data transfer.
   - *Log sources:* `macos:unifiedlog (process: exec)`; `macos:unifiedlog (network)`; `macos:cron (cron/launchd)`

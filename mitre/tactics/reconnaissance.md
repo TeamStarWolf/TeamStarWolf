@@ -4,7 +4,7 @@
 
 The adversary is trying to gather information they can use to plan future operations.
 
-46 techniques in this tactic (Team Star Wolf enriched pages):
+46 techniques in this tactic (TeamStarWolf enriched pages):
 
 - [T1589: Gather Victim Identity Information](/mitre/techniques/T1589.md)
 - [T1589.001: Credentials](/mitre/techniques/T1589-001.md)

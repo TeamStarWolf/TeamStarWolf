@@ -1,6 +1,6 @@
 # MITRE ATT&CK Mitigations: with Implementation Guidance
 
-One page per ATT&CK mitigation (44), each with concrete how-to-implement steps, mapped NIST 800-53 families, the techniques it addresses, and Team Star Wolf corpus relevance. ATT&CK v19.2.
+One page per ATT&CK mitigation (44), each with concrete how-to-implement steps, mapped NIST 800-53 families, the techniques it addresses, and TeamStarWolf corpus relevance. ATT&CK v20.0.
 
 [MITRE Hub](/mitre/README.md), [Techniques](/mitre/techniques/README.md)
 

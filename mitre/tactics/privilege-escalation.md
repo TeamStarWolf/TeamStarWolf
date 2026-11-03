@@ -4,7 +4,7 @@
 
 The adversary is trying to gain higher-level permissions.
 
-## Most-observed in the Team Star Wolf corpus
+## Most-observed in the TeamStarWolf corpus
 
 - [T1548.003: Sudo and Sudo Caching](/mitre/techniques/T1548-003.md) (18.7% of machines)
 - [T1548.001: Setuid and Setgid](/mitre/techniques/T1548-001.md) (17.2% of machines)
@@ -13,7 +13,7 @@ The adversary is trying to gain higher-level permissions.
 - [T1068: Exploitation for Privilege Escalation](/mitre/techniques/T1068.md) (1.5% of machines)
 - [T1611: Escape to Host](/mitre/techniques/T1611.md) (1.3% of machines)
 
-96 techniques in this tactic (Team Star Wolf enriched pages):
+96 techniques in this tactic (TeamStarWolf enriched pages):
 
 - [T1037: Boot or Logon Initialization Scripts](/mitre/techniques/T1037.md)
 - [T1037.001: Logon Script (Windows)](/mitre/techniques/T1037-001.md)

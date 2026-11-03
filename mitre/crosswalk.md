@@ -4,7 +4,7 @@
 
 [MITRE Hub](/mitre/README.md), [Techniques](/mitre/techniques/README.md), [Mitigations](/mitre/mitigations/README.md), [D3FEND](/mitre/d3fend/README.md), [CAPEC](/mitre/capec/README.md)
 
-The join in one place: ATT&CK technique <-> Mitigation (M-code) <-> NIST 800-53 <-> D3FEND <-> CAPEC. Two views: a per-mitigation rollup (which NIST families and D3FEND countermeasures each mitigation brings), and a per-technique index of counts + links. ATT&CK v19.2.
+The join in one place: ATT&CK technique <-> Mitigation (M-code) <-> NIST 800-53 <-> D3FEND <-> CAPEC. Two views: a per-mitigation rollup (which NIST families and D3FEND countermeasures each mitigation brings), and a per-technique index of counts + links. ATT&CK v20.0.
 
 ## Per-mitigation rollup
 
@@ -59,7 +59,7 @@ For each ATT&CK mitigation: how many techniques it addresses, the NIST 800-53 co
 
 ## Per-technique crosswalk (counts + links)
 
-"(observed)" marks techniques seen in the Team Star Wolf 529-machine training corpus. Counts link out to the per-object pages.
+"(observed)" marks techniques seen in the TeamStarWolf 529-machine training corpus. Counts link out to the per-object pages.
 
 | Technique | Tactic | Mitigations | NIST | D3FEND | CAPEC |
 |---|---|---|---:|---:|---:|
@@ -772,4 +772,4 @@ For each ATT&CK mitigation: how many techniques it addresses, the NIST 800-53 co
 
 ---
 
-*Source: MITRE ATT&CK® (v19.2). ATT&CK®, D3FEND™, and CAPEC™ are trademarks of The MITRE Corporation. This is an independent reference summary enriched with Team Star Wolf corpus telemetry; consult the upstream projects for authoritative content. Corpus figures are keyword-derived from a 529-machine training walkthrough corpus (lower-bound evidence), not an official MITRE mapping.*
+*Source: MITRE ATT&CK® (v20.0). ATT&CK®, D3FEND™, and CAPEC™ are trademarks of The MITRE Corporation. This is an independent reference summary enriched with TeamStarWolf corpus telemetry; consult the upstream projects for authoritative content. Corpus figures are keyword-derived from a 529-machine training walkthrough corpus (lower-bound evidence), not an official MITRE mapping.*

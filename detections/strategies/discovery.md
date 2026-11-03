@@ -1,6 +1,6 @@
 # Discovery: Detection Strategies
 
-> MITRE ATT&CK detection strategies and analytics (v19.2) for techniques whose primary tactic is Discovery. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
+> MITRE ATT&CK detection strategies and analytics (v20.0) for techniques whose primary tactic is Discovery. Each analytic lists the log sources / channels it needs, the detection logic, and the tunable elements to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
 
 See also: [all detection strategies index](/detections/strategies/README.md), [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries), [Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md), [Technique Detail Pages](/techniques/README.md)
 
@@ -322,7 +322,7 @@ ATT&CK: [T1057](https://attack.mitre.org/techniques/T1057/), [detail page](/tech
 - `AN0098` Analytic 0098, ESXi
   Detects process enumeration using `esxcli system process list` or `ps` on ESXi shell or via unauthorized SSH sessions. Correlates with interactive sessions and abnormal user roles.
   - *Log sources:* `esxi:shell (interactive shell)`; `esxi:auth (user session)`
-  - *Tune:* `User`: Admins are expected to run these commands—flag if non-admin or unknown users do
+  - *Tune:* `User`: Admins are expected to run these commands, flag if non-admin or unknown users do
 - `AN0099` Analytic 0099, Network Devices
   Monitors CLI-based execution of `show process` or equivalent on routers/switches. Correlates unusual device access, unauthorized roles, or config mode changes.
   - *Log sources:* `networkdevice:cli (CLI command)`; `networkdevice:syslog (Admin activity)`
@@ -764,7 +764,7 @@ ATT&CK: [T1201](https://attack.mitre.org/techniques/T1201/), [detail page](/tech
 - `AN0456` Analytic 0456, Linux
   Chain: (1) interactive/non-interactive `chage -l`, `grep`/`cat` of PAM config (e.g., `/etc/pam.d/common-password`, `/etc/security/pwquality.conf`); (2) optional reads of `/etc/login.defs`; (3) same user performs account enumeration or password change attempts shortly after. Use auditd `execve` and file read events plus shell history collection.
   - *Log sources:* `auditd:SYSCALL (execve)`; `auditd:SYSCALL (open,openat,read)`; `linux:syslog (sudo chage|grep pam_pwquality|cat /etc/login.defs)`
-  - *Tune:* `MonitoredPaths`: Exact PAM/QoP config files used by your distro (Debian vs. RHEL paths differ).; `ServiceAccountsExclude`: System daemons that legitimately parse policies on boot.; `TerminalType`: TTY vs. non-interactive—raise risk for non-interactive remote execution.
+  - *Tune:* `MonitoredPaths`: Exact PAM/QoP config files used by your distro (Debian vs. RHEL paths differ).; `ServiceAccountsExclude`: System daemons that legitimately parse policies on boot.; `TerminalType`: TTY vs. non-interactive, raise risk for non-interactive remote execution.
 - `AN0457` Analytic 0457, macOS
   Chain: (1) execution of `pwpolicy` or MDM/DirectoryService reads of account policies; (2) optional read of `/Library/Preferences/com.apple.loginwindow` or config profiles; (3) follow-on credential probing or lateral movement by same user/session. Use unified logs and process telemetry.
   - *Log sources:* `macos:unifiedlog (pwpolicy|PasswordPolicy)`; `macos:unifiedlog (exec /usr/bin/pwpolicy)`; `macos:MDM (profiles -P|getaccountpolicies)`

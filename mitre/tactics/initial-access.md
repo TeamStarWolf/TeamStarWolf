@@ -4,12 +4,12 @@
 
 The adversary is trying to get into your network.
 
-## Most-observed in the Team Star Wolf corpus
+## Most-observed in the TeamStarWolf corpus
 
 - [T1190: Exploit Public-Facing Application](/mitre/techniques/T1190.md) (43.9% of machines)
 - [T1078: Valid Accounts](/mitre/techniques/T1078.md) (11.0% of machines)
 
-22 techniques in this tactic (Team Star Wolf enriched pages):
+22 techniques in this tactic (TeamStarWolf enriched pages):
 
 - [T1078: Valid Accounts](/mitre/techniques/T1078.md) (observed)
 - [T1078.001: Default Accounts](/mitre/techniques/T1078-001.md)

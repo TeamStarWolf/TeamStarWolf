@@ -1,6 +1,6 @@
 # Threat Groups (178)
 
-ATT&CK-tracked adversary groups (intrusion sets), each with its aliases, the techniques it uses (linked to their technique pages), and the software it wields. ATT&CK v19.2.
+ATT&CK-tracked adversary groups (intrusion sets), each with its aliases, the techniques it uses (linked to their technique pages), and the software it wields. ATT&CK v20.0.
 
 - [G0001: Axiom](/mitre/groups/G0001.md) (aka Group 72)
 - [G0002: Moafee](/mitre/groups/G0002.md)

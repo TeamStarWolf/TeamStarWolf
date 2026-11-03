@@ -21,7 +21,7 @@
 | `validate_navigator.py` | Checks every Navigator layer's shape, domain, ATT&CK version, technique ids, and tactics against the data | Validate Data Files: Navigator layers |
 | `build_manifest.py` | Writes `data/MANIFEST.json` (rows, bytes, SHA-256, and provenance per file) | Validate Data Files: headline-number drift guard (`--check`) |
 | `build_stats.py` | Writes `data/generated/stats.json` and the "What's inside" table in README.md; `--check` fails when a front-door number differs from the data or the README table is stale | Validate Data Files: headline-number drift guard |
-| `check_docsify_links.py` | Resolves every internal link and anchor the way the docsify site does; a new broken link fails | Link Check: internal links and anchors |
+| `check_docsify_links.py` | Resolves every internal link and anchor the way the docsify site does; a new broken link fails, and so does a list item that is only a bare in-repo `.md` path (it renders as plain text). `--fix-bare-paths` rewrites such items as `[Title](/path.md)` from the target's H1; `--self-test` runs planted cases | Link Check: internal links and anchors (`--self-test`, then the gate) |
 | `check_repo_hygiene.py` | Fails on tracked junk, invalid UTF-8 or mojibake, and new citations of revoked ATT&CK ids in hand-written pages | Validate Data Files: repo hygiene |
 | `check_voice.py` | The voice lint for hand-written pages ([docs/VOICE.md](/docs/VOICE.md)) | Validate Data Files: repo hygiene |
 | `check_old_urls.py` | Resolves every route in `old_urls.txt` (site routes sampled from the sidebar and INDEX before the site revamp) the way the docsify site does; fails when one no longer reaches its page or heading | Link Check: internal links and anchors |

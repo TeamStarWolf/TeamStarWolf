@@ -162,5 +162,16 @@ _Learning & reference_
 
 Azure AD was renamed Microsoft Entra ID (effective 15 July 2023); naming is stable in 2025-2026 with no new rebrand. Entra Suite reached GA in September 2024 bundling ID Protection, ID Governance, Verified ID, Internet Access, and Private Access over a P1 base. Global Secure Access (Entra Internet Access SWG + Entra Private Access ZTNA) continued maturing through 2025-2026 with ongoing client updates (e.g., v2.3x releases in 2026) and Purview DLP extended to network/web traffic via GSA integration; from November 2026 the GSA client is slated to update via Windows Update. Verify exact current standalone P2 pricing and Entra Suite pricing on Microsoft's site. Passkey/phishing-resistant MFA and passwordless remain the push direction.
 
+## Related pages
+
+- [Identity & Access Management (IAM) Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)
+- [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md)
+- [Zero Trust Reference: Comprehensive Cybersecurity Guide](/ZERO_TRUST_REFERENCE.md)
+- [Active Directory Security Reference](/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md)
+- [Cisco Duo](/tools/cisco-duo.md)
+- [CyberArk](/tools/cyberark.md)
+- [Vendor Tool Pages](/tools/README.md)
+- [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)
+
 ---
 *Generic reference. Confirm product facts, event IDs, fields and URLs against current vendor sources. Descriptive, not an endorsement.*

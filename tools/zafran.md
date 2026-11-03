@@ -120,5 +120,15 @@ _Learning & reference_
 
 Series C of $60M led by Menlo Ventures announced Dec 2 2025, bringing total funding to $130M (existing investors Sequoia and Cyberstarts participated; prior ~$70M Series B Sep 2024). Cisco Investments and American Express Ventures made strategic investments. 2025 'State of Threat Exposure Management' report published. Platform now marketed as 'Agentic Exposure Management' built on the AI-native Exposure Graph. Reported to have doubled valuation and tripled ARR since prior round. Exposure Graph + Google Threat Intelligence tie-in is vendor/aggregator-sourced - verify.
 
+## Related pages
+
+- [Vulnerability Prioritization Reference (SSVC, KEV, EPSS)](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)
+- [Continuous Threat Exposure Management (CTEM) Reference](/CTEM_REFERENCE.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Tenable](/tools/tenable.md)
+- [Wiz](/tools/wiz.md)
+- [Vendor Tool Pages](/tools/README.md)
+- [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)
+
 ---
 *Generic reference. Confirm product facts, event IDs, fields and URLs against current vendor sources. Descriptive, not an endorsement.*

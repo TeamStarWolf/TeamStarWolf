@@ -172,5 +172,15 @@ _Learning & reference_
 
 Cisco completed its $28B acquisition of Splunk on March 18, 2024; Splunk is now a Cisco company and the products carry Cisco Talos threat-intelligence integration. Splunk Enterprise Security 8.x is the current line: 8.0 GA Sept 2024 (folded the former Mission Control into ES as the unified analyst experience), 8.1 (June 2025, detection version comparison), 8.2/8.2.1 (Sept 2025, added the ES AI Assistant for NL SPL generation, finding/investigation summarization, and a hybrid ES-Cloud-to-on-prem-SOAR pairing); Splunk's own documentation now publishes user guides through ES 8.6/8.7, indicating further 2026 releases past 8.2 — verify the exact latest point release. Splunk SOAR (ex-Phantom) is still named Splunk SOAR but is now positioned as a native capability within Enterprise Security; AI SOC features are delivered through the separately-priced, workload-based Enterprise Security Premier edition. ES 7.3 end of support is Feb 28, 2026. Workload (SVC) pricing is the strategic model; published SVC/Premier list prices are not available — verify via quote. Talos-integration GA timing across ES/SOAR/Attack Analyzer should be verified against current Splunk docs.
 
+## Related pages
+
+- [SIEM Reference Library](/SIEM_REFERENCE.md)
+- [Detection Rule Writing Reference](/DETECTION_RULES_REFERENCE.md)
+- [Threat Hunting Reference Library](/THREAT_HUNTING_REFERENCE.md)
+- [SOAR Automation Reference Library](/SOAR_AUTOMATION_REFERENCE.md)
+- [Security Data Engineering Reference](/SECURITY_DATA_ENGINEERING_REFERENCE.md)
+- [Vendor Tool Pages](/tools/README.md)
+- [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)
+
 ---
 *Generic reference. Confirm product facts, event IDs, fields and URLs against current vendor sources. Descriptive, not an endorsement.*

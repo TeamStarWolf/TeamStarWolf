@@ -143,5 +143,16 @@ _Learning & reference_
 
 App & API Protector is the current flagship name; Kona Site Defender and Web Application Protector still exist as the customizable-enterprise and entry tiers respectively. Akamai acquired API-security vendor Noname Security for ~$450M (announced May 7, 2024, expected close Q2 2024) and folded it into Akamai API Security. Akamai also acquired browser-security vendor LayerX (2025, per Akamai newsroom) and previously Guardicore (microsegmentation). 2025 AAP updates emphasized WAAP simplicity/automation, AI-powered dashboards, edge malware scanning, and App & API Protector Hybrid for off-platform enforcement. Exact edition packaging and current datasheet specifics: verify against Akamai documentation.
 
+## Related pages
+
+- [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+- [API Security Reference Library](/API_SECURITY_REFERENCE.md)
+- [Network Security Architecture Reference](/NETWORK_SECURITY_ARCHITECTURE.md)
+- [Internet-Facing Services and External Exposure](/INTERNET_FACING_SERVICES_REFERENCE.md)
+- [AWS WAF](/tools/aws-waf.md)
+- [Citrix NetScaler Web App Firewall](/tools/netscaler-waf.md)
+- [Vendor Tool Pages](/tools/README.md)
+- [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)
+
 ---
 *Generic reference. Confirm product facts, event IDs, fields and URLs against current vendor sources. Descriptive, not an endorsement.*

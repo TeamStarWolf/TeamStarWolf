@@ -139,5 +139,15 @@ _Learning & reference_
 
 Tenable acquired Vulcan Cyber (announced Jan 29 2025, closed Feb 7 2025, ~$148.5M) for third-party findings aggregation and remediation; acquired Apex Security (June 2025, ~$47.8M) for AI exposure, now Tenable AI Exposure; earlier acquired Eureka Security (June 2024, DSPM) and Ermetic (2023, CNAPP/CIEM). VPR has an 'enhanced' version weighting threat and impact equally. Product renames: Tenable.io -> Tenable Vulnerability Management, Tenable.sc -> Tenable Security Center.
 
+## Related pages
+
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md)
+- [Vulnerability Prioritization Reference (SSVC, KEV, EPSS)](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)
+- [ServiceNow USEM with Tenable and Wiz](/tools-research/SERVICENOW_USEM_TENABLE_WIZ.md)
+- [Zafran Security](/tools/zafran.md)
+- [Vendor Tool Pages](/tools/README.md)
+- [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)
+
 ---
 *Generic reference. Confirm product facts, event IDs, fields and URLs against current vendor sources. Descriptive, not an endorsement.*

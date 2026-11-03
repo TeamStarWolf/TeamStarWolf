@@ -133,5 +133,16 @@ _Learning & reference_
 
 VERIFIED 2025-2026: Tanium's current brand framing is Autonomous Endpoint Management (AEM) / Autonomous IT, evolving the prior Converged Endpoint Management (XEM) category. At Converge 2025 Tanium launched Tanium Ask (agentic AI for troubleshooting/remediation), added zero-touch patching and self-healing via the Tanium AI Agent for ServiceNow, added a Microsoft Intune connector, expanded Apple mobile device coverage, and added PLC/OT ICS management. Tanium Cloud (SaaS) is the default delivery. Company remains privately held (Orion Hindawi, CEO). Exact per-contract module bundles still vary — verify specific entitlements against the customer's order form.
 
+## Related pages
+
+- [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md)
+- [Enterprise Security Controls Reference](/ENTERPRISE_SECURITY_CONTROLS.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Windows Hardening and GPO Reference](/WINDOWS_HARDENING_GPO.md)
+- [Microsoft Defender for Endpoint & Vulnerability Management](/tools/microsoft-defender-endpoint.md)
+- [CrowdStrike Falcon](/tools/crowdstrike-falcon.md)
+- [Vendor Tool Pages](/tools/README.md)
+- [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)
+
 ---
 *Generic reference. Confirm product facts, event IDs, fields and URLs against current vendor sources. Descriptive, not an endorsement.*

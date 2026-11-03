@@ -131,5 +131,16 @@ _Learning & reference_
 
 Oct 15 2025: Hai evolved from copilot to an agentic AI system, and HackerOne Code (AI-native source-code security) reached GA; company previewed Agentic Pentest as a Service. 2025 Hacker-Powered Security Report cites 580,000+ validated vulnerabilities, ~1,950 active programs, ~$81M payouts. HackerOne Code traces to the 2022 PullRequest acquisition - no new 2025-2026 acquisition surfaced. Jan 2026 Agentic PTaaS launch is aggregator-reported - verify against HackerOne's newsroom. Market context for the group: Google closed its ~$32B acquisition of Wiz (Mar 11 2026); Cisco closed its ~$28B Splunk acquisition (Mar 2024); CrowdStrike Falcon Exposure Management is CrowdStrike-built (not an acquisition).
 
+## Related pages
+
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [CVE Reference Guide](/CVE_REFERENCE.md)
+- [Fuzzing & Vulnerability Research](/FUZZING_VULNERABILITY_RESEARCH.md)
+- [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+- [Invicti](/tools/invicti.md)
+- [Snyk](/tools/snyk.md)
+- [Vendor Tool Pages](/tools/README.md)
+- [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)
+
 ---
 *Generic reference. Confirm product facts, event IDs, fields and URLs against current vendor sources. Descriptive, not an endorsement.*

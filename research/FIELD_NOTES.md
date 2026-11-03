@@ -104,3 +104,10 @@ The end result: 30 Stars Lists, ~872 list-memberships, 0 destructive overwrites 
 ## Contributing future entries
 
 Each entry should answer: what was being built, what did the work surface, what changed in the code or process as a result. Entries are short on prose and heavy on specifics: file paths, commit ranges, error codes, kept patterns. Numbered sequentially, never edited after publication except to fix factual errors (with a note).
+
+## Related pages
+
+- [Research](/research/README.md)
+- [Curated GitHub Stars Lists](/research/CURATED_STARS_LISTS.md)
+- [Starred Repositories Index](/STARRED_REPOS.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)

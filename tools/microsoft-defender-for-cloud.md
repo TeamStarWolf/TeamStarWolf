@@ -148,5 +148,16 @@ _Learning & reference_
 
 Defender for Cloud is positioned and documented by Microsoft as a CNAPP (CSPM+CWPP); foundational CSPM and Defender XDR access are free, paid plans added on top. Naming has consolidated around 'Defender CSPM' (paid) vs 'Foundational CSPM' (free), with agentless vulnerability scanning in the paid tier. Azure Update Manager is bundled with Defender for Servers Plan 2 at no extra charge for Arc servers; billed per Arc server/day otherwise. All Defender for Cloud features will be retired in the Azure China (21Vianet) region on August 18, 2026. Verify exact per-unit 2026 pricing on the Azure pricing pages/cost calculator (figures not publicly fixed).
 
+## Related pages
+
+- [Cloud Security Reference Library](/CLOUD_SECURITY_REFERENCE.md)
+- [Cloud Security Benchmark Reference](/CLOUD_SECURITY_BENCHMARK.md)
+- [Continuous Threat Exposure Management (CTEM) Reference](/CTEM_REFERENCE.md)
+- [Cloud Architecture](/CLOUD_ARCHITECTURE_REFERENCE.md)
+- [Azure Native Security (Defender for Cloud, Sentinel, Policy, Firewall)](/tools/azure-native-security.md)
+- [Wiz](/tools/wiz.md)
+- [Vendor Tool Pages](/tools/README.md)
+- [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)
+
 ---
 *Generic reference. Confirm product facts, event IDs, fields and URLs against current vendor sources. Descriptive, not an endorsement.*

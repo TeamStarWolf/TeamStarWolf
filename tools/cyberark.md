@@ -157,5 +157,15 @@ _Learning & reference_
 
 Palo Alto Networks completed its acquisition of CyberArk (announced July 2025, ~USD 25B, closed ~February 2026) — the largest deal in Palo Alto's history; CyberArk continues to be available as a standalone Identity Security Platform while being integrated into Palo Alto's ecosystem. CyberArk acquired Venafi (machine identity / certificate lifecycle, ~USD 1.5B, closed Oct 2024) and Zilla Security (AI-driven IGA, ~USD 165M + earn-out, 2025). Key 2025 launches (IMPACT 2025): Secure All Secrets, Secrets Rotation Service, cloud-native secrets management (AWS/Azure/GCP), Secure Certificates & PKI with post-quantum readiness, the Secure AI Agents Solution, and CORA AI as the embedded intelligence engine. Secrets Manager is the current name for the Conjur-derived offering (SaaS, Self-Hosted, and Conjur OSS); PAM Self-Hosted v15 line shipped from Dec 2025 (Standard-Term Support) with 15.2.x builds in mid-2026. Post-acquisition product naming/bundling is evolving — verify current platform branding and SKUs against CyberArk/Palo Alto newsrooms.
 
+## Related pages
+
+- [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md)
+- [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md)
+- [Identity & Access Management (IAM) Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)
+- [Microsoft Entra ID](/tools/entra-id.md)
+- [Cisco Duo](/tools/cisco-duo.md)
+- [Vendor Tool Pages](/tools/README.md)
+- [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)
+
 ---
 *Generic reference. Confirm product facts, event IDs, fields and URLs against current vendor sources. Descriptive, not an endorsement.*

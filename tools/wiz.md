@@ -139,5 +139,16 @@ _Learning & reference_
 
 Google/Alphabet completed its ~$32B all-cash acquisition of Wiz, with the deal reported closed around March 11, 2026 after US DOJ and EU clearance; Wiz joined Google Cloud while pledging to keep operating under its own brand with continued multicloud support (verify Google's primary closing statement). Module set spans CSPM, CWPP, CIEM, DSPM, KSPM, AI-SPM, Wiz Code (IaC/code), and Wiz Defend (CDR, built on the Gem Security acquisition). Pricing remains per-workload/negotiated with no public list; third-party benchmarks only. Catalog '2,000+' and tier specifics should be confirmed directly with Wiz.
 
+## Related pages
+
+- [Cloud Security Reference Library](/CLOUD_SECURITY_REFERENCE.md)
+- [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md)
+- [Continuous Threat Exposure Management (CTEM) Reference](/CTEM_REFERENCE.md)
+- [ServiceNow USEM with Tenable and Wiz](/tools-research/SERVICENOW_USEM_TENABLE_WIZ.md)
+- [Microsoft Defender for Cloud](/tools/microsoft-defender-for-cloud.md)
+- [Chainguard](/tools/chainguard.md)
+- [Vendor Tool Pages](/tools/README.md)
+- [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)
+
 ---
 *Generic reference. Confirm product facts, event IDs, fields and URLs against current vendor sources. Descriptive, not an endorsement.*

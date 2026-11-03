@@ -10,6 +10,19 @@ In July 2025 a chain of flaws in on-premises Microsoft SharePoint Server, known 
 
 Evidence grade: **Confirmed** overall (Microsoft, CISA, and multiple vendor and victim sources; single-source figures are marked below).
 
+### Key facts at a glance
+
+| Field | Value |
+|---|---|
+| Patch-bypass pair | CVE-2025-53770 (deserialization, CVSS 9.8) and CVE-2025-53771 (path traversal, CVSS 6.3), unauthenticated, chained for RCE |
+| Original pair bypassed | CVE-2025-49704 (code injection) and CVE-2025-49706 (spoofing), fixed in the July 2025 Patch Tuesday |
+| Affected | SharePoint Subscription Edition, Server 2019, Server 2016 (on-premises only); SharePoint Online not affected |
+| Decisive technique | Theft of the ASP.NET `ValidationKey` and `DecryptionKey` via `spinstall0.aspx`, enabling forged `__VIEWSTATE` RCE |
+| Remediation | Patch, then rotate machine keys, then `iisreset` on every farm server; patch alone is not enough |
+| Actors | Linen Typhoon, Violet Typhoon (espionage), Storm-2603 (Warlock and LockBit ransomware) |
+| First exploitation | Observed from around 18 July 2025, days after the July patch |
+| Scale | More than 400 servers across about 148 organizations; the US NNSA confirmed breached |
+
 ### Key findings
 
 - **It was a patch bypass, exploited within days of the patch.** Microsoft's July 2025 update fixed the original ToolShell pair (CVE-2025-49706 spoofing and CVE-2025-49704 code injection). Attackers bypassed those fixes with CVE-2025-53770 (deserialization of untrusted data, CVSS 9.8) and CVE-2025-53771 (path traversal, CVSS 6.3), unauthenticated and chained for remote code execution, and exploitation was observed from about 18 July 2025.
@@ -47,17 +60,36 @@ Within days, a public reproduction appeared (Code White reported a working repro
 - **CVE-2025-53770**: deserialization of untrusted data in on-premises SharePoint, CVSS 9.8, a variant of CVE-2025-49704, allowing unauthenticated remote code execution over the network.
 - **CVE-2025-53771**: a path-traversal and spoofing flaw, CVSS 6.3, a variant of CVE-2025-49706.
 
-Chained, the two give an unauthenticated attacker code execution on an internet-reachable SharePoint server. The attack typically lands as a crafted POST to the `ToolPane.aspx` endpoint. CISA added CVE-2025-53770 to its Known Exploited Vulnerabilities catalog on 20 July 2025, and Microsoft shipped out-of-band updates for Subscription Edition and Server 2019 on 19–20 July, with a Server 2016 update following (**Confirmed**).
+Chained, the two give an unauthenticated attacker code execution on an internet-reachable SharePoint server. The attack typically lands as a crafted POST to the `ToolPane.aspx` endpoint. CISA added CVE-2025-53770 to its Known Exploited Vulnerabilities catalog on 20 July 2025, and Microsoft shipped out-of-band updates for Subscription Edition and Server 2019 on 19 to 20 July, with a Server 2016 update following (**Confirmed**).
 
 The timeline is the first lesson: a vulnerability can move from a patched Patch-Tuesday item to an actively exploited zero-day bypass in under a week. A monthly patch cadence does not survive that.
+
+### Timeline
+
+| Date (2025) | Event |
+|---|---|
+| May | ToolShell exploit chain demonstrated at Pwn2Own Berlin |
+| July Patch Tuesday | Microsoft fixes CVE-2025-49704 and CVE-2025-49706 |
+| 14 July | Code White reports a working public reproduction of the chain |
+| Around 18 July | Mass exploitation of the CVE-2025-53770 and CVE-2025-53771 bypass begins |
+| 19 to 20 July | Microsoft ships out-of-band updates (Subscription Edition, Server 2019; Server 2016 follows) |
+| 20 July | CISA adds CVE-2025-53770 to the Known Exploited Vulnerabilities catalog |
 
 ## Part 2: why patching alone did not fix it
 
 The defining feature of ToolShell is what happened after code execution. The attackers' goal was not only a web shell but the server's cryptographic secrets.
 
-ASP.NET protects `__VIEWSTATE`, the serialized control state a SharePoint page round-trips through the browser, with a message authentication code keyed by the server's `ValidationKey`, and optionally encrypts it with the `DecryptionKey`. These machine keys are what let the server trust that a `__VIEWSTATE` blob it receives is one it issued. The post-exploitation payload, commonly the file `spinstall0.aspx`, read those keys out of the server configuration and sent them to the attacker (**Confirmed**: CISA malware analysis and multiple vendors).
+### How ViewState trust works
 
-With the validation and decryption keys, an attacker no longer needs the vulnerability. They can craft a `__VIEWSTATE` payload containing a malicious serialized object, sign it with the stolen key, and send it to the server, which validates the signature, deserializes the object, and runs it, as the SharePoint application identity. This is why a server that was exploited and then merely patched is still owned: the patch closes the entry door while the attacker keeps a signed key to a different one. Remediation therefore required three steps in order (**Confirmed**: Microsoft guidance):
+ASP.NET protects `__VIEWSTATE`, the serialized control state a SharePoint page round-trips through the browser, with a message authentication code keyed by the server's `ValidationKey`, and optionally encrypts it with the `DecryptionKey`. These machine keys are what let the server trust that a `__VIEWSTATE` blob it receives is one it issued: when a request comes back carrying a `__VIEWSTATE`, the server checks the signature against its key, and if it validates, deserializes the contents. The whole mechanism rests on the keys staying secret. If an attacker learns them, the trust model inverts, because now the attacker can produce blobs the server will accept as its own.
+
+### The theft
+
+The post-exploitation payload, commonly the file `spinstall0.aspx`, read the validation and decryption keys out of the server configuration and sent them to the attacker (**Confirmed**: CISA malware analysis and multiple vendors). With those keys, an attacker no longer needs the vulnerability. They can craft a `__VIEWSTATE` payload containing a malicious serialized object, sign it with the stolen key, and send it to the server, which validates the signature, deserializes the object, and runs it, as the SharePoint application identity. This is why a server that was exploited and then merely patched is still owned: the patch closes the entry door while the attacker keeps a signed key to a different one.
+
+### The remediation order
+
+Remediation therefore required three steps, in order (**Confirmed**: Microsoft guidance):
 
 1. Apply the fixed security update.
 2. Rotate the ASP.NET machine keys (`Update-SPMachineKey` through PowerShell or the Machine Key Rotation timer job in Central Administration).
@@ -79,10 +111,11 @@ For a vulnerability management program, this is the transferable point: a flaw t
 
 Microsoft attributed the exploitation to three China-linked actors, with different aims (**Confirmed**: Microsoft):
 
-- **Linen Typhoon** and **Violet Typhoon**: state-linked groups using the access for espionage and long-term collection.
+- **Linen Typhoon**: a state-linked group using the access for espionage and long-term collection, associated with intellectual-property-focused intrusions.
+- **Violet Typhoon**: a state-linked espionage group focused on reconnaissance and data collection against government, academic and NGO targets.
 - **Storm-2603**: a China-linked actor that stole machine keys and, from 18 July 2025, deployed ransomware (Warlock and LockBit) on compromised SharePoint servers. Microsoft noted Storm-2603 had no clear ties to the other two groups.
 
-The same unauthenticated foothold thus fed both quiet espionage and loud extortion, a reminder that an exposure does not get to choose who finds it.
+The same unauthenticated foothold thus fed both quiet espionage and loud extortion, a reminder that an exposure does not get to choose who finds it. The gap between espionage and ransomware operators collapses when they enter through the same unauthenticated door.
 
 Scale estimates vary by what they count (**Reported** except where noted):
 
@@ -90,6 +123,17 @@ Scale estimates vary by what they count (**Reported** except where noted):
 - Targets spanned government, universities, telecommunications, finance, and critical-infrastructure operators including water and telecom.
 - The **US National Nuclear Security Administration confirmed** it was breached through the ToolShell chain, with no classified data reported affected (**Confirmed**: agency statement).
 - By September 2025, Warlock's leak site listed roughly 60 victims, a floor rather than a full count, since groups often omit victims who pay quickly.
+
+## Part 4: the vulnerability-management lens
+
+ToolShell is a case about what "remediated" means, and a program that takes the wrong definition will carry owned hosts as clean:
+
+- **The scanner lies when the secret is gone.** Vulnerability scanners key on the patch level or build number. A server that was exploited before patching and then patched will report as not vulnerable while the attacker still holds its machine keys. The scanner is answering "is the door locked," not "did someone copy the key." For secret-stealing flaws, close-the-finding and close-the-incident are different events.
+- **Patch bypasses break the window assumption.** The fix shipped on Patch Tuesday, the bypass followed within days, and the exploitation beat the out-of-band patch. Internet-facing collaboration servers need an edge-device patch clock and an out-of-band response capability, not a monthly cadence.
+- **Key rotation belongs in the runbook.** The remediation here (patch, rotate, `iisreset`) is only fast if rotation is a practiced, inventoried step. Organizations that had never rotated ASP.NET machine keys improvised it under pressure. Knowing where signing secrets live, and having a rehearsed rotation procedure, is a standing control, not an incident-time scramble.
+- **Any reachable critical RCE is a ransomware precursor.** Espionage and ransomware actors used the identical entry point. Prioritization that waits to see a specific threat before acting misses that a reachable unauthenticated RCE is already enough for either outcome.
+
+See [the Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md) and [the Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md).
 
 ## Cross-cutting themes
 

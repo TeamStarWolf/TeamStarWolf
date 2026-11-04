@@ -484,7 +484,10 @@ CATALOG = [
      "ATT&CK for ICS layers bound to library case studies. Curated layers under `navigator/library-layers/` "
      "must be `enterprise-attack`, so ICS case-study layers live in `navigator/case-studies/`. Scores mean "
      "only that a source cited in the case study maps the technique, not severity or prevalence.",
-     [("case-studies/chronicle-2020-ics.json", "The Year 2020 in Intrusions (ICS)",
+     [("case-studies/ics-attacks-2024-2026-ics.json", "ICS Attacks 2024 to 2026 (ICS)",
+       "The 43 ATT&CK for ICS techniques the verified 2024 to 2026 incident record supports, from the "
+       "[ICS attacks and advisories case study](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md)"),
+      ("case-studies/chronicle-2020-ics.json", "The Year 2020 in Intrusions (ICS)",
        "The 9 ATT&CK for ICS techniques that NSA and CISA advisory AA20-205A maps for operational technology, from the "
        "[2020 chronicle case study](/case-studies/CHRONICLE_2020.md)")]),
 ]

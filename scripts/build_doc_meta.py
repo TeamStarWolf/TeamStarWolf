@@ -1,6 +1,15 @@
 #!/usr/bin/env python3
-"""Write the header card at the top of every root reference and learning path, and fold
-long appendices.
+"""Write the header card at the top of every root reference, learning path and
+subject-folder page, and fold long appendices.
+
+The subject-folder pages are the hand-written pages of the folders named in FOLDERS
+(languages/, platforms/, ai-tooling/ and ai-tooling/tools/, commands/, frameworks/,
+tools/, guides/, paradigms/, databases/, formats/, case-studies/, research/ and
+tools-research/), plus the pages in FOLDER_FILES (detections/TECHNIQUE_DETECTION_LIBRARY.md).
+A folder's README.md and _sidebar.md and a superseded stub carry no card. On a page below
+the root every card link names its path from the root ("/SECURE_CODING_REFERENCE.md"):
+the site runs with relativePath off, so a link without the leading '/' would open a
+different file on GitHub than on the site.
 
 The card is a table of labelled rows between markers, written into the page itself so it
 reads the same on GitHub and on the site. Each label is a row header (<th scope="row">), so
@@ -62,7 +71,9 @@ Where each part comes from:
                                 show) at 230 words a minute. A reference with more than
                                 three quarters of its words in table rows is a lookup page
                                 (a catalogue, a matrix, a glossary): its row is "Length"
-                                and says to find an entry rather than read it end to end
+                                and says to find an entry rather than read it end to end.
+                                Learning paths, guides and case studies (READ_THROUGH) are
+                                read through, so they always give a reading time
     git history                 the date the page's text last changed (commits that only
                                 touch script-written blocks, link targets or the card do
                                 not count). "Due for review" is added to the last-reviewed
@@ -86,7 +97,9 @@ on the site, a link to an anchor inside a fold opens it (index.html). --report l
 appendix and glossary sections over two screens that are not folded yet.
 
 Rules the --check run enforces (CI, validate-data.yml):
-  * every root reference and learning path has an entry, and every entry is one of them;
+  * every root reference, learning path and subject-folder page has an entry, and every
+    entry is one of them;
+  * on a page below the root, every card link starts with '/' (or is an anchor or a URL);
   * each committed card and fold matches what this script writes;
   * no "Read this when", "Start at" or "Pairs with" row outside the card (they live in
     doc_meta.yaml now);
@@ -156,6 +169,19 @@ TAKEAWAYS_MIN, TAKEAWAYS_MAX, TAKEAWAY_LEN = 3, 5, 220
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 ATTACK_RE = re.compile(r"^v\d+\.\d+$")
 UNESCAPED_PIPE_RE = re.compile(r"(?<!\\)\|")
+# The subject folders whose hand-written pages carry a card, named one by one so a new
+# folder joins only when it is added here (each folder's own pages; a subfolder is listed
+# on its own line). FOLDER_FILES adds single pages from folders that are otherwise
+# generated.
+FOLDERS = (
+    "ai-tooling/", "ai-tooling/tools/", "case-studies/", "commands/", "databases/",
+    "formats/", "frameworks/", "guides/", "languages/", "paradigms/", "platforms/",
+    "research/", "tools/", "tools-research/",
+)
+FOLDER_FILES = ("detections/TECHNIQUE_DETECTION_LIBRARY.md",)
+# Pages that are read through, not looked up, so their card always gives a reading time:
+# learning paths, how-to guides and case studies.
+READ_THROUGH = ("disciplines/", "guides/", "case-studies/")
 
 
 class Invalid(Exception):
@@ -269,13 +295,39 @@ def load(rel: str, required: bool = True) -> dict:
 # ----------------------------------------------------------------------------- pages
 
 
-def scope(files: list[str]) -> tuple[list[str], list[str]]:
-    """(root references, learning paths)."""
+def folder_pages(files: list[str]) -> list[str]:
+    """The hand-written pages of the subject folders in FOLDERS (each folder's own pages,
+    not its subfolders), plus the single pages in FOLDER_FILES. A folder's README.md (its
+    landing page), its _sidebar.md and a superseded stub are not in scope."""
+    out = []
+    for f in files:
+        folder, _, name = f.rpartition("/")
+        if not name.endswith(".md") or name == "README.md" or name.startswith("_"):
+            continue
+        if (folder + "/" in FOLDERS or f in FOLDER_FILES) and not bsn.is_stub(f):
+            out.append(f)
+    return sorted(out)
+
+
+def scope(files: list[str]) -> tuple[list[str], list[str], list[str]]:
+    """(root references, learning paths, subject-folder pages)."""
     refs = bsn.references(files)
     paths = sorted(f for f in files if f.startswith("disciplines/") and f.endswith(".md")
                    and f.count("/") == 1 and not os.path.basename(f).startswith("_")
                    and f != "disciplines/README.md")
-    return refs, paths
+    return refs, paths, folder_pages(files)
+
+
+def link_targets(s: str) -> list[str]:
+    """The targets of the Markdown links in a card value."""
+    return [u for _, u in re.findall(r"\[([^\]]*)\]\(([^)\s]*)\)", s)]
+
+
+def needs_root_slash(rel: str, target: str) -> bool:
+    """A card link on a page below the root that does not name its path from the root.
+    The site runs with relativePath off, so docsify reads "X.md" from the root while
+    GitHub reads it from the page's folder; "/X.md" means the same file on both."""
+    return "/" in rel and not target.startswith(("/", "#")) and not cdl.SCHEME_RE.match(target)
 
 
 def path_refs() -> dict[str, list[str]]:
@@ -443,7 +495,7 @@ def gerund_parts(s: str) -> list[str]:
     return out
 
 
-def validate(meta: dict, refs: list[str], paths: list[str]) -> list[str]:
+def validate(meta: dict, refs: list[str], paths: list[str], pages_: list[str] = ()) -> list[str]:
     problems = []
     corrections = meta.get("corrections") or {}
     for cid, r in corrections.items():
@@ -464,11 +516,12 @@ def validate(meta: dict, refs: list[str], paths: list[str]) -> list[str]:
             problems.append(META + ": review '" + rid + "' needs date (YYYY-MM-DD) and what, and may "
                             "have attack (vNN.N) and pr (a number)")
     pages = meta.get("pages") or {}
-    want = set(refs) | set(paths)
+    want = set(refs) | set(paths) | set(pages_)
     for rel in sorted(want - set(pages)):
         problems.append(META + ": no entry for " + rel)
     for rel in sorted(set(pages) - want):
-        problems.append(META + ": " + rel + " is not a root reference or a learning path")
+        problems.append(META + ": " + rel + " is not a root reference, a learning path or a page "
+                        "in a subject folder (FOLDERS)")
     matched = path_refs()
     for rel, e in sorted(pages.items()):
         if rel not in want:
@@ -501,12 +554,18 @@ def validate(meta: dict, refs: list[str], paths: list[str]) -> list[str]:
                 if re.search(r"\.md$", t.strip(), re.I):
                     problems.append(where + field + " link text '" + t + "' is a file name; use the page's "
                                     "title, as the \"Which page should I read?\" table does")
+            for u in link_targets(str(e.get(field) or "")):
+                if needs_root_slash(rel, u):
+                    problems.append(where + field + " link '(" + u + ")' must name its path from the "
+                                    "root, '(/" + u.lstrip("./") + ")': the site runs with relativePath "
+                                    "off, so a link without the leading '/' opens a different page on "
+                                    "GitHub than on the site")
         n_start = len(LINK_RE.findall(str(e.get("start_at") or "")))
         if n_start > START_AT_MAX:
             problems.append(where + "start_at has " + str(n_start) + " links; plan section 5 allows at most "
                             + str(START_AT_MAX))
         lp = e.get("learning_path") or []
-        if rel in refs and sorted(lp) != matched.get(rel, []):
+        if rel not in paths and sorted(lp) != matched.get(rel, []):
             problems.append(where + "learning_path " + json.dumps(lp) + " differs from " + CROSSLINKS
                             + " (" + json.dumps(matched.get(rel, [])) + "); change both together")
         if rel in paths and lp:
@@ -530,7 +589,7 @@ def validate(meta: dict, refs: list[str], paths: list[str]) -> list[str]:
             problems.append(META + ": cluster '" + cid + "' needs a topic and at least two pages")
         for rel, why in members.items():
             if rel not in want:
-                problems.append(META + ": cluster '" + cid + "': " + rel + " is not a reference or path")
+                problems.append(META + ": cluster '" + cid + "': " + rel + " is not a page in scope")
             if rel in seen:
                 problems.append(META + ": " + rel + " is in clusters '" + seen[rel] + "' and '" + cid + "'")
             seen[rel] = cid
@@ -583,7 +642,7 @@ def validate_takeaways(data: dict, name: str, texts: dict[str, str], draft: bool
     for rel, e in sorted((data.get("pages") or {}).items()):
         where = name + ": " + rel + ": "
         if rel not in texts:
-            problems.append(where + "not a root reference or learning path")
+            problems.append(where + "not a page in scope")
             continue
         items = (e or {}).get("items") or []
         if not draft and not DATE_RE.match(str((e or {}).get("reviewed", ""))):
@@ -725,7 +784,7 @@ def card_table(rows: list[tuple[str, str]]) -> list[str]:
 def card(rel: str, text: str, meta: dict, reviewed: dict, descs: dict, hist: History | None) -> str:
     e = meta["pages"][rel]
     rows = [("Who this is for", e["audience"]), ("Level", e["level"]),
-            reading_row(text, bool(e.get("start_at")), lookup=not rel.startswith("disciplines/"))[:2]]
+            reading_row(text, bool(e.get("start_at")), lookup=not rel.startswith(READ_THROUGH))[:2]]
     rows += [(lab, e[f]) for f, lab in CARD_FIELDS if f in FIRST_SCREEN and e.get(f)]
     more = [(lab, e[f]) for f, lab in CARD_FIELDS if f not in FIRST_SCREEN and e.get(f)]
     lp = e.get("learning_path") or []
@@ -895,19 +954,19 @@ def fold_candidates(rel: str, text: str, specs: list[str]) -> list[tuple[str, st
 def build(hist: History | None) -> tuple[dict[str, str], dict[str, str], list[str]]:
     """(current text, expected text) of every page in scope, and the problems found."""
     files = tracked_files()
-    refs, paths = scope(files)
+    refs, paths, pages = scope(files)
     meta = load(META)
     reviewed = load(TAKEAWAYS)
     draft = load(DRAFT)
-    problems = validate(meta, refs, paths)
+    problems = validate(meta, refs, paths, pages)
     descs = bsn.index_entries()
-    current = {rel: bsn.page_text(rel) for rel in refs + paths}
+    current = {rel: bsn.page_text(rel) for rel in refs + paths + pages}
     problems += validate_takeaways(reviewed, TAKEAWAYS, current, draft=False)
     problems += validate_takeaways(draft, DRAFT, current, draft=True)
     if problems:
         return current, {}, problems
     expected = {}
-    for rel in refs + paths:
+    for rel in refs + paths + pages:
         text = current[rel]
         outside = META_RE.sub("", text).split("\n")
         stray = [i + 1 for i, (ln, f) in enumerate(zip(outside, fences(outside))) if not f and CARD_ROW_RE.match(ln)]
@@ -942,35 +1001,38 @@ def write(expected: dict[str, str], current: dict[str, str]) -> int:
 
 def report(current: dict[str, str], expected: dict[str, str], hist: History) -> None:
     files = tracked_files()
-    refs, paths = scope(files)
+    refs, paths, folder = scope(files)
+    allp = refs + paths + folder
     meta = load(META)
     draft = load(DRAFT)
     reviewed = load(TAKEAWAYS)
     pages = meta["pages"]
-    print("Header cards: " + str(len(refs)) + " root references, " + str(len(paths)) + " learning paths")
+    print("Header cards: " + str(len(refs)) + " root references, " + str(len(paths)) + " learning paths, "
+          + str(len(folder)) + " subject-folder pages")
     for f, lab in CARD_FIELDS:
         print("  '" + lab + "' row: " + str(sum(1 for r in refs if pages[r].get(f))) + " references, "
-              + str(sum(1 for r in paths if pages[r].get(f))) + " learning paths")
-    starts = [len(LINK_RE.findall(pages[r].get("start_at") or "")) for r in refs + paths]
+              + str(sum(1 for r in paths if pages[r].get(f))) + " learning paths, "
+              + str(sum(1 for r in folder if pages[r].get(f))) + " subject-folder pages")
+    starts = [len(LINK_RE.findall(pages[r].get("start_at") or "")) for r in allp]
     print("  'Start at' links per page: at most " + str(max(starts)) + " (limit " + str(START_AT_MAX) + ")")
     print("  'Matching learning path' row: " + str(sum(1 for r in refs if pages[r].get("learning_path"))) + " references")
     levels: dict[str, int] = {}
-    for rel in refs + paths:
+    for rel in allp:
         levels[pages[rel]["level"]] = levels.get(pages[rel]["level"], 0) + 1
     print("  levels: " + ", ".join(k + " " + str(v) for k, v in sorted(levels.items(), key=lambda x: LEVELS.index(x[0]))))
-    for name, group in (("references", refs), ("learning paths", paths)):
+    for name, group in (("references", refs), ("learning paths", paths), ("subject-folder pages", folder)):
         w = sorted(bsn.word_count(current[r]) for r in group)
         mins = sorted(max(1, round(x / WPM)) for x in w)
-        if name == "references":
-            look = [r for r in group if reading_row(current[r])[0] == "Length"]
-            print("Lookup pages (more than " + str(int(LOOKUP_SHARE * 100)) + "% of words in tables; "
+        if name != "learning paths":
+            look = [r for r in group if reading_row(current[r], lookup=not r.startswith(READ_THROUGH))[0] == "Length"]
+            print("Lookup " + name + " (more than " + str(int(LOOKUP_SHARE * 100)) + "% of words in tables; "
                   "the card says Length, not Reading time): " + str(len(look)) + ": "
                   + ", ".join(r[:-3] for r in look))
         print("Reading time, " + name + ": words median " + format(int(statistics.median(w)), ",")
               + ", p90 " + format(w[int(0.9 * (len(w) - 1))], ",") + ", max " + format(w[-1], ",")
               + "; minutes median " + str(statistics.median(mins)) + ", max " + str(mins[-1]))
     corrections = meta.get("corrections") or {}
-    with_fix = [r for r in refs + paths if pages[r].get("corrected")]
+    with_fix = [r for r in allp if pages[r].get("corrected")]
     print("Last corrected: " + str(len(with_fix)) + " pages name their last recorded correction, "
           + str(sum(1 for p in with_fix if pages[p].get("corrected_what"))) + " of them with a "
           "page-specific description; " + str(sum(1 for p in with_fix if corrections[pages[p]["corrected"]].get("attack")))
@@ -979,7 +1041,7 @@ def report(current: dict[str, str], expected: dict[str, str], hist: History) -> 
         print("  " + cid + " (" + c["date"] + ", #" + str(c["pr"]) + (", ATT&CK " + c["attack"] if c.get("attack") else "")
               + "): " + str(sum(1 for p in with_fix if pages[p]["corrected"] == cid)) + " pages")
     reviews = meta.get("reviews") or {}
-    with_review = [r for r in refs + paths if pages[r].get("reviewed")]
+    with_review = [r for r in allp if pages[r].get("reviewed")]
     print("Last reviewed: " + str(len(with_review)) + " pages have a review the owner recorded, "
           + str(len(refs) + len(paths) - len(with_review)) + " show 'No review recorded yet'")
     for rid, r in reviews.items():
@@ -990,11 +1052,11 @@ def report(current: dict[str, str], expected: dict[str, str], hist: History) -> 
     clusters = meta.get("clusters") or {}
     print("Which page should I read? notes: " + str(len(clusters)) + " clusters, "
           + str(sum(len(c["pages"]) for c in clusters.values())) + " pages")
-    folds = [(r, s) for r in refs + paths for s in pages[r].get("fold") or []]
-    n_wrapped = sum(len(FOLD_OPEN_RE.findall(expected.get(r, ""))) for r in refs + paths)
+    folds = [(r, s) for r in allp for s in pages[r].get("fold") or []]
+    n_wrapped = sum(len(FOLD_OPEN_RE.findall(expected.get(r, ""))) for r in allp)
     print("Folds: " + str(len(folds)) + " fold entries on " + str(len({r for r, _ in folds}))
           + " pages, " + str(n_wrapped) + " <details> written")
-    cands = [(r, c) for r in refs + paths for c in fold_candidates(r, current[r], pages[r].get("fold") or [])]
+    cands = [(r, c) for r in allp for c in fold_candidates(r, current[r], pages[r].get("fold") or [])]
     print("  appendix and glossary sections over two screens (" + str(FOLD_ROWS) + " lines) not folded: "
           + str(len(cands)))
     for r, (slug, head, size) in cands:
@@ -1085,6 +1147,24 @@ def self_test() -> int:
     if sum("is a file name" in p for p in validate(m, ["A.md"], [])) != 1:
         fails.append("a file name as link text is not caught")
     del e["pairs_with"]
+    sub = {"corrections": {}, "reviews": {},
+           "pages": {"languages/x.md": {"audience": "x", "level": "Intermediate",
+                                        "pairs_with": "[A page](A.md), [B page](/B.md), [Docs](https://example.org/a)",
+                                        "start_at": "[Intro](#intro)"},
+                     "A.md": {"audience": "x", "level": "Intermediate", "pairs_with": "[B page](B.md)"}}}
+    hits = [p for p in validate(sub, ["A.md"], [], ["languages/x.md"]) if "must name its path from the root" in p]
+    if len(hits) != 1 or "languages/x.md" not in hits[0] or "(/A.md)" not in hits[0]:
+        fails.append("a card link without a leading '/' on a page below the root is not caught "
+                     "(or a root page, a '/' link, an anchor or a URL is): " + repr(hits))
+    want = ["ai-tooling/tools/OLLAMA.md", "detections/TECHNIQUE_DETECTION_LIBRARY.md", "languages/python.md"]
+    got = folder_pages(["languages/python.md", "languages/README.md", "languages/_sidebar.md",
+                        "languages/sub/b.md", "ai-tooling/tools/OLLAMA.md", "detections/other.md",
+                        "detections/TECHNIQUE_DETECTION_LIBRARY.md", "docs/x.md", "HOME.md"])
+    if got != want:
+        fails.append("folder scope (named folders and files only, no README, sidebar or subfolder): " + repr(got))
+    if reading_row(lookup, lookup=not "guides/x.md".startswith(READ_THROUGH))[0] != "Reading time" \
+            or reading_row(lookup, lookup=not "platforms/x.md".startswith(READ_THROUGH))[0] != "Length":
+        fails.append("a guide or case study always gives a reading time; a folder lookup page says Length")
     if review_row(e, {}, "2027-06-01") != "No review recorded yet":
         fails.append("a correction must not count as a review or start the due clock")
     if voice_hits("A seamless tool.") != ["hype:seamless"] or voice_hits("Plain words."):
@@ -1099,7 +1179,8 @@ def main() -> int:
     mode.add_argument("--check", action="store_true", help="exit 1 on drift or an invalid entry")
     mode.add_argument("--report", action="store_true", help="cards, reading times, reviews, folds, takeaways")
     mode.add_argument("--self-test", action="store_true",
-                      help="YAML reader, folds, placement, due rule, Start at limit, correction and review rows")
+                      help="YAML reader, folds, placement, due rule, Start at limit, folder scope, root-relative "
+                           "card links, correction and review rows")
     args = ap.parse_args()
     if args.self_test:
         return self_test()

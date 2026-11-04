@@ -1,6 +1,6 @@
 # The CVE-2026-98432 Linux Kernel Flaw and an AI-Written Exploit: A 2026 Case Study
 
-*A TeamStarWolf case study. Published 3 November 2026; every source checked as of that date.*
+*A TeamStarWolf case study. Published 3 November 2026; corrected 4 November 2026 against the fix commit, the kernel CVE record, the Anthropic post and Red Hat's errata.*
 
 [All case studies](/case-studies/README.md) · Related: [AI Security](/AI_SECURITY_REFERENCE.md), [Vulnerability Prioritization](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [AI Threats 2026](/case-studies/AI_THREATS_2026.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Harden a Linux Host](/guides/HARDEN_A_LINUX_HOST.md)
 
@@ -24,7 +24,7 @@ Evidence grade: the vulnerability is **Confirmed**; the AI-written exploit and i
 | Affected | Linux kernel 4.4 and later, IPv4 only; the primary issue does not affect IPv6 |
 | Worst outcome | Remote code execution on hosts with a Multipath TCP listener; kernel crash, memory disclosure or corruption otherwise |
 | Upstream fix | Two `kfree()` calls changed to `kfree_rcu()`; landed 5 October 2026, backported to maintained stable branches |
-| Disclosed | CVE published 15 October 2026; AI-exploit report published by Anthropic 28 October 2026 |
+| Disclosed | CVE published 15 October 2026; AI-exploit report published by Anthropic 27 October 2026 |
 | In the wild | No reported exploitation; not in CISA KEV as of 2 November 2026 |
 
 ### Key findings
@@ -39,7 +39,7 @@ Evidence grade: the vulnerability is **Confirmed**; the AI-written exploit and i
 
 1. Patch the kernel and reboot. Apply your distribution's fixed kernel as soon as it ships and reboot, because a running kernel keeps the vulnerable code until it is replaced. Upstream fixed this on 5 October 2026, but distribution availability lagged by weeks, so confirm your own vendor's status rather than assuming "upstream fixed" means you are fixed.
 2. Find your Multipath TCP exposure first. Identify hosts with an MPTCP listener, because those carry the reported remote-code-execution risk rather than denial of service, and prioritize them. Note that disabling MPTCP alone is not a complete fix: the plain IPv4 TCP path remains reachable for the crash-and-corruption outcome.
-3. Use the temporary network mitigation only as a bridge. Dropping inbound IPv4 TCP packets that carry IP options (for example with an nftables rule) blunts the common trigger, but vendors are explicit that it is not a substitute for patching, it needs testing, and on container hosts it may not cover pod-to-pod traffic.
+3. Use the temporary network mitigation only as a bridge. Dropping inbound IPv4 TCP packets that carry IP options (for example with an nftables rule) reduces exposure but, in Red Hat's words, cannot fully prevent it; vendors are explicit that it is not a substitute for patching, it needs testing, it does not survive a reboot, and on container hosts it may not cover pod-to-pod traffic.
 4. Reconcile the base score with the real-world signal. Treat a 9.8 with no in-the-wild use, no KEV listing, and a low EPSS as a fast-track-but-verify item: schedule it ahead of routine patching, scope it by exposure (internet-facing, MPTCP), and do not let an AI-exploit headline push it past an actively exploited bug with a lower score.
 5. Shorten your own exploit-window assumptions. Plan patch SLAs for critical memory-corruption CVEs on the assumption that a working exploit can exist within hours of disclosure, for defenders and attackers alike, and that scanning your own code and dependencies before an advisory lands is now part of the job.
 
@@ -84,7 +84,22 @@ What an attacker gets depends on the target (**Confirmed** for the outcomes, **R
 
 ### The fix
 
-The fix is small and instructive (**Confirmed**). It changes the two offending frees, in `inet_sock_destruct()` and `tcp_v4_reqsk_destructor()`, from `kfree()` to `kfree_rcu()`, so the options structures are released only after an RCU grace period, by which time any reader that entered under `rcu_read_lock()` has finished. The rationale is simply that the readers already use RCU and other option-replacement paths already deferred their frees, so the destructors should too. The change landed upstream on 5 October 2026 and was backported across the maintained stable branches, from the 5.10 series through the current 7.x line. The CVE was published on 15 October 2026.
+The fix is small and instructive (**Confirmed**). It changes the two offending frees, in `inet_sock_destruct()` and `tcp_v4_reqsk_destructor()`, from `kfree()` to `kfree_rcu()`, so the options structures are released only after an RCU grace period, by which time any reader that entered under `rcu_read_lock()` has finished. The rationale is simply that the readers already use RCU and other option-replacement paths already deferred their frees, so the destructors should too. Eric Dumazet authored the patch on 1 October 2026, Kuniyuki Iwashima reviewed it, and it was merged upstream on 5 October 2026 as commit `e3f33b0a1d89` ("ipv4: free inet_opt and ireq_opt after an RCU grace period"), one line each in `net/ipv4/af_inet.c` and `net/ipv4/tcp_ipv4.c`. Its two Fixes trailers name the changes it repairs: `079096f103fa` ("tcp/dccp: install syn_recv requests into ehash table", 2015), which introduced the issue in 4.4 by letting request sockets be processed without the listener lock, and `c905dee62232` ("tcp: Migrate TCP_NEW_SYN_RECV requests at retransmitting SYN+ACKs.", 2021), the request-socket migration change behind the second variant. The fix was backported across the maintained stable branches, from the 5.10 series through the current 7.x line, and the CVE was published on 15 October 2026.
+
+The kernel CVE record lists the first fixed release and its commit on each branch (**Confirmed**: kernel CVE record):
+
+| Branch | Fixed in | Commit |
+|---|---|---|
+| 5.10 | 5.10.272 | `b3b027ef0cd3` |
+| 5.15 | 5.15.223 | `95a8c8fa9f27` |
+| 6.1 | 6.1.190 | `89b5b1eb7d63` |
+| 6.6 | 6.6.159 | `742f73df544e` |
+| 6.12 | 6.12.113 | `11a03ce3c4a6` |
+| 6.18 | 6.18.56 | `a47406c769f7` |
+| 7.2 | 7.2.10 | `26d4c36d318c` |
+| 7.3 and later (mainline) | 7.3 | `e3f33b0a1d89` |
+
+Every row records the issue as introduced in 4.4 by commit `079096f103fa`. A kernel at 7.3 or later contains the mainline fix. An older kernel is fixed when its version is at or above its branch's row. A kernel from an older series with no row (for example 7.0 or 7.1) is not listed as fixed in the record and reaches the fix by moving to a listed series. The record also notes that the unaffected versions might change over time as fixes are backported. Distribution kernels carry their own package versions, so compare those with the vendor's fixed package (the patch gap below), not with this table.
 
 ### Timeline
 
@@ -93,13 +108,15 @@ The fix is small and instructive (**Confirmed**). It changes the two offending f
 | 5 October | Two-line `kfree_rcu` fix merged upstream and backported to maintained stable branches |
 | 15 October | CVE-2026-98432 published by the kernel CNA and to the GitHub Advisory Database (CVSS 9.8) |
 | 16 October | Oracle Linux UEK fixes released via ELSA advisories |
-| 28 October | Anthropic's Frontier Red Team publishes the AI-exploit report |
-| 30 October | AWS security bulletin published; Amazon Linux fixes available; Red Hat rates it Critical and is expediting fixes |
+| 27 October | Anthropic's Frontier Red Team publishes the AI-exploit report |
+| 30 October | AWS security bulletin published; Amazon Linux fixes available; Red Hat published bulletin RHSB-2026-016, rated the flaw Critical and expedited fixes |
+| 1 November | Red Hat shipped fixed kernels for RHEL 8, 9 and 10 (RHSA-2026:93412, 93413, 93414 and 93415) |
 | 2 November | Still no reported in-the-wild exploitation; not in CISA KEV |
+| 2 to 3 November | Red Hat shipped fixed kernels for its extended-support streams and updated RHSB-2026-016 on 3 November |
 
 ## Part 2: the AI-written exploit, graded carefully
 
-On 28 October 2026 Anthropic's Frontier Red Team published a post describing how an unreleased internal research model found and exploited memory-safety flaws in real software, and CVE-2026-98432 was its headline Linux example (**Reported**: Anthropic). The claim has a specific, checkable shape, which is why it is worth grading rather than repeating or waving away.
+On 27 October 2026 Anthropic's Frontier Red Team published a post describing how an unreleased internal research model found and exploited memory-safety flaws in real software, and CVE-2026-98432 was its headline Linux example (**Reported**: Anthropic). The claim has a specific, checkable shape, which is why it is worth grading rather than repeating or waving away.
 
 ### What the model did
 
@@ -116,7 +133,7 @@ Anthropic reported the vulnerabilities under its coordinated disclosure policy, 
 
 ### What is missing for a higher grade
 
-As of late October 2026 no independent party had publicly reproduced the exploit, and at least one kernel vendor team reported that it could not. Discovery credit for the specific CVE is also not cleanly stated: the post says "we discovered" a set of kernel findings and separately that "Claude wrote an exploit," without pinning which findings were model-found versus human-found, and the coordinated-disclosure report for this bug is associated with an Anthropic researcher. So the cleanest reading separates three questions:
+As of late October 2026 no independent party had publicly reproduced the exploit, and at least one kernel vendor team reported that it could not. The kernel record does tie this CVE to Anthropic's disclosure: the fix commit's Reported-by trailer credits Xinyang Ge, an Anthropic researcher who is also listed among the post's contributors (**Confirmed**: fix commit `e3f33b0a1d89`, Anthropic post). What the record does not settle is who or what found the bug. The post says the team used the model "to find critical vulnerabilities" and that "after initial prompting, Claude wrote an exploit," but it does not say which of its findings the model found and which people found. So the cleanest reading separates three questions:
 
 - Is the vulnerability real and reachable? Yes, **Confirmed** by the kernel project and multiple vendors.
 - Did an AI model write a working exploit for it in under an hour? **Reported** by Anthropic, unreleased and unreproduced.
@@ -134,14 +151,14 @@ The upstream fix existed before most organizations could deploy it, which is the
 
 | Ecosystem | Status |
 |---|---|
-| Upstream stable | Fixed on 5 October 2026 and backported across maintained stable branches (5.10 series through current 7.x) |
+| Upstream stable | Fixed on 5 October 2026 and backported across maintained stable branches (5.10 series through current 7.x); the first fixed release on each branch is in [the per-branch table](/case-studies/LINUX_TCP_UAF_2026.md#the-fix) |
 | Debian 12 and 13 | Fixed (DLA and DSA advisories issued) |
 | SUSE SLES and openSUSE Leap | Fixed for most streams; some streams still in progress |
 | Oracle Linux UEK | Fixed on 16 October 2026 via ELSA advisories |
 | Amazon Linux 2 and 2023 | Fixed kernel packages available; some default streams pending |
 | AlmaLinux 8, 9, 10 | Patched kernels released, after a period in testing |
-| Red Hat Enterprise Linux 8, 9, 10 and OpenShift | Rated Critical (9.8); Red Hat was expediting fixes and evaluating interim OpenShift guidance |
-| Rocky Linux 8 to 10 and other RHEL rebuilds | Followed RHEL; no fixed kernel at the time of writing |
+| Red Hat Enterprise Linux 8, 9, 10 and OpenShift | Rated Critical (9.8). Fixed kernels shipped on 1 November 2026 for RHEL 8 (RHSA-2026:93414; kernel-rt RHSA-2026:93415), RHEL 9 (RHSA-2026:93412) and RHEL 10 (RHSA-2026:93413), and on 2 to 3 November for the extended-support streams (RHSA-2026:94109, 94303, 94438, 94477, 94508, 94558 and 94623). RHEL 6 and 7 are not affected. On 4 November the OpenShift RHCOS 8 and 9 images and RHEL 9 kernel-rt were still listed Affected, and bulletin RHSB-2026-016 (updated 3 November) said OpenShift guidance was still in preparation |
+| Rocky Linux 8 to 10 and other RHEL rebuilds | Follow RHEL; no fixed kernel when this table was first written. Red Hat's fixed kernels shipped on 1 November 2026, so check the rebuild's own errata for its fixed build (not rechecked here) |
 | Ubuntu 22.04, 24.04, 26.04, 26.10 | Fix in progress, not yet released |
 
 ### Per-platform remediation
@@ -151,22 +168,22 @@ The fix is always "run a patched kernel and reboot into it," but the command and
 | Platform | How to check and remediate |
 |---|---|
 | Debian / Ubuntu | `uname -r`; `sudo apt-get update && sudo apt-get install --only-upgrade linux-image-generic` (or your flavour's kernel meta-package), then reboot; Ubuntu Pro Livepatch may cover it before the reboot |
-| RHEL / Alma / Rocky | `rpm -q kernel`; `sudo dnf upgrade kernel` then reboot; where a live patch is published, `kpatch` can close it without a reboot (confirm coverage for this CVE) |
+| RHEL / Alma / Rocky | `rpm -q kernel`; `sudo dnf upgrade kernel` then reboot. Red Hat's fixed kernels, shipped 1 November 2026, are `4.18.0-553.182.1.el8_10` (RHEL 8, RHSA-2026:93414), `5.14.0-687.64.1.el9_8` (RHEL 9, RHSA-2026:93412) and `6.12.0-211.72.1.el10_2` (RHEL 10, RHSA-2026:93413); the extended-support streams followed on 2 to 3 November, and RHEL 6 and 7 are not affected. Alma and Rocky publish their own errata, so check those for the matching fixed build. Where a live patch is published, `kpatch` can close it without a reboot (confirm coverage for this CVE) |
 | Fedora | `sudo dnf upgrade kernel` and reboot |
 | SUSE / openSUSE | `sudo zypper up kernel-default` then reboot; SLES Live Patching can bridge the reboot gap where a patch exists |
-| Oracle Linux (UEK) | `sudo dnf upgrade kernel-uek` then reboot (UEK fixes shipped 16 October 2026); Ksplice can apply the fix live where available |
+| Oracle Linux (UEK) | `sudo dnf upgrade kernel-uek` then reboot (UEK fixes shipped 16 October 2026); Ksplice can apply the fix live where available. A host on the Red Hat Compatible Kernel instead of UEK takes `sudo dnf upgrade kernel`; Red Hat's fixed kernels shipped 1 November 2026, and Oracle's matching advisory was not checked here |
 | Amazon Linux | `sudo dnf upgrade kernel` (AL2023) or `sudo yum update kernel` (AL2) then reboot; AL2023 instances pinned to a release need version 2023.12.20261102 or later |
 | Arch | `sudo pacman -Syu linux` then reboot |
 | Containers | Containers share the host kernel, so patch the node, not the image: a container cannot be patched for a kernel CVE. Cordon and drain the node, patch and reboot it, then uncordon |
 | Managed Kubernetes | Roll node groups to a patched node image: EKS to a patched AL2023 AMI, GKE and AKS to a patched node image, draining nodes as they cycle |
 | MPTCP mitigation | Find listeners with `ss` and check `sysctl net.mptcp.enabled`; disabling MPTCP removes the reported remote-code-execution path but leaves the plain-TCP crash-and-corruption path, so it is a severity reduction, not a fix |
-| Network mitigation | As a bridge, drop inbound IPv4 TCP packets carrying IP options at the host or edge (for example an nftables rule), after testing against legitimate traffic; it is not a substitute for patching |
+| Network mitigation | As a bridge, drop inbound IPv4 TCP packets carrying IP options at the host or edge (for example an nftables rule), after testing against legitimate traffic. Red Hat says its rule reduces exposure but cannot fully prevent exploitation and is not persistent across reboots; it is not a substitute for patching |
 
 ### Two operational traps
 
 First, a kernel fix is not live until the host reboots into the new kernel, so "package updated" is not the same as "no longer vulnerable" for a box that has not been restarted. For fleets that cannot reboot immediately, kernel live-patching (such as the live-patch services the major distributions offer) can close some classes of flaw without a reboot, but live-patch coverage for any given CVE varies and should be confirmed with the vendor rather than assumed; it is a way to buy time, not a replacement for the eventual reboot.
 
-Second, the common temporary mitigation, an nftables rule dropping inbound IPv4 TCP packets that carry IP options, is explicitly a bridge, not a fix: Red Hat and others say it does not replace patching, it needs testing against legitimate traffic (some networks use IP options), and on OpenShift nodes it covers only the host network namespace, not pod-to-pod traffic. Disabling Multipath TCP removes the reported remote-code-execution path but leaves the plain IPv4 TCP crash-and-corruption path reachable, so it reduces severity without closing the hole.
+Second, the common temporary mitigation, an nftables rule dropping inbound IPv4 TCP packets that carry IP options, is explicitly a bridge, not a fix: Red Hat and others say it does not replace patching, Red Hat says it reduces exposure but cannot fully prevent exploitation and is not persistent, it needs testing against legitimate traffic (some networks use IP options), and on OpenShift nodes it covers only the host network namespace, not pod-to-pod traffic. Disabling Multipath TCP removes the reported remote-code-execution path but leaves the plain IPv4 TCP crash-and-corruption path reachable, so it reduces severity without closing the hole.
 
 ### Detection and hunting
 
@@ -181,7 +198,7 @@ Because there is no reported in-the-wild activity, detection here is mostly abou
 
 Three short checks tell you where a Linux host stands on CVE-2026-98432: whether the running kernel carries the fix, whether Multipath TCP is in a state that adds the reported remote-code-execution path, and whether an IPv4 TCP listener is reachable at all. Every command in the three checks only reads state; none of them changes the host. Run them in order, because the answer to the first decides how much the other two matter.
 
-The screenshots were captured on a lab host running Kali 2026.2 with kernel 7.1.5 on 3 November 2026. That host was unpatched on that date and no fixed package was available for it yet, so it works through the case of "vulnerable, no fix path, mitigate and watch." Each screenshot is a rendering of the commands' real output with a neutral prompt. Two lines are reshaped for the image: the long `/proc/version` line is wrapped onto two lines, and the `nstat` listing in Check 2 shows its first six counters and then a summary line in place of the remaining 70 (all of them 0). The fixed versions are **Confirmed** from the Debian security tracker and kernel.org as opened on 3 November 2026; the lab readings are the measured output of one host on one date.
+The screenshots were captured on a lab host running Kali 2026.2 with kernel 7.1.5 on 3 November 2026. That host was unpatched on that date and no fixed package was available for it yet, so it works through the case of "vulnerable, no fix path, mitigate and watch." Each screenshot is a rendering of the commands' real output with a neutral prompt. Two lines are reshaped for the image: the long `/proc/version` line is wrapped onto two lines, and the `nstat` listing in Check 2 shows its first six counters and then a summary line in place of the remaining 70 (all of them 0). The fixed versions are **Confirmed** from the Debian security tracker and kernel.org as opened on 3 November 2026, and from the kernel CVE record as opened on 4 November 2026; the lab readings are the measured output of one host on one date.
 
 ### Check 1: the running kernel and its package
 
@@ -193,7 +210,7 @@ apt-cache policy linux-image-amd64
 
 ![Terminal output on the lab host: uname -r prints 7.1.5+kali-amd64, /proc/version (wrapped onto two lines) ends with the Kali 7.1.5-1kali1 kernel build of 2026-07-29, and apt-cache policy for linux-image-amd64 shows Installed and Candidate both at 7.1.5-1kali1 from the kali-rolling repository](assets/check-1-kernel.png)
 
-`uname -r` names the kernel that is running now, which is the one that matters. The end of `/proc/version` carries the distribution's package version for that build (`Kali 7.1.5-1kali1 (2026-07-29)` on the lab host), which is the number to compare against an advisory. `apt-cache policy` shows the kernel package that is installed and the newest one the configured repositories offer (the Candidate). On RPM-based distributions the per-platform table above gives the equivalent commands.
+`uname -r` names the kernel that is running now, which is the one that matters. The end of `/proc/version` carries the distribution's package version for that build (`Kali 7.1.5-1kali1 (2026-07-29)` on the lab host), which is the number to compare against an advisory. On a kernel built from upstream stable sources, compare the `uname -r` version with its branch's row in [the per-branch fixed-versions table](/case-studies/LINUX_TCP_UAF_2026.md#the-fix); a distribution kernel is compared by its package version instead. `apt-cache policy` shows the kernel package that is installed and the newest one the configured repositories offer (the Candidate). On RPM-based distributions the per-platform table above gives the equivalent commands.
 
 Compare the package version with the fixed versions for your release. For Debian, the security tracker lists these:
 
@@ -204,7 +221,7 @@ Compare the package version with the fixed versions for your release. For Debian
 | 13 (trixie) | `linux` | 6.12.113-1 | DSA-6568-1 |
 | unstable (sid) | `linux` | 7.2.10-1 | none listed |
 
-The tracker gives the upstream fix as commit `e3f33b0a1d89d738e2b913dab519226eaf76e15b`, noted against 7.3-rc7. The kernel.org release list on 3 November 2026 showed mainline 7.4-rc1, stable 7.3.1, 7.2.15 marked end of life, and the longterm series 6.18, 6.12, 6.6, 6.1, 5.15 and 5.10. No 7.1 series appears on it, so there is no upstream 7.1 stable branch to carry a backport: a host on a 7.1.x kernel reaches the fix by moving to a kernel from a newer series.
+The tracker gives the upstream fix as commit `e3f33b0a1d89d738e2b913dab519226eaf76e15b`, noted against 7.3-rc7. Its 6.1.190 and 6.12.113 agree with the kernel CVE record's rows for the 6.1 and 6.12 branches. The kernel.org release list on 3 November 2026 showed mainline 7.4-rc1, stable 7.3.1, 7.2.15 marked end of life, and the longterm series 6.18, 6.12, 6.6, 6.1, 5.15 and 5.10. No 7.1 series appears on it, so there is no upstream 7.1 stable branch to carry a backport: a host on a 7.1.x kernel reaches the fix by moving to a kernel from a newer series.
 
 - **What vulnerable looks like:** the running package version is below the fixed version for your release, or the kernel belongs to a series that no longer receives fixes. If Installed and Candidate are the same and both are below the fix, no fixed kernel is available from your configured repositories yet. The lab host shows exactly this: Installed and Candidate are both `7.1.5-1kali1`, a 7.1 build with no newer package on offer.
 - **What fixed looks like:** the version at the end of `/proc/version` is at or above your release's fixed version (on Debian 13, `6.12.113-1` or later), and `uname -r` after a reboot names that kernel. A Candidate above Installed means the fix is waiting to be installed: install it and reboot (see After patching below).
@@ -319,14 +336,15 @@ The program move is to carry all three signals and let them combine, which is th
 
 ## Sources
 
-- The Linux kernel CVE record for CVE-2026-98432 and the GitHub Advisory Database entry GHSA-qp6h-4hvh-qqqc, including the root-cause description, the `kfree_rcu` fix, the CVSS 9.8 vector, the EPSS figure, and the IPv6 note.
-- Red Hat's vulnerability page and security bulletin RHSB-2026-016 for CVE-2026-98432, for the Critical rating, the affected Red Hat Enterprise Linux and OpenShift versions, the "requires precise heap control" statement, and the nftables mitigation guidance.
+- The kernel CVE team's record for CVE-2026-98432 in the kernel.org vulns repository ([CVE-2026-98432.mbox](https://kernel.googlesource.com/pub/scm/linux/security/vulns/+/refs/heads/master/cve/published/2026/CVE-2026-98432.mbox)), opened 4 November 2026, and the GitHub Advisory Database entry GHSA-qp6h-4hvh-qqqc, including the root-cause description, the `kfree_rcu` fix, the CVSS 9.8 vector, the statement that the issue was introduced in 4.4 with commit `079096f103fa`, the fixed release and commit on each stable branch, the EPSS figure, and the IPv6 note.
+- Red Hat's [vulnerability page for CVE-2026-98432](https://access.redhat.com/security/cve/cve-2026-98432), opened 4 November 2026, and security bulletin RHSB-2026-016, for the Critical rating, the affected Red Hat Enterprise Linux and OpenShift versions, the "requires precise heap control" statement, the nftables mitigation guidance, the fixed errata and their dates (RHSA-2026:93412 to 93415 on 1 November 2026; RHSA-2026:94109, 94303, 94438, 94477, 94508, 94558 and 94623 on 2 to 3 November), the fixed RHEL 8, 9 and 10 kernel versions, RHEL 6 and 7 not affected, and the OpenShift RHCOS images and RHEL 9 kernel-rt still listed Affected.
 - The AWS security bulletin for CVE-2026-98432, for the affected-version range, the Multipath TCP remote-code-execution statement, its statement that there was no evidence of exploitation in the wild, and the Amazon Linux fix status.
 - Distribution advisories from Debian, SUSE, Oracle, AlmaLinux, Rocky Linux and Ubuntu, and vendor trackers, for the patch-status matrix.
-- Anthropic's Frontier Red Team research post, "Discovering and exploiting vulnerabilities in critical, real-world software with Claude," for the exploit claim, the model description, the timing figures, the coordinated-disclosure framing, and the earlier preview-model assessment of multi-vulnerability chaining; the exploit, kernel version and configuration were not published, and the claim was not independently reproduced as of this writing.
+- Anthropic's Frontier Red Team research post, "[Discovering and exploiting vulnerabilities in critical, real-world software with Claude](https://www.anthropic.com/research/discovering-vulnerabilities-with-claude)," dated 27 October 2026 on the page and opened 4 November 2026, for the exploit claim, the contributor list that includes Xinyang Ge, the model description, the timing figures, the coordinated-disclosure framing, and the earlier preview-model assessment of multi-vulnerability chaining; the exploit, kernel version and configuration were not published, and the claim was not independently reproduced as of this writing.
+- The upstream fix commit [e3f33b0a1d89](https://github.com/torvalds/linux/commit/e3f33b0a1d89d738e2b913dab519226eaf76e15b) ("ipv4: free inet_opt and ireq_opt after an RCU grace period", on the GitHub mirror of the mainline tree), opened 4 November 2026, for the authored date (1 October 2026) and merge date (5 October 2026), the one-line `kfree_rcu` change in each of `net/ipv4/af_inet.c` and `net/ipv4/tcp_ipv4.c`, the two Fixes trailers (`079096f103fa` and `c905dee62232`), the reviewer, and the Reported-by trailer crediting Xinyang Ge.
 - The Debian security tracker entry for [CVE-2026-98432](https://security-tracker.debian.org/tracker/CVE-2026-98432), opened 3 November 2026, for the fixed versions per Debian release (bookworm `linux` 6.1.190-1 via DLA-4841-1, bookworm `linux-6.12` 6.12.113-1~deb12u1 via DLA-4850-1, trixie `linux` 6.12.113-1 via DSA-6568-1, and unstable `linux` 7.2.10-1), the upstream fix commit `e3f33b0a1d89d738e2b913dab519226eaf76e15b` noted against 7.3-rc7, and the kernel's description of the fix, including the note that IPv6 is not affected by the primary issue.
 - The kernel.org release list ([releases.json](https://www.kernel.org/releases.json)), opened 3 November 2026, for the maintained series on that date: mainline 7.4-rc1, stable 7.3.1, 7.2.15 marked end of life, and longterm 6.18, 6.12, 6.6, 6.1, 5.15 and 5.10, with no 7.1 series listed.
-- Red Hat security bulletin RHSB-2026-016, reopened 3 November 2026, for the `cve_2026_98432` nftables table and its check, load, list and delete commands, the conditions attached to it (not a substitute for patching, test first, not persistent, host network namespace only on OpenShift), and its statements that disabling MPTCP governs only sockets created afterwards, that MPTCP is disabled in the default Red Hat Enterprise Linux configuration, and that a result with no MPTCP listeners is informational rather than reassurance.
+- Red Hat security bulletin [RHSB-2026-016](https://access.redhat.com/security/vulnerabilities/RHSB-2026-016), reopened 3 November 2026 and again 4 November 2026 (updated 3 November 2026, status Ongoing), for its statement that the nftables table reduces exposure but cannot fully prevent exploitation, its note that OpenShift guidance was still in preparation, the `cve_2026_98432` nftables table and its check, load, list and delete commands, the conditions attached to it (not a substitute for patching, test first, not persistent, host network namespace only on OpenShift), and its statements that disabling MPTCP governs only sockets created afterwards, that MPTCP is disabled in the default Red Hat Enterprise Linux configuration, and that a result with no MPTCP listeners is informational rather than reassurance.
 - The nftables wiki [quick reference](https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes), for the `ip hdrlength` match and the hook priority values, and [RFC 791](https://www.rfc-editor.org/rfc/rfc791), for the IPv4 header length field (IHL, counted in 32-bit words, minimum 5).
 - The iproute2 source for `ss` ([misc/ss.c](https://github.com/iproute2/iproute2/blob/main/misc/ss.c)) and the Linux kernel's IPv6 TCP code ([net/ipv6/tcp_ipv6.c](https://github.com/torvalds/linux/blob/master/net/ipv6/tcp_ipv6.c)), both opened 3 November 2026: `inet_addr_print` prints an IPv6 any-address listener as `*` unless the socket is IPv6-only, in which case it prints `[::]`, and `tcp_v6_conn_request` and `tcp_v6_syn_recv_sock` hand IPv4 packets arriving on an IPv6 socket to `tcp_v4_conn_request` and `tcp_v4_syn_recv_sock`.
 - Command output captured on a lab host running Kali 2026.2 with kernel 7.1.5 on 3 November 2026, for the three screenshots and the lab readings in How to check your own host.

@@ -49,11 +49,11 @@
     },
     {
       "name": "techniques_scored",
-      "value": "123"
+      "value": "124"
     },
     {
       "name": "technique_tactic_entries",
-      "value": "149"
+      "value": "150"
     },
     {
       "name": "score_meaning",
@@ -632,6 +632,12 @@
       "tactic": "stealth",
       "score": 100,
       "comment": "Recorded by ATT&CK v20.0 for APT41 (G0096 or its attributed campaigns C0017 and C0040). Study source 1."
+    },
+    {
+      "techniqueID": "T1480",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Stated in a primary source's own ATT&CK table: Zscaler ThreatLabz, DodgeBox, 2024-07-10. Study source 53."
     },
     {
       "techniqueID": "T1480.001",

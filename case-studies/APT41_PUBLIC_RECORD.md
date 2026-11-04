@@ -522,13 +522,14 @@ Across the 102 group-page IDs, counting each technique once per tactic it serves
 
 ### Enterprise techniques stated by vendor and government primaries
 
-These IDs appear in a primary source's own ATT&CK table but not in ATT&CK's APT41 record. Zscaler's DodgeBox table also lists `T1480.001`, `T1574.002` (now `T1574.001`) and `T1562.001` (now `T1685`), which ATT&CK already records (**Confirmed** [53] [77]). IMDA's `T1055.009` is left out here for the reason given in Part 6.
+These IDs appear in a primary source's own ATT&CK table but not in ATT&CK's APT41 record. Zscaler's DodgeBox table also lists `T1027`, `T1480.001`, `T1574.002` (now `T1574.001`) and `T1562.001` (now `T1685`), which ATT&CK already records (**Confirmed** [53] [77]). IMDA's `T1055.009` is left out here for the reason given in Part 6.
 
 | ID | Technique | Tactic (v20) | Stated by (report, date) | Sources |
 |---|---|---|---|---|
 | [`T1027.007`](/mitre/techniques/T1027-007.md) | Obfuscated Files or Information: Dynamic API Resolution | Stealth | Zscaler ThreatLabz, DodgeBox, 2024-07-10 (APT41/Earth Baku, medium confidence) | [53] |
 | [`T1620`](/mitre/techniques/T1620.md) | Reflective Code Loading | Stealth | Zscaler ThreatLabz, DodgeBox, 2024-07-10 | [53] |
 | [`T1106`](/mitre/techniques/T1106.md) | Native API | Execution | Zscaler ThreatLabz, DodgeBox, 2024-07-10 | [53] |
+| [`T1480`](/mitre/techniques/T1480.md) | Execution Guardrails | Stealth | Zscaler ThreatLabz, DodgeBox, 2024-07-10 | [53] |
 | [`T1574.014`](/mitre/techniques/T1574-014.md) | Hijack Execution Flow: AppDomainManager | Stealth, Execution | Check Point Research, Silver Dragon, 2026-03-03 (likely within the APT41 umbrella) | [56] |
 | [`T1566.002`](/mitre/techniques/T1566-002.md) | Phishing: Spearphishing Link | Initial Access | Singapore IMDA advisory, Annex B, summarizing the GTIG report of 2025-05-28 | [72] |
 | [`T1204.002`](/mitre/techniques/T1204-002.md) | User Execution: Malicious File | Execution | Singapore IMDA advisory, Annex B | [72] |
@@ -579,16 +580,18 @@ The library's Enterprise group and campaign files held 178 groups and 57 campaig
 
 ### CWE and CAPEC
 
-CWE IDs come from NVD for each exploited CVE (Part 4). CAPEC IDs come from the library's own data: `data/weaknesses/cwe.jsonl` for weakness-to-pattern links, and the `capec` field of `data/attack/technique_profiles.jsonl` for technique-to-pattern links (**Confirmed** [76] [77]). The broad classes CWE-20 (Improper Input Validation) and CWE-400 (Uncontrolled Resource Consumption) are not expanded, because their pattern lists say nothing specific about these flaws. See the [CWE Reference](/CWE_REFERENCE.md) and [CAPEC Reference](/CAPEC_REFERENCE.md) for the frameworks.
+CWE IDs come from Part 4: the NVD record for each exploited CVE, or the CWE field of the KEV catalog where Part 4 marks it as a KEV field (CWE-22 for CVE-2019-3396, CWE-918, CWE-94 and CWE-119) (**Confirmed** [75] [76]). CAPEC IDs come from the library's own data: `data/weaknesses/cwe.jsonl` for weakness-to-pattern links, and the `capec` field of `data/attack/technique_profiles.jsonl` for technique-to-pattern links (**Confirmed** [76] [77]). The broad classes CWE-20 (Improper Input Validation), CWE-400 (Uncontrolled Resource Consumption) and CWE-119 (Improper Restriction of Operations within the Bounds of a Memory Buffer) are not expanded, because their pattern lists say nothing specific about these flaws. CWE-399, the KEV field for CVE-2015-1641, is a CWE category rather than a weakness and is not in the library's weakness data, so it has no pattern links. See the [CWE Reference](/CWE_REFERENCE.md) and [CAPEC Reference](/CAPEC_REFERENCE.md) for the frameworks.
 
 | Weakness | CVEs in this record | CAPEC patterns linked in the library data |
 |---|---|---|
 | CWE-22 Path Traversal | CVE-2019-19781, CVE-2019-11510, CVE-2019-16278 (and CVE-2019-3396 per KEV) | [CAPEC-126](/mitre/capec/CAPEC-126.md) Path Traversal; [CAPEC-64](/mitre/capec/CAPEC-64.md); [CAPEC-76](/mitre/capec/CAPEC-76.md); [CAPEC-78](/mitre/capec/CAPEC-78.md); [CAPEC-79](/mitre/capec/CAPEC-79.md) |
 | CWE-78 OS Command Injection | CVE-2019-16920, CVE-2019-1652 | [CAPEC-88](/mitre/capec/CAPEC-88.md) OS Command Injection; [CAPEC-6](/mitre/capec/CAPEC-6.md); [CAPEC-15](/mitre/capec/CAPEC-15.md); [CAPEC-43](/mitre/capec/CAPEC-43.md); [CAPEC-108](/mitre/capec/CAPEC-108.md) |
+| CWE-94 Improper Control of Generation of Code (Code Injection) | CVE-2012-0158 (KEV field) | [CAPEC-242](/mitre/capec/CAPEC-242.md) Code Injection; [CAPEC-35](/mitre/capec/CAPEC-35.md); [CAPEC-77](/mitre/capec/CAPEC-77.md) |
 | CWE-502 Deserialization of Untrusted Data | CVE-2020-10189, CVE-2021-44228 | [CAPEC-586](/mitre/capec/CAPEC-586.md) Object Injection |
 | CWE-798 Use of Hard-coded Credentials | CVE-2021-44207 | [CAPEC-191](/mitre/capec/CAPEC-191.md) Read Sensitive Constants Within an Executable; [CAPEC-70](/mitre/capec/CAPEC-70.md) Try Common or Default Usernames and Passwords |
 | CWE-918 Server-Side Request Forgery | CVE-2021-26855 (KEV field) | [CAPEC-664](/mitre/capec/CAPEC-664.md) Server Side Request Forgery |
 | CWE-917 Expression Language Injection | CVE-2021-44228 | None in the library data |
+| CWE-119 Improper Restriction of Operations within the Bounds of a Memory Buffer | CVE-2017-11882 (KEV field) | A broad class with 12 linked patterns, not expanded; see [CWE Reference](/CWE_REFERENCE.md) |
 | CWE-284 Improper Access Control | CVE-2019-1653 | A broad class; see [CWE Reference](/CWE_REFERENCE.md) |
 
 | Technique (APT41 use) | CAPEC patterns linked in the library data |

@@ -61,6 +61,8 @@ An adversary may try certain common or default usernames and passwords to gain a
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [Industrial Control System Attacks and Advisories, 2024 to 2026: Incidents, CVEs and Attribution](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md)
+- [Stuxnet: The Case Study](/case-studies/STUXNET.md)
 
 <!-- library-refs:end -->
 

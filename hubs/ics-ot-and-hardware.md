@@ -42,5 +42,7 @@ Part of the [domain hubs](/hubs/README.md). 9 reference documents in this domain
 ## See also
 
 - [SDR and RF security](/SDR_RF_SECURITY_REFERENCE.md)
+- [ICS attacks and advisories, 2024 to 2026: a case study](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md)
+- [Stuxnet: the case study](/case-studies/STUXNET.md)
 
 <!-- hub:end -->

@@ -10,7 +10,7 @@
     "A hub's 'home' links are the three shown on its card under 'Browse by domain' in HOME.md;",
     "each must be one of the hub's references or 'see_also' pages. A hub's 'pages' are the platform",
     "and developer reference pages that go with it (platforms/, languages/, paradigms/, frameworks/,",
-    "commands/, formats/, databases/ and ai-tooling/); every hub lists at least one."
+    "commands/, formats/, databases/, operating-systems/ and ai-tooling/); every hub lists at least one."
   ],
   "library_header": [
     ["Home", "/"],
@@ -114,7 +114,8 @@
     {"folder": "commands", "label": "Command reference", "landing": "commands/README.md"},
     {"folder": "formats", "label": "Data formats", "landing": "formats/README.md"},
     {"folder": "databases", "label": "Databases", "landing": "databases/README.md"},
-    {"folder": "platforms", "label": "Security platforms", "landing": "platforms/README.md"}
+    {"folder": "platforms", "label": "Security platforms", "landing": "platforms/README.md"},
+    {"folder": "operating-systems", "label": "Operating systems", "landing": "operating-systems/README.md"}
   ],
   "crumb_parents": {
     "guides/": ["How-to guides", "/guides/README.md"],
@@ -134,7 +135,8 @@
     "commands/": ["Command reference", "/commands/README.md"],
     "formats/": ["Data formats", "/formats/README.md"],
     "databases/": ["Databases", "/databases/README.md"],
-    "platforms/": ["Security platforms", "/platforms/README.md"]
+    "platforms/": ["Security platforms", "/platforms/README.md"],
+    "operating-systems/": ["Operating systems", "/operating-systems/README.md"]
   },
   "not_in_nav": {
     "README.md": "The GitHub front door. On the site, HOME.md is the homepage at '/' and covers the same ground."
@@ -287,7 +289,7 @@
       ],
       "paths": ["mobile-security", "security-architecture"],
       "guides": ["HARDEN_A_WINDOWS_BASELINE", "HARDEN_A_LINUX_HOST", "HARDEN_A_MACOS_FLEET"],
-      "pages": ["/commands/linux-commands.md", "/commands/systemctl.md", "/commands/macos-commands.md", "/commands/powershell-commands.md", "/commands/windows-cmd.md", "/platforms/tanium.md", "/platforms/microsoft-defender.md"],
+      "pages": ["/operating-systems/README.md", "/commands/linux-commands.md", "/commands/systemctl.md", "/commands/macos-commands.md", "/commands/powershell-commands.md", "/commands/windows-cmd.md", "/platforms/tanium.md", "/platforms/microsoft-defender.md"],
       "see_also": [
         ["Endpoint security", "/ENDPOINT_SECURITY_REFERENCE.md"],
         ["Active Directory security", "/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md"]

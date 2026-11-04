@@ -6,10 +6,12 @@ for hard-coded numbers that must match stats.json and exit non-zero on divergenc
 The point of this script (audit Wave 0): headline numbers stop being typed by hand.
 Run it after any data change; CI runs --check to fail the build on drift.
 
-It also writes the "What's inside" counts in README.md (a table) and in HOME.md (the
-site homepage's count cards), each between the markers `<!-- stats:start ... -->` and
-`<!-- stats:end -->`. --check fails when either block differs from what the current
-files produce, so the front-door counts cannot drift.
+It also writes the "What's inside" table in README.md and in HOME.md (the site
+homepage), each between the markers `<!-- stats:start ... -->` and `<!-- stats:end -->`.
+The table has three columns, What | Contents | Start at, from FRONT_DOOR below, and no
+count column: the owner asked for no counts on the front door, so the two blocks carry
+no number. --check fails when either block differs from what the script writes. The
+counts are still computed for stats.json and the documents that quote them.
 
 Inline counts: any hand-written page may hold one computed number as
 `<!-- stat-KEY:start -->N<!-- stat-KEY:end -->`, where KEY is a stats.json key. The
@@ -257,42 +259,42 @@ def check(stats):
 
 BLOCK_RE = re.compile(r"(<!-- stats:start[^>]*-->\n)(.*?)(<!-- stats:end -->)", re.S)
 
-# The front-door counts: (label, what it holds, stats key, README link, site route).
-# Wording lives here so the numbers and the nouns they count change together, and the
-# README table and the HOME cards say the same thing.
+# The front door's "What's inside" rows: (label, what it holds, start-at text, README link,
+# site route). Wording lives here so the README table and the HOME table say the same thing.
+# No counts: the owner asked for none on the front door.
 FRONT_DOOR = [
     ("Reference documents", "One topic each: its terms, tooling, and the frameworks and guidance that apply",
-     "reference_docs", "[Reference index](INDEX.md)", "#/INDEX"),
+     "Reference index", "INDEX.md", "#/INDEX"),
     ("How-to guides", "One task, step by step, with the time it takes, what you need, and what you produce",
-     "guides", "[Guides](guides/README.md)", "#/guides/README"),
+     "Guides", "guides/README.md", "#/guides/README"),
     ("Learning paths", "An order of study for one discipline, with training, tools, books, and certifications",
-     "learning_paths", "[Learning paths](disciplines/README.md)", "#/disciplines/README"),
+     "Learning paths", "disciplines/README.md", "#/disciplines/README"),
     # Only the families that have pages under mitre/: Enterprise ATT&CK (not ICS or Mobile,
     # whose data has no pages), ATLAS techniques and mitigations, and F3 techniques.
     ("Framework pages", "One page per Enterprise ATT&CK technique, tactic, group, software entry, campaign, "
      "and mitigation, CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, "
      "and F3 technique",
-     "framework_pages", "[Framework pages](mitre/README.md)", "#/mitre/README"),
+     "Framework pages", "mitre/README.md", "#/mitre/README"),
     ("Developer reference pages", "One page per programming language, paradigm, software framework, "
      "command-line tool, data format, and database engine",
-     "developer_reference_pages", "[Languages](languages/README.md)", "#/languages/README"),
+     "Languages", "languages/README.md", "#/languages/README"),
     ("Security platform pages", "One page per vendor platform a security program runs on, from endpoint "
      "and exposure management to identity, cloud, OT, and backup",
-     "platform_pages", "[Security platforms](platforms/README.md)", "#/platforms/README"),
+     "Security platforms", "platforms/README.md", "#/platforms/README"),
     ("AI tooling pages", "AI tools and models in groups, a one-page manual for each tool, a learning path, "
      "and hands-on labs",
-     "ai_tooling_pages", "[AI tooling](ai-tooling/README.md)", "#/ai-tooling/README"),
+     "AI tooling", "ai-tooling/README.md", "#/ai-tooling/README"),
     ("Case studies", "Evidence-graded studies of how the threat landscape is changing, written from primary "
      "sources, with figures and PDF downloads",
-     "case_studies", "[Case studies](case-studies/README.md)", "#/case-studies/README"),
+     "Case studies", "case-studies/README.md", "#/case-studies/README"),
 ]
 
 
 def readme_block(stats):
-    """The README "What's inside" table."""
-    out = ["| What | Count | Contents | Start at |", "|---|---:|---|---|"]
-    for name, what, key, link, _route in FRONT_DOOR:
-        out.append(f"| {name} | {stats[key]:,} | {what} | {link} |")
+    """The README "What's inside" table: What | Contents | Start at, no counts."""
+    out = ["| What | Contents | Start at |", "|---|---|---|"]
+    for name, what, start, path, _route in FRONT_DOOR:
+        out.append(f"| {name} | {what} | [{start}]({path}) |")
     return "\n".join(out) + "\n"
 
 
@@ -301,15 +303,16 @@ def _html(s):
 
 
 def home_block(stats):
-    """The site homepage's "What's inside" cards (HOME.md): one raw-HTML block with no
-    blank line, so docsify and GitHub both keep it as a single HTML block. The spaces
-    between the spans keep the text readable on github.com, which drops the classes."""
-    out = ['<div class="tsw-counts">']
-    for name, what, key, _link, route in FRONT_DOOR:
-        out.append(f'  <a class="tsw-count" href="{route}"><span class="tsw-count-n">{stats[key]:,}</span> '
-                   f'<span class="tsw-count-l">{_html(name)}</span> '
-                   f'<span class="tsw-count-d">{_html(what)}</span></a>')
-    out.append("</div>")
+    """The site homepage's "What's inside" table (HOME.md): the README's rows with site
+    routes, as one raw-HTML table with no blank line, so docsify and GitHub both keep it as
+    a single HTML block. Raw HTML because HOME.md's links are hash routes (#/FOO)."""
+    out = ["<table>",
+           "  <thead><tr><th>What</th><th>Contents</th><th>Start at</th></tr></thead>",
+           "  <tbody>"]
+    for name, what, start, _path, route in FRONT_DOOR:
+        out.append(f'    <tr><td>{_html(name)}</td><td>{_html(what)}</td>'
+                   f'<td><a href="{route}">{_html(start)}</a></td></tr>')
+    out += ["  </tbody>", "</table>"]
     return "\n".join(out) + "\n"
 
 

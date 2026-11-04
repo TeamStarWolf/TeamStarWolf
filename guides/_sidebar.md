@@ -24,6 +24,7 @@
   - [Acquire and Triage a Compromised Endpoint](/guides/ACQUIRE_AND_TRIAGE_AN_ENDPOINT.md)
   - [Investigate a Cloud Account Compromise](/guides/INVESTIGATE_A_CLOUD_COMPROMISE.md)
   - [Harden a Windows Baseline](/guides/HARDEN_A_WINDOWS_BASELINE.md)
+  - [Harden a Linux Host](/guides/HARDEN_A_LINUX_HOST.md)
   - [Harden a macOS Fleet with mSCP](/guides/HARDEN_A_MACOS_FLEET.md)
   - [Assess Your M365 Tenant with ScubaGear](/guides/ASSESS_M365_WITH_SCUBAGEAR.md)
   - [Harden a Kubernetes Cluster](/guides/HARDEN_A_KUBERNETES_CLUSTER.md)

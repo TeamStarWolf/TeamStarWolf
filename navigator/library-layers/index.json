@@ -66,6 +66,12 @@
     "blurb": "Techniques from eight years of npm supply-chain attacks, from hijacked maintainer accounts and poisoned release workflows to install-time payloads, token theft and exfiltration to code repositories. A curated layer for the npm supply-chain case study."
   },
   {
+    "file": "hugging-face-supply-chain-enterprise.json",
+    "name": "TeamStarWolf - Hugging Face AI Supply Chain (Enterprise)",
+    "description": "Enterprise ATT&CK v20.0 techniques bound in the Hugging Face case study. Score 100: an ATLAS-published ATT&CK reference on a technique ATLAS maps in a Hugging Face case study, or an ATT&CK procedure that names Hugging Face (S9035). Score 50: the study's own inference, labelled Inferred in its comment. Comments carry the study's source numbers.",
+    "blurb": "The Enterprise techniques behind the Hugging Face case study: malicious models, loader exploits, exposed tokens and the July 2026 pipeline intrusion. Score 100 marks a MITRE-published link, 50 the study's labelled inference."
+  },
+  {
     "file": "exchange-marauder-2021.json",
     "name": "TeamStarWolf - Exchange Server Mass Exploitation 2021 (Operation Exchange Marauder) Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified record of the 2021 Exchange Server mass exploitation supports: ProxyLogon and HAFNIUM-era intrusions (Microsoft, Volexity, Mandiant, Rapid7, ATT&CK G0125), follow-on actors on the same bugs (ESET, Microsoft, Talos, Red Canary, ATT&CK G0131), and the ProxyShell era (CISA AA21-321A and later ATT&CK group rows). Ids reported under earlier ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/EXCHANGE_MARAUDER_2021.md. Scores: 100 ties the technique to ProxyLogon exploitation or HAFNIUM-era intrusions, 75 is follow-on actors on the same bugs or the ProxyShell era, 40 is an Inferred or demonstration-only mapping.",

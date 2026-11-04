@@ -88,5 +88,11 @@
     "name": "TeamStarWolf - APT41 Public Record",
     "description": "Curated view of the techniques bound in the TeamStarWolf case study APT41: The Public Record, 2012 to 2026 (case-studies/APT41_PUBLIC_RECORD.md). Not an official MITRE mapping. Score 100: ATT&CK v20.0 records the technique for G0096 APT41 or its attributed campaigns C0017 and C0040. Score 60: a vendor or government primary states the id in its own ATT&CK table (revoked ids normalized through data/attack/superseded_by.jsonl). Score 30: the study's own inference from a dated report. Each comment names the study's source numbers. Campaign C0012 Operation CuckooBees is left out because ATT&CK attributes it to no group.",
     "blurb": "Techniques from the public APT41 record, 2012 to 2026: what ATT&CK records for G0096 and campaigns C0017 and C0040, what vendor and government primaries state, and the study's own labelled inferences. A curated layer for the APT41 case study."
+  },
+  {
+    "file": "ghostcat-cve-2020-1938.json",
+    "name": "TeamStarWolf - Ghostcat CVE-2020-1938 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified CVE-2020-1938 (Ghostcat) record supports: the Apache Tomcat advisory, Chaitin's and CNVD's disclosures, the 2020 scanning reports, the CISA KEV listing, and the TeamStarWolf lab run of 3 November 2026 on Tomcat 9.0.30 against a 9.0.31 control. No CTID mapping exists for this CVE, so every row is the study's own mapping. Each comment names source numbers from case-studies/GHOSTCAT_CVE_2020_1938.md. Scores: 100 is demonstrated in the lab, 75 is reported in the public record, 40 is a defender-side check or a follow-on stage the lab did not run.",
+    "blurb": "Techniques from the Ghostcat record, from the unauthenticated AJP file read the lab demonstrated to the scanning and the follow-on stages it did not run. A curated layer for the Ghostcat CVE-2020-1938 case study."
   }
 ]

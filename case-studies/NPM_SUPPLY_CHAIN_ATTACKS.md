@@ -579,19 +579,19 @@ Sources 1 to 174 were opened on 3 November 2026; source 175 is the lab capture.
 | 21 | Aikido, debug and chalk packages compromised (2025-09-08) | https://www.aikido.dev/blog/npm-debug-and-chalk-packages-compromised | 2026-11-03 | Confirmed |
 | 22 | StepSecurity, @ctrl/tinycolor and 40+ packages compromised (2025-09-15) | https://www.stepsecurity.io/blog/ctrl-tinycolor-and-40-npm-packages-compromised | 2026-11-03 | Confirmed |
 | 23 | CISA alert, widespread supply-chain compromise impacting npm (2025-09-23) | https://www.cisa.gov/news-events/alerts/2025/09/23/widespread-supply-chain-compromise-impacting-npm-ecosystem | 2026-11-03 | Confirmed |
-| 24 | Socket, Contagious Interview, 338 malicious npm packages (2025-10-10) | https://socket.dev/blog/north-korea-contagious-interview-campaign-338-malicious-npm-packages | 2026-11-03 | Confirmed |
+| 24 | Socket, Contagious Interview, 338 malicious npm packages (2025-10-10) | `socket.dev/blog/north-korea-contagious-interview-campaign-338-malicious-npm-packages` (not linked: the host returns 403 to automated link checks) | 2026-11-03 | Confirmed |
 | 25 | AWS Security Blog, Amazon Inspector and the tea.xyz token-farming campaign (2025-11-13) | https://aws.amazon.com/blogs/security/amazon-inspector-detects-over-150000-malicious-packages-linked-to-token-farming-campaign/ | 2026-11-03 | Confirmed |
 | 26 | Wiz, Shai-Hulud 2.0 | https://www.wiz.io/blog/shai-hulud-2-0-ongoing-supply-chain-attack | 2026-11-03 | Confirmed |
 | 27 | Unit 42, npm supply-chain attack | https://unit42.paloaltonetworks.com/npm-supply-chain-attack/ | 2026-11-03 | Confirmed |
 | 28 | Check Point, Shai-Hulud 2.0 (2025-11-25) | https://blog.checkpoint.com/research/shai-hulud-2-0-inside-the-second-coming-the-most-aggressive-npm-supply-chain-attack-of-2025/ | 2026-11-03 | Confirmed |
 | 29 | CERT-FR, CERTFR-2025-ACT-051 (2025-11-27) | https://cert.cyber.gouv.fr/actualite/CERTFR-2025-ACT-051/ | 2026-11-03 | Confirmed |
 | 30 | PostHog, Shai-Hulud post-mortem | https://posthog.com/blog/nov-24-shai-hulud-attack-post-mortem | 2026-11-03 | Confirmed |
-| 31 | Socket, Shai-Hulud strikes again (Maven Central update, 2025-11-25) | https://socket.dev/blog/shai-hulud-strikes-again-v2 | 2026-11-03 | Reported |
+| 31 | Socket, Shai-Hulud strikes again (Maven Central update, 2025-11-25) | `socket.dev/blog/shai-hulud-strikes-again-v2` (not linked: the host returns 403 to automated link checks) | 2026-11-03 | Reported |
 | 32 | Wiz IOC list, shai-hulud-2-packages.csv | https://github.com/wiz-sec-public/wiz-research-iocs/blob/main/reports/shai-hulud-2-packages.csv | 2026-11-03 | Confirmed |
 | 33 | GitHub Advisory GHSA-fw8c-xr5c-95f9 (axios) | https://github.com/advisories/GHSA-fw8c-xr5c-95f9 | 2026-11-03 | Confirmed |
 | 34 | GitHub Advisory GHSA-2x9r-6wxq-hrr7 (plain-crypto-js) | https://github.com/advisories/GHSA-2x9r-6wxq-hrr7 | 2026-11-03 | Confirmed |
 | 35 | axios issue #10636, post-mortem | https://github.com/axios/axios/issues/10636 | 2026-11-03 | Confirmed |
-| 36 | Socket, axios npm package compromised (2026-03-31) | https://socket.dev/blog/axios-npm-package-compromised | 2026-11-03 | Confirmed |
+| 36 | Socket, axios npm package compromised (2026-03-31) | `socket.dev/blog/axios-npm-package-compromised` (not linked: the host returns 403 to automated link checks) | 2026-11-03 | Confirmed |
 | 37 | Datadog indicators of compromise, axios | https://github.com/DataDog/indicators-of-compromise/tree/main/axios-npm-supply-chain-compromise | 2026-11-03 | Confirmed |
 | 38 | Onapsis, SAP CAP Mini Shai-Hulud (2026-04-29) | https://onapsis.com/blog/sap-cap-mini-shai-hulud-supply-chain-attack/ | 2026-11-03 | Confirmed |
 | 39 | GitHub Advisory GHSA-2h7r-x9v2-q52f (@cap-js/sqlite) | https://github.com/advisories/GHSA-2h7r-x9v2-q52f | 2026-11-03 | Confirmed |

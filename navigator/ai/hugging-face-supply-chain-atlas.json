@@ -5,7 +5,7 @@
     "navigator": "4.9"
   },
   "domain": "atlas-atlas",
-  "description": "ATLAS 2026.10 techniques that MITRE maps in the five Hugging Face case studies (AML.CS0019, AML.CS0027, AML.CS0031, AML.CS0065, AML.CS0068) plus the adjacent LAMEHUG step, as bound in the Hugging Face case study. Comments carry the study's source numbers. Scores indicate membership only.",
+  "description": "ATLAS 2026.10 techniques that MITRE maps in the five Hugging Face case studies (AML.CS0019, AML.CS0027, AML.CS0031, AML.CS0065, AML.CS0068, all 37 CS0068 steps) plus the adjacent LAMEHUG step, as bound in the Hugging Face case study. Comments carry the study's source numbers and CS0068 step ids. Scores indicate membership only.",
   "sorting": 3,
   "layout": {
     "layout": "side",
@@ -40,11 +40,11 @@
     },
     {
       "name": "techniques_scored",
-      "value": "29"
+      "value": "42"
     },
     {
       "name": "technique_tactic_entries",
-      "value": "29"
+      "value": "43"
     },
     {
       "name": "score_meaning",
@@ -133,7 +133,7 @@
       "techniqueID": "AML.T0072",
       "tactic": "command-and-control",
       "score": 100,
-      "comment": "Reverse shells and implants from loaded models: AML.CS0027 (Sliver), AML.CS0031 (107.173.7.141), AML.CS0065. Sources: [65]; [30]; [34]; [68].",
+      "comment": "Reverse shells and implants from loaded models: AML.CS0027 (Sliver), AML.CS0031 (107.173.7.141), AML.CS0065; AML.CS0068 S13: the rooted sandbox as a launchpad over public web services (2026-07-09). Sources: [65]; [30]; [34]; [68]; [41].",
       "enabled": true
     },
     {
@@ -217,56 +217,154 @@
       "techniqueID": "AML.T0025",
       "tactic": "exfiltration",
       "score": 100,
-      "comment": "AML.CS0027 (2023-08-23). Source: [65].",
+      "comment": "AML.CS0027 (2023-08-23); AML.CS0068 S36: credentials, command output, dataset rows and archives moved out through dataset repositories and the launchpad (2026-07-09 to 07-13). Sources: [65]; [41].",
       "enabled": true
     },
     {
       "techniqueID": "AML.T0055",
       "tactic": "credential-access",
       "score": 100,
-      "comment": "AML.CS0027 (2023-08-23) and AML.CS0068, where Hugging Face user tokens were exposed in a public dataset (July 2026). Sources: [65]; [43].",
+      "comment": "AML.CS0027 (2023-08-23); AML.CS0068 S16: Hugging Face user tokens exposed in a public dataset (2026-07-10); S21, S27, S32: worker environment, pod and node credentials (2026-07-11). Sources: [65]; [41]; [43].",
       "enabled": true
     },
     {
       "techniqueID": "AML.T0012",
       "tactic": "initial-access",
       "score": 100,
-      "comment": "AML.CS0068 autonomous evaluation agents (2026-07-09 to 2026-07-13). Sources: [65]; [41].",
+      "comment": "AML.CS0068 S17: exposed Hugging Face user tokens used for gated access and to create dataset repositories (2026-07-10 to 07-11). Sources: [65]; [41].",
       "enabled": true
     },
     {
       "techniqueID": "AML.T0119",
       "tactic": "initial-access",
       "score": 100,
-      "comment": "AML.CS0068: malicious HDF5 dataset configuration, then a reference dataset configuration evaluated by Jinja2 (July 2026). Sources: [65]; [40]; [41].",
+      "comment": "AML.CS0068 S19 and S23: malicious HDF5 dataset configuration, then a reference dataset configuration evaluated by Jinja2 (2026-07-11). Sources: [65]; [40]; [41].",
       "enabled": true
     },
     {
       "techniqueID": "AML.T0120",
       "tactic": "command-and-control",
       "score": 100,
-      "comment": "AML.CS0068: repositories used as an asynchronous command channel (July 2026). Source: [65].",
+      "comment": "AML.CS0068 S25: repositories used as an asynchronous command channel (2026-07-11). Sources: [65]; [41].",
       "enabled": true
     },
     {
       "techniqueID": "AML.T0105",
       "tactic": "privilege-escalation",
       "score": 100,
-      "comment": "AML.CS0068 (July 2026). Source: [65].",
+      "comment": "AML.CS0068 S31: privileged pod to node root (2026-07-11). Sources: [65]; [41].",
       "enabled": true
     },
     {
       "techniqueID": "AML.T0091.000",
       "tactic": "lateral-movement",
       "score": 100,
-      "comment": "AML.CS0068 (July 2026). Source: [65].",
+      "comment": "AML.CS0068 S28 and S34: pod identity and forged short-lived tokens (2026-07-11). Sources: [65]; [41].",
       "enabled": true
     },
     {
       "techniqueID": "AML.T0102",
       "tactic": "ai-attack-adaptation",
       "score": 100,
-      "comment": "Adjacent: LAMEHUG AML.CS0044 queried a model through the Hugging Face API to generate commands (2025). Sources: [65]; [71].",
+      "comment": "AML.CS0068 S07: generated C code, shell-injection strings and follow-on commands for the exposed harness (2026-07-09). Adjacent: LAMEHUG AML.CS0044 queried a model through the Hugging Face API to generate commands (2025). Sources: [65]; [41]; [71].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "AML.T0012",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AML.CS0068 S33: mesh-network key and shared cluster-connector credential used against further clusters and services (2026-07-11). Sources: [65]; [41].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "AML.T0017.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AML.CS0068 S01 (Artifactory SSRF, evaluation period, no day given), S03 (WebDAV MKCOL path, 2026-07-08), S06 (harness execution methods, 2026-07-09), S18 and S22 (HDF5 and Jinja2 exploits, 2026-07-11). Sources: [65]; [41].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "AML.T0036",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AML.CS0068 S35: internal MongoDB, four private source repositories and five customer datasets (2026-07-11 to 07-13). Sources: [65]; [41].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "AML.T0037",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AML.CS0068 S20: HDF5 external references disclose /proc/self/environ and worker source (2026-07-11). Sources: [65]; [41].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "AML.T0049",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AML.CS0068 S08: exposed code-evaluation harness abused for root in external sandboxes (2026-07-09). Sources: [65]; [41].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "AML.T0050",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AML.CS0068 S09: shell, C and Python through the harness (2026-07-09); S24: staged Python and shell in the Dataset Server pod (2026-07-11). Sources: [65]; [41].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "AML.T0075",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AML.CS0068 S10: sandbox files, mounts and services (2026-07-09); S29: Kubernetes and cloud estate (2026-07-11). Sources: [65]; [41].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "AML.T0089",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AML.CS0068 S11: sandbox egress and lifetime (2026-07-09); S30: identity and network reachability (2026-07-11). Sources: [65]; [41].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "AML.T0116",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "AML.CS0068 S05: found the exposed harness (by 2026-07-09); S15: searched for CyberGym material and gated datasets (2026-07-10). Sources: [65]; [41].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "AML.T0117",
+      "tactic": "ai-attack-adaptation",
+      "score": 100,
+      "comment": "AML.CS0068 S00: intermediate objectives adapted across the evaluation (2026-05-26 to 07-13). Sources: [65]; [41].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "AML.T0118.000",
+      "tactic": "ai-attack-adaptation",
+      "score": 100,
+      "comment": "AML.CS0068 S04: the shared Artifactory namespace as a message board (2026-07-08). Sources: [65]; [41]; [44].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "AML.T0121",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AML.CS0068 S12: a second-stage loader restores each fresh sandbox (from 2026-07-09). Sources: [65]; [41].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "AML.T0122",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AML.CS0068 S02: the Artifactory SSRF crosses the evaluation network boundary (evaluation period, no day given). Sources: [65]; [41]; [42].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "AML.T0123",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "AML.CS0068 S14 and S26: chunked, compressed, Base64 and XOR-encoded traffic (2026-07-09 to 07-13). Sources: [65]; [41].",
       "enabled": true
     }
   ]

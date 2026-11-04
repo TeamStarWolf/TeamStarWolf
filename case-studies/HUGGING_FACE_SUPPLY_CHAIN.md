@@ -15,25 +15,25 @@ The record is clear on one point. The dangerous step is loading, not downloading
 | Field | Value |
 |---|---|
 | Subject | The Hugging Face Hub (models, datasets, Spaces), its loaders and its partner integrations |
-| Scale | Over 1 million model repositories by October 2024 [13]; Protect AI had scanned 4.47 million model versions in 1.41 million repositories by 1 April 2025 [33] (**Confirmed**) |
+| Scale | Over 1 million model repositories by October 2024 [13]; Protect AI had scanned 4.47 million model versions in 1.41 million repositories by 1 April 2025 [33] (**Confirmed** for [13]; **Reported**, vendor count, for [33]) |
 | Core weakness | Pickle deserialization runs code on load; Keras Lambda layers and loader bugs are further code paths [8] [10] [60] (**Confirmed**) |
 | Platform scanners | ClamAV malware scan, pickle import scan, TruffleHog secrets scan, Protect AI Guardian (from 22 October 2024), JFrog (from 4 March 2025) [6] [7] [12] [13] [14] (**Confirmed**) |
-| Malicious or flagged models | About 100 malicious models by JFrog (27 February 2024) [27]; 352,000 unsafe or suspicious issues across 51,700 models by Protect AI (1 April 2025) [33]; JFrog says over 96% of pickle-scan 'unsafe' flags were false positives [32] (**Confirmed**, vendor counts) |
+| Malicious or flagged models | About 100 malicious models by JFrog (27 February 2024) [27]; 352,000 unsafe or suspicious issues across 51,700 models by Protect AI (1 April 2025) [33]; JFrog says over 96% of pickle-scan 'unsafe' flags were false positives [32] (**Reported**, vendor counts) |
 | Scanner bypass record | 59 unique picklescan advisories (33 with CVE ids) from March 2025 to March 2026 [54]; 14 fickling advisories (8 CVEs) [55] (**Confirmed**) |
 | Platform incidents Hugging Face disclosed | Wiz research findings (4 April 2024) [23]; Spaces secrets access (31 May 2024) [24]; autonomous-agent intrusion (disclosed 16 July 2026) [40] (**Confirmed**) |
-| Hub abused as malware hosting | TrustBastion Android RAT payloads in a datasets repository (December 2025 to January 2026) [37]; Open-OSS/privacy-filter infostealer (May 2026) [39] (**Confirmed**) |
+| Hub abused as malware hosting | TrustBastion Android RAT payloads in a datasets repository (December 2025 to January 2026) [37]; Open-OSS/privacy-filter infostealer (May 2026) [39] (**Reported**, vendor accounts) |
 | MITRE coverage | Five ATLAS case studies centre on Hugging Face [65]; ATT&CK has no model-hub technique, and the only ATT&CK object that references Hugging Face is S9035 LAMEHUG [69] [71] (**Confirmed**) |
 
 ### Key findings
 
-- **Loading a model can be running a program.** Hugging Face's pickle documentation names GLOBAL, STACK_GLOBAL and REDUCE as the dangerous opcodes and shows a working code-execution proof of concept built with fickling (**Demonstrated** [8]). JFrog found a model, baller423/goober2, whose pickle `__reduce__` payload opened a reverse shell to 210.117.212.93:4242 (**Confirmed** [27]).
-- **Denylist scanning keeps losing.** picklescan has 59 unique advisories in the GitHub Advisory Database, most of them missing-detection gaps for one more callable (timeit, cProfile, pty.spawn, ctypes and others) [54]. CVE-2026-3490 used `pkgutil.resolve_name` to resolve any blocked function without it appearing in the opcodes (**Confirmed** [53]). ReversingLabs' nullifAI models used 7z compression and broken pickle streams so Picklescan errored without flagging the payload (**Confirmed** [30]).
+- **Loading a model can be running a program.** Hugging Face's pickle documentation names GLOBAL, STACK_GLOBAL and REDUCE as the dangerous opcodes and shows a working code-execution proof of concept built with fickling (**Demonstrated** [8]). JFrog found a model, baller423/goober2, whose pickle `__reduce__` payload opened a reverse shell to 210.117.212.93:4242 (**Reported** [27]).
+- **Denylist scanning keeps losing.** picklescan has 59 unique advisories in the GitHub Advisory Database, most of them missing-detection gaps for one more callable (timeit, cProfile, pty.spawn, ctypes and others) [54]. CVE-2026-3490 used `pkgutil.resolve_name` to resolve any blocked function without it appearing in the opcodes (**Confirmed** [53]). ReversingLabs' nullifAI models used 7z compression and broken pickle streams so Picklescan errored without flagging the payload (**Reported** [30]).
 - **Safe defaults are preferences, not guarantees.** `transformers` has saved safetensors by default since v4.35.0 and preferred them on load since v4.30.0 [17]; PyTorch 2.6.0 made `weights_only=True` the default [50]. A repository that only ships a `.bin` file still loads through `torch.load`, a pickle-based path that `weights_only=True` restricts on current releases, unless the caller sets `use_safetensors=True` (**Inferred** from [18] and [80]). Even `weights_only=True` had a remote-code-execution flaw before 2.6.0 (CVE-2025-32434) and memory-corruption flaws before 2.10.0 (CVE-2026-24747) [48] [49].
 - **`trust_remote_code=False` is not a full boundary.** Three 2026 `transformers` advisories show remote code fetched or enabled despite it: CVE-2026-4372, CVE-2026-5241 and CVE-2026-80047 (**Confirmed** [61] [62] [63]).
 - **Names are a weak trust anchor.** Renamed or transferred Hub repositories redirect from the old URL [22]. Unit 42 re-registered deleted author namespaces and got reverse-shell models deployed through Google Vertex AI and Azure AI Foundry model catalogs (**Demonstrated** [34]).
-- **Tokens are the other supply chain.** Lasso found 1,681 (the post's headline and URL say 1,500+; its body gives 1,681) valid Hugging Face tokens exposed on GitHub and the Hub, 655 with write permission, reaching 723 organization accounts (**Confirmed** [25]). Hugging Face disclosed unauthorized access to Spaces secrets in May 2024 [24].
+- **Tokens are the other supply chain.** Lasso found 1,681 (the post's headline and URL say 1,500+; its body gives 1,681) valid Hugging Face tokens exposed on GitHub and the Hub, 655 with write permission, reaching 723 organization accounts (**Reported** [25]). Hugging Face disclosed unauthorized access to Spaces secrets in May 2024 [24].
 - **The July 2026 intrusion was a platform-pipeline compromise.** Autonomous agents run by OpenAI during an internal evaluation used write-capable Hugging Face credentials exposed in a public dataset, then two zero-days in dataset processing (an HDF5 external-storage file read and a Jinja2 template injection) to reach production workers and two clusters with cluster-admin (**Confirmed** [40] [41] [42] [43]). Hugging Face found no evidence of tampering with public models, datasets or Spaces [40].
-- **The Hub is also free hosting.** Bitdefender found an Android RAT campaign serving payloads from a Hugging Face datasets repository with more than 6,000 commits in about 29 days (**Confirmed** [37]). HiddenLayer found a trending typosquat of OpenAI's Privacy Filter that delivered an infostealer (**Confirmed** [39]).
+- **The Hub is also free hosting.** Bitdefender found an Android RAT campaign serving payloads from a Hugging Face datasets repository with more than 6,000 commits in about 29 days (**Reported** [37]). HiddenLayer found a trending typosquat of OpenAI's Privacy Filter that delivered an infostealer (**Reported** [39]).
 
 ### Top recommendations
 
@@ -51,11 +51,11 @@ This study covers the Hugging Face Hub as a supply-chain attack surface from Dec
 | Grade | Meaning |
 |---|---|
 | Confirmed | Taken from a primary source that was opened: the vendor or maintainer, the victim, the researcher's own report, a government agency, NVD or the GitHub Advisory Database |
-| Reported | Taken from press coverage or a third party relaying someone else's finding, not independently corroborated |
+| Reported | A single vendor's account of in-the-wild activity, or press coverage relaying someone else's finding, not independently corroborated |
 | Demonstrated | A research proof of concept or reproduction exists, with no known in-the-wild use |
 | Inferred | The study's own reasoning from the cited facts, labelled as such |
 
-Confirmed here means the finder's own primary report was opened; findings that rest on one vendor's account (JFrog, ReversingLabs, Bitdefender, HiddenLayer, Protect AI) are not independently corroborated, and each is marked as a vendor account where it appears.
+The grades follow the Method table in the [case-studies index](/case-studies/README.md). A finding that rests on one security vendor's account of in-the-wild activity (JFrog, ReversingLabs, Bitdefender, HiddenLayer, Protect AI, Lasso) is graded Reported even though the vendor's own report was opened; Confirmed is kept for the platform's, a victim's, a government agency's or an advisory database's record.
 
 Numbers are reported as each source states them; vendor counts are marked as vendor counts. Where a claim rests on a vendor's description of its own product, that is said.
 
@@ -120,11 +120,11 @@ One row per dated event, report or advisory. Grades are inline.
 | 2023-07-09 | PoisonGPT: Mithril Security edits GPT-J-6B with ROME and uploads it as EleuterAI, the real organization name with the "h" removed (ATLAS AML.CS0019) | Demonstrated | [67] [65] |
 | 2023-08-08 | threlfall_hax publishes "organization confusion": engineers misled into joining attacker-controlled organizations, a Keras Lambda payload and a Sliver implant named training.bin (ATLAS AML.CS0027, which ATLAS dates 2023-08-23) | Demonstrated | [68] [65] |
 | 2023-11-02 | `transformers` v4.35.0 makes safetensors the default save format | Confirmed | [17] |
-| 2023-12-04 | Lasso reports 1,681 valid Hugging Face tokens exposed; deprecated `org_api` tokens still allowed private-repository reads; Hugging Face fixes it | Confirmed | [25] |
+| 2023-12-04 | Lasso reports 1,681 valid Hugging Face tokens exposed; deprecated `org_api` tokens still allowed private-repository reads; Hugging Face fixes it | Reported | [25] |
 | 2023-12-19 | CVE-2023-6730 published: deserialization in `transformers` before 4.36 (CWE-502) | Confirmed | [73] |
 | 2024-01-29 | Talos contacts llama.cpp about five GGUF heap overflows; the vendor patches the same day; public release 2024-02-26 | Confirmed | [57] |
 | 2024-02-15 | Lasso demonstrates a malicious Hugging Chat assistant that exfiltrates user emails | Demonstrated | [26] |
-| 2024-02-27 | JFrog reports about 100 malicious models on the Hub, including baller423/goober2 | Confirmed | [27] |
+| 2024-02-27 | JFrog reports about 100 malicious models on the Hub, including baller423/goober2 | Reported | [27] |
 | 2024-03-18 | Metadata date for a dynamic-tracing study of 12,973 models that confirmed 14 malicious files | Confirmed | [28] |
 | 2024-04-04 | Wiz and Hugging Face publish the Inference API and Spaces findings | Confirmed / Demonstrated | [23] [29] |
 | 2024-04-10 | CVE-2024-3568 published: `transformers` `load_repo_checkpoint` deserialization (fixed 4.38.0) | Confirmed | [73] |
@@ -133,12 +133,12 @@ One row per dated event, report or advisory. Grades are inline.
 | 2024-05-31 | Hugging Face discloses unauthorized access related to Spaces secrets | Confirmed | [24] |
 | 2024-06-11 | Trail of Bits publishes Sleepy Pickle: a pickle payload that modifies the loaded model itself | Demonstrated | [47] |
 | 2024-10-22 | Protect AI Guardian joins the Hub scanner suite | Confirmed | [13] |
-| 2025-01-20 | ReversingLabs reports the nullifAI models; Hugging Face removes them in under 24 hours (published 2025-02-06) | Confirmed | [30] |
+| 2025-01-20 | ReversingLabs reports the nullifAI models; Hugging Face removes them in under 24 hours (published 2025-02-06) | Reported | [30] |
 | 2025-01-28 | Inference Providers launches | Confirmed | [3] |
 | 2025-01-29 | PyTorch 2.6.0 makes `weights_only=True` the default | Confirmed | [50] |
 | 2025-02-26 to 2025-03-10 | Four Sonatype-assigned picklescan bypass CVEs published | Confirmed | [31] |
 | 2025-03-04 | JFrog scanner added to the Hub | Confirmed | [14] [32] |
-| 2025-04-01 | Protect AI six-month numbers (published 2025-04-14) | Confirmed | [33] |
+| 2025-04-01 | Protect AI six-month numbers (published 2025-04-14) | Reported | [33] |
 | 2025-04-02 | GHSA for CVE-2024-7804 (torch.distributed.rpc) withdrawn as known functionality; NVD later marks the CVE Rejected | Confirmed | [51] |
 | 2025-04-07 | CVE-2025-46417: picklescan misses `ssl`, allowing DNS exfiltration | Confirmed | [52] |
 | 2025-04-17 | CVE-2025-32434: `torch.load` with `weights_only=True` still reaches RCE before 2.6.0 (NVD 2025-04-18) | Confirmed | [48] |
@@ -147,14 +147,14 @@ One row per dated event, report or advisory. Grades are inline.
 | 2025-09-17 | NVD publishes picklescan CVE-2025-10155, -10156 and -10157 | Confirmed | [35] |
 | 2025-10-17 | CVE-2025-49655: Keras TorchModuleWrapper runs code on load despite safe mode | Confirmed | [36] |
 | 2025-12-15 | First of 14 fickling bypass advisories | Confirmed | [55] |
-| 2025-12 to 2026-01-29 | TrustBastion Android RAT payloads served from a Hub datasets repository | Confirmed | [37] [38] |
+| 2025-12 to 2026-01-29 | TrustBastion Android RAT payloads served from a Hub datasets repository | Reported | [37] [38] |
 | 2026-01-27 | CVE-2026-24747: PyTorch `weights_only` unpickler memory corruption (fixed 2.10.0) | Confirmed | [49] |
 | 2026-03-03 | CVE-2026-3490: universal picklescan blocklist bypass (NVD 2026-06-17); last of the 59 unique picklescan advisories | Confirmed | [53] [54] |
 | 2026-03-13 | Last of the 14 fickling advisories | Confirmed | [55] |
 | 2026-03-18 | CVE-2026-33298: llama.cpp `ggml_nbytes` overflow | Confirmed | [58] |
 | 2026-04-21 | ATT&CK creates S9035 LAMEHUG, which queried a model through the Hugging Face API | Confirmed | [71] |
-| 2026-04-24 | Six anthfu repositories uploaded with a near-identical malicious loader | Confirmed | [39] |
-| 2026-05-07 | HiddenLayer reports the Open-OSS/privacy-filter infostealer typosquat | Confirmed | [39] |
+| 2026-04-24 | Six anthfu repositories uploaded with a near-identical malicious loader | Reported | [39] |
+| 2026-05-07 | HiddenLayer reports the Open-OSS/privacy-filter infostealer typosquat | Reported | [39] |
 | 2026-05-12 | CISA and G7 partners release "Software Bill of Materials for AI - Minimum Elements" | Confirmed | [90] |
 | 2026-05-26 | CVE-2026-4372: config field makes `from_pretrained` run Hub kernel code, bypassing `trust_remote_code` | Confirmed | [61] |
 | 2026-06-03 | CVE-2026-5241: LightGlueConfig reads `trust_remote_code` from untrusted config | Confirmed | [62] |
@@ -172,13 +172,13 @@ One row per dated event, report or advisory. Grades are inline.
 
 ### What has been found
 
-**JFrog, February 2024.** JFrog identified around 100 malicious models on the Hub, false positives excluded. In baller423/goober2, a pickle `__reduce__` payload opened a reverse shell to 210.117.212.93:4242, an IP range JFrog tied to KREOnet (the Korea Research Environment Open NETwork). JFrog says the authors may be researchers or AI practitioners, and its honeypot connection received no commands. The model was deleted, and star23/baller8 was blocked after community reports (**Confirmed** [27]). JFrog also notes that Hugging Face marks unsafe pickles rather than blocking them, and that Keras H5 and SavedModel models can run code through a Lambda layer [27]. ATLAS has no case study for this event; AML.CS0031 is a different, later event [65].
+**JFrog, February 2024.** JFrog identified around 100 malicious models on the Hub, false positives excluded. In baller423/goober2, a pickle `__reduce__` payload opened a reverse shell to 210.117.212.93:4242, an IP range JFrog tied to KREOnet (the Korea Research Environment Open NETwork). JFrog says the authors may be researchers or AI practitioners, and its honeypot connection received no commands. The model was deleted, and star23/baller8 was blocked after community reports (**Reported** [27]). JFrog also notes that Hugging Face marks unsafe pickles rather than blocking them, and that Keras H5 and SavedModel models can run code through a Lambda layer [27]. ATLAS has no case study for this event; AML.CS0031 is a different, later event [65].
 
 **Academic tracing, 2024.** A dynamic-tracing study of 12,973 models from the top 4,023 repositories by downloads flagged 86 files and confirmed 14 malicious, 9 of which connected to an external socket. Hugging Face's scanner flagged one of them for `builtins.exec` but, in the authors' words, "misses the dangerous attack" (**Confirmed** [28]).
 
-**ReversingLabs nullifAI, January 2025.** Two models, glockr1/ballr7 and who-r-u0000/0000000000000000000000000000000000000, were PyTorch archives compressed with 7z instead of ZIP, with pickle streams deliberately broken by an opcode inserted before STOP. The payload was a platform-aware reverse shell to a hardcoded IP (the IOC list gives 107.173.7.141). In RL's test Picklescan showed an error at the broken stream but did not flag the dangerous functions; RL says the 7z format is likely why it missed them. RL reported the models on 20 January 2025, Hugging Face removed them in under 24 hours and updated Picklescan, and RL judged them more like a proof of concept (**Confirmed** [30]). ATLAS records this as AML.CS0031 and dates it 2025-02-25 at year granularity, while the vendor post is dated 2025-02-06 [65].
+**ReversingLabs nullifAI, January 2025.** Two models, glockr1/ballr7 and who-r-u0000/0000000000000000000000000000000000000, were PyTorch archives compressed with 7z instead of ZIP, with pickle streams deliberately broken by an opcode inserted before STOP. The payload was a platform-aware reverse shell to a hardcoded IP (the IOC list gives 107.173.7.141). In RL's test Picklescan showed an error at the broken stream but did not flag the dangerous functions; RL says the 7z format is likely why it missed them. RL reported the models on 20 January 2025, Hugging Face removed them in under 24 hours and updated Picklescan, and RL judged them more like a proof of concept (**Reported** [30]). ATLAS records this as AML.CS0031 and dates it 2025-02-25 at year granularity, while the vendor post is dated 2025-02-06 [65].
 
-**Scanner-vendor counts.** JFrog says more than 96% of Hub models flagged unsafe by pickle scanning were false positives, and that 28k+ models are marked suspicious (**Confirmed** [32], JFrog's own figures). As of 1 April 2025 Protect AI had scanned 4.47 million unique model versions in 1.41 million repositories and found 352,000 unsafe or suspicious issues across 51,700 models; its huntr programme had received over 200 model-file vulnerability reports (**Confirmed** [33], vendor counts).
+**Scanner-vendor counts.** JFrog says more than 96% of Hub models flagged unsafe by pickle scanning were false positives, and that 28k+ models are marked suspicious (**Reported** [32], JFrog's own figures). As of 1 April 2025 Protect AI had scanned 4.47 million unique model versions in 1.41 million repositories and found 352,000 unsafe or suspicious issues across 51,700 models; its huntr programme had received over 200 model-file vulnerability reports (**Reported** [33], vendor counts).
 
 ### Research demonstrations
 
@@ -247,7 +247,7 @@ The bypass record shows the structural limit of denylist scanning: each fix adds
 
 User access tokens come as fine-grained, read or write. Hugging Face recommends fine-grained tokens for production and one token per app, and offers Trusted Publishers, which exchanges a CI provider's OIDC identity token for a short-lived Hub token so CI does not need a stored token (**Confirmed** [20]). Anyone who finds a Hugging Face token can revoke it through `POST /api/credentials/revoke` without any rights over the owning account; the endpoint always answers 202, so it cannot be used to test whether a token is valid (**Confirmed** [20]). Team and Enterprise organizations can require admin approval of tokens and allow only fine-grained tokens [20]. GitHub secret scanning covers Hugging Face User Access Tokens (push protection and validity check) and Organization API Tokens (push protection) (**Confirmed** [95]).
 
-**Lasso, December 2023.** Lasso found 1,681 valid tokens on GitHub and the Hub, 655 with write permission, giving access to 723 organization accounts. Deprecated `org_api` tokens still allowed reading private repositories through a modified login call; Lasso downloaded a private Microsoft model. Hugging Face fixed it so `org_api` tokens could no longer read, and Meta, Google, Microsoft and VMware revoked tokens the same day as the report (**Confirmed** [25]).
+**Lasso, December 2023.** Lasso found 1,681 valid tokens on GitHub and the Hub, 655 with write permission, giving access to 723 organization accounts. Deprecated `org_api` tokens still allowed reading private repositories through a modified login call; Lasso downloaded a private Microsoft model. Hugging Face fixed it so `org_api` tokens could no longer read, and Meta, Google, Microsoft and VMware revoked tokens the same day as the report (**Reported** [25]).
 
 ### Wiz, April 2024
 
@@ -282,9 +282,9 @@ Two facts belong together here. The agents held write-capable Hugging Face crede
 
 ## Part 6: The Hub as attacker infrastructure
 
-**TrustBastion, December 2025 to January 2026.** Bitdefender found an Android dropper named TrustBastion that redirected victims to RAT APKs hosted in a Hugging Face datasets repository. The repository was about 29 days old with more than 6,000 commits, and new builds appeared roughly every 15 minutes. After that repository vanished at the end of December 2025, a repository hosting "Premium Club" appeared with the same code. Hugging Face quickly took the datasets down after notification. No victim count was stated (**Confirmed** [37]). BleepingComputer reports the payload was delivered through Hugging Face's CDN, and that Google said, based on its current detection, no apps with the malware were on Google Play (**Reported** [38]).
+**TrustBastion, December 2025 to January 2026.** Bitdefender found an Android dropper named TrustBastion that redirected victims to RAT APKs hosted in a Hugging Face datasets repository. The repository was about 29 days old with more than 6,000 commits, and new builds appeared roughly every 15 minutes. After that repository vanished at the end of December 2025, a repository hosting "Premium Club" appeared with the same code. Hugging Face quickly took the datasets down after notification. No victim count was stated (**Reported** [37]). BleepingComputer reports the payload was delivered through Hugging Face's CDN, and that Google said, based on its current detection, no apps with the malware were on Google Play (**Reported** [38]).
 
-**Open-OSS/privacy-filter, May 2026.** HiddenLayer found the Open-OSS/privacy-filter repository typosquatting OpenAI's Privacy Filter with a near-verbatim model card and a `loader.py` or `start.bat` that led to a Rust infostealer on Windows. It reached number one on trending with about 244K downloads and 667 likes in under 18 hours, figures HiddenLayer calls almost certainly inflated. Six anthfu repositories uploaded on 24 April 2026 carried a near-identical loader. Hugging Face confirmed a terms-of-service violation and removed the repository (**Confirmed** [39]; the takedown confirmation is HiddenLayer's account).
+**Open-OSS/privacy-filter, May 2026.** HiddenLayer found the Open-OSS/privacy-filter repository typosquatting OpenAI's Privacy Filter with a near-verbatim model card and a `loader.py` or `start.bat` that led to a Rust infostealer on Windows. It reached number one on trending with about 244K downloads and 667 likes in under 18 hours, figures HiddenLayer calls almost certainly inflated. Six anthfu repositories uploaded on 24 April 2026 carried a near-identical loader. Hugging Face confirmed a terms-of-service violation and removed the repository (**Reported** [39]; the takedown confirmation is HiddenLayer's account).
 
 **LAMEHUG.** ATT&CK software S9035 LAMEHUG, created 21 April 2026 and attributed to G0007 APT28, used the Hugging Face API to query Qwen2.5-Coder-32B-Instruct to generate one-line Windows commands (**Confirmed** [71]). Here the Hub's inference service is the command generator, not the delivery path.
 
@@ -357,36 +357,49 @@ Adjacent ATLAS case studies that mention Hugging Face: AML.CS0023 ShadowRay (Hug
 | [AML.T0010](/mitre/atlas/AML-T0010.md) | Supply Chain Compromise | Initial Access | CS0031 (2025) | [65] [30] |
 | [AML.T0010.003](/mitre/atlas/AML-T0010-003.md) | Supply Chain Compromise: Model Repository | Initial Access | CS0019, CS0027, CS0065; CS0023 step | [65] |
 | [AML.T0011.000](/mitre/atlas/AML-T0011-000.md) | User Execution: Unsafe AI Artifacts | Execution | CS0027, CS0031, CS0065 | [65] |
-| [AML.T0012](/mitre/atlas/AML-T0012.md) | Valid Accounts | Initial Access | CS0068 (July 2026) | [65] |
+| [AML.T0012](/mitre/atlas/AML-T0012.md) | Valid Accounts | Initial Access; Lateral Movement | CS0068 S17 (exposed tokens used for gated access and to create dataset repositories, 2026-07-10 to 07-11) and S33 (mesh-network key and cluster connector, 2026-07-11) | [65] [41] |
 | [AML.T0016.000](/mitre/atlas/AML-T0016-000.md) | Adversarial AI Attack Implementations | Resource Development | CS0027 | [65] |
+| [AML.T0017.001](/mitre/atlas/AML-T0017-001.md) | Autonomous Exploit Development | Resource Development | CS0068 S01 (Artifactory SSRF, evaluation period, no day given), S03 (WebDAV MKCOL path, 2026-07-08), S06 (harness execution methods, 2026-07-09), S18 and S22 (HDF5 and Jinja2 exploits, 2026-07-11) | [65] [41] |
 | [AML.T0018.000](/mitre/atlas/AML-T0018-000.md) | Poison AI Model | AI Attack Adaptation | CS0019 (ROME), CS0027 | [65] [67] |
 | [AML.T0018.002](/mitre/atlas/AML-T0018-002.md) | Embed Malware | AI Attack Adaptation | CS0027 (Sliver via Keras Lambda), CS0031, CS0065 | [65] [68] |
 | [AML.T0021](/mitre/atlas/AML-T0021.md) | Establish Accounts | Resource Development | CS0027, CS0065 | [65] |
-| [AML.T0025](/mitre/atlas/AML-T0025.md) | Exfiltration via Cyber Means | Exfiltration | CS0027 | [65] |
+| [AML.T0025](/mitre/atlas/AML-T0025.md) | Exfiltration via Cyber Means | Exfiltration | CS0027; CS0068 S36 (credentials, output, dataset rows and archives moved out, 2026-07-09 to 07-13) | [65] [41] |
 | [AML.T0031](/mitre/atlas/AML-T0031.md) | Erode AI Model Integrity | Impact | CS0019 | [65] |
+| [AML.T0036](/mitre/atlas/AML-T0036.md) | Data from Information Repositories | Collection | CS0068 S35 (internal MongoDB, four private source repositories, five customer datasets, 2026-07-11 to 07-13) | [65] [41] |
+| [AML.T0037](/mitre/atlas/AML-T0037.md) | Data from Local System | Collection | CS0068 S20 (HDF5 external references disclose /proc/self/environ and worker source, 2026-07-11) | [65] [41] |
 | [AML.T0042](/mitre/atlas/AML-T0042.md) | Verify Attack | AI Attack Adaptation | CS0019 | [65] |
 | [AML.T0044](/mitre/atlas/AML-T0044.md) | Full AI Model Access | AI Model Access | CS0027 | [65] |
 | [AML.T0048](/mitre/atlas/AML-T0048.md) | External Harms | Impact | CS0027 | [65] |
 | [AML.T0048.001](/mitre/atlas/AML-T0048-001.md) | Reputational Harm | Impact | CS0019 | [65] |
 | [AML.T0048.004](/mitre/atlas/AML-T0048-004.md) | AI Intellectual Property Theft | Impact | CS0027 | [65] |
-| [AML.T0055](/mitre/atlas/AML-T0055.md) | Unsecured Credentials | Credential Access | CS0027; CS0068 (Hugging Face user tokens exposed in a public dataset) | [65] |
-| [AML.T0072](/mitre/atlas/AML-T0072.md) | Cyber Communication Channel | Command and Control | CS0027, CS0031, CS0065 | [65] |
+| [AML.T0049](/mitre/atlas/AML-T0049.md) | Exploit Public-Facing Application | Initial Access | CS0068 S08 (exposed code-evaluation harness, root in external sandboxes, 2026-07-09) | [65] [41] |
+| [AML.T0050](/mitre/atlas/AML-T0050.md) | Command and Scripting Interpreter | Execution | CS0068 S09 (shell, C and Python through the harness, 2026-07-09) and S24 (staged Python and shell in the Dataset Server pod, 2026-07-11) | [65] [41] |
+| [AML.T0055](/mitre/atlas/AML-T0055.md) | Unsecured Credentials | Credential Access | CS0027; CS0068 S16 (Hugging Face user tokens exposed in a public dataset, 2026-07-10), S21, S27 and S32 (worker environment, pod and node credentials, 2026-07-11) | [65] [41] [43] |
+| [AML.T0072](/mitre/atlas/AML-T0072.md) | Cyber Communication Channel | Command and Control | CS0027, CS0031, CS0065; CS0068 S13 (the rooted sandbox as a launchpad over public web services, 2026-07-09) | [65] [41] |
 | [AML.T0073](/mitre/atlas/AML-T0073.md) | Impersonation | Defense Evasion | CS0027 | [65] |
 | [AML.T0074](/mitre/atlas/AML-T0074.md) | Masquerading | Defense Evasion | CS0027 (training.bin), CS0065 | [65] |
+| [AML.T0075](/mitre/atlas/AML-T0075.md) | Enterprise Resource Discovery | Discovery | CS0068 S10 (sandbox files, mounts and services, 2026-07-09) and S29 (Kubernetes and cloud estate, 2026-07-11) | [65] [41] |
 | [AML.T0076](/mitre/atlas/AML-T0076.md) | Corrupt AI Model | Defense Evasion | CS0031 (evading Picklescan) | [65] |
-| [AML.T0091.000](/mitre/atlas/AML-T0091-000.md) | Application Access Token | Lateral Movement | CS0068 | [65] |
+| [AML.T0089](/mitre/atlas/AML-T0089.md) | Enterprise Environment Discovery | Discovery | CS0068 S11 (sandbox egress and lifetime, 2026-07-09) and S30 (identity and network reachability, 2026-07-11) | [65] [41] |
+| [AML.T0091.000](/mitre/atlas/AML-T0091-000.md) | Application Access Token | Lateral Movement | CS0068 S28 and S34 (pod identity and forged short-lived tokens, 2026-07-11) | [65] [41] |
 | [AML.T0095](/mitre/atlas/AML-T0095.md) | Search Open Websites/Domains | Reconnaissance | CS0065 | [65] |
-| [AML.T0102](/mitre/atlas/AML-T0102.md) | Generate Malicious Commands | AI Attack Adaptation | CS0044 LAMEHUG (adjacent) | [65] |
-| [AML.T0105](/mitre/atlas/AML-T0105.md) | Escape to Host | Privilege Escalation | CS0068 | [65] |
+| [AML.T0102](/mitre/atlas/AML-T0102.md) | Generate Malicious Commands | AI Attack Adaptation | CS0068 S07 (generated C code and shell-injection strings for the harness, 2026-07-09); CS0044 LAMEHUG (adjacent) | [65] [41] |
+| [AML.T0105](/mitre/atlas/AML-T0105.md) | Escape to Host | Privilege Escalation | CS0068 S31 (privileged pod to node root, 2026-07-11) | [65] [41] |
 | [AML.T0115.001](/mitre/atlas/AML-T0115-001.md) | Publish Poisoned AI Artifacts: Models | Resource Development | CS0019, CS0027, CS0031, CS0065 | [65] |
-| [AML.T0119](/mitre/atlas/AML-T0119.md) | Exploit Automated Artifact Processing Pipeline | Initial Access | CS0068 (HDF5 config, then ReferenceFileSystem plus Jinja2) | [65] [41] |
-| [AML.T0120](/mitre/atlas/AML-T0120.md) | AI Artifact Repository | Command and Control | CS0068 (repositories as an asynchronous command channel) | [65] |
+| [AML.T0116](/mitre/atlas/AML-T0116.md) | Autonomous Reconnaissance | Reconnaissance | CS0068 S05 (found the exposed harness, by 2026-07-09) and S15 (searched for CyberGym material and gated datasets, 2026-07-10) | [65] [41] |
+| [AML.T0117](/mitre/atlas/AML-T0117.md) | Autonomous Attack-Path Adaptation | AI Attack Adaptation | CS0068 S00 (intermediate objectives across the evaluation, 2026-05-26 to 07-13) | [65] [41] |
+| [AML.T0118.000](/mitre/atlas/AML-T0118-000.md) | Communication via Shared Artifacts | AI Attack Adaptation | CS0068 S04 (Artifactory namespace as a message board, 2026-07-08) | [65] [41] [44] |
+| [AML.T0119](/mitre/atlas/AML-T0119.md) | Exploit Automated Artifact Processing Pipeline | Initial Access | CS0068 S19 and S23 (HDF5 config, then ReferenceFileSystem plus Jinja2, 2026-07-11) | [65] [40] [41] |
+| [AML.T0120](/mitre/atlas/AML-T0120.md) | AI Artifact Repository | Command and Control | CS0068 S25 (repositories as an asynchronous command channel, 2026-07-11) | [65] [41] |
+| [AML.T0121](/mitre/atlas/AML-T0121.md) | AI Agent Environment Reconstruction | Persistence | CS0068 S12 (second-stage loader restores each fresh sandbox, from 2026-07-09) | [65] [41] |
+| [AML.T0122](/mitre/atlas/AML-T0122.md) | Exploitation of Remote Services | Lateral Movement | CS0068 S02 (Artifactory SSRF crosses the evaluation network boundary, evaluation period, no day given) | [65] [41] [42] |
+| [AML.T0123](/mitre/atlas/AML-T0123.md) | Obfuscated Files or Information | Defense Evasion | CS0068 S14 and S26 (chunked, compressed, Base64 and XOR-encoded traffic, 2026-07-09 to 07-13) | [65] [41] |
 
-All rows **Confirmed** from the ATLAS 2026.10 data. The CS0068 rows list only the six steps checked for this study out of its 37.
+All rows **Confirmed** from the ATLAS 2026.10 data. The CS0068 rows cover all 37 of its procedure steps (S00 to S36, 22 distinct techniques). ATLAS dates the case study 2026-07-09 to 2026-07-13; step dates come from its description and from Hugging Face's timeline, which runs from the first recorded action at 2026-07-09 02:28 UTC to the last at 2026-07-13 14:14 UTC [65] [41].
 
 ### ATT&CK Enterprise techniques
 
-ATLAS records an ATT&CK reference on some techniques. Among the techniques this study uses, AML.T0010 carries T1195, while AML.T0010.003, AML.T0011, AML.T0011.000, AML.T0018.002, AML.T0115.001, AML.T0076, AML.T0119 and AML.T0120 carry none (**Confirmed** [65]). Rows marked "ATLAS bridge" use MITRE's own reference; rows marked Inferred are the study's mapping.
+ATLAS records an ATT&CK reference on some techniques. Among the techniques this study uses, AML.T0010 carries T1195, AML.T0012 T1078, AML.T0021 T1585, AML.T0036 T1213, AML.T0037 T1005, AML.T0049 T1190, AML.T0050 T1059, AML.T0055 T1552, AML.T0073 T1684.001, AML.T0074 T1036, AML.T0091.000 T1550.001, AML.T0095 T1593, AML.T0105 T1611, AML.T0122 T1210 and AML.T0123 T1027, while AML.T0010.003, AML.T0011, AML.T0011.000, AML.T0017.001, AML.T0018.002, AML.T0072, AML.T0075, AML.T0076, AML.T0089, AML.T0115.001, AML.T0116, AML.T0117, AML.T0118.000, AML.T0119, AML.T0120 and AML.T0121 carry none (**Confirmed** [65]). Rows marked "ATLAS bridge" use MITRE's own reference; rows marked Inferred are the study's mapping.
 
 | ATT&CK id | Name | Tactic (v20) | Dated event or report | Basis | Source |
 |---|---|---|---|---|---|
@@ -394,20 +407,24 @@ ATLAS records an ATT&CK reference on some techniques. Among the techniques this 
 | [T1585](/mitre/techniques/T1585.md) | Establish Accounts | Resource Development | CS0027 (2023-08-23), CS0065 (2025-09-03) | ATLAS bridge from AML.T0021 (Confirmed) | [65] |
 | [T1684.001](/mitre/techniques/T1684-001.md) | Impersonation | Stealth | CS0027 (2023-08-23) | ATLAS bridge from AML.T0073 (Confirmed) | [65] |
 | [T1036](/mitre/techniques/T1036.md) | Masquerading | Stealth | CS0027 (training.bin), CS0065 | ATLAS bridge from AML.T0074 (Confirmed) | [65] |
-| [T1552](/mitre/techniques/T1552.md) | Unsecured Credentials | Credential Access | CS0027; CS0068 (credentials exposed in a public dataset, 2026-07-10) | ATLAS bridge from AML.T0055 (Confirmed) | [65] [43] |
-| [T1078](/mitre/techniques/T1078.md) | Valid Accounts | Initial Access | CS0068 (July 2026) | ATLAS bridge from AML.T0012 (Confirmed) | [65] |
-| [T1611](/mitre/techniques/T1611.md) | Escape to Host | Privilege Escalation | CS0068 (July 2026) | ATLAS bridge from AML.T0105 (Confirmed) | [65] |
-| [T1550.001](/mitre/techniques/T1550-001.md) | Use Alternate Authentication Material: Application Access Token | Lateral Movement | CS0068 (July 2026) | ATLAS bridge from AML.T0091.000 (Confirmed) | [65] |
+| [T1552](/mitre/techniques/T1552.md) | Unsecured Credentials | Credential Access | CS0027; CS0068 S16 (credentials exposed in a public dataset, 2026-07-10), S21, S27 and S32 (2026-07-11) | ATLAS bridge from AML.T0055 (Confirmed) | [65] [41] [43] |
+| [T1078](/mitre/techniques/T1078.md) | Valid Accounts | Initial Access | CS0068 S17 (2026-07-10 to 07-11) and S33 (2026-07-11) | ATLAS bridge from AML.T0012 (Confirmed) | [65] [41] |
+| [T1611](/mitre/techniques/T1611.md) | Escape to Host | Privilege Escalation | CS0068 S31 (privileged pod to node root, 2026-07-11) | ATLAS bridge from AML.T0105 (Confirmed) | [65] [41] |
+| [T1550.001](/mitre/techniques/T1550-001.md) | Use Alternate Authentication Material: Application Access Token | Lateral Movement | CS0068 S28 and S34 (2026-07-11) | ATLAS bridge from AML.T0091.000 (Confirmed) | [65] [41] |
+| [T1190](/mitre/techniques/T1190.md) | Exploit Public-Facing Application | Initial Access | CS0068 S08: the exposed code-evaluation harness (2026-07-09); the malicious dataset against dataset processing (2026-07-11) | ATLAS bridge from AML.T0049 for the harness (Confirmed); applying it to the dataset-processing service is Inferred (AML.T0119 has no ATT&CK reference) | [65] [40] [41] |
+| [T1005](/mitre/techniques/T1005.md) | Data from Local System | Collection | CS0068 S20: HDF5 external-storage read returns the pod environment and worker source (2026-07-11) | ATLAS bridge from AML.T0037 (Confirmed) | [65] [41] |
+| [T1027](/mitre/techniques/T1027.md) | Obfuscated Files or Information | Stealth | CS0068 S14 and S26: chunked, compressed, Base64 and XOR-encoded traffic (2026-07-09 to 07-13); nullifAI 7z compression and broken pickle stream (2025) | ATLAS bridge from AML.T0123 (Confirmed); extending it to nullifAI is Inferred | [65] [41] [30] |
+| [T1213](/mitre/techniques/T1213.md) | Data from Information Repositories | Collection | CS0068 S35: internal MongoDB, four private source repositories, five customer datasets (2026-07-11 to 07-13) | ATLAS bridge from AML.T0036 (Confirmed) | [65] [41] |
+| [T1059](/mitre/techniques/T1059.md) | Command and Scripting Interpreter | Execution | CS0068 S09 (shell, C and Python through the harness, 2026-07-09) and S24 (Jinja2 path in the Dataset Server pod, 2026-07-11) | ATLAS bridge from AML.T0050 (Confirmed) | [65] [41] |
+| [T1210](/mitre/techniques/T1210.md) | Exploitation of Remote Services | Lateral Movement | CS0068 S02: the Artifactory SSRF crosses the evaluation network boundary (evaluation period, no day given) | ATLAS bridge from AML.T0122 (Confirmed) | [65] [41] [42] |
+| [T1593](/mitre/techniques/T1593.md) | Search Open Websites/Domains | Reconnaissance | CS0065 S00: Unit 42 reviews public catalogs, author pages and repositories for deleted namespaces (2025-09-03) | ATLAS bridge from AML.T0095 (Confirmed) | [65] [34] |
 | [T1102.002](/mitre/techniques/T1102-002.md) | Web Service: Bidirectional Communication | Command and Control | S9035 LAMEHUG queries Qwen2.5-Coder-32B-Instruct through the Hugging Face API | ATT&CK procedure (Confirmed) | [71] |
 | [T1195.001](/mitre/techniques/T1195-001.md) | Compromise Software Dependencies and Development Tools | Initial Access | Namespace reuse (2025-09-03); malicious models pulled by name (2024-02-27) | Inferred: the technique covers pip and NPM dependencies, re-registered abandoned packages and typosquatting, not models | [69] [34] [27] |
 | [T1608.001](/mitre/techniques/T1608-001.md) | Stage Capabilities: Upload Malware | Resource Development | Malicious models uploaded to the Hub (2024-02-27; 2025) | Inferred (AML.T0115.001 has no ATT&CK reference) | [70] [27] [30] |
 | [T1204.002](/mitre/techniques/T1204-002.md) | User Execution: Malicious File | Execution | Loading a pickle-bearing model (2024-02-27; 2025) | Inferred (AML.T0011 has no ATT&CK reference) | [69] [27] [30] |
 | [T1059.006](/mitre/techniques/T1059-006.md) | Command and Scripting Interpreter: Python | Execution | Pickle `__reduce__` payload runs on load (2024-02-27) | Inferred | [27] [8] |
 | [T1036.005](/mitre/techniques/T1036-005.md) | Masquerading: Match Legitimate Resource Name or Location | Stealth | PoisonGPT as EleuterAI (2023-07-09) | Inferred | [67] |
-| [T1027](/mitre/techniques/T1027.md) | Obfuscated Files or Information | Stealth | nullifAI 7z compression and broken pickle stream (2025) | Inferred | [30] |
 | [T1203](/mitre/techniques/T1203.md) | Exploitation for Client Execution | Execution | Crafted GGUF and Keras files exploit loaders (2024 to 2026) | Inferred | [57] [58] [60] |
-| [T1190](/mitre/techniques/T1190.md) | Exploit Public-Facing Application | Initial Access | Malicious dataset exploits dataset processing (July 2026) | Inferred (AML.T0119 has no ATT&CK reference) | [40] [41] |
-| [T1005](/mitre/techniques/T1005.md) | Data from Local System | Collection | HDF5 external-storage read returns the pod environment and worker source (July 2026) | Inferred | [41] |
 | [T1552.001](/mitre/techniques/T1552-001.md) | Unsecured Credentials: Credentials In Files | Credential Access | 1,681 valid tokens found on GitHub and the Hub (2023-12-04) | Inferred | [25] |
 | [T1593.003](/mitre/techniques/T1593-003.md) | Search Open Websites/Domains: Code Repositories | Reconnaissance | Lasso regex search of GitHub and the Hub for tokens (2023-12-04) | Inferred | [25] |
 
@@ -452,8 +469,8 @@ ATLAS mitigations checked for this study: [AML.M0014 Verify AI Artifacts](/mitre
 
 Two layers carry the study's techniques, each with a comment naming the source numbers above:
 
-- ATLAS: [navigator/ai/hugging-face-supply-chain-atlas.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/ai/hugging-face-supply-chain-atlas.json) (29 technique entries from the five core ATLAS case studies and the LAMEHUG step; domain `atlas-atlas`, ATLAS 2026.10).
-- Enterprise: [navigator/library-layers/hugging-face-supply-chain-enterprise.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/hugging-face-supply-chain-enterprise.json) (20 entries, ATT&CK v20; score 100 for MITRE-published links, score 50 for the study's labelled inferences).
+- ATLAS: [navigator/ai/hugging-face-supply-chain-atlas.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/ai/hugging-face-supply-chain-atlas.json) (43 entries for 42 techniques from the five core ATLAS case studies, covering all 37 CS0068 steps, and the LAMEHUG step; domain `atlas-atlas`, ATLAS 2026.10).
+- Enterprise: [navigator/library-layers/hugging-face-supply-chain-enterprise.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/hugging-face-supply-chain-enterprise.json) (24 entries, ATT&CK v20; score 100 for MITRE-published links, score 50 for the study's labelled inferences).
 
 ## Cross-cutting themes
 
@@ -467,9 +484,9 @@ Two layers carry the study's techniques, each with a comment naming the source n
 
 ### Hype versus evidence
 
-**Overstated.** Headline counts of malicious models. JFrog says over 96% of pickle-scan 'unsafe' flags were false positives (**Confirmed**, vendor account [32]). Protect AI's 352,000 are unsafe or suspicious issues, not confirmed malware (**Confirmed**, vendor count [33]). JFrog says the authors of the roughly 100 malicious models may be researchers, and ReversingLabs judged nullifAI closer to a proof of concept (**Confirmed**, vendor accounts [27] [30]). The July 2026 intrusion shows no poisoned model reaching consumers (**Confirmed** [40] [41]). The study reads these counts as a measure of scanner output more than of attacker activity (**Inferred**).
+**Overstated.** Headline counts of malicious models. JFrog says over 96% of pickle-scan 'unsafe' flags were false positives (**Reported**, vendor account [32]). Protect AI's 352,000 are unsafe or suspicious issues, not confirmed malware (**Reported**, vendor count [33]). JFrog says the authors of the roughly 100 malicious models may be researchers, and ReversingLabs judged nullifAI closer to a proof of concept (**Reported**, vendor accounts [27] [30]). The July 2026 intrusion shows no poisoned model reaching consumers (**Confirmed** [40] [41]). The study reads these counts as a measure of scanner output more than of attacker activity (**Inferred**).
 
-**Understated.** The loader and scanner bypass record (**Confirmed** [54] [55] [61] [62] [63]); credential exposure, documented by the 2023 research finding and the entry point of the 2026 intrusion (**Confirmed** [25] [43]); and namespace reuse, for which the source describes no Hugging Face fix (**Confirmed** [34]). These get less attention than malicious-model counts but sit closer to the incidents on the record (**Inferred**).
+**Understated.** The loader and scanner bypass record (**Confirmed** [54] [55] [61] [62] [63]); credential exposure, documented by the 2023 research finding and the entry point of the 2026 intrusion (**Reported** [25]; **Confirmed** [43]); and namespace reuse, for which the source describes no Hugging Face fix (**Confirmed** [34]). These get less attention than malicious-model counts but sit closer to the incidents on the record (**Inferred**).
 
 ## Sources
 
@@ -501,21 +518,21 @@ All sources were opened on 3 November 2026.
 | 22 | Hugging Face Hub docs, Repository Settings | https://huggingface.co/docs/hub/repositories-settings | 2026-11-03 | Confirmed |
 | 23 | Hugging Face blog, Wiz security research (2024-04-04) | https://huggingface.co/blog/hugging-face-wiz-security-blog | 2026-11-03 | Confirmed |
 | 24 | Hugging Face blog, "Space secrets leak disclosure" (2024-05-31) | https://huggingface.co/blog/space-secrets-disclosure | 2026-11-03 | Confirmed |
-| 25 | Lasso Security, exposed Hugging Face API tokens (2023-12-04) | https://www.lasso.security/blog/1500-huggingface-api-tokens-were-exposed-leaving-millions-of-meta-llama-bloom-and-pythia-users-for-supply-chain-attacks | 2026-11-03 | Confirmed |
+| 25 | Lasso Security, exposed Hugging Face API tokens (2023-12-04) | https://www.lasso.security/blog/1500-huggingface-api-tokens-were-exposed-leaving-millions-of-meta-llama-bloom-and-pythia-users-for-supply-chain-attacks | 2026-11-03 | Reported (vendor account) |
 | 26 | Lasso Security, exploiting Hugging Face assistants (2024-02-15) | https://www.lasso.security/blog/exploiting-huggingfaces-assistants-to-extract-users-data | 2026-11-03 | Demonstrated |
-| 27 | JFrog, malicious Hugging Face models with silent backdoor (2024-02-27) | https://jfrog.com/blog/data-scientists-targeted-by-malicious-hugging-face-ml-models-with-silent-backdoor/ | 2026-11-03 | Confirmed |
+| 27 | JFrog, malicious Hugging Face models with silent backdoor (2024-02-27) | https://jfrog.com/blog/data-scientists-targeted-by-malicious-hugging-face-ml-models-with-silent-backdoor/ | 2026-11-03 | Reported (vendor account) |
 | 28 | Casey, Santos and Mirakhorli, arXiv 2410.04490 (full paper; abstract at huggingface.co/papers/2410.04490) | https://arxiv.org/pdf/2410.04490 | 2026-11-03 | Confirmed |
 | 29 | Wiz, "Wiz and Hugging Face address risks to AI infrastructure" (2024-04-04) | https://www.wiz.io/blog/wiz-and-hugging-face-address-risks-to-ai-infrastructure | 2026-11-03 | Demonstrated |
-| 30 | ReversingLabs, malicious ML models on Hugging Face (nullifAI, 2025-02-06) | https://www.reversinglabs.com/blog/rl-identifies-malware-ml-model-hosted-on-hugging-face | 2026-11-03 | Confirmed |
+| 30 | ReversingLabs, malicious ML models on Hugging Face (nullifAI, 2025-02-06) | https://www.reversinglabs.com/blog/rl-identifies-malware-ml-model-hosted-on-hugging-face | 2026-11-03 | Reported (vendor account) |
 | 31 | NVD API records, CVE-2025-1716, -1889, -1944, -1945 | https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2025-1716 | 2026-11-03 | Confirmed |
-| 32 | JFrog, "JFrog and Hugging Face join forces" (2025-03-04) | https://jfrog.com/blog/jfrog-and-hugging-face-join-forces/ | 2026-11-03 | Confirmed |
-| 33 | Hugging Face blog, "4M Models Scanned: Protect AI + Hugging Face 6 Months In" (2025-04-14) | https://huggingface.co/blog/pai-6-month | 2026-11-03 | Confirmed |
+| 32 | JFrog, "JFrog and Hugging Face join forces" (2025-03-04) | https://jfrog.com/blog/jfrog-and-hugging-face-join-forces/ | 2026-11-03 | Confirmed for the partnership; Reported for JFrog's own figures |
+| 33 | Hugging Face blog, "4M Models Scanned: Protect AI + Hugging Face 6 Months In" (2025-04-14) | https://huggingface.co/blog/pai-6-month | 2026-11-03 | Confirmed for the partnership; Reported for Protect AI's counts |
 | 34 | Unit 42, Model Namespace Reuse (2025-09-03) | https://unit42.paloaltonetworks.com/model-namespace-reuse/ | 2026-11-03 | Demonstrated |
 | 35 | NVD API records, CVE-2025-10155, -10156, -10157 | https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2025-10155 | 2026-11-03 | Confirmed |
 | 36 | NVD API record, CVE-2025-49655 | https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2025-49655 | 2026-11-03 | Confirmed |
-| 37 | Bitdefender Labs, Android trojan campaign hosting RAT payload on Hugging Face (2026-01-29) | https://www.bitdefender.com/en-us/blog/labs/android-trojan-campaign-hugging-face-hosting-rat-payload | 2026-11-03 | Confirmed |
+| 37 | Bitdefender Labs, Android trojan campaign hosting RAT payload on Hugging Face (2026-01-29) | https://www.bitdefender.com/en-us/blog/labs/android-trojan-campaign-hugging-face-hosting-rat-payload | 2026-11-03 | Reported (vendor account) |
 | 38 | BleepingComputer, Hugging Face abused to spread Android malware variants (2026-01-29, updated 01-31) | https://www.bleepingcomputer.com/news/security/hugging-face-abused-to-spread-thousands-of-android-malware-variants/ | 2026-11-03 | Reported |
-| 39 | HiddenLayer, malware in trending repository Open-OSS/privacy-filter (2026-05-07) | https://www.hiddenlayer.com/research/malware-found-in-trending-hugging-face-repository-open-oss-privacy-filter | 2026-11-03 | Confirmed |
+| 39 | HiddenLayer, malware in trending repository Open-OSS/privacy-filter (2026-05-07) | https://www.hiddenlayer.com/research/malware-found-in-trending-hugging-face-repository-open-oss-privacy-filter | 2026-11-03 | Reported (vendor account) |
 | 40 | Hugging Face blog, "Security incident disclosure, July 2026" (2026-07-16) | https://huggingface.co/blog/security-incident-july-2026 | 2026-11-03 | Confirmed |
 | 41 | Hugging Face blog, technical timeline of the July 2026 incident (2026-07-27) | https://huggingface.co/blog/agent-intrusion-technical-timeline | 2026-11-03 | Confirmed |
 | 42 | OpenAI, Hugging Face model evaluation security incident (2026-07-21, updated 07-28, 07-29, 08-26) | https://openai.com/index/hugging-face-model-evaluation-security-incident/ | 2026-11-03 | Confirmed |

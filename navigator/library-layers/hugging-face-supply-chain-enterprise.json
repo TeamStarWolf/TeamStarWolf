@@ -42,11 +42,11 @@
     },
     {
       "name": "techniques_scored",
-      "value": "20"
+      "value": "24"
     },
     {
       "name": "technique_tactic_entries",
-      "value": "20"
+      "value": "24"
     },
     {
       "name": "score_meaning",
@@ -104,28 +104,28 @@
       "techniqueID": "T1552",
       "tactic": "credential-access",
       "score": 100,
-      "comment": "ATLAS bridge: AML.T0055 maps to T1552. AML.CS0027 (2023) and AML.CS0068 (HF tokens exposed in a public dataset, 2026-07-10). Sources: [65]; [43].",
+      "comment": "ATLAS bridge: AML.T0055 maps to T1552. AML.CS0027 (2023) and AML.CS0068 S16 (HF tokens exposed in a public dataset, 2026-07-10), S21, S27, S32 (2026-07-11). Sources: [65]; [41]; [43].",
       "enabled": true
     },
     {
       "techniqueID": "T1078",
       "tactic": "initial-access",
       "score": 100,
-      "comment": "ATLAS bridge: AML.T0012 maps to T1078. AML.CS0068 (July 2026). Sources: [65]; [41].",
+      "comment": "ATLAS bridge: AML.T0012 maps to T1078. AML.CS0068 S17 (2026-07-10 to 07-11) and S33 (2026-07-11). Sources: [65]; [41].",
       "enabled": true
     },
     {
       "techniqueID": "T1611",
       "tactic": "privilege-escalation",
       "score": 100,
-      "comment": "ATLAS bridge: AML.T0105 maps to T1611. AML.CS0068 (July 2026). Source: [65].",
+      "comment": "ATLAS bridge: AML.T0105 maps to T1611. AML.CS0068 S31, privileged pod to node root (2026-07-11). Sources: [65]; [41].",
       "enabled": true
     },
     {
       "techniqueID": "T1550.001",
       "tactic": "lateral-movement",
       "score": 100,
-      "comment": "ATLAS bridge: AML.T0091.000 maps to T1550.001. AML.CS0068 (July 2026). Source: [65].",
+      "comment": "ATLAS bridge: AML.T0091.000 maps to T1550.001. AML.CS0068 S28 and S34 (2026-07-11). Sources: [65]; [41].",
       "enabled": true
     },
     {
@@ -133,6 +133,55 @@
       "tactic": "command-and-control",
       "score": 100,
       "comment": "ATT&CK S9035 LAMEHUG procedure: Hugging Face API used to query Qwen2.5-Coder-32B-Instruct for Windows commands. Source: [71].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1213",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0036 maps to T1213. AML.CS0068 S35: internal MongoDB, four private source repositories, five customer datasets (2026-07-11 to 07-13). Sources: [65]; [41].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0050 maps to T1059. AML.CS0068 S09 (harness, 2026-07-09) and S24 (Jinja2 path in the Dataset Server pod, 2026-07-11). Sources: [65]; [41].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0122 maps to T1210. AML.CS0068 S02: the Artifactory SSRF crosses the evaluation network boundary (evaluation period, no day given). Sources: [65]; [41]; [42].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1593",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0095 maps to T1593. AML.CS0065 S00: Unit 42 reviewed public catalogs, author pages and repositories for deleted namespaces (2025-09-03). Sources: [65]; [34].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0123 maps to T1027. AML.CS0068 S14 and S26, chunked, compressed, Base64 and XOR-encoded traffic (2026-07-09 to 07-13). Inferred: nullifAI used 7z compression and a deliberately broken pickle stream so Picklescan did not flag the payload (2025). Sources: [65]; [41]; [30]; [79].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0049 maps to T1190. AML.CS0068 S08, the exposed code-evaluation harness (2026-07-09). Inferred: the malicious dataset against the public dataset-processing service (2026-07-11), since AML.T0119 has no ATT&CK reference. Sources: [65]; [40]; [41].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0037 maps to T1005. AML.CS0068 S20, the HDF5 external-storage read returned the pod environment and worker source (2026-07-11). Sources: [65]; [41].",
       "enabled": true
     },
     {
@@ -171,31 +220,10 @@
       "enabled": true
     },
     {
-      "techniqueID": "T1027",
-      "tactic": "stealth",
-      "score": 50,
-      "comment": "Inferred: nullifAI used 7z compression and a deliberately broken pickle stream so Picklescan did not flag the payload (2025). Sources: [30]; [79].",
-      "enabled": true
-    },
-    {
       "techniqueID": "T1203",
       "tactic": "execution",
       "score": 50,
       "comment": "Inferred: crafted model files that exploit loader bugs, such as llama.cpp GGUF heap overflows (2024) and Keras safe_mode bypasses. Sources: [57]; [58]; [60].",
-      "enabled": true
-    },
-    {
-      "techniqueID": "T1190",
-      "tactic": "initial-access",
-      "score": 50,
-      "comment": "Inferred: a malicious dataset exploited the public dataset-processing service (July 2026). AML.T0119 has no ATT&CK reference. Sources: [40]; [41]; [65].",
-      "enabled": true
-    },
-    {
-      "techniqueID": "T1005",
-      "tactic": "collection",
-      "score": 50,
-      "comment": "Inferred: the HDF5 external-storage read returned the pod environment and worker source (July 2026). Source: [41].",
       "enabled": true
     },
     {

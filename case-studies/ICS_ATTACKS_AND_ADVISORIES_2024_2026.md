@@ -668,7 +668,7 @@ Each technique is shown under all its tactics, and each comment names the events
 | 14 | Reuters via The Star, Norway spy chief blames Russian hackers for dam sabotage (2025-08-13) | https://www.thestar.com.my/news/world/2025/08/13/norway-spy-chief-blames-russian-hackers-for-dam-sabotage-in-april | 3 Nov 2026 | Reported |
 | 15 | BleepingComputer, pro-Russian hackers blamed for water dam sabotage in Norway (2025-08-14) | https://www.bleepingcomputer.com/news/security/pro-russian-hackers-blamed-for-water-dam-sabotage-in-norway/ | 3 Nov 2026 | Reported |
 | 16 | iLaks, citing NRK, PST drops the Bremanger case (2025-10-03) | https://ilaks.no/pro-russiske-hackere-apnet-vannkilden-til-postsmoltanlegg-na-har-pst-henlagt-saken/ | 3 Nov 2026 | Reported |
-| 17 | Reuters via Arab News, Poland foiled cyberattack on a big city's water supply (2025-08-14) | https://www.arabnews.com/node/2611819/world | 3 Nov 2026 | Reported |
+| 17 | Reuters via Arab News, Poland foiled cyberattack on a big city's water supply (2025-08-14) | Arab News, node 2611819 (not linked: the page returned 403 to the library's link check on 3 November 2026) | 3 Nov 2026 | Reported |
 | 18 | Forescout Vedere Labs, "Anatomy of a Hacktivist Attack" (2025-10-09) | https://www.forescout.com/blog/anatomy-of-a-hacktivist-attack-russian-aligned-group-targets-otics/ | 3 Nov 2026 | Confirmed |
 | 19 | Canadian Centre for Cyber Security, AL25-016 (2025-10-29) | https://www.cyber.gc.ca/en/alerts-advisories/al25-016-internet-accessible-industrial-control-systems-ics-abused-hacktivists | 3 Nov 2026 | Confirmed |
 | 20 | CERT Polska, energy sector incident report post (2026-01-30) | https://cert.pl/en/posts/2026/01/incident-report-energy-sector-2025/ | 3 Nov 2026 | Confirmed |

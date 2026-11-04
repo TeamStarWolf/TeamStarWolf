@@ -118,13 +118,13 @@ Threat-intelligence and gap-analysis heatmaps generated from the library's MITRE
 
 ## AI Systems (MITRE ATLAS)
 
-MITRE ATLAS layers in ATLAS's own `atlas-atlas` Navigator domain, vendored with provenance metadata; see the [ATLAS reference](/ATLAS_REFERENCE.md). Open them in the [ATLAS Navigator](https://mitre-atlas.github.io/atlas-navigator/); ATLAS keeps its own tactic set (including Defense Evasion), separate from ATT&CK Enterprise.
+MITRE ATLAS layers in ATLAS's own `atlas-atlas` Navigator domain: two vendored with provenance metadata, plus library layers built on ATLAS ids; see the [ATLAS reference](/ATLAS_REFERENCE.md). Open them in the [ATLAS Navigator](https://mitre-atlas.github.io/atlas-navigator/); ATLAS keeps its own tactic set (including Defense Evasion), separate from ATT&CK Enterprise.
 
 | Layer | Description | Techniques | Version | Load |
 |---|---|---|---|---|
 | [ATLAS Matrix](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/ai/atlas-matrix.json) | The full ATLAS matrix of techniques against AI systems | 221 | ATLAS data 2026.10 | [ATLAS Navigator](https://mitre-atlas.github.io/atlas-navigator/) |
 | [ATLAS Case Study Frequency](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/ai/atlas-case-study-frequency.json) | ATLAS techniques shaded by how often they appear in ATLAS case studies | 221 | ATLAS data 2026.10 | [ATLAS Navigator](https://mitre-atlas.github.io/atlas-navigator/) |
-| [Hugging Face AI Supply Chain (ATLAS)](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/ai/hugging-face-supply-chain-atlas.json) | The ATLAS techniques in the five Hugging Face case studies, as bound in the library's [Hugging Face case study](/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md); a library layer, not vendored from MITRE | 29 | ATLAS data 2026.10 | [ATLAS Navigator](https://mitre-atlas.github.io/atlas-navigator/) |
+| [Hugging Face AI Supply Chain (ATLAS)](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/ai/hugging-face-supply-chain-atlas.json) | The ATLAS techniques in the five Hugging Face case studies plus the adjacent LAMEHUG step, as bound in the library's [Hugging Face case study](/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md); a library layer, not vendored from MITRE | 29 | ATLAS data 2026.10 | [ATLAS Navigator](https://mitre-atlas.github.io/atlas-navigator/) |
 
 ---
 

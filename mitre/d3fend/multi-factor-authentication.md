@@ -52,6 +52,7 @@ Requiring proof of two or more pieces of evidence in order to authenticate a use
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [npm Supply-Chain Attacks, 2018 to 2026: The Record and the Defenses](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md)
 - [The Change Healthcare Attack of 2024: The Largest Healthcare Breach on Record](/case-studies/CHANGE_HEALTHCARE_2024.md)
 
 <!-- library-refs:end -->

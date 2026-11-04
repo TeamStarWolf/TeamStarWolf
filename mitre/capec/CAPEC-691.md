@@ -61,6 +61,7 @@ An adversary spoofs open-source software metadata in an attempt to masquerade ma
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [npm Supply-Chain Attacks, 2018 to 2026: The Record and the Defenses](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md)
 
 <!-- library-refs:end -->
 

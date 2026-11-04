@@ -70,6 +70,7 @@ This attack relies on the use of HTTP Cookies to store credentials, state inform
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md)
 
 <!-- library-refs:end -->
 

@@ -65,6 +65,7 @@ In a Password Spraying attack, an adversary tries a small list (e.g. 3-5) of com
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md)
 
 <!-- library-refs:end -->
 

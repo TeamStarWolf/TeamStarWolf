@@ -64,6 +64,7 @@ Replacing old software on a computer system component.
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md)
 - [Log4Shell (CVE-2021-44228): The Case Study](/case-studies/LOG4SHELL.md)
 
 <!-- library-refs:end -->

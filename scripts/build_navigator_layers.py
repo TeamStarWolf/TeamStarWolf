@@ -483,10 +483,14 @@ CATALOG = [
     ("Case Study Layers (ICS)",
      "ATT&CK for ICS layers bound to library case studies. Curated layers under `navigator/library-layers/` "
      "must be `enterprise-attack`, so ICS case-study layers live in `navigator/case-studies/`. Scores mean "
-     "only that a source cited in the case study maps the technique, not severity or prevalence.",
+     "only that ATT&CK lists the technique on the named software or that a source cited in the case "
+     "study maps it, not severity or prevalence.",
      [("case-studies/ics-attacks-2024-2026-ics.json", "ICS Attacks 2024 to 2026 (ICS)",
        "The 43 ATT&CK for ICS techniques the verified 2024 to 2026 incident record supports, from the "
-       "[ICS attacks and advisories case study](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md)")]),
+       "[ICS attacks and advisories case study](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md)"),
+      ("case-studies/stuxnet-s0603-ics.json", "Stuxnet (S0603) ICS",
+       "The 25 ATT&CK for ICS techniques ATT&CK v20.0 lists for Stuxnet, from the "
+       "[Stuxnet case study](/case-studies/STUXNET.md)")]),
 ]
 
 

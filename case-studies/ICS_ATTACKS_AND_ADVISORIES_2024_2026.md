@@ -607,20 +607,20 @@ For the advisory-wide CWE classes of Part 2.4, the library relates CWE-306 to [C
 
 ### 6.7 D3FEND countermeasures
 
-The library's D3FEND data (version 1.6.0) and pages cover these countermeasures; the technique ids are the ones the library maps, some of them revoked ICS ids [82] (**Confirmed**).
+The library's D3FEND data (version 1.6.0) and pages cover these countermeasures; each row gives examples of the technique ids the library maps, some of them revoked ICS ids, and "among others" marks a row that lists a subset; the linked page carries the full list [82] (**Confirmed**).
 
-| D3FEND countermeasure | Techniques the library maps it to | Where it meets the record |
+| D3FEND countermeasure | Examples of techniques the library maps it to | Where it meets the record |
 |---|---|---|
-| [Change Default Password](/mitre/d3fend/change-default-password.md) (D3-CDP) | T0812 (revoked; now T1694.001), T0859, T1078.001, T1110.001 to .003 | Unitronics, VNC-exposed HMIs, the Polish "Default" account |
-| [Multi-factor Authentication](/mitre/d3fend/multi-factor-authentication.md) (D3-MFA) | T0812 (revoked; now T1694.001), T0892, T1003.003, T1110.001 to .003 | Remote access; Volt Typhoon's NTDS theft |
-| [Inbound Traffic Filtering](/mitre/d3fend/inbound-traffic-filtering.md) (D3-ITF) | T0819, T0822, T0865, T1190 | Exposed devices and edge appliances |
+| [Change Default Password](/mitre/d3fend/change-default-password.md) (D3-CDP) | T0812 (revoked; now T1694.001), T0859, T1078.001, T1110.001 to .003, T1531 among others | Unitronics, VNC-exposed HMIs, the Polish "Default" account |
+| [Multi-factor Authentication](/mitre/d3fend/multi-factor-authentication.md) (D3-MFA) | T0812 (revoked; now T1694.001), T0892, T1003.003, T1110.001 to .003, T1555.001 (under the study's T1555), T1558 among others | Remote access; Volt Typhoon's NTDS theft |
+| [Inbound Traffic Filtering](/mitre/d3fend/inbound-traffic-filtering.md) (D3-ITF) | T0819, T0822, T0865, T1190, T1499.002 (under the study's T1499) among others | Exposed devices and edge appliances |
 | [Network Traffic Filtering](/mitre/d3fend/network-traffic-filtering.md) (D3-NTF) | T0814, T0836, T0843, T0855 (revoked; now T1692.001), T0857 (revoked; now T1693.001), T0878, T0885, T0886, T0889, T1041 among others | PLC writes and program downloads; firmware upload paths |
 | [Message Authentication](/mitre/d3fend/message-authentication.md) (D3-MAN) | T0801, T0806, T0809, T0836, T0838, T0843, T0855 (revoked; now T1692.001), T0857 (revoked; now T1693.001), T0878, T0885, T0889 among others | Authenticated program downloads and parameter writes |
-| [OT Variable Access Restriction](/mitre/d3fend/ot-variable-access-restriction.md) (D3-OVAR) | T0801, T0806, T0809, T0836 | Setpoint and parameter changes |
-| [Service Binary Verification](/mitre/d3fend/service-binary-verification.md) (D3-SBV) | T0843, T0845, T0889 | Comparing running logic to known-good |
-| [Restore Software](/mitre/d3fend/restore-software.md) (D3-RS) | T0839 (revoked; now T1693.002), T0843, T0889 | Restoring verified logic and module firmware |
+| [OT Variable Access Restriction](/mitre/d3fend/ot-variable-access-restriction.md) (D3-OVAR) | T0801, T0806, T0809, T0836 among others | Setpoint and parameter changes |
+| [Service Binary Verification](/mitre/d3fend/service-binary-verification.md) (D3-SBV) | T0843, T0845, T0889 among others | Comparing running logic to known-good |
+| [Restore Software](/mitre/d3fend/restore-software.md) (D3-RS) | T0839 (revoked; now T1693.002), T0843, T0845, T0889 among others | Restoring verified logic and module firmware |
 | [Restore Configuration](/mitre/d3fend/restore-configuration.md) (D3-RC) | T1037.004 among others | IOControl's RC-script persistence |
-| [System Firmware Verification](/mitre/d3fend/system-firmware-verification.md) (D3-SFV) | T1542.001, T1542.004 (Enterprise only) | Relevant to the Polish RTU firmware upload (ICS T1693.001) only by analogy (**Inferred**); the library maps no ICS id to it |
+| [System Firmware Verification](/mitre/d3fend/system-firmware-verification.md) (D3-SFV) | T1542.001, T1542.004 (the page's full list; Enterprise only) | Relevant to the Polish RTU firmware upload (ICS T1693.001) only by analogy (**Inferred**); the library maps no ICS id to it |
 
 See the [D3FEND Reference](/D3FEND_REFERENCE.md).
 

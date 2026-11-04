@@ -46,5 +46,11 @@
     "name": "TeamStarWolf - OWASP Top 10 (2021)",
     "description": "Curated practitioner view of the OWASP Top 10 (2021) themes used in SECURE_CODING_REFERENCE.md, not an official OWASP or MITRE mapping. The 2021 edition is intentional and is not a claim to represent the latest Top 10. Sources: that reference's A01-A10 sections and data/attack/technique_profiles.jsonl. Associations describe possible attacker behavior or defensive context, not equivalence between a weakness category and an ATT&CK technique. Scores indicate membership only.",
     "blurb": "Connects the library's OWASP Top 10 (2021) themes with relevant attacker behaviors. These curated associations are not an official OWASP or MITRE crosswalk."
+  },
+  {
+    "file": "npm-supply-chain-attacks.json",
+    "name": "TeamStarWolf - npm Supply-Chain Attacks, 2018 to 2026",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified npm supply-chain record supports: ATT&CK v20.0 procedures and software mappings for S9008 Shai-Hulud, S9043 Mini Shai-Hulud, S9042 CanisterWorm, S9041 TeamPCP Cloud Stealer, S9034 Tsundere Botnet, S1246 BeaverTail, G1056 TeamPCP, G0082 APT38 and G1052 Contagious Interview, and the maintainer, vendor and GitHub reports the study cites. Each comment names source numbers from case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md. Scores: 100 is an ATT&CK-published link to an npm worm, loader or group in the record, 50 is the study's own mapping, labelled Inferred.",
+    "blurb": "Techniques from eight years of npm supply-chain attacks, from hijacked maintainer accounts and poisoned release workflows to install-time payloads, token theft and exfiltration to code repositories. A curated layer for the npm supply-chain case study."
   }
 ]

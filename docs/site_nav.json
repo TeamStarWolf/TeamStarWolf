@@ -308,7 +308,8 @@
       "pages": ["/languages/README.md", "/paradigms/README.md", "/frameworks/README.md", "/formats/README.md", "/databases/README.md", "/commands/git.md", "/platforms/snyk.md", "/platforms/invicti.md", "/platforms/chainguard.md"],
       "see_also": [
         ["Web application pentesting", "/WEB_APPLICATION_PENTESTING.md"],
-        ["CAPEC attack patterns", "/mitre/capec/README.md"]
+        ["CAPEC attack patterns", "/mitre/capec/README.md"],
+        ["npm supply-chain attacks: a case study", "/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md"]
       ]
     },
     {

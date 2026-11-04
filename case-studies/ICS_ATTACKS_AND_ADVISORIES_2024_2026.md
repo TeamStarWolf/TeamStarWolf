@@ -589,15 +589,15 @@ Each row lists only the techniques of Part 6.2 that the mitigation covers.
 
 | CVE | Product | CWE (as the source lists it) | CAPEC the library relates to that CWE | Where it meets the record | Sources |
 |---|---|---|---|---|---|
-| CVE-2023-6448 | Unitronics VisiLogic | CWE-1188, CWE-798 | [CAPEC-70](/mitre/capec/CAPEC-70.md) Try Common or Default Usernames and Passwords (maps T1078.001); [CAPEC-191](/mitre/capec/CAPEC-191.md) | The default password of the 2023 to 2024 wave | [42] [82] |
+| CVE-2023-6448 | Unitronics VisiLogic | CWE-1188, CWE-798 | 3 entries: [CAPEC-70](/mitre/capec/CAPEC-70.md) Try Common or Default Usernames and Passwords (maps T1078.001) and [CAPEC-191](/mitre/capec/CAPEC-191.md) Read Sensitive Constants Within an Executable from CWE-798, and [CAPEC-665](/mitre/capec/CAPEC-665.md) Exploitation of Thunderbolt Protection Flaws from CWE-1188, which does not fit this default-password case (**Inferred**) | The default password of the 2023 to 2024 wave | [42] [82] |
 | CVE-2021-22681 | Rockwell Logix controllers | CWE-522 | 13 entries, for example [CAPEC-560](/mitre/capec/CAPEC-560.md) Use of Known Domain Credentials and [CAPEC-600](/mitre/capec/CAPEC-600.md) Credential Stuffing; none describes key recovery from engineering software (**Inferred**) | KEV 2026-03-05; PN1550 in AA26-097A | [42] [43] [30] [82] |
 | CVE-2025-0994 | Trimble Cityworks | CWE-502 | [CAPEC-586](/mitre/capec/CAPEC-586.md) Object Injection | KEV one day after publication; water sector | [46] [82] |
 | CVE-2026-110936 | Siemens Software Center | CWE-427 | [CAPEC-38](/mitre/capec/CAPEC-38.md), [CAPEC-471](/mitre/capec/CAPEC-471.md) Search Order Hijacking | Exploited; KEV 2026-10-20 | [44] [82] |
-| CVE-2025-67038 | Lantronix EDS3000PS and EDS5000 | CWE-78 (KEV also lists CWE-94) | [CAPEC-88](/mitre/capec/CAPEC-88.md) OS Command Injection | KEV 2026-06-23; advisory still says no exploitation | [47] [40] [82] |
-| CVE-2021-26829 | OpenPLC ScadaBR | CWE-79 | [CAPEC-63](/mitre/capec/CAPEC-63.md) Cross-Site Scripting | TwoNet HMI defacement; KEV 2025-11-28 | [18] [40] [82] |
+| CVE-2025-67038 | Lantronix EDS3000PS and EDS5000 | CWE-78 (KEV also lists CWE-94) | 5 entries for CWE-78, for example [CAPEC-88](/mitre/capec/CAPEC-88.md) OS Command Injection; CWE-94 adds 3 entries, for example [CAPEC-242](/mitre/capec/CAPEC-242.md) Code Injection | KEV 2026-06-23; advisory still says no exploitation | [47] [40] [82] |
+| CVE-2021-26829 | OpenPLC ScadaBR | CWE-79 | 6 entries, for example [CAPEC-63](/mitre/capec/CAPEC-63.md) Cross-Site Scripting (XSS) | TwoNet HMI defacement; KEV 2025-11-28 | [18] [40] [82] |
 | CVE-2021-26828 | OpenPLC ScadaBR | CWE-434 | [CAPEC-1](/mitre/capec/CAPEC-1.md) Accessing Functionality Not Properly Constrained by ACLs | Honeypot webshell; KEV 2025-12-03 | [18] [40] [82] |
 | CVE-2017-7921 | Hikvision | CWE-287 | 10 entries, for example [CAPEC-115](/mitre/capec/CAPEC-115.md) Authentication Bypass | KEV 2026-03-05, same day as CVE-2021-22681 | [40] [82] |
-| CVE-2018-7522, CVE-2018-8872 | Schneider Triconex Tricon MP 3008 | CWE-119 | [CAPEC-100](/mitre/capec/CAPEC-100.md) Overflow Buffers | TRITON lineage | [60] [82] |
+| CVE-2018-7522, CVE-2018-8872 | Schneider Triconex Tricon MP 3008 | CWE-119 | 12 entries, for example [CAPEC-100](/mitre/capec/CAPEC-100.md) Overflow Buffers | TRITON lineage | [60] [82] |
 | CVE-2022-42475 | Fortinet FortiGate | not checked | not mapped | Volt Typhoon initial access | [6] |
 | CVE-2018-0171 | Cisco Smart Install | not checked | not mapped | FSB Center 16 | [54] |
 | CVE-2024-2617 | Hitachi Energy RTU | not checked | not mapped | Secure-update bypass, not needed in Poland | [21] |

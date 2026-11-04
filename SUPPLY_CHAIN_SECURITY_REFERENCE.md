@@ -129,7 +129,7 @@ Timeline:
 - October 2021: "Jia Tan" (JiaT75) sends a first patch to the xz-devel mailing list; the first commit under that identity is merged in February 2022
 - 2022-2023: Jia Tan builds credibility with legitimate bug fixes and becomes co-maintainer
 - February 24 and March 9, 2024: Jia Tan publishes XZ Utils 5.6.0 and 5.6.1, whose release tarballs carry the backdoor through a modified build script
-- March 29, 2024: Andres Freund reports the backdoor to the [oss-security list](https://www.openwall.com/lists/oss-security/2024/03/29/4) after tracing slow SSH logins
+- March 29, 2024: Andres Freund reports the backdoor to the oss-security mailing list after tracing slow SSH logins
 - March 29, 2024: CVE-2024-3094 published, emergency patches released (timeline: [Russ Cox, xz attack timeline](https://research.swtch.com/xz-timeline))
 
 Technical details: The backdoor targeted systemd-linked sshd on glibc-based Linux systems. The malicious code was concealed in test files and activated via a malicious ifunc resolver that intercepted RSA key decryption in OpenSSH. The attacker used a forged signature verification bypass allowing authentication with any key. The social engineering campaign lasted ~2 years, demonstrating sophisticated long-term supply chain infiltration. The attack is attributed to a nation-state actor with resources for multi-year operations.

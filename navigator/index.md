@@ -85,6 +85,7 @@ Curated practitioner views built from the library's reference pages and data fil
 | [Ransomware TTPs](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/ransomware-ttps.json) | Follows common ransomware intrusion themes through access, credential theft, movement, exfiltration, encryption, and recovery inhibition. A curated view of behaviors, without attribution to a particular group or claims about incident frequency. | 14 | ATT&CK v20 | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/library-layers/ransomware-ttps.json) |
 | [Container and Kubernetes Attacks](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/container-k8s.json) | Covers container deployment, image abuse, host escape, workload discovery, and unauthorized compute use. A curated selection from the container and Kubernetes references, with limited coverage. | 9 | ATT&CK v20 | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/library-layers/container-k8s.json) |
 | [OWASP Top 10 (2021)](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/owasp-top-10.json) | Connects the library's OWASP Top 10 (2021) themes with relevant attacker behaviors. These curated associations are not an official OWASP or MITRE crosswalk. | 14 | ATT&CK v20 | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/library-layers/owasp-top-10.json) |
+| [ICS attacks 2024 to 2026 (Enterprise)](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/ics-attacks-2024-2026-enterprise.json) | The IT-side techniques behind 2024 to 2026 ICS incidents: default accounts on exposed PLCs, edge-appliance exploitation and credential theft, the Poland wiper intrusion chain and the IOControl implant. A curated layer for the ICS 2024 to 2026 case study. | 79 | ATT&CK v20 | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/library-layers/ics-attacks-2024-2026-enterprise.json) |
 
 ---
 
@@ -133,6 +134,16 @@ The [MITRE Fight Fraud Framework](/FRAUD_FRAMEWORK_REFERENCE.md) matrix, publish
 | Layer | Description | Techniques | Version | Load |
 |---|---|---|---|---|
 | [F3 Matrix](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/fraud/f3-matrix.json) | The full F3 fraud matrix: use with the [F3 reference](/FRAUD_FRAMEWORK_REFERENCE.md) and [datasets](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/fraud/) | 123 | F3 v1.1 | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/fraud/f3-matrix.json) |
+
+---
+
+## Case Study Layers (ICS)
+
+ATT&CK for ICS layers bound to library case studies. Curated layers under `navigator/library-layers/` must be `enterprise-attack`, so ICS case-study layers live in `navigator/case-studies/`. Scores mean only that a source cited in the case study maps the technique, not severity or prevalence.
+
+| Layer | Description | Techniques | Version | Load |
+|---|---|---|---|---|
+| [ICS Attacks 2024 to 2026 (ICS)](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/case-studies/ics-attacks-2024-2026-ics.json) | The 43 ATT&CK for ICS techniques the verified 2024 to 2026 incident record supports, from the [ICS attacks and advisories case study](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md) | 43 | ATT&CK v20 | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/case-studies/ics-attacks-2024-2026-ics.json) |
 
 ---
 

@@ -684,7 +684,7 @@ Every source below was opened on 3 November 2026. Grades apply to the source typ
 | 47 | The Record, US arrests and charges Ukrainian man for Kaseya ransomware attack | https://therecord.media/us-arrests-and-charges-ukrainian-man-for-kaseya-ransomware-attack/ | 2026-11-03 | Reported |
 | 48 | US Treasury, press release jy0471, REvil designations (2021-11-08) | https://home.treasury.gov/news/press-releases/jy0471 | 2026-11-03 | Confirmed |
 | 49 | FBI IC3, PSA I-091019-PSA, Business Email Compromise: The $26 Billion Scam (2019-09-10) | https://www.ic3.gov/PSA/2019/PSA190910 | 2026-11-03 | Confirmed |
-| 50 | FBI, Operation reWired (2019-09-10) | https://www.fbi.gov/news/stories/operation-rewired-bec-takedown-091019 | 2026-11-03 | Confirmed |
+| 50 | FBI, Operation reWired (2019-09-10) | `https://www.fbi.gov/news/stories/operation-rewired-bec-takedown-091019` | 2026-11-03 | Confirmed |
 | 51 | DOJ Office of the Inspector General, audit of the FBI's FY2019 financial statements | https://oig.justice.gov/archives/reports/2019/a20017.pdf | 2026-11-03 | Confirmed |
 | 52 | FBI IC3, PSA I-100219-PSA, High-Impact Ransomware Attacks Threaten U.S. Businesses and Organizations (2019-10-02) | https://www.ic3.gov/PSA/2019/PSA191002 | 2026-11-03 | Confirmed |
 | 53 | BleepingComputer, Allied Universal breached by Maze ransomware, stolen data leaked (2019-11) | https://www.bleepingcomputer.com/news/security/allied-universal-breached-by-maze-ransomware-stolen-data-leaked/ | 2026-11-03 | Reported |

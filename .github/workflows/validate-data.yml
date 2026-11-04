@@ -151,6 +151,17 @@ jobs:
           python scripts/build_attack_atlases.py --self-test
           python scripts/build_attack_atlases.py --check
 
+      # operating-systems/ (one page per system and the README index) is written by
+      # build_os_pages.py from data/os/os-catalog.jsonl. The support dates in the catalog come
+      # from the endoflife.date API and are re-read by hand with --refresh-eol, so CI needs no
+      # network. Fails on a malformed row, system fields that differ between the versions of
+      # one system, a hardening or case-study link to a page that does not exist, an em dash,
+      # and a stale, missing or orphan page.
+      - name: Operating-system pages match data/os/os-catalog.jsonl
+        run: |
+          python scripts/build_os_pages.py --self-test
+          python scripts/build_os_pages.py --check
+
   repo-hygiene:
     name: Tracked junk, text encoding, revoked ATT&CK IDs, voice in hand-written pages, theme contrast
     # junk: nothing build/editor/OS-generated is tracked (all of it would be published).

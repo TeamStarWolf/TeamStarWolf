@@ -156,6 +156,7 @@
 | Resource | Description |
 |---|---|
 | [Open Source Toolkit](OPEN_SOURCE_TOOLKIT.md) | Open source security tools and bookmarks, organized by category and discipline |
+| [Operating Systems](operating-systems/README.md) | One page per Linux distribution: versions and support dates, where its advisories are published, how it patches, and the commands that identify it |
 | [OSINT Reference](OSINT_REFERENCE.md) | Passive recon, OSINT frameworks, Maltego, Shodan/Censys/FOFA, social media OSINT, domain/IP investigation |
 | [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md) | Wireshark display filters, tcpdump BPF syntax, Zeek logs and scripting, JA3 fingerprinting, and attack pattern detection in pcaps |
 | [Password Security Reference](PASSWORD_SECURITY_REFERENCE.md) | Hash formats, hashcat/John mastery, Argon2/bcrypt/PBKDF2 storage, NIST 800-63B policy, LAPS, gMSA, HIBP API |

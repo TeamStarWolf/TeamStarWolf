@@ -73,7 +73,7 @@ GENERATED = ("mitre/", "techniques/", "detections/strategies/", "scores/", "navi
 GENERATED_FILES = {"explore.md"}
 # The folders a hub's "pages" (platform and developer reference pages) may come from.
 PAGE_FOLDERS = ("platforms/", "languages/", "paradigms/", "frameworks/", "commands/", "formats/",
-                "databases/", "ai-tooling/")
+                "databases/", "operating-systems/", "ai-tooling/")
 FRAMEWORKS_SECTION = "MITRE frameworks"
 # Root pages that are not references (same set as build_stats.py, plus Explore).
 ROOT_META = {

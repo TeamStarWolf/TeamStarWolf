@@ -142,6 +142,19 @@ SCHEMAS = {
         "required": list(ENRICH_FIELDS),
         "field_values": {},
     },
+    # The operating-system catalog (scripts/build_os_pages.py renders operating-systems/ from
+    # it and checks the full row shape; this is the structural half).
+    "data/os/os-catalog.jsonl": {
+        "required": ["id", "os", "family", "name", "summary", "version", "codename", "release_model",
+                     "base", "kernel", "architectures", "package_manager", "update_channel",
+                     "patch_commands", "patch_notes", "advisories", "advisory_notes", "identify",
+                     "os_release", "os_release_checked", "eol", "hardening", "case_studies",
+                     "vocab_id", "licence", "sources", "reviewed_at"],
+        "field_values": {
+            "family": ["debian", "rhel", "suse", "independent", "cloud", "container", "security"],
+            "release_model": ["point", "rolling", "channel"],
+        }
+    },
     # Per-technique prevalence extracted from the (uncommitted) 529-machine training
     # corpus; scripts/generate_mitre_pages.py renders the "corpus signal" paragraph from it.
     "data/generated/corpus_signal.jsonl": {
@@ -189,6 +202,7 @@ PRIMARY_KEYS = {
     "data/vocab/entities.jsonl": "id",
     "data/vocab/curated.jsonl": "id",
     "data/vocab/stop_aliases.jsonl": "alias",
+    "data/os/os-catalog.jsonl": "id",
 }
 
 # Files whose true primary key is a tuple. detection_strategies lists a strategy

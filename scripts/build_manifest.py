@@ -75,6 +75,9 @@ SOURCES = {
                   "url": "https://github.com/TeamStarWolf/TeamStarWolf", "copyright": "(c) TeamStarWolf; ATT&CK (c) The MITRE Corporation"},
     "tsw_hub": {"upstream": "TeamStarWolf Intelligence Hub (first-party): a pinned snapshot of the Hub's tag, year and CVE counts, written by scripts/build_hub_links.py --refresh",
                 "license": "MIT", "url": "https://teamstarwolf.github.io/intelligence-hub/", "copyright": "(c) TeamStarWolf"},
+    "tsw_os": {"upstream": "TeamStarWolf (first-party): operating-system catalog compiled from vendor documentation; support dates from the endoflife.date API, refreshed by scripts/build_os_pages.py --refresh-eol",
+               "license": "MIT (catalog); endoflife.date data under the MIT License",
+               "url": "https://endoflife.date/", "copyright": "(c) TeamStarWolf; support dates (c) endoflife.date contributors"},
 }
 
 # Longest matching prefix wins. Paths are POSIX-relative to the repo root.
@@ -101,6 +104,7 @@ PROVENANCE = [
     ("data/vendor_to_control.jsonl",           "tsw"),
     ("data/vocab/",                            "tsw_vocab"),
     ("data/hub/",                              "tsw_hub"),
+    ("data/os/",                               "tsw_os"),
 ]
 
 VERSION_KEYS = ["attack_version", "capec_version", "cwe_version", "atlas_version", "d3fend_version",

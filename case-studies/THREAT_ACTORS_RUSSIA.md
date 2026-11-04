@@ -865,8 +865,8 @@ ATT&CK records ICS techniques for three of the groups at group level (**Confirme
 |---|---|---|---|---|
 | [`T0819`](https://attack.mitre.org/techniques/T0819/) | Exploit Public-Facing Application | Initial Access | Sandworm Team | [82] [100] |
 | [`T0884`](https://attack.mitre.org/techniques/T0884/) | Connection Proxy | Command and Control | Sandworm Team | [82] [100] |
-| [`T1701.001`](https://attack.mitre.org/techniques/T1701/001/) | ICS Command and Scripting Interpreter: PowerShell | Execution | Sandworm Team | [82] [100] |
-| [`T1701.002`](https://attack.mitre.org/techniques/T1701/002/) | ICS Command and Scripting Interpreter: Windows Command Shell | Execution | Sandworm Team | [82] [100] |
+| [`T1701.001`](https://attack.mitre.org/techniques/T1701/001/) | Command and Scripting Interpreter: PowerShell | Execution | Sandworm Team | [82] [100] |
+| [`T1701.002`](https://attack.mitre.org/techniques/T1701/002/) | Command and Scripting Interpreter: Windows Command Shell | Execution | Sandworm Team | [82] [100] |
 | [`T0817`](https://attack.mitre.org/techniques/T0817/) | Drive-by Compromise | Initial Access | Dragonfly; TEMP.Veles | [84] [100] |
 | [`T0862`](https://attack.mitre.org/techniques/T0862/) | Supply Chain Compromise | Initial Access | Dragonfly; TEMP.Veles | [84] [100] |
 | [`T0840`](https://attack.mitre.org/techniques/T0840/) | Network Connection Enumeration | Discovery | Stated in the AA23-129A table for Snake (2023-05-09); no group record | [38] [100] |
@@ -909,7 +909,7 @@ The Mobile domain still uses the Defense Evasion tactic name in v20.0 (**Confirm
 | 2016 Ukraine Electric Power Attack | [`C0025`](/mitre/campaigns/C0025.md) | Sandworm Team, 2016-12 | [94] |
 | 2022 Ukraine Electric Power Attack | [`C0034`](/mitre/campaigns/C0034.md) | Sandworm Team, 2022-06 to 2022-10 | [94] |
 | APT28 Nearest Neighbor Campaign | [`C0051`](/mitre/campaigns/C0051.md) | APT28, 2022-02 to 2024-11 | [97] |
-| Triton IT foothold | [`C0032`](/mitre/campaigns/C0032.md) | TEMP.Veles, 2014-10 to 2017-01 | [94] |
+| C0032 | [`C0032`](/mitre/campaigns/C0032.md) | TEMP.Veles, 2014-10 to 2017-01; the Triton IT foothold before the safety-system attack | [94] |
 | Triton Safety Instrumented System Attack | [`C0030`](/mitre/campaigns/C0030.md) | TEMP.Veles, 2017-06 to 2017-08 | [94] |
 | 2025 Poland Wiper Attacks | [`C0063`](/mitre/campaigns/C0063.md) | No group associated; ATT&CK cites FSB Dragonfly and GRU Sandworm assessments; 53 techniques in the library data | [90] [98] [94] |
 
@@ -1012,6 +1012,12 @@ The study's techniques are collected in an ATT&CK Navigator layer, [`navigator/l
 
 ATT&CK content in this study: © 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE. CAPEC, CWE and D3FEND material is used under their terms as recorded in [THIRD_PARTY_NOTICES.md](/THIRD_PARTY_NOTICES.md).
 
+*© The MITRE Corporation. Includes material from MITRE D3FEND™, used under the D3FEND Terms of Use. https://d3fend.mitre.org/*
+
+*© The MITRE Corporation. Includes material from the Common Weakness Enumeration (CWE™), used under the CWE Terms of Use. https://cwe.mitre.org/*
+
+*© The MITRE Corporation. Includes material from the Common Attack Pattern Enumeration and Classification (CAPEC™), used under the CAPEC Terms of Use. https://capec.mitre.org/*
+
 ## Cross-cutting themes
 
 - **Attribution is a ladder, and this record reaches its top rungs.** Governments name units, grand juries name officers and sanctions name organisations. Even so, the rungs differ: a grand jury's allegation, a government's "almost certainly", a vendor's "medium confidence", ATT&CK's "suspected". Carry the rung with the name. See the [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md).
@@ -1021,6 +1027,15 @@ ATT&CK content in this study: © 2026 The MITRE Corporation. This work is reprod
 - **Fronts and criminals blur the line.** Unit 74455 likely supported a hacktivist front; Treasury links Trickbot members to the intelligence services; KillNet's ties are unconfirmed. For a hospital, the distinction between a state unit and a state-tolerated crew matters less than the controls that stop both (**Confirmed** [57] [34] [33]; the conclusion is **Inferred**). See the [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md).
 - **Legal action has not stopped the tempo.** Six rounds of US indictments since 2018, multiple sanctions packages, two domain seizures and a router-network takedown sit in the record alongside continuing operations into 2026 (**Inferred** from the timeline).
 - **The library's own data has edges worth knowing.** The library lacks a generated page for ALLANITE and for the ICS software Triton; its copy of the APT28 and Sandworm software lists differs slightly from the live pages; and its D3FEND mapping leaves several common techniques without a countermeasure. Readers comparing tools against this layer should know which counts they are using (**Confirmed** [80] [82] [96] [102]).
+
+### What is overstated and what is understated
+
+- **Overstated: Russian state units as the attackers of hospitals.** None of the government documents opened for this study attributes a disruptive attack on a hospital to a Russian state unit. The state record on healthcare is espionage, collateral damage and sector lists; the attacks that disrupted care came from criminal ransomware crews and pro-Russia hacktivists (**Inferred** from [12] [32] [51] [62] [33] [34]; see "What the record does not show" in Part 6).
+- **Overstated: vendor names as units.** AA24-249A warns that vendor names may not map one-to-one to its own attribution, and the FBI calls Berserk Bear and Dragonfly separate but related clusters (**Confirmed** [51] [56]). A vendor name marks a cluster of activity, not a unit (**Inferred**).
+- **Overstated: KillNet's own claims.** HC3 says KillNet's ties to the FSB or SVR are unconfirmed and advises treating its claims "with a grain of salt" (**Confirmed** [33]). The January 2023 DDoS wave on hospitals is in the record; a claimed compromise is a lead to check, not an incident (**Inferred** from [33] [35]).
+- **Understated: patch debt on old KEV entries.** CVE-2018-0171 has been in KEV since 3 November 2021, and the FBI reported FSB Center 16 exploiting it in August 2025 (**Confirmed** [92] [56]). Attention goes to new flaws, while this record runs on old, known ones (**Inferred**).
+- **Understated: end-of-life network devices.** TA18-106A warned in 2018 about Smart Install, SNMP and GRE on routers; the FBI's 2025 notice reports Smart Install and SNMP exploitation on end-of-life devices, and AA26-194A asked for router hygiene again in 2026 (**Confirmed** [6] [56] [62]). Devices that no longer receive firmware fall outside a CVE-driven patch program (**Inferred**).
+- **Understated: identity conditions over CVEs.** The SVR's access paths in AA24-057A are password spraying, dormant accounts, tokens and device registration, and Midnight Blizzard entered Microsoft through a legacy test tenant account (**Confirmed** [45] [69]). None of those conditions has a CVE, so a CVE-only backlog does not show them (**Inferred**).
 
 ## Sources
 

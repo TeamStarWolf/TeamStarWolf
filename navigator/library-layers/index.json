@@ -52,5 +52,11 @@
     "name": "TeamStarWolf - Log4Shell (CVE-2021-44228) Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified Log4Shell record supports: ATT&CK procedures and campaigns C0017 and C0018, CISA advisories AA22-174A and AA22-320A, Cisco Talos, CrowdStrike, Check Point, and ATT&CK v20.0 STIX relationships citing the CrowdStrike and Check Point Log4j reports. Ids reported under earlier ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/LOG4SHELL.md. Scores: 100 ties the technique to Log4j exploitation itself, 75 is post-exploitation behavior in a Log4j-initiated intrusion, 40 is an Inferred mapping no opened source cites.",
     "blurb": "Techniques from the Log4Shell record, from exploitation and scanning to the post-exploitation behavior of APT41, Aquatic Panda, Magic Hound and AvosLocker intrusions. A curated layer for the Log4Shell case study."
+  },
+  {
+    "file": "npm-supply-chain-attacks.json",
+    "name": "TeamStarWolf - npm Supply-Chain Attacks, 2018 to 2026",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified npm supply-chain record supports: ATT&CK v20.0 procedures and software mappings for S9008 Shai-Hulud, S9043 Mini Shai-Hulud, S9042 CanisterWorm, S9041 TeamPCP Cloud Stealer, S9034 Tsundere Botnet, S1246 BeaverTail, G1056 TeamPCP, G0082 APT38 and G1052 Contagious Interview, and the maintainer, vendor and GitHub reports the study cites. Each comment names source numbers from case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md. Scores: 100 is an ATT&CK-published link to an npm worm, loader or group in the record, 50 is the study's own mapping, labelled Inferred.",
+    "blurb": "Techniques from eight years of npm supply-chain attacks, from hijacked maintainer accounts and poisoned release workflows to install-time payloads, token theft and exfiltration to code repositories. A curated layer for the npm supply-chain case study."
   }
 ]

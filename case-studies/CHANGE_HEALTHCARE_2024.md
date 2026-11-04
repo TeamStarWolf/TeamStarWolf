@@ -391,7 +391,7 @@ What an exposure program would have needed:
 | Need | Why it matters here | Source |
 |---|---|---|
 | An inventory of every externally reachable login surface, with authentication strength recorded as an attribute | The portal was external, single-factor and outside policy | [14][17]; Inferred for the inventory design |
-| The acquired company's estate inside that inventory from day one | Change was acquired in late 2022, about 15 months before the attack, and its legacy servers, some systems going back 40 years by Witty's account, were still being brought to UHG standards | [17]; Inferred for the lesson |
+| The acquired company's estate inside that inventory from day one | Change was acquired in late 2022, roughly 14 to 16 months before the attack by this study's count, and its legacy servers, some systems going back 40 years by Witty's account, were still being brought to UHG standards | [17]; Inferred for the month count and the lesson |
 | Testing that checks controls, not just versions | UHG now uses continuous penetration tests and outside support to enforce MFA | [17] |
 | Audit scope that covers the edge | HITRUST certifications covered certain Change systems; whether they caught the missing MFA is not stated | [17]; Inferred that scope missed it |
 | Cadence the proposal would set | Asset inventory and network map yearly, scans every six months, penetration tests every 12 months, critical patches in 15 days | [37] |
@@ -466,7 +466,7 @@ AA23-353A, updated 27 Feb 2024, for ALPHV affiliates (Confirmed [23]):
 
 ATT&CK's record of [S1068 BlackCat](/mitre/software/S1068.md) lists 21 techniques (Confirmed [30][33]): T1018 Remote System Discovery, T1033 System Owner/User Discovery, T1047 Windows Management Instrumentation, T1059.003 Windows Command Shell, T1069.002 Domain Groups, T1082 System Information Discovery, T1083 File and Directory Discovery, T1087.002 Domain Account, T1112 Modify Registry, T1134 Access Token Manipulation, T1135 Network Share Discovery, T1222.001 Windows Permissions, T1486 Data Encrypted for Impact, T1489 Service Stop, T1490 Inhibit System Recovery, T1491.001 Internal Defacement, T1548.002 Bypass User Account Control, T1561.001 Disk Content Wipe, T1570 Lateral Tool Transfer, T1680 Local Storage Discovery and T1685.005 Clear Windows Event Logs. Only T1486 is documented at Change (Confirmed [14]).
 
-AA24-242A maps T1588.005, T1566, T1190, T1059.001, T1047, T1136, T1098, T1021.001, T1036, T1070, T1562.001, T1003, T1110.003, T1018, T1046, T1210, T1219, T1048.002, T1537, T1048.003, T1486 and T1490 for RansomHub affiliates in general (Confirmed [24]). In ATT&CK v20 T1562.001 Disable or Modify Tools redirects to [T1685](/mitre/techniques/T1685.md), and the library's `data/attack/superseded_by.jsonl` maps it there (Confirmed [32][33]). RansomHub's role at Change was extortion with stolen data, not intrusion, so none of these is bound to the Change record (Inferred from [6][61][67]).
+AA24-242A maps T1588.005, T1566, T1190, T1059.001, T1047, T1136, T1098, T1021.001, T1036, T1070, T1562.001, T1003, T1068, T1110.003, T1018, T1046, T1210, T1219, T1048.002, T1537, T1048.003, T1486 and T1490 for RansomHub affiliates in general (Confirmed [24]). In ATT&CK v20 T1562.001 Disable or Modify Tools redirects to [T1685](/mitre/techniques/T1685.md), and the library's `data/attack/superseded_by.jsonl` maps it there (Confirmed [32][33]). RansomHub's role at Change was extortion with stolen data, not intrusion, so none of these is bound to the Change record (Inferred from [6][61][67]).
 
 ### ATT&CK groups, software and mitigations
 
@@ -499,7 +499,7 @@ See the [CAPEC Reference](/CAPEC_REFERENCE.md) and the [CWE Reference](/CWE_REFE
 
 ### D3FEND countermeasures
 
-The library's `data/attack/technique_to_d3fend.jsonl` carries these mappings for the bound techniques (Confirmed [33]):
+The library's `data/attack/technique_to_d3fend.jsonl` carries these mappings for the bound techniques, among others; the table lists the most relevant ones, not the full set (Confirmed [33]):
 
 | Countermeasure | D3FEND tactic | Library mapping | Guidance in the record it matches | Source |
 |---|---|---|---|---|
@@ -523,7 +523,7 @@ The study's techniques are saved as an ATT&CK Navigator layer, [change-healthcar
 ## Cross-cutting themes
 
 - **The perimeter was a policy, not a fact.** MFA was required on paper and missing on the one server that mattered (Confirmed [17]). Controls need to be measured where they apply, not where they are written (Inferred). See [Identity Security](/IDENTITY_SECURITY_REFERENCE.md) and [Identity and Access Management](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md).
-- **Mergers inherit attack surface.** The vulnerable server came with the acquisition and was still in transition 15 months later (Confirmed [17]; Inferred for the general point).
+- **Mergers inherit attack surface.** The vulnerable server came with the acquisition and was still in transition 14 to 16 months later (Confirmed [17] for the late-2022 acquisition and the unfinished transition; Inferred from [17] for the month count and the general point).
 - **Concentration turns one breach into a national outage.** A clearinghouse that touches a third of patient records, by the senator's count, plus exclusivity clauses, made switching difficult or very difficult for two-thirds of the hospitals the AHA surveyed (Confirmed [17][56]). See [Supply Chain Security](/SUPPLY_CHAIN_SECURITY.md) and the [Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md).
 - **Ransomware-as-a-service splits the actor in two.** The operator took the money and the affiliate kept the data, so paying one did not satisfy the other (Reported [64][67]; Inferred for the general point). See [Ransomware Defense](/RANSOMWARE_DEFENSE_REFERENCE.md).
 - **Counts are moving targets.** The breach grew from 500 to 192.7 million over a year of filings (Confirmed [20]). Cite the date with the number.

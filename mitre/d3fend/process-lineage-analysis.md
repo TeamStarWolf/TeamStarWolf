@@ -50,6 +50,7 @@ Identification of suspicious processes executing on an end-point device by exami
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [Log4Shell (CVE-2021-44228): The Case Study](/case-studies/LOG4SHELL.md)
 - [Operation Exchange Marauder and the 2021 Exchange Server Mass Exploitation](/case-studies/EXCHANGE_MARAUDER_2021.md)
 
 <!-- library-refs:end -->

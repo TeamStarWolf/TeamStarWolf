@@ -214,6 +214,7 @@
         ["ATT&CK threat groups", "/mitre/groups/README.md"],
         ["ATT&CK software", "/mitre/software/README.md"],
         ["ATT&CK campaigns", "/mitre/campaigns/README.md"],
+        ["SolarWinds and SUNBURST: a 2019 to 2021 case study", "/case-studies/SOLARWINDS_SUNBURST.md"],
         ["Exchange Marauder 2021: a case study", "/case-studies/EXCHANGE_MARAUDER_2021.md"]
       ]
     },
@@ -311,7 +312,9 @@
       "pages": ["/languages/README.md", "/paradigms/README.md", "/frameworks/README.md", "/formats/README.md", "/databases/README.md", "/commands/git.md", "/platforms/snyk.md", "/platforms/invicti.md", "/platforms/chainguard.md"],
       "see_also": [
         ["Web application pentesting", "/WEB_APPLICATION_PENTESTING.md"],
-        ["CAPEC attack patterns", "/mitre/capec/README.md"]
+        ["CAPEC attack patterns", "/mitre/capec/README.md"],
+        ["Log4Shell: a case study", "/case-studies/LOG4SHELL.md"],
+        ["npm supply-chain attacks: a case study", "/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md"]
       ]
     },
     {

@@ -66,6 +66,12 @@
     "blurb": "Techniques from eight years of npm supply-chain attacks, from hijacked maintainer accounts and poisoned release workflows to install-time payloads, token theft and exfiltration to code repositories. A curated layer for the npm supply-chain case study."
   },
   {
+    "file": "hugging-face-supply-chain-enterprise.json",
+    "name": "TeamStarWolf - Hugging Face AI Supply Chain (Enterprise)",
+    "description": "Enterprise ATT&CK v20.0 techniques bound in the Hugging Face case study. Score 100: an ATLAS-published ATT&CK reference on a technique ATLAS maps in a Hugging Face case study, or an ATT&CK procedure that names Hugging Face (S9035). Score 50: the study's own inference, labelled Inferred in its comment. Comments carry the study's source numbers.",
+    "blurb": "The Enterprise techniques behind the Hugging Face case study: malicious models, loader exploits, exposed tokens and the July 2026 pipeline intrusion. Score 100 marks a MITRE-published link, 50 the study's labelled inference."
+  },
+  {
     "file": "change-healthcare-2024.json",
     "name": "TeamStarWolf - Change Healthcare Attack 2024",
     "description": "Techniques in the Change Healthcare ransomware attack of February 2024, not an official MITRE mapping. Sources: Andrew Witty's House and Senate testimony and UHG's answers for the record, the State of Nebraska complaint, FBI, CISA and HHS advisory AA23-353A, and ATT&CK software S1068 BlackCat as published in ATT&CK v20. Tactics are taken from data/attack/technique_profiles.jsonl. Scores: 100 is documented in the Change record, 75 is alleged in the Nebraska complaint, 40 is ALPHV/BlackCat general tradecraft not documented at Change. Each comment names source numbers from the Sources table of case-studies/CHANGE_HEALTHCARE_2024.md.",

@@ -19,7 +19,7 @@ Full support is the vendor's regular maintenance; security support is the end of
 | Version | Kernel | Architectures | Based on | Updates from |
 |---|---|---|---|---|
 | 13 | Linux 6.12 series | amd64, arm64, armhf, ppc64el, riscv64, s390x | Independent | Debian security team (DSA) |
-| 12 | Linux 6.1 series | amd64, arm64, armel, armhf, i386, mipsel, mips64el, ppc64el, s390x | Independent | Debian security team (DSA), then the LTS team (DLA) |
+| 12 | Linux 6.1 series | amd64, arm64, armhf, i386, ppc64el | Independent | Debian security team (DSA), then the LTS team (DLA) |
 | 11 | Linux 5.10 series | amd64, i386, arm64, armhf | Independent | Third-party extended LTS only |
 
 ## Where its advisories live

@@ -47,7 +47,7 @@ An alert or user report needs triage in the next five minutes, ransomware or a s
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last corrected</th><td>
 
-2026-09-29, TheHive line updated (now commercial; DFIR-IRIS named as the open-source alternative) ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+2026-11-04, SP 800-61 Rev. 3 presented as the current NIST guidance and the four-phase lifecycle as the withdrawn Rev. 2 model; TheHive line corrected ([#175](https://github.com/TeamStarWolf/TeamStarWolf/pull/175))
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>

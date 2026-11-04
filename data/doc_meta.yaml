@@ -101,6 +101,10 @@ corrections:
     date: "2026-10-13"
     pr: 120
     what: "Azure lab steps corrected"
+  pr175-currency-claims:
+    date: "2026-11-04"
+    pr: 175
+    what: "version, date and count claims checked against their primary sources and corrected"
 reviews: {}
 pages:
   ACTIVE_DIRECTORY_ATTACKS.md:
@@ -164,8 +168,8 @@ pages:
     start_at: "[MCP Security Threat Model](#_2-mcp-security-threat-model), [MCP Security Hardening](#_3-mcp-security-hardening), [Quick Reference: Security Checklists](#quick-reference-security-checklists)"
     pairs_with: "[AI Security Reference](AI_SECURITY_REFERENCE.md), [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md), [ATLAS Reference (AI threats)](ATLAS_REFERENCE.md), [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md)"
     learning_path: []
-    corrected: "pr63-regulatory-updates"
-    corrected_what: "EU AI Act timeline updated for the deferral of the high-risk obligations"
+    corrected: "pr175-currency-claims"
+    corrected_what: "MCP transports and OAuth 2.1 authorization updated to the 2026-07-28 specification; NIST AI 600-1 named for the Generative AI Profile; AI Act high-risk dates and the Article 99(5) fine corrected"
     reviewed: null
   AI_OFFENSIVE_SECURITY_REFERENCE.md:
     audience: "Security leaders, vulnerability managers, and red teams sizing AI-assisted attack risk"
@@ -183,8 +187,8 @@ pages:
     pairs_with: "[AI & MCP Security Reference](AI_MCP_SECURITY_REFERENCE.md), [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md), [ATLAS Reference (AI threats)](ATLAS_REFERENCE.md), [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md)"
     learning_path:
       - "disciplines/ai-llm-security.md"
-    corrected: "pr62-names-and-versions"
-    corrected_what: "note added on the 2026 OWASP Top 10 for LLM Applications"
+    corrected: "pr175-currency-claims"
+    corrected_what: "Bing Chat indirect prompt injection credited to Greshake et al. (February 2023)"
     reviewed: null
   API_SECURITY_REFERENCE.md:
     audience: "API pentesters, developers, and security engineers"
@@ -222,8 +226,8 @@ pages:
     start_at: "[All campaigns](#all-campaigns) for the sortable index, [Detailed profiles](#detailed-profiles) for per-campaign technique lists"
     pairs_with: "[Threat Group Profiles](THREAT_GROUP_PROFILES.md), [Notable Incidents](NOTABLE_INCIDENTS.md)"
     learning_path: []
-    corrected: "pr118-revoked-citations"
-    corrected_what: "revoked T1562 sub-techniques and T1656 re-keyed to their successors (T1684.001, T1685, T1685.001, T1686, T1689, T1690), each marked with the ID it replaces"
+    corrected: "pr175-currency-claims"
+    corrected_what: "C0059 Salesforce Data Exfiltration first seen corrected from 2004-10 to 2024-10, and its row moved into date order"
     reviewed: null
   ATTACK_DATA_COMPONENTS.md:
     audience: "Detection engineers, SOC leads, and logging and SIEM owners"
@@ -696,8 +700,8 @@ pages:
     read_when: "A fraud desk and the SOC are describing the same incident in different words, you need to name a fraud behavior (account takeover, mule cash-out, check fraud) with a standard technique ID, or you are mapping fraud coverage onto ATT&CK-based detections"
     start_at: "[The F3 kill chain](#the-f3-kill-chain) for the 8-tactic overview, [Monetization](#monetization) for where the money actually leaves, [Using F3 with the rest of this library](#using-f3-with-the-rest-of-this-library) to connect it to detections and CTEM"
     learning_path: []
-    corrected: "pr118-revoked-citations"
-    corrected_what: "note added that F3 keeps T1672 Email Spoofing, which ATT&CK Enterprise revoked in favour of T1684.002"
+    corrected: "pr175-currency-claims"
+    corrected_what: "intro and version row state that the page follows F3 v1.1 while the current upstream release is v1.2 (138 techniques)"
     reviewed: null
   FUZZING_VULNERABILITY_RESEARCH.md:
     audience: "Vulnerability researchers, bug bounty hunters, and security-minded developers"
@@ -832,8 +836,8 @@ pages:
     pairs_with: "[IR Playbooks](IR_PLAYBOOKS.md), [Ransomware Defense Reference](RANSOMWARE_DEFENSE_REFERENCE.md), [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md), [Notable Incidents](NOTABLE_INCIDENTS.md)"
     learning_path:
       - "disciplines/incident-response.md"
-    corrected: "pr62-names-and-versions"
-    corrected_what: "TheHive line updated (now commercial; DFIR-IRIS named as the open-source alternative)"
+    corrected: "pr175-currency-claims"
+    corrected_what: "SP 800-61 Rev. 3 presented as the current NIST guidance and the four-phase lifecycle as the withdrawn Rev. 2 model; TheHive line corrected"
     reviewed: null
   INSIDER_THREAT_REFERENCE.md:
     audience: "Insider risk program leads, SOC teams, and HR, legal, and privacy partners"
@@ -1235,8 +1239,8 @@ pages:
     start_at: "[OWASP Top 10 (2021)](#owasp-top-10-2021), [Security Testing in SDLC](#security-testing-in-sdlc), [Quick Reference Checklist](#quick-reference-checklist)"
     pairs_with: "[API Security Reference](API_SECURITY_REFERENCE.md), [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md), [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md)"
     learning_path: []
-    corrected: "pr62-names-and-versions"
-    corrected_what: "note added on OWASP Top 10:2025; CWE Top 25 and ATT&CK versions in the footer updated"
+    corrected: "pr175-currency-claims"
+    corrected_what: "IBM breach-lifecycle figure updated to the 2024 report; the 600,000 PBKDF2 iterations attributed to OWASP, not NIST"
     reviewed: null
   SECURITY_ARCHITECTURE_REFERENCE.md:
     audience: "Security architects and architecture review boards"
@@ -1284,8 +1288,8 @@ pages:
     start_at: "[S1: Security Metrics Fundamentals](#s1-security-metrics-fundamentals) for the KPI/KRI groundwork, [S4: Risk Quantification](#s4-risk-quantification) for FAIR and dollar estimates, [S10: Executive Reporting & Dashboard Design](#s10-executive-reporting-amp-dashboard-design) for board translation"
     pairs_with: "[Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md), [Vulnerability Prioritization Reference](VULNERABILITY_PRIORITIZATION_REFERENCE.md), [SIEM Reference](SIEM_REFERENCE.md), [SOAR Automation Reference](SOAR_AUTOMATION_REFERENCE.md)"
     learning_path: []
-    corrected: "pr62-names-and-versions"
-    corrected_what: "Windows 10 end-of-support row, one Entra ID rename and the ATT&CK version in the footer updated"
+    corrected: "pr175-currency-claims"
+    corrected_what: "IBM 2024 benchmark figures corrected to the published report; CIS Controls v8.1 in the footer"
     reviewed: null
   SECURITY_OPERATING_SYSTEMS_REFERENCE.md:
     audience: "Security practitioners and vulnerability management analysts choosing or assessing operating systems and distributions"
@@ -1387,8 +1391,8 @@ pages:
     pairs_with: "[Supply Chain Security](SUPPLY_CHAIN_SECURITY.md), [DevSecOps Reference](DEVSECOPS_REFERENCE.md), [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md)"
     learning_path:
       - "disciplines/supply-chain-security.md"
-    corrected: "pr88-revoked-ids"
-    corrected_what: "revoked T1574.002 (DLL side-loading) folded into T1574.001 in the Hijack Execution Flow note"
+    corrected: "pr175-currency-claims"
+    corrected_what: "SolarWinds and XZ Utils timelines, Codecov, 3CX, ctx and event-stream facts, ISO/IEC 5962 version, SLSA v1.2 release date and the SLSA v1.0 handling of L4 corrected"
     reviewed: null
   TELECOM_5G_SECURITY_REFERENCE.md:
     audience: "Telecom and private 5G security engineers, and threat intelligence analysts covering telecom"
@@ -1510,8 +1514,8 @@ pages:
     pairs_with: "[Vulnerability Prioritization Reference](VULNERABILITY_PRIORITIZATION_REFERENCE.md), [CVE Reference](CVE_REFERENCE.md), [DevSecOps Reference](DEVSECOPS_REFERENCE.md), [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md)"
     learning_path:
       - "disciplines/vulnerability-management.md"
-    corrected: "pr63-regulatory-updates"
-    corrected_what: "EU Cyber Resilience Act dates updated in one line"
+    corrected: "pr175-currency-claims"
+    corrected_what: "PCI DSS heading updated to v4.0.1"
     reviewed: null
   VULNERABILITY_PRIORITIZATION_REFERENCE.md:
     audience: "Vulnerability management leads and security leaders who set remediation policy"
@@ -1538,8 +1542,8 @@ pages:
     pairs_with: "[Web App Pentesting](WEB_APPLICATION_PENTESTING.md), [API Security Reference](API_SECURITY_REFERENCE.md), [Secure Coding Reference](SECURE_CODING_REFERENCE.md), [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md)"
     learning_path:
       - "disciplines/application-security.md"
-    corrected: "pr62-names-and-versions"
-    corrected_what: "note added on OWASP Top 10:2025"
+    corrected: "pr175-currency-claims"
+    corrected_what: "ASVS requirements labeled with their 4.0.3 numbering and the paste requirement re-numbered V2.1.11"
     reviewed: null
   WINDOWS_HARDENING.md:
     audience: "Windows administrators and security engineers hardening servers and endpoints"

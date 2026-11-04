@@ -47,7 +47,7 @@ You are threat-modeling or reviewing an LLM application before deployment, you a
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last corrected</th><td>
 
-2026-09-29, note added on the 2026 OWASP Top 10 for LLM Applications ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+2026-11-04, Bing Chat indirect prompt injection credited to Greshake et al. (February 2023) ([#175](https://github.com/TeamStarWolf/TeamStarWolf/pull/175))
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>

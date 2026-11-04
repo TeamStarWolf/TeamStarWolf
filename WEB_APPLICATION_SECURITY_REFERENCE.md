@@ -47,7 +47,7 @@ You are testing a web app or API against the OWASP Top 10, you are writing an SQ
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last corrected</th><td>
 
-2026-09-29, note added on OWASP Top 10:2025 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+2026-11-04, ASVS requirements labeled with their 4.0.3 numbering and the paste requirement re-numbered V2.1.11 ([#175](https://github.com/TeamStarWolf/TeamStarWolf/pull/175))
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>

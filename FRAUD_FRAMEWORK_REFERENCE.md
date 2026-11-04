@@ -37,7 +37,7 @@ A fraud desk and the SOC are describing the same incident in different words, yo
 <table class="tsw-meta-card">
 <tr><th scope="row" align="left" valign="top">Last corrected</th><td>
 
-2026-10-13, note added that F3 keeps T1672 Email Spoofing, which ATT&CK Enterprise revoked in favour of T1684.002 ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2)
+2026-11-04, intro and version row state that the page follows F3 v1.1 while the current upstream release is v1.2 (138 techniques) ([#175](https://github.com/TeamStarWolf/TeamStarWolf/pull/175))
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>

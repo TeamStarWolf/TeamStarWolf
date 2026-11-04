@@ -42,7 +42,7 @@ You are evaluating or hardening an MCP server deployment, you are threat-modelin
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last corrected</th><td>
 
-2026-10-01, EU AI Act timeline updated for the deferral of the high-risk obligations ([#63](https://github.com/TeamStarWolf/TeamStarWolf/pull/63))
+2026-11-04, MCP transports and OAuth 2.1 authorization updated to the 2026-07-28 specification; NIST AI 600-1 named for the Generative AI Profile; AI Act high-risk dates and the Article 99(5) fine corrected ([#175](https://github.com/TeamStarWolf/TeamStarWolf/pull/175))
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>

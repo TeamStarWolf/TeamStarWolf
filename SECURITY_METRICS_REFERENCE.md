@@ -42,7 +42,7 @@ You are building or overhauling a metrics program, you are preparing a CISO/boar
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last corrected</th><td>
 
-2026-09-29, Windows 10 end-of-support row, one Entra ID rename and the ATT&CK version in the footer updated ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+2026-11-04, IBM 2024 benchmark figures corrected to the published report; CIS Controls v8.1 in the footer ([#175](https://github.com/TeamStarWolf/TeamStarWolf/pull/175))
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>

@@ -47,7 +47,7 @@ You need to vet or scan a project's dependencies, you are adding SBOM generation
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last corrected</th><td>
 
-2026-10-12, revoked T1574.002 (DLL side-loading) folded into T1574.001 in the Hijack Execution Flow note ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+2026-11-04, SolarWinds and XZ Utils timelines, Codecov, 3CX, ctx and event-stream facts, ISO/IEC 5962 version, SLSA v1.2 release date and the SLSA v1.0 handling of L4 corrected ([#175](https://github.com/TeamStarWolf/TeamStarWolf/pull/175))
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>

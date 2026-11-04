@@ -42,7 +42,7 @@ You need the technique set or timeline of a named intrusion campaign, you are ch
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last corrected</th><td>
 
-2026-10-13, revoked T1562 sub-techniques and T1656 re-keyed to their successors (T1684.001, T1685, T1685.001, T1686, T1689, T1690), each marked with the ID it replaces ([#118](https://github.com/TeamStarWolf/TeamStarWolf/pull/118), ATT&CK v19.2)
+2026-11-04, C0059 Salesforce Data Exfiltration first seen corrected from 2004-10 to 2024-10, and its row moved into date order ([#175](https://github.com/TeamStarWolf/TeamStarWolf/pull/175))
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>

@@ -42,7 +42,7 @@ You are reviewing a pull request for security flaws, you are fixing a scanner fi
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last corrected</th><td>
 
-2026-09-29, note added on OWASP Top 10:2025; CWE Top 25 and ATT&CK versions in the footer updated ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+2026-11-04, IBM breach-lifecycle figure updated to the 2024 report; the 600,000 PBKDF2 iterations attributed to OWASP, not NIST ([#175](https://github.com/TeamStarWolf/TeamStarWolf/pull/175))
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>

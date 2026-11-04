@@ -1,0 +1,75 @@
+{
+  "name": "TeamStarWolf - The Year 2020 in Intrusions ICS",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "domain": "ics-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK for ICS techniques that NSA and CISA advisory AA20-205A (23 Jul 2020) maps for operational technology exposure, as bound in case-studies/CHRONICLE_2020.md. Deprecated T0833 is left out. Scores indicate membership only.",
+  "techniques": [
+    {
+      "techniqueID": "T0883",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Internet-accessible PLCs and OT devices. AA20-205A [125]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T0885",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Commonly used ports for OT traffic. AA20-205A [125]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T0869",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Standard application-layer protocols. AA20-205A [125]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T0843",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Program download to controllers. AA20-205A [125]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T0836",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "Modified parameters. AA20-205A [125]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T0826",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Loss of availability. AA20-205A [125]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T0829",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Loss of view. AA20-205A [125]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T0828",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Loss of productivity and revenue (commodity ransomware on IT and OT). AA20-205A [125]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T0831",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Manipulation of control. AA20-205A [125]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    }
+  ]
+}

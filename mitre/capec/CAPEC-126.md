@@ -62,6 +62,7 @@ An adversary uses path manipulation methods to exploit insufficient input valida
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)
 
 <!-- library-refs:end -->
 

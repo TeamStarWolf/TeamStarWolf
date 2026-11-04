@@ -639,6 +639,16 @@ All sources were opened on 3 November 2026. "Primary" means the organization tha
 
 Not opened: the Justice Department's 19 Dec 2023 ALPHV release (bot verification on every copy), the Senate Finance Committee's own PDF of the Witty testimony (403; the printed hearing record [17] was used), HHS HC3 PDFs on hhs.gov (403), the HHS release announcing the OCR letter (403), the Wall Street Journal reporting relayed by [18], and the HICP volumes.
 
+*© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*
+
+*© The MITRE Corporation. Includes material from the Common Weakness Enumeration (CWE™), used under the CWE Terms of Use. https://cwe.mitre.org/*
+
+*© The MITRE Corporation. Includes material from the Common Attack Pattern Enumeration and Classification (CAPEC™), used under the CAPEC Terms of Use. https://capec.mitre.org/*
+
+*© The MITRE Corporation. Includes material from MITRE D3FEND™, used under the D3FEND Terms of Use. https://d3fend.mitre.org/*
+
+*The terms for every MITRE dataset used here are recorded in [THIRD_PARTY_NOTICES.md](/THIRD_PARTY_NOTICES.md).*
+
 ## Related references
 
 - [Threat Actors](/THREAT_ACTORS.md)

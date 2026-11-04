@@ -30,6 +30,7 @@ Time and difficulty are quoted in full from each guide's header table.
 | Guide | Time | Difficulty |
 |---|---|---|
 | [Harden a Windows Baseline](/guides/HARDEN_A_WINDOWS_BASELINE.md) | Half a day for a pilot; 2-4 weeks to full production | Intermediate |
+| [Harden a Linux Host](/guides/HARDEN_A_LINUX_HOST.md) | About 2 hours for one host | Intermediate |
 | [Harden a macOS Fleet with mSCP](/guides/HARDEN_A_MACOS_FLEET.md) | 1-2 days for a pilot cohort; 2-4 weeks to full fleet | Intermediate |
 
 ## Platforms and developer reference

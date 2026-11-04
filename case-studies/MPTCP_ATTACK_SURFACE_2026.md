@@ -2,7 +2,7 @@
 
 *A TeamStarWolf case study. Published 3 November 2026; every source checked as of that date.*
 
-[All case studies](/case-studies/README.md) · Related: [Linux Hardening](/LINUX_HARDENING_REFERENCE.md), [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md), [Vulnerability Prioritization](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [CVE-2026-98432 and an AI-Written Exploit](/case-studies/LINUX_TCP_UAF_2026.md)
+[All case studies](/case-studies/README.md) · Related: [Linux Hardening](/LINUX_HARDENING_REFERENCE.md), [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md), [Vulnerability Prioritization](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [CVE-2026-98432 and an AI-Written Exploit](/case-studies/LINUX_TCP_UAF_2026.md), [Harden a Linux Host](/guides/HARDEN_A_LINUX_HOST.md)
 
 ## Executive summary
 

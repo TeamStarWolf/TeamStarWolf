@@ -47,7 +47,7 @@ New here? [How to use this library](guides/HOW_TO_USE_THIS_LIBRARY.md) shows wha
 | What | Count | Contents | Start at |
 |---|---:|---|---|
 | Reference documents | 164 | One topic each: its terms, tooling, and the frameworks and guidance that apply | [Reference index](INDEX.md) |
-| How-to guides | 21 | One task, step by step, with the time it takes, what you need, and what you produce | [Guides](guides/README.md) |
+| How-to guides | 22 | One task, step by step, with the time it takes, what you need, and what you produce | [Guides](guides/README.md) |
 | Learning paths | 47 | An order of study for one discipline, with training, tools, books, and certifications | [Learning paths](disciplines/README.md) |
 | Framework pages | 3,019 | One page per Enterprise ATT&CK technique, tactic, group, software entry, campaign, and mitigation, CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, and F3 technique | [Framework pages](mitre/README.md) |
 | Developer reference pages | 191 | One page per programming language, paradigm, software framework, command-line tool, data format, and database engine | [Languages](languages/README.md) |

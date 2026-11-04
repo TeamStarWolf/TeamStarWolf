@@ -306,10 +306,12 @@ def status(e: dict, model: str) -> str:
     return "Ended"
 
 
-def date_or(v, rolling: bool) -> str:
+def date_or(v, rolling: bool, unknown: bool = False) -> str:
     if v is not None:
         return v
-    return "Not applicable" if rolling else "Not published"
+    if rolling:
+        return "Not applicable"
+    return "Not checked" if unknown else "Not published"
 
 
 def group(rows: list[dict]) -> dict[str, list[dict]]:
@@ -360,15 +362,20 @@ def render_page(rs: list[dict]) -> str:
     for r in rs:
         e = r["eol"]
         roll = r["release_model"] != "point"
+        unk = e["source"] == "unknown"
         out.append("| " + " | ".join([
-            cell(r["version"]), cell(r["codename"] or "None"), cell(date_or(e["release_date"], roll)),
-            cell(e["latest"] or ("Not applicable" if roll else "Not published")),
-            cell(date_or(e["support_end"], roll)), cell(date_or(e["security_end"], roll)),
-            cell(date_or(e["extended_end"], roll)), cell(status(e, r["release_model"]))]) + " |")
+            cell(r["version"]), cell(r["codename"] or "None"), cell(date_or(e["release_date"], roll, unk)),
+            cell(e["latest"] or date_or(None, roll, unk)),
+            cell(date_or(e["support_end"], roll, unk)), cell(date_or(e["security_end"], roll, unk)),
+            cell(date_or(e["extended_end"], roll, unk)), cell(status(e, r["release_model"]))]) + " |")
     out.append("")
-    notes = [(r["version"], r["eol"]["note"], r["eol"]["url"]) for r in rs if r["eol"]["note"]]
-    for v, note, url in notes:
-        line = "- " + cell(v) + ": " + note
+    notes: dict[tuple, list[str]] = {}
+    for r in rs:
+        if r["eol"]["note"]:
+            notes.setdefault((r["eol"]["note"], r["eol"]["url"]), []).append(r["version"])
+    for (note, url), vs in notes.items():
+        label = "All versions" if len(vs) == len(rs) and len(rs) > 1 else ", ".join(vs)
+        line = "- " + cell(label) + ": " + note
         if url:
             line += " (" + md_link("source", url) + ")"
         out.append(line)
@@ -465,7 +472,7 @@ def render_page(rs: list[dict]) -> str:
 
 def render_index(rows: list[dict]) -> str:
     groups = group(rows)
-    days = fetched_dates(rows)
+    days = fetched_dates([r for r in rows if r["eol"]["source"] == "endoflife.date"] or rows)
     out = [START, "", "# Operating systems", "",
            "> The operating systems defenders run, patch, and have to identify, from Linux and BSD servers "
            "to Windows, Apple, and Android devices, network appliances, hypervisors, and embedded systems: "
@@ -711,6 +718,9 @@ def self_test() -> int:
     expect("unknown eol row with a date fails", any("no end dates" in e for e in validate([bad])))
     page = build([unk])[OUT + "/acme.md"]
     expect("unknown row page says no date was confirmed", "no vendor page confirmed" in page)
+    expect("unknown row dates read Not checked", "| 1 | None | Not checked | 1.4 | Not checked |" in page)
+    idx = build([good, dict(unk, id="acme-x", os="acme-x", eol=dict(unk["eol"], fetched="2026-02-02"))])[INDEX]
+    expect("index cites only the API fetch dates", "fetched on 2026-01-10," in idx and "2026-02-02" not in idx)
     cli = json.loads(json.dumps(unk))
     cli.update({"shell": "none", "patch_commands": [], "os_release": None,
                 "identify": [{"command": "Settings > About", "shows": "Version"}]})
@@ -741,6 +751,10 @@ def self_test() -> int:
     expect("no em dash in output", all(EM_DASH not in t for t in pages.values()))
     expect("rendering is stable", build([good, two]) == pages)
     expect("index links the page", "](/operating-systems/acme.md)" in pages[INDEX])
+    u2 = json.loads(json.dumps(unk))
+    u2["id"], u2["version"] = "acme-2", "2"
+    expect("a note shared by every version is written once",
+           build([unk, u2])[OUT + "/acme.md"].count("No vendor page gives a date.") == 1)
     other = json.loads(json.dumps(two))
     other["eol"].update({"product": "other", "url": EOL_API.format(product="other")})
     expect("two API products are both cited",

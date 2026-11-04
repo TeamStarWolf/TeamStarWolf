@@ -215,6 +215,7 @@
         ["ATT&CK software", "/mitre/software/README.md"],
         ["ATT&CK campaigns", "/mitre/campaigns/README.md"],
         ["SolarWinds and SUNBURST: a 2019 to 2021 case study", "/case-studies/SOLARWINDS_SUNBURST.md"],
+        ["APT41: the public record", "/case-studies/APT41_PUBLIC_RECORD.md"],
         ["The year 2020 in intrusions: a case study", "/case-studies/CHRONICLE_2020.md"]
       ]
     },
@@ -376,7 +377,8 @@
       "pages": ["/platforms/dragos.md", "/platforms/claroty.md", "/languages/assembly-arm.md", "/languages/verilog.md", "/languages/vhdl.md", "/languages/systemverilog.md"],
       "see_also": [
         ["SDR and RF security", "/SDR_RF_SECURITY_REFERENCE.md"],
-        ["ICS attacks and advisories, 2024 to 2026: a case study", "/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md"]
+        ["ICS attacks and advisories, 2024 to 2026: a case study", "/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md"],
+        ["Stuxnet: the case study", "/case-studies/STUXNET.md"]
       ]
     },
     {

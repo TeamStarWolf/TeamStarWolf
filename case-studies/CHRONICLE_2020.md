@@ -2,7 +2,7 @@
 
 *A TeamStarWolf case study. Published 3 November 2026; every source checked as of that date.*
 
-[All case studies](/case-studies/README.md) · Related: [Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [CVE Reference](/CVE_REFERENCE.md) · Home studies for events summarized here: [SolarWinds and SUNBURST, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md), APT41: the public record (a separate study, in review)
+[All case studies](/case-studies/README.md) · Related: [Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [CVE Reference](/CVE_REFERENCE.md) · Home studies for events summarized here: [SolarWinds and SUNBURST, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md), [APT41: the public record](/case-studies/APT41_PUBLIC_RECORD.md)
 
 ## Executive summary
 
@@ -212,7 +212,7 @@ One row per event or report. The date is the event date where the source gives o
 
 **MosaicRegressor.** Kaspersky found rogue UEFI firmware that dropped the MosaicRegressor framework on diplomats and NGO members in Africa, Asia and Europe whose activity related to North Korea. It assessed a Chinese-speaking actor, possibly linked to users of Winnti, and called it the second known public case of malicious UEFI firmware in the wild (Confirmed [19]).
 
-**APT41 (summary; home study APT41: the public record (a separate study, in review)).** The FBI poster records indictments of 15 August 2019 (Zhang Haoran, Tan Dailin) and 11 August 2020 (Qian Chuan, Fu Qiang, Jiang Lizhi and Chengdu 404), alleging supply-chain attacks on hundreds of companies (Confirmed [18]). FireEye's 25 March 2020 report described a global campaign from 20 January to 11 March against more than 75 of its customers: Citrix exploitation from 20 January, Cisco RV320/RV325 (CVE-2019-1652 and CVE-2019-1653) from 21 February and Zoho ManageEngine CVE-2020-10189 from 8 March, followed by Cobalt Strike BEACON and Meterpreter (Confirmed [87]). [APT41 (G0096)](/mitre/groups/G0096.md) is mapped in Part 8 only for the techniques of that report.
+**APT41 (summary; home study [APT41: the public record](/case-studies/APT41_PUBLIC_RECORD.md)).** The FBI poster records indictments of 15 August 2019 (Zhang Haoran, Tan Dailin) and 11 August 2020 (Qian Chuan, Fu Qiang, Jiang Lizhi and Chengdu 404), alleging supply-chain attacks on hundreds of companies (Confirmed [18]). FireEye's 25 March 2020 report described a global campaign from 20 January to 11 March against more than 75 of its customers: Citrix exploitation from 20 January, Cisco RV320/RV325 (CVE-2019-1652 and CVE-2019-1653) from 21 February and Zoho ManageEngine CVE-2020-10189 from 8 March, followed by Cobalt Strike BEACON and Meterpreter (Confirmed [87]). [APT41 (G0096)](/mitre/groups/G0096.md) is mapped in Part 8 only for the techniques of that report.
 
 ### Vietnam and Southeast Asia
 
@@ -606,7 +606,7 @@ Groups (every page exists under `/mitre/groups/`; Microsoft's actor names are ma
 | [G0016](/mitre/groups/G0016.md) | APT29 (aliases include UNC2452, NOBELIUM) | Vaccine research targeting with WellMess and WellMail; SolarWinds | [5][37][40][112] |
 | [G0035](/mitre/groups/G0035.md) | Dragonfly (aliases include Berserk Bear, Energetic Bear) | AA20-296A | [8] |
 | [G0010](/mitre/groups/G0010.md) | Turla | Crutch | [11] |
-| [G0096](/mitre/groups/G0096.md) | APT41 | 2020 indictment and global campaign; home study APT41: the public record (a separate study, in review) | [18][87] |
+| [G0096](/mitre/groups/G0096.md) | APT41 | 2020 indictment and global campaign; home study [APT41: the public record](/case-studies/APT41_PUBLIC_RECORD.md) | [18][87] |
 | [G0128](/mitre/groups/G0128.md) | ZIRCONIUM (alias APT31) | Election-season targeting | [6] |
 | [G0050](/mitre/groups/G0050.md) | APT32 | COVID-19 espionage against Chinese government targets | [21] |
 | [G0087](/mitre/groups/G0087.md) | APT39 | OFAC designation with Rana | [22] |
@@ -893,7 +893,7 @@ All sources were opened on 3 November 2026. Grade is the source's evidence grade
 ## Related references
 
 - [Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [CVE Reference](/CVE_REFERENCE.md)
-- Home studies: [SolarWinds and SUNBURST, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md); APT41: the public record (a separate study, in review)
+- Home studies: [SolarWinds and SUNBURST, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md); [APT41: the public record](/case-studies/APT41_PUBLIC_RECORD.md)
 - Groups: [G0034 Sandworm Team](/mitre/groups/G0034.md), [G0007 APT28](/mitre/groups/G0007.md), [G0016 APT29](/mitre/groups/G0016.md), [G0035 Dragonfly](/mitre/groups/G0035.md), [G0096 APT41](/mitre/groups/G0096.md), [G0117 Fox Kitten](/mitre/groups/G0117.md), [G0059 Magic Hound](/mitre/groups/G0059.md), [G0032 Lazarus Group](/mitre/groups/G0032.md), [G0082 APT38](/mitre/groups/G0082.md), [G0094 Kimsuky](/mitre/groups/G0094.md), [G0102 Wizard Spider](/mitre/groups/G0102.md), [G0119 Indrik Spider](/mitre/groups/G0119.md)
 - Software: [S0559 SUNBURST](/mitre/software/S0559.md), [S0502 Drovorub](/mitre/software/S0502.md), [S0514 WellMess](/mitre/software/S0514.md), [S0446 Ryuk](/mitre/software/S0446.md), [S0266 TrickBot](/mitre/software/S0266.md), [S0367 Emotet](/mitre/software/S0367.md), [S0449 Maze](/mitre/software/S0449.md), [S0612 WastedLocker](/mitre/software/S0612.md), [S0154 Cobalt Strike](/mitre/software/S0154.md)
 - Campaigns: [C0024 SolarWinds Compromise](/mitre/campaigns/C0024.md), [C0022 Operation Dream Job](/mitre/campaigns/C0022.md), [C0005 Operation Spalax](/mitre/campaigns/C0005.md)

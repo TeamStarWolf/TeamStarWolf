@@ -62,6 +62,7 @@ An attack of this type exploits a programs' vulnerabilities that allows an attac
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
 
 <!-- library-refs:end -->
 

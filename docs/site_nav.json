@@ -214,7 +214,8 @@
         ["ATT&CK threat groups", "/mitre/groups/README.md"],
         ["ATT&CK software", "/mitre/software/README.md"],
         ["ATT&CK campaigns", "/mitre/campaigns/README.md"],
-        ["SolarWinds and SUNBURST: a 2019 to 2021 case study", "/case-studies/SOLARWINDS_SUNBURST.md"]
+        ["SolarWinds and SUNBURST: a 2019 to 2021 case study", "/case-studies/SOLARWINDS_SUNBURST.md"],
+        ["Russia-attributed threat actors: a case study", "/case-studies/THREAT_ACTORS_RUSSIA.md"]
       ]
     },
     {

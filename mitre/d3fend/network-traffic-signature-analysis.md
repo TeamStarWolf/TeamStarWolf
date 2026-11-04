@@ -120,6 +120,7 @@ Analyzing network traffic and compares it to known signatures
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [Log4Shell (CVE-2021-44228): The Case Study](/case-studies/LOG4SHELL.md)
+- [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
 
 <!-- library-refs:end -->
 

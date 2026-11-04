@@ -177,6 +177,128 @@ Because there is no reported in-the-wild activity, detection here is mostly abou
 - **Flag unusual IP-options traffic.** Legitimate inbound IPv4 TCP with IP options is uncommon on most networks; a spike is a cheap signal, and it is the same traffic the temporary nftables mitigation drops.
 - **Key on version and reboot, not just the installed package.** Confirm both that the fixed kernel package is installed and that the host is actually running it.
 
+## How to check your own host
+
+Three short checks tell you where a Linux host stands on CVE-2026-98432: whether the running kernel carries the fix, whether Multipath TCP is in a state that adds the reported remote-code-execution path, and whether an IPv4 TCP listener is reachable at all. Every command in the three checks only reads state; none of them changes the host. Run them in order, because the answer to the first decides how much the other two matter.
+
+The screenshots were captured on a lab host running Kali 2026.2 with kernel 7.1.5 on 3 November 2026. That host was unpatched on that date and no fixed package was available for it yet, so it works through the case of "vulnerable, no fix path, mitigate and watch." Each screenshot is a rendering of the commands' real output with a neutral prompt. Two lines are reshaped for the image: the long `/proc/version` line is wrapped onto two lines, and the `nstat` listing in Check 2 shows its first six counters and then a summary line in place of the remaining 70 (all of them 0). The fixed versions are **Confirmed** from the Debian security tracker and kernel.org as opened on 3 November 2026; the lab readings are the measured output of one host on one date.
+
+### Check 1: the running kernel and its package
+
+```bash
+uname -r
+cat /proc/version
+apt-cache policy linux-image-amd64
+```
+
+![Terminal output on the lab host: uname -r prints 7.1.5+kali-amd64, /proc/version (wrapped onto two lines) ends with the Kali 7.1.5-1kali1 kernel build of 2026-07-29, and apt-cache policy for linux-image-amd64 shows Installed and Candidate both at 7.1.5-1kali1 from the kali-rolling repository](assets/check-1-kernel.png)
+
+`uname -r` names the kernel that is running now, which is the one that matters. The end of `/proc/version` carries the distribution's package version for that build (`Kali 7.1.5-1kali1 (2026-07-29)` on the lab host), which is the number to compare against an advisory. `apt-cache policy` shows the kernel package that is installed and the newest one the configured repositories offer (the Candidate). On RPM-based distributions the per-platform table above gives the equivalent commands.
+
+Compare the package version with the fixed versions for your release. For Debian, the security tracker lists these:
+
+| Debian release | Source package | Fixed in | Advisory |
+|---|---|---|---|
+| 12 (bookworm) | `linux` | 6.1.190-1 | DLA-4841-1 |
+| 12 (bookworm) | `linux-6.12` | 6.12.113-1~deb12u1 | DLA-4850-1 |
+| 13 (trixie) | `linux` | 6.12.113-1 | DSA-6568-1 |
+| unstable (sid) | `linux` | 7.2.10-1 | none listed |
+
+The tracker gives the upstream fix as commit `e3f33b0a1d89d738e2b913dab519226eaf76e15b`, noted against 7.3-rc7. The kernel.org release list on 3 November 2026 showed mainline 7.4-rc1, stable 7.3.1, 7.2.15 marked end of life, and the longterm series 6.18, 6.12, 6.6, 6.1, 5.15 and 5.10. No 7.1 series appears on it, so there is no upstream 7.1 stable branch to carry a backport: a host on a 7.1.x kernel reaches the fix by moving to a kernel from a newer series.
+
+- **What vulnerable looks like:** the running package version is below the fixed version for your release, or the kernel belongs to a series that no longer receives fixes. If Installed and Candidate are the same and both are below the fix, no fixed kernel is available from your configured repositories yet. The lab host shows exactly this: Installed and Candidate are both `7.1.5-1kali1`, a 7.1 build with no newer package on offer.
+- **What fixed looks like:** the version at the end of `/proc/version` is at or above your release's fixed version (on Debian 13, `6.12.113-1` or later), and `uname -r` after a reboot names that kernel. A Candidate above Installed means the fix is waiting to be installed: install it and reboot (see After patching below).
+
+### Check 2: Multipath TCP state
+
+```bash
+cat /proc/sys/net/mptcp/enabled
+grep MPTCP /boot/config-7.1.5+kali-amd64
+ss -Mlan
+nstat -az | grep -i mptcp
+```
+
+On your own host, put the name `uname -r` printed in place of `7.1.5+kali-amd64` in the second command, or write the path as `/boot/config-"$(uname -r)"`.
+
+![Terminal output on the lab host: /proc/sys/net/mptcp/enabled prints 1, the kernel config shows CONFIG_MPTCP=y, CONFIG_INET_MPTCP_DIAG=m and CONFIG_MPTCP_IPV6=y, ss -Mlan prints only its header row, and nstat lists the first six MPTcpExt counters at 0, followed by a summary line that all 76 counters are 0, meaning no Multipath TCP traffic since boot](assets/check-2-mptcp.png)
+
+The four commands answer the three questions from [the Multipath TCP case study](/case-studies/MPTCP_ATTACK_SURFACE_2026.md#part-3-how-to-check-your-exposure-and-why): is MPTCP compiled in (`CONFIG_MPTCP=y`), is it enabled (`1` in the sysctl file), and is anything using it (`ss -Mlan` lists MPTCP sockets in every state, and `nstat -az` prints the kernel's MPTCP counters since boot, zero values included). On the lab host MPTCP is compiled in and enabled, but `ss -Mlan` prints only its header row and every MPTcpExt counter in the output is 0: the feature is switched on and has not been used since boot. Question 3 of that study adds two force-enable checks (the `mptcpize` search and the `bpftool` listing); they were not part of the lab capture.
+
+- **What the reported remote-code-execution path needs:** a row in `ss -Mlan` in the LISTEN state. Anthropic's exploit report and the AWS bulletin tie the remote-code-execution outcome to a host with a Multipath TCP listener. Nonzero counters show MPTCP traffic has been seen since boot, so a host with them deserves a closer look even if no listener shows at the moment you check.
+- **What an empty socket list means:** the configuration in which the remote-code-execution exploit was reported is absent at that moment. The plain IPv4 TCP path to a crash, memory disclosure or corruption is still there, because the flaw is in ordinary IPv4 TCP connection handling, not in MPTCP. Red Hat's bulletin puts it directly: a result with no MPTCP listeners "should be treated as informational rather than as reassurance."
+- **What reduced looks like:** `0` in `/proc/sys/net/mptcp/enabled` (see If you cannot patch yet below), and no MPTCP sockets. That lowers the worst case; only the patched kernel fixes the flaw.
+
+### Check 3: exposed IPv4 listeners and the bridge rule
+
+```bash
+ss -lntp
+grep -i -c 'ip option' /etc/nftables.conf
+```
+
+![Terminal output on the lab host: ss -lntp lists a loopback-only listener on 127.0.0.1 and port 22 listening on 0.0.0.0 for IPv4 and on the IPv6 any-address, and grep for ip option in /etc/nftables.conf counts 0 matching lines](assets/check-3-exposure.png)
+
+`ss -lntp` lists the TCP sockets in the LISTEN state. A local address of `0.0.0.0` means the socket accepts IPv4 connections on every interface, which is the input the flaw needs: an inbound IPv4 connection request. A `127.0.0.1` listener is reachable only from the host itself. A local address of `*` is a dual-stack listener: it is an IPv6 socket that also accepts IPv4 connections (as IPv4-mapped addresses), and those connections go through the kernel's IPv4 TCP path, so count a `*` row as an IPv4 listener. The `[::]` rows are IPv6-only sockets, and IPv6 is what the kernel's description of the fix says is not affected by the primary issue. On the lab host, port 22 (SSH) listens on `0.0.0.0`, so the plain IPv4 TCP path is reachable from the network. The Process column is empty in this capture because `ss` was run without root; run it with `sudo` to see which program owns each listener.
+
+The `grep` counts lines in the persistent nftables configuration that mention IP options; `0` means no such rule is written there. Red Hat's bridge rule (below) lives in its own table, matches on `ip hdrlength` rather than the words "ip option," and does not survive a reboot, so check it live with the bulletin's `sudo nft list table inet cve_2026_98432` once you have applied it.
+
+- **What vulnerable looks like:** an unpatched kernel from Check 1 with any IPv4 listener on `0.0.0.0`, `*` or a routable address, and no IP-options filter in front of it. The lab host is in this state.
+- **What mitigated looks like:** the same listeners, with Red Hat's table loaded (or an equivalent filter at the network edge) until the fixed kernel is running.
+
+### If you cannot patch yet
+
+Red Hat's bulletin RHSB-2026-016 gives a temporary nftables table that drops inbound IPv4 TCP packets carrying IP options, the input the flaw requires. Save it as `cve-2026-98432.nft`:
+
+```
+table inet cve_2026_98432 {
+    chain input {
+        type filter hook input priority -310; policy accept;
+        ip protocol tcp ip hdrlength > 5 counter drop
+    }
+}
+```
+
+Then validate it, load it, and confirm it is in place, using the bulletin's commands:
+
+```bash
+sudo nft --check --file cve-2026-98432.nft
+sudo nft --file cve-2026-98432.nft
+sudo nft list table inet cve_2026_98432
+```
+
+The match works because `ip hdrlength` is the IPv4 header length field, counted in 32-bit words with a minimum of 5 for a header with no options (RFC 791), so a value above 5 means the packet carries IP options. Ordinary TCP options sit in the TCP header and are not affected. Priority -310 places the chain ahead of the raw (-300) and connection-tracking (-200) stages in the nftables priority list. Red Hat attaches four conditions to the rule:
+
+- It reduces exposure but cannot fully prevent exploitation, and it is not a substitute for patching. The kernel update is the only complete fix.
+- Test it against your own traffic in a non-production environment first, because some networks use IP options legitimately.
+- It is not persistent. Reapply it after any reboot that happens before the fixed kernel is installed.
+- On OpenShift nodes it filters only the host network namespace, not pod-to-pod traffic; filtering at the network boundary in front of the cluster does not have that limit.
+
+On a host that does not use Multipath TCP (Check 2 shows no MPTCP sockets, and [the force-enable checks](/case-studies/MPTCP_ATTACK_SURFACE_2026.md#question-3-is-anything-actually-using-it) find no `mptcpize` wrapper or MPTCP eBPF program), you can also switch it off to remove the reported remote-code-execution path. At runtime:
+
+```bash
+sudo sysctl -w net.mptcp.enabled=0
+```
+
+And persisted across reboots:
+
+```bash
+echo 'net.mptcp.enabled = 0' | sudo tee /etc/sysctl.d/99-disable-mptcp.conf
+sudo sysctl --system
+```
+
+Red Hat notes that the setting governs only sockets created after the change, so a service that was already listening with MPTCP has to be restarted, and that the host stays affected through the plain IPv4 TCP path either way. MPTCP is disabled in Red Hat Enterprise Linux's default configuration, so on a default system the setting changes nothing. Confirm non-use first: [the Multipath TCP case study](/case-studies/MPTCP_ATTACK_SURFACE_2026.md#the-gate-confirm-non-use-first) explains why a service that requests MPTCP fails outright once it is off.
+
+For the lab host on 3 November 2026 this was the whole plan: with no fixed package to install, load the filter, turn MPTCP off once the force-enable checks (which were not part of the lab capture) also confirm that nothing uses it, and re-run Check 1 until a fixed kernel appears.
+
+### After patching
+
+Install the fixed kernel with the command from the per-platform table, then reboot, because the running kernel keeps the vulnerable code until it is replaced. After the reboot, re-run Check 1: `uname -r` must name the new kernel, and the end of `/proc/version` must show a package version at or above the fixed one. A fixed kernel that is installed but not running still leaves the host vulnerable. Once the fixed kernel is running, remove the bridge rule with the bulletin's command:
+
+```bash
+sudo nft delete table inet cve_2026_98432
+```
+
+Leave `net.mptcp.enabled=0` in place on hosts that never needed MPTCP; [the Multipath TCP case study](/case-studies/MPTCP_ATTACK_SURFACE_2026.md) makes the case for keeping it as a standing control.
+
 ## Part 4: the vulnerability-management lens
 
 This CVE is a compact teaching case for how to triage in 2026, because its signals point in different directions and all of them are correct at once.
@@ -202,6 +324,12 @@ The program move is to carry all three signals and let them combine, which is th
 - The AWS security bulletin for CVE-2026-98432, for the affected-version range, the Multipath TCP remote-code-execution statement, its statement that there was no evidence of exploitation in the wild, and the Amazon Linux fix status.
 - Distribution advisories from Debian, SUSE, Oracle, AlmaLinux, Rocky Linux and Ubuntu, and vendor trackers, for the patch-status matrix.
 - Anthropic's Frontier Red Team research post, "Discovering and exploiting vulnerabilities in critical, real-world software with Claude," for the exploit claim, the model description, the timing figures, the coordinated-disclosure framing, and the earlier preview-model assessment of multi-vulnerability chaining; the exploit, kernel version and configuration were not published, and the claim was not independently reproduced as of this writing.
+- The Debian security tracker entry for [CVE-2026-98432](https://security-tracker.debian.org/tracker/CVE-2026-98432), opened 3 November 2026, for the fixed versions per Debian release (bookworm `linux` 6.1.190-1 via DLA-4841-1, bookworm `linux-6.12` 6.12.113-1~deb12u1 via DLA-4850-1, trixie `linux` 6.12.113-1 via DSA-6568-1, and unstable `linux` 7.2.10-1), the upstream fix commit `e3f33b0a1d89d738e2b913dab519226eaf76e15b` noted against 7.3-rc7, and the kernel's description of the fix, including the note that IPv6 is not affected by the primary issue.
+- The kernel.org release list ([releases.json](https://www.kernel.org/releases.json)), opened 3 November 2026, for the maintained series on that date: mainline 7.4-rc1, stable 7.3.1, 7.2.15 marked end of life, and longterm 6.18, 6.12, 6.6, 6.1, 5.15 and 5.10, with no 7.1 series listed.
+- Red Hat security bulletin RHSB-2026-016, reopened 3 November 2026, for the `cve_2026_98432` nftables table and its check, load, list and delete commands, the conditions attached to it (not a substitute for patching, test first, not persistent, host network namespace only on OpenShift), and its statements that disabling MPTCP governs only sockets created afterwards, that MPTCP is disabled in the default Red Hat Enterprise Linux configuration, and that a result with no MPTCP listeners is informational rather than reassurance.
+- The nftables wiki [quick reference](https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes), for the `ip hdrlength` match and the hook priority values, and [RFC 791](https://www.rfc-editor.org/rfc/rfc791), for the IPv4 header length field (IHL, counted in 32-bit words, minimum 5).
+- The iproute2 source for `ss` ([misc/ss.c](https://github.com/iproute2/iproute2/blob/main/misc/ss.c)) and the Linux kernel's IPv6 TCP code ([net/ipv6/tcp_ipv6.c](https://github.com/torvalds/linux/blob/master/net/ipv6/tcp_ipv6.c)), both opened 3 November 2026: `inet_addr_print` prints an IPv6 any-address listener as `*` unless the socket is IPv6-only, in which case it prints `[::]`, and `tcp_v6_conn_request` and `tcp_v6_syn_recv_sock` hand IPv4 packets arriving on an IPv6 socket to `tcp_v4_conn_request` and `tcp_v4_syn_recv_sock`.
+- Command output captured on a lab host running Kali 2026.2 with kernel 7.1.5 on 3 November 2026, for the three screenshots and the lab readings in How to check your own host.
 
 ## Related references
 

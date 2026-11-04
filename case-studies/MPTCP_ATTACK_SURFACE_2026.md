@@ -189,6 +189,28 @@ The exposure of a host is the row it lands on:
 | Yes | Yes | No | Removable surface: disable after confirming non-use (the common case) |
 | Yes | Yes | Yes | Genuine use: cannot disable; patch promptly and watch; worst case for any MPTCP-reachable bug |
 
+### How to check whether a host uses Multipath TCP
+
+Four read-only commands cover the three questions above, except for the force-enable checks in Question 3 (the `mptcpize` search and the `bpftool` listing), which still apply on top of them. The screenshot was captured on a lab host running Kali 2026.2 with kernel 7.1.5 on 3 November 2026, and is a rendering of the commands' real output with a neutral prompt, with the `nstat` listing shortened to its first six counters and a summary line for the rest.
+
+```bash
+cat /proc/sys/net/mptcp/enabled
+grep MPTCP /boot/config-7.1.5+kali-amd64
+ss -Mlan
+nstat -az | grep -i mptcp
+```
+
+On your own host, put the name `uname -r` prints in place of `7.1.5+kali-amd64` in the second command, or write the path as `/boot/config-"$(uname -r)"`.
+
+![Terminal output on the lab host: /proc/sys/net/mptcp/enabled prints 1, the kernel config shows CONFIG_MPTCP=y, CONFIG_INET_MPTCP_DIAG=m and CONFIG_MPTCP_IPV6=y, ss -Mlan prints only its header row, and nstat lists the first six MPTcpExt counters at 0, followed by a summary line that all 76 counters are 0, meaning no Multipath TCP traffic since boot](assets/check-2-mptcp.png)
+
+Reading the lab output against the table above: `CONFIG_MPTCP=y` answers Question 1 (compiled in), the `1` answers Question 2 (enabled), and the empty `ss -Mlan` list (only the header row) with every MPTcpExt counter at 0 answers the socket part of Question 3 (no MPTCP sockets now, and no MPTCP traffic since boot). The force-enable checks from Question 3 were not part of the lab capture, so the host sits on the "Yes, Yes, No" row only provisionally: it becomes removable surface, to be disabled, once those checks also come back empty.
+
+- **What in use looks like:** a LISTEN row in `ss -Mlan` puts the host on the last row of the table; nonzero MPTcpExt counters show MPTCP traffic has been seen since boot and call for a closer look (re-check across a business cycle, as Question 3 says) before switching MPTCP off.
+- **What reduced looks like:** `0` from `/proc/sys/net/mptcp/enabled` after the change in Part 4, and still no MPTCP sockets.
+
+An empty socket list is a snapshot. For CVE-2026-98432 it means the configuration in which the remote-code-execution exploit was reported is absent at that moment, while the plain IPv4 TCP crash path remains; Red Hat's bulletin for that CVE treats a result with no MPTCP listeners as informational, not as reassurance. The full kernel, Multipath TCP and exposure checks for that CVE, with the bridge mitigation and the post-patch check, are in [How to check your own host](/case-studies/LINUX_TCP_UAF_2026.md#how-to-check-your-own-host) in the companion study.
+
 ## Part 4: reducing the surface safely
 
 ### The change
@@ -247,6 +269,8 @@ MPTCP is a clean example of a kind of risk that standard vulnerability managemen
 - Red Hat's vulnerability page for CVE-2026-31669, for the use-after-free in IPv6 subflow child sockets, the "at least a denial of service via kernel crash" and "memory corruption class" impact statements, the CVSS 7.5 rating against cve.org's 9.8, and the statements that there is no known attack scenario and no confirmed practical trigger under default configurations.
 - Kernel stable-tree advisories and distribution vendor trackers for the other MPTCP flaws cited (CVE-2026-80588 receive-path memory growth, CVE-2025-40258 race-condition use-after-free, CVE-2022-50071 subflow resource leak with its `net.mptcp.enabled=0` workaround, and CVE-2021-47152 data-stream corruption); third-party aggregators were found to disagree on attack vector and severity, so the authoritative advisory governs in each case.
 - The companion TeamStarWolf case study on CVE-2026-98432, for the IPv4 TCP use-after-free, its dependence on an MPTCP listener for the reported remote-code-execution outcome versus denial of service otherwise, and the grading of that exploit claim as Reported.
+- Red Hat security bulletin RHSB-2026-016 for CVE-2026-98432, opened 3 November 2026, for its statement that a result with no MPTCP listeners is informational rather than reassurance.
+- Command output captured on a lab host running Kali 2026.2 with kernel 7.1.5 on 3 November 2026, for the screenshot and the lab readings in How to check whether a host uses Multipath TCP.
 
 ## Related references
 

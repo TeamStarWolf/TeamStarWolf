@@ -1,0 +1,244 @@
+{
+  "name": "TeamStarWolf - Hugging Face AI Supply Chain (Enterprise)",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Enterprise ATT&CK v20.0 techniques bound in the Hugging Face case study. Score 100: an ATLAS-published ATT&CK reference on a technique ATLAS maps in a Hugging Face case study, or an ATT&CK procedure that names Hugging Face (S9035). Score 50: the study's own inference, labelled Inferred in its comment. Comments carry the study's source numbers.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#86efac",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: MITRE-published link (ATLAS attack-reference or ATT&CK procedure)",
+      "color": "#15803d"
+    },
+    {
+      "label": "50: analyst inference, labelled in the comment",
+      "color": "#86efac"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/HUGGING_FACE_SUPPLY_CHAIN.md; MITRE ATLAS 2026.10; ATT&CK v20.0 technique and software pages"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "24"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "24"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 = MITRE-published link; 50 = the study's labelled inference. No severity, prevalence or coverage is measured."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "Hugging Face as an AI Supply-Chain Attack Surface: A 2021 to 2026 Case Study",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1195",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0010 carries ATT&CK reference T1195. Used directly by AML.CS0031 (nullifAI, published 2025-02-06). Sources: [65]; [30]; [69].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1585",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0021 maps to T1585. AML.CS0027 (2023-08-23), AML.CS0065 (2025-09-03). Sources: [65]; [34].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1684.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0073 maps to T1684.001. AML.CS0027 organization confusion (2023-08-23). Sources: [65]; [68].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0074 maps to T1036. AML.CS0027 (training.bin), AML.CS0065 (recreated namespace). Sources: [65]; [68]; [34].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1552",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0055 maps to T1552. AML.CS0027 (2023) and AML.CS0068 S16 (HF tokens exposed in a public dataset, 2026-07-10), S21, S27, S32 (2026-07-11). Sources: [65]; [41]; [43].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0012 maps to T1078. AML.CS0068 S17 (2026-07-10 to 07-11) and S33 (2026-07-11). Sources: [65]; [41].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1611",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0105 maps to T1611. AML.CS0068 S31, privileged pod to node root (2026-07-11). Sources: [65]; [41].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1550.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0091.000 maps to T1550.001. AML.CS0068 S28 and S34 (2026-07-11). Sources: [65]; [41].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1102.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK S9035 LAMEHUG procedure: Hugging Face API used to query Qwen2.5-Coder-32B-Instruct for Windows commands. Source: [71].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1213",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0036 maps to T1213. AML.CS0068 S35: internal MongoDB, four private source repositories, five customer datasets (2026-07-11 to 07-13). Sources: [65]; [41].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0050 maps to T1059. AML.CS0068 S09 (harness, 2026-07-09) and S24 (Jinja2 path in the Dataset Server pod, 2026-07-11). Sources: [65]; [41].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0122 maps to T1210. AML.CS0068 S02: the Artifactory SSRF crosses the evaluation network boundary (evaluation period, no day given). Sources: [65]; [41]; [42].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1593",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0095 maps to T1593. AML.CS0065 S00: Unit 42 reviewed public catalogs, author pages and repositories for deleted namespaces (2025-09-03). Sources: [65]; [34].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0123 maps to T1027. AML.CS0068 S14 and S26, chunked, compressed, Base64 and XOR-encoded traffic (2026-07-09 to 07-13). Inferred: nullifAI used 7z compression and a deliberately broken pickle stream so Picklescan did not flag the payload (2025). Sources: [65]; [41]; [30]; [79].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0049 maps to T1190. AML.CS0068 S08, the exposed code-evaluation harness (2026-07-09). Inferred: the malicious dataset against the public dataset-processing service (2026-07-11), since AML.T0119 has no ATT&CK reference. Sources: [65]; [40]; [41].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATLAS bridge: AML.T0037 maps to T1005. AML.CS0068 S20, the HDF5 external-storage read returned the pod environment and worker source (2026-07-11). Sources: [65]; [41].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1195.001",
+      "tactic": "initial-access",
+      "score": 50,
+      "comment": "Inferred: models pulled by name from a hub, namespace reuse (Unit 42, 2025-09-03) and malicious uploads (JFrog, 2024-02-27). ATT&CK does not name model hubs. Sources: [69]; [75]; [27]; [34].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1608.001",
+      "tactic": "resource-development",
+      "score": 50,
+      "comment": "Inferred: malicious models uploaded to the Hub (JFrog 2024-02-27; nullifAI 2025). AML.T0115.001 has no ATT&CK reference. Sources: [70]; [27]; [30]; [65].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "Inferred: a user loads a pickle-bearing model (JFrog 2024; nullifAI 2025). AML.T0011 has no ATT&CK reference. Sources: [69]; [27]; [30]; [65].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059.006",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "Inferred: pickle __reduce__ payloads run Python when a model is loaded (JFrog 2024-02-27). Sources: [27]; [8].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Inferred: PoisonGPT uploaded as EleuterAI, the real name with one letter removed (2023-07-09). Sources: [67]; [79].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "Inferred: crafted model files that exploit loader bugs, such as llama.cpp GGUF heap overflows (2024) and Keras safe_mode bypasses. Sources: [57]; [58]; [60].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1552.001",
+      "tactic": "credential-access",
+      "score": 50,
+      "comment": "Inferred: 1,681 valid HF tokens found on GitHub and the Hub (Lasso, 2023-12-04). Source: [25].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1593.003",
+      "tactic": "reconnaissance",
+      "score": 50,
+      "comment": "Inferred: Lasso found the tokens by regex code search of GitHub and the Hub (2023-12-04). Source: [25].",
+      "enabled": true
+    }
+  ]
+}

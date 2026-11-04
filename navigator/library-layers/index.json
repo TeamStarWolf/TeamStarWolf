@@ -64,5 +64,11 @@
     "name": "TeamStarWolf - npm Supply-Chain Attacks, 2018 to 2026",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified npm supply-chain record supports: ATT&CK v20.0 procedures and software mappings for S9008 Shai-Hulud, S9043 Mini Shai-Hulud, S9042 CanisterWorm, S9041 TeamPCP Cloud Stealer, S9034 Tsundere Botnet, S1246 BeaverTail, G1056 TeamPCP, G0082 APT38 and G1052 Contagious Interview, and the maintainer, vendor and GitHub reports the study cites. Each comment names source numbers from case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md. Scores: 100 is an ATT&CK-published link to an npm worm, loader or group in the record, 50 is the study's own mapping, labelled Inferred.",
     "blurb": "Techniques from eight years of npm supply-chain attacks, from hijacked maintainer accounts and poisoned release workflows to install-time payloads, token theft and exfiltration to code repositories. A curated layer for the npm supply-chain case study."
+  },
+  {
+    "file": "hugging-face-supply-chain-enterprise.json",
+    "name": "TeamStarWolf - Hugging Face AI Supply Chain (Enterprise)",
+    "description": "Enterprise ATT&CK v20.0 techniques bound in the Hugging Face case study. Score 100: an ATLAS-published ATT&CK reference on a technique ATLAS maps in a Hugging Face case study, or an ATT&CK procedure that names Hugging Face (S9035). Score 50: the study's own inference, labelled Inferred in its comment. Comments carry the study's source numbers.",
+    "blurb": "The Enterprise techniques behind the Hugging Face case study: malicious models, loader exploits, exposed tokens and the July 2026 pipeline intrusion. Score 100 marks a MITRE-published link, 50 the study's labelled inference."
   }
 ]

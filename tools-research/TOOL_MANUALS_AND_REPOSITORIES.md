@@ -561,7 +561,10 @@ Projects from the MITRE Center for Threat-Informed Defense (CTID). Several mappi
 | [D3FEND digital artifact ontology](https://d3fend.mitre.org/dao/) | Docs | Digital artifacts | OK |
 | [MITRE ATLAS](https://atlas.mitre.org/) | Docs | Adversarial threats to AI systems, data v2026.09 | OK |
 | [ATLAS Navigator](https://mitre-atlas.github.io/atlas-navigator/) | GitHub Pages | Navigator with ATLAS data | OK |
-| [MITRE Engage](https://engage.mitre.org/) | Docs | Denial, deception and adversary engagement; the matrix, starter kit and tools pages sit under /matrix/, /starter-kit/ and /tools/ on the same site | OK |
+| [MITRE Engage](https://engage.mitre.org/) | Docs | Denial, deception and adversary engagement | OK |
+| Engage matrix (`/matrix/` on the Engage site) | Docs | Engage matrix | OK |
+| Engage starter kit (`/starter-kit/` on the Engage site) | Docs | Getting started | OK |
+| Engage tools and resources (`/tools/` on the Engage site) | Docs | Resources | OK |
 | [CAPEC](https://capec.mitre.org/) | Docs | Attack pattern enumeration | OK |
 | [CAPEC downloads](https://capec.mitre.org/data/downloads.html) | Feed | XML and CSV downloads | OK |
 | [CAPEC latest XML](https://capec.mitre.org/data/xml/capec_latest.xml) | Feed | Full CAPEC XML | OK |

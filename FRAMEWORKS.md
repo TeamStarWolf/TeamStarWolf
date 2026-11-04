@@ -195,7 +195,7 @@ The international standard for Information Security Management Systems (ISMS). O
 
 Relationship to 800-53: NIST provides a mapping between 800-53 and ISO 27001 controls. Most controls overlap with ~70% coverage equivalence.
 
-Resources: [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html) | NIST 800-53 / 27001 mapping
+Resources: [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html) | [NIST 800-53 / 27001 mapping](https://csrc.nist.gov/projects/risk-management/sp800-53-controls/mappings)
 
 ---
 

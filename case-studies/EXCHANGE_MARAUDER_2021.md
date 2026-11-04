@@ -26,7 +26,7 @@ Evidence grade: the vulnerabilities, fixes, mitigations, directives and governme
 | Fix | Out of band, 2 March 2021; KB5000871 for 2013, 2016 and 2019 [3][4] |
 | Zero-day window | 58 days from first observed exploitation to the fix (Inferred from [22][3]) |
 | Attribution | Microsoft: HAFNIUM, high confidence, 2 March 2021 [1]. United States: MSS-affiliated operators, "high degree of confidence" [66]; UK: Chinese state-backed actor, "almost certain" [67]; Canada: MSS, "confident" [71]; the EU and NATO did not attribute [69][70]; all 19 July 2021 |
-| Scale | Nearly 400,000 servers in scope on 1 March 2021 and a bit more than 100,000 still vulnerable on 9 March [6]; UK: likely over a quarter of a million servers affected worldwide [67] |
+| Scale | Nearly 400,000 servers in scope on 1 March 2021 and a bit more than 100,000 still vulnerable on 9 March [6]; UK: over a quarter of a million servers affected worldwide [67] |
 | CISA response | Emergency Directive 21-02, 3 March 2021; Alert AA21-062A [51][50] |
 | Court action | FBI application to copy and delete web shells, Southern District of Texas, unsealed 13 April 2021 [63] |
 | KEV | All four added 2021-11-03, due 2022-05-03, known ransomware campaign use: Known [57][56] |

@@ -37,6 +37,7 @@ Time and difficulty are quoted in full from each guide's header table.
 
 | Page | What it covers |
 |---|---|
+| [Operating Systems](/operating-systems/README.md) | One page per Linux distribution: versions and support dates, where its advisories are published, how it patches, and the commands that identify it |
 | [Linux Command Reference](/commands/linux-commands.md) | Core GNU/Linux utilities: files, text, processes, permissions, disk, archives, packages |
 | [systemd and systemctl Reference](/commands/systemctl.md) | Service and unit management, journalctl, timers, and unit hardening |
 | [macOS Command Reference](/commands/macos-commands.md) | macOS-specific tools: brew, defaults, launchctl, codesign, spctl |

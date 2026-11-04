@@ -112,7 +112,7 @@
       "techniqueID": "T1583.001",
       "tactic": "resource-development",
       "score": 100,
-      "comment": "Phosphorus lookalike domains, 99 seized (2019-03-27). Basis: Primary; ATT&CK (G0059). Sources [20] in case-studies/CHRONICLE_2019.md.",
+      "comment": "Phosphorus lookalike domains, 99 seized (announced 2019-03-27). Basis: Primary; ATT&CK (G0059). Sources [20] in case-studies/CHRONICLE_2019.md.",
       "enabled": true,
       "showSubtechniques": false
     },

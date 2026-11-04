@@ -136,6 +136,7 @@ _D3FEND also maps T0853, T1053.004, deprecated in ATT&CK with no successor; not 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [Log4Shell (CVE-2021-44228): The Case Study](/case-studies/LOG4SHELL.md)
+- [npm Supply-Chain Attacks, 2018 to 2026: The Record and the Defenses](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md)
 
 <!-- library-refs:end -->
 

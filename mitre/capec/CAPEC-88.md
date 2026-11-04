@@ -54,7 +54,9 @@ In this type of an attack, an adversary injects operating system commands into e
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [APT41: The Public Record, 2012 to 2026](/case-studies/APT41_PUBLIC_RECORD.md)
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [Industrial Control System Attacks and Advisories, 2024 to 2026: Incidents, CVEs and Attribution](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md)
 
 <!-- library-refs:end -->
 

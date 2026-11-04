@@ -46,5 +46,11 @@
     "name": "TeamStarWolf - OWASP Top 10 (2021)",
     "description": "Curated practitioner view of the OWASP Top 10 (2021) themes used in SECURE_CODING_REFERENCE.md, not an official OWASP or MITRE mapping. The 2021 edition is intentional and is not a claim to represent the latest Top 10. Sources: that reference's A01-A10 sections and data/attack/technique_profiles.jsonl. Associations describe possible attacker behavior or defensive context, not equivalence between a weakness category and an ATT&CK technique. Scores indicate membership only.",
     "blurb": "Connects the library's OWASP Top 10 (2021) themes with relevant attacker behaviors. These curated associations are not an official OWASP or MITRE crosswalk."
+  },
+  {
+    "file": "exchange-marauder-2021.json",
+    "name": "TeamStarWolf - Exchange Server Mass Exploitation 2021 (Operation Exchange Marauder) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified record of the 2021 Exchange Server mass exploitation supports: ProxyLogon and HAFNIUM-era intrusions (Microsoft, Volexity, Mandiant, Rapid7, ATT&CK G0125), follow-on actors on the same bugs (ESET, Microsoft, Talos, Red Canary, ATT&CK G0131), and the ProxyShell era (CISA AA21-321A and later ATT&CK group rows). Ids reported under earlier ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/EXCHANGE_MARAUDER_2021.md. Scores: 100 ties the technique to ProxyLogon exploitation or HAFNIUM-era intrusions, 75 is follow-on actors on the same bugs or the ProxyShell era, 40 is an Inferred or demonstration-only mapping.",
+    "blurb": "Techniques from the 2021 Exchange Server mass exploitation, from the ProxyLogon chain and HAFNIUM's mailbox theft to the ransomware, miners and ProxyShell actors that followed. A curated layer for the Exchange Marauder case study."
   }
 ]

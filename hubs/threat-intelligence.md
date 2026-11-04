@@ -45,5 +45,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [ATT&CK threat groups](/mitre/groups/README.md)
 - [ATT&CK software](/mitre/software/README.md)
 - [ATT&CK campaigns](/mitre/campaigns/README.md)
+- [Exchange Marauder 2021: a case study](/case-studies/EXCHANGE_MARAUDER_2021.md)
 
 <!-- hub:end -->

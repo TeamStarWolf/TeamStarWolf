@@ -62,6 +62,7 @@ An adversary uses path manipulation methods to exploit insufficient input valida
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [Operation Exchange Marauder and the 2021 Exchange Server Mass Exploitation](/case-studies/EXCHANGE_MARAUDER_2021.md)
 
 <!-- library-refs:end -->
 

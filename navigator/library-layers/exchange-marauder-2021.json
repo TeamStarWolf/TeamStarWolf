@@ -1,0 +1,396 @@
+{
+  "name": "TeamStarWolf - Exchange Server Mass Exploitation 2021 (Operation Exchange Marauder) Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified record of the 2021 Exchange Server mass exploitation supports: ProxyLogon and HAFNIUM-era intrusions (Microsoft, Volexity, Mandiant, Rapid7, ATT&CK G0125), follow-on actors on the same bugs (ESET, Microsoft, Talos, Red Canary, ATT&CK G0131), and the ProxyShell era (CISA AA21-321A and later ATT&CK group rows). Ids reported under earlier ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/EXCHANGE_MARAUDER_2021.md. Scores: 100 ties the technique to ProxyLogon exploitation or HAFNIUM-era intrusions, 75 is follow-on actors on the same bugs or the ProxyShell era, 40 is an Inferred or demonstration-only mapping.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred or demonstration-only mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "75: follow-on actors on the same bugs, or the ProxyShell era",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: ProxyLogon exploitation or HAFNIUM-era intrusion",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/EXCHANGE_MARAUDER_2021.md (sources opened 3 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "44"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "52"
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "generated_by",
+      "value": "scripts/build_navigator_layers.py"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "Operation Exchange Marauder and the 2021 Exchange Server Mass Exploitation",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/EXCHANGE_MARAUDER_2021.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ProxyLogon chain, SSRF from 3 Jan 2021 (Volexity) [22]; Mandiant clusters [30]; G0125 row [72]; ProxyShell use in AA21-321A [54] and later ATT&CK rows [75]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1583.003",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "HAFNIUM leased US VPS (MSTIC) [1]; short-term VPS in AA21-200B [53]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1590",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Internal FQDN discovery (Volexity) [22]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "SIMPLESEESHARP, SPORTSBALL, China Chopper, ASPXSPY (Volexity) [22]; help.aspx and iisstart.aspx (Mandiant) [30]; G0125 row [72]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Exchange PowerShell snap-ins and Nishang (MSTIC) [1]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "cmd through China Chopper (Rapid7) [34]; w3wp.exe spawning cmd.exe (Mandiant) [30]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Files owned by NT AUTHORITY\\SYSTEM, mapped by ATT&CK (Mandiant) [30][72]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Files owned by NT AUTHORITY\\SYSTEM, mapped by ATT&CK (Mandiant) [30][72]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Files owned by NT AUTHORITY\\SYSTEM, mapped by ATT&CK (Mandiant) [30][72]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Files owned by NT AUTHORITY\\SYSTEM, mapped by ATT&CK (Mandiant) [30][72]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Procdump (MSTIC) [1]; comsvcs.dll MiniDump (Volexity) [22]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1218.011",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "rundll32 comsvcs.dll MiniDump (Volexity) [22]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1003.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "NTDS.DIT copied (Volexity) [22]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1136.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Domain accounts added (Volexity) [22]; listed in AA21-321A [54]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1114.002",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "EWS mailbox theft through the SSRF (Volexity) [22]; PowerShell mailbox export (MSTIC) [1]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1560.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "7-Zip (MSTIC) [1]; WinRAR (Volexity) [22]; listed in AA21-321A [54]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1567.002",
+      "tactic": "exfiltration",
+      "score": 75,
+      "comment": "MEGA, described by Microsoft as HAFNIUM's usual pattern rather than observed in these intrusions; mapped on G0125 [1][72]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Covenant C2 (MSTIC) [1]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1095",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Nishang and PowerCat (MSTIC) [1]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Nishang and PowerCat (MSTIC) [1]; G0131 Tonto Team row citing ESET [73]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1033",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "whoami (Rapid7) [34]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "tasklist (Rapid7) [34]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "nltest /dclist and net group (Rapid7) [34]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "curl to ipinfo.io (Rapid7) [34]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1016.001",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Pings to 8.8.8.8 (Rapid7) [34]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1564.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "attrib hiding web shells (Rapid7) [34]; Talos Lemon Duck [40]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Calypso PlugX DLL search-order hijacking (ESET) [31]; G0131 row [73]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "execution",
+      "score": 75,
+      "comment": "Calypso PlugX DLL search-order hijacking (ESET) [31]; G0131 row [73]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 75,
+      "comment": "DearCry and Black Kingdom (Inferred mapping) [10][36][37]; listed by id in AA21-321A [54]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 75,
+      "comment": "Lemon Duck and Sapphire Pigeon (Inferred mapping) [10][35]; listed by id in AA21-321A [54]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "Lemon Duck and Sapphire Pigeon (Inferred mapping) [10][35]; listed by id in AA21-321A [54]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 75,
+      "comment": "Lemon Duck and Sapphire Pigeon (Inferred mapping) [10][35]; listed by id in AA21-321A [54]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1071.004",
+      "tactic": "command-and-control",
+      "score": 75,
+      "comment": "Cobalt Strike DNS beacons on Lemon Duck infrastructure (Talos) [40]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1136.001",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "Local user netcat (Talos) [40]; local admin accounts (Microsoft) [10]; listed in AA21-321A [54]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 40,
+      "comment": "RDP enabled on Lemon Duck hosts (Talos) [40]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 75,
+      "comment": "G0059 Magic Hound ProxyShell row [75]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1070.003",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "G0059 Magic Hound ProxyShell row [75]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1134.003",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "G1043 BlackByte row [75]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1134.003",
+      "tactic": "privilege-escalation",
+      "score": 75,
+      "comment": "G1043 BlackByte row [75]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1588.001",
+      "tactic": "resource-development",
+      "score": 75,
+      "comment": "AA21-321A, Iranian actors exploiting ProxyShell [54]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1588.002",
+      "tactic": "resource-development",
+      "score": 75,
+      "comment": "AA21-321A, Iranian actors exploiting ProxyShell [54]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1003.002",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "Inferred mapping: DearCry batch file copying SAM and hives (Microsoft) [10]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1496.001",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "Inferred mapping: XMRig and Lemon Duck miners [10][40]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1546.003",
+      "tactic": "privilege-escalation",
+      "score": 40,
+      "comment": "Inferred mapping: Lemon Duck WMI persistence [10]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1546.003",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "Inferred mapping: Lemon Duck WMI persistence [10]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 40,
+      "comment": "Inferred mapping: Lemon Duck disabling Defender real-time monitoring [10]; reported under T1562.001, revoked to T1685. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1569.002",
+      "tactic": "execution",
+      "score": 40,
+      "comment": "Inferred: PsExec lateral movement (Volexity) [22]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 40,
+      "comment": "Inferred: web shells used for proxying (Volexity) [22]; reGeorg variant [50][31]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1087.003",
+      "tactic": "discovery",
+      "score": 40,
+      "comment": "Inferred: offline address book download (MSTIC) [1][79]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1531",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "Inferred: removal of a user from Exchange Organization administrators (Mandiant) [30]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1114.003",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "Demonstration only: ProxyToken forwarding rule (ZDI) [29]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    },
+    {
+      "techniqueID": "T1539",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "Demonstration only: ProxyOracle cadata cookie (DEVCORE) [25]. Source numbers refer to the Sources table of case-studies/EXCHANGE_MARAUDER_2021.md."
+    }
+  ]
+}

@@ -2,6 +2,55 @@
 
 > **Tools Research** · Unified Security Exposure Management reviewed against ServiceNow's official documentation (Brazil release, September 2026). Companion study: [ServiceNow VR, CC and CVR with Tenable and Wiz](/tools-research/SERVICENOW_VR_CC_CVR_TENABLE_WIZ.md). Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/tools-research/pdf/ServiceNow_USEM_Tenable_Wiz.pdf).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, ServiceNow administrators and security architects who run Tenable and Wiz
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 47 min (10,791 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are planning ServiceNow Unified Security Exposure Management with Tenable and Wiz feeds, you need to know how its scoring, remediation rules and licensing behave by default, or you are working out how Tenable and Wiz findings deduplicate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Summary: USEM unifies the workflow, not the findings](#summary-usem-unifies-the-workflow-not-the-findings), [Default scoring weighs EPSS, leaves KEV to you, and hides its weights](#default-scoring-weighs-epss-leaves-kev-to-you-and-hides-its-weights), [Tenable-Wiz deduplication needs a shared CI and a shared CVE](#tenable-wiz-deduplication-needs-a-shared-ci-and-a-shared-cve)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[ServiceNow VR, CC and CVR with Tenable and Wiz](/tools-research/SERVICENOW_VR_CC_CVR_TENABLE_WIZ.md), [Tools Research](/tools-research/README.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Summary: USEM unifies the workflow, not the findings
 
 ServiceNow Unified Security Exposure Management (USEM) is **Vulnerability Response v30.x**, delivered through the ServiceNow Store. It is a major architectural upgrade of the existing VR applications, not a new product. ServiceNow's documentation calls it "a major architectural upgrade to Vulnerability Response applications," and it reached Store general availability on **December 11, 2025**. It puts host, application, container, and configuration-compliance findings into one Security Exposure Management (SEM) Workspace and moves assignment, scoring, SLA, and exception rules into shared `sn_sec_*` tables. The findings themselves stay in separate per-domain tables, so **there is no unified exposure table**. The Brazil family went to Early Availability on **September 24, 2026**, and its GA is **scheduled for November 5, 2026**. The claim that Brazil force-upgrades VR below v30 onto USEM appears only in ServiceNow Community guidance. The official Brazil docs never say it, and they still tell Container VR customers who "don't intend to upgrade" to stay below v30. They do confirm the migration is one-way: rollback is impossible. Tenable and Wiz each enter USEM through a ServiceNow-built Store app.

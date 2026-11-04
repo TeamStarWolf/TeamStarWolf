@@ -4,6 +4,55 @@
 >
 > A coverage analysis comparing the Kali Linux tool catalog against the [curated Stars Lists](/research/CURATED_STARS_LISTS.md) and the broader [Starred GitHub Repositories index](/STARRED_REPOS.md). Surveyed against the full Kali tool index at <https://www.kali.org/tools/all-tools/>.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Practitioners who use Kali Linux and the library's curated tool lists
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,371 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You want to see which Kali Linux tools the curated Stars Lists already cover, you are deciding which tools are worth adding, or you need the reasons some tools are left out on purpose
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Coverage summary](#coverage-summary), [Worth-adding queue](#worth-adding-queue), [Out of scope: explicit non-additions](#out-of-scope-explicit-non-additions)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Curated GitHub Stars Lists](/research/CURATED_STARS_LISTS.md), [Starred Repositories Index](/STARRED_REPOS.md), [Field Notes](/research/FIELD_NOTES.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Why this exists
 
 Kali is the de-facto baseline reference distribution for offensive security. When a working catalogue claims "comprehensive coverage" of practitioner tooling, the honest test is: *how does it line up against the tools a Kali user already has on disk?*

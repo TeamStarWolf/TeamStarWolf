@@ -14,6 +14,55 @@ SPARQL (a recursive name for SPARQL Protocol and RDF Query Language) is the stan
 
 Related: [API Security Reference](/API_SECURITY_REFERENCE.md), [GraphQL](/languages/graphql.md), [Datalog](/languages/datalog.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain SPARQL code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,328 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing SPARQL code (typical uses: querying knowledge graphs, linked data, and RDF datasets), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[API Security Reference](/API_SECURITY_REFERENCE.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [GraphQL](/languages/graphql.md), [Datalog](/languages/datalog.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 SPARQL was standardized by the W3C to provide a common query language for RDF, which represents data as a graph of subject-predicate-object triples. SPARQL 1.0 became a recommendation in 2008; SPARQL 1.1 followed in 2013, adding aggregates, subqueries, property paths, federated queries across endpoints, and an update language for modifying graphs. It is accompanied by a protocol that defines how queries travel over HTTP to a SPARQL endpoint.

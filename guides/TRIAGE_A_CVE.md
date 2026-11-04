@@ -8,6 +8,55 @@
 
 The method comes straight from this library's precedence rule: verified exploitation (KEV) > predicted exploitation (EPSS) > your environment > abstract severity (CVSS). Each step below collects one layer of that stack; the CISA SSVC decision tree then turns the collected inputs into an action. The worked example threaded through the checkpoints is CVE-2023-4966 (CitrixBleed).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management analysts, SOC leads, sysadmins and anyone handed a CVE ID
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,499 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You have been handed a CVE ID and need a defensible decision in half an hour, you want to read KEV, EPSS and the vendor advisory in the right order, or you need an SLA and an owner for the result
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Before you start](#before-you-start), [Step 2: Check KEV and read all of its flags (3 min)](#step-2-check-kev-and-read-all-of-its-flags-3-min), [Step 7: Walk the CISA SSVC tree and export the decision (4 min)](#step-7-walk-the-cisa-ssvc-tree-and-export-the-decision-4-min)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CTEM Reference](/CTEM_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Before you start
 
 - [ ] Have the CVE ID in hand, and know roughly why it landed on your desk (scanner finding, vendor email, news). Rusty on how CVE records work? Skim [CVE Reference](/CVE_REFERENCE.md) first.

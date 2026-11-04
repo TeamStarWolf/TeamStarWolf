@@ -2,11 +2,54 @@
 
 > A curated reference for finding security conference presentations, research papers, vulnerability disclosures, and associated code repositories from the most significant security conferences worldwide. Conference talks represent the cutting edge of security research, often months or years ahead of any book, course, or certification curriculum.
 
-| | |
-|---|---|
-| Read this when | You need the original talk/paper/PoC behind a technique, you are hunting a speaker's tool repo after a conference, you want free archives of DEF CON/Black Hat/CCC/USENIX content |
-| Start at | [How to Get the Most From Conference Talks](#how-to-get-the-most-from-conference-talks), [Landmark Talks by Topic](#landmark-talks-by-topic), [Finding Speaker Repositories](#finding-speaker-repositories) |
-| Pairs with | [STARRED_REPOS.md](/STARRED_REPOS.md), [YOUTUBE_CHANNELS.md](/YOUTUBE_CHANNELS.md), [research/BLACK_HAT_ARSENAL_CROSSWALK.md](/research/BLACK_HAT_ARSENAL_CROSSWALK.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Researchers, practitioners and students who follow security conference work
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,224 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the original talk, paper or proof of concept behind a technique, you are hunting a speaker's tool repository after a conference, or you want the free archives of DEF CON, Black Hat, CCC and USENIX content
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[How to Get the Most From Conference Talks](#how-to-get-the-most-from-conference-talks), [Landmark Talks by Topic](#landmark-talks-by-topic), [Finding Speaker Repositories](#finding-speaker-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Starred Repositories Index](/STARRED_REPOS.md), [Cybersecurity YouTube Channel Library](/YOUTUBE_CHANNELS.md), [Black Hat Arsenal Crosswalk](/research/BLACK_HAT_ARSENAL_CROSSWALK.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 ---
 

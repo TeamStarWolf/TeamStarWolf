@@ -11,6 +11,55 @@
 | Repository | [microsoft/agent-framework](https://github.com/microsoft/agent-framework) |
 | Checked | 8 Oct 2026, Python agent-framework 1.20.0, .NET 1.24.0 |
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers, researchers and security teams who use or review Microsoft Agent Framework (agent framework)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 3 min (697 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are trying Microsoft Agent Framework for the first time, you need its key concepts and official documentation in one place, or you are reviewing its security risks before a team adopts it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Quick start](#quick-start), [Key concepts](#key-concepts), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[AI Tools and LLMs Index](/ai-tooling/AI_TOOLS_INDEX.md), [AI and LLM Learning Path](/ai-tooling/AI_LEARNING_PATH.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is for
 
 - Single agents that call function tools and MCP servers across several model providers.

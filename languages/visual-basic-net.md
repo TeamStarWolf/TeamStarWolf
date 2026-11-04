@@ -14,6 +14,55 @@ Visual Basic .NET is a statically typed, object-oriented language on the .NET pl
 
 Related: [C#](/languages/csharp.md), [F#](/languages/fsharp.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Visual Basic .NET code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (955 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Visual Basic .NET code (typical uses: business applications, desktop tools, legacy .NET maintenance), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[C#](/languages/csharp.md), [F#](/languages/fsharp.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Visual Basic .NET replaced the classic Visual Basic 6 line in 2002, moving the language onto the .NET runtime with full object orientation and shared libraries. It compiles, like C#, to the same intermediate language and runs on the Common Language Runtime. Microsoft has stated that the language is stabilized: it is supported on current [.NET](https://dotnet.microsoft.com/) and the Roslyn compiler, but new language features are generally not being added, and the focus is compatibility rather than growth. Microsoft's position is documented in its [.NET language strategy](https://devblogs.microsoft.com/vbteam/visual-basic-support-planned-for-net-5-0/).

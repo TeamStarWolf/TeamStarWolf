@@ -4,6 +4,55 @@
 
 Microsoft Entra ID is Microsoft's cloud identity and access management service and the identity control plane for Microsoft 365, Azure, and tens of thousands of integrated SaaS and on-prem apps. It solves the problem of authenticating and authorizing human, workload, and device identities while enforcing adaptive, risk-aware access policy at sign-in. It is the former Azure Active Directory (renamed to Entra ID on 15 July 2023) and sits at the center of the broader Microsoft Entra product family. For vulnerability mitigation it is a front-line compensating control: Conditional Access and risk-based policy can block or step up access to an exposed app or identity faster than any patch can ship.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the identity and access engineers who run Microsoft Entra ID
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,540 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what Microsoft Entra ID can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Identity & Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md), [Active Directory Security Reference](/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities & architecture
 
 **Core capabilities**

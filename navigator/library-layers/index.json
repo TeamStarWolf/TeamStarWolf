@@ -46,5 +46,11 @@
     "name": "TeamStarWolf - OWASP Top 10 (2021)",
     "description": "Curated practitioner view of the OWASP Top 10 (2021) themes used in SECURE_CODING_REFERENCE.md, not an official OWASP or MITRE mapping. The 2021 edition is intentional and is not a claim to represent the latest Top 10. Sources: that reference's A01-A10 sections and data/attack/technique_profiles.jsonl. Associations describe possible attacker behavior or defensive context, not equivalence between a weakness category and an ATT&CK technique. Scores indicate membership only.",
     "blurb": "Connects the library's OWASP Top 10 (2021) themes with relevant attacker behaviors. These curated associations are not an official OWASP or MITRE crosswalk."
+  },
+  {
+    "file": "log4shell-cve-2021-44228.json",
+    "name": "TeamStarWolf - Log4Shell (CVE-2021-44228) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified Log4Shell record supports: ATT&CK procedures and campaigns C0017 and C0018, CISA advisories AA22-174A and AA22-320A, Cisco Talos, CrowdStrike, Check Point, and ATT&CK v20.0 STIX relationships citing the CrowdStrike and Check Point Log4j reports. Ids reported under earlier ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/LOG4SHELL.md. Scores: 100 ties the technique to Log4j exploitation itself, 75 is post-exploitation behavior in a Log4j-initiated intrusion, 40 is an Inferred mapping no opened source cites.",
+    "blurb": "Techniques from the Log4Shell record, from exploitation and scanning to the post-exploitation behavior of APT41, Aquatic Panda, Magic Hound and AvosLocker intrusions. A curated layer for the Log4Shell case study."
   }
 ]

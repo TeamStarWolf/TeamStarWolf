@@ -1,0 +1,278 @@
+{
+  "name": "TeamStarWolf - npm Supply-Chain Attacks, 2018 to 2026",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Enterprise ATT&CK v20.0 techniques bound in the npm supply-chain case study. Score 100: an ATT&CK procedure, software mapping or technique description in ATT&CK v20.0 ties the technique to an npm worm, loader or group in the study's record. Score 50: the study's own mapping, labelled Inferred in its comment. Comments carry the study's source numbers. This is not an official MITRE mapping.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#86efac",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: ATT&CK-published link to an npm object in the record",
+      "color": "#15803d"
+    },
+    {
+      "label": "50: analyst inference, labelled in the comment",
+      "color": "#86efac"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md; ATT&CK v20.0 software, group and technique data"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 = ATT&CK-published link; 50 = the study's labelled inference. No severity, prevalence or coverage is measured."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "npm Supply-Chain Attacks, 2018 to 2026: The Record and the Defenses",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/NPM_SUPPLY_CHAIN_ATTACKS"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1195.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATT&CK procedures: S9008 Shai-Hulud, S9043 Mini Shai-Hulud, S9042 CanisterWorm, S9034 Tsundere Botnet, S1246 BeaverTail, G1056 TeamPCP and G0082 APT38 (malicious dependencies in the Axios and Mastra npm packages). Events: Shai-Hulud (2025-09-15), axios (2026-03-31), Mini Shai-Hulud (2026-04-29). Sources: [162]; [166]; [22]; [35]; [38].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1204.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK description names NPM; sole procedure G1052 Contagious Interview. Event: Socket identified more than 338 malicious npm packages (report 2025-10-10). Sources: [163]; [24].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059.007",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK procedures: S9008, S9043, S9042, S9041. Every npm payload in the record is JavaScript run by Node or a browser. Sources: [160]; [161]; [166].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1546.016",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK procedures: S9008 postinstall and preinstall hooks, G0082 post-install hooks in Axios and Mastra, G1056 preinstall scripts, S9041 install-script injection. Events: coa preinstall (2021-11-04), Shai-Hulud 2.0 preinstall (2025-11-24). Sources: [164]; [7]; [26].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1677",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK procedures: S9008 (.github/workflows/discussion.yaml), S9043, S9042, G0082. Events: shai-hulud-workflow.yml (2025-09-15); Nx pull_request_target injection (2025-08-26). Sources: [160]; [166]; [22]; [18].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1552.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK procedures: S9008, S9043, S9041. Event: Shai-Hulud ran TruffleHog and dumped process.env (2025-09-15). Sources: [160]; [166]; [22].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1552.004",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK software mappings: S9043, S9042, S9041. Sources: [166].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1552.005",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK software mappings: S9008, S9043. Sources: [166].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1552.007",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK software mappings: S9043, S9041. Sources: [166].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1528",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK procedures: S9008, S9043. Events: Nx NPM_TOKEN exfiltration (2025-08-26); TanStack OIDC token read from runner memory (2026-05-11). Sources: [160]; [166]; [18]; [43].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1555.006",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK software mappings: S9008, S9043. Event: Mini Shai-Hulud steals cloud and CI credentials (2026-04-29). Sources: [166]; [38].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATT&CK procedures: S9008, S9043. Sources: [160]; [166].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1550.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "ATT&CK software mappings: S9008, S9043 (stolen npm and GitHub OIDC tokens used to infect the victim's other packages), S9042. Sources: [161]; [166].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1213.003",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK software mappings: S9008, S9043, S9041. Sources: [166].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1567.001",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "ATT&CK procedures: S9008 repository named Shai-Hulud; S9043 new public repository in the victim account. Events: 2025-09-15; 'Sha1-Hulud: The Second Coming' (2025-11); 'Shai-Hulud: Here We Go Again' (2026-08-04). Sources: [165]; [22]; [27]; [47].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1567.004",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "ATT&CK procedure: S9008. Event: webhook.site exfiltration (2025-09-15); CISA advises blocking webhook.site (2025-09-23). Sources: [160]; [22]; [23].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "ATT&CK software mappings: S9008, S9043, S9041. Sources: [166].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1608.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK software mapping: S9008. Sources: [166].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK software mappings: S9008, S9043, S9042, S9041. Sources: [166].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK software mapping: S9008. Events (Inferred fit): whitespace padding in @react-native-aria lib/commonjs/index.js (2025-06-06); obfuscated node-ipc stealer (2026-05-14). Sources: [166]; [16]; [44].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059.004",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK software mappings: S9008, S9042, S9041. Event: Unit 42 assesses with moderate confidence that an LLM wrote the first wave's bash script (2025-09). Sources: [166]; [27].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ATT&CK software mappings: S9008, S9043 (targeted wiper), S9042. Event: Shai-Hulud 2.0 tries to destroy the home directory when theft fails (2025-11). Sources: [161]; [166]; [27].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1102.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK software mappings: S9043, S9042. Event (Inferred fit): keyv wave fallback C2 resolved from an Ethereum contract (2026-08-04). Sources: [166]; [47].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ATT&CK software mappings: S1246 BeaverTail, S9041. Events (Inferred fit): event-stream wallet key theft (2018); chalk/debug address swapping (2025-09-08). Sources: [166]; [1]; [21].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 50,
+      "comment": "Inferred: attacker-driven publishing through the project's own release pipeline (Nx 2025-08-26; TanStack 2026-05-11). The live T1195.002 page has no npm procedure. Sources: [18]; [43]; [166].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 50,
+      "comment": "Inferred: maintainer phishing that impersonated npm (eslint-config-prettier 2025-07-18; chalk/debug 2025-09-08). Sources: [17]; [20]; [21].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 50,
+      "comment": "Inferred: phishing domain npmjs.help registered 2025-09-05. Sources: [21].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 50,
+      "comment": "Inferred: publishing with hijacked maintainer accounts or tokens (ua-parser-js, coa, rc 2021; lottie-player 2024-10-30; axios 2026-03-31). Sources: [5]; [58]; [14]; [35].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1585",
+      "tactic": "resource-development",
+      "score": 50,
+      "comment": "Inferred: more than 180 fake personas (Contagious Interview, 2025-10-10) and fake GitHub personas (Jade Sleet, 2023-07-18). Sources: [24]; [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1565.002",
+      "tactic": "impact",
+      "score": 50,
+      "comment": "Inferred: browser payload swapped wallet addresses and transaction recipients (chalk/debug, 2025-09-08). Sources: [21].",
+      "enabled": true
+    }
+  ]
+}

@@ -14,6 +14,55 @@ Smalltalk is a dynamically typed, object-oriented language and live programming 
 
 Related: [Eiffel](/languages/eiffel.md), [Logo](/languages/logo.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Smalltalk code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,050 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Smalltalk code (typical uses: research, education, live systems, some financial and enterprise software), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Eiffel](/languages/eiffel.md), [Logo](/languages/logo.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Smalltalk was created by Alan Kay, Dan Ingalls, Adele Goldberg, and colleagues at Xerox PARC, where it also drove early work on graphical user interfaces and overlapping windows. Smalltalk-80 was the version released beyond PARC and became the basis for the ANSI standard and for later systems. Its defining idea is uniform object orientation: there are no primitive non-objects in the model, control flow is expressed with messages and blocks, and the development tools are themselves Smalltalk objects you can inspect and change while the system runs.

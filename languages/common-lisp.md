@@ -14,6 +14,55 @@ Common Lisp is a dynamically typed, multi-paradigm dialect of Lisp standardized 
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Scheme](/languages/scheme.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Common Lisp code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,093 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Common Lisp code (typical uses: symbolic computation, optimization, research, production services), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Scheme](/languages/scheme.md), [Racket](/languages/racket.md), [Haskell](/languages/haskell.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Common Lisp was created in the 1980s to consolidate a family of divergent Lisp dialects, chiefly descendants of Maclisp, into one portable language. The effort produced the 1984 book Common Lisp the Language and, a decade later, the 1994 ANSI standard that still defines the language. Because the standard is stable and detailed, conforming implementations remain compatible across decades.

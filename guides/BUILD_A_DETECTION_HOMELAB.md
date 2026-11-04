@@ -2,6 +2,55 @@
 
 > By the end of one weekend you will have a working detection lab: a Windows victim VM generating rich telemetry, a free SIEM collecting it, and a repeatable loop where you safely run a mapped ATT&CK technique and watch your own detection fire. This is for blue-teamers, SOC analysts, and IT generalists who have never built a lab and want a defensible, zero-cost starting point.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Blue teamers, SOC analysts and IT generalists who have never built a lab
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 8 min (1,837 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You want a zero-cost detection lab you can build in a weekend, you need a safe place to run a mapped ATT&CK technique, or you want to watch your own detection fire
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[At a glance](#at-a-glance), [Before you start](#before-you-start), [What good looks like](#what-good-looks-like)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Home Lab Setup](/HOMELAB_SETUP.md), [Hands-On Labs](/LABS.md), [SIEM Detection Content](/SIEM_DETECTION_CONTENT.md), [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## At a glance
 
 | Time | Difficulty | You need | You'll produce |

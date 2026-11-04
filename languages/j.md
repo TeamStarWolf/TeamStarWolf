@@ -14,6 +14,55 @@ J is a dynamically typed, array-oriented language created by Kenneth E. Iverson 
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [APL](/languages/apl.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain J code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,051 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing J code (typical uses: mathematical and statistical computation, array programming, teaching notation), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [APL](/languages/apl.md), [K and Q](/languages/k-q.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 After APL, Iverson and Hui designed J to capture the same array ideas using a plain ASCII character set, so programs need no special keyboard. Primitives are spelled as a character or a character followed by `.` or `:` (such as `+/`, `i.`, and `|:`), which keeps the terse style while remaining typeable anywhere. J also made tacit programming central: functions (called verbs) combine into trains and forks that compute without explicitly mentioning their arguments.

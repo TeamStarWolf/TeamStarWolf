@@ -2,6 +2,55 @@
 
 React Native is an open-source framework from Meta for building native iOS and Android apps with React. The UI is written in `javascript` or `typescript` and renders through real native views, not a web view. It shares the React component model and much of the web ecosystem. Teams use it to reuse React skills and ship one codebase to both mobile platforms.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who build with React Native, and the reviewers and application security engineers who assess what they build
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (926 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or reviewing a React Native application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture](#architecture), [Security model and common vulnerabilities](#security-model-and-common-vulnerabilities), [Common pitfalls](#common-pitfalls)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[TypeScript](/languages/typescript.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Flutter](/frameworks/flutter.md), [React](/frameworks/react.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 React Native appeared in 2015 and brought the React declarative model to mobile. UI logic runs in `javascript`, while layout maps to native `UIView` and `View` objects. For years a serialized bridge connected the two worlds asynchronously.

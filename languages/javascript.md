@@ -14,6 +14,55 @@ JavaScript is a dynamically typed, garbage-collected, multi-paradigm language cr
 
 Related: [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [TypeScript](/languages/typescript.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain JavaScript code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,037 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing JavaScript code (typical uses: front-end web, server back ends, build tooling, scripting), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [TypeScript](/languages/typescript.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Brendan Eich wrote the first version of JavaScript in ten days in 1995 for the Netscape Navigator browser. Despite the name, it is not related to Java; the name was a marketing decision of the era. The language was standardized as ECMAScript (ECMA-262) in 1997 to give independent browser vendors a shared target. A long gap followed ECMAScript 3, after which ES5 (2009) tightened the language and ES2015 (also called ES6) added classes, modules, arrow functions, promises, and block scoping. Since then TC39 has shipped a yearly edition.

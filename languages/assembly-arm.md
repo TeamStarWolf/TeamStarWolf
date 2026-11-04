@@ -14,6 +14,55 @@ ARM assembly is the human-readable form of the machine instructions for processo
 
 Related: [C](/languages/c.md), [x86-64 Assembly](/languages/assembly-x86.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain ARM Assembly code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,165 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing ARM Assembly code (typical uses: mobile, embedded, firmware, drivers, kernels, reverse engineering, exploit development), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[C](/languages/c.md), [x86-64 Assembly](/languages/assembly-x86.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 The ARM architecture began at Acorn Computers in the 1980s and is now licensed by Arm Holdings to many chip makers. Two generations of the instruction set are current: the 32-bit A32 and T32 (Thumb) encodings used by older and smaller cores, and the 64-bit AArch64 (the A64 instruction set) introduced with ARMv8-A in 2011, which most modern phones, Apple silicon, and ARM servers use. The architecture is defined by the Arm Architecture Reference Manual. This page centers on AArch64, noting A32 where it differs.

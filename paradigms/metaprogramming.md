@@ -2,6 +2,55 @@
 
 Metaprogramming is writing programs that treat other programs, or themselves, as data to generate, inspect, or transform. It is cross-cutting rather than a standalone paradigm: it layers onto imperative, functional, and object-oriented code. Used well it removes boilerplate and builds domain-specific abstractions; used carelessly it hides control flow and defeats tooling.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers and students learning metaprogramming, and reviewers who assess code written in that style
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (875 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning metaprogramming or deciding whether it fits a problem, you want the languages and tools that support it, or you need its secure-coding considerations before a review
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core idea](#core-idea), [Strengths and trade-offs](#strengths-and-trade-offs), [Secure-coding considerations](#secure-coding-considerations)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Symbolic Programming](/paradigms/symbolic.md), [Generic Programming](/paradigms/generic.md), [Functional Programming](/paradigms/functional.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Core idea
 
 The defining move is collapsing the distance between code and data. In most languages code is opaque once written. A metaprogram instead manipulates a representation of code: a syntax tree, a token stream, a template, or runtime type information. It can read that representation, rewrite it, or emit new code from it.

@@ -14,6 +14,55 @@ VHDL (VHSIC Hardware Description Language) is a strongly typed language for desc
 
 Related: [Verilog](/languages/verilog.md), [SystemVerilog](/languages/systemverilog.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain VHDL code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,284 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing VHDL code (typical uses: FPGA and ASIC design, digital logic modeling, hardware verification), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Verilog](/languages/verilog.md), [SystemVerilog](/languages/systemverilog.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 VHDL began as a documentation and simulation language for the Very High Speed Integrated Circuit (VHSIC) program, so that hardware behavior could be described in a vendor-neutral, machine-readable form. The IEEE published the first standard as IEEE 1076-1987, with later revisions in 1993, 2002, 2008, and 2019 that added features such as the `std_logic` nine-value logic system (via IEEE 1164), fixed- and floating-point packages, and interface improvements. The language is defined by the IEEE 1076 Language Reference Manual.

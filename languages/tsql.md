@@ -14,6 +14,55 @@ T-SQL (Transact-SQL) is the statically typed, procedural extension to SQL used b
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [SQL](/languages/sql.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain T-SQL code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,125 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing T-SQL code (typical uses: stored procedures, triggers, reporting, server-side logic), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [SQL](/languages/sql.md), [PL/SQL](/languages/plsql.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Transact-SQL originated at Sybase for its SQL Server product, which Microsoft licensed and developed into Microsoft SQL Server; the two product lines later diverged but share the T-SQL heritage. Microsoft has extended the dialect over many releases with features such as common table expressions and window functions, the `TRY ... CATCH` error model, the `MERGE` statement, sequences, and `OFFSET`/`FETCH` paging. The same language runs in on-premises SQL Server and in the cloud-hosted Azure SQL Database and Azure SQL Managed Instance.

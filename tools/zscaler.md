@@ -4,6 +4,55 @@
 
 The Zscaler Zero Trust Exchange is a cloud-native SSE platform delivered as a globally distributed inline proxy. Its core services are ZIA (Zscaler Internet Access - secure web/internet gateway, cloud firewall, sandbox, DLP, CASB) and ZPA (Zscaler Private Access - identity-based ZTNA to private apps), with ZDX for digital-experience monitoring. It brokers every user-to-app and app-to-app connection based on identity and policy, never placing users on the network. Its defining vulnerability-mitigation value is attack-surface elimination: ZPA makes private apps dark to the internet so unpatched internal services can't be reached, and ZIA inline inspection blocks exploit and C2 traffic.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the network and cloud security engineers who run Zscaler Zero Trust Exchange
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 12 min (2,661 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what Zscaler Zero Trust Exchange can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Zero Trust Reference](/ZERO_TRUST_REFERENCE.md), [Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md), [Cloud Network Security](/CLOUD_NETWORK_SECURITY.md), [Enterprise Security Controls](/ENTERPRISE_SECURITY_CONTROLS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities & architecture
 
 **Core capabilities**

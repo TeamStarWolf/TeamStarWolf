@@ -14,6 +14,55 @@ APL (A Programming Language) is a dynamically typed, array-oriented language cre
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [J](/languages/j.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain APL code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,107 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing APL code (typical uses: financial and actuarial modeling, quantitative analysis, array algorithms), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [J](/languages/j.md), [K and Q](/languages/k-q.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Iverson devised APL's notation while at Harvard and IBM as a consistent way to describe algorithms and computer systems, and IBM implemented it as an interactive language on mainframes. Its distinguishing feature is a character set of special glyphs (such as `⍴`, `⍳`, `⌿`, and `⍉`) that denote primitive operations on arrays. APL ONE programs read right to left, apply functions to entire arrays at once, and favor composition of primitives over explicit loops.

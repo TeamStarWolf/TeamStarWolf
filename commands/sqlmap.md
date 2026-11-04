@@ -2,6 +2,55 @@
 
 sqlmap is an open-source tool that detects and exploits SQL injection in web applications and their database backends. Penetration testers use it to confirm injection, enumerate schema, and demonstrate impact during authorized assessments. This page is for authorized testing only: run it against applications you own or have explicit written permission to test. Keep every example scoped to lab targets or signed engagements.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Penetration testers and application security testers who work on applications they are authorized to test
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 3 min (640 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the sqlmap commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you are a defender who needs to spot it in use
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Detection and defense](#detection-and-defense)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [gobuster Command Reference](/commands/gobuster.md), [Nmap Command Reference](/commands/nmap.md), [curl Command Reference](/commands/curl.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 sqlmap is a Python command-line tool that automates SQL injection discovery across MySQL, PostgreSQL, Microsoft SQL Server, Oracle, SQLite, and many other engines. It supports boolean-based, error-based, union-based, time-based blind, and stacked-query techniques. It runs on any system with Python 3. Point it at a URL or a saved HTTP request and it probes parameters, then offers to enumerate or dump data once injection is confirmed.

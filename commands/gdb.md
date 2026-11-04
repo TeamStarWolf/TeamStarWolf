@@ -2,6 +2,55 @@
 
 GDB, the GNU Debugger, inspects a running program or a crashed one. It can start a process under control, stop it at breakpoints, step line by line, read and change memory and registers, and analyze core dumps after a crash. Developers use it to find bugs; security engineers use it for crash triage and authorized exploit development. This page covers the commands that cover both.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers, reverse engineers and exploit developers who debug compiled programs
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (842 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the GDB commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Metasploit Framework Reference](/commands/metasploit.md), [Linux Command Reference](/commands/linux-commands.md), [Vim Command Reference](/commands/vim.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 GDB debugs programs written in C, C++, and other compiled languages. It runs on Linux and other Unix-like systems and understands the standard ELF and DWARF debug formats; compile with `-g` to get symbols and source-level debugging. Start it with `gdb ./program`, attach it to a running process, or point it at a core file. On macOS, `lldb` fills a similar role, and `gef`, `pwndbg`, and `peda` are common GDB extensions for low-level analysis.

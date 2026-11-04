@@ -2,6 +2,55 @@
 
 Git is a distributed version control system that tracks changes in source trees. Every clone holds the full history, so most operations run locally and offline. This page covers the everyday commands plus the history, branching, and remote operations that teams rely on. It assumes Git 2.23 or later, where `switch` and `restore` split the old `checkout` behavior.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers and anyone else who keeps code or documents in Git
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 3 min (612 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the Git commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [SSH Command Reference](/commands/ssh.md), [curl Command Reference](/commands/curl.md), [Linux Command Reference](/commands/linux-commands.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 Git runs as a command-line tool on Linux, macOS, Windows, and the BSDs. A repository is a working tree plus a hidden `.git` directory that stores objects, refs, and config. Commands act on the local repository first; `fetch`, `pull`, and `push` are the only ones that talk to a remote. Hosting platforms (GitHub, GitLab, Bitbucket) add access control and review on top of the same protocol.

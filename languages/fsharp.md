@@ -14,6 +14,55 @@ F# is a statically typed, functional-first language on the .NET platform, create
 
 Related: [C#](/languages/csharp.md), [Visual Basic .NET](/languages/visual-basic-net.md), [Scala](/languages/scala.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain F# code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (897 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing F# code (typical uses: data analysis, financial modeling, back ends, domain modeling), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[C#](/languages/csharp.md), [Visual Basic .NET](/languages/visual-basic-net.md), [Scala](/languages/scala.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Don Syme and colleagues at Microsoft Research developed F# from the ML and OCaml tradition, with the first supported release in 2005 and integration into Visual Studio in 2010. It runs on the same .NET runtime as C# and Visual Basic, so F# code calls .NET libraries and vice versa. The language and compiler are open source under the [.NET Foundation](https://dotnetfoundation.org/), and the [F# Software Foundation](https://fsharp.org/) coordinates community work.

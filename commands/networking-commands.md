@@ -2,6 +2,55 @@
 
 This page collects the command-line tools for inspecting and testing networks on Linux and, where noted, other platforms. It covers interface and route configuration, socket listing, reachability, DNS lookups, and packet capture. Most tools are read-only diagnostics; a few change state or move data. Full packet analysis lives on the tshark page.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Administrators, network engineers and analysts who troubleshoot connectivity from a terminal
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 3 min (644 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the networking commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [tshark Command Reference](/commands/tshark.md), [Nmap Command Reference](/commands/nmap.md), [curl Command Reference](/commands/curl.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 The `iproute2` suite (`ip`, `ss`) is standard on modern Linux and replaces the older `net-tools` commands (`ifconfig`, `route`, `netstat`). DNS tools (`dig`, `host`, `nslookup`) ship with BIND utilities or similar packages. `ping`, `traceroute`, `nc`, and `tcpdump` are near-universal on Unix-like systems. Windows provides `tracert`, `nslookup`, and `ping` with its own flag spellings.

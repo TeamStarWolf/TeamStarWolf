@@ -6,6 +6,55 @@
 |---|---|---|---|
 | 2-4 hours (first run) | Intermediate | A browser, this library's Navigator layers and score reports; optionally Git + Node.js for ATT&CK-Navi | A priority-gap Navigator layer (JSON) and a ranked gap register with owners |
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security engineers and analysts who know ATT&CK but have not turned it into a work queue
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,481 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You want a ranked list of the techniques your adversaries use most and your controls cover least, you need a Navigator layer you can re-run each quarter, or you are assigning owners to the gaps
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Before you start](#before-you-start), [Step 1: Scope your threat model](#step-1-scope-your-threat-model), [Step 8: Write the ranked gap list and assign owners](#step-8-write-the-ranked-gap-list-and-assign-owners)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Threat-Informed Defense Reference](/THREAT_INFORMED_DEFENSE_REFERENCE.md), [ATT&CK Matrix Analysis Reference](/ATTACK_MATRIX_ANALYSIS_REFERENCE.md), [Controls Mapping](/CONTROLS_MAPPING.md), [Coverage Schema](/COVERAGE_SCHEMA.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Before you start
 
 - [ ] Read the lens model in the [ATT&CK Matrix Analysis Reference](/ATTACK_MATRIX_ANALYSIS_REFERENCE.md): this guide operationalizes its five lens families and its eight-pass analysis workflow.

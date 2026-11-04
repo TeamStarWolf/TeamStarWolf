@@ -6,10 +6,11 @@ for hard-coded numbers that must match stats.json and exit non-zero on divergenc
 The point of this script (audit Wave 0): headline numbers stop being typed by hand.
 Run it after any data change; CI runs --check to fail the build on drift.
 
-It also writes the "What's inside" counts in README.md (a table) and in HOME.md (the
-site homepage's count cards), each between the markers `<!-- stats:start ... -->` and
-`<!-- stats:end -->`. --check fails when either block differs from what the current
-files produce, so the front-door counts cannot drift.
+It also writes the "What's inside" table in README.md (links to the .md files, for
+GitHub) and in HOME.md (the site homepage; the same table with links to the site
+routes), each between the markers `<!-- stats:start ... -->` and `<!-- stats:end -->`.
+--check fails when either block differs from what the current files produce, so the
+front-door counts cannot drift.
 
 Inline counts: any hand-written page may hold one computed number as
 `<!-- stat-KEY:start -->N<!-- stat-KEY:end -->`, where KEY is a stats.json key. The
@@ -259,7 +260,7 @@ BLOCK_RE = re.compile(r"(<!-- stats:start[^>]*-->\n)(.*?)(<!-- stats:end -->)", 
 
 # The front-door counts: (label, what it holds, stats key, README link, site route).
 # Wording lives here so the numbers and the nouns they count change together, and the
-# README table and the HOME cards say the same thing.
+# README table and the HOME table say the same thing.
 FRONT_DOOR = [
     ("Reference documents", "One topic each: its terms, tooling, and the frameworks and guidance that apply",
      "reference_docs", "[Reference index](INDEX.md)", "#/INDEX"),
@@ -301,15 +302,13 @@ def _html(s):
 
 
 def home_block(stats):
-    """The site homepage's "What's inside" cards (HOME.md): one raw-HTML block with no
-    blank line, so docsify and GitHub both keep it as a single HTML block. The spaces
-    between the spans keep the text readable on github.com, which drops the classes."""
-    out = ['<div class="tsw-counts">']
-    for name, what, key, _link, route in FRONT_DOOR:
-        out.append(f'  <a class="tsw-count" href="{route}"><span class="tsw-count-n">{stats[key]:,}</span> '
-                   f'<span class="tsw-count-l">{_html(name)}</span> '
-                   f'<span class="tsw-count-d">{_html(what)}</span></a>')
-    out.append("</div>")
+    """The site homepage's "What's inside" table (HOME.md): the README table with each
+    Start at link as a raw-HTML anchor to the site route (#/FOO, the HOME.md link rule),
+    labelled with the README link's text."""
+    out = ["| What | Count | Contents | Start at |", "|---|---:|---|---|"]
+    for name, what, key, link, route in FRONT_DOOR:
+        label = re.match(r"\[([^\]]+)\]", link).group(1)
+        out.append(f'| {name} | {stats[key]:,} | {what} | <a href="{route}">{_html(label)}</a> |')
     return "\n".join(out) + "\n"
 
 

@@ -744,6 +744,17 @@
     /* Empty targets that keep the previous homepage's #/?id= section links working */
     .markdown-section .tsw-anchor { height: 0; margin: 0; }
 
+    /* --- Front-door link rows (the top of README.md): centered, wrapping, muted dots --- */
+    .markdown-section .tsw-links { margin: 0 0 1.6rem; text-align: center; }
+    .markdown-section .tsw-links-row {
+      display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline;
+      gap: .25rem .5rem; margin: 0 0 .45rem; font-size: .95rem; line-height: 1.6;
+      color: var(--tsw-text-muted); max-width: 100%; overflow-wrap: anywhere;
+    }
+    .markdown-section .tsw-links-row strong a { font-weight: 750; }
+    .markdown-section .tsw-links-sep { color: var(--tsw-text-dim); }
+    .markdown-section .tsw-links-label { color: var(--tsw-text-muted); font-weight: 650; }
+
     /* --- Buttons --- */
     .markdown-section .tsw-btn {
       display: inline-block; border-radius: 10px; padding: .55rem 1.15rem;
@@ -791,21 +802,6 @@
       font-size: .78rem; line-height: 1.45; padding: .1rem .55rem; border-radius: 999px;
       background: var(--tsw-surface-2); border: 1px solid var(--tsw-border-soft); color: var(--tsw-text-muted);
     }
-
-    /* --- What's inside (script-written counts) --- */
-    .markdown-section .tsw-counts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-    .markdown-section .tsw-count {
-      display: flex; flex-direction: column; gap: .2rem; min-width: 0;
-      background: var(--tsw-surface); border: 1px solid var(--tsw-border); border-radius: 10px;
-      padding: .85rem 1rem; text-decoration: none; transition: border-color .13s;
-    }
-    .markdown-section .tsw-count:hover { border-color: var(--tsw-link); text-decoration: none; }
-    .markdown-section .tsw-count-n {
-      font-family: var(--tsw-mono); font-size: 1.7rem; font-weight: 700; line-height: 1.15;
-      color: var(--tsw-heading); font-variant-numeric: tabular-nums;
-    }
-    .markdown-section .tsw-count-l { font-weight: 650; font-size: .92rem; color: var(--tsw-link); }
-    .markdown-section .tsw-count-d { font-size: .8rem; line-height: 1.5; color: var(--tsw-text-muted); }
 
     /* --- How it connects: a left-to-right route --- */
     .markdown-section .tsw-connect { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); margin: 0 0 1.4rem; }
@@ -908,7 +904,6 @@
       .markdown-section .tsw-node:not(:last-child)::after { display: none; }
     }
     @media screen and (max-width: 1024px) {
-      .markdown-section .tsw-counts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .markdown-section .tsw-guides, .markdown-section .tsw-domains { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media screen and (max-width: 768px) {
@@ -922,7 +917,7 @@
       }
     }
     @media screen and (max-width: 560px) {
-      .markdown-section .tsw-guides, .markdown-section .tsw-domains, .markdown-section .tsw-counts { grid-template-columns: minmax(0, 1fr); }
+      .markdown-section .tsw-guides, .markdown-section .tsw-domains { grid-template-columns: minmax(0, 1fr); }
     }
 
     /* ===================== Library navigation =====================

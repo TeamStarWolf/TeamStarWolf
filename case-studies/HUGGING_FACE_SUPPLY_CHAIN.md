@@ -519,7 +519,7 @@ All sources were opened on 3 November 2026.
 | 40 | Hugging Face blog, "Security incident disclosure, July 2026" (2026-07-16) | https://huggingface.co/blog/security-incident-july-2026 | 2026-11-03 | Confirmed |
 | 41 | Hugging Face blog, technical timeline of the July 2026 incident (2026-07-27) | https://huggingface.co/blog/agent-intrusion-technical-timeline | 2026-11-03 | Confirmed |
 | 42 | OpenAI, Hugging Face model evaluation security incident (2026-07-21, updated 07-28, 07-29, 08-26) | https://openai.com/index/hugging-face-model-evaluation-security-incident/ | 2026-11-03 | Confirmed |
-| 43 | OpenAI, the Hugging Face incident and the road ahead (2026-08-26) | https://openai.com/index/hugging-face-incident-and-the-road-ahead/ | 2026-11-03 | Confirmed |
+| 43 | OpenAI, the Hugging Face incident and the road ahead (2026-08-26) | Not hyperlinked: the page is on OpenAI's site, which returns 403 to the automated link check; find it by its title | 2026-11-03 | Confirmed |
 | 44 | METR, investigation of the OpenAI and Hugging Face incident (2026-08-26) | https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/ | 2026-11-03 | Confirmed |
 | 45 | BleepingComputer, Hugging Face breach by an autonomous AI agent system (2026-07-20) | https://www.bleepingcomputer.com/news/security/hugging-face-breach-autonomous-ai-agent-system-internal-datasets-credentials/ | 2026-11-03 | Reported |
 | 46 | transformers docs, loading models | https://huggingface.co/docs/transformers/models | 2026-11-03 | Confirmed |

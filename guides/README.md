@@ -48,6 +48,7 @@ Related: [How to Use This Library](/guides/HOW_TO_USE_THIS_LIBRARY.md), [Referen
 | Guide | You'll walk away with |
 |---|---|
 | [Harden a Windows Baseline](/guides/HARDEN_A_WINDOWS_BASELINE.md) | A hardened Windows baseline via CIS/Microsoft policy, ASR, and audited command-line logging |
+| [Harden a Linux Host](/guides/HARDEN_A_LINUX_HOST.md) | An audited Linux host with a sysctl drop-in, a default-deny nftables firewall, verified results, and a written rollback, shown with lab terminal screenshots |
 | [Harden a macOS Fleet with mSCP](/guides/HARDEN_A_MACOS_FLEET.md) | A compliant macOS fleet built with the NIST macOS Security Compliance Project |
 | [Assess Your M365 Tenant with ScubaGear](/guides/ASSESS_M365_WITH_SCUBAGEAR.md) | A scored M365 tenant against CISA SCuBA baselines with a safe remediation plan |
 | [Harden a Kubernetes Cluster](/guides/HARDEN_A_KUBERNETES_CLUSTER.md) | A K8s cluster hardened to a defensible baseline: kube-bench, Pod Security Standards, default-deny NetworkPolicy, RBAC, admission control |

@@ -285,7 +285,7 @@
           "LINUX_HARDENING_REFERENCE.md", "MACOS_SECURITY_REFERENCE.md", "MOBILE_SECURITY_REFERENCE.md", "SECURITY_OPERATING_SYSTEMS_REFERENCE.md"]}
       ],
       "paths": ["mobile-security", "security-architecture"],
-      "guides": ["HARDEN_A_WINDOWS_BASELINE", "HARDEN_A_MACOS_FLEET"],
+      "guides": ["HARDEN_A_WINDOWS_BASELINE", "HARDEN_A_LINUX_HOST", "HARDEN_A_MACOS_FLEET"],
       "pages": ["/commands/linux-commands.md", "/commands/systemctl.md", "/commands/macos-commands.md", "/commands/powershell-commands.md", "/commands/windows-cmd.md", "/platforms/tanium.md", "/platforms/microsoft-defender.md"],
       "see_also": [
         ["Endpoint security", "/ENDPOINT_SECURITY_REFERENCE.md"],

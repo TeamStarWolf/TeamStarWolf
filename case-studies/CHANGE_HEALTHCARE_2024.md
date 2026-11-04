@@ -547,7 +547,7 @@ Two existing pages carry figures this record corrects (Confirmed [11][17][20][22
 
 ## Sources
 
-All sources were opened on 3 November 2026. "Primary" means the organization that published the fact; grades apply to the source as used here. Addresses shown as code rather than as links refuse automated link checkers: the sec.gov filings, the HHS FAQ page and the BronxCare copy of the substitute notice open in a browser, and the api.congress.gov records need a free api.data.gov key (the same bills are on congress.gov).
+All sources were opened on 3 November 2026. "Primary" means the organization that published the fact; grades apply to the source as used here. Addresses shown as code rather than as links refuse automated link checkers: the sec.gov filings, the HHS FAQ page, the BronxCare copy of the substitute notice and the SecurityWeek articles open in a browser, and the api.congress.gov records need a free api.data.gov key (the same bills are on congress.gov).
 
 | # | Source | URL | Opened | Grade |
 |---|---|---|---|---|
@@ -612,7 +612,7 @@ All sources were opened on 3 November 2026. "Primary" means the organization tha
 | 59 | American Medical Association, follow-up survey results, 29 Apr 2024 | [ama-assn.org/system/files/change-healthcare-follow-up-survey-results.pdf](https://www.ama-assn.org/system/files/change-healthcare-follow-up-survey-results.pdf) | 2026-11-03 | Confirmed |
 | 60 | Defense Health Agency via DVIDS, full military pharmacy operations restored, 25 Apr 2024 | [dvidshub.net/news/469562/full-military-pharmacy-operations-restored-after-change-healthcare-cyberattack](https://www.dvidshub.net/news/469562/full-military-pharmacy-operations-restored-after-change-healthcare-cyberattack) | 2026-11-03 | Confirmed |
 | 61 | The Register, 8 Apr 2024 | [theregister.com/2024/04/08/change_healthcare_ransomware](https://www.theregister.com/2024/04/08/change_healthcare_ransomware/) | 2026-11-03 | Reported |
-| 62 | SecurityWeek, second ransomware group extorting Change Healthcare, April 2024 | [securityweek.com/second-ransomware-group-extorting-change-healthcare](https://www.securityweek.com/second-ransomware-group-extorting-change-healthcare/) | 2026-11-03 | Reported |
+| 62 | SecurityWeek, second ransomware group extorting Change Healthcare, April 2024 | `https://www.securityweek.com/second-ransomware-group-extorting-change-healthcare/` | 2026-11-03 | Reported |
 | 63 | BleepingComputer, gang claims 6 TB of Change Healthcare data, 28 Feb 2024 | [bleepingcomputer.com/news/security/ransomware-gang-claims-they-stole-6tb-of-change-healthcare-data](https://www.bleepingcomputer.com/news/security/ransomware-gang-claims-they-stole-6tb-of-change-healthcare-data/) | 2026-11-03 | Reported |
 | 64 | Krebs on Security, BlackCat implodes after apparent $22M payment, 5 Mar 2024 | [krebsonsecurity.com/2024/03/blackcat-ransomware-group-implodes-...](https://krebsonsecurity.com/2024/03/blackcat-ransomware-group-implodes-after-apparent-22m-ransom-payment-by-change-healthcare/) | 2026-11-03 | Reported |
 | 65 | WIRED, Andy Greenberg, $22 million payment, 4 Mar 2024 | [wired.com/story/alphv-change-healthcare-ransomware-payment](https://www.wired.com/story/alphv-change-healthcare-ransomware-payment/) | 2026-11-03 | Reported |
@@ -626,7 +626,7 @@ All sources were opened on 3 November 2026. "Primary" means the organization tha
 | 73 | Cyber Daily, Menlo Security claim on the affiliate, 7 Mar 2024 | [cyberdaily.au/security/10281-alphv-affiliate-behind-change-healthcare-attack-...](https://www.cyberdaily.au/security/10281-alphv-affiliate-behind-change-healthcare-attack-could-be-a-chinese-state-sponsored-actor) | 2026-11-03 | Reported |
 | 74 | Conduent, Form 8-K, April 2025 | `https://www.sec.gov/Archives/edgar/data/1677703/000167770325000067/cndt-20250409.htm` | 2026-11-03 | Confirmed |
 | 75 | Aflac, Form 8-K, June 2025 | `https://www.sec.gov/Archives/edgar/data/4977/000000497725000128/afl-20250620.htm` | 2026-11-03 | Confirmed |
-| 76 | SecurityWeek, Episource data breach | [securityweek.com/data-breach-at-healthcare-services-firm-episource-impacts-5-4-million-people](https://www.securityweek.com/data-breach-at-healthcare-services-firm-episource-impacts-5-4-million-people/) | 2026-11-03 | Reported |
+| 76 | SecurityWeek, Episource data breach | `https://www.securityweek.com/data-breach-at-healthcare-services-firm-episource-impacts-5-4-million-people/` | 2026-11-03 | Reported |
 | 77 | TechCrunch, Yale New Haven Health data breach, 25 Apr 2025 | [techcrunch.com/2025/04/25/data-breach-at-connecticut-yale-new-haven-health-affects-over-5-million](https://techcrunch.com/2025/04/25/data-breach-at-connecticut-yale-new-haven-health-affects-over-5-million/) | 2026-11-03 | Reported |
 | 78 | DaVita, Form 8-K, April 2025 | `https://www.sec.gov/Archives/edgar/data/927066/000119312525079593/d948299d8k.htm` | 2026-11-03 | Confirmed |
 | 79 | DentaQuest letter to the Rhode Island Attorney General, 2026 | [riag.ri.gov/media/8956/download](https://riag.ri.gov/media/8956/download) | 2026-11-03 | Confirmed |
@@ -635,7 +635,7 @@ All sources were opened on 3 November 2026. "Primary" means the organization tha
 | 82 | Lumexa Imaging, vendor privacy notice, 27 Aug 2026 | [lumexaimaging.com/wp-content/uploads/2026/08/Vendor-Privacy-Notice_8.27.26-3.pdf](https://www.lumexaimaging.com/wp-content/uploads/2026/08/Vendor-Privacy-Notice_8.27.26-3.pdf) | 2026-11-03 | Confirmed |
 | 83 | AdaptHealth, Form 8-K, Item 1.05, June 2026 | `https://www.sec.gov/Archives/edgar/data/1725255/000110465926080297/ahco-20260627x8k.htm` | 2026-11-03 | Confirmed |
 | 84 | CareCloud, Form 8-K, March 2026 | `https://www.sec.gov/Archives/edgar/data/1582982/000149315226013239/form8-k.htm` | 2026-11-03 | Confirmed |
-| 85 | SecurityWeek, 5.6 million impacted by the Ascension attack | [securityweek.com/5-6-million-impacted-by-ransomware-attack-on-healthcare-giant-ascension](https://www.securityweek.com/5-6-million-impacted-by-ransomware-attack-on-healthcare-giant-ascension/) | 2026-11-03 | Reported |
+| 85 | SecurityWeek, 5.6 million impacted by the Ascension attack | `https://www.securityweek.com/5-6-million-impacted-by-ransomware-attack-on-healthcare-giant-ascension/` | 2026-11-03 | Reported |
 
 Not opened: the Justice Department's 19 Dec 2023 ALPHV release (bot verification on every copy), the Senate Finance Committee's own PDF of the Witty testimony (403; the printed hearing record [17] was used), HHS HC3 PDFs on hhs.gov (403), the HHS release announcing the OCR letter (403), the Wall Street Journal reporting relayed by [18], and the HICP volumes.
 

@@ -2727,21 +2727,21 @@ pages:
   frameworks/angular.md:
     audience: "Developers who build with Angular, and the reviewers and application security engineers who assess what they build"
     level: "Intermediate"
-    read_when: "You are building or reviewing a Angular application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together"
+    read_when: "You are building or reviewing an Angular application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together"
     start_at: "[Architecture](#architecture), [Security model and common vulnerabilities](#security-model-and-common-vulnerabilities), [Common pitfalls](#common-pitfalls)"
     pairs_with: "[TypeScript](/languages/typescript.md), [JavaScript](/languages/javascript.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [React](/frameworks/react.md)"
     reviewed: null
   frameworks/aspnet-core.md:
     audience: "Developers who build with ASP.NET Core, and the reviewers and application security engineers who assess what they build"
     level: "Intermediate"
-    read_when: "You are building or reviewing a ASP.NET Core application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together"
+    read_when: "You are building or reviewing an ASP.NET Core application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together"
     start_at: "[Architecture](#architecture), [Security model and common vulnerabilities](#security-model-and-common-vulnerabilities), [Common pitfalls](#common-pitfalls)"
     pairs_with: "[C#](/languages/csharp.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [API Security Reference](/API_SECURITY_REFERENCE.md)"
     reviewed: null
   frameworks/axum.md:
     audience: "Developers who build with Axum, and the reviewers and application security engineers who assess what they build"
     level: "Intermediate"
-    read_when: "You are building or reviewing a Axum application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together"
+    read_when: "You are building or reviewing an Axum application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together"
     start_at: "[Architecture](#architecture), [Security model and common vulnerabilities](#security-model-and-common-vulnerabilities), [Common pitfalls](#common-pitfalls)"
     pairs_with: "[Rust](/languages/rust.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [API Security Reference](/API_SECURITY_REFERENCE.md)"
     reviewed: null
@@ -2762,7 +2762,7 @@ pages:
   frameworks/express.md:
     audience: "Developers who build with Express.js, and the reviewers and application security engineers who assess what they build"
     level: "Intermediate"
-    read_when: "You are building or reviewing a Express.js application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together"
+    read_when: "You are building or reviewing an Express.js application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together"
     start_at: "[Architecture](#architecture), [Security model and common vulnerabilities](#security-model-and-common-vulnerabilities), [Common pitfalls](#common-pitfalls)"
     pairs_with: "[JavaScript](/languages/javascript.md), [TypeScript](/languages/typescript.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)"
     reviewed: null

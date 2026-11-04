@@ -22,7 +22,7 @@ About 4 min (1,024 words at 230 words a minute)
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
 
-You are building or reviewing a Angular application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together
+You are building or reviewing an Angular application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Start at</th><td>

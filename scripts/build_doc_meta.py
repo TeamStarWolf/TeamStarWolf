@@ -1043,7 +1043,7 @@ def report(current: dict[str, str], expected: dict[str, str], hist: History) -> 
     reviews = meta.get("reviews") or {}
     with_review = [r for r in allp if pages[r].get("reviewed")]
     print("Last reviewed: " + str(len(with_review)) + " pages have a review the owner recorded, "
-          + str(len(refs) + len(paths) - len(with_review)) + " show 'No review recorded yet'")
+          + str(len(allp) - len(with_review)) + " show 'No review recorded yet'")
     for rid, r in reviews.items():
         print("  " + rid + " (" + r["date"] + "): "
               + str(sum(1 for p in with_review if pages[p]["reviewed"] == rid)) + " pages")

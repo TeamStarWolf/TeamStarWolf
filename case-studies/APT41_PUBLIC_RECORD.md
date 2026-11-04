@@ -61,7 +61,7 @@ Each claim carries one of four grades.
 | Demonstrated | A public reproduction exists. No claim in this study rests on one |
 | Inferred | This study's own reasoning from Confirmed facts, labelled where it appears |
 
-This study grades by source type (primary opened versus secondary only), the scheme used by the newer case studies; under the README's original scheme, single-vendor reports would read as Reported.
+This study grades by source type (primary opened versus secondary only); the other studies in this folder grade by corroboration, under which single-vendor reports would read as Reported.
 
 Three rules govern the names. The study says which name each source uses ("Trend Micro's Earth Baku", "Symantec's Grayfly", "ESET's Winnti Group") instead of merging labels. A vendor's own hedge travels with its claim ("likely", "medium confidence"). And ATT&CK campaign [`C0012`](/mitre/campaigns/C0012.md), Operation CuckooBees, is described but not counted as APT41 activity, because ATT&CK attributes it to no group (**Confirmed** [4]).
 
@@ -526,7 +526,7 @@ These IDs appear in a primary source's own ATT&CK table but not in ATT&CK's APT4
 
 | ID | Technique | Tactic (v20) | Stated by (report, date) | Sources |
 |---|---|---|---|---|
-| [`T1027.007`](/mitre/techniques/T1027-007.md) | Obfuscated Files or Information: Dynamic API Resolution | Stealth | Zscaler ThreatLabz, DodgeBox, 2024-07-10 (APT41/Earth Baku, medium confidence) | [53] |
+| [`T1027.007`](/mitre/techniques/T1027-007.md) | Obfuscated Files or Information: Dynamic API Resolution | Stealth | Zscaler ThreatLabz, DodgeBox, 2024-07-10 (APT41/Earth Baku, moderate confidence) | [53] |
 | [`T1620`](/mitre/techniques/T1620.md) | Reflective Code Loading | Stealth | Zscaler ThreatLabz, DodgeBox, 2024-07-10 | [53] |
 | [`T1106`](/mitre/techniques/T1106.md) | Native API | Execution | Zscaler ThreatLabz, DodgeBox, 2024-07-10 | [53] |
 | [`T1480`](/mitre/techniques/T1480.md) | Execution Guardrails | Stealth | Zscaler ThreatLabz, DodgeBox, 2024-07-10 | [53] |

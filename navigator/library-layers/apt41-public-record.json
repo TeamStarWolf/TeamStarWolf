@@ -175,7 +175,7 @@
       "techniqueID": "T1027.007",
       "tactic": "stealth",
       "score": 60,
-      "comment": "Stated in a primary source's own ATT&CK table: Zscaler ThreatLabz, DodgeBox, 2024-07-10 (APT41/Earth Baku, medium confidence). Study source 53."
+      "comment": "Stated in a primary source's own ATT&CK table: Zscaler ThreatLabz, DodgeBox, 2024-07-10 (APT41/Earth Baku, moderate confidence). Study source 53."
     },
     {
       "techniqueID": "T1027.013",

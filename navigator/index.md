@@ -89,6 +89,7 @@ Curated practitioner views built from the library's reference pages and data fil
 | [Log4Shell (CVE-2021-44228) Case Study](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/log4shell-cve-2021-44228.json) | Techniques from the Log4Shell record, from exploitation and scanning to the post-exploitation behavior of APT41, Aquatic Panda, Magic Hound and AvosLocker intrusions. A curated layer for the Log4Shell case study. | 62 | ATT&CK v20 | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/library-layers/log4shell-cve-2021-44228.json) |
 | [npm Supply-Chain Attacks, 2018 to 2026](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/npm-supply-chain-attacks.json) | Techniques from eight years of npm supply-chain attacks, from hijacked maintainer accounts and poisoned release workflows to install-time payloads, token theft and exfiltration to code repositories. A curated layer for the npm supply-chain case study. | 30 | ATT&CK v20 | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/library-layers/npm-supply-chain-attacks.json) |
 | [Hugging Face AI Supply Chain (Enterprise)](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/hugging-face-supply-chain-enterprise.json) | The Enterprise techniques behind the Hugging Face case study: malicious models, loader exploits, exposed tokens and the July 2026 pipeline intrusion. Score 100 marks a MITRE-published link, 50 the study's labelled inference. | 24 | ATT&CK v20 | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/library-layers/hugging-face-supply-chain-enterprise.json) |
+| [ICS attacks 2024 to 2026 (Enterprise)](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/ics-attacks-2024-2026-enterprise.json) | The IT-side techniques behind 2024 to 2026 ICS incidents: default accounts on exposed PLCs, edge-appliance exploitation and credential theft, the Poland wiper intrusion chain and the IOControl implant. A curated layer for the ICS 2024 to 2026 case study. | 79 | ATT&CK v20 | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/library-layers/ics-attacks-2024-2026-enterprise.json) |
 | [China-Attributed Threat Actors Case Study](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/threat-actors-china.json) | Techniques from the public record on China-attributed threat actors: the ids named in six joint government advisories on APT40, Volt Typhoon, Salt Typhoon and PRC network-device exploitation, plus the techniques ATT&CK records most often across 46 China-attributed groups. A curated layer for the China case study. | 77 | ATT&CK v20 | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/library-layers/threat-actors-china.json) |
 
 ---
@@ -139,6 +140,16 @@ The [MITRE Fight Fraud Framework](/FRAUD_FRAMEWORK_REFERENCE.md) matrix, publish
 | Layer | Description | Techniques | Version | Load |
 |---|---|---|---|---|
 | [F3 Matrix](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/fraud/f3-matrix.json) | The full F3 fraud matrix: use with the [F3 reference](/FRAUD_FRAMEWORK_REFERENCE.md) and [datasets](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/fraud/) | 123 | F3 v1.1 | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/fraud/f3-matrix.json) |
+
+---
+
+## Case Study Layers (ICS)
+
+ATT&CK for ICS layers bound to library case studies. Curated layers under `navigator/library-layers/` must be `enterprise-attack`, so ICS case-study layers live in `navigator/case-studies/`. Scores mean only that a source cited in the case study maps the technique, not severity or prevalence.
+
+| Layer | Description | Techniques | Version | Load |
+|---|---|---|---|---|
+| [ICS Attacks 2024 to 2026 (ICS)](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/case-studies/ics-attacks-2024-2026-ics.json) | The 43 ATT&CK for ICS techniques the verified 2024 to 2026 incident record supports, from the [ICS attacks and advisories case study](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md) | 43 | ATT&CK v20 | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/case-studies/ics-attacks-2024-2026-ics.json) |
 
 ---
 

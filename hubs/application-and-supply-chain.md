@@ -54,5 +54,6 @@ Time and difficulty are quoted in full from each guide's header table.
 
 - [Web application pentesting](/WEB_APPLICATION_PENTESTING.md)
 - [CAPEC attack patterns](/mitre/capec/README.md)
+- [Hugging Face supply chain: a case study](/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md)
 
 <!-- hub:end -->

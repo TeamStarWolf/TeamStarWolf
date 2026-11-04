@@ -46,5 +46,11 @@
     "name": "TeamStarWolf - OWASP Top 10 (2021)",
     "description": "Curated practitioner view of the OWASP Top 10 (2021) themes used in SECURE_CODING_REFERENCE.md, not an official OWASP or MITRE mapping. The 2021 edition is intentional and is not a claim to represent the latest Top 10. Sources: that reference's A01-A10 sections and data/attack/technique_profiles.jsonl. Associations describe possible attacker behavior or defensive context, not equivalence between a weakness category and an ATT&CK technique. Scores indicate membership only.",
     "blurb": "Connects the library's OWASP Top 10 (2021) themes with relevant attacker behaviors. These curated associations are not an official OWASP or MITRE crosswalk."
+  },
+  {
+    "file": "hugging-face-supply-chain-enterprise.json",
+    "name": "TeamStarWolf - Hugging Face AI Supply Chain (Enterprise)",
+    "description": "Enterprise ATT&CK v20.0 techniques bound in the Hugging Face case study. Score 100: an ATLAS-published ATT&CK reference on a technique ATLAS maps in a Hugging Face case study, or an ATT&CK procedure that names Hugging Face (S9035). Score 50: the study's own inference, labelled Inferred in its comment. Comments carry the study's source numbers.",
+    "blurb": "The Enterprise techniques behind the Hugging Face case study: malicious models, loader exploits, exposed tokens and the July 2026 pipeline intrusion. Score 100 marks a MITRE-published link, 50 the study's labelled inference."
   }
 ]

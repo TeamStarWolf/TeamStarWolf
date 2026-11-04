@@ -466,7 +466,11 @@ CATALOG = [
      "set (including Defense Evasion), separate from ATT&CK Enterprise.",
      [("ai/atlas-matrix.json", "ATLAS Matrix", "The full ATLAS matrix of techniques against AI systems"),
       ("ai/atlas-case-study-frequency.json", "ATLAS Case Study Frequency",
-       "ATLAS techniques shaded by how often they appear in ATLAS case studies")]),
+       "ATLAS techniques shaded by how often they appear in ATLAS case studies"),
+      ("ai/hugging-face-supply-chain-atlas.json", "Hugging Face AI Supply Chain (ATLAS)",
+       "The ATLAS techniques in the five Hugging Face case studies, as bound in the library's "
+       "[Hugging Face case study](/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md); a library layer, "
+       "not vendored from MITRE")]),
     ("Fraud Matrix (MITRE F3)",
      "The [MITRE Fight Fraud Framework](/FRAUD_FRAMEWORK_REFERENCE.md) matrix, published by "
      "MITRE's Center for Threat-Informed Defense (Apache-2.0) and vendored here with provenance "

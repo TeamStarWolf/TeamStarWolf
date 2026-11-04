@@ -1037,18 +1037,24 @@ CVEs the library discusses that the Hub also tracks, each with its brief on the 
 | [CVE-2018-0171](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2018-0171) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Telecom & 5G Security Reference](/TELECOM_5G_SECURITY_REFERENCE.md) |
 | [CVE-2018-9276](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2018-9276) | [HackTheBox Machine Index](/research/HTB_MACHINE_INDEX.md) |
 | [CVE-2018-10561](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2018-10561) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| [CVE-2018-13379](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2018-13379) | [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md) |
 | [CVE-2018-14847](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2018-14847) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
 | [CVE-2019-0708](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-0708) | [Network Protocols Security Reference](/NETWORK_PROTOCOLS_SECURITY.md) |
 | [CVE-2019-2215](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-2215) | [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md) |
 | [CVE-2019-5544](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-5544) | [Hypervisor & Virtualization Hardening Reference](/HYPERVISOR_SECURITY_REFERENCE.md) |
 | [CVE-2019-5736](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-5736) | [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md), [Kubernetes Security Reference](/KUBERNETES_SECURITY_REFERENCE.md), [Container & Kubernetes Security](/disciplines/container-kubernetes-security.md) |
 | [CVE-2019-7192](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-7192) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| [CVE-2019-9670](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-9670) | [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md) |
+| [CVE-2019-11510](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-11510) | [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md) |
 | [CVE-2019-16920](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-16920) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
 | [CVE-2019-17621](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-17621) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
-| [CVE-2019-19781](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-19781) | [HONEYPOT & DECEPTION TECHNOLOGY REFERENCE](/HONEYPOT_DECEPTION_REFERENCE.md) |
+| [CVE-2019-19781](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-19781) | [HONEYPOT & DECEPTION TECHNOLOGY REFERENCE](/HONEYPOT_DECEPTION_REFERENCE.md), [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md) |
+| [CVE-2020-0688](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-0688) | [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md) |
 | [CVE-2020-0796](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-0796) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md), [Windows Hardening Reference](/WINDOWS_HARDENING.md) |
-| [CVE-2020-1472](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-1472) | [CVE Reference Guide](/CVE_REFERENCE.md), [Penetration Testing Checklists](/PENTEST_CHECKLISTS.md), [Windows Hardening and GPO Reference](/WINDOWS_HARDENING_GPO.md) |
+| [CVE-2020-1472](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-1472) | [CVE Reference Guide](/CVE_REFERENCE.md), [Penetration Testing Checklists](/PENTEST_CHECKLISTS.md), [Windows Hardening and GPO Reference](/WINDOWS_HARDENING_GPO.md), [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md) |
 | [CVE-2020-3992](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-3992) | [Hypervisor & Virtualization Hardening Reference](/HYPERVISOR_SECURITY_REFERENCE.md) |
+| [CVE-2020-4006](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-4006) | [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md) |
+| [CVE-2020-10148](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-10148) | [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md) |
 | [CVE-2020-25506](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-25506) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
 | [CVE-2021-1675](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-1675) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Penetration Testing Checklists](/PENTEST_CHECKLISTS.md), [Windows Hardening and GPO Reference](/WINDOWS_HARDENING_GPO.md) |
 | [CVE-2021-1879](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-1879) | [Browser Security Reference](/BROWSER_SECURITY_REFERENCE.md) |

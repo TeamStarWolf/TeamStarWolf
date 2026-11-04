@@ -36,6 +36,12 @@
     "blurb": "Follows common ransomware intrusion themes through access, credential theft, movement, exfiltration, encryption, and recovery inhibition. A curated view of behaviors, without attribution to a particular group or claims about incident frequency."
   },
   {
+    "file": "solarwinds-sunburst-2019-2021.json",
+    "name": "TeamStarWolf - SolarWinds and SUNBURST 2019-2021",
+    "description": "Techniques in the SolarWinds and SUNBURST intrusion (2019 to 2021), not an official MITRE mapping. Sources: the ATT&CK SolarWinds Compromise campaign (C0024) and software S0559, S0560, S0562, S0565 as published in ATT&CK v20, plus techniques mapped only by the Mandiant, CrowdStrike, Microsoft and CISA reports. Tactics are taken from data/attack/technique_profiles.jsonl. Scores indicate membership only. Each comment names source numbers from the Sources table of case-studies/SOLARWINDS_SUNBURST.md.",
+    "blurb": "Techniques from the SolarWinds and SUNBURST record, from the SUNSPOT build implant and the signed Orion backdoor to the Cobalt Strike loaders and the Golden SAML cloud follow-on. A curated layer for the SolarWinds case study."
+  },
+  {
     "file": "container-k8s.json",
     "name": "TeamStarWolf - Container and Kubernetes Attacks",
     "description": "Curated practitioner view of container and Kubernetes attack behaviors, not an official MITRE mapping. Sources: the ATT&CK Containers Matrix table in CONTAINER_SECURITY_REFERENCE.md, the shell-execution detection example in KUBERNETES_SECURITY_REFERENCE.md, and data/attack/technique_profiles.jsonl. Selects only explicit technique references from those sources; this is not exhaustive Kubernetes coverage. Scores indicate membership only.",

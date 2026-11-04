@@ -1,0 +1,883 @@
+{
+  "name": "TeamStarWolf - SolarWinds and SUNBURST 2019-2021",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Techniques in the SolarWinds and SUNBURST intrusion (2019 to 2021), not an official MITRE mapping. Sources: the ATT&CK SolarWinds Compromise campaign (C0024) and software S0559, S0560, S0562, S0565 as published in ATT&CK v20, plus techniques mapped only by the Mandiant, CrowdStrike, Microsoft and CISA reports. Tactics are taken from data/attack/technique_profiles.jsonl. Scores indicate membership only. Each comment names source numbers from the Sources table of case-studies/SOLARWINDS_SUNBURST.md.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1001.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Junk Data. ATT&CK S0559. Sources: [2] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1001.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Steganography. ATT&CK S0559. Sources: [2] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1001.003",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Protocol or Service Impersonation. C2 traffic disguised as the Orion Improvement Program protocol (Mandiant, 13 Dec 2020). Sources: [2][6] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1003.006",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "DCSync. DCSync (ATT&CK C0024; underlying reports not opened). Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Data from Local System. ATT&CK C0024/S0559. Sources: [1], [2] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1007",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "System Service Discovery. ATT&CK S0559. Sources: [2] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1012",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Query Registry. SUNBURST reads the MachineGuid value (Mandiant, 24 Dec 2020). Sources: [2][3][21] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "System Network Configuration Discovery. ATT&CK S0559. Sources: [2] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1016.001",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Internet Connection Discovery. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Remote System Discovery. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Remote Desktop Protocol. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "SMB/Windows Admin Shares. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1021.006",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Windows Remote Management. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Obfuscated Files or Information. SUNBURST compressed, encoded and hashed strings (Microsoft, 18 Dec 2020); SUNSPOT AES blobs. Sources: [2][3][4][7][20] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1027.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Software Packing. Raindrop custom packer (Symantec, 18 Jan 2021). Sources: [5][8] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1027.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Steganography. Raindrop payload hidden inside modified 7-Zip code (Symantec, 18 Jan 2021). Sources: [5][8] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1027.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Indicator Removal from Tools. ATT&CK S0559. Sources: [2] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1027.013",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Encrypted/Encoded File. Raindrop encrypted payload (Symantec, 18 Jan 2021). Sources: [5][8] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1027.015",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Compression. SUNBURST compressed strings (Microsoft, 18 Dec 2020). Sources: [2][20] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1033",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "System Owner/User Discovery. ATT&CK S0559. Sources: [2] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Masquerading. ATT&CK S0565. Sources: [5] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1036.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Masquerade Task or Service. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Match Legitimate Resource Name or Location. Renamed AdFind; SUNSPOT log disguised as vmware-vmdmp.log. Sources: [1][2][3][4][5][7][11] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Windows Management Instrumentation. ATT&CK C0024/S0559. Sources: [1], [2] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1048.002",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Exfiltration Over Asymmetric Encrypted Non-C2 Protocol. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Scheduled Task. Scheduled tasks briefly modified to run tools (Mandiant, 13 Dec 2020); SUNSPOT boot-time task. Sources: [1][6][7] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Scheduled Task. Scheduled tasks briefly modified to run tools (Mandiant, 13 Dec 2020); SUNSPOT boot-time task. Sources: [1][6][7] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Scheduled Task. Scheduled tasks briefly modified to run tools (Mandiant, 13 Dec 2020); SUNSPOT boot-time task. Sources: [1][6][7] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Process Discovery. SUNSPOT polls for MsBuild.exe every second; SUNBURST process blocklist. Sources: [1][2][4][7] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "PowerShell. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Windows Command Shell. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1059.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Visual Basic. wscript stage of the SUNBURST to Cobalt Strike handoff (Microsoft, 20 Jan 2021). Sources: [1][2][11] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1069",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Permission Groups Discovery. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1069.002",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Domain Groups. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Indicator Removal. ATT&CK C0024/S0559. Sources: [1], [2] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "File Deletion. ATT&CK C0024/S0559/S0562. Sources: [1], [2], [4] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1070.006",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Timestomp. Timestamps altered to match arp.exe (Microsoft, 20 Jan 2021). Sources: [1][11] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1070.007",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Clear Network Connection History and Configurations. ATT&CK S0559. Sources: [2] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1070.008",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Clear Mailbox Data. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1070.009",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Clear Persistence. ATT&CK S0559. Sources: [2] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Web Protocols. ATT&CK C0024/S0559. Sources: [1], [2] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1071.004",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "DNS. DNS beaconing to DGA subdomains of avsvmcloud[.]com with CNAME handoff (Mandiant, 13 Dec 2020). Sources: [2][6] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1074.002",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Remote Data Staging. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Valid Accounts. Legitimate credentials used after initial access (ATT&CK C0024; CISA and NIST supply-chain guide). Sources: [1][88] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Valid Accounts. Legitimate credentials used after initial access (ATT&CK C0024; CISA and NIST supply-chain guide). Sources: [1][88] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Valid Accounts. Legitimate credentials used after initial access (ATT&CK C0024; CISA and NIST supply-chain guide). Sources: [1][88] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Valid Accounts. Legitimate credentials used after initial access (ATT&CK C0024; CISA and NIST supply-chain guide). Sources: [1][88] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Domain Accounts. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Domain Accounts. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Domain Accounts. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Domain Accounts. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Local Accounts. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Local Accounts. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Local Accounts. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Local Accounts. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Cloud Accounts. Abuse of synced privileged cloud accounts (Mandiant Microsoft 365 guide, 2021). Sources: [1][23] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Cloud Accounts. Abuse of synced privileged cloud accounts (Mandiant Microsoft 365 guide, 2021). Sources: [1][23] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Cloud Accounts. Abuse of synced privileged cloud accounts (Mandiant Microsoft 365 guide, 2021). Sources: [1][23] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Cloud Accounts. Abuse of synced privileged cloud accounts (Mandiant Microsoft 365 guide, 2021). Sources: [1][23] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "System Information Discovery. ATT&CK S0559. Sources: [2] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "File and Directory Discovery. ATT&CK C0024/S0559/S0562. Sources: [1], [2], [4] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1087",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Account Discovery. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1087.002",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Domain Account. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1090.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Internal Proxy. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1098.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Additional Cloud Credentials. Credentials added to service principals and OAuth applications (Microsoft, 28 Dec 2020). Sources: [1][12][22][23] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1098.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Additional Cloud Credentials. Credentials added to service principals and OAuth applications (Microsoft, 28 Dec 2020). Sources: [1][12][22][23] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1098.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Additional Email Delegate Permissions. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1098.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Additional Email Delegate Permissions. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1098.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Additional Cloud Roles. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1098.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Additional Cloud Roles. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1098.005",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Device Registration. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1098.005",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Device Registration. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Ingress Tool Transfer. ATT&CK C0024/S0559. Sources: [1], [2] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1106",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Native API. ATT&CK S0562. Sources: [4] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1110.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Password Guessing. Password guessing as a non-Orion initial vector (AA20-352A, 17 Dec 2020; the text mislabels it T1101.001). Sources: [12] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Password Spraying. Password spraying as a non-Orion initial vector (AA20-352A, 17 Dec 2020; the text mislabels it T1101.003). Sources: [12] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Modify Registry. SUNBURST disables services by setting their Start value to 4 (Mandiant, 24 Dec 2020). Sources: [2][3][21] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Modify Registry. SUNBURST disables services by setting their Start value to 4 (Mandiant, 24 Dec 2020). Sources: [2][3][21] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1114.002",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Remote Email Collection. Mailboxes exported with New-MailboxExportRequest (Volexity, 14 Dec 2020). Sources: [1][10] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1124",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "System Time Discovery. ATT&CK S0559. Sources: [2] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1132.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Standard Encoding. ATT&CK S0559. Sources: [2] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "External Remote Services. External remote services as a non-Orion initial vector (AA20-352A, 17 Dec 2020). Sources: [1][12] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "External Remote Services. External remote services as a non-Orion initial vector (AA20-352A, 17 Dec 2020). Sources: [1][12] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Access Token Manipulation. ATT&CK S0562. Sources: [4] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Access Token Manipulation. ATT&CK S0562. Sources: [4] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1140",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Deobfuscate/Decode Files or Information. ATT&CK C0024/S0560/S0562/S0565. Sources: [1], [3], [4], [5] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Exploit Public-Facing Application. CVE-2020-0688 on the Exchange Control Panel, second Dark Halo incident at a US think tank (Volexity, 14 Dec 2020). Sources: [1][10] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1195.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Compromise Software Dependencies and Development Tools. Listed in the AA20-352A technique table (17 Dec 2020); not on the ATT&CK objects. Sources: [12] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Compromise Software Supply Chain. SUNSPOT inserted SUNBURST into Orion builds from 20 Feb 2020; trojanized updates distributed Mar to Jun 2020. Sources: [1][4][6][7][9][14] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Trusted Relationship. Cloud partner accounts and Mimecast certificates (ATT&CK C0024; underlying reports not opened). Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1213",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Data from Information Repositories. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1213.003",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Code Repositories. Source code for subsets of Azure, Intune and Exchange components downloaded (MSRC, 18 Feb 2021). Sources: [1][27] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1218.011",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Rundll32. rundll32 launching the TEARDROP or Raindrop loader (Microsoft, 20 Jan 2021). Sources: [1][2][11] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1480",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Execution Guardrails. SUNSPOT target-file hash checks; SUNBURST runs only on domain-joined hosts. Sources: [4][6][7] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1480.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Mutual Exclusion. SUNSPOT mutexes (CrowdStrike, 11 Jan 2021). Sources: [4][7] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1482",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Domain Trust Discovery. Domain trust discovery with AdFind (ATT&CK C0024). Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1484.002",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Trust Modification. Federation trusts added or modified (Microsoft, 28 Dec 2020; AA20-352A). Sources: [1][12][22] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1484.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Trust Modification. Federation trusts added or modified (Microsoft, 28 Dec 2020; AA20-352A). Sources: [1][12][22] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1497.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "System Checks. ATT&CK S0559. Sources: [2] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1497.001",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "System Checks. ATT&CK S0559. Sources: [2] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1497.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Time Based Checks. Dormancy of roughly 12 to 14 days before the first beacon (Mandiant, 13 Dec 2020). Sources: [2][5][6] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1497.003",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Time Based Checks. Dormancy of roughly 12 to 14 days before the first beacon (Mandiant, 13 Dec 2020). Sources: [2][5][6] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1518",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Software Discovery. Mandiant technique list (13 Dec 2020) and AA20-352A. Sources: [6][12] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1518.001",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Security Software Discovery. Blocklists of security-tool processes, services and drivers (Mandiant, 24 Dec 2020). Sources: [2][21] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1539",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Steal Web Session Cookie. Duo integration secret stolen from the OWA server (Volexity, 14 Dec 2020). Sources: [1][10] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Windows Service. TEARDROP runs as a Windows service DLL (Microsoft, 20 Jan 2021). Sources: [3][11] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Windows Service. TEARDROP runs as a Windows service DLL (Microsoft, 20 Jan 2021). Sources: [3][11] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1546.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Windows Management Instrumentation Event Subscription. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1546.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Windows Management Instrumentation Event Subscription. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1546.012",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Image File Execution Options Injection. dllhost.exe IFEO debugger value launching wscript (Microsoft, 20 Jan 2021). Sources: [2][11] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1546.012",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Image File Execution Options Injection. dllhost.exe IFEO debugger value launching wscript (Microsoft, 20 Jan 2021). Sources: [2][11] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1550",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Use Alternate Authentication Material. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1550.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Application Access Token. Application tokens used for Graph API mail access (Microsoft, 14 Dec 2020). Sources: [1][12][29] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1550.004",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Web Session Cookie. Forged duo-sid cookie used to bypass MFA (Volexity, 14 Dec 2020). Sources: [1][10] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1552.004",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Private Keys. AD FS token-signing certificate theft (Microsoft, 28 Dec 2020; AA20-352A). Sources: [1][12][22] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1553.002",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Code Signing. SUNBURST DLL signed with the SolarWinds certificate, 24 Mar 2020 (Mandiant, 13 Dec 2020); certificate revoked 8 Mar 2021. Sources: [1][2][6][17] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1555",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Credentials from Password Stores. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1555.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Credentials from Web Browsers. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1558.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Kerberoasting. Kerberoasting (ATT&CK C0024; underlying reports not opened). Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1560.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Archive via Utility. 7-Zip archiving before exfiltration (Microsoft, 20 Jan 2021). Sources: [1][11] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1565.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Stored Data Manipulation. SUNSPOT swapped InventoryManager.cs during MsBuild builds after MD5 checks, then restored it (CrowdStrike, 11 Jan 2021). Sources: [4][7] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1567.002",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Exfiltration to Cloud Storage. Exfiltration to cloud storage, mapped only by Microsoft (20 Jan 2021). Sources: [11] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1568",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Dynamic Resolution. CNAME responses handed SUNBURST off to HTTP C2 (Mandiant, 13 Dec 2020). Sources: [1][2][6] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1568.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Domain Generation Algorithms. DGA-built subdomains of avsvmcloud[.]com (Mandiant, 13 Dec 2020; AA20-352A, 17 Dec 2020); not on the ATT&CK objects. Sources: [6][12] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1569.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Service Execution. Mandiant technique list (13 Dec 2020) and AA20-352A. Sources: [6][12] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1573.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Symmetric Cryptography. ATT&CK S0559. Sources: [2] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Domains. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1584",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Compromise Infrastructure. Mandiant technique list (13 Dec 2020) and AA20-352A. Sources: [6][12] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1584.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Domains. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1587.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Malware. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1589.001",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Credentials. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1592.002",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Software. CrowdStrike technique list for SUNSPOT (11 Jan 2021). Sources: [7] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1606.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Web Cookies. duo-sid cookie forged from the stolen secret (Volexity, 14 Dec 2020). Sources: [1][10] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1606.002",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "SAML Tokens. Forged SAML tokens, Golden SAML (AA20-352A; Microsoft, 13 and 28 Dec 2020). Sources: [1][12][22][30] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1665",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Hide Infrastructure. C2 hostnames chosen to match victim hostnames (Mandiant, 13 Dec 2020). Sources: [1][6] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1680",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Local Storage Discovery. ATT&CK C0024. Sources: [1] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Disable or Modify Tools. Security tools disabled; Microsoft reported tool tampering as revoked T1562.001 (20 Jan 2021). Sources: [1][2][11][21] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1685.001",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Disable or Modify Windows Event Log. auditpol changes; Microsoft reported them as revoked T1562.002 (20 Jan 2021). Sources: [1][11] in case-studies/SOLARWINDS_SUNBURST.md."
+    },
+    {
+      "techniqueID": "T1686",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Disable or Modify System Firewall. Temporary netsh firewall rules; Microsoft reported them as revoked T1562.004 (20 Jan 2021). Sources: [1][11] in case-studies/SOLARWINDS_SUNBURST.md."
+    }
+  ],
+  "metadata": [
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in its technique profile"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "112"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "139"
+    },
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/SOLARWINDS_SUNBURST.md (sources opened 3 November 2026)"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/SOLARWINDS_SUNBURST.md"
+    }
+  ]
+}

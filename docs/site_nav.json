@@ -314,7 +314,8 @@
         ["Web application pentesting", "/WEB_APPLICATION_PENTESTING.md"],
         ["CAPEC attack patterns", "/mitre/capec/README.md"],
         ["Log4Shell: a case study", "/case-studies/LOG4SHELL.md"],
-        ["npm supply-chain attacks: a case study", "/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md"]
+        ["npm supply-chain attacks: a case study", "/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md"],
+        ["Hugging Face supply chain: a case study", "/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md"]
       ]
     },
     {
@@ -355,7 +356,8 @@
       "see_also": [
         ["AI tooling", "/ai-tooling/README.md"],
         ["ATLAS pages", "/mitre/atlas/README.md"],
-        ["AI threats: a 2026 case study", "/case-studies/AI_THREATS_2026.md"]
+        ["AI threats: a 2026 case study", "/case-studies/AI_THREATS_2026.md"],
+        ["Hugging Face supply chain: a case study", "/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md"]
       ]
     },
     {
@@ -373,7 +375,9 @@
       "guides": [],
       "pages": ["/platforms/dragos.md", "/platforms/claroty.md", "/languages/assembly-arm.md", "/languages/verilog.md", "/languages/vhdl.md", "/languages/systemverilog.md"],
       "see_also": [
-        ["SDR and RF security", "/SDR_RF_SECURITY_REFERENCE.md"]
+        ["SDR and RF security", "/SDR_RF_SECURITY_REFERENCE.md"],
+        ["ICS attacks and advisories, 2024 to 2026: a case study", "/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md"],
+        ["Stuxnet: the case study", "/case-studies/STUXNET.md"]
       ]
     },
     {

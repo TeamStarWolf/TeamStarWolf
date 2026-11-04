@@ -44,7 +44,7 @@ Microsoft Entra ID is Microsoft's cloud identity and access management service a
 
 ## Vulnerability-mitigation role
 
-Acts as an identity-layer compensating / virtual-patching control during the exposure window. When a critical CVE hits an internet-facing or SaaS app, Conditional Access can immediately require phishing-resistant MFA, require a compliant/managed device, restrict to named locations, block legacy authentication protocols, or block the app outright for all or high-risk users, cutting off the exploitation path for identity- and access-dependent vulnerabilities (credential theft, token replay, session hijack, auth bypass) without touching the vulnerable code. Identity Protection auto-remediates compromised credentials (force password reset, block sign-in) that attackers would leverage post-exploit. PIM shrinks the standing-privilege blast radius so that even if a workstation or app is compromised, few accounts hold exploitable persistent admin rights. Continuous access evaluation (CAE) revokes tokens near-real-time when risk changes. It does not patch the CVE but materially reduces exploitability and blast radius until the vendor patch lands.
+Acts as an identity-layer compensating / virtual-patching control during the exposure window. When a critical CVE hits an internet-facing or SaaS app, Conditional Access can immediately require phishing-resistant MFA, require a compliant/managed device, restrict to named locations, block legacy authentication protocols, or block the app outright for all or high-risk users, cutting off the exploitation path for identity- and access-dependent vulnerabilities (credential theft, token replay, session hijack, auth bypass) without touching the vulnerable code. Identity Protection auto-remediates compromised credentials (force password reset, block sign-in) that attackers would use post-exploit. PIM shrinks the standing-privilege blast radius so that even if a workstation or app is compromised, few accounts hold exploitable persistent admin rights. Continuous access evaluation (CAE) revokes tokens near-real-time when risk changes. It does not patch the CVE but materially reduces exploitability and blast radius until the vendor patch lands.
 
 **VM lifecycle:** Prioritize · Mitigate · Monitor/Detect · Validate
 
@@ -166,7 +166,7 @@ Azure AD was renamed Microsoft Entra ID (effective 15 July 2023); naming is stab
 
 - [Identity & Access Management (IAM) Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)
 - [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md)
-- [Zero Trust Reference: Comprehensive Cybersecurity Guide](/ZERO_TRUST_REFERENCE.md)
+- [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
 - [Active Directory Security Reference](/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md)
 - [Cisco Duo](/tools/cisco-duo.md)
 - [CyberArk](/tools/cyberark.md)

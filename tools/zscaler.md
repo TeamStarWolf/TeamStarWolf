@@ -161,7 +161,7 @@ Core platform remains the Zero Trust Exchange with ZIA, ZPA, and ZDX. Confirmed 
 
 ## Related pages
 
-- [Zero Trust Reference: Comprehensive Cybersecurity Guide](/ZERO_TRUST_REFERENCE.md)
+- [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
 - [Network Security Architecture Reference](/NETWORK_SECURITY_ARCHITECTURE.md)
 - [Cloud Network Security Reference](/CLOUD_NETWORK_SECURITY.md)
 - [Enterprise Security Controls Reference](/ENTERPRISE_SECURITY_CONTROLS.md)

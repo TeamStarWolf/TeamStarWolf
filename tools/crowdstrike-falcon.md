@@ -30,7 +30,7 @@ CrowdStrike Falcon is a cloud-native platform delivered through a single lightwe
 
 **Differentiators**
 - Single lightweight agent for EPP, EDR/XDR, identity, cloud and exposure, and scanless vulnerability assessment from that same telemetry means no scan windows, no separate vuln agent, always-current data
-- Exploitation-aware prioritization (ExPRT.AI) that ranks CVEs by real-world exploit likelihood using CrowdStrike's industry-leading adversary/threat intelligence, not just CVSS
+- Exploitation-aware prioritization (ExPRT.AI) that ranks CVEs by real-world exploit likelihood using CrowdStrike's adversary/threat intelligence, not just CVSS
 - Exposure Management unifies internal vuln, external attack surface and asset discovery into one adversary-centric risk view, with the ability to ingest third-party scan data
 - Fast time-to-value and operational simplicity of a pure-SaaS, single-agent platform; Charlotte AI and Fusion SOAR add agentic automation; named a Leader in the 2025 IDC MarketScape for Exposure Management
 

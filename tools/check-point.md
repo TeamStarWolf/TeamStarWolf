@@ -158,7 +158,7 @@ CEO Nadav Zafrir (ex-Unit 8200/Team8) took over in December 2024; founder Gil Sh
 - [Network Security Architecture Reference](/NETWORK_SECURITY_ARCHITECTURE.md)
 - [Network Defense Reference Library](/NETWORK_DEFENSE_REFERENCE.md)
 - [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md)
-- [Zero Trust Reference: Comprehensive Cybersecurity Guide](/ZERO_TRUST_REFERENCE.md)
+- [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
 - [Zscaler Zero Trust Exchange](/tools/zscaler.md)
 - [Vendor Tool Pages](/tools/README.md)
 - [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)

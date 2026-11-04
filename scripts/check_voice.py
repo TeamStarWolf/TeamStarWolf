@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
 """Voice lint for the hand-written pages: the mechanical half of docs/VOICE.md.
 
-Scope: tracked Markdown at the repository root (README, HOME, _coverpage, _navbar,
-_sidebar and every root reference) and under guides/, disciplines/, case-studies/,
-tools-research/ and docs/. Generated trees (mitre/, techniques/, detections/, scores/,
-navigator/) and data are out of scope; their generators own their wording.
+Scope: every hand-written Markdown page, which is the tracked Markdown at the repository
+root (README, HOME, _coverpage, _navbar, _sidebar and every root reference), under
+guides/, disciplines/, case-studies/, tools-research/ and docs/, and every page that
+build_site_nav.hand_written() returns: tools/, platforms/, languages/, paradigms/,
+frameworks/, commands/, formats/, databases/, ai-tooling/, research/, data/, scripts/ and
+the hand-written pages under detections/ (in_scope()). The trees other generators write
+(mitre/, techniques/, detections/strategies/, scores/, hubs/, navigator/index.md) are out
+of scope; their generators own their wording. Two rules, agent-note and em-dash, ignore
+this scope and cover more (below).
 
 Rules (the rule key is what the baseline counts):
 
-  em-dash       U+2014 anywhere in the file. Use a colon, a comma, parentheses or a
-                new sentence.
   emoji         A pictographic emoji: U+1F000..U+1FAFF, the emoji code points in
                 U+2300..U+2BFF (warning sign, ballot box with check, heavy check mark,
                 the small squares U+25FD and U+25FE and so on) and U+FE0F, the selector that forces emoji presentation.
@@ -44,13 +47,21 @@ Rules (the rule key is what the baseline counts):
                 knowledge", and notes to itself ("verify if seen elsewhere",
                 "confirm before publishing", "confirm slug before use"), or
                 "drafted with an AI". It is not a fact for the reader. Unlike the rules above it covers every
-                tracked Markdown file, generated or hand-written, whatever SCOPE_RE
+                tracked Markdown file, generated or hand-written, whatever in_scope()
                 says, matches code and prose alike, and has no baseline: one hit
                 fails the gate.
+  em-dash       U+2014 anywhere in any tracked text file: Markdown, JSON, YAML, Python,
+                dotfiles, generated or hand-written, code and prose alike (git ls-files,
+                less the blobs git treats as binary). Use a colon, a comma, parentheses
+                or a new sentence; never a hyphen pair or an en dash as a stand-in. Like
+                agent-note it has no baseline: one hit fails the gate. The one exemption
+                is upstream data: in a JSONL row under UPSTREAM_DATA, a dash inside a
+                name, description, definition or mitigation value (UPSTREAM_KEYS, at any
+                depth) is the upstream text, reproduced verbatim.
 
 Upstream text is not voice debt. Object names and quoted descriptions from ATT&CK,
-CAPEC, CWE, ATLAS, D3FEND, Engage and F3 are reproduced verbatim (docs/VOICE.md), so an
-em-dash, '!' or hype word is skipped when the words around it match the name,
+CAPEC, CWE, ATLAS, D3FEND, Engage and F3 are reproduced verbatim (docs/VOICE.md), so a
+'!' or hype word is skipped when the words around it match the name,
 description or definition fields of the upstream datasets under data/ (UPSTREAM_DATA):
 six words or more as part of any such value, three to five words only as a whole name.
 
@@ -97,10 +108,18 @@ import subprocess
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from repo_files import ROOT, read_text, tracked_files  # noqa: E402
+from repo_files import ROOT, read_bytes, read_text, tracked_files  # noqa: E402
+import build_site_nav as bsn  # noqa: E402  (hand_written(): the hand-written pages)
 
 BASELINE = os.path.join(ROOT, "scripts", "baselines", "voice.json")
+# The root pages and the folders scoped before build_site_nav.hand_written() was used; the
+# root keeps the generated _sidebar, _navbar and explore pages in scope, as it always has.
 SCOPE_RE = re.compile(r"^(?:[^/]+|(?:guides|disciplines|case-studies|tools-research|docs)/.+)\.md$")
+
+
+def in_scope_file(rel: str) -> bool:
+    """A hand-written page: SCOPE_RE or build_site_nav.hand_written()."""
+    return bool(SCOPE_RE.match(rel)) or bool(bsn.hand_written([rel]))
 
 # Marketing and vague-superlative words. Each says how the writer feels about a thing,
 # not what the thing does. docs/VOICE.md lists the same words; keep the two in step.
@@ -157,6 +176,7 @@ ALLOW = (
     re.compile(r"Cutting Edge"),               # ATT&CK campaign C0029 (Ivanti VPN, 2023-24)
     re.compile(r"Seamless SSO"),               # Microsoft Entra Seamless Single Sign-On
     re.compile(r"Revolutionary Guard"),        # Islamic Revolutionary Guard Corps
+    re.compile(r"Cryptography: State-of-the-Art"),  # a 34C3 talk title (research/CONFERENCE_TALKS.md)
 )
 
 # Escapes keep this file free of the characters it looks for.
@@ -427,8 +447,9 @@ def upstream(line: str, start: int, end: int, key: str) -> bool:
     return False
 
 
-def scan(rel: str, raw: str) -> list[tuple[str, int, str, str]]:
-    """Every hit in one file as (file, line, rule, excerpt)."""
+def scan(rel: str, raw: str, em_dash: bool = True) -> list[tuple[str, int, str, str]]:
+    """Every hit in one file as (file, line, rule, excerpt). The gate passes
+    em_dash=False and runs em_dashes() over every tracked text file instead."""
     hits = []
     raw_lines = raw.split("\n")
 
@@ -436,13 +457,9 @@ def scan(rel: str, raw: str) -> list[tuple[str, int, str, str]]:
         s = raw_lines[i - 1].strip()
         return s if len(s) <= 110 else s[:107] + "..."
 
+    if em_dash:
+        hits.extend(em_dashes(rel, raw))
     for i, line in enumerate(raw_lines, 1):
-        if EM_DASH in line:
-            plain = URL_RE.sub(blank, LINK_TARGET_RE.sub(
-                lambda m: "]" + " " * (len(m.group(0)) - 1), line))
-            for m in re.finditer(EM_DASH, plain):
-                if not upstream(plain, m.start(), m.end(), EM_DASH):
-                    hits.append((rel, i, "em-dash", excerpt(i)))
         for m in EMOJI_RE.finditer(line):
             hits.append((rel, i, "emoji", "U+%04X in: %s" % (ord(m.group(0)), excerpt(i))))
     text = prose(raw)
@@ -465,6 +482,64 @@ def scan(rel: str, raw: str) -> list[tuple[str, int, str, str]]:
         for m in COUNT_RE.finditer(line):
             hits.append((rel, i, "count", '"%s" in: %s' % (m.group(0), excerpt(i))))
     return hits
+
+
+def _upstream_dashes(value, key: str = "") -> int:
+    """U+2014 characters inside the upstream text of a JSON value, at any depth: an
+    UPSTREAM_KEYS string value, or a string elsewhere in the row that repeats one verbatim
+    (technique_profiles.jsonl lists its detection strategies by their upstream names)."""
+    if isinstance(value, dict):
+        return sum(_upstream_dashes(v, k) for k, v in value.items())
+    if isinstance(value, list):
+        return sum(_upstream_dashes(v, key) for v in value)
+    if isinstance(value, str) and EM_DASH in value:
+        if key in UPSTREAM_KEYS or value in upstream_value_set():
+            return value.count(EM_DASH)
+    return 0
+
+
+_upstream_set: set[str] | None = None
+
+
+def upstream_value_set() -> set[str]:
+    global _upstream_set
+    if _upstream_set is None:
+        _upstream_set = set(upstream_values())
+    return _upstream_set
+
+
+def em_dashes(rel: str, raw: str) -> list[tuple[str, int, str, str]]:
+    """Every U+2014 in one file as (file, line, "em-dash", excerpt), code and prose alike.
+    In a JSONL row under UPSTREAM_DATA, the dashes inside its upstream name, description,
+    definition and mitigation values are upstream text and do not count."""
+    hits = []
+    upstream_rows = rel.startswith(UPSTREAM_DATA) and rel.endswith(".jsonl")
+    for i, line in enumerate(raw.split("\n"), 1):
+        n = line.count(EM_DASH)
+        if not n:
+            continue
+        if upstream_rows:
+            try:
+                n -= _upstream_dashes(json.loads(line))
+            except ValueError:
+                pass
+        s = line.strip()
+        for _ in range(max(n, 0)):
+            hits.append((rel, i, "em-dash", s if len(s) <= 110 else s[:107] + "..."))
+    return hits
+
+
+def text_files(files: list[str]) -> list[str]:
+    """The tracked files git treats as text (git ls-files --eol is not i/-text); a file
+    whose blob holds a NUL byte counts as binary when git cannot be asked."""
+    try:
+        out = subprocess.run(["git", "ls-files", "--eol", "-z"], cwd=ROOT, capture_output=True,
+                             check=True).stdout.decode("utf-8")
+        binary = {e.split("\t", 1)[1] for e in out.split("\0")
+                  if "\t" in e and e.split()[0] == "i/-text"}
+    except (OSError, subprocess.CalledProcessError, IndexError):
+        binary = {f for f in files if b"\0" in (read_bytes(f) or b"")}
+    return [f for f in files if f not in binary]
 
 
 def agent_notes(rel: str, raw: str) -> list[tuple[str, int, str, str]]:
@@ -525,10 +600,12 @@ def guide_drift() -> list[str]:
 
 
 def in_scope(files: list[str]) -> list[str]:
-    return [f for f in files if SCOPE_RE.match(f)]
+    hand = set(bsn.hand_written(files))
+    return [f for f in files if SCOPE_RE.match(f) or f in hand]
 
 
-RULES = ("count", "em-dash", "emoji", "exclamation") + tuple("hype:" + w for w in HYPE)
+# The baselined rules. agent-note and em-dash have no baseline: one hit fails the gate.
+RULES = ("count", "emoji", "exclamation") + tuple("hype:" + w for w in HYPE)
 
 
 def parse_baseline(doc: dict) -> tuple[collections.Counter, set]:
@@ -637,6 +714,8 @@ SELF_TEST = (
     ("Done \u2713 and starred \u2605.", ()),
     ("Done \u2705 and \u2714.", ("emoji", "emoji")),
     ("Status \u25FD and \u25FE.", ("emoji", "emoji")),                               # item 9
+    ("A dash\u2014closed, and one \u2014 spaced.", ("em-dash", "em-dash")),
+    ("```bash\n# a comment \u2014 in code\n```\n", ("em-dash",)),
     ("It works!", ("exclamation",)),
     ("Use `a != b` and ![logo](x.png).", ()),
     # Code blocks and list items.                                                       item 8
@@ -704,6 +783,34 @@ AGENT_SELF_TEST = (
 )
 
 
+# Planted cases for the em-dash rule, which covers every tracked text file whatever its
+# type or folder: (path, content, hits). Upstream JSONL rows keep their dashes only inside
+# the upstream name and description values.
+EM_DASH_SELF_TEST = (
+    ("tools/x.md", "# Tool\n\nIt scans hosts \u2014 fast.\n", 1),
+    ("platforms/x.md", "Text \u2014 more.\n", 1),
+    ("languages/x.md", "Text \u2014 more.\n", 1),
+    ("navigator/stages/x.json", '{"name": "Stage 9 \u2014 Test", "techniques": []}\n', 1),
+    (".github/ISSUE_TEMPLATE/x.yml", "description: Scope \u2014 what it covers\n", 1),
+    (".gitignore", "# secrets \u2014 never commit\n", 1),
+    ("scripts/x.py", "# a comment \u2014 in code\n", 1),
+    ("data/attack/x.jsonl", '{"name": "A \u2014 B", "description": "C\u2014D"}\n', 0),
+    ("data/attack/x.jsonl", '{"mutable_elements": [{"field": "f", "description": "x\u2014y"}]}\n', 0),
+    ("data/attack/x.jsonl", '{"name": "A", "x_note": "ours \u2014 not upstream"}\n', 1),
+    ("data/generated/x.jsonl", '{"name": "A \u2014 B"}\n', 1),
+    ("data/attack/x.jsonl", '{"detection_strategies": ["ours \u2014 not a copy"]}\n', 1),
+    ("tools/x.md", "Plain words, a colon: and a comma.\n", 0),
+)
+# Pages the hand-written rules (emoji, exclamation, hype, count) must reach, and the
+# generated pages they must not.
+SCOPE_SELF_TEST = ("platforms/x.md", "languages/x.md", "tools/x.md", "paradigms/x.md",
+                   "frameworks/x.md", "commands/x.md", "formats/x.md", "databases/x.md",
+                   "ai-tooling/x.md", "research/x.md", "detections/TECHNIQUE_DETECTION_LIBRARY.md",
+                   "guides/x.md", "disciplines/x.md", "HOME.md")
+SCOPE_OUT_SELF_TEST = ("mitre/x.md", "techniques/x.md", "detections/strategies/x.md",
+                       "scores/x.md", "hubs/x.md", "navigator/index.md")
+
+
 def self_test() -> int:
     """Scan every SELF_TEST case and compare its rules with the expected ones."""
     failed = 0
@@ -712,16 +819,39 @@ def self_test() -> int:
         if got != sorted(want):
             failed += 1
             print("FAIL self-test: %r\n  want %s\n  got  %s" % (text, sorted(want), got))
-    if SCOPE_RE.match(AGENT_SELF_TEST_FILE):
+    for rel, text, want in EM_DASH_SELF_TEST:
+        got = len(em_dashes(rel, text))
+        if got != want:
+            failed += 1
+            print("FAIL self-test: em-dash in %s: %r\n  want %d hits, got %d" % (rel, text, want, got))
+    for rel in SCOPE_SELF_TEST:
+        if not in_scope_file(rel):
+            failed += 1
+            print("FAIL self-test: %s must be in scope" % rel)
+    for rel in SCOPE_OUT_SELF_TEST:
+        if in_scope_file(rel):
+            failed += 1
+            print("FAIL self-test: %s must be out of scope (a generator owns it)" % rel)
+    missing = [f for f in bsn.hand_written(tracked_files()) if not in_scope_file(f)]
+    if missing:
         failed += 1
-        print("FAIL self-test: %s must be outside SCOPE_RE" % AGENT_SELF_TEST_FILE)
+        print("FAIL self-test: hand-written pages outside the scope: " + ", ".join(missing[:10]))
+    for rel in ("platforms/x.md", "languages/x.md"):
+        got = sorted(h[2] for h in scan(rel, "A powerful tool \u2014 here.") if in_scope_file(rel))
+        if got != ["em-dash", "hype:powerful"]:
+            failed += 1
+            print("FAIL self-test: planted hits in %s: got %s" % (rel, got))
+    if in_scope_file(AGENT_SELF_TEST_FILE):
+        failed += 1
+        print("FAIL self-test: %s must be outside the scope" % AGENT_SELF_TEST_FILE)
     for text, want in AGENT_SELF_TEST:
         got = sorted(h[2] for h in scan(AGENT_SELF_TEST_FILE, text) +
                      agent_notes(AGENT_SELF_TEST_FILE, text))
         if got != sorted(want):
             failed += 1
             print("FAIL self-test: %r\n  want %s\n  got  %s" % (text, sorted(want), got))
-    total = len(SELF_TEST) + len(AGENT_SELF_TEST)
+    total = (len(SELF_TEST) + len(AGENT_SELF_TEST) + len(EM_DASH_SELF_TEST) +
+             len(SCOPE_SELF_TEST) + len(SCOPE_OUT_SELF_TEST) + 4)
     print("voice self-test: %d of %d cases pass" % (total - failed, total))
     return 1 if failed else 0
 
@@ -759,7 +889,14 @@ def main() -> int:
     for f in files:
         t = read_text(f)
         if t is not None:
-            hits.extend(scan(f, t))
+            hits.extend(scan(f, t, em_dash=False))
+    # em-dash: every tracked text file (or the named ones), never baselined.
+    dashes = []
+    dash_files = named or text_files(tracked_files())
+    for f in dash_files:
+        t = read_text(f)
+        if t is not None and EM_DASH in t:
+            dashes.extend(em_dashes(f, t))
     # agent-note: every tracked Markdown file (or the named ones), never baselined.
     notes = []
     for f in markdown_files(named or tracked_files()):
@@ -770,13 +907,18 @@ def main() -> int:
     fam = collections.Counter(rule_family(h[2]) for h in hits)
     print("voice: %d hits in %d of %d files (%s)" % (
         len(hits), len({h[0] for h in hits}), len(files),
-        ", ".join("%s %d" % (k, fam[k]) for k in ("em-dash", "emoji", "exclamation", "hype", "count"))))
+        ", ".join("%s %d" % (k, fam[k]) for k in ("emoji", "exclamation", "hype", "count"))))
 
     print("voice: %d agent-note hits in %d Markdown files (no baseline)" % (
         len(notes), len(markdown_files(named or tracked_files()))))
+    print("voice: %d em-dash hits in %d tracked text files (no baseline)" % (
+        len(dashes), len(dash_files)))
 
     if args.summary:
-        for rule, n in sorted(collections.Counter(h[2] for h in hits + notes).items()):
+        totals = collections.Counter(h[2] for h in hits + notes + dashes)
+        for rule in ("agent-note", "em-dash"):
+            totals.setdefault(rule, 0)
+        for rule, n in sorted(totals.items()):
             print("  %-26s %d" % (rule, n))
         return 0
     if args.update_baseline:
@@ -784,16 +926,22 @@ def main() -> int:
             ap.error("--update-baseline scans the whole scope; do not name files")
         return update_baseline(counts, args.allow_growth)
     if args.report or args.files:
-        for h in hits + notes:
+        for h in hits + notes + dashes:
             print("  %s:%d: %s: %s" % h)
     if args.files:
-        return 1 if hits or notes else 0
+        return 1 if hits or notes or dashes else 0
 
     failed = False
     if notes:
         print("FAIL voice: agent process notes in published pages (state the fact and its "
               "source, or delete the note; docs/VOICE.md):")
         for h in notes:
+            print("  %s:%d: %s" % (h[0], h[1], h[3]))
+        failed = True
+    if dashes:
+        print("FAIL voice: em dashes (U+2014) in tracked files; use a colon, a comma, parentheses "
+              "or a new sentence (docs/VOICE.md):")
+        for h in dashes:
             print("  %s:%d: %s" % (h[0], h[1], h[3]))
         failed = True
     for p in guide_drift():

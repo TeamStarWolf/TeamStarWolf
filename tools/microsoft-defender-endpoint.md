@@ -158,7 +158,7 @@ VERIFIED 2025-2026: Current product family is Microsoft Defender for Endpoint Pl
 - [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md)
 - [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
 - [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md)
-- [Zero Trust Reference: Comprehensive Cybersecurity Guide](/ZERO_TRUST_REFERENCE.md)
+- [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
 - [CrowdStrike Falcon](/tools/crowdstrike-falcon.md)
 - [Microsoft Defender for Cloud](/tools/microsoft-defender-for-cloud.md)
 - [Vendor Tool Pages](/tools/README.md)

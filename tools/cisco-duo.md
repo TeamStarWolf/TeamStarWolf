@@ -14,7 +14,7 @@ Cisco Duo is a cloud-delivered MFA and secure-access platform that verifies user
 - Device health / posture checks: OS version, disk encryption, firewall, screen lock, password status, browser/plugin versions at each access attempt
 - Adaptive / risk-based authentication: Risk-Based Authentication that steps up based on signals (location, Wi-Fi fingerprint, novel device, attack patterns) and Trust Monitor anomaly detection
 - Policy engine: per-application and per-group policy for user location, device, network, authentication method, and session
-- Duo Network Gateway (DNG) and Duo Passport: VPN-less remote/ZTNA access to on-prem web apps, SSH, RDP; Passport provides seamless re-authentication across apps on a trusted device
+- Duo Network Gateway (DNG) and Duo Passport: VPN-less remote/ZTNA access to on-prem web apps, SSH, RDP; Passport re-authenticates across apps on a trusted device without a new prompt
 - Cisco Identity Intelligence (ITDR/ISPM): ingests identity data from IdPs to surface identity posture risks, dormant/privileged accounts, MFA gaps, and detect identity attacks (MFA flooding, session hijack, inactive-account probing)
 - Privileged session controls (higher tiers) and admin API / reporting / detailed logs
 - Broad application integrations: VPNs, RDP/RADIUS, cloud and SaaS apps, on-prem web apps, Unix/Linux PAM, Windows logon
@@ -145,12 +145,12 @@ _Learning & reference_
 
 ## Current state (2025-26)
 
-Duo remains a Cisco Security product and is increasingly positioned inside Cisco's identity-centric Secure Access (SSE) and ITDR strategy. Cisco Identity Intelligence (ITDR/identity security posture) is delivered via Cisco Security Cloud Control and feeds context to Duo, Cisco Secure Access, and Cisco XDR; it is included with Secure Access subscriptions (standalone CII dashboard separate). Duo Passport (seamless re-auth on trusted devices) and Risk-Based Authentication are the notable recent capabilities, concentrated in Advantage/Premier. Current tier list pricing circa Free/$3/$6/$9 per user/mo; edition feature placement for Trusted Endpoints and Passport has shifted; verify on duo.com/pricing. Note Cisco's 2024 Splunk acquisition strengthens Duo/identity telemetry into Splunk-based SIEM. Confirm current edition matrix before relying on tier specifics.
+Duo remains a Cisco Security product and is increasingly positioned inside Cisco's identity-centric Secure Access (SSE) and ITDR strategy. Cisco Identity Intelligence (ITDR/identity security posture) is delivered via Cisco Security Cloud Control and feeds context to Duo, Cisco Secure Access, and Cisco XDR; it is included with Secure Access subscriptions (standalone CII dashboard separate). Duo Passport (re-auth without a new prompt on trusted devices) and Risk-Based Authentication are the notable recent capabilities, concentrated in Advantage/Premier. Current tier list pricing circa Free/$3/$6/$9 per user/mo; edition feature placement for Trusted Endpoints and Passport has shifted; verify on duo.com/pricing. Note Cisco's 2024 Splunk acquisition strengthens Duo/identity telemetry into Splunk-based SIEM. Confirm current edition matrix before relying on tier specifics.
 
 ## Related pages
 
 - [Identity & Access Management (IAM) Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)
-- [Zero Trust Reference: Comprehensive Cybersecurity Guide](/ZERO_TRUST_REFERENCE.md)
+- [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
 - [Password Security Reference](/PASSWORD_SECURITY_REFERENCE.md)
 - [Microsoft Entra ID](/tools/entra-id.md)
 - [CyberArk](/tools/cyberark.md)

@@ -43,6 +43,7 @@ An adversary loads malicious code onto a USB memory stick in order to infect any
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [Stuxnet: The Case Study](/case-studies/STUXNET.md)
 
 <!-- library-refs:end -->
 

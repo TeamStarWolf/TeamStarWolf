@@ -1018,8 +1018,9 @@ CVEs the library discusses that the Hub also tracks, each with its brief on the 
 
 | CVE | Named in |
 |---|---|
-| [CVE-2008-4250](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2008-4250) | [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md) |
-| [CVE-2010-2568](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2010-2568) | [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md) |
+| [CVE-2008-4250](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2008-4250) | [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), [Stuxnet: The Case Study](/case-studies/STUXNET.md) |
+| [CVE-2010-2568](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2010-2568) | [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), [Stuxnet: The Case Study](/case-studies/STUXNET.md) |
+| [CVE-2011-3402](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2011-3402) | [Stuxnet: The Case Study](/case-studies/STUXNET.md) |
 | [CVE-2014-0160](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2014-0160) | [CVE Reference Guide](/CVE_REFERENCE.md), [Network Protocols Reference: Security Perspective](/NETWORK_PROTOCOLS_REFERENCE.md) |
 | [CVE-2014-6271](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2014-6271) | [HackTheBox Machine Index](/research/HTB_MACHINE_INDEX.md) |
 | [CVE-2014-6324](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2014-6324) | [Active Directory Attack Reference: Defender Edition](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md) |

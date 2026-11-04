@@ -1,0 +1,255 @@
+{
+  "name": "TeamStarWolf - Stuxnet (S0603) ICS",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "ics-attack",
+  "description": "ATT&CK for ICS techniques that ATT&CK v20.0 lists for Stuxnet (S0603), as bound in the Stuxnet case study. Scores indicate membership only.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1701.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "xp_cmdshell runs extrac32 to unpack and run Stuxnet from a CAB file. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0885",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Contacts C2 on port 80. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0866",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Malicious SQL in the WinCC database server to reach remote systems. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0866",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Malicious SQL in the WinCC database server to reach remote systems. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0874",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Import Address Table hooks on the APIs that open Step 7 project files. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0874",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Import Address Table hooks on the APIs that open Step 7 project files. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0877",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Copies the PLC input area once a second, forming a 21-second recording. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1694.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Hard-coded WinCC database password (CVE-2010-2772). Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011). CVE-2010-2772 per [28] NVD."
+    },
+    {
+      "techniqueID": "T1694.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Hard-coded WinCC database password (CVE-2010-2772). Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011). CVE-2010-2772 per [28] NVD."
+    },
+    {
+      "techniqueID": "T0867",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "SQL inserts a hex-encoded Stuxnet DLL into a database table. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0835",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "Sequence C intercepts peripheral output before it reaches the process image. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0831",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Reprograms the PLC and changes critical drive parameters. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0832",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Replays recorded process input so monitoring looks normal. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011); ATT&CK also cites Langner (2013)."
+    },
+    {
+      "techniqueID": "T0849",
+      "tactic": "evasion",
+      "score": 100,
+      "comment": "Renames s7otbxdx.dll and drops a malicious replacement. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0821",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Infects OB1 and OB35. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0836",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "DP_SEND bursts that change frequency converter parameters. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0889",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Target-specific code and data blocks written to the PLC. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0801",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Reads DP_RECV monitor fields to judge the process state. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0834",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Calls PLC system function blocks such as SFC1. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0842",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Replaced DP_RECV block monitors Profibus frames from the drives. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0843",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Downloads its code and data blocks to the PLC. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0873.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Copies itself into Step 7 projects so it runs when they open. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0886",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "WinCC database SQL used to propagate. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0886",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "WinCC database SQL used to propagate. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0888",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Parses System Data Blocks to fingerprint the CPU and drives. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0847",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Spreads through removable drives across the air gap. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011); ATT&CK also cites Langner (2013)."
+    },
+    {
+      "techniqueID": "T0851",
+      "tactic": "evasion",
+      "score": 100,
+      "comment": "PLC rootkit inside the fake s7otbxdx.dll hides its blocks. Sources: [30] ATT&CK S0603 v1.5, which cites Langner (2013) for this row; behavior described in [1] Symantec W32.Stuxnet Dossier v1.4."
+    },
+    {
+      "techniqueID": "T0851",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "PLC rootkit inside the fake s7otbxdx.dll hides its blocks. Sources: [30] ATT&CK S0603 v1.5, which cites Langner (2013) for this row; behavior described in [1] Symantec W32.Stuxnet Dossier v1.4."
+    },
+    {
+      "techniqueID": "T0869",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Thread probes data block DB890. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T0863",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Infected Simatic manager DLLs run when a project is opened. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: listed for Stuxnet (S0603) in ATT&CK v20.0 (membership, not severity)",
+      "color": "#15803d"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/STUXNET.md; ATT&CK software S0603 (v1.5, modified 24 April 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "25"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "30"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 means the technique is listed on ATT&CK S0603; no severity, prevalence, or coverage is measured."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics it has in data/attack/ics/technique_profiles.jsonl. This is display expansion, not a claim that every tactic applies to the Stuxnet procedure."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/ics/technique_profiles.jsonl"
+    }
+  ],
+  "links": [
+    {
+      "label": "Stuxnet: The Case Study",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/STUXNET.md"
+    },
+    {
+      "label": "ATT&CK S0603",
+      "url": "https://attack.mitre.org/software/S0603/"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

@@ -78,6 +78,12 @@
     "blurb": "The IT-side techniques behind 2024 to 2026 ICS incidents: default accounts on exposed PLCs, edge-appliance exploitation and credential theft, the Poland wiper intrusion chain and the IOControl implant. A curated layer for the ICS 2024 to 2026 case study."
   },
   {
+    "file": "stuxnet-s0603.json",
+    "name": "TeamStarWolf - Stuxnet (S0603) Enterprise",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise techniques that ATT&CK v20.0 lists for Stuxnet (S0603), each with a comment naming source numbers from case-studies/STUXNET.md; every row cites the Symantec W32.Stuxnet Dossier v1.4. Each selected technique is shown under all its tactics. Scores indicate membership only.",
+    "blurb": "The Windows side of Stuxnet: USB and network spread, privilege escalation, signed rootkit drivers and Step 7 project infection. A curated layer for the Stuxnet case study; the ICS techniques are in a separate ics-attack layer."
+  },
+  {
     "file": "threat-actors-china.json",
     "name": "TeamStarWolf - China-Attributed Threat Actors Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified public record on China-attributed threat actors supports: the technique ids named in joint government advisories AA21-200A, AA22-158A, AA23-144A, AA24-038A, AA24-190A and AA25-239A, and the 30 techniques ATT&CK v20.0 records most often across the 46 China-attributed groups in the library data. Ids reported under earlier ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/THREAT_ACTORS_CHINA.md. Scores: 100 is named in a government advisory, 60 is recorded by ATT&CK for at least 11 China-attributed groups but not among the advisory ids verified.",

@@ -89,6 +89,7 @@ _D3FEND also maps T0853, deprecated in ATT&CK with no successor; not counted abo
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [Hugging Face as an AI Supply-Chain Attack Surface: A 2021 to 2026 Case Study](/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md)
+- [Stuxnet: The Case Study](/case-studies/STUXNET.md)
 
 <!-- library-refs:end -->
 

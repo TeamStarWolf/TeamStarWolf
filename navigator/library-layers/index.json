@@ -78,6 +78,12 @@
     "blurb": "The IT-side techniques behind 2024 to 2026 ICS incidents: default accounts on exposed PLCs, edge-appliance exploitation and credential theft, the Poland wiper intrusion chain and the IOControl implant. A curated layer for the ICS 2024 to 2026 case study."
   },
   {
+    "file": "stuxnet-s0603.json",
+    "name": "TeamStarWolf - Stuxnet (S0603) Enterprise",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise techniques that ATT&CK v20.0 lists for Stuxnet (S0603), each with a comment naming source numbers from case-studies/STUXNET.md; every row cites the Symantec W32.Stuxnet Dossier v1.4. Each selected technique is shown under all its tactics. Scores indicate membership only.",
+    "blurb": "The Windows side of Stuxnet: USB and network spread, privilege escalation, signed rootkit drivers and Step 7 project infection. A curated layer for the Stuxnet case study; the ICS techniques are in a separate ics-attack layer."
+  },
+  {
     "file": "change-healthcare-2024.json",
     "name": "TeamStarWolf - Change Healthcare Attack 2024",
     "description": "Techniques in the Change Healthcare ransomware attack of February 2024, not an official MITRE mapping. Sources: Andrew Witty's House and Senate testimony and UHG's answers for the record, the State of Nebraska complaint, FBI, CISA and HHS advisory AA23-353A, and ATT&CK software S1068 BlackCat as published in ATT&CK v20. Tactics are taken from data/attack/technique_profiles.jsonl. Scores: 100 is documented in the Change record, 75 is alleged in the Nebraska complaint, 40 is ALPHV/BlackCat general tradecraft not documented at Change. Each comment names source numbers from the Sources table of case-studies/CHANGE_HEALTHCARE_2024.md.",

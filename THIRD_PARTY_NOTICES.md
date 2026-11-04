@@ -103,6 +103,18 @@ and `data/vendor_to_control.jsonl`.
 > of the U.S. Government, it is in the public domain (17 U.S.C. § 105).
 > https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final
 
+## endoflife.date
+
+The release, support and end-of-life dates in `data/os/os-catalog.jsonl` (rendered on
+the pages under `operating-systems/`) come from the public
+[endoflife.date](https://endoflife.date/) API (one JSON file per product, for example
+`https://endoflife.date/api/debian.json`).
+Each catalog row records the product, the release cycle and the date the API was read;
+`scripts/build_os_pages.py --refresh-eol` reads it again.
+
+> Copyright 2020 endoflife.date contributors. Licensed under the MIT License.
+> https://github.com/endoflife-date/endoflife.date/blob/master/LICENSE
+
 ## Related pages
 
 - [About the Library and Its Data](/ABOUT_THE_DATA.md)

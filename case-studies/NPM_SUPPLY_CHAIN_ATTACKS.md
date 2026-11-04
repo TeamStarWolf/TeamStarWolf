@@ -1,6 +1,6 @@
 # npm Supply-Chain Attacks, 2018 to 2026: The Record and the Defenses
 
-*A TeamStarWolf case study. Published 3 November 2026; every source checked as of that date.*
+*A TeamStarWolf case study. Published 3 November 2026; every web source checked as of that date, the lab capture on 4 November 2026 UTC.*
 
 [All case studies](/case-studies/README.md) · Related: [Supply Chain Security](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [DevSecOps](/DEVSECOPS_REFERENCE.md), [JavaScript](/languages/javascript.md), [The XZ Utils Backdoor](/case-studies/XZ_UTILS_BACKDOOR_2024.md)
 
@@ -490,7 +490,7 @@ ATT&CK models npm worms directly. S9008 Shai-Hulud (malware, v1.0, created 9 Apr
 | [T1195.002](/mitre/techniques/T1195-002.md) | Compromise Software Supply Chain | Initial Access | Nx publish workflow (2025-08-26); TanStack release pipeline (2026-05-11) | Inferred: the live page has no npm procedure | [18] [43] |
 | [T1566](/mitre/techniques/T1566.md) | Phishing | Initial Access | eslint-config-prettier (2025-07-18); chalk/debug (2025-09-08) | Inferred | [17] [20] |
 | [T1583.001](/mitre/techniques/T1583-001.md) | Acquire Infrastructure: Domains | Resource Development | `npmjs.help` registered 2025-09-05 | Inferred | [21] |
-| [T1078](/mitre/techniques/T1078.md) | Valid Accounts | Initial Access | ua-parser-js, coa, rc (2021); lottie-player (2024-10-30); axios (2026-03-31) | Inferred | [5] [58] [14] [35] |
+| [T1078](/mitre/techniques/T1078.md) | Valid Accounts | Initial Access (also Persistence, Privilege Escalation, Stealth) | ua-parser-js, coa, rc (2021); lottie-player (2024-10-30); axios (2026-03-31) | Inferred | [5] [58] [14] [35] |
 | [T1585](/mitre/techniques/T1585.md) | Establish Accounts | Resource Development | 180+ fake personas (2025-10-10); Jade Sleet personas (2023-07-18) | Inferred | [24] [12] |
 | [T1565.002](/mitre/techniques/T1565-002.md) | Data Manipulation: Transmitted Data Manipulation | Impact | Swapped transaction recipients (2025-09-08) | Inferred | [21] |
 

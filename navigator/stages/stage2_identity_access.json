@@ -1,5 +1,5 @@
 {
-  "name": "Stage 2 — Identity & Access Management",
+  "name": "Stage 2: Identity & Access Management",
   "versions": {
     "attack": "20",
     "navigator": "4.9",
@@ -33,102 +33,102 @@
     {
       "techniqueID": "T1078",
       "score": 1,
-      "comment": "Stage 2 IAM — Entra ID + Okta: MFA, Conditional Access, identity risk scoring"
+      "comment": "Stage 2 IAM: Entra ID + Okta: MFA, Conditional Access, identity risk scoring"
     },
     {
       "techniqueID": "T1078.002",
       "score": 1,
-      "comment": "Stage 2 IAM — Domain account protection via privileged identity management"
+      "comment": "Stage 2 IAM: Domain account protection via privileged identity management"
     },
     {
       "techniqueID": "T1078.003",
       "score": 1,
-      "comment": "Stage 2 PAM — CyberArk: local account vaulting and rotation"
+      "comment": "Stage 2 PAM: CyberArk: local account vaulting and rotation"
     },
     {
       "techniqueID": "T1078.004",
       "score": 1,
-      "comment": "Stage 2 CIEM — Wiz/Entra: cloud account entitlement management"
+      "comment": "Stage 2 CIEM: Wiz/Entra: cloud account entitlement management"
     },
     {
       "techniqueID": "T1110",
       "score": 1,
-      "comment": "Stage 2 IAM — Entra ID + Okta: smart lockout, MFA, and password protection block brute force"
+      "comment": "Stage 2 IAM: Entra ID + Okta: smart lockout, MFA, and password protection block brute force"
     },
     {
       "techniqueID": "T1110.001",
       "score": 1,
-      "comment": "Stage 2 IAM — Password guessing blocked by lockout + MFA"
+      "comment": "Stage 2 IAM: Password guessing blocked by lockout + MFA"
     },
     {
       "techniqueID": "T1110.003",
       "score": 1,
-      "comment": "Stage 2 IAM — Password spraying detection"
+      "comment": "Stage 2 IAM: Password spraying detection"
     },
     {
       "techniqueID": "T1110.004",
       "score": 1,
-      "comment": "Stage 2 IAM — Credential stuffing blocked by MFA"
+      "comment": "Stage 2 IAM: Credential stuffing blocked by MFA"
     },
     {
       "techniqueID": "T1556",
       "score": 1,
-      "comment": "Stage 2 IAM — Entra ID Conditional Access: authentication process modification detection"
+      "comment": "Stage 2 IAM: Entra ID Conditional Access: authentication process modification detection"
     },
     {
       "techniqueID": "T1556.006",
       "score": 1,
-      "comment": "Stage 2 IAM — MFA modification detection"
+      "comment": "Stage 2 IAM: MFA modification detection"
     },
     {
       "techniqueID": "T1621",
       "score": 1,
-      "comment": "Stage 2 IAM — Entra ID + Okta: MFA push bombing detection, number matching"
+      "comment": "Stage 2 IAM: Entra ID + Okta: MFA push bombing detection, number matching"
     },
     {
       "techniqueID": "T1098",
       "score": 1,
-      "comment": "Stage 2 IAM — Account manipulation detection and alerting"
+      "comment": "Stage 2 IAM: Account manipulation detection and alerting"
     },
     {
       "techniqueID": "T1098.001",
       "score": 1,
-      "comment": "Stage 2 IAM — Additional cloud credential detection"
+      "comment": "Stage 2 IAM: Additional cloud credential detection"
     },
     {
       "techniqueID": "T1098.003",
       "score": 1,
-      "comment": "Stage 2 IAM — Cloud role assignment detection"
+      "comment": "Stage 2 IAM: Cloud role assignment detection"
     },
     {
       "techniqueID": "T1136",
       "score": 1,
-      "comment": "Stage 2 IAM — Unauthorized account creation detection"
+      "comment": "Stage 2 IAM: Unauthorized account creation detection"
     },
     {
       "techniqueID": "T1003",
       "score": 1,
-      "comment": "Stage 2 PAM — CyberArk: credential dumping prevention via privileged session isolation"
+      "comment": "Stage 2 PAM: CyberArk: credential dumping prevention via privileged session isolation"
     },
     {
       "techniqueID": "T1068",
       "score": 1,
-      "comment": "Stage 2 PAM — CyberArk: least privilege limits privilege escalation exploitation"
+      "comment": "Stage 2 PAM: CyberArk: least privilege limits privilege escalation exploitation"
     },
     {
       "techniqueID": "T1550.002",
       "score": 1,
-      "comment": "Stage 2 PAM — CyberArk: Pass-the-Hash prevention"
+      "comment": "Stage 2 PAM: CyberArk: Pass-the-Hash prevention"
     },
     {
       "techniqueID": "T1558",
       "score": 1,
-      "comment": "Stage 2 PAM — CyberArk: Kerberoasting mitigation via managed service account rotation"
+      "comment": "Stage 2 PAM: CyberArk: Kerberoasting mitigation via managed service account rotation"
     },
     {
       "techniqueID": "T1558.003",
       "score": 1,
-      "comment": "Stage 2 PAM — Kerberoasting: managed SPN password rotation"
+      "comment": "Stage 2 PAM: Kerberoasting: managed SPN password rotation"
     }
   ],
   "gradient": {
@@ -141,14 +141,14 @@
   },
   "legendItems": [
     {
-      "label": "Covered by Stage 2 — Identity & Access Management",
+      "label": "Covered by Stage 2: Identity & Access Management",
       "color": "#3b82f6ff"
     }
   ],
   "metadata": [
     {
       "name": "Pipeline Stage",
-      "value": "Stage 2 — Identity & Access Management"
+      "value": "Stage 2: Identity & Access Management"
     },
     {
       "name": "NIST Controls",

@@ -431,7 +431,7 @@ SOAR Platforms (Complementary)
 Use this template for the first stakeholder notification (within 30 minutes of P1/P2 detection):
 
 ```
-INCIDENT NOTIFICATION — [SEVERITY] — [INCIDENT ID]
+INCIDENT NOTIFICATION: [SEVERITY]: [INCIDENT ID]
 Time: [UTC timestamp]
 Detected: [How detected]
 Affected Systems: [Hostname/IP/System name]
@@ -475,7 +475,7 @@ User Reports
 Step 1: Confirm and Escalate (0-5 min)
 ```
 1. Verify it is ransomware (not false positive)
-2. Immediately escalate to P1 — notify IC, CISO, Legal
+2. Immediately escalate to P1: notify IC, CISO, Legal
 3. Activate IR team (all hands)
 4. Open war room (bridge line + collaboration channel)
 ```
@@ -524,7 +524,7 @@ netsh advfirewall firewall add rule name="BLOCK-C2" dir=out action=block remotei
 
 Step 3: Preserve Evidence (concurrent with containment)
 ```bash
-# Memory dump (Windows) — use winpmem or EDR live response
+# Memory dump (Windows): use winpmem or EDR live response
 winpmem_mini_x64.exe memory.dmp
 
 # Capture running processes
@@ -565,11 +565,11 @@ Identifying the initial compromise vector is critical for eradication:
 
 ```
 1. Review EDR telemetry for earliest ransomware-related activity
-2. Correlate with email logs — phishing delivery at T-X hours?
-3. Check VPN logs — remote access from unusual location at T-X?
-4. Review RDP logs (Event ID 4624 Logon Type 10) — brute force entry?
-5. Check vulnerability scanner reports — recent unpatched systems?
-6. Review software installation logs — malicious installer or update?
+2. Correlate with email logs: phishing delivery at T-X hours?
+3. Check VPN logs: remote access from unusual location at T-X?
+4. Review RDP logs (Event ID 4624 Logon Type 10): brute force entry?
+5. Check vulnerability scanner reports: recent unpatched systems?
+6. Review software installation logs: malicious installer or update?
 7. Query EDR for first occurrence of ransomware binary hash across fleet
 8. Use EDR process tree to trace ransomware back to initial loader/dropper
 ```
@@ -631,8 +631,8 @@ Recover in dependency order; never reconnect compromised systems to clean networ
 ```
 Phase 1: Validate backup integrity (hash comparison, test restore in isolated environment)
 Phase 2: Rebuild identity infrastructure first (AD DCs, PKI) from clean backups
-Phase 3: Restore critical business systems (ERP, email, CRM) — prioritized by business impact
-Phase 4: Restore user endpoints — reimaging preferred over cleaning
+Phase 3: Restore critical business systems (ERP, email, CRM), prioritized by business impact
+Phase 4: Restore user endpoints, reimaging preferred over cleaning
 Phase 5: Reconnect systems to network in stages with enhanced monitoring
 Phase 6: Validate functionality and business operations
 Phase 7: Return to normal operations with sustained enhanced monitoring
@@ -732,7 +732,7 @@ Start-HawkUserInvestigation -UserPrincipalName victim@company.com
 
 Microsoft Entra ID Sign-in Investigation
 ```powershell
-# Via Graph PowerShell — get sign-in logs for user
+# Via Graph PowerShell: get sign-in logs for user
 Connect-MgGraph -Scopes "AuditLog.Read.All"
 Get-MgAuditLogSignIn -Filter "userPrincipalName eq 'victim@company.com'" `
   -Top 200 | Select DateTime, IpAddress, Location, ClientAppUsed, ConditionalAccessStatus
@@ -749,7 +749,7 @@ Get-MgAuditLogSignIn -Filter "userPrincipalName eq 'victim@company.com'" `
 ### 4.3 Google Workspace Audit Logs
 
 ```bash
-# Admin SDK Reports API — Gmail audit
+# Admin SDK Reports API: Gmail audit
 curl "https://admin.googleapis.com/admin/reports/v1/activity/users/victim@company.com/applications/token" \
   -H "Authorization: Bearer $ACCESS_TOKEN"
 
@@ -877,7 +877,7 @@ run evil_hunter.exe --scan          # Execute uploaded tool
 SentinelOne Remote Shell
 ```bash
 # Via console: Sentinels > Agent > Remote Shell
-# Available commands: Similar to RTR — file ops, process listing, network state
+# Available commands: Similar to RTR, file ops, process listing, network state
 
 # Key commands:
 dir /s /b C:\Users\*\AppData\Roaming\*.exe  # Find executables in AppData
@@ -953,7 +953,7 @@ ShimCache (AppCompatCache)
 # Registry: HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\AppCompatCache
 # Parse with AppCompatCacheParser (Eric Zimmerman)
 AppCompatCacheParser.exe --csv "C:\Evidence" -t
-# Reveals: programs that ran (and many that didn't — shimcache ≠ execution)
+# Reveals: programs that ran (and many that didn't, shimcache ≠ execution)
 # Useful for finding malware even after deletion
 ```
 
@@ -977,7 +977,7 @@ LECmd.exe -d "C:\Users\victim\AppData\Roaming\Microsoft\Windows\Recent" --csv "C
 
 MFT ($MFT)
 ```powershell
-# Master File Table — metadata for every file on NTFS volume
+# Master File Table: metadata for every file on NTFS volume
 # Parse with MFTECmd (Eric Zimmerman)
 MFTECmd.exe -f "C:\$MFT" --csv "C:\Evidence" --csvf mft.csv
 # Reveals: file creation/modification/access times, deleted file names
@@ -991,16 +991,16 @@ MFTECmd.exe -f "C:\$MFT" --csv "C:\Evidence" --csvf mft.csv
 Log Files
 ```bash
 # Authentication logs
-/var/log/auth.log          # Debian/Ubuntu — SSH, sudo, PAM
-/var/log/secure            # RHEL/CentOS — SSH, sudo
-/var/log/wtmp              # Binary — login history (parse with 'last')
-/var/log/btmp              # Binary — failed logins (parse with 'lastb')
-/var/log/lastlog           # Binary — last login per user
+/var/log/auth.log          # Debian/Ubuntu: SSH, sudo, PAM
+/var/log/secure            # RHEL/CentOS: SSH, sudo
+/var/log/wtmp              # Binary: login history (parse with 'last')
+/var/log/btmp              # Binary: failed logins (parse with 'lastb')
+/var/log/lastlog           # Binary: last login per user
 
 # System logs
 /var/log/syslog            # General system events
 /var/log/kern.log          # Kernel events
-journalctl -xe             # systemd journal — all logs
+journalctl -xe             # systemd journal: all logs
 journalctl -u sshd         # SSH service logs specifically
 
 # Web server logs
@@ -1011,7 +1011,7 @@ journalctl -u sshd         # SSH service logs specifically
 
 User Activity
 ```bash
-# Bash history (often incomplete — attacker may clear)
+# Bash history (often incomplete: attacker may clear)
 ~/.bash_history
 ~/.zsh_history
 # Check HISTFILE variable and HISTSIZE
@@ -1044,7 +1044,7 @@ Temporary and Suspicious Locations
 ```bash
 # Common malware drop locations
 ls -la /tmp/
-ls -la /dev/shm/           # Shared memory — often used by in-memory malware
+ls -la /dev/shm/           # Shared memory, often used by in-memory malware
 ls -la /var/tmp/
 find / -name ".*" -type f -newer /tmp -maxdepth 4 2>/dev/null  # Hidden recent files
 ```
@@ -1080,7 +1080,7 @@ osascript -e 'tell application "System Events" to get the name of every login it
 
 FSEvents
 ```bash
-# File system event log — records all file system changes
+# File system event log: records all file system changes
 # Location: /.fseventsd/
 # Parse with FSEventsParser or mac_apt
 python3 FSEventsParser.py -f /.fseventsd/ -o /evidence/fsevents/
@@ -1146,7 +1146,7 @@ conn.log: All network connections
 cat conn.log | zeek-cut id.orig_h id.orig_p id.resp_h id.resp_p proto service duration orig_bytes resp_bytes | \
   grep "203.0.113.66"
 
-# Find large data transfers (potential exfiltration) — bytes >10MB
+# Find large data transfers (potential exfiltration): bytes >10MB
 cat conn.log | zeek-cut id.orig_h id.resp_h orig_bytes resp_bytes | \
   awk '$4 > 10485760 {print}' | sort -k4 -rn | head -20
 
@@ -1189,7 +1189,7 @@ cat ssl.log | zeek-cut id.orig_h id.resp_h server_name validation_status | \
 # JA3 fingerprint lookup for known malware/C2 families
 cat ssl.log | zeek-cut ja3 ja3s server_name | sort -u
 
-# Connections without SNI (Server Name Indication) — suspicious
+# Connections without SNI (Server Name Indication): suspicious
 cat ssl.log | zeek-cut id.orig_h id.resp_h server_name | grep "^-" | head -20
 ```
 
@@ -1213,7 +1213,7 @@ http.request.method == "POST" && ip.dst == 203.0.113.66
 
 # DNS tunneling (long subdomains, high TXT query volume)
 dns.qry.name.len > 50
-dns.qry.type == 16  # TXT records — common in DNS tunneling
+dns.qry.type == 16  # TXT records: common in DNS tunneling
 
 # Suspicious TCP connections
 tcp.flags.syn == 1 && tcp.flags.ack == 0 && ip.dst_host matches ".*\\.ru$"
@@ -1231,7 +1231,7 @@ icmp.type == 8 && frame.len > 100  # Large ICMP echo requests
 smb2.cmd == 5 && smb2.filename contains "admin$"  # Admin share access
 
 # Kerberoasting traffic
-kerberos.msg_type == 12 && kerberos.etype == 23  # RC4 encryption — Kerberoast indicator
+kerberos.msg_type == 12 && kerberos.etype == 23  # RC4 encryption: Kerberoast indicator
 
 # Pass-the-Hash NTLM indicators
 ntlmssp.messagetype == 3 && ip.src != ip.dst  # NTLM auth from unexpected source
@@ -1242,7 +1242,7 @@ ntlmssp.messagetype == 3 && ip.src != ip.dst  # NTLM auth from unexpected source
 ### 6.4 Data Exfiltration Volume Analysis
 
 ```bash
-# Using NetFlow data — identify top talkers by destination
+# Using NetFlow data: identify top talkers by destination
 nfdump -r /var/cache/nfdump/ -n 20 -s ip/bytes \
   -t "2026-05-03 00:00:00" "2026-05-04 00:00:00" \
   -o "fmt:%sa %da %byt %pkt %fl"
@@ -1252,7 +1252,7 @@ nfdump -r /var/cache/nfdump/ \
   "src net 10.0.0.0/8 and dst net not 10.0.0.0/8" \
   -a -n 100 -s dstip/bytes | awk '$3 > 1073741824'
 
-# Baseline comparison — compare current week to prior 4-week average
+# Baseline comparison: compare current week to prior 4-week average
 # Flag any destination with >3 standard deviations above baseline
 
 # Key thresholds for exfiltration alerts:
@@ -1317,7 +1317,7 @@ Timeline Construction from Multiple Sources:
    - Tools used (from EDR process telemetry)
    - Files accessed or copied
 3. Map to ATT&CK techniques (Lateral Movement: T1021.002 SMB/Windows Admin Shares, etc.)
-4. Identify "blast radius" — all systems the attacker touched
+4. Identify "blast radius": all systems the attacker touched
 5. Prioritize forensic investigation based on dwell time and data access
 ```
 
@@ -1522,7 +1522,7 @@ gcloud logging read \
   'logName="projects/<project>/logs/cloudaudit.googleapis.com%2Fdata_access" AND protoPayload.methodName="storage.objects.get"' \
   --freshness=1d --format json | jq '.[] | {time: .timestamp, user: .protoPayload.authenticationInfo.principalEmail, resource: .protoPayload.resourceName}'
 
-# GCP containment — disable service account
+# GCP containment: disable service account
 gcloud iam service-accounts disable suspicious-sa@project.iam.gserviceaccount.com
 
 # Revoke all IAM bindings for a user
@@ -1663,18 +1663,18 @@ Common Actor-to-Technique Signatures:
 
 IP to Domain:
 ```bash
-# Passive DNS — find domains that resolved to attacker IP
+# Passive DNS: find domains that resolved to attacker IP
 curl "https://api.passivetotal.org/v2/dns/passive?query=203.0.113.66" \
   -u "$PT_USER:$PT_KEY" | jq '.results[].resolve'
 
-# VirusTotal — domains related to IP
+# VirusTotal: domains related to IP
 curl "https://www.virustotal.com/api/v3/ip_addresses/203.0.113.66/resolutions" \
   -H "x-apikey: $VT_KEY" | jq '.data[].attributes.host_name'
 ```
 
 Domain to Certificate:
 ```bash
-# Certificate transparency logs — find certs for domain and related domains
+# Certificate transparency logs: find certs for domain and related domains
 curl "https://crt.sh/?q=%.attacker.com&output=json" | \
   jq '.[].name_value' | sort -u
 
@@ -1849,9 +1849,9 @@ Set-ADAccountPassword -Identity krbtgt -Reset `
   -NewPassword (ConvertTo-SecureString (New-Guid).Guid -AsPlainText -Force)
 
 # Step 3: Wait 10+ hours (Kerberos maximum ticket lifetime default is 10 hours)
-# Users will need to re-authenticate — expect disruption
+# Users will need to re-authenticate: expect disruption
 
-# Step 4: Second reset (must reset TWICE to fully invalidate — DCs may cache old value)
+# Step 4: Second reset (must reset TWICE to fully invalidate, DCs may cache old value)
 # Wait 10+ hours before second reset to allow AD replication
 Set-ADAccountPassword -Identity krbtgt -Reset `
   -NewPassword (ConvertTo-SecureString (New-Guid).Guid -AsPlainText -Force)
@@ -1933,7 +1933,7 @@ Get-ChildItem "C:\Users\*\AppData\Roaming\Mozilla\Firefox\Profiles\*\extensions"
 # 7. COM Object Hijacking
 reg query "HKCU\Software\Classes\CLSID" /s
 
-# 8. DLL Search Order Hijacking — check writable paths in %PATH%
+# 8. DLL Search Order Hijacking: check writable paths in %PATH%
 $env:PATH -split ";" | ForEach-Object {
   Get-Acl $_ -ErrorAction SilentlyContinue | Where-Object { $_.AccessToString -match "Everyone|Users" }
 }
@@ -1941,7 +1941,7 @@ $env:PATH -split ";" | ForEach-Object {
 # 9. AppInit_DLLs
 reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Windows" /v AppInit_DLLs
 
-# 10. Image File Execution Options (IFEO) — debugger hijacking
+# 10. Image File Execution Options (IFEO): debugger hijacking
 reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options" /s
 ```
 
@@ -1967,7 +1967,7 @@ Backup Validation Before Restore:
 ```bash
 # Verify backup integrity before restoring
 sha256sum backup.tar.gz  # Compare to recorded hash
-# Test restore to isolated environment — NEVER restore directly to production without testing
+# Test restore to isolated environment, NEVER restore directly to production without testing
 # Verify backup date precedes compromise (check patient zero timeline)
 # Scan backup contents with updated AV/EDR before restoration
 ```

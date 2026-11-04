@@ -1,5 +1,5 @@
 {
-  "name": "Identity & PAM — Entra ID + Okta + CyberArk",
+  "name": "Identity & PAM: Entra ID + Okta + CyberArk",
   "versions": {
     "attack": "20",
     "navigator": "4.9",
@@ -33,127 +33,127 @@
     {
       "techniqueID": "T1078",
       "score": 1,
-      "comment": "Entra ID + Okta — IA-2/AC-2: MFA, Conditional Access, and anomalous sign-in detection prevent/detect valid account abuse"
+      "comment": "Entra ID + Okta: IA-2/AC-2: MFA, Conditional Access, and anomalous sign-in detection prevent/detect valid account abuse"
     },
     {
       "techniqueID": "T1078.002",
       "score": 1,
-      "comment": "Entra ID + Okta — Domain Accounts: privileged identity protection"
+      "comment": "Entra ID + Okta: Domain Accounts: privileged identity protection"
     },
     {
       "techniqueID": "T1078.004",
       "score": 1,
-      "comment": "Entra ID + Okta — Cloud Accounts: cloud identity anomaly detection"
+      "comment": "Entra ID + Okta: Cloud Accounts: cloud identity anomaly detection"
     },
     {
       "techniqueID": "T1110",
       "score": 1,
-      "comment": "Entra ID + Okta — IA-2/IA-5: MFA and smart lockout prevent brute force attacks"
+      "comment": "Entra ID + Okta: IA-2/IA-5: MFA and smart lockout prevent brute force attacks"
     },
     {
       "techniqueID": "T1110.001",
       "score": 1,
-      "comment": "Entra ID + Okta — Password Guessing prevention via lockout + MFA"
+      "comment": "Entra ID + Okta: Password Guessing prevention via lockout + MFA"
     },
     {
       "techniqueID": "T1110.003",
       "score": 1,
-      "comment": "Entra ID + Okta — Password Spraying detection and throttling"
+      "comment": "Entra ID + Okta: Password Spraying detection and throttling"
     },
     {
       "techniqueID": "T1110.004",
       "score": 1,
-      "comment": "Entra ID + Okta — Credential Stuffing prevention via MFA"
+      "comment": "Entra ID + Okta: Credential Stuffing prevention via MFA"
     },
     {
       "techniqueID": "T1556",
       "score": 1,
-      "comment": "Entra ID — IA-2: Conditional Access policies detect attempts to modify authentication process"
+      "comment": "Entra ID: IA-2: Conditional Access policies detect attempts to modify authentication process"
     },
     {
       "techniqueID": "T1556.001",
       "score": 1,
-      "comment": "Entra ID — Domain Controller Authentication modification detection"
+      "comment": "Entra ID: Domain Controller Authentication modification detection"
     },
     {
       "techniqueID": "T1556.006",
       "score": 1,
-      "comment": "Entra ID — Multi-Factor Authentication modification detection"
+      "comment": "Entra ID: Multi-Factor Authentication modification detection"
     },
     {
       "techniqueID": "T1621",
       "score": 1,
-      "comment": "Entra ID + Okta — IA-2: MFA fatigue/push bombing detection and number matching enforcement"
+      "comment": "Entra ID + Okta: IA-2: MFA fatigue/push bombing detection and number matching enforcement"
     },
     {
       "techniqueID": "T1098",
       "score": 1,
-      "comment": "Entra ID + Okta — AC-2: account manipulation alerts (new admin role, MFA changes, added credentials)"
+      "comment": "Entra ID + Okta: AC-2: account manipulation alerts (new admin role, MFA changes, added credentials)"
     },
     {
       "techniqueID": "T1098.001",
       "score": 1,
-      "comment": "Entra ID — Additional Cloud Credentials detection"
+      "comment": "Entra ID: Additional Cloud Credentials detection"
     },
     {
       "techniqueID": "T1098.003",
       "score": 1,
-      "comment": "Entra ID — Additional Cloud Roles detection"
+      "comment": "Entra ID: Additional Cloud Roles detection"
     },
     {
       "techniqueID": "T1098.005",
       "score": 1,
-      "comment": "Entra ID — Device Registration detection"
+      "comment": "Entra ID: Device Registration detection"
     },
     {
       "techniqueID": "T1136",
       "score": 1,
-      "comment": "Entra ID + Okta — AC-2: unauthorized account creation alerting and prevention"
+      "comment": "Entra ID + Okta: AC-2: unauthorized account creation alerting and prevention"
     },
     {
       "techniqueID": "T1136.002",
       "score": 1,
-      "comment": "Entra ID — Domain Account creation detection"
+      "comment": "Entra ID: Domain Account creation detection"
     },
     {
       "techniqueID": "T1136.003",
       "score": 1,
-      "comment": "Entra ID — Cloud Account creation detection"
+      "comment": "Entra ID: Cloud Account creation detection"
     },
     {
       "techniqueID": "T1003",
       "score": 1,
-      "comment": "CyberArk — AC-6: PAM vaulting prevents credential dumping by blocking access to privileged account passwords"
+      "comment": "CyberArk: AC-6: PAM vaulting prevents credential dumping by blocking access to privileged account passwords"
     },
     {
       "techniqueID": "T1003.001",
       "score": 1,
-      "comment": "CyberArk — LSASS Memory protection via privileged session isolation"
+      "comment": "CyberArk: LSASS Memory protection via privileged session isolation"
     },
     {
       "techniqueID": "T1068",
       "score": 1,
-      "comment": "CyberArk — AC-6: least privilege enforcement limits exploitation for privilege escalation"
+      "comment": "CyberArk: AC-6: least privilege enforcement limits exploitation for privilege escalation"
     },
     {
       "techniqueID": "T1078.003",
       "score": 1,
-      "comment": "CyberArk — AC-6: Local Accounts vaulted and rotated, blocking lateral movement via local admin"
+      "comment": "CyberArk: AC-6: Local Accounts vaulted and rotated, blocking lateral movement via local admin"
     },
     {
       "techniqueID": "T1550.002",
       "score": 1,
-      "comment": "CyberArk — Pass-the-Hash prevention via privileged account isolation and rotation"
+      "comment": "CyberArk: Pass-the-Hash prevention via privileged account isolation and rotation"
     },
     {
       "techniqueID": "T1558",
       "score": 1,
-      "comment": "CyberArk — AC-6: Kerberoasting mitigation via managed service accounts with rotating passwords"
+      "comment": "CyberArk: AC-6: Kerberoasting mitigation via managed service accounts with rotating passwords"
     },
     {
       "techniqueID": "T1558.003",
       "score": 1,
-      "comment": "CyberArk — Kerberoasting: managed service account password rotation"
+      "comment": "CyberArk: Kerberoasting: managed service account password rotation"
     }
   ],
   "gradient": {

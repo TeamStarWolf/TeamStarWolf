@@ -1,6 +1,6 @@
 # Networking Architecture
 
-> **In one minute:** Networking architecture is the deliberate design of how packets, flows, names, and trust move across an enterprise — campus, branch, data center, cloud, and the edges between them. A good network is not an accident of accreted VLANs; it is a layered system with an explicit addressing plan, a routed-or-switched fabric chosen on purpose, segmentation that maps to business risk, resolvable names, predictable performance, and telemetry you can actually query. This reference covers the reference topologies (spine-leaf/Clos, hub-and-spoke, hybrid interconnect), the overlay/underlay split (VXLAN/EVPN), segmentation and zero-trust network architecture, SD-WAN and SASE/SSE, the core services (DNS/DHCP/IPAM, load balancing/ADC), IPv6 and QoS, and observability — with security designed in at every layer rather than bolted on. It is vendor-neutral; named products appear only as examples. Pair it with **NETWORK_SECURITY_ARCHITECTURE** (controls and enforcement) and **SECURITY_ARCHITECTURE** (the enterprise-wide trust model).
+> **In one minute:** Networking architecture is the deliberate design of how packets, flows, names, and trust move across an enterprise: campus, branch, data center, cloud, and the edges between them. A good network is not an accident of accreted VLANs; it is a layered system with an explicit addressing plan, a routed-or-switched fabric chosen on purpose, segmentation that maps to business risk, resolvable names, predictable performance, and telemetry you can actually query. This reference covers the reference topologies (spine-leaf/Clos, hub-and-spoke, hybrid interconnect), the overlay/underlay split (VXLAN/EVPN), segmentation and zero-trust network architecture, SD-WAN and SASE/SSE, the core services (DNS/DHCP/IPAM, load balancing/ADC), IPv6 and QoS, and observability, with security designed in at every layer rather than bolted on. It is vendor-neutral; named products appear only as examples. Pair it with **NETWORK_SECURITY_ARCHITECTURE** (controls and enforcement) and **SECURITY_ARCHITECTURE** (the enterprise-wide trust model).
 
 | Read this when… | Start at |
 |---|---|
@@ -65,7 +65,7 @@ Networking architecture exists to serve application and data-flow requirements, 
 ### 1.1 Drivers
 
 - **Application topology.** East-west (server-to-server, microservices) traffic now dwarfs north-south (client-to-server) in most data centers. This single fact is why Clos fabrics displaced the old three-tier core/aggregation/access model.
-- **Location dispersion.** Users, apps, and data are everywhere — HQ, branch, home, SaaS, multiple clouds. NIST SP 800-215 names this explicitly: multiple clouds, geographic spread, and microservices have dissolved the clean perimeter. The architecture must assume no single choke point.
+- **Location dispersion.** Users, apps, and data are everywhere: HQ, branch, home, SaaS, multiple clouds. NIST SP 800-215 names this explicitly: multiple clouds, geographic spread, and microservices have dissolved the clean perimeter. The architecture must assume no single choke point.
 - **Scale & elasticity.** Cloud and container platforms churn endpoints by the second. Addressing, naming, and policy must be automatable, not hand-configured.
 - **Latency & experience.** Real-time media, trading, and interactive apps turn jitter and loss into revenue and safety problems.
 - **Regulation & sovereignty.** Data-residency and segmentation mandates (PCI DSS, HIPAA, NIS2, sector rules) constrain where traffic may flow and how it must be isolated.
@@ -112,7 +112,7 @@ The dominant modern DC pattern. Every leaf connects to every spine; no leaf conn
 - **Overlay:** VXLAN with a BGP EVPN control plane (see §3.3) carries tenant L2/L3 on top. Border leaves attach to the WAN/DC edge and to services (firewalls, load balancers).
 - **Why it wins:** horizontal scale, uniform latency, no spanning-tree-dependent L2 core, and a clean overlay/underlay split that lets you automate tenancy without touching transport.
 
-### 2.2 Three-tier hierarchical (campus) — core / distribution / access
+### 2.2 Three-tier hierarchical (campus): core / distribution / access
 
 Still the right pattern for **campus** (wired + wireless user access), where north-south and policy enforcement at the distribution layer dominate.
 
@@ -163,15 +163,15 @@ A logical pattern, not a topology: no implicit trust from network location. A po
 
 - **IP addressing plan.** A hierarchical, summarizable plan is the foundation of routing scalability and of meaningful ACLs. Carve blocks by region → site → function so a single prefix describes a security zone.
 - **IPAM as source of truth.** DNS/DHCP/IPAM ("DDI") tooling should own every allocation; manual tracking guarantees overlap and shadow networks.
-- **IPv4 exhaustion & NAT.** RFC 1918 space, overlapping address domains after mergers, and carrier-grade NAT complexity are all symptoms of IPv4 scarcity — a driver toward IPv6.
+- **IPv4 exhaustion & NAT.** RFC 1918 space, overlapping address domains after mergers, and carrier-grade NAT complexity are all symptoms of IPv4 scarcity: a driver toward IPv6.
 - **IPv6 (§3.8).** Plan a global addressing hierarchy with room to summarize; do not transliterate IPv4 habits.
 
 ### 3.2 Routing & switching
 
-- **Switching (L2):** VLANs (IEEE 802.1Q) for segmentation within a broadcast domain; keep L2 domains small — large L2 = large failure/flood domain = large attack surface for ARP/MAC abuse. Modern fabrics push the L2/L3 boundary to the leaf and carry L2 only inside an overlay.
+- **Switching (L2):** VLANs (IEEE 802.1Q) for segmentation within a broadcast domain; keep L2 domains small: large L2 = large failure/flood domain = large attack surface for ARP/MAC abuse. Modern fabrics push the L2/L3 boundary to the leaf and carry L2 only inside an overlay.
 - **Routing (L3):**
-  - **IGP** — OSPF or IS-IS for intra-domain reachability (IS-IS is common in large fabrics/SP networks for its topology independence and scalability).
-  - **BGP (RFC 4271)** — the inter-domain protocol and, increasingly, the fabric underlay/overlay control plane (eBGP underlay + BGP EVPN overlay).
+  - **IGP**: OSPF or IS-IS for intra-domain reachability (IS-IS is common in large fabrics/SP networks for its topology independence and scalability).
+  - **BGP (RFC 4271)**: the inter-domain protocol and, increasingly, the fabric underlay/overlay control plane (eBGP underlay + BGP EVPN overlay).
   - **ECMP** for load distribution; **BFD** for sub-second failure detection; **first-hop redundancy** (VRRP) at L3 edges.
 - **Routing hygiene is security:** prefix filters, max-prefix limits, authentication (BGP TCP-AO / keychains), and route origin validation (RPKI, §5) prevent hijack and leak.
 
@@ -179,8 +179,8 @@ A logical pattern, not a topology: no implicit trust from network location. A po
 
 The core abstraction of modern DC and campus fabrics.
 
-- **Underlay** — the physical, routed transport (loopbacks + ECMP). Stable, simple, rarely changes.
-- **Overlay** — tenant networks tunneled over the underlay so L2/L3 adjacency and policy are decoupled from physical location (supports VM/container mobility).
+- **Underlay**: the physical, routed transport (loopbacks + ECMP). Stable, simple, rarely changes.
+- **Overlay**: tenant networks tunneled over the underlay so L2/L3 adjacency and policy are decoupled from physical location (supports VM/container mobility).
 
 **VXLAN (RFC 7348)** encapsulates L2 frames in UDP/IP, giving a 24-bit VNI (≈16M segments vs. VLAN's 4094). **BGP EVPN (RFC 7432; EVPN-VXLAN in RFC 8365)** is the scalable control plane: it distributes MAC/IP reachability and VTEP information via BGP, replacing flood-and-learn and enabling ARP suppression, distributed anycast gateways, and multi-tenancy. The NVO3 framework (RFC 7364/7365) is the architectural reference for this whole class.
 
@@ -197,7 +197,7 @@ Alternatives/relatives: **Geneve** (extensible encap used by some SDN/NSX and cl
 Segmentation is the single highest-leverage security property of a network design.
 
 - **Macro-segmentation (zones):** VRFs, separate fabrics/VNets, or firewalled zones separating trust tiers (e.g., user / server / OT/ICS / DMZ / management / PCI). Enforced at routed boundaries with default-deny.
-- **Micro-segmentation:** policy at the workload level — host-based firewalls, identity/attribute-based policy, hypervisor or CNI (Kubernetes NetworkPolicy, service mesh) enforcement — so compromise of one workload does not grant reachability to its neighbors. This is the architectural counter to **lateral movement (ATT&CK TA0008)**.
+- **Micro-segmentation:** policy at the workload level: host-based firewalls, identity/attribute-based policy, hypervisor or CNI (Kubernetes NetworkPolicy, service mesh) enforcement, so compromise of one workload does not grant reachability to its neighbors. This is the architectural counter to **lateral movement (ATT&CK TA0008)**.
 - **Zero-Trust Network Architecture (NIST SP 800-207):** access decisions are per-session, based on identity, device posture, and context; a **Policy Decision Point (PDP)** evaluates policy and a **Policy Enforcement Point (PEP)** brokers the connection. Network location grants nothing. ZTNA/SDP (per SP 800-215) replaces broad VPN access with app-specific brokered sessions, shrinking the attack surface and hiding infrastructure from unauthenticated clients.
 
 ```
@@ -215,7 +215,7 @@ Segmentation is the single highest-leverage security property of a network desig
 
 - **SD-WAN** builds a secure overlay across heterogeneous transports (MPLS, internet, 5G), centrally orchestrated, with application-aware path selection (steer, replicate, or fail over per app SLA). It decouples WAN policy from carrier plumbing.
 - **SASE (Secure Access Service Edge)** converges SD-WAN networking with cloud-delivered security (SWG, CASB, ZTNA, FWaaS) at distributed PoPs near users. Gartner now frames the single-vendor category as **"SASE Platforms"** (verify current naming); multi-vendor equivalents are "SASE alternatives."
-- **SSE (Security Service Edge)** is the *security half* of SASE (SWG + CASB + ZTNA + FWaaS as a cloud platform) without the SD-WAN networking component — useful when you keep your own WAN but want cloud-delivered security for web/SaaS/private-app access.
+- **SSE (Security Service Edge)** is the *security half* of SASE (SWG + CASB + ZTNA + FWaaS as a cloud platform) without the SD-WAN networking component: useful when you keep your own WAN but want cloud-delivered security for web/SaaS/private-app access.
 
 | Term | Scope | Core components |
 |---|---|---|
@@ -226,7 +226,7 @@ Segmentation is the single highest-leverage security property of a network desig
 ### 3.6 DNS, DHCP & IPAM (DDI) and name resolution
 
 - **DNS** is both a critical dependency and a prime attack vector. Architect it deliberately: authoritative vs. recursive separation, split-horizon (internal vs. external views), anycast for resolver resilience, and forwarders that enforce policy.
-- **Protective/secure DNS:** controlled recursive resolvers with RPZ/threat-intel filtering counter **C2 over DNS and DNS-based exfiltration (ATT&CK T1071.004, T1048, T1568 dynamic resolution)**. **DNSSEC** provides origin authentication/integrity for records. **DoT (RFC 7858)** and **DoH (RFC 8484)** encrypt resolver traffic — architect them to go to *your* resolver, not to bypass your controls.
+- **Protective/secure DNS:** controlled recursive resolvers with RPZ/threat-intel filtering counter **C2 over DNS and DNS-based exfiltration (ATT&CK T1071.004, T1048, T1568 dynamic resolution)**. **DNSSEC** provides origin authentication/integrity for records. **DoT (RFC 7858)** and **DoH (RFC 8484)** encrypt resolver traffic: architect them to go to *your* resolver, not to bypass your controls.
 - **DHCP** with snooping, and **DAI (Dynamic ARP Inspection)** + **IP Source Guard** at the access layer, counter rogue-DHCP and ARP-spoofing (ATT&CK T1557 adversary-in-the-middle).
 - **IPAM** ties it together as the allocation source of truth.
 
@@ -234,12 +234,12 @@ Segmentation is the single highest-leverage security property of a network desig
 
 - **L4 vs L7:** L4 (connection) load balancing for raw throughput; L7 (ADC) for content/HTTP-aware routing, TLS termination/re-encryption, header normalization, and as a WAF host.
 - **Patterns:** global server load balancing (GSLB, often DNS-based) for geo/DR; anycast VIPs; direct-server-return for high throughput; service mesh sidecar LB for east-west microservices.
-- **Health checking & graceful drain** are reliability features; **TLS policy, WAF, and rate limiting** at the ADC are security features — design them together.
+- **Health checking & graceful drain** are reliability features; **TLS policy, WAF, and rate limiting** at the ADC are security features: design them together.
 
 ### 3.8 IPv6
 
-- **IPv6 (RFC 8200)** is mandatory architecture for new builds (and for government per numerous mandates — verify your jurisdiction's deadline). Plan a hierarchical global addressing scheme; avoid NAT as a crutch.
-- **Security parity:** every control you have for IPv4 (ACLs, segmentation, firewall rules, logging, RA Guard, DHCPv6 Guard, ND inspection) must exist for IPv6 — an unmonitored IPv6 stack running by default on hosts is a classic blind spot and covert path.
+- **IPv6 (RFC 8200)** is mandatory architecture for new builds (and for government per numerous mandates; verify your jurisdiction's deadline). Plan a hierarchical global addressing scheme; avoid NAT as a crutch.
+- **Security parity:** every control you have for IPv4 (ACLs, segmentation, firewall rules, logging, RA Guard, DHCPv6 Guard, ND inspection) must exist for IPv6: an unmonitored IPv6 stack running by default on hosts is a classic blind spot and covert path.
 
 ### 3.9 QoS & performance
 
@@ -249,7 +249,7 @@ Segmentation is the single highest-leverage security property of a network desig
 ### 3.10 Observability & telemetry
 
 - **Flow data** (NetFlow/IPFIX/sFlow) for who-talked-to-whom; **streaming telemetry** (gNMI/model-driven) for device state; **packet brokers/TAPs** for deep inspection; **synthetic probes** for active SLA measurement.
-- Telemetry feeds capacity planning, troubleshooting, **and** detection — flow records are a primary data source for detecting lateral movement, beaconing, and exfiltration. Observability is a security control, not just an ops convenience.
+- Telemetry feeds capacity planning, troubleshooting, **and** detection: flow records are a primary data source for detecting lateral movement, beaconing, and exfiltration. Observability is a security control, not just an ops convenience.
 
 ---
 
@@ -257,47 +257,47 @@ Segmentation is the single highest-leverage security property of a network desig
 
 ADR-style: each decision states the choice, the context, and the trade-off. Record these for your own network.
 
-### ADR-1 — DC fabric: spine-leaf vs. three-tier
+### ADR-1: DC fabric: spine-leaf vs. three-tier
 
 - **Choose spine-leaf/Clos** when east-west traffic and horizontal scale dominate (virtualized/containerized DC). Trade-off: more uplinks/optics, requires routing + overlay competence and automation.
 - **Keep three-tier** only for small, north-south-dominant sites where a fabric is overkill. Trade-off: STP-bounded L2, poor east-west scaling, larger failure domains.
 
-### ADR-2 — Underlay control plane: eBGP vs. IGP
+### ADR-2: Underlay control plane: eBGP vs. IGP
 
 - **eBGP underlay** scales to very large fabrics, offers explicit per-hop policy and easy multivendor interop; verbose config without automation.
 - **IGP (IS-IS/OSPF)** is simpler for moderate fabrics and converges fast; less granular policy, can be noisier at extreme scale. **Decide once, automate always.**
 
-### ADR-3 — Overlay: VXLAN/EVPN vs. none vs. provider SR/MPLS
+### ADR-3: Overlay: VXLAN/EVPN vs. none vs. provider SR/MPLS
 
-- **VXLAN + BGP EVPN** for multi-tenant DC/campus with mobility and large segment counts. Trade-off: operational complexity, VTEP/MTU planning (watch encap overhead — size jumbo MTU in the underlay).
+- **VXLAN + BGP EVPN** for multi-tenant DC/campus with mobility and large segment counts. Trade-off: operational complexity, VTEP/MTU planning (watch encap overhead: size jumbo MTU in the underlay).
 - **No overlay** for small single-tenant networks (don't add complexity you won't use).
 - **SR-MPLS / SRv6** in large enterprise cores and SP networks for traffic engineering at scale.
 
-### ADR-4 — Segmentation enforcement: network-based vs. host/identity-based
+### ADR-4: Segmentation enforcement: network-based vs. host/identity-based
 
 - **Network/firewall zones** are easy to reason about and audit; coarse, and east-west inside a zone is unprotected.
 - **Micro-segmentation (host/identity/mesh)** gives least-privilege down to the workload and follows identity; higher operational and policy-lifecycle cost. **Target: zones at the macro level, micro-segmentation for crown-jewel and PCI/OT estates.**
 
-### ADR-5 — Remote/branch access: VPN vs. ZTNA/SASE
+### ADR-5: Remote/branch access: VPN vs. ZTNA/SASE
 
 - **Traditional VPN** grants network-level reachability (broad blast radius; a compromised client is inside). Simple, well-understood.
 - **ZTNA/SASE** grants app-specific brokered access with posture checks; smaller attack surface, better UX at distance, but a new control plane and a dependency on the provider's PoPs. **Direction of travel is ZTNA/SASE; migrate VPN to app-brokered access.**
 
-### ADR-6 — DNS resolution: centralized protective DNS vs. permissive/split
+### ADR-6: DNS resolution: centralized protective DNS vs. permissive/split
 
 - **Centralized protective resolvers** (with RPZ/threat intel, logging, DoH/DoT to your resolver) give control and detection; a dependency and potential choke point (make it anycast/HA).
 - **Permissive/host-chosen DNS** is simple but blinds you and lets endpoints bypass policy via public DoH. **Prefer controlled resolvers; block/redirect unauthorized DoH.**
 
-### ADR-7 — Cloud connectivity: private interconnect vs. VPN vs. public + ZTNA
+### ADR-7: Cloud connectivity: private interconnect vs. VPN vs. public + ZTNA
 
-- **Private interconnect (Direct Connect / ExpressRoute / Cloud Interconnect)** — predictable latency/throughput, private path; cost and lead time.
-- **IPsec VPN over internet** — fast to stand up, cheaper; variable performance, bandwidth ceilings.
-- **Public endpoints + ZTNA/private-link** — no transit network at all for SaaS-style access; depends on identity-centric controls. **Many estates use all three by tier.**
+- **Private interconnect (Direct Connect / ExpressRoute / Cloud Interconnect)**: predictable latency/throughput, private path; cost and lead time.
+- **IPsec VPN over internet**: fast to stand up, cheaper; variable performance, bandwidth ceilings.
+- **Public endpoints + ZTNA/private-link**: no transit network at all for SaaS-style access; depends on identity-centric controls. **Many estates use all three by tier.**
 
-### ADR-8 — IPv6: dual-stack vs. IPv6-only (+ translation) vs. defer
+### ADR-8: IPv6: dual-stack vs. IPv6-only (+ translation) vs. defer
 
-- **Dual-stack** — pragmatic, universal compatibility; you operate (and must secure) two planes.
-- **IPv6-only + NAT64/DNS64** — simplifies the long run, needed at hyperscale; app/tooling gaps remain. **Defer is not a strategy — unmanaged IPv6 is already on your hosts.**
+- **Dual-stack**: pragmatic, universal compatibility; you operate (and must secure) two planes.
+- **IPv6-only + NAT64/DNS64**: simplifies the long run, needed at hyperscale; app/tooling gaps remain. **Defer is not a strategy: unmanaged IPv6 is already on your hosts.**
 
 ---
 
@@ -313,7 +313,7 @@ This is a security library: the network is a control surface, and good architect
 | Adversary-in-the-Middle (T1557), ARP/DHCP spoofing | DAI, DHCP snooping, IP Source Guard, 802.1X/NAC, MACsec (802.1AE), RA Guard | CSF **PR.DS/PR.IR**; CIS **12**; ATT&CK mitigation M1037/M1035 |
 | C2 & exfil over DNS (T1071.004, T1568, T1048) | Protective/centralized DNS, RPZ, DNSSEC, DoH/DoT to controlled resolver, egress filtering | CSF **DE.CM/PR.IR**; CIS **9** (Email & Web), **13** |
 | Network sniffing / data in transit (T1040, T1557) | Encryption-in-transit everywhere: MACsec (L2), IPsec (L3), TLS 1.3 (RFC 8446) at app, mTLS in mesh | CSF **PR.DS**; CIS **3** (Data Protection) |
-| Routing abuse — BGP hijack/leak (T1200-adjacent, infra targeting) | RPKI ROV (RFC 6480/6811), prefix/max-prefix filters, BGP TCP-AO, peer authentication | CSF **PR.IR/PR.AA**; CIS **12** |
+| Routing abuse: BGP hijack/leak (T1200-adjacent, infra targeting) | RPKI ROV (RFC 6480/6811), prefix/max-prefix filters, BGP TCP-AO, peer authentication | CSF **PR.IR/PR.AA**; CIS **12** |
 | Exploitation of network devices / management plane (T1542, T1601, T1556) | Out-of-band mgmt network, jump hosts, hardened device configs, config-as-code drift detection, MFA to control plane | CSF **PR.AA/PR.PS**; CIS **4** (Secure Config), **12** |
 | Perimeter/VPN over-reach (initial access via T1133 External Remote Services) | ZTNA/SDP replacing broad VPN; app-specific brokered sessions; posture checks | SP 800-207; SP 800-215; CSF **PR.AA** |
 | DDoS / availability (T1498/T1499) | Anycast, scrubbing, rate limiting, ADC health/drain, capacity + QoS scavenger class | CSF **PR.IR/RS**; CIS **13** |
@@ -324,10 +324,10 @@ This is a security library: the network is a control surface, and good architect
 ### 5.2 Design rules that bake in security
 
 1. **Default-deny between zones; least-privilege within.** The flow matrix *is* the firewall policy.
-2. **Encrypt in transit at the right layer** — MACsec for L2 links, IPsec for site/cloud, TLS 1.3 / mTLS for apps and mesh. Assume the wire is hostile (zero trust).
+2. **Encrypt in transit at the right layer**: MACsec for L2 links, IPsec for site/cloud, TLS 1.3 / mTLS for apps and mesh. Assume the wire is hostile (zero trust).
 3. **Isolate the management plane** (out-of-band) and gate it with MFA + jump hosts. Fabric compromise almost always comes through the control/management plane.
-4. **Control name resolution** — one blessed resolver path, protective filtering, logging, and no silent DoH bypass.
-5. **Validate routing** — RPKI ROV, prefix filtering, authenticated peering. Treat the routing system as attackable infrastructure.
+4. **Control name resolution**: one blessed resolver path, protective filtering, logging, and no silent DoH bypass.
+5. **Validate routing**: RPKI ROV, prefix filtering, authenticated peering. Treat the routing system as attackable infrastructure.
 6. **Segment OT/ICS and IoT** hard (reference the Purdue model / IEC 62443 zones-and-conduits); these estates are fragile and high-impact.
 7. **Make egress explicit.** Default-deny outbound with inspected, logged egress points defeats a large fraction of C2 and exfil.
 8. **Config as code + drift detection.** Misconfiguration is the top network vulnerability class; automation and review (secure config, CIS Control 4) remove it.
@@ -335,7 +335,7 @@ This is a security library: the network is a control surface, and good architect
 
 ### 5.3 Tie-in to the sibling references
 
-This document is the *design* half. Enforcement specifics — firewall architectures (L3/L7/NGFW), IDS/IPS placement, NAC, TLS inspection, DDoS scrubbing, secure service edge policy — live in **NETWORK_SECURITY_ARCHITECTURE**. The enterprise trust model, identity fabric, and how network zones map to data classification and the overall zero-trust strategy live in **SECURITY_ARCHITECTURE**. Keep the three consistent: a zone defined here must have an enforcement point there and a trust tier in the enterprise model.
+This document is the *design* half. Enforcement specifics, firewall architectures (L3/L7/NGFW), IDS/IPS placement, NAC, TLS inspection, DDoS scrubbing, secure service edge policy, live in **NETWORK_SECURITY_ARCHITECTURE**. The enterprise trust model, identity fabric, and how network zones map to data classification and the overall zero-trust strategy live in **SECURITY_ARCHITECTURE**. Keep the three consistent: a zone defined here must have an enforcement point there and a trust tier in the enterprise model.
 
 ---
 
@@ -366,16 +366,16 @@ This document is the *design* half. Enforcement specifics — firewall architect
 
 - **The flat network.** One big L2 domain / VLAN where everything can reach everything. Guarantees unimpeded lateral movement; the single most common root cause of ransomware spread.
 - **Perimeter-only / "crunchy outside, soft inside."** Hard edge firewall, no internal segmentation. Fails the moment one endpoint is compromised.
-- **VLAN sprawl as segmentation.** VLANs are broadcast-domain tools, not security boundaries — without enforced inter-VLAN policy they segment nothing.
+- **VLAN sprawl as segmentation.** VLANs are broadcast-domain tools, not security boundaries, without enforced inter-VLAN policy they segment nothing.
 - **Spreadsheet IPAM / tribal addressing.** Overlaps, shadow subnets, and merger collisions. No automation can rest on a spreadsheet.
 - **Flat, overlapping routing without summarization.** Huge routing tables, slow convergence, ACLs that can't express zones cleanly.
 - **Management plane on the data plane.** In-band management means one data-plane compromise owns the fabric. Always out-of-band.
 - **Snowflake configs / no config-as-code.** Hand-cut device configs drift, can't be audited, and are where exploitable misconfigurations live.
-- **Unmanaged IPv6.** IPv6 enabled by default on hosts with no ACLs, no logging, no RA Guard — a wide-open covert path alongside a locked IPv4 door.
-- **Permissive egress.** "Allow any outbound" — the open door for C2 and exfiltration.
+- **Unmanaged IPv6.** IPv6 enabled by default on hosts with no ACLs, no logging, no RA Guard: a wide-open covert path alongside a locked IPv4 door.
+- **Permissive egress.** "Allow any outbound": the open door for C2 and exfiltration.
 - **Overlay without MTU planning.** VXLAN/Geneve encap overhead ignored → fragmentation, black-holed flows, maddening intermittent failures.
 - **VPN as the only remote access.** Broad network reachability for every remote endpoint; migrate to ZTNA.
-- **DNS as an afterthought.** Single resolver, no protective filtering, uncontrolled DoH bypass, no logging — blind to a huge class of attacks.
+- **DNS as an afterthought.** Single resolver, no protective filtering, uncontrolled DoH bypass, no logging: blind to a huge class of attacks.
 - **No telemetry.** You can't secure, size, or troubleshoot what you can't see. Flow + state telemetry is table stakes.
 - **Chasing "single pane of glass" over correctness.** Tooling convergence is good; don't let a product roadmap dictate a topology your flows don't need.
 - **Resilience by hope.** Redundancy never tested under failure; untested failover is a planned outage.
@@ -423,7 +423,7 @@ Use as a scorecard. **Level 1** = reactive/ad hoc, **Level 3** = defined & autom
 **Categories (vendor-neutral; examples are illustrative, not endorsements):**
 
 - **DDI (DNS/DHCP/IPAM):** Infoblox, BlueCat, EfficientIP, open-source (ISC BIND/Kea, NetBox as IPAM/source-of-truth).
-- **Fabric / SDN / overlay:** EVPN/VXLAN on any merchant-silicon switching; Cisco ACI, Arista EOS/CVP, Juniper Apstra, VMware NSX, Nokia SR Linux — compare on automation and overlay model.
+- **Fabric / SDN / overlay:** EVPN/VXLAN on any merchant-silicon switching; Cisco ACI, Arista EOS/CVP, Juniper Apstra, VMware NSX, Nokia SR Linux: compare on automation and overlay model.
 - **SD-WAN / SASE / SSE:** evaluate against the Gartner **SASE Platforms** and **SSE** market definitions; score on convergence, PoP coverage, and single policy plane (verify current reports/positions).
 - **Network automation / config-as-code:** Ansible, Nornir, Terraform (cloud networking), Batfish (config analysis / pre-change validation), Git-driven CI.
 - **Observability:** flow (IPFIX/NetFlow/sFlow collectors), streaming telemetry (gNMI), packet brokers, synthetic monitoring, and NDR platforms that turn flow into detection.
@@ -435,7 +435,7 @@ Use as a scorecard. **Level 1** = reactive/ad hoc, **Level 3** = defined & autom
 
 - NIST **SP 800-207** Zero Trust Architecture; **SP 800-215** Guide to a Secure Enterprise Network Landscape; **SP 800-53** Rev. 5.
 - **NIST CSF 2.0** and **CIS Critical Security Controls v8.1**.
-- **MITRE ATT&CK** (Enterprise / ICS) — map your network controls to techniques; verify current version.
+- **MITRE ATT&CK** (Enterprise / ICS): map your network controls to techniques; verify current version.
 - IETF RFCs: **7348** (VXLAN), **7432/8365** (EVPN), **7364/7365** (NVO3), **4271** (BGP), **6480/6811** (RPKI), **8200** (IPv6), **8446** (TLS 1.3), **7858/8484** (DoT/DoH), **4033–4035** (DNSSEC).
 - **IEC 62443** + Purdue model for OT/ICS segmentation.
 - Cloud networking well-architected / landing-zone guidance (AWS, Azure, GCP).
@@ -452,4 +452,4 @@ Use as a scorecard. **Level 1** = reactive/ad hoc, **Level 3** = defined & autom
 
 ---
 
-*Vendor-neutral reference. Named products are examples, not endorsements. Verify all framework versions, standard numbers, and vendor/market naming against the authoritative source before relying on them — the networking and security framework landscape moves faster than any static document.*
+*Vendor-neutral reference. Named products are examples, not endorsements. Verify all framework versions, standard numbers, and vendor/market naming against the authoritative source before relying on them: the networking and security framework landscape moves faster than any static document.*

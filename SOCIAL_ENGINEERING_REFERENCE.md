@@ -296,11 +296,11 @@ Example spear phishing email structure:
 
 ```
 From: sarah.chen@[lookalike-domain].com
-Subject: Re: Q3 Budget Review — Action Required
+Subject: Re: Q3 Budget Review, Action Required
 
 Hi [Target Name],
 
-Following up on our conversation from the all-hands last week — James asked me to
+Following up on our conversation from the all-hands last week: James asked me to
 send over the updated budget template before Friday's close. Please review and
 return with your department figures.
 
@@ -750,7 +750,7 @@ Attacker: "Great. I'm calling because our security monitoring flagged an unusual
            Did you just log in from a different location?"
 Target: "No, I've been here at my desk all day."
 Attacker: "That's what I was afraid of. We need to secure your account right away.
-           I'm going to send you an authentication code via text — can you read that
+           I'm going to send you an authentication code via text: can you read that
            back to me so I can verify your account ownership before we lock the
            suspicious session out?"
 [Target receives real OTP sent by the attacker attempting to log in to their account]
@@ -1087,9 +1087,9 @@ Research → Current Trigger → Pretext
 Company announced M&A → "Due diligence document request from acquiring firm's counsel"
 Recent data breach → "Mandatory credential reset following security incident"
 Active hiring → "Interview confirmation for [position] with [known manager name]"
-Quarterly earnings → "Board presentation materials — confidential, please verify access"
-Regulatory filing → "SEC comment letter response — please review the attached draft"
-New product launch → "Press embargo materials — NDA signature required before viewing"
+Quarterly earnings → "Board presentation materials: confidential, please verify access"
+Regulatory filing → "SEC comment letter response: please review the attached draft"
+New product launch → "Press embargo materials: NDA signature required before viewing"
 Trade show/conference → "Attendee list and session materials from [conference name]"
 ```
 
@@ -1119,7 +1119,7 @@ HTML smuggling uses JavaScript to assemble a file in the browser, bypassing emai
 <html>
 <body>
 <script>
-// Payload encoded as base64 or byte array — assembled client-side
+// Payload encoded as base64 or byte array: assembled client-side
 var fileData = "TVqQAAMAAAAEAAAA..."; // base64-encoded payload
 
 // Decode and create a Blob
@@ -1279,7 +1279,7 @@ CONTENT ANALYSIS
 □ Does the request seem unusual for the stated sender?
 
 LINK ANALYSIS
-□ Hover over links before clicking — does the URL match the display text?
+□ Hover over links before clicking: does the URL match the display text?
 □ Is the URL using a lookalike domain or URL shortener?
 □ Does the URL use HTTPS? (necessary but not sufficient)
 □ Would a legitimate organization send you here?
@@ -1347,13 +1347,13 @@ Complete SPF configuration:
 company.com.  IN  TXT  "v=spf1 ip4:203.0.113.0/24 include:_spf.google.com include:sendgrid.net -all"
 
 ; SPF mechanisms:
-; ip4: / ip6: — specific IP addresses or ranges
-; include: — delegate to another domain's SPF
-; a: — authorize the domain's A record IP
-; mx: — authorize the domain's MX record IPs
-; -all — hard fail (reject) for non-matching senders (recommended)
-; ~all — soft fail (tag as spam) — less strict
-; ?all — neutral — avoid in production
+; ip4: / ip6:, specific IP addresses or ranges
+; include:, delegate to another domain's SPF
+; a:, authorize the domain's A record IP
+; mx:, authorize the domain's MX record IPs
+; -all: hard fail (reject) for non-matching senders (recommended)
+; ~all: soft fail (tag as spam): less strict
+; ?all: neutral: avoid in production
 ```
 
 DKIM configuration:
@@ -1388,14 +1388,14 @@ _dmarc.company.com.  IN  TXT  "v=DMARC1; p=quarantine; pct=25; rua=mailto:dmarc-
 _dmarc.company.com.  IN  TXT  "v=DMARC1; p=reject; rua=mailto:dmarc-agg@company.com; ruf=mailto:dmarc-forensic@company.com; sp=reject; aspf=s; adkim=s; fo=1"
 
 ; Parameters:
-; p=     — policy: none, quarantine, reject
-; pct=   — percentage of messages to apply policy (0-100)
-; rua=   — aggregate report destination
-; ruf=   — forensic report destination
-; sp=    — subdomain policy
-; aspf=  — SPF alignment: r (relaxed) or s (strict)
-; adkim= — DKIM alignment: r (relaxed) or s (strict)
-; fo=    — forensic reporting: 0=failure, 1=any auth failure, d=DKIM fail, s=SPF fail
+; p=     : policy: none, quarantine, reject
+; pct=   : percentage of messages to apply policy (0-100)
+; rua=   : aggregate report destination
+; ruf=   : forensic report destination
+; sp=    : subdomain policy
+; aspf=  : SPF alignment: r (relaxed) or s (strict)
+; adkim=: DKIM alignment: r (relaxed) or s (strict)
+; fo=    : forensic reporting: 0=failure, 1=any auth failure, d=DKIM fail, s=SPF fail
 ```
 
 DMARC deployment timeline:
@@ -1427,7 +1427,7 @@ From: "Display Name" <email@domain.com>
   □ Does the display name match a real person?
   □ Does the email domain match the displayed organization?
 
-Received: chain (read bottom-to-top — each hop adds a Received header)
+Received: chain (read bottom-to-top, each hop adds a Received header)
   □ Trace the message path from origin to destination
   □ Check originating IP against known legitimate senders
   □ Look for unexpected geographic hops
@@ -1893,7 +1893,7 @@ BEHAVIORAL INDICATORS
 IMMEDIATE (0-2 hours)
 □ Contact sending financial institution's wire transfer fraud department
 □ Request urgent recall via SWIFT gpi Tracker
-□ Preserve all email evidence (export with full headers — EML format)
+□ Preserve all email evidence (export with full headers: EML format)
 □ Identify all email accounts that may be compromised
 □ Reset passwords for suspected compromised accounts
 □ Notify CISO and legal counsel
@@ -1918,7 +1918,7 @@ MEDIUM-TERM (24-72 hours)
 ### 12.3 Social Engineering Red Flags Quick Card
 
 ```
-RED FLAGS — STOP AND VERIFY
+RED FLAGS: STOP AND VERIFY
 ⚠ Urgency: "must be done today/now/immediately"
 ⚠ Secrecy: "don't mention this to anyone / keep this between us"
 ⚠ Authority pressure: "the CEO/CFO is waiting for this"

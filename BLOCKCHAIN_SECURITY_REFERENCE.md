@@ -415,7 +415,7 @@ Ledger architecture:
 ```
 Host (PC/phone)
      ↕ USB/BT (APDU commands)
-Ledger Secure Element (ST33 — CC EAL5+ certified)
+Ledger Secure Element (ST33: CC EAL5+ certified)
      ↕ Internal SPI
 STM32 MCU (manages display, buttons)
 ```
@@ -491,7 +491,7 @@ Private key security is only as strong as the entropy used to generate it.
 
 CSPRNG sources by platform:
 ```python
-# Python — uses OS CSPRNG
+# Python: uses OS CSPRNG
 import secrets
 private_key_bytes = secrets.token_bytes(32)  # 256 bits
 
@@ -499,7 +499,7 @@ private_key_bytes = secrets.token_bytes(32)  # 256 bits
 const crypto = require('crypto');
 const privateKey = crypto.randomBytes(32);
 
-# Solidity — NO on-chain RNG is secure
+# Solidity: NO on-chain RNG is secure
 # block.timestamp, blockhash, and block.prevrandao are all manipulable by miners/validators
 # Use Chainlink VRF for on-chain randomness
 ```
@@ -520,7 +520,7 @@ Real-world weak entropy attack:
 Best practices for seed phrase storage:
 
 ```
-1. WRITE IT DOWN (paper/metal) — never type into a computer
+1. WRITE IT DOWN (paper/metal), never type into a computer
 2. NEVER store seed phrase in:
    - Cloud storage (iCloud, Google Drive, Dropbox)
    - Email (any provider)
@@ -529,7 +529,7 @@ Best practices for seed phrase storage:
    - Text messages / messaging apps
 
 3. Physical storage options:
-   - Metal backup plates (Cryptosteel, Bilodl) — fireproof/waterproof
+   - Metal backup plates (Cryptosteel, Bilodl): fireproof/waterproof
    - Multiple geographic locations (primary + backup)
    - Safety deposit box (jurisdiction risk)
    - Fireproof safe at home
@@ -632,7 +632,7 @@ Contract Address:
 ```
 Deterministic: keccak256(RLP([deployer_address, nonce]))[-20:]
 CREATE2:        keccak256(0xff || deployer || salt || keccak256(initcode))[-20:]
-No private key — controlled by code
+No private key: controlled by code
 Can receive ETH but cannot initiate transactions alone
 ```
 
@@ -657,7 +657,7 @@ The DAO was an Ethereum-based venture fund. A reentrancy vulnerability allowed a
 
 Vulnerable code pattern (simplified):
 ```solidity
-// VULNERABLE — Classic reentrancy
+// VULNERABLE: Classic reentrancy
 contract VulnerableBank {
     mapping(address => uint256) public balances;
 
@@ -702,7 +702,7 @@ contract Attacker {
 
 Fixed version using Checks-Effects-Interactions + ReentrancyGuard:
 ```solidity
-// SAFE — OpenZeppelin ReentrancyGuard
+// SAFE: OpenZeppelin ReentrancyGuard
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 contract SecureBank is ReentrancyGuard {
@@ -738,7 +738,7 @@ contract SecureBank is ReentrancyGuard {
 #### Cross-Function Reentrancy
 
 ```solidity
-// VULNERABLE — Cross-function reentrancy
+// VULNERABLE: Cross-function reentrancy
 contract CrossFunctionVulnerable {
     mapping(address => uint256) public balances;
 
@@ -778,7 +778,7 @@ Prior to Solidity 0.8.0, all arithmetic was unchecked. Values would silently wra
 
 Classic overflow example:
 ```solidity
-// Solidity < 0.8.0 — VULNERABLE
+// Solidity < 0.8.0: VULNERABLE
 contract OverflowVulnerable {
     mapping(address => uint256) public balances;
 
@@ -817,7 +817,7 @@ library SafeMath {
 
 Solidity 0.8+ built-in overflow protection:
 ```solidity
-// Solidity >= 0.8.0 — Safe by default
+// Solidity >= 0.8.0: Safe by default
 contract SafeByDefault {
     function sub(uint256 a, uint256 b) external pure returns (uint256) {
         return a - b;  // Reverts with Panic(0x11) if b > a
@@ -842,7 +842,7 @@ BEANstalk finance (April 2022): Integer arithmetic manipulation via governance f
 #### tx.origin vs. msg.sender
 
 ```solidity
-// VULNERABLE — tx.origin phishing
+// VULNERABLE: tx.origin phishing
 contract VulnerableWallet {
     address public owner;
 
@@ -869,7 +869,7 @@ contract MaliciousContract {
     }
 }
 
-// SAFE — use msg.sender instead
+// SAFE: use msg.sender instead
 function transfer(address payable to, uint256 amount) external {
     require(msg.sender == owner, "Not owner");  // msg.sender is the direct caller
     to.transfer(amount);
@@ -880,7 +880,7 @@ function transfer(address payable to, uint256 amount) external {
 
 The Parity multi-signature wallet library contract had an unprotected `initWallet` function:
 ```solidity
-// VULNERABLE — Parity Wallet Library (simplified)
+// VULNERABLE: Parity Wallet Library (simplified)
 contract WalletLibrary {
     address public owner;
 
@@ -895,7 +895,7 @@ contract WalletLibrary {
     }
 }
 // Impact: Attacker called initWallet on the shared library, became owner,
-// then called kill() — permanently destroying the library.
+// then called kill(): permanently destroying the library.
 // ~$280M of ETH locked in wallets using that library became permanently inaccessible.
 ```
 
@@ -938,7 +938,7 @@ Scenario: Block N contains a profitable transaction (e.g., $10M arbitrage)
 Time-bandit attacker: Reorg back to N-1, include their version of N with the profit captured
 Profitable when: reorg reward > block rewards given up
 
-Ethereum defense: Finality via Casper FFG — finalized blocks cannot be reorganized
+Ethereum defense: Finality via Casper FFG; finalized blocks cannot be reorganized
 ```
 
 Commit-Reveal Scheme (front-running mitigation):
@@ -974,7 +974,7 @@ Harvest Finance Attack (October 2020, ~$34M):
 3. Deposits into Harvest vault (vault uses Curve pool price for share valuation)
 4. Vault mints shares at artificially low USDC price (attacker gets more shares)
 5. Restores Curve pool price (repay flash loan)
-6. Redeems shares at correct price — profit
+6. Redeems shares at correct price: profit
 Root cause: Harvest used spot price from single AMM pool as oracle
 ```
 
@@ -1074,20 +1074,20 @@ function getPrice(address token) internal returns (uint256) {
 `block.timestamp` can be manipulated by validators within a ~12-second window.
 
 ```solidity
-// VULNERABLE — random number via timestamp
+// VULNERABLE: random number via timestamp
 function random() internal view returns (uint256) {
     return uint256(keccak256(abi.encodePacked(block.timestamp, msg.sender)));
     // Validator can choose to include transaction in a block with favorable timestamp
 }
 
-// VULNERABLE — time-based deadline
+// VULNERABLE: time-based deadline
 function isExpired() external view returns (bool) {
     return block.timestamp > deadline;
     // Validator can delay or advance by ~12 seconds
 }
 
-// SAFER — use blockhash for randomness (still manipulable but less so)
-// BEST — use Chainlink VRF for verifiable on-chain randomness
+// SAFER: use blockhash for randomness (still manipulable but less so)
+// BEST: use Chainlink VRF for verifiable on-chain randomness
 import "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol";
 ```
 
@@ -1111,7 +1111,7 @@ contract WalletProxy {
 }
 
 contract WalletLibrary {
-    address public owner;  // slot 0 — maps to PROXY's owner slot!
+    address public owner;  // slot 0: maps to PROXY's owner slot!
 
     function initWallet(address _owner) public {
         owner = _owner;  // Writes to proxy's slot 0 = overwrites proxy owner!
@@ -1132,7 +1132,7 @@ contract BadProxy {
 }
 
 contract BadImplementation {
-    address public owner;  // slot 0 — COLLISION with proxy.implementation!
+    address public owner;  // slot 0: COLLISION with proxy.implementation!
 }
 
 // GOOD: EIP-1967 uses pseudo-random storage slots
@@ -1190,7 +1190,7 @@ function permit(
 
 DoS via unbounded loops:
 ```solidity
-// VULNERABLE — gas cost grows unbounded
+// VULNERABLE: gas cost grows unbounded
 contract VulnerableDistribution {
     address[] public recipients;
 
@@ -1202,7 +1202,7 @@ contract VulnerableDistribution {
     }
 }
 
-// SAFE — pull payment pattern
+// SAFE: pull payment pattern
 contract SafeDistribution {
     mapping(address => uint256) public pendingWithdrawals;
 
@@ -1216,7 +1216,7 @@ contract SafeDistribution {
 
 DoS via external call revert:
 ```solidity
-// VULNERABLE — one recipient can block all withdrawals
+// VULNERABLE: one recipient can block all withdrawals
 function distribute(address[] calldata recipients) external {
     for (uint i = 0; i < recipients.length; i++) {
         // If ANY recipient is a contract that reverts → entire function reverts
@@ -1228,7 +1228,7 @@ function distribute(address[] calldata recipients) external {
 
 Return bomb / gas griefing:
 ```solidity
-// VULNERABLE — malicious contract returns huge return data, wasting caller gas
+// VULNERABLE: malicious contract returns huge return data, wasting caller gas
 (bool success, bytes memory returnData) = target.call(data);
 // If target returns 1MB of data → copies to memory → expensive
 
@@ -1245,7 +1245,7 @@ assembly {
 In older Solidity versions, local storage pointer variables would default to storage slot 0 if not initialized.
 
 ```solidity
-// Solidity < 0.5.0 — VULNERABLE
+// Solidity < 0.5.0: VULNERABLE
 contract Vulnerable {
     address public owner;    // slot 0
     uint256 public lockTime; // slot 1
@@ -1256,11 +1256,11 @@ contract Vulnerable {
     }
 
     function setLock(uint256 time) external {
-        Locker storage locker;  // Uninitialized — defaults to slot 0!
+        Locker storage locker;  // Uninitialized: defaults to slot 0!
         locker.amount = time;   // Overwrites owner (slot 0) with 'time'!
     }
 }
-// Fixed in Solidity 0.8.0+ — compiler disallows uninitialized storage
+// Fixed in Solidity 0.8.0+: compiler disallows uninitialized storage
 ```
 
 ---
@@ -1286,8 +1286,8 @@ modifier validPayload(uint size) {
     _;
 }
 
-// Modern fix: Validate at exchange/wallet level — verify calldata is correct length
-// Ethereum clients now enforce correct encoding — attack is largely historical
+// Modern fix: Validate at exchange/wallet level; verify calldata is correct length
+// Ethereum clients now enforce correct encoding: attack is largely historical
 ```
 
 ---
@@ -1303,7 +1303,7 @@ Root cause: The cross-chain bridge's `EthCrossChainManager` contract had a `veri
 ```
 Attack chain:
 1. Cross-chain message included arbitrary calldata targeting the KeysManager contract
-2. Called putCurEpochConPubKeyBytes() — a function intended only for internal use
+2. Called putCurEpochConPubKeyBytes(): a function intended only for internal use
    that sets trusted public keys for cross-chain verification
 3. Attacker replaced trusted public keys with their own keys
 4. Now attacker could forge any cross-chain message
@@ -1410,7 +1410,7 @@ Nomad's message verification:
 Attack:
 1. First attacker discovered a successful fraudulent withdrawal transaction
 2. Copied the transaction calldata, changed only the recipient address
-3. Rebroadcast — succeeded because 0x00 root always validates
+3. Rebroadcast: succeeded because 0x00 root always validates
 4. Hundreds of copycat attackers joined within hours (watched mempool)
 5. $190M drained in a few hours, with ~300 unique attacker addresses
 
@@ -1786,7 +1786,7 @@ Key capabilities:
 Monitor:    Alert on specific on-chain events, unusual transaction patterns
 Relayer:    Managed transaction signing with key rotation
 Autotask:   Serverless functions triggered by monitor alerts or schedule
-Sentinel:   Automated response — pause contract, notify team
+Sentinel:   Automated response, pause contract, notify team
 ```
 
 Example Defender Autotask (emergency pause):
@@ -1815,17 +1815,17 @@ exports.handler = async function(event) {
 
 ```solidity
 function withdraw(uint256 amount) external {
-    // 1. CHECKS — validate inputs and state
+    // 1. CHECKS: validate inputs and state
     require(amount > 0, "Amount must be positive");
     require(balances[msg.sender] >= amount, "Insufficient balance");
     require(!paused, "Contract paused");
 
-    // 2. EFFECTS — update state BEFORE external calls
+    // 2. EFFECTS: update state BEFORE external calls
     balances[msg.sender] -= amount;
     totalDeposits -= amount;
     emit Withdrawal(msg.sender, amount);
 
-    // 3. INTERACTIONS — external calls LAST
+    // 3. INTERACTIONS: external calls LAST
     (bool success, ) = msg.sender.call{value: amount}("");
     require(success, "ETH transfer failed");
 }
@@ -1844,7 +1844,7 @@ contract PullPayment {
         }
     }
 
-    // PULL (safe — each user claims their own payment)
+    // PULL (safe: each user claims their own payment)
     function creditPayment(address payee, uint256 amount) internal {
         _payments[payee] += amount;
     }
@@ -1910,7 +1910,7 @@ contract PausableVault is Pausable, AccessControl {
         _grantRole(PAUSER_ROLE, msg.sender);
     }
 
-    // Only PAUSER_ROLE can pause — can be granted to monitoring systems
+    // Only PAUSER_ROLE can pause: can be granted to monitoring systems
     function pause() external onlyRole(PAUSER_ROLE) {
         _pause();
     }
@@ -1925,10 +1925,10 @@ contract PausableVault is Pausable, AccessControl {
     }
 
     function withdraw(uint256 amount) external whenNotPaused {
-        // Withdrawals also blocked — prevents attacker draining during incident
+        // Withdrawals also blocked: prevents attacker draining during incident
     }
 
-    // Emergency withdraw — available even when paused (only owner)
+    // Emergency withdraw: available even when paused (only owner)
     function emergencyWithdraw() external onlyRole(DEFAULT_ADMIN_ROLE) {
         payable(msg.sender).transfer(address(this).balance);
     }
@@ -1942,7 +1942,7 @@ Transparent Proxy Pattern:
 // Admin calls go to proxy, user calls delegatecall to implementation
 // ProxyAdmin.sol controls upgrades
 
-// Storage gap — prevents storage collisions in inherited contracts
+// Storage gap: prevents storage collisions in inherited contracts
 abstract contract VersionA {
     uint256 public valueA;
     uint256[49] private __gap;  // Reserve 49 slots for future variables
@@ -1967,7 +1967,7 @@ contract VaultV1 is UUPSUpgradeable, OwnableUpgradeable {
         __UUPSUpgradeable_init();
     }
 
-    // Required by UUPS — restricts who can upgrade
+    // Required by UUPS: restricts who can upgrade
     function _authorizeUpgrade(address newImplementation) internal override onlyOwner {
         // Add delay requirement, timelock, or multisig here
     }
@@ -2047,7 +2047,7 @@ TimelockController timelock = new TimelockController(
 );
 
 // Governance action flow:
-// 1. Proposer calls schedule() — starts 2-day clock
+// 1. Proposer calls schedule(): starts 2-day clock
 // 2. Community can review pending action
 // 3. If malicious: cancel before execution
 // 4. After 2 days: anyone can call execute()
@@ -2066,11 +2066,11 @@ Ethereum node attack surface:
 
 ```
 Exposed services (default ports):
-  30303 TCP/UDP  — P2P (devp2p / libp2p) — MUST be public for sync
-  8545 TCP       — HTTP RPC — NEVER expose to internet
-  8546 TCP       — WebSocket RPC — NEVER expose to internet
-  8551 TCP       — Engine API (consensus ↔ execution) — localhost only
-  9000 TCP/UDP   — Lighthouse/Prysm P2P — must be public
+  30303 TCP/UDP  : P2P (devp2p / libp2p): MUST be public for sync
+  8545 TCP       : HTTP RPC, NEVER expose to internet
+  8546 TCP       : WebSocket RPC, NEVER expose to internet
+  8551 TCP       : Engine API (consensus ↔ execution): localhost only
+  9000 TCP/UDP   : Lighthouse/Prysm P2P: must be public
 ```
 
 Geth hardening:
@@ -2139,11 +2139,11 @@ Impact on crypto exchanges:
   - Stole mining rewards by redirecting hashrate
 
 Defenses:
-  - RPKI (Resource Public Key Infrastructure) — cryptographic BGP route validation
-  - DNSSEC — signs DNS responses
-  - DNS-over-HTTPS (DoH) — prevents DNS interception
-  - Certificate Transparency (CT) — detect fraudulent TLS certs
-  - HSTS preloading — prevents SSL stripping
+  - RPKI (Resource Public Key Infrastructure): cryptographic BGP route validation
+  - DNSSEC: signs DNS responses
+  - DNS-over-HTTPS (DoH): prevents DNS interception
+  - Certificate Transparency (CT): detect fraudulent TLS certs
+  - HSTS preloading: prevents SSL stripping
 ```
 
 ---
@@ -2185,11 +2185,11 @@ Security risks:
 Exchange cold storage best practice:
 
   Total user funds: $500M
-  ├── Cold storage: $450M (90%) — offline, multi-sig, air-gapped
+  ├── Cold storage: $450M (90%), offline, multi-sig, air-gapped
   │   └── 3-of-5 Gnosis Safe with hardware wallet signers
-  ├── Warm storage: $45M (9%) — online, multi-sig, auto-rebalance
+  ├── Warm storage: $45M (9%), online, multi-sig, auto-rebalance
   │   └── 2-of-3 multi-sig, hardware wallets + HSM
-  └── Hot wallet: $5M (1%) — single-sig, HSM-secured, rate-limited
+  └── Hot wallet: $5M (1%), single-sig, HSM-secured, rate-limited
       └── Auto-refilled from warm when below $2M
       └── Daily withdrawal limit: $2M max
 
@@ -2226,7 +2226,7 @@ class WithdrawalRequest:
             queue_for_manual_review(self)
             return
 
-        # 5. Travel rule (FATF) — for transfers > $1000
+        # 5. Travel rule (FATF), for transfers > $1000
         if amount_usd >= 1000:
             if not has_travel_rule_data(address):
                 request_travel_rule_info()
@@ -2308,7 +2308,7 @@ Mt. Gox ($450M BTC, 2011-2014):
 Multiple incidents:
   2011: Auditor accidentally set BTC price to $0.01 → 2,000 BTC stolen
   2011: 650,000 BTC stolen from hot wallet over time
-  2014: Exchange collapsed — 850,000 BTC missing (200K later recovered)
+  2014: Exchange collapsed, 850,000 BTC missing (200K later recovered)
 
 Root causes:
   - No separation between hot and cold storage
@@ -2320,7 +2320,7 @@ Root causes:
 
 FTX Collapse ($8B, 2022):
 ```
-Not a hack — fraud/mismanagement:
+Not a hack: fraud/mismanagement:
   - Customer funds commingled with Alameda Research
   - FTT token used as collateral for Alameda loans from FTX
   - $8B+ customer funds missing when withdrawal run occurred
@@ -2357,7 +2357,7 @@ Approval attack / infinite approval phishing:
 IERC20(tokenAddress).approve(maliciousContract, type(uint256).max);
 // Attacker calls transferFrom at any time, draining victim's balance
 
-// Safer: Use EIP-2612 permit() — approval with expiry and signature
+// Safer: Use EIP-2612 permit(), approval with expiry and signature
 // Or: Approve only exact amount needed per transaction
 ```
 
@@ -2377,14 +2377,14 @@ Defense:
 
 Common ERC-20 implementation bugs:
 ```solidity
-// Rebasing tokens (AMPL, stETH) — balance changes every block
+// Rebasing tokens (AMPL, stETH): balance changes every block
 // Direct balance caching breaks DeFi integrations
 
 // Fee-on-transfer tokens (SAFEMOON-like)
-// Amount received < amount sent — breaks protocols assuming amount == received
+// Amount received < amount sent: breaks protocols assuming amount == received
 
 // Non-standard transfer (USDT return value bug)
-// USDT transfer() doesn't return bool — use SafeERC20.safeTransfer()
+// USDT transfer() doesn't return bool: use SafeERC20.safeTransfer()
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 using SafeERC20 for IERC20;
 token.safeTransfer(recipient, amount);  // Handles non-standard returns
@@ -2395,14 +2395,14 @@ token.safeTransfer(recipient, amount);  // Handles non-standard returns
 ```solidity
 // ERC-721 safeTransferFrom reentrancy
 // Calls onERC721Received() on recipient if it's a contract
-// This is an external call — reentrancy possible!
+// This is an external call: reentrancy possible!
 
 function safeTransferFrom(address from, address to, uint256 tokenId) external {
     // Transfer first (state change)
     _transfer(from, to, tokenId);
     // Then call recipient
     if (to.code.length > 0) {
-        // EXTERNAL CALL — potential reentrancy
+        // EXTERNAL CALL: potential reentrancy
         IERC721Receiver(to).onERC721Received(msg.sender, from, tokenId, "");
     }
 }

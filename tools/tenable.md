@@ -118,14 +118,14 @@ _API & developer docs_
 
 _GitHub (official)_
 - [Tenable GitHub organization (~89 repos)](https://github.com/tenable)
-- [pyTenable — Python library for Tenable platform APIs](https://github.com/tenable/pyTenable)
-- [Tenable Exposure Management connectors — third-party connector documentation](https://docs.tenable.com/exposure-management/Content/connectors/connectors.htm)
-- [integration-jira-cloud — Jira Cloud integration](https://github.com/tenable/integration-jira-cloud)
-- [container-security-action / was-action — official GitHub Actions for Tenable container & WAS scans](https://github.com/tenable/container-security-action)
+- [pyTenable: Python library for Tenable platform APIs](https://github.com/tenable/pyTenable)
+- [Tenable Exposure Management connectors: third-party connector documentation](https://docs.tenable.com/exposure-management/Content/connectors/connectors.htm)
+- [integration-jira-cloud: Jira Cloud integration](https://github.com/tenable/integration-jira-cloud)
+- [container-security-action / was-action: official GitHub Actions for Tenable container & WAS scans](https://github.com/tenable/container-security-action)
 
 _Community / integration / detection repos_
 - [Tenable Add-On for Splunk (Splunkbase app 4060, TA-tenable; SIEM integration)](https://splunkbase.splunk.com/app/4060)
-- [Security-Hub — Tenable.io to AWS Security Hub integration](https://github.com/tenable/Security-Hub)
+- [Security-Hub: Tenable.io to AWS Security Hub integration](https://github.com/tenable/Security-Hub)
 - [Navi (packetchaos/navi), a community command-line tool for the Tenable Vulnerability Management API](https://github.com/packetchaos/navi)
 
 _Learning & reference_

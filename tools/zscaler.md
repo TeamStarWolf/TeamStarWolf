@@ -124,7 +124,7 @@ _Official documentation & manuals_
 - [Zero Trust Exchange platform overview](https://www.zscaler.com/platform/zero-trust-exchange)
 
 _API & developer docs_
-- [ZIA API — Getting Started (OAuth 2.0 / legacy key)](https://help.zscaler.com/zia/api-getting-started)
+- [ZIA API: Getting Started (OAuth 2.0 / legacy key)](https://help.zscaler.com/zia/api-getting-started)
 - [Understanding OneAPI Authentication (ZIdentity OAuth2)](https://help.zscaler.com/unified/understanding-oneapi-authentication)
 - [ZPA API reference](https://help.zscaler.com/zpa/api-reference)
 - [Zscaler Python SDK docs (OneAPI client)](https://zscaler-sdk-python.readthedocs.io/)

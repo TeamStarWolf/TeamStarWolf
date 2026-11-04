@@ -443,7 +443,7 @@ template {
 ```
 
 ```
-# config.tmpl — rendered by Vault Agent
+# config.tmpl: rendered by Vault Agent
 database:
   host: postgres.internal
   password: {{ with secret "database/creds/app-role" }}{{ .Data.password }}{{ end }}
@@ -497,7 +497,7 @@ vault audit enable syslog tag="vault" facility="AUTH"
 vault audit list
 vault audit disable file/
 # Audit log format: JSON; includes request path, auth token, response status
-# NEVER disable audit without enabling another sink first — Vault blocks requests if no audit device is available
+# NEVER disable audit without enabling another sink first: Vault blocks requests if no audit device is available
 ```
 
 ---
@@ -537,7 +537,7 @@ Architecture:
 Conjur policies are YAML files defining the security model: users, groups, hosts (machine identities), variables (secrets), and permissions.
 
 ```yaml
-# root-policy.yml — top-level policy
+# root-policy.yml: top-level policy
 - !policy
   id: production
   body:
@@ -943,7 +943,7 @@ az keyvault secret list --vault-name mykeyvault
 az keyvault secret set-attributes --vault-name mykeyvault --name "DbPassword" \
   --expires "2025-12-31T00:00:00Z"
 
-# Purge protection — prevents permanent deletion during retention period
+# Purge protection: prevents permanent deletion during retention period
 az keyvault update --name mykeyvault --enable-purge-protection true
 ```
 
@@ -1029,7 +1029,7 @@ Kubernetes Secrets are only base64-encoded, not encrypted by default:
 
 ```bash
 kubectl get secret my-secret -o yaml
-# data.password is base64 — trivially decoded:
+# data.password is base64: trivially decoded:
 kubectl get secret my-secret -o jsonpath='{.data.password}' | base64 -d
 ```
 
@@ -1071,7 +1071,7 @@ ETCDCTL_API=3 etcdctl get /registry/secrets/default/my-secret | hexdump -C
 ESO syncs secrets from external providers into Kubernetes Secrets.
 
 ```yaml
-# SecretStore — cluster-level connection to AWS Secrets Manager
+# SecretStore: cluster-level connection to AWS Secrets Manager
 apiVersion: external-secrets.io/v1beta1
 kind: ClusterSecretStore
 metadata:
@@ -1087,7 +1087,7 @@ spec:
             name: external-secrets-sa
             namespace: external-secrets
 ---
-# ExternalSecret — pull specific secret into K8s
+# ExternalSecret: pull specific secret into K8s
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
@@ -1181,7 +1181,7 @@ kubectl create secret generic myapp-secret --dry-run=client \
   --from-literal=db-password=s3cr3t -o yaml | \
   kubeseal --cert public-key.pem --format yaml > myapp-sealed-secret.yaml
 
-# Apply — controller decrypts and creates real Secret
+# Apply: controller decrypts and creates real Secret
 kubectl apply -f myapp-sealed-secret.yaml
 ```
 
@@ -1280,7 +1280,7 @@ vault write pki_int/issue/server-role common_name="app.example.com" \
 cert-manager automates certificate issuance and renewal within Kubernetes.
 
 ```yaml
-# ClusterIssuer — Let's Encrypt via ACME
+# ClusterIssuer: Let's Encrypt via ACME
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
@@ -1301,7 +1301,7 @@ spec:
             hostedZoneID: Z12345678
 
 ---
-# ClusterIssuer — Vault
+# ClusterIssuer: Vault
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
@@ -1422,7 +1422,7 @@ CA signing mode (recommended). Short-lived certificates replace static authorize
 vault secrets enable ssh
 vault write ssh/config/ca generate_signing_key=true
 
-# Retrieve public key — add to servers' /etc/ssh/trusted_user_ca_keys
+# Retrieve public key: add to servers' /etc/ssh/trusted_user_ca_keys
 vault read -field=public_key ssh/config/ca > /etc/ssh/trusted-user-ca-keys.pem
 
 # Server sshd_config
@@ -1507,7 +1507,7 @@ tsh recordings ls  # session recordings audit
 # Find all authorized_keys files on a system
 find / -name "authorized_keys" -type f 2>/dev/null
 
-# Check last login per key (not directly possible — use last/lastlog for user audit)
+# Check last login per key (not directly possible: use last/lastlog for user audit)
 last -n 50
 
 # Ansible playbook to audit authorized_keys across fleet
@@ -1572,7 +1572,7 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::123456789:role/github-actions-deploy
           aws-region: us-east-1
-          # No access key/secret stored — uses OIDC JWT instead
+          # No access key/secret stored: uses OIDC JWT instead
 
       - name: Deploy to AWS
         run: aws s3 sync ./dist s3://my-bucket/
@@ -1619,7 +1619,7 @@ Variable types:
 ### Jenkins Credentials Store
 
 ```groovy
-// Jenkinsfile — using credentials binding
+// Jenkinsfile: using credentials binding
 pipeline {
   agent any
   stages {
@@ -1660,12 +1660,12 @@ withVault(vaultSecrets: [[path: 'secret/myapp/config', secretValues: [
 Common patterns that expose secrets in logs:
 
 ```bash
-# DANGEROUS — prints entire environment including secrets
+# DANGEROUS: prints entire environment including secrets
 env | sort
 printenv
 set -x && deploy.sh   # set -x echoes all commands with variable expansion
 
-# SAFE — explicitly reference only needed vars
+# SAFE: explicitly reference only needed vars
 echo "Deploying to ${ENVIRONMENT}"   # not secrets
 # Set +x before any secret-adjacent commands
 { set +x; echo "Password length: ${#DB_PASSWORD}"; } 2>/dev/null
@@ -1737,7 +1737,7 @@ Procedures for emergency access when normal access controls are unavailable:
 ### Secrets Audit Logging
 
 ```bash
-# Vault audit log — JSON format, one record per request
+# Vault audit log: JSON format, one record per request
 vault audit enable file file_path=/vault/logs/audit.log
 # Log entry fields: time, type (request/response), auth.client_token_accessor,
 #                  request.path, request.operation, response.secret.lease_id
@@ -1751,7 +1751,7 @@ aws cloudtrail lookup-events \
   --start-time 2025-01-01T00:00:00Z \
   --query 'Events[*].{Time:EventTime,User:Username,Event:EventName,Secret:Resources[0].ResourceName}'
 
-# Azure Monitor — Key Vault diagnostic logs
+# Azure Monitor: Key Vault diagnostic logs
 az monitor log-analytics query \
   --workspace my-workspace \
   --analytics-query "AzureDiagnostics | where ResourceType == 'VAULTS' | project TimeGenerated, OperationName, CallerIPAddress, identity_claim_oid_g"
@@ -1769,7 +1769,7 @@ Indicators of compromise:
 
 Detection rules (Vault + SIEM):
 ```
-# Bulk secret access — Sigma-style
+# Bulk secret access: Sigma-style
 title: Vault Bulk Secret Read
 detection:
   selection:

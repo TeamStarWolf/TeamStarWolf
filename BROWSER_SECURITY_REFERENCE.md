@@ -698,12 +698,12 @@ Browser exploitation follows a two-stage chain:
 ### Enterprise Browser Policy
 
 ```
-[ ] Force automatic browser updates — no more than 1 major version behind
+[ ] Force automatic browser updates: no more than 1 major version behind
 [ ] Block unauthorized extension installation via MDM/Group Policy
 [ ] Allow-list only vetted, business-required extensions
 [ ] Enable Safe Browsing Enhanced Protection or equivalent
 [ ] Disable saved-password sync to personal accounts in managed browsers
-[ ] Block PPAPI plugins (Flash/Java — EOL and active attack surface)
+[ ] Block PPAPI plugins (Flash/Java: EOL and active attack surface)
 [ ] Enable DNS-over-HTTPS via managed browser policy
 [ ] Configure certificate transparency enforcement
 [ ] Enable FIDO2/hardware security key support
@@ -746,7 +746,7 @@ Browser exploitation follows a two-stage chain:
 [ ] SameSite=None only where required with documented justification
 [ ] Use __Host- prefix for highest-security session cookies
 [ ] No sensitive data in localStorage or sessionStorage
-[ ] Set appropriate Max-Age/Expires — avoid indefinite session cookies
+[ ] Set appropriate Max-Age/Expires: avoid indefinite session cookies
 [ ] Audit and eliminate unnecessary third-party cookies
 ```
 
@@ -754,7 +754,7 @@ Browser exploitation follows a two-stage chain:
 
 ```
 [ ] CSRF tokens on all state-changing forms and API endpoints
-[ ] Validate CSRF token server-side — reject missing or mismatched tokens
+[ ] Validate CSRF token server-side: reject missing or mismatched tokens
 [ ] SameSite=Lax or Strict on session cookies as additional layer
 [ ] Custom request header (X-Requested-With) on AJAX state-changing calls
 [ ] Origin/Referer validation as defense-in-depth
@@ -764,10 +764,10 @@ Browser exploitation follows a two-stage chain:
 ### CSP Maturity Levels
 
 ```
-Level 1 — Basic:    default-src 'self'; object-src 'none'
-Level 2 — Better:   + script-src 'nonce-X'; restrict style-src
-Level 3 — Strong:   + base-uri 'self'; frame-ancestors 'none'; form-action 'self'
-Level 4 — Best:     + report-uri/report-to; COOP + COEP headers; no unsafe-inline anywhere
+Level 1: Basic:     default-src 'self'; object-src 'none'
+Level 2: Better:    + script-src 'nonce-X'; restrict style-src
+Level 3: Strong:    + base-uri 'self'; frame-ancestors 'none'; form-action 'self'
+Level 4: Best:      + report-uri/report-to; COOP + COEP headers; no unsafe-inline anywhere
 ```
 
 ---
@@ -805,8 +805,8 @@ function merge(target, source) {
 const malicious = JSON.parse('{"__proto__": {"isAdmin": true}}');
 merge({}, malicious);
 
-console.log({}.isAdmin);   // true — Object.prototype polluted
-console.log([].isAdmin);   // true — all objects affected
+console.log({}.isAdmin);   // true: Object.prototype polluted
+console.log([].isAdmin);   // true: all objects affected
 ```
 
 ### Constructor Pollution

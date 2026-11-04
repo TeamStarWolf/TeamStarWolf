@@ -680,7 +680,7 @@ Every source below was opened on 3 November 2026. Grades apply to the source typ
 | 43 | CISA, NCSC Releases Advisory on Ryuk Ransomware (2019-06-28) | https://www.cisa.gov/news-events/alerts/2019/06/28/ncsc-releases-advisory-ryuk-ransomware | 2026-11-03 | Confirmed |
 | 44 | CISA, FBI and HHS, AA20-302A, Ransomware Activity Targeting the Healthcare and Public Health Sector | https://www.cisa.gov/news-events/cybersecurity-advisories/aa20-302a | 2026-11-03 | Confirmed |
 | 45 | Toyota Boshoku, disclosure of fraudulent payment loss (2019-09-06) | https://www.toyota-boshoku.com/global/content/wp-content/uploads/190906e.pdf | 2026-11-03 | Confirmed |
-| 46 | Texas Legislature, Texas DIR testimony handout on the August 2019 ransomware attack | https://capitol.texas.gov/tlodocs/86R/handouts/C3852020080400001/7bd1e798-9055-4166-8ff4-89e12ff5964e.PDF | 2026-11-03 | Confirmed |
+| 46 | Texas Legislature, Texas DIR testimony handout on the August 2019 ransomware attack | `https://capitol.texas.gov/tlodocs/86R/handouts/C3852020080400001/7bd1e798-9055-4166-8ff4-89e12ff5964e.PDF` | 2026-11-03 | Confirmed |
 | 47 | The Record, US arrests and charges Ukrainian man for Kaseya ransomware attack | https://therecord.media/us-arrests-and-charges-ukrainian-man-for-kaseya-ransomware-attack/ | 2026-11-03 | Reported |
 | 48 | US Treasury, press release jy0471, REvil designations (2021-11-08) | https://home.treasury.gov/news/press-releases/jy0471 | 2026-11-03 | Confirmed |
 | 49 | FBI IC3, PSA I-091019-PSA, Business Email Compromise: The $26 Billion Scam (2019-09-10) | https://www.ic3.gov/PSA/2019/PSA190910 | 2026-11-03 | Confirmed |
@@ -721,7 +721,7 @@ Every source below was opened on 3 November 2026. Grades apply to the source typ
 | 84 | Atlassian, Confluence Security Advisory 2019-03-20 | https://confluence.atlassian.com/doc/confluence-security-advisory-2019-03-20-966660264.html | 2026-11-03 | Confirmed |
 | 85 | Trend Micro, CVE-2019-3396 Redux: Confluence Vulnerability Exploited to Deliver Cryptocurrency Miner With Rootkit (2019-05-07) | https://www.trendmicro.com/en_us/research/19/e/cve-2019-3396-redux-confluence-vulnerability-exploited-to-deliver-cryptocurrency-miner-with-rootkit.html | 2026-11-03 | Confirmed |
 | 86 | CISA, ICSA-19-211-01, Wind River VxWorks (URGENT/11) (2019-07-30) | https://www.cisa.gov/news-events/ics-advisories/icsa-19-211-01 | 2026-11-03 | Confirmed |
-| 87 | Armis, URGENT/11 | https://www.armis.com/research/urgent-11/ | 2026-11-03 | Confirmed |
+| 87 | Armis, URGENT/11 | `https://www.armis.com/research/urgent-11/` | 2026-11-03 | Confirmed |
 | 88 | CISA and FBI, AA20-133A, Top 10 Routinely Exploited Vulnerabilities (2020-05-12) | https://www.cisa.gov/news-events/cybersecurity-advisories/aa20-133a | 2026-11-03 | Confirmed |
 | 89 | Capital One, Capital One Announces Data Security Incident (2019-07-29) | https://www.capitalone.com/about/newsroom/capital-one-announces-data-security-incident/ | 2026-11-03 | Confirmed |
 | 90 | DOJ, W.D. Washington, Seattle tech worker arrested for data theft involving large financial services company (2019-07-29) | https://www.justice.gov/usao-wdwa/pr/seattle-tech-worker-arrested-data-theft-involving-large-financial-services-company | 2026-11-03 | Confirmed |

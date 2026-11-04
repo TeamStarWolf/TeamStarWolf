@@ -1,0 +1,663 @@
+{
+  "name": "TeamStarWolf - ICS attacks 2024 to 2026 (Enterprise)",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "ATT&CK Enterprise techniques mapped to 2023 to 2026 ICS incidents by CISA advisories AA23-335A, AA24-038A, AA25-343A and AA26-097A and by ATT&CK C0041, C0063, G1017 and S9046, as bound in the ICS 2024 to 2026 case study. Scores indicate membership only.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "LSASS Memory. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1003.002",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Security Account Manager. Appears in: C0041 FrostyGoop Incident (Jan 2024); C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [72] [79] [82]."
+    },
+    {
+      "techniqueID": "T1003.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "NTDS. Appears in: G1017 Volt Typhoon in the library group data; AA24-038A describes the NTDS.dit theft; C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [6] [79] [82]."
+    },
+    {
+      "techniqueID": "T1006",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Direct Volume Access. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "System Network Configuration Discovery. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Remote Desktop Protocol. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1021.005",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "VNC. Appears in: AA25-343A pro-Russia hacktivist HMI intrusions (Oct 2023 to Apr 2025; advisory 2025-12-09). Sources: [12]."
+    },
+    {
+      "techniqueID": "T1027.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Software Packing. Appears in: S9046 IOControl (Claroty report 2024-12-10). Sources: [75]."
+    },
+    {
+      "techniqueID": "T1027.013",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Encrypted/Encoded File. Appears in: S9046 IOControl (Claroty report 2024-12-10); C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [75] [79] [82]."
+    },
+    {
+      "techniqueID": "T1033",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "System Owner/User Discovery. Appears in: S9046 IOControl (Claroty report 2024-12-10). Sources: [75]."
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Match Legitimate Resource Name or Location. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1037.004",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "RC Scripts. Appears in: S9046 IOControl (Claroty report 2024-12-10). Sources: [75]."
+    },
+    {
+      "techniqueID": "T1037.004",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "RC Scripts. Appears in: S9046 IOControl (Claroty report 2024-12-10). Sources: [75]."
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Exfiltration Over C2 Channel. Appears in: AA26-097A Iranian-affiliated PLC disruption (from Mar 2026; advisory 2026-04-07). Sources: [29]."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Network Service Discovery. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1048.003",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Exfiltration Over Unencrypted Non-C2 Protocol. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1049",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "System Network Connections Discovery. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1053",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Scheduled Task/Job. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1053",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Scheduled Task/Job. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1053",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Scheduled Task/Job. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Process Discovery. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Windows Command Shell. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1059.004",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Unix Shell. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1059.008",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Network Device CLI. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "File Deletion. Appears in: S9046 IOControl (Claroty report 2024-12-10). Sources: [75]."
+    },
+    {
+      "techniqueID": "T1070.009",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Clear Persistence. Appears in: S9046 IOControl (Claroty report 2024-12-10). Sources: [75]."
+    },
+    {
+      "techniqueID": "T1071",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Application Layer Protocol. Appears in: C0041 FrostyGoop Incident (Jan 2024). Sources: [72]."
+    },
+    {
+      "techniqueID": "T1074.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Local Data Staging. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Valid Accounts. Appears in: G1017 Volt Typhoon record (v2.0). Sources: [78]."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Valid Accounts. Appears in: G1017 Volt Typhoon record (v2.0). Sources: [78]."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Valid Accounts. Appears in: G1017 Volt Typhoon record (v2.0). Sources: [78]."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Valid Accounts. Appears in: G1017 Volt Typhoon record (v2.0). Sources: [78]."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Default Accounts. Appears in: AA23-335A Unitronics wave (Nov 2023 to Jan 2024). Sources: [1]."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Default Accounts. Appears in: AA23-335A Unitronics wave (Nov 2023 to Jan 2024). Sources: [1]."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Default Accounts. Appears in: AA23-335A Unitronics wave (Nov 2023 to Jan 2024). Sources: [1]."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Default Accounts. Appears in: AA23-335A Unitronics wave (Nov 2023 to Jan 2024). Sources: [1]."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Domain Accounts. Appears in: G1017 Volt Typhoon record (v2.0); C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [78] [79] [82]."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Domain Accounts. Appears in: G1017 Volt Typhoon record (v2.0); C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [78] [79] [82]."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Domain Accounts. Appears in: G1017 Volt Typhoon record (v2.0); C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [78] [79] [82]."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Domain Accounts. Appears in: G1017 Volt Typhoon record (v2.0); C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [78] [79] [82]."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Cloud Accounts. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Cloud Accounts. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Cloud Accounts. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Cloud Accounts. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "System Information Discovery. Appears in: S9046 IOControl (Claroty report 2024-12-10). Sources: [75]."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "File and Directory Discovery. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Proxy. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Multi-hop Proxy. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1102.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Bidirectional Communication. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Ingress Tool Transfer. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Brute Force. Appears in: AA23-335A Unitronics wave (Nov 2023 to Jan 2024). Sources: [1]."
+    },
+    {
+      "techniqueID": "T1110.002",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Password Cracking. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Password Spraying. Appears in: AA25-343A pro-Russia hacktivist HMI intrusions (Oct 2023 to Apr 2025; advisory 2025-12-09). Sources: [12]."
+    },
+    {
+      "techniqueID": "T1113",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Screen Capture. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1114.002",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Remote Email Collection. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1124",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "System Time Discovery. Appears in: S9046 IOControl (Claroty report 2024-12-10). Sources: [75]."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "External Remote Services. Appears in: G1017 Volt Typhoon record (v2.0); C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [78] [79] [82]."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "External Remote Services. Appears in: G1017 Volt Typhoon record (v2.0); C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [78] [79] [82]."
+    },
+    {
+      "techniqueID": "T1140",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Deobfuscate/Decode Files or Information. Appears in: S9046 IOControl (Claroty report 2024-12-10); C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [75] [79] [82]."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Exploit Public-Facing Application. Appears in: AA24-038A Volt Typhoon pre-positioning (advisory 2024-02-07); G1017 Volt Typhoon record (v2.0); C0041 FrostyGoop Incident (Jan 2024). Sources: [6] [72] [78]."
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Remote Access Tools. Appears in: AA26-097A Iranian-affiliated PLC disruption (from Mar 2026; advisory 2026-04-07). Sources: [29]."
+    },
+    {
+      "techniqueID": "T1484.001",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Group Policy Modification. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1484.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Group Policy Modification. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Data Destruction. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Inhibit System Recovery. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1491.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Internal Defacement. Appears in: AA23-335A Unitronics wave (Nov 2023 to Jan 2024). Sources: [1]."
+    },
+    {
+      "techniqueID": "T1495",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Firmware Corruption. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1499",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Endpoint Denial of Service. Appears in: AA23-335A Unitronics wave (Nov 2023 to Jan 2024). Sources: [1]."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Web Shell. Appears in: C0041 FrostyGoop Incident (Jan 2024). Sources: [72]."
+    },
+    {
+      "techniqueID": "T1529",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "System Shutdown/Reboot. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1530",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Data from Cloud Storage. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1531",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Account Access Removal. Appears in: AA23-335A Unitronics wave (Nov 2023 to Jan 2024). Sources: [1]."
+    },
+    {
+      "techniqueID": "T1550.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Pass the Hash. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1555",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Credentials from Password Stores. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Multi-Factor Authentication. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Multi-Factor Authentication. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Multi-Factor Authentication. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1558",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Steal or Forge Kerberos Tickets. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1560.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Archive via Utility. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1565",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Data Manipulation. Appears in: AA26-097A Iranian-affiliated PLC disruption (from Mar 2026; advisory 2026-04-07). Sources: [29]."
+    },
+    {
+      "techniqueID": "T1565.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Stored Data Manipulation. Appears in: AA23-335A Unitronics wave (Nov 2023 to Jan 2024). Sources: [1]."
+    },
+    {
+      "techniqueID": "T1567.004",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Exfiltration Over Webhook. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1570",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Lateral Tool Transfer. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1571",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Non-Standard Port. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1583.003",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Virtual Private Server. Appears in: AA25-343A pro-Russia hacktivist HMI intrusions (Oct 2023 to Apr 2025; advisory 2025-12-09). Sources: [12]."
+    },
+    {
+      "techniqueID": "T1583.006",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Web Services. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1584.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Domains. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1584.003",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Virtual Private Server. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1584.008",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Network Devices. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1587.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Malware. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1588.007",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Artificial Intelligence. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1590.006",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Network Security Appliances. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1591",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Gather Victim Org Information. Appears in: AA25-343A pro-Russia hacktivist HMI intrusions (Oct 2023 to Apr 2025; advisory 2025-12-09). Sources: [12]."
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Vulnerability Scanning. Appears in: AA25-343A pro-Russia hacktivist HMI intrusions (Oct 2023 to Apr 2025; advisory 2025-12-09). Sources: [12]."
+    },
+    {
+      "techniqueID": "T1602.002",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Network Device Configuration Dump. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1608.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Upload Tool. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1686.002",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Network Device Firewall. Appears in: C0063 Poland Wiper Attacks, Enterprise rows in the library campaign data. Sources: [79] [82]."
+    },
+    {
+      "techniqueID": "T1689",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Downgrade Attack. Appears in: C0041 FrostyGoop Incident (Jan 2024). Sources: [72]."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: in the verified record of the ICS 2024 to 2026 case study (membership, not severity)",
+      "color": "#15803d"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md; ATT&CK v20.0 pages C0041, C0063, G1017, S9046; CISA AA23-335A, AA24-038A, AA25-343A and AA26-097A; library data/attack/campaign_profiles.jsonl and group_profiles.jsonl"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "79"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "98"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 means a source cited in the case study (a government advisory, or an ATT&CK campaign, group or software page) maps the technique to a 2023 to 2026 ICS event; no severity, prevalence, or coverage is measured."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics it has in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every tactic applies to the procedure."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "Industrial Control System Attacks and Advisories, 2024 to 2026",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

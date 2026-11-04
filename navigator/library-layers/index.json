@@ -72,6 +72,12 @@
     "blurb": "The Enterprise techniques behind the Hugging Face case study: malicious models, loader exploits, exposed tokens and the July 2026 pipeline intrusion. Score 100 marks a MITRE-published link, 50 the study's labelled inference."
   },
   {
+    "file": "ics-attacks-2024-2026-enterprise.json",
+    "name": "TeamStarWolf - ICS attacks 2024 to 2026 (Enterprise)",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified record of the ICS 2024 to 2026 case study supports: CISA advisories AA23-335A, AA24-038A, AA25-343A and AA26-097A, and ATT&CK v20.0 pages C0041, C0063, G1017 and S9046 (C0063 rows from data/attack/campaign_profiles.jsonl). Each comment names source numbers from case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md. Score 100 means membership only.",
+    "blurb": "The IT-side techniques behind 2024 to 2026 ICS incidents: default accounts on exposed PLCs, edge-appliance exploitation and credential theft, the Poland wiper intrusion chain and the IOControl implant. A curated layer for the ICS 2024 to 2026 case study."
+  },
+  {
     "file": "stuxnet-s0603.json",
     "name": "TeamStarWolf - Stuxnet (S0603) Enterprise",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise techniques that ATT&CK v20.0 lists for Stuxnet (S0603), each with a comment naming source numbers from case-studies/STUXNET.md; every row cites the Symantec W32.Stuxnet Dossier v1.4. Each selected technique is shown under all its tactics. Scores indicate membership only.",

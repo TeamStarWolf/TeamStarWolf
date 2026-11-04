@@ -65,11 +65,15 @@ Datasets under `data/engage/`.
 
 ## MITRE ATLAS™
 
-Datasets under `data/ai/`, the ATLAS pages under `mitre/atlas/`, the layers under
-`navigator/ai/` and the tables in `ATLAS_REFERENCE.md`, built by `scripts/build_atlas.py`
+Datasets under `data/ai/`, the ATLAS pages under `mitre/atlas/`, the layers
+`navigator/ai/atlas-matrix.json` and `navigator/ai/atlas-case-study-frequency.json`
+and the tables in `ATLAS_REFERENCE.md`, built by `scripts/build_atlas.py`
 from ATLAS 2026.10 (`dist/v6/ATLAS-2026.10.yaml` in mitre-atlas/atlas-data at commit
 f56c1468731d6428e5bf875263b4643b46d67437). The atlas-data repository is licensed
-under the Apache License, Version 2.0.
+under the Apache License, Version 2.0. The layer
+`navigator/ai/hugging-face-supply-chain-atlas.json` is a library-authored layer
+that uses ATLAS 2026.10 technique ids and names; it is not built by
+`scripts/build_atlas.py` and is still covered by this notice.
 
 > © The MITRE Corporation. Includes material from MITRE ATLAS™ (Adversarial
 > Threat Landscape for Artificial-Intelligence Systems). https://atlas.mitre.org/
@@ -98,6 +102,18 @@ and `data/vendor_to_control.jsonl`.
 > Produced by the U.S. National Institute of Standards and Technology. As a work
 > of the U.S. Government, it is in the public domain (17 U.S.C. § 105).
 > https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final
+
+## endoflife.date
+
+The release, support and end-of-life dates in `data/os/os-catalog.jsonl` (rendered on
+the pages under `operating-systems/`) come from the public
+[endoflife.date](https://endoflife.date/) API (one JSON file per product, for example
+`https://endoflife.date/api/debian.json`).
+Each catalog row records the product, the release cycle and the date the API was read;
+`scripts/build_os_pages.py --refresh-eol` reads it again.
+
+> Copyright 2020 endoflife.date contributors. Licensed under the MIT License.
+> https://github.com/endoflife-date/endoflife.date/blob/master/LICENSE
 
 ## Related pages
 

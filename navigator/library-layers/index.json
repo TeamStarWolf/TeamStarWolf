@@ -36,6 +36,12 @@
     "blurb": "Follows common ransomware intrusion themes through access, credential theft, movement, exfiltration, encryption, and recovery inhibition. A curated view of behaviors, without attribution to a particular group or claims about incident frequency."
   },
   {
+    "file": "solarwinds-sunburst-2019-2021.json",
+    "name": "TeamStarWolf - SolarWinds and SUNBURST 2019-2021",
+    "description": "Techniques in the SolarWinds and SUNBURST intrusion (2019 to 2021), not an official MITRE mapping. Sources: the ATT&CK SolarWinds Compromise campaign (C0024) and software S0559, S0560, S0562, S0565 as published in ATT&CK v20, plus techniques mapped only by the Mandiant, CrowdStrike, Microsoft and CISA reports. Tactics are taken from data/attack/technique_profiles.jsonl. Scores indicate membership only. Each comment names source numbers from the Sources table of case-studies/SOLARWINDS_SUNBURST.md.",
+    "blurb": "Techniques from the SolarWinds and SUNBURST record, from the SUNSPOT build implant and the signed Orion backdoor to the Cobalt Strike loaders and the Golden SAML cloud follow-on. A curated layer for the SolarWinds case study."
+  },
+  {
     "file": "container-k8s.json",
     "name": "TeamStarWolf - Container and Kubernetes Attacks",
     "description": "Curated practitioner view of container and Kubernetes attack behaviors, not an official MITRE mapping. Sources: the ATT&CK Containers Matrix table in CONTAINER_SECURITY_REFERENCE.md, the shell-execution detection example in KUBERNETES_SECURITY_REFERENCE.md, and data/attack/technique_profiles.jsonl. Selects only explicit technique references from those sources; this is not exhaustive Kubernetes coverage. Scores indicate membership only.",
@@ -46,6 +52,24 @@
     "name": "TeamStarWolf - OWASP Top 10 (2021)",
     "description": "Curated practitioner view of the OWASP Top 10 (2021) themes used in SECURE_CODING_REFERENCE.md, not an official OWASP or MITRE mapping. The 2021 edition is intentional and is not a claim to represent the latest Top 10. Sources: that reference's A01-A10 sections and data/attack/technique_profiles.jsonl. Associations describe possible attacker behavior or defensive context, not equivalence between a weakness category and an ATT&CK technique. Scores indicate membership only.",
     "blurb": "Connects the library's OWASP Top 10 (2021) themes with relevant attacker behaviors. These curated associations are not an official OWASP or MITRE crosswalk."
+  },
+  {
+    "file": "log4shell-cve-2021-44228.json",
+    "name": "TeamStarWolf - Log4Shell (CVE-2021-44228) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified Log4Shell record supports: ATT&CK procedures and campaigns C0017 and C0018, CISA advisories AA22-174A and AA22-320A, Cisco Talos, CrowdStrike, Check Point, and ATT&CK v20.0 STIX relationships citing the CrowdStrike and Check Point Log4j reports. Ids reported under earlier ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/LOG4SHELL.md. Scores: 100 ties the technique to Log4j exploitation itself, 75 is post-exploitation behavior in a Log4j-initiated intrusion, 40 is an Inferred mapping no opened source cites.",
+    "blurb": "Techniques from the Log4Shell record, from exploitation and scanning to the post-exploitation behavior of APT41, Aquatic Panda, Magic Hound and AvosLocker intrusions. A curated layer for the Log4Shell case study."
+  },
+  {
+    "file": "npm-supply-chain-attacks.json",
+    "name": "TeamStarWolf - npm Supply-Chain Attacks, 2018 to 2026",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified npm supply-chain record supports: ATT&CK v20.0 procedures and software mappings for S9008 Shai-Hulud, S9043 Mini Shai-Hulud, S9042 CanisterWorm, S9041 TeamPCP Cloud Stealer, S9034 Tsundere Botnet, S1246 BeaverTail, G1056 TeamPCP, G0082 APT38 and G1052 Contagious Interview, and the maintainer, vendor and GitHub reports the study cites. Each comment names source numbers from case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md. Scores: 100 is an ATT&CK-published link to an npm worm, loader or group in the record, 50 is the study's own mapping, labelled Inferred.",
+    "blurb": "Techniques from eight years of npm supply-chain attacks, from hijacked maintainer accounts and poisoned release workflows to install-time payloads, token theft and exfiltration to code repositories. A curated layer for the npm supply-chain case study."
+  },
+  {
+    "file": "hugging-face-supply-chain-enterprise.json",
+    "name": "TeamStarWolf - Hugging Face AI Supply Chain (Enterprise)",
+    "description": "Enterprise ATT&CK v20.0 techniques bound in the Hugging Face case study. Score 100: an ATLAS-published ATT&CK reference on a technique ATLAS maps in a Hugging Face case study, or an ATT&CK procedure that names Hugging Face (S9035). Score 50: the study's own inference, labelled Inferred in its comment. Comments carry the study's source numbers.",
+    "blurb": "The Enterprise techniques behind the Hugging Face case study: malicious models, loader exploits, exposed tokens and the July 2026 pipeline intrusion. Score 100 marks a MITRE-published link, 50 the study's labelled inference."
   },
   {
     "file": "stuxnet-s0603.json",

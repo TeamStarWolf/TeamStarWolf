@@ -10,7 +10,7 @@
     "A hub's 'home' links are the three shown on its card under 'Browse by domain' in HOME.md;",
     "each must be one of the hub's references or 'see_also' pages. A hub's 'pages' are the platform",
     "and developer reference pages that go with it (platforms/, languages/, paradigms/, frameworks/,",
-    "commands/, formats/, databases/ and ai-tooling/); every hub lists at least one."
+    "commands/, formats/, databases/, operating-systems/ and ai-tooling/); every hub lists at least one."
   ],
   "library_header": [
     ["Home", "/"],
@@ -114,7 +114,8 @@
     {"folder": "commands", "label": "Command reference", "landing": "commands/README.md"},
     {"folder": "formats", "label": "Data formats", "landing": "formats/README.md"},
     {"folder": "databases", "label": "Databases", "landing": "databases/README.md"},
-    {"folder": "platforms", "label": "Security platforms", "landing": "platforms/README.md"}
+    {"folder": "platforms", "label": "Security platforms", "landing": "platforms/README.md"},
+    {"folder": "operating-systems", "label": "Operating systems", "landing": "operating-systems/README.md"}
   ],
   "crumb_parents": {
     "guides/": ["How-to guides", "/guides/README.md"],
@@ -134,7 +135,8 @@
     "commands/": ["Command reference", "/commands/README.md"],
     "formats/": ["Data formats", "/formats/README.md"],
     "databases/": ["Databases", "/databases/README.md"],
-    "platforms/": ["Security platforms", "/platforms/README.md"]
+    "platforms/": ["Security platforms", "/platforms/README.md"],
+    "operating-systems/": ["Operating systems", "/operating-systems/README.md"]
   },
   "not_in_nav": {
     "README.md": "The GitHub front door. On the site, HOME.md is the homepage at '/' and covers the same ground."
@@ -211,7 +213,8 @@
       "see_also": [
         ["ATT&CK threat groups", "/mitre/groups/README.md"],
         ["ATT&CK software", "/mitre/software/README.md"],
-        ["ATT&CK campaigns", "/mitre/campaigns/README.md"]
+        ["ATT&CK campaigns", "/mitre/campaigns/README.md"],
+        ["SolarWinds and SUNBURST: a 2019 to 2021 case study", "/case-studies/SOLARWINDS_SUNBURST.md"]
       ]
     },
     {
@@ -286,7 +289,7 @@
       ],
       "paths": ["mobile-security", "security-architecture"],
       "guides": ["HARDEN_A_WINDOWS_BASELINE", "HARDEN_A_LINUX_HOST", "HARDEN_A_MACOS_FLEET"],
-      "pages": ["/commands/linux-commands.md", "/commands/systemctl.md", "/commands/macos-commands.md", "/commands/powershell-commands.md", "/commands/windows-cmd.md", "/platforms/tanium.md", "/platforms/microsoft-defender.md"],
+      "pages": ["/operating-systems/README.md", "/commands/linux-commands.md", "/commands/systemctl.md", "/commands/macos-commands.md", "/commands/powershell-commands.md", "/commands/windows-cmd.md", "/platforms/tanium.md", "/platforms/microsoft-defender.md"],
       "see_also": [
         ["Endpoint security", "/ENDPOINT_SECURITY_REFERENCE.md"],
         ["Active Directory security", "/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md"]
@@ -308,7 +311,10 @@
       "pages": ["/languages/README.md", "/paradigms/README.md", "/frameworks/README.md", "/formats/README.md", "/databases/README.md", "/commands/git.md", "/platforms/snyk.md", "/platforms/invicti.md", "/platforms/chainguard.md"],
       "see_also": [
         ["Web application pentesting", "/WEB_APPLICATION_PENTESTING.md"],
-        ["CAPEC attack patterns", "/mitre/capec/README.md"]
+        ["CAPEC attack patterns", "/mitre/capec/README.md"],
+        ["Log4Shell: a case study", "/case-studies/LOG4SHELL.md"],
+        ["npm supply-chain attacks: a case study", "/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md"],
+        ["Hugging Face supply chain: a case study", "/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md"]
       ]
     },
     {
@@ -349,7 +355,8 @@
       "see_also": [
         ["AI tooling", "/ai-tooling/README.md"],
         ["ATLAS pages", "/mitre/atlas/README.md"],
-        ["AI threats: a 2026 case study", "/case-studies/AI_THREATS_2026.md"]
+        ["AI threats: a 2026 case study", "/case-studies/AI_THREATS_2026.md"],
+        ["Hugging Face supply chain: a case study", "/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md"]
       ]
     },
     {

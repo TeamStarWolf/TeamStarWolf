@@ -11,7 +11,7 @@ Part of [Operating systems](/operating-systems/README.md) (BSD family). Support 
 | Version | Codename | Released | Latest release | Full support ends | Security support ends | Extended support ends | Status on the fetch date |
 |---|---|---|---|---|---|---|---|
 | 11 | None | 2026-07-30 | 11.1 | Not published | Not published | Not published | No date published |
-| 10 | None | 2024-03-28 | 10.2 | 2026-07-30 | Not published | Not published | No date published |
+| 10 | None | 2024-03-28 | 10.2 | 2026-07-30 | Not published | Not published | Security support only (no end date published) |
 
 Full support is the vendor's regular maintenance; security support is the end of security fixes from the vendor (endoflife.date's `eol` field); extended support is paid or third-party coverage after that (`extendedSupport`).
 

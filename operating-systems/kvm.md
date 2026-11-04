@@ -42,7 +42,7 @@ KVM is part of the host kernel, and QEMU and libvirt are ordinary packages, so t
 | `kvm-ok` | Whether the CPU supports the virtualisation extensions KVM needs (Ubuntu; from the cpu-checker package) |
 | `virsh version` | libvirt, the hypervisor, and their versions (virsh is libvirt's command line) |
 
-From Ubuntu Server's libvirt documentation; Red Hat's virtualisation guides refused automated requests (HTTP 403) when this page was built.
+From Ubuntu Server's libvirt documentation (kvm-ok) and the libvirt virsh manual (virsh version); Red Hat's virtualisation guides refused automated requests (HTTP 403) when this page was built.
 
 ## Hardening
 
@@ -61,6 +61,7 @@ Free and open source; KVM is part of the Linux kernel (GPL-2.0), and QEMU and li
 Vendor and project pages read for this page (2026-11-04):
 
 - [Ubuntu Server: libvirt](https://documentation.ubuntu.com/server/how-to/virtualisation/libvirt/)
+- [virsh(1) manual (libvirt)](https://www.libvirt.org/manpages/virsh.html)
 - [endoflife.date API (RHEL)](https://endoflife.date/api/rhel.json)
 - [endoflife.date API (Ubuntu)](https://endoflife.date/api/ubuntu.json)
 

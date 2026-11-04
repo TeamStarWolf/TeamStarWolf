@@ -300,7 +300,11 @@ def status(e: dict, model: str) -> str:
     ext = e["extended_end"]
     act = e["support_end"]
     if sec is None:
-        return "Vendor statement (see note)" if e["source"] == "vendor" else "No date published"
+        if e["source"] == "vendor":
+            return "Vendor statement (see note)"
+        if act is not None and act <= day:
+            return "Security support only (no end date published)"
+        return "No date published"
     if day < sec:
         if act is not None and act <= day:
             return "Security support only"
@@ -744,6 +748,16 @@ def self_test() -> int:
     e.update({"extended_end": None})
     expect("status: ended", status(e, "point") == "Ended")
     expect("status: rolling", status(dict(good["eol"], source="rolling"), "rolling") == "Rolling release")
+    e = dict(good["eol"], security_end=None, extended_end=None)
+    expect("status: full support ended, no security end published",
+           status(e, "point") == "Security support only (no end date published)")
+    e.update({"support_end": "2026-01-10"})
+    expect("status: full support ends on the fetch day, no security end published",
+           status(e, "point") == "Security support only (no end date published)")
+    e.update({"support_end": "2026-06-01"})
+    expect("status: full support running, no security end published", status(e, "point") == "No date published")
+    e.update({"support_end": None})
+    expect("status: no dates published", status(e, "point") == "No date published")
 
     pages = build([good, two])
     expect("one page per system plus the index", sorted(pages) == sorted([OUT + "/acme.md", INDEX]))

@@ -11,7 +11,7 @@ Part of [Operating systems](/operating-systems/README.md) (Mobile operating syst
 | Version | Codename | Released | Latest release | Full support ends | Security support ends | Extended support ends | Status on the fetch date |
 |---|---|---|---|---|---|---|---|
 | 27 | None | 2026-09-14 | 27.2 | Not published | Not published | Not published | No date published |
-| 26 | None | 2025-09-15 | 26.7.2 | 2026-09-14 | Not published | Not published | No date published |
+| 26 | None | 2025-09-15 | 26.7.2 | 2026-09-14 | Not published | Not published | Security support only (no end date published) |
 
 Full support is the vendor's regular maintenance; security support is the end of security fixes from the vendor (endoflife.date's `eol` field); extended support is paid or third-party coverage after that (`extendedSupport`).
 

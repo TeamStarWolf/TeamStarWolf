@@ -1,6 +1,6 @@
 # MITRE Fight Fraud Framework (F3) Reference
 
-> The [MITRE Fight Fraud Framework™ (F3)](https://ctid.mitre.org/fraud) is a behavior-based model of cyber-enabled financial fraud, the ATT&CK-style counterpart for fraud actor tradecraft. This reference covers all 123 techniques (74 techniques + 49 sub-techniques) across F3's 8 tactics (v1.1).
+> The [MITRE Fight Fraud Framework™ (F3)](https://ctid.mitre.org/fraud) is a behavior-based model of cyber-enabled financial fraud, the ATT&CK-style counterpart for fraud actor tradecraft. This reference covers the 123 techniques (74 techniques + 49 sub-techniques) across the 8 tactics of F3 v1.1. The current upstream release, F3 v1.2 in the [CTID repository](https://github.com/center-for-threat-informed-defense/fight-fraud-framework), has 138 techniques (83 + 55) across the same 8 tactics; this page and the library's F3 data files follow v1.1.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Length</th><td>
 
-Lookup page: 7,522 words, 86% in tables; look entries up from Start at or the search (about 33 min end to end at 230 words a minute)
+Lookup page: 7,557 words, 86% in tables; look entries up from Start at or the search (about 33 min end to end at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -58,7 +58,7 @@ F3 was developed by the MITRE [Center for Threat-Informed Defense](https://ctid.
 | Tactics | 8: including the fraud-specific *Stealth*, *Defense Impairment*, *Positioning*, and *Monetization* |
 | Techniques | 123 (74 parent, 49 sub-techniques) |
 | Shared with ATT&CK | 43 techniques reuse ATT&CK `T####` IDs where fraud actors use standard cyber TTPs |
-| Version | v1.1 |
+| Version | v1.1 (upstream current: v1.2) |
 | Navigator layer | [`navigator/fraud/f3-matrix.json`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/fraud/f3-matrix.json) |
 | Datasets | [`data/fraud/f3_techniques.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/fraud/f3_techniques.jsonl), [`data/fraud/f3_tactics.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/fraud/f3_tactics.jsonl) |
 

@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 24 min (5,622 words at 230 words a minute)
+About 25 min (5,663 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -82,14 +82,9 @@ No review recorded yet
 
 ### 1.1 NIST SP 800-61 Incident Response Lifecycle
 
-The NIST Computer Security Incident Handling Guide (SP 800-61 Revision 2) defines the authoritative lifecycle for federal and private-sector incident response as four phases: Preparation; Detection & Analysis; Containment, Eradication & Recovery; and Post-Incident Activity. The popular six-step PICERL sequence (Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned) is the SANS model, not NIST's, and is covered separately in §1.2. Each phase has distinct objectives and deliverables.
+NIST's current incident response guidance is [SP 800-61 Revision 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final), *Incident Response Recommendations and Considerations for Cybersecurity Risk Management: A CSF 2.0 Community Profile*, published in April 2025. It builds incident response into the cybersecurity risk management activities of the NIST Cybersecurity Framework (CSF) 2.0 and frames it with the CSF 2.0 Functions (Govern, Identify, Protect, Detect, Respond, Recover), so incident response is a continuous risk-management activity rather than a separate linear sequence. Rev. 3 superseded [SP 800-61 Revision 2](https://csrc.nist.gov/pubs/sp/800/61/r2/final), the *Computer Security Incident Handling Guide* (August 2012), which NIST withdrew on April 3, 2025.
 
-> Revision note: NIST SP 800-61 Revision 3 (April 2025) supersedes Revision 2. Rev 3
-> retires the fixed four-phase lifecycle and instead reframes incident response around the NIST
-> Cybersecurity Framework (CSF) 2.0 Functions (Govern, Identify, Protect, Detect, Respond,
-> Recover), treating IR as a continuous risk-management activity rather than a linear sequence.
-> The four-phase model below remains a useful mental model and is retained for that reason, but
-> Rev 3 is the current authoritative guidance.
+The four phases below are the Rev. 2 lifecycle that Rev. 3 replaced: Preparation; Detection & Analysis; Containment, Eradication & Recovery; and Post-Incident Activity. It remains a useful mental model for organizing playbooks, so the library keeps it; when you align a plan with Rev. 3, map each phase to the CSF 2.0 Functions. The popular six-step PICERL sequence (Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned) is the SANS model, not NIST's, and is covered separately in §1.2. Each phase has distinct objectives and deliverables.
 
 Phase 1: Preparation
 Preparation is the most investment-heavy phase and the primary determinant of IR effectiveness. Key activities include:
@@ -401,7 +396,7 @@ Digital Evidence Handling:
 ### 2.6 IR Ticketing Platforms
 
 TheHive
-- SIRP (Security Incident Response Platform): NOTE: TheHive 5 is now a commercial StrangeBee product; the open-source v4 (AGPLv3) is archived/unmaintained since 2023. For a maintained open-source alternative see DFIR-IRIS (github.com/dfir-iris/iris-web)
+- SIRP (Security Incident Response Platform): NOTE: TheHive 5 is now a commercial StrangeBee product; the open-source TheHive repository (AGPLv3) is archived on GitHub. For a maintained open-source alternative see DFIR-IRIS (github.com/dfir-iris/iris-web)
 - Integrates with MISP for IOC sharing and Cortex for automated enrichment
 - Case templates for incident types; task management within cases
 - Observable tracking: IP, domain, hash, email, URL with automatic enrichment

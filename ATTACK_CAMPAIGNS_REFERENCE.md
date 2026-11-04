@@ -62,7 +62,6 @@ Machine-readable: [`data/attack/campaigns.jsonl`](https://github.com/TeamStarWol
 
 | Campaign | First seen | Last seen | Techniques | Attributed to |
 |---|---|---|--:|---|
-| [C0059 Salesforce Data Exfiltration](#c0059-salesforce-data-exfiltration) | 2004-10 | 2025-09 | 18 | Unattributed |
 | [C0002 Night Dragon](#c0002-night-dragon) | 2009-11 | 2011-02 | 29 | Unattributed |
 | [C0016 Operation Dust Storm](#c0016-operation-dust-storm) | 2010-01 | 2016-02 | 17 | Unattributed |
 | [C0023 Operation Ghost](#c0023-operation-ghost) | 2013-09 | 2019-10 | 8 | APT29 |
@@ -113,6 +112,7 @@ Machine-readable: [`data/attack/campaigns.jsonl`](https://github.com/TeamStarWol
 | [C0048 Operation MidnightEclipse](#c0048-operation-midnighteclipse) | 2024-03 | 2024-04 | 17 | Unattributed |
 | [C0039 Versa Director Zero Day Exploitation](#c0039-versa-director-zero-day-exploitation) | 2024-06 | 2024-08 | 8 | Volt Typhoon |
 | [C0056 RedPenguin](#c0056-redpenguin) | 2024-07 | 2025-03 | 26 | UNC3886 |
+| [C0059 Salesforce Data Exfiltration](#c0059-salesforce-data-exfiltration) | 2024-10 | 2025-09 | 18 | Unattributed |
 | [C0058 SharePoint ToolShell Exploitation](#c0058-sharepoint-toolshell-exploitation) | 2025-07 | 2025-07 | 35 | Unattributed |
 
 ---
@@ -733,7 +733,7 @@ Techniques: [T1003.001](https://attack.mitre.org/techniques/T1003/001) LSASS Mem
 ### C0059: Salesforce Data Exfiltration
 <a id="c0059"></a>
 
-Active: 2004-10-01 -> 2025-09-01, ATT&CK: [C0059](https://attack.mitre.org/campaigns/C0059), 18 techniques, 1 software  
+Active: 2024-10-01 -> 2025-09-01, ATT&CK: [C0059](https://attack.mitre.org/campaigns/C0059), 18 techniques, 1 software  
 Attributed to: unattributed  
 
 The Salesforce Data Exfiltration campaign began in October 2024 with financially-motivated threat actor UNC6040 using Spearphishing Voice (vishing) to compromise corporate Salesforce instances for large-scale data theft and extortion. Following the initial data theft, victim organizations received extortion demands from a separate threat actor, UNC6240, who claimed to be the “ShinyHunters” group.

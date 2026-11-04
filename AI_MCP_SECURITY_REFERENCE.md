@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 48 min (11,086 words at 230 words a minute)
+About 49 min (11,168 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -166,13 +166,13 @@ A reverse-direction primitive where an MCP server can request the Host to perfor
 
 ### Transport Mechanisms
 
-MCP supports three transport mechanisms:
+The current specification (protocol version 2026-07-28) defines two standard transports, stdio and Streamable HTTP, and sets the requirements for any custom transport:
 
 | Transport | Use Case | Security Notes |
 |-----------|----------|---------------|
 | stdio | Local servers launched as child processes. Messages sent over stdin/stdout as newline-delimited JSON-RPC. | Lowest attack surface; server runs with same user permissions. No network exposure. |
-| HTTP + SSE (Server-Sent Events) | Remote servers over HTTP. Client sends JSON-RPC via HTTP POST; server sends responses via SSE stream. | Requires authentication (OAuth 2.0). Vulnerable to DNS rebinding if localhost. TLS required for remote. |
-| WebSocket | Bidirectional streaming for real-time servers. | Same as HTTP+SSE; requires TLS (wss://) for remote use. |
+| Streamable HTTP | Remote servers over HTTP. Client sends JSON-RPC via HTTP POST; the server answers with a JSON response or a Server-Sent Events (SSE) stream. It replaces the HTTP+SSE transport of protocol version 2024-11-05. | Protected servers use the spec's OAuth 2.1 authorization. Vulnerable to DNS rebinding if bound to localhost. TLS required for remote. |
+| Custom (for example WebSocket) | Not a standard binding; client and server must both implement it. | Apply the same authentication and TLS (wss://) rules as Streamable HTTP. |
 
 stdio example invocation (Claude Desktop config):
 ```json
@@ -420,9 +420,9 @@ Mitigations: Bind to `127.0.0.1` (not `0.0.0.0`), check `Host` header, use authe
 
 ### Threat 8: Authentication Gaps
 
-Current MCP authentication landscape (as of 2025):
+MCP authentication landscape (specification 2026-07-28):
 - stdio transport: No authentication (process-level trust).
-- HTTP+SSE: OAuth 2.0 + PKCE defined in spec but not universally implemented.
+- Streamable HTTP: the [authorization spec](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization) builds on OAuth 2.1 (which requires PKCE), but servers do not universally implement it.
 - Many community MCP servers have no authentication at all.
 
 Attack scenarios:
@@ -725,7 +725,7 @@ server {
 
 ### Principle 12: OAuth 2.0 + PKCE
 
-Remote MCP servers should implement OAuth 2.0 with PKCE (Proof Key for Code Exchange) for user authentication.
+Remote MCP servers should implement the MCP authorization spec, which builds on OAuth 2.1 with PKCE (Proof Key for Code Exchange), for user authentication.
 
 OAuth 2.0 + PKCE flow for MCP:
 1. MCP host generates a random `code_verifier` and derives `code_challenge = SHA256(code_verifier)`.
@@ -1179,7 +1179,7 @@ Incident Response Playbook:
 - Document data lineage to identify poisoning entry point.
 
 5. EU AI Act Notification:
-The EU AI Act (effective August 2024, high-risk AI obligations applying from August 2026) requires:
+The EU AI Act (in force since August 1, 2024; high-risk obligations apply from December 2, 2027 for Annex III systems and from August 2, 2028 for Annex I products, after the deferral in Regulation (EU) 2026/1744) requires:
 - Notifying the national supervisory authority for serious incidents involving high-risk AI systems.
 - Documenting incidents in the technical documentation required under Article 11.
 - Notifying the European AI Office for general-purpose AI model incidents.
@@ -1507,9 +1507,9 @@ The AI RMF identifies seven trustworthy characteristics for AI systems:
 
 ---
 
-### NIST AI 100-1 Generative AI Profile
+### NIST AI 600-1 Generative AI Profile
 
-NIST AI 100-1 ("Artificial Intelligence Risk Management Framework: Generative AI Profile"), published in 2024, extends the AI RMF specifically to generative AI systems.
+[NIST AI 600-1](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence) ("Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile"), published July 26, 2024, extends the AI RMF (NIST AI 100-1) specifically to generative AI systems.
 
 Unique risks identified for generative AI:
 1. CBRN information: Risk of providing uplift for chemical, biological, radiological, nuclear weapons development.
@@ -1597,7 +1597,6 @@ New provisions for large foundation models (Articles 51-55):
 | August 2, 2026 | Transparency obligations (Article 50) apply. High-risk obligations were originally due on this date but were deferred by the Digital Omnibus on AI (Regulation (EU) 2026/1744, in force 27 July 2026): see below |
 | December 2, 2027 | High-risk AI obligations for stand-alone Annex III systems apply (deferred from 2 August 2026 by Regulation (EU) 2026/1744) |
 | August 2, 2028 | High-risk AI obligations for Annex I products with embedded AI apply (deferred by Regulation (EU) 2026/1744) |
-| August 2, 2027 | Some biometric systems provisions |
 
 ---
 
@@ -1605,7 +1604,7 @@ New provisions for large foundation models (Articles 51-55):
 
 - Up to EUR 35 million or 7% of global annual turnover for prohibited practice violations.
 - Up to EUR 15 million or 3% for high-risk system violations.
-- Up to EUR 7.5 million or 1.5% for providing incorrect information.
+- Up to EUR 7.5 million or 1% for providing incorrect information.
 
 ---
 

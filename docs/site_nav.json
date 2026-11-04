@@ -374,7 +374,8 @@
       "guides": [],
       "pages": ["/platforms/dragos.md", "/platforms/claroty.md", "/languages/assembly-arm.md", "/languages/verilog.md", "/languages/vhdl.md", "/languages/systemverilog.md"],
       "see_also": [
-        ["SDR and RF security", "/SDR_RF_SECURITY_REFERENCE.md"]
+        ["SDR and RF security", "/SDR_RF_SECURITY_REFERENCE.md"],
+        ["ICS attacks and advisories, 2024 to 2026: a case study", "/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md"]
       ]
     },
     {

@@ -566,7 +566,7 @@ Scores in both layers mean only that ATT&CK lists the technique on S0603, not se
 | 60 | DHS, MAR-17-352-01 "HatMan: Safety System Targeted Malware (Update B)" (27 February 2019) | https://www.cisa.gov/sites/default/files/documents/MAR-17-352-01%20HatMan%20-%20Safety%20System%20Targeted%20Malware%20%28Update%20B%29.pdf | 3 Nov 2026 | Confirmed |
 | 61 | TeamStarWolf library data and pages on main: `data/attack/software_to_technique.jsonl`, `data/attack/technique_profiles.jsonl`, `data/attack/ics/technique_profiles.jsonl`, `data/attack/ics/software.jsonl`, `data/attack/superseded_by.jsonl`, `data/attack/technique_releases.jsonl`, `data/attack/technique_to_d3fend.jsonl`, `data/weaknesses/capec.jsonl`, `data/weaknesses/cwe.jsonl`, `data/ai/atlas_techniques.jsonl`, the `mitre/` tree, `MALWARE_FAMILIES.md`, `NOTABLE_INCIDENTS.md`, `ICS_OT_SECURITY_REFERENCE.md` | https://github.com/TeamStarWolf/TeamStarWolf | 3 Nov 2026 | Confirmed |
 
-Not opened, cited only as ATT&CK cites them: Ralph Langner, "To Kill a Centrifuge" (November 2013); the New York Times originals relayed by [42] and [44]; the Tallinn Manual relayed by [51]; Chronicle's own Stuxshop report relayed by [50].
+Not opened: Ralph Langner, "To Kill a Centrifuge" (November 2013), cited only as ATT&CK cites it; the New York Times originals, cited only as relayed by [42] and [44]; the Tallinn Manual, relayed by [51]; Chronicle's own Stuxshop report, relayed by [50].
 
 ## Related references
 

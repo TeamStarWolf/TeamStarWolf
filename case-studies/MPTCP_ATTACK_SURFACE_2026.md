@@ -191,7 +191,7 @@ The exposure of a host is the row it lands on:
 
 ### How to check whether a host uses Multipath TCP
 
-The three questions above come down to four read-only commands. The screenshot was captured on a lab host running Kali 2026.2 with kernel 7.1.5 on 3 November 2026, and is a rendering of the commands' real output with a neutral `lab$` prompt.
+Four read-only commands cover the three questions above, except for the force-enable checks in Question 3 (the `mptcpize` search and the `bpftool` listing), which still apply on top of them. The screenshot was captured on a lab host running Kali 2026.2 with kernel 7.1.5 on 3 November 2026, and is a rendering of the commands' real output with a neutral prompt, with the `nstat` listing shortened to its first six counters and a summary line for the rest.
 
 ```bash
 cat /proc/sys/net/mptcp/enabled
@@ -202,9 +202,9 @@ nstat -az | grep -i mptcp
 
 On your own host, put the name `uname -r` prints in place of `7.1.5+kali-amd64` in the second command, or write the path as `/boot/config-"$(uname -r)"`.
 
-![Terminal output on the lab host: /proc/sys/net/mptcp/enabled prints 1, the kernel config shows CONFIG_MPTCP=y, CONFIG_INET_MPTCP_DIAG=m and CONFIG_MPTCP_IPV6=y, ss -Mlan prints only its header row, and nstat lists the MPTcpExt counters, every one of them 0](assets/check-2-mptcp.png)
+![Terminal output on the lab host: /proc/sys/net/mptcp/enabled prints 1, the kernel config shows CONFIG_MPTCP=y, CONFIG_INET_MPTCP_DIAG=m and CONFIG_MPTCP_IPV6=y, ss -Mlan prints only its header row, and nstat lists the first six MPTcpExt counters at 0, followed by a summary line that all 76 counters are 0, meaning no Multipath TCP traffic since boot](assets/check-2-mptcp.png)
 
-Reading the lab output against the table above: `CONFIG_MPTCP=y` answers Question 1 (compiled in), the `1` answers Question 2 (enabled), and the empty `ss -Mlan` list (only the header row) with every MPTcpExt counter at 0 answers Question 3 (not in use since boot). The host sits on the "Yes, Yes, No" row: removable surface, to be disabled after confirming non-use.
+Reading the lab output against the table above: `CONFIG_MPTCP=y` answers Question 1 (compiled in), the `1` answers Question 2 (enabled), and the empty `ss -Mlan` list (only the header row) with every MPTcpExt counter at 0 answers the socket part of Question 3 (no MPTCP sockets now, and no MPTCP traffic since boot). The force-enable checks from Question 3 were not part of the lab capture, so the host sits on the "Yes, Yes, No" row only provisionally: it becomes removable surface, to be disabled, once those checks also come back empty.
 
 - **What in use looks like:** a LISTEN row in `ss -Mlan`, or nonzero MPTcpExt counters, which show MPTCP traffic has been seen since boot. A host with either is on the last row of the table and should not have MPTCP switched off without checking what depends on it.
 - **What reduced looks like:** `0` from `/proc/sys/net/mptcp/enabled` after the change in Part 4, and still no MPTCP sockets.

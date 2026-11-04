@@ -1,6 +1,6 @@
 # Conference Talks, Slides & Papers
 
-> A curated reference for finding security conference presentations, research papers, vulnerability disclosures, and associated code repositories from the most significant security conferences worldwide. Conference talks represent the cutting edge of security research, often months or years ahead of any book, course, or certification curriculum.
+> A curated reference for finding security conference presentations, research papers, vulnerability disclosures, and associated code repositories from the most significant security conferences worldwide. Conference talks carry the newest security research, often months or years ahead of any book, course, or certification curriculum.
 
 | | |
 |---|---|
@@ -61,7 +61,7 @@ Security BSides events are community-organized conferences that emerged from pre
 | Resource | URL | Notes |
 |---|---|---|
 | BSides Las Vegas | [bsideslv.org](https://www.bsideslv.org/) | The original BSides event; free to attend; talks recorded annually |
-| Iron Geek BSides Archive | [irongeek.com](https://www.irongeek.com/) | Adrian Crenshaw's extensive recording archive for BSides and smaller conference talks, one of the most comprehensive free security video archives available |
+| Iron Geek BSides Archive | [irongeek.com](https://www.irongeek.com/) | Adrian Crenshaw's extensive recording archive for BSides and smaller conference talks, one of the largest free security video archives available |
 | BSides Global Calendar | [securitybsides.com](https://www.securitybsides.com/) | Directory of BSides events worldwide |
 | BSides San Francisco | [bsidessf.org](https://bsidessf.org/) | Recorded talks published on YouTube post-conference |
 | BSides London | [securitybsides.org.uk](https://www.securitybsides.org.uk/) | UK edition; talks published after the event |
@@ -71,7 +71,7 @@ Security BSides events are community-organized conferences that emerged from pre
 
 ## Chaos Communication Congress (CCC)
 
-The [Chaos Communication Congress](https://events.ccc.de/) is Europe's largest hacker gathering, organized by the Chaos Computer Club in Germany. Talks encompass privacy, cryptography, surveillance research, and technical freedom alongside traditional security research. The CCC media archive at [media.ccc.de](https://media.ccc.de/) hosts complete recordings of every talk going back decades, one of the most comprehensive and accessible free technical video archives in existence.
+The [Chaos Communication Congress](https://events.ccc.de/) is Europe's largest hacker gathering, organized by the Chaos Computer Club in Germany. Talks encompass privacy, cryptography, surveillance research, and technical freedom alongside traditional security research. The CCC media archive at [media.ccc.de](https://media.ccc.de/) hosts complete recordings of every talk going back decades, one of the largest and most accessible free technical video archives in existence.
 
 | Resource | URL | Notes |
 |---|---|---|
@@ -153,7 +153,7 @@ A selection of historically significant and practically essential conference pre
 |---|---|---|---|---|
 | 2019 | Black Hat USA | HTTP Desync Attacks: Request Smuggling Reborn | James Kettle (PortSwigger) | Revived HTTP request smuggling as a practical attack; published [desync tool](https://github.com/PortSwigger/http-request-smuggler) |
 | 2020 | Black Hat USA | Web Cache Poisoning: Practical Exploitation | James Kettle | Systematic cache poisoning methodology across CDN implementations |
-| 2022 | Black Hat USA | Hacking APIs | Corey Ball | Comprehensive API security testing methodology for REST and GraphQL |
+| 2022 | Black Hat USA | Hacking APIs | Corey Ball | API security testing methodology for REST and GraphQL |
 | 2021 | Black Hat USA | Practical HTTP Header Smuggling | Nathan Davison | Request header injection via reverse proxy normalization inconsistencies |
 
 ### Active Directory & Windows
@@ -162,7 +162,7 @@ A selection of historically significant and practically essential conference pre
 |---|---|---|---|---|
 | 2014 | Black Hat USA | Abusing Microsoft Kerberos: Sorry You Guys Don't Get It | Benjamin Delpy, Jean-Baptiste Galet | Introduced the Golden Ticket attack technique |
 | 2016 | DEF CON 24 | BloodHound: Six Degrees of Domain Admin | Rohan Vazarkar, Will Schroeder, Andy Robbins | Introduced graph-based Active Directory attack path analysis |
-| 2017 | Black Hat USA | Active Directory Kill Chain | Sean Metcalf | Comprehensive AD attack and defense lifecycle |
+| 2017 | Black Hat USA | Active Directory Kill Chain | Sean Metcalf | AD attack and defense lifecycle, end to end |
 | 2022 | Black Hat USA | Not A Security Boundary: Breaking Forest Trusts | Will Schroeder, Lee Christensen | Cross-forest trust attacks and escalation methodology |
 
 ### Cloud Security
@@ -222,7 +222,7 @@ Most presenters release code, tools, or datasets alongside their research. Relia
 | Resource | URL | Notes |
 |---|---|---|
 | Awesome Security Talks | [github.com/PaulSec/awesome-sec-talks](https://github.com/PaulSec/awesome-sec-talks) | Community-maintained list of notable security talks with links |
-| Iron Geek Conference Archive | [irongeek.com](https://www.irongeek.com/) | One of the most comprehensive archives of smaller conferences and BSides events |
+| Iron Geek Conference Archive | [irongeek.com](https://www.irongeek.com/) | One of the largest archives of smaller conferences and BSides events |
 | DEF CON Speakers Archive | defcon.org/html/links/dc-speaker.html | All DEF CON speakers indexed by year |
 | Black Hat Speaker Archive | blackhat.com/html/bh-us-archives/ | All Black Hat USA speakers and abstracts |
 

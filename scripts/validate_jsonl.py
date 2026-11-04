@@ -153,7 +153,7 @@ SCHEMAS = {
         "field_values": {
             "family": ["debian", "rhel", "suse", "independent", "cloud", "container", "security", "bsd",
                        "windows", "macos", "mobile", "network", "hypervisor", "embedded"],
-            "shell": ["sh", "powershell", "cli", "none"],
+            "shell": ["sh", "powershell", "cli", "none", "undocumented"],
             "release_model": ["point", "rolling", "channel"],
         }
     },

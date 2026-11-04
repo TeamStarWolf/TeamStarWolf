@@ -24,7 +24,8 @@ Rules (--check and --self-test fail on any of them):
   * an endoflife.date row names its product, cycle and fetch date; a vendor, rolling or
     unknown row names no API product and carries a note (`unknown` is for a system whose
     end-of-life date no vendor page confirmed: the page says so instead of guessing);
-  * `shell` is one of SHELLS; a system with no shell (`none`) lists no patch commands;
+  * `shell` is one of SHELLS; a system with no shell (`none`), or one whose vendor pages
+    document no command line for it (`undocumented`), lists no patch commands;
   * a system with no identify commands says why in `identify_basis`; a system with no
     os-release file has `os_release` null and no `os_release_checked`.
 
@@ -80,6 +81,9 @@ SHELLS = {
     "powershell": ("powershell", "Identify it from a terminal", "Command"),
     "cli": ("text", "Identify it from the device CLI", "Command"),
     "none": (None, "Identify the version", "Where to look"),
+    # The vendor pages opened for the system document no identify or patch command line (which
+    # is not a claim that it has no shell), so the page names a settings screen (or nothing).
+    "undocumented": (None, "Identify the version", "Where to look"),
 }
 EOL_FIELDS = ("source", "product", "cycle", "fetched", "release_date", "support_end",
               "security_end", "extended_end", "latest", "url", "note")
@@ -180,8 +184,8 @@ def validate(rows: list[dict], exists=lambda rel: True) -> list[str]:
             errs.append(f"{where}: patch_commands must be a list of strings")
         if r["shell"] not in SHELLS:
             errs.append(f"{where}: shell must be one of {list(SHELLS)}")
-        elif r["shell"] == "none" and r["patch_commands"]:
-            errs.append(f"{where}: a system with no shell lists no patch commands")
+        elif SHELLS[r["shell"]][0] is None and r["patch_commands"]:
+            errs.append(f"{where}: a system with no documented command line lists no patch commands")
         if r["identify_basis"] is not None and (not isinstance(r["identify_basis"], str)
                                                 or not r["identify_basis"].strip()):
             errs.append(f"{where}: identify_basis must be null or a non-empty string")
@@ -697,6 +701,9 @@ def self_test() -> int:
     bad = json.loads(json.dumps(good))
     bad["shell"] = "none"
     expect("no-shell system with patch commands fails", any("no patch commands" in e for e in validate([bad])))
+    bad["shell"] = "undocumented"
+    expect("undocumented-shell system with patch commands fails",
+           any("no patch commands" in e for e in validate([bad])))
     bad = json.loads(json.dumps(good))
     bad["identify"] = []
     expect("no identify commands and no basis fails", any("identify_basis" in e for e in validate([bad])))

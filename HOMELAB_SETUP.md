@@ -1378,7 +1378,7 @@ docker compose ps  # Verify all are running
 If you want a real domain name (useful for bug bounty practice and SSL certificates):
 
 1. Buy a cheap domain from Namecheap, Porkbun (~$1-$10/year for `.xyz`, `.io` domains).
-2. Add the domain to Cloudflare (free): https://dash.cloudflare.com: Cloudflare provides free DNS, DDoS protection, and SSL.
+2. Add the domain to Cloudflare (free) at https://dash.cloudflare.com. Cloudflare provides free DNS, DDoS protection, and SSL.
 3. In Cloudflare, create DNS A records pointing to your VPS IP.
 
 ```

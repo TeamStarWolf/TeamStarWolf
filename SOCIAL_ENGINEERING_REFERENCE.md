@@ -1388,14 +1388,14 @@ _dmarc.company.com.  IN  TXT  "v=DMARC1; p=quarantine; pct=25; rua=mailto:dmarc-
 _dmarc.company.com.  IN  TXT  "v=DMARC1; p=reject; rua=mailto:dmarc-agg@company.com; ruf=mailto:dmarc-forensic@company.com; sp=reject; aspf=s; adkim=s; fo=1"
 
 ; Parameters:
-; p=     : policy: none, quarantine, reject
-; pct=   : percentage of messages to apply policy (0-100)
-; rua=   : aggregate report destination
-; ruf=   : forensic report destination
-; sp=    : subdomain policy
-; aspf=  : SPF alignment: r (relaxed) or s (strict)
-; adkim=: DKIM alignment: r (relaxed) or s (strict)
-; fo=    : forensic reporting: 0=failure, 1=any auth failure, d=DKIM fail, s=SPF fail
+; p=      policy: none, quarantine, reject
+; pct=    percentage of messages to apply policy (0-100)
+; rua=    aggregate report destination
+; ruf=    forensic report destination
+; sp=     subdomain policy
+; aspf=   SPF alignment: r (relaxed) or s (strict)
+; adkim=  DKIM alignment: r (relaxed) or s (strict)
+; fo=     forensic reporting: 0=failure, 1=any auth failure, d=DKIM fail, s=SPF fail
 ```
 
 DMARC deployment timeline:

@@ -56,7 +56,7 @@
       "techniqueID": "T1580",
       "tactic": "discovery",
       "score": 3,
-      "comment": "CSPM: Cloud Infrastructure Discovery: posture management alerts on enumeration"
+      "comment": "CSPM (Cloud Infrastructure Discovery): posture management alerts on enumeration"
     },
     {
       "techniqueID": "T1619",

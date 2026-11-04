@@ -32,42 +32,42 @@
     {
       "techniqueID": "T1566",
       "score": 1,
-      "comment": "Proofpoint + Mimecast: SI-3/SI-8: email gateway inspection, sandboxing, and URL rewriting prevent phishing delivery"
+      "comment": "Proofpoint + Mimecast (SI-3/SI-8): email gateway inspection, sandboxing, and URL rewriting prevent phishing delivery"
     },
     {
       "techniqueID": "T1566.001",
       "score": 1,
-      "comment": "Proofpoint + Mimecast: Spearphishing Attachment: sandbox detonation and file type blocking"
+      "comment": "Proofpoint + Mimecast (Spearphishing Attachment): sandbox detonation and file type blocking"
     },
     {
       "techniqueID": "T1566.002",
       "score": 1,
-      "comment": "Proofpoint + Mimecast: Spearphishing Link: URL rewriting, time-of-click analysis, and link sandboxing"
+      "comment": "Proofpoint + Mimecast (Spearphishing Link): URL rewriting, time-of-click analysis, and link sandboxing"
     },
     {
       "techniqueID": "T1566.003",
       "score": 1,
-      "comment": "Proofpoint + Mimecast: Spearphishing via Service: lookalike domain detection and impersonation protection"
+      "comment": "Proofpoint + Mimecast (Spearphishing via Service): lookalike domain detection and impersonation protection"
     },
     {
       "techniqueID": "T1598",
       "score": 1,
-      "comment": "Proofpoint + Mimecast: SI-8: phishing-for-information emails detected via threat intelligence and sender reputation"
+      "comment": "Proofpoint + Mimecast (SI-8): phishing-for-information emails detected via threat intelligence and sender reputation"
     },
     {
       "techniqueID": "T1598.002",
       "score": 1,
-      "comment": "Proofpoint + Mimecast: Spearphishing Attachment (recon): attachment-based credential harvesting detection"
+      "comment": "Proofpoint + Mimecast (Spearphishing Attachment, recon): attachment-based credential harvesting detection"
     },
     {
       "techniqueID": "T1598.003",
       "score": 1,
-      "comment": "Proofpoint + Mimecast: Spearphishing Link (recon): link-based credential harvesting detection"
+      "comment": "Proofpoint + Mimecast (Spearphishing Link, recon): link-based credential harvesting detection"
     },
     {
       "techniqueID": "T1204",
       "score": 1,
-      "comment": "Proofpoint + Mimecast: SI-3: user execution of malicious email content prevented by sandbox detonation before delivery"
+      "comment": "Proofpoint + Mimecast (SI-3): user execution of malicious email content prevented by sandbox detonation before delivery"
     },
     {
       "techniqueID": "T1204.001",
@@ -82,17 +82,17 @@
     {
       "techniqueID": "T1114",
       "score": 1,
-      "comment": "Mimecast: SC-8: email content inspection and DLP detects email collection/forwarding rules"
+      "comment": "Mimecast (SC-8): email content inspection and DLP detects email collection/forwarding rules"
     },
     {
       "techniqueID": "T1114.003",
       "score": 1,
-      "comment": "Mimecast: Email Forwarding Rules: suspicious auto-forward rule detection"
+      "comment": "Mimecast (Email Forwarding Rules): suspicious auto-forward rule detection"
     },
     {
       "techniqueID": "T1534",
       "score": 1,
-      "comment": "Proofpoint + Mimecast: Internal Spearphishing: compromised internal account sending phishing detected via behavioral anomalies"
+      "comment": "Proofpoint + Mimecast (Internal Spearphishing): compromised internal account sending phishing detected via behavioral anomalies"
     }
   ],
   "gradient": {

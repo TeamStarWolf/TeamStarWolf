@@ -34,7 +34,7 @@
     {
       "techniqueID": "T1021",
       "score": 1,
-      "comment": "Zscaler ZTNA: AC-17: Zero Trust Network Access replaces VPN, requires explicit authorization for every remote service connection"
+      "comment": "Zscaler ZTNA (AC-17): Zero Trust Network Access replaces VPN, requires explicit authorization for every remote service connection"
     },
     {
       "techniqueID": "T1021.001",
@@ -54,12 +54,12 @@
     {
       "techniqueID": "T1133",
       "score": 1,
-      "comment": "Zscaler ZTNA: AC-17: external remote services replaced by identity-verified, device-verified ZTNA tunnels"
+      "comment": "Zscaler ZTNA (AC-17): external remote services replaced by identity-verified, device-verified ZTNA tunnels"
     },
     {
       "techniqueID": "T1048",
       "score": 1,
-      "comment": "Zscaler + Palo Alto: SC-7/AC-4: SSL inspection and DLP block exfiltration over alternative protocols"
+      "comment": "Zscaler + Palo Alto (SC-7/AC-4): SSL inspection and DLP block exfiltration over alternative protocols"
     },
     {
       "techniqueID": "T1048.002",
@@ -74,7 +74,7 @@
     {
       "techniqueID": "T1071",
       "score": 1,
-      "comment": "Zscaler + Palo Alto: SC-7: C2 over application layer protocols detected via SSL inspection and threat intelligence"
+      "comment": "Zscaler + Palo Alto (SC-7): C2 over application layer protocols detected via SSL inspection and threat intelligence"
     },
     {
       "techniqueID": "T1071.001",
@@ -89,17 +89,17 @@
     {
       "techniqueID": "T1040",
       "score": 1,
-      "comment": "Palo Alto NGFW: SC-8: encrypted network traffic prevents network sniffing; TLS inspection detects cleartext credential transmission"
+      "comment": "Palo Alto NGFW (SC-8): encrypted network traffic prevents network sniffing; TLS inspection detects cleartext credential transmission"
     },
     {
       "techniqueID": "T1557",
       "score": 1,
-      "comment": "Palo Alto NGFW: SC-8: ARP poisoning and MITM attack detection on network segments"
+      "comment": "Palo Alto NGFW (SC-8): ARP poisoning and MITM attack detection on network segments"
     },
     {
       "techniqueID": "T1090",
       "score": 1,
-      "comment": "Zscaler + Palo Alto: SC-7: proxy and relay traffic inspection; Tor exit node blocking"
+      "comment": "Zscaler + Palo Alto (SC-7): proxy and relay traffic inspection; Tor exit node blocking"
     },
     {
       "techniqueID": "T1090.003",
@@ -109,27 +109,27 @@
     {
       "techniqueID": "T1095",
       "score": 1,
-      "comment": "Palo Alto NGFW: SC-7: non-standard protocol detection via App-ID"
+      "comment": "Palo Alto NGFW (SC-7): non-standard protocol detection via App-ID"
     },
     {
       "techniqueID": "T1572",
       "score": 1,
-      "comment": "Zscaler + Palo Alto: SC-7: protocol tunneling detection (DNS tunneling, ICMP tunneling)"
+      "comment": "Zscaler + Palo Alto (SC-7): protocol tunneling detection (DNS tunneling, ICMP tunneling)"
     },
     {
       "techniqueID": "T1571",
       "score": 1,
-      "comment": "Palo Alto NGFW: SC-7: non-standard port usage detection via App-ID regardless of port"
+      "comment": "Palo Alto NGFW (SC-7): non-standard port usage detection via App-ID regardless of port"
     },
     {
       "techniqueID": "T1041",
       "score": 1,
-      "comment": "Zscaler + Palo Alto: SC-7/AC-4: exfiltration over C2 channel detected and blocked"
+      "comment": "Zscaler + Palo Alto (SC-7/AC-4): exfiltration over C2 channel detected and blocked"
     },
     {
       "techniqueID": "T1537",
       "score": 1,
-      "comment": "Zscaler CASB: AC-20: cloud account data transfer monitoring and blocking"
+      "comment": "Zscaler CASB (AC-20): cloud account data transfer monitoring and blocking"
     }
   ],
   "gradient": {

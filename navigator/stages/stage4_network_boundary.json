@@ -35,7 +35,7 @@
     {
       "techniqueID": "T1566",
       "score": 1,
-      "comment": "Stage 4 Email: Proofpoint + Mimecast: email gateway prevents phishing delivery"
+      "comment": "Stage 4 Email (Proofpoint + Mimecast): email gateway prevents phishing delivery"
     },
     {
       "techniqueID": "T1566.001",
@@ -85,17 +85,17 @@
     {
       "techniqueID": "T1021",
       "score": 1,
-      "comment": "Stage 4 Network: Zscaler ZTNA: remote service access via explicit policy authorization"
+      "comment": "Stage 4 Network (Zscaler ZTNA): remote service access via explicit policy authorization"
     },
     {
       "techniqueID": "T1133",
       "score": 1,
-      "comment": "Stage 4 Network: Zscaler: external remote services replaced by ZTNA"
+      "comment": "Stage 4 Network (Zscaler): external remote services replaced by ZTNA"
     },
     {
       "techniqueID": "T1048",
       "score": 1,
-      "comment": "Stage 4 Network: Zscaler + Palo Alto: exfiltration over alternative protocols blocked"
+      "comment": "Stage 4 Network (Zscaler + Palo Alto): exfiltration over alternative protocols blocked"
     },
     {
       "techniqueID": "T1048.002",
@@ -120,12 +120,12 @@
     {
       "techniqueID": "T1040",
       "score": 1,
-      "comment": "Stage 4 Network: Palo Alto: encrypted traffic prevents network sniffing"
+      "comment": "Stage 4 Network (Palo Alto): encrypted traffic prevents network sniffing"
     },
     {
       "techniqueID": "T1557",
       "score": 1,
-      "comment": "Stage 4 Network: Palo Alto: MITM detection on network segments"
+      "comment": "Stage 4 Network (Palo Alto): MITM detection on network segments"
     },
     {
       "techniqueID": "T1090",
@@ -150,7 +150,7 @@
     {
       "techniqueID": "T1537",
       "score": 1,
-      "comment": "Stage 4 Network: Zscaler CASB: cloud account data transfer monitoring"
+      "comment": "Stage 4 Network (Zscaler CASB): cloud account data transfer monitoring"
     }
   ],
   "gradient": {

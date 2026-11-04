@@ -805,14 +805,14 @@ All sources were opened on 3 November 2026. Grade is the source's evidence grade
 | 51 | US Treasury, sm845, sanctions on Evil Corp, 5 Dec 2019 | https://home.treasury.gov/news/press-releases/sm845 | 2026-11-03 | Confirmed |
 | 52 | NCC Group and Fox-IT, WastedLocker: a new ransomware variant developed by the Evil Corp group, 23 Jun 2020 | https://www.nccgroup.com/research/wastedlocker-a-new-ransomware-variant-developed-by-the-evil-corp-group/ | 2026-11-03 | Confirmed |
 | 53 | Symantec, WastedLocker ransomware targeting US organizations, 25 Jun 2020 | https://www.security.com/threat-intelligence/wastedlocker-ransomware-us | 2026-11-03 | Confirmed |
-| 54 | Garmin, Form 8-K exhibit 99.1 on the 23 Jul 2020 cyber attack (SEC EDGAR) | https://www.sec.gov/Archives/edgar/data/1121788/000121390020018705/ea124587ex99-1_garmin.htm | 2026-11-03 | Confirmed |
+| 54 | Garmin, Form 8-K exhibit 99.1 on the 23 Jul 2020 cyber attack (SEC EDGAR) | `https://www.sec.gov/Archives/edgar/data/1121788/000121390020018705/ea124587ex99-1_garmin.htm` | 2026-11-03 | Confirmed |
 | 55 | Treasury OFAC, recent actions of 1 Oct 2020: ransomware advisory | https://ofac.treasury.gov/recent-actions/20201001 | 2026-11-03 | Confirmed |
-| 56 | FTC, order requiring Blackbaud to delete unnecessary data and boost safeguards, Feb 2024 | https://www.ftc.gov/news-events/news/press-releases/2024/02/ftc-order-will-require-blackbaud-delete-unnecessary-data-boost-safeguards-settle-charges-its-lax | 2026-11-03 | Confirmed |
-| 57 | SEC, press release 2023-48, Blackbaud charged over misleading ransomware disclosures, 9 Mar 2023 | https://www.sec.gov/news/press-release/2023-48 | 2026-11-03 | Confirmed |
-| 58 | FTC, final order with Blackbaud, May 2024 | https://www.ftc.gov/news-events/news/press-releases/2024/05/ftc-finalizes-order-blackbaud-related-allegations-firms-security-failures-led-data-breach | 2026-11-03 | Confirmed |
+| 56 | FTC, order requiring Blackbaud to delete unnecessary data and boost safeguards, Feb 2024 | `https://www.ftc.gov/news-events/news/press-releases/2024/02/ftc-order-will-require-blackbaud-delete-unnecessary-data-boost-safeguards-settle-charges-its-lax` | 2026-11-03 | Confirmed |
+| 57 | SEC, press release 2023-48, Blackbaud charged over misleading ransomware disclosures, 9 Mar 2023 | `https://www.sec.gov/news/press-release/2023-48` | 2026-11-03 | Confirmed |
+| 58 | FTC, final order with Blackbaud, May 2024 | `https://www.ftc.gov/news-events/news/press-releases/2024/05/ftc-finalizes-order-blackbaud-related-allegations-firms-security-failures-led-data-breach` | 2026-11-03 | Confirmed |
 | 59 | Yle News, Vastaamo patients receive extortion emails, Oct 2020 | https://yle.fi/a/3-11612230 | 2026-11-03 | Reported |
 | 60 | Yle News, verdict in the Vastaamo case, 30 Apr 2024 | https://yle.fi/a/74-20086499 | 2026-11-03 | Reported |
-| 61 | Universal Health Services, Form 10-K for 2020 (SEC EDGAR) | https://www.sec.gov/Archives/edgar/data/352915/000156459021008851/uhs-10k_20201231.htm | 2026-11-03 | Confirmed |
+| 61 | Universal Health Services, Form 10-K for 2020 (SEC EDGAR) | `https://www.sec.gov/Archives/edgar/data/352915/000156459021008851/uhs-10k_20201231.htm` | 2026-11-03 | Confirmed |
 | 62 | Twitter, An update on our security incident, Jul 2020 | https://blog.x.com/en_us/topics/company/2020/an-update-on-our-security-incident | 2026-11-03 | Confirmed |
 | 63 | New York DFS, press release on the Twitter investigation report, 14 Oct 2020 | https://www.dfs.ny.gov/reports_and_publications/press_releases/pr202010141 | 2026-11-03 | Confirmed |
 | 64 | US Secret Service, arrest in connection with the alleged role in the Twitter hack, 21 Jul 2021 | https://www.secretservice.gov/newsroom/releases/2021/07/man-arrested-connection-alleged-role-twitter-hack | 2026-11-03 | Confirmed |
@@ -854,20 +854,20 @@ All sources were opened on 3 November 2026. Grade is the source's evidence grade
 | 100 | CISA, AA20-195A, Critical vulnerability in SAP NetWeaver AS Java (RECON), 13 Jul 2020 | https://www.cisa.gov/news-events/cybersecurity-advisories/aa20-195a | 2026-11-03 | Confirmed |
 | 101 | CISA, ICSA-20-168-01, Treck TCP/IP stack (Ripple20), 16 Jun 2020 | https://www.cisa.gov/news-events/ics-advisories/icsa-20-168-01 | 2026-11-03 | Confirmed |
 | 102 | TeamStarWolf library data files (`data/attack`, `data/weaknesses`), main branch | https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data | 2026-11-03 | Confirmed |
-| 103 | SolarWinds, Form 8-K of 11 Jan 2021 with investigation update (SEC EDGAR) | https://www.sec.gov/Archives/edgar/data/1739942/000173994221000015/swi-20210111.htm | 2026-11-03 | Confirmed |
-| 104 | SolarWinds, Form 8-K of 14 Dec 2020 (SEC EDGAR) | https://www.sec.gov/Archives/edgar/data/1739942/000162828020017451/swi-20201214.htm | 2026-11-03 | Confirmed |
+| 103 | SolarWinds, Form 8-K of 11 Jan 2021 with investigation update (SEC EDGAR) | `https://www.sec.gov/Archives/edgar/data/1739942/000173994221000015/swi-20210111.htm` | 2026-11-03 | Confirmed |
+| 104 | SolarWinds, Form 8-K of 14 Dec 2020 (SEC EDGAR) | `https://www.sec.gov/Archives/edgar/data/1739942/000162828020017451/swi-20201214.htm` | 2026-11-03 | Confirmed |
 | 105 | MSRC blog, Customer guidance on recent nation-state cyber attacks, Dec 2020 | https://www.microsoft.com/en-us/msrc/blog/2020/12/customer-guidance-on-recent-nation-state-cyber-attacks | 2026-11-03 | Confirmed |
 | 106 | Microsoft On the Issues, the need for a strong global cybersecurity response (Brad Smith), 17 Dec 2020 | https://blogs.microsoft.com/on-the-issues/2020/12/17/cyberattacks-cybersecurity-solarwinds-fireeye/ | 2026-11-03 | Confirmed |
 | 107 | CrowdStrike, free tool to identify and help mitigate risks in Azure Active Directory, Dec 2020 | https://www.crowdstrike.com/en-us/blog/crowdstrike-launches-free-tool-to-identify-and-help-mitigate-risks-in-azure-active-directory/ | 2026-11-03 | Confirmed |
 | 108 | MSRC blog, Microsoft internal Solorigate investigation update, 31 Dec 2020 | https://www.microsoft.com/en-us/msrc/blog/2020/12/microsoft-internal-solorigate-investigation-update | 2026-11-03 | Confirmed |
 | 109 | CISA, Joint statement by FBI, CISA, ODNI and NSA (Cyber Unified Coordination Group), 5 Jan 2021 | https://www.cisa.gov/news-events/news/joint-statement-federal-bureau-investigation-fbi-cybersecurity-and-infrastructure-security-agency-0 | 2026-11-03 | Confirmed |
-| 110 | Mimecast, Form 8-K exhibit 99.1, 12 Jan 2021 (SEC EDGAR) | https://www.sec.gov/Archives/edgar/data/1644675/000119312521006829/d47544dex991.htm | 2026-11-03 | Confirmed |
-| 111 | Mimecast, incident report exhibit 99.2, 16 Mar 2021 (SEC EDGAR) | https://www.sec.gov/Archives/edgar/data/1644675/000119312521082200/d141664dex992.htm | 2026-11-03 | Confirmed |
+| 110 | Mimecast, Form 8-K exhibit 99.1, 12 Jan 2021 (SEC EDGAR) | `https://www.sec.gov/Archives/edgar/data/1644675/000119312521006829/d47544dex991.htm` | 2026-11-03 | Confirmed |
+| 111 | Mimecast, incident report exhibit 99.2, 16 Mar 2021 (SEC EDGAR) | `https://www.sec.gov/Archives/edgar/data/1644675/000119312521082200/d141664dex992.htm` | 2026-11-03 | Confirmed |
 | 112 | The White House (archived), Fact sheet: imposing costs for harmful foreign activities by the Russian government, 15 Apr 2021 | https://bidenwhitehouse.archives.gov/briefing-room/statements-releases/2021/04/15/fact-sheet-imposing-costs-for-harmful-foreign-activities-by-the-russian-government/ | 2026-11-03 | Confirmed |
-| 113 | SEC, press release 2024-174, four companies charged over misleading cyber disclosures, 22 Oct 2024 | https://www.sec.gov/newsroom/press-releases/2024-174 | 2026-11-03 | Confirmed |
-| 114 | Marriott International, Form 10-Q for Q1 2020 (SEC EDGAR) | https://www.sec.gov/Archives/edgar/data/1048286/000162828020007376/mar-q12020x10q.htm | 2026-11-03 | Confirmed |
-| 115 | FTC, action against Marriott and Starwood over data security failures, 9 Oct 2024 | https://www.ftc.gov/node/86484 | 2026-11-03 | Confirmed |
-| 116 | Marriott International, Form 10-Q for Q3 2020 (SEC EDGAR) | https://www.sec.gov/Archives/edgar/data/1048286/000162828020015909/mar-20200930.htm | 2026-11-03 | Confirmed |
+| 113 | SEC, press release 2024-174, four companies charged over misleading cyber disclosures, 22 Oct 2024 | `https://www.sec.gov/newsroom/press-releases/2024-174` | 2026-11-03 | Confirmed |
+| 114 | Marriott International, Form 10-Q for Q1 2020 (SEC EDGAR) | `https://www.sec.gov/Archives/edgar/data/1048286/000162828020007376/mar-q12020x10q.htm` | 2026-11-03 | Confirmed |
+| 115 | FTC, action against Marriott and Starwood over data security failures, 9 Oct 2024 | `https://www.ftc.gov/node/86484` | 2026-11-03 | Confirmed |
+| 116 | Marriott International, Form 10-Q for Q3 2020 (SEC EDGAR) | `https://www.sec.gov/Archives/edgar/data/1048286/000162828020015909/mar-20200930.htm` | 2026-11-03 | Confirmed |
 | 117 | easyJet plc, RNS Notice of cyber security incident, 19 May 2020 (Investegate republication of the RNS) | https://www.investegate.co.uk/announcement/rns/easyjet--ezj/notice-of-cyber-security-incident/6053711 | 2026-11-03 | Confirmed |
 | 118 | MSRC blog, Access misconfiguration for customer support database, 22 Jan 2020 | https://www.microsoft.com/en-us/msrc/blog/2020/01/access-misconfiguration-for-customer-support-database | 2026-11-03 | Confirmed |
 | 119 | Comparitech, Microsoft customer service data leak, Jan 2020 | https://www.comparitech.com/blog/information-security/microsoft-customer-service-data-leak/ | 2026-11-03 | Reported |

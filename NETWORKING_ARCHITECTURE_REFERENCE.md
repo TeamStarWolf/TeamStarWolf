@@ -366,7 +366,7 @@ This document is the *design* half. Enforcement specifics, firewall architecture
 
 - **The flat network.** One big L2 domain / VLAN where everything can reach everything. Guarantees unimpeded lateral movement; the single most common root cause of ransomware spread.
 - **Perimeter-only / "crunchy outside, soft inside."** Hard edge firewall, no internal segmentation. Fails the moment one endpoint is compromised.
-- **VLAN sprawl as segmentation.** VLANs are broadcast-domain tools, not security boundaries, without enforced inter-VLAN policy they segment nothing.
+- **VLAN sprawl as segmentation.** VLANs are broadcast-domain tools, not security boundaries: without enforced inter-VLAN policy they segment nothing.
 - **Spreadsheet IPAM / tribal addressing.** Overlaps, shadow subnets, and merger collisions. No automation can rest on a spreadsheet.
 - **Flat, overlapping routing without summarization.** Huge routing tables, slow convergence, ACLs that can't express zones cleanly.
 - **Management plane on the data plane.** In-band management means one data-plane compromise owns the fabric. Always out-of-band.

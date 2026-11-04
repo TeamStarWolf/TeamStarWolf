@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 27 min (6,252 words at 230 words a minute)
+About 27 min (6,253 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -763,7 +763,7 @@ Accounts created before 15 July 2025 keep the legacy tier: 750 hrs/mo of t2.micr
 
 1. Go to https://aws.amazon.com and create an account (credit card required for verification, but you won't be charged if you stay in free tier).
 2. Immediately enable MFA on the root account: IAM Console → Security Credentials → Assign MFA device.
-3. Create an IAM admin user, never use the root account for daily work:
+3. Create an IAM admin user, and never use the root account for daily work:
 
 ```bash
 # Using AWS CLI (after installing: https://aws.amazon.com/cli/)

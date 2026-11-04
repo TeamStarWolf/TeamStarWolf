@@ -34,6 +34,7 @@ Analysis of domain name metadata, including name and DNS records, to determine w
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [Log4Shell (CVE-2021-44228): The Case Study](/case-studies/LOG4SHELL.md)
+- [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md)
 
 <!-- library-refs:end -->
 

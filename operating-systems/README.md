@@ -2,9 +2,9 @@
 
 # Operating systems
 
-> The Linux distributions defenders run, patch, and have to identify: one page per system with its versions and support dates, where its security advisories are published, how it takes updates, and the terminal commands that tell you which one you are on.
+> The operating systems defenders run, patch, and have to identify, from Linux and BSD servers to Windows, Apple, and Android devices, network appliances, hypervisors, and embedded systems: one page per system with its versions and support dates, where its security advisories are published, how it takes updates, and the commands that tell you which one you are on.
 
-Support dates come from the [endoflife.date](https://endoflife.date/) API, fetched on 2026-11-03; everything else comes from the vendor and project pages each page cites. For hardening steps, start with the [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md) and the [Harden a Linux Host](/guides/HARDEN_A_LINUX_HOST.md) guide; for what each offensive, forensic, and privacy distribution is for, see [Security Operating Systems and Distributions](/SECURITY_OPERATING_SYSTEMS_REFERENCE.md).
+Support dates come from the [endoflife.date](https://endoflife.date/) API, fetched on 2026-11-03, or from the vendor page a row cites; where neither gives a date the page says so. Everything else comes from the vendor and project pages each page cites. For hardening steps, start with the [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md), the [Harden a Linux Host](/guides/HARDEN_A_LINUX_HOST.md) guide, the [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md), and the [macOS Security Reference](/MACOS_SECURITY_REFERENCE.md); for what each offensive, forensic, and privacy distribution is for, see [Security Operating Systems and Distributions](/SECURITY_OPERATING_SYSTEMS_REFERENCE.md).
 
 ## Debian family
 
@@ -78,6 +78,6 @@ Distributions for penetration testing and security research, built on Debian.
 
 ## About the catalog
 
-Every page here is written by `scripts/build_os_pages.py` from `data/os/os-catalog.jsonl`, one row per system and major version. Edit the catalog, then run `python scripts/build_os_pages.py`; `--refresh-eol` re-reads the support dates from endoflife.date, and CI runs `--check`. The vocabulary ids in each page's last section are the `product:` rows of `data/vocab/entities.jsonl`.
+Every page here is written by `scripts/build_os_pages.py` from `data/os/os-catalog.jsonl`, one row per system and major version (or release train, channel, or node image). Edit the catalog, then run `python scripts/build_os_pages.py`; `--refresh-eol` re-reads the support dates from endoflife.date, and CI runs `--check`. The vocabulary ids in each page's last section are the `product:` rows of `data/vocab/entities.jsonl`.
 
 <!-- os-pages:end -->

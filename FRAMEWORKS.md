@@ -169,7 +169,7 @@ The most comprehensive security and privacy control catalog available. Maps to C
 | Supply Chain Risk Management | SR | Supplier assessment, SBOM, provenance |
 | Individual Participation | IP | Privacy rights, redress |
 
-Resources: [SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) | [Controls Mapping](CONTROLS_MAPPING.md) | [CTID ATT&CK Mapping](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/nist800-53/)
+Resources: [SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) | [Controls Mapping](CONTROLS_MAPPING.md) | [CTID ATT&CK Mapping](https://ctid.mitre.org/mappings/external/nist/)
 
 ---
 
@@ -195,7 +195,7 @@ The international standard for Information Security Management Systems (ISMS). O
 
 Relationship to 800-53: NIST provides a mapping between 800-53 and ISO 27001 controls. Most controls overlap with ~70% coverage equivalence.
 
-Resources: [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html) | [NIST 800-53 / 27001 mapping](https://csrc.nist.gov/projects/risk-management/sp800-53-controls/mappings)
+Resources: [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html) | NIST 800-53 / 27001 mapping
 
 ---
 
@@ -218,7 +218,7 @@ An audit framework for service organizations (SaaS, cloud, managed services). Cu
 - Type I: Point-in-time assessment: controls designed appropriately
 - Type II: Period of time (usually 6-12 months): controls operating effectively
 
-Resources: [AICPA SOC 2](https://www.aicpa-cima.com/resources/landing/system-and-organization-controls-soc-suite-of-services) | [AICPA TSC](https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria)
+Resources: [AICPA SOC 2](https://www.aicpa-cima.com/resources/landing/system-and-organization-controls-soc-suite-of-services) | [AICPA TSC](https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022)
 
 ---
 
@@ -323,12 +323,12 @@ Resources: [CIS Controls v8](https://www.cisecurity.org/controls/v8)
 
 ## NIST CSF / MITRE ATT&CK
 
-The [CTID (Center for Threat-Informed Defense)](https://ctid.mitre-engenuity.org/) maintains mappings between NIST 800-53 controls and ATT&CK techniques. This enables:
+The [CTID (Center for Threat-Informed Defense)](https://ctid.mitre.org/) maintains mappings between NIST 800-53 controls and ATT&CK techniques. This enables:
 - Measuring ATT&CK coverage from your control implementation
 - Identifying technique gaps in your control baseline
 - Prioritizing controls based on adversary behavior data
 
-See: [Controls Mapping](CONTROLS_MAPPING.md) | [ATT&CK Navigator layers](navigator/) | [CTID Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/nist800-53/)
+See: [Controls Mapping](CONTROLS_MAPPING.md) | [ATT&CK Navigator layers](navigator/) | [CTID Mappings Explorer](https://ctid.mitre.org/mappings/external/nist/)
 
 ---
 
@@ -379,7 +379,7 @@ Framework for managing risks from AI systems. Four core functions:
 - MEASURE: Analyze, assess, and track AI risks
 - MANAGE: Prioritize and treat AI risks; plan for residual risk
 
-Resources: [NIST AI RMF](https://www.nist.gov/system/files/documents/2023/01/26/NIST.AI.100-1.pdf) | [AI RMF Playbook](https://airc.nist.gov/Docs/2)
+Resources: [NIST AI RMF](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf) | [AI RMF Playbook](https://airc.nist.gov/airmf-resources/playbook/)
 
 ---
 

@@ -70,5 +70,11 @@
     "name": "TeamStarWolf - Hugging Face AI Supply Chain (Enterprise)",
     "description": "Enterprise ATT&CK v20.0 techniques bound in the Hugging Face case study. Score 100: an ATLAS-published ATT&CK reference on a technique ATLAS maps in a Hugging Face case study, or an ATT&CK procedure that names Hugging Face (S9035). Score 50: the study's own inference, labelled Inferred in its comment. Comments carry the study's source numbers.",
     "blurb": "The Enterprise techniques behind the Hugging Face case study: malicious models, loader exploits, exposed tokens and the July 2026 pipeline intrusion. Score 100 marks a MITRE-published link, 50 the study's labelled inference."
+  },
+  {
+    "file": "chronicle-2019.json",
+    "name": "TeamStarWolf - The Year 2019 in Intrusions",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2019 record supports: state operations (Sandworm in Georgia, APT28, APT29 Operation Ghost, Turla, GALLIUM, Sea Turtle, Lazarus Group, Iranian actors, the TRITON actor), big game hunting ransomware and BEC, the year's edge-device and RDP vulnerabilities, ShadowHammer and Capital One. Ids reported under pre-v7 ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/CHRONICLE_2019.md. Scores: 100 where the library's ATT&CK data records the technique for an object in the study, 70 where an opened primary describes the behavior and the study chose the id, 40 where the behavior is only Reported or the id choice is Inferred.",
+    "blurb": "Techniques from the 2019 record, from edge-device exploitation and big game hunting ransomware to DNS hijacking, supply-chain compromise and cloud data theft. A curated layer for the 2019 chronicle case study."
   }
 ]

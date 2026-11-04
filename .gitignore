@@ -32,7 +32,7 @@ node_modules/
 npm-debug.log*
 yarn-error.log*
 
-# Secrets / env, never commit real values (examples like *.env.example stay tracked).
+# Secrets / env: never commit real values (examples like *.env.example stay tracked).
 # NOTE: deliberately NOT using *secret*/*credential*/*password*/*token* filename globs:
 # this library legitimately ships reference docs named e.g. PASSWORD_SECURITY_REFERENCE.md,
 # and those globs would silently exclude real content. Ignore by extension/exact env only.

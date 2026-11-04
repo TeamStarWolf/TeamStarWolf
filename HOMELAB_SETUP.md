@@ -458,7 +458,7 @@ Active Directory is the authentication and authorization backbone of virtually e
 - Misconfigurations (Kerberoastable service accounts, unconstrained delegation, weak ACLs) are extremely common in real environments.
 - Attacks like Pass-the-Hash, Kerberoasting, and BloodHound path abuse are difficult to understand without hands-on practice.
 
-By building your own AD lab, you can attack it freely, break things, reset to a snapshot, and try again: learning far more than any guided exercise allows.
+By building your own AD lab, you can attack it freely, break things, reset to a snapshot, and try again, learning far more than any guided exercise allows.
 
 ### Hypervisor Requirements
 

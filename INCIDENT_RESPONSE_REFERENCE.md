@@ -431,7 +431,7 @@ SOAR Platforms (Complementary)
 Use this template for the first stakeholder notification (within 30 minutes of P1/P2 detection):
 
 ```
-INCIDENT NOTIFICATION: [SEVERITY]: [INCIDENT ID]
+INCIDENT NOTIFICATION | [SEVERITY] | [INCIDENT ID]
 Time: [UTC timestamp]
 Detected: [How detected]
 Affected Systems: [Hostname/IP/System name]

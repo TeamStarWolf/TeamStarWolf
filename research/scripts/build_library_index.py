@@ -139,13 +139,13 @@ def parse_youtube_channels(text: str) -> Iterable[Asset]:
         )
 
 
-X_LINE = re.compile(r"^\s*-\s*@([\w_]+)\s*[: \-]\s*(.+?)\s*$")
+X_LINE = re.compile(r"^\s*-\s*@([\w_]+)\s*[\u2014\-]\s*(.+?)\s*$")
 
 
 def parse_x_accounts(text: str) -> Iterable[Asset]:
     """Parse 'X Account Lists.md'.
 
-    Structure: ## Section, - @handle, Display Name (Affiliation)
+    Structure: ## Section, - @handle - Display Name (Affiliation) (the separator is a hyphen or an em dash)
     """
     section = ""
     for line in text.splitlines():

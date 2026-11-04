@@ -1347,13 +1347,13 @@ Complete SPF configuration:
 company.com.  IN  TXT  "v=spf1 ip4:203.0.113.0/24 include:_spf.google.com include:sendgrid.net -all"
 
 ; SPF mechanisms:
-; ip4: / ip6:, specific IP addresses or ranges
-; include:, delegate to another domain's SPF
-; a:, authorize the domain's A record IP
-; mx:, authorize the domain's MX record IPs
-; -all: hard fail (reject) for non-matching senders (recommended)
-; ~all: soft fail (tag as spam): less strict
-; ?all: neutral: avoid in production
+; ip4: / ip6:    specific IP addresses or ranges
+; include:       delegate to another domain's SPF
+; a:             authorize the domain's A record IP
+; mx:            authorize the domain's MX record IPs
+; -all           hard fail (reject) for non-matching senders (recommended)
+; ~all           soft fail (tag as spam), less strict
+; ?all           neutral; avoid in production
 ```
 
 DKIM configuration:

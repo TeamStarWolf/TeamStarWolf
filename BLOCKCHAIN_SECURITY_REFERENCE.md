@@ -2066,11 +2066,11 @@ Ethereum node attack surface:
 
 ```
 Exposed services (default ports):
-  30303 TCP/UDP  : P2P (devp2p / libp2p): MUST be public for sync
-  8545 TCP       : HTTP RPC, NEVER expose to internet
-  8546 TCP       : WebSocket RPC, NEVER expose to internet
-  8551 TCP       : Engine API (consensus ↔ execution): localhost only
-  9000 TCP/UDP   : Lighthouse/Prysm P2P: must be public
+  30303 TCP/UDP    P2P (devp2p / libp2p), MUST be public for sync
+  8545 TCP         HTTP RPC, NEVER expose to internet
+  8546 TCP         WebSocket RPC, NEVER expose to internet
+  8551 TCP         Engine API (consensus ↔ execution), localhost only
+  9000 TCP/UDP     Lighthouse/Prysm P2P, must be public
 ```
 
 Geth hardening:

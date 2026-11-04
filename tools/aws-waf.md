@@ -93,7 +93,7 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri | filter action = "BLOC
 AWSWAFLogs | where TimeGenerated > ago(24h) | extend rule=tostring(terminatingRuleId_s) | summarize blocked=countif(action_s=='BLOCK'), counted=countif(action_s=='COUNT') by rule | where counted>0 and blocked==0
 ```
 
-**How it mitigates (mechanism).** Inline evaluation at CloudFront/ALB/API Gateway: the first terminating rule to match applies BLOCK and AWS WAF stops inspecting, returning 403 before origin; a virtual patch when the rule targets a CVE pattern. The observable proof is action=BLOCK with terminatingRuleId = that rule (and its label present).
+**How it mitigates (mechanism).** Inline evaluation at CloudFront/ALB/API Gateway: the first terminating rule to match applies BLOCK and AWS WAF stops inspecting, returning 403 before origin: a virtual patch when the rule targets a CVE pattern. The observable proof is action=BLOCK with terminatingRuleId = that rule (and its label present).
 
 **Logging gotchas**
 - Logging is OFF by default: no web ACL logs exist until a LoggingConfiguration is attached; also the destination name must begin with aws-waf-logs-.

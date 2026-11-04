@@ -764,10 +764,10 @@ Browser exploitation follows a two-stage chain:
 ### CSP Maturity Levels
 
 ```
-Level 1: Basic:     default-src 'self'; object-src 'none'
-Level 2: Better:    + script-src 'nonce-X'; restrict style-src
-Level 3: Strong:    + base-uri 'self'; frame-ancestors 'none'; form-action 'self'
-Level 4: Best:      + report-uri/report-to; COOP + COEP headers; no unsafe-inline anywhere
+Level 1 (Basic):   default-src 'self'; object-src 'none'
+Level 2 (Better):  + script-src 'nonce-X'; restrict style-src
+Level 3 (Strong):  + base-uri 'self'; frame-ancestors 'none'; form-action 'self'
+Level 4 (Best):    + report-uri/report-to; COOP + COEP headers; no unsafe-inline anywhere
 ```
 
 ---

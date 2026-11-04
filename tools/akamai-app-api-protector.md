@@ -93,7 +93,7 @@ index=akamai sourcetype="akamai:siem" "attackData.appliedAction"=deny | spath in
 Akamai_SIEM_CL | extend applied = tostring(attackData_appliedAction_s) | summarize deny=countif(applied=='deny'), alert=countif(applied=='alert') by bin(TimeGenerated,1h), tostring(attackData_policyId_s)
 ```
 
-**How it mitigates (mechanism).** Inline block at the Akamai edge (reverse proxy): a request matching a managed/custom WAF rule or crossing the adaptive anomaly deny-threshold is terminated at the edge (deny, typically 403) before reaching origin; a true virtual patch. The observable proof is attackData.appliedAction=deny with the matching ruleTags/ruleMessages.
+**How it mitigates (mechanism).** Inline block at the Akamai edge (reverse proxy): a request matching a managed/custom WAF rule or crossing the adaptive anomaly deny-threshold is terminated at the edge (deny, typically 403) before reaching origin: a true virtual patch. The observable proof is attackData.appliedAction=deny with the matching ruleTags/ruleMessages.
 
 **Logging gotchas**
 - Default/newly-added protections and Rapid Rules often ship in 'alert' (monitor) mode: they generate events but do NOT block; alert-mode traffic is passed to origin.

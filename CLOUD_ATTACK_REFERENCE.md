@@ -659,7 +659,7 @@ gcloud iam service-accounts keys list --iam-account=SA_EMAIL
 ### Service Account Key Theft
 
 ```bash
-# From GCS buckets: common mistake: storing JSON key files in accessible buckets
+# From GCS buckets (common mistake: storing JSON key files in accessible buckets)
 gsutil ls gs://TARGET_BUCKET/
 gsutil cp gs://TARGET_BUCKET/service-account-key.json .
 

@@ -47,7 +47,7 @@ body:
       description: If you know key tools, certs, or training resources to include, list them here
       placeholder: |
         Tools: Syft, Grype, in-toto, SLSA framework
-        Certs: None dedicated: CSSLP covers some aspects
+        Certs: None dedicated; CSSLP covers some aspects
         Training: CISA SBOM resources, OpenSSF Scorecard docs
         Commercial: Snyk, JFrog Xray, Anchore, Chainguard
     validations:

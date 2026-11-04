@@ -211,7 +211,8 @@
       "see_also": [
         ["ATT&CK threat groups", "/mitre/groups/README.md"],
         ["ATT&CK software", "/mitre/software/README.md"],
-        ["ATT&CK campaigns", "/mitre/campaigns/README.md"]
+        ["ATT&CK campaigns", "/mitre/campaigns/README.md"],
+        ["APT41: the public record", "/case-studies/APT41_PUBLIC_RECORD.md"]
       ]
     },
     {

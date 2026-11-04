@@ -45,5 +45,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [ATT&CK threat groups](/mitre/groups/README.md)
 - [ATT&CK software](/mitre/software/README.md)
 - [ATT&CK campaigns](/mitre/campaigns/README.md)
+- [APT41: the public record](/case-studies/APT41_PUBLIC_RECORD.md)
 
 <!-- hub:end -->

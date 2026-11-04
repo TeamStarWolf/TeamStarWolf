@@ -199,7 +199,7 @@ The prevailing theory is that the affiliate kept the data and took it to RansomH
 - **Scattered Spider.** The original Scattered Spider advisory says the group has been known to use BlackCat/ALPHV and may have used it to encrypt VMware ESXi servers (Confirmed [25]); the 2025 revision names DragonForce instead and no longer mentions ALPHV (Confirmed [26]). An HHS HC3 note on help-desk social engineering in health says there was then no public attribution for the health-sector incidents and does not mention Change (Confirmed [27]). Change's documented entry was a login with compromised credentials to a portal without MFA (Confirmed [14]); no opened source says how the credentials were obtained, so nothing in the record ties the entry to help-desk vishing (Inferred from [14][17][46]). Scattered Spider was one ALPHV affiliate among many, so a Scattered Spider attribution for Change is unsupported (Inferred from [14][25][27][30]).
 - **A state hand behind ALPHV in this case.** The Rewards for Justice offer seeks information on ALPHV actors acting at a foreign government's direction against U.S. critical infrastructure (Confirmed [29]). That is the reward's legal framing, not a finding about Change (Inferred).
 
-For a record where state attribution is built from indictments and vendor reporting, compare the library's separate APT41 public-record case study.
+For a record where state attribution is built from indictments and vendor reporting, compare [the APT41 study](/case-studies/APT41_PUBLIC_RECORD.md).
 
 ### RansomHub
 

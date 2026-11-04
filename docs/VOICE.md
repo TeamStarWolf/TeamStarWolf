@@ -57,7 +57,7 @@ battle-tested\
 leverage\
 empower
 
-Write "a disassembler with a decompiler", not `a powerful disassembler`. Proper names pass (Seamless SSO). Use `robust`, `unlock`, and `ultimate` only in their technical sense.
+Write "a disassembler with a decompiler", not `a powerful disassembler`. Proper names pass (Seamless SSO, the Unbreakable Enterprise Kernel). Use `robust`, `unlock`, and `ultimate` only in their technical sense.
 
 ## Provenance and credit
 

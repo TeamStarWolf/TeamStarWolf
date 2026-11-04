@@ -30,7 +30,7 @@ Rules (the rule key is what the baseline counts):
                 ("one stop", "must have", "next level"), whose spaced forms are plain
                 English. Proper nouns that contain one of the words are allowed through
                 ALLOW (the ATT&CK campaign C0029 "Cutting Edge", Seamless SSO, the
-                Revolutionary Guard).
+                Revolutionary Guard, Oracle's Unbreakable Enterprise Kernel).
   count         A hand-typed headline count in prose: "<N> references", "<N> guides",
                 "<N> paths" or "<N> pages", the noun in any case ("## 140 References")
                 and not after "Level " (a course level), with at most one word between the number
@@ -176,6 +176,7 @@ ALLOW = (
     re.compile(r"Cutting Edge"),               # ATT&CK campaign C0029 (Ivanti VPN, 2023-24)
     re.compile(r"Seamless SSO"),               # Microsoft Entra Seamless Single Sign-On
     re.compile(r"Revolutionary Guard"),        # Islamic Revolutionary Guard Corps
+    re.compile(r"Unbreakable Enterprise Kernel"),  # Oracle Linux's UEK kernel line
     re.compile(r"Cryptography: State-of-the-Art"),  # a 34C3 talk title (research/CONFERENCE_TALKS.md)
 )
 
@@ -703,6 +704,8 @@ SELF_TEST = (
     ("A one-stop, must-have, next-level page.",
      ("hype:one-stop", "hype:must-have", "hype:next-level")),
     ("The C0029 Cutting Edge campaign abused Seamless SSO.", ()),
+    ("Oracle Linux ships the Unbreakable Enterprise Kernel (UEK).", ()),
+    ("An unbreakable kernel.", ("hype:unbreakable",)),
     ("Adversaries may leverage the API to read data.", ("hype:leverage",)),
     # Counts.
     ("A library of **140** references and 3 learning paths.", ("count", "count")),
@@ -806,7 +809,7 @@ EM_DASH_SELF_TEST = (
 SCOPE_SELF_TEST = ("platforms/x.md", "languages/x.md", "tools/x.md", "paradigms/x.md",
                    "frameworks/x.md", "commands/x.md", "formats/x.md", "databases/x.md",
                    "ai-tooling/x.md", "research/x.md", "detections/TECHNIQUE_DETECTION_LIBRARY.md",
-                   "guides/x.md", "disciplines/x.md", "HOME.md")
+                   "guides/x.md", "disciplines/x.md", "operating-systems/x.md", "HOME.md")
 SCOPE_OUT_SELF_TEST = ("mitre/x.md", "techniques/x.md", "detections/strategies/x.md",
                        "scores/x.md", "hubs/x.md", "navigator/index.md")
 

@@ -475,6 +475,13 @@ CATALOG = [
      [("fraud/f3-matrix.json", "F3 Matrix",
        "The full F3 fraud matrix: use with the [F3 reference](/FRAUD_FRAMEWORK_REFERENCE.md) and "
        f"[datasets]({repo_href('data/fraud/')})")]),
+    ("Case Study Layers (ICS)",
+     "ATT&CK for ICS layers bound to library case studies. Curated layers under `navigator/library-layers/` "
+     "must be `enterprise-attack`, so ICS case-study layers live in `navigator/case-studies/`. Scores mean "
+     "only that ATT&CK lists the technique on the named software, not severity or prevalence.",
+     [("case-studies/stuxnet-s0603-ics.json", "Stuxnet (S0603) ICS",
+       "The 25 ATT&CK for ICS techniques ATT&CK v20.0 lists for Stuxnet, from the "
+       "[Stuxnet case study](/case-studies/STUXNET.md)")]),
 ]
 
 

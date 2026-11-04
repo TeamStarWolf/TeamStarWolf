@@ -46,6 +46,7 @@ The adversary extracts credentials used for code signing from a production envir
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [Stuxnet: The Case Study](/case-studies/STUXNET.md)
 
 <!-- library-refs:end -->
 

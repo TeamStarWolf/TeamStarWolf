@@ -42,5 +42,6 @@ Part of the [domain hubs](/hubs/README.md). 9 reference documents in this domain
 ## See also
 
 - [SDR and RF security](/SDR_RF_SECURITY_REFERENCE.md)
+- [Stuxnet: the case study](/case-studies/STUXNET.md)
 
 <!-- hub:end -->

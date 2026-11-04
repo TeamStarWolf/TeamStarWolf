@@ -48,6 +48,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 - [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md)
 - [Stuxnet: The Case Study](/case-studies/STUXNET.md)
+- [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md)
 
 <!-- library-refs:end -->
 

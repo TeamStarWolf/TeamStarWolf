@@ -46,5 +46,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [ATT&CK software](/mitre/software/README.md)
 - [ATT&CK campaigns](/mitre/campaigns/README.md)
 - [SolarWinds and SUNBURST: a 2019 to 2021 case study](/case-studies/SOLARWINDS_SUNBURST.md)
+- [The year 2019 in intrusions: a dated record](/case-studies/CHRONICLE_2019.md)
 
 <!-- hub:end -->

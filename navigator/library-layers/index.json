@@ -82,5 +82,11 @@
     "name": "TeamStarWolf - Stuxnet (S0603) Enterprise",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise techniques that ATT&CK v20.0 lists for Stuxnet (S0603), each with a comment naming source numbers from case-studies/STUXNET.md; every row cites the Symantec W32.Stuxnet Dossier v1.4. Each selected technique is shown under all its tactics. Scores indicate membership only.",
     "blurb": "The Windows side of Stuxnet: USB and network spread, privilege escalation, signed rootkit drivers and Step 7 project infection. A curated layer for the Stuxnet case study; the ICS techniques are in a separate ics-attack layer."
+  },
+  {
+    "file": "chronicle-2019.json",
+    "name": "TeamStarWolf - The Year 2019 in Intrusions",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2019 record supports: state operations (Sandworm in Georgia, APT28, APT29 Operation Ghost, Turla, GALLIUM, Sea Turtle, Lazarus Group, Iranian actors, the TRITON actor), big game hunting ransomware and BEC, the year's edge-device and RDP vulnerabilities, ShadowHammer and Capital One. Ids reported under pre-v7 ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/CHRONICLE_2019.md. Scores: 100 where the library's ATT&CK data records the technique for an object in the study, 70 where an opened primary describes the behavior and the study chose the id, 40 where the behavior is only Reported or the id choice is Inferred.",
+    "blurb": "Techniques from the 2019 record, from edge-device exploitation and big game hunting ransomware to DNS hijacking, supply-chain compromise and cloud data theft. A curated layer for the 2019 chronicle case study."
   }
 ]

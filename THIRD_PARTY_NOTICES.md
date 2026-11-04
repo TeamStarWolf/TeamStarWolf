@@ -103,7 +103,8 @@ and `data/vendor_to_control.jsonl`.
 
 The release, support and end-of-life dates in `data/os/os-catalog.jsonl` (rendered on
 the pages under `operating-systems/`) come from the public
-[endoflife.date](https://endoflife.date/) API, `https://endoflife.date/api/<product>.json`.
+[endoflife.date](https://endoflife.date/) API (one JSON file per product, for example
+`https://endoflife.date/api/debian.json`).
 Each catalog row records the product, the release cycle and the date the API was read;
 `scripts/build_os_pages.py --refresh-eol` reads it again.
 

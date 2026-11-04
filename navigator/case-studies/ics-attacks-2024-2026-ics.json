@@ -1,0 +1,365 @@
+{
+  "name": "TeamStarWolf - ICS attacks 2024 to 2026 (ICS)",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "ics-attack",
+  "description": "ATT&CK for ICS techniques mapped to 2023 to 2026 ICS incidents by CISA advisories AA25-343A and AA26-097A and by ATT&CK C0031, C0041, C0063, G1027, S1157, S1165 and S9046, as bound in the ICS 2024 to 2026 case study. Scores indicate membership only.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T0801",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Monitor Process State. Appears in: S1165 FrostyGoop software record. Sources: [72]."
+    },
+    {
+      "techniqueID": "T0806",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "Brute Force I/O. Appears in: S1157 Fuxnet (Apr 2024). Sources: [76]."
+    },
+    {
+      "techniqueID": "T0809",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "Data Destruction. Appears in: C0063 2025 Poland Wiper Attacks (29 Dec 2025); S1157 Fuxnet (Apr 2024). Sources: [76] [79]."
+    },
+    {
+      "techniqueID": "T0814",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "Denial of Service. Appears in: C0031 Unitronics Defacement Campaign (Nov 2023); G1027 CyberAv3ngers record (page modified 2026-10-07); S1157 Fuxnet (Apr 2024). Sources: [70] [71] [76]."
+    },
+    {
+      "techniqueID": "T0816",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "Device Restart/Shutdown. Appears in: C0063 2025 Poland Wiper Attacks (29 Dec 2025); AA25-343A pro-Russia hacktivist HMI intrusions (Oct 2023 to Apr 2025; advisory 2025-12-09). Sources: [12] [79]."
+    },
+    {
+      "techniqueID": "T0822",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "External Remote Services. Appears in: C0063 2025 Poland Wiper Attacks (29 Dec 2025); S1157 Fuxnet (Apr 2024). Sources: [76] [79]."
+    },
+    {
+      "techniqueID": "T0823",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Graphical User Interface. Appears in: C0063 2025 Poland Wiper Attacks (29 Dec 2025); AA25-343A pro-Russia hacktivist HMI intrusions (Oct 2023 to Apr 2025; advisory 2025-12-09). Sources: [12] [79]."
+    },
+    {
+      "techniqueID": "T0826",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Loss of Availability. Appears in: C0031 Unitronics Defacement Campaign (Nov 2023); G1027 CyberAv3ngers record (page modified 2026-10-07); C0041 FrostyGoop Incident (Jan 2024). Sources: [70] [71] [72]."
+    },
+    {
+      "techniqueID": "T0827",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Loss of Control. Appears in: G1027 CyberAv3ngers record (page modified 2026-10-07); C0063 2025 Poland Wiper Attacks (29 Dec 2025). Sources: [70] [79]."
+    },
+    {
+      "techniqueID": "T0828",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Loss of Productivity and Revenue. Appears in: C0031 Unitronics Defacement Campaign (Nov 2023); G1027 CyberAv3ngers record (page modified 2026-10-07); AA25-343A pro-Russia hacktivist HMI intrusions (Oct 2023 to Apr 2025; advisory 2025-12-09). Sources: [12] [70] [71]."
+    },
+    {
+      "techniqueID": "T0829",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Loss of View. Appears in: C0031 Unitronics Defacement Campaign (Nov 2023); G1027 CyberAv3ngers record (page modified 2026-10-07); C0041 FrostyGoop Incident (Jan 2024); C0063 2025 Poland Wiper Attacks (29 Dec 2025); S1157 Fuxnet (Apr 2024); AA25-343A pro-Russia hacktivist HMI intrusions (Oct 2023 to Apr 2025; advisory 2025-12-09). Sources: [12] [70] [71] [72] [76] [79]."
+    },
+    {
+      "techniqueID": "T0831",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Manipulation of Control. Appears in: AA25-343A pro-Russia hacktivist HMI intrusions (Oct 2023 to Apr 2025; advisory 2025-12-09). Sources: [12]."
+    },
+    {
+      "techniqueID": "T0836",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "Modify Parameter. Appears in: AA25-343A pro-Russia hacktivist HMI intrusions (Oct 2023 to Apr 2025; advisory 2025-12-09); C0041 FrostyGoop Incident (Jan 2024); S1165 FrostyGoop software record. Sources: [12] [72]."
+    },
+    {
+      "techniqueID": "T0838",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "Modify Alarm Settings. Appears in: G1027 CyberAv3ngers record (page modified 2026-10-07). Sources: [70]."
+    },
+    {
+      "techniqueID": "T0840",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Network Connection Enumeration. Appears in: C0063 2025 Poland Wiper Attacks (29 Dec 2025). Sources: [79]."
+    },
+    {
+      "techniqueID": "T0843",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Program Download. Appears in: G1027 CyberAv3ngers record (page modified 2026-10-07). Sources: [70]."
+    },
+    {
+      "techniqueID": "T0845",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Program Upload. Appears in: G1027 CyberAv3ngers record (page modified 2026-10-07). Sources: [70]."
+    },
+    {
+      "techniqueID": "T0846",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Remote System Discovery. Appears in: C0063 2025 Poland Wiper Attacks (29 Dec 2025). Sources: [79]."
+    },
+    {
+      "techniqueID": "T0846.001",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Port Scan. Appears in: C0063 2025 Poland Wiper Attacks (29 Dec 2025); S9046 IOControl (Claroty report 2024-12-10). Sources: [75] [79]."
+    },
+    {
+      "techniqueID": "T0846.002",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Broadcast Discovery. Appears in: C0063 2025 Poland Wiper Attacks (29 Dec 2025). Sources: [79]."
+    },
+    {
+      "techniqueID": "T0852",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Screen Capture. Appears in: C0063 2025 Poland Wiper Attacks (29 Dec 2025). Sources: [79]."
+    },
+    {
+      "techniqueID": "T0859",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Valid Accounts. Appears in: AA25-343A pro-Russia hacktivist HMI intrusions (Oct 2023 to Apr 2025; advisory 2025-12-09); C0063 2025 Poland Wiper Attacks (29 Dec 2025). Sources: [12] [79]."
+    },
+    {
+      "techniqueID": "T0859",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Valid Accounts. Appears in: AA25-343A pro-Russia hacktivist HMI intrusions (Oct 2023 to Apr 2025; advisory 2025-12-09); C0063 2025 Poland Wiper Attacks (29 Dec 2025). Sources: [12] [79]."
+    },
+    {
+      "techniqueID": "T0869",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Standard Application Layer Protocol. Appears in: S1165 FrostyGoop software record. Sources: [72]."
+    },
+    {
+      "techniqueID": "T0869.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "DNS. Appears in: S9046 IOControl (Claroty report 2024-12-10). Sources: [75]."
+    },
+    {
+      "techniqueID": "T0869.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Publish/Subscribe Protocols. Appears in: S9046 IOControl (Claroty report 2024-12-10). Sources: [75]."
+    },
+    {
+      "techniqueID": "T0871",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Execution through API. Appears in: G1027 CyberAv3ngers record (page modified 2026-10-07). Sources: [70]."
+    },
+    {
+      "techniqueID": "T0878",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "Alarm Suppression. Appears in: AA25-343A pro-Russia hacktivist HMI intrusions (Oct 2023 to Apr 2025; advisory 2025-12-09). Sources: [12]."
+    },
+    {
+      "techniqueID": "T0879",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Damage to Property. Appears in: G1027 CyberAv3ngers record (page modified 2026-10-07). Sources: [70]."
+    },
+    {
+      "techniqueID": "T0880",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Loss of Safety. Appears in: G1027 CyberAv3ngers record (page modified 2026-10-07). Sources: [70]."
+    },
+    {
+      "techniqueID": "T0882",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Theft of Operational Information. Appears in: C0063 2025 Poland Wiper Attacks (29 Dec 2025). Sources: [79]."
+    },
+    {
+      "techniqueID": "T0883",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Internet Accessible Device. Appears in: C0031 Unitronics Defacement Campaign (Nov 2023); G1027 CyberAv3ngers record (page modified 2026-10-07); AA26-097A Iranian-affiliated PLC disruption (from Mar 2026; advisory 2026-04-07); S1157 Fuxnet (Apr 2024); AA25-343A pro-Russia hacktivist HMI intrusions (Oct 2023 to Apr 2025; advisory 2025-12-09). Sources: [12] [29] [70] [71] [76]."
+    },
+    {
+      "techniqueID": "T0885",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Commonly Used Port. Appears in: G1027 CyberAv3ngers record (page modified 2026-10-07); AA26-097A Iranian-affiliated PLC disruption (from Mar 2026; advisory 2026-04-07); S1165 FrostyGoop software record; C0063 2025 Poland Wiper Attacks (29 Dec 2025). Sources: [29] [70] [72] [79]."
+    },
+    {
+      "techniqueID": "T0886",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Remote Services. Appears in: G1027 CyberAv3ngers record (page modified 2026-10-07); C0063 2025 Poland Wiper Attacks (29 Dec 2025); AA25-343A pro-Russia hacktivist HMI intrusions (Oct 2023 to Apr 2025; advisory 2025-12-09). Sources: [12] [70] [79]."
+    },
+    {
+      "techniqueID": "T0886",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Remote Services. Appears in: G1027 CyberAv3ngers record (page modified 2026-10-07); C0063 2025 Poland Wiper Attacks (29 Dec 2025); AA25-343A pro-Russia hacktivist HMI intrusions (Oct 2023 to Apr 2025; advisory 2025-12-09). Sources: [12] [70] [79]."
+    },
+    {
+      "techniqueID": "T0888",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Remote System Information Discovery. Appears in: C0063 2025 Poland Wiper Attacks (29 Dec 2025). Sources: [79]."
+    },
+    {
+      "techniqueID": "T0889",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Modify Program. Appears in: G1027 CyberAv3ngers record (page modified 2026-10-07). Sources: [70]."
+    },
+    {
+      "techniqueID": "T0892",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "Change Credential. Appears in: G1027 CyberAv3ngers record (page modified 2026-10-07); AA25-343A pro-Russia hacktivist HMI intrusions (Oct 2023 to Apr 2025; advisory 2025-12-09); C0063 2025 Poland Wiper Attacks (29 Dec 2025). Sources: [12] [70] [79]."
+    },
+    {
+      "techniqueID": "T1692.001",
+      "tactic": "evasion",
+      "score": 100,
+      "comment": "Command Message. Appears in: G1027 CyberAv3ngers record (page modified 2026-10-07); AA25-343A, cited there under a revoked id (see 6.4). Sources: [12] [70] [82]."
+    },
+    {
+      "techniqueID": "T1692.001",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "Command Message. Appears in: G1027 CyberAv3ngers record (page modified 2026-10-07); AA25-343A, cited there under a revoked id (see 6.4). Sources: [12] [70] [82]."
+    },
+    {
+      "techniqueID": "T1693.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "System Firmware. Appears in: C0041 FrostyGoop Incident (Jan 2024); C0063 2025 Poland Wiper Attacks (29 Dec 2025). Sources: [72] [79]."
+    },
+    {
+      "techniqueID": "T1693.001",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "System Firmware. Appears in: C0041 FrostyGoop Incident (Jan 2024); C0063 2025 Poland Wiper Attacks (29 Dec 2025). Sources: [72] [79]."
+    },
+    {
+      "techniqueID": "T1693.001",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "System Firmware. Appears in: C0041 FrostyGoop Incident (Jan 2024); C0063 2025 Poland Wiper Attacks (29 Dec 2025). Sources: [72] [79]."
+    },
+    {
+      "techniqueID": "T1694.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Default Credentials. Appears in: C0031 Unitronics Defacement Campaign (Nov 2023); G1027 CyberAv3ngers record (page modified 2026-10-07); AA25-343A, cited there under a revoked id (see 6.4); C0063 2025 Poland Wiper Attacks (29 Dec 2025). Sources: [12] [70] [71] [79] [82]."
+    },
+    {
+      "techniqueID": "T1694.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Default Credentials. Appears in: C0031 Unitronics Defacement Campaign (Nov 2023); G1027 CyberAv3ngers record (page modified 2026-10-07); AA25-343A, cited there under a revoked id (see 6.4); C0063 2025 Poland Wiper Attacks (29 Dec 2025). Sources: [12] [70] [71] [79] [82]."
+    },
+    {
+      "techniqueID": "T1695",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "Block Communications. Appears in: G1027 CyberAv3ngers record (page modified 2026-10-07). Sources: [70]."
+    },
+    {
+      "techniqueID": "T1701",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Command and Scripting Interpreter. Appears in: S1165 FrostyGoop software record. Sources: [72]."
+    },
+    {
+      "techniqueID": "T1701.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "PowerShell. Appears in: C0063 2025 Poland Wiper Attacks (29 Dec 2025). Sources: [79]."
+    },
+    {
+      "techniqueID": "T1701.003",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Unix Shell. Appears in: C0063 2025 Poland Wiper Attacks (29 Dec 2025); S9046 IOControl (Claroty report 2024-12-10). Sources: [75] [79]."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: in the verified record of the ICS 2024 to 2026 case study (membership, not severity)",
+      "color": "#15803d"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md; ATT&CK v20.0 pages C0031, C0041, C0063, G1027, S1157, S1165, S9046; CISA AA25-343A and AA26-097A"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "43"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "49"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 means a source cited in the case study (a government advisory, or an ATT&CK campaign, group or software page) maps the technique to a 2023 to 2026 ICS event; no severity, prevalence, or coverage is measured."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics it has in data/attack/ics/technique_profiles.jsonl. This is display expansion, not a claim that every tactic applies to the procedure."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/ics/technique_profiles.jsonl"
+    }
+  ],
+  "links": [
+    {
+      "label": "Industrial Control System Attacks and Advisories, 2024 to 2026",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

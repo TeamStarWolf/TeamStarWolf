@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 25 min (5,759 words at 230 words a minute)
+About 26 min (5,949 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -47,7 +47,7 @@ You need to vet or scan a project's dependencies, you are adding SBOM generation
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last corrected</th><td>
 
-2026-10-12, revoked T1574.002 (DLL side-loading) folded into T1574.001 in the Hijack Execution Flow note ([#88](https://github.com/TeamStarWolf/TeamStarWolf/pull/88), ATT&CK v19.2)
+2026-11-04, SolarWinds and XZ Utils timelines, Codecov, 3CX, ctx and event-stream facts, ISO/IEC 5962 version, SLSA v1.2 release date and the SLSA v1.0 handling of L4 corrected ([#175](https://github.com/TeamStarWolf/TeamStarWolf/pull/175))
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
@@ -113,22 +113,24 @@ T1574, Hijack Execution Flow: Adversaries execute their own malicious payloads b
 
 #### SolarWinds SUNBURST (2020)
 Timeline:
-- October 2019: Attackers gain initial access to SolarWinds network
-- February 2020: Test injections placed into Orion build system to test detection
-- March 2020: SUNBURST malware injected into Orion Platform software (versions 2019.4 through 2020.2.1)
+- September 2019: Earliest suspicious activity SolarWinds' forensic teams found on its internal systems
+- October 2019: An Orion Platform release carries modifications that test whether code can be inserted into builds
+- February 20, 2020: SUNBURST code begins to be inserted into Orion Platform builds (affected: 2019.4 HF 5, 2020.2 with no hotfix, and 2020.2 HF 1); the attackers removed it from SolarWinds' environment in June 2020
 - March-June 2020: Malicious Orion updates distributed to ~18,000 customers including US government agencies
-- December 8, 2020: FireEye discloses breach and discovers supply chain attack
-- December 13, 2020: Microsoft, FireEye, and GoDaddy seize SUNBURST C2 domain
+- December 8, 2020: FireEye discloses unauthorized access to its red team tools
+- December 13, 2020: FireEye publishes its analysis of the SUNBURST backdoor in SolarWinds Orion
+
+Sources: SolarWinds, [New Findings From Our Investigation of SUNBURST](https://www.solarwinds.com/blog/new-findings-from-our-investigation-of-sunburst) and its [security advisory](https://www.solarwinds.com/sa-overview/securityadvisory); [CISA AA20-352A](https://www.cisa.gov/news-events/cybersecurity-advisories/aa20-352a); FireEye, [SUNBURST analysis](https://cloud.google.com/blog/topics/threat-intelligence/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor).
 
 Technical details: SUNBURST was injected into SolarWinds.Orion.Core.BusinessLayer.dll, a legitimate signed component. The malware lay dormant for ~2 weeks after installation, then communicated via DGA (Domain Generation Algorithm) beacons using avsvmcloud[.]com subdomains. HTTP traffic was encoded to mimic legitimate Orion API traffic. The malware performed reconnaissance, exfiltrated data, and could deliver second-stage payloads (TEARDROP). Approximately 100 organizations were deeply compromised, including FireEye, Microsoft, and multiple US federal agencies (Treasury, Commerce, Homeland Security, State, NIH).
 
 #### XZ Utils CVE-2024-3094 (2024)
 Timeline:
-- Early 2022: "Jia Tan" (JiaT75) begins making contributions to XZ Utils project
+- October 2021: "Jia Tan" (JiaT75) sends a first patch to the xz-devel mailing list; the first commit under that identity is merged in February 2022
 - 2022-2023: Jia Tan builds credibility with legitimate bug fixes and becomes co-maintainer
-- February 2024: Malicious code added to XZ Utils 5.6.0 and 5.6.1 via modified build scripts
-- March 29, 2024: Andres Freund discovers backdoor via anomalous SSH login slowness
-- March 29, 2024: CVE-2024-3094 disclosed, emergency patches released
+- February 24 and March 9, 2024: Jia Tan publishes XZ Utils 5.6.0 and 5.6.1, whose release tarballs carry the backdoor through a modified build script
+- March 29, 2024: Andres Freund reports the backdoor to the oss-security mailing list after tracing slow SSH logins
+- March 29, 2024: CVE-2024-3094 published, emergency patches released (timeline: [Russ Cox, xz attack timeline](https://research.swtch.com/xz-timeline))
 
 Technical details: The backdoor targeted systemd-linked sshd on glibc-based Linux systems. The malicious code was concealed in test files and activated via a malicious ifunc resolver that intercepted RSA key decryption in OpenSSH. The attacker used a forged signature verification bypass allowing authentication with any key. The social engineering campaign lasted ~2 years, demonstrating sophisticated long-term supply chain infiltration. The attack is attributed to a nation-state actor with resources for multi-year operations.
 
@@ -136,18 +138,18 @@ Technical details: The backdoor targeted systemd-linked sshd on glibc-based Linu
 In February 2024 a company named Funnull acquired the `polyfill.io` domain and its GitHub account from the original author. On 25 June 2024 Sansec reported that `cdn.polyfill.io` was injecting malware into mobile visitors of any site that embedded the script. Estimates of reach ran from over 100,000 sites (Sansec) to tens of millions (Cloudflare). The payload was generated on the server and keyed on request headers, so it hid from casual inspection and served the attack selectively. Cloudflare and Fastly stood up safe mirrors, and the registrar Namecheap placed the domain on hold. The same operator was later linked to the BootCDN, Bootcss, and Staticfile mirrors. Lesson: a third-party script loaded from a mutable CDN is a live code-execution dependency on that provider. Self-host the asset, or pin it with Subresource Integrity (SRI) so a changed file fails to load.
 
 #### Codecov Breach (2021)
-Attackers modified Codecov's bash uploader script hosted on codecov.io. The modified script exfiltrated environment variables (including CI secrets and API tokens) to an attacker-controlled server. Since the standard usage was `curl -s https://codecov.io/bash | bash`, every CI pipeline using Codecov was affected. Over 29,000 customers used the bash uploader. The attack exposed secrets from thousands of CI pipelines including tokens for Twilio, Hashicorp, Rapid7, and others.
+Attackers modified Codecov's bash uploader script hosted on codecov.io. The modified script exfiltrated environment variables (including CI secrets and API tokens) to an attacker-controlled server. Since the standard usage was `curl -s https://codecov.io/bash | bash`, every CI pipeline that fetched the script while it was altered ran the attacker's code. Codecov's [security update](https://about.codecov.io/security-update/) dates the alterations from January 31, 2021 until Codecov learned of them on April 1, 2021. The attack exposed secrets from thousands of CI pipelines including tokens for Twilio, Hashicorp, Rapid7, and others.
 
 #### 3CX Double Supply Chain Attack (2023)
-The 3CX attack is notable as a double supply chain compromise: ICON Trading's legitimate software was first compromised (via North Korean Lazarus Group), and the resulting malicious ICON installer was then used to compromise a 3CX developer's machine. This compromised developer's credentials were used to inject malicious code into the 3CX Electron-based softphone application. The final malicious 3CX application was signed with a valid certificate and distributed to ~600,000 3CX customers globally.
+The 3CX attack is notable as a double supply chain compromise. [Mandiant](https://cloud.google.com/blog/topics/threat-intelligence/3cx-software-supply-chain-compromise) traced the first intrusion into 3CX's network to a tampered installer for X_TRADER, downloaded from the Trading Technologies website after an earlier supply chain compromise of that software, and tracks the activity as UNC4736, a suspected North Korean nexus cluster. The attacker then harvested credentials, moved laterally, and compromised 3CX's Windows and macOS build environments, where malicious code was inserted into the 3CX Electron-based desktop app. The final malicious 3CX application was signed with a valid certificate and distributed to ~600,000 3CX customers globally.
 
 #### PyPI Malware Campaigns
 W4SP Stealer (2022): Multiple packages including pyquest, ultrarequests, pystyle, and numerous others contained W4SP stealer targeting Discord tokens, browser cookies, cryptocurrency wallets, and saved passwords. Packages had thousands of downloads before detection.
 
-ctx/phpass Typosquatting (2022): Security researcher demonstrated compromise of ctx (Python package) and phpass (PHP) packages by registering expired domains used as home pages, then publishing malicious versions. The ctx package had ~20,000 monthly downloads.
+ctx account takeover (2022): The domain behind the email address of the ctx (Python package) owner account had expired; the attacker registered it, took over the PyPI account, and uploaded malicious releases between May 14 and May 24, 2022 that sent environment variables to the attacker. Before the takeover ctx averaged about 1,600 downloads a day, and the [PyPI incident report](https://python-security.readthedocs.io/pypi-vuln/index-2022-05-24-ctx-domain-takeover.html) estimates 27,000 malicious copies were downloaded.
 
 #### npm Malicious Packages
-event-stream (2018): Dominic Tarr transferred ownership to user right9ctrl who added a new dependency (flatmap-stream) containing an encrypted payload targeting the Copay Bitcoin wallet. The payload only activated on specific Bitcoin wallet codebases. Discovered after 8 million downloads.
+event-stream (2018): Dominic Tarr transferred ownership to user right9ctrl who, on September 9, 2018, added a new dependency (flatmap-stream 0.1.1, in event-stream 3.3.6) containing an encrypted payload targeting the Copay Bitcoin wallet. The payload only activated in Copay's build environment. npm removed flatmap-stream and event-stream@3.3.6 from the registry in November 2018 ([npm incident notes](https://blog.npmjs.org/post/180565383195/details-about-the-event-stream-incident)).
 
 node-ipc (2022): Maintainer RIAEvangelist added malicious code (peacenotwar) that wiped files on Russian and Belarusian systems in response to the Ukraine invasion. The maintainer had activist intent rather than financial motivation, demonstrating insider threat scenarios.
 
@@ -164,7 +166,7 @@ The SLSA threat model defines attack surfaces across four categories:
 
 ### SBOM Format Comparison: CycloneDX 1.7 vs SPDX 2.3
 
-> Version note (verified 2026-09-29): Current spec releases are CycloneDX 1.7 (October 21, 2025; final of the 1.x line, ratified as ECMA-424 2nd Edition) and SPDX 3.0.1 (December 2024). CycloneDX 1.7 is backward compatible with 1.4-1.6, and SPDX 2.3 remains the most widely deployed SPDX version, so the comparison below tracks the still-common CycloneDX 1.x / SPDX 2.3 feature baselines. Sources: <https://cyclonedx.org/news/cyclonedx-v1.7-released/>, <https://spdx.github.io/spdx-spec/v3.0.1/>.
+> Version note: Current spec releases are CycloneDX 1.7 (October 21, 2025; published by Ecma International as [ECMA-424, 2nd edition](https://ecma-international.org/publications-and-standards/standards/ecma-424/), in December 2025) and SPDX 3.0.1 (December 2024). CycloneDX 1.7 is backward compatible with 1.4-1.6, and SPDX 2.3 remains the most widely deployed SPDX version, so the comparison below tracks the still-common CycloneDX 1.x / SPDX 2.3 feature baselines. Sources: <https://cyclonedx.org/news/cyclonedx-v1.7-released/>, <https://spdx.github.io/spdx-spec/v3.0.1/>.
 
 | Feature | CycloneDX 1.7 | SPDX 2.3 |
 |---------|---------------|----------|
@@ -179,7 +181,7 @@ The SLSA threat model defines attack surfaces across four categories:
 | PURL Support | Yes (native) | Yes (externalRef with PURL type) |
 | CPE Support | Yes (native) | Yes (externalRef with CPE type) |
 | Dependency Graph | Yes (dependencies element) | Yes (DESCRIBES, CONTAINS, DEPENDS_ON relationships) |
-| Maturity | ISO/IEC 5962 (SPDX 2.2) standard | Widely adopted in FOSS ecosystem |
+| Maturity | ISO/IEC 5962:2021 (SPDX 2.2.1) standard | Widely adopted in FOSS ecosystem |
 | Tooling | cdxgen, cyclonedx-cli, Syft, Trivy | SPDX tools, FOSSology, Syft, Trivy |
 | Primary Use Case | Security (vulnerability tracking, VEX) | License compliance, open source auditing |
 
@@ -915,7 +917,7 @@ updater.find_cached_target(updater.get_targetinfo("myapp-v1.2.3.tar.gz"))
 
 SLSA (Supply chain Levels for Software Artifacts) defines a graduated set of requirements for build integrity:
 
-> Version note (verified 2026-09-29): The current specification is SLSA v1.2 (approved November 12, 2025), which promotes the Source track from experimental to approved, covering source-history integrity and tamper protection alongside the stable Build track (the L0-L3 build levels below). The Build-track requirements are unchanged from v1.0 (where the old L4 was merged into L3+). See <https://slsa.dev/spec/v1.2/>.
+> Version note: The current specification is SLSA v1.2 (status Approved; released November 24, 2025, per the [SLSA announcement](https://slsa.dev/blog/2025/11/announce-slsa-v1.2)), which introduces the Source track, covering source-history integrity and tamper protection alongside the stable Build track (the L0-L3 build levels below). The Build-track requirements are unchanged from v1.0, which deferred the old L4 to a future version. See <https://slsa.dev/spec/v1.2/>.
 
 | Requirement | L0 | L1 | L2 | L3 |
 |-------------|----|----|----|----|
@@ -938,7 +940,7 @@ SLSA L2: Provenance is signed by the build service that created it and the build
 
 SLSA L3: Build is hardened against tampering during the build process. Provenance is non-forgeable: the build service generates and signs provenance such that even the operator of the service cannot forge provenance for an artifact they didn't build. Environment is ephemeral: no persistent workspace between builds, fresh environment for each build. Protects against insider threats at the build service operator level.
 
-SLSA L4 (deprecated in SLSA v1.0, merged into L3+): Two-person review of all source changes before they can influence the build. Hermetic and reproducible builds required. Now addressed through source requirements separate from build requirements in SLSA v1.0.
+SLSA L4 (from SLSA v0.1; [v1.0 deferred it](https://slsa.dev/spec/v1.0/whats-new), with hermetic builds and source requirements, to future versions): Two-person review of all source changes before they can influence the build. Hermetic and reproducible builds required. Source requirements now sit in the separate Source track that SLSA v1.2 introduced.
 
 ### Source Requirements
 
@@ -2032,7 +2034,7 @@ Alpha: Targets the most critical projects with dedicated security engineers
 - Provides funding for security audits, vulnerability remediation, security tooling
 - Deliverables: threat model, security audit, CVE remediation
 
-Omega: Automated security analysis across top 10,000 open source projects
+Omega: Automated security analysis across widely used open source projects
 - Automated scanning with CodeQL, Semgrep, OSV Scanner
 - Human review of highest-confidence findings
 - Patch submission to upstream projects

@@ -6,7 +6,7 @@
        light: assets/brand/starwolf64-hero-light-*.webp, exported from
               assets/StarWolf64Version2Banner.png, which reads on a light background
      Both come from scripts/build_brand_assets.py.
-     The three buttons are raw HTML so each keeps its own class: index.html styles
+     The four buttons are raw HTML so each keeps its own class: index.html styles
      .tsw-cover-btn--primary and wires .tsw-cover-search to the search overlay; its href,
      the reference index, is where it goes without scripts. -->
 
@@ -16,4 +16,4 @@
 
 > An open cybersecurity reference library for the community.
 
-<div class="tsw-cover-actions"><a class="tsw-cover-btn tsw-cover-btn--primary" href="#/?id=where-do-you-want-to-start">Start here</a><a class="tsw-cover-btn tsw-cover-search" href="#/INDEX">Search <kbd>Ctrl</kbd> <kbd>K</kbd></a><a class="tsw-cover-btn" href="https://teamstarwolf.github.io/ATTACK-Navi/" target="_blank" rel="noopener">ATT&amp;CK-Navi</a></div>
+<div class="tsw-cover-actions"><a class="tsw-cover-btn tsw-cover-btn--primary" href="#/?id=where-do-you-want-to-start">Start here</a><a class="tsw-cover-btn" href="https://teamstarwolf.github.io/intelligence-hub/" target="_blank" rel="noopener">Intelligence Hub</a><a class="tsw-cover-btn tsw-cover-search" href="#/INDEX">Search <kbd>Ctrl</kbd> <kbd>K</kbd></a><a class="tsw-cover-btn" href="https://teamstarwolf.github.io/ATTACK-Navi/" target="_blank" rel="noopener">ATT&amp;CK-Navi</a></div>

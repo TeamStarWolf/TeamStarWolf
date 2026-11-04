@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 19 min (4,448 words at 230 words a minute)
+About 19 min (4,450 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -546,7 +546,7 @@ Everything crossing a numbered boundary is **untrusted**. This single diagram de
 - OWASP GenAI Security Project (LLM Top 10 2025; Agentic Top 10 2026): [genai.owasp.org](https://genai.owasp.org/)
 - MITRE ATLAS: [atlas.mitre.org](https://atlas.mitre.org/)
 - Model Context Protocol: [modelcontextprotocol.io](https://modelcontextprotocol.io/)
-- ISO/IEC 42001:2023 (AI management system): [iso.org](https://www.iso.org/standard/81230.html)
+- ISO/IEC 42001:2023 (AI management system): iso.org, standard 81230
 - NIST SSDF SP 800-218 / 800-218A: [csrc.nist.gov](https://csrc.nist.gov/)
 
 <!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->

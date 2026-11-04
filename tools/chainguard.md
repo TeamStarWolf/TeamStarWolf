@@ -49,7 +49,7 @@ Chainguard is a preventive/remediation control that attacks the vulnerability li
 
 **Log sources**
 - Supply-chain hardening: the 'telemetry' is cryptographic metadata attached to the image in the OCI registry (cgr.dev/chainguard public, cgr.dev/<ORG> for org images), not a running-agent log stream.
-- Signed in-toto attestations per build: (1) SPDX SBOM (predicate https://spdx.dev/Document), (2) SLSA provenance (predicate https://slsa.dev/provenance/v1) describing the build environment, (3) apko build-config (direct deps, users, entrypoint).
+- Signed in-toto attestations per build: (1) SPDX SBOM (predicate `https://spdx.dev/Document`), (2) SLSA provenance (predicate `https://slsa.dev/provenance/v1`) describing the build environment, (3) apko build-config (direct deps, users, entrypoint).
 - Signatures: keyless Sigstore — Fulcio cert tied to the GitHub Actions OIDC identity of Chainguard's release workflow, logged in the Rekor transparency log.
 - Validation/collection points: CI (cosign verify / verify-attestation), admission time (Sigstore policy-controller, Kyverno, or Chainguard/enforce policy), and the registry/scanner pipeline. Operational logs of these checks live in CI run logs, the Kubernetes admission controller / kube-audit log, and Rekor — not in Chainguard itself.
 - VERIFIED: three attestation types (SLSA provenance v1, apko config, SPDX SBOM); cosign download/verify-attestation flow; keyless verify reporting Rekor-entry + cert-chain validation; retrieval guide current to July 2025.
@@ -66,7 +66,7 @@ Chainguard is a preventive/remediation control that attacks the vulnerability li
 
 **Key events / fields / tables / APIs**
 - cosign verify output: certificate Subject/SAN (build identity github.com/chainguard-images/images.../release.yaml@ref), OIDC issuer (token.actions.githubusercontent.com), Rekor logIndex/logID + inclusion proof, Bundle Verified=true.
-- Attestation: predicateType (https://slsa.dev/provenance/v1 | https://spdx.dev/Document), predicate.buildDefinition / predicate.runDetails (SLSA builder.id, invocation), SPDX packages[].name/versionInfo/externalRefs (CPE/PURL -> CVE).
+- Attestation: predicateType (`https://slsa.dev/provenance/v1` | `https://spdx.dev/Document`), predicate.buildDefinition / predicate.runDetails (SLSA builder.id, invocation), SPDX packages[].name/versionInfo/externalRefs (CPE/PURL -> CVE).
 - Kubernetes admission audit: objectRef.resource=pods, responseStatus.code (403 on deny), message ('failed policy: <name>: no matching attestations'); policy-controller/Kyverno emit a Warning/Blocked event with the image digest.
 - Pin by digest (@sha256:) not tag for a deterministic claim.
 - NOTE: the exact certificate-identity string differs across Chainguard docs (chainguard-images/images vs images-private) — confirm the current value before pinning it in an enforcing policy.

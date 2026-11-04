@@ -1018,6 +1018,7 @@ CVEs the library discusses that the Hub also tracks, each with its brief on the 
 
 | CVE | Named in |
 |---|---|
+| [CVE-2008-4128](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2008-4128) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
 | [CVE-2008-4250](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2008-4250) | [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md) |
 | [CVE-2010-2568](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2010-2568) | [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md) |
 | [CVE-2014-0160](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2014-0160) | [CVE Reference Guide](/CVE_REFERENCE.md), [Network Protocols Reference: Security Perspective](/NETWORK_PROTOCOLS_REFERENCE.md) |
@@ -1031,32 +1032,48 @@ CVEs the library discusses that the Hub also tracks, each with its brief on the 
 | [CVE-2017-5753](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2017-5753) | [Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md) |
 | [CVE-2017-5754](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2017-5754) | [Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md) |
 | [CVE-2017-6334](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2017-6334) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| [CVE-2017-6742](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2017-6742) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
 | [CVE-2017-7494](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2017-7494) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md) |
 | [CVE-2017-7921](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2017-7921) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
 | [CVE-2017-17562](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2017-17562) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
-| [CVE-2018-0171](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2018-0171) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Telecom & 5G Security Reference](/TELECOM_5G_SECURITY_REFERENCE.md) |
+| [CVE-2018-0171](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2018-0171) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Telecom & 5G Security Reference](/TELECOM_5G_SECURITY_REFERENCE.md), [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
 | [CVE-2018-9276](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2018-9276) | [HackTheBox Machine Index](/research/HTB_MACHINE_INDEX.md) |
 | [CVE-2018-10561](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2018-10561) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| [CVE-2018-13379](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2018-13379) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
 | [CVE-2018-14847](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2018-14847) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
 | [CVE-2019-0708](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-0708) | [Network Protocols Security Reference](/NETWORK_PROTOCOLS_SECURITY.md) |
+| [CVE-2019-1653](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-1653) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
 | [CVE-2019-2215](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-2215) | [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md) |
+| [CVE-2019-2725](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-2725) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
 | [CVE-2019-5544](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-5544) | [Hypervisor & Virtualization Hardening Reference](/HYPERVISOR_SECURITY_REFERENCE.md) |
 | [CVE-2019-5736](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-5736) | [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md), [Kubernetes Security Reference](/KUBERNETES_SECURITY_REFERENCE.md), [Container & Kubernetes Security](/disciplines/container-kubernetes-security.md) |
 | [CVE-2019-7192](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-7192) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| [CVE-2019-7609](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-7609) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
+| [CVE-2019-9670](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-9670) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
+| [CVE-2019-10149](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-10149) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
+| [CVE-2019-11510](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-11510) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
 | [CVE-2019-16920](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-16920) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
 | [CVE-2019-17621](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-17621) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
-| [CVE-2019-19781](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-19781) | [HONEYPOT & DECEPTION TECHNOLOGY REFERENCE](/HONEYPOT_DECEPTION_REFERENCE.md) |
+| [CVE-2019-19781](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2019-19781) | [HONEYPOT & DECEPTION TECHNOLOGY REFERENCE](/HONEYPOT_DECEPTION_REFERENCE.md), [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
+| [CVE-2020-0688](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-0688) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
 | [CVE-2020-0796](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-0796) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md), [Windows Hardening Reference](/WINDOWS_HARDENING.md) |
-| [CVE-2020-1472](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-1472) | [CVE Reference Guide](/CVE_REFERENCE.md), [Penetration Testing Checklists](/PENTEST_CHECKLISTS.md), [Windows Hardening and GPO Reference](/WINDOWS_HARDENING_GPO.md) |
+| [CVE-2020-1472](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-1472) | [CVE Reference Guide](/CVE_REFERENCE.md), [Penetration Testing Checklists](/PENTEST_CHECKLISTS.md), [Windows Hardening and GPO Reference](/WINDOWS_HARDENING_GPO.md), [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
 | [CVE-2020-3992](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-3992) | [Hypervisor & Virtualization Hardening Reference](/HYPERVISOR_SECURITY_REFERENCE.md) |
+| [CVE-2020-4006](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-4006) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
+| [CVE-2020-5902](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-5902) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
+| [CVE-2020-12641](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-12641) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
+| [CVE-2020-14882](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-14882) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
 | [CVE-2020-25506](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-25506) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| [CVE-2020-35730](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2020-35730) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
 | [CVE-2021-1675](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-1675) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Penetration Testing Checklists](/PENTEST_CHECKLISTS.md), [Windows Hardening and GPO Reference](/WINDOWS_HARDENING_GPO.md) |
 | [CVE-2021-1879](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-1879) | [Browser Security Reference](/BROWSER_SECURITY_REFERENCE.md) |
-| [CVE-2021-4034](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-4034) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Privilege Escalation Reference](/PRIVESC_REFERENCE.md) |
+| [CVE-2021-3156](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-3156) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
+| [CVE-2021-4034](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-4034) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Privilege Escalation Reference](/PRIVESC_REFERENCE.md), [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
 | [CVE-2021-20090](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-20090) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
 | [CVE-2021-22893](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-22893) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md) |
 | [CVE-2021-25394](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-25394) | [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md) |
-| [CVE-2021-26855](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-26855) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2021-26084](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-26084) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
+| [CVE-2021-26855](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-26855) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
 | [CVE-2021-27065](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-27065) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
 | [CVE-2021-27101](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-27101) | [The Cl0p MOVEit Breach and the File-Transfer Extortion Playbook: A 2023 Case Study](/case-studies/CL0P_FILE_TRANSFER_2023.md) |
 | [CVE-2021-27102](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-27102) | [The Cl0p MOVEit Breach and the File-Transfer Extortion Playbook: A 2023 Case Study](/case-studies/CL0P_FILE_TRANSFER_2023.md) |
@@ -1067,25 +1084,29 @@ CVEs the library discusses that the Hub also tracks, each with its brief on the 
 | [CVE-2021-30551](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-30551) | [Browser Security Reference](/BROWSER_SECURITY_REFERENCE.md) |
 | [CVE-2021-30860](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-30860) | [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md), [Mobile Security](/disciplines/mobile-security.md) |
 | [CVE-2021-31207](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-31207) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
-| [CVE-2021-33044](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-33044) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md), [Physical Security Reference](/PHYSICAL_SECURITY_REFERENCE.md) |
+| [CVE-2021-33044](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-33044) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md), [Physical Security Reference](/PHYSICAL_SECURITY_REFERENCE.md), [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
+| [CVE-2021-33045](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-33045) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
 | [CVE-2021-34473](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-34473) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md), [Malware Families Reference](/MALWARE_FAMILIES.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
 | [CVE-2021-34523](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-34523) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
 | [CVE-2021-34527](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-34527) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Penetration Testing Checklists](/PENTEST_CHECKLISTS.md), [Vulnerability Management](/disciplines/vulnerability-management.md) |
 | [CVE-2021-35247](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-35247) | [Log4Shell (CVE-2021-44228): The Case Study](/case-studies/LOG4SHELL.md) |
 | [CVE-2021-36260](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-36260) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md), [Physical Security Reference](/PHYSICAL_SECURITY_REFERENCE.md) |
 | [CVE-2021-41773](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-41773) | [CVE Reference Guide](/CVE_REFERENCE.md) |
+| [CVE-2021-44026](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-44026) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
 | [CVE-2021-44207](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-44207) | [Log4Shell (CVE-2021-44228): The Case Study](/case-studies/LOG4SHELL.md) |
 | [CVE-2021-44228](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-44228) | [CVE Reference Guide](/CVE_REFERENCE.md), [Detection Rule Writing Reference](/DETECTION_RULES_REFERENCE.md), [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md), [HONEYPOT & DECEPTION TECHNOLOGY REFERENCE](/HONEYPOT_DECEPTION_REFERENCE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [OSINT Reference](/OSINT_REFERENCE.md), [Penetration Testing Methodology Reference](/PENETRATION_TESTING_METHODOLOGY.md), [Penetration Testing Checklists](/PENTEST_CHECKLISTS.md), [Red Team Reference: Authorized Operator Field Guide](/RED_TEAM_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Log4Shell (CVE-2021-44228): The Case Study](/case-studies/LOG4SHELL.md), [Case Studies](/case-studies/README.md), [Application Security](/disciplines/application-security.md), [Vulnerability Management](/disciplines/vulnerability-management.md), [Spring Boot](/frameworks/spring-boot.md), [Start a Vulnerability Management Program (First 90 Days)](/guides/START_A_VULN_MGMT_PROGRAM.md), [Tool Manuals and Repositories](/tools-research/TOOL_MANUALS_AND_REPOSITORIES.md), [AWS WAF](/tools/aws-waf.md) |
 | [CVE-2021-45046](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2021-45046) | [CVE Reference Guide](/CVE_REFERENCE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Penetration Testing Methodology Reference](/PENETRATION_TESTING_METHODOLOGY.md), [Log4Shell (CVE-2021-44228): The Case Study](/case-studies/LOG4SHELL.md) |
 | [CVE-2022-0185](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-0185) | [Kubernetes Security Reference](/KUBERNETES_SECURITY_REFERENCE.md) |
 | [CVE-2022-0847](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-0847) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Privilege Escalation Reference](/PRIVESC_REFERENCE.md), [Container & Kubernetes Security](/disciplines/container-kubernetes-security.md), [Vulnerability Management](/disciplines/vulnerability-management.md) |
 | [CVE-2022-1388](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-1388) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md) |
+| [CVE-2022-3236](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-3236) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
 | [CVE-2022-21894](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-21894) | [Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md), [Malware Families Reference](/MALWARE_FAMILIES.md) |
 | [CVE-2022-22965](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-22965) | [Spring Boot](/frameworks/spring-boot.md) |
-| [CVE-2022-26134](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-26134) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md), [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| [CVE-2022-26134](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-26134) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md), [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md), [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
+| [CVE-2022-26138](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-26138) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
 | [CVE-2022-26143](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-26143) | [Wireless Security Reference](/WIRELESS_SECURITY_REFERENCE.md) |
 | [CVE-2022-30190](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-30190) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
-| [CVE-2022-38028](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-38028) | [ATT&CK Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md) |
+| [CVE-2022-38028](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-38028) | [ATT&CK Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md), [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
 | [CVE-2022-40684](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-40684) | [Vulnerability Management](/disciplines/vulnerability-management.md) |
 | [CVE-2022-42475](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-42475) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md) |
 | [CVE-2022-42856](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2022-42856) | [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md) |
@@ -1101,13 +1122,17 @@ CVEs the library discusses that the Hub also tracks, each with its brief on the 
 | [CVE-2023-20273](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-20273) | [Network Attacks Reference](/NETWORK_ATTACKS_REFERENCE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Telecom & 5G Security Reference](/TELECOM_5G_SECURITY_REFERENCE.md) |
 | [CVE-2023-20867](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-20867) | [Hypervisor & Virtualization Hardening Reference](/HYPERVISOR_SECURITY_REFERENCE.md) |
 | [CVE-2023-22518](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-22518) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md) |
+| [CVE-2023-23397](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-23397) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
 | [CVE-2023-27997](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-27997) | [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md) |
 | [CVE-2023-29357](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-29357) | [Starred Repositories Index](/STARRED_REPOS.md) |
 | [CVE-2023-34048](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-34048) | [Hypervisor & Virtualization Hardening Reference](/HYPERVISOR_SECURITY_REFERENCE.md) |
 | [CVE-2023-34362](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-34362) | [CVE Reference Guide](/CVE_REFERENCE.md), [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [The Cl0p MOVEit Breach and the File-Transfer Extortion Playbook: A 2023 Case Study](/case-studies/CL0P_FILE_TRANSFER_2023.md), [Case Studies](/case-studies/README.md) |
+| [CVE-2023-38831](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-38831) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
+| [CVE-2023-42793](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-42793) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
 | [CVE-2023-44487](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-44487) | [Network Protocols Reference: Security Perspective](/NETWORK_PROTOCOLS_REFERENCE.md) |
 | [CVE-2023-46747](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-46747) | [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md) |
 | [CVE-2023-46805](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-46805) | [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
+| [CVE-2023-50224](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2023-50224) | [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md) |
 | [CVE-2024-0519](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-0519) | [Browser Security Reference](/BROWSER_SECURITY_REFERENCE.md) |
 | [CVE-2024-1086](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-1086) | [Linux Hardening Reference Library](/LINUX_HARDENING_REFERENCE.md), [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |
 | [CVE-2024-1708](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2024-1708) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md) |

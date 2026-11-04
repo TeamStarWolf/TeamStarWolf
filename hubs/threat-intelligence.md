@@ -45,5 +45,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [ATT&CK threat groups](/mitre/groups/README.md)
 - [ATT&CK software](/mitre/software/README.md)
 - [ATT&CK campaigns](/mitre/campaigns/README.md)
+- [Russia-attributed threat actors: a case study](/case-studies/THREAT_ACTORS_RUSSIA.md)
 
 <!-- hub:end -->

@@ -384,7 +384,6 @@ Armis customer manuals are behind logins, but the REST API reference at dev.armi
 | [Vulnerability Response Integration with Armis](https://store.servicenow.com/store/app/6d4bef2a1b246a50a85b16db234bcb6c) | ServiceNow Store app, published by Armis Inc, v2.0.4 | Armis device vulnerabilities into VR, including OT | OK |
 | [Service Graph Connector for Armis](https://store.servicenow.com/store/app/e43a2fe21b246a50a85b16db234bcb55) | ServiceNow Store app, published by Armis Inc, v2.2.0 | Managed, unmanaged, IoT and OT assets into CMDB | OK |
 | [Early Warning for Security Exposure Management](https://store.servicenow.com/store/app/1a9d3020c3868f10bc9a989f050131e8) | ServiceNow Store app, published by ServiceNow | Armis exploited-CVE intel inside USEM and VR | OK |
-| [Armis connector troubleshooting](https://www.servicenow.com/community/service-graph-connectors-forum/armis-service-graph-connector-for-servicenow-basic/m-p/3594160) | Community post | Basic connector troubleshooting; links to the Armis KB | OK |
 | [Armis from ServiceNow community](https://www.servicenow.com/community/armis-from-servicenow/ct-p/armis) | Community | Post-acquisition Armis community | OK |
 | [Armis on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-zhbfuevcbnjfw) | AWS Marketplace | Armis Centrix SaaS through AWS billing | OK |
 | [Armis Centrix FedRAMP private offer](https://aws.amazon.com/marketplace/pp/prodview-rvovutwqs4qfe) | AWS Marketplace | FedRAMP authorized offer | OK |
@@ -468,8 +467,8 @@ The current ATT&CK release is v20.0 (October 13, 2026). Before it came v19.2 (pu
 | Resource | Type | What it is for | Status |
 |---|---|---|---|
 | [attack-stix-data index.json](https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/index.json) | Feed | Collection index; latest files are the 20.0 Enterprise, Mobile and ICS bundles | OK |
-| [ATT&CK TAXII 2.1 discovery](https://attack-taxii.mitre.org/taxii2/) | API | TAXII 2.1 server for ATT&CK STIX 2.1 | OK only with the TAXII Accept header |
-| [ATT&CK TAXII collections](https://attack-taxii.mitre.org/api/v21/collections/) | API | Enterprise, Mobile and ICS collections | OK only with the TAXII Accept header |
+| ATT&CK TAXII 2.1 discovery: `https://attack-taxii.mitre.org/taxii2/` | API | TAXII 2.1 server for ATT&CK STIX 2.1 | OK only with the TAXII Accept header |
+| ATT&CK TAXII collections: `https://attack-taxii.mitre.org/api/v21/collections/` | API | Enterprise, Mobile and ICS collections | OK only with the TAXII Accept header |
 | [ATT&CK Navigator (hosted)](https://mitre-attack.github.io/attack-navigator/) | GitHub Pages | Hosted Navigator | OK |
 | [Navigator usage guide](https://github.com/mitre-attack/attack-navigator/blob/master/USAGE.md) | Docs | Layer format and usage | OK |
 | [mitreattack-python docs](https://mitreattack-python.readthedocs.io/en/latest/) | Docs | Library docs | OK |
@@ -563,9 +562,9 @@ Projects from the MITRE Center for Threat-Informed Defense (CTID). Several mappi
 | [MITRE ATLAS](https://atlas.mitre.org/) | Docs | Adversarial threats to AI systems, data v2026.09 | OK |
 | [ATLAS Navigator](https://mitre-atlas.github.io/atlas-navigator/) | GitHub Pages | Navigator with ATLAS data | OK |
 | [MITRE Engage](https://engage.mitre.org/) | Docs | Denial, deception and adversary engagement | OK |
-| [Engage matrix](https://engage.mitre.org/matrix/) | Docs | Engage matrix | OK |
-| [Engage starter kit](https://engage.mitre.org/starter-kit/) | Docs | Getting started | OK |
-| [Engage tools and resources](https://engage.mitre.org/tools/) | Docs | Resources | OK |
+| Engage matrix (`/matrix/` on the Engage site) | Docs | Engage matrix | OK |
+| Engage starter kit (`/starter-kit/` on the Engage site) | Docs | Getting started | OK |
+| Engage tools and resources (`/tools/` on the Engage site) | Docs | Resources | OK |
 | [CAPEC](https://capec.mitre.org/) | Docs | Attack pattern enumeration | OK |
 | [CAPEC downloads](https://capec.mitre.org/data/downloads.html) | Feed | XML and CSV downloads | OK |
 | [CAPEC latest XML](https://capec.mitre.org/data/xml/capec_latest.xml) | Feed | Full CAPEC XML | OK |
@@ -696,6 +695,7 @@ These URLs returned 404, were withdrawn, or have moved. They are shown as plain 
 | ServiceNow | `store.servicenow.com/store/app/05cd5c221b1bf010c8f185d0604bcbdc` | 404 (old link on a Wiz page) | [VR Integration with Wiz](https://store.servicenow.com/store/app/c0211a8e1b87aad02ca2a643604bcb1f) |
 | ServiceNow | `servicenow.com/community/secops-forum/bd-p/secops-forum` | 404 | [Security Operations forum](https://www.servicenow.com/community/secops-forum/bd-p/security-operations-forum) |
 | ServiceNow | `servicenow.com/community/cmdb-forum/bd-p/cmdb-forum`, `/itsm-forum/bd-p/itsm-forum`, `/itom-forum/bd-p/itom-forum`, `/performance-analytics-forum/bd-p/performance-analytics-forum` | 404 | [ServiceNow AI Platform forum](https://www.servicenow.com/community/servicenow-ai-platform-forum/bd-p/now-platform-forum) or [ITSM hub](https://www.servicenow.com/community/itsm/ct-p/it-service-management) |
+| ServiceNow | `servicenow.com/community/service-graph-connectors-forum/armis-service-graph-connector-for-servicenow-basic/m-p/3594160` | 404 (Armis connector troubleshooting post) | [Armis from ServiceNow community](https://www.servicenow.com/community/armis-from-servicenow/ct-p/armis) |
 | Armis | `www.armis.com/platform/armis-centrix-for-vipr-pro/` | 404 | [Armis Centrix for VIPR Pro](https://www.armis.com/platform/armis-centrix-for-vipr-pro-prioritization-and-remediation/) |
 | Armis | `www.armis.com/platform/avm/` | Moved; redirects | [Armis Centrix for VIPR Pro](https://www.armis.com/platform/armis-centrix-for-vipr-pro-prioritization-and-remediation/) |
 | Armis | `dev.armis.com/changelog` | 404, no public API changelog | [Armis API reference](https://dev.armis.com/reference) |

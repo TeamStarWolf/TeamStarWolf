@@ -1,9 +1,13 @@
 <!--
   HOME.md: the site homepage (docsify renders it at "/", under the cover in _coverpage.md;
   README.md stays the GitHub face). The cover carries the title, the one-sentence pitch and
-  the three buttons, so this page starts at the doors and never repeats them.
-  Counts and guide times are script-written, never typed here:
-    - "What's inside" (between the stats markers): scripts/build_stats.py
+  the three buttons, and this page never repeats them. It opens with the README's front
+  door: the two link rows (.tsw-links: the project links, then "Explore the library", same
+  labels and order as the top of README.md, with "Library" for this site where the README
+  says "Website") and the "What's inside" table, then the doors.
+  No counts on this page. The script-written blocks, never typed here:
+    - "What's inside" (between the stats markers): scripts/build_stats.py, a table of
+      what each part holds and where to start, the same rows as the README's table
     - "Start-here guides" (between the guides markers): scripts/build_home_guides.py, from
       each guide's own Time and Difficulty table
     - "Browse by domain" (between the domains markers): scripts/build_site_nav.py, from the
@@ -24,6 +28,29 @@
 <p class="tsw-gh-only">This file is the homepage of the TeamStarWolf site, laid out for the site; its links work there, not on GitHub. Read it at <a href="https://teamstarwolf.github.io/TeamStarWolf/" target="_blank" rel="noopener">teamstarwolf.github.io/TeamStarWolf</a>, or start from the <a href="https://github.com/TeamStarWolf/TeamStarWolf#readme" target="_blank" rel="noopener">README</a> on GitHub.</p>
 
 <div class="tsw-anchor" id="quick-router"></div><div class="tsw-anchor" id="learning-paths"></div>
+
+<div class="tsw-links">
+  <p><strong><a href="#/">Library</a></strong> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="https://teamstarwolf.github.io/intelligence-hub/" target="_blank" rel="noopener">Intelligence Hub</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="https://teamstarwolf.github.io/ATTACK-Navi/" target="_blank" rel="noopener">ATT&amp;CK-Navi</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/INDEX">Browse all references</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/CONTRIBUTING">Contribute</a></p>
+  <p><span class="tsw-links-label">Explore the library:</span> <a href="#/languages/README">Languages</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/paradigms/README">Paradigms</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/frameworks/README">Frameworks</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/commands/README">Commands</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/formats/README">Formats</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/hubs/README">Domains</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/guides/README">Guides</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/disciplines/README">Learning paths</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/mitre/README">ATT&amp;CK</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/detections/TECHNIQUE_DETECTION_LIBRARY">Detections</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/data/README">Data</a></p>
+</div>
+
+## What's inside
+
+<!-- stats:start (written by scripts/build_stats.py; do not edit) -->
+<table>
+  <thead><tr><th>What</th><th>Contents</th><th>Start at</th></tr></thead>
+  <tbody>
+    <tr><td>Reference documents</td><td>One topic each: its terms, tooling, and the frameworks and guidance that apply</td><td><a href="#/INDEX">Reference index</a></td></tr>
+    <tr><td>How-to guides</td><td>One task, step by step, with the time it takes, what you need, and what you produce</td><td><a href="#/guides/README">Guides</a></td></tr>
+    <tr><td>Learning paths</td><td>An order of study for one discipline, with training, tools, books, and certifications</td><td><a href="#/disciplines/README">Learning paths</a></td></tr>
+    <tr><td>Framework pages</td><td>One page per Enterprise ATT&amp;CK technique, tactic, group, software entry, campaign, and mitigation, CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, and F3 technique</td><td><a href="#/mitre/README">Framework pages</a></td></tr>
+    <tr><td>Developer reference pages</td><td>One page per programming language, paradigm, software framework, command-line tool, data format, and database engine</td><td><a href="#/languages/README">Languages</a></td></tr>
+    <tr><td>Security platform pages</td><td>One page per vendor platform a security program runs on, from endpoint and exposure management to identity, cloud, OT, and backup</td><td><a href="#/platforms/README">Security platforms</a></td></tr>
+    <tr><td>AI tooling pages</td><td>AI tools and models in groups, a one-page manual for each tool, a learning path, and hands-on labs</td><td><a href="#/ai-tooling/README">AI tooling</a></td></tr>
+    <tr><td>Case studies</td><td>Evidence-graded studies of how the threat landscape is changing, written from primary sources, with figures and PDF downloads</td><td><a href="#/case-studies/README">Case studies</a></td></tr>
+  </tbody>
+</table>
+<!-- stats:end -->
 
 ## Where do you want to start?
 
@@ -70,21 +97,6 @@
 <!-- guides:end -->
 
 <p class="tsw-more"><a href="#/guides/README">All how-to guides</a></p>
-
-## What's inside
-
-<!-- stats:start (written by scripts/build_stats.py; do not edit) -->
-<div class="tsw-counts">
-  <a class="tsw-count" href="#/INDEX"><span class="tsw-count-n">164</span> <span class="tsw-count-l">Reference documents</span> <span class="tsw-count-d">One topic each: its terms, tooling, and the frameworks and guidance that apply</span></a>
-  <a class="tsw-count" href="#/guides/README"><span class="tsw-count-n">22</span> <span class="tsw-count-l">How-to guides</span> <span class="tsw-count-d">One task, step by step, with the time it takes, what you need, and what you produce</span></a>
-  <a class="tsw-count" href="#/disciplines/README"><span class="tsw-count-n">47</span> <span class="tsw-count-l">Learning paths</span> <span class="tsw-count-d">An order of study for one discipline, with training, tools, books, and certifications</span></a>
-  <a class="tsw-count" href="#/mitre/README"><span class="tsw-count-n">3,019</span> <span class="tsw-count-l">Framework pages</span> <span class="tsw-count-d">One page per Enterprise ATT&amp;CK technique, tactic, group, software entry, campaign, and mitigation, CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, and F3 technique</span></a>
-  <a class="tsw-count" href="#/languages/README"><span class="tsw-count-n">191</span> <span class="tsw-count-l">Developer reference pages</span> <span class="tsw-count-d">One page per programming language, paradigm, software framework, command-line tool, data format, and database engine</span></a>
-  <a class="tsw-count" href="#/platforms/README"><span class="tsw-count-n">59</span> <span class="tsw-count-l">Security platform pages</span> <span class="tsw-count-d">One page per vendor platform a security program runs on, from endpoint and exposure management to identity, cloud, OT, and backup</span></a>
-  <a class="tsw-count" href="#/ai-tooling/README"><span class="tsw-count-n">50</span> <span class="tsw-count-l">AI tooling pages</span> <span class="tsw-count-d">AI tools and models in groups, a one-page manual for each tool, a learning path, and hands-on labs</span></a>
-  <a class="tsw-count" href="#/case-studies/README"><span class="tsw-count-n">12</span> <span class="tsw-count-l">Case studies</span> <span class="tsw-count-d">Evidence-graded studies of how the threat landscape is changing, written from primary sources, with figures and PDF downloads</span></a>
-</div>
-<!-- stats:end -->
 
 ## How it connects
 

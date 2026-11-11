@@ -471,7 +471,7 @@ The "Basis" column says how each row is supported. **ATT&CK** means the library'
 | [`T1111`](/mitre/techniques/T1111.md) | Multi-Factor Authentication Interception | Credential Access | Wocao abuse of 2FA soft tokens (2019-12-19) | Primary; ATT&CK (C0014) | [16] |
 | [`T1557`](/mitre/techniques/T1557.md) | Adversary-in-the-Middle | Credential Access, Collection | Redirected and intercepted traffic (ED 19-01, 2019-01-22) | ATT&CK (G1041) | [118] |
 | [`T1552.005`](/mitre/techniques/T1552-005.md) | Unsecured Credentials: Cloud Instance Metadata API | Credential Access | Capital One (2019-03-22); ATT&CK's procedure cites a news article | Reported | [95] [121] |
-| [`T1040`](/mitre/techniques/T1040.md) | Network Sniffing | Credential Access, Discovery | STRONTIUM ran tcpdump on compromised devices (2019-04); MESSAGETAP (home: APT41 study) | Primary | [3] [124] |
+| [`T1040`](/mitre/techniques/T1040.md) | Network Sniffing | Credential Access, Discovery | STRONTIUM ran tcpdump on compromised devices (2019-04); MESSAGETAP (home: [APT41: The Public Record](/case-studies/APT41_PUBLIC_RECORD.md)) | Primary | [3] [124] |
 | [`T1087`](/mitre/techniques/T1087.md) | Account Discovery | Discovery | CrowdStrike 2019 list | Primary | [116] |
 | [`T1033`](/mitre/techniques/T1033.md) | System Owner/User Discovery | Discovery | CrowdStrike 2019 list | Primary | [116] |
 | [`T1069`](/mitre/techniques/T1069.md) | Permission Groups Discovery | Discovery | STRONTIUM enumerated administrative groups (2019-04) | Primary | [3] |
@@ -610,10 +610,6 @@ These countermeasure pages exist in the library and match the mitigations the 20
 ### Navigator layer
 
 The study's Enterprise techniques are collected in an ATT&CK Navigator layer, [`navigator/library-layers/chronicle-2019.json`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/chronicle-2019.json), listed with the library's other curated layers on the [Navigator layers page](/navigator/index.md). Open it in the [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/library-layers/chronicle-2019.json). Scores mean evidence basis, not frequency or severity: 100 where the library's ATT&CK data records the technique for an object in this study, 70 where an opened primary describes the behavior and the study chose the id, and 40 where the behavior is only Reported or the id choice is Inferred. Each technique's comment names the study's source numbers; the layer follows the format the library's validator enforces [126].
-
-### Notices
-
-ATT&CK content in this study: © 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE. CAPEC, CWE and D3FEND material is used under their terms as recorded in [THIRD_PARTY_NOTICES.md](/THIRD_PARTY_NOTICES.md).
 
 ## Cross-cutting themes
 
@@ -771,6 +767,16 @@ Every source below was opened on 3 November 2026. Grades apply to the source typ
 | 125 | TeamStarWolf library, NOTABLE_INCIDENTS.md | https://github.com/TeamStarWolf/TeamStarWolf/blob/main/NOTABLE_INCIDENTS.md | 2026-11-03 | Confirmed |
 | 126 | TeamStarWolf library, scripts/validate_navigator.py (layer format) | https://github.com/TeamStarWolf/TeamStarWolf/blob/main/scripts/validate_navigator.py | 2026-11-03 | Confirmed |
 | 127 | TeamStarWolf library, mitre/capec/CAPEC-126.md | https://github.com/TeamStarWolf/TeamStarWolf/blob/main/mitre/capec/CAPEC-126.md | 2026-11-03 | Confirmed |
+
+*© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*
+
+*© The MITRE Corporation. Includes material from the Common Weakness Enumeration (CWE™), used under the CWE Terms of Use. https://cwe.mitre.org/*
+
+*© The MITRE Corporation. Includes material from the Common Attack Pattern Enumeration and Classification (CAPEC™), used under the CAPEC Terms of Use. https://capec.mitre.org/*
+
+*© The MITRE Corporation. Includes material from MITRE D3FEND™, used under the D3FEND Terms of Use. https://d3fend.mitre.org/*
+
+*The terms for every MITRE dataset used here are recorded in [THIRD_PARTY_NOTICES.md](/THIRD_PARTY_NOTICES.md).*
 
 ## Related references
 

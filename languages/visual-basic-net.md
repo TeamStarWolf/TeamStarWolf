@@ -138,6 +138,30 @@ Because Visual Basic .NET compiles to the same intermediate language as C# and r
 - Blocking on an async result with `.Result` can deadlock in a synchronization context.
 - Default property and optional-argument behavior can hide which overload is called; be explicit.
 
+## Security relevance
+
+Visual Basic .NET reaches security practitioners as a managed .NET language that defenders maintain and assess, sharing its runtime and weakness classes with C#. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Business and line-of-business applications. Much Visual Basic .NET code sits in internal business tools, desktop applications built on [Windows Forms](https://learn.microsoft.com/dotnet/desktop/winforms/) and [WPF](https://learn.microsoft.com/dotnet/desktop/wpf/), and long-lived services that still process sensitive data.
+- Legacy .NET maintenance. Because the language is kept stable rather than extended, a large body of older code remains in production and under review, where it connects to databases and parses external input.
+- Server-side components. Some web tiers use ASP.NET Core with Visual Basic .NET, so the same request-handling attack surface applies. See the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+Visual Basic .NET runs on the Common Language Runtime with a garbage collector, so it is memory-safe and the memory-corruption classes do not apply. The weaknesses mirror those of any .NET application and center on injection, deserialization, and input handling:
+
+- SQL injection. ADO.NET commands built by concatenating input are injectable, which is [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Insecure deserialization. The obsolete `BinaryFormatter` on untrusted data can instantiate arbitrary objects, which is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- XML external entities. XML readers left with DTD processing enabled can be driven to read files or make requests, which is [CWE-611](https://cwe.mitre.org/data/definitions/611.html).
+- Command injection. Launching a process with a shell string rather than an argument list is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Dependency supply chain. Packages come from NuGet and carry the same risk as other package ecosystems. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading Visual Basic .NET lets an analyst audit the same weakness classes as a C# codebase, since both compile to the same intermediate language, and the English-keyword syntax does not change where untrusted input enters or how queries are built. The main tools are the built-in .NET Roslyn security analyzers, which apply to Visual Basic projects, and `dotnet list package --vulnerable` for dependency advisories.
+
 ## Secure coding
 
 Language-specific risks and the safe patterns that address them:

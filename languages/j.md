@@ -113,6 +113,29 @@ J primitives operate on whole arrays in the interpreter's compiled loops, and so
 - Boxing: forgetting to open (`>`) a boxed value, or boxing when you meant a flat array, leads to shape and type errors.
 - Readability: dense tacit trains are hard to maintain; comment their intent and decompose long ones.
 
+## Security relevance
+
+J appears in analytical and numerical work rather than in security tooling, so its relevance to a practitioner is the small set of ways a J program can execute untrusted input or reach the host. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Mathematical and statistical computation. J runs in interactive interpreters and `.ijs` scripts for quantitative research and array programming, rather than as a network service.
+- Host and data access. Through its foreign conjunctions J links to C, runs shell commands, and reads files, so a script that processes external data or file contents touches the host.
+- J has no notable offensive or defensive tooling written in it; its security interest is confined to the execute and host facilities listed below.
+
+### Dominant weakness classes
+
+J is memory-safe (garbage-collected), so the memory-corruption classes of C and C++ do not apply to J code; the risks are executing untrusted input and uncontrolled host access:
+
+- Code injection through the execute verbs `".` (do) and `128!:2`, which evaluate text as a J sentence. This is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Operating-system command injection through the host foreign `2!:` and `spawn`. This is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Insecure loading of scripts and data, since `load` and `require` execute a script and the `1!:` file reads trust the file's contents. This relates to [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- SQL injection when a J database interface builds queries by catenation rather than binding parameters. This is [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+
+### Why it matters
+
+Auditing J is mostly a matter of finding every `".`, `2!:`, and `load` on a path that can carry external input and confirming that data never reaches them. There is no widely adopted dedicated J security linter, so this review is done by hand together with ordinary code review, as the Secure coding section describes.
+
 ## Secure coding
 
 J is used in analytical tooling, so the main risks are executing untrusted input and host access:

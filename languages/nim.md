@@ -110,6 +110,29 @@ Because Nim compiles to C and then to native code, its performance is close to C
 - Integer overflow, which is a defect unless the `--overflowChecks` setting is in effect.
 - Assuming garbage collection semantics from older Nim versions that used a tracing collector.
 
+## Security relevance
+
+Nim reaches security practitioners from two directions: as a language used to build offensive payloads and tooling, and as a native-compiled application language whose binaries become analysis targets. Its ability to cross-compile to small native executables and call C directly has made it a recurring choice for malware and red-team implants. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Offensive tooling and malware. Nim compiles to self-contained native binaries that are less familiar to some detection pipelines, and public projects demonstrate loaders and command-and-control clients written in it, so malware analysts encounter Nim samples. See the [Red Team Reference](/RED_TEAM_REFERENCE.md) and the [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md).
+- Native applications and command-line tools. Nim is used for systems utilities, games, and services that compile to native code, which are ordinary code-review and reverse-engineering targets.
+- C interoperation. Nim links against C libraries without a binding layer, so a Nim program's attack surface includes the C code it calls.
+
+### Dominant weakness classes
+
+Nim is memory-managed by default through ORC reference counting with a cycle collector, so memory-corruption bugs are contained in safe code; unsafe facilities and build flags reintroduce them, and compilation to C means C-level issues carry through.
+
+- Out-of-bounds access. Bounds checks are on by default but removed by `-d:danger`, so an index past a sequence or array can read or write adjacent memory, which is [CWE-125](https://cwe.mitre.org/data/definitions/125.html) and [CWE-787](https://cwe.mitre.org/data/definitions/787.html).
+- Use-after-free in unsafe code. `ptr`, `cast`, and `addr` bypass the managed model and can leave dangling references, which is [CWE-416](https://cwe.mitre.org/data/definitions/416.html).
+- Integer overflow. Overflow checks are present in debug builds but off under `-d:danger`, so arithmetic on untrusted input can wrap, which is [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- Operating-system command injection. Assembling a shell string for `execShellCmd` from untrusted input runs attacker-chosen commands, which is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+
+### Why it matters
+
+Reading Nim matters for malware analysts triaging Nim samples and for reviewers of native Nim services, since it reveals which builds drop safety checks with `-d:danger`, where unsafe pointers appear, and how the program reaches the shell and C libraries. Nim has no single dominant third-party security analyzer, so the practical controls are the compiler's own warnings and checks kept enabled, as the Secure coding section details.
+
 ## Secure coding
 
 Nim is memory-managed by default, but it exposes unsafe operations and compiles to C, so risks remain:

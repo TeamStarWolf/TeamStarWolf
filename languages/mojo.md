@@ -103,6 +103,29 @@ Because the language is young, performance characteristics and the concurrency m
 - Overlooking the ownership rules when porting from garbage-collected languages; values are moved and borrowed, not implicitly shared.
 - Treating pre-1.0 behavior as stable; pin the toolchain and expect churn.
 
+## Security relevance
+
+Mojo reaches a practitioner mainly as a performance layer in artificial-intelligence software: numerical kernels and inference code that sit close to data and hardware, often beside Python. It has little offensive-tooling presence today, so the security interest is in auditing the code it produces rather than tools built in it. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Machine-learning kernels and inference. Mojo targets high-performance numerical code and accelerator kernels for model inference, so it appears inside the serving path where untrusted inputs are processed at speed. See the [AI Security Reference](/AI_SECURITY_REFERENCE.md).
+- The Python interoperation boundary. Mojo can call into Python libraries such as NumPy, so data and control cross between typed Mojo and dynamic Python, and that boundary carries Python's injection and deserialization exposure. See [Python](/languages/python.md).
+- Low-level systems code. Mojo exposes unsafe pointer facilities for systems work, which is where memory-corruption weaknesses would originate in a program that is otherwise ownership-checked.
+
+### Dominant weakness classes
+
+Mojo is partly memory-safe: its ownership and borrowing model is intended to prevent use-after-free and related errors in safe code, but it also provides unsafe pointer facilities that can reintroduce memory corruption, and the language is pre-1.0 so these guarantees are still settling.
+
+- Memory corruption in unsafe code. Any unsafe-pointer region can write or read outside an allocation or reach freed memory, which are [CWE-787](https://cwe.mitre.org/data/definitions/787.html) and [CWE-416](https://cwe.mitre.org/data/definitions/416.html).
+- Integer overflow. Low-level numeric and indexing code driven by untrusted sizes can overflow, which is [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- Weaknesses crossing into Python. Input that flows through the interoperation boundary into Python can reach injection or unsafe deserialization there, a case of [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- Dependency supply chain. The toolchain and any reached libraries, including Python packages, are a supply-chain surface. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading Mojo lets a reviewer confirm which regions use unsafe pointers and need close scrutiny, check what crosses the Python boundary, and judge whether untrusted input reaches a numerical kernel without validation. No dedicated Mojo security analyzer is established yet, so the practical controls are the compiler's ownership checks and manual review of unsafe and interoperation code, as the Secure coding section details.
+
 ## Secure coding
 
 Mojo is pre-1.0, so its security guidance is necessarily provisional; the following apply the general principles while the language and its documentation settle:

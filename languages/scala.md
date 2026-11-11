@@ -120,6 +120,29 @@ On the JVM, Scala benefits from the just-in-time compiler and garbage collectors
 - Overusing operator-symbol method names makes code hard to read for newcomers.
 - The large feature set invites inconsistent styles across a team; agree on a subset.
 
+## Security relevance
+
+Scala reaches security practitioners mainly as a data-engineering and back-end language that defenders assess rather than as a source of offensive tooling. Because it compiles to JVM bytecode and runs alongside Java, it inherits the JVM's weakness classes and its libraries. The defensive patterns that counter each class are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Data platforms. [Apache Spark](https://spark.apache.org/) and much of the tooling around [Apache Kafka](https://kafka.apache.org/) are written in Scala, so pipelines that ingest and transform untrusted records are often Scala jobs. These pipelines frequently back security analytics and log processing, which makes their input handling security-relevant.
+- Server-side back ends. Web services built on Play, [Akka](https://akka.io/) HTTP, http4s, and similar stacks are assessment targets. See [Web Application Pentesting](/WEB_APPLICATION_PENTESTING.md) and the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Build and dependency definitions. An `sbt` build runs arbitrary Scala and pulls artifacts from Maven Central, so build files and their resolved dependencies are part of the attack surface. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+Scala runs on a garbage-collected virtual machine, so the memory-corruption classes that dominate C and C++ do not apply. The weaknesses that remain come from the JVM libraries and from how untrusted input is handled:
+
+- Insecure deserialization. JVM `ObjectInputStream` and some pickling libraries reconstruct arbitrary objects from a byte stream, reaching code execution through gadget chains. This is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- SQL injection. String interpolation that builds query fragments rather than binding parameters lets input change a query's meaning, even behind libraries such as Doobie or Slick. This is [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- XML external entities. JVM XML parsers resolve external entities by default unless disabled, exposing file reads and server-side request forgery. This is [CWE-611](https://cwe.mitre.org/data/definitions/611.html).
+- Command injection. Passing a shell string rather than an argument sequence to `ProcessBuilder` lets input reach the shell. This is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+
+### Why it matters
+
+Reading Scala lets an analyst review a Spark job or a back-end service for the weakness classes above, and audit an `sbt` build for untrusted plugins and dependencies. There is no Scala-specific scanner equivalent to the Rails analyzers, so review leans on general tools: [Semgrep](https://semgrep.dev/) has Scala rules, [scalafix](https://scalacenter.github.io/scalafix/) can enforce project-specific checks, and [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) flags vulnerable dependencies, as the Secure coding section details.
+
 ## Secure coding
 
 Language-specific risks and the safe patterns that address them:

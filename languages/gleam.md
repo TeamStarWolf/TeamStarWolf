@@ -135,6 +135,28 @@ On the BEAM target, Gleam inherits the Erlang runtime's scheduler, lightweight p
 - Interop with Erlang and Elixir through external functions crosses out of Gleam's checked world; the `external` boundary must be given correct types by hand, and a wrong signature there defeats the guarantees.
 - There is no exception-based control flow, so forgetting to propagate a `Result` leaves an error unhandled in the types until you address it; use `result.try` or the `use` expression.
 
+## Security relevance
+
+Gleam reaches security practitioners as a statically typed language on the Erlang virtual machine with a second JavaScript target, where the concern is the boundary between its checked core and the unchecked runtimes it calls into. This section is the threat-facing context; the defensive patterns that counter each class are in the Secure coding section that follows.
+
+### Where it appears
+
+- BEAM services and web back ends. Gleam compiles to Erlang and runs on the same runtime as [Erlang](/languages/erlang.md) and [Elixir](/languages/elixir.md), so Gleam back ends built with libraries such as wisp and mist are assessment targets alongside other BEAM services.
+- Interop with Erlang and Elixir. `external` functions call into the host runtime with types the compiler trusts but does not check, so the security interest sits at that boundary, where unchecked data can enter otherwise safe code.
+- JavaScript target. Gleam can emit JavaScript and run in Node.js or the browser, which brings the usual web attack surface. Gleam has little dedicated offensive tooling.
+
+### Dominant weakness classes
+
+Gleam is memory-safe (per-process garbage collection on the BEAM, or the host runtime on the JavaScript target), so the memory-corruption classes do not apply. The absence of null and exceptions removes another class in pure Gleam. The risks concentrate at the interop boundary and the host runtime:
+
+- Interop boundary validation. An `external` declaration with an incorrect type lets unchecked or wrongly typed data into checked code, which relates to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- BEAM term and atom risks through interop. Calling Erlang functions such as `binary_to_term` or atom-creating functions brings the BEAM risks: unsafe deserialization, [CWE-502](https://cwe.mitre.org/data/definitions/502.html), and atom-table exhaustion from untrusted input, a form of resource exhaustion, [CWE-400](https://cwe.mitre.org/data/definitions/400.html). See [Erlang](/languages/erlang.md).
+- Injection on the web. Resolvers and handlers that build database queries by string concatenation are exposed to [CWE-89](https://cwe.mitre.org/data/definitions/89.html); see the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading Gleam lets an analyst focus on the `external` declarations where typed code meets Erlang, Elixir, or JavaScript, since a wrong signature there defeats the guarantees the type system otherwise provides. `gleam check` type-checks a project and is the primary static gate, rejecting null errors and non-exhaustive matches at compile time, as the Secure coding section details.
+
 ## Secure coding
 
 Language-specific risks and the safe patterns that address them:

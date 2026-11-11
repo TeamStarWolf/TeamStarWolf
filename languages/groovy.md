@@ -119,6 +119,29 @@ Dynamic dispatch has runtime cost, which Groovy reduces with call-site caching a
 - Equality uses `==` for value comparison (unlike Java, where `==` is identity), which surprises Java developers.
 - The `@Grab` annotation fetches dependencies at run time, which is convenient for scripts but unsuitable for reproducible builds.
 
+## Security relevance
+
+Groovy reaches security practitioners mainly through build and CI/CD systems, where it is the scripting layer of Gradle and Jenkins, and as an embedded scripting surface in Java applications. This section is the threat-facing context; the defensive patterns that counter each class are in the Secure coding section that follows.
+
+### Where it appears
+
+- Build and CI/CD pipelines. [Gradle](https://gradle.org/) build files and [Jenkins](https://www.jenkins.io/) pipelines are Groovy, so pipeline logic and the credentials it handles are Groovy code, and a compromised script runs with build and deployment privileges. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+- Embedded scripting and domain-specific languages. Groovy is embedded in [Java](/languages/java.md) applications as a scripting surface, which becomes a remote-code-execution vector when the surface is exposed to untrusted input.
+- Test automation. Groovy drives test suites with frameworks such as Spock and runs on the JVM with direct access to any Java library. It has little use as standalone offensive tooling.
+
+### Dominant weakness classes
+
+Groovy is memory-safe (garbage-collected on the JVM), so the memory-corruption classes do not apply. The risks are code evaluation, deserialization, and injection, several of them reached through the JVM:
+
+- Dynamic code evaluation. `Eval`, `GroovyShell`, and `Binding` execute arbitrary Groovy from a string, so evaluating untrusted input runs attacker code, which maps to [CWE-95](https://cwe.mitre.org/data/definitions/95.html).
+- Insecure deserialization. JVM `ObjectInputStream` reconstructs arbitrary objects from untrusted data, which is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- SQL injection. Interpolating a GString into SQL rather than using `groovy.sql.Sql` placeholders maps to [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Command injection. Passing a shell string rather than an argument list to a process maps to [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+
+### Why it matters
+
+Reading Groovy lets an analyst audit Jenkins and Gradle scripts for exposed credentials and for unsandboxed evaluation of untrusted input, a recurring path to CI/CD compromise, and to check any embedded scripting surface for an open evaluation path. [CodeNarc](https://codenarc.org/) is the Groovy static analyzer and [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) scans dependencies, as the Secure coding section details.
+
 ## Secure coding
 
 Language-specific risks and the safe patterns that address them:

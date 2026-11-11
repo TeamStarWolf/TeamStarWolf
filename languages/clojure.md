@@ -121,6 +121,29 @@ Clojure runs on the JVM and benefits from the just-in-time compiler and garbage 
 - Overusing macros where functions would do makes code harder to read and compose.
 - Deeply nested anonymous functions reduce readability; name intermediate steps.
 
+## Security relevance
+
+Clojure reaches practitioners as the implementation language of JVM back-end services and web applications that are assessed as web and API targets, and its security profile is shaped by the JVM it runs on. The defensive patterns are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Web and API back ends. Clojure services built on Ring and similar libraries are assessed like other web applications. See the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) and the [API Security Reference](/API_SECURITY_REFERENCE.md).
+- Data-processing services. Clojure's immutable data model suits data pipelines and processing services that handle external data.
+- JVM deployment and dependencies. Clojure compiles to JVM bytecode and pulls libraries from Maven Central and Clojars, so a Clojure application inherits the JVM's deserialization behavior and its transitive dependency risk. The [Log4Shell case study](/case-studies/LOG4SHELL.md) is a JVM logging-library flaw that reaches any application carrying the vulnerable dependency. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+Clojure runs on the JVM and is garbage-collected and memory-safe, so the memory-corruption classes do not apply; its weaknesses are about dynamic evaluation, the JVM platform, and application input handling.
+
+- Dynamic evaluation. `eval` and `read-string` on untrusted input can execute arbitrary code, so `clojure.edn/read-string`, which does not evaluate code, is used for untrusted data; this maps to [CWE-95](https://cwe.mitre.org/data/definitions/95.html).
+- Insecure deserialization. JVM `ObjectInputStream` reconstructs arbitrary objects from untrusted bytes, which is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- SQL injection. Assembling queries by string rather than using `next.jdbc` placeholders allows [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Command injection. Passing a shell string to `clojure.java.shell/sh` or `ProcessBuilder` rather than an argument vector allows [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+
+### Why it matters
+
+Auditing Clojure means finding dynamic-evaluation calls on untrusted data, JVM deserialization, and unparameterized queries, and then reviewing the transitive JVM dependency graph for Log4Shell-class flaws that arrive through libraries rather than the application code. [clj-kondo](https://github.com/clj-kondo/clj-kondo) flags suspicious code and [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) scans the dependency graph, as the Secure coding section details.
+
 ## Secure coding
 
 Language-specific risks and the safe patterns that address them:

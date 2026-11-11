@@ -117,6 +117,29 @@ Eiffel compiles to native code (historically through C), so compute-bound code p
 - Violating command-query separation, so queries have side effects that break reasoning about calls.
 - Ignoring void-safety warnings in code written before void safety, leaving null-reference risks.
 
+## Security relevance
+
+Eiffel reaches security practitioners as the language of business and mission-critical systems built with Design by Contract that defenders audit. Offensive tooling written in it is rare. The defensive patterns that counter each class are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Business and mission-critical systems. Eiffel is used where correctness matters, so an auditor reads the contracts (`require`, `ensure`, `invariant`) to understand a program's stated obligations.
+- The external-interface surface. Calls to C or other external code bypass Eiffel's type and contract checks, which is where validation must be explicit.
+- Little offensive presence. Eiffel is not a tool-building language for red teams, so the interest is reading and auditing existing systems.
+
+### Dominant weakness classes
+
+Eiffel is memory-safe: it is garbage-collected and statically typed, with void safety that rules out many null-reference errors, so the memory-corruption classes do not apply. The weaknesses are about input handling at boundaries and the assumptions that contracts make:
+
+- Improper input validation. Contracts constrain parts of the program, but data crossing in from files, networks, or users must still be validated before it is trusted; do not rely on a precondition to sanitize external input. This maps to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- Contract checking disabled in production. If assertions are turned off in release builds, precondition checks no longer run, so input that would have been rejected can flow through; keep boundary validation in ordinary code, not only in contracts. This is the same validation gap, [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- Integer overflow. Fixed-size integer arithmetic driven by untrusted input can overflow, which maps to [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- External interface risk. Data crossing to and from C or other external code bypasses Eiffel's checks and can involve [CWE-78](https://cwe.mitre.org/data/definitions/78.html) when launching processes.
+
+### Why it matters
+
+Reading Eiffel lets an analyst see a program's obligations stated as contracts and find where external input or foreign-code boundaries escape those checks. Dedicated security tooling is scarce, so AutoTest, the contract system, and research verification work (AutoProof), together with manual review of input handling and external interfaces, are the main controls, as the Secure coding section details.
+
 ## Secure coding
 
 Eiffel's contracts and void safety eliminate several defect classes by default, but assertions and type checks are not a substitute for validating untrusted input, and interfacing to other languages bypasses the checks:

@@ -97,6 +97,29 @@ Performance is not a design goal: Logo implementations are interpreters aimed at
 - Dialect differences: command names and features vary between UCBLogo, FMSLogo, and others, so programs may not port unchanged.
 - Dynamic typing surprises, such as passing a list where a number is expected, which fails only at run time.
 
+## Security relevance
+
+Logo is a teaching language that runs in self-contained classroom settings, so it has little exposure to untrusted input and is of interest to practitioners as a learning tool rather than a target. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Education. Logo teaches programming and geometry through turtle graphics in interpreters such as UCBLogo and FMSLogo, not as a service or a production system.
+- External data. Where a program reads input or files, or a dialect exposes file or shell access, it touches a host; otherwise its exposure is minimal.
+- Logo has no offensive or defensive tooling written in it, consistent with its educational scope.
+
+### Dominant weakness classes
+
+Logo is memory-safe (garbage-collected), so memory-corruption classes do not apply; the weaknesses that can appear are limited to programs that process external data:
+
+- Dynamic evaluation of untrusted text through the `run` command, which executes a list as instructions. This is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Improper input validation of values read from input or files. This is [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- Operating-system or file access in dialects that provide it, when untrusted input reaches those commands. This is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Uncontrolled recursion driven by input, which can exhaust the stack. This is [CWE-400](https://cwe.mitre.org/data/definitions/400.html).
+
+### Why it matters
+
+Auditing Logo is rare and limited to classroom tools, so the value of reading it is pedagogical: it teaches the general habits of never running external input as code and validating input before use. There is no dedicated security tooling for Logo, as the Secure coding section notes.
+
 ## Secure coding
 
 Logo runs almost entirely in classroom and self-contained settings, so it has little exposure to untrusted input, but the general weaknesses still apply where a Logo program processes external data or text:

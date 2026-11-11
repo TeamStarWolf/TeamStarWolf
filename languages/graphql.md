@@ -128,6 +128,29 @@ Concurrency is handled by the server runtime, not by GraphQL itself: resolvers f
 - Over-broad schemas: exposing every field and relationship makes cost control and authorization harder; design the schema for the clients that exist.
 - Caching: a single POST endpoint does not benefit from HTTP caching the way distinct URLs do, so caching must be designed at the field or persisted-query level.
 
+## Security relevance
+
+GraphQL reaches security practitioners as an API query layer whose attack surface follows from the client controlling the shape and cost of each request. This section is the threat-facing context; the defensive patterns that counter each class are in the Secure coding section that follows.
+
+### Where it appears
+
+- API query layers. GraphQL endpoints sit in front of web and mobile back ends and are frequent assessment targets, usually served over a single HTTP endpoint. See the [API Security Reference](/API_SECURITY_REFERENCE.md) and [Web Application Pentesting](/WEB_APPLICATION_PENTESTING.md).
+- Gateways and federation. Schema-stitching and federation layers compose several back-end services behind one schema, so one endpoint can reach many systems.
+- Schema discovery. Introspection is built into the specification, so a tester or an attacker can download the full schema and map the API, which makes a GraphQL endpoint quick to enumerate.
+
+### Dominant weakness classes
+
+GraphQL defines no memory model of its own (the executing server runtime manages memory), so the memory-corruption classes do not apply. The weaknesses are properties of the query model and of how resolvers reach back ends:
+
+- Query depth and complexity denial of service. A small nested or aliased query can force a large amount of server work, which maps to [CWE-770](https://cwe.mitre.org/data/definitions/770.html).
+- Injection through resolvers. A resolver that builds a database query or shell command from arguments is exposed just as any back end is, mapping to [CWE-89](https://cwe.mitre.org/data/definitions/89.html) and [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Missing authorization. GraphQL does not enforce authorization, so a field without a per-object check is reachable through any path the schema allows, which maps to [CWE-862](https://cwe.mitre.org/data/definitions/862.html).
+- Introspection and information exposure. An open introspection endpoint discloses the full schema and aids mapping, which relates to [CWE-200](https://cwe.mitre.org/data/definitions/200.html).
+
+### Why it matters
+
+Reading a GraphQL schema and its resolvers lets a tester map the API through introspection, find fields that lack per-object authorization, trace resolver arguments into back-end queries, and estimate the cost of a query before sending it. Query-complexity and depth-limiting libraries and [GraphQL ESLint](https://github.com/B2o5T/graphql-eslint) check query and schema hygiene, as the Secure coding section details.
+
 ## Secure coding
 
 GraphQL's flexibility is also its attack surface, because the client controls query shape and cost:

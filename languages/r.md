@@ -118,6 +118,29 @@ The R interpreter is single-threaded for ordinary code, and interpreted loops ov
 - Recycling: binary operations on vectors of unequal length recycle the shorter one, which can hide a length bug.
 - Floating-point equality: use `all.equal` with a tolerance rather than `==` on computed doubles.
 
+## Security relevance
+
+R reaches security practitioners as a data-analysis language: it is read mainly where analytics meet untrusted inputs, such as scripts that ingest external data files and the Shiny applications that put R behind a web interface. The defensive patterns that counter each weakness below are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Data and threat analytics. R is used to analyze logs, telemetry, and other security data, so analysts read and run R scripts that consume external, sometimes untrusted, inputs.
+- Shiny web applications. The Shiny framework turns R code into interactive web apps, which exposes R evaluation and file handling to the network. See the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Research and bioinformatics. Large shared codebases and data files in statistics and genomics make loaded R objects and packages a provenance concern.
+
+### Dominant weakness classes
+
+R is memory-safe: it uses a tracing garbage collector with copy-on-modify values and no manual memory, so memory-corruption classes do not apply (outside compiled extensions). The risks come from code execution, external programs, and loaded data:
+
+- Code injection. `eval(parse(text = ...))` on untrusted input runs arbitrary R, which is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Operating-system command injection. `system`, `system2`, and `shell` run external programs, mapping to [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Insecure deserialization. `readRDS`, `load`, and `unserialize` can execute code through object attributes, so `.RData` and `.rds` files from untrusted sources are dangerous, which is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- SQL injection. Database access through DBI that pastes values into SQL rather than binding them is [CWE-89](https://cwe.mitre.org/data/definitions/89.html). See the [Database Security Reference](/DATABASE_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading R lets a reviewer spot code built from strings, external-program calls assembled from input, and `.RData` or `.rds` files loaded from untrusted sources, and lets an assessor check a Shiny application's input handling. [lintr](https://lintr.r-lib.org/) flags undesirable constructs during static analysis, including uses of `eval(parse(...))`, as the Secure coding section details.
+
 ## Secure coding
 
 R scripts routinely read external data files and sometimes shell out, which creates the main risks:

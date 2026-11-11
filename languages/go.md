@@ -138,6 +138,30 @@ Go compiles to native binaries with a concurrent, low-latency garbage collector.
 - Nil interface values that are non-nil when they hold a nil concrete pointer.
 - Unsynchronized access to shared maps, which panics or corrupts data under concurrency.
 
+## Security relevance
+
+Go reaches security practitioners in three ways: as the language of cloud and container infrastructure that defenders assess, as the implementation of both offensive tooling and malware, and as a common back-end that forms a recognizable set of weakness classes. This section is the threat-facing context; the defensive patterns that counter each class are in the Secure coding section that follows.
+
+### Where it appears
+
+- Cloud and container infrastructure. Docker, Kubernetes, and much of the surrounding cloud-native ecosystem are written in Go, so assessing or reversing that tooling means reading Go. See the [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md), the [Kubernetes Security Reference](/KUBERNETES_SECURITY_REFERENCE.md), and the [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md).
+- Offensive tooling and malware. Go cross-compiles to a single static binary for any target, which makes it a frequent choice for network security tools, red-team command-and-control, and malware families. See the [Red Team Reference](/RED_TEAM_REFERENCE.md) and the [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md).
+- Network services and APIs. Go HTTP back ends and microservices are common assessment targets. See [Web Application Pentesting](/WEB_APPLICATION_PENTESTING.md) and the [API Security Reference](/API_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+Go is memory-safe (garbage-collected), so the memory-corruption classes that dominate [C](/languages/c.md) and [C++](/languages/cpp.md) are largely absent, though the `unsafe` package and cgo can reintroduce them. The weaknesses that remain are about input handling and application logic:
+
+- Operating-system command injection. Passing a shell string rather than separate arguments to `os/exec` maps to [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- SQL injection. Concatenating input into a query rather than using `database/sql` placeholders maps to [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Path traversal. Using an unvalidated user-supplied path maps to [CWE-22](https://cwe.mitre.org/data/definitions/22.html).
+- Server-side request forgery. Go services that fetch a URL derived from input can be steered to internal addresses, which maps to [CWE-918](https://cwe.mitre.org/data/definitions/918.html).
+- Integer overflow on conversion. Converting between integer widths without a bounds check maps to [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+
+### Why it matters
+
+Reading Go lets an analyst reverse a statically linked binary, the common shape of Go malware and container tooling, and audit a Go service for the classes above. `go vet` and [staticcheck](https://staticcheck.dev/) analyze source for suspect constructs and [govulncheck](https://go.dev/blog/govulncheck) reports known-vulnerable dependencies, as the Secure coding section details.
+
 ## Secure coding
 
 Go's garbage collection removes most memory-safety bugs, but risks remain:

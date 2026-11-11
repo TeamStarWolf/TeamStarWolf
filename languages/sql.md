@@ -124,6 +124,28 @@ Query performance depends on the plan the optimizer chooses, which in turn depen
 - Floating-point types for money lose cents to rounding; use `DECIMAL`/`NUMERIC` for currency.
 - Dialect drift: syntax and functions that work in one engine may not exist in another; confirm against the target engine.
 
+## Security relevance
+
+SQL is central to security practice because SQL injection remains among the most damaging and common web weaknesses, and because nearly every application and security tool stores its data in a relational database that SQL queries. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Application back ends. Almost every web and enterprise application builds SQL from input, which makes query construction the first thing an assessor reviews. See [Web Application Pentesting](/WEB_APPLICATION_PENTESTING.md) and the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Offensive and defensive tooling. [sqlmap](https://sqlmap.org/) automates the detection and exploitation of SQL injection, and SQL is the query interface to the databases behind SIEMs, vulnerability scanners, and asset inventories that defenders operate.
+- Database platforms. Engines such as [PostgreSQL](https://www.postgresql.org/), MySQL, and Microsoft SQL Server are assessment targets in their own right. See the [Database Security Reference](/DATABASE_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+SQL is evaluated by a database engine that manages its own memory, so the memory-corruption classes of systems languages do not apply. The weaknesses are about query construction, privilege, and exposure:
+
+- SQL injection. Concatenating untrusted input into a query lets an attacker change its meaning, read or modify unauthorized data, and sometimes run commands. This is [CWE-89](https://cwe.mitre.org/data/definitions/89.html), countered by parameterized queries that send structure and data separately.
+- Excessive privilege. An application account with more rights than it needs turns a single injection or bug into a larger compromise. This relates to [CWE-269](https://cwe.mitre.org/data/definitions/269.html).
+- Information exposure. Returning more columns than needed, or raw database error text, reveals data and schema details. This relates to [CWE-200](https://cwe.mitre.org/data/definitions/200.html).
+
+### Why it matters
+
+Reading SQL lets an analyst spot query construction that concatenates input, check whether an application's database account follows least privilege, and recognize dynamic-identifier handling that an allowlist should guard. [sqlmap](https://sqlmap.org/) tests endpoints for injection, [sqlfluff](https://sqlfluff.com/) lints query style, and application static analyzers flag concatenated query strings, as the Secure coding section details. See the [Database Security Reference](/DATABASE_SECURITY_REFERENCE.md).
+
 ## Secure coding
 
 SQL's central security risk is injection, because queries are often built from application input:

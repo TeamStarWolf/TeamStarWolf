@@ -121,6 +121,29 @@ C++ compiles to native code and gives direct control over memory layout, which s
 - Iterator invalidation after a container is resized or modified.
 - Undefined behavior from signed overflow, out-of-bounds access, or reading uninitialized memory.
 
+## Security relevance
+
+C++ reaches security practitioners in three ways: as the implementation language of a large share of security-critical native software, as the subject of much memory-safety vulnerability research and exploitation, and as a dominant source of memory-corruption weakness classes. The defensive patterns that counter each class are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Security-critical native software. Browsers, operating-system components, databases, game engines, and embedded and trading systems are written in C++, so a large part of the exploitable native attack surface is C++ code. See the [Exploit Development Reference](/EXPLOIT_DEVELOPMENT_REFERENCE.md) and the [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md).
+- Vulnerability research. Fuzzers and analysis tools target C++ binaries, and the sanitizers operate on C++ code to surface memory errors. See [Fuzzing and Vulnerability Research](/FUZZING_VULNERABILITY_RESEARCH.md).
+- Offensive and defensive tooling. Both native exploits and native security products, including antivirus and endpoint engines, are commonly written in C++.
+
+### Dominant weakness classes
+
+C++ is memory-unsafe: it uses manual memory management, so the memory-corruption classes that dominate native-code vulnerabilities all apply unless an allocation is wrapped in RAII and checked containers:
+
+- Out-of-bounds read and write. Raw pointer arithmetic and unchecked indexing read or write past a buffer, which are [CWE-125](https://cwe.mitre.org/data/definitions/125.html) and [CWE-787](https://cwe.mitre.org/data/definitions/787.html).
+- Use-after-free and double free. Mixing raw `new`/`delete` with other ownership, or freeing twice, are [CWE-416](https://cwe.mitre.org/data/definitions/416.html) and [CWE-415](https://cwe.mitre.org/data/definitions/415.html).
+- Integer overflow in allocation sizing. Arithmetic that wraps before sizing a buffer under-allocates, which is [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- OS command injection. Passing an assembled string to `std::system` runs it through a shell, which maps to [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+
+### Why it matters
+
+Reading C++ lets an analyst find the memory-safety defects that drive exploit development and judge whether a dangling reference or unchecked index is reachable from untrusted input. AddressSanitizer and UndefinedBehaviorSanitizer surface these at run time, and [clang-tidy](https://clang.llvm.org/extra/clang-tidy/) with the [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) checks finds many statically, as the Secure coding section details.
+
 ## Secure coding
 
 Language-specific risks and the safe patterns that address them:

@@ -123,6 +123,29 @@ As with any hardware description language, simulation and synthesis can diverge.
 - Width mismatches are silently extended or truncated; a linter catches these where the language does not.
 - `reg` does not mean a hardware register by itself; what it synthesizes to depends on how it is assigned.
 
+## Security relevance
+
+Verilog reaches security work as the source of the digital hardware that other defenses sit on top of, so reviewing it is a hardware-assurance activity rather than a software one. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Chip and FPGA designs under review. Verilog and its superset SystemVerilog describe the register-transfer logic of CPUs, system-on-chip blocks, network controllers, and FPGA bitstreams, so hardware security review and reverse engineering of a design read Verilog. See the [Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md) and the [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md).
+- Hardware verification. Testbenches and assertions that confirm a block behaves as specified are written against the same source, and gaps there are where unverified behavior reaches silicon.
+- Third-party IP and the toolchain. Purchased IP cores, vendor-encrypted blocks, and the synthesis tools themselves become part of a device, so they form a supply chain that source review alone cannot see into. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+Verilog describes hardware rather than a program, so there is no heap and the software memory-corruption classes do not apply; the weaknesses are hardware design flaws, trust in the toolchain and IP, and the gap between what was simulated and what is built:
+
+- Hardcoded secrets in register-transfer logic. Keys written into source become fixed in silicon and extractable, which is [CWE-798](https://cwe.mitre.org/data/definitions/798.html).
+- Debug and test access left active. JTAG and scan chains enabled in a production device expose internal state and can bypass access controls. See the [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md).
+- Simulation-versus-synthesis mismatch. Assignment-style mistakes, incomplete sensitivity lists, and non-synthesizable constructs can ship a circuit that differs from the one that was verified.
+- Hardware trojans. Malicious logic hidden in third-party blocks or inserted by the toolchain survives a source read, so provenance and independent verification carry the weight.
+
+### Why it matters
+
+Reading Verilog lets a hardware reviewer find undocumented debug access, hidden logic, and keys baked into a design before tape-out, when a change is still possible. The first-line tools are [Verilator](https://www.veripool.org/verilator/) in lint mode and the synthesis tool's own latch and multi-driver warnings, with formal equivalence checking between the register-transfer source and the synthesized netlist for high-assurance parts.
+
 ## Secure coding
 
 Describing hardware carries risks that software review alone does not catch, so the focus is trust, supply chain, and the simulation-to-synthesis gap:

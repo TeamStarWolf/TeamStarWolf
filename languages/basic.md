@@ -111,6 +111,29 @@ Performance depends entirely on the dialect. Interpreted BASICs are slow relativ
 - Weak typing in early dialects allows surprising coercions between numbers and strings.
 - Line-numbered programs mix control flow with layout, making edits error-prone.
 
+## Security relevance
+
+BASIC reaches practitioners mostly as legacy application and hobby code and, in its modern compiled dialects, as native code that interoperates with C and the operating system. It is not a language for offensive tooling. The defensive patterns are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Legacy applications. Older BASIC programs persist in small business, instrumentation, and hobby software, where they are read and maintained rather than attacked through dedicated tooling.
+- Modern compiled dialects. FreeBASIC and QB64 compile to native executables and can call C libraries and operating-system routines, so programs built with them carry native-code risks at those boundaries.
+- Interactive and file input. BASIC programs commonly read untrusted data through `INPUT` and files, which is the usual entry point for the weaknesses below.
+
+### Dominant weakness classes
+
+The memory properties depend on the dialect: interpreted BASICs are largely memory-safe, while compiled dialects that use fixed-length buffers or call into C are memory-unsafe at those points.
+
+- Buffer and bounds handling. Fixed-length strings and arrays in dialects that allow direct memory access or C interop can overflow if external input is copied without a length check, which relates to [CWE-120](https://cwe.mitre.org/data/definitions/120.html).
+- Command and SQL construction. Dialects with a `SHELL` command or database access that build commands or queries from concatenated input are injectable, which maps to [CWE-78](https://cwe.mitre.org/data/definitions/78.html) and [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Integer overflow. Fixed-size numeric types can overflow on input-driven arithmetic, which maps to [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- Input validation. Data from `INPUT` or files is unchecked until the program checks it, which maps to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+
+### Why it matters
+
+Auditing BASIC means reviewing input handling and any C or shell interop by hand, since that is where a BASIC program can overflow a buffer or shell out on untrusted data. Dedicated security tooling for BASIC is scarce, so compiler warnings where the dialect provides them and manual review are the available controls, as the Secure coding section notes. See the [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
+
 ## Secure coding
 
 Most classic BASIC ran in single-user settings, so its security history is thin, but modern compiled dialects that call into C and the system carry the usual native-code risks:

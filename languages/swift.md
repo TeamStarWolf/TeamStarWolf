@@ -130,6 +130,28 @@ Swift compiles to native machine code and uses automatic reference counting, whi
 - Implicitly unwrapped optionals (`String!`) defer the crash rather than removing it.
 - Blocking inside an `async` context or a `@MainActor` method stalls the UI; keep long work off the main actor.
 
+## Security relevance
+
+Swift reaches security practitioners mainly through the iOS and macOS applications it builds, which are frequent subjects of mobile application assessment and reverse engineering, and increasingly through server-side back ends. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context. See the [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md).
+
+### Where it appears
+
+- Mobile and desktop applications. iOS, macOS, watchOS, and tvOS apps are written in Swift, so assessing an Apple-platform app, or reverse engineering a compiled Swift binary, means reading Swift. See the [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md) and the [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md).
+- Server back ends. Frameworks such as [Vapor](https://vapor.codes/) and [Hummingbird](https://hummingbird.codes/) build web services in Swift, which become assessment targets like any other back end.
+- Package dependencies. The Swift Package Manager pulls dependencies from Git repositories declared in `Package.swift`, so those sources are part of the attack surface. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+Swift is memory-safe by default: automatic reference counting, bounds checks, and exclusive access catch most memory errors, and optionals track absent values. That safety ends at C interop and the `Unsafe` pointer APIs, and the remaining weaknesses are about interop, storage, and injection:
+
+- Memory safety in interop. Calling C or using `Unsafe` pointer APIs bypasses Swift's checks and can cause out-of-bounds access. This is [CWE-787](https://cwe.mitre.org/data/definitions/787.html).
+- Insecure data storage. Secrets placed in `UserDefaults` or a plist rather than the Keychain are stored without protection. This is [CWE-312](https://cwe.mitre.org/data/definitions/312.html).
+- SQL and command injection. Interpolating input into SQL, or building a shell string for `Process` rather than passing an argument array, lets input become code. These are [CWE-89](https://cwe.mitre.org/data/definitions/89.html) and [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+
+### Why it matters
+
+Reading Swift supports iOS and macOS application assessment, including checking how an app stores secrets and handles transport, and reading decompiled Swift during reverse engineering. [SwiftLint](https://github.com/realm/SwiftLint) flags risky constructs, and Xcode's static analyzer and the address and thread sanitizers catch memory and concurrency errors, as the Secure coding section details. See the [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md).
+
 ## Secure coding
 
 Language-specific risks and the safe patterns that address them:

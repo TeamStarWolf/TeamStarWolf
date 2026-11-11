@@ -473,7 +473,7 @@ studies:
     actors: ["G0007"]
     tags: ["AI supply chain", "pickle", "model hub", "tokens"]
     pdf: "Hugging_Face_Supply_Chain_2021_2026_Case_Study.pdf"
-    pptx: null
+    pptx: "Hugging_Face_Supply_Chain_2021_2026_Case_Study.pptx"
     events:
       - {"date": "2021-12-21", "label": "Hugging Face announces it is acquiring Gradio"}
       - {"date": "2023-07-09", "label": "PoisonGPT: an edited GPT-J-6B uploaded under a lookalike organization name"}
@@ -622,7 +622,7 @@ studies:
     actors: ["G0082", "G1052", "G1056"]
     tags: ["npm", "supply chain", "worms", "phishing"]
     pdf: "npm_Supply_Chain_Attacks_2018_2026_Case_Study.pdf"
-    pptx: null
+    pptx: "npm_Supply_Chain_Attacks_2018_2026_Case_Study.pptx"
     events:
       - {"date": "2018-09-09", "label": "event-stream: a new maintainer who took over by social engineering adds flatmap-stream"}
       - {"date": "2021-02-09", "label": "Dependency confusion: internal package names uploaded to public registries are detected inside more than 35 organizations"}

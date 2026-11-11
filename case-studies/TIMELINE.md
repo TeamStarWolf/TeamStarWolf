@@ -107,7 +107,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2021 <!-- {docsify-ignore} -->
 
-- [Hugging Face as an AI Supply-Chain Attack Surface: A 2021 to 2026 Case Study](/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md). Attack surface, December 2021 to November 2026. Sectors: technology. CVEs: CVE-2023-6730, CVE-2023-51449, CVE-2024-1561, CVE-2024-1728, CVE-2024-3568, CVE-2024-3660 and 43 more. ATT&CK groups: G0007 APT28. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Hugging_Face_Supply_Chain_2021_2026_Case_Study.pdf).
+- [Hugging Face as an AI Supply-Chain Attack Surface: A 2021 to 2026 Case Study](/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md). Attack surface, December 2021 to November 2026. Sectors: technology. CVEs: CVE-2023-6730, CVE-2023-51449, CVE-2024-1561, CVE-2024-1728, CVE-2024-3568, CVE-2024-3660 and 43 more. ATT&CK groups: G0007 APT28. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Hugging_Face_Supply_Chain_2021_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Hugging_Face_Supply_Chain_2021_2026_Case_Study.pptx).
   - 21 December 2021: Hugging Face announces it is acquiring Gradio
   - 9 July 2023: PoisonGPT: an edited GPT-J-6B uploaded under a lookalike organization name
   - 2 November 2023: transformers v4.35.0 makes safetensors the default save format
@@ -207,7 +207,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2018 <!-- {docsify-ignore} -->
 
-- [npm Supply-Chain Attacks, 2018 to 2026: The Record and the Defenses](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md). Attack surface, September 2018 to October 2026. Sectors: technology. CVEs: CVE-2022-23812. ATT&CK groups: G0082 APT38, G1052 Contagious Interview, G1056 TeamPCP. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/npm_Supply_Chain_Attacks_2018_2026_Case_Study.pdf).
+- [npm Supply-Chain Attacks, 2018 to 2026: The Record and the Defenses](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md). Attack surface, September 2018 to October 2026. Sectors: technology. CVEs: CVE-2022-23812. ATT&CK groups: G0082 APT38, G1052 Contagious Interview, G1056 TeamPCP. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/npm_Supply_Chain_Attacks_2018_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/npm_Supply_Chain_Attacks_2018_2026_Case_Study.pptx).
   - 9 September 2018: event-stream: a new maintainer who took over by social engineering adds flatmap-stream
   - 9 February 2021: Dependency confusion: internal package names uploaded to public registries are detected inside more than 35 organizations
   - 22 October 2021: ua-parser-js: the maintainer believes his npm account was hijacked

@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 61 min (13,964 words at 230 words a minute)
+About 61 min (13,977 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -73,7 +73,7 @@ Evidence grade: the technical facts, dates and official actions are **Confirmed*
 | Open market | Zero Day Initiative founded 2005, over 15,000 vulnerabilities disclosed since 2007 [11]; Zerodium's public USD 1,000,000 bounty per iOS 9 chain, closing 31 October 2015 [12] |
 | Aurora | Google detected the intrusion in mid-December 2009 and disclosed it on 12 January 2010 [85]; CVE-2010-0249 fixed in MS10-002 on 21 January 2010 [88]; ATT&CK `G0066` Elderwood [96] |
 | Hacking Team leak | Made public 5 July 2015 [18]; about 400 GB [25]; Flash CVE-2015-5119, CVE-2015-5122 and CVE-2015-5123 exploited in the wild in July 2015 [20] |
-| Shadow Brokers | First appeared 13 August 2016 [50]; Windows archive released 14 April 2017 (US time) [57] [59]; MSRC mapped the exploits to MS17-010 and four older bulletins [60] |
+| Shadow Brokers | First appeared 13 August 2016 [50]; Windows archive released 14 April 2017 [52] [59] (15 April in the FBI affidavit [57]); MSRC mapped the exploits to MS17-010 and four older bulletins [60] |
 | EternalBlue | CVE-2017-0144, patched 14 March 2017 in MS17-010 [56]; NVD CVSS v3.1 8.8, no CWE assigned [61] |
 | WannaCry | 12 May 2017 [63]; about 300,000 computers in at least 150 countries per Treasury [69]; attributed to North Korea on 19 December 2017 [71] [72] |
 | NotPetya | 27 June 2017 via the M.E.Doc updater [74]; charged against six GRU Unit 74455 officers [78]; home study is [SANDWORM_OPERATIONS.md](/case-studies/SANDWORM_OPERATIONS.md) |
@@ -182,8 +182,8 @@ A book is a secondary source. Where the primary record exists, this study cites 
 | 25 August 2016 | Apple ships iOS 9.3.5 | Confirmed | [15] |
 | February 2017 | WannaCry Version 0 runs, spreading with stolen credentials | Confirmed (affidavit) | [57] |
 | 14 March 2017 | Microsoft publishes MS17-010 | Confirmed | [56] |
-| 8 April 2017 | Public mirror of the decrypted first auction archive created | Confirmed (repository metadata) | [58] |
-| 14 April 2017 (US time) | Shadow Brokers release the Windows archive; first backdoored M.E.Doc update | Confirmed | [57] [59] [118] |
+| 8 April 2017 | Shadow Brokers post additional information (first auction archive) | Confirmed | [52] [58] |
+| 14 April 2017 | Shadow Brokers release the Windows archive (15 April in the FBI affidavit); first backdoored M.E.Doc update | Confirmed | [52] [57] [59] [118] |
 | 15 April 2017 | MSRC publishes its triage of the release | Confirmed | [60] |
 | 18 and 21 April 2017 | RiskSense analyst publishes research on the exploit | Confirmed (affidavit) | [57] |
 | 9 May 2017 | RiskSense releases reverse-engineered EternalBlue code | Demonstrated | [57] |
@@ -308,7 +308,7 @@ Kaspersky's own investigation describes a September 2014 detection on a US user'
 
 ### 5.4 The 2017 releases
 
-A public mirror of the decrypted first auction archive was created on GitHub on 8 April 2017, according to repository metadata [58] (**Confirmed** for the date; the Shadow Brokers' own post was not opened). The Windows archive followed. The FBI affidavit says Microsoft patched CVE-2017-0144 on 14 March 2017 and that the Shadow Brokers released an exploit for it the next month, on 15 April 2017 [57]; the mirror of the decrypted archives was created at 11:41 UTC on 14 April 2017, so the release fell on 14 April US time [59] (**Confirmed**). That mirror lists three decrypted archives named odd, swift and windows [59]. Their contents were not checked, so this study says only that the release had a folder named swift.
+Cisco became aware on 8 April 2017 of additional information posted online by the Shadow Brokers, and it investigated new files the group posted on 14 April 2017 [52] (**Confirmed**; the Shadow Brokers' own posts were not opened). Public GitHub mirrors of the two releases carry the same creation dates in their repository metadata [58] [59] (**Confirmed** for the dates only). The FBI affidavit says Microsoft patched CVE-2017-0144 on 14 March 2017 and that the Shadow Brokers released an exploit for it the next month, on 15 April 2017 [57] (**Confirmed**). This study uses Cisco's date of 14 April for the Windows release and notes the affidavit's 15 April where the date matters.
 
 On 15 April MSRC published its triage. MS17-010 addresses EternalBlue, EternalChampion, EternalRomance and EternalSynergy. MS10-061 addresses EmeraldThread, MS09-050 EducatedScholar, MS08-067 EclipsedWing and MS14-068 EskimoRoll. ErraticGopher was fixed before Vista (CVE-2017-8461 was added on 13 June 2017). EnglishmanDentist, EsteemAudit and ExplodingCan do not reproduce on supported platforms [60] (**Confirmed**). The post does not say where the March fix came from [60].
 
@@ -468,7 +468,7 @@ Howard works through nine critic-alleged errors: Aitel's NSA title, the Stuxnet 
 
 ### 10.5 Library corrections
 
-These defects in the library were found while building this study and are routed to the library lane, not fixed here.
+These errors in other library pages were found while building this study and are listed here for correction in those pages.
 
 - [NOTABLE_INCIDENTS.md](/NOTABLE_INCIDENTS.md) attributes Aurora to APT10 and Comment Crew (Unit 61398) and says 30 or more companies and Gmail data. The record says Elderwood and Hydraq, at least twenty companies per Google, and only two accounts with account information and subject lines [55] [85] [96] [97].
 - [NOTABLE_INCIDENTS.md](/NOTABLE_INCIDENTS.md) gives WannaCry as "$4-8B", "327 Bitcoin" and "200,000+" with no source; Treasury gives about 300,000 computers and over USD 112 million in NHS costs [55] [69].
@@ -766,8 +766,8 @@ The live `T1210` page lists mitigations [`M1048`](/mitre/mitigations/M1048.md), 
 | 55 | TeamStarWolf, NOTABLE_INCIDENTS.md | https://github.com/TeamStarWolf/TeamStarWolf/blob/main/NOTABLE_INCIDENTS.md | 3 Nov 2026 | Reported (library text) |
 | 56 | Microsoft, MS17-010 | https://learn.microsoft.com/en-us/security-updates/securitybulletins/2017/ms17-010 | 3 Nov 2026 | Confirmed |
 | 57 | US DOJ, criminal complaint and FBI affidavit, United States v. Park Jin Hyok (C.D. Cal., filed 8 Jun 2018) | https://www.justice.gov/opa/press-release/file/1092091/download | 3 Nov 2026 | Confirmed; Demonstrated (RiskSense code) |
-| 58 | GitHub repository metadata for a public mirror of the first auction archive (creation date only) | not linked: the repository hosts leaked exploit code | 3 Nov 2026 | Confirmed (date only) |
-| 59 | GitHub repository metadata and description for a public mirror of the April 2017 archives | not linked: the repository hosts leaked exploit code | 3 Nov 2026 | Confirmed (date and folder names only) |
+| 58 | GitHub API repository metadata for a public mirror of the first auction archive (creation date only) | `api.github.com/repos/x0rz/EQGRP` (not linked: JSON metadata only; the repository itself hosts leaked exploit code) | 11 Nov 2026 | Confirmed (date only) |
+| 59 | GitHub API repository metadata for a public mirror of the April 2017 archives (creation date only) | `api.github.com/repos/x0rz/EQGRP_Lost_in_Translation` (not linked: JSON metadata only; the repository itself hosts leaked exploit code) | 11 Nov 2026 | Confirmed (date only) |
 | 60 | Microsoft MSRC, Protecting customers and evaluating risk (Apr 2017) | https://www.microsoft.com/en-us/msrc/blog/2017/04/protecting-customers-and-evaluating-risk | 3 Nov 2026 | Confirmed |
 | 61 | NVD, CVE-2017-0144 | https://nvd.nist.gov/vuln/detail/CVE-2017-0144 | 3 Nov 2026 | Confirmed |
 | 62 | CVE.org record API, CVE-2017-0144 | https://cveawg.mitre.org/api/cve/CVE-2017-0144 | 3 Nov 2026 | Confirmed |

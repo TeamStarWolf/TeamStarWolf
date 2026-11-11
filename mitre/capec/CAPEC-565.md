@@ -66,6 +66,7 @@ Hand-written pages in this library that link to this page or to this object's en
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 - [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md)
+- [Healthcare Threat Actor Watchlist, 2023 to 2026: Who Hits Hospitals, How They Get In, and What the Record Says](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md)
 - [Iran-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_IRAN.md)
 - [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
 - [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md)

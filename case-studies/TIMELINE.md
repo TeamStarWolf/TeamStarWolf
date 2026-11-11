@@ -106,6 +106,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 14 June 2023: Cl0p begins naming victims on its leak site with payment deadlines
   - August 2024: The running tally reaches about 2,773 organizations and 95.8 million individuals
   - 2024: Cleo Harmony, VLTrader and LexiCom exploited, late 2024
+- [Healthcare Threat Actor Watchlist, 2023 to 2026: Who Hits Hospitals, How They Get In, and What the Record Says](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md). Period record, January 2023 to November 2026. Sectors: healthcare. CVEs: CVE-2012-1823, CVE-2017-12617, CVE-2018-13379, CVE-2019-0708, CVE-2019-11043, CVE-2019-19781 and 22 more. ATT&CK groups: G0071 Orangeworm, G0092 TA505, G0117 Fox Kitten, G0138 Andariel, G1015 Scattered Spider, G1024 Akira and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Healthcare_Threat_Watchlist_Case_Study.pdf).
+  - 27 May 2023: CL0P begins exploiting the MOVEit Transfer flaw CVE-2023-34362
+  - 19 December 2023: ALPHV Blackcat advisory; its February 2024 update records an administrator urging affiliates to target hospitals
+  - February 2024: Change Healthcare: the largest HHS breach entry on record, 192,700,000 people
+  - 7 May 2024: The NCA names LockBitSupp as Dmitry Khoroshev; LockBit attacks targeted over 100 hospitals and healthcare companies
+  - 7 May 2024: Ascension: files copied, then activity from a ransomware attack detected on 8 May; HHS records 5,466,931 people
+  - 3 June 2024: Synnovis ransomware disrupts London pathology services; stolen data published on 20 June
+  - 25 July 2024: Andariel advisory: the RGB 3rd Bureau funds espionage through ransomware against US healthcare
+  - 28 August 2024: Pioneer Kitten advisory: an Iran-associated group partners with ransomware affiliates; healthcare facilities among victims
+  - 21 October 2024: Conduent, a business associate, accessed from 21 October 2024 to 13 January 2025; HHS records 62,224,658 people
+  - 30 January 2025: CISA finds an embedded backdoor in Contec CMS8000 patient-monitor firmware; FDA safety communication
+  - 9 April 2025: Kettering Health: activity from 9 April and a system-wide outage from 20 May 2025; Kettering names Interlock
+  - 17 May 2026: DentaQuest data accessed 17 to 20 May and later posted online; HHS records 15,000,000 people, the largest 2026 entry
 
 ### 2021 <!-- {docsify-ignore} -->
 
@@ -282,7 +295,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2011 <!-- {docsify-ignore} -->
 
-- [Iran-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_IRAN.md). Threat actor, 2011 to October 2026. Sectors: government, finance, energy, healthcare, education, defense, telecommunications, technology. CVEs: CVE-2017-11882, CVE-2018-13379, CVE-2019-0604, CVE-2019-5591, CVE-2019-11510, CVE-2019-11539 and 19 more. ATT&CK groups: G0003 Cleaver, G0043 Group5, G0049 OilRig, G0052 CopyKittens, G0059 Magic Hound, G0064 APT33 and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_Iran_Case_Study.pdf).
+- [Iran-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_IRAN.md). Threat actor, 2011 to October 2026. Sectors: government, finance, energy, healthcare, education, defense, telecommunications, technology. CVEs: CVE-2017-11882, CVE-2018-13379, CVE-2019-0604, CVE-2019-5591, CVE-2019-11510, CVE-2019-11539 and 19 more. ATT&CK groups: G0003 Cleaver, G0043 Group5, G0049 OilRig, G0052 CopyKittens, G0059 Magic Hound, G0064 APT33 and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_Iran_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Threat_Actors_Iran_Case_Study.pptx).
   - 2011: Coordinated DDoS attacks on the US financial sector begin (2011 to 2013), later charged against ITSecTeam and Mersad staff
   - 2012: Shamoon wiper first used, by a group calling itself Cutting Sword of Justice
   - 23 March 2018: Nine Mabna Institute members announced as indicted; Treasury sanctions the Institute the same day
@@ -324,6 +337,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 27 June 2017: NotPetya arrives through the M.E.Doc updater
   - 13 September 2021: Citizen Lab reports FORCEDENTRY; Apple ships iOS 14.8
   - 4 November 2021: NSO Group, Candiru, Positive Technologies and a Singapore firm added to the Entity List
+- [North Korea-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_NORTH_KOREA.md). Threat actor, 2009 to October 2026. Sectors: finance, government, defense, healthcare, technology, energy, media, education. CVEs: CVE-2017-4946, CVE-2021-20038, CVE-2021-43226, CVE-2021-44228, CVE-2021-45837, CVE-2022-24990 and 3 more. ATT&CK groups: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G0138 Andariel, G1036 Moonstone Sleet and 2 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_North_Korea_Case_Study.pdf).
+  - November 2014: Destructive attack on Sony Pictures Entertainment; the FBI names the North Korean government on 19 December 2014
+  - February 2016: Bangladesh Bank SWIFT heist, $81 million (Treasury, 2018)
+  - 12 May 2017: WannaCry ransomware; at least 81 NHS trusts in England disrupted; UK attribution to Lazarus Group on 19 December 2017
+  - 8 June 2018: Federal complaint against Park Jin Hyok, an alleged RGB hacker
+  - 13 September 2019: Treasury designates Lazarus Group, Bluenoroff and Andariel under E.O. 13722
+  - 4 May 2021: Maui ransomware encrypts servers at a Kansas hospital; AA22-187A warns the health sector in July 2022
+  - 23 March 2022: Ronin bridge theft, $620 million; the FBI attributes it to Lazarus Group and APT38 on 14 April 2022
+  - 16 May 2022: State, Treasury and FBI guidance on thousands of North Korean IT workers posing as non-North Koreans
+  - 24 July 2024: Indictment of Rim Jong Hyok of Andariel for ransomware against US hospitals; AA24-207A follows the next day
+  - 21 February 2025: Bybit theft, about $1.5 billion; the FBI names TraderTraitor on 26 February 2025
+  - 21 September 2026: Operation Lonestar Roundup searches of Texas laptop farms (21 to 25 September), announced 13 October 2026
+  - 29 October 2026: Binance theft, more than $6 billion; the FBI names TraderTraitor on 31 October 2026, an attribution disputed in press
 
 ### 2006 <!-- {docsify-ignore} -->
 
@@ -375,7 +401,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2001 <!-- {docsify-ignore} -->
 
-- [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md). Threat actor, 2001 to October 2025. Sectors: government, telecommunications, energy, finance, technology, healthcare. CVEs: CVE-2010-2568, CVE-2010-2729, CVE-2012-1723, CVE-2012-4681, CVE-2013-3918, CVE-2014-4148 and 12 more. ATT&CK groups: G0020 Equation. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_United_States_Case_Study.pdf).
+- [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md). Threat actor, 2001 to October 2025. Sectors: government, telecommunications, energy, finance, technology, healthcare. CVEs: CVE-2010-2568, CVE-2010-2729, CVE-2012-1723, CVE-2012-4681, CVE-2013-3918, CVE-2014-4148 and 12 more. ATT&CK groups: G0020 Equation. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_United_States_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Threat_Actors_United_States_Case_Study.pptx).
   - 2003: Earliest Regin sample timestamps
   - 2010: Stuxnet discovered
   - 14 October 2011: CrySyS publishes its Duqu analysis

@@ -1,0 +1,2416 @@
+{
+  "name": "TeamStarWolf - North Korea-attributed threat actors",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. The 251 Enterprise techniques bound in case-studies/THREAT_ACTORS_NORTH_KOREA.md: the 240 techniques in the direct ATT&CK v20.0 records of the eight North Korea-attributed groups (G0032, G0067, G0082, G0094, G0138, G1036, G1049, G1052), scored 100, plus 11 techniques stated only in US and allied advisories (AA23-040A, AA24-207A), scored 60. Each comment names the groups or advisory and the study's source numbers. Scores indicate evidence basis, not frequency or severity.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1001.003",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1003",
+      "tactic": "credential-access",
+      "score": 60,
+      "comment": "Advisory only, not in the ATT&CK group records: AA24-207A (Andariel) 2024-07-25 [60].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky, G1036 Moonstone Sleet (2 of 8 groups). Sources: [5], [7], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G0138 Andariel (5 of 8 groups). Sources: [2], [3], [4], [5], [6], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1007",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1008",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1010",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1012",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky (3 of 8 groups). Sources: [2], [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0094 Kimsuky, G1036 Moonstone Sleet (3 of 8 groups). Sources: [2], [5], [7], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1020",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1021",
+      "tactic": "lateral-movement",
+      "score": 60,
+      "comment": "Advisory only, not in the ATT&CK group records: AA23-040A (DPRK ransomware) 2023-02-09 [41]; AA24-207A (Andariel) 2024-07-25 [60].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0094 Kimsuky (2 of 8 groups). Sources: [2], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique. Also stated in AA24-207A (Andariel) 2024-07-25 [60].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1021.004",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0067 APT37, G0094 Kimsuky, G1036 Moonstone Sleet (3 of 8 groups). Sources: [3], [5], [7], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1027.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1027.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky (2 of 8 groups). Sources: [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1027.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0067 APT37, G0138 Andariel (2 of 8 groups). Sources: [3], [6], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1027.007",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0094 Kimsuky (2 of 8 groups). Sources: [2], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1027.009",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G1036 Moonstone Sleet (2 of 8 groups). Sources: [2], [7], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1027.010",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky, G1052 Contagious Interview (3 of 8 groups). Sources: [4], [5], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1027.012",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1027.013",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0094 Kimsuky, G1036 Moonstone Sleet, G1052 Contagious Interview (4 of 8 groups). Sources: [2], [5], [7], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1027.015",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky (2 of 8 groups). Sources: [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1027.016",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky (2 of 8 groups). Sources: [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1033",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G1036 Moonstone Sleet (5 of 8 groups). Sources: [2], [3], [4], [5], [7], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G1052 Contagious Interview (1 of 8 groups). Sources: [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1036.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0067 APT37 (1 of 8 groups). Sources: [3], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1036.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38 (2 of 8 groups). Sources: [2], [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1036.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0094 Kimsuky (2 of 8 groups). Sources: [2], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky (3 of 8 groups). Sources: [2], [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1036.006",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1036.007",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1036.008",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1039",
+      "tactic": "collection",
+      "score": 60,
+      "comment": "Advisory only, not in the ATT&CK group records: AA24-207A (Andariel) 2024-07-25 [60].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky, G1052 Contagious Interview (4 of 8 groups). Sources: [2], [4], [5], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1048",
+      "tactic": "exfiltration",
+      "score": 60,
+      "comment": "Advisory only, not in the ATT&CK group records: AA24-207A (Andariel) 2024-07-25 [60].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1048.002",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1048.003",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G1052 Contagious Interview (2 of 8 groups). Sources: [2], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1049",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0138 Andariel (3 of 8 groups). Sources: [2], [4], [6], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1053.003",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1053.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1053.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G1036 Moonstone Sleet (5 of 8 groups). Sources: [2], [3], [4], [5], [7], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G1036 Moonstone Sleet (5 of 8 groups). Sources: [2], [3], [4], [5], [7], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G1036 Moonstone Sleet (5 of 8 groups). Sources: [2], [3], [4], [5], [7], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1053.006",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1053.006",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1053.006",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0067 APT37, G0082 APT38, G0094 Kimsuky (3 of 8 groups). Sources: [3], [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0067 APT37, G0082 APT38, G0094 Kimsuky (3 of 8 groups). Sources: [3], [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1055.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0094 Kimsuky (2 of 8 groups). Sources: [2], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1055.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0094 Kimsuky (2 of 8 groups). Sources: [2], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1055.012",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1055.012",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky (3 of 8 groups). Sources: [2], [4], [5], [12] library group_to_technique. Also stated in AA20-301A (Kimsuky) 2020-10-27 [26].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky (3 of 8 groups). Sources: [2], [4], [5], [12] library group_to_technique. Also stated in AA20-301A (Kimsuky) 2020-10-27 [26].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1056.002",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1056.002",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1056.003",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1056.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G0138 Andariel (5 of 8 groups). Sources: [2], [3], [4], [5], [6], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0067 APT37 (1 of 8 groups). Sources: [3], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky (3 of 8 groups). Sources: [2], [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1059.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G1052 Contagious Interview (5 of 8 groups). Sources: [2], [3], [4], [5], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1059.004",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G1052 Contagious Interview (2 of 8 groups). Sources: [4], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1059.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G1052 Contagious Interview (5 of 8 groups). Sources: [2], [3], [4], [5], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1059.006",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0067 APT37, G0082 APT38, G0094 Kimsuky, G1052 Contagious Interview (4 of 8 groups). Sources: [3], [4], [5], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1059.007",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky, G1052 Contagious Interview (3 of 8 groups). Sources: [4], [5], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1070.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38 (2 of 8 groups). Sources: [2], [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky, G1052 Contagious Interview (4 of 8 groups). Sources: [2], [4], [5], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1070.006",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky (3 of 8 groups). Sources: [2], [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1071",
+      "tactic": "command-and-control",
+      "score": 60,
+      "comment": "Advisory only, not in the ATT&CK group records: AA24-207A (Andariel) 2024-07-25 [60].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G1036 Moonstone Sleet (5 of 8 groups). Sources: [2], [3], [4], [5], [7], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1071.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1071.003",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky, G1052 Contagious Interview (2 of 8 groups). Sources: [5], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1074.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky (3 of 8 groups). Sources: [2], [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky (2 of 8 groups). Sources: [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky (2 of 8 groups). Sources: [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky (2 of 8 groups). Sources: [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky (2 of 8 groups). Sources: [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G1036 Moonstone Sleet, G1052 Contagious Interview (6 of 8 groups). Sources: [2], [3], [4], [5], [7], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky, G1052 Contagious Interview (4 of 8 groups). Sources: [2], [4], [5], [9], [12] library group_to_technique. Also stated in AA23-040A (DPRK ransomware) 2023-02-09 [41].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1087",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Advisory only, not in the ATT&CK group records: AA24-207A (Andariel) 2024-07-25 [60].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G1052 Contagious Interview (1 of 8 groups). Sources: [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1090.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1090.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1098.007",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1098.007",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1102.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1102.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0067 APT37, G0094 Kimsuky (3 of 8 groups). Sources: [2], [3], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1104",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G0138 Andariel, G1036 Moonstone Sleet (6 of 8 groups). Sources: [2], [3], [4], [5], [6], [7], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1106",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky (4 of 8 groups). Sources: [2], [3], [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1111",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky (2 of 8 groups). Sources: [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky (2 of 8 groups). Sources: [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1113",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1114.002",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1114.003",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique. Also stated in AA20-301A (Kimsuky) 2020-10-27 [26].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1115",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky (2 of 8 groups). Sources: [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1120",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0067 APT37 (1 of 8 groups). Sources: [3], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1123",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0067 APT37 (1 of 8 groups). Sources: [3], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1124",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky (3 of 8 groups). Sources: [2], [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1132.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38 (2 of 8 groups). Sources: [2], [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1132.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique. Also stated in AA23-040A (DPRK ransomware) 2023-02-09 [41].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique. Also stated in AA23-040A (DPRK ransomware) 2023-02-09 [41].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1134.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1134.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1135",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1136.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1140",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky, G1036 Moonstone Sleet (4 of 8 groups). Sources: [2], [4], [5], [7], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1176.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1185",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0138 Andariel (4 of 8 groups). Sources: [2], [3], [4], [6], [12] library group_to_technique. Also stated in AA20-301A (Kimsuky) 2020-10-27 [26].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique. Also stated in AA23-040A (DPRK ransomware) 2023-02-09 [41]; AA24-207A (Andariel) 2024-07-25 [60].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1195",
+      "tactic": "initial-access",
+      "score": 60,
+      "comment": "Advisory only, not in the ATT&CK group records: AA23-040A (DPRK ransomware) 2023-02-09 [41].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1195.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G1036 Moonstone Sleet (1 of 8 groups). Sources: [7], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1202",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0067 APT37, G0138 Andariel (3 of 8 groups). Sources: [2], [3], [6], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1204.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky, G1052 Contagious Interview (3 of 8 groups). Sources: [4], [5], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G0138 Andariel, G1036 Moonstone Sleet, G1052 Contagious Interview (7 of 8 groups). Sources: [2], [3], [4], [5], [6], [7], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1204.004",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky, G1052 Contagious Interview (2 of 8 groups). Sources: [5], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1204.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G1052 Contagious Interview (1 of 8 groups). Sources: [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1205",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1205",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1205",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1213.005",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1213.006",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1217",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky, G1036 Moonstone Sleet (3 of 8 groups). Sources: [4], [5], [7], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1218",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1218.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1218.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky (3 of 8 groups). Sources: [2], [4], [5], [12] library group_to_technique. Also stated in AA20-301A (Kimsuky) 2020-10-27 [26].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1218.007",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1218.010",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1218.011",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky (3 of 8 groups). Sources: [2], [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1219.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky, G1052 Contagious Interview (2 of 8 groups). Sources: [5], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1222.002",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1480",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G1052 Contagious Interview (2 of 8 groups). Sources: [4], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1480.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky (2 of 8 groups). Sources: [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38 (2 of 8 groups). Sources: [2], [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G1036 Moonstone Sleet (2 of 8 groups). Sources: [4], [7], [12] library group_to_technique. Also stated in AA22-187A (Maui) 2022-07-06 [38]; AA23-040A (DPRK ransomware) 2023-02-09 [41].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1489",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0094 Kimsuky (2 of 8 groups). Sources: [2], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1491.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1497",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G1052 Contagious Interview (1 of 8 groups). Sources: [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1497",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G1052 Contagious Interview (1 of 8 groups). Sources: [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1497.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1497.001",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky (2 of 8 groups). Sources: [4], [5], [12] library group_to_technique. Also stated in AA20-301A (Kimsuky) 2020-10-27 [26].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1518",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1518.001",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky (2 of 8 groups). Sources: [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1529",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0067 APT37, G0082 APT38 (3 of 8 groups). Sources: [2], [3], [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1534",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1539",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1542.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1542.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1543.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G1052 Contagious Interview (2 of 8 groups). Sources: [4], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1543.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G1052 Contagious Interview (2 of 8 groups). Sources: [4], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky (3 of 8 groups). Sources: [2], [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky (3 of 8 groups). Sources: [2], [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1543.004",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1543.004",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1546.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1546.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1546.004",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G1052 Contagious Interview (1 of 8 groups). Sources: [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1546.004",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G1052 Contagious Interview (1 of 8 groups). Sources: [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1546.016",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1546.016",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G1036 Moonstone Sleet, G1052 Contagious Interview (6 of 8 groups). Sources: [2], [3], [4], [5], [7], [9], [12] library group_to_technique. Also stated in AA20-301A (Kimsuky) 2020-10-27 [26].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G1036 Moonstone Sleet, G1052 Contagious Interview (6 of 8 groups). Sources: [2], [3], [4], [5], [7], [9], [12] library group_to_technique. Also stated in AA20-301A (Kimsuky) 2020-10-27 [26].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1547.009",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1547.009",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1547.013",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G1052 Contagious Interview (1 of 8 groups). Sources: [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1547.013",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G1052 Contagious Interview (1 of 8 groups). Sources: [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1548.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0067 APT37, G0082 APT38 (2 of 8 groups). Sources: [3], [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1548.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1548.006",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1550.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1552.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1552.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1552.004",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky (2 of 8 groups). Sources: [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1553.002",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0094 Kimsuky (2 of 8 groups). Sources: [2], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1553.005",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1555",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1555.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G1052 Contagious Interview (2 of 8 groups). Sources: [4], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1555.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0067 APT37, G0082 APT38, G0094 Kimsuky (3 of 8 groups). Sources: [3], [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1557.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1557.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1559.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1559.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0067 APT37 (1 of 8 groups). Sources: [3], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1560",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1560.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky (2 of 8 groups). Sources: [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1560.002",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1560.003",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0094 Kimsuky (2 of 8 groups). Sources: [2], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1561.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1561.002",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0067 APT37, G0082 APT38 (3 of 8 groups). Sources: [2], [3], [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1564.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1564.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1564.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky (2 of 8 groups). Sources: [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1564.011",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky (2 of 8 groups). Sources: [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1564.012",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1565.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1565.002",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1565.003",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky, G1049 AppleJeus (2 of 8 groups). Sources: [5], [8], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G0138 Andariel, G1036 Moonstone Sleet (6 of 8 groups). Sources: [2], [3], [4], [5], [6], [7], [12] library group_to_technique. Also stated in AA20-301A (Kimsuky) 2020-10-27 [26].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky (3 of 8 groups). Sources: [2], [4], [5], [12] library group_to_technique. Also stated in AA20-301A (Kimsuky) 2020-10-27 [26].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1566.003",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G1036 Moonstone Sleet, G1052 Contagious Interview (4 of 8 groups). Sources: [2], [4], [7], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1567",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G1052 Contagious Interview (2 of 8 groups). Sources: [4], [9], [12] library group_to_technique. Also stated in AA24-207A (Andariel) 2024-07-25 [60].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1567.002",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky, G1052 Contagious Interview (2 of 8 groups). Sources: [5], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1568",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1569.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G1036 Moonstone Sleet (2 of 8 groups). Sources: [4], [7], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1571",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G1052 Contagious Interview (3 of 8 groups). Sources: [2], [4], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "score": 60,
+      "comment": "Advisory only, not in the ATT&CK group records: AA24-207A (Andariel) 2024-07-25 [60].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1573.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G1052 Contagious Interview (2 of 8 groups). Sources: [2], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1574.013",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1574.013",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1583",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky, G1052 Contagious Interview (2 of 8 groups). Sources: [5], [9], [12] library group_to_technique. Also stated in AA23-040A (DPRK ransomware) 2023-02-09 [41].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky, G1036 Moonstone Sleet, G1052 Contagious Interview (5 of 8 groups). Sources: [2], [4], [5], [7], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1583.003",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G1036 Moonstone Sleet, G1052 Contagious Interview (3 of 8 groups). Sources: [4], [7], [9], [12] library group_to_technique. Also stated in AA23-040A (DPRK ransomware) 2023-02-09 [41].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1583.004",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1583.006",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky, G1052 Contagious Interview (4 of 8 groups). Sources: [2], [4], [5], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1584.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1584.004",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1585",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky, G1052 Contagious Interview (2 of 8 groups). Sources: [5], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1585.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky, G1036 Moonstone Sleet, G1052 Contagious Interview (5 of 8 groups). Sources: [2], [4], [5], [7], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1585.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky, G1036 Moonstone Sleet, G1052 Contagious Interview (5 of 8 groups). Sources: [2], [4], [5], [7], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1586.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1586.003",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1587",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky, G1036 Moonstone Sleet, G1052 Contagious Interview (3 of 8 groups). Sources: [5], [7], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1587.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0094 Kimsuky, G1036 Moonstone Sleet, G1052 Contagious Interview (4 of 8 groups). Sources: [2], [5], [7], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1587.004",
+      "tactic": "resource-development",
+      "score": 60,
+      "comment": "Advisory only, not in the ATT&CK group records: AA24-207A (Andariel) 2024-07-25 [60].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1588.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0138 Andariel (1 of 8 groups). Sources: [6], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1588.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky, G1052 Contagious Interview (4 of 8 groups). Sources: [2], [4], [5], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1588.003",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1588.004",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1588.005",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1588.007",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G1052 Contagious Interview (1 of 8 groups). Sources: [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1589",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G1052 Contagious Interview (1 of 8 groups). Sources: [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1589.002",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0094 Kimsuky, G1036 Moonstone Sleet (3 of 8 groups). Sources: [2], [5], [7], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1589.003",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1590.005",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0138 Andariel (1 of 8 groups). Sources: [6], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1591",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0094 Kimsuky, G1036 Moonstone Sleet (3 of 8 groups). Sources: [2], [5], [7], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1592",
+      "tactic": "reconnaissance",
+      "score": 60,
+      "comment": "Advisory only, not in the ATT&CK group records: AA24-207A (Andariel) 2024-07-25 [60].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1592.002",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0138 Andariel (1 of 8 groups). Sources: [6], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1593",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G1052 Contagious Interview (1 of 8 groups). Sources: [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1593.001",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky, G1052 Contagious Interview (2 of 8 groups). Sources: [5], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1593.002",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1593.003",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G1052 Contagious Interview (1 of 8 groups). Sources: [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1594",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1595",
+      "tactic": "reconnaissance",
+      "score": 60,
+      "comment": "Advisory only, not in the ATT&CK group records: AA24-207A (Andariel) 2024-07-25 [60].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1596",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1598",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky, G1036 Moonstone Sleet (2 of 8 groups). Sources: [5], [7], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1598.003",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky, G1036 Moonstone Sleet (2 of 8 groups). Sources: [5], [7], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1608.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky, G1036 Moonstone Sleet, G1052 Contagious Interview (4 of 8 groups). Sources: [4], [5], [7], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1620",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky (3 of 8 groups). Sources: [2], [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky, G1049 AppleJeus, G1052 Contagious Interview (4 of 8 groups). Sources: [4], [5], [8], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1677",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1678",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky (2 of 8 groups). Sources: [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1680",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0094 Kimsuky (2 of 8 groups). Sources: [2], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1681",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G1052 Contagious Interview (1 of 8 groups). Sources: [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1682",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0094 Kimsuky (1 of 8 groups). Sources: [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1683.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G1052 Contagious Interview (2 of 8 groups). Sources: [4], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1683.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G1052 Contagious Interview (2 of 8 groups). Sources: [4], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1684.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky, G1052 Contagious Interview (3 of 8 groups). Sources: [4], [5], [9], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group, G0082 APT38, G0094 Kimsuky, G1052 Contagious Interview (4 of 8 groups). Sources: [2], [4], [5], [9], [12] library group_to_technique. Also stated in ATT&CK T1685 page, procedure examples page modified 2026-09-11 [11].",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1685.003",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1685.005",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1686",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38, G0094 Kimsuky (2 of 8 groups). Sources: [4], [5], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1686.002",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1686.003",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0032 Lazarus Group (1 of 8 groups). Sources: [2], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1690",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "ATT&CK v20.0 group record: G0082 APT38 (1 of 8 groups). Sources: [4], [12] library group_to_technique.",
+      "enabled": true,
+      "showSubtechniques": false
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#d9ead3",
+      "#6aa84f"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "ATT&CK group record (score 100)",
+      "color": "#6aa84f"
+    },
+    {
+      "label": "Advisory only (score 60)",
+      "color": "#a4c98f"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "metadata": [
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ]
+}

@@ -483,6 +483,58 @@ studies:
       - {"date": "2022-03-03", "label": "CISA adds CVE-2020-1938 to KEV in a batch of 95 entries"}
       - {"date": "2026-10", "label": "DShield still records about 950 to 6,200 port 8009 events a day"}
       - {"date": "2026-11-03", "label": "KEV still lists the CVE; the TeamStarWolf lab run"}
+  case-studies/HEALTHCARE_THREAT_WATCHLIST.md:
+    kind: "era"
+    title: "Healthcare Threat Actor Watchlist, 2023 to 2026: Who Hits Hospitals, How They Get In, and What the Record Says"
+    start: "2023-01"
+    end: "2026-11"
+    sectors: ["healthcare"]
+    cves:
+      - "CVE-2012-1823"
+      - "CVE-2017-12617"
+      - "CVE-2018-13379"
+      - "CVE-2019-0708"
+      - "CVE-2019-11043"
+      - "CVE-2019-19781"
+      - "CVE-2020-1472"
+      - "CVE-2020-3259"
+      - "CVE-2021-34473"
+      - "CVE-2021-44228"
+      - "CVE-2022-1388"
+      - "CVE-2023-0669"
+      - "CVE-2023-3519"
+      - "CVE-2023-20269"
+      - "CVE-2023-27997"
+      - "CVE-2023-34362"
+      - "CVE-2023-46604"
+      - "CVE-2023-48788"
+      - "CVE-2024-1709"
+      - "CVE-2024-3400"
+      - "CVE-2024-21887"
+      - "CVE-2024-24919"
+      - "CVE-2024-37085"
+      - "CVE-2024-40766"
+      - "CVE-2025-0626"
+      - "CVE-2025-0683"
+      - "CVE-2025-10035"
+      - "CVE-2026-1731"
+    actors: ["G0071", "G0092", "G0117", "G0138", "G1015", "G1024", "G1032", "G1036", "G1040", "G1050", "G1051", "G1053"]
+    tags: ["hospitals", "ransomware", "healthcare", "HIPAA", "watchlist", "medical devices"]
+    pdf: "Healthcare_Threat_Watchlist_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2023-05-27", "label": "CL0P begins exploiting the MOVEit Transfer flaw CVE-2023-34362"}
+      - {"date": "2023-12-19", "label": "ALPHV Blackcat advisory; its February 2024 update records an administrator urging affiliates to target hospitals"}
+      - {"date": "2024-02", "label": "Change Healthcare: the largest HHS breach entry on record, 192,700,000 people"}
+      - {"date": "2024-05-07", "label": "The NCA names LockBitSupp as Dmitry Khoroshev; LockBit attacks targeted over 100 hospitals and healthcare companies"}
+      - {"date": "2024-05-07", "label": "Ascension: files copied, then activity from a ransomware attack detected on 8 May; HHS records 5,466,931 people"}
+      - {"date": "2024-06-03", "label": "Synnovis ransomware disrupts London pathology services; stolen data published on 20 June"}
+      - {"date": "2024-07-25", "label": "Andariel advisory: the RGB 3rd Bureau funds espionage through ransomware against US healthcare"}
+      - {"date": "2024-08-28", "label": "Pioneer Kitten advisory: an Iran-associated group partners with ransomware affiliates; healthcare facilities among victims"}
+      - {"date": "2024-10-21", "label": "Conduent, a business associate, accessed from 21 October 2024 to 13 January 2025; HHS records 62,224,658 people"}
+      - {"date": "2025-01-30", "label": "CISA finds an embedded backdoor in Contec CMS8000 patient-monitor firmware; FDA safety communication"}
+      - {"date": "2025-04-09", "label": "Kettering Health: activity from 9 April and a system-wide outage from 20 May 2025; Kettering names Interlock"}
+      - {"date": "2026-05-17", "label": "DentaQuest data accessed 17 to 20 May and later posted online; HHS records 15,000,000 people, the largest 2026 entry"}
   case-studies/HUGGING_FACE_SUPPLY_CHAIN.md:
     kind: "reference"
     title: "Hugging Face as an AI Supply-Chain Attack Surface: A 2021 to 2026 Case Study"
@@ -1035,7 +1087,7 @@ studies:
       - "G1059"
     tags: ["Iran", "IRGC", "MOIS", "CyberAv3ngers", "MuddyWater", "Pioneer Kitten", "wipers", "PLCs"]
     pdf: "Threat_Actors_Iran_Case_Study.pdf"
-    pptx: null
+    pptx: "Threat_Actors_Iran_Case_Study.pptx"
     events:
       - {"date": "2011", "label": "Coordinated DDoS attacks on the US financial sector begin (2011 to 2013), later charged against ITSecTeam and Mersad staff"}
       - {"date": "2012", "label": "Shamoon wiper first used, by a group calling itself Cutting Sword of Justice"}
@@ -1049,6 +1101,47 @@ studies:
       - {"date": "2026-03", "label": "Tampering with internet-exposed Rockwell, Schneider Electric and Siemens PLCs begins (AA26-097A)"}
       - {"date": "2026-03-11", "label": "Stryker reports a global disruption to its Microsoft environment; Handala claims a wiper attack"}
       - {"date": "2026-08-18", "label": "Superseding indictment of 17 Mabna Institute members for intrusions for the IRGC since 2013"}
+  case-studies/THREAT_ACTORS_NORTH_KOREA.md:
+    kind: "actor"
+    title: "North Korea-Attributed Threat Actors: The Public Record"
+    start: "2009"
+    end: "2026-10"
+    sectors: ["finance", "government", "defense", "healthcare", "technology", "energy", "media", "education"]
+    cves:
+      - "CVE-2017-4946"
+      - "CVE-2021-20038"
+      - "CVE-2021-43226"
+      - "CVE-2021-44228"
+      - "CVE-2021-45837"
+      - "CVE-2022-24990"
+      - "CVE-2022-47966"
+      - "CVE-2023-32784"
+      - "CVE-2023-42793"
+    actors:
+      - "G0032"
+      - "G0067"
+      - "G0082"
+      - "G0094"
+      - "G0138"
+      - "G1036"
+      - "G1049"
+      - "G1052"
+    tags: ["North Korea", "DPRK", "Lazarus Group", "RGB", "TraderTraitor", "IT workers", "cryptocurrency theft", "Maui ransomware"]
+    pdf: "Threat_Actors_North_Korea_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2014-11", "label": "Destructive attack on Sony Pictures Entertainment; the FBI names the North Korean government on 19 December 2014"}
+      - {"date": "2016-02", "label": "Bangladesh Bank SWIFT heist, $81 million (Treasury, 2018)"}
+      - {"date": "2017-05-12", "label": "WannaCry ransomware; at least 81 NHS trusts in England disrupted; UK attribution to Lazarus Group on 19 December 2017"}
+      - {"date": "2018-06-08", "label": "Federal complaint against Park Jin Hyok, an alleged RGB hacker"}
+      - {"date": "2019-09-13", "label": "Treasury designates Lazarus Group, Bluenoroff and Andariel under E.O. 13722"}
+      - {"date": "2021-05-04", "label": "Maui ransomware encrypts servers at a Kansas hospital; AA22-187A warns the health sector in July 2022"}
+      - {"date": "2022-03-23", "label": "Ronin bridge theft, $620 million; the FBI attributes it to Lazarus Group and APT38 on 14 April 2022"}
+      - {"date": "2022-05-16", "label": "State, Treasury and FBI guidance on thousands of North Korean IT workers posing as non-North Koreans"}
+      - {"date": "2024-07-24", "label": "Indictment of Rim Jong Hyok of Andariel for ransomware against US hospitals; AA24-207A follows the next day"}
+      - {"date": "2025-02-21", "label": "Bybit theft, about $1.5 billion; the FBI names TraderTraitor on 26 February 2025"}
+      - {"date": "2026-09-21", "label": "Operation Lonestar Roundup searches of Texas laptop farms (21 to 25 September), announced 13 October 2026"}
+      - {"date": "2026-10-29", "label": "Binance theft, more than $6 billion; the FBI names TraderTraitor on 31 October 2026, an attribution disputed in press"}
   case-studies/THREAT_ACTORS_OTHER_STATES.md:
     kind: "actor"
     title: "Other State-Linked Threat Actors: The Public Record"
@@ -1224,7 +1317,7 @@ studies:
       - "G0020"
     tags: ["United States", "Equation", "Regin", "Shadow Brokers", "Vault 7", "EternalBlue"]
     pdf: "Threat_Actors_United_States_Case_Study.pdf"
-    pptx: null
+    pptx: "Threat_Actors_United_States_Case_Study.pptx"
     events:
       - {"date": "2003", "label": "Earliest Regin sample timestamps"}
       - {"date": "2010", "label": "Stuxnet discovered"}

@@ -758,8 +758,8 @@ studies:
       - "CVE-2019-10149"
     actors: ["G0034", "G0035"]
     tags: ["Russia", "GRU", "Unit 74455", "wipers", "ICS"]
-    pdf: null
-    pptx: null
+    pdf: "Sandworm_Operations_Case_Study.pdf"
+    pptx: "Sandworm_Operations_Case_Study.pptx"
     events:
       - {"date": "2014-10-14", "label": "MS14-060 patched; CVE-2014-4114 had been exploited in a Sandworm campaign"}
       - {"date": "2015-12-23", "label": "First Ukrainian blackout: three distribution companies, about 225,000 customers"}
@@ -967,7 +967,7 @@ studies:
       - "G1054"
     tags: ["China", "MSS", "PLA", "espionage", "Typhoon"]
     pdf: "Threat_Actors_China_Case_Study.pdf"
-    pptx: null
+    pptx: "Threat_Actors_China_Case_Study.pptx"
     events:
       - {"date": "2010-01-12", "label": "Google discloses a targeted attack from China that stole intellectual property"}
       - {"date": "2013-02-19", "label": "Mandiant's APT1 report ties APT1 to PLA Unit 61398"}

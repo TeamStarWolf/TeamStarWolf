@@ -1,0 +1,651 @@
+{
+  "name": "TeamStarWolf - Sandworm operations Enterprise",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. The 78 Enterprise techniques bound to dated Sandworm Team (G0034) events in case-studies/SANDWORM_OPERATIONS.md, 2014 to 2022, each with a comment naming the event and the study's source numbers. Scores indicate membership only.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "2015 grid: macro-enabled Excel and Word attachments carrying BlackEnergy 3, from spring 2015; PyeongChang lures, Dec 2017. Sources: [2] SANS/E-ISAC Ukraine DUC; [5] US v. Andrienko indictment; [15] ATT&CK C0028; [40] Kaspersky OlympicDestroyer."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "2015 grid: victims enabled the macros; Bad Rabbit fake Flash installer, 2017-10-24. Sources: [2] SANS/E-ISAC Ukraine DUC; [15] ATT&CK C0028; [36] ESET Bad Rabbit; [37] Kaspersky Bad Rabbit; [81] ATT&CK S0606."
+    },
+    {
+      "techniqueID": "T1059.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "2015 lure macro (metadata 2015-07-27); remote.vbs and other VBS in Dec 2016. Sources: [6] Kaspersky BlackEnergy Word lure; [15] ATT&CK C0028; [9] Slowik, VB2018; [16] ATT&CK C0025."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Dec 2016: xp_cmdshell on MS-SQL pivots; 101_copy.bat and 104_copy.bat. Sources: [9] Slowik, VB2018; [16] ATT&CK C0025."
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Dec 2016: proxy-aware PowerShell download cradle. Sources: [9] Slowik, VB2018; [16] ATT&CK C0025."
+    },
+    {
+      "techniqueID": "T1218.011",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "BlackEnergy lure runs FONTCACHE.DAT with rundll32 (2015); NotPetya and Bad Rabbit install via rundll32 (2017). Sources: [6] Kaspersky BlackEnergy Word lure; [15] ATT&CK C0028; [78] ATT&CK S0368; [36] ESET Bad Rabbit; [81] ATT&CK S0606."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "BlackEnergy HTTP POST command and control, 2015. Sources: [6] Kaspersky BlackEnergy Word lure; [15] ATT&CK C0028; [19] ATT&CK S0089."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "2015 grid: BlackEnergy keylogger plugin gathered credentials. Sources: [15] ATT&CK C0028; [19] ATT&CK S0089."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "2015 grid: BlackEnergy keylogger plugin gathered credentials. Sources: [15] ATT&CK C0028; [19] ATT&CK S0089."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "2015 grid: BlackEnergy network sniffer module captured credentials. Sources: [15] ATT&CK C0028."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "2015 grid: BlackEnergy network sniffer module captured credentials. Sources: [15] ATT&CK C0028."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "2015 grid: previously obtained legitimate credentials used over VPN. Sources: [1] CISA IR-ALERT-H-16-056-01; [15] ATT&CK C0028."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "2015 grid: previously obtained legitimate credentials used over VPN. Sources: [1] CISA IR-ALERT-H-16-056-01; [15] ATT&CK C0028."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "2015 grid: previously obtained legitimate credentials used over VPN. Sources: [1] CISA IR-ALERT-H-16-056-01; [15] ATT&CK C0028."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "2015 grid: previously obtained legitimate credentials used over VPN. Sources: [1] CISA IR-ALERT-H-16-056-01; [15] ATT&CK C0028."
+    },
+    {
+      "techniqueID": "T1136.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "2015 grid: privileged domain accounts; 2016-12-01 01:28 two new accounts created and privileged. Sources: [15] ATT&CK C0028; [9] Slowik, VB2018; [16] ATT&CK C0025."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "2015 grid: VPNs from the business network into the ICS, apparently without two-factor authentication. Sources: [1] CISA IR-ALERT-H-16-056-01; [2] SANS/E-ISAC Ukraine DUC; [15] ATT&CK C0028."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "2015 grid: VPNs from the business network into the ICS, apparently without two-factor authentication. Sources: [1] CISA IR-ALERT-H-16-056-01; [2] SANS/E-ISAC Ukraine DUC; [15] ATT&CK C0028."
+    },
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "2015 grid: systems discovered over the LAN; Olympic Destroyer used the ARP table and WMI (2018). Sources: [15] ATT&CK C0028; [39] Talos Olympic Destroyer; [79] ATT&CK S0365."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "2015 grid tool transfer; Dec 2016 PowerShell download cradle. Sources: [15] ATT&CK C0028; [9] Slowik, VB2018."
+    },
+    {
+      "techniqueID": "T1570",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "2015 grid; Dec 2016 files moved as .txt and renamed .exe, payloads copied by BAT files on 2016-12-17. Sources: [15] ATT&CK C0028; [9] Slowik, VB2018; [16] ATT&CK C0025."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "2015 grid: BlackEnergy loaded into svchost.exe. Sources: [15] ATT&CK C0028."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "2015 grid: BlackEnergy loaded into svchost.exe. Sources: [15] ATT&CK C0028."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "2015 grid: registry Internet settings lowered before rundll32 ran. Sources: [15] ATT&CK C0028."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "2015 grid: registry Internet settings lowered before rundll32 ran. Sources: [15] ATT&CK C0028."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "2015 grid: Internet security settings lowered in the registry. Sources: [15] ATT&CK C0028."
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "2015 grid: KillDisk deleted files and logs. Sources: [1] CISA IR-ALERT-H-16-056-01; [5] US v. Andrienko indictment; [15] ATT&CK C0028; [18] ATT&CK S0607."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "2016-12-12 onward: rapid RPC authentication attempts as Administrator across more than 100 hosts. Sources: [9] Slowik, VB2018; [16] ATT&CK C0025."
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Mimikatz in Dec 2016; NotPetya's modified Mimikatz (2017-06-27); Olympic Destroyer LSASS theft (2018-02-09). Sources: [9] Slowik, VB2018; [16] ATT&CK C0025; [23] CISA TA17-181A; [78] ATT&CK S0368; [39] Talos Olympic Destroyer; [79] ATT&CK S0365."
+    },
+    {
+      "techniqueID": "T1027.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Dec 2016: Mimikatz compiled from public source and UPX-packed. Sources: [9] Slowik, VB2018; [16] ATT&CK C0025."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Dec 2016: sp_addlinkedsrvlogin linked a created account to other MS-SQL servers. Sources: [16] ATT&CK C0025."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Dec 2016: sp_addlinkedsrvlogin linked a created account to other MS-SQL servers. Sources: [16] ATT&CK C0025."
+    },
+    {
+      "techniqueID": "T1036.010",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "2016-12-01: new accounts named to look like system accounts. Sources: [16] ATT&CK C0025."
+    },
+    {
+      "techniqueID": "T1685.001",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "2016-12-01 01:29: event logging disabled on the ICS access server. Sources: [9] Slowik, VB2018; [16] ATT&CK C0025."
+    },
+    {
+      "techniqueID": "T1505.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "From 2016-12-12: MS-SQL servers used as pivots via xp_cmdshell. Sources: [9] Slowik, VB2018; [16] ATT&CK C0025."
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "remote.vbs WMI execution (Dec 2016); NotPetya WMIC (2017); Olympic Destroyer WMI spread (2018). Sources: [9] Slowik, VB2018; [16] ATT&CK C0025; [22] Microsoft Petya worm analysis; [23] CISA TA17-181A; [78] ATT&CK S0368; [39] Talos Olympic Destroyer; [79] ATT&CK S0365."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Dec 2016; NotPetya copy to admin$ (2017); Olympic Destroyer (2018). Sources: [16] ATT&CK C0025; [22] Microsoft Petya worm analysis; [78] ATT&CK S0368; [79] ATT&CK S0365."
+    },
+    {
+      "techniqueID": "T1036.008",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Dec 2016: executables moved as .txt files and renamed. Sources: [9] Slowik, VB2018; [16] ATT&CK C0025."
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "PsExec renamed ps.exe (Dec 2016); Bad Rabbit install_flash_player.exe (2017). Sources: [9] Slowik, VB2018; [16] ATT&CK C0025; [36] ESET Bad Rabbit; [81] ATT&CK S0606."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Industroyer backdoor made a service by replacing a non-critical service's ImagePath; payloads run as services, 2016-12-17. Sources: [11] ESET Win32/Industroyer paper; [17] ATT&CK S0604; [9] Slowik, VB2018."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Industroyer backdoor made a service by replacing a non-critical service's ImagePath; payloads run as services, 2016-12-17. Sources: [11] ESET Win32/Industroyer paper; [17] ATT&CK S0604; [9] Slowik, VB2018."
+    },
+    {
+      "techniqueID": "T1554",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Industroyer additional backdoor: a trojanized Notepad, 2016. Sources: [11] ESET Win32/Industroyer paper; [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Industroyer custom port scanner (2016); NotPetya scanned tcp/139 and tcp/445 (2017). Sources: [11] ESET Win32/Industroyer paper; [17] ATT&CK S0604; [22] Microsoft Petya worm analysis."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Industroyer network configuration discovery, 2016. Sources: [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Industroyer system information discovery, 2016. Sources: [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Industroyer file discovery, 2016. Sources: [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T1012",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Industroyer registry queries, 2016. Sources: [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Industroyer HTTP CONNECT tunnel via an internal proxy (2016); GOGETTER TLS tunnel (2022); SSH tunnel chains (April 2022). Sources: [11] ESET Win32/Industroyer paper; [17] ATT&CK S0604; [75] ATT&CK C0034; [55] CERT-UA#4435."
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Industroyer C2 servers mostly ran Tor, 2016. Sources: [11] ESET Win32/Industroyer paper; [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T1140",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Industroyer decoding, 2016. Sources: [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Industroyer exfiltration over C2, 2016. Sources: [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Industroyer wiper (Dec 2016); KillDisk (2015); Olympic Destroyer (2018); CaddyWiper (2022). Sources: [11] ESET Win32/Industroyer paper; [17] ATT&CK S0604; [18] ATT&CK S0607; [79] ATT&CK S0365; [53] ESET CaddyWiper; [58] Mandiant 2022 OT disruption; [82] ATT&CK S0693."
+    },
+    {
+      "techniqueID": "T1489",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "KillDisk kills komut.exe and sec_service.exe (2015); Industroyer wiper kills processes (2016). Sources: [7] ESET BlackEnergy/SSHBearDoor; [18] ATT&CK S0607; [11] ESET Win32/Industroyer paper; [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T1499.004",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Industroyer SIPROTEC DoS tool for CVE-2015-5374 (capability; Slowik found it failed as built). Sources: [11] ESET Win32/Industroyer paper; [12] NVD CVE-2015-5374; [17] ATT&CK S0604; [9] Slowik, VB2018."
+    },
+    {
+      "techniqueID": "T1685.005",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "KillDisk clears Application, Security, Setup and System logs (2015); NotPetya (2017); Olympic Destroyer wevtutil (2018). Sources: [7] ESET BlackEnergy/SSHBearDoor; [18] ATT&CK S0607; [22] Microsoft Petya worm analysis; [39] Talos Olympic Destroyer; [79] ATT&CK S0365."
+    },
+    {
+      "techniqueID": "T1561.002",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "KillDisk corrupted MBRs (2015); NotPetya overwrote the first 10 sectors (2017); CaddyWiper (2022). Sources: [1] CISA IR-ALERT-H-16-056-01; [18] ATT&CK S0607; [22] Microsoft Petya worm analysis; [23] CISA TA17-181A; [82] ATT&CK S0693."
+    },
+    {
+      "techniqueID": "T1529",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "KillDisk rebooted hosts (2015); NotPetya forced restart through shutdown.exe (2017). Sources: [5] US v. Andrienko indictment; [18] ATT&CK S0607; [22] Microsoft Petya worm analysis; [78] ATT&CK S0368."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "BlackEnergy lure adds a Startup-folder shortcut (2015-07-27 sample). Sources: [6] Kaspersky BlackEnergy Word lure; [19] ATT&CK S0089."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "BlackEnergy lure adds a Startup-folder shortcut (2015-07-27 sample). Sources: [6] Kaspersky BlackEnergy Word lure; [19] ATT&CK S0089."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Backdoored M.E.Doc updates 2017-04-14 to 2017-06-22; NotPetya delivered 2017-06-27. Sources: [20] Talos, The MeDoc Connection; [21] ESET TeleBots supply chain; [23] CISA TA17-181A; [5] US v. Andrienko indictment."
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "NotPetya token impersonation, 2017-06-27 (this study's mapping from the Microsoft analysis; not an ATT&CK row on S0368). Sources: [22] Microsoft Petya worm analysis."
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "NotPetya token impersonation, 2017-06-27 (this study's mapping from the Microsoft analysis; not an ATT&CK row on S0368). Sources: [22] Microsoft Petya worm analysis."
+    },
+    {
+      "techniqueID": "T1569.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "NotPetya via PsExec (2017-06-27); Bad Rabbit via SCManager (2017-10-24). Sources: [22] Microsoft Petya worm analysis; [23] CISA TA17-181A; [78] ATT&CK S0368; [36] ESET Bad Rabbit; [81] ATT&CK S0606."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "NotPetya EternalBlue and EternalRomance (2017); Bad Rabbit EternalRomance (2017). Sources: [22] Microsoft Petya worm analysis; [23] CISA TA17-181A; [78] ATT&CK S0368; [37] Kaspersky Bad Rabbit; [81] ATT&CK S0606."
+    },
+    {
+      "techniqueID": "T1518.001",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "NotPetya checked for antivirus processes, 2017. Sources: [5] US v. Andrienko indictment; [78] ATT&CK S0368."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "NotPetya scheduled forced restart (2017); Bad Rabbit scheduled task (2017); Prestige via Impacket scheduled task (2022-10-11). Sources: [22] Microsoft Petya worm analysis; [78] ATT&CK S0368; [37] Kaspersky Bad Rabbit; [81] ATT&CK S0606; [57] Microsoft Prestige."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "NotPetya scheduled forced restart (2017); Bad Rabbit scheduled task (2017); Prestige via Impacket scheduled task (2022-10-11). Sources: [22] Microsoft Petya worm analysis; [78] ATT&CK S0368; [37] Kaspersky Bad Rabbit; [81] ATT&CK S0606; [57] Microsoft Prestige."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "NotPetya scheduled forced restart (2017); Bad Rabbit scheduled task (2017); Prestige via Impacket scheduled task (2022-10-11). Sources: [22] Microsoft Petya worm analysis; [78] ATT&CK S0368; [37] Kaspersky Bad Rabbit; [81] ATT&CK S0606; [57] Microsoft Prestige."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "NotPetya encrypted the MFT (2017); Bad Rabbit DiskCryptor (2017); Prestige (2022). Sources: [23] CISA TA17-181A; [78] ATT&CK S0368; [36] ESET Bad Rabbit; [81] ATT&CK S0606; [57] Microsoft Prestige."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Bad Rabbit watering hole with injected JavaScript, 2017-10-24. Sources: [36] ESET Bad Rabbit; [37] Kaspersky Bad Rabbit; [81] ATT&CK S0606."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Bad Rabbit NTLM brute force with a hardcoded list, 2017-10-24. Sources: [37] Kaspersky Bad Rabbit; [81] ATT&CK S0606."
+    },
+    {
+      "techniqueID": "T1135",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Bad Rabbit SMB share scanning (2017); Olympic Destroyer mapped shares (2018). Sources: [36] ESET Bad Rabbit; [81] ATT&CK S0606; [39] Talos Olympic Destroyer; [79] ATT&CK S0365."
+    },
+    {
+      "techniqueID": "T1593",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Research into Ukraine's EDRPOU identifiers before NotPetya, 2017. Sources: [14] ATT&CK G0034; [20] Talos, The MeDoc Connection."
+    },
+    {
+      "techniqueID": "T1591.002",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Research into PyeongChang partner organizations, Dec 2017. Sources: [14] ATT&CK G0034; [5] US v. Andrienko indictment."
+    },
+    {
+      "techniqueID": "T1588.006",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "2017 vulnerability research on Olympic-related websites. Sources: [14] ATT&CK G0034."
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Olympic Destroyer: vssadmin, wbadmin and bcdedit, 2018-02-09. Sources: [39] Talos Olympic Destroyer; [79] ATT&CK S0365."
+    },
+    {
+      "techniqueID": "T1561.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "VPNFilter kill command and dstr module wipe device flash, May and June 2018. Sources: [42] Talos VPNFilter; [43] Talos VPNFilter update; [80] ATT&CK S1010."
+    },
+    {
+      "techniqueID": "T1491.002",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "About 15,000 Georgian websites defaced, 2019-10-28. Sources: [5] US v. Andrienko indictment; [47] UK FCDO Georgia statement; [14] ATT&CK G0034."
+    },
+    {
+      "techniqueID": "T1499",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Georgian websites disrupted after a hosting provider was compromised, 2019-10-28. Sources: [5] US v. Andrienko indictment; [14] ATT&CK G0034."
+    },
+    {
+      "techniqueID": "T1590.001",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Reconnaissance of the Parliament of Georgia domain, 2019-07-31 and 2019-08-01. Sources: [5] US v. Andrienko indictment; [14] ATT&CK G0034."
+    },
+    {
+      "techniqueID": "T1542.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Cyclops Blink persists through firmware update, deployed since at least June 2019. Sources: [48] CISA AA22-054A; [49] NCSC Cyclops Blink analysis; [83] ATT&CK S0687."
+    },
+    {
+      "techniqueID": "T1542.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Cyclops Blink persists through firmware update, deployed since at least June 2019. Sources: [48] CISA AA22-054A; [49] NCSC Cyclops Blink analysis; [83] ATT&CK S0687."
+    },
+    {
+      "techniqueID": "T1037.004",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Cyclops Blink modified S51armled RC script. Sources: [49] NCSC Cyclops Blink analysis; [83] ATT&CK S0687."
+    },
+    {
+      "techniqueID": "T1037.004",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Cyclops Blink modified S51armled RC script. Sources: [49] NCSC Cyclops Blink analysis; [83] ATT&CK S0687."
+    },
+    {
+      "techniqueID": "T1573.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Cyclops Blink C2 over TLS. Sources: [48] CISA AA22-054A; [83] ATT&CK S0687."
+    },
+    {
+      "techniqueID": "T1686.002",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Cyclops Blink modifies the network device firewall (v20 numbering). Sources: [83] ATT&CK S0687."
+    },
+    {
+      "techniqueID": "T1484.001",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "CaddyWiper pushed by GPO (2022-10-12; POWERGAP, April 2022); HermeticWiper via the default domain GPO (2022-02-23). Sources: [58] Mandiant 2022 OT disruption; [75] ATT&CK C0034; [55] CERT-UA#4435; [52] ESET HermeticWizard/IsaacWiper."
+    },
+    {
+      "techniqueID": "T1484.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "CaddyWiper pushed by GPO (2022-10-12; POWERGAP, April 2022); HermeticWiper via the default domain GPO (2022-02-23). Sources: [58] Mandiant 2022 OT disruption; [75] ATT&CK C0034; [55] CERT-UA#4435; [52] ESET HermeticWizard/IsaacWiper."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Neo-REGEORG web shell, access by June 2022. Sources: [58] Mandiant 2022 OT disruption; [75] ATT&CK C0034."
+    },
+    {
+      "techniqueID": "T1543.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "GOGETTER persisted as a systemd service, 2022. Sources: [75] ATT&CK C0034."
+    },
+    {
+      "techniqueID": "T1543.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "GOGETTER persisted as a systemd service, 2022. Sources: [75] ATT&CK C0034."
+    },
+    {
+      "techniqueID": "T1036.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "GOGETTER systemd units masqueraded as legitimate services, 2022. Sources: [75] ATT&CK C0034."
+    },
+    {
+      "techniqueID": "T1095",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "C2 proxied in a TLS-based tunnel, 2022. Sources: [75] ATT&CK C0034."
+    },
+    {
+      "techniqueID": "T1222.001",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "CaddyWiper Windows permission changes, 2022. Sources: [82] ATT&CK S0693."
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "CaddyWiper process discovery, 2022. Sources: [82] ATT&CK S0693."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "CVE-2014-4114 exploited in the wild in a Sandworm campaign, 2014. Sources: [14] ATT&CK G0034; [63] Microsoft MS14-060; [64] NVD CVE-2014-4114."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: supported by the verified Sandworm record (membership, not severity)",
+      "color": "#15803d"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/SANDWORM_OPERATIONS.md; ATT&CK G0034, C0028, C0025, C0034 and the software pages cited"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "78"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "96"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 means the case study binds the technique to a dated Sandworm event; no severity, prevalence, or coverage is measured."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics it has in the library's technique profiles. This is display expansion, not a claim that every tactic applies to the procedure."
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "Sandworm: The Operations in the Public Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/SANDWORM_OPERATIONS.md"
+    },
+    {
+      "label": "ATT&CK G0034",
+      "url": "https://attack.mitre.org/groups/G0034/"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

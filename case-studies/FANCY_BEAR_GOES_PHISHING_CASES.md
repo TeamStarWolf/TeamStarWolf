@@ -83,8 +83,8 @@ Evidence grade: the mechanics of the Morris worm, its timeline, the trial and th
 ### Key findings
 
 - **Most of the cases turned on a default someone could have changed.** Sendmail debug was on by default in 4.3BSD and Sun releases [11]. Mirai needed only 62 factory credentials [59] [62]. The DNC phish needed no exploit at all [46] [49]. (**Confirmed** for each fact; the pattern is **Inferred**.)
-- **The 1988 response was run by university staff over mail and phone, and cutting off mail was a mistake.** Academic sites did better than government and commercial ones [18], and MIT's analysts judged that cutting mail cut off the only real defense, information [9] (**Confirmed**). CERT/CC was founded within days at the direction of the Department of Defense [15] (**Confirmed**).
-- **The famous Morris numbers are guesses.** The 6,000-machine figure began as an on-camera guess extrapolated from MIT [9]. The Cornell Commission could not confirm it and called a $96 million estimate grossly exaggerated [22] (**Reported**, through the Cornell Chronicle). The court record gives $200 to more than $53,000 per installation [7] (**Confirmed**).
+- **The 1988 response was run by university staff over mail and phone, and cutting off mail was a mistake.** Academic sites did better than government and commercial ones [18], and MIT's analysts judged that cutting mail cut off the only real defense, information [11] (**Confirmed**). CERT/CC was founded within days at the direction of the Department of Defense [15] (**Confirmed**).
+- **The famous Morris numbers are guesses.** The 6,000-machine figure began as an on-camera guess extrapolated from MIT [10]. The Cornell Commission could not confirm it and called a $96 million estimate grossly exaggerated [22] (**Reported**, through the Cornell Chronicle). The court record gives $200 to more than $53,000 per installation [7] (**Confirmed**).
 - **The Dark Avenger targeted the defenders.** Two viruses Bontchev attributes to him, V2000 and V2100, claimed authorship by Bontchev; V2100-B was used to trojanize a McAfee scanner, and a fake "universal scanner" uploaded under Bontchev's name infected every file it scanned, though no opened source says who uploaded it [28] [30] (**Confirmed**; the authorship is Bontchev's judgment).
 - **The 2005 primary record is thin and the popular story is richer than it.** The DOJ release names no victim and no method of entry to the telephone provider [37]. The book's author says the victim was Paris Hilton and the method a pretext call to a store [38] (**Reported**). Wired's date for that call conflicts with the DOJ window [39].
 - **The DNC was two intrusions, not one.** APT29 and APT28 sat in the same network with no collaboration identified [48] [49] (**Confirmed**). The library's DNC entry names only APT28 (Part 6).
@@ -98,7 +98,7 @@ This is the study's own reading of the record, graded **Inferred** as a judgment
 
 **Overstated.**
 
-- **The size of the Morris worm.** The 6,000-machine figure and the multimillion-dollar damage totals travel as fact, but the first began as an on-camera extrapolation and the Cornell Commission could not confirm it or the $96 million estimate [9] [22]. The court found per-site costs, not a total [7] (Part 1.8).
+- **The size of the Morris worm.** The 6,000-machine figure and the multimillion-dollar damage totals travel as fact, but the first began as an on-camera extrapolation and the Cornell Commission could not confirm it or the $96 million estimate [10] [22]. The court found per-site costs, not a total [7] (Part 1.8).
 - **Mirai's authors and Dyn.** Popular accounts, and the library's own row, pin the October 2016 Dyn attack on the original authors and give it a size. The measurement paper attributes Dyn to a different cluster, the charged conduct ends on 4 October 2016, and neither the paper nor US-CERT gives a Dyn size [59] [62] [65] (Part 5.3).
 - **The election effect.** No opened source measures an effect of the DNC leaks on the 2016 result [3] [46] [47] (Part 4.6).
 - **The 2005 phone story.** The named victim, the carrier and the store pretext call rest on the book's author and the press, and the press accounts contradict each other and the DOJ dates [37] [38] [39] [45] (Part 3.2).
@@ -120,7 +120,7 @@ This is the study's own reading of the record, graded **Inferred** as a judgment
 4. **Forward logs off the host.** The GRU cleared event logs and deleted its own panel logs [46], and CrowdStrike saw both Bears clear logs and reset timestamps [48] (Part 7.4).
 5. **Treat support staff, carriers and identity brokers as attack surface.** Recovery and support flows need the rigor of the login itself (Part 7.5).
 6. **Test restores against quiet corruption.** The Dark Avenger's virus damaged data slowly enough that backups were already bad [28] (Part 7.6).
-7. **Keep channels of information open during an incident.** MIT's analysts judged cutting off mail a mistake, and academic sites, which relied on informal mail and phone, fared better than government and commercial ones [9] [18] (Part 7.7).
+7. **Keep channels of information open during an incident.** MIT's analysts judged cutting off mail a mistake, and academic sites, which relied on informal mail and phone, fared better than government and commercial ones [11] [18] (Part 7.7).
 8. **Correct the library's 1988, DNC and Mirai rows and the APT28 SolarWinds line** (Part 6).
 
 ## Scope and method
@@ -142,7 +142,7 @@ The book is a secondary source. A claim only the book makes is graded **Reported
 
 ### 1.1 Building and launching it
 
-Robert Tappan Morris, a Cornell graduate student, began work on the worm in October 1988 [7] (**Confirmed**). Tests of the sendmail attack show in Cornell mailer logs from 19 to 28 October, per an NCSC analysis of those logs as the MIT team recounts it [9] (**Reported**). He released it on 2 November 1988 from a computer at MIT, chosen to disguise that it came from Cornell [7] (**Confirmed**). The FBI puts the release at around 8:30 p.m. [15] (**Confirmed**). MIT's chronology is more careful: a Cornell log entry at 5:01:59 p.m. that day may have been testing or the launch, and it records the origin time as disputed [10] (**Confirmed**).
+Robert Tappan Morris, a Cornell graduate student, began work on the worm in October 1988 [7] (**Confirmed**). Tests of the sendmail attack show in Cornell mailer logs from 19 to 28 October, per an NCSC analysis of those logs as the MIT team recounts it [10] (**Reported**). He released it on 2 November 1988 from a computer at MIT, chosen to disguise that it came from Cornell [7] (**Confirmed**). The FBI puts the release at around 8:30 p.m. [15] (**Confirmed**). MIT's chronology is more careful: a Cornell log entry at 5:01:59 p.m. that day may have been testing or the launch, and it records the origin time as disputed [10] (**Confirmed**).
 
 ### 1.2 How it got in
 
@@ -172,9 +172,9 @@ It was compiled under the name `sh`, forked about every three minutes, erased it
 | 3 Nov, 11:30 a.m. | MILNET to ARPANET mailbridges shut down until 11:00 a.m. Friday (DCA, as reported at the NCSC meeting) | [10] | **Reported** |
 | 3 Nov, 9:20 p.m. | Spafford creates the phage@purdue.edu mailing list | [10] | **Confirmed** |
 | 3 Nov, 10:18 p.m. | Bostic's third posting, a fingerd fix replacing `gets` with `fgets` | [10] | **Confirmed** |
-| 8 Nov | NCSC post-mortem in Baltimore with NIST, DCA, DARPA, DOE, BRL, LLNL, the CIA, the FBI and universities; no vendors attended | [9] | **Confirmed** |
+| 8 Nov | NCSC post-mortem in Baltimore with NIST, DCA, DARPA, DOE, BRL, LLNL, the CIA, the FBI and universities; no vendors attended | [10] | **Confirmed** |
 
-University staff led the response over informal mail and phone, and academic sites performed better than government and commercial ones [18] (**Confirmed**). MIT and Berkeley decompiled the worm in parallel and agreed not to release decompiled source; MIT's analysts judged that cutting off mail had been a mistake because it cut off information [9] (**Confirmed**).
+University staff led the response over informal mail and phone, and academic sites performed better than government and commercial ones [18] (**Confirmed**). MIT and Berkeley decompiled the worm in parallel and agreed not to release decompiled source; MIT's analysts judged that cutting off mail had been a mistake because it cut off information [10] [11] (**Confirmed**).
 
 ### 1.6 What came after
 
@@ -188,7 +188,7 @@ The Cornell Chronicle described Morris as the first person tried under the 1986 
 
 ### 1.8 How big was it?
 
-The 6,000-infection figure began as an on-camera guess: 10 percent of MIT's 2,000 hosts, extrapolated to the internet's 60,000 hosts [9] (**Confirmed**). The FBI repeats it and says damage estimates began at $100,000 and ran into the millions [15] (**Confirmed** as the FBI's statement). The Cornell Commission said the 6,000 figure could not be confirmed though the total was surely in the thousands, and called an industry association's estimate of about $96 million grossly exaggerated [22] (**Reported**). The court record gives damage of $200 to more than $53,000 per installation [7] (**Confirmed**). The honest summary: thousands of machines, an unknown total cost, and per-site costs that the court did find.
+The 6,000-infection figure began as an on-camera guess: 10 percent of MIT's 2,000 hosts, extrapolated to the internet's 60,000 hosts [10] (**Confirmed**). The FBI repeats it and says damage estimates began at $100,000 and ran into the millions [15] (**Confirmed** as the FBI's statement). The Cornell Commission said the 6,000 figure could not be confirmed though the total was surely in the thousands, and called an industry association's estimate of about $96 million grossly exaggerated [22] (**Reported**). The court record gives damage of $200 to more than $53,000 per installation [7] (**Confirmed**). The honest summary: thousands of machines, an unknown total cost, and per-site costs that the court did find.
 
 ## Part 2: the Dark Avenger and the Bulgarian virus factory, 1988 to 1997
 
@@ -326,7 +326,7 @@ Mirai began scanning on 1 August 2016 from a single IP address in a bulletproof 
 
 The mechanics were simple. Bots sent stateless SYN probes to pseudorandom IPv4 addresses on Telnet ports 23 and 2323, skipping a hard-coded blacklist, then tried 10 username and password pairs drawn from 62 credentials. Results went to a report server, and a separate loader fingerprinted the device and dropped a binary built for its architecture [59] (**Confirmed**). After infection the bot deleted its binary, renamed its process to a random string, did not persist across a reboot, and killed processes on TCP ports 22 and 23 along with rival malware such as other Mirai, .anime and Qbot [59] (**Confirmed**). US-CERT also cites the 62 default credentials and advises watching 2323/TCP and 23/TCP, rebooting and changing default passwords [62] (**Confirmed**).
 
-Mirai evolved from BASHLITE, which used 6 usernames and 14 passwords, and the paper names Carna, with 420,000 bots, as the first IoT botnet built from default credentials [59] (**Confirmed**). Infected devices were mainly IP cameras, DVRs and consumer routers; the paper traces the 46 unique passwords in the 30 September release to vendors including Dahua, HiSilicon, ZTE, Ubiquiti, Xerox and Panasonic [59] (**Confirmed**). Across 24 binaries from 7 August to 30 September 2016, command and control moved from IP addresses to domains in mid-September, self-deletion and process-name obfuscation arrived at the same time, and rival-killing appears in a 29 September sample [59] (**Confirmed**). The released source lists the attack vectors UDP, VSE, DNS water torture, SYN, ACK, STOMP, GRE IP, GRE Ethernet, plain UDP and HTTP, with a proxy vector commented out [60] (**Confirmed**).
+Mirai evolved from BASHLITE, which used 6 usernames and 14 passwords, and the paper names Carna, with 420,000 bots, as the first IoT botnet built from default credentials [59] (**Confirmed**). Infected devices were mainly IP cameras, DVRs and consumer routers; the paper traces the 46 unique passwords in the 30 September release to vendors including Dahua, HiSilicon, ZTE, Ubiquiti, Xerox and Panasonic [59] (**Confirmed**). Across 24 binaries from 7 August to 30 September 2016, command and control moved from IP addresses to domains in mid-September, self-deletion and process-name obfuscation arrived at the same time, and rival-killing appears in a 29 September sample [59] (**Confirmed**). The paper's table of command-and-control attack commands lists ten flood types, HTTP, UDP-PLAIN, UDP, ACK, SYN, GRE-IP, ACK-STOMP, VSE, DNS and GRE-ETH, with HTTP floods the most common at 2,736 attacks [59] (**Confirmed**).
 
 ### 5.2 The attacks
 
@@ -373,7 +373,7 @@ These are the library defects this study found. Each is graded; none is fixed by
 
 | Library page | What it says | What the record says | Grade |
 |---|---|---|---|
-| [NOTABLE_INCIDENTS.md](/NOTABLE_INCIDENTS.md), 1988 row | About 6,000 Unix machines "crashed", about 10% of the internet; $100K to $10M damage | The 6,000 figure is an extrapolated guess the Cornell Commission could not confirm [9] [22]; the court says machines crashed or went catatonic [7]; no opened primary supports a $10M upper bound; the court gives $200 to more than $53,000 per installation [7] | **Inferred** [25] |
+| [NOTABLE_INCIDENTS.md](/NOTABLE_INCIDENTS.md), 1988 row | About 6,000 Unix machines "crashed", about 10% of the internet; $100K to $10M damage | The 6,000 figure is an extrapolated guess the Cornell Commission could not confirm [10] [22]; the court says machines crashed or went catatonic [7]; no opened primary supports a $10M upper bound; the court gives $200 to more than $53,000 per installation [7] | **Inferred** [25] |
 | NOTABLE_INCIDENTS.md, 2016 DNC entry | Names APT28 only; "measurable effect on 2016 US presidential election" | Two actors, APT29 and APT28 [48] [49]; no opened source measures an electoral effect [3] | **Inferred** [25] |
 | NOTABLE_INCIDENTS.md, 2016 Mirai entry | "First IoT botnet"; Dyn attributed to the Mirai authors; "1.2+ Tbps" against Dyn | The USENIX paper names Carna as the first default-credential IoT botnet [59]; Dyn is attributed to a post-leak cluster [59] [73]; no Dyn size in the USENIX paper or US-CERT [59] [62] | **Confirmed** (paper) and **Inferred** (absence) |
 | [THREAT_ACTORS.md](/THREAT_ACTORS.md), APT28 entry | Lists "SolarWinds (suspected)" | ATT&CK puts [C0024 SolarWinds Compromise](/mitre/campaigns/C0024.md) under G0016 APT29 [54]; the [SolarWinds and SUNBURST study](/case-studies/SOLARWINDS_SUNBURST.md) has the record | **Inferred** |
@@ -406,7 +406,7 @@ The Dark Avenger virus corrupted a sector every 16th run, so backups were alread
 
 ### 7.7 Unsafe input, debug features and trust
 
-`gets()` into a fixed stack buffer and a debug mode left on in shipping sendmail were the worm's two exploits [11] [12]. Trust files turned one compromised host into many [13], as the DCCC's credentials turned into the DNC's [46]. The 1988 fixes, `fgets` and sendmail 5.59 with debug off [10] [21], were small; finding them took a network of people who kept talking [9] [18].
+`gets()` into a fixed stack buffer and a debug mode left on in shipping sendmail were the worm's two exploits [11] [12]. Trust files turned one compromised host into many [13], as the DCCC's credentials turned into the DNC's [46]. The 1988 fixes, `fgets` and sendmail 5.59 with debug off [10] [21], were small; finding them took a network of people who kept talking [11] [18].
 
 ## MITRE mappings
 
@@ -544,7 +544,7 @@ GRU Unit 74455, election infrastructure (no group id bound):
 | [T1489](/mitre/techniques/T1489.md) | Service Stop | Impact | kills TCP/22 and 23 services and rivals (closest fit) | [59] |
 | [T1190](/mitre/techniques/T1190.md) | Exploit Public-Facing Application | Initial Access | TCP/7547 CWMP variant, from 26 Nov 2016 | [59] [62] |
 | [T1498.001](/mitre/techniques/T1498-001.md) | Direct Network Flood | Impact | Krebs, OVH and Dyn floods | [59] [61] [62] |
-| [T1499.002](/mitre/techniques/T1499-002.md) | Service Exhaustion Flood | Impact | HTTP flood, 25 Sep 2016 | [59] [60] |
+| [T1499.002](/mitre/techniques/T1499-002.md) | Service Exhaustion Flood | Impact | HTTP flood, 25 Sep 2016 | [59] |
 | [T1496.002](/mitre/techniques/T1496-002.md) | Bandwidth Hijacking | Impact | clickfraud botnet degrading consumers' bandwidth, Dec 2016 to Feb 2017 | [69] |
 
 ### CAPEC, CWE and D3FEND
@@ -567,9 +567,9 @@ The study's layer is [`navigator/library-layers/fancy-bear-goes-phishing.json`](
 
 **The economics of the attacker.** The reviewer also reads the book as treating hacking as a business of rational actors [3] (**Reported**). The record agrees in detail: underpaid Bulgarian programmers with no law against them [28], a teenager's free accounts and threats [37], a $95,000 bitcoin laundering operation [46], and Mirai's authors renting DDoS [74], extorting a company and running clickfraud while selling DDoS mitigation [65] [69] [73].
 
-**Responders as a community.** In 1988 the defense was a mailing list and a phone tree, and the people who kept talking won [9] [10] [18]. In 1989 to 1992 the defense was a handful of researchers publishing analyses in *Virus Bulletin* while the Dark Avenger impersonated them [28] [30] [33]. In 2016 Mirai was measured by the USENIX Security 2017 study [59], and a journalist's own inquiry named its authors months before the pleas [63].
+**Responders as a community.** In 1988 the defense was a mailing list and a phone tree, and the people who kept talking won [10] [11] [18]. In 1989 to 1992 the defense was a handful of researchers publishing analyses in *Virus Bulletin* while the Dark Avenger impersonated them [28] [30] [33]. In 2016 Mirai was measured by the USENIX Security 2017 study [59], and a journalist's own inquiry named its authors months before the pleas [63].
 
-**Numbers that travel.** The 6,000-machine figure began as a guess on camera [9]. The library still pins the Dyn attack on Mirai's authors and gives a size that neither the USENIX paper nor US-CERT carries [59] [65]. Even the court record carries a likely date typo [65]. A case study is only as good as its willingness to say which number came from where.
+**Numbers that travel.** The 6,000-machine figure began as a guess on camera [10]. The library still pins the Dyn attack on Mirai's authors and gives a size that neither the USENIX paper nor US-CERT carries [59] [65]. Even the court record carries a likely date typo [65]. A case study is only as good as its willingness to say which number came from where.
 
 **The law catching up.** The FBI calls Morris the first person convicted under the 1986 Act [15]. Bulgaria had no law to use [28]. The 2005 juvenile was handled in sealed proceedings with a sentence barring internet devices [37]. Mirai's authors drew probation for extraordinary cooperation [74] (**Reported**). Kirkus reads the book as arguing that patching after the fact eventually fails [5] (**Reported**).
 
@@ -585,7 +585,6 @@ The study's layer is [`navigator/library-layers/fancy-bear-goes-phishing.json`](
 | 6 | Publishers Weekly review, 31 Jan 2023 | https://www.publishersweekly.com/978-0-374-60117-1 | 3 Nov 2026 | Reported |
 | 7 | *United States v. Morris*, 928 F.2d 504 (2d Cir. 1991), OpenJurist | https://openjurist.org/928/f2d/504/united-states-v-morris | 3 Nov 2026 | Confirmed |
 | 8 | *United States v. Morris*, 928 F.2d 504, Justia | https://law.justia.com/cases/federal/appellate-courts/F2/928/504/452673/ | 3 Nov 2026 | Confirmed |
-| 9 | Eichin and Rochlis, "With Microscope and Tweezers", MIT, main text | https://web.mit.edu/eichin/www/virus/main.html | 3 Nov 2026 | Confirmed |
 | 10 | Eichin and Rochlis, MIT, chronology | https://web.mit.edu/eichin/www/virus/chronology.html | 3 Nov 2026 | Confirmed |
 | 11 | Eichin and Rochlis, MIT, strategies | https://web.mit.edu/eichin/www/virus/strategies.html | 3 Nov 2026 | Confirmed |
 | 12 | Donn Seeley, "A Tour of the Worm" (UNC course copy) | https://www.cs.unc.edu/~jeffay/courses/nidsS05/attacks/seely-RTMworm-89.html | 3 Nov 2026 | Confirmed |
@@ -605,7 +604,7 @@ The study's layer is [`navigator/library-layers/fancy-bear-goes-phishing.json`](
 | 26 | Library, mitre/techniques tree | https://github.com/TeamStarWolf/TeamStarWolf/tree/main/mitre/techniques | 3 Nov 2026 | Inferred |
 | 27 | Library, mitre/capec tree and data/weaknesses/cwe.jsonl | https://github.com/TeamStarWolf/TeamStarWolf/tree/main/mitre/capec | 3 Nov 2026 | Inferred |
 | 28 | Vesselin Bontchev, "The Bulgarian and Soviet Virus Factories", 1991 | https://bontchev.nlcv.bas.bg/papers/factory.html | 3 Nov 2026 | Confirmed |
-| 29 | Sarah Gordon, interview with the Dark Avenger, 1992 (archive copy) | https://cryptohub.nl/zines/vxheavens/lib/asg02.html | 3 Nov 2026 | Confirmed |
+| 29 | Sarah Gordon, interview with the Dark Avenger, 1992 (archive copy) | cryptohub.nl, path /zines/vxheavens/lib/asg02.html (plain text: an archive copy of the interview on a zine archive, kept as text) | 3 Nov 2026 | Confirmed |
 | 30 | *Virus Bulletin*, December 1990 | https://virusbulletin.com/uploads/pdf/magazine/1990/199012.pdf | 3 Nov 2026 | Confirmed |
 | 31 | *Virus Bulletin*, February 1990 | https://virusbulletin.com/uploads/pdf/magazine/1990/199002.pdf | 3 Nov 2026 | Confirmed |
 | 32 | *Virus Bulletin*, April 1991 | https://virusbulletin.com/uploads/pdf/magazine/1991/199104.pdf | 3 Nov 2026 | Confirmed |
@@ -636,7 +635,6 @@ The study's layer is [`navigator/library-layers/fancy-bear-goes-phishing.json`](
 | 57 | Library, data/attack tree (technique_to_d3fend.jsonl and page checks) | https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack | 3 Nov 2026 | Confirmed |
 | 58 | Library repository (v20.0 data and retrospective mappings) | https://github.com/TeamStarWolf/TeamStarWolf | 3 Nov 2026 | Inferred |
 | 59 | Antonakakis et al., "Understanding the Mirai Botnet", USENIX Security 2017 | https://www.usenix.org/system/files/conference/usenixsecurity17/sec17-antonakakis.pdf | 3 Nov 2026 | Confirmed |
-| 60 | Mirai released source, `mirai/bot/attack.h` (mirror) | https://github.com/jgamblin/Mirai-Source-Code/blob/master/mirai/bot/attack.h | 3 Nov 2026 | Confirmed |
 | 61 | Brian Krebs, "KrebsOnSecurity Hit With Record DDoS", Sep 2016 | https://krebsonsecurity.com/2016/09/krebsonsecurity-hit-with-record-ddos/ | 3 Nov 2026 | Confirmed |
 | 62 | US-CERT TA16-288A, "Heightened DDoS Threat Posed by Mirai and Other Botnets", 14 Oct 2016 | https://www.cisa.gov/news-events/alerts/2016/10/14/heightened-ddos-threat-posed-mirai-and-other-botnets | 3 Nov 2026 | Confirmed |
 | 63 | Brian Krebs, "Who is Anna-Senpai, the Mirai Worm Author?", 18 Jan 2017 | https://krebsonsecurity.com/2017/01/who-is-anna-senpai-the-mirai-worm-author/ | 3 Nov 2026 | Confirmed |

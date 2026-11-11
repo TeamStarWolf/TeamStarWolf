@@ -407,7 +407,7 @@
       "techniqueID": "T1499.002",
       "tactic": "impact",
       "score": 50,
-      "comment": "Case 5: Mirai: HTTP flood, 25 Sep 2016. Sources: 59, 60.",
+      "comment": "Case 5: Mirai: HTTP flood, 25 Sep 2016. Sources: 59.",
       "enabled": true,
       "showSubtechniques": false
     },
@@ -615,7 +615,7 @@
       "techniqueID": "T1685.005",
       "tactic": "defense-impairment",
       "score": 100,
-      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: `wevtutil cl`; 13 May 2016. Sources: 46, 48, 53.",
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: `wevtutil` log clearing; 13 May 2016. Sources: 46, 48, 53.",
       "enabled": true,
       "showSubtechniques": false
     }

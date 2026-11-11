@@ -48,6 +48,10 @@ The `ID` and `VERSION_ID` fields of `/etc/os-release` (the [os-release format](h
 |---|---|---|
 | 7.x (7.4) | `ID=parrot` | Not checked on a running system |
 
+## Security relevance
+
+Parrot OS is an offensive and digital-forensics distribution, so like Kali it is the practitioner's platform rather than a target, shipping testing and privacy tooling. The relevant disciplines are operating only within an authorized scope, keeping the host itself clean and segregated, and protecting the sensitive data an engagement produces. The penetration testing methodology and red team references below set the ground rules.
+
 ## Hardening
 
 - [Security Operating Systems and Distributions](/SECURITY_OPERATING_SYSTEMS_REFERENCE.md)

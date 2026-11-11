@@ -51,6 +51,10 @@ The `ID` and `VERSION_ID` fields of `/etc/os-release` (the [os-release format](h
 |---|---|---|
 | 16.0 | `ID=opensuse-leap`, `VERSION_ID=16.0` | Not checked on a running system |
 
+## Security relevance
+
+openSUSE Leap is a stable SUSE-family server and workstation base, so it is usually a host reached after initial access rather than the entry point. The surface is the standard Linux one of SSH, sudo, SUID, and kernel escalation, with the zypper and RPM supply chain and AppArmor enforcing by default. Measure it against the CIS Benchmark and audit with OpenSCAP; the hardening references below cover the baseline.
+
 ## Hardening
 
 - [Linux Hardening Reference Library](/LINUX_HARDENING_REFERENCE.md)

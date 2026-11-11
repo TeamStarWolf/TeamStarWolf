@@ -55,6 +55,10 @@ The `ID` and `VERSION_ID` fields of `/etc/os-release` (the [os-release format](h
 | 9 | `ID=rhel`, `VERSION_ID=9.x` | Not checked on a running system |
 | 8 | `ID=rhel`, `VERSION_ID=8.x` | Not checked on a running system |
 
+## Security relevance
+
+Red Hat Enterprise Linux is the enterprise Linux standard and the common reference target for Linux hardening, so it is usually a host reached after initial access. The surface is SSH and sudo, SUID binaries, and kernel local-privilege-escalation paths, with the subscription and Satellite supply chain and SELinux enforcing by default. Measure it against the CIS Benchmark or the DISA STIG and audit with OpenSCAP; the hardening references below cover the baseline.
+
 ## Hardening
 
 - [Linux Hardening Reference Library](/LINUX_HARDENING_REFERENCE.md)

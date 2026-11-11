@@ -47,6 +47,10 @@ Nodes are patched by rolling them to a newer node image: EKS managed node groups
 
 No identify command is listed for the images as a group: each one identifies itself like its base distribution, so see the [Amazon Linux](/operating-systems/amazon-linux.md) and [Ubuntu](/operating-systems/ubuntu.md) pages; the provider pages opened for this page describe the images, not commands.
 
+## Security relevance
+
+A Kubernetes node image is the operating system under a cluster, so its security is inseparable from the workloads it schedules. The surface is container escape to the node, an exposed or over-permissioned kubelet, and privileged pods that reach host resources. Minimal, regularly rebuilt node images and a locked-down kubelet are the controls; see the Kubernetes and container security references below.
+
 ## Hardening
 
 - [Kubernetes Security Reference](/KUBERNETES_SECURITY_REFERENCE.md)

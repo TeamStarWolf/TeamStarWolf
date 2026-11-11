@@ -57,6 +57,10 @@ The `ID` and `VERSION_ID` fields of `/etc/os-release` (the [os-release format](h
 | 22.04 LTS | `ID=ubuntu`, `VERSION_ID=22.04` | Not checked on a running system |
 | 20.04 LTS | `ID=ubuntu`, `VERSION_ID=20.04` | Not checked on a running system |
 
+## Security relevance
+
+Ubuntu is the most common cloud and server Linux, so it is a frequent foothold in Linux intrusions. The surface is SSH and sudo, SUID binaries, and kernel local-privilege-escalation paths, plus the apt and snap supply chain, which the XZ Utils backdoor targeted upstream, and the kernel TCP flaw shown in the case study below. Measure the host against the CIS Benchmark or the Ubuntu Security Guide and audit with Lynis; see the case study and hardening references below.
+
 ## Hardening
 
 - [Linux Hardening Reference Library](/LINUX_HARDENING_REFERENCE.md)

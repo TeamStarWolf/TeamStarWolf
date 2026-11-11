@@ -55,6 +55,10 @@ The `ID` and `VERSION_ID` fields of `/etc/os-release` (the [os-release format](h
 | 3.0 | `ID=azurelinux`, `VERSION_ID=3.0` | Azure Linux release package spec on GitHub |
 | 2.0 (CBL-Mariner) | `ID=mariner`, `VERSION_ID=2.0` | Azure Linux release package spec on GitHub |
 
+## Security relevance
+
+Azure Linux (CBL-Mariner) is Microsoft's minimal host for containers and edge services, so like other node operating systems its real surface is the workload it carries and the node it runs on rather than an interactive login. The hardening story is a small package set and a controlled update stream. The main risk is a container escape that reaches the node; see the container and Kubernetes security references below.
+
 ## Hardening
 
 - [Linux Hardening Reference Library](/LINUX_HARDENING_REFERENCE.md)

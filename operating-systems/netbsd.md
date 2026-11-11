@@ -42,6 +42,10 @@ The NetBSD Guide upgrades the base system with `sysinst` from release media, or 
 
 From the vendor documentation cited at the foot of this page; not run on a host for this page.
 
+## Security relevance
+
+NetBSD is a highly portable BSD used in embedded, research, and appliance settings, so it is met more often as the base of a device than as a general server. Its small, clean userland presents the familiar foothold surface of SSH, privilege escalation, and kernel issues. The portability that defines it also means the same code runs across very different hardware, which shifts attention to how a given appliance is built and exposed.
+
 ## Hardening
 
 - [Security Operating Systems and Distributions](/SECURITY_OPERATING_SYSTEMS_REFERENCE.md)

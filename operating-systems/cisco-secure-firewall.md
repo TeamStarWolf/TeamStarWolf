@@ -50,6 +50,10 @@ Advisories give a first fixed release per train for ASA and for FTD; the October
 
 The ASA command is from Cisco security advisories. No FTD command is listed: the FTD command reference refused automated requests (HTTP 403), so check the release in the Firewall Management Center or open that reference in a browser.
 
+## Security relevance
+
+Cisco Secure Firewall (ASA and FTD) is the perimeter and the remote-access VPN, which makes it a top initial-access target. Remote-access VPN endpoints have repeatedly been hit with pre-authentication flaws and with credential spraying against exposed portals. Treating the appliance as a monitored, promptly patched asset rather than only a control is the lesson; see the network protocols reference below.
+
 ## Hardening
 
 - [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md)

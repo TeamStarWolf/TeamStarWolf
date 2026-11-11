@@ -51,6 +51,10 @@ The `ID` and `VERSION_ID` fields of `/etc/os-release` (the [os-release format](h
 | 45 | `ID=fedora`, `VERSION_ID=45` | Not checked on a running system |
 | 44 | `ID=fedora`, `VERSION_ID=44` | Not checked on a running system |
 
+## Security relevance
+
+Fedora is a fast-moving workstation and developer host that previews what later lands in RHEL, so it runs newer kernels and packages with both current mitigations and freshly introduced bugs. As a host it presents the standard Linux foothold surface of SSH, sudo, SUID, and kernel escalation, with the dnf supply chain on top. SELinux is enforcing by default, which blunts several post-exploitation moves; the hardening references below cover the baseline.
+
 ## Hardening
 
 - [Linux Hardening Reference Library](/LINUX_HARDENING_REFERENCE.md)

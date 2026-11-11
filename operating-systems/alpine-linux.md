@@ -53,6 +53,10 @@ The `ID` and `VERSION_ID` fields of `/etc/os-release` (the [os-release format](h
 | 3.24 | `ID=alpine`, `VERSION_ID=3.24.x` | Not checked on a running system |
 | 3.23 | `ID=alpine`, `VERSION_ID=3.23.x` | Not checked on a running system |
 
+## Security relevance
+
+Alpine is a minimal, musl-based image that shows up inside containers far more than on bare metal, so its relevance is as the base layer of a workload rather than an interactive host. The small footprint reduces the attack surface, but musl and BusyBox behave differently from glibc and coreutils, which can change how an exploit or a hardening control behaves. The main concern is image provenance and the packages pulled from the apk repositories. See the container security reference below.
+
 ## Hardening
 
 - [Linux Hardening Reference Library](/LINUX_HARDENING_REFERENCE.md)

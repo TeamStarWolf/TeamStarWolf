@@ -51,6 +51,10 @@ The `ID` and `VERSION_ID` fields of `/etc/os-release` (the [os-release format](h
 |---|---|---|
 | Stable channel | `ID=flatcar`, `VERSION_ID=<release version>` | Not checked on a running system |
 
+## Security relevance
+
+Flatcar is an immutable, automatically updating container host in the Container Linux lineage, so its real surface is the workload it runs and the node rather than an interactive shell. The immutable root and automatic updates remove much of the host persistence an attacker expects. The residual risk is a container escape to the node and the orchestration layer above it; see the container and Kubernetes security references below.
+
 ## Hardening
 
 - [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md)

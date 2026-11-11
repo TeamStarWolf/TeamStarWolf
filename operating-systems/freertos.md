@@ -34,6 +34,10 @@ Firmware picks up a fix by moving to a fixed FreeRTOS-Kernel release and rebuild
 
 No identify command is listed: FreeRTOS has no shell. The kernel version is set at build time in the firmware's source tree.
 
+## Security relevance
+
+FreeRTOS is a tiny real-time kernel for microcontrollers and connected devices, so it runs with no memory protection and no process isolation, usually in C on network-connected hardware. Flaws in its bundled TCP/IP stack have exposed classes of devices to remote attack, and there is no host-level defense to fall back on once code runs. The relevant work is firmware integrity, update signing, and reducing the network surface; see the firmware and IoT reference below.
+
 ## Hardening
 
 - [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md)

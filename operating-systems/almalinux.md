@@ -55,6 +55,10 @@ The `ID` and `VERSION_ID` fields of `/etc/os-release` (the [os-release format](h
 | 9 | `ID=almalinux`, `VERSION_ID=9.x` | Not checked on a running system |
 | 8 | `ID=almalinux`, `VERSION_ID=8.x` | Not checked on a running system |
 
+## Security relevance
+
+AlmaLinux is a production server base, so it is most often met as a host an operator has already reached rather than an initial target. The security-relevant surface is the RHEL family one: SSH and sudo configuration, SUID binaries, and kernel local-privilege-escalation paths, plus the dnf and rpm supply chain. Knowing it tells a defender to measure the host against the CIS Benchmark or the matching DISA STIG and to audit it with OpenSCAP and Lynis. The hardening references below cover the baseline.
+
 ## Hardening
 
 - [Linux Hardening Reference Library](/LINUX_HARDENING_REFERENCE.md)

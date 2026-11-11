@@ -39,6 +39,10 @@ Major releases come every six months (April and October) and stable releases are
 
 No identify command is listed: the Zephyr version is set at build time in the firmware's source tree (West manifest).
 
+## Security relevance
+
+Zephyr is a modern real-time operating system for microcontrollers and connected devices, so it runs in constrained hardware that is network-reachable. Its security posture is stronger than legacy embedded kernels, with memory-protection and update features, but the network stack and the firmware update path remain the surfaces that matter. The work is secure development, signed updates, and reducing network exposure; see the firmware and IoT reference below.
+
 ## Hardening
 
 - [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md)

@@ -55,6 +55,10 @@ The `ID` and `VERSION_ID` fields of `/etc/os-release` (the [os-release format](h
 | 9 | `ID=rocky`, `VERSION_ID=9.x` | Not checked on a running system |
 | 8 | `ID=rocky`, `VERSION_ID=8.x` | Not checked on a running system |
 
+## Security relevance
+
+Rocky Linux is a RHEL rebuild used as a production server base, so its foothold surface is identical to RHEL: SSH and sudo, SUID binaries, kernel escalation, the dnf and rpm supply chain, and SELinux enforcing by default. It is typically a host reached on the way to a service rather than the entry point. Measure it against the CIS Benchmark and audit with OpenSCAP; the hardening references below cover the baseline.
+
 ## Hardening
 
 - [Linux Hardening Reference Library](/LINUX_HARDENING_REFERENCE.md)

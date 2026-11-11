@@ -43,6 +43,10 @@ Fixes listed in the bulletin come from AOSP, the upstream Linux kernel, and chip
 
 From Google's Check and update your Android version help page.
 
+## Security relevance
+
+Android is reached as the device and the application rather than a server, so the surface is the app sandbox, the APK, and the permissions it requests. Attackers repackage apps, abuse over-broad permissions, and deliver mobile malware, while rooting removes the platform's own isolation. A reviewer pulls the APK and inspects it the way the mobile security reference below describes; managed deployments add an MDM and Play Protect.
+
 ## Hardening
 
 - [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md)

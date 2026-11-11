@@ -33,6 +33,10 @@ Package manager: None; the device maker builds VxWorks into its firmware.
 
 No identify command is listed: Wind River's pages opened for this page describe the product, not a version command. On a product, the maker's firmware version is what to track.
 
+## Security relevance
+
+VxWorks is a widely deployed real-time operating system in industrial, medical, and aerospace devices, so it runs in long-lived, hard-to-patch equipment. The URGENT/11 network-stack flaws showed how a bundled TCP/IP stack can expose critical devices to remote attack, and its flat memory model with no process isolation leaves little to contain a successful exploit. The work is firmware integrity, network segmentation, and supply-chain assurance; see the firmware and ICS references below.
+
 ## Hardening
 
 - [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md)

@@ -39,6 +39,10 @@ Advisories list the fixed releases per train; releases are written like 24.4R1.
 
 From the Junos OS CLI reference (show version), now hosted on HPE networking docs.
 
+## Security relevance
+
+Junos runs Juniper routers and firewalls, so it is network infrastructure whose compromise affects everything behind it. The exposed surface is the management plane and the J-Web interface, where flaws have given a foothold that yields configuration, credentials, and persistence on long-lived gear. Restricting management access and patching promptly are the main controls; see the network protocols reference below.
+
 ## Hardening
 
 - [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md)

@@ -46,6 +46,10 @@ The `ID` and `VERSION_ID` fields of `/etc/os-release` (the [os-release format](h
 |---|---|---|
 | Rolling | `ID=wolfi`, `VERSION_ID=<baselayout version>` | wolfi-baselayout package definition (`ID=wolfi`) |
 
+## Security relevance
+
+Wolfi is Chainguard's minimal, glibc-based undistro built for low-vulnerability container images with signatures and software bills of materials, so its whole point is supply-chain assurance rather than interactive use. The relevant work is verifying image provenance and signatures and keeping the small package set current. The residual risk is that a verified, low-vulnerability image can still drift or carry a flaw in the application it packages; see the supply chain security reference below.
+
 ## Hardening
 
 - [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md)

@@ -51,6 +51,10 @@ The `ID` and `VERSION_ID` fields of `/etc/os-release` (the [os-release format](h
 | 16.0 | `ID=sles`, `VERSION_ID=16.0` | Not checked on a running system |
 | 15 SP7 | `ID=sles`, `VERSION_ID=15.7` | Not checked on a running system |
 
+## Security relevance
+
+SUSE Linux Enterprise Server runs enterprise and SAP workloads, so it is usually a host reached on the way to the application it carries. The surface is the standard Linux one of SSH, sudo, SUID, and kernel escalation, with the zypper and RPM supply chain and AppArmor enforcing by default. Measure it against the CIS Benchmark and the matching STIG; the hardening references below cover the baseline.
+
 ## Hardening
 
 - [Linux Hardening Reference Library](/LINUX_HARDENING_REFERENCE.md)

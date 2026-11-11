@@ -42,6 +42,10 @@ OpenWrt's security policy says a release series stops getting security fixes onc
 
 From the OpenWrt source tree (package/base-files templates for both files); not run on a device for this page.
 
+## Security relevance
+
+OpenWrt is embedded firmware for routers and other small network devices, so it is met as the brain of a SOHO or edge device rather than a server. Exposed administration through LuCI, default or weak credentials, and unpatched services make these devices a recurring target for botnet recruitment and a quiet pivot or persistence point inside a network. Reducing the exposed surface and keeping firmware current are the controls; see the firmware and IoT reference below.
+
 ## Hardening
 
 - [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md)

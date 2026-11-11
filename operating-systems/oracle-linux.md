@@ -55,6 +55,10 @@ The `ID` and `VERSION_ID` fields of `/etc/os-release` (the [os-release format](h
 | 9 | `ID=ol`, `VERSION_ID=9.x` | Not checked on a running system |
 | 8 | `ID=ol`, `VERSION_ID=8.x` | Not checked on a running system |
 
+## Security relevance
+
+Oracle Linux is a RHEL-compatible enterprise base that frequently runs Oracle Database and middleware, so it is typically a host reached on the way to the data it serves. The foothold surface is the RHEL family one of SSH, sudo, SUID, and kernel escalation, and the database and its accounts are the usual onward pivot. Measure it against the CIS Benchmark and the matching STIG; the hardening references below cover the baseline.
+
 ## Hardening
 
 - [Linux Hardening Reference Library](/LINUX_HARDENING_REFERENCE.md)

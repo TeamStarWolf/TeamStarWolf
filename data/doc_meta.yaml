@@ -501,7 +501,7 @@ pages:
     audience: "Vulnerability and exposure-management practitioners, red and blue teams, and anyone orienting across the library"
     level: "Intermediate"
     read_when: "You want the root causes behind recurring vulnerabilities grounded in the CWE Pillars, you are organizing exposure discovery by weakness class rather than by single CVE, or you need the map that ties the library's offensive and defensive references together"
-    start_at: "[Top things to worry about](#top-things-to-worry-about) for the prioritized list with case studies, [The eight root causes](#the-eight-root-causes), [Commonalities by layer](#commonalities-by-layer) for the attack-beside-defense tables"
+    start_at: "[Top things to worry about](#top-things-to-worry-about) for the prioritized list with case studies, [The root causes](#the-root-causes), [Commonalities by layer](#commonalities-by-layer) for the attack-beside-defense tables"
     learning_path: []
     reviewed: null
   CTF_METHODOLOGY.md:

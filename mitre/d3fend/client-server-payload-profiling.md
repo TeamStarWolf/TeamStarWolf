@@ -120,6 +120,7 @@ Comparing client-server request and response payloads to a baseline profile to i
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [Log4Shell (CVE-2021-44228): The Case Study](/case-studies/LOG4SHELL.md)
+- [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md)
 
 <!-- library-refs:end -->
 

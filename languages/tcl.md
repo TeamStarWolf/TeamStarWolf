@@ -14,6 +14,55 @@ Tcl (Tool Command Language) is a dynamically typed, garbage-collected scripting 
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Lua](/languages/lua.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Tcl code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,329 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Tcl code (typical uses: test automation, embedded scripting, EDA tooling, GUIs with Tk), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Lua](/languages/lua.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Tcl was created by John Ousterhout at the University of California, Berkeley, to give his electronic-design tools a common embeddable scripting language instead of each tool inventing its own. The companion [Tk](https://www.tcl-lang.org/) toolkit, released in 1991, added portable graphical widgets and made Tcl a popular choice for cross-platform GUIs. Tcl remains common in electronic-design automation (EDA) flows, network equipment, and test harnesses such as Expect, which automates interactive programs.
@@ -125,6 +174,28 @@ Tcl compiles scripts to an internal bytecode and caches the typed representation
 - Confusing quoting rules: `{...}` suppresses substitution while `"..."` allows it, so the wrong choice either fails to expand a variable or expands one you meant to keep literal.
 - Numeric versus string comparison: using `==` on strings or `eq` on numbers inside `expr` can give the wrong answer; match the operator to the data.
 - Everything-is-a-string means a value that looks numeric can still be treated as text; coerce explicitly when it matters.
+
+## Security relevance
+
+Tcl reaches security practitioners as an embedded and automation language: it scripts network devices and electronic-design tools, drives interactive programs through Expect, and runs inside host applications that may evaluate untrusted input. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Network and device scripting. Tcl is embedded in network equipment and electronic-design automation flows, so operational scripts that handle configuration and external data are often Tcl.
+- Interactive automation. [Expect](https://core.tcl-lang.org/expect/) automates interactive programs such as login and device sessions, which appears in both administration and testing.
+- Embedded host applications. The C API lets a host program register commands and evaluate scripts, so an application that runs user-supplied Tcl places that evaluation inside its trust boundary.
+
+### Dominant weakness classes
+
+Tcl is memory-safe: it is managed by reference counting and does not expose manual memory, so memory-corruption classes do not apply. Its command-oriented, string-everywhere model makes injection the central concern:
+
+- Code injection. An unbraced `expr`, or `eval` and `subst` applied to data built from untrusted input, executes attacker-chosen commands. This is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Operating-system command injection. `exec` and `open "|command"` run external programs, so a command assembled from untrusted input reaches the shell. This is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- SQL injection. Building SQL by string substitution rather than using TDBC parameterized statements lets input change the query. This is [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+
+### Why it matters
+
+Reading Tcl lets a reviewer find unbraced expressions and `eval` of external data, the places input turns into commands, and judge whether untrusted scripts run inside a safe interpreter (`interp create -safe`) that hides file, socket, and process commands. The static checker [nagelfar](https://nagelfar.sourceforge.net/) flags unbraced expressions and other risky constructs, as the Secure coding section details.
 
 ## Secure coding
 

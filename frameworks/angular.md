@@ -2,6 +2,55 @@
 
 Angular is a frontend application framework built and maintained by Google. It is written in TypeScript and intended for TypeScript. Unlike a view-only library, it ships routing, forms, HTTP, and dependency injection in one package. Teams choose it for structure, strong typing, and a consistent toolchain on large projects.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who build with Angular, and the reviewers and application security engineers who assess what they build
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,357 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or reviewing an Angular application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture](#architecture), [Security model and common vulnerabilities](#security-model-and-common-vulnerabilities), [Common pitfalls](#common-pitfalls)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[TypeScript](/languages/typescript.md), [JavaScript](/languages/javascript.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [React](/frameworks/react.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Angular (version 2 and later) was released in 2016 as a full rewrite of the older AngularJS. It adopted TypeScript, a component model, and a command-line tool. The project follows a predictable release cadence with long-term support versions.
@@ -58,6 +107,30 @@ Angular ships a consistent set of first-party libraries, which keeps the ecosyst
 RxJS is a core dependency and shapes how data flows through an app. Learning its operators is part of learning Angular. NgRx and related libraries extend the reactive model to application state.
 
 Tooling includes the Angular Language Service for editor support and strong TypeScript integration. Testing uses Karma or Jest with the framework's `TestBed` utility. The CLI's update command automates version migrations.
+
+## Security relevance
+
+This section is the threat-facing view of Angular: how it appears to an attacker or an auditor in the field, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Internet-facing single-page applications shipped as static JavaScript bundles, plus the JSON API behind them. The whole client runs in the browser, so the downloadable bundle and the API are the attack surface.
+- Recognizable from the outside by the `ng-version` attribute on the root element, hashed bundle names such as `main.<hash>.js`, and the bundled `zone.js` runtime.
+- Audit and defensive tooling is the npm toolchain: `npm audit` and retire.js flag vulnerable Angular and library versions, and the Angular compiler's template type checking catches some unsafe bindings.
+- The dependency surface is the npm ecosystem, including RxJS and third-party components, pinned through `package-lock.json`. A compromised package runs with full application privilege, the pattern in [the npm supply chain study](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md).
+
+### Dominant weakness classes
+
+Angular runs on TypeScript compiled to JavaScript, a memory-managed platform, so the dominant classes are logic and injection flaws rather than memory corruption. The fixes for each are detailed in the section below.
+
+- Cross-site scripting ([CWE-79](https://cwe.mitre.org/data/definitions/79.html)) through the `bypassSecurityTrust*` escape hatches or DOM sinks that skip the built-in sanitizer.
+- Missing server-side authorization ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)): route guards run in the browser and can be bypassed, so access must be enforced at the API.
+- Information exposure ([CWE-200](https://cwe.mitre.org/data/definitions/200.html)) when secrets, API keys, or internal endpoints are shipped inside the client bundle, which any user can read.
+- Prototype pollution ([CWE-1321](https://cwe.mitre.org/data/definitions/1321.html)) reaching the app through a vulnerable client-side dependency.
+
+### Why it matters
+
+Recognizing Angular tells a tester the real application logic sits in a downloadable bundle to read, that authorization must be probed at the API rather than the UI guards, and which XSS sinks and sanitizer bypasses to try first. `npm audit` and retire.js cover the dependency side. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for the cross-cutting review method.
 
 ## Security model and common vulnerabilities
 

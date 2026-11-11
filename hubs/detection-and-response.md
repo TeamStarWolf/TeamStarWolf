@@ -30,7 +30,7 @@ Part of the [domain hubs](/hubs/README.md). 24 reference documents in this domai
 
 | Reference | What it covers | Reading time |
 |---|---|---|
-| [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md) | NIST/SANS IR frameworks, live response commands, Velociraptor/KAPE, ransomware playbook, BEC response, AD compromise | 24 min |
+| [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md) | NIST/SANS IR frameworks, live response commands, Velociraptor/KAPE, ransomware playbook, BEC response, AD compromise | 25 min |
 | [IR Playbooks](/IR_PLAYBOOKS.md) | Step-by-step response procedures for ransomware, BEC, data exfiltration, DDoS, cloud incidents, and more | 15 min |
 | [Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md) | CISA #StopRansomware program, NIST IR 8374r1, RaaS/IAB ecosystem literacy, 3-2-1 immutable backups and restore testing, OFAC payment policy, tabletops, resilience metrics | 21 min |
 | [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md) | NIST SP 800-34 contingency planning, BIA and RTO/RPO/MTD, cyber-broken DR assumptions, ISO 22301, SP 800-160v2 resiliency engineering, AD forest recovery, testing tiers, resilience metrics | 24 min |
@@ -89,5 +89,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [Technique detection library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)
 - [ATT&CK detection strategies](/detections/strategies/README.md)
 - [Technique detail pages](/techniques/README.md)
+- [Change Healthcare 2024: a case study](/case-studies/CHANGE_HEALTHCARE_2024.md)
 
 <!-- hub:end -->

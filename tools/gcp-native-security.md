@@ -4,6 +4,55 @@
 
 Google Cloud splits the same jobs AWS and Azure split. Security Command Center (SCC) is the organization-level finding store. Cloud Audit Logs are the control-plane record. Organization Policy is the preventive guardrail. VPC Service Controls are the API perimeter. Cloud Armor is the edge WAF and DDoS control. VM Manager and Artifact Analysis feed vulnerability findings. Google Security Operations (formerly Chronicle) is the SIEM, and it is a separate product from SCC. Confirm tier names on the product page before you buy: Google has sold SCC as a free tier and as paid tiers (Premium, and an Enterprise tier that adds Mandiant intelligence and a closer tie to Security Operations). Detector coverage is not the same in every tier.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the cloud security engineers who run GCP Native Security
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (1,956 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what GCP Native Security can do to mitigate a vulnerability before the fix lands, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation and telemetry](#validation-and-telemetry), [Documentation and repositories](#documentation-and-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[CTEM Reference](/CTEM_REFERENCE.md), [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Cloud Architecture Reference](/CLOUD_ARCHITECTURE_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities and architecture
 
 **What each service is for**

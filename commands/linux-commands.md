@@ -2,6 +2,55 @@
 
 The GNU/Linux core utilities are the programs you reach for at any shell prompt on a Linux system. They run on servers, workstations, containers, and embedded devices. This page groups the commands by task: files, text, processes, permissions, disk, archives, and packages. Every example is a real invocation you can paste at a `bash` prompt.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Administrators, analysts and engineers who work on Linux hosts
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 3 min (645 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the Linux commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [macOS Command Reference](/commands/macos-commands.md), [systemd and systemctl Reference](/commands/systemctl.md), [SSH Command Reference](/commands/ssh.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 Most of these tools come from GNU coreutils, `util-linux`, `findutils`, and `grep`, installed by default on nearly every Linux distribution. They operate on files, streams, and processes through the kernel. They read from standard input, write to standard output, and signal errors through standard error and an exit status. Pipes (`|`) and redirection (`>`, `<`) compose them into larger operations.

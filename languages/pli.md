@@ -14,6 +14,55 @@ PL/I (Programming Language One) is a statically typed, compiled language designe
 
 Related: [COBOL](/languages/cobol.md), [ALGOL](/languages/algol.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain PL/I code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,508 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing PL/I code (typical uses: mainframe scientific and business applications, systems programming (historically Multics)), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[COBOL](/languages/cobol.md), [ALGOL](/languages/algol.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 IBM designed PL/I (originally called NPL) to replace the separate scientific (FORTRAN) and business (COBOL) languages with a single language for both communities, drawing ideas from FORTRAN, COBOL, and ALGOL. It offered a large feature set: many numeric and string data types, arrays and structures, pointer-based data, a preprocessor, multitasking, and an ON-condition mechanism that lets a program respond to run-time events such as overflow or end-of-file. The Multics operating system was written largely in a PL/I subset.
@@ -88,6 +137,29 @@ PL/I compiles to efficient native code and its decimal arithmetic suits exact mo
 - String handling: mixing `VARYING` and fixed strings, or copying into a short fixed string, truncates data.
 - Pointer and `BASED` storage errors producing dangling references or corruption.
 - Relying on language defaults (default attributes of undeclared variables) rather than explicit declarations.
+
+## Security relevance
+
+PL/I reaches security practitioners almost entirely through the maintenance and audit of mainframe applications: long-lived business and scientific systems on IBM Z that process money, records, and batch transactions. It has no modern offensive-tooling presence, so the honest framing is around the weaknesses that apply to decades-old systems code handling sensitive data. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Mainframe business and scientific applications. PL/I runs financial and batch workloads on IBM Z, often reaching Db2 through embedded SQL and CICS or IMS for transactions, so a PL/I audit is an audit of high-value records. See the [Database Security Reference](/DATABASE_SECURITY_REFERENCE.md).
+- Systems programming, historically. Much of the Multics operating system was written in a PL/I subset, which is the language's main historical systems footprint.
+- Long-lived legacy maintenance. Most running PL/I is code maintained over decades, where explicit declarations and condition handling may be inconsistent.
+
+### Dominant weakness classes
+
+PL/I is memory-unsafe: it has pointer-based and `BASED` storage with no garbage collector and fixed-length strings, so copying and conversion errors can corrupt memory and data.
+
+- Buffer and string handling. Copying external data into fixed-length strings or buffers without a length check truncates or overflows them, which relates to [CWE-120](https://cwe.mitre.org/data/definitions/120.html) and [CWE-787](https://cwe.mitre.org/data/definitions/787.html).
+- Numeric overflow and conversion. `FIXED DECIMAL` and `FIXED BINARY` arithmetic can overflow or lose precision, and implicit conversions can produce wrong values, which maps to [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- Improper input validation. Data read from files, terminals, or messages is unchecked until validated for structure, sign, and range, which is [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- SQL injection. Embedded SQL assembled by concatenating untrusted input is injectable; host variables avoid it, and the class is [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+
+### Why it matters
+
+Reading PL/I matters for auditing mainframe applications that hold money and personal data, since it reveals where external input enters fixed-length fields, where implicit conversions and decimal arithmetic can go wrong, and whether embedded SQL uses host variables. Dedicated security tooling is scarce: commercial mainframe static analyzers cover some patterns and compiler diagnostics others, so manual review of string handling, conversions, and data access is the primary control, as the Secure coding section details.
 
 ## Secure coding
 

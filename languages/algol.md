@@ -14,6 +14,55 @@ ALGOL (Algorithmic Language) is a family of imperative, block-structured languag
 
 Related: [Pascal](/languages/pascal.md), [PL/I](/languages/pli.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain ALGOL code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,463 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing ALGOL code (typical uses: historically scientific computing and algorithm publication; today teaching and preservation), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Pascal](/languages/pascal.md), [PL/I](/languages/pli.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 ALGOL was created by a committee of European and American computer scientists to provide a machine-independent language for describing algorithms, both for running and for publication. ALGOL 58 was a first attempt; ALGOL 60, defined in the 1960 report, was the influential version. Its report introduced Backus-Naur Form (BNF) to define syntax precisely, and it specified block structure, nested procedures with recursion, and call-by-name and call-by-value parameter passing. For years, journals published algorithms in ALGOL as a lingua franca.
@@ -91,6 +140,28 @@ On the hardware of its era, ALGOL compilers produced efficient code for numeric 
 - Dialect differences: ALGOL 58, 60, and 68 are substantially different languages, and implementations added their own extensions.
 - ALGOL 68's complexity: its generality and unusual terminology make programs harder to read than ALGOL 60.
 - Relying on machine-specific behavior from historical compilers that modern tools do not reproduce.
+
+## Security relevance
+
+ALGOL is largely historical and is rarely deployed in modern security-relevant settings, so it appears to practitioners mainly as legacy source to read and as code run through preservation tools. The defensive patterns are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Legacy and preservation. ALGOL 60 and ALGOL 68 survive in archived scientific code, published algorithms, and teaching material. There is no notable offensive or defensive tooling written in ALGOL.
+- Translation to native code. ALGOL 60 is commonly run today by translating it to C with MARST and then compiling it, so the security properties of the running program are largely those of the generated C.
+- Interpreted execution. ALGOL 68 runs under Algol 68 Genie, where the interpreter handles memory and bounds rather than the program.
+
+### Dominant weakness classes
+
+ALGOL 60 has no guaranteed bounds checking and, when translated to C, inherits C's unchecked manual-memory behavior, so it is effectively memory-unsafe on that path; ALGOL 68 adds heap allocation with garbage collection in its runtime.
+
+- Out-of-bounds array access. Historical implementations varied in bounds checking, and the MARST translation to C removes it, which maps to [CWE-125](https://cwe.mitre.org/data/definitions/125.html) and [CWE-787](https://cwe.mitre.org/data/definitions/787.html).
+- Integer overflow. Fixed-size integer arithmetic can overflow on input-driven values, which maps to [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- Input validation. Data read from input is unchecked until the program checks it, which maps to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+
+### Why it matters
+
+For a practitioner, the useful work is almost always on the translated output rather than the ALGOL source: where ALGOL 60 is compiled through MARST, the generated C is what carries the memory behavior, so C-oriented analysis applies there. There is no dedicated security tooling for ALGOL, and any use of it for untrusted input calls for manual review. See the [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 
 ## Secure coding
 

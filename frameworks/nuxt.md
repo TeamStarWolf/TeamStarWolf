@@ -2,6 +2,55 @@
 
 Nuxt is a Vue-based meta-framework for full-stack web applications. It renders on the server and the client, with universal rendering, static generation, and client-only modes. Its server side runs on the Nitro engine, and routing is file-based. It is maintained in the open by the Nuxt team.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who build with Nuxt, and the reviewers and application security engineers who assess what they build
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,176 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or reviewing a Nuxt application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture](#architecture), [Security model and common vulnerabilities](#security-model-and-common-vulnerabilities), [Common pitfalls](#common-pitfalls)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[JavaScript](/languages/javascript.md), [TypeScript](/languages/typescript.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Nuxt started in 2016 as a server-rendering layer for Vue. Nuxt 2 built on Vue 2 and popularized file-based routing and the module ecosystem. Nuxt 3 shipped in late 2022 on Vue 3, Vite, and the new Nitro server.
@@ -42,6 +91,30 @@ The `nuxi` CLI scaffolds, runs the dev server, builds, and generates static site
 Common modules include Nuxt Content, Nuxt Image, and Pinia for state. Nitro presets target Node, Vercel, Netlify, Cloudflare, and other hosts. TypeScript support is built in with generated types.
 
 Testing uses Vitest with the `@nuxt/test-utils` package and Playwright for end-to-end runs. The Nuxt DevTools panel inspects routes, state, and modules in development.
+
+## Security relevance
+
+This section is the threat-facing view of Nuxt: how it appears to an attacker or an auditor in the field, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Internet-facing full-stack web applications served by the Nitro engine on Node, serverless, or edge hosts. A Nuxt app is recognizable from the outside: a `__NUXT__` or `__NUXT_DATA__` hydration payload in the initial HTML, `/_nuxt/` asset paths, and the file-based `server/api/` route shapes.
+- Offensive interest centers on the server routes and the hydration payload: unauthenticated `server/api/` handlers, secrets leaked through the public runtime config, and outbound fetches from Nitro handlers. Burp Suite and OWASP ZAP drive the surface.
+- Dependency and audit tooling is the npm toolchain: `npm audit`, Snyk, and Socket scan the tree pinned by the lockfile.
+- The supply-chain surface is npm. See [the npm supply chain attacks study](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md) and [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+Nuxt runs on Node and JavaScript, memory-managed, so the dominant classes are logic and injection flaws rather than memory corruption. The fixes for each are in the section below.
+
+- Missing authorization ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)) on `server/api/` handlers, which run with server privilege whether or not the UI links to them.
+- Sensitive information exposure ([CWE-200](https://cwe.mitre.org/data/definitions/200.html)) through a secret placed under `runtimeConfig.public` or embedded in the hydration payload.
+- Server-side request forgery ([CWE-918](https://cwe.mitre.org/data/definitions/918.html)) when a Nitro handler fetches a user-supplied URL.
+- Cross-site scripting ([CWE-79](https://cwe.mitre.org/data/definitions/79.html)) through the `v-html` directive on untrusted input.
+
+### Why it matters
+
+Recognizing Nuxt, usually through the `__NUXT__` hydration blob or `/_nuxt/` paths, tells a tester which pivots to try first: enumerate `server/api/` routes for missing authorization, read the hydration payload and public runtime config for leaked secrets, and probe server handlers for SSRF. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for the cross-cutting review method.
 
 ## Security model and common vulnerabilities
 

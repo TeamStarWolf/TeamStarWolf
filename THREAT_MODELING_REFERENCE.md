@@ -346,7 +346,7 @@ Goal: Compromise Admin Account
 │   │   │   └── LLMNR/NBT-NS poisoning (if on same network segment)
 │   ├── Bypass Authentication
 │   │   ├── OR
-│   │   │   ├── AiTM proxy (EvilGinx2) — steal session token post-MFA
+│   │   │   ├── AiTM proxy (EvilGinx2): steal session token post-MFA
 │   │   │   ├── MFA fatigue attack (push notification bombing)
 │   │   │   ├── SIM swap (bypass SMS-based MFA)
 │   │   │   └── Recovery code theft (from backup email or password manager)
@@ -673,22 +673,22 @@ A complete cloud-native application DFD should include these trust boundaries:
 
 ```
 [End User Browser]
-    |———————————————————— (1) Internet → CDN/WAF boundary
+    |──────────────────── (1) Internet → CDN/WAF boundary
 [CDN / WAF]
-    |———————————————————— (2) WAF → Load Balancer boundary
+    |──────────────────── (2) WAF → Load Balancer boundary
 [Load Balancer]
-    |———————————————————— (3) Load Balancer → Application Tier boundary
+    |──────────────────── (3) Load Balancer → Application Tier boundary
 [Application Tier (ECS/EKS)]
-    |———————————————————— (4) Application → Data Tier (VPC private subnet)
+    |──────────────────── (4) Application → Data Tier (VPC private subnet)
 [Data Tier: RDS / ElastiCache]
 
-Application ———————————————— (5) Egress → External APIs
+Application ──────────────── (5) Egress → External APIs
 [External Third-Party APIs]
 
-Application ———————————————— (6) App → Cloud Metadata Service (IMDS) *** SHOULD BE BLOCKED ***
+Application ──────────────── (6) App → Cloud Metadata Service (IMDS) *** SHOULD BE BLOCKED ***
 [EC2/ECS Instance Metadata: 169.254.169.254]
 
-CI/CD Pipeline ————————————— (7) CI/CD → Cloud Deployment (OIDC, no long-lived keys)
+CI/CD Pipeline ───────────── (7) CI/CD → Cloud Deployment (OIDC, no long-lived keys)
 [Cloud Deployment Environment]
 ```
 

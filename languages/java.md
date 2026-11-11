@@ -14,6 +14,55 @@ Java is a statically typed, class-based, object-oriented language created by Jam
 
 Related: [Kotlin](/languages/kotlin.md), [Scala](/languages/scala.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Java code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,396 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Java code (typical uses: server back ends, Android, business systems, data platforms), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Kotlin](/languages/kotlin.md), [Scala](/languages/scala.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Java began at Sun Microsystems as the Green Project and was first released in 1995 with the promise of portable bytecode. Oracle acquired Sun in 2010 and now stewards the platform. Since Java 9, feature releases ship every six months, with designated long-term support (LTS) releases such as Java 8, 11, 17, and 21 receiving extended maintenance. The language and virtual machine are specified separately: the [Java Language Specification](https://docs.oracle.com/javase/specs/) defines the source language, and the [Java Virtual Machine Specification](https://docs.oracle.com/javase/specs/jvms/se21/html/) defines the bytecode and runtime.
@@ -135,6 +184,31 @@ The JVM compiles hot bytecode to native code with a just-in-time compiler, so lo
 - Mutable static fields shared across threads cause data races without synchronization.
 - Catching `Exception` or `Throwable` broadly can swallow errors; catch the narrowest type that the code can handle.
 - Checked exceptions must be declared or handled, which can push developers toward empty `catch` blocks that hide failures.
+
+## Security relevance
+
+Java reaches practitioners in three ways: as the implementation language of widely used security tooling, as the back end of server and Android systems that defenders assess, and as the source of a recognizable set of weakness classes. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Security and analysis tooling. [Burp Suite](https://portswigger.net/burp) and [OWASP ZAP](https://www.zaproxy.org/) (web proxies), [Ghidra](https://ghidra-sre.org/) (reverse engineering), and the ysoserial deserialization gadget generator are written in Java, so extending or reading them means reading Java. See [Web Application Pentesting](/WEB_APPLICATION_PENTESTING.md) and the [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md).
+- Server back ends and business systems. [Spring](https://spring.io/) and [Hibernate](https://hibernate.org/) applications are frequent assessment targets, and the [Log4Shell](/case-studies/LOG4SHELL.md) flaw in the Log4j logging library showed how far a single Java-ecosystem weakness can reach. See the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Android applications. Android apps compile from Java (and Kotlin), so mobile assessment reads Java source and bytecode. See the [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md).
+- Build pipelines. Maven and Gradle pull dependencies from Maven Central, a common supply-chain entry point.
+
+### Dominant weakness classes
+
+Java is memory-safe: garbage collection and the JVM bytecode verifier remove the buffer-overflow and use-after-free classes that dominate C and C++. The weaknesses that remain are about trust and input handling:
+
+- Insecure deserialization through `ObjectInputStream`, the root of many remote-code-execution flaws and the target of ysoserial gadget chains. This is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- XML external entity processing in parsers that resolve entities by default. This is [CWE-611](https://cwe.mitre.org/data/definitions/611.html).
+- SQL injection when queries are built by string concatenation. This is [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Command injection when untrusted input is passed to `Runtime.exec` or a `ProcessBuilder` shell string. This is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Code injection through expression and lookup mechanisms, the class behind the Log4Shell JNDI lookup. This is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+
+### Why it matters
+
+Reading Java lets an analyst audit a Spring codebase and its dependency tree for the classes above, understand what a Burp or Ghidra plugin actually does, and trace a deserialization or injection sink from source to sink. [SpotBugs](https://spotbugs.github.io/) with the Find Security Bugs plugin flags these patterns statically and [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) reports vulnerable libraries, as the Secure coding section details.
 
 ## Secure coding
 

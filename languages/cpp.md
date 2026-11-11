@@ -14,6 +14,55 @@ C++ is a statically typed, compiled, multi-paradigm language created by Bjarne S
 
 Related: [C](/languages/c.md), [Rust](/languages/rust.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain C++ code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,169 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing C++ code (typical uses: game engines, browsers, databases, trading, embedded, tooling), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[C](/languages/c.md), [Rust](/languages/rust.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 C++ began as a set of additions to C that brought classes and object orientation to systems programming. It was first standardized as C++98, then revised by C++03. C++11 was a large revision that added `auto` type deduction, lambdas, move semantics, `std::unique_ptr` and `std::shared_ptr`, range-based `for`, and a threading library. Later standards continued on a three-year cadence: C++14, C++17 (structured bindings, `std::optional`, `std::variant`, filesystem), C++20 (concepts, ranges, coroutines, modules), and C++23.
@@ -120,6 +169,29 @@ C++ compiles to native code and gives direct control over memory layout, which s
 - Object slicing when a derived object is copied into a base-class value.
 - Iterator invalidation after a container is resized or modified.
 - Undefined behavior from signed overflow, out-of-bounds access, or reading uninitialized memory.
+
+## Security relevance
+
+C++ reaches security practitioners in three ways: as the implementation language of a large share of security-critical native software, as the subject of much memory-safety vulnerability research and exploitation, and as a dominant source of memory-corruption weakness classes. The defensive patterns that counter each class are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Security-critical native software. Browsers, operating-system components, databases, game engines, and embedded and trading systems are written in C++, so a large part of the exploitable native attack surface is C++ code. See the [Exploit Development Reference](/EXPLOIT_DEVELOPMENT_REFERENCE.md) and the [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md).
+- Vulnerability research. Fuzzers and analysis tools target C++ binaries, and the sanitizers operate on C++ code to surface memory errors. See [Fuzzing and Vulnerability Research](/FUZZING_VULNERABILITY_RESEARCH.md).
+- Offensive and defensive tooling. Both native exploits and native security products, including antivirus and endpoint engines, are commonly written in C++.
+
+### Dominant weakness classes
+
+C++ is memory-unsafe: it uses manual memory management, so the memory-corruption classes that dominate native-code vulnerabilities all apply unless an allocation is wrapped in RAII and checked containers:
+
+- Out-of-bounds read and write. Raw pointer arithmetic and unchecked indexing read or write past a buffer, which are [CWE-125](https://cwe.mitre.org/data/definitions/125.html) and [CWE-787](https://cwe.mitre.org/data/definitions/787.html).
+- Use-after-free and double free. Mixing raw `new`/`delete` with other ownership, or freeing twice, are [CWE-416](https://cwe.mitre.org/data/definitions/416.html) and [CWE-415](https://cwe.mitre.org/data/definitions/415.html).
+- Integer overflow in allocation sizing. Arithmetic that wraps before sizing a buffer under-allocates, which is [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- OS command injection. Passing an assembled string to `std::system` runs it through a shell, which maps to [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+
+### Why it matters
+
+Reading C++ lets an analyst find the memory-safety defects that drive exploit development and judge whether a dangling reference or unchecked index is reachable from untrusted input. AddressSanitizer and UndefinedBehaviorSanitizer surface these at run time, and [clang-tidy](https://clang.llvm.org/extra/clang-tidy/) with the [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) checks finds many statically, as the Secure coding section details.
 
 ## Secure coding
 

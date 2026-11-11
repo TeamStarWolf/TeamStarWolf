@@ -490,7 +490,10 @@ CATALOG = [
        "[ICS attacks and advisories case study](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md)"),
       ("case-studies/stuxnet-s0603-ics.json", "Stuxnet (S0603) ICS",
        "The 25 ATT&CK for ICS techniques ATT&CK v20.0 lists for Stuxnet, from the "
-       "[Stuxnet case study](/case-studies/STUXNET.md)")]),
+       "[Stuxnet case study](/case-studies/STUXNET.md)"),
+      ("case-studies/chronicle-2020-ics.json", "The Year 2020 in Intrusions (ICS)",
+       "The 9 ATT&CK for ICS techniques that NSA and CISA advisory AA20-205A maps for operational technology, from the "
+       "[2020 chronicle case study](/case-studies/CHRONICLE_2020.md)")]),
 ]
 
 

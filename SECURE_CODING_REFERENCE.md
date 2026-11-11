@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 13 min (3,051 words at 230 words a minute)
+About 13 min (3,068 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -42,7 +42,7 @@ You are reviewing a pull request for security flaws, you are fixing a scanner fi
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last corrected</th><td>
 
-2026-09-29, note added on OWASP Top 10:2025; CWE Top 25 and ATT&CK versions in the footer updated ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+2026-11-04, IBM breach-lifecycle figure updated to the 2024 report; the 600,000 PBKDF2 iterations attributed to OWASP, not NIST ([#175](https://github.com/TeamStarWolf/TeamStarWolf/pull/175))
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
@@ -100,7 +100,7 @@ from flask_login import login_required, current_user
 @app.route("/invoice/<int:invoice_id>")
 @login_required
 def get_invoice(invoice_id):
-    # Enforce ownership at query time — never fetch then check
+    # Enforce ownership at query time, never fetch then check
     invoice = Invoice.query.filter_by(
         id=invoice_id,
         owner_id=current_user.id   # Bind to authenticated user
@@ -119,7 +119,7 @@ Description: Formerly "Sensitive Data Exposure." Root cause is weak or missing c
 Vulnerable (MD5 password hashing):
 ```python
 import hashlib
-# BAD: MD5 is a fast hash — billions of attempts/second with GPU
+# BAD: MD5 is a fast hash, billions of attempts/second with GPU
 def store_password(password):
     return hashlib.md5(password.encode()).hexdigest()
 ```
@@ -129,7 +129,7 @@ Secure (bcrypt, cost ≥12):
 import bcrypt
 
 def store_password(password: str) -> bytes:
-    # cost=12 is ~300ms on commodity hardware — deliberately slow
+    # cost=12 is ~300ms on commodity hardware: deliberately slow
     return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt(rounds=12))
 
 def verify_password(password: str, hashed: bytes) -> bool:
@@ -143,7 +143,7 @@ from argon2.exceptions import VerifyMismatchError
 
 ph = PasswordHasher(
     time_cost=2,        # iterations
-    memory_cost=19456,  # 19 MiB — OWASP minimum
+    memory_cost=19456,  # 19 MiB: OWASP minimum
     parallelism=1,
     hash_len=32,
     salt_len=16
@@ -169,7 +169,7 @@ Description: User-supplied data is sent to an interpreter without validation or 
 
 Vulnerable (SQL Injection):
 ```python
-# BAD: String concatenation — classic SQLi
+# BAD: String concatenation, classic SQLi
 def get_user(username):
     query = f"SELECT * FROM users WHERE username = '{username}'"
     return db.execute(query).fetchone()
@@ -178,7 +178,7 @@ def get_user(username):
 
 Secure (parameterized query, Python sqlite3/SQLAlchemy):
 ```python
-# sqlite3 — use ? placeholders
+# sqlite3: use ? placeholders
 import sqlite3
 def get_user(username: str):
     conn = sqlite3.connect("app.db")
@@ -188,7 +188,7 @@ def get_user(username: str):
     conn.close()
     return row
 
-# SQLAlchemy ORM — parameters handled automatically
+# SQLAlchemy ORM: parameters handled automatically
 from sqlalchemy.orm import Session
 def get_user_orm(session: Session, username: str):
     return session.query(User).filter(User.username == username).first()
@@ -212,7 +212,7 @@ def ping_host(host: str) -> str:
     if not re.match(r'^[a-zA-Z0-9.\-]{1,253}$', host):
         raise ValueError("Invalid hostname")
     result = subprocess.run(
-        ["ping", "-c", "1", host],   # List form — no shell expansion
+        ["ping", "-c", "1", host],   # List form: no shell expansion
         capture_output=True, text=True, timeout=5, shell=False
     )
     return result.stdout
@@ -302,7 +302,7 @@ Description: Using components with known vulnerabilities (libraries, frameworks,
 
 SCA (Software Composition Analysis) tools:
 ```bash
-# Python — pip-audit (NIST NVD + PyPA advisory database)
+# Python: pip-audit (NIST NVD + PyPA advisory database)
 pip install pip-audit
 pip-audit --requirement requirements.txt --output json -o audit.json
 
@@ -324,7 +324,7 @@ dependency-check --project myapp --scan ./target --format JSON
 
 Lock file with hash verification (Python):
 ```
-# requirements.txt — pin exact versions with hashes
+# requirements.txt: pin exact versions with hashes
 bcrypt==4.1.3 \
     --hash=sha256:3d5a8df1... \
     --hash=sha256:b8a3e2f4...
@@ -375,7 +375,7 @@ Cryptographically secure token generation:
 ```python
 import secrets
 
-# Python — 32 bytes = 256-bit entropy URL-safe token
+# Python: 32 bytes = 256-bit entropy URL-safe token
 token = secrets.token_urlsafe(32)
 
 # Node.js
@@ -394,7 +394,7 @@ Description: Code and infrastructure not protected against integrity violations.
 Vulnerable (Python pickle deserialization):
 ```python
 import pickle
-# BAD: Deserializing untrusted data — arbitrary code execution
+# BAD: Deserializing untrusted data, arbitrary code execution
 @app.route("/load_session", methods=["POST"])
 def load_session():
     data = pickle.loads(request.data)  # RCE if data is malicious
@@ -411,11 +411,11 @@ Secure alternatives:
 ```python
 import json
 
-# Use JSON for data serialization — no code execution
+# Use JSON for data serialization: no code execution
 @app.route("/load_session", methods=["POST"])
 def load_session():
     try:
-        data = json.loads(request.data)   # Safe — no code execution
+        data = json.loads(request.data)   # Safe: no code execution
         # Validate schema before using
         validate_session_schema(data)
         return jsonify(data)
@@ -433,7 +433,7 @@ Supply chain integrity:
 # Verify package signatures with Sigstore/Cosign
 cosign verify-blob --certificate cert.pem --signature sig.sig artifact.tar.gz
 
-# GitHub Actions — pin to SHA to prevent tag mutation attacks
+# GitHub Actions: pin to SHA to prevent tag mutation attacks
 - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
 ```
 
@@ -443,7 +443,7 @@ Detection: Ban `pickle.loads(untrusted)` via Semgrep; require signed commits; en
 
 ### A09: Security Logging and Monitoring Failures
 
-Description: Insufficient logging, detection, monitoring, and active response. Breaches go undetected for an average of 207 days (IBM Cost of a Data Breach 2023). CWE-223, CWE-778. ATT&CK: T1070 (Indicator Removal).
+Description: Insufficient logging, detection, monitoring, and active response. IBM's Cost of a Data Breach 2024 puts the average time to identify and contain a breach at 258 days, down from 277 days the year before. CWE-223, CWE-778. ATT&CK: T1070 (Indicator Removal).
 
 What to log (security events):
 ```python
@@ -471,13 +471,13 @@ def log_security_event(event_type: str, user_id: str, ip: str, details: dict):
 
 What NOT to log:
 ```python
-# BAD — PII and secrets in logs
+# BAD: PII and secrets in logs
 logger.info(f"User {username} logged in with password {password}")
 logger.debug(f"Card number: {card_number}, CVV: {cvv}")
 logger.info(f"Session token: {session_token}")
 logger.error(f"DB error for query: SELECT * FROM users WHERE ssn='{ssn}'")
 
-# GOOD — log events without sensitive values
+# GOOD: log events without sensitive values
 logger.info(f"Login attempt for user_id={user_id} from ip={ip} result=success")
 logger.info(f"Payment processed for order_id={order_id} amount_cents={amount}")
 ```
@@ -493,7 +493,7 @@ Description: Web app fetches a remote resource without validating the user-suppl
 Vulnerable (SSRF to internal/cloud metadata):
 ```python
 import requests
-# BAD: User controls the URL — accesses internal services
+# BAD: User controls the URL, accesses internal services
 @app.route("/fetch")
 def fetch_url():
     url = request.args.get("url")
@@ -561,7 +561,7 @@ def validate_username(value: str) -> bool:
     return bool(re.match(r'^[a-zA-Z0-9_]{3,32}$', value))
 
 def validate_email(value: str) -> bool:
-    """RFC 5321 simplified — use a library for production."""
+    """RFC 5321 simplified: use a library for production."""
     return bool(re.match(r'^[^@\s]{1,64}@[^@\s]{1,253}\.[a-zA-Z]{2,}$', value))
 
 def validate_integer_range(value: str, min_val: int, max_val: int) -> Optional[int]:
@@ -575,7 +575,7 @@ def validate_integer_range(value: str, min_val: int, max_val: int) -> Optional[i
     return None
 
 # Validate: type, length, range, format, business rules
-# Validate at the INPUT boundary — before any processing
+# Validate at the INPUT boundary, before any processing
 ```
 
 Pydantic for structured validation (Python):
@@ -627,16 +627,16 @@ safe_url = quote(user_input, safe='')
 ```
 
 ```javascript
-// JavaScript — prefer DOM APIs over string concatenation
+// JavaScript: prefer DOM APIs over string concatenation
 const userInput = '<img src=x onerror=alert(1)>';
 
-// SAFE — textContent never executes HTML
+// SAFE: textContent never executes HTML
 document.getElementById('output').textContent = userInput;
 
-// UNSAFE — avoid innerHTML with untrusted data
+// UNSAFE: avoid innerHTML with untrusted data
 // document.getElementById('output').innerHTML = userInput;  // XSS!
 
-// When rich HTML is required — use DOMPurify
+// When rich HTML is required: use DOMPurify
 const clean = DOMPurify.sanitize(userInput, {
     ALLOWED_TAGS: ['b', 'i', 'em', 'strong', 'a'],
     ALLOWED_ATTR: ['href']
@@ -647,7 +647,7 @@ document.getElementById('output').innerHTML = clean;
 ### Content Security Policy (CSP)
 
 ```http
-# Strict nonce-based CSP — prevents inline script execution
+# Strict nonce-based CSP: prevents inline script execution
 Content-Security-Policy: 
   default-src 'none';
   script-src 'nonce-{RANDOM_PER_REQUEST}' 'strict-dynamic';
@@ -661,12 +661,12 @@ Content-Security-Policy:
   upgrade-insecure-requests;
   report-uri /csp-violations;
 
-# Deployment — start with report-only to identify violations
+# Deployment: start with report-only to identify violations
 Content-Security-Policy-Report-Only: default-src 'none'; script-src 'nonce-...'
 ```
 
 ```python
-# Flask — generate nonce per request
+# Flask: generate nonce per request
 import secrets
 from flask import g
 
@@ -692,7 +692,7 @@ def add_csp_header(response):
 
 ### Password Hashing
 
-PBKDF2-HMAC-SHA256 (NIST SP 800-132, ≥600,000 iterations per NIST 2023):
+PBKDF2-HMAC-SHA256 (defined in NIST SP 800-132; ≥600,000 iterations per the OWASP Password Storage Cheat Sheet):
 ```python
 import hashlib, os, base64
 
@@ -732,7 +732,7 @@ def decode_token(token: str, public_key: str) -> dict:
         payload = jwt.decode(
             token,
             public_key,
-            algorithms=["RS256"],      # Explicitly pin — never use ["*"]
+            algorithms=["RS256"],      # Explicitly pin, never use ["*"]
             options={
                 "require": ["exp", "iat", "sub", "aud"],
                 "verify_exp": True,
@@ -778,7 +778,7 @@ def verify_totp(stored_secret: str, user_token: str) -> bool:
     totp = pyotp.TOTP(stored_secret)
     return totp.verify(user_token, valid_window=1)  # 30s window
 
-# Backup codes — store hashed, one-time use
+# Backup codes: store hashed, one-time use
 def generate_backup_codes() -> list[str]:
     return [secrets.token_hex(5).upper() for _ in range(10)]
     # Store as bcrypt hashes; mark used after consumption
@@ -810,7 +810,7 @@ auth_url = (
     f"&code_challenge={code_challenge}"
     f"&code_challenge_method=S256"
 )
-# Store tokens in HttpOnly cookies — not localStorage (XSS accessible)
+# Store tokens in HttpOnly cookies, not localStorage (XSS accessible)
 ```
 
 ---
@@ -826,7 +826,7 @@ import os
 def encrypt(plaintext: bytes, key: bytes, associated_data: bytes = b"") -> bytes:
     """AES-256-GCM encryption. key must be 32 bytes."""
     aesgcm = AESGCM(key)
-    nonce = os.urandom(12)          # 96-bit nonce — unique per encryption
+    nonce = os.urandom(12)          # 96-bit nonce: unique per encryption
     ciphertext = aesgcm.encrypt(nonce, plaintext, associated_data)
     return nonce + ciphertext       # Prepend nonce for storage
 
@@ -835,7 +835,7 @@ def decrypt(data: bytes, key: bytes, associated_data: bytes = b"") -> bytes:
     aesgcm = AESGCM(key)
     nonce, ciphertext = data[:12], data[12:]
     return aesgcm.decrypt(nonce, ciphertext, associated_data)
-    # Raises InvalidTag if tampered — authentication failure
+    # Raises InvalidTag if tampered: authentication failure
 
 # Key generation
 key = AESGCM.generate_key(bit_length=256)
@@ -855,7 +855,7 @@ def generate_rsa_keypair():
     return private_key, private_key.public_key()
 
 def rsa_encrypt(plaintext: bytes, public_key) -> bytes:
-    """Use OAEP padding — NEVER use PKCS1v15 for new code."""
+    """Use OAEP padding, NEVER use PKCS1v15 for new code."""
     return public_key.encrypt(
         plaintext,
         padding.OAEP(
@@ -880,7 +880,7 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.hazmat.primitives import hashes
 import os, base64
 
-# HKDF — derive multiple keys from a master key
+# HKDF: derive multiple keys from a master key
 def derive_key(master_key: bytes, info: bytes, length: int = 32) -> bytes:
     hkdf = HKDF(algorithm=hashes.SHA256(), length=length, salt=None, info=info)
     return hkdf.derive(master_key)
@@ -901,14 +901,14 @@ def derive_key_from_password(password: str, salt: bytes = None) -> tuple[bytes, 
 ```python
 import secrets
 
-# Python — cryptographically secure random
+# Python: cryptographically secure random
 token = secrets.token_urlsafe(32)     # URL-safe base64 token
 hex_token = secrets.token_hex(32)     # Hex string
 random_int = secrets.randbelow(1000)  # Random int in [0, 1000)
 random_bytes = secrets.token_bytes(32)
 
 # NEVER use for security-sensitive values:
-import random  # BAD — predictable PRNG
+import random  # BAD: predictable PRNG
 random.random()
 random.randint(0, 1000000)
 ```
@@ -962,7 +962,7 @@ def validate_upload(file_data: bytes, filename: str) -> tuple[bool, str]:
     if ext not in ALLOWED_EXTENSIONS:
         return False, f"Extension not allowed: {ext}"
     
-    # Check magic bytes — not Content-Type header (client-controlled)
+    # Check magic bytes, not Content-Type header (client-controlled)
     detected_mime = magic.from_buffer(file_data[:1024], mime=True)
     if detected_mime not in ALLOWED_MIME_TYPES:
         return False, f"File type not allowed: {detected_mime}"
@@ -982,7 +982,7 @@ def validate_upload(file_data: bytes, filename: str) -> tuple[bool, str]:
 import secrets
 from pathlib import Path
 
-# Store OUTSIDE web root — never in /static/ or /public/
+# Store OUTSIDE web root, never in /static/ or /public/
 UPLOAD_DIR = Path("/var/app/uploads")  # Not web-accessible
 
 def store_upload(file_data: bytes, original_filename: str) -> str:
@@ -1019,13 +1019,13 @@ def download_file(filename):
 ### Lock Files and Hash Verification
 
 ```bash
-# Python — pip-compile with hashes
+# Python: pip-compile with hashes
 pip install pip-tools
 pip-compile --generate-hashes requirements.in -o requirements.txt
 pip install --require-hashes -r requirements.txt  # Fails on hash mismatch
 
-# Node.js — package-lock.json
-npm ci   # Uses lock file exactly — use in CI, not npm install
+# Node.js: package-lock.json
+npm ci   # Uses lock file exactly: use in CI, not npm install
 
 # Pipenv with hash verification
 pipenv install --deploy  # Fails if Pipfile.lock is out of date
@@ -1048,7 +1048,7 @@ pipenv install --deploy  # Fails if Pipfile.lock is out of date
 [global]
 index-url = https://your-private-pypi.example.com/simple/
 no-index = false  # Do NOT set this if you need PyPI too
-extra-index-url = https://pypi.org/simple/  # Fallback — dependency confusion risk!
+extra-index-url = https://pypi.org/simple/  # Fallback: dependency confusion risk!
 # For strict private-only:
 # index-url = https://private-pypi/simple/
 # (no extra-index-url)
@@ -1057,19 +1057,19 @@ extra-index-url = https://pypi.org/simple/  # Fallback — dependency confusion 
 ### GitHub Actions Supply Chain Security
 
 ```yaml
-# Pin ALL actions to full commit SHA — not mutable tags
+# Pin ALL actions to full commit SHA, not mutable tags
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      id-token: write   # OIDC — avoid long-lived credentials
+      id-token: write   # OIDC; avoid long-lived credentials
       contents: read
     steps:
       # Tag v4 → pinned SHA (use Dependabot to keep updated)
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
       - uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b  # v5.3.0
       
-      # Zizmor — GitHub Actions security linter
+      # Zizmor: GitHub Actions security linter
       - name: Lint GitHub Actions
         run: pip install zizmor && zizmor .github/workflows/
 
@@ -1081,11 +1081,11 @@ jobs:
 ### SBOM Generation
 
 ```bash
-# Syft — generates SBOM in CycloneDX or SPDX format
+# Syft: generates SBOM in CycloneDX or SPDX format
 syft packages dir:. -o cyclonedx-json=sbom.cdx.json
 syft packages dir:. -o spdx-json=sbom.spdx.json
 
-# Grype — vulnerability scan against SBOM
+# Grype: vulnerability scan against SBOM
 grype sbom:sbom.cdx.json --fail-on high
 
 # cyclonedx-bom (Python)
@@ -1096,7 +1096,7 @@ cyclonedx-py environment -o sbom.json
 ### Artifact Signing with Sigstore/Cosign
 
 ```bash
-# Sign artifact (keyless — OIDC-based identity)
+# Sign artifact (keyless: OIDC-based identity)
 cosign sign-blob artifact.tar.gz --bundle artifact.bundle
 
 # Verify signature
@@ -1105,7 +1105,7 @@ cosign verify-blob artifact.tar.gz \
   --certificate-identity-regexp=".*" \
   --certificate-oidc-issuer="https://token.actions.githubusercontent.com"
 
-# GitHub Actions — sign release artifacts
+# GitHub Actions: sign release artifacts
 - name: Sign artifact
   uses: sigstore/cosign-installer@dc72c7d5c4d10cd6bcb8cf6e3fd625a9e5e537da  # v3.7.0
   run: cosign sign-blob dist/myapp.tar.gz --yes
@@ -1127,7 +1127,7 @@ semgrep --config=p/python .
 semgrep --config=p/javascript .
 semgrep --config=p/java .
 
-# Custom rule example — detect hardcoded credentials
+# Custom rule example: detect hardcoded credentials
 # rules/no-hardcoded-secrets.yaml:
 # rules:
 #   - id: hardcoded-password
@@ -1151,7 +1151,7 @@ bandit -r ./src -f json -o bandit-report.json -l -i
 # B501-B510: TLS/SSL misconfiguration
 # B601-B612: Shell injection
 
-# CI integration — fail on medium+ severity
+# CI integration: fail on medium+ severity
 bandit -r . --severity-level medium --confidence-level medium -f json -o bandit.json
 # Exit code 1 if issues found
 ```
@@ -1182,7 +1182,7 @@ jobs:
 
 OWASP ZAP:
 ```bash
-# Baseline scan — passive scan only, no active attacks
+# Baseline scan: passive scan only, no active attacks
 docker run --rm owasp/zap2docker-stable zap-baseline.py \
   -t https://staging.example.com \
   -J zap-baseline-report.json \
@@ -1200,7 +1200,7 @@ docker run --rm owasp/zap2docker-stable zap-api-scan.py \
   -f openapi \
   -J zap-api-report.json
 
-# GitHub Actions integration — fail pipeline on alerts
+# GitHub Actions integration: fail pipeline on alerts
 - name: ZAP Baseline Scan
   uses: zaproxy/action-baseline@v0.12.0
   with:
@@ -1212,7 +1212,7 @@ docker run --rm owasp/zap2docker-stable zap-api-scan.py \
 ### Secrets Scanning
 
 ```bash
-# TruffleHog — filesystem and git history
+# TruffleHog: filesystem and git history
 trufflehog filesystem . --json > trufflehog-report.json
 trufflehog git file://. --since-commit HEAD~50 --json
 
@@ -1233,13 +1233,13 @@ gitleaks git --source . --log-opts "-50"
 ### IaC Security Scanning
 
 ```bash
-# Checkov — Terraform, CloudFormation, Kubernetes, Dockerfile
+# Checkov: Terraform, CloudFormation, Kubernetes, Dockerfile
 pip install checkov
 checkov -d . --output-file-path checkov-report --output json
 checkov -d ./terraform --framework terraform --check HIGH
 checkov -f Dockerfile --framework dockerfile
 
-# tfsec — Terraform-specific
+# tfsec: Terraform-specific
 tfsec . --format json --out tfsec.json
 
 # KICS (Keeping Infrastructure as Code Secure)
@@ -1280,20 +1280,20 @@ Prod   → Runtime WAF + monitoring + alerting
 ### STRIDE Threat Modeling Process
 
 ```
-1. DECOMPOSE — Create Data Flow Diagram (DFD) of system
+1. DECOMPOSE: Create Data Flow Diagram (DFD) of system
    - External entities (users, third-party services)
    - Processes (application code, APIs)
    - Data stores (databases, caches, files)
    - Data flows (connections between components)
    - Trust boundaries (network perimeters, process isolation)
 
-2. ENUMERATE — Apply STRIDE to each element
+2. ENUMERATE: Apply STRIDE to each element
    - For each process: S, T, R, I, D, E
    - For each data store: T, I, D
    - For each data flow: S, T, I
    - For each external entity: S, R
 
-3. MITIGATE — Map threats to controls
+3. MITIGATE: Map threats to controls
    Spoofing → Authentication (MFA, mutual TLS)
    Tampering → Integrity controls (signing, HMAC, parameterized queries)
    Repudiation → Non-repudiation (audit logging, digital signatures)
@@ -1301,7 +1301,7 @@ Prod   → Runtime WAF + monitoring + alerting
    Denial of Service → Availability (rate limiting, circuit breakers)
    Elevation of Privilege → Authorization (RBAC, least privilege)
 
-4. VALIDATE — Review mitigations and residual risk
+4. VALIDATE: Review mitigations and residual risk
    - Are controls implemented correctly?
    - What is the residual risk?
    - Does risk acceptance require sign-off?
@@ -1316,7 +1316,7 @@ Each guide is the unsafe call a reviewer should reject, and the standard-library
 ### Python
 
 ```python
-# AVOID: eval() / exec() with untrusted input — arbitrary code execution
+# AVOID: eval() / exec() with untrusted input, arbitrary code execution
 # BAD:
 user_expr = request.args.get("expr")
 result = eval(user_expr)   # RCE
@@ -1336,7 +1336,7 @@ subprocess.run(f"ls {user_dir}", shell=True)
 subprocess.run(["ls", user_dir], shell=False, check=True)
 
 # AVOID: pickle for untrusted data (see A08)
-# AVOID: yaml.load() — use yaml.safe_load()
+# AVOID: yaml.load(), use yaml.safe_load()
 import yaml
 # BAD:
 data = yaml.load(untrusted_string)    # RCE via !!python/object
@@ -1347,7 +1347,7 @@ data = yaml.safe_load(untrusted_string)
 from defusedxml import ElementTree  # Use defusedxml, not xml.etree
 tree = ElementTree.parse(xml_file)
 
-# SQLAlchemy — always use ORM or parameterized text()
+# SQLAlchemy: always use ORM or parameterized text()
 from sqlalchemy import text
 # BAD:
 db.execute(f"SELECT * FROM users WHERE id = {user_id}")
@@ -1358,7 +1358,7 @@ db.execute(text("SELECT * FROM users WHERE id = :id"), {"id": user_id})
 ### JavaScript / Node.js
 
 ```javascript
-// Helmet — set security headers in Express
+// Helmet: set security headers in Express
 const helmet = require('helmet');
 app.use(helmet({
     contentSecurityPolicy: { directives: { defaultSrc: ["'self'"] } },
@@ -1367,7 +1367,7 @@ app.use(helmet({
     xssFilter: true,
 }));
 
-// express-validator — input validation
+// express-validator: input validation
 const { body, validationResult } = require('express-validator');
 app.post('/user',
     body('username').isAlphanumeric().isLength({ min: 3, max: 32 }),
@@ -1379,7 +1379,7 @@ app.post('/user',
     }
 );
 
-// AVOID: eval() — use JSON.parse() for data
+// AVOID: eval(); use JSON.parse() for data
 // BAD: eval('(' + userJson + ')');
 const data = JSON.parse(userJson);  // GOOD
 
@@ -1403,15 +1403,15 @@ app.use('/api/auth', rateLimit({
 ### Java
 
 ```java
-// PreparedStatement — parameterized queries
+// PreparedStatement: parameterized queries
 PreparedStatement stmt = conn.prepareStatement(
     "SELECT * FROM users WHERE username = ? AND status = ?"
 );
-stmt.setString(1, username);   // Safe — no concatenation
+stmt.setString(1, username);   // Safe: no concatenation
 stmt.setString(2, "active");
 ResultSet rs = stmt.executeQuery();
 
-// XXE Prevention — disable external entities
+// XXE Prevention: disable external entities
 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
 factory.setFeature("http://xml.org/sax/features/external-general-entities", false);
@@ -1421,11 +1421,11 @@ factory.setExpandEntityReferences(false);
 // Avoid ObjectInputStream for untrusted data
 // Use Jackson/Gson with strict type binding instead:
 ObjectMapper mapper = new ObjectMapper();
-mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL); // BAD — deserialization gadget risk
-// GOOD — explicit type binding only
+mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL); // BAD: deserialization gadget risk
+// GOOD: explicit type binding only
 UserRequest req = mapper.readValue(json, UserRequest.class);
 
-// SecureRandom — not java.util.Random
+// SecureRandom, not java.util.Random
 import java.security.SecureRandom;
 SecureRandom random = new SecureRandom();
 byte[] token = new byte[32];
@@ -1435,20 +1435,20 @@ random.nextBytes(token);
 ### Go
 
 ```go
-// html/template — auto-escapes HTML context
+// html/template: auto-escapes HTML context
 import "html/template"
 
 tmpl := template.Must(template.New("page").Parse(`
     <h1>Hello, {{.Name}}</h1>
 `))
-// Name is auto-escaped — safe against XSS
+// Name is auto-escaped: safe against XSS
 
-// database/sql — parameterized queries
+// database/sql: parameterized queries
 import "database/sql"
 stmt, err := db.Prepare("SELECT * FROM users WHERE id = $1")
-row := stmt.QueryRow(userID)  // Safe — no string interpolation
+row := stmt.QueryRow(userID)  // Safe: no string interpolation
 
-// crypto/rand — not math/rand
+// crypto/rand, not math/rand
 import "crypto/rand"
 import "encoding/hex"
 b := make([]byte, 32)

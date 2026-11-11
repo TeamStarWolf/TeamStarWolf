@@ -14,6 +14,55 @@ Solidity is a statically typed, contract-oriented language for writing smart con
 
 Related: [Vyper](/languages/vyper.md), [Move](/languages/move.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Solidity code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,567 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Solidity code (typical uses: smart contracts: tokens, decentralized finance, governance, NFTs), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Vyper](/languages/vyper.md), [Move](/languages/move.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Solidity was proposed by Gavin Wood and developed by a team that included Christian Reitwiessner at the Ethereum Foundation. It became the main language for Ethereum smart contracts. The language changes quickly and is not always backward compatible; the 0.8.0 release in late 2020 was a notable milestone because it made arithmetic overflow checks the default. A `pragma solidity` line pins the compiler version a source file expects, because behavior can differ across versions.
@@ -134,6 +183,29 @@ Because a deployed contract is usually immutable, there is no later tuning pass:
 - Access-control gaps: a missing `onlyOwner`-style check, or a public function that should be internal, lets anyone call privileged logic.
 - `tx.origin` for authorization: it can be spoofed through an intermediary contract; use `msg.sender`.
 - Assuming pre-0.8.0 arithmetic is safe: before 0.8.0, overflow wrapped silently; older code needs SafeMath.
+
+## Security relevance
+
+Solidity is one of the most security-consequential languages a practitioner reads, because a deployed contract holds funds, runs exactly as written for any caller, and usually cannot be patched. Reading and auditing Solidity is a core skill in blockchain security. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context. See the [Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md).
+
+### Where it appears
+
+- Smart contracts. Tokens, decentralized finance protocols, governance, and NFTs run as Solidity compiled to EVM bytecode on Ethereum and compatible chains, where both the code and its state are public.
+- Audit and analysis tooling. The security tooling built around Solidity is itself a reason to read it: [Slither](https://github.com/crytic/slither) for static analysis, [Mythril](https://github.com/Consensys/mythril) for symbolic execution, and fuzzing and invariant tests in [Foundry](https://getfoundry.sh/) all operate on Solidity source or EVM bytecode.
+- Reused contract libraries. Imported contracts such as [OpenZeppelin Contracts](https://www.openzeppelin.com/contracts) run with the importing contract's authority, so dependency review is part of every audit. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+The EVM has no manual memory management and no classic buffer overflows, so the memory-corruption classes of C and C++ do not apply. The dominant weaknesses are specific to contract logic, arithmetic, and trust between contracts:
+
+- Reentrancy. An external call can re-enter a contract before its state is updated and drain funds, the pattern behind the 2016 DAO incident. Reentrancy has no single clean CWE; it is covered in the [Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md). Apply checks-effects-interactions and a reentrancy guard.
+- Integer overflow and underflow. Arithmetic wrapped silently before Solidity 0.8.0; newer code reverts by default, but `unchecked` blocks and older code can still wrap. This is [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- Improper access control. Missing or wrong authorization on privileged functions, or misuse of `delegatecall`, lets an attacker mint tokens, withdraw funds, or take ownership. This is [CWE-284](https://cwe.mitre.org/data/definitions/284.html).
+- Unchecked return values of low-level calls. `call`, `send`, and `delegatecall` return a success boolean that must be checked, and the callee must be treated as untrusted. This is [CWE-252](https://cwe.mitre.org/data/definitions/252.html).
+
+### Why it matters
+
+Reading Solidity lets an auditor trace fund flows, trust boundaries, and the order of state updates against external calls, rather than relying on a contract's stated behavior. The main tools are [Slither](https://github.com/crytic/slither) for static analysis and [Mythril](https://github.com/Consensys/mythril) for symbolic checks, backed by Foundry fuzzing and an independent audit before deploying value-bearing contracts, as the Secure coding section details. See the [Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md).
 
 ## Secure coding
 

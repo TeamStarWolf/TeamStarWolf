@@ -2,6 +2,55 @@
 
 Next.js is a React-based meta-framework for building full-stack web applications. It renders on the server and hydrates on the client, and it offers static generation, server-side rendering, and streaming. Recent versions center on the App Router and React Server Components. It is maintained by Vercel.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who build with Next.js, and the reviewers and application security engineers who assess what they build
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,272 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or reviewing a Next.js application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture](#architecture), [Security model and common vulnerabilities](#security-model-and-common-vulnerabilities), [Common pitfalls](#common-pitfalls)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[JavaScript](/languages/javascript.md), [TypeScript](/languages/typescript.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Next.js first shipped in 2016 from Vercel, then named Zeit. It standardized file-based routing and server rendering for React. The Pages Router was the original model.
@@ -46,6 +95,30 @@ The `next` CLI runs the dev server, builds, and starts production. Turbopack is 
 Vercel is the reference deployment target, but `next start` runs on any Node host and adapters cover other platforms. Common companions include Tailwind CSS, Prisma or Drizzle for data, and NextAuth or Auth.js for authentication.
 
 Testing uses Jest or Vitest with React Testing Library, plus Playwright or Cypress for end-to-end runs. ESLint ships with a Next.js config.
+
+## Security relevance
+
+This section is the threat-facing view of Next.js: how it appears to an attacker or an auditor in the field, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Internet-facing full-stack web applications, frequently hosted on Vercel or a Node server. A Next.js app is recognizable from the outside: an `x-powered-by: Next.js` header, `/_next/static/` asset paths, a `__NEXT_DATA__` script blob in the initial HTML, and React Server Component payloads on navigation.
+- Offensive interest centers on the server trust boundary: server actions, route handlers, and middleware. A disclosed middleware authorization-bypass class let crafted requests skip middleware checks, so testers probe whether authorization is enforced only there. Burp Suite and OWASP ZAP drive the surface.
+- Dependency and audit tooling is the npm toolchain: `npm audit`, Snyk, and Socket scan the tree pinned by `package-lock.json`.
+- The supply-chain surface is npm. See [the npm supply chain attacks study](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md) and [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+Next.js runs on Node and JavaScript, memory-managed, so the dominant classes are logic and injection flaws rather than memory corruption. The fixes for each are in the section below.
+
+- Missing authorization ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)) in server actions and route handlers, or reliance on middleware alone for access control.
+- Server-side request forgery ([CWE-918](https://cwe.mitre.org/data/definitions/918.html)) when a server component or action fetches a user-supplied URL and reaches cloud metadata or internal hosts.
+- Sensitive information exposure ([CWE-200](https://cwe.mitre.org/data/definitions/200.html)) through a secret placed in a `NEXT_PUBLIC_` variable or a private response cached without a per-user key.
+- Cross-site scripting ([CWE-79](https://cwe.mitre.org/data/definitions/79.html)) through `dangerouslySetInnerHTML`.
+
+### Why it matters
+
+Recognizing Next.js, usually through the `__NEXT_DATA__` blob or the `x-powered-by` header, tells a tester which pivots to try first: enumerate server actions and route handlers for missing authorization, test whether middleware is the only gate, probe server fetches for SSRF, and read the client bundle for leaked `NEXT_PUBLIC_` secrets. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for the cross-cutting review method.
 
 ## Security model and common vulnerabilities
 

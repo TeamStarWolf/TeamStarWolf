@@ -2,6 +2,55 @@
 
 Metasploit is an exploitation and post-exploitation framework used by penetration testers and red teams. It bundles exploit modules, payloads, encoders, and auxiliary scanners behind the `msfconsole` interface. Use it only against lab systems or targets covered by a signed rules-of-engagement document. This page covers the authorized testing workflow and the controls that detect and stop the activity.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Penetration testers and red teamers who work on systems they are authorized to test
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 3 min (733 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the Metasploit Framework commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you are a defender who needs to spot it in use
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Detection and defense](#detection-and-defense)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Nmap Command Reference](/commands/nmap.md), [sqlmap Command Reference](/commands/sqlmap.md), [hashcat Command Reference](/commands/hashcat.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 Metasploit runs on Linux (Kali, Parrot) and other Unix-like hosts, and on Windows. The main entry point is `msfconsole`, an interactive console backed by a PostgreSQL database for storing hosts, services, and loot. Supporting command-line tools include `msfvenom` for payload generation and `msfdb` for database control. Operators drive it from an attack box that has network reach to the authorized scope.

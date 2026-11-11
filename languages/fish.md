@@ -14,6 +14,55 @@ fish (the friendly interactive shell) is a command-line interpreter and scriptin
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Bash](/languages/bash.md), [Zsh](/languages/zsh.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain fish code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,449 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing fish code (typical uses: interactive shell, personal automation scripts), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Bash](/languages/bash.md), [Zsh](/languages/zsh.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 fish was created to fix the parts of interactive shell use that its author found awkward, rather than to extend the Bourne lineage. It shipped syntax highlighting and history-based autosuggestions years before those became common elsewhere, and it generates tab completions by parsing the system's man pages. The project was long written in C++; it was rewritten in Rust, with that work landing in the 4.0 release in 2025.
@@ -118,6 +167,28 @@ Concurrency uses background jobs with `&` and `wait`, and external tools such as
 - Command substitution syntax: writing `$(cmd)` or backticks does not work; use `(cmd)`.
 - Expecting word splitting: because fish does not split, a Bash idiom that relied on splitting a string into arguments behaves differently; use `string split` to split explicitly.
 - Universal variables persist and are shared between shells, so a stray `set -U` can surprise you later; prefer `set -g` or `set -l` unless persistence is intended.
+
+## Security relevance
+
+fish reaches security practitioners as an interactive shell and personal-automation language on developer and operator workstations, where the main concern is code that runs at shell start and commands built from untrusted input. This section is the threat-facing context; the defensive patterns that counter each class are in the Secure coding section that follows.
+
+### Where it appears
+
+- Interactive shells and automation. fish is a common login shell, so its configuration, autoloaded functions, and universal variables run on every session and are a target for persistence: a modified config or a malicious plugin executes whenever a shell starts.
+- Dotfiles and startup code. Functions under `~/.config/fish/functions` autoload on first use and plugin managers add third-party code, so the integrity of these sources matters.
+- Scripting. fish scripts drive personal and operational tasks that call external tools and handle their output. Portable production scripting tends to use POSIX [Bash](/languages/bash.md) or [Zsh](/languages/zsh.md), and fish has little offensive-tooling presence.
+
+### Dominant weakness classes
+
+fish is interpreted and manages its own memory, so the memory-corruption classes do not apply. Its no-word-splitting default also removes one classic shell bug. The risks are injection and the integrity of code that runs at shell start:
+
+- Operating-system command injection. Building a command string from untrusted input and running it executes attacker-controlled commands, which maps to [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Dynamic code execution. The `eval` builtin runs its argument as a command, so passing untrusted data through it executes arbitrary code, which maps to [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Startup and plugin integrity. Autoloaded functions, universal variables, and installed plugins run with the user's privileges on shell start, so unpinned or unreviewed sources are a supply-chain exposure. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading a fish script or configuration lets an analyst spot `eval` of untrusted data, command strings assembled from input, and functions or plugins loaded from sources that are not pinned, which is the usual path to persistence in a shell. fish has no dedicated security static analyzer; `fish --no-execute` checks syntax and `fish_indent` normalizes style, so review centers on keeping untrusted input out of command construction, as the Secure coding section details.
 
 ## Secure coding
 

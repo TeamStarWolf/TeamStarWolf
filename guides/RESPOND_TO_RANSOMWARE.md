@@ -8,6 +8,55 @@
 
 This guide operationalizes the response checklist in Part 2 of the [#StopRansomware Guide](https://www.cisa.gov/stopransomware/ransomware-guide) (CISA/MS-ISAC/NSA/FBI, October 2023). The full NIST-lifecycle procedure with investigation tables, negotiation guidance, and AD-rebuild detail is the library's [IR Playbooks: Ransomware](/IR_PLAYBOOKS.md); the program you should have built before today is the [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md). This guide sequences those two documents for the first three days; it does not replace them.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Incident commanders, SOC leads and sysadmins who have just confirmed active encryption
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 12 min (2,693 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You have confirmed active ransomware encryption and need a sequence to execute in the first 24 to 72 hours, you must preserve evidence and your legal options, or you are restoring in a tested order
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Before you start](#before-you-start), [Step 1: Isolate impacted systems, in checklist order](#step-1-isolate-impacted-systems-in-checklist-order), [Step 7: Restore in the tested order](#step-7-restore-in-the-tested-order)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md), [IR Playbooks](/IR_PLAYBOOKS.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Malware Families](/MALWARE_FAMILIES.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Before you start
 
 Everything below is a peacetime artifact. If you are reading this mid-incident and one is missing, improvise and note the gap for the after-action report.

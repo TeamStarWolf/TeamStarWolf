@@ -15,7 +15,7 @@ Explore the library: [Languages](languages/README.md) · [Paradigms](paradigms/R
 [![link check](https://img.shields.io/github/actions/workflow/status/TeamStarWolf/TeamStarWolf/link-check.yml?branch=main&style=flat-square&logo=githubactions&logoColor=white&label=link%20check)](https://github.com/TeamStarWolf/TeamStarWolf/actions/workflows/link-check.yml)
 [![validate data](https://img.shields.io/github/actions/workflow/status/TeamStarWolf/TeamStarWolf/validate-data.yml?branch=main&style=flat-square&logo=githubactions&logoColor=white&label=validate%20data)](https://github.com/TeamStarWolf/TeamStarWolf/actions/workflows/validate-data.yml)
 [![deploy site](https://img.shields.io/github/actions/workflow/status/TeamStarWolf/TeamStarWolf/pages.yml?branch=main&style=flat-square&logo=githubactions&logoColor=white&label=deploy)](https://github.com/TeamStarWolf/TeamStarWolf/actions/workflows/pages.yml)
-[![CodeQL](https://img.shields.io/badge/CodeQL-active-2ea043?style=flat-square&logo=github&logoColor=white)](https://github.com/TeamStarWolf/TeamStarWolf/security/code-scanning)
+![CodeQL](https://img.shields.io/badge/CodeQL-active-2ea043?style=flat-square&logo=github&logoColor=white)
 
 [![license](https://img.shields.io/github/license/TeamStarWolf/TeamStarWolf?style=flat-square&color=2ea043)](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/LICENSE)
 [![last commit](https://img.shields.io/github/last-commit/TeamStarWolf/TeamStarWolf?style=flat-square)](https://github.com/TeamStarWolf/TeamStarWolf/commits/main)

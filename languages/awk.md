@@ -14,6 +14,55 @@ AWK is a text-processing language created by Alfred Aho, Peter Weinberger, and B
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Bash](/languages/bash.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain AWK code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,632 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing AWK code (typical uses: log and report processing, field extraction, text transformation in pipelines), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Bash](/languages/bash.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 AWK was written to make short text-processing programs easy, replacing one-off C programs for tasks such as counting, summing, and reformatting columns. The 1985 book "The AWK Programming Language" by its three authors defined the language, and a revised edition appeared in 2023. POSIX standardized AWK, and several implementations exist: the original "one true awk" maintained by Kernighan, the GNU `gawk` with many extensions, `mawk` tuned for speed, and `busybox awk` for small systems.
@@ -107,6 +156,28 @@ AWK has no concurrency model: it is a single-threaded, single-pass stream proces
 - String-versus-number coercion: a value can compare as a string or a number depending on how it was produced, so `"10" < "9"` (string) differs from `10 < 9` (number); force a type with `+0` or concatenation when it matters.
 - Uninitialized variables are silently empty or zero, so a typo in a variable name does not error, it just reads as blank.
 - Implementation differences: programs that rely on `gawk` extensions (such as `gensub`, networking, or `PROCINFO`) do not run under the original `awk` or `mawk`.
+
+## Security relevance
+
+AWK reaches practitioners as a text-processing stage in Unix pipelines: it is common in log analysis and incident response, and it appears in administrative and build scripts whose handling of untrusted fields can introduce injection. The defensive patterns are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Log and data processing. Analysts use AWK to extract and aggregate fields from logs during triage and detection engineering, and it pairs with `grep` and `sed` in the same pipelines. See the [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md).
+- Administrative and pipeline scripts. AWK stages inside shell scripts process data from logs, files, and network sources, so a stage that shells out on an untrusted field becomes an injection point.
+- Living-off-the-land use. Because `awk` is present on essentially every Unix-like host and needs no installation, it appears in post-exploitation one-liners alongside the shell. See the [Red Team Reference](/RED_TEAM_REFERENCE.md).
+
+### Dominant weakness classes
+
+AWK is interpreter-managed and memory-safe, so the memory-corruption classes do not apply; its risks come from reaching the shell and from treating untrusted text as code.
+
+- Operating-system command injection. `system(cmd)`, `print | "command"`, and `"command" | getline` run a shell command, so building that command from an untrusted field allows [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Code injection through program text. Assembling an AWK program from untrusted input and passing it to `awk` executes that input as logic, which maps to [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Input validation. Fields from logs or network data are untrusted until checked, so using a field as a file name or in a constructed command without validation maps to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+
+### Why it matters
+
+Reading an AWK stage tells an analyst whether a pipeline shells out on data it does not control and whether its program text is fixed or built from input, which are the two questions that decide if the stage is safe. The `gawk --lint` option flags some unsafe and nonportable constructs, and the practical control is to keep program text fixed and avoid `system` and command pipes built from input, as the Secure coding section details.
 
 ## Secure coding
 

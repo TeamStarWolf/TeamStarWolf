@@ -2,6 +2,55 @@
 
 Elasticsearch is a distributed search and analytics engine built on Apache Lucene. It stores JSON documents, indexes every field by default, and answers full-text and aggregation queries over a REST API. Clusters scale horizontally by splitting data into shards spread across nodes. It anchors the Elastic Stack, where it holds the data that Kibana visualizes.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Database administrators, developers and security engineers who run, query or assess Elasticsearch
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,211 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are modeling data or writing queries for Elasticsearch, you are administering or hardening a deployment, or you want a worked example to start from
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Data model and architecture](#data-model-and-architecture), [Security and hardening](#security-and-hardening), [A worked example](#a-worked-example)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [ClickHouse](/databases/clickhouse.md), [MongoDB](/databases/mongodb.md), [Redis](/databases/redis.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 Elasticsearch began as a search server and grew into a store for logs, metrics, traces, and security events. Teams use it for application search, log analytics, observability, and SIEM-style threat detection. Its strength is fast text relevance scoring combined with aggregations over large volumes.
@@ -97,6 +146,29 @@ POST /articles/_search
 ```
 
 The search returns the document with a relevance score in `_score`. The `tags` field, mapped as `keyword`, supports exact filtering and aggregation without analysis.
+
+## Security relevance
+
+This section is the threat-facing view of Elasticsearch: how the cluster appears to an attacker or auditor on the wire, and which weakness classes dominate its record. The controls that defend against them are in the "Security and hardening" section that follows.
+
+### Where it appears
+
+- The data tier for search, log analytics, observability, and SIEM data, reached through the REST API on port 9200 with the transport protocol on 9300, and often holding the most sensitive operational data a team keeps.
+- Fingerprinted by a `GET /` on 9200, which returns a version JSON document with the project tagline, and by the `_cat` APIs. `curl` and Nmap are enough to recognize and enumerate an open cluster.
+- Targeted by general tooling against 9200, Metasploit modules, and bulk `_search` dumps; Kibana and the audit log are the defensive and investigation tools written for it. The supply-chain surface is the Java runtime, Lucene, and installed plugins.
+
+### Dominant weakness classes
+
+Elasticsearch is a mature Java server hardened against memory corruption in normal use, so the practical risks are access control and query or script injection reaching the engine.
+
+- Missing authentication ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)) from clusters left open on 9200 with security disabled, the cause of the recurring waves of exposed and ransomed Elasticsearch data on the public internet.
+- NoSQL and data-query injection ([CWE-943](https://cwe.mitre.org/data/definitions/943.html)) when the Query DSL is built from untrusted input, letting an attacker change query logic.
+- Code injection ([CWE-94](https://cwe.mitre.org/data/definitions/94.html)) through dynamic scripting in `script` queries, a feature whose sandbox has historically been escaped to reach code execution.
+- Information exposure ([CWE-200](https://cwe.mitre.org/data/definitions/200.html)) when an unauthenticated or over-permissioned reader dumps whole indices.
+
+### Why it matters
+
+Recognizing the 9200 banner tells a practitioner what to try: whether security was ever enabled, whether indices can be dumped unauthenticated, and whether scripting is open. Each maps to a control the defender owns: set `xpack.security.enabled`, require TLS, scope roles and API keys per index, and keep the cluster off the public internet. See [the database security reference](/DATABASE_SECURITY_REFERENCE.md) for the engine-agnostic hardening checklist.
 
 ## Security and hardening
 

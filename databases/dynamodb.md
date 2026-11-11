@@ -2,6 +2,55 @@
 
 Amazon DynamoDB is a managed, serverless key-value and document database from AWS. It runs as a fully hosted service, so there are no servers, patches, or clusters to operate. It delivers single-digit millisecond reads and writes at any scale, with capacity that grows automatically. Access is controlled entirely through AWS Identity and Access Management (IAM).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Database administrators, developers and security engineers who run, query or assess Amazon DynamoDB
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,302 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are modeling data or writing queries for Amazon DynamoDB, you are administering or hardening a deployment, or you want a worked example to start from
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Data model and architecture](#data-model-and-architecture), [Security and hardening](#security-and-hardening), [A worked example](#a-worked-example)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [MongoDB](/databases/mongodb.md), [Redis](/databases/redis.md), [Apache Cassandra](/databases/cassandra.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 DynamoDB suits workloads with high request volume and predictable access patterns, such as session stores, shopping carts, user profiles, event tracking, and IoT telemetry. It is a common choice for serverless applications built on AWS Lambda because it scales the same way and bills per request.
@@ -77,6 +126,30 @@ aws dynamodb query \
 ```
 
 The `Query` reads only the items under partition `USER#42` whose sort key begins with `ORDER#2026`. It never scans the whole table, so latency and cost stay bounded regardless of table size.
+
+## Security relevance
+
+This section is the threat-facing view of DynamoDB: how a managed key-value service looks to an attacker or auditor, and which weakness classes dominate its record. The controls that defend against them are in the "Security and hardening" section that follows.
+
+### Where it appears
+
+- A managed AWS service with no network listener of its own: it is reached only through the AWS API over IAM, so the attack surface is the IAM policy, the application code, and any leaked AWS credentials.
+- Recognized by `dynamodb.<region>.amazonaws.com` endpoints in application config and traffic and by table ARNs; there is no port to scan.
+- Targeted through credential discovery rather than network exploits: leaked access keys that begin with `AKIA` drive `aws dynamodb scan`, and over-broad policies allow enumeration. The Pacu framework automates this class of AWS abuse once a key is in hand.
+- Audited with IAM Access Analyzer, CloudTrail data events, and the `aws dynamodb` CLI. The supply-chain surface is the AWS SDK and its dependencies.
+
+### Dominant weakness classes
+
+DynamoDB is a managed cloud service, so the practical risks are identity and access-management misconfiguration and credential exposure rather than memory corruption in the engine.
+
+- Missing authorization ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)) from a policy that allows `dynamodb:*` on `Resource: "*"`, letting a principal act on tables it should never touch.
+- Use of hardcoded credentials ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)) when AWS keys are committed to source or baked into images.
+- NoSQL and data-query injection ([CWE-943](https://cwe.mitre.org/data/definitions/943.html)) when PartiQL statements are built by concatenating untrusted input instead of using parameters.
+- Information exposure ([CWE-200](https://cwe.mitre.org/data/definitions/200.html)) through an unrestricted `Scan` that reads a whole table a principal was never meant to enumerate.
+
+### Why it matters
+
+Finding a DynamoDB endpoint and an `AKIA` key tells a practitioner the pivot to test: a leaked key plus a broad policy turns into a full-table `Scan` and exfiltration. Each maps to a control the defender owns: scope IAM actions and resources tightly, use condition keys such as `dynamodb:LeadingKeys`, keep keys out of source, and watch CloudTrail. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) alongside [the database security reference](/DATABASE_SECURITY_REFERENCE.md).
 
 ## Security and hardening
 

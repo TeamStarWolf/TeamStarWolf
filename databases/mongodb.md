@@ -2,6 +2,55 @@
 
 MongoDB is a document database that stores records as BSON, a binary form of JSON. Each record is a document, and documents live in collections that need no fixed schema. It is used for content stores, catalogs, user profiles, event data, and application backends that evolve their shape over time.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Database administrators, developers and security engineers who run, query or assess MongoDB
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,199 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are modeling data or writing queries for MongoDB, you are administering or hardening a deployment, or you want a worked example to start from
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Data model and architecture](#data-model-and-architecture), [Security and hardening](#security-and-hardening), [A worked example](#a-worked-example)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Redis](/databases/redis.md), [Apache Cassandra](/databases/cassandra.md), [Amazon DynamoDB](/databases/dynamodb.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 MongoDB keeps related data together in a single document instead of spreading it across normalized tables. An order document can hold the customer, the line items, and the shipping address in one place. This fits applications where a read returns one aggregate at a time.
@@ -100,6 +149,30 @@ db.products.aggregate([
 ```
 
 The update uses `$set` to change a field and `$push` to append to an array in one atomic operation on that document.
+
+## Security relevance
+
+This section is the threat-facing view of MongoDB: how the server appears to an attacker or auditor on the wire, and which weakness classes dominate its record. The controls that defend against them are in the "Security and hardening" section that follows.
+
+### Where it appears
+
+- The data tier behind application backends, catalogs, and profile and session stores, reached on port 27017 and increasingly through managed Atlas clusters.
+- Fingerprinted by the port and the wire protocol; an HTTP request to 27017 returns the notice that the port speaks the MongoDB protocol rather than HTTP. `mongosh` is the native client.
+- Targeted by NoSQLMap and Metasploit modules, operator-injection payloads such as `{ "$ne": null }`, and mass scanning that harvested the open instances behind the well-known waves of ransomed MongoDB databases on the public internet. The audit log and Atlas controls are the defensive side.
+- The supply-chain surface is the C++ server, the WiredTiger engine, and the per-language drivers.
+
+### Dominant weakness classes
+
+MongoDB is a mature C++ server hardened against memory corruption in normal use, so the practical risks are access control and query injection reaching the engine, not classic SQL injection.
+
+- Missing authentication ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)) from early releases that bound to all interfaces with authorization off, the cause of the mass exposure and ransoming of open MongoDB instances.
+- NoSQL and data-query injection ([CWE-943](https://cwe.mitre.org/data/definitions/943.html)) when untrusted input builds a filter object, so a body such as `{ "$ne": null }` bypasses an intended match.
+- Code injection ([CWE-94](https://cwe.mitre.org/data/definitions/94.html)) through the `$where` operator and `mapReduce`, which run server-side JavaScript.
+- Improper privilege management ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)) when application accounts hold `root` or broad cluster roles instead of a scoped role.
+
+### Why it matters
+
+Recognizing a 27017 listener tells a practitioner what to probe: whether authorization is on, whether operator injection bypasses a query, and whether server-side JavaScript is enabled. Each maps to a control the defender owns: set `security.authorization`, bind `net.bindIp` to known interfaces, cast and validate input, grant least-privilege roles, and disable `javascriptEnabled`. See [the database security reference](/DATABASE_SECURITY_REFERENCE.md) for the engine-agnostic hardening checklist.
 
 ## Security and hardening
 

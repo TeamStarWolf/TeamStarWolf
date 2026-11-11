@@ -4,6 +4,55 @@
 
 [All case studies](/case-studies/README.md) · Related: [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [CVE Reference](/CVE_REFERENCE.md), [The SharePoint ToolShell Mass Exploitation](/case-studies/SHAREPOINT_TOOLSHELL_2025.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Threat intelligence analysts, threat hunters, defenders of critical infrastructure and healthcare security teams
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 71 min (16,317 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need a sourced account of who governments and ATT&CK attribute to China, which sponsors and contractors the record names, what the joint advisories say these actors do, or the defender and vulnerability-management lessons in one place
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Executive summary](#executive-summary), [Part 4: the actors behind the headlines](#part-4-the-actors-behind-the-headlines), [Part 8: the defender view](#part-8-the-defender-view)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Executive summary
 
 When defenders, journalists and governments talk about "Chinese hackers", they are describing dozens of distinct clusters with different sponsors, different missions and very different evidence behind them. Some are military units named in a US indictment more than a decade ago. Some are Ministry of State Security bureaus working through front companies. Some are private contractors that sell stolen mailboxes by the inbox, and some are botnet operators whose customers are other hacking teams. This study pulls the public record on the main ones into one place: who the governments of the United States, the United Kingdom, Japan, the Czech Republic, Australia and their partners have named, on what date, with what confidence, and what the advisories say the actors actually did.

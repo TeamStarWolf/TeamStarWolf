@@ -14,6 +14,55 @@ PureScript is a statically typed, purely functional language with a type system 
 
 Related: [Elm](/languages/elm.md), [JavaScript](/languages/javascript.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain PureScript code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,488 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing PureScript code (typical uses: web front ends and full-stack applications targeting JavaScript), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Elm](/languages/elm.md), [JavaScript](/languages/javascript.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Phil Freeman created PureScript to bring a Haskell-like language to the JavaScript platform without a run-time of its own, compiling to readable JavaScript. It keeps features that Haskell programmers expect: type classes, higher-kinded types, and type-level programming, while using strict (eager) evaluation rather than Haskell's laziness, which maps more predictably onto JavaScript. Where Elm restricts interop and curates packages for safety, PureScript gives full access to JavaScript through a foreign function interface and a more open package ecosystem.
@@ -118,6 +167,29 @@ PureScript compiles to JavaScript and runs on the same just-in-time engines and 
 - Strict evaluation differs from Haskell, so Haskell code and idioms do not always transfer directly.
 - The ecosystem is smaller than JavaScript's, and package-set curation means a library must be in (or added to) the set to be used easily.
 - Compile times and the conceptual overhead of effect types are real costs to weigh against the type-safety benefits.
+
+## Security relevance
+
+PureScript reaches security practitioners as a web language: it compiles to JavaScript and runs in the browser with open interop, so the risks a reviewer cares about are the web and interop ones rather than anything the type system has already removed. The defensive patterns that counter each weakness below are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Web front ends. PureScript builds browser user interfaces, often with Halogen or the React bindings, so its output is client-side code that handles untrusted input and renders it. See the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Foreign interop. The foreign function interface wraps JavaScript libraries, so a PureScript application is also the JavaScript it imports, with the attack surface that comes with it. See [JavaScript](/languages/javascript.md).
+- Full-stack applications. Where PureScript runs on the server through a JavaScript runtime, the same interop and input-handling concerns extend to back-end code.
+
+### Dominant weakness classes
+
+PureScript is memory-safe: it inherits the host JavaScript engine's garbage collection and has no manual memory, so memory-corruption classes do not apply. Its purity and types remove more still, but the boundary with JavaScript reintroduces web risks:
+
+- Cross-site scripting. A string passed through the FFI into a DOM sink such as `innerHTML`, or raw-HTML insertion in a UI library, is [CWE-79](https://cwe.mitre.org/data/definitions/79.html).
+- Prototype pollution. Interop with JavaScript objects and untrusted data can reach the prototype chain, which is [CWE-1321](https://cwe.mitre.org/data/definitions/1321.html).
+- FFI type mismatches. A `foreign import` with an inaccurate type lets unchecked JavaScript masquerade as typed, pure code, and values that arrive as `null` or `undefined` defeat the absence guarantees the types imply, relating to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- Dependency supply chain. Package-set and registry dependencies, and the JavaScript libraries behind FFI bindings, carry the same risk as any npm dependency. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reviewing PureScript means auditing the FFI boundary, where typed, pure code meets untyped JavaScript and where escaping and validation have to be enforced by hand. The compiler's type checker catches a large class of errors before run time, and the emitted JavaScript and FFI files can be scanned with ESLint or semgrep, as the Secure coding section details.
 
 ## Secure coding
 

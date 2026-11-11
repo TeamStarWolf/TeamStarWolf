@@ -14,6 +14,55 @@ PowerShell is a command-line shell and scripting language from Microsoft, first 
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Windows Batch (cmd)](/languages/batch.md), [Bash](/languages/bash.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain PowerShell code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,439 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing PowerShell code (typical uses: Windows and cross-platform administration, automation, CI, cloud tooling), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Windows Batch (cmd)](/languages/batch.md), [Bash](/languages/bash.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 PowerShell grew out of a Microsoft design effort (the "Monad Manifesto", 2002) to give Windows a scripting environment on par with Unix shells, but based on objects instead of text. Windows PowerShell shipped in 2006 and became a standard part of Windows. In 2016 Microsoft open-sourced the project and rebuilt it on .NET Core, releasing the cross-platform PowerShell 6 in 2018; the current line continues as PowerShell 7.
@@ -126,6 +175,29 @@ For concurrency, PowerShell 7 offers `ForEach-Object -Parallel`, which runs scri
 - A single returned object and a collection are easy to confuse; wrap with `@( ... )` when you need an array regardless of count.
 - Comparison operators are words (`-eq`, `-lt`, `-match`), and `-eq` against an array filters it rather than returning a boolean; know which side is the collection.
 - Windows PowerShell 5.1 and PowerShell 7 differ in modules and behavior; test on the version you target.
+
+## Security relevance
+
+PowerShell reaches security practitioners in three ways: as the language of a large body of offensive tooling, as the main administration and automation surface on Windows that defenders monitor, and as the source of a recognizable set of weakness classes. The defensive patterns that counter each class are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Offensive tooling. Post-exploitation and reconnaissance frameworks including PowerSploit, PowerView, Empire, and Nishang are written in PowerShell, and credential-theft code such as Invoke-Mimikatz runs through it, so reading these tools and the scripts that drop them means reading PowerShell. See the [Red Team Reference](/RED_TEAM_REFERENCE.md) and the [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md).
+- Living off the land. Because PowerShell ships with Windows and reaches the whole .NET surface, attackers use it for fileless execution, download-and-run, and obfuscated one-liners that evade file-based detection, which is why defenders watch it closely. See the [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md).
+- Administration and defense. Fleet administration, Desired State Configuration, cloud tooling (the Az and AWS modules), and incident-response scripting are all PowerShell, so the same language carries both routine operations and the analyst's workload. See the [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md).
+
+### Dominant weakness classes
+
+PowerShell runs on the garbage-collected .NET runtime, so memory-corruption bugs are not the concern; execution control and injection are:
+
+- Code injection through `Invoke-Expression`. Passing assembled or untrusted strings to `iex` runs them as code, which is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Operating-system command injection. Building a single string for an external program rather than passing an argument array lets metacharacters be reinterpreted, mapping to [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Hardcoded credentials. Plaintext passwords, tokens, and keys in scripts and scheduled tasks are [CWE-798](https://cwe.mitre.org/data/definitions/798.html).
+- Weak trust boundaries. Execution policy is a convenience setting, not a security control, and is readily bypassed, so relying on it leaves scripts effectively unrestricted.
+
+### Why it matters
+
+Reading PowerShell lets an analyst deobfuscate a dropper, trace what a post-exploitation module actually does, and review automation for injected commands and embedded secrets. [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) statically flags `Invoke-Expression`, plaintext credentials, and other risky constructs, and script-block logging plus the Antimalware Scan Interface give defenders run-time visibility, as the Secure coding section details.
 
 ## Secure coding
 

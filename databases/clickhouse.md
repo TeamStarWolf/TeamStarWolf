@@ -2,6 +2,55 @@
 
 ClickHouse is a columnar database built for online analytical processing (OLAP). It stores data by column and reads only the columns a query needs, which makes aggregations over billions of rows fast. It uses a SQL dialect and scales from a single node to large distributed clusters. It fits analytics, observability, and reporting rather than high-rate single-row updates.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Database administrators, developers and security engineers who run, query or assess ClickHouse
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,222 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are modeling data or writing queries for ClickHouse, you are administering or hardening a deployment, or you want a worked example to start from
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Data model and architecture](#data-model-and-architecture), [Security and hardening](#security-and-hardening), [A worked example](#a-worked-example)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[SQL](/languages/sql.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [PostgreSQL](/databases/postgresql.md), [Snowflake](/databases/snowflake.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 ClickHouse answers analytical queries over large datasets: counts, sums, and group-by aggregations across wide tables. It powers dashboards, log and metrics stores, clickstream analysis, and time-series workloads. Reads scan many rows and few columns, which the column layout serves well.
@@ -124,6 +173,30 @@ FROM sales
 GROUP BY product
 ORDER BY revenue DESC;
 ```
+
+## Security relevance
+
+This section is the threat-facing view of ClickHouse: how the server appears to an attacker or auditor in the field, and which weakness classes dominate its record. The controls that defend against them are in the "Security and hardening" section that follows.
+
+### Where it appears
+
+- The analytics data tier for dashboards, logs, and clickstream data, reached through the HTTP interface on port 8123 and the native protocol on port 9000, often meant for an internal network but sometimes left internet-facing.
+- Fingerprinted by the HTTP interface, which answers `Ok.` at the root and emits `X-ClickHouse-*` response headers, and by the native port. The `default` user with no password is the first thing checked once reachable.
+- Targeted with ordinary web tooling (curl, Nmap) against 8123 rather than a dedicated framework; the `url()`, `s3()`, and `remote()` table functions are the server features an attacker reaches for after a foothold.
+- Audited through `system.query_log`, the session log, and the SQL-driven access control; the supply-chain surface is the C++ server and its bundled libraries.
+
+### Dominant weakness classes
+
+ClickHouse is a mature C++ server hardened against memory corruption in normal use, so the practical risks are access control, injection reaching the engine, and request-forging table functions.
+
+- Missing authentication ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)) from the passwordless `default` user on a port left open to the network.
+- SQL injection ([CWE-89](https://cwe.mitre.org/data/definitions/89.html)) when queries are built from untrusted input instead of server-side or driver-bound parameters.
+- Server-side request forgery ([CWE-918](https://cwe.mitre.org/data/definitions/918.html)) through the `url()` and `remote()` table functions, which can be steered to reach internal services from the database host.
+- Improper privilege management ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)) when a user holds broad grants or access to privileged `system` tables and file-reading functions.
+
+### Why it matters
+
+Spotting an 8123 or 9000 listener and the `Ok.` banner tells a practitioner which pivots to try: the passwordless default, SSRF through table functions, and config disclosure from `system` tables. Each maps to a control the defender owns: set `sha256_password` identities, remove the open `default` user, bind `listen_host` to internal interfaces, and constrain table functions. See [the database security reference](/DATABASE_SECURITY_REFERENCE.md) for the engine-agnostic hardening checklist.
 
 ## Security and hardening
 

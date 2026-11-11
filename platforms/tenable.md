@@ -2,6 +2,55 @@
 
 Tenable is an exposure management vendor whose products scan for vulnerabilities, misconfigurations, and exposures across endpoints, web applications, cloud, and identity. The portfolio centers on Tenable One, an exposure management platform that aggregates findings from the individual products. Licence tier and module entitlement decide which products and data sources are in force for a given account. This page describes the products at a general level and does not describe any specific organization's deployment.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads and analysts who run, tune or assess Tenable
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (1,035 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Tenable for vulnerability and exposure management, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Qualys](/platforms/qualys.md), [Rapid7 InsightVM](/platforms/rapid7-insightvm.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Tenable sits in the vulnerability management and exposure management part of a security program. It identifies weaknesses before an attacker can use them, then helps rank and track remediation. The products share a finding model built on plugins, so results from different scan types read consistently.

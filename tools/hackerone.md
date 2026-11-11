@@ -4,6 +4,55 @@
 
 HackerOne is the leading hacker-powered security platform, pairing the world's largest community of external security researchers with an AI layer (Hai) to find and fix vulnerabilities across the SDLC - including AI systems. Its products span bug bounty, vulnerability disclosure (Response/VDP), pentest-as-a-service, AI red teaming, and (from 2025) AI-native code security. It operationalizes crowdsourced and expert human testing with triage, dedup, routing and remediation workflow on one platform.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the application security teams who run HackerOne
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,684 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what HackerOne can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [Fuzzing & Vulnerability Research](/FUZZING_VULNERABILITY_RESEARCH.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities & architecture
 
 **Core capabilities**
@@ -99,33 +148,33 @@ curl -s -X POST -u $H1_USER:$H1_TOKEN 'https://api.hackerone.com/v1/reports/<id>
 
 _Official documentation & manuals_
 - [HackerOne Platform Documentation (Help Center)](https://docs.hackerone.com)
-- [HackerOne Help Center — Get Started](https://docs.hackerone.com/en/collections/6084098-get-started)
-- [Run a Program (customer/program-owner guidance) —  (Run a Program section)](https://docs.hackerone.com)
-- [Integrate Tools (third-party integrations incl. GitHub/Jira) —  (Integrate Tools section)](https://docs.hackerone.com)
+- [HackerOne Help Center: Get Started](https://docs.hackerone.com/en/collections/6084098-get-started)
+- [Run a Program (customer/program-owner guidance): (Run a Program section)](https://docs.hackerone.com)
+- [Integrate Tools (third-party integrations incl. GitHub/Jira): (Integrate Tools section)](https://docs.hackerone.com)
 
 _API & developer docs_
 - [HackerOne API documentation](https://api.hackerone.com)
 - [HackerOne API getting started](https://api.hackerone.com/getting-started/)
 - [HackerOne REST API reference (reports, programs, bounties, balances)](https://api.hackerone.com/customer-resources/)
-- [HackerOne GraphQL API (used by the official MCP server) — see](https://github.com/Hacker0x01/hackerone-graphql-mcp-server)
+- [HackerOne GraphQL API (used by the official MCP server): see](https://github.com/Hacker0x01/hackerone-graphql-mcp-server)
 
 _GitHub (official)_
-- [Hacker0x01 — HackerOne's verified official GitHub organization (~168 repos)](https://github.com/Hacker0x01)
-- [hacker101 — source for Hacker101.com free security class (~14.6k stars)](https://github.com/Hacker0x01/hacker101)
-- [hackerone-graphql-mcp-server — MCP server for the HackerOne GraphQL API](https://github.com/Hacker0x01/hackerone-graphql-mcp-server)
-- [react-datepicker — widely used React component maintained by HackerOne](https://github.com/Hacker0x01/react-datepicker)
+- [Hacker0x01: HackerOne's verified official GitHub organization (~168 repos)](https://github.com/Hacker0x01)
+- [hacker101: source for Hacker101.com free security class (~14.6k stars)](https://github.com/Hacker0x01/hacker101)
+- [hackerone-graphql-mcp-server: MCP server for the HackerOne GraphQL API](https://github.com/Hacker0x01/hackerone-graphql-mcp-server)
+- [react-datepicker: widely used React component maintained by HackerOne](https://github.com/Hacker0x01/react-datepicker)
 
 _Community / integration / detection repos_
-- [kryndex/hackerone-client — community Node client library (limited operations)](https://github.com/kryndex/hackerone-client)
-- [nu11pointer/hackerone-cli — unofficial CLI client over the official API](https://github.com/nu11pointer/hackerone-cli)
+- [kryndex/hackerone-client: community Node client library (limited operations)](https://github.com/kryndex/hackerone-client)
+- [nu11pointer/hackerone-cli: unofficial CLI client over the official API](https://github.com/nu11pointer/hackerone-cli)
 
 _Learning & reference_
-- [Hacker101 — free web & mobile security course](https://www.hacker101.com)
-- [Hacker101 CTF — hands-on capture-the-flag labs](https://ctf.hacker101.com)
+- [Hacker101: free web & mobile security course](https://www.hacker101.com)
+- [Hacker101 CTF: hands-on capture-the-flag labs](https://ctf.hacker101.com)
 - [HackerOne blog](https://www.hackerone.com/blog)
 - [Hacktivity (public disclosed reports)](https://hackerone.com/hacktivity)
 
-> Note: The official API lives at api.hackerone.com (NOT docs.hackerone.com); the docs.hackerone.com Help Center is the product/program documentation portal (12 sections incl. Get Started, Run a Program, Integrate Tools, Pentesting, AI) but has no standalone API section. Official GitHub org is 'Hacker0x01' (verified controlling hackerone.com) — note github.com/hackerone is an UNRELATED personal user account, not HackerOne. REST API uses HTTP Basic auth (API token identifier + token value); a newer GraphQL API also exists. hackerone-client / hackerone-cli are community, not official.
+> Note: The official API lives at api.hackerone.com (NOT docs.hackerone.com); the docs.hackerone.com Help Center is the product/program documentation portal (12 sections incl. Get Started, Run a Program, Integrate Tools, Pentesting, AI) but has no standalone API section. Official GitHub org is 'Hacker0x01' (verified controlling hackerone.com): note github.com/hackerone is an UNRELATED personal user account, not HackerOne. REST API uses HTTP Basic auth (API token identifier + token value); a newer GraphQL API also exists. hackerone-client / hackerone-cli are community, not official.
 
 ## Current state (2025-26)
 

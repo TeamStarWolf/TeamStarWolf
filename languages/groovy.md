@@ -14,6 +14,55 @@ Groovy is a dynamic language for the Java Virtual Machine, first released in 200
 
 Related: [Java](/languages/java.md), [Kotlin](/languages/kotlin.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Groovy code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,226 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Groovy code (typical uses: build scripts, test automation, domain-specific languages), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Java](/languages/java.md), [Kotlin](/languages/kotlin.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Groovy started in 2003 to bring dynamic-language features to the JVM while staying close to Java syntax, so most Java code is also valid Groovy. It reached 1.0 in 2007, moved to the Apache Software Foundation in 2015, and continues under the Apache Groovy project. Groovy source compiles to JVM bytecode and can call any Java library directly.
@@ -118,6 +167,29 @@ Dynamic dispatch has runtime cost, which Groovy reduces with call-site caching a
 - Runtime metaprogramming can make behavior hard to trace; document any added or intercepted methods.
 - Equality uses `==` for value comparison (unlike Java, where `==` is identity), which surprises Java developers.
 - The `@Grab` annotation fetches dependencies at run time, which is convenient for scripts but unsuitable for reproducible builds.
+
+## Security relevance
+
+Groovy reaches security practitioners mainly through build and CI/CD systems, where it is the scripting layer of Gradle and Jenkins, and as an embedded scripting surface in Java applications. This section is the threat-facing context; the defensive patterns that counter each class are in the Secure coding section that follows.
+
+### Where it appears
+
+- Build and CI/CD pipelines. [Gradle](https://gradle.org/) build files and [Jenkins](https://www.jenkins.io/) pipelines are Groovy, so pipeline logic and the credentials it handles are Groovy code, and a compromised script runs with build and deployment privileges. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+- Embedded scripting and domain-specific languages. Groovy is embedded in [Java](/languages/java.md) applications as a scripting surface, which becomes a remote-code-execution vector when the surface is exposed to untrusted input.
+- Test automation. Groovy drives test suites with frameworks such as Spock and runs on the JVM with direct access to any Java library. It has little use as standalone offensive tooling.
+
+### Dominant weakness classes
+
+Groovy is memory-safe (garbage-collected on the JVM), so the memory-corruption classes do not apply. The risks are code evaluation, deserialization, and injection, several of them reached through the JVM:
+
+- Dynamic code evaluation. `Eval`, `GroovyShell`, and `Binding` execute arbitrary Groovy from a string, so evaluating untrusted input runs attacker code, which maps to [CWE-95](https://cwe.mitre.org/data/definitions/95.html).
+- Insecure deserialization. JVM `ObjectInputStream` reconstructs arbitrary objects from untrusted data, which is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- SQL injection. Interpolating a GString into SQL rather than using `groovy.sql.Sql` placeholders maps to [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Command injection. Passing a shell string rather than an argument list to a process maps to [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+
+### Why it matters
+
+Reading Groovy lets an analyst audit Jenkins and Gradle scripts for exposed credentials and for unsandboxed evaluation of untrusted input, a recurring path to CI/CD compromise, and to check any embedded scripting surface for an open evaluation path. [CodeNarc](https://codenarc.org/) is the Groovy static analyzer and [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) scans dependencies, as the Secure coding section details.
 
 ## Secure coding
 

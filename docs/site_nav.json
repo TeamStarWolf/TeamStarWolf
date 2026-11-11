@@ -194,7 +194,8 @@
       "see_also": [
         ["Technique detection library", "/detections/TECHNIQUE_DETECTION_LIBRARY.md"],
         ["ATT&CK detection strategies", "/detections/strategies/README.md"],
-        ["Technique detail pages", "/techniques/README.md"]
+        ["Technique detail pages", "/techniques/README.md"],
+        ["Change Healthcare 2024: a case study", "/case-studies/CHANGE_HEALTHCARE_2024.md"]
       ]
     },
     {
@@ -215,7 +216,11 @@
         ["China-attributed threat actors: a case study", "/case-studies/THREAT_ACTORS_CHINA.md"],
         ["ATT&CK software", "/mitre/software/README.md"],
         ["ATT&CK campaigns", "/mitre/campaigns/README.md"],
-        ["SolarWinds and SUNBURST: a 2019 to 2021 case study", "/case-studies/SOLARWINDS_SUNBURST.md"]
+        ["SolarWinds and SUNBURST: a 2019 to 2021 case study", "/case-studies/SOLARWINDS_SUNBURST.md"],
+        ["APT41: the public record", "/case-studies/APT41_PUBLIC_RECORD.md"],
+        ["The year 2020 in intrusions: a case study", "/case-studies/CHRONICLE_2020.md"],
+        ["Exchange Marauder 2021: a case study", "/case-studies/EXCHANGE_MARAUDER_2021.md"],
+        ["The year 2019 in intrusions: a dated record", "/case-studies/CHRONICLE_2019.md"]
       ]
     },
     {
@@ -256,7 +261,8 @@
       "pages": ["/commands/networking-commands.md", "/commands/nmap.md", "/commands/tshark.md", "/commands/ssh.md", "/platforms/fortinet.md", "/platforms/palo-alto-networks.md", "/platforms/check-point.md", "/platforms/cisco-ise.md", "/platforms/zscaler.md", "/platforms/cloudflare.md"],
       "see_also": [
         ["Network defense", "/NETWORK_DEFENSE_REFERENCE.md"],
-        ["Network forensics", "/NETWORK_FORENSICS_REFERENCE.md"]
+        ["Network forensics", "/NETWORK_FORENSICS_REFERENCE.md"],
+        ["ProFTPD mod_copy (CVE-2015-3306): a lab case study", "/case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md"]
       ]
     },
     {
@@ -314,6 +320,7 @@
         ["Web application pentesting", "/WEB_APPLICATION_PENTESTING.md"],
         ["CAPEC attack patterns", "/mitre/capec/README.md"],
         ["Log4Shell: a case study", "/case-studies/LOG4SHELL.md"],
+        ["Ghostcat (CVE-2020-1938): a lab case study", "/case-studies/GHOSTCAT_CVE_2020_1938.md"],
         ["npm supply-chain attacks: a case study", "/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md"],
         ["Hugging Face supply chain: a case study", "/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md"]
       ]

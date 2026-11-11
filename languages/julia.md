@@ -14,6 +14,55 @@ Julia is a dynamically typed, garbage-collected language for technical and numer
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [R](/languages/r.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Julia code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,379 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Julia code (typical uses: scientific computing, numerical modeling, machine learning, optimization), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [R](/languages/r.md), [MATLAB](/languages/matlab.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Julia was announced in 2012 with a stated goal of combining the convenience of a dynamic language with the speed of a compiled one, so that numerical code would not need to be prototyped in one language and rewritten in another. Version 1.0 arrived in 2018 and stabilized the language and standard library, and releases since then follow semantic versioning with a commitment to source compatibility within the 1.x line.
@@ -127,6 +176,29 @@ Type instability is the usual performance problem: profile with `@code_warntype`
 - Arrays are column-major, so iterating rows in the inner loop thrashes the cache; iterate down columns.
 - `1:n` is a range object, not an allocated array; `collect` it only when you truly need the materialized vector.
 - Integer overflow is silent for the machine integer types; use `BigInt` or check ranges when values can grow.
+
+## Security relevance
+
+Julia runs in research and data pipelines that read external files and sometimes call the shell, so its security relevance is the handful of places a program can execute input or reach the host. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Scientific and data work. Numerical modeling, machine learning, optimization, and data analysis run in notebooks, scripts, and cluster jobs that ingest external data files.
+- Host and foreign-code access. Julia builds and runs shell commands and calls into C and Python, so it reaches the host and the native libraries it wraps.
+- Julia has no notable offensive or defensive tooling written in it; its security interest is in the data-ingestion and execute paths below.
+
+### Dominant weakness classes
+
+Julia is memory-safe (garbage-collected), so memory-corruption risk lives in the native and C libraries it calls rather than in Julia code. The main risks are injection and untrusted data:
+
+- Code injection through `eval` and `Meta.parse` on untrusted strings. This is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Operating-system command injection, although Julia's backtick command objects interpolate values as separate words and reduce it. This is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Insecure deserialization through the `Serialization` standard library, which can execute code on load. This is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- Improper validation of untrusted data files before computing on them. This is [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+
+### Why it matters
+
+Auditing Julia concentrates on the few `eval` and command sinks and on validating the shape and range of parsed data in a pipeline. [JET.jl](https://github.com/aviatesk/JET.jl) performs static analysis and reports type errors and related issues before run time, though it is correctness-focused rather than security-specific, so review of the execute and deserialization paths is done by hand, as the Secure coding section describes.
 
 ## Secure coding
 

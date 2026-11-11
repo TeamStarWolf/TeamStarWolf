@@ -2,6 +2,55 @@
 
 Jetpack Compose is Android's declarative UI toolkit from Google, written in `kotlin`. UI is expressed as composable functions that describe the screen from the current state. Compose Multiplatform extends the same model to desktop, iOS, and web. Teams use it to replace XML layouts with typed `kotlin` code and less boilerplate.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who build with Jetpack Compose, and the reviewers and application security engineers who assess what they build
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,227 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or reviewing a Jetpack Compose application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture](#architecture), [Security model and common vulnerabilities](#security-model-and-common-vulnerabilities), [Common pitfalls](#common-pitfalls)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Kotlin](/languages/kotlin.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Flutter](/frameworks/flutter.md), [SwiftUI](/frameworks/swiftui.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Compose reached a stable 1.0 release in 2021 as the modern way to build Android UI. It uses `kotlin` and its compiler plugin to turn composable functions into UI updates. Earlier Android UI used XML layouts with imperative view code.
@@ -49,6 +98,30 @@ fun Counter() {
 Android Studio provides Compose previews, a layout inspector, and live edit. Gradle builds the app and applies the Compose compiler plugin. The AndroidX libraries supply navigation, lifecycle, and Material components.
 
 Material 3 ships ready-made components and theming. Testing uses the Compose test rule to find and assert on nodes by semantics. The Compose compiler reports on recomposition stability to help tune performance.
+
+## Security relevance
+
+This section is the threat-facing view of Jetpack Compose: how it appears to an attacker or an auditor in the field, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Compiled Android apps, where the shipped APK or App Bundle is the attack surface. A Compose build is recognizable from the `androidx.compose` runtime and Material packages visible once the app is decompiled.
+- Reverse engineering drives the offensive work: jadx and apktool unpack and decompile the app, Frida and objection instrument it at runtime, and MobSF performs static analysis.
+- Defensive and audit work follows the OWASP Mobile Application Security project, with MobSF and the MASTG test procedures run against the extracted build, and Android lint on the source.
+- The dependency surface is Gradle resolving Maven artifacts, including AndroidX and third-party AARs. A compromised library is compiled in with the full permissions of the app, the pattern covered in [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+Jetpack Compose runs on [Kotlin](/languages/kotlin.md) on the Android runtime, a memory-managed platform, so the dominant classes are storage, component-exposure, and transport flaws rather than memory corruption. The fixes for each are detailed in the section below.
+
+- Cleartext storage of sensitive information ([CWE-312](https://cwe.mitre.org/data/definitions/312.html)), when tokens are written to plain `SharedPreferences` rather than an encrypted store backed by the Android Keystore.
+- Improper export of Android application components ([CWE-926](https://cwe.mitre.org/data/definitions/926.html)), where an activity, service, receiver, or provider left exported is reachable and triggerable by other apps on the device.
+- Improper certificate validation ([CWE-295](https://cwe.mitre.org/data/definitions/295.html)), typically a `TrustManager` that accepts every certificate and defeats transport security.
+- Cross-site scripting in a `WebView` ([CWE-79](https://cwe.mitre.org/data/definitions/79.html)), where enabling JavaScript or `addJavascriptInterface` for untrusted content exposes an injection path into native methods.
+
+### Why it matters
+
+Private per-app storage is isolation, not encryption, so recognizing a Compose app tells an auditor to unpack it and look for plaintext secrets, exported components reachable by other apps, and disabled certificate checks rather than server-side bugs. jadx, Frida, and MobSF are the mobile tools to pair with the review, and the component manifest shows the local attack surface at a glance. See [the mobile security reference](/MOBILE_SECURITY_REFERENCE.md) for the cross-cutting method.
 
 ## Security model and common vulnerabilities
 

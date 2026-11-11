@@ -4,6 +4,55 @@
 
 Invicti is the umbrella brand uniting two pioneering DAST scanners - Netsparker (rebranded Invicti in 2022) and Acunetix - plus the Kondukto ASPM engine acquired in 2025. Its signature is proof-based scanning: when it finds a likely vulnerability it safely auto-exploits it to confirm the finding is real, cutting false positives. In 2025 it broadened from pure web-app scanning into a unified application security platform spanning DAST, SAST, IAST, SCA, API security, container and secrets scanning, and ASPM.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the application security engineers who run Invicti
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 8 min (1,725 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what Invicti can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md), [Application Security Testing](/APPSEC_TESTING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Snyk](/tools/snyk.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities & architecture
 
 **Core capabilities**
@@ -107,17 +156,17 @@ _Official documentation & manuals_
 - [Invicti Support / Help Center](https://www.invicti.com/support)
 
 _API & developer docs_
-- [Invicti Platform API — getting started](https://docs.invicti.com/ip/category/platform-api)
+- [Invicti Platform API: getting started](https://docs.invicti.com/ip/category/platform-api)
 - [Get your Invicti Platform API key](https://docs.invicti.com/ip/s1-get-your-api-key)
 - [Access API documentation (Swagger UI from user settings)](https://docs.invicti.com/ip/access-api-documentation)
-- [Acunetix API usage articles —  (examples; no formal standalone REST reference published)](https://www.acunetix.com/blog/)
+- [Acunetix API usage articles: (examples; no formal standalone REST reference published)](https://www.acunetix.com/blog/)
 
 _GitHub (official)_
 - [Invicti Security GitHub organization](https://github.com/Invicti-Security)
-- [brainstorm — LLM-assisted web fuzzing (ffuf wrapper)](https://github.com/Invicti-Security/brainstorm)
-- [netsparker-custom-security-checks — custom checks for Netsparker/Invicti](https://github.com/Invicti-Security/netsparker-custom-security-checks)
-- [netsparker-cloud-scan-plugin — Jenkins plugin to trigger Enterprise scans](https://github.com/Invicti-Security/netsparker-cloud-scan-plugin)
-- [invicti-platform-onprem-tools — on-prem deployment tooling](https://github.com/Invicti-Security/invicti-platform-onprem-tools)
+- [brainstorm: LLM-assisted web fuzzing (ffuf wrapper)](https://github.com/Invicti-Security/brainstorm)
+- [netsparker-custom-security-checks: custom checks for Netsparker/Invicti](https://github.com/Invicti-Security/netsparker-custom-security-checks)
+- [netsparker-cloud-scan-plugin: Jenkins plugin to trigger Enterprise scans](https://github.com/Invicti-Security/netsparker-cloud-scan-plugin)
+- [invicti-platform-onprem-tools: on-prem deployment tooling](https://github.com/Invicti-Security/invicti-platform-onprem-tools)
 
 _Community / integration / detection repos_
 - Acunetix/Invicti CI integrations are mostly first-party (Jenkins, Azure DevOps, GitHub) under the Invicti-Security org; few notable independent community repos exist for this commercial DAST.

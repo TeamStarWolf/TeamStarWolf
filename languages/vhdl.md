@@ -14,6 +14,55 @@ VHDL (VHSIC Hardware Description Language) is a strongly typed language for desc
 
 Related: [Verilog](/languages/verilog.md), [SystemVerilog](/languages/systemverilog.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain VHDL code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,641 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing VHDL code (typical uses: FPGA and ASIC design, digital logic modeling, hardware verification), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Verilog](/languages/verilog.md), [SystemVerilog](/languages/systemverilog.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 VHDL began as a documentation and simulation language for the Very High Speed Integrated Circuit (VHSIC) program, so that hardware behavior could be described in a vendor-neutral, machine-readable form. The IEEE published the first standard as IEEE 1076-1987, with later revisions in 1993, 2002, 2008, and 2019 that added features such as the `std_logic` nine-value logic system (via IEEE 1164), fixed- and floating-point packages, and interface improvements. The language is defined by the IEEE 1076 Language Reference Manual.
@@ -131,6 +180,29 @@ A key discipline is that simulation and synthesis can disagree. Code that simula
 - Mixing `std_logic_vector` with arithmetic without `numeric_std` conversions produces type errors or, with legacy packages, ambiguous results.
 - Initial values on signals are honored in simulation but are not a reset in real hardware for many device families; use an explicit reset.
 - Metavalues (`'U'`, `'X'`, `'Z'`) propagate; treating them as `'0'` hides real problems.
+
+## Security relevance
+
+VHDL reaches security work as the source of digital hardware, so reviewing it is a hardware-assurance activity: the questions are about the trust and correctness of a circuit, not the runtime behavior of a program. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Chip and FPGA designs under review. VHDL describes the register-transfer logic of processors, system-on-chip blocks, and FPGA designs, often in defense, aerospace, and industrial systems where it has a long history, so hardware security review reads VHDL. See the [Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md) and the [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md).
+- Hardware verification. Strongly typed testbenches and assertions confirm behavior before synthesis, and the synthesizable-versus-simulation boundary is where unverified logic can slip through.
+- Third-party IP and the toolchain. IP cores, vendor macros, and synthesis tools become part of the shipped device and form a supply chain that source review cannot fully inspect. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+VHDL describes hardware rather than a program, so there is no heap and the software memory-corruption classes do not apply; the strong type system also removes many accidental width and sign errors. The weaknesses that remain are hardware design and trust concerns:
+
+- Hardcoded secrets in register-transfer logic. Keys or device credentials written into source are fixed in silicon and extractable, which is [CWE-798](https://cwe.mitre.org/data/definitions/798.html).
+- Debug and test access left enabled. JTAG, scan chains, and debug ports active in production expose internal state and can bypass controls. See the [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md).
+- Simulation-versus-synthesis mismatch. Latch inference, incomplete sensitivity lists, or non-synthesizable constructs can synthesize a circuit that was never actually verified.
+- Hardware trojans. Malicious logic in third-party blocks or introduced by the toolchain survives source review, so provenance and independent simulation matter.
+
+### Why it matters
+
+Reading VHDL lets a hardware reviewer confirm that a design has no undocumented debug path, hidden logic, or embedded key before it is committed to silicon. The first-line tools are a style linter such as VSG (VHDL Style Guide) and the synthesis tool's latch and multi-driver warnings, with formal equivalence checking between source and netlist for high-assurance parts.
 
 ## Secure coding
 

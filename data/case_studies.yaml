@@ -462,6 +462,30 @@ studies:
       - {"date": "2021-08-21", "label": "CISA urgent alert on active ProxyShell exploitation"}
       - {"date": "2021-11-03", "label": "KEV launches with the seven ProxyLogon and ProxyShell CVEs"}
       - {"date": "2025-07-03", "label": "Xu Zewei arrested in Milan"}
+  case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md:
+    kind: "era"
+    title: "Five Hacks and Why They Worked: The Cases in Fancy Bear Goes Phishing"
+    start: "1988-11"
+    end: "2018-09"
+    sectors: ["education", "government", "telecommunications", "technology"]
+    cves: ["CVE-1999-0095"]
+    actors: ["G0007", "G0016"]
+    tags: ["Morris worm", "Dark Avenger", "DNC", "Fancy Bear", "Mirai", "default credentials", "book"]
+    pdf: "Fancy_Bear_Goes_Phishing_Cases_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "1988-11-02", "label": "The Morris worm is released from an MIT computer at about 8:30 p.m. and spreads through sendmail, fingerd, trusted hosts and guessed passwords"}
+      - {"date": "1989-03", "label": "The Dark Avenger releases his first virus from Sofia, begun in September 1988"}
+      - {"date": "1990-05-04", "label": "Morris sentenced to three years probation, 400 hours of community service and a $10,050 fine"}
+      - {"date": "1992", "label": "The Dark Avenger's Mutation Engine (MtE) lets any virus mutate through one subroutine"}
+      - {"date": "2005-09-08", "label": "A Massachusetts juvenile is sentenced to 11 months for intrusions into an ISP, a telephone provider and an identity-data company"}
+      - {"date": "2016-03-19", "label": "GRU Unit 26165 phishes the Clinton campaign chairman with a spoofed Google notice; over 50,000 emails taken"}
+      - {"date": "2016-06-14", "label": "The DNC announces the Russian intrusion; CrowdStrike names two actors, APT29 and APT28"}
+      - {"date": "2016-07-22", "label": "Over 20,000 DNC emails and documents released, about three days before the convention"}
+      - {"date": "2016-09-20", "label": "Mirai hits Krebs on Security with a 623 Gbps attack"}
+      - {"date": "2016-10-21", "label": "The Dyn attack, which the USENIX paper attributes to Mirai cluster 6, not the original cluster 1"}
+      - {"date": "2017-12-05", "label": "Informations and plea agreements against three Mirai and clickfraud defendants filed in Alaska"}
+      - {"date": "2018-07-13", "label": "Twelve GRU officers indicted in the District of Columbia over the 2016 intrusions and leaks"}
   case-studies/GHOSTCAT_CVE_2020_1938.md:
     kind: "vulnerability"
     title: "Ghostcat, CVE-2020-1938: The Tomcat AJP File Read in the Lab"

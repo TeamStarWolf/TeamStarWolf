@@ -57,6 +57,7 @@ Time and difficulty are quoted in full from each guide's header table.
 - [United States-attributed threat actors: a case study](/case-studies/THREAT_ACTORS_UNITED_STATES.md)
 - [Iran-attributed threat actors: a case study](/case-studies/THREAT_ACTORS_IRAN.md)
 - [North Korea-attributed threat actors: a case study](/case-studies/THREAT_ACTORS_NORTH_KOREA.md)
+- [Five hacks and why they worked: the cases in Fancy Bear Goes Phishing](/case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md)
 - [The year 2021 in intrusions: a dated record](/case-studies/CHRONICLE_2021.md)
 
 <!-- hub:end -->

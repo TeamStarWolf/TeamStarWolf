@@ -34,6 +34,7 @@ Analyzing the reputation of a URL.
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [Five Hacks and Why They Worked: The Cases in Fancy Bear Goes Phishing](/case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md)
 - [Iran-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_IRAN.md)
 
 <!-- library-refs:end -->

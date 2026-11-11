@@ -49,6 +49,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 23 October 2026: CISA adds the CVE to KEV with forensic triage, due 26 October; 26.4.502 released
   - 30 October 2026: A user reports the attack works on a disabled, not-updated app; Collabora points to the advisory
   - 4 November 2026: TeamStarWolf lab run: 26.4.302 flagged vulnerable, 26.4.303 fixed, fix read in proxy.php
+- [PHP 8.4.27, CVE-2026-109618 and CVE-2026-109619: Two Fixes Verified in the Lab](/case-studies/PHP_8_4_27_CVES.md). Vulnerability, July to November 2026. Sectors: technology. CVEs: CVE-2015-3306, CVE-2020-1938, CVE-2021-44228, CVE-2026-48356, CVE-2026-98432, CVE-2026-109618 and 3 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/PHP_8_4_27_CVEs_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/PHP_8_4_27_CVEs_Case_Study.pptx).
+  - 30 July 2026: Calif begins its audit of PHP
+  - 11 August 2026: Calif reports unconditional remote code execution to PHP
+  - 24 August 2026: Wiz reports to PHP
+  - 12 October 2026: The PHP CNA reserves CVE-2026-109618 and CVE-2026-109619
+  - 17 October 2026: Amazon sees a php2shell attempt against its MadPot sensors (Reported)
+  - 20 October 2026: The CVE ids leak with a wrong 10.0 score; the release moves forward a day
+  - 21 October 2026: PHP 8.2.35, 8.3.36, 8.4.27 and 8.5.12 released; advisories, CVE records and the CISA alert published
+  - 23 October 2026: php.net advisory for follow-on CVE-2026-115560; CISA adds a SIGMA rule
+  - 26 October 2026: CISA adds both CVEs to KEV, due 29 October; php.net Windows rebuilds
+  - 31 October 2026: The fixed php:8.4.27-apache Docker tag is last pushed
+  - 2 November 2026: NVD last modifies both records
+  - 4 November 2026: TeamStarWolf lab run: 8.4.26 and 8.4.27 told apart; both interim workarounds take effect
 - [Magento and Adobe Commerce, CVE-2026-48356: Lab-Verified Exposure and Fix](/case-studies/MAGENTO_CVE_2026_48356.md). Vulnerability, March to November 2026. Sectors: retail, technology. CVEs: CVE-2015-3306, CVE-2020-1938, CVE-2026-48356, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Magento_CVE_2026_48356_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Magento_CVE_2026_48356_Case_Study.pptx).
   - 17 March 2026: Sansec publishes the PolyShell advisory
   - 19 March 2026: First attacks in the wild, per Sansec (Reported)

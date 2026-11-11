@@ -282,7 +282,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2011 <!-- {docsify-ignore} -->
 
-- [Iran-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_IRAN.md). Threat actor, 2011 to October 2026. Sectors: government, finance, energy, healthcare, education, defense, telecommunications, technology. CVEs: CVE-2017-11882, CVE-2018-13379, CVE-2019-0604, CVE-2019-5591, CVE-2019-11510, CVE-2019-11539 and 19 more. ATT&CK groups: G0003 Cleaver, G0043 Group5, G0049 OilRig, G0052 CopyKittens, G0059 Magic Hound, G0064 APT33 and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_Iran_Case_Study.pdf).
+- [Iran-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_IRAN.md). Threat actor, 2011 to October 2026. Sectors: government, finance, energy, healthcare, education, defense, telecommunications, technology. CVEs: CVE-2017-11882, CVE-2018-13379, CVE-2019-0604, CVE-2019-5591, CVE-2019-11510, CVE-2019-11539 and 19 more. ATT&CK groups: G0003 Cleaver, G0043 Group5, G0049 OilRig, G0052 CopyKittens, G0059 Magic Hound, G0064 APT33 and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_Iran_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Threat_Actors_Iran_Case_Study.pptx).
   - 2011: Coordinated DDoS attacks on the US financial sector begin (2011 to 2013), later charged against ITSecTeam and Mersad staff
   - 2012: Shamoon wiper first used, by a group calling itself Cutting Sword of Justice
   - 23 March 2018: Nine Mabna Institute members announced as indicted; Treasury sanctions the Institute the same day
@@ -359,7 +359,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2001 <!-- {docsify-ignore} -->
 
-- [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md). Threat actor, 2001 to October 2025. Sectors: government, telecommunications, energy, finance, technology, healthcare. CVEs: CVE-2010-2568, CVE-2010-2729, CVE-2012-1723, CVE-2012-4681, CVE-2013-3918, CVE-2014-4148 and 12 more. ATT&CK groups: G0020 Equation. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_United_States_Case_Study.pdf).
+- [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md). Threat actor, 2001 to October 2025. Sectors: government, telecommunications, energy, finance, technology, healthcare. CVEs: CVE-2010-2568, CVE-2010-2729, CVE-2012-1723, CVE-2012-4681, CVE-2013-3918, CVE-2014-4148 and 12 more. ATT&CK groups: G0020 Equation. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_United_States_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Threat_Actors_United_States_Case_Study.pptx).
   - 2003: Earliest Regin sample timestamps
   - 2010: Stuxnet discovered
   - 14 October 2011: CrySyS publishes its Duqu analysis

@@ -1035,7 +1035,7 @@ studies:
       - "G1059"
     tags: ["Iran", "IRGC", "MOIS", "CyberAv3ngers", "MuddyWater", "Pioneer Kitten", "wipers", "PLCs"]
     pdf: "Threat_Actors_Iran_Case_Study.pdf"
-    pptx: null
+    pptx: "Threat_Actors_Iran_Case_Study.pptx"
     events:
       - {"date": "2011", "label": "Coordinated DDoS attacks on the US financial sector begin (2011 to 2013), later charged against ITSecTeam and Mersad staff"}
       - {"date": "2012", "label": "Shamoon wiper first used, by a group calling itself Cutting Sword of Justice"}
@@ -1224,7 +1224,7 @@ studies:
       - "G0020"
     tags: ["United States", "Equation", "Regin", "Shadow Brokers", "Vault 7", "EternalBlue"]
     pdf: "Threat_Actors_United_States_Case_Study.pdf"
-    pptx: null
+    pptx: "Threat_Actors_United_States_Case_Study.pptx"
     events:
       - {"date": "2003", "label": "Earliest Regin sample timestamps"}
       - {"date": "2010", "label": "Stuxnet discovered"}

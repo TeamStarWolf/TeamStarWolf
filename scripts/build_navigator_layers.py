@@ -496,7 +496,10 @@ CATALOG = [
        "[2020 chronicle case study](/case-studies/CHRONICLE_2020.md)"),
       ("case-studies/sandworm-operations-ics.json", "Sandworm Operations (ICS)",
        "The 49 ATT&CK for ICS techniques bound to dated Sandworm Team (G0034) events from the 2015, 2016 and 2022 Ukrainian grid attacks, NotPetya, Bad Rabbit and VPNFilter, from the "
-       "[Sandworm case study](/case-studies/SANDWORM_OPERATIONS.md)")]),
+       "[Sandworm case study](/case-studies/SANDWORM_OPERATIONS.md)"),
+      ("case-studies/threat-actors-iran-ics.json", "Iran-Attributed Threat Actors (ICS)",
+       "The 24 ATT&CK for ICS techniques ATT&CK v20.0 links to CyberAv3ngers (G1027), OilRig (G0049) and APT33 (G0064), from the "
+       "[Iran-attributed threat actors case study](/case-studies/THREAT_ACTORS_IRAN.md)")]),
 ]
 
 

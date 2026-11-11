@@ -1,0 +1,628 @@
+{
+  "name": "TeamStarWolf - Cyber Operations as Statecraft: The Hacker and the State Cases",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK v20.0 mapping of the state operations of 2006 to 2018 examined in case-studies/HACKER_AND_THE_STATE_CASES.md: OPM, APT1, Belgacom and Regin, Sony Pictures, Shamoon, the 2016 US election, Bangladesh Bank, WannaCry and the 2017 French campaign. Revoked T1070.001 is shown under its v20.0 successor T1685.005 per data/attack/superseded_by.jsonl. Each technique is shown under all its tactics. Scores: 100 a government, court or vendor primary describes the behavior; 60 ATT&CK records it for the group or software but not for the dated event; 40 Reported only (journalism); 30 an Inferred mapping.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "OPM, Jun 2014: RDP session to background-investigation servers [3]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "OPM, 2014: contractor credential, then domain administrator credentials [2]; Shamoon 2, Nov 2016: stolen admin credentials hard-coded [19]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "OPM, 2014: contractor credential, then domain administrator credentials [2]; Shamoon 2, Nov 2016: stolen admin credentials hard-coded [19]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "OPM, 2014: contractor credential, then domain administrator credentials [2]; Shamoon 2, Nov 2016: stolen admin credentials hard-coded [19]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "OPM, 2014: contractor credential, then domain administrator credentials [2]; Shamoon 2, Nov 2016: stolen admin credentials hard-coded [19]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "OPM: opmsecurity.org registered Apr 2014 [3]; 2016 election: actblues.com and DCLeaks.com [32] [31]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "APT1, 2006 to 2013: ZIP attachments [5]; French campaign, 3 Apr to 3 May 2017: seven spearphishing campaigns [28]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "APT1, 2006 to 2013: linked ZIP files [5]; Sony, 25 Sep 2014: 1drv.ms link [14]; 2016 election, APT29 summer 2015: spearphishing link campaign [46]; Bangladesh Bank, from 29 Jan 2015: Resume.zip link [14]; French campaign: link variant of the split, Inferred [28]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "APT1: WEBC2 commands read from web pages [5]; Regin platform: HTTP/HTTPS C2 [11]; Shamoon 2: HTTP C2 with the shinu parameter [19]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "APT1: lslsass, mimikatz [5]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1003.002",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "APT1: gsecdump, pwdump7, fgdump [5]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1003.004",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "APT1: gsecdump LSA secrets [5]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1003.005",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "APT1: cachedump [5]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1550.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "APT1: pass-the-hash toolkit [5]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1560",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "APT1: compressed archives [5]; 2016 election: documents compressed with a public tool [32]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "APT1: archives deleted after theft [5]; 2016 election: CCleaner, AMS panel logs deleted [32]; Bangladesh Bank: NESTEGG dropper securely erased [14]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1114",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "APT1: GETMAIL, MAPIGET [5]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "APT1: HTRAN hop points [5]; TA14-353A (19 Dec 2014, Sony not named): proxy tool on TCP 443 [13]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "Belgacom, 2010 to 2011: Quantum Insert to a fake LinkedIn page, Reported [9]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "Belgacom: malware disguised as Microsoft software, Reported [10]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1074",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "Belgacom: encrypted compressed containers, Reported [10]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1564.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Regin platform: stages in NTFS Extended Attributes [11]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Regin platform: stages in the registry [11]; Shamoon 2: LocalAccountTokenFilterPolicy [19]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Regin platform: stages in the registry [11]; Shamoon 2: LocalAccountTokenFilterPolicy [19]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1564.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Regin platform: encrypted virtual file systems [11]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Regin platform: Windows admin shares [11]; TA14-353A (19 Dec 2014, Sony not named): admin$ and shared$ shares [13]; Shamoon 2: NetUseAdd with stolen credentials [19]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1095",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Regin platform: ICMP raw-socket C2 [11]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1090.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Regin platform: internal relay drones [11]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1595",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Sony, 22 Sep 2014: DPRK IP scanned an SPE web server [14]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1585.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Sony: bluehotrain@hotmail.com and Frank David accounts [14]; French campaign, 21 Apr 2017: account mimicking the press secretary [28]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1585.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Sony: fake Facebook personas, Sep 2014 [14]; 2016 election: fictitious Facebook and Twitter accounts, Guccifer 2.0 [31]; French campaign, 12 to 26 Apr 2017: GRU social media account [28]; IRA personas, Inferred [34]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 30,
+      "comment": "Sony: Adobe Flash-named executable; user execution is the affiant's assessment [14]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1110.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "TA14-353A (19 Dec 2014, Sony not named): SMB worm brute-forces passwords [13]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "TA14-353A (19 Dec 2014, Sony not named): WMIC remote start [13]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1070.006",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "TA14-353A (19 Dec 2014, Sony not named): timestamp matched to calc.exe [13]; Shamoon (ATT&CK S0140) [21]; APT38 (ATT&CK G0082) [23]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "TA14-353A (19 Dec 2014, Sony not named): WinsSchMgmt service [13]; Shamoon 2: ntssrv service [19]; Bangladesh Bank: NESTEGG installed as a service [14]; WannaCry: mssecsvc2.0 service [38]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "TA14-353A (19 Dec 2014, Sony not named): WinsSchMgmt service [13]; Shamoon 2: ntssrv service [19]; Bangladesh Bank: NESTEGG installed as a service [14]; WannaCry: mssecsvc2.0 service [38]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1571",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "TA14-353A (19 Dec 2014, Sony not named): C2 on 8080/8000, implant on 195/444 [13]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1489",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "TA14-353A (19 Dec 2014, Sony not named): the Exchange information store service stopped [13]; WannaCry (S0366 in library data) [52]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1561.002",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Sony: MBR overwrite [13] [14]; Shamoon, Aug 2012 and Nov 2016: RawDisk MBR wipe [18] [19]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Sony: wiper overwrote files and the MFT [14]; Shamoon 2: files overwritten with an image [19]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1491.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Sony, 24 Nov 2014: Hacked By #GOP pop-up [14]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1529",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "TA14-353A (19 Dec 2014, Sony not named): reboot after a 120-minute sleep [13]; Shamoon 2: forced immediate reboot [19]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1561.001",
+      "tactic": "impact",
+      "score": 60,
+      "comment": "Lazarus Group (ATT&CK G0032): WhiskeyAlfa, WhiskeyBravo, WhiskeyDelta; Sony not named in the procedure [22]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1548.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Shamoon 2: UAC remote restriction disabled; ATT&CK maps it for S0140 [19] [21]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1569.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Shamoon 2: the service runs the payload [19]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1036.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Shamoon 2: Microsoft Network Realtime Inspection Service display name [19]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Shamoon 2: NetScheduleJobAdd [19]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Shamoon 2: NetScheduleJobAdd [19]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Shamoon 2: NetScheduleJobAdd [19]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Shamoon 2: download and execute [19]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Shamoon 2: OS version and keyboard layout sent to C2 [19]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1012",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Shamoon 2: boot device registry keys [19]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Shamoon 2: E mode RC4 encryption, a capability [19]; WannaCry: files encrypted; paying did not decrypt [14]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1570",
+      "tactic": "lateral-movement",
+      "score": 60,
+      "comment": "Shamoon (ATT&CK S0140) [21]; WannaCry (S0366 in library data) [52]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1598.003",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "2016 election, 19 Mar 2016: spoofed Google security notice [32]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1590",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "2016 election, 15 Mar and 7 Apr 2016: DNC and DCCC IP queries [32]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1593",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "2016 election: open-source research on the networks [32]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "2016 election: X-Agent keylogging on DCCC computers [32]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "2016 election: X-Agent keylogging on DCCC computers [32]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1113",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "2016 election: X-Agent screenshots [32]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "2016 election, 18 Apr 2016: DNC entered with stolen DCCC credentials [32]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "2016 election, 18 Apr 2016: DNC entered with stolen DCCC credentials [32]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "2016 election, 18 Apr 2016: DNC entered with stolen DCCC credentials [32]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "2016 election, 18 Apr 2016: DNC entered with stolen DCCC credentials [32]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1090.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "2016 election: overseas relay to the AMS panel [32]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1114.002",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "2016 election, 25 May to 1 Jun 2016: DNC Exchange server [32]; APT29 email theft [46]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1685.005",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "2016 election, 13 May 2016: DNC event logs cleared (revoked T1070.001) [32]; APT38 (ATT&CK G0082) [23]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 30,
+      "comment": "2016 election: X-Tunnel exfiltration, Inferred [32]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "score": 30,
+      "comment": "2016 election: X-Tunnel encrypted channel, Inferred [32]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 30,
+      "comment": "2016 election, Jul 2016: state board of elections website, Inferred [32]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1087.002",
+      "tactic": "discovery",
+      "score": 30,
+      "comment": "2016 election, APT29: Active Directory enumeration, Inferred [46]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1594",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Bangladesh Bank, 7 to 8 Oct 2014: bank websites visited [14]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1001.003",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Bangladesh Bank: MACKTRUCK FakeTLS on 443 [14]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1565.003",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Bangladesh Bank: liboradb.dll patched in memory [35]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1565.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Bangladesh Bank: SQL DELETE against the SAAOWNER database [35]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Bangladesh Bank, Feb 2016: about $81 million stolen [14]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1565.002",
+      "tactic": "impact",
+      "score": 60,
+      "comment": "APT38 (ATT&CK G0082): DYEPACK [23]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "WannaCry, 12 May 2017: CVE-2017-0144 worm [14] [38]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "WannaCry: LAN range from network configuration [14]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1588.005",
+      "tactic": "resource-development",
+      "score": 30,
+      "comment": "WannaCry: Shadow Brokers exploit released 15 Apr 2017, Inferred [14]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 60,
+      "comment": "WannaCry (S0366 in library data) [52]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 60,
+      "comment": "WannaCry (S0366 in library data) [52]. Source numbers refer to the Sources table of case-studies/HACKER_AND_THE_STATE_CASES.md.",
+      "enabled": true
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#d9ead3ff",
+      "#38761dff"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "metadata": [
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics it belongs to in ATT&CK v20.0"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "72"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "83"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ]
+}

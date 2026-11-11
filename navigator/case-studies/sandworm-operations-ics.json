@@ -1,0 +1,401 @@
+{
+  "name": "TeamStarWolf - Sandworm operations ICS",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "ics-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. The 49 ATT&CK for ICS techniques bound to dated Sandworm Team (G0034) events in case-studies/SANDWORM_OPERATIONS.md (2015, 2016 and 2022 grid attacks, NotPetya, Bad Rabbit, VPNFilter), each with a comment naming the source numbers. Scores indicate membership only.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T0800",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "Industroyer SIPROTEC DoS (capability; Slowik found it failed as built), 2016. Sources: [17] ATT&CK S0604; [11] ESET Win32/Industroyer paper; [9] Slowik, VB2018."
+    },
+    {
+      "techniqueID": "T0801",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Industroyer (2016) and Industroyer2 (2022). Sources: [17] ATT&CK S0604; [77] ATT&CK S1072."
+    },
+    {
+      "techniqueID": "T0802",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Industroyer (2016) and Industroyer2 (2022). Sources: [17] ATT&CK S0604; [77] ATT&CK S1072."
+    },
+    {
+      "techniqueID": "T0806",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "IEC 104 payload loops commands in range, shift or sequence modes (2016); Industroyer2 (2022). Sources: [11] ESET Win32/Industroyer paper; [17] ATT&CK S0604; [77] ATT&CK S1072."
+    },
+    {
+      "techniqueID": "T0809",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "KillDisk overwrote Windows-based HMI cards in RTUs (2015); Industroyer wiper ICS file types (2016). Sources: [1] CISA IR-ALERT-H-16-056-01; [18] ATT&CK S0607; [11] ESET Win32/Industroyer paper; [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T0813",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "2015 grid: operators locked out and breakers opened remotely. Sources: [1] CISA IR-ALERT-H-16-056-01; [2] SANS/E-ISAC Ukraine DUC; [15] ATT&CK C0028; [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T0814",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "2015: converter firmware and UPS disconnects; 2016 SIPROTEC DoS tool (capability). Sources: [1] CISA IR-ALERT-H-16-056-01; [15] ATT&CK C0028; [11] ESET Win32/Industroyer paper; [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T0815",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Industroyer, 2016. Sources: [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T0816",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "2015: scheduled UPS disconnects; Industroyer (2016). Sources: [1] CISA IR-ALERT-H-16-056-01; [15] ATT&CK C0028; [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T0817",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Bad Rabbit drive-by, 2017-10-24. Sources: [81] ATT&CK S0606; [36] ESET Bad Rabbit."
+    },
+    {
+      "techniqueID": "T0819",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "BlackEnergy campaign against internet-facing HMIs since 2011; CVE-2014-0751. Sources: [8] ICS-ALERT-14-281-01E; [14] ATT&CK G0034."
+    },
+    {
+      "techniqueID": "T0822",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "2015: VPN into the ICS with stolen credentials. Sources: [1] CISA IR-ALERT-H-16-056-01; [2] SANS/E-ISAC Ukraine DUC; [15] ATT&CK C0028."
+    },
+    {
+      "techniqueID": "T0823",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "2015: operators' own DMS screens used to open breakers. Sources: [2] SANS/E-ISAC Ukraine DUC; [15] ATT&CK C0028."
+    },
+    {
+      "techniqueID": "T0826",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "2015-12-23: outages for about 225,000 customers. Sources: [1] CISA IR-ALERT-H-16-056-01; [15] ATT&CK C0028."
+    },
+    {
+      "techniqueID": "T0827",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "2015 grid; Industroyer (2016). Sources: [15] ATT&CK C0028; [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T0828",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "2015 grid; NotPetya losses (2017); Bad Rabbit (2017). Sources: [15] ATT&CK C0028; [78] ATT&CK S0368; [25] Merck FY2017 10-K; [28] FedEx FY2018 10-K; [81] ATT&CK S0606."
+    },
+    {
+      "techniqueID": "T0829",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "KillDisk (2015); Industroyer (2016). Sources: [18] ATT&CK S0607; [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T0830",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "VPNFilter ssler man-in-the-middle module, June 2018. Sources: [43] Talos VPNFilter update; [80] ATT&CK S1010."
+    },
+    {
+      "techniqueID": "T0831",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "2015: breakers opened remotely; Industroyer (2016). Sources: [1] CISA IR-ALERT-H-16-056-01; [15] ATT&CK C0028; [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T0832",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Industroyer, 2016. Sources: [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T0836",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "Industroyer2, 2022-04-08. Sources: [77] ATT&CK S1072."
+    },
+    {
+      "techniqueID": "T0837",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Industroyer SIPROTEC DoS (capability), 2016. Sources: [17] ATT&CK S0604; [9] Slowik, VB2018."
+    },
+    {
+      "techniqueID": "T0840",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Industroyer, 2016. Sources: [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T0842",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "VPNFilter Modbus TCP sniffing, 2018. Sources: [42] Talos VPNFilter; [80] ATT&CK S1010."
+    },
+    {
+      "techniqueID": "T0846",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "2015 grid; Industroyer (2016). Sources: [15] ATT&CK C0028; [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T0846.001",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Industroyer custom port scanner, 2016. Sources: [11] ESET Win32/Industroyer paper; [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T0849",
+      "tactic": "evasion",
+      "score": 100,
+      "comment": "2016: masquerading in the ICS environment. Sources: [16] ATT&CK C0025."
+    },
+    {
+      "techniqueID": "T0859",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Stolen credentials over VPN (2015); credential re-use for deployment (2016). Sources: [1] CISA IR-ALERT-H-16-056-01; [15] ATT&CK C0028; [9] Slowik, VB2018; [16] ATT&CK C0025; [19] ATT&CK S0089."
+    },
+    {
+      "techniqueID": "T0859",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Stolen credentials over VPN (2015); credential re-use for deployment (2016). Sources: [1] CISA IR-ALERT-H-16-056-01; [15] ATT&CK C0028; [9] Slowik, VB2018; [16] ATT&CK C0025; [19] ATT&CK S0089."
+    },
+    {
+      "techniqueID": "T0863",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Bad Rabbit: the user must launch the dropper, 2017. Sources: [81] ATT&CK S0606; [37] Kaspersky Bad Rabbit."
+    },
+    {
+      "techniqueID": "T0865",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "BlackEnergy Office attachments, 2015. Sources: [2] SANS/E-ISAC Ukraine DUC; [19] ATT&CK S0089."
+    },
+    {
+      "techniqueID": "T0866",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "NotPetya MS17-010 (2017); Bad Rabbit (2017). Sources: [78] ATT&CK S0368; [81] ATT&CK S0606."
+    },
+    {
+      "techniqueID": "T0866",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "NotPetya MS17-010 (2017); Bad Rabbit (2017). Sources: [78] ATT&CK S0368; [81] ATT&CK S0606."
+    },
+    {
+      "techniqueID": "T0867",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "2015 grid; Dec 2016 BAT-file copies; NotPetya and Bad Rabbit (2017). Sources: [15] ATT&CK C0028; [9] Slowik, VB2018; [16] ATT&CK C0025; [78] ATT&CK S0368; [81] ATT&CK S0606."
+    },
+    {
+      "techniqueID": "T0869",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "BlackEnergy HTTP C2, 2015. Sources: [6] Kaspersky BlackEnergy Word lure; [19] ATT&CK S0089."
+    },
+    {
+      "techniqueID": "T0872",
+      "tactic": "evasion",
+      "score": 100,
+      "comment": "KillDisk deletes event logs, 2015. Sources: [7] ESET BlackEnergy/SSHBearDoor; [18] ATT&CK S0607."
+    },
+    {
+      "techniqueID": "T0881",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "KillDisk kills serial-to-Ethernet processes (2015); Industroyer (2016); Industroyer2 (2022). Sources: [7] ESET BlackEnergy/SSHBearDoor; [18] ATT&CK S0607; [17] ATT&CK S0604; [77] ATT&CK S1072."
+    },
+    {
+      "techniqueID": "T0884",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "2015 grid; Industroyer internal proxy (2016). Sources: [15] ATT&CK C0028; [11] ESET Win32/Industroyer paper; [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T0885",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "2015 grid. Sources: [15] ATT&CK C0028."
+    },
+    {
+      "techniqueID": "T0886",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "2015: remote administration and ICS client tools over VPN; 2016. Sources: [1] CISA IR-ALERT-H-16-056-01; [15] ATT&CK C0028; [16] ATT&CK C0025."
+    },
+    {
+      "techniqueID": "T0886",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "2015: remote administration and ICS client tools over VPN; 2016. Sources: [1] CISA IR-ALERT-H-16-056-01; [15] ATT&CK C0028; [16] ATT&CK C0025."
+    },
+    {
+      "techniqueID": "T0888",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Industroyer (2016) and Industroyer2 (2022). Sources: [17] ATT&CK S0604; [77] ATT&CK S1072."
+    },
+    {
+      "techniqueID": "T0894",
+      "tactic": "evasion",
+      "score": 100,
+      "comment": "MicroSCADA scilc.exe run from a mounted ISO, 2022-10-10. Sources: [58] Mandiant 2022 OT disruption; [75] ATT&CK C0034."
+    },
+    {
+      "techniqueID": "T0895",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "a.iso mounted on the MicroSCADA hypervisor, 2022-10-10. Sources: [58] Mandiant 2022 OT disruption; [75] ATT&CK C0034."
+    },
+    {
+      "techniqueID": "T1691.001",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "2015 grid; Industroyer (2016). Sources: [15] ATT&CK C0028; [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T1691.002",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "2015 grid; Industroyer (2016). Sources: [15] ATT&CK C0028; [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T1692.001",
+      "tactic": "evasion",
+      "score": 100,
+      "comment": "2015 breakers; IEC 104 select-and-execute (2016); Industroyer2 and the 2022 MicroSCADA commands. Sources: [15] ATT&CK C0028; [11] ESET Win32/Industroyer paper; [17] ATT&CK S0604; [75] ATT&CK C0034; [77] ATT&CK S1072."
+    },
+    {
+      "techniqueID": "T1692.001",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "2015 breakers; IEC 104 select-and-execute (2016); Industroyer2 and the 2022 MicroSCADA commands. Sources: [15] ATT&CK C0028; [11] ESET Win32/Industroyer paper; [17] ATT&CK S0604; [75] ATT&CK C0034; [77] ATT&CK S1072."
+    },
+    {
+      "techniqueID": "T1693.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "2015: malicious firmware uploaded to serial-to-Ethernet converters. Sources: [1] CISA IR-ALERT-H-16-056-01; [15] ATT&CK C0028."
+    },
+    {
+      "techniqueID": "T1693.001",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "2015: malicious firmware uploaded to serial-to-Ethernet converters. Sources: [1] CISA IR-ALERT-H-16-056-01; [15] ATT&CK C0028."
+    },
+    {
+      "techniqueID": "T1693.001",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "2015: malicious firmware uploaded to serial-to-Ethernet converters. Sources: [1] CISA IR-ALERT-H-16-056-01; [15] ATT&CK C0028."
+    },
+    {
+      "techniqueID": "T1695.001",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "2015 grid; IEC 101 payload holds the COM ports (2016). Sources: [15] ATT&CK C0028; [11] ESET Win32/Industroyer paper; [17] ATT&CK S0604."
+    },
+    {
+      "techniqueID": "T1701.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "PowerShell in the 2016 operation. Sources: [16] ATT&CK C0025."
+    },
+    {
+      "techniqueID": "T1701.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Windows command shell in the 2016 operation. Sources: [16] ATT&CK C0025."
+    },
+    {
+      "techniqueID": "T1701.004",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "VBS in the 2016 operation. Sources: [16] ATT&CK C0025."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: supported by the verified Sandworm record (membership, not severity)",
+      "color": "#15803d"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/SANDWORM_OPERATIONS.md; ATT&CK G0034, C0028, C0025, C0034 and the software pages cited"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "49"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "55"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 means the case study binds the technique to a dated Sandworm event; no severity, prevalence, or coverage is measured."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics it has in the library's technique profiles. This is display expansion, not a claim that every tactic applies to the procedure."
+    }
+  ],
+  "links": [
+    {
+      "label": "Sandworm: The Operations in the Public Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/SANDWORM_OPERATIONS.md"
+    },
+    {
+      "label": "ATT&CK G0034",
+      "url": "https://attack.mitre.org/groups/G0034/"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

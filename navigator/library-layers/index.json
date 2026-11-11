@@ -162,6 +162,12 @@
     "blurb": "The tradecraft of the Iran-attributed groups and the joint advisories on them, led by public-tool use, PowerShell, credential dumping, scheduled tasks and the exploitation of internet-facing appliances. A curated layer for the Iran case study; its ICS companion sits in the ICS case-study layers."
   },
   {
+    "file": "chronicle-2021.json",
+    "name": "TeamStarWolf - The Year 2021 in Intrusions",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2021 record supports: CISA advisories AA21-110A, AA21-131A, AA21-148A, AA21-200A, AA21-259A, AA21-265A, AA21-291A and AA21-321A, Ireland NCSC's HSE alert, Mandiant's Pulse Connect Secure mapping, and behavior described by Microsoft, Kaseya, Codecov and others. Each comment names source numbers from case-studies/CHRONICLE_2021.md. Scores: 100 the source prints the id, 70 the source describes the behavior and the study assigns the id, 40 the behavior is Inferred.",
+    "blurb": "Techniques from the dated 2021 record: edge-device exploitation, NOBELIUM phishing and identity abuse, APT40 tradecraft, and the DarkSide, Conti, BlackMatter and REvil ransomware advisories. A curated layer for the 2021 chronicle."
+  },
+  {
     "file": "healthcare-threat-watchlist-2023-2026.json",
     "name": "TeamStarWolf - Healthcare Threat Actor Watchlist 2023-2026",
     "description": "Enterprise techniques named in the eleven US joint advisories (2022 to 2026) that name the Healthcare and Public Health sector as a victim or carry HHS as an author or co-sealer: ALPHV Blackcat, Black Basta, Rhysida, RansomHub, Interlock, Andariel, Maui, Medusa, Akira, LockBit and Pioneer Kitten. Revoked advisory ids are mapped to their ATT&CK v20 successors through data/attack/superseded_by.jsonl; Mobile ids and the Maui advisory's T1059.008 tag are left out. Tactics are taken from data/attack/technique_profiles.jsonl. Score = number of advisories naming the technique (1 to 8). Each comment names source numbers from the Sources table of case-studies/HEALTHCARE_THREAT_WATCHLIST.md. Not an official MITRE mapping.",

@@ -56,6 +56,7 @@ Time and difficulty are quoted in full from each guide's header table.
 - [Other state-linked threat actors: a case study](/case-studies/THREAT_ACTORS_OTHER_STATES.md)
 - [United States-attributed threat actors: a case study](/case-studies/THREAT_ACTORS_UNITED_STATES.md)
 - [Iran-attributed threat actors: a case study](/case-studies/THREAT_ACTORS_IRAN.md)
+- [The year 2021 in intrusions: a dated record](/case-studies/CHRONICLE_2021.md)
 - [Healthcare threat actor watchlist, 2023 to 2026: a case study](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md)
 
 <!-- hub:end -->

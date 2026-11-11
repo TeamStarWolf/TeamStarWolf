@@ -49,6 +49,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [ProFTPD mod_copy, CVE-2015-3306: Unauthenticated File Copy in the Lab](/case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md)
 - [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
 - [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)
+- [The Year 2021 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2021.md)
 
 <!-- library-refs:end -->
 

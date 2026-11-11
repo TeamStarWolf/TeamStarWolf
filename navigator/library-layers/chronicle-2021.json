@@ -1,0 +1,726 @@
+{
+  "name": "TeamStarWolf - The Year 2021 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2021 record supports: CISA advisories AA21-110A, AA21-131A, AA21-148A, AA21-200A, AA21-259A, AA21-265A, AA21-291A and AA21-321A, Ireland NCSC's HSE alert, Mandiant's Pulse Connect Secure mapping, and behavior described by Microsoft, Kaseya, Codecov and others. Each comment names source numbers from case-studies/CHRONICLE_2021.md. Scores: 100 the source prints the id, 70 the source describes the behavior and the study assigns the id, 40 the behavior is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1589",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "AA21-200A table (APT40, 19 Jul) (basis: Source). Sources [19] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA21-200A table (basis: Source). Sources [19] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1586.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA21-200A table (basis: Source). Sources [19] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1585.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA21-200A table; ZINC Twitter personas (Jan) (basis: Source). Sources [19][29][30] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1585.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA21-200A table (basis: Source). Sources [19] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1588.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA21-321A table (Iran, 17 Nov) (basis: Source). Sources [25] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1588.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA21-321A table (basis: Source). Sources [25] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 70,
+      "comment": "Fortinet port scanning for CVE-2018-13379, March (AA21-092A, AA21-321A) (basis: Behavior). Sources [77][25] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Mandiant Pulse mapping (19 Apr); AA21-200A; AA21-259A ManageEngine; AA21-131A DarkSide; AA21-321A; behavior in HAFNIUM Exchange (2 Mar), Serv-U (13 Jul), Accellion, SonicWall, Confluence, Kaseya VSA and SVR use of CVE-2019-19781 (basis: Source). Sources [5][19][21][46][25][1][20][39][76][81][51][11] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA21-200A; AA21-131A DarkSide; AA21-265A Conti; AA21-291A BlackMatter; legacy VPN profile at Colonial (basis: Source). Sources [19][46][58][60][45] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA21-200A; AA21-131A DarkSide; AA21-265A Conti; AA21-291A BlackMatter; legacy VPN profile at Colonial (basis: Source). Sources [19][46][58][60][45] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA21-131A DarkSide (basis: Source). Sources [46] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA21-200A; AA21-265A; Emotet Word attachments (Jan); MSHTML Office lures (Aug to Sep) (basis: Source). Sources [19][58][38][84] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA21-148A (28 May); AA21-200A; AA21-265A; NOBELIUM USAID-spoofing mail (basis: Source). Sources [14][19][58][12] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA21-200A; visitors to the fake research blog (TAG, Jan) (basis: Source). Sources [19][29] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA21-200A; AA21-265A; legacy VPN profile at Colonial (May) (basis: Source). Sources [19][58][45] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA21-200A; AA21-265A; legacy VPN profile at Colonial (May) (basis: Source). Sources [19][58][45] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA21-200A; AA21-265A; legacy VPN profile at Colonial (May) (basis: Source). Sources [19][58][45] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA21-200A; AA21-265A; legacy VPN profile at Colonial (May) (basis: Source). Sources [19][58][45] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Nobelium abuse of resellers' delegated admin privileges (Oct); Kaseya MSP customers reached through VSA (Inferred) (basis: Behavior). Sources [17][51] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1195.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Malicious ua-parser-js versions (22 Oct) (basis: Behavior). Sources [108][109] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Altered Codecov Bash Uploader (31 Jan to 1 Apr) (basis: Behavior). Sources [90][91] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA21-200A; Nishang and PowerCat (HAFNIUM); PowerShell from Serv-U.exe (DEV-0322) (basis: Source). Sources [19][1][20] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA21-265A Conti; cmd from Serv-U.exe (basis: Source). Sources [58][20] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA21-259A; Ireland NCSC HSE alert (basis: Source). Sources [21][47] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1106",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "HSE alert; AA21-265A (basis: Source). Sources [47][58] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1129",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "HSE alert (basis: Source). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA21-200A; MSHTML CVE-2021-40444 documents (basis: Source). Sources [19][84] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1204.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA21-148A (basis: Source). Sources [14] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA21-200A; Emotet enable-macros lure; malicious Visual Studio project (ZINC) (basis: Source). Sources [19][38][29][30] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1072",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Standard VSA functionality pushed ransomware to endpoints (Kaseya, Jul) (basis: Behavior). Sources [52] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1072",
+      "tactic": "lateral-movement",
+      "score": 70,
+      "comment": "Standard VSA functionality pushed ransomware to endpoints (Kaseya, Jul) (basis: Behavior). Sources [52] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA21-321A (basis: Source). Sources [25] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA21-321A (basis: Source). Sources [25] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA21-321A (basis: Source). Sources [25] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Mandiant Pulse mapping; AA21-200A; AA21-259A; HAFNIUM ASP web shells; DEWMODE on Accellion FTA (basis: Source). Sources [5][19][21][1][39] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1554",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Trojanized Pulse libdsplibs.so and persistence across upgrades via DSUpgrade.pm (basis: Behavior). Sources [5] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1136",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA21-259A; new global admin user on Serv-U (basis: Source). Sources [21][20] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1136.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA21-321A (basis: Source). Sources [25] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1136.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA21-321A (basis: Source). Sources [25] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "BoomBox Run key (NOBELIUM, May); Comebacker Run key (ZINC, Jan) (basis: Behavior). Sources [13][30] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "BoomBox Run key (NOBELIUM, May); Comebacker Run key (ZINC, Jan) (basis: Behavior). Sources [13][30] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Klackring installed as a service (ZINC) (basis: Behavior). Sources [30] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Klackring installed as a service (ZINC) (basis: Behavior). Sources [30] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Vir.IT driver CVE-2017-16238 (ZINC); PrintNightmare CVE-2021-34527 (basis: Behavior). Sources [30][69][70] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 70,
+      "comment": "Conti playbook use of 2017 SMB flaws, PrintNightmare and Zerologon (AA21-265A) (basis: Behavior). Sources [58] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1055.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA21-148A; AA21-265A (basis: Source). Sources [14][58] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1055.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA21-148A; AA21-265A (basis: Source). Sources [14][58] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA21-259A; AA21-265A (basis: Source). Sources [21][58] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1027.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "HSE alert (basis: Source). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1027.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA21-200A (basis: Source). Sources [19] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1027.006",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "EnvyScout HTML smuggling (NOBELIUM) (basis: Behavior). Sources [13] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "HSE alert; web shell disguised as service.cer (ManageEngine); certutil copied as cert.exe (Kaseya) (basis: Source). Sources [47][21][52] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1140",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA21-259A; AA21-265A; cert.exe decoding agent.crt (Kaseya) (basis: Source). Sources [21][58][52] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1218",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA21-259A (basis: Source). Sources [21] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1218.005",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "mshta spawned from Serv-U.exe (DEV-0322) (basis: Behavior). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1218.011",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "ISO to LNK to rundll32 DLL; NativeZone loader (NOBELIUM) (basis: Behavior). Sources [12][13] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1564.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "HSE alert (basis: Source). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1497.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "HSE alert (basis: Source). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1497.001",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "HSE alert (basis: Source). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "FoggyWeb loaded through version.dll search-order hijacking (Sep) (basis: Behavior). Sources [16] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "FoggyWeb loaded through version.dll search-order hijacking (Sep) (basis: Behavior). Sources [16] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Mandiant Pulse mapping (log clearing); DEWMODE cleanup routine (basis: Source). Sources [5][39] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA21-259A (basis: Source). Sources [21] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1070.006",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Timestomped trojanized umount binary (AA21-110A) (basis: Source). Sources [7] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1556.004",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Mandiant Pulse mapping: backdoor password in libdsplibs.so (basis: Source). Sources [5] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1556.004",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Mandiant Pulse mapping: backdoor password in libdsplibs.so (basis: Source). Sources [5] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1556.004",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Mandiant Pulse mapping: backdoor password in libdsplibs.so (basis: Source). Sources [5] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1111",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Mandiant Pulse mapping: MFA bypass (basis: Source). Sources [5] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA21-265A; NOBELIUM brute force (Jun); T-Mobile brute force (Aug) (basis: Source). Sources [58][15][100] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "SVR password spraying (AA21-116A); NOBELIUM (Jun); DEV-0343 Office 365 spraying (basis: Behavior). Sources [11][15][26] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA21-291A BlackMatter; Procdump against LSASS (HAFNIUM) (basis: Source). Sources [60][1] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1003.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA21-259A (basis: Source). Sources [21] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1558.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA21-265A (basis: Source). Sources [58] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1552",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "CI environment variables harvested by the altered Codecov uploader (basis: Inferred). Sources [90] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1552.001",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "Credential extracted through Codecov's Docker image process (basis: Inferred). Sources [90] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1552.004",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "AD FS token-signing and decryption certificates taken by FoggyWeb (basis: Behavior). Sources [16] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "HSE alert; AA21-265A (basis: Source). Sources [47][58] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1049",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "HSE alert; AA21-265A (basis: Source). Sources [47][58] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "HSE alert; AA21-265A; AA21-291A (basis: Source). Sources [47][58][60] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "HSE alert (printed under the wrong label) (basis: Source). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "HSE alert; AA21-265A (basis: Source). Sources [47][58] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1087.002",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA21-259A (basis: Source). Sources [21] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1124",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "HSE alert (basis: Source). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1135",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "HSE alert; AA21-265A (basis: Source). Sources [47][58] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA21-291A (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1007",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA21-291A (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA21-265A; AA21-291A (basis: Source). Sources [58][60] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1534",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA21-200A (basis: Source). Sources [19] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1080",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA21-265A (basis: Source). Sources [58] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1560",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA21-200A (basis: Source). Sources [19] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1560.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA21-259A; AA21-321A; 7-Zip archives (HAFNIUM) (basis: Source). Sources [21][25][1] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1074",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA21-200A (basis: Source). Sources [19] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1114.002",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "Mailbox export through Exchange PowerShell snap-ins (HAFNIUM) (basis: Behavior). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA21-148A (basis: Source). Sources [14] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1001.003",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA21-200A (basis: Source). Sources [19] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA21-200A (basis: Source). Sources [19] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA21-200A; AA21-131A (DarkSide C2 over Tor) (basis: Source). Sources [19][46] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1573.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA21-259A (basis: Source). Sources [21] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1102",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "BoomBox use of Dropbox (NOBELIUM) (basis: Behavior). Sources [13] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "AA21-200A (basis: Source). Sources [19] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1567",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "AA21-291A (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1567.002",
+      "tactic": "exfiltration",
+      "score": 70,
+      "comment": "Exfiltration to MEGA (HAFNIUM) (basis: Behavior). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA21-131A; AA21-321A; HSE alert; AA21-265A; AA21-291A; Kaseya ransomware; PHOSPHORUS BitLocker (basis: Source). Sources [46][25][47][58][60][51][26] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "HSE alert; AA21-265A (basis: Source). Sources [47][58] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1489",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA21-265A (basis: Source). Sources [58] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    },
+    {
+      "techniqueID": "T1561",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA21-291A (backup wiping) (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2021.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred behavior",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: the opened source prints the ATT&CK id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2021.md (sources opened 3 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "93"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "107"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2021 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2021.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

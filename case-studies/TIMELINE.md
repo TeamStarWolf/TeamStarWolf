@@ -37,6 +37,17 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 27 October 2026: Chrome Root Store removes the emSign ECC Root CA G3
   - October 2026: Apple, Go (CVE-2026-111943), Okta and Auth0, and downstream bundles follow; trust-store updates coordinated under Red Hat RHSB-2026-012
   - November 2026: Root programs distrust the fallback emSign Root CA G1 (Chrome and Firefox after 16 November, Apple 30 November); eMudhra winds down all publicly trusted TLS
+- [Magento and Adobe Commerce, CVE-2026-48356: Lab-Verified Exposure and Fix](/case-studies/MAGENTO_CVE_2026_48356.md). Vulnerability, March to November 2026. Sectors: retail, technology. CVEs: CVE-2015-3306, CVE-2020-1938, CVE-2026-48356, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Magento_CVE_2026_48356_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Magento_CVE_2026_48356_Case_Study.pptx).
+  - 17 March 2026: Sansec publishes the PolyShell advisory
+  - 19 March 2026: First attacks in the wild, per Sansec (Reported)
+  - 23 March 2026: Mass scanning of 23 percent of Sansec-protected stores (Reported)
+  - 30 March 2026: 471 stores compromised in one hour: webshells, accesson.php backdoors and CMS loaders (Reported)
+  - 12 May 2026: Magento 2.4.9 released; Sansec says with the fix, which conflicts with Adobe
+  - 14 July 2026: Adobe publishes APSB26-73 and the KA-37421 isolated patches; CVE record and GHSA published
+  - 11 August 2026: Bulletin last updated, still saying Adobe is not aware of exploits
+  - 24 October 2026: Sansec ties the deepveindrilling CMS-block loader campaign to earlier PolyShell uploads
+  - 27 October 2026: CISA adds CVE-2026-48356 to KEV, due 10 November
+  - 4 November 2026: TeamStarWolf lab run on Magento Open Source 2.4.8-p5
 - [Node.js, CVE-2026-111497: Version Check and Fix in the Lab](/case-studies/NODEJS_CVE_2026_111497.md). Vulnerability, February to November 2026. Sectors: technology. CVEs: CVE-2026-111497, CVE-2026-105481, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Nodejs_CVE_2026_111497_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Nodejs_CVE_2026_111497_Case_Study.pptx).
   - 27 February 2026: Brotli fix commit 0ed4268 lands on the default branch with no release
   - 14 October 2026: Node.js pre-announces a security release for 21 October

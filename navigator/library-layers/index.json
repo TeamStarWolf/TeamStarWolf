@@ -220,5 +220,11 @@
     "name": "TeamStarWolf - Node.js CVE-2026-111497 (Brotli Decoder) Case Study",
     "description": "Enterprise ATT&CK v20.0 techniques bound in the Node.js CVE-2026-111497 (Brotli decoder) case study. ATT&CK has no procedure that names this CVE; each entry is the study's binding of the record's attack paths to the technique definition. Score 100: the CVE record and the lab run both support the binding. Score 75: the record supports it without a lab demonstration. Comments carry the study's source numbers. This is not an official MITRE mapping.",
     "blurb": "Techniques bound to the Brotli decoder flaw in Node.js: server-side exploitation of Express routes that decode br bodies, client-side decoding, and denial of service. A curated layer for the Node.js CVE-2026-111497 lab case study."
+  },
+  {
+    "file": "magento-cve-2026-48356.json",
+    "name": "TeamStarWolf - Magento and Adobe Commerce CVE-2026-48356 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified CVE-2026-48356 (PolyShell) record supports: Sansec's PolyShell advisory, mass-wave and deepveindrilling reports, and the TeamStarWolf lab run of 4 November 2026 on Magento Open Source 2.4.8-p5. Each comment names source numbers from case-studies/MAGENTO_CVE_2026_48356.md. Scores: 100 is reported by Sansec and demonstrated in the lab, 75 is a follow-on stage known only from Sansec's reports.",
+    "blurb": "Techniques from the PolyShell record, from the unauthenticated guest-cart upload to the webshells and storefront loaders Sansec reported. A curated layer for the Magento CVE-2026-48356 case study."
   }
 ]

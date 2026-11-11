@@ -817,6 +817,28 @@ studies:
       - {"date": "2022-07-11", "label": "The CSRB publishes its report"}
       - {"date": "2025-12-10", "label": "Sonatype: about 13 percent of 2025 Log4j downloads still contained Log4Shell"}
       - {"date": "2026-01-23", "label": "OMB M-26-05 rescinds M-22-18 and M-23-16"}
+  case-studies/MAGENTO_CVE_2026_48356.md:
+    kind: "vulnerability"
+    title: "Magento and Adobe Commerce, CVE-2026-48356: Lab-Verified Exposure and Fix"
+    start: "2026-03"
+    end: "2026-11"
+    sectors: ["retail", "technology"]
+    cves: ["CVE-2015-3306", "CVE-2020-1938", "CVE-2026-48356", "CVE-2026-98432"]
+    actors: []
+    tags: ["Magento", "Adobe Commerce", "PolyShell", "file upload", "e-commerce", "lab"]
+    pdf: "Magento_CVE_2026_48356_Case_Study.pdf"
+    pptx: "Magento_CVE_2026_48356_Case_Study.pptx"
+    events:
+      - {"date": "2026-03-17", "label": "Sansec publishes the PolyShell advisory"}
+      - {"date": "2026-03-19", "label": "First attacks in the wild, per Sansec (Reported)"}
+      - {"date": "2026-03-23", "label": "Mass scanning of 23 percent of Sansec-protected stores (Reported)"}
+      - {"date": "2026-03-30", "label": "471 stores compromised in one hour: webshells, accesson.php backdoors and CMS loaders (Reported)"}
+      - {"date": "2026-05-12", "label": "Magento 2.4.9 released; Sansec says with the fix, which conflicts with Adobe"}
+      - {"date": "2026-07-14", "label": "Adobe publishes APSB26-73 and the KA-37421 isolated patches; CVE record and GHSA published"}
+      - {"date": "2026-08-11", "label": "Bulletin last updated, still saying Adobe is not aware of exploits"}
+      - {"date": "2026-10-24", "label": "Sansec ties the deepveindrilling CMS-block loader campaign to earlier PolyShell uploads"}
+      - {"date": "2026-10-27", "label": "CISA adds CVE-2026-48356 to KEV, due 10 November"}
+      - {"date": "2026-11-04", "label": "TeamStarWolf lab run on Magento Open Source 2.4.8-p5"}
   case-studies/MITNICK_INTRUSIONS.md:
     kind: "actor"
     title: "Kevin Mitnick: Ghost in the Wires and The Art of Intrusion"

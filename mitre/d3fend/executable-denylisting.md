@@ -89,6 +89,7 @@ _D3FEND also maps T0853, deprecated in ATT&CK with no successor; not counted abo
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md)
+- [Magento and Adobe Commerce, CVE-2026-48356: Lab-Verified Exposure and Fix](/case-studies/MAGENTO_CVE_2026_48356.md)
 - [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md)
 
 <!-- library-refs:end -->

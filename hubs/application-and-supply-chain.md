@@ -57,6 +57,7 @@ Time and difficulty are quoted in full from each guide's header table.
 - [Log4Shell: a case study](/case-studies/LOG4SHELL.md)
 - [Ghostcat (CVE-2020-1938): a lab case study](/case-studies/GHOSTCAT_CVE_2020_1938.md)
 - [Node.js CVE-2026-111497 (Brotli): a lab case study](/case-studies/NODEJS_CVE_2026_111497.md)
+- [Magento and Adobe Commerce (CVE-2026-48356): a lab case study](/case-studies/MAGENTO_CVE_2026_48356.md)
 - [npm supply-chain attacks: a case study](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md)
 - [Hugging Face supply chain: a case study](/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md)
 

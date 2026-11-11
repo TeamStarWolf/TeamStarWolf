@@ -1311,7 +1311,7 @@ studies:
       - {"date": "2016-08-13", "label": "The Shadow Brokers appear, claiming Equation Group files"}
       - {"date": "2016-08-24", "label": "Citizen Lab and Lookout publish Trident and Pegasus; Apple ships iOS 9.3.5 the next day"}
       - {"date": "2017-03-14", "label": "Microsoft publishes MS17-010"}
-      - {"date": "2017-04-14", "label": "The Shadow Brokers release the Windows archive (US time)"}
+      - {"date": "2017-04-14", "label": "The Shadow Brokers release the Windows archive (15 April in the FBI affidavit)"}
       - {"date": "2017-05-12", "label": "WannaCry Version 2 spreads with the SMB worm; the kill-switch domain is registered"}
       - {"date": "2017-06-27", "label": "NotPetya arrives through the M.E.Doc updater"}
       - {"date": "2021-09-13", "label": "Citizen Lab reports FORCEDENTRY; Apple ships iOS 14.8"}

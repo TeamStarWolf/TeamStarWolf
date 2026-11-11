@@ -1,6 +1,6 @@
 # The Zero-Day Trade and Its Fallout: The Events in This Is How They Tell Me the World Ends
 
-*A TeamStarWolf case study. Published 3 November 2026; every source checked as of that date.*
+*A TeamStarWolf case study. Published 3 November 2026; sources checked on that date, with sources 58 and 59 opened and source 52 reopened on 11 November 2026.*
 
 [All case studies](/case-studies/README.md) · Related: [Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [CVE Reference](/CVE_REFERENCE.md), [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md) · Home studies for events summarized here: [Stuxnet](/case-studies/STUXNET.md), [SolarWinds and SUNBURST, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md), [Sandworm Operations](/case-studies/SANDWORM_OPERATIONS.md) · Related studies: [United States-attributed threat actors](/case-studies/THREAT_ACTORS_UNITED_STATES.md), [Other state-linked threat actors](/case-studies/THREAT_ACTORS_OTHER_STATES.md), [The Year 2021 in Intrusions](/case-studies/CHRONICLE_2021.md)
 
@@ -80,13 +80,13 @@ Evidence grade: the technical facts, dates and official actions are **Confirmed*
 | Pegasus | Trident chain against Ahmed Mansoor, August 2016 [13]; FORCEDENTRY zero-click, CVE-2021-30860, fixed in iOS 14.8 on 13 September 2021 [39] [40] |
 | Policy record | VEP charter 15 November 2017 [103]; Entity List 4 November 2021 [45]; EO 14093 signed 27 March 2023 [47]; Intellexa sanctions 5 March 2024 [48] |
 | Courts | Ninth Circuit affirmed denial of NSO's immunity defense, 8 November 2021 [28]; Supreme Court denied certiorari, 9 January 2023 [29] |
-| ATT&CK record | Groups `G0066`, `G0020`, `G0022`, `G0032`, `G0034`, `G0038`; software `S0366`, `S0368`, `S0606`, `S0203`, `S0047`, `S0182`, Mobile `S0289` and `S0316`; 62 Enterprise technique rows in Part 12 |
+| ATT&CK record | Groups `G0066`, `G0020`, `G0022`, `G0032`, `G0034`, `G0038`; software `S0366`, `S0368`, `S0606`, `S0140`, `S0203`, `S0047`, `S0182`, Mobile `S0289` and `S0316`; 75 Enterprise technique rows in Part 12 |
 
 ### Key findings
 
 - **The market was never hidden.** Zerodium posted its iOS 9 price and rules on its own site [12], and the Zero Day Initiative published its purpose and counts [11] (**Confirmed**). Specific private sales, such as a reported Zerodium purchase in November 2015 and Pegasus license prices, rest on secondary reporting [13] [14] (**Reported**).
-- **Leaked exploits were used fast.** The Hacking Team Flash bugs went public on 5 July 2015 and were exploited in the wild that month [18] [20]. The Windows SMB exploits went public on 14 April 2017 and WannaCry used one 28 days later [57] (**Confirmed**).
-- **The patch came before the leak, and the damage came after.** Microsoft fixed the SMBv1 flaws 31 days before the Shadow Brokers' Windows release [56] [60]. WannaCry still hit NHS machines that ran unpatched or unsupported Windows [68] (**Confirmed**); NotPetya spread mainly by stolen credentials, so patching alone did not protect against it [78] (**Confirmed**). The "NSA cyberweapon" framing implies novelty that the patch record does not support (**Inferred**).
+- **Leaked exploits were used fast.** The Hacking Team Flash bugs went public on 5 July 2015 and were exploited in the wild that month [18] [20]. The Windows SMB exploits went public on 14 April 2017 [52] and WannaCry used one 28 days later [57] (**Confirmed**; the FBI affidavit dates the release 15 April, which gives 27 days [57]).
+- **The patch came before the leak, and the damage came after.** Microsoft fixed the SMBv1 flaws 31 days before the Shadow Brokers' Windows release [56] [52]. WannaCry still hit NHS machines that ran unpatched or unsupported Windows [68] (**Confirmed**); NotPetya spread mainly by stolen credentials, so patching alone did not protect against it [78] (**Confirmed**). The "NSA cyberweapon" framing implies novelty that the patch record does not support (**Inferred**).
 - **EternalBlue was not the whole story of NotPetya.** The GRU indictment says NotPetya spread by credential theft first and used EternalBlue or EternalRomance only when those methods failed [78] (**Confirmed**), and ESET says the SMB exploit was aimed only at the local address space [119] (**Confirmed**).
 - **The court record on Baltimore does not mention EternalBlue.** The Robbinhood indictment describes generic hacking tools and administrator accounts [108] (**Confirmed**). Graham says the book conceded the point while defending the original reporting [7]; Howard reads the book as claiming only that Microsoft analysts found EternalBlue evidence on the networks [5] (**Reported**). Absence from an indictment is not proof of a negative (**Inferred**).
 - **Spyware abuse was documented by evidence, not leaks alone.** Citizen Lab, Amnesty and Project Zero captured exploits and infection traces on real phones: Trident in 2016, KISMET in 2020, FORCEDENTRY and Megalodon in 2021 [13] [34] [35] [39] (**Confirmed**).
@@ -104,7 +104,7 @@ Evidence grade: the technical facts, dates and official actions are **Confirmed*
 
 ## Scope and method
 
-This study covers the events that the book's reviewers and publisher associate with it, from the earliest Equation infrastructure (1996) through the spyware sanctions of 2024 and the Robbinhood plea of 2025. It follows the method in the [case studies README](/case-studies/README.md): primary sources first, every claim graded, numbers given as the source states them. Every source in the Sources table was opened on 3 November 2026. Where a primary could not be opened (the book itself, the New York Times Baltimore story, the FTI report on the Bezos phone, the Shadow Brokers' own posts, a Symantec post now returning 404, and two DOJ pages behind a bot check), the study says so and grades the claim on what was opened. Direct quotations are kept under 15 words.
+This study covers the events that the book's reviewers and publisher associate with it, from the earliest Equation infrastructure (1996) through the spyware sanctions of 2024 and the Robbinhood plea of 2025. It follows the method in the [case studies README](/case-studies/README.md): primary sources first, every claim graded, numbers given as the source states them. Every source in the Sources table was opened on 3 November 2026, except sources 58 and 59, which were opened on 11 November 2026; source 52 was reopened on 11 November 2026. Where a primary could not be opened (the book itself, the New York Times Baltimore story, the FTI report on the Bezos phone, the Shadow Brokers' own posts, a Symantec post now returning 404, and two DOJ pages behind a bot check), the study says so and grades the claim on what was opened. Direct quotations are kept under 15 words.
 
 Home rule for overlapping events: Stuxnet detail lives in [/case-studies/STUXNET.md](/case-studies/STUXNET.md), SolarWinds in [/case-studies/SOLARWINDS_SUNBURST.md](/case-studies/SOLARWINDS_SUNBURST.md), and NotPetya and the Ukraine grid attacks in [/case-studies/SANDWORM_OPERATIONS.md](/case-studies/SANDWORM_OPERATIONS.md). Each gets one summary paragraph here. This study is the home for the zero-day market, Aurora, the Hacking Team and Shadow Brokers leaks, WannaCry, NSO Group and Pegasus, and the Baltimore reporting dispute. The actor view of the Equation platform and of what the leaks say about their makers lives in [United States-Attributed Threat Actors](/case-studies/THREAT_ACTORS_UNITED_STATES.md); this study follows the leaked exploits downstream.
 
@@ -459,7 +459,7 @@ Howard works through nine critic-alleged errors: Aitel's NSA title, the Stuxnet 
 
 | Critic item | What the primary record in this study shows | Grade |
 |---|---|---|
-| EternalBlue theft date | The record dates the public leaks (13 August 2016, 14 April 2017) [50] [57] but not when the tools left NSA control | Inferred (unresolved) |
+| EternalBlue theft date | The record dates the public leaks (13 August 2016, 14 April 2017) [50] [52] [57] but not when the tools left NSA control | Inferred (unresolved) |
 | Stuxnet zero-day count | Not checked here; home is [STUXNET.md](/case-studies/STUXNET.md) | not checked |
 | Marquis-Boire and Aurora | No primary opened names him in Aurora | not checked |
 | Baltimore and EternalBlue | The indictment names no EternalBlue, SMB or NSA tool [108] | Confirmed (absence); Inferred (meaning) |
@@ -484,8 +484,8 @@ These errors in other library pages were found while building this study and are
 |---|---|---|
 | Aurora advisory 979352 to MS10-002 | 7 | [87] [88] |
 | Mansoor lure to iOS 9.3.5 | about 15 | [13] [15] |
-| MS17-010 to the Shadow Brokers' Windows release | 31 | [56] [60] |
-| Windows release to WannaCry Version 2 | 28 | [57] |
+| MS17-010 to the Shadow Brokers' Windows release | 31 (32 from the FBI affidavit's 15 April) | [56] [52] [57] |
+| Windows release to WannaCry Version 2 | 28 (27 from the FBI affidavit's 15 April) | [52] [57] |
 | MS17-010 to WannaCry Version 2 | 59 | [57] |
 | RiskSense public code to WannaCry Version 2 | 3 | [57] |
 | MS17-010 to NotPetya | 105 | [56] [74] |
@@ -559,7 +559,7 @@ This Part binds the verified record to MITRE ATT&CK v20.0 (Enterprise, Mobile an
 | SolarWinds Compromise | `C0024` | [/mitre/campaigns/C0024.md](/mitre/campaigns/C0024.md) | APT29 (`G0016`, [/mitre/groups/G0016.md](/mitre/groups/G0016.md)), SUNBURST (`S0559`, [/mitre/software/S0559.md](/mitre/software/S0559.md)) [107] |
 | Campaigns for WannaCry, NotPetya, the leaks | none | none | ATT&CK has no campaign or software object for EternalBlue, EternalRomance, DoublePulsar, Bemstour, WannaCry, NotPetya or the Shadow Brokers leak [81] |
 
-### 12.2 ATT&CK Enterprise techniques (62)
+### 12.2 ATT&CK Enterprise techniques (75)
 
 | ID | Name | Tactic | Where it appears | Sources |
 |---|---|---|---|---|
@@ -625,8 +625,21 @@ This Part binds the verified record to MITRE ATT&CK v20.0 (Enterprise, Mobile an
 | [`T1113`](/mitre/techniques/T1113.md) | Screen Capture | Collection | Hydraq | [97] |
 | [`T1588.005`](/mitre/techniques/T1588-005.md) | Exploits | Resource Development | Lazarus reuse of the RiskSense code; Buckeye's DoublePulsar variant (Inferred) | [57] [117] |
 | [`T1587.004`](/mitre/techniques/T1587-004.md) | Exploits | Resource Development | Equation (Inferred) | [49] [117] |
+| [`T1036.004`](/mitre/techniques/T1036-004.md) | Masquerade Task or Service | Stealth | Shamoon (software record, not dated to an event) | [102] |
+| [`T1036.005`](/mitre/techniques/T1036-005.md) | Match Legitimate Resource Name or Location | Stealth | Bad Rabbit (software record, not dated to an event) | [112] |
+| [`T1070.006`](/mitre/techniques/T1070-006.md) | Timestomp | Stealth | Shamoon (software record, not dated to an event) | [102] |
+| [`T1140`](/mitre/techniques/T1140.md) | Deobfuscate/Decode Files or Information | Stealth | Shamoon (software record, not dated to an event) | [102] |
+| [`T1134.001`](/mitre/techniques/T1134-001.md) | Token Impersonation/Theft | Stealth, Privilege Escalation | Shamoon (software record, not dated to an event) | [102] |
+| [`T1548.002`](/mitre/techniques/T1548-002.md) | Bypass User Account Control | Privilege Escalation | Shamoon; Bad Rabbit (software record, not dated to an event) | [102] [112] |
+| [`T1078.002`](/mitre/techniques/T1078-002.md) | Domain Accounts | Stealth, Persistence, Privilege Escalation, Initial Access | Shamoon (software record, not dated to an event) | [102] |
+| [`T1106`](/mitre/techniques/T1106.md) | Native API | Execution | Bad Rabbit (software record, not dated to an event) | [112] |
+| [`T1110.003`](/mitre/techniques/T1110-003.md) | Password Spraying | Credential Access | Bad Rabbit (software record, not dated to an event) | [112] |
+| [`T1124`](/mitre/techniques/T1124.md) | System Time Discovery | Discovery | Shamoon (software record, not dated to an event) | [102] |
+| [`T1135`](/mitre/techniques/T1135.md) | Network Share Discovery | Discovery | Bad Rabbit (software record, not dated to an event) | [112] |
+| [`T1071.001`](/mitre/techniques/T1071-001.md) | Web Protocols | Command and Control | Shamoon (software record, not dated to an event) | [102] |
+| [`T1495`](/mitre/techniques/T1495.md) | Firmware Corruption | Impact | Bad Rabbit (software record, not dated to an event) | [112] |
 
-`T1588.005` sits under Obtain Capabilities and `T1587.004` under Develop Capabilities; ATT&CK names both sub-techniques Exploits. Hydraq rows come from the `S0203` software object, which ATT&CK ties to Aurora's first use [97]; they describe the malware, not a dated Aurora report. WannaCry is not mapped to `T1190` by ATT&CK [79].
+`T1588.005` sits under Obtain Capabilities and `T1587.004` under Develop Capabilities; ATT&CK names both sub-techniques Exploits. Hydraq rows come from the `S0203` software object, which ATT&CK ties to Aurora's first use [97]; they describe the malware, not a dated Aurora report. The last 13 rows come the same way from the `S0140` Shamoon [102] and `S0606` Bad Rabbit [112] software objects; with the Shamoon and Bad Rabbit rows above, they cover every technique those two pages list. WannaCry is not mapped to `T1190` by ATT&CK [79].
 
 ### 12.3 ATT&CK Mobile techniques (Pegasus for iOS, `S0289`)
 
@@ -699,7 +712,7 @@ The live `T1210` page lists mitigations [`M1048`](/mitre/mitigations/M1048.md), 
 ## Cross-cutting themes
 
 - **The leak was faster than the market.** A million-dollar iPhone chain was a private sale [12] [13]. The Hacking Team and Shadow Brokers leaks made exploits free, and they were exploited in the wild within weeks [18] [20] [57]. The largest harm in this record came from leaked tools, not purchased ones (**Inferred** from the Confirmed dates).
-- **Patched is not protected.** MS17-010 predated the leak by 31 days and WannaCry by 59 [56] [57]. The NHS bodies that were infected ran unpatched or unsupported Windows [68]. The policy debate is about stockpiles; the damage was about patch latency (**Inferred**).
+- **Patched is not protected.** MS17-010 predated the leak by 31 days and WannaCry by 59 [56] [52] [57]. The NHS bodies that were infected ran unpatched or unsupported Windows [68]. The policy debate is about stockpiles; the damage was about patch latency (**Inferred**).
 - **Evidence beat assertion in the spyware story.** The strongest record on NSO is forensic: captured exploits, Apple's credits, Project Zero's analysis and the Ninth Circuit [13] [39] [40] [41] [28]. Price figures remain **Reported** [13] [14]; customer and operator lists rest on Citizen Lab's scans and the leak itself and are **Confirmed** [16] [25] [32].
 - **Overstated and understated.** Overstated: the leaked exploit as the cause of every outbreak. Baltimore's court record names no EternalBlue [108], NotPetya fell back to it only after credential theft [78], and Graham cites the DBIR's finding that zero-days are rarely used in breaches [7] (**Reported** for the DBIR point). Understated: how ordinary the spread paths were, from stolen credentials in early WannaCry [57] to PsExec, WMI and Mimikatz in NotPetya [75], and how long old bugs stay useful, with CVE-2010-0249 and MS08-067 entering KEV only in 2026 [22].
 - **ATT&CK describes behavior, not provenance.** No ATT&CK object carries EternalBlue, DoublePulsar or the Shadow Brokers [81] [114]. The lineage from leak to worm lives in court records and vendor reports, not in the technique matrix, so defenders who want to track exploit provenance need both.
@@ -760,7 +773,7 @@ The live `T1210` page lists mitigations [`M1048`](/mitre/mitigations/M1048.md), 
 | 49 | Kaspersky, Equation: The Death Star of Malware Galaxy (16 Feb 2015) | https://securelist.com/equation-the-death-star-of-malware-galaxy/68750/ | 3 Nov 2026 | Confirmed |
 | 50 | Kaspersky, The Equation giveaway (Aug 2016) | https://securelist.com/the-equation-giveaway/75812/ | 3 Nov 2026 | Confirmed |
 | 51 | Cisco, cisco-sa-20160817-asa-snmp (CVE-2016-6366) | https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20160817-asa-snmp | 3 Nov 2026 | Confirmed |
-| 52 | Cisco, Shadow Brokers blog post | https://blogs.cisco.com/security/shadow-brokers | 3 Nov 2026 | Confirmed |
+| 52 | Cisco, Shadow Brokers blog post | https://blogs.cisco.com/security/shadow-brokers | 3 Nov 2026; reopened 11 Nov 2026 | Confirmed |
 | 53 | Fortinet, FG-IR-16-023 (CVE-2016-6909) | https://www.fortiguard.com/psirt/FG-IR-16-023 | 3 Nov 2026 | Confirmed |
 | 54 | Kaspersky, Investigation report for the September 2014 Equation malware detection incident in the US (16 Nov 2017) | https://securelist.com/investigation-report-for-the-september-2014-equation-malware-detection-incident-in-the-us/83210/ | 3 Nov 2026 | Confirmed |
 | 55 | TeamStarWolf, NOTABLE_INCIDENTS.md | https://github.com/TeamStarWolf/TeamStarWolf/blob/main/NOTABLE_INCIDENTS.md | 3 Nov 2026 | Reported (library text) |

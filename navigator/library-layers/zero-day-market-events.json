@@ -6,7 +6,7 @@
     "layer": "4.5"
   },
   "domain": "enterprise-attack",
-  "description": "Curated case-study layer, not an official MITRE mapping. The 62 ATT&CK Enterprise techniques that the verified record in case-studies/ZERO_DAY_MARKET_EVENTS.md supports for Operation Aurora (Elderwood, Hydraq), the Equation group, the Hacking Team leak, WannaCry, NotPetya, Bad Rabbit, Shamoon and the 2019 Baltimore RobbinHood attack, from the ATT&CK software and group pages the study opened and data/attack/. Each comment names the event and the study's source numbers. Scores: 100 an ATT&CK page ties the technique to an event in the study, 75 an ATT&CK software or group record related to the event but not dated to it, 40 an Inferred mapping.",
+  "description": "Curated case-study layer, not an official MITRE mapping. The 75 ATT&CK Enterprise techniques that the verified record in case-studies/ZERO_DAY_MARKET_EVENTS.md supports for Operation Aurora (Elderwood, Hydraq), the Equation group, the Hacking Team leak, WannaCry, NotPetya, Bad Rabbit, Shamoon and the 2019 Baltimore RobbinHood attack, from the ATT&CK software and group pages the study opened and data/attack/. Each comment names the event and the study's source numbers. Scores: 100 an ATT&CK page ties the technique to an event in the study, 75 an ATT&CK software or group record related to the event but not dated to it, 40 an Inferred mapping.",
   "sorting": 3,
   "layout": {
     "layout": "side",
@@ -448,6 +448,108 @@
       "tactic": "resource-development",
       "score": 40,
       "comment": "Equation (Inferred) (basis: Inferred). Sources [49] [117] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1036.004",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Bad Rabbit (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [112] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1070.006",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1140",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "privilege-escalation",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1548.002",
+      "tactic": "privilege-escalation",
+      "score": 75,
+      "comment": "Shamoon; Bad Rabbit (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] [112] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "privilege-escalation",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "initial-access",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1106",
+      "tactic": "execution",
+      "score": 75,
+      "comment": "Bad Rabbit (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [112] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 75,
+      "comment": "Bad Rabbit (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [112] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1124",
+      "tactic": "discovery",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1135",
+      "tactic": "discovery",
+      "score": 75,
+      "comment": "Bad Rabbit (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [112] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1495",
+      "tactic": "impact",
+      "score": 75,
+      "comment": "Bad Rabbit (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [112] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
     }
   ],
   "gradient": {
@@ -476,15 +578,15 @@
   "metadata": [
     {
       "name": "source",
-      "value": "TeamStarWolf case study: case-studies/ZERO_DAY_MARKET_EVENTS.md (sources opened 3 November 2026)"
+      "value": "TeamStarWolf case study: case-studies/ZERO_DAY_MARKET_EVENTS.md (sources opened 3 November 2026; sources 58 and 59 on 11 November 2026)"
     },
     {
       "name": "techniques_scored",
-      "value": "62"
+      "value": "75"
     },
     {
       "name": "technique_tactic_entries",
-      "value": "72"
+      "value": "89"
     },
     {
       "name": "score_meaning",

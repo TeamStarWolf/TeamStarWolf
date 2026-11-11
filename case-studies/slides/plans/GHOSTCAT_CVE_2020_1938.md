@@ -1,4 +1,4 @@
-# Ghostcat, CVE-2020-1938: The Tomcat AJP File Read in the Lab
+# Slide plan: Ghostcat, CVE-2020-1938: The Tomcat AJP File Read in the Lab
 
 - Study: case-studies/GHOSTCAT_CVE_2020_1938.md
 - Cover title: Ghostcat, CVE-2020-1938 / The Tomcat AJP File Read / in the Lab

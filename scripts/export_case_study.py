@@ -45,10 +45,11 @@ default reads badly. The eight names that existed before the table are kept as t
 
 Slide plan format (case-studies/slides/plans/<STUDY STEM>.md)
 --------------------------------------------------------------
-A plan is a Markdown page. It opens with the deck title as a level-one heading and a list of
-fields:
+A plan is a Markdown page. It opens with a level-one heading, "Slide plan: " and the deck
+title (the study's title; the prefix keeps the page apart from the study in generated
+listings and is dropped from the deck), then a list of fields:
 
-    # Ghostcat, CVE-2020-1938: The Tomcat AJP File Read in the Lab
+    # Slide plan: Ghostcat, CVE-2020-1938: The Tomcat AJP File Read in the Lab
 
     - Study: case-studies/GHOSTCAT_CVE_2020_1938.md
     - Cover title: Ghostcat, CVE-2020-1938 / The Tomcat AJP File Read / in the Lab
@@ -777,7 +778,7 @@ def parse_plan(path: str):
         if EM_DASH in s:
             errors.append(f"{where}:{n}: em dash (U+2014)")
         if line.startswith("# ") and not plan.title:
-            plan.title = s[2:].strip()
+            plan.title = re.sub(r"^Slide plan:\s*", "", s[2:].strip())
             continue
         if line.startswith("## "):
             m = re.match(r"^##\s+(.+?)\s+\|\s+(.+)$", line)

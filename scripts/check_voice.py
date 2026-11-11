@@ -5,11 +5,11 @@ Scope: every hand-written Markdown page, which is the tracked Markdown at the re
 root (README, HOME, _coverpage, _navbar, _sidebar and every root reference), under
 guides/, disciplines/, case-studies/, tools-research/ and docs/, and every page that
 build_site_nav.hand_written() returns: tools/, platforms/, languages/, paradigms/,
-frameworks/, commands/, formats/, databases/, ai-tooling/, research/, data/, scripts/ and
-the hand-written pages under detections/ (in_scope()). The trees other generators write
-(mitre/, techniques/, detections/strategies/, scores/, hubs/, navigator/index.md) are out
-of scope; their generators own their wording. Two rules, agent-note and em-dash, ignore
-this scope and cover more (below).
+frameworks/, commands/, formats/, databases/, ai-tooling/, research/, operating-systems/,
+data/, scripts/ and the hand-written pages under detections/ (in_scope()). The trees
+other generators write (mitre/, techniques/, detections/strategies/, scores/, hubs/,
+navigator/index.md) are out of scope; their generators own their wording. Two rules,
+agent-note and em-dash, ignore this scope and cover more (below).
 
 Rules (the rule key is what the baseline counts):
 

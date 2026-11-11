@@ -161,7 +161,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 21 August 2021: CISA urgent alert on active ProxyShell exploitation
   - 3 November 2021: KEV launches with the seven ProxyLogon and ProxyShell CVEs
   - 3 July 2025: Xu Zewei arrested in Milan
-- [The Year 2021 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2021.md). Period record, January to December 2021. Sectors: cross-sector, energy, healthcare, government, technology. CVEs: CVE-2017-16238, CVE-2018-13379, CVE-2019-5591, CVE-2019-19781, CVE-2020-1472, CVE-2020-12812 and 25 more. ATT&CK groups: G0004 Ke3chang, G0016 APT29, G0032 Lazarus Group, G0049 OilRig, G0059 Magic Hound, G0065 Leviathan and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2021_Case_Study.pdf).
+- [The Year 2021 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2021.md). Period record, January to December 2021. Sectors: cross-sector, energy, healthcare, government, technology. CVEs: CVE-2017-16238, CVE-2018-13379, CVE-2019-5591, CVE-2019-19781, CVE-2020-1472, CVE-2020-12812 and 25 more. ATT&CK groups: G0004 Ke3chang, G0016 APT29, G0032 Lazarus Group, G0049 OilRig, G0059 Magic Hound, G0065 Leviathan and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2021_Case_Study.pptx).
   - 27 January 2021: Emotet's infrastructure taken over by eight countries' authorities
   - 5 February 2021: Someone in a US water utility's SCADA system raises sodium hydroxide; staff reverse it
   - 2 March 2021: Microsoft ships Exchange fixes and attributes exploitation to HAFNIUM
@@ -324,7 +324,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2009 <!-- {docsify-ignore} -->
 
-- [North Korea-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_NORTH_KOREA.md). Threat actor, 2009 to October 2026. Sectors: finance, government, defense, healthcare, technology, energy, media, education. CVEs: CVE-2017-4946, CVE-2021-20038, CVE-2021-43226, CVE-2021-44228, CVE-2021-45837, CVE-2022-24990 and 3 more. ATT&CK groups: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G0138 Andariel, G1036 Moonstone Sleet and 2 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_North_Korea_Case_Study.pdf).
+- [North Korea-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_NORTH_KOREA.md). Threat actor, 2009 to October 2026. Sectors: finance, government, defense, healthcare, technology, energy, media, education. CVEs: CVE-2017-4946, CVE-2021-20038, CVE-2021-43226, CVE-2021-44228, CVE-2021-45837, CVE-2022-24990 and 3 more. ATT&CK groups: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G0138 Andariel, G1036 Moonstone Sleet and 2 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_North_Korea_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Threat_Actors_North_Korea_Case_Study.pptx).
   - November 2014: Destructive attack on Sony Pictures Entertainment; the FBI names the North Korean government on 19 December 2014
   - February 2016: Bangladesh Bank SWIFT heist, $81 million (Treasury, 2018)
   - 12 May 2017: WannaCry ransomware; at least 81 NHS trusts in England disrupted; UK attribution to Lazarus Group on 19 December 2017
@@ -417,6 +417,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 21 October 2016: The Dyn attack, which the USENIX paper attributes to Mirai cluster 6, not the original cluster 1
   - 5 December 2017: Informations and plea agreements against three Mirai and clickfraud defendants filed in Alaska
   - 13 July 2018: Twelve GRU officers indicted in the District of Columbia over the 2016 intrusions and leaks
+
+### 1986 <!-- {docsify-ignore} -->
+
+- [The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986](/case-studies/CUCKOOS_EGG_1986.md). Incident, August 1986 to February 1990. Sectors: government, defense, education. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cuckoos_Egg_1986_Case_Study.pdf).
+  - May 1986: At least five diskettes handed over in East Berlin from May to November 1986 (DER SPIEGEL, Reported)
+  - August 1986: LBL's accounting program fails to balance: a new account with no billing address
+  - 8 December 1986: US request for help reaches the Deutsche Bundespost (DER SPIEGEL, Reported)
+  - 1987: Alarmed SDI bait files hold the intruder for more than an hour while the trace to West Germany completes
+  - May 1988: Stoll's "Stalking the Wily Hacker" published in Communications of the ACM
+  - 2 November 1988: Internet worm released; Stoll posts one of the first public warnings on RISKS
+  - December 1988: CERT/CC established by DARPA at the SEI, Carnegie Mellon
+  - 2 March 1989: Three arrests after house searches; the Interior Ministry confirms the suspects supplied the KGB (Reported)
+  - August 1989: Three hackers indicted on espionage charges (AP, Reported)
+  - 30 September 1989: Stoll posts the details of his book The Cuckoo's Egg (Doubleday, 1989)
+  - 15 February 1990: Court in Celle gives Carl, Hess and Brzezinski suspended sentences (Reported)
+  - July 1991: RFC 1244 frames "Protect and Proceed" against "Pursue and Prosecute" and cites both Stoll works
 
 <!-- case-study-timeline:list-end (the timeline replaces the list above on the site) -->
 

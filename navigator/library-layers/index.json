@@ -226,5 +226,11 @@
     "name": "TeamStarWolf - Magento and Adobe Commerce CVE-2026-48356 Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified CVE-2026-48356 (PolyShell) record supports: Sansec's PolyShell advisory, mass-wave and deepveindrilling reports, and the TeamStarWolf lab run of 4 November 2026 on Magento Open Source 2.4.8-p5. Each comment names source numbers from case-studies/MAGENTO_CVE_2026_48356.md. Scores: 100 is reported by Sansec and demonstrated in the lab, 75 is a follow-on stage known only from Sansec's reports.",
     "blurb": "Techniques from the PolyShell record, from the unauthenticated guest-cart upload to the webshells and storefront loaders Sansec reported. A curated layer for the Magento CVE-2026-48356 case study."
+  },
+  {
+    "file": "nextcloud-richdocumentscode-cve-2026-110447.json",
+    "name": "TeamStarWolf - Collabora Built-in CODE Server (richdocumentscode) CVE-2026-110447 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified CVE-2026-110447 record supports: the Collabora advisory, the CVE, NVD and CISA KEV records, and the victim administrators' first-hand reports on richdocumentscode issue #354. The TeamStarWolf lab run of 4 November 2026 checked versions and the fix only. Each comment names source numbers from case-studies/NEXTCLOUD_RICHDOCUMENTS_CVE_2026_110447.md. Scores: 100 is the exploitation itself, 75 is a post-exploitation step known only from the victims' reports.",
+    "blurb": "Techniques from the Collabora Built-in CODE Server record, from the unauthenticated proxy.php command injection to the web shells and host discovery victims reported. A curated layer for the Nextcloud CVE-2026-110447 case study."
   }
 ]

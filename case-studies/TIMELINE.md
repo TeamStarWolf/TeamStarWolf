@@ -37,6 +37,18 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 27 October 2026: Chrome Root Store removes the emSign ECC Root CA G3
   - October 2026: Apple, Go (CVE-2026-111943), Okta and Auth0, and downstream bundles follow; trust-store updates coordinated under Red Hat RHSB-2026-012
   - November 2026: Root programs distrust the fallback emSign Root CA G1 (Chrome and Firefox after 16 November, Apple 30 November); eMudhra winds down all publicly trusted TLS
+- [Collabora Built-in CODE Server (richdocumentscode), CVE-2026-110447: Lab-Verified Exposure and Fix](/case-studies/NEXTCLOUD_RICHDOCUMENTS_CVE_2026_110447.md). Vulnerability, August to November 2026. Sectors: technology. CVEs: CVE-2026-110447, CVE-2025-66208, CVE-2026-67400. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Nextcloud_Richdocuments_CVE_2026_110447_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Nextcloud_Richdocuments_CVE_2026_110447_Case_Study.pptx).
+  - 20 August 2026: Fix commit 6cc8dae authored, titled as a tidy-up of the coolwsd launch command
+  - 31 August 2026: richdocumentscode 26.4.302 released, still vulnerable
+  - 10 September 2026: First logged exploitation: a request to proxy.php on a server running 26.4.302
+  - 11 September 2026: 26.4.303 released with the fix and no security note; the victim opens issue #354 an hour later
+  - 14 September 2026: A second source hits a host already on 26.4.303; the vendor says 26.4.303 should fix it
+  - 24 September 2026: 26.4.402 released with launch-path hardening
+  - 14 October 2026: CVE and NVD records and Collabora advisory GHSA-g3vx-3m76-fghh published, 33 days after the fix
+  - 20 October 2026: Commit 813c171 stops coolwsd when the app is disabled
+  - 23 October 2026: CISA adds the CVE to KEV with forensic triage, due 26 October; 26.4.502 released
+  - 30 October 2026: A user reports the attack works on a disabled, not-updated app; Collabora points to the advisory
+  - 4 November 2026: TeamStarWolf lab run: 26.4.302 flagged vulnerable, 26.4.303 fixed, fix read in proxy.php
 - [Magento and Adobe Commerce, CVE-2026-48356: Lab-Verified Exposure and Fix](/case-studies/MAGENTO_CVE_2026_48356.md). Vulnerability, March to November 2026. Sectors: retail, technology. CVEs: CVE-2015-3306, CVE-2020-1938, CVE-2026-48356, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Magento_CVE_2026_48356_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Magento_CVE_2026_48356_Case_Study.pptx).
   - 17 March 2026: Sansec publishes the PolyShell advisory
   - 19 March 2026: First attacks in the wild, per Sansec (Reported)

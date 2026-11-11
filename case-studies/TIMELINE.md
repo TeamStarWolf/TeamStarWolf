@@ -54,7 +54,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 24 February 2024: XZ Utils 5.6.0 tarball, carrying the backdoor, released
   - 9 March 2024: 5.6.1 tarball released
   - 29 March 2024: Andres Freund discloses the backdoor; distributions pull the versions; CISA issues an alert
-- [The Change Healthcare Attack of 2024: The Largest Healthcare Breach on Record](/case-studies/CHANGE_HEALTHCARE_2024.md). Incident, February 2024 to November 2026. Sectors: healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Change_Healthcare_2024_Case_Study.pdf).
+- [The Change Healthcare Attack of 2024: The Largest Healthcare Breach on Record](/case-studies/CHANGE_HEALTHCARE_2024.md). Incident, February 2024 to November 2026. Sectors: healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Change_Healthcare_2024_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Change_Healthcare_2024_Case_Study.pptx).
   - 12 February 2024: Login to the Citrix remote-access portal with compromised credentials and no MFA
   - 17 February 2024: Exfiltration of protected health information, 17 to 20 February
   - 21 February 2024: Ransomware deployed and systems encrypted; connectivity severed
@@ -264,7 +264,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2012 <!-- {docsify-ignore} -->
 
-- [APT41: The Public Record, 2012 to 2026](/case-studies/APT41_PUBLIC_RECORD.md). Threat actor, 2012 to 2026. Sectors: technology, government, healthcare, telecommunications, education. CVEs: CVE-2012-0158, CVE-2015-1641, CVE-2017-0199, CVE-2017-11882, CVE-2019-1652, CVE-2019-1653 and 12 more. ATT&CK groups: G0096 APT41. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/APT41_Public_Record_2012_2026_Case_Study.pdf).
+- [APT41: The Public Record, 2012 to 2026](/case-studies/APT41_PUBLIC_RECORD.md). Threat actor, 2012 to 2026. Sectors: technology, government, healthcare, telecommunications, education. CVEs: CVE-2012-0158, CVE-2015-1641, CVE-2017-0199, CVE-2017-11882, CVE-2019-1652, CVE-2019-1653 and 12 more. ATT&CK groups: G0096 APT41. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/APT41_Public_Record_2012_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/APT41_Public_Record_2012_2026_Case_Study.pptx).
   - 2012: FireEye traces APT41 activity to 2012, when members targeted the video game industry
   - July 2017: NetSarang's nssock2.dll backdoored in five software packages
   - June 2018: ASUS Live Update compromise (ShadowHammer), June to November 2018; stage 1 unconfirmed as APT41

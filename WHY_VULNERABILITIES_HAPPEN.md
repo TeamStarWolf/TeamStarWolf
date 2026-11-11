@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 8 min (1,867 words at 230 words a minute)
+About 9 min (2,162 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -29,7 +29,7 @@ You want the root causes behind recurring vulnerabilities across the network, ho
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Start at</th><td>
 
-[The eight root causes](#the-eight-root-causes), [Commonalities by layer](#commonalities-by-layer) for the attack-beside-defense tables, [Working the map through CTEM](#working-the-map-through-ctem) to put it to use
+[Top things to worry about](#top-things-to-worry-about) for the prioritized list with case studies, [The eight root causes](#the-eight-root-causes), [Commonalities by layer](#commonalities-by-layer) for the attack-beside-defense tables
 
 </td></tr>
 </table>
@@ -61,13 +61,28 @@ Thousands of distinct CVEs collapse into a small number of underlying reasons. E
 7. **Supply-chain trust.** You run code you did not write and did not review: dependencies, base images, drivers, build systems. A compromise upstream inherits all the privilege of the thing that trusts it. Weakness classes: [CWE-1357](https://cwe.mitre.org/data/definitions/1357.html), [CWE-494](https://cwe.mitre.org/data/definitions/494.html), [CWE-829](https://cwe.mitre.org/data/definitions/829.html). Covered in the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
 8. **Complexity and backward compatibility.** The meta-cause. Every feature kept for compatibility and every layer of abstraction is attack surface that no one can fully reason about. Complexity is why the first seven never go away.
 
+## Top things to worry about
+
+Ranked by the blast radius seen in real incidents, these are the recurring exposures to drive down first. Each row links to a case study that shows the pattern in the wild and to the reference that carries the fix. This is the worry list that the layer detail below supports.
+
+| Recurring exposure | Why it is at the top | Seen in | Where to fix |
+|---|---|---|---|
+| Internet-facing edge and appliance exploitation | A single unpatched pre-authentication flaw on an exposed appliance gives entry at scale, with no phishing needed. | [Cl0p MOVEit](/case-studies/CL0P_FILE_TRANSFER_2023.md), [SharePoint ToolShell](/case-studies/SHAREPOINT_TOOLSHELL_2025.md), [Exchange Marauder](/case-studies/EXCHANGE_MARAUDER_2021.md) | [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Network Defense](/NETWORK_DEFENSE_REFERENCE.md) |
+| Supply-chain compromise | Trusted code and updates carry the attack past every perimeter control at once. | [XZ Utils backdoor](/case-studies/XZ_UTILS_BACKDOOR_2024.md), [SolarWinds SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md), [npm attacks](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md) | [Supply Chain Security](/SUPPLY_CHAIN_SECURITY_REFERENCE.md) |
+| Injection and insecure deserialization | Untrusted input reaching an interpreter or a deserializer is still the most common path to remote code execution in applications. | [Log4Shell](/case-studies/LOG4SHELL.md), [PHP2Shell](/case-studies/PHP2SHELL_OCTOBER_2026.md) | [Secure Coding](/SECURE_CODING_REFERENCE.md), [Web Application Security](/WEB_APPLICATION_SECURITY_REFERENCE.md) |
+| Identity and weak authentication | Missing MFA and stealable or forgeable credentials convert directly into access, often the real initial-access vector. | [Change Healthcare](/case-studies/CHANGE_HEALTHCARE_2024.md), [eMudhra CA compromise](/case-studies/EMUDHRA_CA_COMPROMISE_2026.md) | [Active Directory Attack](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), [Cryptography](/CRYPTOGRAPHY_REFERENCE.md) |
+| Kernel and memory-corruption flaws | A memory bug in the kernel or a network stack yields the highest-privilege execution, and is increasingly exploited with AI assistance. | [Linux kernel TCP flaw](/case-studies/LINUX_TCP_UAF_2026.md), [Multipath TCP surface](/case-studies/MPTCP_ATTACK_SURFACE_2026.md) | [Linux Hardening](/LINUX_HARDENING_REFERENCE.md), [Exploit Development](/EXPLOIT_DEVELOPMENT_REFERENCE.md) |
+| Insecure defaults and exposed services | Default-enabled features and permissive configuration give unauthenticated access with no exploit at all. | [Ghostcat](/case-studies/GHOSTCAT_CVE_2020_1938.md), [ProFTPD mod_copy](/case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md) | [Linux Hardening](/LINUX_HARDENING_REFERENCE.md), [Windows Hardening](/WINDOWS_HARDENING_REFERENCE.md) |
+
+For the full incident record, see the [case studies](/case-studies/README.md).
+
 ## Commonalities by layer
 
 Each layer breaks a specific trust assumption. The tables list the routine vulnerability classes at that layer, how each is seen in the field, the control or detection that answers it, the CWE it maps to, and the root cause that drives it. The offensive and defensive columns together are the purple view: the command that exploits a class beside the control that catches it. Commands are standard, publicly documented techniques, for authorized defensive and testing use.
 
 ### Network
 
-Trust broken: that anything reachable on the network may talk to a service, and that the sender of a protocol message is who it claims to be. See the [Network Defense Reference](/NETWORK_DEFENSE_REFERENCE.md) and [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md).
+Trust broken: that anything reachable on the network may talk to a service, and that the sender of a protocol message is who it claims to be. See the [Network Defense Reference](/NETWORK_DEFENSE_REFERENCE.md) and [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md). Incidents at this layer: [Cl0p MOVEit](/case-studies/CL0P_FILE_TRANSFER_2023.md), [SharePoint ToolShell](/case-studies/SHAREPOINT_TOOLSHELL_2025.md), [Exchange Marauder](/case-studies/EXCHANGE_MARAUDER_2021.md).
 
 | Class | Offensive (seen as) | Defensive (control / detection) | CWE | Root cause |
 |---|---|---|---|---|
@@ -80,7 +95,7 @@ Trust broken: that anything reachable on the network may talk to a service, and 
 
 ### Host
 
-Trust broken: that a user or process stays inside the privilege it was given, and that secrets and configuration on the box are out of reach. See the [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md) and the [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md).
+Trust broken: that a user or process stays inside the privilege it was given, and that secrets and configuration on the box are out of reach. See the [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md) and the [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md). Incidents at this layer: [Change Healthcare](/case-studies/CHANGE_HEALTHCARE_2024.md), [Stuxnet](/case-studies/STUXNET.md).
 
 | Class | Offensive (seen as) | Defensive (control / detection) | CWE | Root cause |
 |---|---|---|---|---|
@@ -93,7 +108,7 @@ Trust broken: that a user or process stays inside the privilege it was given, an
 
 ### Operating system
 
-Trust broken: that the boundary between unprivileged code and the kernel holds, and that the base image you run is the one the vendor built. See the per-system pages in [Operating systems](/operating-systems/README.md) and the [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
+Trust broken: that the boundary between unprivileged code and the kernel holds, and that the base image you run is the one the vendor built. See the per-system pages in [Operating systems](/operating-systems/README.md) and the [Secure Coding Reference](/SECURE_CODING_REFERENCE.md). Incidents at this layer: [Linux kernel TCP flaw](/case-studies/LINUX_TCP_UAF_2026.md), [XZ Utils backdoor](/case-studies/XZ_UTILS_BACKDOOR_2024.md), [Multipath TCP surface](/case-studies/MPTCP_ATTACK_SURFACE_2026.md).
 
 | Class | Offensive (seen as) | Defensive (control / detection) | CWE | Root cause |
 |---|---|---|---|---|
@@ -106,7 +121,7 @@ Trust broken: that the boundary between unprivileged code and the kernel holds, 
 
 ### Enterprise technology
 
-Trust broken: that user input is well-formed, that one authenticated user cannot act as another, and that a request from inside the perimeter is safe to honor. See the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), the [API Security Reference](/API_SECURITY_REFERENCE.md), and the [Database Security Reference](/DATABASE_SECURITY_REFERENCE.md).
+Trust broken: that user input is well-formed, that one authenticated user cannot act as another, and that a request from inside the perimeter is safe to honor. See the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), the [API Security Reference](/API_SECURITY_REFERENCE.md), and the [Database Security Reference](/DATABASE_SECURITY_REFERENCE.md). Incidents at this layer: [Log4Shell](/case-studies/LOG4SHELL.md), [PHP2Shell](/case-studies/PHP2SHELL_OCTOBER_2026.md), [SolarWinds SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md).
 
 | Class | Offensive (seen as) | Defensive (control / detection) | CWE | Root cause |
 |---|---|---|---|---|

@@ -4,6 +4,55 @@
 
 Zafran is a Threat Exposure Management platform built around a core thesis that most risk assessments ignore the compensating controls an organization already owns. It correlates vulnerabilities and exposures with existing security controls (EDR, WAF, firewall, IPS, email security, etc.) to determine what is actually exploitable and reachable, then mobilizes those existing controls to mitigate risk in the window before a patch lands. It is positioned as agentless and tool-agnostic, sitting on top of the stack a customer already has.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the exposure management analysts who run Zafran Security
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 8 min (1,794 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what Zafran Security can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [CTEM Reference](/CTEM_REFERENCE.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Tenable](/tools/tenable.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities & architecture
 
 **Core capabilities**
@@ -97,14 +146,14 @@ _Official documentation & manuals_
 - [Zafran resource library (whitepapers, briefs)](https://www.zafran.io/whitepaper)
 
 _API & developer docs_
-- [Zafran Security API profile (third-party index, API Evangelist) —  (no public first-party API reference located; API access is behind customer authentication)](https://providers.apievangelist.com/providers/zafran-security/)
+- [Zafran Security API profile (third-party index, API Evangelist): (no public first-party API reference located; API access is behind customer authentication)](https://providers.apievangelist.com/providers/zafran-security/)
 
 _GitHub_
-- [github.com/ZafranSecurity](https://github.com/ZafranSecurity) — a public org (created 2022-11-20, 5 public repos). It is **not** a GitHub-verified org and is not linked from zafran.io, so its provenance is content-based (one repo describes itself as "the official source of Zafran Security's Collector Helm chart"); treat as likely-official but unverified.
-- [zafran-custom-integrations-public](https://github.com/ZafranSecurity/zafran-custom-integrations-public) (MIT) — the Starlark runner for Zafran custom integrations. Its README and `genericimport.proto` are the closest thing to a public Zafran API/data-model reference: the `zafran` module (`collect_instance` / `collect_vulnerability` / `flush`, 100k and 1M per-flush limits), the `IdentifierType` enum (AWS_EC2_INSTANCE_ID, TENABLE_UUID, CROWDSTRIKE_AID, WIZ_GRAPH_ENTITY_ID, TANIUM_ID, ZSCALER_DEVICE_ID, DEFENDER_MACHINE_ID, QUALYS_ASSET_ID, …), and the `ScanType` taxonomy (INFRASTRUCTURE, SCA, EASM, CLOUD_MISCONFIGURATIONS, SAST, DAST_WAS, SECRETS, IAC, DSPM, COMPLIANCE, PENTEST_BUG_BOUNTY).
-- [zafran-collector-helm-chart](https://github.com/ZafranSecurity/zafran-collector-helm-chart) (MIT) — the collector Helm chart (self-described as the official source).
-- [securingthefrontier](https://github.com/ZafranSecurity/securingthefrontier) — a Zafran-run "Securing the Frontier" content site (GitHub Pages, served at securingthefrontier.com).
-- The org's other two repos are a fork of OWASP Juice Shop and a copy of Chainlit — not Zafran product.
+- [github.com/ZafranSecurity](https://github.com/ZafranSecurity): a public org (created 2022-11-20, 5 public repos). It is **not** a GitHub-verified org and is not linked from zafran.io, so its provenance is content-based (one repo describes itself as "the official source of Zafran Security's Collector Helm chart"); treat as likely-official but unverified.
+- [zafran-custom-integrations-public](https://github.com/ZafranSecurity/zafran-custom-integrations-public) (MIT): the Starlark runner for Zafran custom integrations. Its README and `genericimport.proto` are the closest thing to a public Zafran API/data-model reference: the `zafran` module (`collect_instance` / `collect_vulnerability` / `flush`, 100k and 1M per-flush limits), the `IdentifierType` enum (AWS_EC2_INSTANCE_ID, TENABLE_UUID, CROWDSTRIKE_AID, WIZ_GRAPH_ENTITY_ID, TANIUM_ID, ZSCALER_DEVICE_ID, DEFENDER_MACHINE_ID, QUALYS_ASSET_ID, …), and the `ScanType` taxonomy (INFRASTRUCTURE, SCA, EASM, CLOUD_MISCONFIGURATIONS, SAST, DAST_WAS, SECRETS, IAC, DSPM, COMPLIANCE, PENTEST_BUG_BOUNTY).
+- [zafran-collector-helm-chart](https://github.com/ZafranSecurity/zafran-collector-helm-chart) (MIT): the collector Helm chart (self-described as the official source).
+- [securingthefrontier](https://github.com/ZafranSecurity/securingthefrontier): a Zafran-run "Securing the Frontier" content site (GitHub Pages, served at securingthefrontier.com).
+- The org's other two repos are a fork of OWASP Juice Shop and a copy of Chainlit, not Zafran product.
 
 _Community / integration / detection repos_
 - No notable community repositories specific to Zafran were found (product is closed/SaaS with marketplace-based integrations rather than open-source tooling).
@@ -114,7 +163,7 @@ _Learning & reference_
 - [AWS Marketplace listing](https://aws.amazon.com/marketplace/pp/prodview-3fcfd4kifsf7k)
 - CrowdStrike Marketplace / Trend Micro partner platform listings (integration references)
 
-> Note: Zafran is a newer (venture-backed) AI-native Continuous Threat Exposure Management (CTEM) / mitigation platform. There is NO public developer documentation site and no public first-party API reference — docs.zafran.io and api.zafran.io sit behind a customer account, and integration setup requires vendor engagement. The one public technical artifact is the integration data-model (schema + Starlark runner) in the ZafranSecurity GitHub org noted above, whose provenance is content-based/unverified. Integrations (Cyera, CrowdStrike, Trend Micro, Jira, ServiceNow VR, SOAR) are configured in-product rather than via open-source repos. Treat vendor exploitability/mitigation claims (e.g. '90% of critical vulns not exploitable') as marketing until validated.
+> Note: Zafran is a newer (venture-backed) AI-native Continuous Threat Exposure Management (CTEM) / mitigation platform. There is NO public developer documentation site and no public first-party API reference: docs.zafran.io and api.zafran.io sit behind a customer account, and integration setup requires vendor engagement. The one public technical artifact is the integration data-model (schema + Starlark runner) in the ZafranSecurity GitHub org noted above, whose provenance is content-based/unverified. Integrations (Cyera, CrowdStrike, Trend Micro, Jira, ServiceNow VR, SOAR) are configured in-product rather than via open-source repos. Treat vendor exploitability/mitigation claims (e.g. '90% of critical vulns not exploitable') as marketing until validated.
 
 ## Current state (2025-26)
 

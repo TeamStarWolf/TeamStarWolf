@@ -8,6 +8,55 @@
 
 This guide operationalizes the library's [Kubernetes Security Reference](/KUBERNETES_SECURITY_REFERENCE.md): its attack-surface map, RBAC deep dive, Pod Security Standards, NetworkPolicy, secrets, and hardening checklist are the *what*; this is the *how*, in the order a practitioner actually executes it. Image-layer hardening (Dockerfiles, base images, scanning, escape defense) lives one layer down in the [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md), and the discipline that frames both (where this sits in a career and a learning path) is [Container & Kubernetes Security](/disciplines/container-kubernetes-security.md). The single most useful external companion is the [NSA/CISA Kubernetes Hardening Guide](https://media.defense.gov/2022/Aug/29/2003066362/-1/-1/0/CTR_KUBERNETES_HARDENING_GUIDANCE_1.2_20220829.PDF); keep it open beside this one.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Platform engineers, SREs and security engineers who own a Kubernetes cluster
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 15 min (3,380 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are taking a running cluster from working to a defensible baseline, you need a repeatable hardening procedure rather than one-off kubectl commands, or you want to measure the result with kube-bench and Trivy
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Before you start](#before-you-start), [Step 2: Baseline the cluster with kube-bench and Trivy](#step-2-baseline-the-cluster-with-kube-bench-and-trivy), [What good looks like](#what-good-looks-like)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Kubernetes Security Reference](/KUBERNETES_SECURITY_REFERENCE.md), [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md), [Container & Kubernetes Security](/disciplines/container-kubernetes-security.md), [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Before you start
 
 - [ ] Read the hardening-checklist and Pod Security sections of the [Kubernetes Security Reference](/KUBERNETES_SECURITY_REFERENCE.md) so the control choices below make sense before you enforce them, and skim the [NSA/CISA Kubernetes Hardening Guide](https://media.defense.gov/2022/Aug/29/2003066362/-1/-1/0/CTR_KUBERNETES_HARDENING_GUIDANCE_1.2_20220829.PDF).

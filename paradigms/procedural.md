@@ -2,6 +2,55 @@
 
 Procedural programming organizes imperative code into procedures (also called functions, routines, or subroutines) that call one another and operate on data passed as arguments or held in shared storage. It is a style within the imperative family, concerned with decomposition rather than with how state changes. It matters because the procedure call is the oldest and most durable unit of reuse and abstraction in software.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers and students learning procedural programming, and reviewers who assess code written in that style
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (1,027 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning procedural programming or deciding whether it fits a problem, you want the languages and tools that support it, or you need its secure-coding considerations before a review
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core idea](#core-idea), [Strengths and trade-offs](#strengths-and-trade-offs), [Secure-coding considerations](#secure-coding-considerations)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Imperative Programming](/paradigms/imperative.md), [Structured Programming](/paradigms/structured.md), [Object-Oriented Programming](/paradigms/object-oriented.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Core idea
 
 The defining concept is the procedure: a named block of statements with a parameter list and, usually, a return value. A procedure is a contract. Callers supply inputs, the procedure runs its steps, and control returns to the point just after the call. The caller does not need to know how the work is done, only what the procedure promises.

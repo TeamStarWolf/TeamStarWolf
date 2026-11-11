@@ -14,6 +14,55 @@ PL/SQL (Procedural Language/SQL) is Oracle's statically typed, block-structured 
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [SQL](/languages/sql.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain PL/SQL code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,489 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing PL/SQL code (typical uses: stored procedures, triggers, package logic, batch processing), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [SQL](/languages/sql.md), [T-SQL](/languages/tsql.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Oracle introduced PL/SQL to let developers write procedural logic that runs inside the database, reducing round trips between an application and the data and allowing complex operations to be packaged as callable units. Its syntax and structure draw on Ada, with `BEGIN`/`END` blocks, strong typing, and packages that separate a specification from a body. The language has grown features such as bulk binding, autonomous transactions, object types, and native compilation across Oracle releases.
@@ -124,6 +173,29 @@ The main performance concern is the context switch between the PL/SQL engine and
 - `SELECT ... INTO` raises `NO_DATA_FOUND` when no row matches and `TOO_MANY_ROWS` when more than one does; handle both.
 - Committing inside a loop or relying on autonomous transactions can break transactional consistency; commit at well-defined boundaries.
 - Implicit data-type conversion between `VARCHAR2`, `NUMBER`, and `DATE` can mask bugs and defeat indexes; convert explicitly.
+
+## Security relevance
+
+PL/SQL reaches security practitioners mainly as server-side database logic that defenders and auditors assess, since it runs inside the Oracle Database with access to data and, through supplied packages, to the host and network. The defensive patterns that counter each weakness below are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Database back ends. Stored procedures, triggers, and packages hold business logic inside Oracle Database for finance, government, and ERP systems, so an assessment of an Oracle estate often means reading PL/SQL. See the [Database Security Reference](/DATABASE_SECURITY_REFERENCE.md).
+- Dynamic SQL and reporting. Code that builds statements at run time with `EXECUTE IMMEDIATE` or `DBMS_SQL` is where injection concentrates, the same class a web tester chases from the front end. See the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Host and network reach. Supplied packages such as `UTL_FILE`, `UTL_HTTP`, and `DBMS_SCHEDULER` external jobs let database code touch the file system, make outbound requests, and run operating-system work, which widens the attack surface well beyond the data.
+
+### Dominant weakness classes
+
+PL/SQL runs inside the database engine, which manages its memory, so the memory-corruption classes that dominate C and C++ do not apply. The weaknesses that matter are about injection and privilege:
+
+- SQL injection in dynamic SQL. Concatenating untrusted input into `EXECUTE IMMEDIATE` or `DBMS_SQL` lets an attacker change a statement's meaning. This is [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Privilege handling. Procedures run with definer rights by default, so an injectable or careless procedure can lend its owner's privileges to its caller. This is improper privilege management, [CWE-269](https://cwe.mitre.org/data/definitions/269.html).
+- Operating-system and network injection. Arguments to `UTL_FILE`, `UTL_HTTP`, and scheduler external jobs built from untrusted input reach the host, mapping to [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Information exposure. Returning raw `SQLERRM` text to end users reveals schema and query structure, which is [CWE-200](https://cwe.mitre.org/data/definitions/200.html).
+
+### Why it matters
+
+Reading PL/SQL lets an auditor find statements assembled by concatenation, definer-rights procedures that grant more than they should, and supplied-package calls that reach the operating system or network. Dedicated static analysis is thin: Oracle's `PL/Scope` supports identifier and call analysis and some third-party analyzers flag concatenated dynamic SQL, so manual review of every dynamic statement and privilege grant remains the main control.
 
 ## Secure coding
 

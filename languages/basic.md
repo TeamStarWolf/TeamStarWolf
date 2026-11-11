@@ -14,6 +14,55 @@ BASIC (Beginner's All-purpose Symbolic Instruction Code) is a family of imperati
 
 Related: [Visual Basic (classic)](/languages/visual-basic.md), [Pascal](/languages/pascal.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain BASIC code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,342 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing BASIC code (typical uses: teaching, early microcomputer software, scripting and hobby programming), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Visual Basic (classic)](/languages/visual-basic.md), [Pascal](/languages/pascal.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Dartmouth BASIC ran on a time-sharing system and was meant so that students in any discipline could write programs. Microcomputer makers adopted BASIC as the built-in language of the late 1970s and 1980s: Microsoft's BASIC shipped in ROM on many home computers, and dialects such as Applesoft BASIC, Commodore BASIC, and GW-BASIC defined a generation's first programming experience. Microsoft's QuickBASIC and QBasic later added structured programming (named procedures, block `IF`, no required line numbers).
@@ -110,6 +159,29 @@ Performance depends entirely on the dialect. Interpreted BASICs are slow relativ
 - `GOTO`-heavy control flow in old code is hard to follow and to modify safely.
 - Weak typing in early dialects allows surprising coercions between numbers and strings.
 - Line-numbered programs mix control flow with layout, making edits error-prone.
+
+## Security relevance
+
+BASIC reaches practitioners mostly as legacy application and hobby code and, in its modern compiled dialects, as native code that interoperates with C and the operating system. It is not a language for offensive tooling. The defensive patterns are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Legacy applications. Older BASIC programs persist in small business, instrumentation, and hobby software, where they are read and maintained rather than attacked through dedicated tooling.
+- Modern compiled dialects. FreeBASIC and QB64 compile to native executables and can call C libraries and operating-system routines, so programs built with them carry native-code risks at those boundaries.
+- Interactive and file input. BASIC programs commonly read untrusted data through `INPUT` and files, which is the usual entry point for the weaknesses below.
+
+### Dominant weakness classes
+
+The memory properties depend on the dialect: interpreted BASICs are largely memory-safe, while compiled dialects that use fixed-length buffers or call into C are memory-unsafe at those points.
+
+- Buffer and bounds handling. Fixed-length strings and arrays in dialects that allow direct memory access or C interop can overflow if external input is copied without a length check, which relates to [CWE-120](https://cwe.mitre.org/data/definitions/120.html).
+- Command and SQL construction. Dialects with a `SHELL` command or database access that build commands or queries from concatenated input are injectable, which maps to [CWE-78](https://cwe.mitre.org/data/definitions/78.html) and [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Integer overflow. Fixed-size numeric types can overflow on input-driven arithmetic, which maps to [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- Input validation. Data from `INPUT` or files is unchecked until the program checks it, which maps to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+
+### Why it matters
+
+Auditing BASIC means reviewing input handling and any C or shell interop by hand, since that is where a BASIC program can overflow a buffer or shell out on untrusted data. Dedicated security tooling for BASIC is scarce, so compiler warnings where the dialect provides them and manual review are the available controls, as the Secure coding section notes. See the [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 
 ## Secure coding
 

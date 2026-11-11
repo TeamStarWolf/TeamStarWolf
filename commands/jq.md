@@ -2,6 +2,55 @@
 
 `jq` is a command-line processor for JSON. It reads JSON on standard input, applies a filter program, and writes JSON or plain text to standard output. It pairs naturally with `curl` and log pipelines where structured data needs slicing, filtering, or reshaping. This page covers the filters, builtins, and output modes used in everyday scripting.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Engineers and analysts who filter and reshape JSON on the command line
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 2 min (510 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the jq commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [curl Command Reference](/commands/curl.md), [Linux Command Reference](/commands/linux-commands.md), [PowerShell Command Reference](/commands/powershell-commands.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 `jq` is a small standalone binary available on Linux, macOS, Windows, and the BSDs. It has no runtime dependencies and streams data, so it handles large inputs without loading everything at once. A jq program is a pipeline of filters joined by `|`, much like a shell pipeline. Input is one or more JSON values; output is whatever the filter produces.

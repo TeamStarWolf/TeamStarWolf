@@ -72,6 +72,8 @@ Hand-written pages in this library that link to this page or to this object's en
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 - [Industrial Control System Attacks and Advisories, 2024 to 2026: Incidents, CVEs and Attribution](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md)
+- [The Change Healthcare Attack of 2024: The Largest Healthcare Breach on Record](/case-studies/CHANGE_HEALTHCARE_2024.md)
+- [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md)
 
 <!-- library-refs:end -->
 

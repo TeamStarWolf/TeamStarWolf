@@ -2,6 +2,55 @@
 
 Markdown is a lightweight markup language that formats plain text with a small set of punctuation conventions. It reads cleanly as source and converts to HTML for display. It is the default format for README files, documentation, issue trackers, chat, and static site generators. Because most renderers allow embedded raw HTML, rendering untrusted Markdown carries the same risks as rendering untrusted HTML.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers, engineers and analysts who read, write or parse Markdown
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 2 min (515 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are reading or writing Markdown by hand or in code, you want a worked example and the tools that handle it, or you are parsing untrusted input and need its security considerations
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax and structure](#syntax-and-structure), [A worked example](#a-worked-example), [Security considerations](#security-considerations)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [HTML](/formats/html.md), [CSS](/formats/css.md), [XML](/formats/xml.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 Markdown lets authors write structured text without tags. A processor reads the Markdown and emits HTML, which a browser then renders.

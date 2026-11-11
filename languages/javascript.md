@@ -14,6 +14,55 @@ JavaScript is a dynamically typed, garbage-collected, multi-paradigm language cr
 
 Related: [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [TypeScript](/languages/typescript.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain JavaScript code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,357 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing JavaScript code (typical uses: front-end web, server back ends, build tooling, scripting), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [TypeScript](/languages/typescript.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Brendan Eich wrote the first version of JavaScript in ten days in 1995 for the Netscape Navigator browser. Despite the name, it is not related to Java; the name was a marketing decision of the era. The language was standardized as ECMAScript (ECMA-262) in 1997 to give independent browser vendors a shared target. A long gap followed ECMAScript 3, after which ES5 (2009) tightened the language and ES2015 (also called ES6) added classes, modules, arrow functions, promises, and block scoping. Since then TC39 has shipped a yearly edition.
@@ -127,6 +176,31 @@ Modern engines compile hot JavaScript to native code with just-in-time compilati
 - `this` binding depends on how a function is called, not where it is defined; arrow functions capture the surrounding `this`, which usually avoids the problem.
 - Floating-point numbers are IEEE 754 doubles, so `0.1 + 0.2 !== 0.3`; use integer cents or a decimal library for money.
 - Mutating a shared object or array passed by reference changes it for every holder; copy with spread or structured cloning when isolation is needed.
+
+## Security relevance
+
+JavaScript matters to practitioners twice over: it is the language of the client-side web attack surface, and through Node.js it is also a server back end. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- The browser attack surface. JavaScript is the language of cross-site scripting payloads and DOM manipulation, and the target that a Content Security Policy constrains, so reading it is reading the client attack surface. See [Web Application Pentesting](/WEB_APPLICATION_PENTESTING.md) and the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Server back ends. [Node.js](https://nodejs.org/) back ends built on [Express](https://expressjs.com/) or [Fastify](https://fastify.dev/) are assessment targets with their own injection and access-control risks.
+- Tooling and automation. Browser-automation frameworks such as [Puppeteer](https://pptr.dev/) and [Playwright](https://playwright.dev/), along with much recon and build tooling, run on Node.
+- Supply chain. The npm registry is a frequent target; see the [npm supply-chain attacks](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md) case study and the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+JavaScript is memory-safe (garbage-collected), so memory corruption is the engine's concern rather than the script's. The weaknesses that matter are about injection and trust:
+
+- Cross-site scripting from untrusted data written into the DOM through `innerHTML` or framework escape hatches. This is [CWE-79](https://cwe.mitre.org/data/definitions/79.html).
+- Prototype pollution when untrusted JSON is merged into objects and sets `__proto__`. This is [CWE-1321](https://cwe.mitre.org/data/definitions/1321.html).
+- Code injection through `eval`, `new Function`, or a string argument to `setTimeout`. This is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- SQL and command injection on the server, through concatenated queries or a `child_process` shell string. These are [CWE-89](https://cwe.mitre.org/data/definitions/89.html) and [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Server-side request forgery when a back end fetches a URL built from user input. This is [CWE-918](https://cwe.mitre.org/data/definitions/918.html).
+
+### Why it matters
+
+Reading JavaScript lets a practitioner find DOM cross-site-scripting sinks and prototype-pollution gadgets on the client, audit Node back ends for injection, and judge the risk a deep npm dependency tree carries. [ESLint](https://eslint.org/) with security plugins and [semgrep](https://semgrep.dev/) perform static analysis and `npm audit` checks dependencies, as the Secure coding section details.
 
 ## Secure coding
 

@@ -4,6 +4,55 @@
 
 Check Point Quantum is the network-security pillar of Check Point's Infinity Platform: a line of next-generation firewalls (now branded Quantum Force) that combine stateful firewalling, VPN, and a software-blade stack including IPS, Application Control, URL Filtering, Anti-Bot, Antivirus, and Threat Emulation/Extraction (sandboxing), all driven by the ThreatCloud AI intelligence layer. The problem it solves is consolidated, prevention-first perimeter and data-center defense with centralized policy management. In vulnerability-management terms it is a textbook virtual-patching control: its IPS blade blocks exploit traffic for known CVEs at the wire before the host is patched.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the network security engineers who run Check Point Quantum & Infinity
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,421 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what Check Point Quantum & Infinity can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md), [Network Defense Reference](/NETWORK_DEFENSE_REFERENCE.md), [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities & architecture
 
 **Core capabilities**
@@ -116,7 +165,7 @@ ips stat ; enabled_blades ; cp_log_export status
 
 _Official documentation & manuals_
 - [Check Point Support Center (home for all product docs, SK articles, downloads)](https://support.checkpoint.com)
-- [Check Point Support Center — documentation, admin guides and SK articles](https://support.checkpoint.com/)
+- [Check Point Support Center: documentation, admin guides and SK articles](https://support.checkpoint.com/)
 - [Check Point Portal (formerly Infinity Portal) Administration Guide](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/Infinity-Portal-Admin-Guide/Content/Topics-Infinity-Portal/Introduction-to-CP-Portal.htm)
 - [Quantum product page / resources](https://www.checkpoint.com/quantum/)
 - [Check Point Infinity Platform overview](https://www.checkpoint.com/infinity/)
@@ -158,7 +207,7 @@ CEO Nadav Zafrir (ex-Unit 8200/Team8) took over in December 2024; founder Gil Sh
 - [Network Security Architecture Reference](/NETWORK_SECURITY_ARCHITECTURE.md)
 - [Network Defense Reference Library](/NETWORK_DEFENSE_REFERENCE.md)
 - [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md)
-- [Zero Trust Reference: Comprehensive Cybersecurity Guide](/ZERO_TRUST_REFERENCE.md)
+- [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
 - [Zscaler Zero Trust Exchange](/tools/zscaler.md)
 - [Vendor Tool Pages](/tools/README.md)
 - [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)

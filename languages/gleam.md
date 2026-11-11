@@ -14,6 +14,55 @@ Gleam is a statically typed functional language for the Erlang virtual machine (
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Elixir](/languages/elixir.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Gleam code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,556 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Gleam code (typical uses: web back ends, BEAM services, shared front-end and back-end code), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Elixir](/languages/elixir.md), [Erlang](/languages/erlang.md), [OCaml](/languages/ocaml.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Gleam set out to bring static types to the BEAM ecosystem with a syntax smaller and more explicit than that of its neighbors. The compiler emits Erlang source (and can emit JavaScript), so Gleam code runs on the same runtime as Erlang and Elixir and can call their libraries through typed bindings. The language reached version 1.0 in 2024, which committed it to a stable language and standard library within the 1.x line.
@@ -134,6 +183,28 @@ On the BEAM target, Gleam inherits the Erlang runtime's scheduler, lightweight p
 - Integer and float operators are separate (`+` versus `+.`, `<` versus `<.`), so mixing them is a type error that newcomers hit often.
 - Interop with Erlang and Elixir through external functions crosses out of Gleam's checked world; the `external` boundary must be given correct types by hand, and a wrong signature there defeats the guarantees.
 - There is no exception-based control flow, so forgetting to propagate a `Result` leaves an error unhandled in the types until you address it; use `result.try` or the `use` expression.
+
+## Security relevance
+
+Gleam reaches security practitioners as a statically typed language on the Erlang virtual machine with a second JavaScript target, where the concern is the boundary between its checked core and the unchecked runtimes it calls into. This section is the threat-facing context; the defensive patterns that counter each class are in the Secure coding section that follows.
+
+### Where it appears
+
+- BEAM services and web back ends. Gleam compiles to Erlang and runs on the same runtime as [Erlang](/languages/erlang.md) and [Elixir](/languages/elixir.md), so Gleam back ends built with libraries such as wisp and mist are assessment targets alongside other BEAM services.
+- Interop with Erlang and Elixir. `external` functions call into the host runtime with types the compiler trusts but does not check, so the security interest sits at that boundary, where unchecked data can enter otherwise safe code.
+- JavaScript target. Gleam can emit JavaScript and run in Node.js or the browser, which brings the usual web attack surface. Gleam has little dedicated offensive tooling.
+
+### Dominant weakness classes
+
+Gleam is memory-safe (per-process garbage collection on the BEAM, or the host runtime on the JavaScript target), so the memory-corruption classes do not apply. The absence of null and exceptions removes another class in pure Gleam. The risks concentrate at the interop boundary and the host runtime:
+
+- Interop boundary validation. An `external` declaration with an incorrect type lets unchecked or wrongly typed data into checked code, which relates to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- BEAM term and atom risks through interop. Calling Erlang functions such as `binary_to_term` or atom-creating functions brings the BEAM risks: unsafe deserialization, [CWE-502](https://cwe.mitre.org/data/definitions/502.html), and atom-table exhaustion from untrusted input, a form of resource exhaustion, [CWE-400](https://cwe.mitre.org/data/definitions/400.html). See [Erlang](/languages/erlang.md).
+- Injection on the web. Resolvers and handlers that build database queries by string concatenation are exposed to [CWE-89](https://cwe.mitre.org/data/definitions/89.html); see the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading Gleam lets an analyst focus on the `external` declarations where typed code meets Erlang, Elixir, or JavaScript, since a wrong signature there defeats the guarantees the type system otherwise provides. `gleam check` type-checks a project and is the primary static gate, rejecting null errors and non-exhaustive matches at compile time, as the Secure coding section details.
 
 ## Secure coding
 

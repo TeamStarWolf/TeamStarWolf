@@ -14,6 +14,55 @@ Crystal is a statically typed, compiled language with Ruby-like syntax, created 
 
 Related: [Rust](/languages/rust.md), [C](/languages/c.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Crystal code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,162 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Crystal code (typical uses: web services, CLI tools, application programming), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Rust](/languages/rust.md), [C](/languages/c.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Crystal started from the premise that Ruby's syntax is pleasant but its interpreter is slow and dynamically typed. The language keeps a Ruby-like surface while adding a static type system with inference that fills in most types, and it compiles through LLVM to native binaries. Version 1.0 in 2021 brought a stability commitment. The language has no separate specification; it is defined by its compiler and documentation.
@@ -120,6 +169,29 @@ Crystal compiles through LLVM to native code, so its performance is far above in
 - Long compile times on large programs, a consequence of global type inference.
 - Assuming libraries from Ruby work unchanged; Crystal has its own ecosystem of shards.
 - Integer overflow behavior differing from Ruby's arbitrary-precision integers.
+
+## Security relevance
+
+Crystal reaches security practitioners mainly as a web and application back end that defenders assess, with Ruby-like syntax over native compilation. Offensive tooling written in it is uncommon. The defensive patterns that counter each class are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Web services and command-line tools. [Kemal](https://kemalcr.com/) and [Lucky](https://luckyframework.org/) back ends and Crystal command-line tools are the common assessment targets. See [Web Application Pentesting](/WEB_APPLICATION_PENTESTING.md) and the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- The C-interop surface. `lib` bindings and `Pointer` call directly into C libraries, which is where memory-safety risk re-enters an otherwise safe language.
+- Little offensive presence. Crystal is not a common tool-building language, so the interest is reading and auditing Crystal services, with attention to their unsafe boundaries.
+
+### Dominant weakness classes
+
+Crystal is mostly memory-safe: it is garbage-collected and statically type-checked, with union types that force the `Nil` case to be handled, so the memory-corruption classes do not apply to ordinary code and return only through unsafe C bindings:
+
+- OS command injection. Shelling out with a command string rather than `Process.run` with an argument array is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- SQL injection. String interpolation into a query instead of parameterized placeholders is [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Integer overflow. Fixed-width integer arithmetic on untrusted values can overflow if unchecked operators are used, which maps to [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- Out-of-bounds writes. `lib` bindings and `Pointer` bypass bounds checking and can write past a buffer, which is [CWE-787](https://cwe.mitre.org/data/definitions/787.html).
+
+### Why it matters
+
+Reading Crystal lets an analyst review a web service for the injection classes above and audit the `lib` binding boundary where safety is given up. Static tooling is limited compared with mainstream languages, so manual review of the C-interop surface and keeping dependencies current through [Shards](https://github.com/crystal-lang/shards) are the main controls, as the Secure coding section details.
 
 ## Secure coding
 

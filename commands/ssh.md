@@ -2,6 +2,55 @@
 
 SSH (Secure Shell) opens an encrypted channel to a remote host for login, command execution, and file transfer. The OpenSSH suite provides the client, server, and key tools used on most systems. This page covers connecting, moving files, managing keys, port forwarding, and the config that ties them together. Public-key authentication is the default for anything beyond a one-off login.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Administrators and engineers who reach remote hosts over SSH
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 2 min (558 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the SSH commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Git Command Reference](/commands/git.md), [Networking Command Reference](/commands/networking-commands.md), [Linux Command Reference](/commands/linux-commands.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 The `ssh` client ships with Linux, macOS, the BSDs, and modern Windows. It talks to an `sshd` server, usually on TCP port 22. Authentication happens with a key pair or a password, after the client verifies the server's host key. User keys live in `~/.ssh`, the per-user `config` file sets defaults per host, and `sshd_config` controls the server side.

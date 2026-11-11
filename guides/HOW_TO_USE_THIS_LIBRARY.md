@@ -2,6 +2,55 @@
 
 > In about 30 minutes you will know what lives where in this library, be able to find any technique, control, or reference in under a minute, and have a personal entry path picked out. This guide is for anyone opening TeamStarWolf for the first time (a student, a working SOC analyst, or a security lead), no prior knowledge of the repo required.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Anyone opening the library for the first time: students, SOC analysts and security leads
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (2,156 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are new to the library and want to know what lives where, you need to find a technique, control or reference quickly, or you want an entry path that matches your role
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[At a glance](#at-a-glance), [Step 2: Learn what lives where](#step-2-learn-what-lives-where), [Step 3: Find anything three ways](#step-3-find-anything-three-ways)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Threat-Informed Defense Reference](/THREAT_INFORMED_DEFENSE_REFERENCE.md), [ATT&CK Matrix Analysis Reference](/ATTACK_MATRIX_ANALYSIS_REFERENCE.md), [Complete Document Index](/INDEX.md), [Discipline Learning Paths](/disciplines/README.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## At a glance
 
 | Time | Difficulty | You need | You'll produce |

@@ -47,6 +47,8 @@ This pattern of attack involves an adversary that uses stolen credentials to lev
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [The Change Healthcare Attack of 2024: The Largest Healthcare Breach on Record](/case-studies/CHANGE_HEALTHCARE_2024.md)
+- [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md)
 
 <!-- library-refs:end -->
 

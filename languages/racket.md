@@ -14,6 +14,55 @@ Racket is a dynamically typed, multi-paradigm descendant of Scheme, built for la
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Scheme](/languages/scheme.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Racket code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,458 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Racket code (typical uses: teaching, language research, scripting, application development), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Scheme](/languages/scheme.md), [Common Lisp](/languages/common-lisp.md), [Haskell](/languages/haskell.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Racket grew out of PLT Scheme, a project started in the mid-1990s to support programming-language education and research. In 2010 the project renamed the language Racket to signal that it had moved beyond standard Scheme into its own design, centered on building languages. Since around 2019 the main runtime, Racket CS, is implemented on top of Chez Scheme, which improved performance and maintainability.
@@ -117,6 +166,29 @@ The Racket CS runtime, built on Chez Scheme, compiles to native code and gives R
 - `racket` loads a large library and starts more slowly than `racket/base`; use `racket/base` with explicit requires for small scripts and libraries.
 - Macro phase levels (`require` for-syntax versus run time) confuse newcomers; a binding needed at compile time must be required at the right phase.
 - Mutable pairs (`mcons`) are separate from the default immutable pairs, so code ported from other Lisps that mutates lists needs adjustment.
+
+## Security relevance
+
+Racket reaches security practitioners mostly in teaching, language research, and scripting rather than as offensive tooling, and its security-relevant risks center on evaluating and reading untrusted input. The defensive patterns that counter each weakness below are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Language and program analysis. Racket's design for building languages makes it a vehicle for interpreters, domain-specific languages, and analysis tools that process untrusted programs or data.
+- Scripting and applications. General scripting and applications, including services built on Racket's bundled web server, can take external input directly.
+- Teaching and research. Its roots in education and programming-language research keep it in coursework and experimental systems where code is run and shared widely.
+
+### Dominant weakness classes
+
+Racket is memory-safe: it is garbage-collected and programs do not manage raw memory, so memory-corruption classes do not apply. The risks come from running or reading untrusted input:
+
+- Evaluating untrusted code. `eval` on attacker-controlled input outside a sandbox is code injection, [CWE-94](https://cwe.mitre.org/data/definitions/94.html); the `racket/sandbox` library exists to bound memory, time, and file and network access for exactly this case.
+- Unsafe reading. `read` on untrusted input can construct unexpected values, and reader extensions broaden what reading does, relating to [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- Improper input validation. Dynamic typing leaves external data unchecked until validated, which is [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- Uncontrolled resource consumption. Recursion or allocation sized by untrusted input exhausts memory, mapping to [CWE-400](https://cwe.mitre.org/data/definitions/400.html).
+
+### Why it matters
+
+Auditing Racket means confirming that any evaluation of untrusted code runs inside `racket/sandbox` with limits set, that `read` is not used as a parser for hostile input, and that external data is validated at the boundary. DrRacket's Check Syntax analyzes binding structure, the contract system enforces interface agreements at run time with blame, and Typed Racket adds static checking to modules that opt in, as the Secure coding section details.
 
 ## Secure coding
 

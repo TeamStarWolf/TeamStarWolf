@@ -2,6 +2,55 @@
 
 Data-oriented design organizes a program around the data it processes and how that data sits in memory, rather than around objects that bundle state with behavior. It is a cross-cutting design discipline, not a language feature, driven by the gap between processor speed and memory latency. It matters most where throughput decides success: game engines, simulations, compilers, and high-volume data processing.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers and students learning data-oriented design, and reviewers who assess code written in that style
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (821 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning data-oriented design or deciding whether it fits a problem, you want the languages and tools that support it, or you need its secure-coding considerations before a review
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core idea](#core-idea), [Strengths and trade-offs](#strengths-and-trade-offs), [Secure-coding considerations](#secure-coding-considerations)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Object-Oriented Programming](/paradigms/object-oriented.md), [Array-Oriented Programming](/paradigms/array-oriented.md), [Procedural Programming](/paradigms/procedural.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Core idea
 
 The starting premise is that the hardware is the real platform. A modern CPU stalls for hundreds of cycles on a cache miss, so the layout that feeds the cache well often beats the layout that models the domain cleanly. Design therefore begins by asking what data exists, how much of it, and in what order the program touches it.

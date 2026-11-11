@@ -2,6 +2,55 @@
 
 kdb+ is a columnar database built for time-series data at high volume. It pairs an in-memory store with an on-disk column store and is queried through the `q` language. Finance teams use it for tick data: order books, trades, and quotes recorded at microsecond resolution. A kdb+ system usually runs as several cooperating processes connected over IPC.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Database administrators, developers and security engineers who run, query or assess kdb+ and q
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (850 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are modeling data or writing queries for kdb+ and q, you are administering or hardening a deployment, or you want a worked example to start from
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Data model and architecture](#data-model-and-architecture), [Security and hardening](#security-and-hardening), [A worked example](#a-worked-example)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[K and Q](/languages/k-q.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [ClickHouse](/databases/clickhouse.md), [Redis](/databases/redis.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 kdb+ comes from KX Systems. The database and the `q` language ship as one small binary. The same binary serves as an in-memory engine, an on-disk store, and an IPC server.

@@ -14,6 +14,55 @@ C is a statically typed, compiled, imperative language created by Dennis Ritchie
 
 Related: [C++](/languages/cpp.md), [Rust](/languages/rust.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain C code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,265 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing C code (typical uses: operating systems, embedded firmware, drivers, runtimes, tooling), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[C++](/languages/cpp.md), [Rust](/languages/rust.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 C grew out of Ken Thompson's B language and was used to rewrite the Unix kernel, which tied the language to systems programming from the start. The 1978 book *The C Programming Language* by Brian Kernighan and Dennis Ritchie documented the early dialect, often called K&R C. The language was first standardized as ANSI C89, adopted by ISO as C90, and revised several times since: C99 added variable-length arrays, `//` comments, and fixed-width integer types; C11 added atomics, threads, and `_Generic`; C17 was a bug-fix release; and C23 added `nullptr`, `constexpr`, and `_BitInt`.
@@ -136,6 +185,29 @@ Compiled C maps closely to the hardware, so it is often the baseline against whi
 - Reading uninitialized memory, which yields indeterminate values.
 - Integer overflow and signed/unsigned confusion in size calculations.
 - Relying on undefined behavior that an optimizing compiler may exploit in surprising ways.
+
+## Security relevance
+
+C is the most consequential language for memory-safety vulnerability research: it implements the operating systems, drivers, firmware, and libraries where a large share of exploited memory-corruption flaws live, and reading it underpins vulnerability research, exploit development, and patch analysis. The defensive patterns are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Systems and network code. Kernels, device drivers, embedded firmware, language runtimes, and network daemons are written in C, so their flaws are reached and studied as C. The [Linux TCP use-after-free case study](/case-studies/LINUX_TCP_UAF_2026.md) and the [MPTCP attack surface case study](/case-studies/MPTCP_ATTACK_SURFACE_2026.md) are kernel C examples. See the [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md).
+- Vulnerability research and exploit development. Memory-corruption bugs in C are the raw material of exploitation, and C targets are a primary focus of fuzzing. See the [Exploit Development Reference](/EXPLOIT_DEVELOPMENT_REFERENCE.md) and [Fuzzing and Vulnerability Research](/FUZZING_VULNERABILITY_RESEARCH.md).
+- Security-critical libraries and their supply chain. Widely deployed C libraries such as OpenSSL sit on the critical path, and the [XZ Utils backdoor case study](/case-studies/XZ_UTILS_BACKDOOR_2024.md) shows a compression library compromised through its build. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+C uses manual memory management and performs no run-time bounds or overflow checks, so it is memory-unsafe and the memory-corruption classes are its defining risks.
+
+- Out-of-bounds writes. Writing past an array bound can corrupt adjacent memory or a return address, which is [CWE-787](https://cwe.mitre.org/data/definitions/787.html) and, for the buffer-copy case, [CWE-120](https://cwe.mitre.org/data/definitions/120.html).
+- Use-after-free and double free. Reusing or freeing a pointer after release corrupts the allocator state and is a common exploitation primitive, which is [CWE-416](https://cwe.mitre.org/data/definitions/416.html) and [CWE-415](https://cwe.mitre.org/data/definitions/415.html).
+- Integer overflow in size math. Overflow in a size or offset calculation leads to undersized allocations and out-of-bounds access, which is [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- Format string flaws. Passing untrusted data as a `printf` format string allows reads and writes of memory, which is [CWE-134](https://cwe.mitre.org/data/definitions/134.html).
+
+### Why it matters
+
+Reading C is where much vulnerability research begins: it lets a researcher find the memory-corruption bug, understand the primitive it provides, and assess a patch. The compiler sanitizers (AddressSanitizer and UndefinedBehaviorSanitizer), [Valgrind](https://valgrind.org/), the [Clang Static Analyzer](https://clang-analyzer.llvm.org/), and [Cppcheck](https://cppcheck.sourceforge.io/) find and confirm these flaws, and fuzzers exercise C code to surface them, as the Secure coding section details.
 
 ## Secure coding
 

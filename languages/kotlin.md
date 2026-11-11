@@ -14,6 +14,55 @@ Kotlin is a statically typed, multi-paradigm language created by JetBrains and f
 
 Related: [Java](/languages/java.md), [Scala](/languages/scala.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Kotlin code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,254 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Kotlin code (typical uses: Android, server back ends, cross-platform mobile), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Java](/languages/java.md), [Scala](/languages/scala.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 JetBrains began Kotlin in 2010 to address pain points its teams hit with Java while keeping full interoperability, and released version 1.0 in 2016. Google announced first-class Android support in 2017 and made Kotlin its preferred Android language in 2019. The language is governed by the Kotlin Foundation, a joint body of JetBrains and Google, and the specification is published as the [Kotlin language specification](https://kotlinlang.org/spec/introduction.html).
@@ -127,6 +176,30 @@ Kotlin/JVM runs on the same JVM as Java, so it inherits the just-in-time compile
 - Launching a coroutine without a structured scope (`GlobalScope`) leaks work that outlives its caller.
 - Extension functions are resolved statically by declared type, not dynamically, which can surprise readers expecting virtual dispatch.
 - Equality on floating-point data classes inherits floating-point comparison quirks.
+
+## Security relevance
+
+Kotlin reaches practitioners mainly as an Android and JVM back-end language, and because Kotlin/JVM interoperates closely with Java it inherits much of Java's attack surface. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Android applications. Kotlin is Google's preferred Android language, so mobile assessment reads Kotlin source and its bytecode alongside Java. See the [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md).
+- Server back ends. [Ktor](https://ktor.io/) and Spring back ends written in Kotlin are assessment targets, and the Java libraries they call bring Java's weaknesses with them. See the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Build pipelines. The Gradle Kotlin DSL and dependencies from Maven Central are a supply-chain entry point.
+- Kotlin has no distinct body of offensive tooling; it shares the JVM and Android ecosystem's tools with Java.
+
+### Dominant weakness classes
+
+Kotlin is memory-safe (JVM garbage collection, and reference counting plus tracing on Kotlin/Native), so memory-corruption classes do not apply, and null tracking in the type system removes many null-dereference bugs. The weaknesses that remain mirror the JVM and mobile platforms:
+
+- Insecure deserialization when Kotlin code uses the JVM `ObjectInputStream`. This is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- SQL injection when queries are built by string interpolation rather than bound parameters. This is [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Command injection when untrusted input is passed to a `ProcessBuilder` shell string. This is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Improper access control from Android components that are exported or mishandle intent data, exposing them to other apps. This is [CWE-284](https://cwe.mitre.org/data/definitions/284.html).
+
+### Why it matters
+
+Reading Kotlin lets a practitioner audit Android apps and JVM back ends for the classes above, keeping in mind that platform types crossing the Java boundary and the JVM libraries in use carry Java's risks. [detekt](https://detekt.dev/) includes rules for risky patterns and [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) scans the dependency graph, as the Secure coding section details.
 
 ## Secure coding
 

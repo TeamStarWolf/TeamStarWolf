@@ -14,6 +14,55 @@ ARM assembly is the human-readable form of the machine instructions for processo
 
 Related: [C](/languages/c.md), [x86-64 Assembly](/languages/assembly-x86.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain ARM Assembly code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,500 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing ARM Assembly code (typical uses: mobile, embedded, firmware, drivers, kernels, reverse engineering, exploit development), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[C](/languages/c.md), [x86-64 Assembly](/languages/assembly-x86.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 The ARM architecture began at Acorn Computers in the 1980s and is now licensed by Arm Holdings to many chip makers. Two generations of the instruction set are current: the 32-bit A32 and T32 (Thumb) encodings used by older and smaller cores, and the 64-bit AArch64 (the A64 instruction set) introduced with ARMv8-A in 2011, which most modern phones, Apple silicon, and ARM servers use. The architecture is defined by the Arm Architecture Reference Manual. This page centers on AArch64, noting A32 where it differs.
@@ -102,6 +151,29 @@ Hand-written ARM assembly can use NEON SIMD or cryptographic-extension instructi
 - Misaligning the stack pointer, which faults at a public interface that requires 16-byte alignment.
 - Confusing the 32-bit (A32/Thumb) and 64-bit (A64) register sets and encodings.
 - Sign- versus zero-extension when operating on `w` sub-registers, whose writes clear the upper 32 bits of the `x` register.
+
+## Security relevance
+
+ARM assembly is central to security work: it is the language of exploit development and binary analysis on the processors that run most phones, embedded devices, and a growing share of laptops and servers. The defensive patterns and mitigations are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Reverse engineering and malware analysis. Disassembling an AArch64 binary produces ARM assembly, which is what an analyst reads to understand mobile apps, firmware, and malware. See the [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md) and the [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md).
+- Exploit development. Writing shellcode, building return-oriented-programming chains, and understanding memory-corruption primitives on ARM all happen at the instruction level. See the [Exploit Development Reference](/EXPLOIT_DEVELOPMENT_REFERENCE.md).
+- Mobile, firmware, and embedded targets. ARM cores power iOS and Android devices and countless embedded systems, so their firmware, drivers, and kernels are read and attacked as ARM code. See the [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md) and the [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+ARM assembly is untyped and performs no run-time checks, so it is memory-unsafe by nature and the memory-corruption classes apply directly; at this level they are the exploitation primitives rather than abstract bugs.
+
+- Out-of-bounds and stack overflows. An unchecked `str` past a buffer can overwrite the saved link register and hijack control, which is [CWE-787](https://cwe.mitre.org/data/definitions/787.html) and the stack-based variant [CWE-121](https://cwe.mitre.org/data/definitions/121.html).
+- Integer overflow in address and size math. Offsets computed without bounds checks lead to out-of-bounds access, which is [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- Use-after-free in the surrounding program. Freed pointers reused as function or object pointers become control-flow primitives, which is [CWE-416](https://cwe.mitre.org/data/definitions/416.html).
+- Control-flow hijacking. Indirect branches through attacker-influenced registers enable code reuse, which mitigations such as pointer authentication and branch target identification are designed to limit.
+
+### Why it matters
+
+Reading ARM assembly lets an analyst confirm exactly what a binary does when source is unavailable, develop or assess an exploit, and triage malware for ARM devices. [Ghidra](https://ghidra-sre.org/) and radare2 disassemble and decompile the code, and cross-built routines run under QEMU for testing, as the Secure coding section notes.
 
 ## Secure coding
 

@@ -4,6 +4,55 @@
 
 [All case studies](/case-studies/README.md) · Related: [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [CVE Reference](/CVE_REFERENCE.md), [APT41 group page](/mitre/groups/G0096.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Threat intelligence analysts, threat hunters and defenders tracking China-nexus intrusion sets
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 65 min (15,052 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need a sourced account of APT41's aliases, operations and tooling from 2012 to 2026, you are checking your exposure to the vulnerabilities it exploited, or you want the defender view and the MITRE mappings in one place
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Executive summary](#executive-summary), [Part 4: exploited vulnerabilities](#part-4-exploited-vulnerabilities), [Part 7: the defender view](#part-7-the-defender-view)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Executive summary
 
 The intrusion set most researchers now call APT41 has a public record that runs through games, software, telecoms, healthcare, government and diplomacy. Game studios found their source code and code-signing certificates gone in the early 2010s. Software vendors found their own update channels shipping backdoors to customers in 2017 and 2018. A telecom operator found a tool on its SMS servers that read text messages for chosen phone numbers. A medical provider, universities, US state agencies, shipping companies and, by 2026, diplomatic agencies in Central Asia all appear in incident reports that end with the same name, or with one of the dozen other names vendors give the same activity. This study gathers that public record in one place, dates every event, and grades every claim by the source that supports it.

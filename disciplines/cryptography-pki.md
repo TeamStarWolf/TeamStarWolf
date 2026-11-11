@@ -170,11 +170,11 @@ No review recorded yet
 TLS 1.3 is the current standard. TLS 1.2 remains acceptable with careful cipher suite selection. SSL 3.0, TLS 1.0, and TLS 1.1 are deprecated and must not be used.
 
 ```nginx
-# Modern — TLS 1.3 only
+# Modern: TLS 1.3 only
 ssl_protocols TLSv1.3;
 ssl_ciphers TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256;
 
-# Intermediate — TLS 1.2 + 1.3
+# Intermediate: TLS 1.2 + 1.3
 ssl_protocols TLSv1.2 TLSv1.3;
 ssl_ciphers ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305;
 ssl_prefer_server_ciphers off;
@@ -352,7 +352,7 @@ Certificate Transparency (CT)
 
 ACME Protocol (Let's Encrypt)
 ```bash
-# Certbot — automated certificate management
+# Certbot: automated certificate management
 certbot --nginx -d example.com -d www.example.com
 
 # Wildcard certificate (DNS challenge required)

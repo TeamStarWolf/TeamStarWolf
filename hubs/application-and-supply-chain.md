@@ -16,7 +16,7 @@ Part of the [domain hubs](/hubs/README.md). 10 reference documents in this domai
 | [Browser Security Reference](/BROWSER_SECURITY_REFERENCE.md) | SOP, CORS attacks, CSP bypass, security headers, CSRF, clickjacking, cookie security, extension analysis, prototype pollution | 11 min |
 | [Threat Modeling Reference](/THREAT_MODELING_REFERENCE.md) | STRIDE, PASTA, LINDDUN, attack trees, MITRE ATT&CK integration, DFDs, pytm, cloud microservices threat modeling | 26 min |
 | [DevSecOps Reference](/DEVSECOPS_REFERENCE.md) | SAST/DAST/SCA tools, GitHub Actions security, Semgrep/CodeQL/Trivy/Snyk, secrets detection, IaC scanning, pipeline security gates | 19 min |
-| [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md) | SBOM (CycloneDX/SPDX), Sigstore/cosign, SLSA framework, dependency security, CI/CD pipeline hardening, malicious package detection, OSS risk management | 25 min |
+| [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md) | SBOM (CycloneDX/SPDX), Sigstore/cosign, SLSA framework, dependency security, CI/CD pipeline hardening, malicious package detection, OSS risk management | 26 min |
 | [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md) | HashiCorp Vault, CyberArk Conjur, secret detection (gitleaks/ggshield/TruffleHog), cloud-native secrets, PKI/SSH, CI/CD OIDC | 17 min |
 | [Application Security Testing](/APPSEC_TESTING_REFERENCE.md) | SAST, DAST, IAST, SCA, SBOM, and secrets scanning: what each finds and misses, where each fits in the SDLC and CI/CD, how to choose and combine them, and where application findings are consolidated | 6 min |
 | [Package Managers](/PACKAGE_MANAGERS_REFERENCE.md) | npm/yarn/pnpm, pip/Poetry/uv/conda, cargo, Go modules, Maven/Gradle, NuGet, RubyGems, Composer, and OS managers: manifests, lockfiles, registries, and supply-chain risks (dependency confusion, typosquatting, malicious and install-script packages) with mitigations | 4 min |
@@ -55,6 +55,7 @@ Time and difficulty are quoted in full from each guide's header table.
 - [Web application pentesting](/WEB_APPLICATION_PENTESTING.md)
 - [CAPEC attack patterns](/mitre/capec/README.md)
 - [Log4Shell: a case study](/case-studies/LOG4SHELL.md)
+- [Ghostcat (CVE-2020-1938): a lab case study](/case-studies/GHOSTCAT_CVE_2020_1938.md)
 - [npm supply-chain attacks: a case study](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md)
 - [Hugging Face supply chain: a case study](/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md)
 

@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 14 min (3,307 words at 230 words a minute)
+About 14 min (3,322 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -47,7 +47,7 @@ You are threat-modeling or reviewing an LLM application before deployment, you a
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last corrected</th><td>
 
-2026-09-29, note added on the 2026 OWASP Top 10 for LLM Applications ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+2026-11-04, Bing Chat indirect prompt injection credited to Greshake et al. (February 2023) ([#175](https://github.com/TeamStarWolf/TeamStarWolf/pull/175))
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
@@ -381,7 +381,7 @@ Dear customer, please find your invoice attached...
 ```
 
 Real-world incidents:
-- Bing Chat / Microsoft Copilot indirect injection via search results (2023): researcher Kevin Beaumont demonstrated data exfiltration via crafted webpage
+- Bing Chat indirect injection via retrieved content (2023): Greshake et al. demonstrated data theft and other attacks on Bing's GPT-4 powered Chat through prompts planted in content the model retrieved ([arXiv:2302.12173](https://arxiv.org/abs/2302.12173), February 2023)
 - ChatGPT plugin prompt injection (2023): plugins processing untrusted web content executed injected instructions
 - Google Bard exfiltration proof-of-concept via indirect injection in documents (2023)
 

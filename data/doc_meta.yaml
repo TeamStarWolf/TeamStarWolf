@@ -2392,6 +2392,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the technical record](#part-1-the-technical-record), [Part 5: the vulnerability-management view](#part-5-the-vulnerability-management-view)"
     pairs_with: "[CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Threat Actors](/THREAT_ACTORS.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)"
     reviewed: null
+  case-studies/EXPOSURE_CHECKS_2026_11.md:
+    audience: "Vulnerability management leads, patch-queue and exposure owners, scanner engineers and security engineers who check KEV entries against their own hosts"
+    level: "Intermediate"
+    read_when: "You own a patch queue and need to decide whether a KEV entry applies to your hosts, you want a version-plus-precondition method for exposure checks, or you need the facts of the KEV additions of 4 October to 3 November 2026"
+    start_at: "[Executive summary](#executive-summary), [Part 2: six exposure checks in depth](#part-2-six-exposure-checks-in-depth), [Part 5: the method, from the KEV feed to a per-host verdict](#part-5-the-method-from-the-kev-feed-to-a-per-host-verdict)"
+    pairs_with: "[CVE Reference](/CVE_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Triage a CVE](/guides/TRIAGE_A_CVE.md), [PHP2Shell and the October 2026 Attack Wave](/case-studies/PHP2SHELL_OCTOBER_2026.md)"
+    reviewed: null
   case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md:
     audience: "Security teams, threat intelligence analysts, educators and readers of Fancy Bear Goes Phishing who want the primary record behind its five cases"
     level: "Beginner to intermediate"

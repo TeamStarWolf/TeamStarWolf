@@ -104,5 +104,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [Vendor tool pages](/tools/README.md)
 - [Tools research](/tools-research/README.md)
 - [Research notes](/research/README.md)
+- [Thirty days of exposure checks (KEV, October to November 2026): a lab case study](/case-studies/EXPOSURE_CHECKS_2026_11.md)
 
 <!-- hub:end -->

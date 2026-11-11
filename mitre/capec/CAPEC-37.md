@@ -65,6 +65,7 @@ An attacker examines a target system to find sensitive data that has been embedd
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [Thirty Days of Exposure Checks: Version and Configuration Evidence from the Lab](/case-studies/EXPOSURE_CHECKS_2026_11.md)
 
 <!-- library-refs:end -->
 

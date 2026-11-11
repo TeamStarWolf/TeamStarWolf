@@ -2392,6 +2392,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 3: what the lab showed](#part-3-what-the-lab-showed), [Part 4: find and fix it on real hosts](#part-4-find-and-fix-it-on-real-hosts)"
     pairs_with: "[CVE Reference](/CVE_REFERENCE.md), [CWE Reference](/CWE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)"
     reviewed: null
+  case-studies/HEALTHCARE_THREAT_WATCHLIST.md:
+    audience: "Healthcare security teams, threat intelligence analysts, detection engineers and vulnerability managers"
+    level: "Intermediate"
+    read_when: "You need a graded watchlist of the ransomware operations and state-linked groups that hit hospitals and their vendors from 2023 to 2026, how each one gets in, and which controls, CVEs and ATT&CK techniques the joint advisories put first"
+    start_at: "[Executive summary](#executive-summary), [Part 2: the watchlist](#part-2-the-watchlist), [Part 5: the defender view](#part-5-the-defender-view)"
+    pairs_with: "[Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Threat Actors](/THREAT_ACTORS.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
+    reviewed: null
   case-studies/HUGGING_FACE_SUPPLY_CHAIN.md:
     audience: "AI and ML engineers, supply chain security engineers and security teams that pull models from public hubs"
     level: "Intermediate"

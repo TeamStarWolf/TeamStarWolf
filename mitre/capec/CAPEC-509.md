@@ -63,6 +63,7 @@ Hand-written pages in this library that link to this page or to this object's en
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 - [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md)
+- [Healthcare Threat Actor Watchlist, 2023 to 2026: Who Hits Hospitals, How They Get In, and What the Record Says](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md)
 - [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
 
 <!-- library-refs:end -->

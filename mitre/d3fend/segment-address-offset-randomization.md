@@ -47,6 +47,7 @@ Randomizing the base (start) address of one or more segments of memory during th
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [Other State-Linked Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_OTHER_STATES.md)
+- [The Zero-Day Trade and Its Fallout: The Events in This Is How They Tell Me the World Ends](/case-studies/ZERO_DAY_MARKET_EVENTS.md)
 
 <!-- library-refs:end -->
 

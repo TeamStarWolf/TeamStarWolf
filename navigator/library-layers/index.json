@@ -184,5 +184,11 @@
     "name": "TeamStarWolf - The Cuckoo's Egg Intrusion (LBL, 1986) Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Retrospective ATT&CK v20.0 mapping of the 1986 to 1987 intrusion at Lawrence Berkeley Laboratory as described in Clifford Stoll, 'Stalking the Wily Hacker', Communications of the ACM 31(5), May 1988. Revoked T1562 behavior is shown under its v20.0 successor T1685 per data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/CUCKOOS_EGG_1986.md. Scores: 100 is behavior the paper describes directly, 40 is an Inferred mapping.",
     "blurb": "Techniques from Stoll's 1988 account of the LBL intrusion: default and guessed accounts, cracked password files, the movemail privilege escalation, dormant accounts and the multi-hop path from West Germany. A curated retrospective layer for the Cuckoo's Egg case study."
+  },
+  {
+    "file": "zero-day-market-events.json",
+    "name": "TeamStarWolf - The Zero-Day Trade and Its Fallout",
+    "description": "Curated case-study layer, not an official MITRE mapping. The 75 ATT&CK Enterprise techniques that the verified record in case-studies/ZERO_DAY_MARKET_EVENTS.md supports for Operation Aurora (Elderwood, Hydraq), the Equation group, the Hacking Team leak, WannaCry, NotPetya, Bad Rabbit, Shamoon and the 2019 Baltimore RobbinHood attack, from the ATT&CK software and group pages the study opened and data/attack/. Each comment names the event and the study's source numbers. Scores: 100 an ATT&CK page ties the technique to an event in the study, 75 an ATT&CK software or group record related to the event but not dated to it, 40 an Inferred mapping.",
+    "blurb": "Techniques behind the zero-day trade's fallout: Operation Aurora's drive-by and spearphishing entry, the Equation and Hacking Team firmware persistence, and the SMB worm spread, credential theft and encryption of WannaCry and NotPetya. A curated layer for the zero-day market case study; its ICS companion sits in the ICS case-study layers."
   }
 ]

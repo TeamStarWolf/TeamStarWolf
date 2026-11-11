@@ -1371,3 +1371,65 @@ studies:
       - {"date": "2024-02-24", "label": "XZ Utils 5.6.0 tarball, carrying the backdoor, released"}
       - {"date": "2024-03-09", "label": "5.6.1 tarball released"}
       - {"date": "2024-03-29", "label": "Andres Freund discloses the backdoor; distributions pull the versions; CISA issues an alert"}
+  case-studies/ZERO_DAY_MARKET_EVENTS.md:
+    kind: "era"
+    title: "The Zero-Day Trade and Its Fallout: The Events in This Is How They Tell Me the World Ends"
+    start: "1996"
+    end: "2026-05"
+    core_start: "2009"
+    core_end: "2021"
+    sectors: ["technology", "government", "healthcare", "media", "cross-sector"]
+    cves:
+      - "CVE-2008-4250"
+      - "CVE-2010-0249"
+      - "CVE-2010-2568"
+      - "CVE-2012-6422"
+      - "CVE-2014-0160"
+      - "CVE-2014-6324"
+      - "CVE-2015-2387"
+      - "CVE-2015-5119"
+      - "CVE-2015-5122"
+      - "CVE-2015-5123"
+      - "CVE-2016-4655"
+      - "CVE-2016-4656"
+      - "CVE-2016-4657"
+      - "CVE-2016-6366"
+      - "CVE-2016-6367"
+      - "CVE-2016-6909"
+      - "CVE-2017-0143"
+      - "CVE-2017-0144"
+      - "CVE-2017-0145"
+      - "CVE-2017-0146"
+      - "CVE-2017-0147"
+      - "CVE-2017-0148"
+      - "CVE-2017-7269"
+      - "CVE-2017-8461"
+      - "CVE-2019-0703"
+      - "CVE-2019-3568"
+      - "CVE-2021-30860"
+      - "CVE-2021-31010"
+      - "CVE-2021-31979"
+      - "CVE-2021-33771"
+    actors:
+      - "G0066"
+      - "G0020"
+      - "G0022"
+      - "G0032"
+      - "G0034"
+      - "G0038"
+    tags: ["zero-day market", "Shadow Brokers", "EternalBlue", "WannaCry", "Pegasus", "Hacking Team", "spyware"]
+    pdf: "Zero_Day_Market_Events_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2009-12", "label": "Google detects a targeted attack from China on its corporate infrastructure (Operation Aurora)"}
+      - {"date": "2010-01-12", "label": "Google discloses the intrusion and says it will stop censoring Google.cn"}
+      - {"date": "2014-07-15", "label": "Google announces Project Zero"}
+      - {"date": "2015-07-05", "label": "Hacking Team breach becomes public; Flash CVE-2015-5119 and CVE-2015-5122 made public"}
+      - {"date": "2016-08-13", "label": "The Shadow Brokers appear, claiming Equation Group files"}
+      - {"date": "2016-08-24", "label": "Citizen Lab and Lookout publish Trident and Pegasus; Apple ships iOS 9.3.5 the next day"}
+      - {"date": "2017-03-14", "label": "Microsoft publishes MS17-010"}
+      - {"date": "2017-04-14", "label": "The Shadow Brokers release the Windows archive (15 April in the FBI affidavit)"}
+      - {"date": "2017-05-12", "label": "WannaCry Version 2 spreads with the SMB worm; the kill-switch domain is registered"}
+      - {"date": "2017-06-27", "label": "NotPetya arrives through the M.E.Doc updater"}
+      - {"date": "2021-09-13", "label": "Citizen Lab reports FORCEDENTRY; Apple ships iOS 14.8"}
+      - {"date": "2021-11-04", "label": "NSO Group, Candiru, Positive Technologies and a Singapore firm added to the Entity List"}

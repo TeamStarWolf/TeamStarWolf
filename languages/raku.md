@@ -122,6 +122,29 @@ Rakudo compiles to MoarVM bytecode, which includes a just-in-time compiler for h
 - The language is large, so two authors can solve a problem with different features; agree on a subset for shared code.
 - Lazy sequences can hold references longer than expected; force evaluation with `.eager` when you need all elements now.
 
+## Security relevance
+
+Raku reaches security practitioners much as its Perl predecessor does: as a text-processing and scripting language whose risks center on evaluation, shelling out, and parsing untrusted input, rather than as a body of offensive tooling. The defensive patterns that counter each weakness below are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Text processing and parsing. Raku's grammar engine makes it a choice for parsers and text transformation, where the input is often untrusted and parser behavior matters.
+- Scripting and automation. Like Perl, it is used for system scripting that invokes external programs and handles files. See [Perl](/languages/perl.md).
+- Web services. The Cro framework builds HTTP services and clients in Raku, which puts it behind a network interface with database and input-handling concerns. See the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+Raku is memory-safe: it runs on the garbage-collected MoarVM and programs do not manage raw memory, so memory-corruption classes do not apply. The risks come from code evaluation, external commands, and parsing:
+
+- Code injection. `EVAL` compiles and runs a string as Raku source, which is [CWE-94](https://cwe.mitre.org/data/definitions/94.html); it sits behind the `MONKEY-SEE-NO-EVAL` pragma because it is dangerous.
+- Command injection. Running an external program by passing a single string through a shell rather than an argument list to `run` or `Proc::Async` is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- SQL injection. Database access through DBIish that interpolates into query text rather than binding parameters is [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Uncontrolled resource consumption. Broad regular expressions over untrusted input can backtrack catastrophically, which is [CWE-400](https://cwe.mitre.org/data/definitions/400.html); grammars with explicit tokens bound the risk.
+
+### Why it matters
+
+Reading Raku lets a reviewer find `EVAL` on untrusted input, external-program calls built as shell strings, and query text assembled by interpolation. Dedicated tooling is less mature than for older languages, so the `MONKEY-SEE-NO-EVAL` gate on `EVAL` and manual review carry more weight, as the Secure coding section details.
+
 ## Secure coding
 
 Language-specific risks and the safe patterns that address them:

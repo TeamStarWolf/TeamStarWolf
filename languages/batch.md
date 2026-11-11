@@ -121,6 +121,28 @@ Each external command in a batch file launches a process, so, as with Unix shell
 - `errorlevel` handling: batch continues after a failed command by default, and `if errorlevel 1` means "1 or greater", which trips up comparisons.
 - `.bat` versus `.cmd` differences in how built-ins set the error level can change behavior subtly between the two extensions.
 
+## Security relevance
+
+Windows Batch is security-relevant as a Windows automation language that attackers use for droppers and persistence and that defenders read during triage, and as an injection target because it builds and runs command lines. The defensive patterns are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Malware and post-exploitation. Batch files serve as droppers, loaders, and persistence scripts on Windows, often chaining to PowerShell and built-in utilities, so they are read during malware triage. See the [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md) and the [Red Team Reference](/RED_TEAM_REFERENCE.md).
+- Startup, installer, and build glue. Batch runs at boot, during installation, and in build steps, often with elevated privilege, so weaknesses in these scripts carry weight. See the [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md).
+- Living-off-the-land use. Because `cmd.exe` is present on every Windows system, batch appears in command sequences that invoke `reg`, `schtasks`, and other built-in tools rather than dropping new binaries.
+
+### Dominant weakness classes
+
+Batch is interpreter-managed and memory-safe (all values are strings), so the memory-corruption classes do not apply; its risks center on command construction and the execution environment.
+
+- Operating-system command injection. Building a command from untrusted input (arguments, file contents, registry values) lets metacharacters such as `&` and `|` append commands, which is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Dynamic command construction. Assembling a command line from variables and running it, the batch equivalent of `eval`, executes whatever the data contains, which is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Untrusted search path. `cmd.exe` searches the current directory before `PATH` for some invocations, so a batch file run in an attacker-writable directory can execute a planted program, which relates to [CWE-426](https://cwe.mitre.org/data/definitions/426.html).
+
+### Why it matters
+
+Reading batch tells an analyst what a dropper or startup script does to a Windows host: which built-in tools it invokes, whether it builds commands from untrusted values, and where it looks for the programs it runs. There is no established batch linter, so the practical controls are keeping scripts short, reviewing them, and moving untrusted-input handling to PowerShell where [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) can inspect it, as the Secure coding section notes.
+
 ## Secure coding
 
 Batch builds and runs commands from strings, so injection is the central risk, made worse by the interpreter's special characters:

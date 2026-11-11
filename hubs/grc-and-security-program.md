@@ -33,7 +33,7 @@ Part of the [domain hubs](/hubs/README.md). 40 reference documents in this domai
 
 | Reference | What it covers | Reading time |
 |---|---|---|
-| [Why Vulnerabilities Happen](/WHY_VULNERABILITIES_HAPPEN.md) | Most vulnerabilities are not unique. | 9 min |
+| [Vulnerability Root Causes](/VULNERABILITY_ROOT_CAUSES.md) | Most vulnerabilities are not unique. | 10 min |
 | [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md) | CVSS v3.1/v4.0 scoring, EPSS prioritization, CISA KEV, scanning tools, patch management, and program KPIs | 13 min |
 | [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md) | SSVC decision models (CERT/CC trees, CISA Track/Track*/Attend/Act), KEV semantics and BOD 26-04 timelines, EPSS probability vs percentile, Vulnrichment, CSAF/VEX/OpenVEX, CTID KEV->ATT&CK mappings, SLA policy design | 23 min |
 | [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md) | How enterprise scanners (Tenable, Qualys, Rapid7, Wiz, Defender VM, CrowdStrike, Snyk, Invicti, Nessus) are deployed, their finding and severity taxonomies, a cross-scanner catalog of finding types, and where findings land in ServiceNow Vulnerability Response | 8 min |

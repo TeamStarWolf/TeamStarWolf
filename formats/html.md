@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (614 words at 230 words a minute)
+About 4 min (858 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -147,6 +147,28 @@ The W3C Nu Html Checker validates markup against the living standard. `html-vali
 Formatters such as Prettier normalize indentation and attribute wrapping. Linters such as `htmlhint` and `eslint-plugin-html` catch structural errors and inline script issues.
 
 Sanitization libraries, including DOMPurify and the server-side `sanitize-html`, strip dangerous markup from untrusted input before it reaches the DOM. Treat these as security controls, not formatters.
+
+## Security relevance
+
+This section is the threat-facing view of HTML: why it is the primary place untrusted data meets executable context and where it is attacked. The output-encoding and sanitization controls that defend against these are in the "Security considerations" section that follows.
+
+### Where it appears
+
+- Server-rendered templates. Any value interpolated into a page without context-aware encoding is a candidate for markup injection.
+- Client-side sinks. Assigning attacker-influenced data to `innerHTML`, `document.write`, or a framework's raw-HTML helper runs injected script in the victim's session. See [JavaScript](/languages/javascript.md) for the DOM sinks involved.
+- Stored content. Comment fields, profile text, and rich-text bodies that are later shown to other users turn a single injection into stored cross-site scripting.
+
+### Dominant weakness classes
+
+HTML is text, so the risks are injection and the execution context it creates rather than memory corruption. The defensive settings for each are in the section below.
+
+- Cross-site scripting ([CWE-79](https://cwe.mitre.org/data/definitions/79.html)), untrusted data placed into markup without context-correct encoding so that it runs as script.
+- Improper neutralization of script-related HTML tags ([CWE-80](https://cwe.mitre.org/data/definitions/80.html)), the basic markup-injection case that a naive tag stripper fails to stop.
+- Improper restriction of rendered UI layers ([CWE-1021](https://cwe.mitre.org/data/definitions/1021.html)), clickjacking through framing and overlays when framing controls are absent.
+
+### Why it matters
+
+Recognizing untrusted data flowing into an HTML sink tells a tester the payload can run as script with the victim's privileges, which is why cross-site scripting remains among the most reported web flaws. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for the surrounding method.
 
 ## Security considerations
 

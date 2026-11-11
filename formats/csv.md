@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (655 words at 230 words a minute)
+About 4 min (917 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -116,6 +116,28 @@ Row 1002 escapes an inner quote by doubling it. Row 1003 holds a line break insi
 - Spreadsheet programs open CSV directly, which is where injection risk begins.
 
 Set the delimiter, quoting, and encoding explicitly in your parser rather than relying on defaults.
+
+## Security relevance
+
+This section is the threat-facing view of CSV: why a plain data export becomes an attack path and where it is abused. The sanitize-on-export and validate-on-import controls that defend against these are in the "Security considerations" section that follows.
+
+### Where it appears
+
+- Export features. A report or data export that embeds user-controlled fields carries whatever those users typed into a file an analyst or administrator later opens in a spreadsheet.
+- Bulk import. Upload endpoints that parse CSV trust the column layout and field contents of a file an attacker supplies.
+- Data feeds between systems. CSV moves between databases, pipelines, and tools where one stage's quoting assumptions may not match the next.
+
+### Dominant weakness classes
+
+CSV is plain text, so the risks are injection and parser ambiguity rather than memory corruption. The defensive steps for each are in the section below.
+
+- Formula injection ([CWE-1236](https://cwe.mitre.org/data/definitions/1236.html)): a field beginning with `=`, `+`, `-`, or `@` is run as a formula when the file is opened in a spreadsheet, which can exfiltrate data or launch a command on the reader's workstation.
+- Improper input validation ([CWE-20](https://cwe.mitre.org/data/definitions/20.html)): an unescaped delimiter or quote shifts every following column and can place attacker content into a trusted field.
+- Improper encoding or escaping of output ([CWE-116](https://cwe.mitre.org/data/definitions/116.html)) when an application assembles rows by hand instead of serializing through a library.
+
+### Why it matters
+
+Recognizing that an export embeds user-controlled fields tells an auditor to test formula injection, where the payload executes on the reader's machine rather than the server that produced the file. See [the secure coding reference](/SECURE_CODING_REFERENCE.md) for the output-encoding method that applies here.
 
 ## Security considerations
 

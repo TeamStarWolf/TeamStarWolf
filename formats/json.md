@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (706 words at 230 words a minute)
+About 4 min (969 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -130,6 +130,28 @@ The date is a string because JSON has no date type. The `coupon` field is `null`
 - `JSONLines` tooling handles newline-delimited JSON for logs and streams.
 
 Prefer a streaming parser for inputs that may be large, since loading a whole document into memory is a denial-of-service risk.
+
+## Security relevance
+
+This section is the threat-facing view of JSON: why parsing and merging it is where the risk lives and where that is abused. The size limits, key filtering, and parser choices that defend against these are in the "Security considerations" section that follows.
+
+### Where it appears
+
+- API trust boundaries. JSON is the default body for REST and RPC APIs and the payload for most webhooks, so a parser on the edge handles attacker-reachable input by design.
+- Token claims. The body of a JWT is JSON, so a consumer that trusts claims before verifying the signature acts on attacker-set fields.
+- Binders and merges. Server frameworks deserialize JSON straight into typed objects, and JavaScript code deep-merges parsed objects into existing ones.
+
+### Dominant weakness classes
+
+JSON is text data, so the risks come from what a binder or merge does with it rather than memory corruption. The defensive settings for each are in the section below.
+
+- Deserialization of untrusted data ([CWE-502](https://cwe.mitre.org/data/definitions/502.html)), where a polymorphic binder that instantiates types named in the document can be driven to a gadget chain and code execution.
+- Improperly controlled modification of object prototype attributes ([CWE-1321](https://cwe.mitre.org/data/definitions/1321.html)), the prototype pollution a `__proto__` or `constructor` key causes through a naive deep-merge in JavaScript. See [JavaScript](/languages/javascript.md).
+- Uncontrolled resource consumption ([CWE-400](https://cwe.mitre.org/data/definitions/400.html)) from deeply nested or oversized documents that exhaust the stack or memory.
+
+### Why it matters
+
+Recognizing JSON flowing into a polymorphic deserializer or a client-side deep-merge tells a tester to probe for gadget-chain deserialization and prototype pollution, two high-impact findings that plain validation misses. See [the API security reference](/API_SECURITY_REFERENCE.md) for the surrounding method.
 
 ## Security considerations
 

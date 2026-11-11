@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (612 words at 230 words a minute)
+About 4 min (906 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -182,6 +182,30 @@ git clean -fxd                 # delete after you confirm the list
 | `--depth <n>` | `clone`, `fetch` | limit history to the last n commits |
 
 Prefer `--force-with-lease` over `--force`. The lease aborts the push if someone else advanced the branch after your last fetch, which prevents overwriting their work.
+
+## Security relevance
+
+This section is the threat-facing view of Git: how it appears in offensive and defensive work. The safe-use guidance for your own repositories is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Reconnaissance. Public and leaked repositories are a primary intelligence source. Attackers mine commit history for credentials, internal hostnames, and API keys, and scan web roots for an exposed `.git/` directory, which lets them reconstruct the full source and history of a site.
+- Code execution on clone. A repository can carry a malicious `.git/hooks` script or a `.gitmodules` submodule pointing at an attacker-controlled URL, so cloning or checking out untrusted code can run it.
+- Supply chain. Poisoned repositories, dependency confusion, and tampered tags ride the same fetch and pull path that developers trust. See [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+- Tooling. Secret scanners such as gitleaks and trufflehog run on both sides: defenders gate pushes with them, and testers point them at a fresh clone. `git-dumper` reconstructs a repository from an exposed `.git/` directory.
+
+### Dominant weakness classes
+
+Git is a content-addressed store, so the risks are exposure and trust rather than memory corruption.
+
+- Sensitive information left in version-control history ([CWE-540](https://cwe.mitre.org/data/definitions/540.html)).
+- Exposure of a version-control directory to an unauthorized sphere ([CWE-527](https://cwe.mitre.org/data/definitions/527.html)), the exposed `.git/` case.
+- Inclusion of functionality from an untrusted control sphere ([CWE-829](https://cwe.mitre.org/data/definitions/829.html)) through hooks and submodules.
+- Cleartext storage of credentials ([CWE-312](https://cwe.mitre.org/data/definitions/312.html)) in a plaintext credential file.
+
+### Why it matters
+
+Checking for an exposed `.git/` directory and scanning history for secrets are standard steps in a web application assessment, because both convert a single oversight into full source disclosure or working credentials. On the defensive side, host-level secret scanning and push protection close the same gap before it reaches shared history. See [the secure coding reference](/SECURE_CODING_REFERENCE.md) for secret-handling guidance.
 
 ## Security notes
 

@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (671 words at 230 words a minute)
+About 4 min (987 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -180,6 +180,30 @@ docker system df
 | `--memory`, `--cpus` | `run` | Cap resource usage |
 | `-f`, `--file` | `build` | Point to a named Dockerfile |
 | `--no-cache` | `build` | Rebuild without cached layers |
+
+## Security relevance
+
+This section is the threat-facing view of Docker: how an attacker abuses the client and daemon to reach the host, and what that abuse leaves in logs. The safe-use and hardening guidance is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Daemon access as host access. Membership in the `docker` group, a mounted `/var/run/docker.sock`, or an exposed daemon API on TCP 2375 lets an attacker run a container that bind-mounts the host root and writes a SUID binary or a cron job, a well-worn path from container to host root.
+- Container escape. `--privileged`, added capabilities such as `SYS_ADMIN`, or a shared host namespace give a container the reach to break isolation and act on the node.
+- Persistence and staging. Attackers pull and run images from a registry they control, use `docker exec` to live inside a trusted container, and bake backdoors into image layers that later pulls inherit.
+- Telemetry. Daemon logs, the audit trail for `/var/run/docker.sock` and the `dockerd` binary, and runtime sensors show `run --privileged`, socket mounts, unexpected `exec`, and image pulls from unknown registries.
+
+### Dominant weakness classes
+
+Containers isolate with namespaces and cgroups, so the dominant risks are excess privilege and trust, not memory corruption.
+
+- Execution with unnecessary privileges ([CWE-250](https://cwe.mitre.org/data/definitions/250.html)) from root containers and `--privileged`.
+- Improper privilege management ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)) through the docker socket and the docker group.
+- Inclusion of sensitive information in source code ([CWE-540](https://cwe.mitre.org/data/definitions/540.html)) when secrets are baked into image layers.
+- Download of code without an integrity check ([CWE-494](https://cwe.mitre.org/data/definitions/494.html)) when images run from mutable tags on untrusted registries.
+
+### Why it matters
+
+Treating daemon access as host access, and watching for the escape paths above, is what keeps one compromised container from becoming node and cluster compromise. Auditors check socket mounts, privileged flags, and image provenance for the same reason. See [the container security reference](/CONTAINER_SECURITY_REFERENCE.md) and [the Kubernetes security reference](/KUBERNETES_SECURITY_REFERENCE.md) for escape prevention and runtime hardening.
 
 ## Security notes
 

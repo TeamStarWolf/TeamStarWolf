@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 2 min (566 words at 230 words a minute)
+About 4 min (859 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -168,6 +168,30 @@ reg query HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 | `/a` | `dir` | Include hidden and system entries |
 | `/fo LIST` | `schtasks`, `tasklist` | Format output as a readable list |
 | `/grant` `/deny` | `icacls` | Add or remove an ACL entry |
+
+## Security relevance
+
+This section is the threat-facing view of `cmd.exe`: how an operator abuses the built-in commands and console utilities on a host and what a defender sees. The safe-use and configuration guidance is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Living off the land. Signed Windows binaries double as downloaders and runners, so an operator avoids dropping new tools: `certutil` fetches and decodes a payload, `bitsadmin` transfers it, and `regsvr32`, `mshta`, and `rundll32` execute code through trusted hosts.
+- Discovery. `whoami /all`, `net user`, `net localgroup`, `systeminfo`, and `tasklist` build a picture of the account, patch level, and running processes right after access.
+- Persistence. A new `schtasks` entry or a value under a `...\CurrentVersion\Run` registry key pointing at a user-writable path keeps access across reboot.
+- Telemetry. Process-creation events (Event ID 4688 with command line auditing on, or Sysmon Event ID 1) capture the full command line, so defenders hunt `certutil -urlcache`, encoded arguments, and account-enumeration bursts.
+
+### Dominant weakness classes
+
+These are built-in interpreters and utilities, so the risks are trust and misuse rather than memory corruption.
+
+- OS command injection when a batch script builds a command line from untrusted input ([CWE-78](https://cwe.mitre.org/data/definitions/78.html)).
+- Incorrect permission assignment for a critical resource ([CWE-732](https://cwe.mitre.org/data/definitions/732.html)) through an `icacls` grant such as `Everyone:F`.
+- Inclusion of functionality from an untrusted control sphere ([CWE-829](https://cwe.mitre.org/data/definitions/829.html)) when a living-off-the-land binary pulls a remote payload.
+- Execution with unnecessary privileges ([CWE-250](https://cwe.mitre.org/data/definitions/250.html)) when work runs from an elevated prompt by default.
+
+### Why it matters
+
+Knowing which signed binaries act as downloaders and runners lets a defender alert on their abuse instead of trusting them by name, and lets an auditor catch the weak ACLs and autostart entries that invite persistence. See [the Windows hardening reference](/WINDOWS_HARDENING_REFERENCE.md) for the controls that limit this surface.
 
 ## Security notes
 

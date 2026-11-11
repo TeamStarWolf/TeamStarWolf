@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (645 words at 230 words a minute)
+About 4 min (958 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -196,6 +196,30 @@ tar -tzf home-*.tgz | head
 | `-n` | `grep`, `sort` | Line numbers, or numeric sort |
 | `--preserve-root` | `rm` | Refuse to act on `/` (default on GNU `rm`) |
 | `-p` | `mkdir` | Create parent directories as needed |
+
+## Security relevance
+
+This section is the threat-facing view of the Linux core utilities: how an operator abuses the tools already on a host and what a defender sees. The safe-use and configuration guidance is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Living off the land. After a foothold, an operator prefers the stock binaries rather than dropping tools: `find`, `ls`, and `cat` for discovery, `id` and `whoami` for context, `curl` or `wget` to pull a payload, `chmod +x` to make it runnable, and `base64` and `tar` to stage and compress data for exfiltration.
+- Persistence. A new cron entry, a modified shell profile, or a `nohup`/`setsid` detached process keeps access across logout and reboot.
+- Scripting. These commands are driven by `bash`; a script that passes untrusted data to the shell is where command injection lives (/languages/bash.md).
+- Telemetry. The kernel audit framework and auditd record `execve`, so process-creation events capture the `curl` to `chmod` to run sequence; shell history, `/var/log`, and osquery add context. Defenders use the same tools for triage: `find -mtime` surfaces recent changes and `stat` exposes timestamp tampering.
+
+### Dominant weakness classes
+
+These are userspace utilities acting on files and processes, so the risks are misuse, exposure, and injection rather than memory corruption.
+
+- OS command injection when a script builds a shell command from untrusted input ([CWE-78](https://cwe.mitre.org/data/definitions/78.html)).
+- Incorrect permission assignment for a critical resource ([CWE-732](https://cwe.mitre.org/data/definitions/732.html)) through `chmod 777` or a loose `umask`.
+- Execution with unnecessary privileges ([CWE-250](https://cwe.mitre.org/data/definitions/250.html)) via broad `sudo` or setuid binaries.
+- Untrusted search path ([CWE-426](https://cwe.mitre.org/data/definitions/426.html)) when a privileged program trusts `PATH`.
+
+### Why it matters
+
+Recognizing that routine binaries are also an adversary's toolkit lets a defender write detections keyed on command sequences rather than file names, and lets an auditor spot the permission and `sudo` mistakes that turn a single foothold into root. See [the Linux hardening reference](/LINUX_HARDENING_REFERENCE.md) for the controls that constrain this behavior.
 
 ## Security notes
 

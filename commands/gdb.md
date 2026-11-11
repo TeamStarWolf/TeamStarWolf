@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (842 words at 230 words a minute)
+About 5 min (1,065 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -210,6 +210,30 @@ info registers rax rbx rsp rip
 | `gdb --args ./prog a b` | Pass program arguments on the command line |
 
 Set `set pagination off` and `set confirm off` in a `~/.gdbinit` or script to keep batch runs from stopping for prompts.
+
+## Security relevance
+
+This section is the threat-facing view of GDB and where it sits in vulnerability research; authorized use only is assumed. The authorization, ASLR, and secret-handling guidance for safe use is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Crash triage. After a fuzzer or a report produces a fault, GDB shows the faulting instruction, registers, and stack so a researcher can decide whether the crash is exploitable.
+- Exploit development. Examining memory layout, controlling the instruction pointer, and building ROP chains all happen under a debugger before a working proof of concept exists.
+- Reverse engineering. Dynamic analysis of a closed binary or a malware sample, with disassembly and single-stepping, complements static review.
+- Defensive research. The same workflow verifies that a patch removes the faulty code path.
+
+### Dominant weakness classes
+
+Unlike most tools here, GDB's whole subject is memory corruption: it is the lens through which these classes are studied.
+
+- Stack-based buffer overflow ([CWE-121](https://cwe.mitre.org/data/definitions/121.html)).
+- Heap-based buffer overflow ([CWE-122](https://cwe.mitre.org/data/definitions/122.html)).
+- Use after free ([CWE-416](https://cwe.mitre.org/data/definitions/416.html)).
+- Out-of-bounds write ([CWE-787](https://cwe.mitre.org/data/definitions/787.html)).
+
+### Why it matters
+
+Dynamic debugging is how a researcher proves a crash is a controllable vulnerability rather than a benign fault, and how a reliable exploit is built or a sample's behavior is understood. That evidence drives both offensive proof of concept and the defensive fix. See [the exploit development reference](/EXPLOIT_DEVELOPMENT_REFERENCE.md) and [the reverse engineering reference](/REVERSE_ENGINEERING_REFERENCE.md).
 
 ## Security notes
 

@@ -244,5 +244,11 @@
     "name": "TeamStarWolf - Plex Media Server Plex2Shell Chain (CVE-2026-96652, -96654, -96655, -96656) Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified Plex2Shell record supports: the CVE and NVD records, CISA's KEV entries, Plex's security update, the researcher's write-up and an independent honeypot report. The TeamStarWolf lab run of 4 November 2026 checked versions, baselines and the fix only and ran no exploit step. Each comment names source numbers from case-studies/PLEX_MEDIA_SERVER_2026_CVES.md. Scores: 100 is a binding a primary source supports for these CVEs; 60 rests on a single press report. No severity, prevalence or coverage is measured.",
     "blurb": "Techniques from the Plex2Shell record, from the unauthenticated chain on exposed Plex Media Servers to the owner-token theft, the unsigned library load and the miners and proxyware on compromised servers. A curated layer for the Plex Media Server lab case study."
+  },
+  {
+    "file": "exposure-checks-2026-11.json",
+    "name": "TeamStarWolf - Thirty Days of Exposure Checks (KEV, October to November 2026) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the Thirty Days of Exposure Checks case study. No opened source names an ATT&CK technique for these CVEs, so every binding is the study's own mapping, labelled in its comment. Scores: 100 is a Confirmed record plus a lab-shown vulnerable version, 75 is a Confirmed record without a lab demonstration, 50 is a Reported source or the study's inference. Each comment names source numbers from case-studies/EXPOSURE_CHECKS_2026_11.md.",
+    "blurb": "Techniques from a month of KEV listings checked in the lab: public-facing exploitation, privilege escalation, web shells, the Mark-of-the-Web bypass and the follow-on mining. A curated layer for the exposure-checks case study."
   }
 ]

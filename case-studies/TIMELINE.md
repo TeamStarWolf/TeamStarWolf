@@ -28,6 +28,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 30 October 2026: AWS bulletin; Red Hat RHSB-2026-016 rates the flaw Critical
   - 1 November 2026: Red Hat ships fixed kernels for RHEL 8, 9 and 10
   - 2 November 2026: Still no reported in-the-wild exploitation; not in CISA KEV
+- [Thirty Days of Exposure Checks: Version and Configuration Evidence from the Lab](/case-studies/EXPOSURE_CHECKS_2026_11.md). Attack surface, October to November 2026. Sectors: technology. CVEs: CVE-2015-3306, CVE-2015-5477, CVE-2016-3081, CVE-2020-1938, CVE-2021-3199, CVE-2023-22894 and 16 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Exposure_Checks_2026_11_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Exposure_Checks_2026_11_Case_Study.pptx).
+  - 4 October 2026: CISA lists NetScaler CVE-2026-88779, the window's first KEV addition; NVD publishes the AhsayCBS pair
+  - 7 October 2026: Huntress reports exploitation of the AhsayCBS chain from 23:20 UTC (Reported)
+  - 8 October 2026: CISA lists five CVEs from 2015 to 2023 in one day, among them ONLYOFFICE CVE-2021-3199, each due in three days
+  - 12 October 2026: Ahsay says its earlier AhsayCBS patches, 10.3.4.0 and 9.15.2.59, did not fully fix either CVE
+  - 13 October 2026: Microsoft releases Windows Shell CVE-2026-96951 as exploited; CISA lists it the same day
+  - 14 October 2026: CISA lists the AhsayCBS pair; SiteGuard and JVN publish CVE-2026-106931
+  - 20 October 2026: CISA lists SiteGuard Server Edition CVE-2026-106931
+  - 26 October 2026: Microsoft revision 2 adds Edge to CVE-2026-96951
+  - 28 October 2026: WordPress 7.1.4 security release; CISA lists the Linux kernel flaw Fragnesia, CVE-2026-46300
+  - 31 October 2026: NVD publishes WordPress CVE-2026-119977 with no CPE configuration yet
+  - 3 November 2026: CISA lists CVE-2026-119977, due 6 November; 34 KEV additions in the thirty-day window
+  - 3 November 2026: TeamStarWolf lab run, 3 to 4 November 2026: version and configuration checks on matched pairs and real hosts
 - [The eMudhra Certificate Authority Key Compromise: A 2026 Case Study](/case-studies/EMUDHRA_CA_COMPROMISE_2026.md). Incident, October to November 2026. Sectors: technology. CVEs: CVE-2026-114406, CVE-2026-111943, CVE-2026-91403, CVE-2026-113812. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/eMudhra_CA_Compromise_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/eMudhra_CA_Compromise_2026_Case_Study.pptx).
   - 30 April 2025: eMudhra key ceremony produces 24 intermediates; a test deviation generates the weak keys
   - 17 October 2026: A researcher identifies the weak keys against CCADB and proves control

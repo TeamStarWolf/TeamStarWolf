@@ -504,7 +504,7 @@ CATALOG = [
        "The 3 ATT&CK for ICS techniques bound to the February 2021 water facility SCADA incident in CISA AA21-042A, from the "
        "[2021 chronicle case study](/case-studies/CHRONICLE_2021.md)"),
       ("case-studies/zero-day-market-events-ics.json", "The Zero-Day Trade and Its Fallout (ICS)",
-       "The 3 ATT&CK for ICS techniques that the ATT&CK pages for WannaCry (S0366) and NotPetya (S0368) list, from the "
+       "The 5 ATT&CK for ICS techniques that the ATT&CK pages for WannaCry (S0366), NotPetya (S0368) and Bad Rabbit (S0606) list, from the "
        "[zero-day market case study](/case-studies/ZERO_DAY_MARKET_EVENTS.md)")]),
 ]
 

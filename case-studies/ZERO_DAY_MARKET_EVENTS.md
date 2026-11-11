@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 62 min (14,283 words at 230 words a minute)
+About 63 min (14,392 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -545,7 +545,7 @@ This Part binds the verified record to MITRE ATT&CK v20.0 (Enterprise, Mobile an
 | WannaCry | `S0366` | [/mitre/software/S0366.md](/mitre/software/S0366.md) | 16 Enterprise and 2 ICS techniques [79] |
 | Sandworm Team | `G0034` | [/mitre/groups/G0034.md](/mitre/groups/G0034.md) | GRU Unit 74455; NotPetya via M.E.Doc [113] [78] |
 | NotPetya | `S0368` | [/mitre/software/S0368.md](/mitre/software/S0368.md) | 14 Enterprise and 3 ICS techniques [111] |
-| Bad Rabbit | `S0606` | [/mitre/software/S0606.md](/mitre/software/S0606.md) | Sandworm software; EternalRomance under `T1210` [112] |
+| Bad Rabbit | `S0606` | [/mitre/software/S0606.md](/mitre/software/S0606.md) | Sandworm software; 15 Enterprise and 5 ICS techniques; EternalRomance under `T1210` [112] |
 | Olympic Destroyer | `S0365` | [/mitre/software/S0365.md](/mitre/software/S0365.md) | Sandworm software [113]; home is [SANDWORM_OPERATIONS.md](/case-studies/SANDWORM_OPERATIONS.md) |
 | RobbinHood | `S0400` | [/mitre/software/S0400.md](/mitre/software/S0400.md) | Baltimore 2019; no `T1210` mapping [81] |
 | Shamoon | `S0140` | [/mitre/software/S0140.md](/mitre/software/S0140.md) | Wiper first used in 2012 [102] |
@@ -639,7 +639,7 @@ This Part binds the verified record to MITRE ATT&CK v20.0 (Enterprise, Mobile an
 | [`T1071.001`](/mitre/techniques/T1071-001.md) | Web Protocols | Command and Control | Shamoon (software record, not dated to an event) | [102] |
 | [`T1495`](/mitre/techniques/T1495.md) | Firmware Corruption | Impact | Bad Rabbit (software record, not dated to an event) | [112] |
 
-`T1588.005` sits under Obtain Capabilities and `T1587.004` under Develop Capabilities; ATT&CK names both sub-techniques Exploits. Hydraq rows come from the `S0203` software object, which ATT&CK ties to Aurora's first use [97]; they describe the malware, not a dated Aurora report. The last 13 rows come the same way from the `S0140` Shamoon [102] and `S0606` Bad Rabbit [112] software objects; with the Shamoon and Bad Rabbit rows above, they cover every technique those two pages list. WannaCry is not mapped to `T1190` by ATT&CK [79].
+`T1588.005` sits under Obtain Capabilities and `T1587.004` under Develop Capabilities; ATT&CK names both sub-techniques Exploits. Hydraq rows come from the `S0203` software object, which ATT&CK ties to Aurora's first use [97]; they describe the malware, not a dated Aurora report. The last 13 rows come the same way from the `S0140` Shamoon [102] and `S0606` Bad Rabbit [112] software objects; with the Shamoon and Bad Rabbit rows above, they cover every Enterprise technique those two pages list. The five ATT&CK for ICS techniques on the Bad Rabbit page are in Part 12.4; the Shamoon page lists none. WannaCry is not mapped to `T1190` by ATT&CK [79].
 
 ### 12.3 ATT&CK Mobile techniques (Pegasus for iOS, `S0289`)
 
@@ -667,9 +667,11 @@ ATT&CK maps these 15 Mobile techniques to `S0289` [43]. The page does not mentio
 
 | ID | Name | Tactic | Where it appears | Sources |
 |---|---|---|---|---|
-| `T0866` | Exploitation of Remote Services | Initial Access, Lateral Movement | WannaCry; NotPetya | [79] [111] |
-| `T0867` | Lateral Tool Transfer | Lateral Movement | WannaCry; NotPetya | [79] [111] |
-| `T0828` | Loss of Productivity and Revenue | Impact | NotPetya | [111] |
+| `T0866` | Exploitation of Remote Services | Initial Access, Lateral Movement | WannaCry; NotPetya; Bad Rabbit | [79] [111] [112] |
+| `T0867` | Lateral Tool Transfer | Lateral Movement | WannaCry; NotPetya; Bad Rabbit | [79] [111] [112] |
+| `T0828` | Loss of Productivity and Revenue | Impact | NotPetya; Bad Rabbit | [111] [112] |
+| `T0817` | Drive-by Compromise | Initial Access | Bad Rabbit watering holes | [112] |
+| `T0863` | User Execution | Execution | Bad Rabbit (software record, not dated to an event) | [112] |
 
 The library has no ICS technique pages, so these ids are not linked; they are layered in the ICS layer of Part 12.7.
 
@@ -704,8 +706,8 @@ The live `T1210` page lists mitigations [`M1048`](/mitre/mitigations/M1048.md), 
 
 ### 12.7 Navigator layers
 
-- Enterprise: [`navigator/library-layers/zero-day-market-events.json`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/zero-day-market-events.json) ([open in Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/library-layers/zero-day-market-events.json)), domain `enterprise-attack`, ATT&CK version 20 [84], the 62 techniques of Part 12.2, each shown under all of its tactics with a comment naming the event and the source numbers of this study. Scores: 100 for a technique an ATT&CK page ties to an event in this study, 75 for an ATT&CK software or group record related to the event but not dated to it (Hydraq, Equation, the Hacking Team rootkit, Shamoon), 40 for an Inferred mapping.
-- ICS: [`navigator/case-studies/zero-day-market-events-ics.json`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/case-studies/zero-day-market-events-ics.json) ([open in Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/case-studies/zero-day-market-events-ics.json)), domain `ics-attack`, the 3 ATT&CK for ICS techniques of Part 12.4 at score 100, each with a comment naming WannaCry or NotPetya and the source numbers.
+- Enterprise: [`navigator/library-layers/zero-day-market-events.json`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/zero-day-market-events.json) ([open in Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/library-layers/zero-day-market-events.json)), domain `enterprise-attack`, ATT&CK version 20 [84], the 75 techniques of Part 12.2, each shown under all of its tactics with a comment naming the event and the source numbers of this study. Scores: 100 for a technique an ATT&CK page ties to an event in this study, 75 for an ATT&CK software or group record related to the event but not dated to it (Hydraq, Equation, the Hacking Team rootkit, Shamoon, Bad Rabbit), 40 for an Inferred mapping.
+- ICS: [`navigator/case-studies/zero-day-market-events-ics.json`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/case-studies/zero-day-market-events-ics.json) ([open in Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/case-studies/zero-day-market-events-ics.json)), domain `ics-attack`, the 5 ATT&CK for ICS techniques of Part 12.4 that the WannaCry (`S0366`), NotPetya (`S0368`) and Bad Rabbit (`S0606`) pages list, each with a comment naming the event and the source numbers. Scores follow the Enterprise layer: 100 where an ATT&CK page ties the technique to an event in this study, 75 for `T0863`, which comes from the Bad Rabbit software record and is not dated to an event.
 - Mobile: the 15 Mobile ids of Part 12.3 are listed but not layered. The library's validator accepts `mobile-attack` layers, but the Navigator page has no case-study section for Mobile layers, and the `S0289` page ties none of the techniques to a dated event.
 - Both layers are listed on the [Navigator layers page](/navigator/index.md).
 

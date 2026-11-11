@@ -6,7 +6,7 @@
     "layer": "4.5"
   },
   "domain": "ics-attack",
-  "description": "Curated case-study layer, not an official MITRE mapping. The 3 ATT&CK for ICS techniques that the ATT&CK pages for WannaCry (S0366) and NotPetya (S0368) list, from case-studies/ZERO_DAY_MARKET_EVENTS.md. Each comment names the event and the study's source numbers. Score 100: an ATT&CK page ties the technique to an event in the study.",
+  "description": "Curated case-study layer, not an official MITRE mapping. The 5 ATT&CK for ICS techniques that the ATT&CK pages for WannaCry (S0366), NotPetya (S0368) and Bad Rabbit (S0606) list, from case-studies/ZERO_DAY_MARKET_EVENTS.md. Each comment names the event and the study's source numbers. Scores: 100 an ATT&CK page ties the technique to an event in the study, 75 an ATT&CK software record related to the event but not dated to it.",
   "sorting": 3,
   "layout": {
     "layout": "side",
@@ -21,25 +21,37 @@
       "techniqueID": "T0866",
       "tactic": "initial-access",
       "score": 100,
-      "comment": "WannaCry; NotPetya, as the ATT&CK software pages list it (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] [111] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+      "comment": "WannaCry; NotPetya; Bad Rabbit, as the ATT&CK software pages list it (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] [111] [112] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
     },
     {
       "techniqueID": "T0866",
       "tactic": "lateral-movement",
       "score": 100,
-      "comment": "WannaCry; NotPetya, as the ATT&CK software pages list it (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] [111] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+      "comment": "WannaCry; NotPetya; Bad Rabbit, as the ATT&CK software pages list it (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] [111] [112] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
     },
     {
       "techniqueID": "T0867",
       "tactic": "lateral-movement",
       "score": 100,
-      "comment": "WannaCry; NotPetya, as the ATT&CK software pages list it (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] [111] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+      "comment": "WannaCry; NotPetya; Bad Rabbit, as the ATT&CK software pages list it (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] [111] [112] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
     },
     {
       "techniqueID": "T0828",
       "tactic": "impact",
       "score": 100,
-      "comment": "NotPetya, as the ATT&CK software pages list it (basis: an ATT&CK page ties the technique to an event in the study). Sources [111] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+      "comment": "NotPetya; Bad Rabbit, as the ATT&CK software pages list it (basis: an ATT&CK page ties the technique to an event in the study). Sources [111] [112] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T0817",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Bad Rabbit watering holes, as the ATT&CK software page lists it (basis: an ATT&CK page ties the technique to an event in the study). Sources [112] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T0863",
+      "tactic": "execution",
+      "score": 75,
+      "comment": "Bad Rabbit (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [112] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
     }
   ],
   "gradient": {
@@ -52,6 +64,10 @@
   },
   "legendItems": [
     {
+      "label": "75: ATT&CK software or group record related to the event, not dated to it",
+      "color": "#38bdf8"
+    },
+    {
       "label": "100: an ATT&CK page ties the technique to an event in the study",
       "color": "#7c3aed"
     }
@@ -63,11 +79,11 @@
     },
     {
       "name": "techniques_scored",
-      "value": "3"
+      "value": "5"
     },
     {
       "name": "technique_tactic_entries",
-      "value": "4"
+      "value": "6"
     },
     {
       "name": "score_meaning",

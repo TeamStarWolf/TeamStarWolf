@@ -58,5 +58,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [Iran-attributed threat actors: a case study](/case-studies/THREAT_ACTORS_IRAN.md)
 - [North Korea-attributed threat actors: a case study](/case-studies/THREAT_ACTORS_NORTH_KOREA.md)
 - [The year 2021 in intrusions: a dated record](/case-studies/CHRONICLE_2021.md)
+- [Healthcare threat actor watchlist, 2023 to 2026: a case study](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md)
 
 <!-- hub:end -->

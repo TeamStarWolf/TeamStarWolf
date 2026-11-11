@@ -1058,6 +1058,49 @@ studies:
       - {"date": "2024-04-17", "label": "Mandiant graduates Sandworm to APT44"}
       - {"date": "2025-12-29", "label": "Poland energy attack: RTUs damaged at more than 30 wind and PV farms"}
       - {"date": "2026-07-13", "label": "UK and EU formally attribute the Poland attack to FSB Centre 16; first joint cyber sanctions"}
+  case-studies/THREAT_ACTORS_UNITED_STATES.md:
+    kind: "actor"
+    title: "United States-Attributed Threat Actors: The Public Record"
+    start: "2001"
+    end: "2025-10"
+    sectors: ["government", "telecommunications", "energy", "finance", "technology", "healthcare"]
+    cves:
+      - "CVE-2010-2568"
+      - "CVE-2010-2729"
+      - "CVE-2012-1723"
+      - "CVE-2012-4681"
+      - "CVE-2013-3918"
+      - "CVE-2014-4148"
+      - "CVE-2015-2360"
+      - "CVE-2016-6366"
+      - "CVE-2016-6367"
+      - "CVE-2017-0143"
+      - "CVE-2017-0144"
+      - "CVE-2017-0145"
+      - "CVE-2017-0147"
+      - "CVE-2017-0148"
+      - "CVE-2023-32434"
+      - "CVE-2023-32435"
+      - "CVE-2023-38606"
+      - "CVE-2023-41990"
+    actors:
+      - "G0020"
+    tags: ["United States", "Equation", "Regin", "Shadow Brokers", "Vault 7", "EternalBlue"]
+    pdf: "Threat_Actors_United_States_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2003", "label": "Earliest Regin sample timestamps"}
+      - {"date": "2010", "label": "Stuxnet discovered"}
+      - {"date": "2011-10-14", "label": "CrySyS publishes its Duqu analysis"}
+      - {"date": "2012-05-28", "label": "Kaspersky discloses Flame"}
+      - {"date": "2014-11-24", "label": "Kaspersky publishes its Regin analysis: 27 victims in 14 countries"}
+      - {"date": "2015-02-16", "label": "Kaspersky discloses the Equation group"}
+      - {"date": "2016-08-13", "label": "The Shadow Brokers post a sample archive they say came from Equation Group"}
+      - {"date": "2017-03-14", "label": "Microsoft publishes MS17-010, fixing CVE-2017-0143 to CVE-2017-0148"}
+      - {"date": "2017-05-12", "label": "WannaCry spreads with the EternalBlue exploit; NHS bodies in England are hit"}
+      - {"date": "2017-11-15", "label": "The White House publishes the unclassified VEP charter"}
+      - {"date": "2023-06-01", "label": "Kaspersky discloses Operation Triangulation; the FSB blames US intelligence the same day"}
+      - {"date": "2025-10-19", "label": "China's Ministry of State Security alleges an NSA campaign against the National Time Service Center"}
   case-studies/XZ_UTILS_BACKDOOR_2024.md:
     kind: "incident"
     title: "The XZ Utils Backdoor: A 2024 Supply-Chain Case Study"

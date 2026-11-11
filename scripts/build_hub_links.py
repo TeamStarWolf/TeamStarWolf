@@ -392,7 +392,8 @@ def cve_mentions(hub: Hub, files: list[str]) -> dict[str, list[str]]:
     """CVE -> the hand-written pages that name it, for every CVE the Hub has a brief for."""
     out = collections.defaultdict(set)
     for f in files:
-        if not f.endswith(".md") or f.startswith(GENERATED) or f in GENERATED_FILES                 or os.path.basename(f).startswith("_"):
+        if (not f.endswith(".md") or f.startswith(GENERATED) or f in GENERATED_FILES
+                or os.path.basename(f).startswith("_")):
             continue
         text = strip(read_text(f) or "")
         for c in set(CVE_RE.findall(text)):

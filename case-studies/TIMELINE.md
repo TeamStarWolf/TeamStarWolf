@@ -329,6 +329,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - March 2025: Stealth Falcon uses CVE-2025-33053 as a zero-day against a defense organization in Türkiye (Reported)
   - 10 June 2025: CVE-2025-33053 added to KEV and published by NVD
 
+### 2001 <!-- {docsify-ignore} -->
+
+- [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md). Threat actor, 2001 to October 2025. Sectors: government, telecommunications, energy, finance, technology, healthcare. CVEs: CVE-2010-2568, CVE-2010-2729, CVE-2012-1723, CVE-2012-4681, CVE-2013-3918, CVE-2014-4148 and 12 more. ATT&CK groups: G0020 Equation. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_United_States_Case_Study.pdf).
+  - 2003: Earliest Regin sample timestamps
+  - 2010: Stuxnet discovered
+  - 14 October 2011: CrySyS publishes its Duqu analysis
+  - 28 May 2012: Kaspersky discloses Flame
+  - 24 November 2014: Kaspersky publishes its Regin analysis: 27 victims in 14 countries
+  - 16 February 2015: Kaspersky discloses the Equation group
+  - 13 August 2016: The Shadow Brokers post a sample archive they say came from Equation Group
+  - 14 March 2017: Microsoft publishes MS17-010, fixing CVE-2017-0143 to CVE-2017-0148
+  - 12 May 2017: WannaCry spreads with the EternalBlue exploit; NHS bodies in England are hit
+  - 15 November 2017: The White House publishes the unclassified VEP charter
+  - 1 June 2023: Kaspersky discloses Operation Triangulation; the FSB blames US intelligence the same day
+  - 19 October 2025: China's Ministry of State Security alleges an NSA campaign against the National Time Service Center
+
 <!-- case-study-timeline:list-end (the timeline replaces the list above on the site) -->
 
 ATT&CK&reg; and MITRE ATT&CK&reg; are registered trademarks of The MITRE Corporation. The group names come from the library's ATT&CK data; this project is not affiliated with or endorsed by MITRE.

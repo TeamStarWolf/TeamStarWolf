@@ -306,7 +306,8 @@ def folder_pages(files: list[str]) -> list[str]:
     out = []
     for f in files:
         folder, _, name = f.rpartition("/")
-        if not name.endswith(".md") or name == "README.md" or name.startswith("_")                 or f in GENERATED_FOLDER_PAGES:
+        if (not name.endswith(".md") or name == "README.md" or name.startswith("_")
+                or f in GENERATED_FOLDER_PAGES):
             continue
         if (folder + "/" in FOLDERS or f in FOLDER_FILES) and not bsn.is_stub(f):
             out.append(f)

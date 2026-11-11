@@ -238,5 +238,11 @@
     "name": "TeamStarWolf - Collabora Built-in CODE Server (richdocumentscode) CVE-2026-110447 Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified CVE-2026-110447 record supports: the Collabora advisory, the CVE, NVD and CISA KEV records, and the victim administrators' first-hand reports on richdocumentscode issue #354. The TeamStarWolf lab run of 4 November 2026 checked versions and the fix only. Each comment names source numbers from case-studies/NEXTCLOUD_RICHDOCUMENTS_CVE_2026_110447.md. Scores: 100 is the exploitation itself, 75 is a post-exploitation step known only from the victims' reports.",
     "blurb": "Techniques from the Collabora Built-in CODE Server record, from the unauthenticated proxy.php command injection to the web shells and host discovery victims reported. A curated layer for the Nextcloud CVE-2026-110447 case study."
+  },
+  {
+    "file": "gitlab-cve-2026-97229.json",
+    "name": "TeamStarWolf - GitLab CVE-2026-97229 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified CVE-2026-97229 record supports: GitLab's patch release and the ATT&CK tags on its six published detections, the CVE, NVD and CISA KEV records, and the public Metasploit pull request's stated prerequisites. The TeamStarWolf lab run of 4 November 2026 checked versions only. Each comment names source numbers from case-studies/GITLAB_CVE_2026_97229.md. Scores: 100 is bound by GitLab's description or detection tags, 50 is Reported or Inferred and labelled in the comment.",
+    "blurb": "Techniques from the GitLab CVE-2026-97229 record, from code execution on an internet-facing server to the worker crashes and scanning GitLab's detections tag. A curated layer for the GitLab case study."
   }
 ]

@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (823 words at 230 words a minute)
+About 5 min (1,169 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -156,6 +156,31 @@ FROM dbo.Products
 WHERE UnitPrice < 20.00;
 GO
 ```
+
+## Security relevance
+
+This section is the threat-facing view of SQL Server: how the engine is reached and abused in the field, and which weakness classes dominate its record. The controls that defend against them are in the "Security and hardening" section that follows.
+
+### Where it appears
+
+- The data tier behind enterprise line-of-business, finance, healthcare, and Windows-centric .NET stacks, which makes it a primary objective once an attacker finds [SQL injection](/languages/sql.md) or lands on the internal network.
+- On the offensive side, `sqlmap` fingerprints the engine and automates extraction. `xp_cmdshell` is the classic escalation from SQL injection to operating-system command execution, and PowerUpSQL and the Metasploit mssql modules enumerate instances, capture authentication hashes, and abuse trusted databases and linked servers for lateral movement.
+- The default TCP port 1433 and the SQL Server Browser service on UDP 1434 fingerprint an instance on the network.
+- Azure SQL Database and Managed Instance remove host access but keep the T-SQL and privilege surface.
+- Exposure cases: Mixed Mode with a weak `sa` password, or an instance reachable from untrusted networks.
+
+### Dominant weakness classes
+
+SQL Server is a mature C/C++ server hardened against memory corruption in normal use, so the practical risks are injection that reaches the engine and the privileges and features around it.
+
+- SQL injection ([CWE-89](https://cwe.mitre.org/data/definitions/89.html)) through dynamic T-SQL built by concatenation rather than `sp_executesql` with typed parameters.
+- OS command injection ([CWE-78](https://cwe.mitre.org/data/definitions/78.html)) when `xp_cmdshell` is enabled and reachable, turning a query into shell execution.
+- Missing or weak authentication ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)) from Mixed Mode logins with weak passwords, notably `sa`.
+- Improper privilege management ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)): application accounts in `sysadmin` or `db_owner`, and trusted databases or linked servers that let a foothold pivot across the instance.
+
+### Why it matters
+
+Fingerprinting the instance through port 1433 and the Browser service tells an auditor which checks to run: `sa` password strength, `xp_cmdshell` state, linked-server trust, and over-privileged application logins, much of which PowerUpSQL automates. Keeping `xp_cmdshell` off, mapping applications to least-privilege database users, and firewalling 1433 removes the common pivots, and SQL Server Audit records the trail. See [the database security reference](/DATABASE_SECURITY_REFERENCE.md) for the engine-agnostic hardening checklist.
 
 ## Security and hardening
 

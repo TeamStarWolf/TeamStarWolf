@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (880 words at 230 words a minute)
+About 5 min (1,211 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -146,6 +146,29 @@ POST /articles/_search
 ```
 
 The search returns the document with a relevance score in `_score`. The `tags` field, mapped as `keyword`, supports exact filtering and aggregation without analysis.
+
+## Security relevance
+
+This section is the threat-facing view of Elasticsearch: how the cluster appears to an attacker or auditor on the wire, and which weakness classes dominate its record. The controls that defend against them are in the "Security and hardening" section that follows.
+
+### Where it appears
+
+- The data tier for search, log analytics, observability, and SIEM data, reached through the REST API on port 9200 with the transport protocol on 9300, and often holding the most sensitive operational data a team keeps.
+- Fingerprinted by a `GET /` on 9200, which returns a version JSON document with the project tagline, and by the `_cat` APIs. `curl` and Nmap are enough to recognize and enumerate an open cluster.
+- Targeted by general tooling against 9200, Metasploit modules, and bulk `_search` dumps; Kibana and the audit log are the defensive and investigation tools written for it. The supply-chain surface is the Java runtime, Lucene, and installed plugins.
+
+### Dominant weakness classes
+
+Elasticsearch is a mature Java server hardened against memory corruption in normal use, so the practical risks are access control and query or script injection reaching the engine.
+
+- Missing authentication ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)) from clusters left open on 9200 with security disabled, the cause of the recurring waves of exposed and ransomed Elasticsearch data on the public internet.
+- NoSQL and data-query injection ([CWE-943](https://cwe.mitre.org/data/definitions/943.html)) when the Query DSL is built from untrusted input, letting an attacker change query logic.
+- Code injection ([CWE-94](https://cwe.mitre.org/data/definitions/94.html)) through dynamic scripting in `script` queries, a feature whose sandbox has historically been escaped to reach code execution.
+- Information exposure ([CWE-200](https://cwe.mitre.org/data/definitions/200.html)) when an unauthenticated or over-permissioned reader dumps whole indices.
+
+### Why it matters
+
+Recognizing the 9200 banner tells a practitioner what to try: whether security was ever enabled, whether indices can be dumped unauthenticated, and whether scripting is open. Each maps to a control the defender owns: set `xpack.security.enabled`, require TLS, scope roles and API keys per index, and keep the cluster off the public internet. See [the database security reference](/DATABASE_SECURITY_REFERENCE.md) for the engine-agnostic hardening checklist.
 
 ## Security and hardening
 

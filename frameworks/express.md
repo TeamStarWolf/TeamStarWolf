@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (842 words at 230 words a minute)
+About 5 min (1,172 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -91,6 +91,30 @@ app.listen(3000);
 The npm registry supplies most functionality. Common middleware includes `morgan` for logging, `cors` for cross-origin rules, and `cookie-session` or `express-session` for sessions. TypeScript users add `@types/express` for type definitions.
 
 Testing uses runners such as Jest or Mocha with `supertest` for HTTP assertions. Process managers such as `pm2` and container runtimes handle deployment. Validation libraries and security middleware fill the gaps the core leaves open.
+
+## Security relevance
+
+This section is the threat-facing view of Express.js: how it appears to an attacker or an auditor in the field, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Internet-facing web applications and JSON APIs on Node, and the layer underneath higher-level frameworks such as NestJS. Recognizable by the `X-Powered-By: Express` header when it is not disabled, the `connect.sid` session cookie, and the default `Cannot GET /path` body on an unmatched route.
+- Audit and defensive tooling: `npm audit`, Snyk, and retire.js scan the dependency tree, and ESLint security plugins flag unsafe patterns in source.
+- Offensive interest starts with missing middleware, since Express ships no defenses by default: absent security headers, CSRF protection, and rate limiting are the first things to probe.
+- The dependency surface is the npm ecosystem, a deep tree of small packages. The event-stream incident is a public example of a compromised transitive dependency, the pattern in [the npm supply chain study](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md).
+
+### Dominant weakness classes
+
+Express runs on JavaScript and Node, a memory-managed platform, so the dominant classes are logic and injection flaws rather than memory corruption. The fixes for each are detailed in the section below.
+
+- Prototype pollution ([CWE-1321](https://cwe.mitre.org/data/definitions/1321.html)) when attacker-controlled keys such as `__proto__` reach an object merge.
+- NoSQL injection ([CWE-943](https://cwe.mitre.org/data/definitions/943.html)) when request objects carrying operators such as `$gt` reach a query filter.
+- Cross-site scripting ([CWE-79](https://cwe.mitre.org/data/definitions/79.html)) and missing CSRF defense, because nothing escapes output or guards state-changing requests by default.
+- Regular-expression denial of service ([CWE-1333](https://cwe.mitre.org/data/definitions/1333.html)) when untrusted input reaches a route pattern or a crafted regular expression.
+
+### Why it matters
+
+Recognizing Express tells a tester there is no baseline defense to assume, so the first checks are for absent `helmet` headers, CSRF protection, and rate limiting, then prototype pollution and NoSQL injection at the input boundary. `npm audit` and Snyk cover the dependency side. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for the cross-cutting review method.
 
 ## Security model and common vulnerabilities
 

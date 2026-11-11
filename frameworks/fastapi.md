@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,159 words at 230 words a minute)
+About 7 min (1,540 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -105,6 +105,30 @@ async def create_item(item: Item) -> Item:
 Pydantic v2 moved its validation core to Rust, which changed some APIs from v1. Projects pin the major version because model configuration and validators differ between them. SQLModel, from the same author, combines Pydantic models with SQLAlchemy for typed database access.
 
 Testing uses `TestClient`, a wrapper over `httpx` that drives the app without a network socket. `pytest` is the usual runner. For background jobs, teams reach for Celery or ARQ rather than the lightweight `BackgroundTasks` built into the framework.
+
+## Security relevance
+
+This section is the threat-facing view of FastAPI: how it appears to an attacker or an auditor in the field, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Internet-facing JSON APIs, internal services, and gateways in front of model inference. FastAPI is often recognizable from the interactive docs at `/docs` (Swagger UI) and `/redoc`, the machine-readable schema at `/openapi.json`, and the structured `422` body it returns on a validation failure.
+- The OpenAPI schema is itself an audit artifact: it enumerates every route, parameter, and model, so a tester reads the attack surface directly rather than guessing it.
+- Offensive interest uses that schema. Schemathesis drives property and fuzz tests straight from the OpenAPI document, and Burp Suite handles manual request tampering. On the defensive side, bandit scans the Python source and pip-audit checks dependencies against the PyPA advisory database.
+- The dependency surface is PyPI, pinned through a lockfile. A compromised or typosquatted package runs with full application privilege, the pattern covered in [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+FastAPI runs on [Python](/languages/python.md), a memory-managed language, so the dominant classes are logic and injection flaws rather than memory corruption. The fixes for each are detailed in the section below.
+
+- Broken object-level authorization and insecure direct object references ([CWE-639](https://cwe.mitre.org/data/definitions/639.html), [CWE-862](https://cwe.mitre.org/data/definitions/862.html)), where a typed, validated request still reaches a record the caller does not own because the authorization check was never added to the dependency.
+- Improper authentication through JWT handling ([CWE-287](https://cwe.mitre.org/data/definitions/287.html)), such as decoding a token without checking the signature or accepting an attacker-chosen `alg`.
+- Server-side request forgery ([CWE-918](https://cwe.mitre.org/data/definitions/918.html)) in services that fetch URLs supplied by a caller, common in gateway and integration workloads.
+- Excessive data exposure ([CWE-200](https://cwe.mitre.org/data/definitions/200.html)) when a response serializes an ORM object or a broad model and leaks fields the client should never see.
+
+### Why it matters
+
+The generated OpenAPI schema hands an auditor the full route and model map for free, which turns reconnaissance into a schema read and tells a tester which authorization and token-verification pivots to try first. Schemathesis is the framework-specific tool to reach for, since it exercises every documented endpoint from that schema. See [the API security reference](/API_SECURITY_REFERENCE.md) for the cross-cutting review method.
 
 ## Security model and common vulnerabilities
 

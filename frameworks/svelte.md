@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (884 words at 230 words a minute)
+About 5 min (1,241 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -95,6 +95,30 @@ Vite is the build tool for SvelteKit. It provides the dev server, hot module rep
 Adapters target deployment platforms. `adapter-node`, `adapter-static`, and platform adapters for serverless hosts shape the build output. UI libraries such as Skeleton and component collections extend the base framework.
 
 Testing uses Vitest for unit tests and Playwright for end-to-end runs. The Svelte language tools power editor support in VS Code and other editors.
+
+## Security relevance
+
+This section is the threat-facing view of Svelte and SvelteKit: how they appear to an attacker or an auditor in the field, and which weakness classes shape their record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Internet-facing web applications. SvelteKit exposes server `load` functions, form actions, and `+server.js` endpoints, recognizable from compiled `svelte-` class name hashes, `data-sveltekit` attributes, and the framework's JSON data-request pattern during navigation.
+- Offensive interest uses general web proxies rather than a Svelte-specific tool. Burp Suite and OWASP ZAP replay server endpoints with crafted input, since each one is directly callable.
+- Audit and defensive tooling is the general JavaScript set: Semgrep and CodeQL for static analysis, and npm audit or Socket for the dependency tree.
+- The dependency surface is the npm ecosystem, pinned through a lockfile. A compromised or typosquatted package runs with full application privilege, the pattern in [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md) and [the npm supply-chain case study](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md).
+
+### Dominant weakness classes
+
+Svelte compiles to JavaScript on Node, a memory-managed runtime, so the dominant classes are logic and injection flaws rather than memory corruption. The fixes for each are detailed in the section below.
+
+- Cross-site scripting ([CWE-79](https://cwe.mitre.org/data/definitions/79.html)) through the `{@html ...}` tag, which writes raw HTML and bypasses Svelte's default escaping.
+- Broken access control ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)) in server `load` functions, form actions, and `+server.js` endpoints that trust the client instead of authorizing the caller.
+- Information exposure ([CWE-200](https://cwe.mitre.org/data/definitions/200.html)) when a secret is placed in a public `$env` module and shipped to the browser, or when a universal `load` returns fields the user should not see.
+- Server-side request forgery ([CWE-918](https://cwe.mitre.org/data/definitions/918.html)) when a server `load` fetches a user-supplied URL and can reach internal hosts.
+
+### Why it matters
+
+Recognizing SvelteKit in the field tells a tester to treat every server `load`, action, and endpoint as public API surface and to probe `{@html}` sinks, endpoint authorization, and the public and private `$env` split for leaked secrets. The audit relies on general JavaScript static analysis and npm dependency scanning rather than a framework-specific scanner. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for the cross-cutting review method.
 
 ## Security model and common vulnerabilities
 

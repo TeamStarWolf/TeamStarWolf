@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (658 words at 230 words a minute)
+About 4 min (1,020 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -120,6 +120,31 @@ FROM orders
 WHERE placed_at > SYSTIMESTAMP - INTERVAL '1' DAY
 ORDER BY total_cents DESC;
 ```
+
+## Security relevance
+
+This section is the threat-facing view of Oracle Database: how the engine is reached and abused in the field, and which weakness classes dominate its record. The controls that defend against them are in the "Security and hardening" section that follows.
+
+### Where it appears
+
+- The data tier behind banking cores, telecom billing, and ERP systems such as Oracle E-Business Suite, which makes it a high-value target once an attacker finds [SQL injection](/languages/sql.md) or reaches the internal network.
+- On the offensive side, `sqlmap` fingerprints the engine and automates extraction, and dynamic PL/SQL built by concatenation is the classic injection sink. The TNS listener on port 1521 is enumerated with the Oracle Database Attacking Tool (ODAT) and the listener and SID discovery modules in Nmap and Metasploit.
+- A foothold with enough privilege can reach the filesystem and network through packages such as `UTL_FILE`, `UTL_HTTP`, and `DBMS_SCHEDULER`, and Java stored procedures can run host commands.
+- Managed Autonomous forms remove host and listener access but keep the SQL and PL/SQL surface.
+- Exposure cases: default and sample accounts (`SCOTT`, `HR`, `DBSNMP`) left with known passwords, or a listener reachable from untrusted networks.
+
+### Dominant weakness classes
+
+Oracle is a mature C server hardened against memory corruption in normal use, so the practical risks are injection into PL/SQL and the broad privileges granted around it.
+
+- SQL injection ([CWE-89](https://cwe.mitre.org/data/definitions/89.html)), acute in dynamic PL/SQL assembled with concatenation rather than bind variables.
+- Improper privilege management ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)): `EXECUTE` on the built-in `UTL_*` packages, or an account with `DBA`, lets a query reach files, HTTP, and the operating system.
+- Missing authentication ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)) from default and sample accounts with known credentials behind an exposed listener.
+- Execution with unnecessary privileges ([CWE-250](https://cwe.mitre.org/data/definitions/250.html)): definer-rights PL/SQL that runs with the owner's rights widens the blast radius of an injection.
+
+### Why it matters
+
+Recognizing an Oracle listener and version tells an auditor which package-based pivots and default-account checks to run, and ODAT automates much of that enumeration. Locking sample accounts, revoking `EXECUTE` on the `UTL_*` packages from application roles, and firewalling the listener removes the common paths, and Unified Auditing records the trail. See [the database security reference](/DATABASE_SECURITY_REFERENCE.md) for the engine-agnostic hardening checklist.
 
 ## Security and hardening
 

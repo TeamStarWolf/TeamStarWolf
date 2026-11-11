@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,186 words at 230 words a minute)
+About 6 min (1,494 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -99,6 +99,30 @@ The `dotnet` command-line tool builds, runs, tests, and publishes applications a
 Serilog and the built-in logging abstractions handle structured logs. Testing uses xUnit, NUnit, or MSTest, often with the `WebApplicationFactory` for in-memory integration tests. Swashbuckle and the newer built-in OpenAPI support generate API documents.
 
 ASP.NET Core Identity supplies user accounts, password hashing, and sign-in. For token and external login scenarios, teams integrate OpenID Connect and OAuth2 providers through the authentication middleware.
+
+## Security relevance
+
+This section is the threat-facing view of ASP.NET Core: how it appears to an attacker or an auditor in the field, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Internet-facing web applications and JSON APIs served by Kestrel, usually behind IIS, Nginx, or YARP. Recognizable by the `Server: Kestrel` header, the `.AspNetCore.Antiforgery` and `.AspNetCore.Session` cookies, a Razor `__RequestVerificationToken` field, and an `X-Powered-By: ASP.NET` header on older deployments.
+- Audit and defensive tooling: `dotnet list package --vulnerable` checks NuGet references, and Roslyn analyzers such as Security Code Scan flag unsafe patterns at build time.
+- Offensive interest centers on the data protection key ring. Those keys sign and encrypt cookies and tokens, so a leaked key store lets an attacker forge authentication cookies and antiforgery tokens.
+- The dependency surface is the NuGet ecosystem, pinned through project and lock files, the supply-chain pattern covered in [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+ASP.NET Core runs on .NET, a memory-managed platform, so the dominant classes are logic and injection flaws rather than memory corruption. The fixes for each are detailed in the section below.
+
+- Mass assignment, or over-posting ([CWE-915](https://cwe.mitre.org/data/definitions/915.html)), when an action binds request data straight to an Entity Framework entity.
+- Insecure deserialization ([CWE-502](https://cwe.mitre.org/data/definitions/502.html)) through `BinaryFormatter` or type-aware payloads that reconstruct arbitrary objects.
+- Missing authorization ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)) from an endpoint left without `[Authorize]` when access is opt-in rather than default.
+- SQL injection ([CWE-89](https://cwe.mitre.org/data/definitions/89.html)) through raw SQL built by string concatenation rather than parameterized interpolation.
+
+### Why it matters
+
+Fingerprinting ASP.NET Core tells a tester to probe over-posting on entity-bound actions, deserialization sinks, and how the data protection keys are stored, and that Security Code Scan is the framework-aware analyzer to run. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for the cross-cutting review method.
 
 ## Security model and common vulnerabilities
 

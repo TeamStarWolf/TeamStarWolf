@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (933 words at 230 words a minute)
+About 6 min (1,316 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -108,6 +108,30 @@ class _CounterState extends State<Counter> {
 The Flutter SDK ships the `flutter` command-line tool for building, testing, and running apps. The `pub` package manager pulls dependencies from `pub.dev`. The analyzer and `dart format` enforce style and catch errors before runtime.
 
 DevTools gives a widget inspector, a timeline, and a memory view. Official plugins cover secure storage, HTTP, and platform services. Editor support exists for VS Code and Android Studio with debugging and hot reload wired in.
+
+## Security relevance
+
+This section is the threat-facing view of Flutter: how it appears to an attacker or an auditor in the field, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Compiled mobile apps on Android and iOS, where the shipped package is the attack surface. A Flutter build is recognizable inside an APK or IPA from the engine library `libflutter.so`, the compiled Dart in `libapp.so`, and the `flutter_assets` directory.
+- Reverse engineering is the main offensive activity. reFlutter repacks a Flutter app to redirect its traffic, because the engine bundles its own TLS stack and ignores the system proxy and user certificate store; Frida instruments the running process, and MobSF performs static analysis of the package.
+- Defensive and audit work follows the OWASP Mobile Application Security project, using MobSF and the MASTG test procedures against the extracted build.
+- The dependency surface is pub.dev. A plugin runs with the full permissions of the app, so a compromised or malicious package is a supply-chain exposure, the pattern covered in [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+Flutter compiles [Dart](/languages/dart.md), a memory-managed language, to native code, so the dominant classes are storage, transport, and platform-boundary flaws rather than memory corruption. The fixes for each are detailed in the section below.
+
+- Cleartext storage of sensitive information ([CWE-312](https://cwe.mitre.org/data/definitions/312.html)), when tokens or credentials are written to `shared_preferences` instead of the Keychain or Keystore through `flutter_secure_storage`.
+- Use of hard-coded credentials ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)), since API keys and signing secrets compiled into Dart source or asset files are recoverable from the shipped binary.
+- Improper certificate validation ([CWE-295](https://cwe.mitre.org/data/definitions/295.html)), typically a `badCertificateCallback` that returns `true` and defeats transport security.
+- Improper input validation ([CWE-20](https://cwe.mitre.org/data/definitions/20.html)) at platform channels and deep links, where arguments crossing to native code or arriving through an unverified link scheme are trusted without checks.
+
+### Why it matters
+
+A Flutter build is readable once unpacked, so recognizing the engine artifacts tells an auditor to look for embedded secrets, plaintext storage, and disabled certificate checks rather than server-side bugs, and signals that ordinary proxy interception will fail without a tool such as reFlutter. MobSF and the MASTG are the mobile-specific references to pair with the review. See [the mobile security reference](/MOBILE_SECURITY_REFERENCE.md) for the cross-cutting method.
 
 ## Security model and common vulnerabilities
 

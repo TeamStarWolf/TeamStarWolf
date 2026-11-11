@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (926 words at 230 words a minute)
+About 5 min (1,263 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -95,6 +95,29 @@ export function Counter() {
 The React Native CLI and the Expo CLI create and build projects. Metro bundles the `javascript` into a single file for each platform. Flipper and the React Native DevTools help inspect components, network calls, and logs.
 
 The npm ecosystem supplies most libraries, with native modules distributed alongside. Expo provides a managed workflow, over-the-air updates, and prebuilt native modules. TypeScript is the common choice for typing props, state, and native interfaces.
+
+## Security relevance
+
+This section is the threat-facing view of React Native: how it appears to an attacker or an auditor in the field, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Mobile apps on iOS and Android. The JavaScript bundle ships inside the app package and can be extracted, so the attack surface is the client itself, the local data it stores, and the network calls it makes. An unpacked APK or IPA is recognizable from `index.android.bundle` or `main.jsbundle`, Hermes bytecode, and the `react-native` directory layout.
+- Offensive and audit tooling targets the package: MobSF (Mobile Security Framework) performs static and dynamic analysis of the APK or IPA, apktool unpacks it, and Frida and objection instrument the running app.
+- The dependency surface is npm plus the native modules bundled with each package, and every one runs with full app permissions. See [the npm supply chain attacks study](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md).
+
+### Dominant weakness classes
+
+The UI runs in JavaScript on the Hermes engine, memory-managed, so the dominant classes are insecure storage, exposed secrets, and injection rather than memory corruption. The fixes for each are in the section below.
+
+- Cleartext storage of sensitive data ([CWE-312](https://cwe.mitre.org/data/definitions/312.html)) when tokens are written to `AsyncStorage` instead of the iOS Keychain or Android Keystore.
+- Hardcoded credentials ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)) embedded in the shipped bundle, which minification and Hermes bytecode slow but do not hide.
+- Cross-site scripting ([CWE-79](https://cwe.mitre.org/data/definitions/79.html)) in a `WebView` that runs remote or user-controlled HTML with script enabled.
+- Improper certificate validation ([CWE-295](https://cwe.mitre.org/data/definitions/295.html)) that lets a network attacker intercept traffic when pinning is absent or disabled.
+
+### Why it matters
+
+Recognizing a React Native app, usually by pulling the bundle from the package, tells an auditor where to look: extract and read the bundle for hardcoded secrets, check what lands in `AsyncStorage`, probe `WebView` and deep-link handlers, and intercept traffic to test certificate pinning. MobSF is the audit tool to reach for. See [the mobile security reference](/MOBILE_SECURITY_REFERENCE.md) for the cross-cutting method.
 
 ## Security model and common vulnerabilities
 

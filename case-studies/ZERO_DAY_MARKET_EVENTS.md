@@ -2,7 +2,7 @@
 
 *A TeamStarWolf case study. Published 3 November 2026; sources checked on that date, with sources 58 and 59 opened and source 52 reopened on 11 November 2026.*
 
-[All case studies](/case-studies/README.md) · Related: [Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [CVE Reference](/CVE_REFERENCE.md), [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md) · Home studies for events summarized here: [Stuxnet](/case-studies/STUXNET.md), [SolarWinds and SUNBURST, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md), [Sandworm Operations](/case-studies/SANDWORM_OPERATIONS.md) · Related studies: [United States-attributed threat actors](/case-studies/THREAT_ACTORS_UNITED_STATES.md), [Other state-linked threat actors](/case-studies/THREAT_ACTORS_OTHER_STATES.md), [The Year 2021 in Intrusions](/case-studies/CHRONICLE_2021.md)
+[All case studies](/case-studies/README.md) · Related: [Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [CVE Reference](/CVE_REFERENCE.md), [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md) · Home studies for events summarized here: [Stuxnet](/case-studies/STUXNET.md), [SolarWinds and SUNBURST, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md), [Sandworm Operations](/case-studies/SANDWORM_OPERATIONS.md) · Related studies: [United States-attributed threat actors](/case-studies/THREAT_ACTORS_UNITED_STATES.md), [North Korea-Attributed Threat Actors](/case-studies/THREAT_ACTORS_NORTH_KOREA.md), [Other state-linked threat actors](/case-studies/THREAT_ACTORS_OTHER_STATES.md), [The Year 2021 in Intrusions](/case-studies/CHRONICLE_2021.md)
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 63 min (14,392 words at 230 words a minute)
+About 63 min (14,426 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -362,7 +362,7 @@ All rows are **Confirmed** as the source states them. The NAO found that the inf
 
 ### 6.5 Attribution and charges
 
-On 19 December 2017 the United States publicly attributed WannaCry to North Korea, joined by the UK, Australia, Canada, New Zealand and Japan. Bossert called it careless and reckless, credited the researcher who found the kill switch, said Microsoft and Facebook had acted against the operators, and rejected blame on the NSA [71] (**Confirmed**). The UK said the NCSC judged it highly likely that the North Korean actors known as the Lazarus Group were responsible [72] (**Confirmed**). TA17-132A was revised on 7 June 2018 to add the North Korea attribution [64].
+On 19 December 2017 the United States publicly attributed WannaCry to North Korea, joined by the UK, Australia, Canada, New Zealand and Japan. Bossert called it careless and reckless, credited the researcher who found the kill switch, said Microsoft and Facebook had acted against the operators, and rejected blame on the NSA [71] (**Confirmed**). The UK said the NCSC judged it highly likely that the North Korean actors known as the Lazarus Group were responsible [72] (**Confirmed**). The North Korea actor record lives in [North Korea-Attributed Threat Actors](/case-studies/THREAT_ACTORS_NORTH_KOREA.md). TA17-132A was revised on 7 June 2018 to add the North Korea attribution [64].
 
 The complaint against Park Jin Hyok, filed 8 June 2018 in the Central District of California, charges conspiracy and wire-fraud conspiracy from 2 September 2014 to 3 August 2017. It ties Sony Pictures (2014), Bangladesh Bank (2016) and WannaCry to one set of operators that industry calls Lazarus Group, names Chosun Expo as a DPRK front, and traces ransom proceeds into Monero [57] (**Confirmed**; the public unsealing date is not checked). The December 2020 indictment of Jon Chang Hyok, Kim Il and Park Jin Hyok says they worked for Reconnaissance General Bureau units known as Lazarus Group and APT38, and its Overt Act 13 says they authored WannaCry Version 2 on or before 12 May 2017 [73] (**Confirmed**). ATT&CK lists `G0032` Lazarus Group as the only group using `S0366` WannaCry [79].
 
@@ -557,7 +557,7 @@ This Part binds the verified record to MITRE ATT&CK v20.0 (Enterprise, Mobile an
 | Stuxnet, Flame, Duqu | `S0603`, `S0143`, `S0038` | [/mitre/software/S0603.md](/mitre/software/S0603.md), [/mitre/software/S0143.md](/mitre/software/S0143.md), [/mitre/software/S0038.md](/mitre/software/S0038.md) | Home is [STUXNET.md](/case-studies/STUXNET.md) [98] [101] |
 | Dragonfly | `G0035` | [/mitre/groups/G0035.md](/mitre/groups/G0035.md) | Cited by TA18-074A [104] |
 | SolarWinds Compromise | `C0024` | [/mitre/campaigns/C0024.md](/mitre/campaigns/C0024.md) | APT29 (`G0016`, [/mitre/groups/G0016.md](/mitre/groups/G0016.md)), SUNBURST (`S0559`, [/mitre/software/S0559.md](/mitre/software/S0559.md)) [107] |
-| Campaigns for WannaCry, NotPetya, the leaks | none | none | ATT&CK has no campaign or software object for EternalBlue, EternalRomance, DoublePulsar, Bemstour, WannaCry, NotPetya or the Shadow Brokers leak [81] |
+| Campaigns for WannaCry, NotPetya, the leaks | none | none | ATT&CK has no campaign object for WannaCry, NotPetya or the Shadow Brokers leak, and no software object for EternalBlue, EternalRomance, DoublePulsar or Bemstour; WannaCry and NotPetya are the software objects S0366 and S0368 above [81] |
 
 ### 12.2 ATT&CK Enterprise techniques (75)
 
@@ -868,7 +868,7 @@ Sources not opened, and therefore not cited for any fact: the book's text; the N
 - [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md) and the [Mobile ATT&CK Atlas](/MOBILE_ATTACK_ATLAS.md)
 - [ATT&CK Software Reference](/ATTACK_SOFTWARE_REFERENCE.md)
 - Home studies for events summarized here: [Stuxnet](/case-studies/STUXNET.md), [SolarWinds and SUNBURST, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md), [Sandworm Operations](/case-studies/SANDWORM_OPERATIONS.md)
-- Related case studies: [United States-Attributed Threat Actors](/case-studies/THREAT_ACTORS_UNITED_STATES.md), [China-Attributed Threat Actors](/case-studies/THREAT_ACTORS_CHINA.md), [Russia-Attributed Threat Actors](/case-studies/THREAT_ACTORS_RUSSIA.md), [Iran-Attributed Threat Actors](/case-studies/THREAT_ACTORS_IRAN.md), [Other State-Linked Threat Actors](/case-studies/THREAT_ACTORS_OTHER_STATES.md), [The Year 2019 in Intrusions](/case-studies/CHRONICLE_2019.md), [The Year 2020 in Intrusions](/case-studies/CHRONICLE_2020.md), [The Year 2021 in Intrusions](/case-studies/CHRONICLE_2021.md), [APT41: The Public Record](/case-studies/APT41_PUBLIC_RECORD.md), [Log4Shell](/case-studies/LOG4SHELL.md)
+- Related case studies: [United States-Attributed Threat Actors](/case-studies/THREAT_ACTORS_UNITED_STATES.md), [China-Attributed Threat Actors](/case-studies/THREAT_ACTORS_CHINA.md), [Russia-Attributed Threat Actors](/case-studies/THREAT_ACTORS_RUSSIA.md), [Iran-Attributed Threat Actors](/case-studies/THREAT_ACTORS_IRAN.md), [North Korea-Attributed Threat Actors](/case-studies/THREAT_ACTORS_NORTH_KOREA.md), [Other State-Linked Threat Actors](/case-studies/THREAT_ACTORS_OTHER_STATES.md), [The Year 2019 in Intrusions](/case-studies/CHRONICLE_2019.md), [The Year 2020 in Intrusions](/case-studies/CHRONICLE_2020.md), [The Year 2021 in Intrusions](/case-studies/CHRONICLE_2021.md), [APT41: The Public Record](/case-studies/APT41_PUBLIC_RECORD.md), [Log4Shell](/case-studies/LOG4SHELL.md)
 - [Navigator layers](/navigator/index.md), including this study's layers, [zero-day-market-events.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/zero-day-market-events.json) and [zero-day-market-events-ics.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/case-studies/zero-day-market-events-ics.json)
 - MITRE pages: groups [G0066](/mitre/groups/G0066.md), [G0020](/mitre/groups/G0020.md), [G0022](/mitre/groups/G0022.md), [G0032](/mitre/groups/G0032.md), [G0034](/mitre/groups/G0034.md), [G0038](/mitre/groups/G0038.md); software [S0203](/mitre/software/S0203.md), [S0366](/mitre/software/S0366.md), [S0368](/mitre/software/S0368.md), [S0606](/mitre/software/S0606.md), [S0400](/mitre/software/S0400.md), [S0140](/mitre/software/S0140.md), [S0047](/mitre/software/S0047.md), [S0182](/mitre/software/S0182.md); campaign [C0024](/mitre/campaigns/C0024.md); and the technique pages linked in Part 12.2
 - [CWE Reference](/CWE_REFERENCE.md), [CAPEC Reference](/CAPEC_REFERENCE.md), [D3FEND Reference](/D3FEND_REFERENCE.md)

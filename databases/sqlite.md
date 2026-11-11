@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (827 words at 230 words a minute)
+About 5 min (1,219 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -144,6 +144,30 @@ FROM products
 WHERE unit_price < 20.0
 ORDER BY unit_price;
 ```
+
+## Security relevance
+
+This section is the threat-facing view of SQLite: how it appears to an attacker or auditor in the field. Because it is an embedded library rather than a network service, that surface is narrow. The controls that defend the file are in the "Security and hardening" section that follows.
+
+### Where it appears
+
+- Not a network service: there is no listener, no port, and no login to attack remotely. The surface is the database file and the process that links the library, so SQLite shows up in client-side and local work, not in network scans.
+- It is embedded in Android and iOS apps, browsers, and desktop tools, so mobile and application assessments routinely pull and read `.db` files to recover tokens, history, and cached data. Forensic and audit tooling reads the file format directly.
+- The main remote exposure is a database file left under a web-served directory where it can be downloaded over HTTP, and SQL injection in an application that happens to use SQLite as its store.
+- Opening an untrusted database file or loading an untrusted extension exercises the C parser on attacker-controlled input.
+
+### Dominant weakness classes
+
+SQLite is a mature, heavily tested C library, but because it parses attacker-supplied files in-process, a malformed database is one of its few memory-safety concerns alongside the usual data-access flaws.
+
+- SQL injection ([CWE-89](https://cwe.mitre.org/data/definitions/89.html)), unchanged from any SQL engine when queries are built by concatenation.
+- Cleartext storage of sensitive information ([CWE-312](https://cwe.mitre.org/data/definitions/312.html)): the file is unencrypted by default, so anyone who can read it reads every row.
+- Incorrect permission assignment for a critical resource ([CWE-732](https://cwe.mitre.org/data/definitions/732.html)): loose permissions on the database and its WAL and journal files expose the whole store.
+- Improper input validation ([CWE-20](https://cwe.mitre.org/data/definitions/20.html)): a crafted database file or loadable extension fed to the in-process parser can trigger bugs, so the source of a file matters.
+
+### Why it matters
+
+For SQLite the audit question is rarely whether it can be reached over the network and almost always who can read or write the file and whether it is encrypted. Recognizing a SQLite store in a mobile or desktop assessment tells a practitioner to pull the file, check its permissions and whether SQLCipher or a similar extension protects it, and confirm the application binds parameters rather than concatenating SQL. See [the mobile security reference](/MOBILE_SECURITY_REFERENCE.md) for client-side storage and [the database security reference](/DATABASE_SECURITY_REFERENCE.md) for the engine-agnostic checklist.
 
 ## Security and hardening
 

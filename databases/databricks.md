@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (753 words at 230 words a minute)
+About 5 min (1,130 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -152,6 +152,30 @@ WHEN NOT MATCHED THEN INSERT
 ```
 
 The whole `MERGE` is one transaction in the Delta log. Readers see either the old state or the new state, never a partial write.
+
+## Security relevance
+
+This section is the threat-facing view of Databricks: how a managed lakehouse looks to an attacker or auditor, and which weakness classes dominate its record. The controls that defend against them are in the "Security and hardening" section that follows.
+
+### Where it appears
+
+- A managed cloud service on AWS, Azure, and Google Cloud, so the attack surface is the control plane (the workspace and account console, notebooks, and jobs) and the cloud object storage that holds the Delta files behind the tables.
+- Recognized by workspace hostnames such as `*.cloud.databricks.com` and `*.azuredatabricks.net`, and by personal access tokens that begin with `dapi`. Spark SQL and the DataFrame APIs are the query interfaces.
+- Targeted less by network exploits than by credential discovery: leaked `dapi` tokens in source control, notebooks, or CI, and over-broad cloud roles that reach the storage bucket directly and bypass table access control. General cloud-exploitation tooling such as Pacu applies to the underlying accounts.
+- Audited through Unity Catalog lineage and grants, the platform audit logs, and the cloud provider's IAM analyzers. The supply-chain surface is notebook library installs from PyPI and Maven and cluster init scripts.
+
+### Dominant weakness classes
+
+Databricks is a managed cloud platform, so the practical risks are identity and access-management misconfiguration and credential exposure rather than memory corruption in the engine.
+
+- Use of hardcoded credentials ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)) when access tokens or service keys are embedded in notebooks, job definitions, or repositories instead of read from secret scopes.
+- Missing authorization ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)) from over-broad Unity Catalog grants, or from a cloud role that reaches the storage bucket beneath the table and bypasses the catalog entirely.
+- Information exposure through logs ([CWE-532](https://cwe.mitre.org/data/definitions/532.html)) when secrets or sensitive rows land in notebook output or job logs.
+- SQL injection ([CWE-89](https://cwe.mitre.org/data/definitions/89.html)) when Spark SQL is assembled from untrusted input inside a job or notebook.
+
+### Why it matters
+
+Recognizing a workspace URL and a `dapi` token tells a practitioner the pivot to test: a leaked token grants workspace access, and a mis-scoped cloud role can reach the data files directly. Each maps to a control the defender owns: keep secrets in scopes, scope Unity Catalog and cloud roles to least privilege, isolate the data plane on private networking, and enable audit logs. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) alongside [the database security reference](/DATABASE_SECURITY_REFERENCE.md).
 
 ## Security and hardening
 

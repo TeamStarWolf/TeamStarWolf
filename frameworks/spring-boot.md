@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,238 words at 230 words a minute)
+About 7 min (1,590 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -111,6 +111,30 @@ Maven and Gradle are the standard build tools, both with Spring Boot plugins tha
 Spring Security covers authentication and authorization. Spring Data spans JPA, MongoDB, Redis, and more. Spring Cloud adds patterns for distributed systems, such as service discovery and centralized configuration. Micrometer provides the metrics facade that Actuator reports through.
 
 Testing uses `spring-boot-starter-test`, which bundles JUnit 5, Mockito, and test slices. Annotations such as `@WebMvcTest` and `@DataJpaTest` load only part of the context for faster, focused tests.
+
+## Security relevance
+
+This section is the threat-facing view of Spring Boot: how it appears to an attacker or an auditor in the field, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Internet-facing Java services, microservices, and JSON APIs. Spring Boot is recognizable from the outside by its default Whitelabel error page, a `JSESSIONID` cookie, and exposed `/actuator` endpoints.
+- Offensive interest centers on deserialization and Actuator. Burp Suite and OWASP ZAP drive endpoint testing, ysoserial builds Java gadget-chain payloads for deserialization sinks, and Actuator paths are enumerated with common wordlists.
+- Audit and defensive tooling is the Java set: OWASP Dependency-Check and Snyk for the dependency tree, and Find-Sec-Bugs with SpotBugs, plus Semgrep or CodeQL, for static analysis.
+- The dependency surface is Maven Central, pulled through Maven or Gradle, with deep transitive trees. A flaw in one logging or binding library reaches every service that ships it, the pattern behind [Log4Shell](/case-studies/LOG4SHELL.md); see also [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+Spring Boot runs on the JVM, a memory-managed platform, so the dominant classes are deserialization, injection, and configuration flaws rather than memory corruption. The fixes for each are detailed in the section below.
+
+- Insecure deserialization ([CWE-502](https://cwe.mitre.org/data/definitions/502.html)) of native Java objects, which reaches code execution through published gadget chains.
+- Expression language injection ([CWE-917](https://cwe.mitre.org/data/definitions/917.html)) when user input flows into a Spring Expression Language evaluation.
+- Code injection through a vulnerable dependency ([CWE-94](https://cwe.mitre.org/data/definitions/94.html)), as in Log4Shell, where logged user input reached a JNDI lookup in the Log4j library.
+- Information exposure ([CWE-200](https://cwe.mitre.org/data/definitions/200.html)) through Actuator endpoints such as `env`, `heapdump`, and `beans` left open in production.
+
+### Why it matters
+
+Fingerprinting Spring Boot from its Whitelabel page or an open Actuator tells a tester which pivots to try first: enumerate Actuator for secrets and heap dumps, probe for deserialization and expression-injection sinks, and audit the transitive dependency tree for the next library-borne flaw of the Log4Shell class. OWASP Dependency-Check and Snyk are the engine-specific audit tools for that tree. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for the cross-cutting review method.
 
 ## Security model and common vulnerabilities
 

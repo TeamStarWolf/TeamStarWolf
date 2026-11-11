@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (879 words at 230 words a minute)
+About 5 min (1,222 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -173,6 +173,30 @@ FROM sales
 GROUP BY product
 ORDER BY revenue DESC;
 ```
+
+## Security relevance
+
+This section is the threat-facing view of ClickHouse: how the server appears to an attacker or auditor in the field, and which weakness classes dominate its record. The controls that defend against them are in the "Security and hardening" section that follows.
+
+### Where it appears
+
+- The analytics data tier for dashboards, logs, and clickstream data, reached through the HTTP interface on port 8123 and the native protocol on port 9000, often meant for an internal network but sometimes left internet-facing.
+- Fingerprinted by the HTTP interface, which answers `Ok.` at the root and emits `X-ClickHouse-*` response headers, and by the native port. The `default` user with no password is the first thing checked once reachable.
+- Targeted with ordinary web tooling (curl, Nmap) against 8123 rather than a dedicated framework; the `url()`, `s3()`, and `remote()` table functions are the server features an attacker reaches for after a foothold.
+- Audited through `system.query_log`, the session log, and the SQL-driven access control; the supply-chain surface is the C++ server and its bundled libraries.
+
+### Dominant weakness classes
+
+ClickHouse is a mature C++ server hardened against memory corruption in normal use, so the practical risks are access control, injection reaching the engine, and request-forging table functions.
+
+- Missing authentication ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)) from the passwordless `default` user on a port left open to the network.
+- SQL injection ([CWE-89](https://cwe.mitre.org/data/definitions/89.html)) when queries are built from untrusted input instead of server-side or driver-bound parameters.
+- Server-side request forgery ([CWE-918](https://cwe.mitre.org/data/definitions/918.html)) through the `url()` and `remote()` table functions, which can be steered to reach internal services from the database host.
+- Improper privilege management ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)) when a user holds broad grants or access to privileged `system` tables and file-reading functions.
+
+### Why it matters
+
+Spotting an 8123 or 9000 listener and the `Ok.` banner tells a practitioner which pivots to try: the passwordless default, SSRF through table functions, and config disclosure from `system` tables. Each maps to a control the defender owns: set `sha256_password` identities, remove the open `default` user, bind `listen_host` to internal interfaces, and constrain table functions. See [the database security reference](/DATABASE_SECURITY_REFERENCE.md) for the engine-agnostic hardening checklist.
 
 ## Security and hardening
 

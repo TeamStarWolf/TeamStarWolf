@@ -59,7 +59,7 @@ Defenders who track China, Russia, Iran and North Korea have indictments, joint 
 
 This study sets that record out and grades every piece of it. The single most important finding is a negative one, and it is easy to lose in the retelling: **no vendor report this study opened attributes any of these platforms to the United States, and the ATT&CK knowledge base attributes none of them to any country.** The nearest exception is Microsoft's May 2017 statement that the WannaCrypt exploits were stolen from the NSA [32], which concerns leaked exploits, not any of these platforms. Kaspersky says a nation-state is likely behind Regin and Flame and names none. Symantec, the closest any vendor comes, says the indicators behind its Longhorn group point to an English-speaking North American country, and stops there. National attribution in the public record rests on three other pillars: journalism built on leaked documents, statements by adversary governments that published little or no testable evidence, and one United States court case that convicted the former CIA engineer who passed the Vault 7 material to WikiLeaks.
 
-The second finding is about consequences. **Inferred:** the heaviest harm in the opened record came not from these platforms acting as designed but from reuse. Exploits the Shadow Brokers published in April 2017, which Microsoft had fixed a month earlier in MS17-010, were picked up within weeks by WannaCry and NotPetya. WannaCry reached at least 81 of the 236 NHS trusts in England and hundreds of GP practices, and cost thousands of cancelled appointments. The United States government later attributed WannaCry to North Korea and NotPetya to the Russian military. **Inferred** (L4-C3): for the healthcare sector, that downstream path, not direct targeting, is the whole of the United States-linked story in the opened record.
+The second finding is about consequences. **Inferred:** the heaviest harm in the opened record came not from these platforms acting as designed but from reuse. Exploits the Shadow Brokers published in April 2017, which Microsoft had fixed a month earlier in MS17-010, were picked up within weeks by WannaCry and NotPetya. WannaCry reached at least 81 of the 236 NHS trusts in England and hundreds of GP practices, and cost thousands of cancelled appointments. The United States government later attributed WannaCry to North Korea and NotPetya to the Russian military. **Inferred:** for the healthcare sector, that downstream path, not direct targeting, is the whole of the United States-linked story in the opened record.
 
 Evidence grade: the technical findings in the vendor reports are **Confirmed** (primaries opened); every claim that names the United States, the NSA, the CIA or GCHQ as the operator of a specific intrusion is **Reported** or rests on an adversary government's statement, and is graded and attributed to its speaker wherever it appears.
 
@@ -106,7 +106,7 @@ Each claim carries one of four grades.
 
 | Grade | Meaning |
 |---|---|
-| Confirmed | The primary source that published the fact (the vendor, agency, court, statute, or MITRE page) was opened on 3 November 2026 and says it. For an attribution, Confirmed means the source makes that attribution, at the confidence it states. For a foreign government statement opened at its source, Confirmed means the government said it; the allegation itself is not verified |
+| Confirmed | The primary source that published the fact (the vendor, agency, court, statute, or MITRE page) was opened on 3 November 2026 (or on the date the Sources table gives) and says it. For an attribution, Confirmed means the source makes that attribution, at the confidence it states. For a foreign government statement opened at its source, Confirmed means the government said it; the allegation itself is not verified |
 | Reported | Only a secondary source (press coverage, a publisher's description of leaked material, or commentary) was available |
 | Demonstrated | A public reproduction exists. No claim in this study rests on one |
 | Inferred | This study's own reasoning from Confirmed facts, labelled where it appears |
@@ -331,7 +331,7 @@ Kaspersky disclosed on 1 June 2023 a zero-click iMessage compromise of iOS devic
 |---|---|---|---|---|
 | CVE-2010-2568 (Windows LNK) | Fanny before Stuxnet; Stuxnet USB spread | 2010 | Added 15 September 2022 | [16], [2], [37] |
 | MS09-025 (kernel privilege escalation) | Fanny before Stuxnet | MS09-025 | not checked | [16] |
-| CVE-2010-2729 (Print Spooler, MS10-061) | Stuxnet and Flame lateral movement; EmeraldThread in the April 2017 dump | MS10-061 | not checked | [2], [3], [31], [38] |
+| CVE-2010-2729 (Print Spooler, MS10-061) | Stuxnet and Flame lateral movement; EmeraldThread in the April 2017 dump | MS10-061 | not checked | [2], [3], [31], [85] |
 | MS08-067 | Stuxnet lateral movement; EclipsedWing in the April 2017 dump | MS08-067 | not checked | [2], [31] |
 | MS10-073 and a Task Scheduler flaw | Stuxnet privilege escalation | MS10-073 | not checked | [2] |
 | MS12-034 and MS13-081 (TrueType font flaws), CVE-2013-3918 (Internet Explorer), CVE-2012-1723 and CVE-2012-4681 (Java) | Equation exploit list; at least four used as zero-days | as listed | not checked | [16] |
@@ -343,7 +343,7 @@ Kaspersky disclosed on 1 June 2023 a zero-click iMessage compromise of iOS devic
 | CVE-2017-0143, -0144, -0145, -0146, -0148 (SMBv1 remote code execution), CVE-2017-0147 (information disclosure) | EternalBlue, EternalChampion, EternalRomance, EternalSynergy; then WannaCry and NotPetya | MS17-010, 14 March 2017 | -0143: 3 November 2021; -0144 and -0145: 10 February 2022; -0146: 25 March 2022; -0148: 6 April 2022; all flagged for known ransomware use | [30], [31], [35], [36], [37] |
 | CVE-2023-41990, CVE-2023-32434, CVE-2023-38606, CVE-2023-32435 | Operation Triangulation chain | Apple, 2023 | not checked | [29] |
 
-Two notes on this table. First, NVD lists CVE-2017-0144 (published 17 March 2017) and CVE-2010-2568 as NVD-CWE-noinfo, with no CWE assigned, while CVE-2010-2729 carries CWE-20. No CWE should be claimed for EternalBlue (**Confirmed**, [38]). Second, the KEV dates are the catalog's addition dates, not exploitation dates: EternalBlue was used at internet scale in May 2017 and listed nearly five years later (**Confirmed**, [37]).
+Two notes on this table. First, NVD lists CVE-2017-0144 (published 17 March 2017) and CVE-2010-2568 as NVD-CWE-noinfo, with no CWE assigned, while CVE-2010-2729 carries CWE-20. No CWE should be claimed for EternalBlue (**Confirmed**, [38], [84], [85]). Second, the KEV dates are the catalog's addition dates, not exploitation dates: EternalBlue was used at internet scale in May 2017 and listed nearly five years later (**Confirmed**, [37]).
 
 ## Part 6: targets by sector and geography
 
@@ -462,7 +462,7 @@ Most organizations will never face a platform of Equation's or Regin's class dir
 
 8. **Hunt for dwell.** Regin samples date back to 2003 and Equation infrastructure to 2001 [15], [22]. Both platforms hid stages in encrypted virtual file systems, in the registry, in NTFS extended attributes or on raw disk [16], [22]. **Inferred:** integrity baselines and behaviour hunting find this class of implant; indicator sweeps from a single report rarely do.
 9. **Coordinate memory-only eviction.** Duqu 2.0 lived almost entirely in memory and re-infected from high-uptime servers [21]. **Inferred:** eviction needs a domain-wide coordinated reboot or reimage together with credential resets, or the survivors re-infect the cleaned hosts.
-10. **Removable media still crosses air gaps.** Fanny mapped air-gapped networks through hidden storage on USB sticks, and Flame and Stuxnet spread by removable media [16], [3], [2]. The library's D3FEND mappings for T1091 are IO Port Restriction and Hardware Component Inventory (**Confirmed**, [12]).
+10. **Removable media still crosses air gaps.** Fanny mapped air-gapped networks through hidden storage on USB sticks, and Flame and Stuxnet spread by removable media [16], [3], [2]. The library's D3FEND mappings for T1091 are IO Port Restriction, Hardware Component Inventory and Radiation Hardening (**Confirmed**, [12]).
 
 ### For healthcare organizations
 
@@ -581,9 +581,9 @@ The 85 Enterprise techniques ATT&CK v20.0 records for the six objects in Part 1 
 | [T1573.001](/mitre/techniques/T1573-001.md) | Symmetric Cryptography | Command and Control | Duqu, Stuxnet | Duqu: Symantec, Nov 2011; Kaspersky, Jun 2015 / Stuxnet: Symantec dossier, Feb 2011 | [2] [4] |
 | [T1685](/mitre/techniques/T1685.md) | Disable or Modify Tools | Defense Impairment | Stuxnet | Symantec dossier, Feb 2011 | [2] |
 
-### Enterprise techniques stated by vendor and government primaries
+### Procedures with dated sources (vendor primaries, or ATT&CK procedure text)
 
-These are the procedures a primary describes in its own words for a technique ATT&CK also records. They tie the table above to dated events.
+Each row ties a technique ATT&CK records to a dated event or report. Where a vendor or government primary this study opened states the procedure, that primary is cited. Where the only source opened is ATT&CK's own procedure text, the row says "via ATT&CK" and names the report ATT&CK cites; that report was not opened for this study.
 
 | ID | Procedure as the primary describes it | Dated event or report | Sources |
 |---|---|---|---|
@@ -592,11 +592,11 @@ These are the procedures a primary describes in its own words for a technique AT
 | [T1564.004](/mitre/techniques/T1564-004.md) | Regin stages hidden in NTFS extended attributes | Kaspersky, 24 November 2014 | [22] |
 | [T1480.001](/mitre/techniques/T1480-001.md) | DoubleFantasy validates the target before later stages | Kaspersky Q&A, February 2015 | [16] |
 | [T1553.002](/mitre/techniques/T1553-002.md) | Stuxnet driver signed with Realtek's, then JMicron's key | CrySyS, 14 October 2011 | [19], [2] |
-| [T1210](/mitre/techniques/T1210.md) | MS10-061 and MS08-067 (Stuxnet), MS10-061 (Flame); (downstream reuse, not the actor layer) EternalBlue and EternalRomance (WannaCry and NotPetya reuse) | Symantec dossier, February 2011; May 2012; CISA, 12 May and 1 July 2017 | [2], [3], [35], [36] |
-| [T1091](/mitre/techniques/T1091.md) | Stuxnet USB spread through autorun or CVE-2010-2568; Flame USB autorun | February 2011; May 2012 | [2], [3] |
-| [T1068](/mitre/techniques/T1068.md) | Stuxnet privilege escalation through MS10-073 and a Task Scheduler flaw | Symantec dossier, February 2011 | [2] |
-| [T1021.002](/mitre/techniques/T1021-002.md) | Duqu spread to shares with stolen credentials and scheduled tasks; Stuxnet network shares | November 2011; February 2011 | [4], [2] |
-| [T1011.001](/mitre/techniques/T1011-001.md) | Flame's BeetleJuice Bluetooth module | May 2012 | [3] |
+| [T1210](/mitre/techniques/T1210.md) | MS10-061 and MS08-067 (Stuxnet, via ATT&CK [2]); Flame replicates through local networks using the MS10-061 printer vulnerability (Kaspersky [18]); (downstream reuse, not the actor layer) EternalBlue and EternalRomance (WannaCry and NotPetya reuse) | Symantec W32.Stuxnet Dossier, February 2011, as cited by ATT&CK; Kaspersky, 28 May 2012; CISA, 12 May and 1 July 2017 | [2], [18], [35], [36] |
+| [T1091](/mitre/techniques/T1091.md) | Stuxnet USB spread through autorun or CVE-2010-2568 (via ATT&CK [2]); Flame's two USB infection modules, Autorun Infector and Euphoria (Kaspersky [18]); Fanny spread through the Stuxnet LNK exploit and USB sticks (Kaspersky [16]) | Symantec W32.Stuxnet Dossier, February 2011, as cited by ATT&CK; Kaspersky, 28 May 2012; Kaspersky Q&A, February 2015 | [2], [16], [18] |
+| [T1068](/mitre/techniques/T1068.md) | Stuxnet privilege escalation through MS10-073 and a Task Scheduler flaw (via ATT&CK [2]); Fanny escalated privileges through the vulnerability fixed in MS09-025 (Kaspersky [16]) | Symantec W32.Stuxnet Dossier, February 2011, as cited by ATT&CK; Kaspersky Q&A, February 2015 | [2], [16] |
+| [T1021.002](/mitre/techniques/T1021-002.md) | Duqu spread to shares with stolen credentials and scheduled tasks (via ATT&CK [4]); Stuxnet network shares (via ATT&CK [2]) | Symantec, November 2011, as cited by ATT&CK; Symantec W32.Stuxnet Dossier, February 2011, as cited by ATT&CK | [4], [2] |
+| [T1011.001](/mitre/techniques/T1011-001.md) | Flame's BeetleJuice Bluetooth module (via ATT&CK [3]); Kaspersky describes Flame collecting information about discoverable Bluetooth devices and making the infected machine discoverable as a beacon (Kaspersky [18]) | Symantec, 31 May 2012, as cited by ATT&CK; Kaspersky, 28 May 2012 | [3], [18] |
 
 ### Enterprise techniques inferred by this study
 
@@ -638,7 +638,7 @@ Stuxnet's 25 ICS techniques, all present in the library's `data/attack/ics/techn
 
 ### CWE and CAPEC
 
-NVD assigns no CWE to CVE-2017-0144 or CVE-2010-2568 (NVD-CWE-noinfo) and assigns CWE-20 (Improper Input Validation) to CVE-2010-2729, the MS10-061 Print Spooler flaw used by Stuxnet and Flame (**Confirmed**, [38]). See the library's [CWE Reference](/CWE_REFERENCE.md).
+NVD assigns no CWE to CVE-2017-0144 or CVE-2010-2568 (NVD-CWE-noinfo) and assigns CWE-20 (Improper Input Validation) to CVE-2010-2729, the MS10-061 Print Spooler flaw used by Stuxnet and Flame (**Confirmed**, [38], [84], [85]). See the library's [CWE Reference](/CWE_REFERENCE.md).
 
 The library maps these CAPEC attack patterns to the study's techniques (**Confirmed**, [13]):
 
@@ -661,9 +661,9 @@ The library's `technique_to_d3fend.jsonl` maps these countermeasures to the tech
 |---|---|
 | T1542.002 Component Firmware | [Firmware Verification](/mitre/d3fend/firmware-verification.md), [Firmware Behavior Analysis](/mitre/d3fend/firmware-behavior-analysis.md), [Firmware Embedded Monitoring Code](/mitre/d3fend/firmware-embedded-monitoring-code.md), [Software Update](/mitre/d3fend/software-update.md), [Software Inventory](/mitre/d3fend/software-inventory.md), [Asset Vulnerability Enumeration](/mitre/d3fend/asset-vulnerability-enumeration.md), [Restore Software](/mitre/d3fend/restore-software.md) |
 | T1210 Exploitation of Remote Services | [Network Traffic Filtering](/mitre/d3fend/network-traffic-filtering.md), [Connection Attempt Analysis](/mitre/d3fend/connection-attempt-analysis.md), [Network Traffic Signature Analysis](/mitre/d3fend/network-traffic-signature-analysis.md), [Process Segment Execution Prevention](/mitre/d3fend/process-segment-execution-prevention.md), and others in the library's data |
-| T1091 Replication Through Removable Media | [IO Port Restriction](/mitre/d3fend/io-port-restriction.md), [Hardware Component Inventory](/mitre/d3fend/hardware-component-inventory.md) |
-| T1036.001 Invalid Code Signature | [Executable Allowlisting](/mitre/d3fend/executable-allowlisting.md), [Executable Denylisting](/mitre/d3fend/executable-denylisting.md), [File Analysis](/mitre/d3fend/file-analysis.md) |
-| T1014 Rootkit | [Firmware Verification](/mitre/d3fend/firmware-verification.md), [File Integrity Monitoring](/mitre/d3fend/file-integrity-monitoring.md), [Software Update](/mitre/d3fend/software-update.md) |
+| T1091 Replication Through Removable Media | [IO Port Restriction](/mitre/d3fend/io-port-restriction.md), [Hardware Component Inventory](/mitre/d3fend/hardware-component-inventory.md), [Radiation Hardening](/mitre/d3fend/radiation-hardening.md) |
+| T1036.001 Invalid Code Signature | [Executable Allowlisting](/mitre/d3fend/executable-allowlisting.md), [Executable Denylisting](/mitre/d3fend/executable-denylisting.md), [File Analysis](/mitre/d3fend/file-analysis.md), and others in the library's data |
+| T1014 Rootkit | [Firmware Verification](/mitre/d3fend/firmware-verification.md), [File Integrity Monitoring](/mitre/d3fend/file-integrity-monitoring.md), [Software Update](/mitre/d3fend/software-update.md), and others in the library's data |
 
 ### Navigator layer
 
@@ -671,7 +671,7 @@ The study's techniques are collected in an ATT&CK Navigator layer, [`navigator/l
 
 ## Cross-cutting themes
 
-1. **Attribution by absence.** The library's studies of [China](/case-studies/THREAT_ACTORS_CHINA.md), [Russia](/case-studies/THREAT_ACTORS_RUSSIA.md), Iran and North Korea can point to indictments or joint advisories. This one cannot, and the honest summary is that the United States record is a technical record with an attribution gap filled by leaks and adversaries. Readers who see "NSA" or "CIA" attached to a malware name should ask who said so and what grade that source deserves.
+1. **Attribution by absence.** The library's studies of [China](/case-studies/THREAT_ACTORS_CHINA.md) and [Russia](/case-studies/THREAT_ACTORS_RUSSIA.md), and the public record on Iran and North Korea, can point to indictments or joint advisories. This one cannot, and the honest summary is that the United States record is a technical record with an attribution gap filled by leaks and adversaries. Readers who see "NSA" or "CIA" attached to a malware name should ask who said so and what grade that source deserves.
 2. **Leaks change who holds the weapon.** The heaviest harm in this record came after tools left their makers: the April 2017 release fed WannaCry and NotPetya, which the United States itself attributes to North Korea and Russia [35], [36]. The VEP charter weighs disclosure against operational use [65]; Microsoft's 2017 argument is that leaks make that weighing a public safety question [32].
 3. **Trust infrastructure is the target.** Firmware, signed drivers, a Microsoft certificate hierarchy, a GSM base station controller, Apple's hardware protections: the platforms in this record went after the layers defenders rely on to decide what is trustworthy [16], [19], [22], [29], [34].
 4. **Accusations as policy.** SentinelLABS describes China's Volt Typhoon reports as a state-directed amplification loop that rehashes old leaked documents [57]; Russia's 2023 statement likewise gave no technical detail [62]. They may be right about some intrusions; the point for a defender is that none has been independently verified [54], [62].
@@ -679,7 +679,7 @@ The study's techniques are collected in an ATT&CK Navigator layer, [`navigator/l
 
 ## Sources
 
-All sources were opened on 3 November 2026. Grades follow the scheme in Scope and method: a primary opened is Confirmed for what it says; press, commentary and publishers' descriptions of leaked material are Reported. The two Symantec posts ([23], [27]) are graded Reported: the Longhorn post did not load on a second attempt the same day, so its figures are carried alongside CyberScoop [24], and the August 2016 post is used only alongside Kaspersky's analysis of the same dump [26].
+All sources were opened on 3 November 2026, except the two NVD records [84] and [85], opened on 10 November 2026. Grades follow the scheme in Scope and method: a primary opened is Confirmed for what it says; press, commentary and publishers' descriptions of leaked material are Reported. The two Symantec posts ([23], [27]) are graded Reported: the Longhorn post did not load on a second attempt the same day, so its figures are carried alongside CyberScoop [24], and the August 2016 post is used only alongside Kaspersky's analysis of the same dump [26].
 
 | # | Source | URL | Opened | Grade |
 |---|---|---|---|---|
@@ -720,7 +720,7 @@ All sources were opened on 3 November 2026. Grades follow the scheme in Scope an
 | 35 | CISA alert TA17-132A, Indicators Associated With WannaCry Ransomware, 12 May 2017 (revised 7 June 2018) | https://www.cisa.gov/news-events/alerts/2017/05/12/indicators-associated-wannacry-ransomware | 2026-11-03 | Confirmed |
 | 36 | CISA alert TA17-181A, Petya Ransomware, 1 July 2017 (revised 15 February 2018) | https://www.cisa.gov/news-events/alerts/2017/07/01/petya-ransomware | 2026-11-03 | Confirmed |
 | 37 | CISA Known Exploited Vulnerabilities catalog (JSON feed) | https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json | 2026-11-03 | Confirmed |
-| 38 | NVD API record, CVE-2017-0144 (with CVE-2010-2568 and CVE-2010-2729) | https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2017-0144 | 2026-11-03 | Confirmed |
+| 38 | NVD API record, CVE-2017-0144 | https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2017-0144 | 2026-11-03 | Confirmed |
 | 39 | UK National Audit Office, "Investigation: WannaCry cyber attack and the NHS" | https://www.nao.org.uk/reports/investigation-wannacry-cyber-attack-and-the-nhs/ | 2026-11-03 | Confirmed |
 | 40 | Microsoft Learn, "Microsoft recommended driver block rules" (updated 8 October 2026) | https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/design/microsoft-recommended-driver-block-rules | 2026-11-03 | Confirmed |
 | 41 | NIST SP 800-193, Platform Firmware Resiliency Guidelines, May 2018 | https://csrc.nist.gov/pubs/sp/800/193/final | 2026-11-03 | Confirmed |
@@ -766,6 +766,8 @@ All sources were opened on 3 November 2026. Grades follow the scheme in Scope an
 | 81 | The Record, on Cyber Command's 2023 hunt-forward missions and Gen. Haugh's testimony, April 2024 | https://therecord.media/cyber-command-hunt-forward-missions-2023-haugh-senate | 2026-11-03 | Reported |
 | 82 | TeamStarWolf library, NOTABLE_INCIDENTS.md | https://github.com/TeamStarWolf/TeamStarWolf/blob/main/NOTABLE_INCIDENTS.md | 2026-11-03 | Confirmed |
 | 83 | TeamStarWolf library, CVE_REFERENCE.md | https://github.com/TeamStarWolf/TeamStarWolf/blob/main/CVE_REFERENCE.md | 2026-11-03 | Confirmed |
+| 84 | NVD API record, CVE-2010-2568 | https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2010-2568 | 2026-11-10 | Confirmed |
+| 85 | NVD API record, CVE-2010-2729 | https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2010-2729 | 2026-11-10 | Confirmed |
 
 *© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*
 

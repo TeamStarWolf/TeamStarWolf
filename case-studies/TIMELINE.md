@@ -250,7 +250,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2014 <!-- {docsify-ignore} -->
 
-- [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md). Threat actor, 2003 to July 2026 (core: 2014 to 2026). Sectors: government, energy, healthcare, defense, transport. CVEs: CVE-2008-4128, CVE-2017-6742, CVE-2018-0171, CVE-2018-13379, CVE-2019-1653, CVE-2019-2725 and 28 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0034 Sandworm Team, G0035 Dragonfly, G0047 Gamaredon Group and 7 more.
+- [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md). Threat actor, 2003 to July 2026 (core: 2014 to 2026). Sectors: government, energy, healthcare, defense, transport. CVEs: CVE-2008-4128, CVE-2017-6742, CVE-2018-0171, CVE-2018-13379, CVE-2019-1653, CVE-2019-2725 and 28 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0034 Sandworm Team, G0035 Dragonfly, G0047 Gamaredon Group and 7 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_Russia_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Threat_Actors_Russia_Case_Study.pptx).
   - 27 October 2014: First public APT28 report
   - December 2015: BlackEnergy attack on Ukraine's grid; 230,000 people without power
   - 29 December 2016: GRIZZLY STEPPE joint analysis report on APT28 and APT29
@@ -343,7 +343,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2004 <!-- {docsify-ignore} -->
 
-- [Other State-Linked Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_OTHER_STATES.md). Threat actor, 2004 to 2025. Sectors: government, defense, telecommunications, energy, education, media. CVEs: CVE-2009-1151, CVE-2010-2568, CVE-2010-3333, CVE-2012-0158, CVE-2012-1856, CVE-2014-4114 and 23 more. ATT&CK groups: G0012 Darkhotel, G0021 Molerats, G0038 Stealth Falcon, G0040 Patchwork, G0050 APT32, G0056 PROMETHIUM and 14 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_Other_States_Case_Study.pdf).
+- [Other State-Linked Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_OTHER_STATES.md). Threat actor, 2004 to 2025. Sectors: government, defense, telecommunications, energy, education, media. CVEs: CVE-2009-1151, CVE-2010-2568, CVE-2010-3333, CVE-2012-0158, CVE-2012-1856, CVE-2014-4114 and 23 more. ATT&CK groups: G0012 Darkhotel, G0021 Molerats, G0038 Stealth Falcon, G0040 Patchwork, G0050 APT32, G0056 PROMETHIUM and 14 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_Other_States_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Threat_Actors_Other_States_Case_Study.pptx).
   - 10 November 2014: Kaspersky reports Darkhotel's hotel-network delivery, Flash zero-days and certificate abuse
   - 29 May 2016: Citizen Lab reports Stealth Falcon's macro documents and PowerShell backdoor
   - January 2017: Sea Turtle DNS hijacking through registrars and registries begins, to early 2019

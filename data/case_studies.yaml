@@ -1108,7 +1108,7 @@ studies:
       - "G1041"
     tags: ["state-linked", "South Asia", "Middle East", "spyware", "DNS hijacking"]
     pdf: "Threat_Actors_Other_States_Case_Study.pdf"
-    pptx: null
+    pptx: "Threat_Actors_Other_States_Case_Study.pptx"
     events:
       - {"date": "2014-11-10", "label": "Kaspersky reports Darkhotel's hotel-network delivery, Flash zero-days and certificate abuse"}
       - {"date": "2016-05-29", "label": "Citizen Lab reports Stealth Falcon's macro documents and PowerShell backdoor"}
@@ -1180,8 +1180,8 @@ studies:
       - "G1033"
       - "G1035"
     tags: ["Russia", "GRU", "SVR", "FSB", "APT28", "APT29"]
-    pdf: null
-    pptx: null
+    pdf: "Threat_Actors_Russia_Case_Study.pdf"
+    pptx: "Threat_Actors_Russia_Case_Study.pptx"
     events:
       - {"date": "2014-10-27", "label": "First public APT28 report"}
       - {"date": "2015-12", "label": "BlackEnergy attack on Ukraine's grid; 230,000 people without power"}

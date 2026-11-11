@@ -388,6 +388,30 @@ studies:
       - {"date": "2023-06-14", "label": "Cl0p begins naming victims on its leak site with payment deadlines"}
       - {"date": "2024-08", "label": "The running tally reaches about 2,773 organizations and 95.8 million individuals"}
       - {"date": "2024", "label": "Cleo Harmony, VLTrader and LexiCom exploited, late 2024"}
+  case-studies/CUCKOOS_EGG_1986.md:
+    kind: "incident"
+    title: "The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986"
+    start: "1986-08"
+    end: "1990-02"
+    sectors: ["government", "defense", "education"]
+    cves: []
+    actors: []
+    tags: ["Cuckoo's Egg", "Clifford Stoll", "Lawrence Berkeley Laboratory", "Hannover hackers", "KGB", "MILNET", "honeypot", "CERT/CC"]
+    pdf: "Cuckoos_Egg_1986_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "1986-05", "label": "At least five diskettes handed over in East Berlin from May to November 1986 (DER SPIEGEL, Reported)"}
+      - {"date": "1986-08", "label": "LBL's accounting program fails to balance: a new account with no billing address"}
+      - {"date": "1986-12-08", "label": "US request for help reaches the Deutsche Bundespost (DER SPIEGEL, Reported)"}
+      - {"date": "1987", "label": "Alarmed SDI bait files hold the intruder for more than an hour while the trace to West Germany completes"}
+      - {"date": "1988-05", "label": "Stoll's \"Stalking the Wily Hacker\" published in Communications of the ACM"}
+      - {"date": "1988-11-02", "label": "Internet worm released; Stoll posts one of the first public warnings on RISKS"}
+      - {"date": "1988-12", "label": "CERT/CC established by DARPA at the SEI, Carnegie Mellon"}
+      - {"date": "1989-03-02", "label": "Three arrests after house searches; the Interior Ministry confirms the suspects supplied the KGB (Reported)"}
+      - {"date": "1989-08", "label": "Three hackers indicted on espionage charges (AP, Reported)"}
+      - {"date": "1989-09-30", "label": "Stoll posts the details of his book The Cuckoo's Egg (Doubleday, 1989)"}
+      - {"date": "1990-02-15", "label": "Court in Celle gives Carl, Hess and Brzezinski suspended sentences (Reported)"}
+      - {"date": "1991-07", "label": "RFC 1244 frames \"Protect and Proceed\" against \"Pursue and Prosecute\" and cites both Stoll works"}
   case-studies/EMUDHRA_CA_COMPROMISE_2026.md:
     kind: "incident"
     title: "The eMudhra Certificate Authority Key Compromise: A 2026 Case Study"

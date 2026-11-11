@@ -22,6 +22,16 @@ A Decoy Environment comprises hosts and networks for the purposes of deceiving a
 - [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
 - [All D3FEND countermeasures](/mitre/d3fend/README.md)
 
+<!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Library references
+
+Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
+
+- [The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986](/case-studies/CUCKOOS_EGG_1986.md)
+
+<!-- library-refs:end -->
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

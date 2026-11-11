@@ -178,5 +178,11 @@
     "name": "TeamStarWolf - Healthcare Threat Actor Watchlist 2023-2026",
     "description": "Enterprise techniques named in the eleven US joint advisories (2022 to 2026) that name the Healthcare and Public Health sector as a victim or carry HHS as an author or co-sealer: ALPHV Blackcat, Black Basta, Rhysida, RansomHub, Interlock, Andariel, Maui, Medusa, Akira, LockBit and Pioneer Kitten. Revoked advisory ids are mapped to their ATT&CK v20 successors through data/attack/superseded_by.jsonl; Mobile ids and the Maui advisory's T1059.008 tag are left out. Tactics are taken from data/attack/technique_profiles.jsonl. Score = number of advisories naming the technique (1 to 8). Each comment names source numbers from the Sources table of case-studies/HEALTHCARE_THREAT_WATCHLIST.md. Not an official MITRE mapping.",
     "blurb": "Techniques named in the joint advisories on the ransomware and state actors that hit healthcare from 2023 to 2026, scored by how many advisories name each one. A curated layer for the Healthcare Threat Actor Watchlist case study."
+  },
+  {
+    "file": "cuckoos-egg-1986.json",
+    "name": "TeamStarWolf - The Cuckoo's Egg Intrusion (LBL, 1986) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Retrospective ATT&CK v20.0 mapping of the 1986 to 1987 intrusion at Lawrence Berkeley Laboratory as described in Clifford Stoll, 'Stalking the Wily Hacker', Communications of the ACM 31(5), May 1988. Revoked T1562 behavior is shown under its v20.0 successor T1685 per data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/CUCKOOS_EGG_1986.md. Scores: 100 is behavior the paper describes directly, 40 is an Inferred mapping.",
+    "blurb": "Techniques from Stoll's 1988 account of the LBL intrusion: default and guessed accounts, cracked password files, the movemail privilege escalation, dormant accounts and the multi-hop path from West Germany. A curated retrospective layer for the Cuckoo's Egg case study."
   }
 ]

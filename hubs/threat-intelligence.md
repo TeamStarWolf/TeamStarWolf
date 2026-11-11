@@ -59,5 +59,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [North Korea-attributed threat actors: a case study](/case-studies/THREAT_ACTORS_NORTH_KOREA.md)
 - [The year 2021 in intrusions: a dated record](/case-studies/CHRONICLE_2021.md)
 - [Healthcare threat actor watchlist, 2023 to 2026: a case study](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md)
+- [The Cuckoo's Egg intrusion, 1986: a case study](/case-studies/CUCKOOS_EGG_1986.md)
 
 <!-- hub:end -->

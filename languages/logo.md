@@ -14,6 +14,55 @@ Logo is a dynamically typed, interpreted language created in 1967 at Bolt, Beran
 
 Related: [Smalltalk](/languages/smalltalk.md), [Prolog](/languages/prolog.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Logo code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,348 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Logo code (typical uses: teaching programming and geometry, turtle graphics, early computer-science education), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Smalltalk](/languages/smalltalk.md), [Prolog](/languages/prolog.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Logo was designed as a learning language grounded in a constructionist view of education: children learn by building and debugging their own programs. Seymour Papert, who had worked with Jean Piaget, argued that programming a turtle to draw shapes gives learners a concrete way to reason about geometry and procedures. The turtle began as a floor robot and became an on-screen cursor. The 1980 book Mindstorms set out the educational philosophy.
@@ -96,6 +145,29 @@ Performance is not a design goal: Logo implementations are interpreters aimed at
 - Confusing a variable's name (`"x`) with its value (`:x`), a common beginner error.
 - Dialect differences: command names and features vary between UCBLogo, FMSLogo, and others, so programs may not port unchanged.
 - Dynamic typing surprises, such as passing a list where a number is expected, which fails only at run time.
+
+## Security relevance
+
+Logo is a teaching language that runs in self-contained classroom settings, so it has little exposure to untrusted input and is of interest to practitioners as a learning tool rather than a target. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Education. Logo teaches programming and geometry through turtle graphics in interpreters such as UCBLogo and FMSLogo, not as a service or a production system.
+- External data. Where a program reads input or files, or a dialect exposes file or shell access, it touches a host; otherwise its exposure is minimal.
+- Logo has no offensive or defensive tooling written in it, consistent with its educational scope.
+
+### Dominant weakness classes
+
+Logo is memory-safe (garbage-collected), so memory-corruption classes do not apply; the weaknesses that can appear are limited to programs that process external data:
+
+- Dynamic evaluation of untrusted text through the `run` command, which executes a list as instructions. This is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Improper input validation of values read from input or files. This is [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- Operating-system or file access in dialects that provide it, when untrusted input reaches those commands. This is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Uncontrolled recursion driven by input, which can exhaust the stack. This is [CWE-400](https://cwe.mitre.org/data/definitions/400.html).
+
+### Why it matters
+
+Auditing Logo is rare and limited to classroom tools, so the value of reading it is pedagogical: it teaches the general habits of never running external input as code and validating input before use. There is no dedicated security tooling for Logo, as the Secure coding section notes.
 
 ## Secure coding
 

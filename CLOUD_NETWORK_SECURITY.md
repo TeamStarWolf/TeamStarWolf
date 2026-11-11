@@ -158,7 +158,7 @@ Security Groups are stateful, virtual firewalls applied at the ENI level. Return
 Three-tier Security Group design (Terraform):
 
 ```hcl
-# ALB Security Group — accepts HTTPS from the internet
+# ALB Security Group: accepts HTTPS from the internet
 resource "aws_security_group" "alb" {
   name   = "alb-sg"
   vpc_id = aws_vpc.main.id
@@ -178,7 +178,7 @@ resource "aws_security_group" "alb" {
   }
 }
 
-# App Security Group — accepts traffic only from ALB SG
+# App Security Group: accepts traffic only from ALB SG
 resource "aws_security_group" "app" {
   name   = "app-sg"
   vpc_id = aws_vpc.main.id
@@ -198,7 +198,7 @@ resource "aws_security_group" "app" {
   }
 }
 
-# DB Security Group — accepts traffic only from App SG
+# DB Security Group: accepts traffic only from App SG
 resource "aws_security_group" "db" {
   name   = "db-sg"
   vpc_id = aws_vpc.main.id
@@ -928,7 +928,7 @@ az network firewall policy update \
   --name prod-firewall-policy \
   --idps-mode Deny
 
-# Configure IDPS signature overrides — set high-severity sigs to Alert+Deny
+# Configure IDPS signature overrides: set high-severity sigs to Alert+Deny
 az network firewall policy intrusion-detection add \
   --policy-name prod-firewall-policy \
   --resource-group hub-rg \
@@ -1222,7 +1222,7 @@ gcloud compute firewall-rules create prod-allow-app-to-db \
   --source-tags=app-server \
   --target-tags=db-server
 
-# Allow internal SSH only from IAP (Identity-Aware Proxy) — no bastion needed
+# Allow internal SSH only from IAP (Identity-Aware Proxy): no bastion needed
 gcloud compute firewall-rules create prod-allow-iap-ssh \
   --network=prod-vpc \
   --direction=INGRESS \
@@ -1256,7 +1256,7 @@ Google Cloud Armor is GCP's WAF and DDoS protection service, attached to global 
 gcloud compute security-policies create prod-security-policy \
   --description="Production WAF policy"
 
-# Add pre-configured OWASP CRS rules — XSS protection
+# Add pre-configured OWASP CRS rules: XSS protection
 gcloud compute security-policies rules create 1000 \
   --security-policy=prod-security-policy \
   --expression="evaluatePreconfiguredExpr('xss-stable')" \

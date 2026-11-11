@@ -2,6 +2,55 @@
 
 Apache Cassandra is a distributed wide-column database built for high write throughput and no single point of failure. Data spreads across a ring of peer nodes, each able to take reads and writes. It is used for time-series data, event logging, messaging, and other write-heavy workloads that must stay available across data centers.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Database administrators, developers and security engineers who run, query or assess Apache Cassandra
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (831 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are modeling data or writing queries for Apache Cassandra, you are administering or hardening a deployment, or you want a worked example to start from
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Data model and architecture](#data-model-and-architecture), [Security and hardening](#security-and-hardening), [A worked example](#a-worked-example)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [MongoDB](/databases/mongodb.md), [Redis](/databases/redis.md), [Amazon DynamoDB](/databases/dynamodb.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 Cassandra has no primary node. Every node is equal and holds a share of the data plus replicas of other nodes' data. A client can connect to any node, which acts as the coordinator for that request. This design keeps the cluster serving even when nodes or whole data centers go down.

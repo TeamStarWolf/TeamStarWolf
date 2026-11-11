@@ -14,6 +14,55 @@ Bash (the Bourne Again SHell) is a command-line interpreter and scripting langua
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Zsh](/languages/zsh.md), [POSIX AWK](/languages/awk.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Bash code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,508 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Bash code (typical uses: system administration, automation, build and deploy scripts, CI pipelines), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Zsh](/languages/zsh.md), [AWK](/languages/awk.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Bash was written as a free-software replacement for the Bourne shell (`sh`) that shipped with Unix. It added features from the Korn shell and the C shell, such as command-line editing, command history, and job control, while staying compatible with existing Bourne scripts. Chet Ramey has maintained the project since the early 1990s.
@@ -119,6 +168,29 @@ For concurrency, Bash runs commands in the background with `&` and waits with `w
 - Parsing the output of `ls` is unreliable; iterate with a glob (`for f in ./*`) or `find -print0` with `read -d ''`.
 - `set -e` does not catch every error (for example, a failure inside a command substitution or a function used in a condition); do not rely on it alone.
 - A pipeline's exit status is that of the last stage unless `set -o pipefail` is active, so failures upstream can be hidden.
+
+## Security relevance
+
+Bash is one of the most security-relevant languages on Unix-like systems: it is used offensively for initial access, post-exploitation, and persistence, defensively for automation and incident response, and it is a frequent injection target because its whole job is building and running commands. The defensive patterns are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Offensive scripting. Reverse shells, droppers, and living-off-the-land chains are routinely written in Bash because it is present on nearly every Unix-like host. See the [Red Team Reference](/RED_TEAM_REFERENCE.md) and the [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md).
+- Build and CI pipelines. Build and deployment steps are shell scripts, and a malicious or injected step reaches everything the pipeline can touch. The [XZ Utils backdoor case study](/case-studies/XZ_UTILS_BACKDOOR_2024.md) was delivered through obfuscated shell logic in a build, and the [SolarWinds Sunburst case study](/case-studies/SOLARWINDS_SUNBURST.md) shows the impact of a compromised build process.
+- System administration. Startup, cron, and maintenance scripts run with system privilege, so weaknesses in them matter. See the [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md).
+
+### Dominant weakness classes
+
+Bash is interpreter-managed and memory-safe (values are strings), so the memory-corruption classes do not apply; its risks center on command construction and the execution environment.
+
+- Operating-system command injection. Building a command from untrusted input and handing it to the shell, or interpolating an unquoted value, lets an attacker inject arguments or extra commands, which is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Code injection through `eval`. `eval` on assembled strings, `source` on untrusted paths, and `sh -c "$var"` execute whatever the data contains, which is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Insecure temporary files. Fixed names in `/tmp` rather than `mktemp` allow predictable-file attacks, which is [CWE-377](https://cwe.mitre.org/data/definitions/377.html).
+- Untrusted search path. An unset or attacker-influenced `PATH` can cause a planted binary to run in place of the intended command, which is [CWE-426](https://cwe.mitre.org/data/definitions/426.html).
+
+### Why it matters
+
+Reading shell confirms what a script actually does to a system, which matters both when triaging a suspected dropper and when auditing a build or deployment script for steps that fetch and run untrusted code. [ShellCheck](https://www.shellcheck.net/) flags unquoted expansions, unsafe `eval`, and many injection-prone patterns and should run on every script, as the Secure coding section details. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
 
 ## Secure coding
 

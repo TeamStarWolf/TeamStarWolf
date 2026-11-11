@@ -14,6 +14,55 @@ Standard ML is a statically typed functional language with a formal, mathematica
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [OCaml](/languages/ocaml.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Standard ML code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,486 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Standard ML code (typical uses: teaching, theorem proving, compilers, program analysis, research), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[OCaml](/languages/ocaml.md), [Haskell](/languages/haskell.md), [Scheme](/languages/scheme.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Standard ML grew out of the metalanguage (ML) of the LCF theorem prover in the 1970s and was formalized into a standalone language in the 1980s. The first definition was published in 1990, followed by a 1997 revision commonly called Standard ML '97, together with a companion standard-library specification, the Standard ML Basis Library. The language is defined by a formal operational semantics rather than by a single reference compiler, which is unusual among general-purpose languages and makes it well suited to rigorous study.
@@ -127,6 +176,29 @@ MLton performs whole-program optimization, including monomorphization and aggres
 - Equality types: `=` works only on types that admit equality, and attempting to compare functions or real numbers with `=` is a type error.
 - Implementations differ in libraries and extensions beyond the Basis, so code that relies on SML/NJ specifics may not build under MLton and vice versa.
 - Overflow on fixed-size integers raises an exception rather than wrapping, which is safer but must be anticipated.
+
+## Security relevance
+
+Standard ML reaches security practitioners through the program-analysis, compiler, and formal-verification work it is used for, rather than as a language that ships widely deployed services or offensive tools. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Program analysis and compilers. The language's precise semantics and strong types make it a common choice for writing compilers, type checkers, and static analyzers, tools that themselves reason about the security of other code.
+- Theorem proving and formal methods. [Poly/ML](https://www.polyml.org/) hosts the Isabelle proof assistant, so Standard ML appears in formal verification used to prove properties of security-relevant systems.
+- Teaching and research. Course and research code is often a parser, interpreter, or analyzer under study rather than a production back end.
+
+### Dominant weakness classes
+
+Standard ML is memory-safe: it is garbage-collected, has a proved type-safety property, and does not expose manual memory, so memory-corruption classes do not arise from ordinary code. The weaknesses that remain concern external data and boundaries out of the safe core:
+
+- Improper input validation. Type inference checks internal consistency, not the validity of external bytes, so parsed input must be validated and malformed data rejected. This is [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- Unsafe deserialization. The language has no standard object-serialization facility, which avoids a class of bugs, but implementation-specific pickling or foreign interfaces can reconstruct arbitrary values from untrusted bytes. This relates to [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- Uncontrolled resource consumption. Recursion or allocation sized by untrusted input can exhaust the stack or heap. This is [CWE-400](https://cwe.mitre.org/data/definitions/400.html).
+- Foreign function interfaces. Calling C from MLton or another system crosses out of the type-safe core and can reintroduce out-of-bounds access. This relates to [CWE-787](https://cwe.mitre.org/data/definitions/787.html).
+
+### Why it matters
+
+Reading Standard ML supports work on the analysis and verification tools that security relies on, and lets a reviewer find where a program leaves the safe core through a foreign interface or reconstructs external data. The primary static analysis is the type checker itself with exhaustiveness and redundancy warnings enabled, and MLton's whole-program compilation additionally reports unused and unreachable code, as the Secure coding section notes.
 
 ## Secure coding
 

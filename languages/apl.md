@@ -14,6 +14,55 @@ APL (A Programming Language) is a dynamically typed, array-oriented language cre
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [J](/languages/j.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain APL code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,411 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing APL code (typical uses: financial and actuarial modeling, quantitative analysis, array algorithms), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [J](/languages/j.md), [K and Q](/languages/k-q.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Iverson devised APL's notation while at Harvard and IBM as a consistent way to describe algorithms and computer systems, and IBM implemented it as an interactive language on mainframes. Its distinguishing feature is a character set of special glyphs (such as `⍴`, `⍳`, `⌿`, and `⍉`) that denote primitive operations on arrays. APL ONE programs read right to left, apply functions to entire arrays at once, and favor composition of primitives over explicit loops.
@@ -114,6 +163,29 @@ Because primitives operate on whole arrays in the interpreter's compiled inner l
 - Monadic versus dyadic meaning: the same glyph differs by context, so an accidental or missing left argument changes the operation.
 - Scalar extension and shape conformance: operations between arrays of different shapes either extend a scalar or raise a length error; a shape mismatch can be subtle.
 - Readability: terse one-liners are hard to maintain; comment intent and decompose long trains.
+
+## Security relevance
+
+APL appears to security practitioners mostly as the language of financial and actuarial back-office systems that are assessed as assets, rather than as a language for offensive tooling. The defensive patterns are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Financial and actuarial systems. Dyalog APL and GNU APL run modeling and quantitative code inside banks, insurers, and trading firms, so APL shows up as an asset to review rather than as attacker tooling.
+- Host and database integration. APL programs reach outside the interpreter through host-command facilities and database bridges, which is where most of the exposure lives.
+- Saved workspaces and component files. APL persists code and data in workspaces and component files that can be loaded back, which is a trust boundary.
+
+### Dominant weakness classes
+
+APL is garbage-collected and memory-safe, so the memory-corruption classes that dominate C do not apply; the weaknesses that remain are about executing untrusted input and reaching the host.
+
+- Code injection. The execute primitive `⍎` evaluates a character string as APL code, so applying it to untrusted input runs that input as code, which is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Operating-system command injection. `⎕SH` and `⎕CMD` run shell commands, so building those commands from untrusted input allows [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Untrusted workspace loading. Loading a saved workspace or component file restores arbitrary definitions and data, a deserialization-style trust problem related to [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- SQL injection. Querying a database through a bridge by catenating strings allows [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+
+### Why it matters
+
+Reading APL lets an analyst find the specific points where a financial model executes input or reaches the host: uses of `⍎`, `⎕SH`, `⎕CMD`, and workspace loading, which are few and searchable even in terse code. Dyalog's [Link](https://dyalog.github.io/link/) keeps source in text form so it can be reviewed and diffed, which supports that audit. See the [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 
 ## Secure coding
 

@@ -4,6 +4,55 @@
 
 Tenable is the long-standing vulnerability-management vendor whose Nessus scanner is the de facto industry standard for vulnerability assessment. Tenable One is its unified Exposure Management platform that ingests findings across VM, cloud, OT, identity, web apps and attack surface, then prioritizes them against real-world threat context so teams fix what actually matters. VPR (Vulnerability Priority Rating) is its dynamic, ML-driven 0.1-10.0 risk score that supplements static CVSS by weighting exploitability and threat activity.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the vulnerability analysts and scanner administrators who run Tenable
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 8 min (1,888 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what Tenable can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [ServiceNow USEM with Tenable and Wiz](/tools-research/SERVICENOW_USEM_TENABLE_WIZ.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities & architecture
 
 **Core capabilities**
@@ -118,14 +167,14 @@ _API & developer docs_
 
 _GitHub (official)_
 - [Tenable GitHub organization (~89 repos)](https://github.com/tenable)
-- [pyTenable — Python library for Tenable platform APIs](https://github.com/tenable/pyTenable)
-- [Tenable Exposure Management connectors — third-party connector documentation](https://docs.tenable.com/exposure-management/Content/connectors/connectors.htm)
-- [integration-jira-cloud — Jira Cloud integration](https://github.com/tenable/integration-jira-cloud)
-- [container-security-action / was-action — official GitHub Actions for Tenable container & WAS scans](https://github.com/tenable/container-security-action)
+- [pyTenable: Python library for Tenable platform APIs](https://github.com/tenable/pyTenable)
+- [Tenable Exposure Management connectors: third-party connector documentation](https://docs.tenable.com/exposure-management/Content/connectors/connectors.htm)
+- [integration-jira-cloud: Jira Cloud integration](https://github.com/tenable/integration-jira-cloud)
+- [container-security-action / was-action: official GitHub Actions for Tenable container & WAS scans](https://github.com/tenable/container-security-action)
 
 _Community / integration / detection repos_
 - [Tenable Add-On for Splunk (Splunkbase app 4060, TA-tenable; SIEM integration)](https://splunkbase.splunk.com/app/4060)
-- [Security-Hub — Tenable.io to AWS Security Hub integration](https://github.com/tenable/Security-Hub)
+- [Security-Hub: Tenable.io to AWS Security Hub integration](https://github.com/tenable/Security-Hub)
 - [Navi (packetchaos/navi), a community command-line tool for the Tenable Vulnerability Management API](https://github.com/packetchaos/navi)
 
 _Learning & reference_

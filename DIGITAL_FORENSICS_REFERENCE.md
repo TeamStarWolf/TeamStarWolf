@@ -270,7 +270,7 @@ ACTION=="add", KERNEL=="sd*", ATTR{removable}=="1", RUN+="/sbin/blockdev --setro
 - Built-in hash verification and image verification
 - Can mount images as read-only drive letters
 - Preview evidence without full case creation
-- Free download: https://www.exterro.com/ftk-imager
+- Free download: https://www.exterro.com/digital-forensics-software/ftk-imager
 
 ```
 Usage: File > Create Disk Image > select source > select format > add MD5/SHA1 > start

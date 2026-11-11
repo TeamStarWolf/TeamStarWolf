@@ -14,6 +14,55 @@ Rust is a statically typed, compiled, multi-paradigm language that began as a Mo
 
 Related: [C](/languages/c.md), [C++](/languages/cpp.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Rust code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,168 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Rust code (typical uses: systems software, CLI tools, WebAssembly, services, embedded), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[C](/languages/c.md), [C++](/languages/cpp.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Rust set out to let programmers write low-level code without the memory-safety hazards that come with manual memory management. The compiler's borrow checker verifies that references do not outlive the data they point to and that mutable and shared access do not overlap. After 1.0 in 2015, the language settled into a six-week release cadence with editions (2015, 2018, 2021, 2024) that group opt-in changes without breaking older code.
@@ -116,6 +165,29 @@ Rust compiles to native code through LLVM and performs comparably to C and C++. 
 - Reaching for `unsafe` to silence the compiler rather than fixing the design.
 - Lifetime annotations that grow complex; often a sign that an API should own its data.
 - Blocking calls inside asynchronous code, which can stall the executor.
+
+## Security relevance
+
+Rust reaches security practitioners as a systems language whose safety guarantees change the threat picture: it removes most memory-corruption bugs in safe code, concentrates the remaining risk in `unsafe` blocks, and is increasingly the language of both new tooling and new malware. The defensive patterns that counter each weakness below are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Systems and network services. Rust builds operating-system components, network services, WebAssembly modules, and embedded firmware where both safety and performance matter. See the [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md).
+- Offensive tooling. Security tools written in Rust include the RustScan port scanner and the feroxbuster content-discovery tool, so reading or extending them means reading Rust. See the [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md).
+- Malware. Attackers have moved to Rust for its performance and the extra effort it imposes on analysts, with ransomware families such as BlackCat (ALPHV) written in it, so reverse engineers increasingly meet Rust binaries. See the [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md) and the [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md).
+
+### Dominant weakness classes
+
+Rust is memory-safe in safe code: ownership and borrowing are checked at compile time and there is no garbage collector, so use-after-free and out-of-bounds access are prevented unless code opts out. The risks that remain are at the boundaries:
+
+- Memory corruption in `unsafe`. Raw-pointer use in `unsafe` blocks can reintroduce out-of-bounds writes and use-after-free, mapping to [CWE-787](https://cwe.mitre.org/data/definitions/787.html) and [CWE-416](https://cwe.mitre.org/data/definitions/416.html).
+- Integer overflow. Arithmetic wraps in release builds unless checked operations are used deliberately, which is [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- Operating-system command injection. Building `std::process::Command` as a shell string rather than separate arguments is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Dependency supply chain. Crates pulled from crates.io run with the build's privilege. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading Rust lets an analyst audit the `unsafe` blocks where the compiler's guarantees stop, review tooling before running it, and work through Rust malware that resists quick static analysis. [Clippy](https://github.com/rust-lang/rust-clippy) lints for common mistakes and [cargo-audit](https://github.com/rustsec/rustsec) checks dependencies against the RustSec advisory database, as the Secure coding section details.
 
 ## Secure coding
 

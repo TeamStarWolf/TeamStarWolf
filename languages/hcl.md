@@ -14,6 +14,55 @@ HCL (HashiCorp Configuration Language) is a declarative configuration language c
 
 Related: [Nix](/languages/nix.md), [Puppet](/languages/puppet.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain HCL (HashiCorp Configuration Language) code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,531 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing HCL code (typical uses: infrastructure as code, provisioning, application and service configuration), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Nix](/languages/nix.md), [Puppet](/languages/puppet.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 HCL appeared in 2014 alongside the first HashiCorp tools as an answer to a recurring problem: configuration files that were either too rigid (INI, basic key-value) or awkward for humans to write and review (JSON, with no comments and heavy punctuation). HCL keeps a JSON-compatible data model but adds comments, string interpolation, and a block syntax that reads like a nested outline. The second major version, HCL2, unified the syntax and the expression language and is what current tools use.
@@ -123,6 +172,29 @@ Large configurations are kept manageable by splitting them into modules and sepa
 - Committing the state file, which records real infrastructure and often secrets, into version control in plain text.
 - Interpolating untrusted values into resource names or commands without validation.
 - Drift between declared configuration and manually changed infrastructure, which a plan reveals but cannot prevent.
+
+## Security relevance
+
+HCL is read and evaluated by a tool rather than compiled to a running program, so its security relevance is about the infrastructure, privileges, and secrets the resulting configuration grants. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Infrastructure as code. [Terraform](https://developer.hashicorp.com/terraform) and [OpenTofu](https://opentofu.org/) describe cloud and on-premises resources in HCL, so auditing the configuration is auditing which ports are open, which identities are granted, and where data lives. See the [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md).
+- Provisioning and secrets. Packer, Nomad, Consul, and Vault take HCL configuration, and Terraform state records resource attributes, some of them secret.
+- Pipelines and shared modules. A plan runs with real credentials, and a module or provider executes with those same credentials, which makes third-party modules a supply-chain concern. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+HCL is evaluated to a configuration, not compiled to a managed-memory program, so memory-corruption classes do not apply. The weaknesses center on credentials, privilege, and the state the configuration produces:
+
+- Hardcoded credentials written into HCL, which end up in version control and in state. This is [CWE-798](https://cwe.mitre.org/data/definitions/798.html).
+- Excess privilege from broad security-group rules and wildcard IAM policies. This is [CWE-284](https://cwe.mitre.org/data/definitions/284.html).
+- Sensitive information exposure through state files stored in plain text. This is [CWE-200](https://cwe.mitre.org/data/definitions/200.html).
+- Untrusted modules and providers that run with your credentials and can exfiltrate them, described further in the Supply Chain Security Reference above.
+
+### Why it matters
+
+Reading HCL tells a practitioner what an environment will actually expose before anything is deployed: open ingress, over-broad permissions, and secrets committed to source. [tfsec](https://github.com/aquasecurity/tfsec) and [Checkov](https://www.checkov.io/) scan configurations for insecure defaults and exposed secrets and [TFLint](https://github.com/terraform-linters/tflint) lints them, as the Secure coding section details.
 
 ## Secure coding
 

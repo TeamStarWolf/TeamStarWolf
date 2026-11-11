@@ -14,6 +14,55 @@ Move is a statically typed language for writing smart contracts, built around re
 
 Related: [Solidity](/languages/solidity.md), [Vyper](/languages/vyper.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Move code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 8 min (1,772 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Move code (typical uses: smart contracts, on-chain assets and tokens, decentralized finance), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Solidity](/languages/solidity.md), [Vyper](/languages/vyper.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Move was designed by the team behind Facebook's Diem (originally Libra) blockchain, with a 2019 white paper describing a language whose central idea is the resource: a value that behaves like physical property, with exactly one owner, that cannot be copied or dropped unless the type explicitly allows it. When Diem wound down, the language carried on through the Aptos and Sui networks, which each adapted it: Aptos stays close to the original account-and-module model, while Sui introduced an object-centric variant.
@@ -116,6 +165,29 @@ As with other on-chain code, published modules are typically hard to change, so 
 - Assuming a resource can be ignored: a value without `drop` must be consumed, moved, or stored, or the code will not compile.
 - Over-granting abilities: adding `copy` or `drop` to a type that represents an asset defeats the conservation guarantee.
 - Relying on authorization other than `signer`; address arguments alone do not prove the caller controls that account.
+
+## Security relevance
+
+Move reaches security practitioners as the language of value-bearing smart contracts on the Aptos and Sui networks, where a flaw can move or destroy on-chain assets directly. Its type system removes some classic contract bugs by construction, which narrows the review to a recognizable set of high-consequence classes. The defensive patterns that counter each class are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- On-chain smart contracts. Move modules implement tokens, decentralized finance, and other asset logic on Aptos and Sui, so a Move audit is an audit of funds held under program control. See the [Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md).
+- Audit and assurance work. Value-bearing modules are typically reviewed before publication because deployed modules are hard to change, which makes pre-publication reading the main point of defense.
+- Formal verification. The Move Prover checks written specifications against the code, so some assurance work is expressed in Move specifications rather than external tooling.
+
+### Dominant weakness classes
+
+Move is memory-safe by construction: it has no manual memory management, a bytecode verifier rejects type and reference violations before execution, and integer operations abort on overflow rather than wrapping. The remaining weaknesses are about authorization, arithmetic, and composition.
+
+- Access-control errors. Authorization must be tied to a `&signer` or an owned capability, not to an address passed as data; a function that changes value without checking the right caller exposes privileged logic. This is [CWE-284](https://cwe.mitre.org/data/definitions/284.html) and the most common Move-specific class.
+- Arithmetic faults. Integer operations abort on overflow, so an unchecked calculation on untrusted input can become an unexpected abort and a denial of service rather than a silent wrap, a usage pattern of [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- Reentrancy and unsafe composition. Move does not permit dynamic dispatch into arbitrary external code the way EVM languages do, which structurally limits classic reentrancy; the hazard returns only if a program calls back into mutable shared state, which has no clean CWE and is covered in the [Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md).
+- Dependency supply chain. Depended-on modules and frameworks run inside your module's trust boundary, so a compromised or over-trusted package is a direct risk. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading Move lets an auditor confirm that assets are conserved, that every value-changing function checks the correct signer or capability, and that composed modules are trusted deliberately. The [Move Prover](https://github.com/move-language/move) is the audit tool for this: it proves stated invariants statically, above the baseline the bytecode verifier already enforces, as the Secure coding section details.
 
 ## Secure coding
 

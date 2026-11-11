@@ -2,6 +2,55 @@
 
 Microsoft Entra ID is a cloud identity and access management service. It was formerly named Azure Active Directory. It authenticates users and services, issues tokens, and applies access policy for cloud and on-premises applications.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Identity and access engineers who run, tune or assess Microsoft Entra ID
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (813 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Microsoft Entra ID for identity, sign-in and access, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Cisco Duo](/platforms/cisco-duo.md), [CyberArk](/platforms/cyberark.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Entra ID is the identity provider for Microsoft 365 and for applications that federate to it. It holds user accounts, groups, service principals, and application registrations. It sits in front of resources and decides who signs in, under what conditions, and with which roles.

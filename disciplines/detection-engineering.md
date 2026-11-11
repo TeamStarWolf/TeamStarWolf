@@ -91,11 +91,11 @@ Pyramid of Pain (David Bianco): Attacker cost to evade detections increases as y
 
 ```
 [TTP-Based Detections]     ← Tough! Changing behavior requires significant effort
-[Tools]                    ← Challenging — new tool versions, custom tooling
-[Network/Host Artifacts]   ← Annoying — registry keys, process names
-[Domain Names]             ← Simple — new domain registered
-[IP Addresses]             ← Easy — new IP spun up
-[Hash Values]              ← Trivial — recompile, trivially different hash
+[Tools]                    ← Challenging: new tool versions, custom tooling
+[Network/Host Artifacts]   ← Annoying: registry keys, process names
+[Domain Names]             ← Simple: new domain registered
+[IP Addresses]             ← Easy: new IP spun up
+[Hash Values]              ← Trivial: recompile, trivially different hash
 ```
 
 The detection engineering goal is to build detections as high on this pyramid as possible: detecting behaviors (process injection, LOLBAS execution, credential access patterns) rather than specific indicators.
@@ -236,7 +236,7 @@ Detection programs must explicitly cover adversary evasion, not just the initial
 ### Adversary Emulation & Validation
 - [redcanaryco/atomic-red-team](https://github.com/redcanaryco/atomic-red-team): Library of focused test cases mapped to ATT&CK techniques; the standard for validating detection coverage
 - [mitre/caldera](https://github.com/mitre/caldera): MITRE's automated adversary emulation platform; runs ATT&CK-mapped operations for continuous detection validation
-- [center-for-threat-informed-defense/summiting_the_pyramid](https://github.com/center-for-threat-informed-defense/summiting_the_pyramid): Framework for building detections robust against adversary evasion; detect behavior rather than brittle indicators
+- [center-for-threat-informed-defense/summiting-the-pyramid](https://github.com/center-for-threat-informed-defense/summiting-the-pyramid): Framework for building detections robust against adversary evasion; detect behavior rather than brittle indicators
 
 ### SIEM-Specific Content
 - [microsoft/Microsoft-Sentinel-Content](https://github.com/Azure/Azure-Sentinel): Microsoft Sentinel Content Hub rules, workbooks, and playbooks; the community contribution point for Sentinel detections

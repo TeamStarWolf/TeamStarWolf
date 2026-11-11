@@ -597,7 +597,7 @@ index=wineventlog (EventCode=4768 OR EventCode=4769 OR EventCode=4624)
 #### Honey Service Accounts (Kerberoasting Detection)
 
 ```powershell
-# Add SPN to honey account — bait for Kerberoasting
+# Add SPN to honey account: bait for Kerberoasting
 Set-ADUser "svc-legacy-backup" `
   -ServicePrincipalNames @{Add="HTTP/legacy-intranet.corp.local"}
 
@@ -673,12 +673,12 @@ Host prod-bastion
   User deploy
   IdentityFile ~/.ssh/id_prod_deploy
 EOF
-# id_prod_deploy does not exist — canary DNS fires when attacker resolves hostname
+# id_prod_deploy does not exist: canary DNS fires when attacker resolves hostname
 ```
 
 AWS credentials breadcrumbs:
 ```ini
-# ~/.aws/credentials — plant honeytoken key alongside real profiles
+# ~/.aws/credentials: plant honeytoken key alongside real profiles
 # (Replace placeholders with real key IDs generated for your honeytoken IAM user)
 [default]
 aws_access_key_id = <REAL_KEY_ID>
@@ -702,7 +702,7 @@ export DATABASE_URL="<honeytoken-dsn-value>"
 
 Hosts file breadcrumbs:
 ```
-# /etc/hosts — fake server addresses pointing to honeypots
+# /etc/hosts: fake server addresses pointing to honeypots
 10.0.100.50  password-vault.internal.corp.local
 10.0.100.51  secrets-server.internal.corp.local
 ```

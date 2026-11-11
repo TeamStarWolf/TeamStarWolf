@@ -2,6 +2,55 @@
 
 Reactive programming is a declarative style built around asynchronous data streams and the automatic propagation of change. You describe how values relate, and the runtime recomputes dependents when a source emits. It matters because it gives a uniform model for events, I/O, and time-varying state that would otherwise be scattered across ad hoc callbacks.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers and students learning reactive programming, and reviewers who assess code written in that style
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 3 min (798 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning reactive programming or deciding whether it fits a problem, you want the languages and tools that support it, or you need its secure-coding considerations before a review
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core idea](#core-idea), [Strengths and trade-offs](#strengths-and-trade-offs), [Secure-coding considerations](#secure-coding-considerations)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Dataflow Programming](/paradigms/dataflow.md), [Event-Driven Programming](/paradigms/event-driven.md), [Functional Programming](/paradigms/functional.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Core idea
 
 A reactive program treats changing values as first-class streams. A stream is a sequence of events over time: mouse clicks, sensor readings, HTTP responses, or ticks of a clock. Instead of writing code that pulls a value when it needs one, you declare a pipeline that reacts when a value arrives.

@@ -14,6 +14,55 @@ The Wolfram Language is a dynamically typed, symbolic programming language built
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Wolfram Language code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,431 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Wolfram Language code (typical uses: symbolic and numerical mathematics, technical computing, visualization), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Stephen Wolfram created Mathematica to unify symbolic mathematics, numerical computation, and visualization in one system, released in 1988. The underlying language was given the name "Wolfram Language" in 2013, emphasizing that the same language runs in Mathematica, in Wolfram Alpha, in the free-for-developers Wolfram Engine, and in the Wolfram Cloud. Its design centers on a very large set of built-in functions covering mathematics, data, and knowledge, all named in full words and sharing consistent conventions.
@@ -112,6 +161,29 @@ Term rewriting on large symbolic expressions can be slow, so numeric work should
 - Pattern specificity: overlapping definitions apply in an order that depends on specificity, so an unexpectedly general rule can shadow a specific one.
 - Global symbols leak between notebook cells and sessions; clear them with `Clear` or scope them with `Module` and `Block`.
 - Large intermediate expressions can consume memory quickly; watch for symbolic results that grow without simplification.
+
+## Security relevance
+
+The Wolfram Language reaches security work mainly where it crosses a trust boundary: when it evaluates text as code, runs host programs, imports untrusted files, or is deployed as a cloud endpoint. For most technical-computing use it is not exposed to attackers at all. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Technical-computing and data-analysis code. The language runs in notebooks and scripts for mathematics, data analysis, and visualization, where the main exposure is the external data a workflow imports.
+- Cloud deployments. An `APIFunction` or `FormFunction` deployed to the Wolfram Cloud runs server-side code in response to a request, so its inputs are an attack surface like any other web endpoint.
+- Host integration. Through `RunProcess`, `ExternalEvaluate`, and `Import`, the language reaches the operating system and other interpreters, which is where untrusted input can turn into execution.
+
+### Dominant weakness classes
+
+The runtime is garbage-collected, so it is memory-safe and the memory-corruption classes do not apply. The weaknesses come from evaluating or importing untrusted content:
+
+- Code injection. `ToExpression` parses and evaluates arbitrary Wolfram code from a string, which is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- OS command injection. `Run`, `RunProcess`, and `ExternalEvaluate` run external programs, so a shell string built from input is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Untrusted data files. `Get` evaluates a package as code and some import formats run converters, so loading from an untrusted source relates to [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- Cloud input handling. A deployed endpoint that does not validate and constrain its inputs is exposed to the same abuse as any server-side handler, which relates to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+
+### Why it matters
+
+Reading the Wolfram Language matters most when auditing a cloud deployment or a notebook that evaluates or imports untrusted input, where the question is whether any path reaches `ToExpression`, a process call, or `Get`. The available tools are the built-in Code Analysis facilities and the [CodeInspector](https://github.com/WolframResearch/codeinspector) package, which flag suspect constructs statically.
 
 ## Secure coding
 

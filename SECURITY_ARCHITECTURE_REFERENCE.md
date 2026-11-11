@@ -682,7 +682,7 @@ Hub-Spoke (Star) Topology:
 
 ```
      Branch A
-                       Branch B ——— HUB (Data Center / SD-WAN Hub)
+                       Branch B ─── HUB (Data Center / SD-WAN Hub)
           /
          /
      Branch C
@@ -697,10 +697,10 @@ Hub-Spoke (Star) Topology:
 Mesh Topology:
 
 ```
-Branch A ————— Branch B
+Branch A ───── Branch B
    \               /
     \             /
-     Branch C ——— Branch D
+     Branch C ─── Branch D
 ```
 
 - Direct branch-to-branch paths
@@ -1068,7 +1068,7 @@ Tenant Root Group
   │    └─ Identity MG (AD DS domain controllers)
   │
   ├─ Landing Zones MG
-  │    ├─ Corp MG (corporate workloads — connected to hub)
+  │    ├─ Corp MG (corporate workloads: connected to hub)
   │    │    ├─ Subscription: App-Prod-001
   │    │    └─ Subscription: App-Dev-001
   │    └─ Online MG (internet-facing workloads)
@@ -1123,7 +1123,7 @@ AWS VPC Security Architecture:
 
 ```
 VPC (10.0.0.0/16)
-  ├─ Public Subnets (10.0.0.0/24, 10.0.1.0/24)  — AZ-a, AZ-b
+  ├─ Public Subnets (10.0.0.0/24, 10.0.1.0/24)  : AZ-a, AZ-b
   │    ├─ NAT Gateway (for outbound from private subnets)
   │    ├─ ALB (internet-facing)
   │    └─ Bastion (deprecated; use SSM Session Manager)
@@ -1989,7 +1989,7 @@ CPM (Central Policy Manager)
        │
        ▼
 PSM (Privileged Session Manager)
-  ├─ RDP/SSH proxy — user never gets direct credential
+  ├─ RDP/SSH proxy: user never gets direct credential
   ├─ Full session video recording
   ├─ Keystroke logging
   └─ Session isolation (no local clipboard, no file transfer unless approved)
@@ -2108,7 +2108,7 @@ FIDO2 Authentication Flow:
                           │ Alerts
                           ▼
 ┌──────────────────────────────────────────────────────────────┐
-│                    TIER 1 — TRIAGE                            │
+│                    TIER 1: TRIAGE                             │
 │  Alert triage · Basic investigation · Ticket creation         │
 │  SLA: Acknowledge within 15 min; initial triage within 1hr    │
 │  Escalation trigger: Confidence ≥ Medium or asset value High  │
@@ -2116,7 +2116,7 @@ FIDO2 Authentication Flow:
                           │ Escalation
                           ▼
 ┌──────────────────────────────────────────────────────────────┐
-│               TIER 2 — INCIDENT RESPONSE                      │
+│               TIER 2: INCIDENT RESPONSE                       │
 │  Deep dive investigation · Containment · Forensics            │
 │  Coordinates with IT/cloud/app teams                          │
 │  Runs SOAR playbooks; invokes manual response as needed       │
@@ -2124,7 +2124,7 @@ FIDO2 Authentication Flow:
                           │ Complex/critical incidents
                           ▼
 ┌──────────────────────────────────────────────────────────────┐
-│               TIER 3 — THREAT HUNT / ADVANCED IR              │
+│               TIER 3: THREAT HUNT / ADVANCED IR               │
 │  Proactive threat hunting · Custom tooling                    │
 │  Reverse engineering · Attribution research                   │
 │  Detection improvement · Purple team exercises                │
@@ -2789,14 +2789,14 @@ justify itself as the realization of a security mechanism (Physical), which
 realizes a security service (Logical), which serves a control objective
 (Conceptual), which mitigates a named business risk (Contextual). An
 architecture review can walk any control back to the business risk it exists
-to treat — and, critically, flag controls that trace to nothing (candidates
+to treat, and, critically, flag controls that trace to nothing (candidates
 for decommissioning) and risks that trace to no control (coverage gaps).
 
 ### 11.2 Business Attribute Profiling (BAP)
 
 BAP is SABSA's signature technique and the bridge from the Contextual to the
 Conceptual layer. Instead of starting from a control catalogue, the architect
-and business jointly define a set of **business attributes** — normalized,
+and business jointly define a set of **business attributes**: normalized,
 measurable qualities the business needs the system to exhibit (e.g.
 *Available*, *Confidential*, *Traceable*, *Private*, *Recoverable*,
 *Supportable*, *Credible*, *Compliant*). Each attribute is given:
@@ -2804,7 +2804,7 @@ measurable qualities the business needs the system to exhibit (e.g.
 - A **definition** in business language ("Traceable: actions can be
   attributed to an accountable individual and reconstructed after the fact").
 - A **risk/benefit rationale** (what business harm occurs if it is absent).
-- A **metric and target** — the measurement approach and the threshold for
+- A **metric and target**: the measurement approach and the threshold for
   "good enough" (e.g. "95% of privileged actions reconstructable within 15
   minutes"). SABSA insists attributes be made measurable; unmeasurable
   attributes cannot be governed.
@@ -2841,14 +2841,14 @@ Two modeling constructs do most of the architectural work:
 - **Trust Modeling.** SABSA treats trust as a directional, non-transitive
   relationship between domains and models it explicitly: *A trusts B to do X
   under conditions Y*. Making trust relationships explicit exposes implicit,
-  unearned trust — the root of most lateral-movement (ATT&CK TA0008) and
+  unearned trust: the root of most lateral-movement (ATT&CK TA0008) and
   supply-chain exposure.
 
 **Vulnerability-exposure link.** Because every control traces to a measured
 business attribute, SABSA gives a vulnerability-management program a
 defensible basis for *risk-based* remediation: a vulnerability on an asset
 supporting a high-target *Confidential*/*Available* attribute is prioritized by
-business impact, not CVSS base score alone — the same logic as EPSS/SSVC
+business impact, not CVSS base score alone: the same logic as EPSS/SSVC
 stakeholder-specific triage, anchored to the architecture's own attribute
 profile.
 
@@ -2890,7 +2890,7 @@ map to. It differs from the Microsoft model in structure: **five pillars**,
 Architectural implications worth designing to:
 
 - Pillars are allowed to mature **at different rates**, but the three
-  cross-cutting capabilities are the glue — an organization at "Advanced"
+  cross-cutting capabilities are the glue: an organization at "Advanced"
   Identity but "Traditional" Visibility cannot make dynamic per-request
   decisions because the Policy Engine (Section 2.2) is starved of telemetry.
   Treat Visibility & Analytics as a first-class architecture concern, not an
@@ -2899,11 +2899,11 @@ Architectural implications worth designing to:
   exception management, and policy-as-code belong in the reference
   architecture, not in a runbook.
 
-**Verify** the current published version before citing in a deliverable —
+**Verify** the current published version before citing in a deliverable:
 confirm whether CISA has superseded v2.0 and check the live status of the
 cisa.gov ZTMM page (it has at times been marked archived).
 
-### 12.2 NIST SP 1800-35 — Implementing a Zero Trust Architecture
+### 12.2 NIST SP 1800-35: Implementing a Zero Trust Architecture
 
 NIST's NCCoE finalized **SP 1800-35, *Implementing a Zero Trust
 Architecture*, in June 2025**. Where SP 800-207 is conceptual, 1800-35 is a
@@ -2913,7 +2913,7 @@ controls each build satisfies.
 
 Use it as an architecture pattern catalogue: each build shows a concrete
 realization of the PE/PA/PEP triad (Section 2.2) using specific product
-categories — EDR + ICAM + SASE/ZTNA + microsegmentation + SIEM/SOAR — with the
+categories (EDR + ICAM + SASE/ZTNA + microsegmentation + SIEM/SOAR) with the
 integration points and data flows made explicit. For greenfield ZTA work it
 shortens the gap between the 800-207 abstraction and a buildable design;
 confirm the specific build that most resembles the target estate (SaaS-heavy,
@@ -2927,7 +2927,7 @@ Most of this reference describes how to *add* security to a system. CISA's
 Secure-by-Design movement inverts the burden: the architecture should make the
 secure path the default and the only one that requires no extra work. For a
 threat-informed library this is the design-time counterpart to
-vulnerability management — it reduces the rate at which exploitable classes of
+vulnerability management: it reduces the rate at which exploitable classes of
 defect are introduced at all.
 
 ### 13.1 The Three Core Principles (CISA, "Shifting the Balance")
@@ -2947,7 +2947,7 @@ of Cybersecurity Risk: Principles and Approaches for Secure by Design* in April
    (VDP), SBOMs, and secure-by-design roadmaps. Transparency about root cause
    feeds the vulnerability-management program's trend analysis.
 3. **Lead from the top.** Security is an executive business priority with a
-   named owner, not delegated solely to technical staff — mirroring SABSA's
+   named owner, not delegated solely to technical staff: mirroring SABSA's
    Contextual layer and the CISO's accountability for architecture.
 
 ### 13.2 Secure-by-Default: Product Properties to Architect In
@@ -2968,22 +2968,22 @@ architecture selects or builds:
 
 ### 13.3 Programmatic Hooks and Related Guidance
 
-- **Secure by Design Pledge** — a voluntary pledge launched at RSAC May 2024,
+- **Secure by Design Pledge**: a voluntary pledge launched at RSAC May 2024,
   with goal areas spanning MFA, default-password elimination, reducing entire
   vulnerability classes, security-patch uptake, VDPs, CVE completeness, and
   evidence of intrusions. **Verify** the current goal set and signatory count
   before quoting figures.
-- **Product Security Bad Practices** (CISA/FBI, updated January 2025) — the
+- **Product Security Bad Practices** (CISA/FBI, updated January 2025): the
   inverse list: anti-patterns to prohibit in architecture reviews (use of
   memory-unsafe languages for new code in critical functions, default
   passwords, known-exploited vulnerabilities left unpatched). A useful
   checklist to fold into the SARB (Section 10.2) and the anti-pattern table
   (Section 10.4).
-- **Choosing Secure and Verifiable Technologies** (2024) — secure-by-design
+- **Choosing Secure and Verifiable Technologies** (2024): secure-by-design
   criteria for *procurement*, turning these principles into acquisition gates.
 - Note the separate **CIS/SAFECode *Secure by Design* assessment guide v1.1**
   (industry, 2026) as a measurable evaluation framework; it is distinct from
-  CISA guidance — do not conflate the two.
+  CISA guidance: do not conflate the two.
 
 **Architectural takeaway:** encode these as non-negotiable **fitness
 functions** in CI/CD and in the architecture decision records (Section 1.5):
@@ -3002,7 +3002,7 @@ the **identity-first** enterprise and the **converged OT/IT** environment.
 ### 14.1 Identity-First Reference Architecture
 
 When the perimeter dissolves (SaaS, remote work, multi-cloud), **identity
-becomes the primary control plane** — the enforcement surface that every
+becomes the primary control plane**: the enforcement surface that every
 request crosses. The reference pattern:
 
 ```
@@ -3025,7 +3025,7 @@ Design principles and the threats they retire:
 - **No standing privilege.** PAM with JIT/JEA removes persistent admin rights,
   shrinking the window for T1078/T1098; mitigation M1026.
 - **ITDR** monitors the identity fabric itself (Entra/AD, federation) for
-  abuse — token theft, illicit consent grants, federation trust manipulation
+  abuse: token theft, illicit consent grants, federation trust manipulation
   (T1484, T1550, T1649). Identity is now a monitored asset, not just an
   enabler.
 - **Workload identity everywhere** (SPIFFE/SPIRE, cloud managed identities)
@@ -3038,12 +3038,12 @@ Design principles and the threats they retire:
 network-reachable vulnerabilities into non-reachable ones: an unpatched
 internal service exposed only through an identity-aware proxy with
 deny-by-default policy is not internet-exploitable even while a patch is
-pending — the architecture *is* the compensating control (Section 18).
+pending: the architecture *is* the compensating control (Section 18).
 
 ### 14.2 OT/IT Convergence Reference Architecture
 
 OT (ICS/SCADA) environments prioritize **safety and availability** over
-confidentiality and carry long-lived, often unpatchable assets — exactly where
+confidentiality and carry long-lived, often unpatchable assets: exactly where
 architecture must substitute for patching.
 
 **Purdue Reference Model (layered):**
@@ -3051,7 +3051,7 @@ architecture must substitute for patching.
 ```
    Level 5   Enterprise network (ERP, email, internet)           ─┐ IT
    Level 4   Site business / logistics                           ─┘
-   ───────── Industrial DMZ (IDMZ) — brokered, no direct L3↔L4 ───── boundary
+   ───────── Industrial DMZ (IDMZ): brokered, no direct L3↔L4 ────── boundary
    Level 3   Site operations: MES, historians, domain services   ─┐
    Level 2   Area supervisory control: HMIs, SCADA               │ OT
    Level 1   Basic control: PLCs, RTUs, controllers              │
@@ -3065,7 +3065,7 @@ architecture must substitute for patching.
   resources), defined in IEC 62443-3-2 (risk assessment / zone & conduit
   design) and 62443-1-1 (concepts).
 - **Conduits** are the *only* sanctioned communication paths between zones and
-  enforce exactly which traffic may cross — the OT equivalent of a
+  enforce exactly which traffic may cross: the OT equivalent of a
   microsegmentation policy. Pair with **NIST SP 800-82** (Guide to OT
   Security) for U.S. control mappings.
 
@@ -3073,18 +3073,18 @@ Convergence design rules:
 
 - The **IDMZ** brokers all L3↔L4 traffic (replication to historians, patch
   distribution, remote access) so no enterprise host talks directly to control
-  systems — contains T1190/T1210 propagation from IT into OT (the TRITON and
+  systems: contains T1190/T1210 propagation from IT into OT (the TRITON and
   many ransomware-into-OT incidents crossed exactly this boundary).
 - **Zero Trust applied to OT with care:** a Level 3 engineering workstation
   should authenticate and be authorized before reaching a Level 1 PLC, but
   enforcement must never add latency or a failure mode to safety-critical
-  control loops — prefer out-of-band verification and read-only monitoring
+  control loops: prefer out-of-band verification and read-only monitoring
   (passive taps, OT-aware NDR) over inline enforcement on the process bus.
 - **Unidirectional gateways (data diodes)** for historian/telemetry egress
   where any inbound path is unacceptable (e.g. nuclear/utility safety zones).
 - Legacy/unpatchable assets live in tightly conduited zones with compensating
   controls (application allowlisting, protocol-aware filtering) standing in
-  for patches — the explicit OT case of Section 18.
+  for patches: the explicit OT case of Section 18.
 
 **Currency note:** the classic Purdue DMZ is under pressure as IT/OT converge;
 proposed refinements split the DMZ or add cloud-brokered access. Treat Purdue
@@ -3096,7 +3096,7 @@ and site-specific safety requirements before committing a design.
 ## 15. Plane Separation: Control, Management, and Data Plane Design
 
 Defense-in-depth (Section 1.1) layers controls by *proximity to the asset*.
-Plane separation layers them by *function* — distinguishing the traffic and
+Plane separation layers them by *function*: distinguishing the traffic and
 systems that **decide and configure** from those that **carry workload**. It is
 the architectural principle behind both Zero Trust's PE/PA/PEP split
 (Section 2.2) and the Enterprise Access Model (Section 17).
@@ -3106,7 +3106,7 @@ the architectural principle behind both Zero Trust's PE/PA/PEP split
 | Plane | Carries | Examples | Compromise impact |
 |---|---|---|---|
 | **Data (forwarding) plane** | Workload/user traffic and data | App requests, DB queries, east-west service traffic | Loss of the data transiting it |
-| **Control plane** | The decisions that govern the data plane | Routing protocols, IdP/policy engine, Kubernetes API server, cloud Resource Manager/IAM, AD/domain | **Total** — control of *all* governed resources |
+| **Control plane** | The decisions that govern the data plane | Routing protocols, IdP/policy engine, Kubernetes API server, cloud Resource Manager/IAM, AD/domain | **Total**: control of *all* governed resources |
 | **Management plane** | Administration, config, telemetry of infrastructure | SSH/RDP/WinRM, out-of-band (iLO/IPMI), IaC pipelines, hypervisor mgmt, config stores | Ability to reconfigure or disable controls |
 
 The governing rule: **the control and management planes are higher-trust than
@@ -3123,14 +3123,14 @@ tier model enforces.
   M1035 Limit Access to Resource Over Network).
 - **Privileged Access Workstations (PAWs) / secure admin hosts.** Control-plane
   administration occurs only from hardened, dedicated endpoints that never
-  browse the web or read email — breaking the phishing → workstation → domain
+  browse the web or read email: breaking the phishing → workstation → domain
   kill chain.
 - **Control-plane hardening in cloud.** The cloud control plane (AWS IAM/
   Organizations, Azure Resource Manager/Entra, GCP IAM/Org policies) is the
   crown jewel: protect it with SCPs/Org policies (Section 4.2–4.4), deny-by-
   default on sensitive APIs, break-glass-only exceptions, and immutable
   CloudTrail/activity logging. Control-plane log tampering is a defense-
-  impairment technique — verify the exact current ATT&CK tactic/technique name
+  impairment technique; verify the exact current ATT&CK tactic/technique name
   against live ATT&CK, as this area was recently renamed.
 - **Separate credentials and trust per plane.** An identity that administers
   the control plane must not be usable on the data plane (and vice versa).
@@ -3153,17 +3153,17 @@ mapping (Section 18).
 
 Section 1.3–1.4 maps STRIDE categories to requirements. This section is about
 doing threat modeling *on the architecture itself*, at design time, before code
-exists — the highest-leverage point to remove exposure.
+exists: the highest-leverage point to remove exposure.
 
 ### 16.1 Trust Boundaries as the Primary Artifact
 
 A **trust boundary** is any place where data or control crosses between
 principals, processes, or zones operating at different privilege or trust
 levels. Every DFD (Section 6.2) should make boundaries explicit, because
-**attacks concentrate at boundaries** — they are where STRIDE threats
+**attacks concentrate at boundaries**: they are where STRIDE threats
 materialize and where controls must live.
 
-Enumeration heuristic — draw a boundary wherever any of these change:
+Enumeration heuristic: draw a boundary wherever any of these change:
 
 - **Privilege** (user → admin; unauthenticated → authenticated).
 - **Trust domain / policy authority** (SABSA domains, Section 11.3; IEC 62443
@@ -3172,7 +3172,7 @@ Enumeration heuristic — draw a boundary wherever any of these change:
 - **Execution context** (host → container; function → managed service).
 - **Data sensitivity** (public → confidential, per the classification taxonomy,
   Section 6.1).
-- **Organizational ownership** (first-party → third-party/SaaS/API — the
+- **Organizational ownership** (first-party → third-party/SaaS/API: the
   supply-chain boundary).
 
 Each boundary gets the STRIDE lens and a named control:
@@ -3211,14 +3211,14 @@ Practice notes:
 
 - **AND nodes are where defense-in-depth pays off**: if every path to the goal
   requires an AND of two independent controls, single-control failure does not
-  reach the goal. The tree makes "independent" testable — two controls sharing
+  reach the goal. The tree makes "independent" testable: two controls sharing
   the same identity or the same management plane are *not* independent.
 - **Annotate leaves with ATT&CK technique IDs** so the design-time tree links
   to detections and to the ATT&CK→control mapping (Section 10.5). This
   connects architecture directly to SOC coverage (is there a detection for
   each un-blocked leaf?).
 - **Cost/feasibility annotation** (skill, time, detectability per leaf) turns
-  the tree into a prioritization tool — raise the cost of the cheapest path
+  the tree into a prioritization tool: raise the cost of the cheapest path
   first.
 - Combine with **LINDDUN** for privacy-relevant boundaries and **PASTA** when
   a business-impact-weighted, risk-centric process is required (both named in
@@ -3227,7 +3227,7 @@ Practice notes:
 **Vulnerability-exposure link.** An attack tree is the clearest way to show
 *why* a given unpatched vulnerability is or is not a real exposure: if every
 path that uses it also requires an AND node the architecture already blocks,
-the vulnerability is a lower remediation priority — and the tree is the
+the vulnerability is a lower remediation priority, and the tree is the
 evidence for that risk decision at the SARB (Section 10.2).
 
 ---
@@ -3235,7 +3235,7 @@ evidence for that risk decision at the SARB (Section 10.2).
 ## 17. Segmentation and Tiering: the Enterprise Access Model and Tier-0 Protection
 
 Microsegmentation (Section 2.4) handles *workload* east-west traffic. This
-section addresses *administrative* tiering — containing privilege escalation —
+section addresses *administrative* tiering (containing privilege escalation),
 which is the single most common root cause of full-domain compromise.
 
 ### 17.1 The Legacy AD Tier Model (still relevant for on-prem AD)
@@ -3246,19 +3246,19 @@ the sensitivity of what they control, enforcing a Biba-style integrity rule:
 
 | Tier | Scope | Examples |
 |---|---|---|
-| **Tier 0** | Identity control plane — assets that can control the whole environment | Domain controllers, AD FS, AD CS, Entra Connect, PKI, backup of the above |
+| **Tier 0** | Identity control plane: assets that can control the whole environment | Domain controllers, AD FS, AD CS, Entra Connect, PKI, backup of the above |
 | **Tier 1** | Server/application admins | Member servers, business applications, databases |
 | **Tier 2** | Workstation/device admins | User endpoints, helpdesk |
 
 The rule that matters: a Tier-0 credential must **never** log on to a Tier-1 or
-Tier-2 host (where it can be harvested — ATT&CK T1003 OS Credential Dumping,
+Tier-2 host (where it can be harvested: ATT&CK T1003 OS Credential Dumping,
 T1550), and lower-tier admins must not control Tier-0 assets. Most
 "Domain Admin in 20 minutes" paths are a violation of this one rule.
 
-### 17.2 Tier 0 — Definition and Protection
+### 17.2 Tier 0: Definition and Protection
 
 **Tier 0 is the set of assets whose compromise equals compromise of the entire
-identity/security domain** — directly or through a control relationship. Define
+identity/security domain**: directly or through a control relationship. Define
 it by *reachability of control*, not by a static list: any principal or object
 with a privileged ACL path to a DC (e.g. via `GenericAll`/`GenericWrite`,
 resource-based constrained delegation, or an ADCS misconfiguration) is Tier 0,
@@ -3267,7 +3267,7 @@ even if not obviously so.
 > Caution when reasoning about rights: `GenericAll`/`GenericWrite` are
 > **masks over the underlying read/write bits**, so determining whether a
 > principal is effectively Tier 0 requires testing for full containment of the
-> dangerous rights, not a name match — a near-miss here silently misclassifies
+> dangerous rights, not a name match: a near-miss here silently misclassifies
 > an attack path. (BloodHound/attack-path tooling is the practical way to
 > enumerate the real Tier-0 set.)
 
@@ -3275,9 +3275,9 @@ Tier-0 protection controls: dedicated PAWs (Section 15.2), authentication
 policies/silos to bind Tier-0 credentials to Tier-0 hosts, LAPS for local
 admin, tiered PKI, protected-users group, aggressive privileged-logon
 monitoring, and treating ADCS/Entra Connect as Tier 0 explicitly (common blind
-spots — ESC-series ADCS abuse, T1649 forged certificates).
+spots: ESC-series ADCS abuse, T1649 forged certificates).
 
-### 17.3 The Enterprise Access Model (EAM) — the Modern Successor
+### 17.3 The Enterprise Access Model (EAM): the Modern Successor
 
 Microsoft's **Enterprise Access Model supersedes the legacy tier model**,
 extending it from on-prem AD to the full modern estate (multi-cloud, SaaS,
@@ -3286,7 +3286,7 @@ B2B/B2C, OT). The mapping:
 ```
    Legacy Tier 0 ───────────────────►  CONTROL PLANE
                                         (expanded: identity systems AND any
-                                         other control point — incl. networking
+                                         other control point: incl. networking
                                          where it is the only access control,
                                          e.g. legacy OT)
    Legacy Tier 1 ───────────────────►  MANAGEMENT PLANE   (enterprise-wide IT
@@ -3301,7 +3301,7 @@ Core EAM rules, which generalize the tier rule into the plane model
 
 - **Enforce the hierarchy:** higher planes are never controlled from lower
   planes, whether by attack or by abuse of a legitimate process.
-- **Privileged access is a security boundary** in its own right — treat the
+- **Privileged access is a security boundary** in its own right: treat the
   path to administer the control plane as the primary thing to protect.
 - **Continuous auditing and anomaly monitoring** across planes feeds the Zero
   Trust Policy Engine and the visibility capability (Section 12.1).
@@ -3310,7 +3310,7 @@ Core EAM rules, which generalize the tier rule into the plane model
 even with an unpatched RCE on a Tier-1 server, strict tiering means that
 foothold cannot *by design* escalate to the control plane, so the blast radius
 is bounded to Tier 1. The remediation program can therefore prioritize by
-plane — a Tier-0/control-plane vulnerability is categorically more urgent than
+plane: a Tier-0/control-plane vulnerability is categorically more urgent than
 the same CVE on a data-plane host. Make that plane attribute a field in the
 vulnerability-management risk score.
 
@@ -3324,7 +3324,7 @@ to treat architectural decisions as first-class compensating controls inside a
 vulnerability-management (VM) program, so remediation is prioritized by real
 exploitability, not by scanner severity alone.
 
-### 18.1 The Exploitability Chain — Where Architecture Intervenes
+### 18.1 The Exploitability Chain: Where Architecture Intervenes
 
 A vulnerability becomes risk only when an adversary can **reach** it,
 **exploit** it, and **act** on the result. Architecture attenuates every term:
@@ -3345,7 +3345,7 @@ A vulnerability becomes risk only when an adversary can **reach** it,
 
 A vulnerability whose only network path is severed by an identity-aware proxy,
 or whose host sits in a deny-by-default microsegment, is **not currently
-exploitable** — a legitimate, documentable risk-treatment decision while a
+exploitable**: a legitimate, documentable risk-treatment decision while a
 patch is scheduled.
 
 ### 18.2 Mapping Decisions to the VM Program
@@ -3364,7 +3364,7 @@ prioritizes correctly:
 
 This aligns naturally with **SSVC** (stakeholder-specific vulnerability
 categorization: *exploitation status, exposure, automatability, mission/
-well-being impact*) — each SSVC decision point has an architectural input above.
+well-being impact*): each SSVC decision point has an architectural input above.
 
 ### 18.3 Using and Documenting Compensating Controls
 
@@ -3393,7 +3393,7 @@ eliminates bug classes, isolates by plane and tier (Sections 15, 17), makes
 identity the enforcement surface (Section 14.1), and traces every control to a
 measured business risk (Section 11) produces fewer vulnerabilities, fewer that
 are reachable, and fewer still that can spread. Architecture is not downstream
-of the VM program — it is its most durable control.
+of the VM program: it is its most durable control.
 
 <!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
 

@@ -644,11 +644,11 @@ Access Reviews:          Periodic review of active/eligible assignments
 Entra ID Connect (Hybrid Sync):
 ```
 Security Considerations:
-  - Sync account has DCSync rights in AD — protect it like a Tier 0 asset
+  - Sync account has DCSync rights in AD: protect it like a Tier 0 asset
   - Pass-through Authentication agent has access to AD DCs
-  - Password writeback — cloud can reset AD passwords; review if desired
-  - Seamless SSO computer account (AZUREADSSOACC$) — protect this account
-  - Staging mode — second server; test sync before cutover
+  - Password writeback: cloud can reset AD passwords; review if desired
+  - Seamless SSO computer account (AZUREADSSOACC$): protect this account
+  - Staging mode: second server; test sync before cutover
 ```
 
 ### Okta
@@ -792,8 +792,8 @@ Lateral Movement:     Stolen admin credential → pivot across entire network se
 Privilege Escalation: Service account → Domain Admin via misconfigured delegation
 Credential Theft:     Pass-the-hash (NTLM), Pass-the-ticket (Kerberos TGT/TGS)
 Insider Threat:       Authorized admin abuses access (no peer review, no recording)
-Kerberoasting:        SPN accounts — request TGS ticket, crack offline
-AS-REP Roasting:      Accounts with pre-auth disabled — crack hash offline
+Kerberoasting:        SPN accounts, request TGS ticket, crack offline
+AS-REP Roasting:      Accounts with pre-auth disabled, crack hash offline
 ```
 
 ### Enterprise PAM Platforms
@@ -867,14 +867,14 @@ Safeguard for Privileged Analytics:  Behavioral analytics
 
 AWS:
 ```bash
-# STS — Short-Lived Credentials
+# STS: Short-Lived Credentials
 aws sts assume-role   --role-arn arn:aws:iam::123456789:role/SecurityAudit   --role-session-name incident-response-alice   --duration-seconds 3600
 
-# IAM Identity Center (SSO) — Centralized access
+# IAM Identity Center (SSO): Centralized access
 # Users authenticate via IdP → assume permission sets
 # No long-term access keys; session-based
 
-# Secrets Manager — Credential Rotation
+# Secrets Manager: Credential Rotation
 aws secretsmanager rotate-secret   --secret-id prod/database/admin   --rotation-lambda-arn arn:aws:lambda:...:RotateSecret
 ```
 
@@ -1001,7 +1001,7 @@ Step 3:   Previous department roles removed (default: remove all old roles)
 Step 4:   Trigger certification campaign for any retained access
 Step 5:   Manager must re-approve retained access within 5 days
 Step 6:   Provision new apps; de-provision apps no longer needed
-Risk:     "Accumulation of access" — roles accumulate across multiple moves
+Risk:     "Accumulation of access"; roles accumulate across multiple moves
 ```
 
 Leaver Process:
@@ -1146,7 +1146,7 @@ def find_orphans(hr_employees: set, idp_users: list) -> list:
 ### BeyondCorp Model (Google)
 
 ```
-Traditional Model:  "Trust but verify" — VPN grants network access → implicit trust
+Traditional Model:  "Trust but verify", VPN grants network access → implicit trust
 BeyondCorp Model:   "Never trust, always verify"
 
 Components:
@@ -1272,7 +1272,7 @@ Session Duration        Unusually long or active session   Low
 Resource Sensitivity    Classification of requested data   High
 
 Continuous Access Evaluation (CAE):
-  CAEP (Continuous Access Evaluation Protocol) — SSE standard
+  CAEP (Continuous Access Evaluation Protocol): SSE standard
   IdP pushes revocation events to resource server in near-real-time
   Events: user disabled, password changed, MFA revoked, high risk
   Resource server terminates active sessions within seconds
@@ -1383,7 +1383,7 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::123456789:role/GitHubActionsDeployRole
           aws-region: us-east-1
-          # No access keys needed — OIDC token exchanged for STS credentials
+          # No access keys needed: OIDC token exchanged for STS credentials
 ```
 
 AWS IAM Trust Policy for GitHub OIDC:
@@ -1478,7 +1478,7 @@ def lambda_handler(event, context):
 
 Detecting Hardcoded Secrets in CI/CD:
 ```yaml
-# GitHub Actions — Secret Scanning with Gitleaks
+# GitHub Actions: Secret Scanning with Gitleaks
 - name: Scan for hardcoded secrets
   uses: gitleaks/gitleaks-action@v2
   env:
@@ -1609,7 +1609,7 @@ Mitigations:
   - Number matching (user must enter code shown at login)
   - Additional context (show app, location, device in push)
   - Velocity limiting (max 5 push attempts per 10 minutes)
-  - Okta: FastPass (FIDO2) — no push; phishing resistant
+  - Okta: FastPass (FIDO2), no push; phishing resistant
 ```
 
 4. Service Account Interactive Login
@@ -1791,12 +1791,12 @@ PCI DSS v4.0, Requirements 7 & 8:
 
 HIPAA, §164.312(a)(1), Technical Safeguards:
 ```
-§164.312(a)(2)(i):  Unique user identification — assign unique name/number
-§164.312(a)(2)(ii): Emergency access procedure — break-glass documented
-§164.312(a)(2)(iii): Automatic logoff — session timeout required
-§164.312(a)(2)(iv): Encryption/decryption — protect ePHI in transit/at rest
-§164.312(b):         Audit controls — record/examine activity in systems with ePHI
-§164.312(d):         Person or entity authentication — verify user identity
+§164.312(a)(2)(i):  Unique user identification, assign unique name/number
+§164.312(a)(2)(ii): Emergency access procedure, break-glass documented
+§164.312(a)(2)(iii): Automatic logoff, session timeout required
+§164.312(a)(2)(iv): Encryption/decryption, protect ePHI in transit/at rest
+§164.312(b):         Audit controls, record/examine activity in systems with ePHI
+§164.312(d):         Person or entity authentication; verify user identity
 ```
 
 NIST SP 800-53, AC Control Family:
@@ -1891,7 +1891,7 @@ Verifiable Credentials (VC):
   JSON-LD format; selective disclosure with BBS+ signatures
   Use cases: digital driver's license, employee badge, educational credential
 
-Status: Emerging — limited enterprise adoption; government-led (EU Digital Identity Wallet)
+Status: Emerging, limited enterprise adoption; government-led (EU Digital Identity Wallet)
 ```
 
 CAEP (Continuous Access Evaluation Protocol):

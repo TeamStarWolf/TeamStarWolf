@@ -4,6 +4,55 @@
 
 [All case studies](/case-studies/README.md) · Related: [Notable Incidents](/NOTABLE_INCIDENTS.md), [Malware Families](/MALWARE_FAMILIES.md), [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md), [CVE Reference](/CVE_REFERENCE.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+ICS and OT security engineers, threat intelligence analysts and students of cyber conflict
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 48 min (11,022 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You want the evidence-graded record of how Stuxnet worked and what it targeted, you defend industrial control systems, or you need the attribution and policy record and the legacy it left
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Executive summary](#executive-summary), [Part 1: the technical record](#part-1-the-technical-record), [Part 4: the defender view and legacy](#part-4-the-defender-view-and-legacy)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md), [Malware Families](/MALWARE_FAMILIES.md), [Industrial Control System Attacks and Advisories, 2024 to 2026: Incidents, CVEs and Attribution](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Executive summary
 
 Stuxnet is the incident that taught the industrial-control community its hardest lesson: a plant that is not connected to the internet can still be reached, and a controller that looks healthy on the engineering screen can be running someone else's code. It was a Windows worm with a second payload written for Siemens programmable logic controllers (PLCs). It crossed air gaps on USB drives, used four zero-day exploits (two to spread, two to raise its privileges) plus the older MS08-067 bug, signed its drivers with compromised code-signing certificates, and rewrote the logic on a narrowly defined set of PLCs that drive frequency converters. While the sabotage ran, it played recorded "normal" process values back to the operators. Symantec, whose W32.Stuxnet Dossier remains the reference analysis, described its goal as reprogramming industrial control systems and hiding those changes from the people running them [1] (**Confirmed**).

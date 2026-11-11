@@ -1,49 +1,98 @@
 # Tanium
 
-*Tanium Inc. · Converged / Autonomous Endpoint Management (XEM/AEM) — unified IT operations, patching, compliance and endpoint security on one real-time platform*
+*Tanium Inc. · Converged / Autonomous Endpoint Management (XEM/AEM): unified IT operations, patching, compliance and endpoint security on one real-time platform*
 
 Tanium is a single-agent platform that unifies IT operations and security operations, giving real-time visibility and control over every managed endpoint at enterprise scale. Its linear-chain peer-to-peer architecture lets a central server query and act on hundreds of thousands of endpoints in seconds, which is the basis for its vulnerability, patch and compliance capabilities. Tanium's current positioning is Autonomous Endpoint Management (AEM), evolving the earlier Converged Endpoint Management (XEM) brand toward AI-driven, recommendation-and-automation-led operations. It solves the fragmentation and stale-data problem of running separate discovery, patch, vuln-scan, compliance and EDR tools.
+
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the endpoint management and security operations teams who run Tanium
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,198 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what Tanium can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md), [Enterprise Security Controls](/ENTERPRISE_SECURITY_CONTROLS.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Windows Hardening GPO Reference](/WINDOWS_HARDENING_GPO.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 ## Capabilities & architecture
 
 **Core capabilities**
-- Tanium Patch — OS patching for Windows, macOS and Linux with real-time deployment status
-- Tanium Comply — vulnerability scanning (CVE) and configuration/compliance assessment (CIS, DISA STIG, custom benchmarks)
-- Tanium Deploy — third-party application deployment and continuous software updating
-- Tanium Discover — active and passive discovery of managed and unmanaged assets
-- Tanium Asset — hardware/software inventory, auditing and CMDB enrichment
-- Tanium Threat Response — EDR: detection, live investigation, hunting and response
-- Tanium Enforce — endpoint policy/configuration enforcement (firewall, BitLocker, AppLocker, etc.)
-- Tanium Impact — lateral-movement / privilege-exposure mapping
-- Tanium Reveal — sensitive-data discovery (DLP-style)
-- Tanium Integrity Monitor, Benchmark, Certificate Manager, SBOM — file integrity, config scoring, cert and software-bill-of-materials visibility
-- Tanium Automate — no-code orchestration/workflow automation
-- Tanium Ask — agentic AI assistant (launched Converge 2025) for natural-language troubleshooting and remediation
-- Tanium Performance — digital employee experience / endpoint performance monitoring
-- Autonomous Endpoint Management (AEM) engine — AI recommendations, peer-success benchmarking and automated/zero-touch actions driven by customer risk thresholds
+- Tanium Patch: OS patching for Windows, macOS and Linux with real-time deployment status
+- Tanium Comply: vulnerability scanning (CVE) and configuration/compliance assessment (CIS, DISA STIG, custom benchmarks)
+- Tanium Deploy: third-party application deployment and continuous software updating
+- Tanium Discover: active and passive discovery of managed and unmanaged assets
+- Tanium Asset: hardware/software inventory, auditing and CMDB enrichment
+- Tanium Threat Response: EDR: detection, live investigation, hunting and response
+- Tanium Enforce: endpoint policy/configuration enforcement (firewall, BitLocker, AppLocker, etc.)
+- Tanium Impact: lateral-movement / privilege-exposure mapping
+- Tanium Reveal: sensitive-data discovery (DLP-style)
+- Tanium Integrity Monitor, Benchmark, Certificate Manager, SBOM: file integrity, config scoring, cert and software-bill-of-materials visibility
+- Tanium Automate: no-code orchestration/workflow automation
+- Tanium Ask: agentic AI assistant (launched Converge 2025) for natural-language troubleshooting and remediation
+- Tanium Performance: digital employee experience / endpoint performance monitoring
+- Autonomous Endpoint Management (AEM) engine: AI recommendations, peer-success benchmarking and automated/zero-touch actions driven by customer risk thresholds
 
-**Architecture & deployment.** Agent-based. A lightweight Tanium Client on each endpoint forms a dynamic 'linear chain' peer-to-peer ring per network segment, so queries and actions propagate endpoint-to-endpoint rather than each agent calling home — this is what delivers 15-second-scale answers across very large estates with minimal bandwidth and few collectors. Delivered as Tanium Cloud (vendor-hosted SaaS, now the default) or as a customer-managed on-prem/private-cloud Core Platform server. Modules are activated on the same agent/console (no per-capability agent). Zones/edge servers relay to endpoints that cannot reach the core directly.
+**Architecture & deployment.** Agent-based. A lightweight Tanium Client on each endpoint forms a dynamic 'linear chain' peer-to-peer ring per network segment, so queries and actions propagate endpoint-to-endpoint rather than each agent calling home: this is what delivers 15-second-scale answers across very large estates with minimal bandwidth and few collectors. Delivered as Tanium Cloud (vendor-hosted SaaS, now the default) or as a customer-managed on-prem/private-cloud Core Platform server. Modules are activated on the same agent/console (no per-capability agent). Zones/edge servers relay to endpoints that cannot reach the core directly.
 
 **Editions & licensing.** Licensed per endpoint (seat) with modules packaged into solution bundles (e.g. Client Management = Discover, Patch, Deploy, Asset, Performance, Enforce, Provision; plus security bundles for Comply, Threat Response, Reveal, Impact, etc.). Bundles and included modules vary heavily by contract; AEM is the overarching subscription framing. New customers typically require a mandatory onboarding/deployment service. Pricing is quote-based via sales/channel.
 
-**Key integrations.** ServiceNow (deep bi-directional ITSM/CMDB; 2024 integration enables end-to-end and zero-touch patch workflows and the Tanium AI Agent for ServiceNow); Microsoft — Intune connector (added 2025), Sentinel, Defender, Entra; SIEM/SOAR — Splunk, Microsoft Sentinel, Palo Alto Cortex XSOAR; Cloud — AWS, Azure, GCP asset/data flows; Identity — Active Directory / Entra ID; Flexera, Qualys and other vuln/asset tools via connect/feed.
+**Key integrations.** ServiceNow (deep bi-directional ITSM/CMDB; 2024 integration enables end-to-end and zero-touch patch workflows and the Tanium AI Agent for ServiceNow); Microsoft: Intune connector (added 2025), Sentinel, Defender, Entra; SIEM/SOAR: Splunk, Microsoft Sentinel, Palo Alto Cortex XSOAR; Cloud: AWS, Azure, GCP asset/data flows; Identity: Active Directory / Entra ID; Flexera, Qualys and other vuln/asset tools via connect/feed.
 
 **Differentiators**
-- Real-time data at scale — seconds-fresh answers and actions across 100k+ endpoints via the linear-chain architecture, versus the stale snapshots of poll-and-aggregate tools
-- Single agent, single platform converging ITOps + SecOps (discovery, inventory, patch, config, compliance, EDR, DEX) — removes tool and data silos
-- Acts as both the scanner and the remediator — it can patch/deploy/enforce on the same endpoints it assesses, closing the find-to-fix loop natively
+- Real-time data at scale: seconds-fresh answers and actions across 100k+ endpoints via the linear-chain architecture, versus the stale snapshots of poll-and-aggregate tools
+- Single agent, single platform converging ITOps + SecOps (discovery, inventory, patch, config, compliance, EDR, DEX): removes tool and data silos
+- Acts as both the scanner and the remediator: it can patch/deploy/enforce on the same endpoints it assesses, closing the find-to-fix loop natively
 - AEM: AI recommendations with peer-success rates and risk-threshold-gated automation for zero-touch patching and self-healing
 
 **Limitations & considerations**
-- Heavy, consultative deployment — the linear-chain model, network zoning and tuning demand expertise and services; not a quick turn-up
-- Cost and packaging complexity — premium pricing and module bundling make it hard to know exactly what you are entitled to
-- Not a dedicated best-of-breed vuln scanner — Comply covers CVE/config assessment but lacks the depth, breadth of signatures and app-level/DAST coverage of Tenable/Qualys/Rapid7 for some use cases
+- Heavy, consultative deployment: the linear-chain model, network zoning and tuning demand expertise and services; not a quick turn-up
+- Cost and packaging complexity: premium pricing and module bundling make it hard to know exactly what you are entitled to
+- Not a dedicated best-of-breed vuln scanner: Comply covers CVE/config assessment but lacks the depth, breadth of signatures and app-level/DAST coverage of Tenable/Qualys/Rapid7 for some use cases
 - EDR (Threat Response) is capable but generally rated behind CrowdStrike/Defender as a standalone best-of-breed EDR
-- Agent-only — unmanaged/unagentable devices (many IoT/OT, appliances) need Discover plus other tooling; OT/PLC coverage is newer (2025)
+- Agent-only: unmanaged/unagentable devices (many IoT/OT, appliances) need Discover plus other tooling; OT/PLC coverage is newer (2025)
 
 ## Vulnerability-mitigation role
 
-Tanium is the fast-acting compensating/remediation control in the mitigation window: once a critical CVE is known, Comply identifies every affected (and crucially, every unknown/unmanaged) asset in near real time, and Patch/Deploy/Enforce apply the fix or a compensating configuration (disable a service, close a port via Enforce, remove/block a vulnerable app, deploy a vendor workaround script via Automate) across the whole estate within the same session — often hours, not weeks. Before a patch exists, Enforce and Automate deliver virtual-patch-style mitigations (config hardening, feature/registry changes, service disablement) and Threat Response detects exploitation attempts. The real-time loop means you can also validate that the mitigation actually landed on every endpoint.
+Tanium is the fast-acting compensating/remediation control in the mitigation window: once a critical CVE is known, Comply identifies every affected (and crucially, every unknown/unmanaged) asset in near real time, and Patch/Deploy/Enforce apply the fix or a compensating configuration (disable a service, close a port via Enforce, remove/block a vulnerable app, deploy a vendor workaround script via Automate) across the whole estate within the same session, often hours, not weeks. Before a patch exists, Enforce and Automate deliver virtual-patch-style mitigations (config hardening, feature/registry changes, service disablement) and Threat Response detects exploitation attempts. The real-time loop means you can also validate that the mitigation actually landed on every endpoint.
 
 **VM lifecycle:** Discover · Assess/Scan · Prioritize · Mitigate · Remediate/Patch · Validate · Monitor/Detect
 
@@ -66,7 +115,7 @@ Tanium is the fast-acting compensating/remediation control in the mitigation win
 **Control-presence check (present & configured?).** Agent present/healthy: Tanium Client service ('Tanium Client' / TaniumClient) running and recently registered: check the 'Client Status' sensor / last-registration time (an endpoint that answers questions is online). Module capability present: the Comply/Patch/Enforce CX tools must be deployed to the endpoint (check tool version via sensors; Comply 2.22 explicitly warns vuln findings stop reporting until CX tools are upgraded). Control configured: Comply = a benchmark/SCAP assessment assigned to the computer group on a schedule and returning findings; Patch = patch lists + deployment schedules/maintenance windows assigned; Enforce = policy assigned to the group with enforcement status populated. Query route: ask a Saved Question in-console, or via the Tanium REST API (/api/v2 questions, saved_questions, results), the Tanium GraphQL API (Core 7.5+), or the Enforce API (documented since Enforce 1.5). Confirm the Patch/Enforce REST field, sensor and endpoint names for your version in your own console before coding against them.
 
 **Validation signals (actually working?)**
-- Comply (effective config): a finding for a specific Test ID / Rule ID (CCE) flips state=fail -> pass (compliant) with Expected vs Actual value columns matching and First Found vs Last Scan timestamps advancing. Those investigation columns (Test ID, expected, actual) were added to the Comply (Findings) Connect source in Comply 2.17 — they are what distinguishes 'benchmark assigned' from 'setting actually applied on the box'.
+- Comply (effective config): a finding for a specific Test ID / Rule ID (CCE) flips state=fail -> pass (compliant) with Expected vs Actual value columns matching and First Found vs Last Scan timestamps advancing. Those investigation columns (Test ID, expected, actual) were added to the Comply (Findings) Connect source in Comply 2.17: they are what distinguishes 'benchmark assigned' from 'setting actually applied on the box'.
 - Patch (reachability removed): deployment status = Installed/success for the KB that fixes the CVE, reboot-pending satisfied, AND the KB drops out of the endpoint's 'needed patches' list. 'Deployed in a schedule' is NOT the effective signal; Installed + rebooted + no-longer-needed is.
 - Enforce (enforced not pending): enforcement status = Enforced (not Pending/Failed) for the policy on that endpoint; the per-policy Health page / 'action lock' condition confirms the policy is actually applied, not merely targeted.
 
@@ -75,7 +124,7 @@ Tanium is the fast-acting compensating/remediation control in the mitigation win
 - Patch sensors (confirm names): 'Patch - Applicable Patches', 'Patch - Installed Patches', 'Patch - Needed Patches', reboot/pending-reboot status.
 - Enforce: enforcement status field + action-lock condition; per-policy Health.
 - Collection sources in Connect: Saved Question, Tanium Comply (Findings), Client Status, Question Log, Audit, Event.
-- APIs: Tanium REST /api/v2 (questions/saved_questions/results), Tanium GraphQL API (Core 7.5+), Enforce API (since 1.5), Comply API. Splunk CIM target models: Change (patch state), Vulnerabilities, Compliance. Exact field/endpoint names drift by version — verify.
+- APIs: Tanium REST /api/v2 (questions/saved_questions/results), Tanium GraphQL API (Core 7.5+), Enforce API (since 1.5), Comply API. Splunk CIM target models: Change (patch state), Vulnerabilities, Compliance. Exact field/endpoint names drift by version; verify.
 
 **Example queries**
 
@@ -100,9 +149,9 @@ Get Patch - Needed Patches matching "KB5040000" from all machines   // empty res
 **How it mitigates (mechanism).** Comply enforces/attests a secure configuration state (the OS setting that neutralizes the weakness) and Patch removes the vulnerable code by installing the vendor fix (reachability removal); Enforce pushes and continuously re-applies the policy. The observable proof is the finding flipping to compliant, the KB leaving the 'needed' list after a reboot, and enforcement status = Enforced.
 
 **Logging gotchas**
-- 'Findings returned' depends on CX/module tools being current — Comply 2.20.x and earlier can silently stop reporting vuln findings until tools are upgraded; a quiet feed can look like 'compliant' when it is actually 'not assessed'.
-- Connect exports have known null First Found/Last Found dates and (in some releases) Remote Authenticated Scan findings exporting 0 rows — a blind spot that mimics 'no findings'.
-- No verified native CEF — if your SIEM needs CEF/LEEF you must transform JSON/syslog downstream; mapping errors here corrupt the rule id/CVE fields analysts key on.
+- 'Findings returned' depends on CX/module tools being current: Comply 2.20.x and earlier can silently stop reporting vuln findings until tools are upgraded; a quiet feed can look like 'compliant' when it is actually 'not assessed'.
+- Connect exports have known null First Found/Last Found dates and (in some releases) Remote Authenticated Scan findings exporting 0 rows: a blind spot that mimics 'no findings'.
+- No verified native CEF: if your SIEM needs CEF/LEEF you must transform JSON/syslog downstream; mapping errors here corrupt the rule id/CVE fields analysts key on.
 - Patch 'deployed' != 'installed+rebooted'; a pending-reboot host is still exploitable. Always pair deployment status with the needed-patch and reboot sensors.
 - Real-time questions reflect only currently-online endpoints; use TDS/saved questions for an offline host's last-known state or you will under-count exposure.
 
@@ -131,7 +180,7 @@ _Learning & reference_
 
 ## Current state (2025-26)
 
-VERIFIED 2025-2026: Tanium's current brand framing is Autonomous Endpoint Management (AEM) / Autonomous IT, evolving the prior Converged Endpoint Management (XEM) category. At Converge 2025 Tanium launched Tanium Ask (agentic AI for troubleshooting/remediation), added zero-touch patching and self-healing via the Tanium AI Agent for ServiceNow, added a Microsoft Intune connector, expanded Apple mobile device coverage, and added PLC/OT ICS management. Tanium Cloud (SaaS) is the default delivery. Company remains privately held (Orion Hindawi, CEO). Exact per-contract module bundles still vary — verify specific entitlements against the customer's order form.
+VERIFIED 2025-2026: Tanium's current brand framing is Autonomous Endpoint Management (AEM) / Autonomous IT, evolving the prior Converged Endpoint Management (XEM) category. At Converge 2025 Tanium launched Tanium Ask (agentic AI for troubleshooting/remediation), added zero-touch patching and self-healing via the Tanium AI Agent for ServiceNow, added a Microsoft Intune connector, expanded Apple mobile device coverage, and added PLC/OT ICS management. Tanium Cloud (SaaS) is the default delivery. Company remains privately held (Orion Hindawi, CEO). Exact per-contract module bundles still vary; verify specific entitlements against the customer's order form.
 
 ## Related pages
 

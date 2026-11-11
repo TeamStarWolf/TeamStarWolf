@@ -2,6 +2,55 @@
 
 gobuster is an open-source content and DNS discovery tool that brute-forces paths, subdomains, and virtual hosts using a wordlist. Penetration testers use it to find directories, files, and hostnames that are reachable but not linked. This page is for authorized testing: run it only against targets you own or have written permission to assess. Keep scope to lab systems or signed engagements, and respect any rate or traffic limits in the rules of engagement.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Penetration testers and bug bounty hunters who enumerate web paths, DNS names and virtual hosts on targets they are authorized to test
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 3 min (630 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the gobuster commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you are a defender who needs to spot it in use
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Detection and defense](#detection-and-defense)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [sqlmap Command Reference](/commands/sqlmap.md), [Nmap Command Reference](/commands/nmap.md), [curl Command Reference](/commands/curl.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 gobuster is a Go binary that sends many requests against a target and reports which ones return meaningful responses. It is a single static executable on Linux, macOS, and Windows, with no runtime dependencies. It works in modes: `dir` for web paths, `dns` for subdomains, `vhost` for virtual hosts, and `fuzz` for custom placeholder injection. Wordlist quality drives results, so pair it with lists such as those from SecLists.

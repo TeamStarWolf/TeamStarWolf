@@ -14,6 +14,55 @@ Erlang is a dynamically typed, functional language built for concurrent, distrib
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Elixir](/languages/elixir.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Erlang code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,508 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Erlang code (typical uses: telecommunications, messaging, databases, high-availability services), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Elixir](/languages/elixir.md), [Gleam](/languages/gleam.md), [Haskell](/languages/haskell.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Erlang was developed at Ericsson to program telephone exchanges, where the requirements were concurrency on a massive scale, tolerance of hardware and software faults, and the ability to upgrade running systems without downtime. These requirements shaped the language and its runtime more than any single paradigm did. Ericsson released Erlang as open source in 1998, and it is distributed together with the Open Telecom Platform (OTP), a set of libraries and design patterns for building reliable systems.
@@ -114,6 +163,29 @@ The BEAM is built for concurrency: it runs one scheduler per core by default, pr
 - Unbounded mailboxes: a process that cannot keep up with incoming messages grows its mailbox until memory runs out; apply back pressure and use selective receive carefully.
 - Large terms sent between processes are copied, so repeatedly passing big data structures is expensive.
 - NIFs that run too long or block stall the scheduler they run on; keep native calls short or use dirty schedulers.
+
+## Security relevance
+
+Erlang reaches security practitioners mainly as the implementation of high-availability infrastructure that defenders assess, and as a runtime whose distribution model forms a distinct attack surface. This section is the threat-facing context; the defensive patterns that counter each class are in the Secure coding section that follows.
+
+### Where it appears
+
+- High-availability infrastructure. Widely deployed systems are written in Erlang, including the [RabbitMQ](https://www.rabbitmq.com/) message broker, the [ejabberd](https://www.ejabberd.im/) messaging server, and the [Riak](https://riak.com/) and [CouchDB](https://couchdb.apache.org/) databases, so assessing or incident-responding to these services means reading Erlang.
+- Telecommunications and messaging back ends. The language was built for telephone exchanges and remains common in carrier and messaging systems that process untrusted external traffic.
+- Clustering and distribution. Erlang nodes connect into a cluster and exchange messages with the same primitives used locally, authenticated only by a shared cookie, so the distribution layer is a security-relevant surface in its own right. Erlang has little dedicated offensive tooling.
+
+### Dominant weakness classes
+
+Erlang is memory-safe (each process has its own garbage-collected heap on the BEAM), so the memory-corruption classes do not apply. The risks concern deserialization, resource exhaustion, and the trust placed in the distribution layer:
+
+- Unsafe deserialization. `binary_to_term/1` without the `[safe]` option reconstructs arbitrary terms, including new atoms and large structures, from attacker-controlled bytes. This is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- Resource exhaustion. Atoms are never garbage-collected and the atom table is fixed, so creating atoms from untrusted input can halt the node; unbounded process mailboxes are a second exhaustion path. This maps to [CWE-400](https://cwe.mitre.org/data/definitions/400.html).
+- Command and code execution. Passing untrusted strings to `os:cmd/1` runs shell commands, and the distribution cookie is in effect a shared secret: a node that learns it gains remote code execution against the cluster. These relate to [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Input validation at the boundary. Dynamic typing leaves message and request shapes unchecked until the code matches on them, which maps to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+
+### Why it matters
+
+Reading Erlang lets an analyst audit message-handling code for `binary_to_term` on untrusted data, check whether atoms are created from external input, and confirm how node distribution and its cookie are protected. [Dialyzer](https://www.erlang.org/doc/apps/dialyzer/dialyzer_chapter.html) performs static discrepancy analysis through success typing and `xref` checks cross-module references, as the Secure coding section details.
 
 ## Secure coding
 

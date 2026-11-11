@@ -14,6 +14,55 @@ Elm is a statically typed, purely functional language for building web front end
 
 Related: [JavaScript](/languages/javascript.md), [PureScript](/languages/purescript.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Elm code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,518 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Elm code (typical uses: browser user interfaces and single-page web applications), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[JavaScript](/languages/javascript.md), [PureScript](/languages/purescript.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Elm began as Evan Czaplicki's thesis work in 2012, exploring functional reactive programming for user interfaces. Over time it dropped the reactive-streams model in favor of the Elm Architecture: a single loop of model, update, and view that handles all state and effects. The language is deliberately small and curated, with a compiler that produces specific, readable error messages and a design that aims for "no run-time exceptions" in typical application code by making impossible states unrepresentable through types.
@@ -126,6 +175,29 @@ Elm compiles to JavaScript, so it runs on the same just-in-time engines with the
 - JSON from the network must be decoded with an explicit decoder; a mismatch surfaces as a handled `Result` error rather than a crash, which is safer but needs upfront work.
 - The pace of releases is slow; teams should not expect frequent language changes.
 - Modeling with custom types takes design effort initially, though it pays off in fewer invalid states later.
+
+## Security relevance
+
+Elm reaches security practitioners almost entirely as a front-end web technology: it compiles to JavaScript and runs in the browser, so an Elm application is assessed like any single-page application. This section is the threat-facing context; the defensive patterns that counter each class are in the Secure coding section that follows.
+
+### Where it appears
+
+- Web front ends. An Elm application is delivered as JavaScript, so its attack surface is the DOM it renders, the HTTP calls it makes, and any markup it injects. It is reviewed with the same methods as other browser code. See [Web Application Pentesting](/WEB_APPLICATION_PENTESTING.md) and the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Ports and JavaScript interop. Elm has little offensive tooling of its own; its security interest sits at the boundary where typed Elm values cross into hand-written [JavaScript](/languages/javascript.md) through ports and flags, which is where browser injection can re-enter.
+- Build pipeline. Elm output is bundled through the JavaScript toolchain, so an Elm project inherits the npm dependency supply chain for its build and any JavaScript it embeds.
+
+### Dominant weakness classes
+
+Elm is memory-safe (it inherits the garbage collection of the host JavaScript engine), so the memory-corruption classes do not apply. Purity and the absence of null and user-code exceptions also remove a class of run-time failures. What remains is specific to producing web pages:
+
+- Cross-site scripting through escape hatches. The `Html` module escapes text by default, but `Html.Attributes.property "innerHTML"` or markup passed out through a port bypasses that escaping, which reintroduces [CWE-79](https://cwe.mitre.org/data/definitions/79.html).
+- Improper validation at the port boundary. Data leaving the typed core for a JavaScript sink is no longer checked by the compiler, so an unvalidated value can reach a dangerous JavaScript function. This maps to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- Client-side trust. As with any front end, client-side checks are not a security control, and authorization and validation must be enforced on the server.
+- Dependency supply chain. The JavaScript bundle and build tooling pull from npm, the same exposure as any JavaScript project. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading Elm lets an analyst confirm where the typed core hands data to JavaScript through ports, which is the only place browser injection can re-enter an otherwise escaped application, and to check that no raw-HTML path carries untrusted data. The Elm compiler itself is the first static check; for the JavaScript that ports touch, [ESLint](https://eslint.org/) and [semgrep](https://semgrep.dev/) apply, as the Secure coding section details.
 
 ## Secure coding
 

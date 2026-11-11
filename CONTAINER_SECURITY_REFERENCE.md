@@ -194,7 +194,7 @@ Seccomp filters system calls at the kernel level. Docker's default profile block
 # Apply custom seccomp profile
 docker run --security-opt seccomp=/path/to/profile.json myapp:latest
 
-# Disable seccomp (dangerous — only for debugging)
+# Disable seccomp (dangerous, only for debugging)
 docker run --security-opt seccomp=unconfined myapp:latest
 
 # Use default Docker seccomp profile explicitly
@@ -503,7 +503,7 @@ COPY . .
 
 RUN CGO_ENABLED=0 GOOS=linux go build     -ldflags="-s -w -extldflags=-static"     -trimpath     -o /app/server ./cmd/server
 
-# Runtime stage — distroless for minimal attack surface
+# Runtime stage: distroless for minimal attack surface
 FROM gcr.io/distroless/static-debian12:nonroot
 
 LABEL org.opencontainers.image.source="https://github.com/org/repo"
@@ -745,7 +745,7 @@ snyk container test myapp:latest
 # Monitor (upload to Snyk platform)
 snyk container monitor myapp:latest
 
-# Fix — shows remediation
+# Fix: shows remediation
 snyk container test myapp:latest --file=Dockerfile
 
 # JSON output
@@ -1577,10 +1577,10 @@ promote_image dev.registry.io/myapp:v1.0 prod.registry.io/myapp:v1.0
 ### Anti-Patterns (Never Do These)
 
 ```dockerfile
-# DANGER 1: Secret in ENV — visible in docker inspect, docker ps, logs
+# DANGER 1: Secret in ENV; visible in docker inspect, docker ps, logs
 ENV DATABASE_PASSWORD=mysecretpassword
 
-# DANGER 2: Secret in ARG — baked into image layer history
+# DANGER 2: Secret in ARG, baked into image layer history
 ARG API_KEY=sk-prod-xxxxxxxxxxxx
 RUN curl -H "Authorization: Bearer $API_KEY" https://api.example.com/setup
 

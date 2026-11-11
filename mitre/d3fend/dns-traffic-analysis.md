@@ -33,8 +33,11 @@ Analysis of domain name metadata, including name and DNS records, to determine w
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [APT41: The Public Record, 2012 to 2026](/case-studies/APT41_PUBLIC_RECORD.md)
 - [Log4Shell (CVE-2021-44228): The Case Study](/case-studies/LOG4SHELL.md)
 - [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md)
+- [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md)
+- [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)
 
 <!-- library-refs:end -->
 

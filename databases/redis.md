@@ -2,6 +2,55 @@
 
 Redis is an in-memory key-value store and data-structure server. It keeps data in RAM for low-latency reads and writes, with optional persistence to disk. It is used for caching, session storage, rate limiting, queues, leaderboards, and pub/sub messaging.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Database administrators, developers and security engineers who run, query or assess Redis
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (889 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are modeling data or writing queries for Redis, you are administering or hardening a deployment, or you want a worked example to start from
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Data model and architecture](#data-model-and-architecture), [Security and hardening](#security-and-hardening), [A worked example](#a-worked-example)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [MongoDB](/databases/mongodb.md), [Apache Cassandra](/databases/cassandra.md), [Amazon DynamoDB](/databases/dynamodb.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 Redis maps keys to values, but the values are typed structures, not just blobs. A value can be a string, a hash, a list, a set, a sorted set, or a stream. Operations run as server-side commands against these structures.

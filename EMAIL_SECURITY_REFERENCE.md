@@ -551,7 +551,7 @@ whois phishing-domain.com
 # PhishTank lookup
 # https://www.phishtank.com
 
-# Shodan — check if IP hosts other phishing infra
+# Shodan: check if IP hosts other phishing infra
 shodan host 1.2.3.4
 ```
 
@@ -949,10 +949,10 @@ Authentication:
 
 Reconnaissance prevention:
 ```bash
-# Postfix — disable VRFY and EXPN
+# Postfix: disable VRFY and EXPN
 disable_vrfy_command = yes
 
-# Sendmail — disable EXPN/VRFY in sendmail.mc
+# Sendmail: disable EXPN/VRFY in sendmail.mc
 FEATURE(`noexpn')dnl
 FEATURE(`novrfy')dnl
 ```

@@ -2,6 +2,55 @@
 
 Django is a server-side web framework written in Python. It follows a Model-Template-View pattern and ships with an ORM, an admin site, and a strong security posture. Teams use it to build database-backed applications with batteries included, so authentication, forms, and migrations come in the box. It suits content sites, internal tools, and JSON APIs through Django REST Framework.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who build with Django, and the reviewers and application security engineers who assess what they build
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (936 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or reviewing a Django application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture](#architecture), [Security model and common vulnerabilities](#security-model-and-common-vulnerabilities), [Common pitfalls](#common-pitfalls)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Python](/languages/python.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [API Security Reference](/API_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Django grew out of a newspaper web operation in Lawrence, Kansas, and was released publicly in 2005. Its origins explain a focus on fast, content-heavy development and a reusable admin interface. The Django Software Foundation now stewards the project.

@@ -2,6 +2,55 @@
 
 Tanium is an endpoint management and security platform from Tanium. It uses a linear-chain, peer-to-peer architecture so that a single server can query and act on large endpoint estates in near real time. The platform spans vulnerability and compliance assessment, patching, software deployment, asset discovery, and threat response. Module availability depends on the licence and the modules entitled.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Endpoint management and security operations teams who run, tune or assess Tanium
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (961 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Tanium for endpoint management and security, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [CrowdStrike Falcon](/platforms/crowdstrike-falcon.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Tanium gives operations and security teams real-time visibility and control over endpoints at scale. One lightweight client runs on each endpoint, and the platform answers questions and runs actions across the estate in seconds rather than through slow, server-by-server polling. It fits where both IT operations and security need the same current state of every managed host.

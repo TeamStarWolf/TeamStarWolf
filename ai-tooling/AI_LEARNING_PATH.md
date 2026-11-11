@@ -2,11 +2,54 @@
 
 > In one minute: This is a nine-module study path for practitioners and builders who want to understand large language models (LLMs) and build with them: how they work, prompting, retrieval, agents and MCP, fine-tuning, evaluation, running models locally, and the security and governance basics. Each module gives a goal, what to learn, a short list of free resources from official sources, the tool manual pages to try, and the outcome you should reach. The security and governance modules are short on purpose and point to the library's deeper AI security references.
 
-| | |
-|---|---|
-| Read this when | you are new to building with LLMs; you are moving from security work into AI engineering and want the builder's view; you need a study plan for yourself or a team |
-| Start at | Module 1: Foundations: how LLMs work. If you already use LLMs every day, start at Module 3: Building LLM apps and RAG |
-| Pairs with | [AI Tools and LLMs Index](/ai-tooling/AI_TOOLS_INDEX.md), [AI Labs](/ai-tooling/AI_LABS.md), [AI & LLM Security discipline](/disciplines/ai-llm-security.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Practitioners and builders who want to understand large language models and build with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 14 min (3,214 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are new to building with LLMs, you are moving from security work into AI engineering and want the builder's view, or you need a study plan for yourself or a team
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[How to use this path](#how-to-use-this-path), [Module 1: Foundations: how LLMs work](#module-1-foundations-how-llms-work), [Module 3: Building LLM apps and RAG](#module-3-building-llm-apps-and-rag)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[AI Tools and LLMs Index](/ai-tooling/AI_TOOLS_INDEX.md), [AI Labs](/ai-tooling/AI_LABS.md), [AI & LLM Security discipline](/disciplines/ai-llm-security.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 > Links were opened and checked against official sources on 2026-10-08. This field changes monthly. If a page has moved or a course has changed, use the vendor's documentation index rather than an old copy.
 

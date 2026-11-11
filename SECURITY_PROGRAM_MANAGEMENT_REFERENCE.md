@@ -130,7 +130,7 @@ CISO
  ├── Application / Product Security (SDLC, AppSec, DevSecOps)
  ├── Governance, Risk & Compliance (policy, audit, TPRM, risk register)
  ├── Vulnerability & Threat Management (VM, threat intel, red/purple)
- └── Business Information Security Officers (BISOs — embedded in business units)
+ └── Business Information Security Officers (BISOs: embedded in business units)
 ```
 
 The three-lines model (IIA, 2020 update to the older "three lines of defense") keeps roles honest: first line = the business/IT owning and operating controls; second line = security/risk/compliance setting policy and challenging; third line = internal audit providing independent assurance. Keep the CISO in the second line and preserve internal audit's independence; a CISO who both builds and audits the same controls has no independent assurance.

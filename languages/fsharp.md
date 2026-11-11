@@ -14,6 +14,55 @@ F# is a statically typed, functional-first language on the .NET platform, create
 
 Related: [C#](/languages/csharp.md), [Visual Basic .NET](/languages/visual-basic-net.md), [Scala](/languages/scala.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain F# code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,208 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing F# code (typical uses: data analysis, financial modeling, back ends, domain modeling), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[C#](/languages/csharp.md), [Visual Basic .NET](/languages/visual-basic-net.md), [Scala](/languages/scala.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Don Syme and colleagues at Microsoft Research developed F# from the ML and OCaml tradition, with the first supported release in 2005 and integration into Visual Studio in 2010. It runs on the same .NET runtime as C# and Visual Basic, so F# code calls .NET libraries and vice versa. The language and compiler are open source under the [.NET Foundation](https://dotnetfoundation.org/), and the [F# Software Foundation](https://fsharp.org/) coordinates community work.
@@ -122,6 +171,29 @@ F# runs on the Common Language Runtime with the same just-in-time and ahead-of-t
 - Non-tail-recursive functions over large inputs overflow the stack; use accumulators or library folds.
 - Eagerly evaluating a large `seq` with `List.ofSeq` can exhaust memory; keep it lazy when possible.
 - Interop with C# null-returning APIs reintroduces null, which F# otherwise avoids; wrap boundaries in `Option`.
+
+## Security relevance
+
+F# reaches security practitioners as a .NET language: its applications share the runtime, base class library, and therefore the attack surface of [C#](/languages/csharp.md) and [Visual Basic .NET](/languages/visual-basic-net.md). This section is the threat-facing context; the defensive patterns that counter each class are in the Secure coding section that follows.
+
+### Where it appears
+
+- .NET back-end services. F# is used for back ends, data analysis, and financial and scientific modeling that run on the Common Language Runtime, so an F# service is assessed with the same methods and tooling as any other .NET application.
+- Shared .NET attack surface. Because F# calls the .NET base class library directly, the deserialization, XML, and data-access weaknesses that affect C# apply equally to F#.
+- Front-end and cross-platform code. Through [Fable](https://fable.io/), F# compiles to JavaScript, which moves part of an application into the browser. F# has little dedicated offensive tooling.
+
+### Dominant weakness classes
+
+F# is memory-safe (garbage-collected on the .NET managed heap), so the memory-corruption classes do not apply. Immutability and `Option` instead of null also remove a class of errors in pure F# code. What remains are the standard .NET application weaknesses, usually reached through the base class library:
+
+- Insecure deserialization. The obsolete `BinaryFormatter` reconstructs arbitrary objects from untrusted data, which is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- SQL injection. Building SQL by string interpolation rather than parameterized commands maps to [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- XML external entities. .NET XML readers with DTD processing enabled are exposed to [CWE-611](https://cwe.mitre.org/data/definitions/611.html).
+- Command injection. Passing a shell string rather than an argument list to a process maps to [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+
+### Why it matters
+
+Reading F# lets an analyst review .NET services for these classes, with particular attention to the C# interop boundary, where null-returning APIs and untyped data re-enter code that F# would otherwise keep safe. Roslyn-based .NET security analyzers run in the build and `dotnet list package --vulnerable` reports known-vulnerable dependencies, as the Secure coding section details.
 
 ## Secure coding
 

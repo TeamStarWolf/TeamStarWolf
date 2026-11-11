@@ -2,6 +2,55 @@
 
 NestJS is a server-side TypeScript framework for building scalable Node.js applications. It borrows its module system, dependency injection, and decorator style from Angular, then runs on top of an HTTP layer provided by Express or Fastify. The result is a structured, opinionated layer over Node that favors testable, loosely coupled components.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who build with NestJS, and the reviewers and application security engineers who assess what they build
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (1,015 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or reviewing a NestJS application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture](#architecture), [Security model and common vulnerabilities](#security-model-and-common-vulnerabilities), [Common pitfalls](#common-pitfalls)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[TypeScript](/languages/typescript.md), [JavaScript](/languages/javascript.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 NestJS appeared in 2017, created by Kamil Mysliwiec. It set out to give Node a consistent application architecture, since Express alone imposes almost no structure. The framework is written in TypeScript but supports plain JavaScript as well.

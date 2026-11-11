@@ -2,11 +2,54 @@
 
 > In one minute: Six hands-on labs that run entirely on your own machine: run an open-weight model with Ollama, build a small RAG over Markdown with Chroma, write a minimal MCP server, evaluate prompts with promptfoo, scan your own local model with garak, and add an input and output guardrail with Llama Guard. Every lab targets only software you run yourself, and every command and API call was checked against the tool's official documentation. Each lab lists its goal, prerequisites, steps, a check, safety notes and the matching tool manual pages.
 
-| | |
-|---|---|
-| Read this when | you want to practice the learning path with working code; you need a safe local setup for teaching, a workshop or a lunch-and-learn; you want a first, authorized look at how LLM scanners and guardrails behave |
-| Start at | Lab 1: Run an open-weight model locally with Ollama. Every other lab builds on it |
-| Pairs with | [AI and LLM Learning Path](/ai-tooling/AI_LEARNING_PATH.md), [AI Tools and LLMs Index](/ai-tooling/AI_TOOLS_INDEX.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Practitioners and builders who want to practice with LLM tools on their own machine
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 15 min (3,449 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You want to practice the learning path with working code, you need a safe local setup for teaching, a workshop or a lunch-and-learn, or you want a first, authorized look at how LLM scanners and guardrails behave
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Before you start](#before-you-start), [Lab 1: Run an open-weight model locally with Ollama](#lab-1-run-an-open-weight-model-locally-with-ollama), [Lab 5: Scan your own local model with garak](#lab-5-scan-your-own-local-model-with-garak)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[AI and LLM Learning Path](/ai-tooling/AI_LEARNING_PATH.md), [AI Tools and LLMs Index](/ai-tooling/AI_TOOLS_INDEX.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 > Commands and code were checked against official documentation on 2026-10-08. Versions checked: Ollama Python library 0.6.3, chromadb 1.5.9, MCP Python SDK 2.3.0, MCP Inspector 2.10.1, promptfoo 0.124.0, garak 0.17.0. The labs were not run end to end before publication. If a newer release changes a command, or a step fails, the tool's own docs win.
 
@@ -757,7 +800,7 @@ This lab uses Llama Guard through Ollama because it needs no extra framework. [N
 
 - Llama Guard is a classifier and makes mistakes in both directions. Its model card reports false positive rates that vary by language and warns that it may be vulnerable to adversarial or prompt injection attacks. Use it as one layer, not the only one.
 - Its 13 hazard categories (S1 to S13) follow the MLCommons taxonomy. They may not match your own policy, and they are not designed to recognize your organization's own sensitive data, such as internal hostnames or project names. Add your own checks for data you must protect.
-- A guardrail does not fix excessive agency. An agent with powerful tools still needs least privilege and human approval for risky actions.
+- A guardrail does not fix excessive agency. An agent with high-privilege tools still needs least privilege and human approval for risky actions.
 - Fail closed, as this code does, for anything high risk. A guard that silently passes traffic when it is down is not a control.
 - Logging blocked requests with full user text creates sensitive logs. Decide what you log and for how long.
 - Llama Guard 3 1B is released under the Llama 3.2 Community License. Check the terms before production use.

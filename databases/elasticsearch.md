@@ -2,6 +2,55 @@
 
 Elasticsearch is a distributed search and analytics engine built on Apache Lucene. It stores JSON documents, indexes every field by default, and answers full-text and aggregation queries over a REST API. Clusters scale horizontally by splitting data into shards spread across nodes. It anchors the Elastic Stack, where it holds the data that Kibana visualizes.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Database administrators, developers and security engineers who run, query or assess Elasticsearch
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (880 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are modeling data or writing queries for Elasticsearch, you are administering or hardening a deployment, or you want a worked example to start from
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Data model and architecture](#data-model-and-architecture), [Security and hardening](#security-and-hardening), [A worked example](#a-worked-example)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [ClickHouse](/databases/clickhouse.md), [MongoDB](/databases/mongodb.md), [Redis](/databases/redis.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 Elasticsearch began as a search server and grew into a store for logs, metrics, traces, and security events. Teams use it for application search, log analytics, observability, and SIEM-style threat detection. Its strength is fast text relevance scoring combined with aggregations over large volumes.

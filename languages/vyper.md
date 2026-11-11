@@ -14,6 +14,55 @@ Vyper is a statically typed, contract-oriented language for the Ethereum Virtual
 
 Related: [Solidity](/languages/solidity.md), [Move](/languages/move.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Vyper code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,612 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Vyper code (typical uses: smart contracts, decentralized finance, audited on-chain logic), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Solidity](/languages/solidity.md), [Move](/languages/move.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Vyper grew out of the Ethereum community as an alternative to Solidity, with a stated goal of auditability and security over expressiveness. Its syntax resembles Python, which makes contracts approachable to read, but the two languages are unrelated at the semantic level. The compiler and language are still evolving and, like Solidity, not always backward compatible across versions, so a contract is pinned to a compiler version with a `# pragma version` line.
@@ -132,6 +181,29 @@ As with Solidity, a deployed contract is usually immutable, so gas cost and beha
 - Compiler-version drift: a contract compiled with a different version can behave differently; pin the version and retest after upgrades.
 - Relying on a feature that was removed or changed between major versions (the language has reorganized decorators and syntax across releases).
 - Expecting broad static-analysis tooling; coverage is thinner than for Solidity, so tests and audits matter more.
+
+## Security relevance
+
+Vyper reaches security work almost entirely as an audit subject: contracts hold funds, run on a public chain, and are usually immutable once deployed, so reading the code before it ships is the main line of defense. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Decentralized finance contracts. Vyper is used for on-chain financial logic where auditability is a priority, and those contracts are high-value targets because a flaw can move real assets. See the [Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md).
+- Audited on-chain logic. The language deliberately omits inheritance, modifiers, inline assembly, and unbounded loops so that a reviewer can hold a whole contract in mind, which is why it appears in security review and formal analysis.
+- The compiler as part of the deployed system. Because a contract is pinned to a compiler version and that bytecode is what runs, the compiler itself is inside the trust boundary that an audit must consider.
+
+### Dominant weakness classes
+
+Vyper runs on the gas-metered Ethereum Virtual Machine with no manual memory and with overflow and bounds checks on by default, so the software memory-corruption classes do not apply. The high-consequence weaknesses are specific to smart contracts and to the toolchain:
+
+- Reentrancy. An external call can re-enter a function before its state is updated and drain value; this class has no clean CWE mapping and is described in the [Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md). The defense is the checks-effects-interactions order and the reentrancy guard.
+- Access-control errors. With no modifiers, every privileged function needs an explicit `assert` on the caller, and a missing check exposes privileged logic to anyone.
+- Integer overflow and underflow. Arithmetic is checked and reverts by default, which is [CWE-190](https://cwe.mitre.org/data/definitions/190.html); reaching for unchecked escape hatches reintroduces the risk.
+- Toolchain and supply chain. A compiler defect in the reentrancy lock of specific Vyper versions in 2023 contributed to the exploitation of several pools, a reminder that the pinned compiler version is a security-relevant dependency. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading Vyper is what the language is built for: its restrictions exist so an auditor can follow a whole contract and confirm that the access `assert`s and the checks-effects-interactions order are correct. Because static-analysis coverage is thinner than Solidity's, the practical assurance comes from reading the contract together with unit and fuzz tests in [Titanoboa](https://github.com/vyperlang/titanoboa) or [Foundry](https://getfoundry.sh/) and an independent audit before deploying value-bearing code.
 
 ## Secure coding
 

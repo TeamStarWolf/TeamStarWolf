@@ -14,6 +14,55 @@ Raku is a dynamically typed, garbage-collected, multi-paradigm language that beg
 
 Related: [Perl](/languages/perl.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Raku code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,299 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Raku code (typical uses: text processing, parsing, scripting, general-purpose programming), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Perl](/languages/perl.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Raku started in 2000 as a redesign of Perl, announced by Larry Wall, and spent many years in specification and implementation. The first stable language release arrived in 2015 under the name Perl 6. Because it is a separate language rather than a new version of Perl 5, the project renamed it Raku in 2019 to reduce confusion; the two languages now evolve independently.
@@ -121,6 +170,29 @@ Rakudo compiles to MoarVM bytecode, which includes a just-in-time compiler for h
 - Containers versus values: `@array` in a scalar context behaves differently than in Perl 5, so read the containerization rules before porting code.
 - The language is large, so two authors can solve a problem with different features; agree on a subset for shared code.
 - Lazy sequences can hold references longer than expected; force evaluation with `.eager` when you need all elements now.
+
+## Security relevance
+
+Raku reaches security practitioners much as its Perl predecessor does: as a text-processing and scripting language whose risks center on evaluation, shelling out, and parsing untrusted input, rather than as a body of offensive tooling. The defensive patterns that counter each weakness below are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Text processing and parsing. Raku's grammar engine makes it a choice for parsers and text transformation, where the input is often untrusted and parser behavior matters.
+- Scripting and automation. Like Perl, it is used for system scripting that invokes external programs and handles files. See [Perl](/languages/perl.md).
+- Web services. The Cro framework builds HTTP services and clients in Raku, which puts it behind a network interface with database and input-handling concerns. See the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+Raku is memory-safe: it runs on the garbage-collected MoarVM and programs do not manage raw memory, so memory-corruption classes do not apply. The risks come from code evaluation, external commands, and parsing:
+
+- Code injection. `EVAL` compiles and runs a string as Raku source, which is [CWE-94](https://cwe.mitre.org/data/definitions/94.html); it sits behind the `MONKEY-SEE-NO-EVAL` pragma because it is dangerous.
+- Command injection. Running an external program by passing a single string through a shell rather than an argument list to `run` or `Proc::Async` is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- SQL injection. Database access through DBIish that interpolates into query text rather than binding parameters is [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Uncontrolled resource consumption. Broad regular expressions over untrusted input can backtrack catastrophically, which is [CWE-400](https://cwe.mitre.org/data/definitions/400.html); grammars with explicit tokens bound the risk.
+
+### Why it matters
+
+Reading Raku lets a reviewer find `EVAL` on untrusted input, external-program calls built as shell strings, and query text assembled by interpolation. Dedicated tooling is less mature than for older languages, so the `MONKEY-SEE-NO-EVAL` gate on `EVAL` and manual review carry more weight, as the Secure coding section details.
 
 ## Secure coding
 

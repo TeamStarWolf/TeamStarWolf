@@ -2371,6 +2371,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the technical record](#part-1-the-technical-record), [Part 7: the defender view](#part-7-the-defender-view)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Honeypot and Deception Reference](/HONEYPOT_DECEPTION_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md)"
     reviewed: null
+  case-studies/CYBERCRIME_FOUR_BOOKS.md:
+    audience: "Threat intelligence analysts, incident responders, investigators and anyone who has read Kingpin, Fatal System Error, We Are Anonymous or The Hacker Crackdown and wants the primary record behind them"
+    level: "Beginner"
+    read_when: "You want the carding markets, DDoS extortion, Anonymous and LulzSec, or the 1990 crackdown as the court and government record tells them, you need to know which numbers in the books differ from the record, or you want the defender lessons on DDoS extortion, the HBGary chain and card fraud at the merchant edge"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the combined timeline](#part-5-the-combined-timeline), [Part 6: the defender view](#part-6-the-defender-view)"
+    pairs_with: "[Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md), [Threat Actors](/THREAT_ACTORS.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986](/case-studies/CUCKOOS_EGG_1986.md)"
+    reviewed: null
   case-studies/EMUDHRA_CA_COMPROMISE_2026.md:
     audience: "PKI owners, vulnerability management leads and security engineers who depend on the Web PKI"
     level: "Intermediate"

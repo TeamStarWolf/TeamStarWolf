@@ -52,6 +52,7 @@ An adversary consumes the resources of a target by rapidly engaging in a large n
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [Cybercrime and Hacktivism in Four Books: Kingpin, Fatal System Error, We Are Anonymous, The Hacker Crackdown](/case-studies/CYBERCRIME_FOUR_BOOKS.md)
 - [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md)
 
 <!-- library-refs:end -->

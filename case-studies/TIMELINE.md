@@ -444,6 +444,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 15 February 1990: Court in Celle gives Carl, Hess and Brzezinski suspended sentences (Reported)
   - July 1991: RFC 1244 frames "Protect and Proceed" against "Pursue and Prosecute" and cites both Stoll works
 
+### 1984 <!-- {docsify-ignore} -->
+
+- [Cybercrime and Hacktivism in Four Books: Kingpin, Fatal System Error, We Are Anonymous, The Hacker Crackdown](/case-studies/CYBERCRIME_FOUR_BOOKS.md). Period record, 1984 to May 2014. Sectors: finance, telecommunications, government, technology, media, retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cybercrime_Four_Books_Case_Study.pdf).
+  - 15 January 1990: AT&T long-distance crash from its own 4ESS software update, at first suspected to be hackers
+  - 1 March 1990: Secret Service searches Steve Jackson Games and seizes the Illuminati BBS
+  - 7 May 1990: Operation Sundevil, 7 to 8 May 1990: about 27 warrants, 150 agents, 13 cities
+  - 23 July 1990: Neidorf trial, 23 to 27 July 1990: the prosecution moves to dismiss and a mistrial is declared (Reported)
+  - 31 October 1994: Fifth Circuit affirms Steve Jackson Games: seizing stored unread e-mail is not an intercept
+  - 28 October 2004: Shadowcrew indictment and Operation Firewall's 28 arrests announced
+  - October 2006: Russian court sentences three bookmaker DDoS extortionists to eight years each (Reported)
+  - 12 February 2010: Max Butler sentenced to 13 years and $27.5 million restitution
+  - February 2011: HBGary Federal breach: SQL injection, cracked and reused passwords, hijacked mail
+  - 7 June 2011: FBI approaches Monsegur, who agrees to cooperate that night (about this date)
+  - 15 November 2013: Jeremy Hammond sentenced to 10 years for computer hacking conspiracy
+  - 27 May 2014: Monsegur sentenced to time served
+
 <!-- case-study-timeline:list-end (the timeline replaces the list above on the site) -->
 
 ATT&CK&reg; and MITRE ATT&CK&reg; are registered trademarks of The MITRE Corporation. The group names come from the library's ATT&CK data; this project is not affiliated with or endorsed by MITRE.

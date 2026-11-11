@@ -223,7 +223,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2015 <!-- {docsify-ignore} -->
 
-- [ProFTPD mod_copy, CVE-2015-3306: Unauthenticated File Copy in the Lab](/case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md). Vulnerability, April 2015 to November 2026. Sectors: technology. CVEs: CVE-2015-3306, CVE-2019-12815. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ProFTPD_mod_copy_CVE_2015_3306_Case_Study.pdf).
+- [ProFTPD mod_copy, CVE-2015-3306: Unauthenticated File Copy in the Lab](/case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md). Vulnerability, April 2015 to November 2026. Sectors: technology. CVEs: CVE-2015-3306, CVE-2019-12815. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ProFTPD_mod_copy_CVE_2015_3306_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/ProFTPD_mod_copy_CVE_2015_3306_Case_Study.pptx).
   - 7 April 2015: Bug 4169 filed; the fix is merged twelve minutes later and backported to 1.3.5
   - 13 April 2015: Exploit-DB 36742, ProFTPd 1.3.5 File Copy, published
   - 15 April 2015: CVE-2015-3306 assigned; the flaw disclosed on oss-security
@@ -299,7 +299,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2005 <!-- {docsify-ignore} -->
 
-- [Stuxnet: The Case Study](/case-studies/STUXNET.md). Campaign, 2005 to 2017. Sectors: energy. CVEs: CVE-2008-4250, CVE-2010-2568, CVE-2010-2729, CVE-2010-2743, CVE-2010-2772, CVE-2010-3338 and 4 more. ATT&CK groups: G0020 Equation. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Stuxnet_Case_Study.pdf).
+- [Stuxnet: The Case Study](/case-studies/STUXNET.md). Campaign, 2005 to 2017. Sectors: energy. CVEs: CVE-2008-4250, CVE-2010-2568, CVE-2010-2729, CVE-2010-2743, CVE-2010-2772, CVE-2010-3338 and 4 more. ATT&CK groups: G0020 Equation. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Stuxnet_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Stuxnet_Case_Study.pptx).
   - 3 November 2005: Stuxnet 0.5 C&C server registration
   - 15 November 2007: Stuxnet 0.5 submitted to a public scanning service
   - 23 June 2009: First initial infection, 12 hours after compile

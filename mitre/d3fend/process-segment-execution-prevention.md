@@ -47,6 +47,7 @@ Preventing execution of any address in a memory region other than the code segme
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)
+- [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md)
 
 <!-- library-refs:end -->
 

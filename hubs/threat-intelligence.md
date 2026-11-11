@@ -53,5 +53,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [The year 2019 in intrusions: a dated record](/case-studies/CHRONICLE_2019.md)
 - [Sandworm: the operations in the public record](/case-studies/SANDWORM_OPERATIONS.md)
 - [Russia-attributed threat actors: a case study](/case-studies/THREAT_ACTORS_RUSSIA.md)
+- [United States-attributed threat actors: a case study](/case-studies/THREAT_ACTORS_UNITED_STATES.md)
 
 <!-- hub:end -->

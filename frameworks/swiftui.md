@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (878 words at 230 words a minute)
+About 5 min (1,250 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -97,6 +97,30 @@ struct CounterView: View {
 Xcode is the primary tool, with live previews that render views as you edit. The Swift Package Manager pulls dependencies and builds them into the app. Instruments profiles CPU, memory, and energy use.
 
 Apple frameworks cover storage, networking, and device features that SwiftUI calls into. The Observation and Combine frameworks handle reactive state. Previews and snapshot tests give fast visual feedback during development.
+
+## Security relevance
+
+This section is the threat-facing view of SwiftUI: how an app built with it appears to an attacker or an auditor who holds the device or the compiled binary, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Compiled native apps across Apple platforms, shipped as signed bundles. The attack surface is the local device and the app's network calls, not a server the framework runs, so review starts from the installed app rather than a URL.
+- A SwiftUI app is recognized by inspecting the Mach-O binary and bundle: Swift and SwiftUI symbols, embedded frameworks, and the `Info.plist`.
+- Offensive tooling is the mobile set: Frida and objection for runtime instrumentation, Hopper or Ghidra and class-dump for static analysis, Keychain-dumper on a jailbroken device, and MobSF for automated scanning of the bundle.
+- The dependency surface is Swift Package Manager and CocoaPods. A third-party SDK runs with full app privilege and can read the same storage and traffic the app does.
+
+### Dominant weakness classes
+
+SwiftUI runs on Swift, a memory-managed language with automatic reference counting, so the dominant classes in app code are insecure storage, transport, and platform-trust flaws rather than memory corruption. The fixes for each are detailed in the section below.
+
+- Cleartext storage of sensitive information ([CWE-312](https://cwe.mitre.org/data/definitions/312.html)) when tokens or credentials sit in `UserDefaults` or unprotected files instead of the Keychain and Data Protection.
+- Improper certificate validation ([CWE-295](https://cwe.mitre.org/data/definitions/295.html)) from a broad App Transport Security exception or missing certificate pinning, which opens traffic to interception.
+- Improper authentication ([CWE-287](https://cwe.mitre.org/data/definitions/287.html)) when a local biometric gate is treated as the authorization control, leaving a bypass on a compromised device.
+- Improper input validation ([CWE-20](https://cwe.mitre.org/data/definitions/20.html)) of incoming deep links and universal links whose host and path are not confirmed.
+
+### Why it matters
+
+Recognizing a SwiftUI app tells an auditor to pull the bundle and work from the device inward: enumerate Keychain versus `UserDefaults` storage, check the `Info.plist` for App Transport Security exceptions and the network layer for pinning, and exercise every deep-link handler. MobSF and the OWASP MASTG procedures are the mobile-specific audit tools for that work. See [the mobile security reference](/MOBILE_SECURITY_REFERENCE.md) for the cross-cutting review method.
 
 ## Security model and common vulnerabilities
 

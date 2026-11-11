@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (1,015 words at 230 words a minute)
+About 6 min (1,374 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -106,6 +106,30 @@ The `@nestjs/cli` scaffolds projects, modules, controllers, and providers. It wi
 First-party packages cover common needs. `@nestjs/config` reads environment configuration, `@nestjs/jwt` and `@nestjs/passport` handle tokens and strategies, and `@nestjs/swagger` generates OpenAPI documents from decorators. `@nestjs/testing` builds isolated module contexts for unit and integration tests.
 
 Microservice transports (TCP, Redis, NATS, Kafka, gRPC) ship as adapters. GraphQL support comes through `@nestjs/graphql` with a code-first or schema-first flow. These packages keep the DI model consistent across transport types.
+
+## Security relevance
+
+This section is the threat-facing view of NestJS: how it appears to an attacker or an auditor in the field, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Backend JSON APIs and microservices, usually internet-facing behind a gateway. A NestJS service is often recognizable from the Express or Fastify layer beneath it: a default `X-Powered-By: Express` header unless disabled, the standard JSON error shape from the built-in exception filter, and an exposed Swagger or OpenAPI document when `@nestjs/swagger` is left mounted in production.
+- Offensive interest centers on authorization and token handling: guard coverage, JWT algorithm confusion, and object references that skip an ownership check. Burp Suite and OWASP ZAP drive the HTTP surface.
+- Dependency and audit tooling is the npm toolchain: `npm audit`, Snyk, and Socket scan the tree pinned by `package-lock.json`.
+- The supply-chain surface is npm, where a single compromised or typosquatted package runs with full application privilege. See [the npm supply chain attacks study](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md) and [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+NestJS runs on Node and TypeScript, both memory-managed, so the dominant classes are logic and injection flaws rather than memory corruption. The fixes for each are in the section below.
+
+- Missing or broken authorization ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)) when a guard is absent or scoped to the wrong routes, so an unauthenticated or unprivileged caller reaches a handler.
+- Mass assignment ([CWE-915](https://cwe.mitre.org/data/definitions/915.html)) through DTOs that accept unknown properties and pass them to an ORM save.
+- SQL and data-query injection ([CWE-89](https://cwe.mitre.org/data/definitions/89.html)) through raw TypeORM or Prisma queries built from request input.
+- Improper authentication ([CWE-287](https://cwe.mitre.org/data/definitions/287.html)) from JWT verification that accepts an attacker-chosen algorithm or an unsigned token.
+
+### Why it matters
+
+Recognizing NestJS, usually through its Express or Fastify fingerprint and an exposed Swagger endpoint, tells a tester which classes to try first: enumerate the documented routes, probe each for missing guards and insecure direct object references, and test the JWT verification path. The dependency tree is the other half of the review, scanned with `npm audit` or Snyk. See [the API security reference](/API_SECURITY_REFERENCE.md) for the cross-cutting method.
 
 ## Security model and common vulnerabilities
 

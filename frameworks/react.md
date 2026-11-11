@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,046 words at 230 words a minute)
+About 6 min (1,364 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -106,6 +106,29 @@ The React ecosystem is large and centered on npm. Component libraries include Ma
 Developer tooling includes the React Developer Tools browser extension for inspecting the component tree. ESLint with the React hooks plugin catches common hook mistakes. Testing uses React Testing Library with Jest or Vitest.
 
 Meta-frameworks extend React for full applications. Next.js and Remix are the most widely used. They add routing, data loading, and build configuration so teams write less glue code.
+
+## Security relevance
+
+This section is the threat-facing view of React: how it appears to an attacker or an auditor in the field, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- The client side of web applications and single-page apps, and the view layer of server-rendered apps built on meta-frameworks. React is recognizable in the browser from the `__REACT_DEVTOOLS_GLOBAL_HOOK__` global, a `data-reactroot` attribute on older builds, and its runtime inside the JavaScript bundle.
+- Offensive interest centers on client-side injection and on anything the bundle reveals: `dangerouslySetInnerHTML` sinks, `javascript:` URLs, and leaked source maps or secrets. Burp Suite and OWASP ZAP drive the surface, and DOMPurify is the sanitizer written for the output side.
+- Dependency and audit tooling is the npm toolchain: `npm audit`, Snyk, and Socket scan the tree pinned by the lockfile.
+- The supply-chain surface is npm, where a compromised or typosquatted package runs in the build and the browser. See [the npm supply chain attacks study](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md) and [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+React runs in JavaScript, memory-managed, so the dominant classes are client-side injection and supply-chain flaws rather than memory corruption. The fixes for each are in the section below.
+
+- Cross-site scripting ([CWE-79](https://cwe.mitre.org/data/definitions/79.html)) through `dangerouslySetInnerHTML` or a user-controlled `javascript:` URL, which bypass React's default escaping.
+- Inclusion of untrusted dependency code ([CWE-829](https://cwe.mitre.org/data/definitions/829.html)) from the npm tree, the pattern behind repeated npm supply-chain compromises.
+- Sensitive information exposure ([CWE-200](https://cwe.mitre.org/data/definitions/200.html)) through secrets shipped in the client bundle, which is readable by anyone.
+
+### Why it matters
+
+Recognizing React, usually through its DevTools hook or bundle signature, tells a tester which pivots to try first: hunt `dangerouslySetInnerHTML` and raw URL sinks for DOM-based cross-site scripting, check for exposed source maps and bundled secrets, and audit the npm dependency tree. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for the cross-cutting review method.
 
 ## Security model and common vulnerabilities
 

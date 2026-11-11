@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (889 words at 230 words a minute)
+About 5 min (1,261 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -155,6 +155,30 @@ TTL profile:12
 ```
 
 `INCR` is atomic, so concurrent clients incrementing the same counter never lose an update. `EXPIRE` sets a 600-second lifetime on the profile key.
+
+## Security relevance
+
+This section is the threat-facing view of Redis: how it is reached and abused in the field, and which weakness classes dominate its record. The settings that defend against them are in the "Security and hardening" section that follows.
+
+### Where it appears
+
+- A cache, session store, queue, and pub/sub broker sitting beside application servers, so it holds live session tokens and cached records that are valuable on their own.
+- It is the textbook example of a service left exposed without authentication. Internet-wide scanners such as Shodan and masscan find instances on port 6379, and an unauthenticated instance accepts any command. Classic abuse writes an SSH key or a cron entry by pointing persistence at a sensitive path with `CONFIG SET dir` and `SAVE`, and the Lua `EVAL` and module-load paths have been used for code execution.
+- Managed offerings (AWS ElastiCache, Redis Cloud) enforce authentication and network isolation but keep the command surface.
+- Exposure cases: an instance bound to `0.0.0.0` with no `requirepass`, or a dangerous command such as `CONFIG` or `FLUSHALL` reachable by an application user that does not need it.
+
+### Dominant weakness classes
+
+Redis is a mature C server hardened against memory corruption in normal use, so the practical risks are missing authentication and over-broad command access rather than memory bugs.
+
+- Missing authentication for a critical function ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)), the defining Redis exposure: an open instance on a routable address.
+- Code injection ([CWE-94](https://cwe.mitre.org/data/definitions/94.html)) through `EVAL` scripts built from untrusted input or a loaded untrusted module running native code.
+- Improper privilege management ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)): an ACL user or the default user holding `CONFIG`, `DEBUG`, or module commands it does not need, which is what converts data access into host persistence.
+- Cleartext storage of sensitive information ([CWE-312](https://cwe.mitre.org/data/definitions/312.html)) for session tokens and secrets cached in memory and written to the RDB and AOF files on disk.
+
+### Why it matters
+
+Finding Redis on port 6379 tells an auditor to test for no-authentication access first, then for the `CONFIG SET dir` write primitive and the scripting reach that turn a cache into a host foothold. Requiring `requirepass` or ACL users, binding to private interfaces, and denying `-@dangerous` and `-@admin` to application users closes those paths. See [the database security reference](/DATABASE_SECURITY_REFERENCE.md) for the engine-agnostic hardening checklist.
 
 ## Security and hardening
 

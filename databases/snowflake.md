@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (709 words at 230 words a minute)
+About 5 min (1,063 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -154,6 +154,30 @@ QUALIFY rnk = 1;
 ```
 
 The reader role can select from one table and nothing more. `QUALIFY` filters on the window function result without a subquery.
+
+## Security relevance
+
+This section is the threat-facing view of Snowflake: how the account is reached and abused in the field, and which weakness classes dominate its record. The controls that defend against them are in the "Security and hardening" section that follows.
+
+### Where it appears
+
+- A central analytics store reached only as a managed SaaS endpoint: there is no host or network service for a customer to attack, so the surface is the account and its users, roles, and credentials.
+- Authentication is the dominant battleground. In 2024, attackers logged into Snowflake customer accounts using usernames and passwords harvested by infostealer malware, succeeding where multi-factor authentication was not enforced, and exfiltrated large volumes of data. The warehouse itself was never breached: valid credentials on accounts without MFA were enough.
+- Access is probed through the same SQL surface a legitimate user has: `snowsql`, the web console, and the JDBC, ODBC, and Python drivers. Over-broad roles such as `ACCOUNTADMIN` and `SECURITYADMIN` are the prize.
+- Credential exposure cases: key-pair private keys or passwords committed to source control, left in scripts, or embedded in business-intelligence tool connections.
+
+### Dominant weakness classes
+
+Snowflake is a managed service with no server for a customer to patch, so the practical risks are credential, authorization, and data-governance flaws rather than engine memory safety.
+
+- Insufficiently protected credentials ([CWE-522](https://cwe.mitre.org/data/definitions/522.html)): passwords and key-pair secrets in source control, scripts, or connection strings.
+- Improper authentication ([CWE-287](https://cwe.mitre.org/data/definitions/287.html)): interactive users without enforced multi-factor authentication, the gap the 2024 account-takeover campaign exploited.
+- Missing authorization ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)): analysts or service accounts granted `ACCOUNTADMIN` or other broad roles they do not need.
+- Information exposure ([CWE-200](https://cwe.mitre.org/data/definitions/200.html)) through data shares, reader accounts, and unmasked sensitive columns granted too widely.
+
+### Why it matters
+
+For a managed warehouse the audit shifts from the engine to identity: whether every human login enforces MFA, whether service accounts use key-pair authentication instead of passwords, which roles hold `ACCOUNTADMIN`, and whether network policies limit where connections originate. The 2024 customer-account campaign showed that credential hygiene and MFA, not an engine flaw, decide exposure. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) for the identity and credential controls and [the database security reference](/DATABASE_SECURITY_REFERENCE.md) for the data-tier checklist.
 
 ## Security and hardening
 

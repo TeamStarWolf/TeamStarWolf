@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (868 words at 230 words a minute)
+About 5 min (1,168 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -91,6 +91,30 @@ Platform integration uses the `Microsoft.Maui.Essentials` APIs for sensors, stor
 Visual Studio and the `dotnet` command-line tool build, run, and package MAUI apps. NuGet supplies libraries, including the MVVM Toolkit and platform SDK wrappers. Hot Reload updates XAML and `csharp` in a running app during development.
 
 The .NET base class library covers networking, serialization, and storage. .NET Essentials wraps device features behind one API. Visual Studio ships emulators, device deployment, and a profiler.
+
+## Security relevance
+
+This section is the threat-facing view of .NET MAUI: how it appears to an attacker or an auditor in the field, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Mobile and desktop apps shipped as installable packages for iOS, Android, macOS, and Windows. The attack surface is the client binary on a device the owner controls, plus the backend it calls. Recognizable by the .NET assemblies and MAUI runtime libraries inside the app package.
+- Audit and defensive tooling follows the OWASP MASVS and MASTG. Decompilers such as ILSpy and dnSpy read the shipped intermediate language, MobSF performs static and dynamic analysis, and Frida and Objection drive runtime instrumentation.
+- Offensive interest is embedded secrets in the assemblies, sensitive data in local storage, and transport that fails to validate certificates.
+- The dependency surface is the NuGet ecosystem.
+
+### Dominant weakness classes
+
+.NET MAUI runs on .NET, a memory-managed platform, so the dominant classes are storage, transport, and secret-handling flaws rather than memory corruption. The fixes for each are detailed in the section below.
+
+- Cleartext storage of sensitive data ([CWE-312](https://cwe.mitre.org/data/definitions/312.html)) when tokens sit in `Preferences` rather than `SecureStorage`.
+- Hard-coded credentials ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)) in `csharp` or XAML, since the shipped intermediate language decompiles cleanly.
+- Improper certificate validation ([CWE-295](https://cwe.mitre.org/data/definitions/295.html)) when the validation callback is overridden to accept any certificate.
+- Cross-site scripting or code injection ([CWE-79](https://cwe.mitre.org/data/definitions/79.html)) across the `BlazorWebView` bridge when untrusted content runs with access to native code.
+
+### Why it matters
+
+Because a MAUI app runs on a device the attacker controls, auditing it means pulling the package, decompiling the intermediate language, and checking local storage, embedded secrets, and TLS handling against the mobile standard. See [the mobile security reference](/MOBILE_SECURITY_REFERENCE.md) for the cross-cutting review method.
 
 ## Security model and common vulnerabilities
 

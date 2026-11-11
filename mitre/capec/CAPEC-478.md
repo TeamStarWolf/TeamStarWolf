@@ -49,6 +49,7 @@ An adversary exploits a weakness in access control to modify the execution param
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md)
 
 <!-- library-refs:end -->
 

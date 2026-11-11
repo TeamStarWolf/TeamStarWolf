@@ -39,6 +39,7 @@ Limiting access to computer input/output (IO) ports to restrict unauthorized dev
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [Stuxnet: The Case Study](/case-studies/STUXNET.md)
+- [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md)
 
 <!-- library-refs:end -->
 

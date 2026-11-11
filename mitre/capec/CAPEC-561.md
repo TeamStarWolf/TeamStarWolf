@@ -64,6 +64,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 - [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md)
 - [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
+- [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md)
 
 <!-- library-refs:end -->
 

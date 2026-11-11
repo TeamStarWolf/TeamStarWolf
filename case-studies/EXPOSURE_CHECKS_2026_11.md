@@ -221,6 +221,12 @@ Cleanup removed both containers, their 14 volumes and both images, and the ports
 | Windows 11 25H2 | 10.0.26200.9711 |
 | Windows 11 26H2 | 10.0.26300.9711 |
 | Server 2022 | 10.0.20348.5761 |
+| Windows 10 21H2 | 10.0.19044.7807 |
+| Windows 11 26H1 | 10.0.28000.3231 |
+| Server 2025 | 10.0.26100.33650 |
+| Server 2012 R2 | listed as affected, no fixed build in NVD |
+
+Server 2025 shares build 26100 with Windows 11 24H2 but has its own, higher threshold: a Server 2025 host at 26100.9800 is past the 24H2 line and still below its own (**Confirmed** thresholds; the example is **Inferred**) [21]. NVD also lists Outlook Web with no version bound [21].
 
 CISA listed it on 2026-10-13, due 2026-10-16, ransomware use Unknown, forensic triage Yes (**Confirmed**) [4]. CISA's SSVC entry in the NVD record (ADP) reads active, not automatable, total (**Confirmed**) [21]. A GitHub repository search for the CVE returned no results on 2026-11-04 [22]. Microsoft's `E:F` temporal metric says it judges functional exploit code to exist, which is not the same as public code (**Inferred**) [20] [22].
 
@@ -242,7 +248,7 @@ Both version comparisons came back `True`: the build against 10.0.26300.9711 and
 
 (**Demonstrated**, 05-cleanup.txt) [43]
 
-**Find and fix it.** Read `CurrentBuild` and `UBR` from `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion`, build `[version]('10.0.{0}.{1}' -f $cv.CurrentBuild, $cv.UBR)` in PowerShell, and compare it with the threshold for that release in the table above; `Get-HotFix` shows the update that moved it (**Demonstrated** method) [43] [21]. Compare as a version, not as text: a text comparison misorders revision numbers of different lengths (**Inferred**). Check Edge too, since Microsoft added it in revision 2 [20].
+**Find and fix it.** Read `CurrentBuild` and `UBR` from `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion`, build `[version]('10.0.{0}.{1}' -f $cv.CurrentBuild, $cv.UBR)` in PowerShell, and compare it with the threshold for that release and edition in the table above (Server 2025 and Windows 11 24H2 share build 26100 but not a threshold); `Get-HotFix` shows the update that moved it (**Demonstrated** method) [43] [21]. Compare as a version, not as text: a text comparison misorders revision numbers of different lengths (**Inferred**). Check Edge too, since Microsoft added it in revision 2 [20].
 
 ### 2.3 AhsayCBS, CVE-2026-105133 and CVE-2026-105134
 
@@ -308,7 +314,7 @@ One step gave a false positive worth knowing about. `pgrep -f -i siteguard` matc
 
 **The flaw.** `skb_try_coalesce()` loses the `SKBFL_SHARED_FRAG` marker when it moves paged fragments, so ESP input can decrypt in place over fragments backed by the page cache; the fix propagates the marker (**Confirmed**: NVD) [6]. It was disclosed on oss-security on 2026-05-13 as a Dirty Frag class local privilege escalation in XFRM ESP-in-TCP, discovered by William Bowling with the V12 team; no race is required, and the mitigation is the same as for Dirty Frag (**Confirmed**) [7]. Red Hat says a low-privileged local attacker can write into the page cache of read-only files and overwrite privileged binaries to gain root, rates it Important because access is local, and gives the mitigation in bulletin RHSB-2026-003 [8].
 
-**The record.** NVD scores it CVSS 3.1 7.8 High (`AV:L/AC:L/PR:L/UI:N`) and lists CWE-787 (NVD), CWE-456 (CISA ADP) and CWE-123 [6]. Upstream affected ranges are 3.9 through 5.10.257, 5.11 to before 5.15.208, 5.16 to before 6.1.174, 6.2 to before 6.6.141, 6.7 to before 6.12.91, 6.13 to before 6.18.33, 6.19 to before 7.0.10 and the 7.1 release candidates, plus Siemens SIMATIC S7-1500 CPU 1518-4 PN/DP MFP firmware 3.1.5 to 3.1.6 (**Confirmed**) [6]. Ubuntu rates it high and lists fixed kernels of 5.15.0-181.191 (22.04), 6.8.0-124.124 (24.04), 6.17.0-35.35 (25.10) and 7.0.0-22.22 (26.04); 14.04, 16.04, 18.04 and 20.04 are not affected [9]. CISA listed it on 2026-10-28, due 2026-10-31, ransomware use Unknown, forensic triage Yes, CWE-456, and states it can be chained with CVE-2026-109618 and CVE-2026-109619 to implant PHP web shells and run commands as root (**Confirmed**) [4]. CISA's SSVC entry in the NVD record (ADP) reads active, not automatable, total (**Confirmed**) [6]. The PHP half of that chain is the subject of [the PHP2Shell study](/case-studies/PHP2SHELL_OCTOBER_2026.md) and of the [PHP 8.4.27 lab study](/case-studies/PHP_8_4_27_CVES.md).
+**The record.** NVD scores it CVSS 3.1 7.8 High (`AV:L/AC:L/PR:L/UI:N`) and lists CWE-787 (NVD), CWE-456 (CISA ADP) and CWE-123 [6]. Upstream affected ranges are 3.9 through 5.10.257, 5.11 to before 5.15.208, 5.16 to before 6.1.174, 6.2 to before 6.6.141, 6.7 to before 6.12.91, 6.13 to before 6.18.33, 6.19 to before 7.0.10 and the 7.1 release candidates, plus Siemens SIMATIC S7-1500 CPU 1518-4 PN/DP MFP firmware 3.1.5 to 3.1.6 (**Confirmed**) [6]. Ubuntu rates it high and lists fixed kernels of 5.15.0-181.191 (22.04), 6.8.0-124.124 (24.04), 6.17.0-35.35 (25.10) and 7.0.0-22.22 (26.04) in the security pocket, and for the older releases fixed kernels that ship only in the Ubuntu Pro ESM pockets: 5.4.0-233.253 (20.04, esm-infra), 4.15.0-253.265 (18.04, esm-infra), 4.4.0-283.317 (16.04, esm-infra-legacy) and 3.13.0-214.265 (14.04, esm-infra-legacy) (**Confirmed**: record re-opened 2026-11-11) [9]. An earlier reading of that record for this study listed 14.04 through 20.04 as not affected; that was wrong, since the record's notices include a 20.04 kernel notice dated 2026-06-04 and a live-patch notice dated 2026-10-07 [9]. CISA listed it on 2026-10-28, due 2026-10-31, ransomware use Unknown, forensic triage Yes, CWE-456, and states it can be chained with CVE-2026-109618 and CVE-2026-109619 to implant PHP web shells and run commands as root (**Confirmed**) [4]. CISA's SSVC entry in the NVD record (ADP) reads active, not automatable, total (**Confirmed**) [6]. The PHP half of that chain is the subject of [the PHP2Shell study](/case-studies/PHP2SHELL_OCTOBER_2026.md) and of the [PHP 8.4.27 lab study](/case-studies/PHP_8_4_27_CVES.md).
 
 **Why a check.** The plan classes it version-check. A kernel flaw is shared by every container on the host, and every public trigger rewrites the host's page cache of a real setuid binary, so the lab compared kernel package versions and module and user-namespace state only (**Inferred**: the plan's reasoning) [43].
 
@@ -330,7 +336,7 @@ The plan also took a forensic baseline. The SHA-256 of `/usr/bin/su` read throug
 
 (**Demonstrated**, 04-mitigation.txt and 05-cleanup.txt) [43]
 
-**Find and fix it.** `uname -r` for the running kernel, then `dpkg-query -W -f='${Package} ${Version}\n' "linux-image-$(uname -r)"` (or `rpm -q kernel`), then compare with your own distribution's fixed build: for Ubuntu, the table above [9]; for Red Hat, RHSB-2026-003 [8]; for other distributions, their trackers. List every installed image, not only the running one (**Demonstrated** method) [43]. Until the fixed kernel is booted, check whether `esp4`, `esp6` and `rxrpc` are loaded or blockable, and whether unprivileged user namespaces are allowed, since the plan's interim checks looked for both (04-mitigation.txt); the vendor mitigation itself is in Red Hat's bulletin [8]. Hosts that also serve PHP are the ones KEV's chain names [4].
+**Find and fix it.** `uname -r` for the running kernel, then `dpkg-query -W -f='${Package} ${Version}\n' "linux-image-$(uname -r)"` (or `rpm -q kernel`), then compare with your own distribution's fixed build: for Ubuntu, the fixed kernels listed in The record above [9]; for Red Hat, RHSB-2026-003 [8]; for other distributions, their trackers. List every installed image, not only the running one (**Demonstrated** method) [43]. Until the fixed kernel is booted, check whether `esp4`, `esp6` and `rxrpc` are loaded or blockable, and whether unprivileged user namespaces are allowed, since the plan's interim checks looked for both (04-mitigation.txt); the vendor mitigation itself is in Red Hat's bulletin [8]. Hosts that also serve PHP are the ones KEV's chain names [4].
 
 ### 2.6 WordPress core, CVE-2026-119977
 
@@ -419,7 +425,7 @@ The test step ran a public read-only detection script and three file-read reques
 
 ### Skipped: Siemens Software Center, CVE-2026-110936
 
-Its checks are Windows PowerShell file-version and registry reads, plus `sudo` on a separate Wazuh server, so nothing ran (**Demonstrated**, 03-exposure.txt) [43]. The vendor advisory was not opened for this study.
+Its checks are Windows PowerShell file-version and registry reads, plus `sudo` on a separate Wazuh server, so nothing ran (**Demonstrated**, 03-exposure.txt) [43]. The vendor advisory was not opened for this study. Its home study is [ICS attacks and advisories, 2024 to 2026](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md), which covers Siemens SSA-580366, the 2026-10-19 revision that references active exploitation and the KEV listing.
 
 ## Part 4: when the version string lies
 
@@ -513,7 +519,7 @@ No ATT&CK procedure example in the opened record names any of these CVEs. Each t
 | [T1005](/mitre/techniques/T1005.md) | Data from Local System | Collection | Confluence arbitrary file access with a known file name and path (Atlassian and NVD, 2026-10-05) | Inferred binding of CWE-552 file access | [35] [36] [40] |
 | [T1595.002](/mitre/techniques/T1595-002.md) | Vulnerability Scanning | Reconnaissance | The banner reads the lab used (`version.bind`, `X-Powered-By`, `/identity`, `ajs-version-number`) are the reads a scanner makes (lab, 2026-11-03 to 2026-11-04) | Inferred: what defenders read, an attacker can read | [43] [40] |
 
-T1083 File and Directory Discovery is left out: NVD says the Confluence flaw does not allow directory listing [36]. The Siemens Software Center flaw is not bound, because its advisory was not opened for this study. ATT&CK for ICS is not bound: NVD lists Siemens SIMATIC firmware for Fragnesia, but the record describes no ICS-specific behavior (**Inferred**) [6]. ATT&CK for Mobile does not apply.
+T1083 File and Directory Discovery is left out: NVD says the Confluence flaw does not allow directory listing [36]. The Siemens Software Center flaw is not bound, because its advisory was not opened for this study. ATT&CK for ICS is not bound: NVD lists Siemens SIMATIC firmware for Fragnesia, but the record describes no ICS-specific behavior (**Inferred**) [6]. The ICS view of these advisories is in [ICS attacks and advisories, 2024 to 2026](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md). ATT&CK for Mobile does not apply.
 
 ATT&CK lists these mitigations on T1190, and the library has a page for each: [M1051 Update Software](/mitre/mitigations/M1051.md), [M1016 Vulnerability Scanning](/mitre/mitigations/M1016.md), [M1037 Filter Network Traffic](/mitre/mitigations/M1037.md) and [M1030 Network Segmentation](/mitre/mitigations/M1030.md) [37] [40]. The method in Part 5 is M1016 and M1051 done carefully.
 
@@ -572,7 +578,7 @@ MITRE ATT&CK, CWE, CAPEC and D3FEND content is used under the terms recorded in 
 
 ## Sources
 
-Sources 1 to 16, 19 to 42, 45 and 46 were opened on 4 November 2026. Source 3 and the NVD records cited for CISA's SSVC entries (6, 12, 14, 16, 21 and 23) were re-opened on 11 November 2026. Sources 17 and 18 were opened on 3 November 2026 and not re-opened. Sources 43 and 44 are the lab captures and the run report, recorded on 3 and 4 November 2026.
+Sources 1 to 16, 19 to 42, 45 and 46 were opened on 4 November 2026. Sources 3 and 9 and the NVD records cited for CISA's SSVC entries (6, 12, 14, 16, 21 and 23) were re-opened on 11 November 2026. Sources 17 and 18 were opened on 3 November 2026 and not re-opened. Sources 43 and 44 are the lab captures and the run report, recorded on 3 and 4 November 2026.
 
 | # | Source | URL | Opened | Grade |
 |---|---|---|---|---|
@@ -584,7 +590,7 @@ Sources 1 to 16, 19 to 42, 45 and 46 were opened on 4 November 2026. Source 3 an
 | 6 | NVD record CVE-2026-46300 (API 2.0; includes CISA's ADP SSVC entry) | https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-46300 | 2026-11-04, 2026-11-11 | Confirmed |
 | 7 | oss-security, Fragnesia disclosure thread (2026-05-13) | https://www.openwall.com/lists/oss-security/2026/05/13/5 | 2026-11-04 | Confirmed |
 | 8 | Red Hat, CVE-2026-46300 | https://access.redhat.com/security/cve/CVE-2026-46300 | 2026-11-04 | Confirmed |
-| 9 | Ubuntu security, CVE-2026-46300 (JSON) | https://ubuntu.com/security/cves/CVE-2026-46300.json | 2026-11-04 | Confirmed |
+| 9 | Ubuntu security, CVE-2026-46300 (JSON) | https://ubuntu.com/security/cves/CVE-2026-46300.json | 2026-11-04, 2026-11-11 | Confirmed |
 | 10 | JVN#88474777, SiteGuard Server Edition | https://jvn.jp/en/jp/JVN88474777/ | 2026-11-04 | Confirmed |
 | 11 | EG Secure Solutions, SiteGuard Server Edition alert (2026-10-14, Japanese) | https://www.eg-secure.co.jp/siteguard/news/alert-202610-1 | 2026-11-04 | Confirmed |
 | 12 | NVD record CVE-2026-106931 (API 2.0; includes CISA's ADP SSVC entry) | https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-106931 | 2026-11-04, 2026-11-11 | Confirmed |

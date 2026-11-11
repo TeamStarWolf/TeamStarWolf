@@ -14,6 +14,55 @@ SQL (Structured Query Language) is a declarative language for defining, querying
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [PL/SQL](/languages/plsql.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain SQL code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,542 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing SQL code (typical uses: transactional applications, reporting, analytics, data warehousing), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [PL/SQL](/languages/plsql.md), [T-SQL](/languages/tsql.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 SQL began as SEQUEL, designed by Donald Chamberlin and Raymond Boyce at IBM to query the experimental System R database, itself based on Edgar F. Codd's relational model. It was renamed SQL and became an ANSI standard in 1986 and an ISO standard in 1987. The standard has been revised repeatedly, adding outer joins and integrity constraints (SQL-92), recursive queries and window functions (SQL:1999 and SQL:2003), and JSON support (SQL:2016), among much else.

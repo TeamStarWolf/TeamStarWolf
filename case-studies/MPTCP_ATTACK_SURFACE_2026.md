@@ -4,6 +4,55 @@
 
 [All case studies](/case-studies/README.md) · Related: [Linux Hardening](/LINUX_HARDENING_REFERENCE.md), [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md), [Vulnerability Prioritization](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [CVE-2026-98432 and an AI-Written Exploit](/case-studies/LINUX_TCP_UAF_2026.md), [Harden a Linux Host](/guides/HARDEN_A_LINUX_HOST.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Linux administrators, vulnerability management leads and security engineers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 21 min (4,774 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You want to know why Multipath TCP is enabled but idle on most Linux hosts, you are checking whether your hosts expose it, or you are deciding whether to switch it off safely
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Executive summary](#executive-summary), [Part 3: how to check your exposure, and why](#part-3-how-to-check-your-exposure-and-why), [Part 4: reducing the surface safely](#part-4-reducing-the-surface-safely)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md), [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md), [Network Attacks Reference](/NETWORK_ATTACKS_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Executive summary
 
 Multipath TCP (MPTCP) is a protocol extension that lets a single TCP connection run over several network paths at once, for throughput and for failover. The Linux kernel has shipped it since version 5.6 in 2020, and on most modern distributions the `net.mptcp.enabled` switch defaults to on. Almost nothing uses it. An application only gets MPTCP if it deliberately asks for it when it opens a socket, and the overwhelming majority of servers run software that asks for ordinary TCP. The result is a feature that is present and switched on across a large part of the Linux fleet while delivering value on a tiny fraction of it.

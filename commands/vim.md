@@ -2,6 +2,55 @@
 
 Vim is a modal text editor found on nearly every Unix-like system. Its modes separate movement, text entry, and commands, so most keystrokes are editing operations rather than literal characters. This page covers the motions, edits, and file commands that cover daily work. Learn the modes first; everything else builds on them.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Administrators and developers who edit files in a terminal
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (920 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the Vim commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [tmux Command Reference](/commands/tmux.md), [Linux Command Reference](/commands/linux-commands.md), [SSH Command Reference](/commands/ssh.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 Vim (Vi IMproved) is an extended clone of the classic `vi` editor. It ships by default on most Linux distributions and macOS, and runs in any terminal over SSH, which makes it a reliable editor on remote servers. Invoke it as `vim file`, or `vi file` where `vi` is symlinked to Vim. Configuration lives in `~/.vimrc` and runtime files under `~/.vim/`.

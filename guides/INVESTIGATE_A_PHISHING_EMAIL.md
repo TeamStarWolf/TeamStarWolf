@@ -8,6 +8,55 @@
 
 This guide uses Microsoft 365 with Defender for Office 365 for the console steps because that is the stack the library's email reference documents most deeply. Every phase (capture, headers, URL/attachment triage, scoping, purge/block/reset, closing the loop) applies identically on Google Workspace, Proofpoint, or Mimecast; swap in your gateway's equivalent console.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+SOC analysts and IT generalists who handle reported phishing tickets
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,454 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+A user has reported a suspicious email and you need a documented verdict, you must find and purge every copy, or you want to block the sender infrastructure and close the loop with the reporter
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Before you start](#before-you-start), [Step 2: Read the headers and authentication results](#step-2-read-the-headers-and-authentication-results), [Step 5: Call the verdict](#step-5-call-the-verdict)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Email Security Reference](/EMAIL_SECURITY_REFERENCE.md), [IR Playbooks](/IR_PLAYBOOKS.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Before you start
 
 - [ ] Read the header-analysis and phishing-indicator sections of the library's [Email Security Reference](/EMAIL_SECURITY_REFERENCE.md); this guide operationalizes them and assumes their vocabulary (SPF/DKIM/DMARC, alignment, defanging).

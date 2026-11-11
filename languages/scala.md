@@ -14,6 +14,55 @@ Scala is a statically typed language that combines object-oriented and functiona
 
 Related: [Java](/languages/java.md), [Kotlin](/languages/kotlin.md), [Clojure](/languages/clojure.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Scala code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,289 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Scala code (typical uses: data engineering, distributed systems, back ends), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Java](/languages/java.md), [Kotlin](/languages/kotlin.md), [Clojure](/languages/clojure.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Martin Odersky designed Scala at EPFL to unify object-oriented and functional programming on the JVM, releasing it publicly in 2004. The 2.x line matured the language over more than a decade. Scala 3, released in 2021 and built on the Dotty research compiler, revised the syntax (optional braces, a new metaprogramming model) and reworked implicits into explicit `given` and `using` clauses. Language changes follow the Scala Improvement Process (SIP), and the [Scala Center](https://scala.epfl.ch/) at EPFL coordinates community work.

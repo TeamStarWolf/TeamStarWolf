@@ -2,6 +2,55 @@
 
 > **Tools Research** · How ServiceNow Vulnerability Response, Configuration Compliance and Container Vulnerability Response work, and how Tenable and Wiz feed each one, from official documentation (Brazil release, September 2026). Companion study: [ServiceNow USEM with Tenable and Wiz](/tools-research/SERVICENOW_USEM_TENABLE_WIZ.md). Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/tools-research/pdf/ServiceNow_VR_CC_CVR_Tenable_Wiz.pdf).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, ServiceNow administrators and security architects who run Tenable and Wiz
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 38 min (8,830 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are designing how Tenable and Wiz feed ServiceNow Vulnerability Response, Configuration Compliance and Container Vulnerability Response, you need to know which subscriptions each path needs, or you are setting up the integrations with least privilege
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Summary: Tenable and Wiz feed three separate engines](#summary-tenable-and-wiz-feed-three-separate-engines), [The integration matrix shows Tenable narrowing and Wiz spanning](#the-integration-matrix-shows-tenable-narrowing-and-wiz-spanning), [Least-privilege setup starts on the vendor side](#least-privilege-setup-starts-on-the-vendor-side)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[ServiceNow USEM with Tenable and Wiz](/tools-research/SERVICENOW_USEM_TENABLE_WIZ.md), [Tools Research](/tools-research/README.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Summary: Tenable and Wiz feed three separate engines
 
 ServiceNow Vulnerability Response (VR), Configuration Compliance (CC) and Container Vulnerability Response (CVR) are **three separate data models that share one remediation pipeline**. VR rolls scanner **detections** into vulnerable items (VIs) and remediation tasks. CC imports pass/fail **configuration test results** that it never evaluates itself. CVR attaches container image **findings** to the source Docker image, not to running containers. In all three the scanner, not the remediation owner, closes the work: the manual Close actions have been removed, and 90-day stale rules sweep up whatever the scanner stops reporting. Tenable feeds the three engines through one ServiceNow-built, separately subscribed Store app, and its coverage is uneven. **Tenable Vulnerability Management (TVM) feeds VR and CC. Tenable Security Center feeds VR only. Tenable Cloud Security (Tenable.cs) is the only Tenable source for CVR.** Wiz feeds all three, plus Application VR, from one service account. Since July 2025 that has run through a ServiceNow-built app that replaced three Wiz-built ones, and its installer requires VR, CC and CVR to be present even for a host-only rollout. USEM (VR v30 and later) moves the rules into shared `sn_sec_*` tables but keeps separate VR, CC and CVR finding tables. ServiceNow tells customers who are not moving to USEM to keep every one of these apps, scanner integrations included, below v30. Several decisions are hard to reverse and belong before the first import:

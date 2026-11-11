@@ -14,6 +14,55 @@ Standard ML is a statically typed functional language with a formal, mathematica
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [OCaml](/languages/ocaml.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Standard ML code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,486 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Standard ML code (typical uses: teaching, theorem proving, compilers, program analysis, research), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[OCaml](/languages/ocaml.md), [Haskell](/languages/haskell.md), [Scheme](/languages/scheme.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Standard ML grew out of the metalanguage (ML) of the LCF theorem prover in the 1970s and was formalized into a standalone language in the 1980s. The first definition was published in 1990, followed by a 1997 revision commonly called Standard ML '97, together with a companion standard-library specification, the Standard ML Basis Library. The language is defined by a formal operational semantics rather than by a single reference compiler, which is unusual among general-purpose languages and makes it well suited to rigorous study.

@@ -2,6 +2,55 @@
 
 This file explains the cybersecurity GitHub Stars Lists maintained on the [TeamStarWolf profile](https://github.com/TeamStarWolf?tab=stars). Use it when you want short descriptions of each list before drilling into the live GitHub view.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Practitioners and students who browse the TeamStarWolf GitHub Stars Lists
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,391 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You want a plain-language description of each Stars List before you open the live GitHub view, or you are looking for the list that covers a discipline or a toolkit
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[How To Use This File](#how-to-use-this-file), [Coverage Snapshot](#coverage-snapshot), [1. Daily Operational Toolkit](#_1-daily-operational-toolkit)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Starred Repositories Index](/STARRED_REPOS.md), [Black Hat Arsenal Crosswalk](/research/BLACK_HAT_ARSENAL_CROSSWALK.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## How To Use This File
 
 - Start here if you want the purpose of each list in plain language.

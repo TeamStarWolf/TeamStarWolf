@@ -8,7 +8,54 @@ This page shows how the [official Black Hat Arsenal tools repository](https://we
 
 The goal is not to mirror Arsenal entry-for-entry. The goal is to turn a conference tool index into useful next steps for starring repos, following maintainers, finding demo videos, and pairing books with hands-on tooling.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Practitioners and students who use conference tool lists to decide what to study, star or try next
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Length</th><td>
+
+Lookup page: 3,033 words, 82% in tables; look entries up from Start at or the search (about 13 min end to end at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You want to know which Black Hat Arsenal tools are worth a closer look, you are matching a tool to an ATT&CK tactic or a discipline, or you need the maintainers, videos and books that go with a tool
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[High-Signal Review Queue](#high-signal-review-queue), [Arsenal Tool Crosswalk](#arsenal-tool-crosswalk), [Arsenal Tools by ATT&CK Tactic](#arsenal-tools-by-attampck-tactic)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Curated GitHub Stars Lists](/research/CURATED_STARS_LISTS.md), [Starred Repositories](/STARRED_REPOS.md), [X / Twitter Follow List](/TWITTER_FOLLOW_LIST.md), [YouTube Channel Library](/YOUTUBE_CHANNELS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 ## Source Snapshot
 

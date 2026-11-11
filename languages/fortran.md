@@ -14,6 +14,55 @@ Fortran (formula translation) is a statically typed, compiled language created b
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [MATLAB](/languages/matlab.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Fortran code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,436 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Fortran code (typical uses: climate modeling, computational fluid dynamics, physics simulation, HPC), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [MATLAB](/languages/matlab.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Fortran was designed to let scientists and engineers write mathematical formulas directly rather than in assembly, and Backus's optimizing compiler proved that a high-level language could produce efficient machine code. The language has been standardized repeatedly: FORTRAN 66, FORTRAN 77, Fortran 90 (free-form source, array operations, modules, dynamic memory), Fortran 95, Fortran 2003 (object orientation, C interoperability), Fortran 2008 (coarrays), and Fortran 2018 and 2023.

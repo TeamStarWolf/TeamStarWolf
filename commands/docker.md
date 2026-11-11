@@ -2,6 +2,55 @@
 
 Docker packages an application and its dependencies into an image, then runs that image as an isolated container. The `docker` CLI talks to a local or remote daemon over a socket. This page covers the container lifecycle, image building, and the Dockerfile basics developers touch daily. Security notes cover the footguns that turn a container into host access.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers, DevOps engineers and security teams who build and run containers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 3 min (671 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the Docker commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [kubectl Command Reference](/commands/kubectl.md), [Linux Command Reference](/commands/linux-commands.md), [systemd and systemctl Reference](/commands/systemctl.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 Docker is a container engine. The `docker` client sends commands to the `dockerd` daemon, which pulls images, builds them, and runs containers using Linux namespaces and cgroups. The daemon usually runs as root, so access to it is effectively host-level access. On Linux the client reaches the daemon through `/var/run/docker.sock`. On Windows and macOS a lightweight Linux VM hosts the daemon behind Docker Desktop.

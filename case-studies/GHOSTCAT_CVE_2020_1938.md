@@ -4,6 +4,55 @@
 
 [All case studies](/case-studies/README.md) · Related: [CVE Reference](/CVE_REFERENCE.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Vulnerability Prioritization](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Web Application Security](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Triage a CVE](/guides/TRIAGE_A_CVE.md), [Log4Shell](/case-studies/LOG4SHELL.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, Apache Tomcat administrators and security engineers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 46 min (10,631 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the facts of the Tomcat AJP file-read flaw CVE-2020-1938, you run Apache Tomcat with its AJP connector, or you want to find and fix it on your own hosts
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Executive summary](#executive-summary), [Part 3: what the lab showed](#part-3-what-the-lab-showed), [Part 4: find and fix it on real hosts](#part-4-find-and-fix-it-on-real-hosts)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[CVE Reference](/CVE_REFERENCE.md), [CWE Reference](/CWE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Executive summary
 
 Apache Tomcat serves Java web applications, and until February 2020 it shipped with a second front door next to its HTTP port. A stock Tomcat opened an AJP/1.3 connector on port 8009, meant for a reverse proxy such as Apache httpd to forward requests over a binary protocol. Before the February 2020 fixes, that connector was enabled by default and listened on every configured address, and Tomcat trusts an AJP connection more than an HTTP one (Confirmed [1][2][3]). A researcher at Chaitin Tech found, and on 3 January 2020 reported to Apache, that the trust went far enough for anyone who could reach port 8009 to make Tomcat return any file in a web application, including the protected `WEB-INF` and `META-INF` folders, or to process any file in the application as a JSP (Confirmed [1][18]). Chaitin named the bug Ghostcat (Confirmed [18]).

@@ -4,6 +4,55 @@
 
 [All case studies](/case-studies/README.md) · Related: [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [CVE Reference](/CVE_REFERENCE.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Threat intelligence analysts, security leaders and defenders who want the history behind current threats
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 75 min (17,156 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You want a dated record of the major intrusions of 2019, you need the state operations, ransomware and vulnerabilities of that year side by side, or you want the defender lessons that still apply
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Executive summary](#executive-summary), [Part 1: the year in date order](#part-1-the-year-in-date-order), [Part 7: the defender view](#part-7-the-defender-view)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Executive summary
 
 For the people who defend networks, 2019 was the year ransomware crews stopped spraying and started hunting. A Norwegian industrial group ran its plants by hand. Twenty-three Texas local government entities, by the state's own testimony, were hit in one August wave. On New Year's Eve more than 1,500 Travelex stores were reportedly affected. Criminal crews learned to pick large victims, move by hand across a network, and from November threaten to publish what they stole. The same year, the VPN and remote-access appliances that organizations put at their edge became the most reliable way in, for criminals and states alike. The flaws published in 2019 in Pulse Secure, Fortinet and Citrix gear became the three most exploited vulnerabilities of 2020. This study puts the year's public record in date order and grades every claim by the source that supports it.

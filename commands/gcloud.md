@@ -2,6 +2,55 @@
 
 The Google Cloud CLI (`gcloud`) is the command-line tool for Google Cloud Platform. It manages projects, compute, identity, storage, and logging through a consistent group-and-command syntax. This page covers authentication, configuration, the common resource commands, and the output controls that make results scriptable. The related `gsutil` and the newer `gcloud storage` handle Cloud Storage.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Cloud engineers, administrators and security teams who work in Google Cloud from a terminal
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 2 min (529 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the gcloud commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [AWS CLI Reference](/commands/aws-cli.md), [Azure CLI Reference](/commands/azure-cli.md), [jq Command Reference](/commands/jq.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 `gcloud` ships in the Google Cloud CLI bundle for Linux, macOS, and Windows, and is preinstalled in Cloud Shell. It authenticates with a user account through `gcloud auth login`, or with a service account, or with Application Default Credentials for client libraries. Commands follow the `gcloud <group> <command>` shape and act within an active project and configuration. Output supports filtering with `--filter` and reshaping with `--format`.

@@ -709,15 +709,6 @@ The library data has no D3FEND mapping for T1606.002 SAML Tokens, T1553.002 Code
 ### Navigator layers
 
 The study's techniques are saved as two ATT&CK Navigator layers pinned to ATT&CK v20: the Enterprise layer [navigator/library-layers/chronicle-2020.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/chronicle-2020.json) and the ICS layer [navigator/case-studies/chronicle-2020-ics.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/case-studies/chronicle-2020-ics.json), both listed on [the Navigator layers page](/navigator/index.md). The Enterprise layer scores each technique by its Basis: 100 where the source prints the id, 75 where the source describes the behavior, 50 where only a press account supports it, and 40 for an Inferred mapping. Every entry's comment names the source numbers in the Sources table below.
-
-> © 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.
->
-> © The MITRE Corporation. Includes material from MITRE D3FEND™, used under the D3FEND Terms of Use. https://d3fend.mitre.org/
->
-> © The MITRE Corporation. Includes material from the Common Weakness Enumeration (CWE™), used under the CWE Terms of Use. https://cwe.mitre.org/
->
-> © The MITRE Corporation. Includes material from the Common Attack Pattern Enumeration and Classification (CAPEC™), used under the CAPEC Terms of Use. https://capec.mitre.org/
-
 ## Cross-cutting themes
 
 **The perimeter moved to the VPN, and everyone found it.** Russian (APT29, Berserk Bear), Chinese (MSS-affiliated actors, APT41) and Iranian (Pioneer Kitten) state actors and ransomware crews all used the same short list of gateway flaws within months of one another (Confirmed [5][8][16][87][25][89]). The shared list is the year's most useful fact for a defender: one patch queue served against every actor.
@@ -897,6 +888,16 @@ All sources were opened on 3 November 2026. Grade is the source's evidence grade
 | 135 | CISA and MS-ISAC, Ransomware Guide | https://www.cisa.gov/stopransomware/ransomware-guide | 2026-11-03 | Confirmed |
 | 136 | Federal Register (GovInfo PDF), Executive Order 14028, Improving the Nation's Cybersecurity, 17 May 2021 | https://www.govinfo.gov/content/pkg/FR-2021-05-17/pdf/2021-10460.pdf | 2026-11-03 | Confirmed |
 | 137 | TeamStarWolf library repository, main branch (`mitre/` tree and the Navigator validator) | https://github.com/TeamStarWolf/TeamStarWolf | 2026-11-03 | Confirmed |
+
+*© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*
+
+*© The MITRE Corporation. Includes material from the Common Weakness Enumeration (CWE™), used under the CWE Terms of Use. https://cwe.mitre.org/*
+
+*© The MITRE Corporation. Includes material from the Common Attack Pattern Enumeration and Classification (CAPEC™), used under the CAPEC Terms of Use. https://capec.mitre.org/*
+
+*© The MITRE Corporation. Includes material from MITRE D3FEND™, used under the D3FEND Terms of Use. https://d3fend.mitre.org/*
+
+*The terms for every MITRE dataset used here are recorded in [THIRD_PARTY_NOTICES.md](/THIRD_PARTY_NOTICES.md).*
 
 ## Related references
 

@@ -47,7 +47,7 @@
       "techniqueID": "T1003.008",
       "tactic": "credential-access",
       "score": 50,
-      "comment": "Case 1: Morris worm: world-readable `/etc/passwd`. Sources: 13.",
+      "comment": "Case 1: Morris worm: world-readable `/etc/passwd`. Sources: 14.",
       "enabled": true,
       "showSubtechniques": false
     },
@@ -55,7 +55,7 @@
       "techniqueID": "T1016",
       "tactic": "discovery",
       "score": 50,
-      "comment": "Case 1: Morris worm: netstat routing tables. Sources: 13.",
+      "comment": "Case 1: Morris worm: netstat routing tables. Sources: 14.",
       "enabled": true,
       "showSubtechniques": false
     },
@@ -63,7 +63,7 @@
       "techniqueID": "T1018",
       "tactic": "discovery",
       "score": 50,
-      "comment": "Case 1: Morris worm: `hosts.equiv`, `.rhosts`, `.forward`. Sources: 13.",
+      "comment": "Case 1: Morris worm: `hosts.equiv`, `.rhosts`, `.forward`. Sources: 14.",
       "enabled": true,
       "showSubtechniques": false
     },
@@ -71,7 +71,7 @@
       "techniqueID": "T1021",
       "tactic": "lateral-movement",
       "score": 50,
-      "comment": "Case 1: Morris worm: `rsh` and `rexec`. Sources: 13.",
+      "comment": "Case 1: Morris worm: `rsh` and `rexec`. Sources: 14.",
       "enabled": true,
       "showSubtechniques": false
     },
@@ -143,7 +143,7 @@
       "techniqueID": "T1046",
       "tactic": "discovery",
       "score": 50,
-      "comment": "Case 1: Morris worm: probing random addresses. Sources: 13. Case 5: Mirai: SYN scans of 23 and 2323/TCP. Sources: 59.",
+      "comment": "Case 1: Morris worm: probing random addresses. Sources: 14. Case 5: Mirai: SYN scans of 23 and 2323/TCP. Sources: 59.",
       "enabled": true,
       "showSubtechniques": false
     },
@@ -215,7 +215,7 @@
       "techniqueID": "T1078.003",
       "tactic": "initial-access",
       "score": 50,
-      "comment": "Case 1: Morris worm: `rexec` with cracked local passwords. Sources: 13.",
+      "comment": "Case 1: Morris worm: `rexec` with cracked local passwords. Sources: 14.",
       "enabled": true,
       "showSubtechniques": false
     },
@@ -263,7 +263,7 @@
       "techniqueID": "T1110.001",
       "tactic": "credential-access",
       "score": 50,
-      "comment": "Case 1: Morris worm: null, name, GECOS guesses. Sources: 13. Case 5: Mirai: 10 pairs per target. Sources: 59.",
+      "comment": "Case 1: Morris worm: null, name, GECOS guesses. Sources: 14. Case 5: Mirai: 10 pairs per target. Sources: 59.",
       "enabled": true,
       "showSubtechniques": false
     },
@@ -271,7 +271,7 @@
       "techniqueID": "T1110.002",
       "tactic": "credential-access",
       "score": 50,
-      "comment": "Case 1: Morris worm: 432-word list, then `/usr/dict/words`. Sources: 12, 13.",
+      "comment": "Case 1: Morris worm: 432-word list, then `/usr/dict/words`. Sources: 12, 14.",
       "enabled": true,
       "showSubtechniques": false
     },
@@ -335,7 +335,7 @@
       "techniqueID": "T1210",
       "tactic": "lateral-movement",
       "score": 50,
-      "comment": "Case 1: Morris worm: sendmail debug and fingerd overflow, 2 Nov 1988. Sources: 11, 12, 13.",
+      "comment": "Case 1: Morris worm: sendmail debug and fingerd overflow, 2 Nov 1988. Sources: 11, 12, 14.",
       "enabled": true,
       "showSubtechniques": false
     },
@@ -399,7 +399,7 @@
       "techniqueID": "T1499",
       "tactic": "impact",
       "score": 50,
-      "comment": "Case 1: Morris worm: unintended load from reinfection (effect, not intent). Sources: 7, 13.",
+      "comment": "Case 1: Morris worm: unintended load from reinfection (effect, not intent). Sources: 7, 14.",
       "enabled": true,
       "showSubtechniques": false
     },

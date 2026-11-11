@@ -19,7 +19,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 55 min (12,553 words at 230 words a minute)
+About 55 min (12,626 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -59,7 +59,7 @@ Plenty of people in our community first met the history of hacking through a boo
 
 This study does not retell the book. The book text itself was not opened (a statement about this study's method), so nothing here rests on it except where a claim is labelled as the book's own and graded **Reported**. Instead the study goes to the record behind each chapter: the Second Circuit's opinion in *United States v. Morris* and the 1988 technical analyses from Purdue, MIT and Utah; Vesselin Bontchev's 1991 paper and the *Virus Bulletin* issues of 1990 to 1992; the 2005 Department of Justice release on the juvenile case; the July 2018 indictment of twelve GRU officers, the Special Counsel's report, the DHS and FBI GRIZZLY STEPPE report and the CrowdStrike DNC report; and the USENIX Security 2017 measurement paper on Mirai, the US-CERT alert and the Alaska court filings.
 
-The record mostly bears the book's thesis out, and it adds something the thesis can obscure. In four of the five cases the human failure ran through a technical or procedural default; in Bulgaria it ran through the absence of any law (**Inferred**). Sendmail shipped with debug on, fingerd used `gets()`, and passwords were guessable [11] [12] [13]. Bulgaria had no law against writing viruses and a culture of copying pirated disks [28]. A carrier's store staff handed out credentials over the phone, by the book author's account [38]. Campaign staff typed passwords into a fake Google page [46] [49]. Hundreds of thousands of cameras and recorders shipped with factory passwords [59] [62]. Twenty-eight years apart, the Morris worm and Mirai both broke in with guessed or default passwords [13] [59].
+The record mostly bears the book's thesis out, and it adds something the thesis can obscure. In four of the five cases the human failure ran through a technical or procedural default; in Bulgaria it ran through the absence of any law (**Inferred**). Sendmail shipped with debug on, fingerd used `gets()`, and passwords were guessable [11] [12] [14]. Bulgaria had no law against writing viruses and a culture of copying pirated disks [28]. A carrier's store staff handed out credentials over the phone, by the book author's account [38]. Campaign staff typed passwords into a fake Google page [46] [49]. Hundreds of thousands of cameras and recorders shipped with factory passwords [59] [62]. Twenty-eight years apart, the Morris worm and Mirai both broke in with guessed or default passwords [14] [59].
 
 Evidence grade: the mechanics of the Morris worm, its timeline, the trial and the sentence are **Confirmed** from court records and the 1988 analyses; the 6,000-machine and multimillion-dollar figures are not, and the library's own row repeats them (Part 6). The Dark Avenger's viruses and their spread are **Confirmed** from Bontchev and *Virus Bulletin*; his identity is not established by any opened source. The 2005 intrusions are **Confirmed** from the DOJ release, which names no victim; the identification of the victim and the method of the phone call are **Reported** from the book's author and the press. The DNC and DCCC intrusions, the personas and the leaks are **Confirmed** from the indictment, the Special Counsel's report and the vendor and government reports. Mirai's growth, mechanics and attacks are **Confirmed** from the USENIX paper and US-CERT, and the guilty pleas from the Alaska filings; the claim that the Mirai authors attacked Dyn is unsupported by any opened source.
 
@@ -106,7 +106,7 @@ This is the study's own reading of the record, graded **Inferred** as a judgment
 
 **Understated.**
 
-- **Defaults.** Debug mode on by default, an unsafe library call, world-readable password files and factory passwords did more of the work in 1988 and 2016 than any clever exploit [11] [12] [13] [59] [62] (Part 7.1).
+- **Defaults.** Debug mode on by default, an unsafe library call, world-readable password files and factory passwords did more of the work in 1988 and 2016 than any clever exploit [11] [12] [14] [59] [62] (Part 7.1).
 - **The second intruder.** Many retellings of the DNC case name one Russian service; the record shows two in the same network, with no collaboration identified [48] [49] (Part 4.1).
 - **The leak as infrastructure.** The personas and leak sites ran on the same bitcoin-funded plumbing as the phishing domains, which is how the indictment ties them to the intrusions [46] (Part 4.5).
 - **Attacks on the defenders.** The Dark Avenger trojanized scanners and impersonated a named researcher [28] [30], and the GRU read a security vendor's reporting before it tried to clean up [46].
@@ -149,17 +149,17 @@ Robert Tappan Morris, a Cornell graduate student, began work on the worm in Octo
 The court found four methods: a sendmail bug, a fingerd bug, trusted hosts and password guessing [8] (**Confirmed**).
 
 - **Sendmail debug mode.** In debug mode a connection could name a program as the recipient. The worm's recipient stripped the headers and piped the message body to a shell. The shell wrote and compiled a small "grappling hook", `l1.c`, which pulled down VAX and Sun object files [11] (**Confirmed**). Debug was on by default in 4.3BSD and Sun releases [11] (**Confirmed**). NVD now carries a retroactive record for the sendmail debug command, CVE-1999-0095, with the weakness listed as NVD-CWE-Other [16] (**Confirmed**).
-- **The fingerd overflow.** fingerd read its request with `gets()` into a 512-byte stack buffer. The worm sent 536 bytes, overwriting the saved stack frame so the return jumped to VAX code that ran `/bin/sh` [12] (**Confirmed**). It worked only on VAX 4.3BSD hosts; the same input made Suns dump core [13] (**Confirmed**). No NVD record for the 1988 fingerd bug was found [17] (**Inferred** from absence).
-- **Trusted hosts.** Targets came from `/etc/hosts.equiv`, `.rhosts`, `.forward`, netstat routing tables and random addresses. `rsh` relied on host trust, and `rexec` used only passwords the worm had already verified locally [13] (**Confirmed**).
-- **Password guessing.** With `/etc/passwd` world-readable, guessing ran in stages: a null password, the account name, the name doubled, first and last names from the GECOS field, the name reversed, a built-in 432-word list, then `/usr/dict/words` [13] (**Confirmed**). Seeley estimated about nine hours for the 432-word list and about four weeks for a full dictionary [12] (**Confirmed**).
+- **The fingerd overflow.** fingerd read its request with `gets()` into a 512-byte stack buffer. The worm sent 536 bytes, overwriting the saved stack frame so the return jumped to VAX code that ran `/bin/sh` [12] (**Confirmed**). It worked only on VAX 4.3BSD hosts; the same input made Suns dump core [14] (**Confirmed**). A keyword search of NVD for fingerd returns five records, none of them the 1988 bug [17] (**Inferred** from absence).
+- **Trusted hosts.** Targets came from `/etc/hosts.equiv`, `.rhosts`, `.forward`, netstat routing tables and random addresses. `rsh` relied on host trust, and `rexec` used only passwords the worm had already verified locally [14] (**Confirmed**).
+- **Password guessing.** With `/etc/passwd` world-readable, guessing ran in stages: a null password, the account name, the name doubled, first and last names from the GECOS field, the name reversed, a built-in 432-word list, then `/usr/dict/words` [14] (**Confirmed**). Seeley estimated about nine hours for the 432-word list and about four weeks for a full dictionary [12] (**Confirmed**).
 
 ### 1.3 Why it overwhelmed the network
 
-The worm tried not to run twice on a host. A routine called `checkother()` contacted a local listener on TCP port 23357 and rolled dice to decide which copy survived. One copy in seven skipped the check and became immortal, and a losing copy only set a flag and kept working a long time before it exited [13] (**Confirmed**). The court found Morris built the every-seventh rule to defeat administrators who might fake a "yes" reply, and that he underestimated how much copying it would cause [7] (**Confirmed**). The record describes machines crashing or becoming catatonic [7] (**Confirmed**).
+The worm tried not to run twice on a host. A routine called `checkother()` contacted a local listener on TCP port 23357 and rolled dice to decide which copy survived. One copy in seven skipped the check and became immortal, and a losing copy only set a flag and kept working a long time before it exited [14] (**Confirmed**). The court found Morris built the every-seventh rule to defeat administrators who might fake a "yes" reply, and that he underestimated how much copying it would cause [7] (**Confirmed**). The record describes machines crashing or becoming catatonic [7] (**Confirmed**).
 
 ### 1.4 How it hid
 
-It was compiled under the name `sh`, forked about every three minutes, erased its argument list, deleted its binary, disabled core dumps and XOR'd its strings with 0x81 [11] (**Confirmed**). Spafford adds that it kept its files encrypted in memory and used a bootstrap "vector" program to fetch the body [14] (**Confirmed**). Code meant to send a byte to `ernie.berkeley.edu` about once per 15 infections was broken and never sent anything; MIT's packet captures showed no traffic to that host [13] (**Confirmed**).
+It was compiled under the name `sh`, forked about every three minutes, erased its argument list, deleted its binary, disabled core dumps and XOR'd its strings with 0x81 [11] (**Confirmed**). Spafford adds that it kept its files encrypted in memory and used a bootstrap "vector" program to fetch the body [14] (**Confirmed**). Code meant to send a byte to `ernie.berkeley.edu` about once per 15 infections was broken and never sent anything; MIT's packet captures showed no traffic to that host [14] (**Confirmed**).
 
 ### 1.5 The response
 
@@ -184,7 +184,7 @@ The Cornell Commission report was presented to the Provost on 6 February 1989 [1
 
 ### 1.7 The trial
 
-The Cornell Chronicle described Morris as the first person tried under the 1986 law; the FBI calls him the first person convicted under it [23] [15] (**Confirmed**). Judge Howard G. Munson announced the sentence on 4 May 1990: three years probation, 400 hours of community service, a $10,050 fine and the costs of supervision, in a judgment dated 16 May 1990 [7] (**Confirmed**). The Chronicle gave the fine as $10,000; the court figure governs [7] [23]. The Second Circuit affirmed on 7 March 1991. It held that the intent requirement applies to the access, not to the resulting damage, and that Morris used sendmail and finger without authorization because he used neither for its intended function [7] (**Confirmed**).
+The Cornell Chronicle described Morris as the first person tried under the 1986 law; the FBI calls him the first person convicted under it [23] [15] (**Confirmed**). Judge Howard G. Munson announced the sentence on 4 May 1990 [77] (**Confirmed**). The judgment, dated 16 May 1990, set three years probation, 400 hours of community service, a $10,050 fine and the costs of supervision [7] (**Confirmed**). The Chronicle of 10 May 1990 gave the fine as $10,000 [77]; the court figure governs [7]. The Second Circuit affirmed on 7 March 1991. It held that the intent requirement applies to the access, not to the resulting damage, and that Morris used sendmail and finger without authorization because he used neither for its intended function [7] (**Confirmed**).
 
 ### 1.8 How big was it?
 
@@ -382,7 +382,7 @@ These are the library defects this study found. Each is graded; none is fixed by
 
 ### 7.1 Default and guessable credentials, 1988 to 2016
 
-The worm guessed account names and a 432-word list [13]; Mirai tried 10 of 62 factory pairs [59]. Both gained footholds through guessed or default passwords, the worm alongside two exploits (**Inferred**). The library maps Change Default Password, Account Locking, Strong Password Policy, Credential Hardening and Multi-factor Authentication to the password techniques both used [57] [27] (**Confirmed** as library mappings). The book's policy lesson points the same way: Kirkus describes its case for building security in, citing California's connected-device "reasonable security" law [5] (**Reported**). Practical steps: unique per-device credentials at manufacture, no Telnet on internet-facing devices, and watching 23/TCP and 2323/TCP as US-CERT advised [62].
+The worm guessed account names and a 432-word list [14]; Mirai tried 10 of 62 factory pairs [59]. Both gained footholds through guessed or default passwords, the worm alongside two exploits (**Inferred**). The library maps Change Default Password, Account Locking, Strong Password Policy, Credential Hardening and Multi-factor Authentication to the password techniques both used [57] [27] (**Confirmed** as library mappings). The book's policy lesson points the same way: Kirkus describes its case for building security in, citing California's connected-device "reasonable security" law [5] (**Reported**). Practical steps: unique per-device credentials at manufacture, no Telnet on internet-facing devices, and watching 23/TCP and 2323/TCP as US-CERT advised [62].
 
 ### 7.2 Credential phishing needs no exploit
 
@@ -406,7 +406,7 @@ The Dark Avenger virus corrupted a sector every 16th run, so backups were alread
 
 ### 7.7 Unsafe input, debug features and trust
 
-`gets()` into a fixed stack buffer and a debug mode left on in shipping sendmail were the worm's two exploits [11] [12]. Trust files turned one compromised host into many [13], as the DCCC's credentials turned into the DNC's [46]. The 1988 fixes, `fgets` and sendmail 5.59 with debug off [10] [21], were small; finding them took a network of people who kept talking [11] [18].
+`gets()` into a fixed stack buffer and a debug mode left on in shipping sendmail were the worm's two exploits [11] [12]. Trust files turned one compromised host into many [14], as the DCCC's credentials turned into the DNC's [46]. The 1988 fixes, `fgets` and sendmail 5.59 with debug off [10] [21], were small; finding them took a network of people who kept talking [11] [18].
 
 ## MITRE mappings
 
@@ -430,23 +430,23 @@ This Part binds the verified record to MITRE ATT&CK v20.0 (Enterprise), CAPEC, C
 
 | ID | Name | Tactic | Event | Source |
 |---|---|---|---|---|
-| [T1210](/mitre/techniques/T1210.md) | Exploitation of Remote Services | Lateral Movement | sendmail debug and fingerd overflow, 2 Nov 1988 | [11] [12] [13] |
+| [T1210](/mitre/techniques/T1210.md) | Exploitation of Remote Services | Lateral Movement | sendmail debug and fingerd overflow, 2 Nov 1988 | [11] [12] [14] |
 | [T1059.004](/mitre/techniques/T1059-004.md) | Unix Shell | Execution | body piped to a shell; fingerd return to `/bin/sh` | [11] [12] |
 | [T1027.004](/mitre/techniques/T1027-004.md) | Compile After Delivery | Stealth | `l1.c` compiled on the target | [11] |
 | [T1105](/mitre/techniques/T1105.md) | Ingress Tool Transfer | Command and Control | grappling hook pulls object files | [11] [14] |
-| [T1021](/mitre/techniques/T1021.md) | Remote Services | Lateral Movement | `rsh` and `rexec` | [13] |
-| [T1078.003](/mitre/techniques/T1078-003.md) | Local Accounts | Initial Access | `rexec` with cracked local passwords | [13] |
-| [T1003.008](/mitre/techniques/T1003-008.md) | /etc/passwd and /etc/shadow | Credential Access | world-readable `/etc/passwd` | [13] |
-| [T1110.001](/mitre/techniques/T1110-001.md) | Password Guessing | Credential Access | null, name, GECOS guesses | [13] |
-| [T1110.002](/mitre/techniques/T1110-002.md) | Password Cracking | Credential Access | 432-word list, then `/usr/dict/words` | [12] [13] |
-| [T1018](/mitre/techniques/T1018.md) | Remote System Discovery | Discovery | `hosts.equiv`, `.rhosts`, `.forward` | [13] |
-| [T1016](/mitre/techniques/T1016.md) | System Network Configuration Discovery | Discovery | netstat routing tables | [13] |
-| [T1046](/mitre/techniques/T1046.md) | Network Service Discovery | Discovery | probing random addresses | [13] |
+| [T1021](/mitre/techniques/T1021.md) | Remote Services | Lateral Movement | `rsh` and `rexec` | [14] |
+| [T1078.003](/mitre/techniques/T1078-003.md) | Local Accounts | Initial Access | `rexec` with cracked local passwords | [14] |
+| [T1003.008](/mitre/techniques/T1003-008.md) | /etc/passwd and /etc/shadow | Credential Access | world-readable `/etc/passwd` | [14] |
+| [T1110.001](/mitre/techniques/T1110-001.md) | Password Guessing | Credential Access | null, name, GECOS guesses | [14] |
+| [T1110.002](/mitre/techniques/T1110-002.md) | Password Cracking | Credential Access | 432-word list, then `/usr/dict/words` | [12] [14] |
+| [T1018](/mitre/techniques/T1018.md) | Remote System Discovery | Discovery | `hosts.equiv`, `.rhosts`, `.forward` | [14] |
+| [T1016](/mitre/techniques/T1016.md) | System Network Configuration Discovery | Discovery | netstat routing tables | [14] |
+| [T1046](/mitre/techniques/T1046.md) | Network Service Discovery | Discovery | probing random addresses | [14] |
 | [T1036.005](/mitre/techniques/T1036-005.md) | Match Legitimate Resource Name or Location | Stealth | runs as `sh` | [11] |
 | [T1036.011](/mitre/techniques/T1036-011.md) | Overwrite Process Arguments | Stealth | erased argument list | [11] [14] |
 | [T1070.004](/mitre/techniques/T1070-004.md) | File Deletion | Stealth | deleted its binary | [11] [14] |
 | [T1027](/mitre/techniques/T1027.md) | Obfuscated Files or Information | Stealth | strings XOR'd with 0x81; files encrypted in memory | [11] [14] |
-| [T1499](/mitre/techniques/T1499.md) | Endpoint Denial of Service | Impact | unintended load from reinfection (effect, not intent) | [7] [13] |
+| [T1499](/mitre/techniques/T1499.md) | Endpoint Denial of Service | Impact | unintended load from reinfection (effect, not intent) | [7] [14] |
 
 ### Case 2: the Dark Avenger, Enterprise (all Inferred mappings)
 
@@ -555,7 +555,7 @@ GRU Unit 74455, election infrastructure (no group id bound):
 | Dark Avenger | none supported | none | T1204.002: [Executable Allowlisting](/mitre/d3fend/executable-allowlisting.md); T1561.001 has library D3FEND mappings on its technique page | **Confirmed** as library mappings [57] [58] |
 | Phone case | none supported | [CAPEC-407](/mitre/capec/CAPEC-407.md) Pretexting, [CAPEC-412](/mitre/capec/CAPEC-412.md) Pretexting via Customer Service, [CAPEC-415](/mitre/capec/CAPEC-415.md) Pretexting via Phone | T1078: [Account Locking](/mitre/d3fend/account-locking.md), [Change Default Password](/mitre/d3fend/change-default-password.md) | CAPEC **Inferred**, resting on the **Reported** call [38] [58] |
 | DNC | none supported | none bound | T1566.002: [URL Analysis](/mitre/d3fend/url-analysis.md), [URL Reputation Analysis](/mitre/d3fend/url-reputation-analysis.md), [Sender Reputation Analysis](/mitre/d3fend/sender-reputation-analysis.md), [Email Filtering](/mitre/d3fend/email-filtering.md); T1598.003 has no D3FEND row; T1078: Account Locking, Change Default Password | **Confirmed** as library mappings [57] |
-| Mirai | CWE-1392 Use of Default Credentials (fits the record); CWE-798 Use of Hard-coded Credentials (fits only a hard-coded framing); the original Mirai exploited no software CVE [76] | CAPEC-70 (**Inferred**) | T1078.001: Change Default Password, Account Locking; T1498.001 and T1499.002: [Inbound Session Volume Analysis](/mitre/d3fend/inbound-session-volume-analysis.md), [Inbound Traffic Filtering](/mitre/d3fend/inbound-traffic-filtering.md), Network Traffic Filtering | CWE **Confirmed** [76]; D3FEND **Confirmed** as library mappings [57] |
+| Mirai | CWE-1392 Use of Default Credentials (fits the record: the original Mirai logged in over Telnet and SSH with a static set of default credentials, and only later strains scanned for other vulnerabilities [59]; the bot used a short list of 62 default credentials [62]); CWE-798 Use of Hard-coded Credentials (fits only a hard-coded framing); CWE id and name per [76] | CAPEC-70 (**Inferred**) | T1078.001: Change Default Password, Account Locking; T1498.001 and T1499.002: [Inbound Session Volume Analysis](/mitre/d3fend/inbound-session-volume-analysis.md), [Inbound Traffic Filtering](/mitre/d3fend/inbound-traffic-filtering.md), Network Traffic Filtering | CWE-1392 fit **Inferred** from [59] [62] (id and name **Confirmed** [76]); D3FEND **Confirmed** as library mappings [57] |
 
 ### Navigator layer
 
@@ -563,7 +563,7 @@ The study's layer is [`navigator/library-layers/fancy-bear-goes-phishing.json`](
 
 ## Cross-cutting themes
 
-**Defaults, not genius.** The book's thesis is that hacking is about people [1] [4]. The record adds that the people were let down by defaults: debug on, `gets()`, world-readable password files, factory passwords on cameras, a single password guarding a chairman's mailbox [11] [12] [13] [46] [59]. The Guardian's reviewer draws the book's conclusion that vulnerability could be cut if failing to take precautions were made an offence [3] (**Reported**).
+**Defaults, not genius.** The book's thesis is that hacking is about people [1] [4]. The record adds that the people were let down by defaults: debug on, `gets()`, world-readable password files, factory passwords on cameras, a single password guarding a chairman's mailbox [11] [12] [14] [46] [59]. The Guardian's reviewer draws the book's conclusion that vulnerability could be cut if failing to take precautions were made an offence [3] (**Reported**).
 
 **The economics of the attacker.** The reviewer also reads the book as treating hacking as a business of rational actors [3] (**Reported**). The record agrees in detail: underpaid Bulgarian programmers with no law against them [28], a teenager's free accounts and threats [37], a $95,000 bitcoin laundering operation [46], and Mirai's authors renting DDoS [74], extorting a company and running clickfraud while selling DDoS mitigation [65] [69] [73].
 
@@ -588,11 +588,10 @@ The study's layer is [`navigator/library-layers/fancy-bear-goes-phishing.json`](
 | 10 | Eichin and Rochlis, MIT, chronology | https://web.mit.edu/eichin/www/virus/chronology.html | 3 Nov 2026 | Confirmed |
 | 11 | Eichin and Rochlis, MIT, strategies | https://web.mit.edu/eichin/www/virus/strategies.html | 3 Nov 2026 | Confirmed |
 | 12 | Donn Seeley, "A Tour of the Worm" (UNC course copy) | https://www.cs.unc.edu/~jeffay/courses/nidsS05/attacks/seely-RTMworm-89.html | 3 Nov 2026 | Confirmed |
-| 13 | Eugene Spafford, "The Internet Worm Program: An Analysis", Purdue CSD-TR-823, record page | https://docs.lib.purdue.edu/cstech/702/ | 3 Nov 2026 | Confirmed |
 | 14 | Spafford, CSD-TR-823, full text | https://docs.lib.purdue.edu/cgi/viewcontent.cgi?article=1701&context=cstech | 3 Nov 2026 | Confirmed |
 | 15 | FBI, "The Morris Worm: 30 Years Since First Major Attack on the Internet" | https://www.fbi.gov/news/stories/morris-worm-30-years-since-first-major-attack-on-internet-110218 | 3 Nov 2026 | Confirmed |
 | 16 | NVD, CVE-1999-0095 | https://nvd.nist.gov/vuln/detail/CVE-1999-0095 | 3 Nov 2026 | Confirmed |
-| 17 | NVD API lookup used for the fingerd check | https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-1999-0095 | 3 Nov 2026 | Inferred |
+| 17 | NVD API keyword search for fingerd, run 11 Nov 2026 (returns 5 records: CVE-1999-0150, CVE-1999-1165, CVE-2000-0915, CVE-2008-5120 and CVE-2011-2287; none is the 1988 4.3BSD `gets()` overflow) | https://services.nvd.nist.gov/rest/json/cves/2.0?keywordSearch=fingerd | 11 Nov 2026 | Inferred |
 | 18 | RFC 1135, "The Helminthiasis of the Internet" | https://www.rfc-editor.org/rfc/rfc1135.txt | 3 Nov 2026 | Confirmed |
 | 19 | RFC 1087, "Ethics and the Internet" | https://www.rfc-editor.org/rfc/rfc1087.txt | 3 Nov 2026 | Confirmed |
 | 20 | SEI, CERT Division page | https://www.sei.cmu.edu/about/divisions/cert/ | 3 Nov 2026 | Confirmed |
@@ -651,6 +650,7 @@ The study's layer is [`navigator/library-layers/fancy-bear-goes-phishing.json`](
 | 74 | Brian Krebs, "Mirai Botnet Authors Avoid Jail Time", Sep 2018 | https://krebsonsecurity.com/2018/09/mirai-botnet-authors-avoid-jail-time/ | 3 Nov 2026 | Reported |
 | 75 | MITRE ATT&CK, T1584.005 Botnet | https://attack.mitre.org/techniques/T1584/005/ | 3 Nov 2026 | Confirmed |
 | 76 | MITRE CWE, CWE-1392 Use of Default Credentials | https://cwe.mitre.org/data/definitions/1392.html | 3 Nov 2026 | Confirmed |
+| 77 | Cornell Chronicle (eCommons), Vol. 21 No. 32, 10 May 1990, on the sentencing | https://ecommons.cornell.edu/handle/1813/25356 | 11 Nov 2026 | Confirmed |
 
 Not opened, and not cited as opened: the book's own text; the Cornell Commission report (cited through [22]); the full GAO PDF; the DOJ releases for the July 2018 indictment, the December 2017 pleas and the September 2018 sentencing; the judgments in the Alaska and New Jersey cases; OVH's founder's tweet.
 

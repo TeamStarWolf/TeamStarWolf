@@ -19,7 +19,7 @@ Beginner
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 37 min (8,480 words at 230 words a minute)
+About 38 min (8,654 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -84,7 +84,7 @@ Evidence grade: the plea, sentence, appellate ruling, FCC ruling, the 1994 intru
 ### Key findings
 
 - **The plea record is the anchor, and it is mostly about people.** Social engineering heads the list of methods Mitnick admitted in 1999, ahead of cloned phones, sniffers and hacker software, and he separately admitted impersonating employees of victim companies (Confirmed [1]). His codefendant Lewis De Payne pleaded guilty to one wire fraud count for posing as a Nokia employee to get Nokia staff in Florida to ship a program worth about $240,000 (Confirmed [1]). Wired reported that four of the five Central District counts it described involved impersonating employees of cellular phone makers (Reported [8]).
-- **The famous hack is the least documented part of the record.** Shimomura's 25 January 1995 post lays out the Christmas Day attack in detail: reconnaissance, a SYN flood to silence a trusted host, sequence-number prediction, a forged `rsh` command that opened `/.rhosts`, and a kernel module that hijacked a live session (Confirmed [3]). It does not name the attacker (Confirmed [3]). *Ghost in the Wires* (p. 326, via a review) credits an Israeli hacker known as JSZ with writing the code and carrying it out (Reported [11]). None of the charges summarized in the DOJ release, the Ninth Circuit memorandum or the *Takedown* timeline is described as covering it (Inferred [1][2][9]).
+- **The famous hack is the least documented part of the record.** Shimomura's 25 January 1995 post lays out the Christmas Day attack in detail: reconnaissance, a SYN flood to silence a trusted host, sequence-number prediction, a forged `rsh` command that opened `/.rhosts`, and a kernel module that hijacked a live session (Confirmed [3]). It does not name the attacker (Confirmed [3]); a preface the Loyola mirror's host added names Mitnick, but it is not part of the post (Reported [3]). *Ghost in the Wires* (p. 326, via a review) credits an Israeli hacker known as JSZ with writing the code and carrying it out (Reported [11]). None of the charges summarized in the DOJ release, the Ninth Circuit memorandum or the *Takedown* timeline is described as covering it (Inferred [1][2][9]).
 - **Losses were never settled.** DEC claimed several million dollars in software in 1989 (Reported [10]); victim letters published by 2600 in 1999 claimed nearly $300 million combined, which 2600 disputed (Reported [8]); Wired reported prosecutors sought about $1.5 million (Reported [29]); the court ordered just over $4,125 and rejected both Mitnick's claim that no restitution was owed and his claim that losses were overstated (Confirmed [1]).
 - **Supervised release became the fight.** The Ninth Circuit in an unpublished 1998 memorandum upheld conditions barring computers, cellular phones and computer-industry work without probation officer approval, rejecting First Amendment, vagueness and delegation challenges (Confirmed [2]). Mitnick told the Senate they were the most restrictive conditions ever imposed in federal court (Reported [32]).
 - **The Art of Intrusion is mostly unverifiable, with one documented thread and one probable match.** Its subjects are anonymous or pseudonymous and no review opened says the stories were checked (Reported [18][19]). Adrian Lamo's 2002 intrusion into the New York Times has a DOJ record (Confirmed [23]); the Florida teenager in the "terrorists" chapter matches the juvenile in DOJ release 00-555 by inference only (Confirmed [22]; Inferred match). The Lockheed Martin and Boeing claims in that chapter have no primary record found (Reported [21]).
@@ -209,7 +209,7 @@ The attack was blind: the intruder never saw x-terminal's replies, which is why 
 
 ### Who did it
 
-The post does not name the attacker (Confirmed [3]). Public attribution of the intrusion to Mitnick is not supported by any primary opened here (Inferred), and *Ghost in the Wires* itself credits JSZ (Reported [11]). This study found no charge in the DOJ release, the Ninth Circuit memorandum, the CNN plea report, the Wired loss report or the *Takedown* timeline described as covering the intrusion; the indictment texts were not opened, so this is a reading of the summaries only (Inferred [1][2][7][8][9]). The intrusion Mitnick is best known for is therefore not one the record shows he was convicted of (Inferred).
+The post does not name the attacker (Confirmed [3]). The Loyola mirror of the post opens with a preface by that site's administrator, not part of Shimomura's post, which names Mitnick as the perpetrator and says he had broken into Loyola's apollo machine to launch the attacks (Reported [3]); the aeb.win.tue.nl mirror carries the post with no preface (Confirmed [3]). Public attribution of the intrusion to Mitnick is not supported by any primary opened here (Inferred), and *Ghost in the Wires* itself credits JSZ (Reported [11]). This study found no charge in the DOJ release, the Ninth Circuit memorandum, the CNN plea report, the Wired loss report or the *Takedown* timeline described as covering the intrusion; the indictment texts were not opened, so this is a reading of the summaries only (Inferred [1][2][7][8][9]). The intrusion Mitnick is best known for is therefore not one the record shows he was convicted of (Inferred).
 
 ## Part 5: The Art of Intrusion against the record
 
@@ -326,9 +326,11 @@ T1078 is not mapped: the release records captured credentials, not their use. Th
 | [T1621](/mitre/techniques/T1621.md) | Multi-Factor Authentication Request Generation | Credential Access | AA23-320A (MFA fatigue) | [24] |
 | [T1078.002](/mitre/techniques/T1078-002.md) | Domain Accounts | Stealth, Persistence, Privilege Escalation, Initial Access | AA23-320A | [24] |
 | [T1589](/mitre/techniques/T1589.md) | Gather Victim Identity Information | Reconnaissance | AA23-320A | [24] |
+| [T1594](/mitre/techniques/T1594.md) | Search Victim-Owned Websites | Reconnaissance | AA23-320A (searching business-to-business websites to learn a target's role) | [24] |
+| [T1199](/mitre/techniques/T1199.md) | Trusted Relationship | Initial Access | AA23-320A (abusing the trusted relationships of contracted IT help desks in password reset calls); also mapped above for 1994 | [24] |
 | [T1556.006](/mitre/techniques/T1556-006.md) | Multi-Factor Authentication | Defense Impairment, Persistence, Credential Access | AA23-320A (moving MFA to attacker devices) | [24] |
 
-AA23-320A also cites a Mobile SIM swap technique; it is outside the library's generated pages and is left out.
+AA23-320A also cites T1451 SIM Card Swap from ATT&CK for Mobile (Confirmed [24][35]); the library has no ATT&CK Mobile technique page for it (its `mitre/f3/T1451.md` is a page in a different framework), so it is not linked and not in the Enterprise layer.
 
 ### ATT&CK groups, software and campaigns
 
@@ -388,7 +390,7 @@ The study's techniques are saved as an ATT&CK Navigator layer, [navigator/librar
 
 ### What is overstated and what is understated
 
-- **Overstated: the Shimomura attack as Mitnick's crime.** The victim's account names no attacker, the memoir names someone else, and no charge summary opened covers it (Confirmed [3]; Reported [11]; Inferred [1][2][9]).
+- **Overstated: the Shimomura attack as Mitnick's crime.** The victim's account names no attacker (one mirror's host preface names Mitnick, Reported [3]), the memoir names someone else, and no charge summary opened covers it (Confirmed [3]; Reported [11]; Inferred [1][2][9]).
 - **Overstated: the case as the origin of computer crime law.** The library's [Notable Incidents](/NOTABLE_INCIDENTS.md) table says the arrest shaped the interpretation of the Computer Fraud and Abuse Act. No source opened here says the case changed the statute; the clearest legal legacy in the record is the 1998 ruling on computer-use conditions of release (Confirmed [2][34]; Inferred).
 - **Overstated: the losses.** The victims' combined claim of nearly $300 million was disputed at the time and the court ordered a nominal sum (Reported [8]; Confirmed [1]).
 - **Understated: how little technical skill the core method needed.** By his own testimony he got source code in 15 to 20 minutes of phone calls and taxpayer data without touching a computer (Confirmed as testimony [4][5]).
@@ -396,13 +398,13 @@ The study's techniques are saved as an ATT&CK Navigator layer, [navigator/librar
 
 ## Sources
 
-All sources were opened on 3 November 2026. "Primary" means the organization that published the fact; grades apply to the source as used here.
+All sources were opened on 3 November 2026; [3] was reopened on 11 November 2026 for the Loyola mirror's preface and [24] for its help desk technique ids. "Primary" means the organization that published the fact; grades apply to the source as used here.
 
 | # | Source | URL | Opened | Grade |
 |---|---|---|---|---|
 | 1 | US Department of Justice, US Attorney's Office, Central District of California, "Kevin Mitnick Sentenced to Nearly Four Years in Prison," 9 Aug 1999 (archived copies; the original justice.gov page no longer resolves) | [web.archive.org copy of usdoj.gov/criminal/cybercrime/mitnick.htm](https://web.archive.org/web/20001213003500/http://www.usdoj.gov/criminal/cybercrime/mitnick.htm); [UNT End of Term copy](https://webarchive.library.unt.edu/eot2008/20080916073642mp_/http://www.cybercrime.gov/mitnick.htm); [UNT copy 2](https://webarchive.library.unt.edu/eot2008/20080916032623/http://www.cybercrime.gov/mitnick.htm) | 2026-11-03 | Confirmed |
 | 2 | United States v. Mitnick, 145 F.3d 1342 (9th Cir. 1998), No. 97-50365, unpublished memorandum, 20 May 1998 | [law.justia.com/cases/federal/appellate-courts/F3/145/1342/470528/](https://law.justia.com/cases/federal/appellate-courts/F3/145/1342/470528/) | 2026-11-03 | Confirmed |
-| 3 | Tsutomu Shimomura, technical details of the attack, Usenet, 25 Jan 1995 (two mirrors) | [pld.cs.luc.edu/courses/447/sum08/class7/shimomura.text](https://pld.cs.luc.edu/courses/447/sum08/class7/shimomura.text); [aeb.win.tue.nl/linux/hh/shimomura-25jan95.txt](https://aeb.win.tue.nl/linux/hh/shimomura-25jan95.txt) | 2026-11-03 | Confirmed |
+| 3 | Tsutomu Shimomura, technical details of the attack, Usenet, 25 Jan 1995 (two mirrors) | [pld.cs.luc.edu/courses/447/sum08/class7/shimomura.text](https://pld.cs.luc.edu/courses/447/sum08/class7/shimomura.text); [aeb.win.tue.nl/linux/hh/shimomura-25jan95.txt](https://aeb.win.tue.nl/linux/hh/shimomura-25jan95.txt) | 2026-11-03; 2026-11-11 | Confirmed (post); Reported (Loyola mirror preface) |
 | 4 | Kevin Mitnick, testimony to the Senate Committee on Governmental Affairs, 2 Mar 2000 (PBS Frontline reproduction) | [pbs.org/wgbh/pages/frontline/shows/hackers/whoare/testimony.html](https://www.pbs.org/wgbh/pages/frontline/shows/hackers/whoare/testimony.html) | 2026-11-03 | Confirmed (as testimony) |
 | 5 | US Senate Committee on Governmental Affairs hearing record, 106th Congress (CHRG-106shrg63639), 2 Mar 2000 | [govinfo.gov/content/pkg/CHRG-106shrg63639/html/CHRG-106shrg63639.htm](https://govinfo.gov/content/pkg/CHRG-106shrg63639/html/CHRG-106shrg63639.htm) | 2026-11-03 | Confirmed (as testimony) |
 | 6 | UPI, "Computer hacker pleads guilty," 15 Mar 1989 | [upi.com/Archives/1989/03/15/Computer-hacker-pleads-guilty/4340605941200/](https://www.upi.com/Archives/1989/03/15/Computer-hacker-pleads-guilty/4340605941200/) | 2026-11-03 | Reported |
@@ -423,7 +425,7 @@ All sources were opened on 3 November 2026. "Primary" means the organization tha
 | 21 | Coast to Coast AM, show page for 26 Mar 2005 (Mitnick interview) | [coasttocoastam.com/show/2005-03-26-show](https://www.coasttocoastam.com/show/2005-03-26-show) | 2026-11-03 | Reported |
 | 22 | US Department of Justice, release 00-555, juvenile sentenced for NASA and DTRA intrusions, 21 Sep 2000 | [justice.gov/archive/opa/pr/2000/September/555crm.htm](https://www.justice.gov/archive/opa/pr/2000/September/555crm.htm) | 2026-11-03 | Confirmed |
 | 23 | US Department of Justice, Southern District of New York, Adrian Lamo plea release, 8 Jan 2004 | [justice.gov/archive/criminal/cybercrime/press-releases/2004/lamoPlea.htm](https://www.justice.gov/archive/criminal/cybercrime/press-releases/2004/lamoPlea.htm) | 2026-11-03 | Confirmed |
-| 24 | CISA and FBI, AA23-320A, Scattered Spider, 16 Nov 2023 (page as currently published, dated 29 Jul 2025) | [cisa.gov/news-events/cybersecurity-advisories/aa23-320a](https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-320a) | 2026-11-03 | Confirmed |
+| 24 | CISA and FBI, AA23-320A, Scattered Spider, 16 Nov 2023 (page as currently published, dated 29 Jul 2025) | [cisa.gov/news-events/cybersecurity-advisories/aa23-320a](https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-320a) | 2026-11-03; 2026-11-11 | Confirmed |
 | 25 | HHS Health Sector Cybersecurity Coordination Center (HC3), analyst note on social engineering attacks targeting IT help desks in the health sector, 3 Apr 2024 (AHA-hosted copy) | [aha.org hosted PDF](https://www.aha.org/system/files/media/file/2024/04/hc3-tlp-clear-analyst-note-social-engineering-attacks-targeting-it-help-desks-in-the-health-sector-4-3-2024.pdf) | 2026-11-03 | Confirmed |
 | 26 | MITRE ATT&CK, T1684.001 Impersonation | [attack.mitre.org/techniques/T1684/001/](https://attack.mitre.org/techniques/T1684/001/) | 2026-11-03 | Confirmed |
 | 27 | Wired, pro-Mitnick demonstrations in the US and Russia, 4 Jun 1999 | [wired.com/1999/06/pro-mitnick-demos-in-us-russia/](https://www.wired.com/1999/06/pro-mitnick-demos-in-us-russia/) | 2026-11-03 | Reported |

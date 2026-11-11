@@ -50,11 +50,11 @@
     },
     {
       "name": "techniques_scored",
-      "value": "23"
+      "value": "24"
     },
     {
       "name": "technique_tactic_entries",
-      "value": "30"
+      "value": "31"
     },
     {
       "name": "tactic_policy",
@@ -162,7 +162,7 @@
       "techniqueID": "T1199",
       "tactic": "initial-access",
       "score": 75,
-      "comment": "Christmas Day 1994: abuse of the rsh host trust between x-terminal and server through IP spoofing and sequence prediction [3]. Loose fit. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+      "comment": "Christmas Day 1994: abuse of the rsh host trust between x-terminal and server through IP spoofing and sequence prediction [3]. Loose fit. Modern comparison: AA23-320A cites the id for abuse of the trusted relationships of contracted IT help desks in password reset calls [24]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
     },
     {
       "techniqueID": "T1098",
@@ -205,6 +205,12 @@
       "tactic": "reconnaissance",
       "score": 25,
       "comment": "Modern comparison only: AA23-320A cites the id for Scattered Spider [24]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1594",
+      "tactic": "reconnaissance",
+      "score": 25,
+      "comment": "Modern comparison only: AA23-320A cites the id for searching business-to-business websites to learn a target's role [24]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
     },
     {
       "techniqueID": "T1566.004",

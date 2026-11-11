@@ -133,6 +133,29 @@ As with Solidity, a deployed contract is usually immutable, so gas cost and beha
 - Relying on a feature that was removed or changed between major versions (the language has reorganized decorators and syntax across releases).
 - Expecting broad static-analysis tooling; coverage is thinner than for Solidity, so tests and audits matter more.
 
+## Security relevance
+
+Vyper reaches security work almost entirely as an audit subject: contracts hold funds, run on a public chain, and are usually immutable once deployed, so reading the code before it ships is the main line of defense. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Decentralized finance contracts. Vyper is used for on-chain financial logic where auditability is a priority, and those contracts are high-value targets because a flaw can move real assets. See the [Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md).
+- Audited on-chain logic. The language deliberately omits inheritance, modifiers, inline assembly, and unbounded loops so that a reviewer can hold a whole contract in mind, which is why it appears in security review and formal analysis.
+- The compiler as part of the deployed system. Because a contract is pinned to a compiler version and that bytecode is what runs, the compiler itself is inside the trust boundary that an audit must consider.
+
+### Dominant weakness classes
+
+Vyper runs on the gas-metered Ethereum Virtual Machine with no manual memory and with overflow and bounds checks on by default, so the software memory-corruption classes do not apply. The high-consequence weaknesses are specific to smart contracts and to the toolchain:
+
+- Reentrancy. An external call can re-enter a function before its state is updated and drain value; this class has no clean CWE mapping and is described in the [Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md). The defense is the checks-effects-interactions order and the reentrancy guard.
+- Access-control errors. With no modifiers, every privileged function needs an explicit `assert` on the caller, and a missing check exposes privileged logic to anyone.
+- Integer overflow and underflow. Arithmetic is checked and reverts by default, which is [CWE-190](https://cwe.mitre.org/data/definitions/190.html); reaching for unchecked escape hatches reintroduces the risk.
+- Toolchain and supply chain. A compiler defect in the reentrancy lock of specific Vyper versions in 2023 contributed to the exploitation of several pools, a reminder that the pinned compiler version is a security-relevant dependency. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading Vyper is what the language is built for: its restrictions exist so an auditor can follow a whole contract and confirm that the access `assert`s and the checks-effects-interactions order are correct. Because static-analysis coverage is thinner than Solidity's, the practical assurance comes from reading the contract together with unit and fuzz tests in [Titanoboa](https://github.com/vyperlang/titanoboa) or [Foundry](https://getfoundry.sh/) and an independent audit before deploying value-bearing code.
+
 ## Secure coding
 
 Vyper contracts hold funds and are usually immutable, so the same high-consequence weaknesses as other smart-contract languages apply, even though the language restricts some of them by design:

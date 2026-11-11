@@ -19,7 +19,7 @@ Beginner
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 44 min (10,020 words at 230 words a minute)
+About 44 min (10,029 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -220,7 +220,7 @@ The first clue was the accounting error [1] (**Confirmed**). Soon afterwards the
 
 LBL attached printers and recorders to all incoming ports. Once it found he came in through the X.25 ports, it recorded both directions of traffic on those lines and so captured virtually every session [1] (**Confirmed**). The monitoring was off-line, on printers and PCs fed from RS-232 lines, invisible to an intruder who held system privileges, and it avoided modifying the operating system [1] (**Confirmed**). Alarms on the incoming lines watched for the account names he had stolen and paged the operator by modem; line noise could be injected when he touched sensitive systems [1] (**Confirmed**).
 
-Denning's 1986 model notes that Berkeley 4.2 UNIX audited command usage but not file access [29] (**Confirmed**). That this gap is why Stoll relied on printers on incoming lines is a retelling in the English Wikipedia article on the book [24] (**Reported**).
+Denning's 1986 model notes that Berkeley 4.2 UNIX audited command usage but not file access [29] (**Confirmed**). Whether this gap shaped LBL's choice of printers is this study's inference (**Inferred**); the paper's own reason is that off-line monitors stayed invisible to an intruder holding system privileges [1].
 
 ### 3.3 Working around a reader of email
 
@@ -403,7 +403,7 @@ Tactics are the v20.0 tactics in the library's data [51]. The mapping grade is C
 | [`T1685`](/mitre/techniques/T1685.md) | Disable or Modify Tools | Defense Impairment | Disabled accounting and audit trails, including at Bremen | [1] [51] |
 | [`T1090.003`](/mitre/techniques/T1090-003.md) | Proxy: Multi-hop Proxy | Command and Control | Chained German dial-up, Bremen X.25, Tymnet, McLean modems and LBL as a hub | [1] |
 
-Notes. `T1685` is the v20.0 home of the revoked `T1562` Impair Defenses and `T1562.001`, per `data/attack/superseded_by.jsonl` [51]; the sub-technique [`T1685.004`](/mitre/techniques/T1685-004.md) (Linux audit system) is not used, because this was UNIX process accounting, not Linux auditd. The paper describes the chained, redundant path through Bremen, Tymnet, the McLean modems and LBL in detail [1], so the mapping is treated as direct.
+Notes. `T1685` is the v20.0 home of the revoked `T1562` Impair Defenses and `T1562.001`, per `data/attack/superseded_by.jsonl` [51]; the sub-technique [`T1685.004`](/mitre/techniques/T1685-004.md) (Disable or Modify Linux Audit System Log) is not used, because this was UNIX process accounting, not Linux auditd. The paper describes the chained, redundant path through Bremen, Tymnet, the McLean modems and LBL in detail [1], so the mapping is treated as direct.
 
 ### 9.3 Inferred mappings (9)
 
@@ -474,7 +474,7 @@ Scores mean only how the mapping is graded: 100 for a behaviour the paper descri
 
 ## Cross-cutting themes
 
-- **The basics carried the attack.** Default names, dictionary passwords, passwords in files and a privileged helper with a logic flaw [1]. None needed a novel exploit, and CISA's 2023 alert on default passwords [49] and the current NIST SP 800-63B blocklist requirement [50] shows the same weaknesses are still being addressed (**Inferred**).
+- **The basics carried the attack.** Default names, dictionary passwords, passwords in files and a privileged helper with a logic flaw [1]. None needed a novel exploit, and CISA's 2023 alert on default passwords [49] and the current NIST SP 800-63B blocklist requirement [50] show the same weaknesses are still being addressed (**Inferred**).
 - **Watching was a choice with costs.** LBL let the intruder continue. The paper puts his civil liability for computing, network and tracing costs above $100,000 [1]; he destroyed several tasks and caused the loss of physics data, and before detection he had entered a medical-experiment control computer where, the paper says, a patient might have been injured [1]. RFC 1244 later made that trade an explicit policy decision [34]. The case shows both what "pursue and prosecute" can achieve and what it puts at risk (**Inferred**).
 - **Visibility depends on where the sensor sits.** Monitoring the intruder could see would have ended the case; off-line printers kept it alive [1]. Audit trails on the host were exactly what he disabled [1].
 - **Jurisdiction lagged the network.** No US agency had clear responsibility [1], the German trace had no judge's order [9], and two years passed before arrests [5] [8]. The trial applied existing law rather than the new computer-espionage paragraph [17] (**Reported**).

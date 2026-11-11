@@ -19,7 +19,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 55 min (12,665 words at 230 words a minute)
+About 55 min (12,697 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -72,7 +72,7 @@ Evidence grade: the mechanics of the Morris worm, its timeline, the trial and th
 | Case 1 outcome | First person convicted under the 1986 Computer Fraud and Abuse Act, per the FBI [15] (the Cornell Chronicle says first tried [23]); three years probation, 400 hours community service, $10,050 fine [7]; affirmed 7 March 1991 [7] |
 | Case 2 | The Dark Avenger, Sofia, Bulgaria; first virus begun September 1988, released March 1989 [29] [30]; the Mutation Engine (MtE) 1992 [33] |
 | Case 2 context | 76 of 318 viruses of known origin in one year were Bulgarian, per an industry association [35] (**Reported**) |
-| Case 3 | A Massachusetts juvenile; intrusions August 2004 to June 2005 against an ISP, a major telephone provider and an identity-data company; about $1 million in damages; 11 months in a juvenile facility [37] |
+| Case 3 | A Massachusetts juvenile; conduct from August 2004 to June 2005: entry to an ISP and a major telephone provider, accounts at an identity-data company, and a denial of service against a second provider; about $1 million in damages; 11 months in a juvenile facility [37] |
 | Case 4 | Two Russian services in the DNC: APT29 from summer 2015, APT28 from April 2016 [48] [49]; GRU Unit 26165 phished the Clinton campaign chairman on 19 March 2016 and took over 50,000 emails [46] |
 | Case 4 outcome | Twelve GRU officers indicted in the District of Columbia on 13 July 2018 [46]; over 20,000 DNC emails released on 22 July 2016 [46] |
 | Case 5 | Mirai: scanning from 1 August 2016, peak of about 600,000 infections at the end of November 2016 [59]; 623 Gbps against Krebs on Security, 20 September 2016 ET [59] [61] |
@@ -85,7 +85,7 @@ Evidence grade: the mechanics of the Morris worm, its timeline, the trial and th
 - **Most of the cases turned on a default someone could have changed.** Sendmail debug was on by default in 4.3BSD and Sun releases [11]. Mirai needed only 62 factory credentials [59] [62]. The DNC phish needed no exploit at all [46] [49]. (**Confirmed** for each fact; the pattern is **Inferred**.)
 - **The 1988 response was run by university staff over mail and phone, and cutting off mail was a mistake.** Academic sites did better than government and commercial ones [18], and MIT's analysts judged that cutting mail cut off the only real defense, information [11] (**Confirmed**). CERT/CC was founded within days at the direction of the Department of Defense [15] (**Confirmed**).
 - **The famous Morris numbers are guesses.** The 6,000-machine figure began as an on-camera guess extrapolated from MIT [10]. The Cornell Commission could not confirm it and called a $96 million estimate grossly exaggerated [22] (**Reported**, through the Cornell Chronicle). The court record gives $200 to more than $53,000 per installation [7] (**Confirmed**).
-- **The Dark Avenger targeted the defenders.** Two viruses Bontchev attributes to him, V2000 and V2100, claimed authorship by Bontchev; V2100-B was used to trojanize a McAfee scanner, and a fake "universal scanner" uploaded under Bontchev's name infected every file it scanned, though no opened source says who uploaded it [28] [30] (**Confirmed**; the authorship is Bontchev's judgment).
+- **The Dark Avenger targeted the defenders.** Two viruses Bontchev attributes to him, V2000 and V2100, claimed authorship by Bontchev; V2100-B was used to trojanize a McAfee scanner, and a fake "universal scanner" uploaded under Bontchev's name infected every file it scanned, which Bontchev attributes to the Dark Avenger [28] [30] (**Confirmed**; the authorship and the upload are Bontchev's judgment).
 - **The 2005 primary record is thin and the popular story is richer than it.** The DOJ release names no victim and no method of entry to the telephone provider [37]. The book's author says the victim was Paris Hilton and the method a pretext call to a store [38] (**Reported**). Wired's date for that call conflicts with the DOJ window [39].
 - **The DNC was two intrusions, not one.** APT29 and APT28 sat in the same network with no collaboration identified [48] [49] (**Confirmed**). The library's DNC entry names only APT28 (Part 6).
 - **The GRU ran the leak as an operation.** It built DCLeaks and the Guccifer 2.0 persona, tied them to shared bitcoin-funded infrastructure, and passed about 1 GB to "Organization 1" [46] (**Confirmed** as charged).
@@ -208,7 +208,7 @@ The virus appeared in spring 1989 carrying a "Sofia 1988-89 Dark Avenger" copyri
 
 Bontchev attributes to the same author the Dark Avenger, V2000, V2100, 651, Diamond, Nomenklatura, 512, 800, 1226, Proud, Evil, Phoenix, Anthrax and Leech [28] (**Confirmed** as Bontchev's judgment). V2000 and V2100 claim authorship by "Vesselin Bontchev" and hang the machine when a program containing that string runs. V2100-B was used to trojanize version 66 of McAfee's VirusScan [28] (**Confirmed**). *Virus Bulletin* independently reported a copy of McAfee's ViruScan containing a virus with its self-check modified, and a trojanized AFD debugger; Alan Solomon reported source code for the Dark Avenger, Yankee Doodle and V1024 uploaded to his company's bulletin board [30] (**Confirmed**).
 
-A file called UScan, uploaded by a user logged in as "Vesselin Bontchev" and posing as his universal virus scanner, infected every scanned file with Anthrax. Infected files reached bulletin boards in the UK, Sweden (*Virus Bulletin* says Norway), the Netherlands and Greece [28] (**Confirmed**). Asked why his viruses destroy data, the Dark Avenger replied that "destroying data is a pleasure", as Bontchev printed it [28] (**Confirmed**).
+A file called UScan, uploaded by a user logged in as "Vesselin Bontchev" and posing as his universal virus scanner, infected every scanned file with Anthrax. Bontchev attributes the upload to the Dark Avenger, and relays reports that he called bulletin boards in the UK, Sweden (*Virus Bulletin* says Norway), the Netherlands and Greece to upload viruses [28] (**Confirmed** as Bontchev's account). Asked why his viruses destroy data, the Dark Avenger replied that "destroying data is a pleasure", as Bontchev printed it [28] (**Confirmed**).
 
 In the 1992 interview the Dark Avenger expressed regret for the first virus's destructive code, blamed piracy for its spread, called Bontchev "the weasel" and said that naming him had made the Dark Avenger. Gordon states that the Dark Avenger is not Bontchev [29] (**Confirmed** as published). No opened source establishes the Dark Avenger's identity.
 

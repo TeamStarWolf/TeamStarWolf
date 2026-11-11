@@ -526,7 +526,7 @@ studies:
       - {"date": "1989-03", "label": "The Dark Avenger releases his first virus from Sofia, begun in September 1988"}
       - {"date": "1990-05-16", "label": "The judgment against Morris sets three years probation, 400 hours of community service and a $10,050 fine"}
       - {"date": "1992", "label": "The Dark Avenger's Mutation Engine (MtE) lets any virus mutate through one subroutine"}
-      - {"date": "2005-09-08", "label": "A Massachusetts juvenile is sentenced to 11 months for intrusions into an ISP, a telephone provider and an identity-data company"}
+      - {"date": "2005-09-08", "label": "A Massachusetts juvenile is sentenced to 11 months for entry to an ISP and a telephone provider, accounts at an identity-data company and a denial of service"}
       - {"date": "2016-03-19", "label": "GRU Unit 26165 phishes the Clinton campaign chairman with a spoofed Google notice; over 50,000 emails taken"}
       - {"date": "2016-06-14", "label": "The DNC announces the Russian intrusion; CrowdStrike names two actors, APT29 and APT28"}
       - {"date": "2016-07-22", "label": "Over 20,000 DNC emails and documents released, about three days before the convention"}

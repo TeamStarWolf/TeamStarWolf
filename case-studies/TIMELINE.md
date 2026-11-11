@@ -435,7 +435,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - March 1989: The Dark Avenger releases his first virus from Sofia, begun in September 1988
   - 16 May 1990: The judgment against Morris sets three years probation, 400 hours of community service and a $10,050 fine
   - 1992: The Dark Avenger's Mutation Engine (MtE) lets any virus mutate through one subroutine
-  - 8 September 2005: A Massachusetts juvenile is sentenced to 11 months for intrusions into an ISP, a telephone provider and an identity-data company
+  - 8 September 2005: A Massachusetts juvenile is sentenced to 11 months for entry to an ISP and a telephone provider, accounts at an identity-data company and a denial of service
   - 19 March 2016: GRU Unit 26165 phishes the Clinton campaign chairman with a spoofed Google notice; over 50,000 emails taken
   - 14 June 2016: The DNC announces the Russian intrusion; CrowdStrike names two actors, APT29 and APT28
   - 22 July 2016: Over 20,000 DNC emails and documents released, about three days before the convention

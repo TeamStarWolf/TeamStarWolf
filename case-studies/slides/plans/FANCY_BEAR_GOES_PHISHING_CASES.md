@@ -57,7 +57,7 @@ Notes: Response chronology [10][11][18]. CERT/CC [15][21]. Trial and judgment [7
 - **V2000 and V2100** claimed authorship by Bontchev; V2100-B trojanized a McAfee scanner.
 - **A fake "UScan"** uploaded under Bontchev's name infected every file it scanned.
 - **The Mutation Engine (1992)** let any virus mutate; Leech, not MtE, shows he was not first to mutate.
-Notes: Bontchev's 1991 paper [28], Virus Bulletin [30][31][33], Gordon's interview [29]. Authorship of the viruses is Bontchev's judgment. No opened source says who uploaded UScan or establishes the Dark Avenger's identity. The book site's "first" holds only for the engine [1][28][33], Inferred.
+Notes: Bontchev's 1991 paper [28], Virus Bulletin [30][31][33], Gordon's interview [29]. Authorship of the viruses is Bontchev's judgment. Bontchev attributes the UScan upload to the Dark Avenger; no opened source establishes the Dark Avenger's identity. The book site's "first" holds only for the engine [1][28][33], Inferred.
 
 ## PART 3 | The 2005 phone case rests on one DOJ release and a richer story
 

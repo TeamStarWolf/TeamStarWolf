@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 64 min (14,752 words at 230 words a minute)
+About 64 min (14,760 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -377,7 +377,7 @@ None of these bills was found enacted; the record through 2026 is bills and hear
 
 ### 5.1 Where the sector is exposed
 
-CISA's HPH Mitigation Guide draws on Cyber Hygiene scans of internet-facing HPH assets in 2022. The most common issues were web application vulnerabilities (89%), encryption weaknesses (89%), unsupported software (41%), unsupported Windows (36%), KEV entries (35%) and vulnerable services (34%) [61] (**Confirmed**). Its prioritized CVEs are CVE-2021-44228 (Log4j2, see [Log4Shell](/case-studies/LOG4SHELL.md)), CVE-2019-11043, CVE-2012-1823, CVE-2021-34473 and CVE-2017-12617, and the exposed services it lists are RDP, Telnet, FTP, SMB, RPC, NetBIOS, SNMP, Kerberos, LDAP and SQL [61] (**Confirmed**). It sets out three strategies: asset management; identity and device security; and vulnerability, patch and configuration management, and it maps CISA's cross-sector goals to HICP [60] (**Confirmed**).
+CISA's HPH Mitigation Guide draws on Cyber Hygiene scans of internet-facing HPH assets in 2022. The most common issues were web application vulnerabilities (89%), encryption weaknesses (89%), unsupported software (41%), unsupported Windows (36%), KEV entries (35%) and vulnerable services (34%) [61] (**Confirmed**). Its prioritized CVEs are CVE-2021-44228 (Log4j2, see [Log4Shell](/case-studies/LOG4SHELL.md)), CVE-2019-11043, CVE-2012-1823, CVE-2021-34473 (ProxyShell, see [Operation Exchange Marauder](/case-studies/EXCHANGE_MARAUDER_2021.md)) and CVE-2017-12617, and the exposed services it lists are RDP, Telnet, FTP, SMB, RPC, NetBIOS, SNMP, Kerberos, LDAP and SQL [61] (**Confirmed**). It sets out three strategies: asset management; identity and device security; and vulnerability, patch and configuration management, and it maps CISA's cross-sector goals to HICP [60] (**Confirmed**).
 
 ### 5.2 The controls the advisories repeat
 
@@ -853,7 +853,7 @@ Not opened, so not cited as sources: the NHS England statements on Synnovis and 
 - [ATT&CK Software Reference](/ATTACK_SOFTWARE_REFERENCE.md)
 - MITRE pages: groups [G0138 Andariel](/mitre/groups/G0138.md), [G1036 Moonstone Sleet](/mitre/groups/G1036.md), [G0117 Fox Kitten](/mitre/groups/G0117.md), [G1024 Akira](/mitre/groups/G1024.md), [G1040 Play](/mitre/groups/G1040.md), [G1051 Medusa Group](/mitre/groups/G1051.md), [G1015 Scattered Spider](/mitre/groups/G1015.md), [G1032 INC Ransom](/mitre/groups/G1032.md), [G1050 Water Galura](/mitre/groups/G1050.md), [G1053 Storm-0501](/mitre/groups/G1053.md), [G0092 TA505](/mitre/groups/G0092.md), [G0071 Orangeworm](/mitre/groups/G0071.md); software [S1068 BlackCat](/mitre/software/S1068.md), [S1070 Black Basta](/mitre/software/S1070.md), [S1212 RansomHub](/mitre/software/S1212.md), [S1199 LockBit 2.0](/mitre/software/S1199.md), [S1202 LockBit 3.0](/mitre/software/S1202.md), [S1129 Akira](/mitre/software/S1129.md), [S1194 Akira _v2](/mitre/software/S1194.md), [S1244 Medusa Ransomware](/mitre/software/S1244.md), [S1242 Qilin](/mitre/software/S1242.md), [S1162 Playcrypt](/mitre/software/S1162.md), [S1139 INC Ransomware](/mitre/software/S1139.md), [S1247 Embargo](/mitre/software/S1247.md), [S1073 Royal](/mitre/software/S1073.md), [S0611 Clop](/mitre/software/S0611.md), [S0236 Kwampirs](/mitre/software/S0236.md); and the technique pages linked in Part 6.2
 - [CWE Reference](/CWE_REFERENCE.md), [CAPEC Reference](/CAPEC_REFERENCE.md), [D3FEND Reference](/D3FEND_REFERENCE.md)
-- Other studies: [The Change Healthcare Attack of 2024](/case-studies/CHANGE_HEALTHCARE_2024.md), [The Cl0p MOVEit Breach](/case-studies/CL0P_FILE_TRANSFER_2023.md), [Log4Shell](/case-studies/LOG4SHELL.md), [APT41: The Public Record](/case-studies/APT41_PUBLIC_RECORD.md)
+- Other studies: [The Change Healthcare Attack of 2024](/case-studies/CHANGE_HEALTHCARE_2024.md), [The Cl0p MOVEit Breach](/case-studies/CL0P_FILE_TRANSFER_2023.md), [Log4Shell](/case-studies/LOG4SHELL.md), [APT41: The Public Record](/case-studies/APT41_PUBLIC_RECORD.md), [Operation Exchange Marauder](/case-studies/EXCHANGE_MARAUDER_2021.md)
 - The [Team Star Wolf Intelligence Hub](https://teamstarwolf.github.io/intelligence-hub/) for the live KEV ledger
 - [Navigator layers](/navigator/index.md)
 - [All case studies](/case-studies/README.md)

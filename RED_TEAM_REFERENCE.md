@@ -19,7 +19,7 @@ Intermediate to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 30 min (6,854 words at 230 words a minute)
+About 30 min (6,915 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -1451,6 +1451,13 @@ Key Reading & Research Sources:
 - The C2 Matrix (thec2matrix.com): comprehensive C2 framework comparison
 - ired.team notes: practical red team technique documentation
 - Sektor7 courses: malware development and evasion tradecraft
+
+Command cheat sheets, curated by the security community, that map a goal to the exact command:
+
+- WADComs (`wadcoms.github.io`): offensive tools and commands for Windows and Active Directory environments.
+- GTFOBins (`gtfobins.github.io`): Unix binaries that can be abused to bypass local security restrictions.
+- LOLBAS (`lolbas-project.github.io`): living-off-the-land binaries, scripts, and libraries on Windows.
+- LOLDrivers (`loldrivers.io`): known vulnerable and malicious drivers, relevant to bring-your-own-vulnerable-driver attacks.
 
 <!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
 

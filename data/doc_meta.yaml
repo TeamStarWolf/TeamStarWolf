@@ -2511,6 +2511,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [The social-engineering campaign](#the-social-engineering-campaign), [Remediation by platform](#remediation-by-platform)"
     pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Package Managers](/PACKAGE_MANAGERS_REFERENCE.md), [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md)"
     reviewed: null
+  case-studies/ZERO_DAY_MARKET_EVENTS.md:
+    audience: "Vulnerability managers, threat intelligence analysts, security leaders and readers of the book who want the primary record behind it"
+    level: "Intermediate"
+    read_when: "You want the dated, graded record behind the zero-day market, the Hacking Team and Shadow Brokers leaks, WannaCry, NSO Group and the Baltimore dispute, or you need the exposure windows and KEV dates that make the patching case"
+    start_at: "[Executive summary](#executive-summary), [Part 6: EternalBlue and WannaCry](#part-6-eternalblue-and-wannacry), [Part 11: the defender view](#part-11-the-defender-view)"
+    pairs_with: "[Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
+    reviewed: null
   commands/aws-cli.md:
     audience: "Cloud engineers, administrators and security teams who work in AWS from a terminal"
     level: "Beginner to intermediate"

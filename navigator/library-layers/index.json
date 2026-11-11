@@ -166,5 +166,11 @@
     "name": "TeamStarWolf - The Year 2021 in Intrusions",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2021 record supports: CISA advisories AA21-110A, AA21-131A, AA21-148A, AA21-200A, AA21-259A, AA21-265A, AA21-291A and AA21-321A, Ireland NCSC's HSE alert, Mandiant's Pulse Connect Secure mapping, and behavior described by Microsoft, Kaseya, Codecov and others. Each comment names source numbers from case-studies/CHRONICLE_2021.md. Scores: 100 the source prints the id, 70 the source describes the behavior and the study assigns the id, 40 the behavior is Inferred.",
     "blurb": "Techniques from the dated 2021 record: edge-device exploitation, NOBELIUM phishing and identity abuse, APT40 tradecraft, and the DarkSide, Conti, BlackMatter and REvil ransomware advisories. A curated layer for the 2021 chronicle."
+  },
+  {
+    "file": "zero-day-market-events.json",
+    "name": "TeamStarWolf - The Zero-Day Trade and Its Fallout",
+    "description": "Curated case-study layer, not an official MITRE mapping. The 62 ATT&CK Enterprise techniques that the verified record in case-studies/ZERO_DAY_MARKET_EVENTS.md supports for Operation Aurora (Elderwood, Hydraq), the Equation group, the Hacking Team leak, WannaCry, NotPetya, Bad Rabbit, Shamoon and the 2019 Baltimore RobbinHood attack, from the ATT&CK software and group pages the study opened and data/attack/. Each comment names the event and the study's source numbers. Scores: 100 an ATT&CK page ties the technique to an event in the study, 75 an ATT&CK software or group record related to the event but not dated to it, 40 an Inferred mapping.",
+    "blurb": "Techniques behind the zero-day trade's fallout: Operation Aurora's drive-by and spearphishing entry, the Equation and Hacking Team firmware persistence, and the SMB worm spread, credential theft and encryption of WannaCry and NotPetya. A curated layer for the zero-day market case study; its ICS companion sits in the ICS case-study layers."
   }
 ]

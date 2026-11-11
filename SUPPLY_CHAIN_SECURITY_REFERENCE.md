@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 26 min (5,949 words at 230 words a minute)
+About 26 min (5,958 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -47,7 +47,7 @@ You need to vet or scan a project's dependencies, you are adding SBOM generation
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last corrected</th><td>
 
-2026-11-04, SolarWinds and XZ Utils timelines, Codecov, 3CX, ctx and event-stream facts, ISO/IEC 5962 version, SLSA v1.2 release date and the SLSA v1.0 handling of L4 corrected ([#175](https://github.com/TeamStarWolf/TeamStarWolf/pull/175))
+2026-11-04, SolarWinds and XZ Utils timelines, Codecov, 3CX, ctx and event-stream facts, ISO/IEC 5962 version and the SBOM maturity row (ECMA-424 for CycloneDX 1.7), SLSA v1.2 release date and the SLSA v1.0 handling of L4 corrected ([#175](https://github.com/TeamStarWolf/TeamStarWolf/pull/175))
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
@@ -181,7 +181,7 @@ The SLSA threat model defines attack surfaces across four categories:
 | PURL Support | Yes (native) | Yes (externalRef with PURL type) |
 | CPE Support | Yes (native) | Yes (externalRef with CPE type) |
 | Dependency Graph | Yes (dependencies element) | Yes (DESCRIBES, CONTAINS, DEPENDS_ON relationships) |
-| Maturity | ISO/IEC 5962:2021 (SPDX 2.2.1) standard | Widely adopted in FOSS ecosystem |
+| Maturity | ECMA-424 (2nd edition, December 2025) standard for CycloneDX 1.7 | ISO/IEC 5962:2021 (SPDX 2.2.1) standard; widely adopted in FOSS ecosystem |
 | Tooling | cdxgen, cyclonedx-cli, Syft, Trivy | SPDX tools, FOSSology, Syft, Trivy |
 | Primary Use Case | Security (vulnerability tracking, VEX) | License compliance, open source auditing |
 

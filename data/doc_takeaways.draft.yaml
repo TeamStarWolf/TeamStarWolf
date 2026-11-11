@@ -29,7 +29,7 @@ pages:
     items:
       - {"text": "In indirect prompt injection through MCP, an attacker plants instructions in content the AI later reads through a tool.", "from": "#_2-mcp-security-threat-model", "quote": "An attacker embeds malicious LLM instructions inside content that the AI will later read via MCP tools."}
       - {"text": "Tool descriptions are natural language the model reads to choose and use a tool, which makes them a place to hide instructions.", "from": "#_2-mcp-security-threat-model", "quote": "MCP tool descriptions are natural language text that the LLM reads to decide which tool to use and how."}
-      - {"text": "MCP servers on HTTP+SSE often listen on localhost ports, which exposes them to DNS rebinding.", "from": "#_2-mcp-security-threat-model", "quote": "MCP servers using HTTP+SSE transport often listen on localhost ports"}
+      - {"text": "MCP servers on Streamable HTTP often listen on localhost ports, which exposes them to DNS rebinding.", "from": "#_2-mcp-security-threat-model", "quote": "MCP servers using the Streamable HTTP transport (or the deprecated HTTP+SSE transport it replaced) often listen on localhost ports"}
       - {"text": "Validate every MCP tool input against a strict JSON Schema before execution.", "from": "#_3-mcp-security-hardening", "quote": "All MCP tool inputs must be validated against strict JSON Schemas before execution."}
   SUPPLY_CHAIN_SECURITY_REFERENCE.md:
     batch: 1

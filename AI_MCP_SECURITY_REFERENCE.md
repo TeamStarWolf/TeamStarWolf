@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 49 min (11,168 words at 230 words a minute)
+About 49 min (11,210 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -235,7 +235,7 @@ Notification (no id, no response expected):
 |---------|-----|------------------------|-----------------|
 | Standardization | Open protocol, vendor-neutral | OpenAI-proprietary | Python framework convention |
 | Discovery | Dynamic (tools/list) | Static (defined per call) | Static (defined in code) |
-| Transport | stdio, HTTP+SSE, WebSocket | HTTP only (OpenAI API) | Python function calls |
+| Transport | stdio and Streamable HTTP (spec 2026-07-28); custom transports such as WebSocket possible | HTTP only (OpenAI API) | Python function calls |
 | Server architecture | Separate server processes | Inline definitions | Inline definitions |
 | Interoperability | Any host + any server | OpenAI models only | LangChain ecosystem |
 | Security model | Explicit; approval UI | Implicit | Implicit |
@@ -249,7 +249,7 @@ Notification (no id, no response expected):
 
 | Platform | MCP Support Status |
 |----------|-------------------|
-| Claude Desktop | Native; first MCP host. Supports stdio and HTTP+SSE. |
+| Claude Desktop | Native; first MCP host. Launches local servers over stdio from its JSON config (see the stdio example above). |
 | Cursor | Full MCP support; used for coding assistant tool integration. |
 | VS Code (GitHub Copilot) | MCP support added 2025; enables extensions as MCP servers. |
 | Windsurf | MCP-native; strong agentic workflow integration. |
@@ -403,7 +403,7 @@ Why this is dangerous: Unlike traditional software, users rarely audit what MCP 
 
 ### Threat 7: DNS Rebinding on Localhost MCP Ports
 
-Description: MCP servers using HTTP+SSE transport often listen on localhost ports (e.g., `http://localhost:3000`). DNS rebinding attacks can allow malicious websites to interact with these local servers.
+Description: MCP servers using the Streamable HTTP transport (or the deprecated HTTP+SSE transport it replaced) often listen on localhost ports (e.g., `http://localhost:3000`). DNS rebinding attacks can allow malicious websites to interact with these local servers.
 
 Attack flow:
 1. User visits `attacker.com` in their browser.
@@ -696,7 +696,7 @@ Wrap all tool outputs in labeled XML tags that distinguish them from user instru
 
 ### Principle 11: TLS/mTLS for Remote Servers
 
-Remote MCP servers (HTTP+SSE or WebSocket transport) must use TLS.
+Remote MCP servers (Streamable HTTP, or a custom transport such as WebSocket) must use TLS.
 
 Requirements:
 - TLS 1.2 minimum; TLS 1.3 preferred.
@@ -723,11 +723,11 @@ server {
 
 ---
 
-### Principle 12: OAuth 2.0 + PKCE
+### Principle 12: OAuth 2.1 Authorization with PKCE
 
 Remote MCP servers should implement the MCP authorization spec, which builds on OAuth 2.1 with PKCE (Proof Key for Code Exchange), for user authentication.
 
-OAuth 2.0 + PKCE flow for MCP:
+OAuth 2.1 authorization code flow with PKCE for MCP (specification 2026-07-28):
 1. MCP host generates a random `code_verifier` and derives `code_challenge = SHA256(code_verifier)`.
 2. Host redirects user to authorization server with `code_challenge`.
 3. User authenticates and authorizes.
@@ -1670,7 +1670,7 @@ CISA AI Cybersecurity Collaboration Playbook:
 - [ ] Audit logging enabled for all tool calls
 - [ ] Rate limits configured per server and per tool
 - [ ] Remote servers use TLS 1.2+
-- [ ] Remote servers implement OAuth 2.0 + PKCE
+- [ ] Remote servers implement the MCP authorization spec (OAuth 2.1 with PKCE)
 - [ ] DNS rebinding protections in place for localhost servers
 - [ ] Tool outputs treated as untrusted data in system prompt
 - [ ] Secondary injection classifier deployed

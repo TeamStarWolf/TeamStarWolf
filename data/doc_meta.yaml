@@ -1392,7 +1392,7 @@ pages:
     learning_path:
       - "disciplines/supply-chain-security.md"
     corrected: "pr175-currency-claims"
-    corrected_what: "SolarWinds and XZ Utils timelines, Codecov, 3CX, ctx and event-stream facts, ISO/IEC 5962 version, SLSA v1.2 release date and the SLSA v1.0 handling of L4 corrected"
+    corrected_what: "SolarWinds and XZ Utils timelines, Codecov, 3CX, ctx and event-stream facts, ISO/IEC 5962 version and the SBOM maturity row (ECMA-424 for CycloneDX 1.7), SLSA v1.2 release date and the SLSA v1.0 handling of L4 corrected"
     reviewed: null
   TELECOM_5G_SECURITY_REFERENCE.md:
     audience: "Telecom and private 5G security engineers, and threat intelligence analysts covering telecom"

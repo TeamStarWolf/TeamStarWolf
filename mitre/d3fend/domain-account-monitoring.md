@@ -32,6 +32,7 @@ Monitoring the existence of or changes to Domain User Accounts.
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [Iran-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_IRAN.md)
 - [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md)
 - [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)
 

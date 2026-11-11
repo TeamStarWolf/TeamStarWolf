@@ -154,5 +154,11 @@
     "name": "TeamStarWolf - United States-Attributed Threat Actors Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping and not an attribution claim: ATT&CK attributes none of these objects to any country. The 85 Enterprise techniques ATT&CK v20.0 records for the six objects discussed in case-studies/THREAT_ACTORS_UNITED_STATES.md (G0020 Equation, S0019 Regin, S0038 Duqu, S0143 Flame, S0603 Stuxnet, S0690 Green Lambert), from data/attack/group_to_technique.jsonl and software_to_technique.jsonl, plus one technique (T1195) inferred by the study from the interdiction reporting. Score is the number of the six objects the technique is recorded for (1 to 3); 0 marks the study's inference. Comments name the objects and the study's source numbers.",
     "blurb": "The tradecraft ATT&CK records for the toolsets most often linked to the United States in the public record (Equation, Regin, Duqu, Flame, Stuxnet and Green Lambert), heavy on stealth, firmware and signed-driver persistence and removable-media spread. A curated layer for the United States case study; ATT&CK itself names no sponsor."
+  },
+  {
+    "file": "threat-actors-iran.json",
+    "name": "TeamStarWolf - Iran-Attributed Threat Actors Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. The 260 Enterprise techniques that ATT&CK v20.0 links to the 19 Iran-attributed Enterprise groups in case-studies/THREAT_ACTORS_IRAN.md, plus those named in eight joint advisories (AA20-259A, AA21-321A, AA22-055A, AA22-257A, AA22-320A, AA23-335A, AA24-241A, AA24-290A). Score is the number of those groups plus the number of those advisories that name the technique (1 to 18): a count of public reporting, not prevalence or severity. Revoked advisory ids are shown under their v20 successors from data/attack/superseded_by.jsonl. Comments name the groups and the study's source numbers.",
+    "blurb": "The tradecraft of the Iran-attributed groups and the joint advisories on them, led by public-tool use, PowerShell, credential dumping, scheduled tasks and the exploitation of internet-facing appliances. A curated layer for the Iran case study; its ICS companion sits in the ICS case-study layers."
   }
 ]

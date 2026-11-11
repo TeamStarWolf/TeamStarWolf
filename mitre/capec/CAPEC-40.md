@@ -51,6 +51,7 @@ This attack exploits terminal devices that allow themselves to be written to by 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [Iran-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_IRAN.md)
 
 <!-- library-refs:end -->
 

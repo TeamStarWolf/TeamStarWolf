@@ -2469,6 +2469,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 4: the actors behind the headlines](#part-4-the-actors-behind-the-headlines), [Part 8: the defender view](#part-8-the-defender-view)"
     pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
     reviewed: null
+  case-studies/THREAT_ACTORS_IRAN.md:
+    audience: "Threat intelligence analysts, threat hunters, vulnerability managers, OT engineers and healthcare security teams"
+    level: "Intermediate"
+    read_when: "You need a graded, dated account of which Iranian services, contractors and ATT&CK groups the public record names, how they got in (known edge-device flaws, password spraying, MFA fatigue and exposed controllers), where healthcare appears, and what the advisories say to patch, hunt and harden"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the actors and their sponsors](#part-1-the-actors-and-their-sponsors), [Part 8: the defender view](#part-8-the-defender-view)"
+    pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [ICS and OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), [Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
+    reviewed: null
   case-studies/THREAT_ACTORS_OTHER_STATES.md:
     audience: "Threat intelligence analysts, threat hunters, vulnerability management teams and security teams supporting travelers, journalists or civil society"
     level: "Intermediate"

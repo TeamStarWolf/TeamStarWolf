@@ -422,7 +422,7 @@ studies:
     actors: []
     tags: ["Kingpin", "Fatal System Error", "We Are Anonymous", "The Hacker Crackdown", "Shadowcrew", "CardersMarket", "Max Butler", "DDoS extortion", "Russian Business Network", "Anonymous", "LulzSec", "HBGary Federal", "Operation Sundevil", "Steve Jackson Games", "EFF"]
     pdf: "Cybercrime_Four_Books_Case_Study.pdf"
-    pptx: null
+    pptx: "Cybercrime_Four_Books_Case_Study.pptx"
     events:
       - {"date": "1990-01-15", "label": "AT&T long-distance crash from its own 4ESS software update, at first suspected to be hackers"}
       - {"date": "1990-03-01", "label": "Secret Service searches Steve Jackson Games and seizes the Illuminati BBS"}
@@ -567,7 +567,7 @@ studies:
     actors: ["G0006", "G0007", "G0016", "G0032", "G0034", "G0082"]
     tags: ["The Hacker and the State", "OPM", "APT1", "Sony Pictures", "Shamoon", "DNC", "Bangladesh Bank", "WannaCry", "book"]
     pdf: "Hacker_And_The_State_Cases_Case_Study.pdf"
-    pptx: null
+    pptx: "Hacker_And_The_State_Cases_Case_Study.pptx"
     events:
       - {"date": "2006", "label": "APT1's observed compromises begin, per Mandiant"}
       - {"date": "2012-07", "label": "First known adversarial access to the US Office of Personnel Management (OPM)"}
@@ -1542,7 +1542,7 @@ studies:
       - "G0038"
     tags: ["zero-day market", "Shadow Brokers", "EternalBlue", "WannaCry", "Pegasus", "Hacking Team", "spyware"]
     pdf: "Zero_Day_Market_Events_Case_Study.pdf"
-    pptx: null
+    pptx: "Zero_Day_Market_Events_Case_Study.pptx"
     events:
       - {"date": "2009-12", "label": "Google detects a targeted attack from China on its corporate infrastructure (Operation Aurora)"}
       - {"date": "2010-01-12", "label": "Google discloses the intrusion and says it will stop censoring Google.cn"}

@@ -430,7 +430,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 1992 <!-- {docsify-ignore} -->
 
-- [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md). Threat actor, 1981 to April 2024 (core: 1992 to 2000). Sectors: telecommunications, technology, government, education, media, healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Mitnick_Intrusions_Case_Study.pdf).
+- [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md). Threat actor, 1981 to April 2024 (core: 1992 to 2000). Sectors: telecommunications, technology, government, education, media, healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Mitnick_Intrusions_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Mitnick_Intrusions_Case_Study.pptx).
   - 15 March 1989: Guilty plea to possessing 16 unauthorized MCI codes and computer fraud for copying a DEC security program (Reported)
   - 1992: Fugitive intrusion series against technology companies begins, after a warrant for violating the 1989 supervised release
   - 25 December 1994: IP-spoofing and session-hijack intrusion on Shimomura's systems; his account names no attacker

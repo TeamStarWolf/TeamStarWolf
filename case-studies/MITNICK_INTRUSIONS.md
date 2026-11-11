@@ -19,7 +19,7 @@ Beginner
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 38 min (8,674 words at 230 words a minute)
+About 38 min (8,670 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -146,7 +146,7 @@ Mitnick's other books on the reading list, *The Art of Deception* and *The Art o
 | 9 March 1995 | North Carolina indictment, 23 counts of access device fraud | Reported | [9] |
 | 26 September 1996 | Los Angeles indictment, 25 counts of access device, wire and computer fraud; De Payne charged on 14 counts | Reported | [9] |
 | 27 June 1997 | 22 months: 14 for the 1989 supervised release violation and 8 for the North Carolina access device fraud | Reported | [9] |
-| 20 May 1998 | Ninth Circuit (No. 97-50365) affirms the sentence on the 18 U.S.C. 1029(a)(3) plea and the supervised release conditions | Confirmed | [2] |
+| 20 May 1998 | Ninth Circuit affirms the sentence on the 18 U.S.C. 1029(a)(3) plea and the supervised release conditions | Confirmed | [2] |
 | March 1999 | Global plea in the Central District of California: four counts wire fraud, two computer fraud, one interception of a wire communication. The *Takedown* timeline dates it 16 March; CNN reported it on Friday 26 March | Confirmed; Reported for the dates | [1]; [9][7] |
 | 5 May 1999 | Wired reports victim letters published by 2600 claiming nearly $300 million combined losses, disputed by 2600 | Reported | [8] |
 | 4 June 1999 | "Free Kevin" demonstrations organized by 2600 in 15 US cities and Moscow; courtrooms picketed | Reported | [27][28] |
@@ -403,7 +403,7 @@ All sources were opened on 3 November 2026; [3] was reopened on 11 November 2026
 | # | Source | URL | Opened | Grade |
 |---|---|---|---|---|
 | 1 | US Department of Justice, US Attorney's Office, Central District of California, "Kevin Mitnick Sentenced to Nearly Four Years in Prison," 9 Aug 1999 (archived copies; the original justice.gov page no longer resolves) | [web.archive.org copy of usdoj.gov/criminal/cybercrime/mitnick.htm](https://web.archive.org/web/20001213003500/http://www.usdoj.gov/criminal/cybercrime/mitnick.htm); [UNT End of Term copy](https://webarchive.library.unt.edu/eot2008/20080916073642mp_/http://www.cybercrime.gov/mitnick.htm); [UNT copy 2](https://webarchive.library.unt.edu/eot2008/20080916032623/http://www.cybercrime.gov/mitnick.htm) | 2026-11-03 | Confirmed |
-| 2 | United States v. Mitnick, 145 F.3d 1342 (9th Cir. 1998), No. 97-50365, unpublished memorandum, 20 May 1998 | [law.justia.com/cases/federal/appellate-courts/F3/145/1342/470528/](https://law.justia.com/cases/federal/appellate-courts/F3/145/1342/470528/) | 2026-11-03 | Confirmed |
+| 2 | United States v. Mitnick, 145 F.3d 1342 (9th Cir. 1998), unpublished memorandum, 20 May 1998 | [law.justia.com/cases/federal/appellate-courts/F3/145/1342/470528/](https://law.justia.com/cases/federal/appellate-courts/F3/145/1342/470528/) | 2026-11-03 | Confirmed |
 | 3 | Tsutomu Shimomura, technical details of the attack, Usenet, 25 Jan 1995 (two mirrors) | [pld.cs.luc.edu/courses/447/sum08/class7/shimomura.text](https://pld.cs.luc.edu/courses/447/sum08/class7/shimomura.text); [aeb.win.tue.nl/linux/hh/shimomura-25jan95.txt](https://aeb.win.tue.nl/linux/hh/shimomura-25jan95.txt) | 2026-11-03; 2026-11-11 | Confirmed (post); Reported (Loyola mirror preface) |
 | 4 | Kevin Mitnick, testimony to the Senate Committee on Governmental Affairs, 2 Mar 2000 (PBS Frontline reproduction) | [pbs.org/wgbh/pages/frontline/shows/hackers/whoare/testimony.html](https://www.pbs.org/wgbh/pages/frontline/shows/hackers/whoare/testimony.html) | 2026-11-03 | Confirmed (as testimony) |
 | 5 | US Senate Committee on Governmental Affairs hearing record, 106th Congress (CHRG-106shrg63639), 2 Mar 2000 | [govinfo.gov/content/pkg/CHRG-106shrg63639/html/CHRG-106shrg63639.htm](https://govinfo.gov/content/pkg/CHRG-106shrg63639/html/CHRG-106shrg63639.htm) | 2026-11-03 | Confirmed (as testimony) |

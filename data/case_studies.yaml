@@ -829,7 +829,7 @@ studies:
     actors: []
     tags: ["Kevin Mitnick", "Ghost in the Wires", "The Art of Intrusion", "social engineering", "pretexting", "Shimomura", "IP spoofing", "session hijacking", "Adrian Lamo", "help desk", "vishing", "Scattered Spider"]
     pdf: "Mitnick_Intrusions_Case_Study.pdf"
-    pptx: null
+    pptx: "Mitnick_Intrusions_Case_Study.pptx"
     events:
       - {"date": "1989-03-15", "label": "Guilty plea to possessing 16 unauthorized MCI codes and computer fraud for copying a DEC security program (Reported)"}
       - {"date": "1992", "label": "Fugitive intrusion series against technology companies begins, after a warrant for violating the 1989 supervised release"}

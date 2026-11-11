@@ -43,6 +43,7 @@ Identity Spoofing refers to the action of assuming (i.e., taking on) the identit
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [Iran-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_IRAN.md)
 - [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
 
 <!-- library-refs:end -->

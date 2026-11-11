@@ -147,6 +147,7 @@ Hand-written pages in this library that link to this page or to this object's en
 
 - [Ghostcat, CVE-2020-1938: The Tomcat AJP File Read in the Lab](/case-studies/GHOSTCAT_CVE_2020_1938.md)
 - [Industrial Control System Attacks and Advisories, 2024 to 2026: Incidents, CVEs and Attribution](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md)
+- [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md)
 
 <!-- library-refs:end -->
 

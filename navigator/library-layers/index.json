@@ -172,5 +172,11 @@
     "name": "TeamStarWolf - North Korea-attributed threat actors",
     "description": "Curated case-study layer, not an official MITRE mapping. The 251 Enterprise techniques bound in case-studies/THREAT_ACTORS_NORTH_KOREA.md: the 240 techniques in the direct ATT&CK v20.0 records of the eight North Korea-attributed groups (G0032, G0067, G0082, G0094, G0138, G1036, G1049, G1052), scored 100, plus 11 techniques stated only in US and allied advisories (AA23-040A, AA24-207A), scored 60. Each comment names the groups or advisory and the study's source numbers. Scores indicate evidence basis, not frequency or severity.",
     "blurb": "The ATT&CK records of the eight North Korea-attributed groups, from Lazarus Group to Contagious Interview, plus the techniques only the US and allied advisories state (AA23-040A healthcare ransomware, AA24-207A Andariel). A curated layer for the North Korea threat actors case study."
+  },
+  {
+    "file": "cuckoos-egg-1986.json",
+    "name": "TeamStarWolf - The Cuckoo's Egg Intrusion (LBL, 1986) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Retrospective ATT&CK v20.0 mapping of the 1986 to 1987 intrusion at Lawrence Berkeley Laboratory as described in Clifford Stoll, 'Stalking the Wily Hacker', Communications of the ACM 31(5), May 1988. Revoked T1562 behavior is shown under its v20.0 successor T1685 per data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/CUCKOOS_EGG_1986.md. Scores: 100 is behavior the paper describes directly, 40 is an Inferred mapping.",
+    "blurb": "Techniques from Stoll's 1988 account of the LBL intrusion: default and guessed accounts, cracked password files, the movemail privilege escalation, dormant accounts and the multi-hop path from West Germany. A curated retrospective layer for the Cuckoo's Egg case study."
   }
 ]

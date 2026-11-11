@@ -389,6 +389,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 1 June 2023: Kaspersky discloses Operation Triangulation; the FSB blames US intelligence the same day
   - 19 October 2025: China's Ministry of State Security alleges an NSA campaign against the National Time Service Center
 
+### 1986 <!-- {docsify-ignore} -->
+
+- [The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986](/case-studies/CUCKOOS_EGG_1986.md). Incident, August 1986 to February 1990. Sectors: government, defense, education. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cuckoos_Egg_1986_Case_Study.pdf).
+  - May 1986: At least five diskettes handed over in East Berlin from May to November 1986 (DER SPIEGEL, Reported)
+  - August 1986: LBL's accounting program fails to balance: a new account with no billing address
+  - 8 December 1986: US request for help reaches the Deutsche Bundespost (DER SPIEGEL, Reported)
+  - 1987: Alarmed SDI bait files hold the intruder for more than an hour while the trace to West Germany completes
+  - May 1988: Stoll's "Stalking the Wily Hacker" published in Communications of the ACM
+  - 2 November 1988: Internet worm released; Stoll posts one of the first public warnings on RISKS
+  - December 1988: CERT/CC established by DARPA at the SEI, Carnegie Mellon
+  - 2 March 1989: Three arrests after house searches; the Interior Ministry confirms the suspects supplied the KGB (Reported)
+  - August 1989: Three hackers indicted on espionage charges (AP, Reported)
+  - 30 September 1989: Stoll posts the details of his book The Cuckoo's Egg (Doubleday, 1989)
+  - 15 February 1990: Court in Celle gives Carl, Hess and Brzezinski suspended sentences (Reported)
+  - July 1991: RFC 1244 frames "Protect and Proceed" against "Pursue and Prosecute" and cites both Stoll works
+
 <!-- case-study-timeline:list-end (the timeline replaces the list above on the site) -->
 
 ATT&CK&reg; and MITRE ATT&CK&reg; are registered trademarks of The MITRE Corporation. The group names come from the library's ATT&CK data; this project is not affiliated with or endorsed by MITRE.

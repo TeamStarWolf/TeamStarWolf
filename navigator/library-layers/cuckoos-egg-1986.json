@@ -1,0 +1,342 @@
+{
+  "name": "TeamStarWolf - The Cuckoo's Egg Intrusion (LBL, 1986) Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. Retrospective ATT&CK v20.0 mapping of the 1986 to 1987 intrusion at Lawrence Berkeley Laboratory as described in Clifford Stoll, 'Stalking the Wily Hacker', Communications of the ACM 31(5), May 1988. Revoked T1562 behavior is shown under its v20.0 successor T1685 per data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/CUCKOOS_EGG_1986.md. Scores: 100 is behavior the paper describes directly, 40 is an Inferred mapping.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "GNU Emacs movemail set-user-ID-root flaw used for system-manager rights at LBL, 1986; /usr/spool/at and vi holes tried [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Script placed by movemail to pass for a periodically run system utility; privilege programs hidden in system libraries [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1110.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Common account names and default or common passwords tried against about 450 MILNET hosts and dialled modems [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1110.002",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Downloaded password files cracked offline with a dictionary [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1003.008",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Encrypted UNIX password files downloaded [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1552.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Plain-text passwords found in files and saved mail, giving access to a Cray [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Logins with cracked passwords within a week [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Logins with cracked passwords within a week [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Logins with cracked passwords within a week [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Logins with cracked passwords within a week [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Default names root, guest, system, field accepted on about 5 percent of targets [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Default names root, guest, system, field accepted on about 5 percent of targets [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Default names root, guest, system, field accepted on about 5 percent of targets [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Default names root, guest, system, field accepted on about 5 percent of targets [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Preferred stealing existing unused accounts [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Preferred stealing existing unused accounts [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Preferred stealing existing unused accounts [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Preferred stealing existing unused accounts [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1136.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Privileged account created on a gateway and left unused six months [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1033",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Checked who was logged in; left if a system manager was on [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1087.001",
+      "tactic": "discovery",
+      "score": 40,
+      "comment": "Inferred: who/finger queries of logged-in users; Local Account is the nearest sub-technique [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Keyword file searches: nuclear, sdi, kh-11, norad [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1213",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Browsed databases; reached unclassified US Army NBC plan abstracts [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1114.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Read electronic mail, partly for signs of discovery [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Disabled accounting and audit trails where possible, including at Bremen (v20.0 home of revoked T1562) [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Chained German dial-up, Bremen X.25, Tymnet and McLean modem pool, with LBL as a hub [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "Inferred: searched local files after entry [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1056",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "Inferred: Trojan horses captured passwords passively; method not described [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1056",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "Inferred: Trojan horses captured passwords passively; method not described [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "Inferred: entry through X.25 and Tymnet ports and dial-up modems [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "Inferred: entry through X.25 and Tymnet ports and dial-up modems [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1021",
+      "tactic": "lateral-movement",
+      "score": 40,
+      "comment": "Inferred: leapfrogged from LBL to military bases and linked LAN machines; protocols not named [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "score": 40,
+      "comment": "Inferred: tried closely linked LAN machines [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1548.001",
+      "tactic": "privilege-escalation",
+      "score": 40,
+      "comment": "Inferred: movemail ran set-user-ID root [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1053",
+      "tactic": "execution",
+      "score": 40,
+      "comment": "Inferred: planted script ran as a periodic utility; scheduler not named [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1053",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "Inferred: planted script ran as a periodic utility; scheduler not named [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1053",
+      "tactic": "privilege-escalation",
+      "score": 40,
+      "comment": "Inferred: planted script ran as a periodic utility; scheduler not named [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 40,
+      "comment": "Inferred: moved files over his interactive session [1]. Source numbers refer to the Sources table of case-studies/CUCKOOS_EGG_1986.md.",
+      "enabled": true
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "100: behavior described directly in Stoll's 1988 paper",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CUCKOOS_EGG_1986.md (sources opened 3 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "25"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "38"
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every tactic applies."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CUCKOOS_EGG_1986.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

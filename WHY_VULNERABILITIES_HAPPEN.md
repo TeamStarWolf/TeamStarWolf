@@ -1,0 +1,170 @@
+# Why Vulnerabilities Happen
+
+Most vulnerabilities are not unique. The same small set of root causes produces them again and again across networks, hosts, operating systems, and enterprise technology. This page is the map that ties the rest of the library together: name the cause and the layer, and the attack, the detection, and the fix line up behind it.
+
+It is written to drive a [Continuous Threat Exposure Management](/CTEM_REFERENCE.md) program, where the goal is to reduce the exposures that matter rather than to chase individual findings. Read it top to bottom to understand why a class of flaw keeps recurring, or jump to a layer, find the class in front of you, and follow the link to the deep reference and the control that answers it. The pairings here connect to the [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for the operating process and to the [CWE Reference](/CWE_REFERENCE.md) and the ATT&CK material for the shared identifiers.
+
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability and exposure-management practitioners, red and blue teams, and anyone orienting across the library
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 8 min (1,867 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You want the root causes behind recurring vulnerabilities across the network, host, operating-system, and enterprise layers, you are organizing exposure discovery by weakness class rather than by single CVE, or you need the map that ties the library's offensive and defensive references together
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[The eight root causes](#the-eight-root-causes), [Commonalities by layer](#commonalities-by-layer) for the attack-beside-defense tables, [Working the map through CTEM](#working-the-map-through-ctem) to put it to use
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
+## The eight root causes
+
+Thousands of distinct CVEs collapse into a small number of underlying reasons. Everything below traces back to these.
+
+1. **Memory unsafety.** Systems code in C and C++ manages memory by hand, so a single off-by-one or stale pointer becomes attacker-controlled execution. This dominates kernels, drivers, parsers, and network stacks. Weakness classes: [CWE-787](https://cwe.mitre.org/data/definitions/787.html), [CWE-416](https://cwe.mitre.org/data/definitions/416.html), [CWE-120](https://cwe.mitre.org/data/definitions/120.html), [CWE-190](https://cwe.mitre.org/data/definitions/190.html). Covered in [C](/languages/c.md), [C++](/languages/cpp.md), and the [Exploit Development Reference](/EXPLOIT_DEVELOPMENT_REFERENCE.md).
+2. **Implicit trust.** Code trusts the network it sits on, the sender of a message, or the privilege it was handed, instead of verifying. This is why a foothold spreads: relay, lateral movement, server-side request forgery, and over-broad rights all exploit trust that was never checked. Weakness classes: [CWE-862](https://cwe.mitre.org/data/definitions/862.html), [CWE-863](https://cwe.mitre.org/data/definitions/863.html), [CWE-918](https://cwe.mitre.org/data/definitions/918.html), [CWE-269](https://cwe.mitre.org/data/definitions/269.html). Covered in the [Network Defense Reference](/NETWORK_DEFENSE_REFERENCE.md) and the [Active Directory Attack Reference](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md).
+3. **Insecure defaults and misconfiguration.** Software ships to work on first boot, not to be safe on first boot: default credentials, open management planes, permissive shares. Most vulnerable enterprise systems were never patched incorrectly; they were deployed as shipped. Weakness classes: [CWE-1188](https://cwe.mitre.org/data/definitions/1188.html), [CWE-16](https://cwe.mitre.org/data/definitions/16.html), [CWE-798](https://cwe.mitre.org/data/definitions/798.html), [CWE-306](https://cwe.mitre.org/data/definitions/306.html). Covered in the [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md) and the [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md).
+4. **Missing input validation.** Untrusted data reaches an interpreter, a query, a parser, or a deserializer without being treated as untrusted. The entire injection family is one root cause wearing different clothes. Weakness classes: [CWE-89](https://cwe.mitre.org/data/definitions/89.html), [CWE-78](https://cwe.mitre.org/data/definitions/78.html), [CWE-79](https://cwe.mitre.org/data/definitions/79.html), [CWE-502](https://cwe.mitre.org/data/definitions/502.html), [CWE-611](https://cwe.mitre.org/data/definitions/611.html), [CWE-94](https://cwe.mitre.org/data/definitions/94.html). Covered in the [Secure Coding Reference](/SECURE_CODING_REFERENCE.md) and the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+5. **Weak authentication and sessions.** Passwords reused, factors phishable, tokens stealable, tickets forgeable. Identity is the control plane, so flaws here convert directly into access rather than needing an exploit. Weakness classes: [CWE-287](https://cwe.mitre.org/data/definitions/287.html), [CWE-384](https://cwe.mitre.org/data/definitions/384.html), [CWE-522](https://cwe.mitre.org/data/definitions/522.html), [CWE-307](https://cwe.mitre.org/data/definitions/307.html). Covered in the [Active Directory Attack Reference](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md) and the [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md).
+6. **Patch lag and unmanaged lifecycle.** The flaw is known and fixed upstream, but the asset is not. End-of-life systems, forgotten appliances, and slow change windows keep known-exploited issues live for years. This is operational rather than a coding defect, which is why it dominates real breaches. Covered in the [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) and the [CTEM Reference](/CTEM_REFERENCE.md).
+7. **Supply-chain trust.** You run code you did not write and did not review: dependencies, base images, drivers, build systems. A compromise upstream inherits all the privilege of the thing that trusts it. Weakness classes: [CWE-1357](https://cwe.mitre.org/data/definitions/1357.html), [CWE-494](https://cwe.mitre.org/data/definitions/494.html), [CWE-829](https://cwe.mitre.org/data/definitions/829.html). Covered in the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+8. **Complexity and backward compatibility.** The meta-cause. Every feature kept for compatibility and every layer of abstraction is attack surface that no one can fully reason about. Complexity is why the first seven never go away.
+
+## Commonalities by layer
+
+Each layer breaks a specific trust assumption. The tables list the routine vulnerability classes at that layer, how each is seen in the field, the control or detection that answers it, the CWE it maps to, and the root cause that drives it. The offensive and defensive columns together are the purple view: the command that exploits a class beside the control that catches it. Commands are standard, publicly documented techniques, for authorized defensive and testing use.
+
+### Network
+
+Trust broken: that anything reachable on the network may talk to a service, and that the sender of a protocol message is who it claims to be. See the [Network Defense Reference](/NETWORK_DEFENSE_REFERENCE.md) and [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md).
+
+| Class | Offensive (seen as) | Defensive (control / detection) | CWE | Root cause |
+|---|---|---|---|---|
+| Name-resolution poisoning | `responder -I eth0` | Disable LLMNR and NBT-NS by GPO; alert on rogue answers | CWE-294 | Implicit trust |
+| NTLM relay | `ntlmrelayx.py -t ldaps://dc -smb2support` | SMB signing and channel binding; retire NTLM | CWE-294 | Weak auth |
+| Exposed management services | `nmap -p3389,445,5985,161 RANGE` | Segment the management plane; VPN and MFA for admin; Event 4625 | CWE-306 | Insecure defaults |
+| Weak or downgradable protocols | `nmap --script ssl-enum-ciphers,smb2-security-mode` | Disable SMBv1, TLS below 1.2, and SNMPv1; enforce signing | CWE-327 | Complexity / legacy |
+| Missing segmentation | Pivot across a flat VLAN | East-west ACLs; microsegmentation; network access control | CWE-923 | Implicit trust |
+| Edge-appliance exposure | Public exploit against an exposed portal | Patch SLA; isolate the management plane; egress-filter the box | CWE-1188 | Patch lag |
+
+### Host
+
+Trust broken: that a user or process stays inside the privilege it was given, and that secrets and configuration on the box are out of reach. See the [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md) and the [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md).
+
+| Class | Offensive (seen as) | Defensive (control / detection) | CWE | Root cause |
+|---|---|---|---|---|
+| Excessive privilege | `whoami /priv` ; `net localgroup administrators` | Remove local admin; tiered administration; LAPS | CWE-250 | Privilege / trust |
+| Credential material at rest | `rundll32 comsvcs.dll, MiniDump <pid> out.dmp` | Credential Guard; LSA protection; Sysmon Event ID 10 | CWE-522 | Privilege / trust |
+| Service and task misconfiguration | `accesschk -uwcqv "Users" *` ; `sc qc <svc>` | Fix weak ACLs and unquoted paths; monitor Event 7045 and 4698 | CWE-732 | Misconfiguration |
+| Vulnerable or malicious drivers | Load a signed vulnerable driver to reach the kernel | Microsoft vulnerable-driver blocklist; WDAC; HVCI | CWE-829 | Supply chain |
+| Unpatched local software | A known-vulnerable agent on a stale build | Patch management; inventory; KEV-driven SLA | KEV | Patch lag |
+| Weak hardening and drift | `Get-ExecutionPolicy` ; `manage-bde -status` | WDAC or AppLocker; CIS baseline; BitLocker | CWE-16 | Insecure defaults |
+
+### Operating system
+
+Trust broken: that the boundary between unprivileged code and the kernel holds, and that the base image you run is the one the vendor built. See the per-system pages in [Operating systems](/operating-systems/README.md) and the [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
+
+| Class | Offensive (seen as) | Defensive (control / detection) | CWE | Root cause |
+|---|---|---|---|---|
+| Kernel and driver memory corruption | Exploit a use-after-free to reach ring 0 | Patch; KASLR, CFG, and SMEP; exploit-mitigation baseline | CWE-416 | Memory unsafety |
+| Privilege-escalation primitives | `find / -perm -4000` ; `sudo -l` | Trim needless SUID; least-privilege sudo; UAC at highest | CWE-269 | Privilege / trust |
+| Insecure defaults | Legacy authentication and default services left on | Disable NTLMv1 and weak ciphers; STIG minimization | CWE-1188 | Insecure defaults |
+| Package and update supply chain | A compromised dependency in the base image | Signed packages; SBOM; pin and verify; minimal base | CWE-1357 | Supply chain |
+| IPC and privilege-boundary flaws | Abuse a privileged RPC or D-Bus method | Restrict RPC and D-Bus policy; patch; least-privilege services | CWE-668 | Implicit trust |
+| Mitigation gaps | A binary built without ASLR, DEP, or CFG | Compile with mitigations; enforce by policy; audit | CWE-693 | Complexity / legacy |
+
+### Enterprise technology
+
+Trust broken: that user input is well-formed, that one authenticated user cannot act as another, and that a request from inside the perimeter is safe to honor. See the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), the [API Security Reference](/API_SECURITY_REFERENCE.md), and the [Database Security Reference](/DATABASE_SECURITY_REFERENCE.md).
+
+| Class | Offensive (seen as) | Defensive (control / detection) | CWE | Root cause |
+|---|---|---|---|---|
+| Injection | `sqlmap -u URL --batch --dump` | Parameterized queries; validate input; WAF and query logging | CWE-89 | Input validation |
+| Insecure deserialization | A ysoserial gadget chain sent to an endpoint | Type allowlist; avoid native deserializers | CWE-502 | Input validation |
+| Broken access control and IDOR | `GET /api/invoice/1002` changed to `/1003` | Server-side authorization; object-level access checks | CWE-639 | Implicit trust |
+| Server-side request forgery | `url=http://169.254.169.254/latest/meta-data/` | Egress allowlist; block link-local; IMDSv2 | CWE-918 | Implicit trust |
+| XML and parser abuse | A DOCTYPE external entity; SAML signature wrapping | Disable DTDs and external entities; verify signatures | CWE-611 | Input validation |
+| Authentication and federation flaws | Replay a stolen session cookie or a forged assertion | Conditional access; token binding; MFA; sign-in log review | CWE-287 | Weak auth |
+| Exposed secrets | `gitleaks detect` ; `trufflehog` | Secret scanning with push protection; a vault; rotation | CWE-798 | Insecure defaults |
+
+## The intrusion sequence
+
+Read left to right, the same root causes advance an intrusion from the edge to domain control. Tactic identifiers follow ATT&CK v20. The deep commands and detections for the identity stages are in the [Active Directory Attack Reference](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), the offensive method is in the [Red Team Reference](/RED_TEAM_REFERENCE.md) and the [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md), and the technique mappings are in the [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md).
+
+| Stage | Tactic | Attacker goal | Recurring techniques | Control that breaks the stage |
+|---|---|---|---|---|
+| Reconnaissance | TA0043 | Map the target | OSINT, exposed-service scan, name-resolution listen | Attack-surface management; reduce exposure |
+| Initial Access | TA0001 | Get the first foothold | Edge pre-auth exploit, phishing and AiTM, valid accounts | Patch the edge; phishing-resistant MFA; segment |
+| Execution | TA0002 | Run attacker code | Injection, deserialization, living-off-the-land | Input validation; application allowlisting; EDR |
+| Persistence | TA0003 | Survive reboot and reset | Services and tasks, run keys, configuration-manager abuse | Baseline monitoring; Event 7045 and 4698 alerts |
+| Privilege Escalation | TA0004 | Become admin or root | Kernel LPE, misconfiguration and ACL abuse, token abuse | Patch; least privilege; hardening baseline |
+| Defense Evasion | TA0005 | Stay hidden | Disable or modify tools (T1685), vulnerable drivers, log clearing | Tamper protection; log integrity; control-health alerts |
+| Credential Access | TA0006 | Harvest secrets | LSASS dump, Kerberoasting, DPAPI secrets, cloud tokens | Credential Guard; gMSA; conditional access |
+| Lateral Movement | TA0008 | Expand reach | Pass-the-hash, relay, remote services, RDP | Tiering; SMB signing; just-in-time admin |
+| Impact | TA0040 | Achieve the objective | Golden ticket, backup tampering (T1490), ransomware, exfiltration | Immutable backups; DCSync alerts; egress controls |
+
+## Working the map through CTEM
+
+This page is the content; [CTEM](/CTEM_REFERENCE.md) is the loop that puts it to work. Each stage of the exposure-management cycle uses a different part of the map.
+
+- **Scoping.** The four layers above are the scope boundaries. Decide which surfaces, identity, endpoints, network edge, cloud, and data tier, are in play, and weight them by business impact.
+- **Discovery.** The vulnerability classes in each layer table are what to look for. They are the recurring exposures, not just the latest CVE, so discovery that is organized by class finds more than a scanner pass alone.
+- **Prioritization.** The root cause and the known-exploited status decide order. A class driven by patch lag with an active exploit outranks a theoretical issue, which is the reasoning the [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) and the library's Intelligence Hub exposure data support.
+- **Validation.** The offensive column is how you prove an exposure is real and reachable before spending remediation effort, following the [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md).
+- **Mobilization.** The defensive column is the fix and the detection to hand to the owning team, tracked to closure.
+
+## How this map ties into the library
+
+Every row above links to a deeper reference. The map sits on top of the whole collection:
+
+- Build materials: [languages](/languages/README.md), [frameworks](/frameworks/README.md), [databases](/databases/README.md), and [formats](/formats/README.md) each carry a Security relevance section that names the same weakness classes for that technology.
+- Run surfaces: [operating systems](/operating-systems/README.md), [platforms](/platforms/README.md), [tools](/tools/README.md), and [commands](/commands/README.md) carry the attacker and defender view of what you run and run against.
+- Practice: the [case studies](/case-studies/README.md) show these root causes in real incidents, the [detections](/detections/README.md) and [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md) carry the defensive content, and the [Threat Hunting Playbooks](/THREAT_HUNTING_PLAYBOOKS.md) turn the attacker techniques into hunts.
+
+## Related pages
+
+- [CTEM Reference](/CTEM_REFERENCE.md)
+- [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+- [Active Directory Attack Reference](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md)
+- [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+- [CWE Reference](/CWE_REFERENCE.md)
+- [Red Team Reference](/RED_TEAM_REFERENCE.md)
+
+<!-- related:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Related pages
+
+- Domain: [GRC and security program](/hubs/grc-and-security-program.md)
+
+<!-- related:end -->

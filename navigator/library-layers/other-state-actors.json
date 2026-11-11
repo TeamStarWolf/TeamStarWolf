@@ -1,0 +1,1166 @@
+{
+  "name": "TeamStarWolf - Other state-linked threat actors",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping and not an attribution claim. The 154 Enterprise techniques ATT&CK v20.0 links to the 20 groups in case-studies/THREAT_ACTORS_OTHER_STATES.md, the state-linked tier outside China, Russia, Iran, North Korea and the United States: 14 groups whose ATT&CK text names or suspects a state, a state body, a region or a Hamas affiliation, or calls them likely state-sponsored, plus 6 that ATT&CK leaves stateless and the study places in that tier from vendor primaries or ATT&CK overlap notes. Score is the number of those 20 groups linked to the technique (1 to 13). Comments name the groups, the study's source numbers and, where a vendor or government primary describes the technique, the dated report.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#1e3a8a"
+    ],
+    "minValue": 1,
+    "maxValue": 13
+  },
+  "legendItems": [
+    {
+      "label": "1: linked by ATT&CK v20.0 to one of the study's 20 groups",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "7: linked to seven of the 20 groups",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "13: linked to thirteen of the 20 groups (the most for any technique, T1204.002 Malicious File)",
+      "color": "#1e3a8a"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/THREAT_ACTORS_OTHER_STATES.md (sources opened 3 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "154"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "181"
+    },
+    {
+      "name": "score",
+      "value": "Number of the study's 20 groups that ATT&CK v20.0 links to the technique; breadth across the tier, not severity, and not an attribution claim."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "Other State-Linked Threat Actors: The Public Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/THREAT_ACTORS_OTHER_STATES.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1003",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 3,
+      "comment": "Linked to 3 of the study's 20 groups in ATT&CK v20.0 (G0038 Stealth Falcon, G0040 Patchwork, G0070 Dark Caracal). Sources [32] [11] [3] [12]."
+    },
+    {
+      "techniqueID": "T1012",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0038 Stealth Falcon, G0050 APT32). Sources [32] [11] [2]."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 5,
+      "comment": "Linked to 5 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0038 Stealth Falcon, G0050 APT32, G0121 Sidewinder, G1008 SideCopy). Sources [32] [26] [11] [2] [4] [9]."
+    },
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1020",
+      "tactic": "exfiltration",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0121 Sidewinder). Sources [32] [4]."
+    },
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork). Sources [32] [3]."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0063 BlackOasis). Sources [32] [15]."
+    },
+    {
+      "techniqueID": "T1027.001",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork). Sources [32] [3]."
+    },
+    {
+      "techniqueID": "T1027.002",
+      "tactic": "stealth",
+      "score": 4,
+      "comment": "Linked to 4 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork, G0070 Dark Caracal, G0089 The White Company, G1019 MoustachedBouncer). Sources [32] [3] [12] [28] [24]."
+    },
+    {
+      "techniqueID": "T1027.004",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1041 Sea Turtle). Sources [32] [20]."
+    },
+    {
+      "techniqueID": "T1027.005",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork). Sources [32] [3]."
+    },
+    {
+      "techniqueID": "T1027.010",
+      "tactic": "stealth",
+      "score": 4,
+      "comment": "Linked to 4 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork, G0050 APT32, G0090 WIRTE, G0121 Sidewinder). Sources [32] [3] [2] [17] [4]."
+    },
+    {
+      "techniqueID": "T1027.011",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1027.013",
+      "tactic": "stealth",
+      "score": 6,
+      "comment": "Linked to 6 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0050 APT32, G0070 Dark Caracal, G0121 Sidewinder, G0134 Transparent Tribe, G1002 BITTER). Sources [32] [26] [2] [12] [4] [7] [6]."
+    },
+    {
+      "techniqueID": "T1027.015",
+      "tactic": "stealth",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0021 Molerats, G0090 WIRTE). Sources [32] [16] [17]."
+    },
+    {
+      "techniqueID": "T1027.016",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1033",
+      "tactic": "discovery",
+      "score": 4,
+      "comment": "Linked to 4 of the study's 20 groups in ATT&CK v20.0 (G0038 Stealth Falcon, G0040 Patchwork, G0050 APT32, G0121 Sidewinder). Sources [32] [11] [3] [2] [4]."
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1036.003",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1036.004",
+      "tactic": "stealth",
+      "score": 3,
+      "comment": "Linked to 3 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32, G0056 PROMETHIUM, G1002 BITTER). Sources [32] [2] [21] [6]."
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 8,
+      "comment": "Linked to 8 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0040 Patchwork, G0050 APT32, G0056 PROMETHIUM, G0090 WIRTE, G0121 Sidewinder, G0134 Transparent Tribe, G1008 SideCopy). Sources [32] [26] [3] [2] [21] [17] [4] [7] [9]."
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 4,
+      "comment": "Linked to 4 of the study's 20 groups in ATT&CK v20.0 (G0038 Stealth Falcon, G0050 APT32, G0090 WIRTE, G0142 Confucius). Sources [32] [11] [2] [17] [5]."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0038 Stealth Falcon, G0050 APT32). Sources [32] [11] [2]."
+    },
+    {
+      "techniqueID": "T1048.003",
+      "tactic": "exfiltration",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1049",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 6,
+      "comment": "Linked to 6 of the study's 20 groups in ATT&CK v20.0 (G0021 Molerats, G0038 Stealth Falcon, G0040 Patchwork, G0050 APT32, G0142 Confucius, G1002 BITTER). Sources [32] [16] [11] [3] [2] [5] [6]."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 6,
+      "comment": "Linked to 6 of the study's 20 groups in ATT&CK v20.0 (G0021 Molerats, G0038 Stealth Falcon, G0040 Patchwork, G0050 APT32, G0142 Confucius, G1002 BITTER). Sources [32] [16] [11] [3] [2] [5] [6]."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 6,
+      "comment": "Linked to 6 of the study's 20 groups in ATT&CK v20.0 (G0021 Molerats, G0038 Stealth Falcon, G0040 Patchwork, G0050 APT32, G0142 Confucius, G1002 BITTER). Sources [32] [16] [11] [3] [2] [5] [6]."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1055.012",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork). Sources [32] [3]."
+    },
+    {
+      "techniqueID": "T1055.012",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork). Sources [32] [3]."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0050 APT32). Sources [32] [26] [2]."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0050 APT32). Sources [32] [26] [2]."
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 4,
+      "comment": "Linked to 4 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0021 Molerats, G0038 Stealth Falcon, G0121 Sidewinder). Sources [32] [26] [16] [11] [4]."
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0038 Stealth Falcon, G0050 APT32). Sources [32] [11] [2]."
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 8,
+      "comment": "Linked to 8 of the study's 20 groups in ATT&CK v20.0 (G0021 Molerats, G0038 Stealth Falcon, G0040 Patchwork, G0050 APT32, G0090 WIRTE, G0121 Sidewinder, G0142 Confucius, G1019 MoustachedBouncer). Sources [32] [16] [11] [3] [2] [17] [4] [5] [24]. Primary record: Stealth Falcon PowerShell backdoor (Citizen Lab, 2016-05-29) [49]."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 5,
+      "comment": "Linked to 5 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0040 Patchwork, G0050 APT32, G0070 Dark Caracal, G0090 WIRTE). Sources [32] [26] [3] [2] [12] [17]."
+    },
+    {
+      "techniqueID": "T1059.004",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1041 Sea Turtle). Sources [32] [20]."
+    },
+    {
+      "techniqueID": "T1059.005",
+      "tactic": "execution",
+      "score": 8,
+      "comment": "Linked to 8 of the study's 20 groups in ATT&CK v20.0 (G0021 Molerats, G0040 Patchwork, G0050 APT32, G0090 WIRTE, G0121 Sidewinder, G0134 Transparent Tribe, G0142 Confucius, G1008 SideCopy). Sources [32] [16] [3] [2] [17] [4] [7] [5] [9]."
+    },
+    {
+      "techniqueID": "T1059.007",
+      "tactic": "execution",
+      "score": 4,
+      "comment": "Linked to 4 of the study's 20 groups in ATT&CK v20.0 (G0021 Molerats, G0050 APT32, G0121 Sidewinder, G1019 MoustachedBouncer). Sources [32] [16] [2] [4] [24]."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 3,
+      "comment": "Linked to 3 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32, G1002 BITTER, G1019 MoustachedBouncer). Sources [32] [2] [6] [24]. Primary record: MoustachedBouncer Disco plugin uses CVE-2021-1732 (ESET, 2023-08-10) [48]."
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 3,
+      "comment": "Linked to 3 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork, G0050 APT32, G0089 The White Company). Sources [32] [3] [2] [28]."
+    },
+    {
+      "techniqueID": "T1070.006",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 8,
+      "comment": "Linked to 8 of the study's 20 groups in ATT&CK v20.0 (G0038 Stealth Falcon, G0050 APT32, G0070 Dark Caracal, G0090 WIRTE, G0121 Sidewinder, G0142 Confucius, G1002 BITTER, G1041 Sea Turtle). Sources [32] [11] [2] [12] [17] [4] [5] [6] [20]."
+    },
+    {
+      "techniqueID": "T1071.003",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1072",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1072",
+      "tactic": "lateral-movement",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1074.001",
+      "tactic": "collection",
+      "score": 3,
+      "comment": "Linked to 3 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork, G0090 WIRTE, G0121 Sidewinder). Sources [32] [3] [17] [4]."
+    },
+    {
+      "techniqueID": "T1074.002",
+      "tactic": "collection",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G1019 MoustachedBouncer, G1041 Sea Turtle). Sources [32] [24] [20]. Primary record: Sea Turtle staged an email archive in a public web directory, 2021 to 2023 [45]."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G1005 POLONIUM, G1041 Sea Turtle). Sources [32] [14] [20]. Primary record: Sea Turtle stolen registrar credentials (2017 to 2019) and compromised cPanel accounts (2021 to 2023) [42] [45]."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G1005 POLONIUM, G1041 Sea Turtle). Sources [32] [14] [20]. Primary record: Sea Turtle stolen registrar credentials (2017 to 2019) and compromised cPanel accounts (2021 to 2023) [42] [45]."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G1005 POLONIUM, G1041 Sea Turtle). Sources [32] [14] [20]. Primary record: Sea Turtle stolen registrar credentials (2017 to 2019) and compromised cPanel accounts (2021 to 2023) [42] [45]."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G1005 POLONIUM, G1041 Sea Turtle). Sources [32] [14] [20]. Primary record: Sea Turtle stolen registrar credentials (2017 to 2019) and compromised cPanel accounts (2021 to 2023) [42] [45]."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "stealth",
+      "score": 3,
+      "comment": "Linked to 3 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32, G0056 PROMETHIUM, G1041 Sea Turtle). Sources [32] [2] [21] [20]."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "Linked to 3 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32, G0056 PROMETHIUM, G1041 Sea Turtle). Sources [32] [2] [21] [20]."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "privilege-escalation",
+      "score": 3,
+      "comment": "Linked to 3 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32, G0056 PROMETHIUM, G1041 Sea Turtle). Sources [32] [2] [21] [20]."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "initial-access",
+      "score": 3,
+      "comment": "Linked to 3 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32, G0056 PROMETHIUM, G1041 Sea Turtle). Sources [32] [2] [21] [20]."
+    },
+    {
+      "techniqueID": "T1080",
+      "tactic": "lateral-movement",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel). Sources [32] [26]."
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 6,
+      "comment": "Linked to 6 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0038 Stealth Falcon, G0040 Patchwork, G0050 APT32, G0121 Sidewinder, G1008 SideCopy). Sources [32] [26] [11] [3] [2] [4] [9]."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 6,
+      "comment": "Linked to 6 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0040 Patchwork, G0050 APT32, G0070 Dark Caracal, G0121 Sidewinder, G0142 Confucius). Sources [32] [26] [3] [2] [12] [4] [5]."
+    },
+    {
+      "techniqueID": "T1087.001",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G1005 POLONIUM, G1019 MoustachedBouncer). Sources [32] [14] [24]."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "lateral-movement",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel). Sources [32] [26]."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "initial-access",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel). Sources [32] [26]."
+    },
+    {
+      "techniqueID": "T1095",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1002 BITTER). Sources [32] [6]."
+    },
+    {
+      "techniqueID": "T1102",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1102.001",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork). Sources [32] [3]."
+    },
+    {
+      "techniqueID": "T1102.002",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1005 POLONIUM). Sources [32] [14]."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 10,
+      "comment": "Linked to 10 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0021 Molerats, G0040 Patchwork, G0050 APT32, G0090 WIRTE, G0121 Sidewinder, G0123 Volatile Cedar, G0142 Confucius, G1002 BITTER, G1008 SideCopy). Sources [32] [26] [16] [3] [2] [17] [4] [13] [5] [6] [9]."
+    },
+    {
+      "techniqueID": "T1106",
+      "tactic": "execution",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0090 WIRTE, G1008 SideCopy). Sources [32] [17] [9]."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-impairment",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork, G0050 APT32). Sources [32] [3] [2]."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork, G0050 APT32). Sources [32] [3] [2]."
+    },
+    {
+      "techniqueID": "T1113",
+      "tactic": "collection",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0070 Dark Caracal, G1019 MoustachedBouncer). Sources [32] [12] [24]."
+    },
+    {
+      "techniqueID": "T1114.001",
+      "tactic": "collection",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0090 WIRTE, G1041 Sea Turtle). Sources [32] [17] [20]. Primary record: Sea Turtle email archive collection, 2021 to 2023 [45]."
+    },
+    {
+      "techniqueID": "T1119",
+      "tactic": "collection",
+      "score": 3,
+      "comment": "Linked to 3 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork, G0121 Sidewinder, G0142 Confucius). Sources [32] [3] [4] [5]."
+    },
+    {
+      "techniqueID": "T1124",
+      "tactic": "discovery",
+      "score": 3,
+      "comment": "Linked to 3 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0089 The White Company, G0121 Sidewinder). Sources [32] [26] [28] [4]."
+    },
+    {
+      "techniqueID": "T1132.001",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork). Sources [32] [3]."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1041 Sea Turtle). Sources [32] [20]. Primary record: Sea Turtle SSH access to Dutch providers, 2021 to 2023 [45]."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1041 Sea Turtle). Sources [32] [20]. Primary record: Sea Turtle SSH access to Dutch providers, 2021 to 2023 [45]."
+    },
+    {
+      "techniqueID": "T1135",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1137",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1140",
+      "tactic": "stealth",
+      "score": 3,
+      "comment": "Linked to 3 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0021 Molerats, G0090 WIRTE). Sources [32] [26] [16] [17]."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 6,
+      "comment": "Linked to 6 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0040 Patchwork, G0050 APT32, G0056 PROMETHIUM, G0070 Dark Caracal, G0134 Transparent Tribe). Sources [32] [26] [3] [2] [21] [12] [7]. Primary record: Dark Caracal watering-hole site (Lookout and EFF, 2018-01-18); Darkhotel hotel-network delivery (Kaspersky, 2014-11-10) [40] [52]."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0123 Volatile Cedar, G1041 Sea Turtle). Sources [32] [13] [20]. Primary record: Sea Turtle exploited seven named CVEs (Talos, 2019-04-17); Marbled Dust exploited CVE-2025-27920 (Microsoft, 2025-05-12) [42] [46]."
+    },
+    {
+      "techniqueID": "T1197",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork). Sources [32] [3]."
+    },
+    {
+      "techniqueID": "T1197",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork). Sources [32] [3]."
+    },
+    {
+      "techniqueID": "T1197",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork). Sources [32] [3]."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G1005 POLONIUM, G1041 Sea Turtle). Sources [32] [14] [20]."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 9,
+      "comment": "Linked to 9 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0040 Patchwork, G0050 APT32, G0089 The White Company, G0121 Sidewinder, G0134 Transparent Tribe, G0142 Confucius, G1002 BITTER, G1041 Sea Turtle). Sources [32] [26] [3] [2] [28] [4] [7] [5] [6] [20]. Primary record: Darkhotel Flash zero-days (2014); Patchwork Equation Editor RTF exploit (Dec 2021); SideWinder CVE-2017-11882 (2024) [52] [36] [53]."
+    },
+    {
+      "techniqueID": "T1204.001",
+      "tactic": "execution",
+      "score": 7,
+      "comment": "Linked to 7 of the study's 20 groups in ATT&CK v20.0 (G0021 Molerats, G0040 Patchwork, G0050 APT32, G0090 WIRTE, G0121 Sidewinder, G0134 Transparent Tribe, G0142 Confucius). Sources [32] [16] [3] [2] [17] [4] [7] [5]."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 13,
+      "comment": "Linked to 13 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0021 Molerats, G0040 Patchwork, G0050 APT32, G0056 PROMETHIUM, G0070 Dark Caracal, G0089 The White Company, G0090 WIRTE, G0121 Sidewinder, G0134 Transparent Tribe, G0142 Confucius, G1002 BITTER, G1008 SideCopy). Sources [32] [26] [16] [3] [2] [21] [12] [28] [17] [4] [7] [5] [6] [9]. Primary record: APT32 macro documents (Mandiant, 2017); Stealth Falcon macro documents (2016) [34] [49]."
+    },
+    {
+      "techniqueID": "T1205.001",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0056 PROMETHIUM). Sources [32] [21]."
+    },
+    {
+      "techniqueID": "T1205.001",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0056 PROMETHIUM). Sources [32] [21]."
+    },
+    {
+      "techniqueID": "T1205.001",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0056 PROMETHIUM). Sources [32] [21]."
+    },
+    {
+      "techniqueID": "T1213.006",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1041 Sea Turtle). Sources [32] [20]."
+    },
+    {
+      "techniqueID": "T1216.001",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1218.001",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0070 Dark Caracal). Sources [32] [12]."
+    },
+    {
+      "techniqueID": "T1218.005",
+      "tactic": "stealth",
+      "score": 4,
+      "comment": "Linked to 4 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32, G0121 Sidewinder, G0142 Confucius, G1008 SideCopy). Sources [32] [2] [4] [5] [9]."
+    },
+    {
+      "techniqueID": "T1218.007",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0021 Molerats). Sources [32] [16]."
+    },
+    {
+      "techniqueID": "T1218.010",
+      "tactic": "stealth",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32, G0090 WIRTE). Sources [32] [2] [17]."
+    },
+    {
+      "techniqueID": "T1218.011",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1221",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0142 Confucius). Sources [32] [5]."
+    },
+    {
+      "techniqueID": "T1222.002",
+      "tactic": "defense-impairment",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1497",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel). Sources [32] [26]."
+    },
+    {
+      "techniqueID": "T1497",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel). Sources [32] [26]."
+    },
+    {
+      "techniqueID": "T1497.001",
+      "tactic": "stealth",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0090 WIRTE). Sources [32] [26] [17]."
+    },
+    {
+      "techniqueID": "T1497.001",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0090 WIRTE). Sources [32] [26] [17]."
+    },
+    {
+      "techniqueID": "T1497.002",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel). Sources [32] [26]."
+    },
+    {
+      "techniqueID": "T1497.002",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel). Sources [32] [26]."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "Linked to 3 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32, G0123 Volatile Cedar, G1041 Sea Turtle). Sources [32] [2] [13] [20]."
+    },
+    {
+      "techniqueID": "T1518",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0121 Sidewinder, G1008 SideCopy). Sources [32] [4] [9]."
+    },
+    {
+      "techniqueID": "T1518.001",
+      "tactic": "discovery",
+      "score": 5,
+      "comment": "Linked to 5 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0040 Patchwork, G0089 The White Company, G0121 Sidewinder, G1008 SideCopy). Sources [32] [26] [3] [28] [4] [9]."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32, G0056 PROMETHIUM). Sources [32] [2] [21]."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32, G0056 PROMETHIUM). Sources [32] [2] [21]."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "score": 8,
+      "comment": "Linked to 8 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0021 Molerats, G0040 Patchwork, G0050 APT32, G0056 PROMETHIUM, G0070 Dark Caracal, G0121 Sidewinder, G0142 Confucius). Sources [32] [26] [16] [3] [2] [21] [12] [4] [5]."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "privilege-escalation",
+      "score": 8,
+      "comment": "Linked to 8 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0021 Molerats, G0040 Patchwork, G0050 APT32, G0056 PROMETHIUM, G0070 Dark Caracal, G0121 Sidewinder, G0142 Confucius). Sources [32] [26] [16] [3] [2] [21] [12] [4] [5]."
+    },
+    {
+      "techniqueID": "T1548.002",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork). Sources [32] [3]."
+    },
+    {
+      "techniqueID": "T1550.002",
+      "tactic": "lateral-movement",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1550.003",
+      "tactic": "lateral-movement",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1552.002",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1553.002",
+      "tactic": "defense-impairment",
+      "score": 4,
+      "comment": "Linked to 4 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0021 Molerats, G0040 Patchwork, G0056 PROMETHIUM). Sources [32] [26] [16] [3] [21]. Primary record: Darkhotel weak and stolen code-signing certificates (Kaspersky, 2014-11-10) [52]."
+    },
+    {
+      "techniqueID": "T1555",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0038 Stealth Falcon). Sources [32] [11]."
+    },
+    {
+      "techniqueID": "T1555.003",
+      "tactic": "credential-access",
+      "score": 3,
+      "comment": "Linked to 3 of the study's 20 groups in ATT&CK v20.0 (G0021 Molerats, G0038 Stealth Falcon, G0040 Patchwork). Sources [32] [16] [11] [3]. Primary record: Stealth Falcon browser credential theft (Citizen Lab, 2016-05-29) [49]."
+    },
+    {
+      "techniqueID": "T1555.004",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0038 Stealth Falcon). Sources [32] [11]. Primary record: Stealth Falcon credential-vault theft (Citizen Lab, 2016-05-29) [49]."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1041 Sea Turtle). Sources [32] [20]. Primary record: Sea Turtle adversary-in-the-middle credential harvesting, 2017 to 2019 [42]."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1041 Sea Turtle). Sources [32] [20]. Primary record: Sea Turtle adversary-in-the-middle credential harvesting, 2017 to 2019 [42]."
+    },
+    {
+      "techniqueID": "T1559.002",
+      "tactic": "execution",
+      "score": 3,
+      "comment": "Linked to 3 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork, G0121 Sidewinder, G1002 BITTER). Sources [32] [3] [4] [6]."
+    },
+    {
+      "techniqueID": "T1560",
+      "tactic": "collection",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork, G0050 APT32). Sources [32] [3] [2]."
+    },
+    {
+      "techniqueID": "T1560.001",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1041 Sea Turtle). Sources [32] [20]. Primary record: Sea Turtle archived collected email, 2021 to 2023 [45]."
+    },
+    {
+      "techniqueID": "T1564.001",
+      "tactic": "stealth",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32, G0134 Transparent Tribe). Sources [32] [2] [7]."
+    },
+    {
+      "techniqueID": "T1564.003",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1564.004",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1564.011",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1041 Sea Turtle). Sources [32] [20]."
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1041 Sea Turtle). Sources [32] [20]."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 11,
+      "comment": "Linked to 11 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0021 Molerats, G0040 Patchwork, G0050 APT32, G0089 The White Company, G0090 WIRTE, G0121 Sidewinder, G0134 Transparent Tribe, G0142 Confucius, G1002 BITTER, G1008 SideCopy). Sources [32] [26] [16] [3] [2] [28] [17] [4] [7] [5] [6] [9]. Primary record: APT32 macro documents (Mandiant, 2017); Stealth Falcon (2016); Patchwork RTF lures (Dec 2021); SideWinder template-injection documents (Kaspersky, 2024) [34] [49] [36] [53]."
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 7,
+      "comment": "Linked to 7 of the study's 20 groups in ATT&CK v20.0 (G0021 Molerats, G0040 Patchwork, G0050 APT32, G0090 WIRTE, G0121 Sidewinder, G0134 Transparent Tribe, G0142 Confucius). Sources [32] [16] [3] [2] [17] [4] [7] [5]. Primary record: Stealth Falcon tracked links (Citizen Lab, 2016-05-29) [49]."
+    },
+    {
+      "techniqueID": "T1566.003",
+      "tactic": "initial-access",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0070 Dark Caracal). Sources [32] [12]. Primary record: Dark Caracal phishing through WhatsApp and Facebook (Lookout and EFF, 2018-01-18) [40]."
+    },
+    {
+      "techniqueID": "T1567.002",
+      "tactic": "exfiltration",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0142 Confucius, G1005 POLONIUM). Sources [32] [5] [14]."
+    },
+    {
+      "techniqueID": "T1568",
+      "tactic": "command-and-control",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0134 Transparent Tribe, G1002 BITTER). Sources [32] [7] [6]."
+    },
+    {
+      "techniqueID": "T1569.002",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1570",
+      "tactic": "lateral-movement",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1571",
+      "tactic": "command-and-control",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32, G0090 WIRTE). Sources [32] [2] [17]."
+    },
+    {
+      "techniqueID": "T1573",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1002 BITTER). Sources [32] [6]."
+    },
+    {
+      "techniqueID": "T1573.001",
+      "tactic": "command-and-control",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0012 Darkhotel, G0038 Stealth Falcon). Sources [32] [26] [11]. Primary record: Stealth Falcon RC4-encrypted C2 (Citizen Lab, 2016-05-29) [49]."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "stealth",
+      "score": 5,
+      "comment": "Linked to 5 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork, G0050 APT32, G0090 WIRTE, G0121 Sidewinder, G1008 SideCopy). Sources [32] [3] [2] [17] [4] [9]."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "execution",
+      "score": 5,
+      "comment": "Linked to 5 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork, G0050 APT32, G0090 WIRTE, G0121 Sidewinder, G1008 SideCopy). Sources [32] [3] [2] [17] [4] [9]."
+    },
+    {
+      "techniqueID": "T1583",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1041 Sea Turtle). Sources [32] [20]."
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 5,
+      "comment": "Linked to 5 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32, G0090 WIRTE, G0134 Transparent Tribe, G1002 BITTER, G1041 Sea Turtle). Sources [32] [2] [17] [7] [6] [20]."
+    },
+    {
+      "techniqueID": "T1583.002",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1041 Sea Turtle). Sources [32] [20]."
+    },
+    {
+      "techniqueID": "T1583.003",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1041 Sea Turtle). Sources [32] [20]."
+    },
+    {
+      "techniqueID": "T1583.006",
+      "tactic": "resource-development",
+      "score": 3,
+      "comment": "Linked to 3 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32, G0142 Confucius, G1005 POLONIUM). Sources [32] [2] [5] [14]."
+    },
+    {
+      "techniqueID": "T1584.001",
+      "tactic": "resource-development",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0134 Transparent Tribe, G1008 SideCopy). Sources [32] [7] [9]."
+    },
+    {
+      "techniqueID": "T1584.002",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1041 Sea Turtle). Sources [32] [20]. Primary record: Sea Turtle DNS hijacking through registrars and registries, Jan 2017 to Q1 2019 [42]."
+    },
+    {
+      "techniqueID": "T1585.001",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1586.002",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0090 WIRTE). Sources [32] [17]."
+    },
+    {
+      "techniqueID": "T1587.002",
+      "tactic": "resource-development",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork, G0056 PROMETHIUM). Sources [32] [3] [21]."
+    },
+    {
+      "techniqueID": "T1587.003",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0056 PROMETHIUM). Sources [32] [21]."
+    },
+    {
+      "techniqueID": "T1588.002",
+      "tactic": "resource-development",
+      "score": 6,
+      "comment": "Linked to 6 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork, G0050 APT32, G0090 WIRTE, G1002 BITTER, G1005 POLONIUM, G1041 Sea Turtle). Sources [32] [3] [2] [17] [6] [14] [20]."
+    },
+    {
+      "techniqueID": "T1588.004",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1041 Sea Turtle). Sources [32] [20]. Primary record: Sea Turtle obtained certificates for victim domains, 2017 to 2019 [42]."
+    },
+    {
+      "techniqueID": "T1589",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1589.002",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0123 Volatile Cedar). Sources [32] [13]."
+    },
+    {
+      "techniqueID": "T1595.003",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0123 Volatile Cedar). Sources [32] [13]."
+    },
+    {
+      "techniqueID": "T1598.002",
+      "tactic": "reconnaissance",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0121 Sidewinder, G1008 SideCopy). Sources [32] [4] [9]."
+    },
+    {
+      "techniqueID": "T1598.003",
+      "tactic": "reconnaissance",
+      "score": 3,
+      "comment": "Linked to 3 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork, G0050 APT32, G0121 Sidewinder). Sources [32] [3] [2] [4]."
+    },
+    {
+      "techniqueID": "T1608.001",
+      "tactic": "resource-development",
+      "score": 4,
+      "comment": "Linked to 4 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32, G0090 WIRTE, G1002 BITTER, G1008 SideCopy). Sources [32] [2] [17] [6] [9]."
+    },
+    {
+      "techniqueID": "T1608.003",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1041 Sea Turtle). Sources [32] [20]."
+    },
+    {
+      "techniqueID": "T1608.004",
+      "tactic": "resource-development",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32, G0134 Transparent Tribe). Sources [32] [2] [7]."
+    },
+    {
+      "techniqueID": "T1614",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1008 SideCopy). Sources [32] [9]."
+    },
+    {
+      "techniqueID": "T1659",
+      "tactic": "initial-access",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1019 MoustachedBouncer). Sources [32] [24]. Primary record: MoustachedBouncer ISP-level injection of a fake Windows Update, since 2020 (ESET, 2023-08-10) [48]."
+    },
+    {
+      "techniqueID": "T1659",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1019 MoustachedBouncer). Sources [32] [24]. Primary record: MoustachedBouncer ISP-level injection of a fake Windows Update, since 2020 (ESET, 2023-08-10) [48]."
+    },
+    {
+      "techniqueID": "T1680",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "Linked to 2 of the study's 20 groups in ATT&CK v20.0 (G0040 Patchwork, G0142 Confucius). Sources [32] [3] [5]."
+    },
+    {
+      "techniqueID": "T1684.001",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0090 WIRTE). Sources [32] [17]."
+    },
+    {
+      "techniqueID": "T1685.005",
+      "tactic": "defense-impairment",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G0050 APT32). Sources [32] [2]."
+    },
+    {
+      "techniqueID": "T1685.006",
+      "tactic": "defense-impairment",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1041 Sea Turtle). Sources [32] [20]. Primary record: Sea Turtle cleared Linux logs, 2021 to 2023 [45]."
+    },
+    {
+      "techniqueID": "T1690",
+      "tactic": "defense-impairment",
+      "score": 1,
+      "comment": "Linked to 1 of the study's 20 groups in ATT&CK v20.0 (G1041 Sea Turtle). Sources [32] [20]. Primary record: Sea Turtle cleared command history, 2021 to 2023 [45]."
+    }
+  ]
+}

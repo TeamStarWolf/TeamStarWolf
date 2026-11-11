@@ -67,7 +67,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 22 October 2024: About 100 million individual notices sent
   - 31 July 2025: About 192.7 million people counted as affected
   - 30 September 2026: S.3315 passes the Senate by unanimous consent
-- [Industrial Control System Attacks and Advisories, 2024 to 2026: Incidents, CVEs and Attribution](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md). Period record, January 2024 to November 2026. Sectors: energy, manufacturing. CVEs: CVE-2017-7921, CVE-2018-0171, CVE-2018-4063, CVE-2018-7522, CVE-2018-8872, CVE-2019-7256 and 20 more. ATT&CK groups: G0034 Sandworm Team, G0035 Dragonfly, G0088 TEMP.Veles, G1017 Volt Typhoon. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ICS_Attacks_and_Advisories_2024_2026_Case_Study.pdf).
+- [Industrial Control System Attacks and Advisories, 2024 to 2026: Incidents, CVEs and Attribution](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md). Period record, January 2024 to November 2026. Sectors: energy, manufacturing. CVEs: CVE-2017-7921, CVE-2018-0171, CVE-2018-4063, CVE-2018-7522, CVE-2018-8872, CVE-2019-7256 and 20 more. ATT&CK groups: G0034 Sandworm Team, G0035 Dragonfly, G0088 TEMP.Veles, G1017 Volt Typhoon. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ICS_Attacks_and_Advisories_2024_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/ICS_Attacks_and_Advisories_2024_2026_Case_Study.pptx).
   - 22 November 2023: Unitronics PLC defacements begin: at least 75 US devices, at least 34 in water and wastewater
   - 22 January 2024: FrostyGoop in Lviv: heating outage for over 600 apartment buildings
   - 7 February 2024: AA24-038A on Volt Typhoon pre-positioning on IT networks
@@ -120,7 +120,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 July 2026: Autonomous evaluation agents intrude on Hugging Face infrastructure, to 13 July
   - 16 July 2026: Hugging Face discloses the intrusion
   - 28 October 2026: ATLAS 2026.10 released with five Hugging Face case studies
-- [Log4Shell (CVE-2021-44228): The Case Study](/case-studies/LOG4SHELL.md). Vulnerability, July 2013 to 2026 (core: November to December 2021). Sectors: technology, cross-sector. CVEs: CVE-2021-4104, CVE-2021-35247, CVE-2021-44207, CVE-2021-44228, CVE-2021-44832, CVE-2021-45046 and 1 more. ATT&CK groups: G0032 Lazarus Group, G0059 Magic Hound, G0069 MuddyWater, G0096 APT41, G0125 HAFNIUM, G0138 Andariel and 3 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Log4Shell_CVE_2021_44228_Case_Study.pdf).
+- [Log4Shell (CVE-2021-44228): The Case Study](/case-studies/LOG4SHELL.md). Vulnerability, July 2013 to 2026 (core: November to December 2021). Sectors: technology, cross-sector. CVEs: CVE-2021-4104, CVE-2021-35247, CVE-2021-44207, CVE-2021-44228, CVE-2021-44832, CVE-2021-45046 and 1 more. ATT&CK groups: G0032 Lazarus Group, G0059 Magic Hound, G0069 MuddyWater, G0096 APT41, G0125 HAFNIUM, G0138 Andariel and 3 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Log4Shell_CVE_2021_44228_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Log4Shell_CVE_2021_44228_Case_Study.pptx).
   - 17 July 2013: LOG4J2-313, JNDI Lookup plugin support, created for 2.0-beta9
   - 24 November 2021: An Alibaba Cloud Security engineer reports the flaw to Apache
   - 1 December 2021: Earliest known exploitation, consistent with testing of the reporter's proof of concept
@@ -149,7 +149,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2020 <!-- {docsify-ignore} -->
 
-- [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md). Campaign, January 2019 to 2021 (core: February to December 2020). Sectors: technology, government. CVEs: CVE-2018-13379, CVE-2019-9670, CVE-2019-11510, CVE-2019-19781, CVE-2020-0688, CVE-2020-1472 and 2 more. ATT&CK groups: G0010 Turla, G0016 APT29. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SolarWinds_SUNBURST_2019_2021_Case_Study.pdf).
+- [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md). Campaign, January 2019 to 2021 (core: February to December 2020). Sectors: technology, government. CVEs: CVE-2018-13379, CVE-2019-9670, CVE-2019-11510, CVE-2019-19781, CVE-2020-0688, CVE-2020-1472 and 2 more. ATT&CK groups: G0010 Turla, G0016 APT29. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SolarWinds_SUNBURST_2019_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/SolarWinds_SUNBURST_2019_2021_Case_Study.pptx).
   - 4 September 2019: Threat actor accesses SolarWinds
   - 12 September 2019: Test code injection trial run, to 4 November 2019
   - 20 February 2020: SUNSPOT build timestamp; SUNBURST injected into Orion builds from this day
@@ -191,7 +191,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2019 <!-- {docsify-ignore} -->
 
-- [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md). Period record, January to December 2019. Sectors: cross-sector. CVEs: CVE-2009-1151, CVE-2014-6271, CVE-2017-3881, CVE-2017-6736, CVE-2017-12617, CVE-2018-0296 and 31 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0045 menuPass and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2019_Case_Study.pdf).
+- [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md). Period record, January to December 2019. Sectors: cross-sector. CVEs: CVE-2009-1151, CVE-2014-6271, CVE-2017-3881, CVE-2017-6736, CVE-2017-12617, CVE-2018-0296 and 31 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0045 menuPass and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2019_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2019_Case_Study.pptx).
   - 22 January 2019: CISA Emergency Directive 19-01 orders federal agencies to audit DNS records
   - 19 March 2019: Norsk Hydro hit by ransomware; plants switch to manual operations
   - 25 March 2019: Kaspersky discloses Operation ShadowHammer through the ASUS Live Update tool
@@ -251,7 +251,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2012 <!-- {docsify-ignore} -->
 
-- [APT41: The Public Record, 2012 to 2026](/case-studies/APT41_PUBLIC_RECORD.md). Threat actor, 2012 to 2026. Sectors: technology, government, healthcare, telecommunications, education. CVEs: CVE-2012-0158, CVE-2015-1641, CVE-2017-0199, CVE-2017-11882, CVE-2019-1652, CVE-2019-1653 and 12 more. ATT&CK groups: G0001 Axiom, G0044 Winnti Group, G0096 APT41, G0143 Aquatic Panda, G1006 Earth Lusca, G1042 RedEcho and 1 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/APT41_Public_Record_2012_2026_Case_Study.pdf).
+- [APT41: The Public Record, 2012 to 2026](/case-studies/APT41_PUBLIC_RECORD.md). Threat actor, 2012 to 2026. Sectors: technology, government, healthcare, telecommunications, education. CVEs: CVE-2012-0158, CVE-2015-1641, CVE-2017-0199, CVE-2017-11882, CVE-2019-1652, CVE-2019-1653 and 12 more. ATT&CK groups: G0096 APT41. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/APT41_Public_Record_2012_2026_Case_Study.pdf).
   - 2012: FireEye traces APT41 activity to 2012, when members targeted the video game industry
   - July 2017: NetSarang's nssock2.dll backdoored in five software packages
   - June 2018: ASUS Live Update compromise (ShadowHammer), June to November 2018; stage 1 unconfirmed as APT41
@@ -283,7 +283,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2006 <!-- {docsify-ignore} -->
 
-- [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md). Threat actor, 2006 to October 2026. Sectors: government, healthcare, telecommunications, technology, defense. CVEs: CVE-2017-6862, CVE-2018-0171, CVE-2018-13382, CVE-2018-14847, CVE-2019-1652, CVE-2019-7192 and 44 more. ATT&CK groups: G0001 Axiom, G0002 Moafee, G0004 Ke3chang, G0005 APT12, G0006 APT1, G0009 Deep Panda and 42 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_China_Case_Study.pdf).
+- [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md). Threat actor, 2006 to October 2026. Sectors: government, healthcare, telecommunications, technology, defense. CVEs: CVE-2017-6862, CVE-2018-0171, CVE-2018-13382, CVE-2018-14847, CVE-2019-1652, CVE-2019-7192 and 44 more. ATT&CK groups: G0001 Axiom, G0002 Moafee, G0004 Ke3chang, G0005 APT12, G0006 APT1, G0009 Deep Panda and 41 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_China_Case_Study.pdf).
   - 12 January 2010: Google discloses a targeted attack from China that stole intellectual property
   - 19 February 2013: Mandiant's APT1 report ties APT1 to PLA Unit 61398
   - 19 May 2014: Indictment of five Unit 61398 officers, 31 counts
@@ -312,6 +312,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 1 June 2012: New York Times Olympic Games account, relayed by the Guardian
   - 24 June 2012: Coded infection stop date for Stuxnet 1.x
   - 26 February 2013: Symantec publishes Stuxnet 0.5: The Missing Link
+
+### 2004 <!-- {docsify-ignore} -->
+
+- [Other State-Linked Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_OTHER_STATES.md). Threat actor, 2004 to 2025. Sectors: government, defense, telecommunications, energy, education, media. CVEs: CVE-2009-1151, CVE-2010-2568, CVE-2010-3333, CVE-2012-0158, CVE-2012-1856, CVE-2014-4114 and 23 more. ATT&CK groups: G0012 Darkhotel, G0021 Molerats, G0038 Stealth Falcon, G0040 Patchwork, G0050 APT32, G0056 PROMETHIUM and 14 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_Other_States_Case_Study.pdf).
+  - 10 November 2014: Kaspersky reports Darkhotel's hotel-network delivery, Flash zero-days and certificate abuse
+  - 29 May 2016: Citizen Lab reports Stealth Falcon's macro documents and PowerShell backdoor
+  - January 2017: Sea Turtle DNS hijacking through registrars and registries begins, to early 2019
+  - 14 May 2017: Mandiant report on APT32
+  - 18 January 2018: Lookout and EFF report on Dark Caracal
+  - 17 April 2019: Talos publishes Sea Turtle, naming seven CVEs
+  - 10 December 2020: Meta takedown links APT32 to CyberOne Group
+  - 16 November 2021: Mandiant links UNC1151 to the Belarusian government
+  - 10 August 2023: ESET reports MoustachedBouncer against foreign embassies in Belarus
+  - 15 October 2024: Kaspersky reports SideWinder using CVE-2017-11882 and StealerBot
+  - March 2025: Stealth Falcon uses CVE-2025-33053 as a zero-day against a defense organization in Türkiye (Reported)
+  - 10 June 2025: CVE-2025-33053 added to KEV and published by NVD
 
 <!-- case-study-timeline:list-end (the timeline replaces the list above on the site) -->
 

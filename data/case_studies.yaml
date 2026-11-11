@@ -27,8 +27,10 @@
 #                vendors that build them; "cross-sector" means victims across many sectors
 #   cves         every CVE id the study names (the check fails on one it does not name)
 #   actors       the ATT&CK group ids the study binds: the groups it links to their library
-#                page as actors in its record, never a group it says is not involved; each
-#                must be in data/attack/group_profiles.jsonl
+#                page as actors in its record, or the bound groups it lists itself; never a
+#                group it says is not bound or not involved, nor one it names only for
+#                comparison or overlap. Each must be in data/attack/group_profiles.jsonl
+#                with a page in mitre/groups/
 #   tags         a few words a reader might search for
 #   pdf, pptx    the export file names in case-studies/pdf/ and case-studies/slides/, when
 #                they exist; every export in those folders must belong to an entry
@@ -39,7 +41,7 @@
 #                the label names the range.
 #
 # Provenance: the entries for the studies on main on 2026-11-11 were written from each
-# study's H1, its README row (period and downloads), its CVE ids, the ATT&CK groups it links
+# study's H1, its README row (period and downloads), its CVE ids, the ATT&CK groups it binds
 # and the rows of its timeline, operational record or Part 1 table.
 
 sectors: ["healthcare", "finance", "government", "energy", "manufacturing", "technology", "telecommunications", "education", "retail", "defense", "transport", "media", "cross-sector"]
@@ -93,14 +95,7 @@ studies:
       - "CVE-2021-44207"
       - "CVE-2021-44228"
       - "CVE-2022-21894"
-    actors:
-      - "G0001"
-      - "G0044"
-      - "G0096"
-      - "G0143"
-      - "G1006"
-      - "G1042"
-      - "G1048"
+    actors: ["G0096"]
     tags: ["China", "espionage", "cybercrime", "supply chain", "video games"]
     pdf: "APT41_Public_Record_2012_2026_Case_Study.pdf"
     pptx: null
@@ -207,7 +202,7 @@ studies:
       - "G1055"
     tags: ["ransomware", "VPN flaws", "DNS hijacking", "BlueKeep"]
     pdf: "Chronicle_2019_Case_Study.pdf"
-    pptx: null
+    pptx: "Chronicle_2019_Case_Study.pptx"
     events:
       - {"date": "2019-01-22", "label": "CISA Emergency Directive 19-01 orders federal agencies to audit DNS records"}
       - {"date": "2019-03-19", "label": "Norsk Hydro hit by ransomware; plants switch to manual operations"}
@@ -528,7 +523,7 @@ studies:
     actors: ["G0034", "G0035", "G0088", "G1017"]
     tags: ["ICS", "OT", "PLC", "water", "hacktivists"]
     pdf: "ICS_Attacks_and_Advisories_2024_2026_Case_Study.pdf"
-    pptx: null
+    pptx: "ICS_Attacks_and_Advisories_2024_2026_Case_Study.pptx"
     events:
       - {"date": "2023-11-22", "label": "Unitronics PLC defacements begin: at least 75 US devices, at least 34 in water and wastewater"}
       - {"date": "2024-01-22", "label": "FrostyGoop in Lviv: heating outage for over 600 apartment buildings"}
@@ -589,7 +584,7 @@ studies:
       - "G1041"
     tags: ["Log4j", "JNDI", "Java", "SBOM"]
     pdf: "Log4Shell_CVE_2021_44228_Case_Study.pdf"
-    pptx: null
+    pptx: "Log4Shell_CVE_2021_44228_Case_Study.pptx"
     events:
       - {"date": "2013-07-17", "label": "LOG4J2-313, JNDI Lookup plugin support, created for 2.0-beta9"}
       - {"date": "2021-11-24", "label": "An Alibaba Cloud Security engineer reports the flaw to Apache"}
@@ -748,7 +743,7 @@ studies:
     actors: ["G0010", "G0016"]
     tags: ["supply chain", "SUNBURST", "APT29", "Golden SAML"]
     pdf: "SolarWinds_SUNBURST_2019_2021_Case_Study.pdf"
-    pptx: null
+    pptx: "SolarWinds_SUNBURST_2019_2021_Case_Study.pptx"
     events:
       - {"date": "2019-09-04", "label": "Threat actor accesses SolarWinds"}
       - {"date": "2019-09-12", "label": "Test code injection trial run, to 4 November 2019"}
@@ -860,7 +855,6 @@ studies:
       - "G0005"
       - "G0006"
       - "G0009"
-      - "G0011"
       - "G0013"
       - "G0018"
       - "G0019"
@@ -918,6 +912,79 @@ studies:
       - {"date": "2024-10", "label": "Media first report Salt Typhoon in US telecoms"}
       - {"date": "2025-03-05", "label": "12 people charged, including eight i-Soon employees and APT27 actors"}
       - {"date": "2025-08-27", "label": "AA25-239A: 23 agencies in 13 countries on Salt Typhoon"}
+  case-studies/THREAT_ACTORS_OTHER_STATES.md:
+    kind: "actor"
+    title: "Other State-Linked Threat Actors: The Public Record"
+    start: "2004"
+    end: "2025"
+    sectors: ["government", "defense", "telecommunications", "energy", "education", "media"]
+    cves:
+      - "CVE-2009-1151"
+      - "CVE-2010-2568"
+      - "CVE-2010-3333"
+      - "CVE-2012-0158"
+      - "CVE-2012-1856"
+      - "CVE-2014-4114"
+      - "CVE-2014-4148"
+      - "CVE-2014-6271"
+      - "CVE-2015-1641"
+      - "CVE-2015-8651"
+      - "CVE-2017-0199"
+      - "CVE-2017-3881"
+      - "CVE-2017-6736"
+      - "CVE-2017-8570"
+      - "CVE-2017-11882"
+      - "CVE-2017-12617"
+      - "CVE-2018-0296"
+      - "CVE-2018-0798"
+      - "CVE-2018-0802"
+      - "CVE-2018-7600"
+      - "CVE-2020-0674"
+      - "CVE-2021-1732"
+      - "CVE-2021-20038"
+      - "CVE-2021-26855"
+      - "CVE-2021-44228"
+      - "CVE-2022-24990"
+      - "CVE-2023-42793"
+      - "CVE-2025-27920"
+      - "CVE-2025-33053"
+    actors:
+      - "G0012"
+      - "G0021"
+      - "G0038"
+      - "G0040"
+      - "G0050"
+      - "G0056"
+      - "G0063"
+      - "G0070"
+      - "G0089"
+      - "G0090"
+      - "G0121"
+      - "G0123"
+      - "G0134"
+      - "G0142"
+      - "G1002"
+      - "G1005"
+      - "G1008"
+      - "G1019"
+      - "G1028"
+      - "G1041"
+    tags: ["state-linked", "South Asia", "Middle East", "spyware", "DNS hijacking"]
+    pdf: "Threat_Actors_Other_States_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2014-11-10", "label": "Kaspersky reports Darkhotel's hotel-network delivery, Flash zero-days and certificate abuse"}
+      - {"date": "2016-05-29", "label": "Citizen Lab reports Stealth Falcon's macro documents and PowerShell backdoor"}
+      - {"date": "2017-01", "label": "Sea Turtle DNS hijacking through registrars and registries begins, to early 2019"}
+      - {"date": "2017-05-14", "label": "Mandiant report on APT32"}
+      - {"date": "2018-01-18", "label": "Lookout and EFF report on Dark Caracal"}
+      - {"date": "2019-04-17", "label": "Talos publishes Sea Turtle, naming seven CVEs"}
+      - {"date": "2020-12-10", "label": "Meta takedown links APT32 to CyberOne Group"}
+      - {"date": "2021-11-16", "label": "Mandiant links UNC1151 to the Belarusian government"}
+      - {"date": "2023-08-10", "label": "ESET reports MoustachedBouncer against foreign embassies in Belarus"}
+      - {"date": "2024-10-15", "label": "Kaspersky reports SideWinder using CVE-2017-11882 and StealerBot"}
+      - {"date": "2025-03", "label": "Stealth Falcon uses CVE-2025-33053 as a zero-day against a defense organization in Türkiye (Reported)"}
+      - {"date": "2025-06-10", "label": "CVE-2025-33053 added to KEV and published by NVD"}
   case-studies/THREAT_ACTORS_RUSSIA.md:
     kind: "actor"
     title: "Russia-Attributed Threat Actors: The Public Record"

@@ -1,0 +1,618 @@
+{
+  "name": "TeamStarWolf - The Zero-Day Trade and Its Fallout",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. The 75 ATT&CK Enterprise techniques that the verified record in case-studies/ZERO_DAY_MARKET_EVENTS.md supports for Operation Aurora (Elderwood, Hydraq), the Equation group, the Hacking Team leak, WannaCry, NotPetya, Bad Rabbit, Shamoon and the 2019 Baltimore RobbinHood attack, from the ATT&CK software and group pages the study opened and data/attack/. Each comment names the event and the study's source numbers. Scores: 100 an ATT&CK page ties the technique to an event in the study, 75 an ATT&CK software or group record related to the event but not dated to it, 40 an Inferred mapping.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "WannaCry EternalBlue, 12 May 2017; NotPetya EternalBlue and EternalRomance, 27 June 2017; Bad Rabbit EternalRomance, 2017 (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] [63] [111] [74] [112] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1570",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "WannaCry, 12 May 2017 (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1563.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "WannaCry (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "NotPetya, PsExec over ADMIN$ (basis: an ATT&CK page ties the technique to an event in the study). Sources [111] [74] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "WannaCry service mssecsvc2.0; Hydraq (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] [63] [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "WannaCry service mssecsvc2.0; Hydraq (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] [63] [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "WannaCry; NotPetya (library page); RobbinHood, Baltimore 2019; Shamoon (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] [63] [81] [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "WannaCry shadow-copy deletion; RobbinHood (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] [63] [81] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1489",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "WannaCry; RobbinHood (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] [81] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1529",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "NotPetya; Shamoon (basis: an ATT&CK page ties the technique to an event in the study). Sources [111] [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 75,
+      "comment": "Shamoon, 2012 (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1561.002",
+      "tactic": "impact",
+      "score": 75,
+      "comment": "Shamoon (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "WannaCry WMIC; NotPetya WMI (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] [63] [111] [75] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1569.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "NotPetya PsExec; Hydraq (basis: an ATT&CK page ties the technique to an event in the study). Sources [111] [74] [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "NotPetya (basis: an ATT&CK page ties the technique to an event in the study). Sources [111] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "NotPetya (basis: an ATT&CK page ties the technique to an event in the study). Sources [111] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "NotPetya (basis: an ATT&CK page ties the technique to an event in the study). Sources [111] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "RobbinHood, Baltimore 2019 (basis: an ATT&CK page ties the technique to an event in the study). Sources [81] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Elderwood, Aurora 2009; Flash CVE-2015-5119/5122/5123, July 2015 (Inferred for Flash) (basis: an ATT&CK page ties the technique to an event in the study). Sources [96] [86] [20] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1204.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Elderwood (basis: an ATT&CK page ties the technique to an event in the study). Sources [96] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Elderwood (basis: an ATT&CK page ties the technique to an event in the study). Sources [96] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1129",
+      "tactic": "execution",
+      "score": 75,
+      "comment": "Hydraq (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Elderwood, Aurora; Bad Rabbit watering holes (basis: an ATT&CK page ties the technique to an event in the study). Sources [96] [112] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Elderwood (basis: an ATT&CK page ties the technique to an event in the study). Sources [96] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Elderwood (basis: an ATT&CK page ties the technique to an event in the study). Sources [96] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Sandworm, NotPetya via M.E.Doc, 27 June 2017 (basis: an ATT&CK page ties the technique to an event in the study). Sources [113] [78] [118] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "NotPetya (basis: an ATT&CK page ties the technique to an event in the study). Sources [111] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "NotPetya (basis: an ATT&CK page ties the technique to an event in the study). Sources [111] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "NotPetya (basis: an ATT&CK page ties the technique to an event in the study). Sources [111] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "NotPetya (basis: an ATT&CK page ties the technique to an event in the study). Sources [111] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "NotPetya, modified Mimikatz (basis: an ATT&CK page ties the technique to an event in the study). Sources [111] [75] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "WannaCry; Hydraq (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "WannaCry (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "WannaCry; NotPetya; Hydraq (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] [111] [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1120",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "WannaCry; Equation (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] [114] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1518.001",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "NotPetya (basis: an ATT&CK page ties the technique to an event in the study). Sources [111] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 75,
+      "comment": "Hydraq (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1012",
+      "tactic": "discovery",
+      "score": 75,
+      "comment": "Hydraq (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 75,
+      "comment": "Hydraq (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1007",
+      "tactic": "discovery",
+      "score": 75,
+      "comment": "Hydraq (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1222.001",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "WannaCry icacls (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] [63] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1685.005",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "NotPetya cleared logs; Hydraq (basis: an ATT&CK page ties the technique to an event in the study). Sources [111] [74] [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "RobbinHood (basis: an ATT&CK page ties the technique to an event in the study). Sources [81] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-impairment",
+      "score": 75,
+      "comment": "Hydraq (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "Hydraq (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1564.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "WannaCry attrib (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] [63] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1564.005",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Equation (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [114] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1480.001",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Equation (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [114] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1542.002",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Equation; hard-drive firmware module per Kaspersky (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [114] [49] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1542.002",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "Equation; hard-drive firmware module per Kaspersky (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [114] [49] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1542.001",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Hacking Team UEFI Rootkit (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [26] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1542.001",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "Hacking Team UEFI Rootkit (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [26] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1014",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Hacking Team UEFI Rootkit (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [26] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1218.011",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "NotPetya (basis: an ATT&CK page ties the technique to an event in the study). Sources [111] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "NotPetya (basis: an ATT&CK page ties the technique to an event in the study). Sources [111] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Hydraq (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1027.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Elderwood (basis: an ATT&CK page ties the technique to an event in the study). Sources [96] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1027.013",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Elderwood (basis: an ATT&CK page ties the technique to an event in the study). Sources [96] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Hydraq (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1070.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "RobbinHood (basis: an ATT&CK page ties the technique to an event in the study). Sources [81] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Hydraq (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "privilege-escalation",
+      "score": 75,
+      "comment": "Hydraq (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 40,
+      "comment": "CVE-2015-2387, July 2015; Candiru CVE-2021-31979 and CVE-2021-33771, July 2021 (Inferred) (basis: Inferred). Sources [21] [38] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "WannaCry tor.exe (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] [63] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1573.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "WannaCry (basis: an ATT&CK page ties the technique to an event in the study). Sources [79] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1573.001",
+      "tactic": "command-and-control",
+      "score": 75,
+      "comment": "Hydraq (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Elderwood; Hydraq (basis: an ATT&CK page ties the technique to an event in the study). Sources [96] [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1048",
+      "tactic": "exfiltration",
+      "score": 75,
+      "comment": "Hydraq (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 75,
+      "comment": "Hydraq (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1113",
+      "tactic": "collection",
+      "score": 75,
+      "comment": "Hydraq (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [97] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1588.005",
+      "tactic": "resource-development",
+      "score": 40,
+      "comment": "Lazarus reuse of the RiskSense code; Buckeye's DoublePulsar variant (Inferred) (basis: Inferred). Sources [57] [117] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1587.004",
+      "tactic": "resource-development",
+      "score": 40,
+      "comment": "Equation (Inferred) (basis: Inferred). Sources [49] [117] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1036.004",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Bad Rabbit (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [112] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1070.006",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1140",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "privilege-escalation",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1548.002",
+      "tactic": "privilege-escalation",
+      "score": 75,
+      "comment": "Shamoon; Bad Rabbit (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] [112] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "privilege-escalation",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "initial-access",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1106",
+      "tactic": "execution",
+      "score": 75,
+      "comment": "Bad Rabbit (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [112] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 75,
+      "comment": "Bad Rabbit (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [112] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1124",
+      "tactic": "discovery",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1135",
+      "tactic": "discovery",
+      "score": 75,
+      "comment": "Bad Rabbit (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [112] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 75,
+      "comment": "Shamoon (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [102] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1495",
+      "tactic": "impact",
+      "score": 75,
+      "comment": "Bad Rabbit (software record, not dated to an event) (basis: an ATT&CK software or group record related to the event, not dated to it). Sources [112] refer to the Sources table of case-studies/ZERO_DAY_MARKET_EVENTS.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "75: ATT&CK software or group record related to the event, not dated to it",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: an ATT&CK page ties the technique to an event in the study",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/ZERO_DAY_MARKET_EVENTS.md (sources opened 3 November 2026; sources 58 and 59 on 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "75"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "89"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Zero-Day Trade and Its Fallout: The Events in This Is How They Tell Me the World Ends",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/ZERO_DAY_MARKET_EVENTS.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

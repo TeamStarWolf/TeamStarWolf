@@ -60,5 +60,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [The year 2021 in intrusions: a dated record](/case-studies/CHRONICLE_2021.md)
 - [Healthcare threat actor watchlist, 2023 to 2026: a case study](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md)
 - [The Cuckoo's Egg intrusion, 1986: a case study](/case-studies/CUCKOOS_EGG_1986.md)
+- [The zero-day trade and its fallout: a case study](/case-studies/ZERO_DAY_MARKET_EVENTS.md)
 
 <!-- hub:end -->

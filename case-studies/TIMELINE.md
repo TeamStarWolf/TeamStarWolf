@@ -324,6 +324,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2009 <!-- {docsify-ignore} -->
 
+- [The Zero-Day Trade and Its Fallout: The Events in This Is How They Tell Me the World Ends](/case-studies/ZERO_DAY_MARKET_EVENTS.md). Period record, 1996 to May 2026 (core: 2009 to 2021). Sectors: technology, government, healthcare, media, cross-sector. CVEs: CVE-2008-4250, CVE-2010-0249, CVE-2010-2568, CVE-2012-6422, CVE-2014-0160, CVE-2014-6324 and 24 more. ATT&CK groups: G0066 Elderwood, G0020 Equation, G0022 APT3, G0032 Lazarus Group, G0034 Sandworm Team, G0038 Stealth Falcon. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Zero_Day_Market_Events_Case_Study.pdf).
+  - December 2009: Google detects a targeted attack from China on its corporate infrastructure (Operation Aurora)
+  - 12 January 2010: Google discloses the intrusion and says it will stop censoring Google.cn
+  - 15 July 2014: Google announces Project Zero
+  - 5 July 2015: Hacking Team breach becomes public; Flash CVE-2015-5119 and CVE-2015-5122 made public
+  - 13 August 2016: The Shadow Brokers appear, claiming Equation Group files
+  - 24 August 2016: Citizen Lab and Lookout publish Trident and Pegasus; Apple ships iOS 9.3.5 the next day
+  - 14 March 2017: Microsoft publishes MS17-010
+  - 14 April 2017: The Shadow Brokers release the Windows archive (15 April in the FBI affidavit)
+  - 12 May 2017: WannaCry Version 2 spreads with the SMB worm; the kill-switch domain is registered
+  - 27 June 2017: NotPetya arrives through the M.E.Doc updater
+  - 13 September 2021: Citizen Lab reports FORCEDENTRY; Apple ships iOS 14.8
+  - 4 November 2021: NSO Group, Candiru, Positive Technologies and a Singapore firm added to the Entity List
 - [North Korea-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_NORTH_KOREA.md). Threat actor, 2009 to October 2026. Sectors: finance, government, defense, healthcare, technology, energy, media, education. CVEs: CVE-2017-4946, CVE-2021-20038, CVE-2021-43226, CVE-2021-44228, CVE-2021-45837, CVE-2022-24990 and 3 more. ATT&CK groups: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G0138 Andariel, G1036 Moonstone Sleet and 2 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_North_Korea_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Threat_Actors_North_Korea_Case_Study.pptx).
   - November 2014: Destructive attack on Sony Pictures Entertainment; the FBI names the North Korean government on 19 December 2014
   - February 2016: Bangladesh Bank SWIFT heist, $81 million (Treasury, 2018)

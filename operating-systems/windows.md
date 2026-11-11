@@ -57,6 +57,10 @@ Microsoft publishes a cumulative monthly security update on the second Tuesday o
 
 From Microsoft documentation (What version of Windows am I running?, the in-place upgrade guide, and the Get-ComputerInfo and Get-HotFix references); not run on a Windows host for this page. The registry command reads the key that the upgrade guide tells you to open in Registry Editor.
 
+## Security relevance
+
+Windows is the dominant enterprise endpoint and the center of most intrusions, so it is where credential theft, lateral movement, and persistence usually play out. The surface is Active Directory domain membership, LSASS credential extraction, living-off-the-land binaries, and token and Kerberos abuse, with endpoint detection as the main control. Harden with the DISA STIG, attack surface reduction rules, LAPS, and Credential Guard; see the Windows hardening reference below.
+
 ## Hardening
 
 - [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md)

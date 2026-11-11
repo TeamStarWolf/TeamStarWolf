@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 10 min (2,374 words at 230 words a minute)
+About 11 min (2,623 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -99,6 +99,24 @@ Falcon's primary mitigation value in the pre-patch window is detection-and-respo
 **Framework mapping:** NIST CSF 2.0: IDENTIFY (exposure/asset/vuln), PROTECT (NGAV, device/USB control, config workarounds), DETECT (EDR/XDR, threat intel), RESPOND (containment, Fusion SOAR), GOVERN (risk prioritization); CIS Controls v8: 1 (Asset Inventory), 2 (Software Inventory), 7 (Continuous Vulnerability Management), 10 (Malware Defenses), 13 (Network Monitoring & Defense), 17 (Incident Response); MITRE ATT&CK mitigations: M1051 Update Software, M1040 Behavior Prevention on Endpoint, M1038 Execution Prevention, M1042 Disable or Remove Feature or Program, M1030 Network Segmentation / M1035 Limit Access, M1049 Antivirus/Antimalware
 
 **In a critical-CVE scenario.** Hour 0-6: Spotlight/FEM instantly identifies every endpoint and cloud workload running the vulnerable version from existing sensor telemetry (no scan), and ExPRT.AI plus CrowdStrike threat intel flag whether the CVE is being actively exploited in the wild, ranking it to the top. For the internet-facing app, Falcon Surface confirms the external exposure. Hour 6-24: EDR/IOA detections and custom hunts are deployed to catch exploitation; affected or high-value hosts can be network-contained immediately; Fusion SOAR/Falcon for IT pushes a scripted compensating control (disable feature, apply workaround) as a stopgap. Hour 24-72: remediation is orchestrated via Falcon for IT or hand-off to Intune/SCCM/ServiceNow to deploy the vendor patch, prioritized internet-facing-first; Spotlight continuously re-confirms remediation in real time and Charlotte AI summarizes residual exposure and response actions.
+
+## Adversary perspective
+
+An EDR sensor is the control an intruder most wants gone, so adversaries treat it as both an obstacle to disable and a high-privilege foothold to abuse. The detection and health-check guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and tampering
+
+- Sensor tampering and unloading: with local admin or SYSTEM, attackers try to stop the service, remove the sensor, or push it into Reduced Functionality Mode so it reports while no longer preventing (ATT&CK T1685, Disable or Modify Tools; T1685 Disable or Modify Tools).
+- Bring-your-own-vulnerable-driver and user-mode unhooking: a signed but flawed driver, or patching the sensor's user-mode hooks, lets malicious code run below or around the behavioral sensors.
+- Credential and token theft from the host turns a managed endpoint into a pivot, and stolen console sessions or API keys can reach the Falcon tenant itself.
+
+### Residual risk
+
+The sensor sees only what it is configured to see: a policy in Detect-only mode logs but does not block, and unagentable OT, IoT and appliances fall outside it. A kernel-level agent on every host is also a large trusted codebase, and a faulty sensor update can cause fleet-wide impact, as the July 2024 outage showed, so the platform itself belongs in the patch and monitoring scope.
+
+### Why it matters
+
+For a tester, the agent's tamper protection and RFM state are the first things to probe; for a defender they are the first things to monitor. See [the red team reference](/RED_TEAM_REFERENCE.md) and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md).
 
 ## Validation & telemetry
 

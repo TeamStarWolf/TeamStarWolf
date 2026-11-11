@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,103 words at 230 words a minute)
+About 6 min (1,360 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -94,6 +94,25 @@ Check Point forwards logs to SIEM platforms over syslog or through dedicated log
 An API on the management server lets automation read and change policy, add objects, and install policy. This supports infrastructure-as-code patterns and ticket-driven firewall change automation. CloudGuard reads cloud provider APIs to discover assets and assess configuration posture.
 
 Event data from SmartEvent supports the incident response process by giving responders a searchable record of what each gateway blocked or allowed.
+
+## Adversary perspective
+
+Check Point gateways enforce access, inspect traffic, and often terminate remote-access VPN, so adversaries treat them as appliances to compromise as much as policy to evade. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Edge and VPN exploitation: internet-facing gateways and their remote-access components are a standing target for this device class (ATT&CK T1190, Exploit Public-Facing Application).
+- IPS set to Detect: a protection left in Detect logs a match and allows the traffic, so coverage is only apparent, and signatures can be evaded by encoding or fragmentation ([CWE-693](https://cwe.mitre.org/data/definitions/693.html)).
+- Inspection gaps: traffic excluded from HTTPS inspection is not examined inside the session.
+- Management and API abuse: the management server controls every gateway, so a stolen management credential or API key is high impact (ATT&CK T1685, Disable or Modify Tools).
+
+### Residual risk and own exposure
+
+The management plane compiles and pushes policy to every gateway, so its compromise is a high-impact event, and internet-facing gateways and VPN endpoints are among the most-targeted assets. A gateway only enforces the installed policy and only inspects what it decrypts. Software currency and the management plane belong in the patch and monitoring scope ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)).
+
+### Why it matters
+
+For a tester, gateway exposure, VPN endpoints, and IPS profile actions are the first things to characterize. For a defender, confirming protections are set to Prevent, isolating the management server, and keeping software current are what make the control real. See [the red team reference](/RED_TEAM_REFERENCE.md) and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md).
 
 ## Hardening and secure use
 

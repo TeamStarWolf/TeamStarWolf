@@ -40,6 +40,10 @@ Apple Support's update steps: back up, connect to power and Wi-Fi, then Settings
 
 From Apple Support's Update your iPhone or iPad.
 
+## Security relevance
+
+iOS is reached as a locked-down mobile device, so the surface is the application sandbox, code signing, and the high-value path of zero-click targeting by capable actors. The platform's own controls are strong, which pushes attackers toward application logic, configuration profiles, and exploit chains, and jailbreaking removes those controls. Review follows the mobile security reference below, and managed fleets add an MDM.
+
 ## Hardening
 
 - [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md)

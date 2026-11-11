@@ -32,6 +32,10 @@ Package manager: None; the device maker builds QNX into its firmware.
 
 No identify command is listed: the QNX documentation page tried was not found (HTTP 404). On a product, the maker's firmware version is what to track.
 
+## Security relevance
+
+QNX is a commercial real-time operating system in vehicles, medical devices, and industrial control, so it runs in safety-critical settings where availability and integrity are paramount. It is largely C with limited isolation, which makes memory-safety flaws and firmware integrity the central concerns, and the devices are hard to patch in the field. The work is secure development, update signing, and supply-chain assurance; see the firmware and IoT reference below.
+
 ## Hardening
 
 - [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md)

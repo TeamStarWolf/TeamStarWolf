@@ -53,6 +53,10 @@ The `ID` and `VERSION_ID` fields of `/etc/os-release` (the [os-release format](h
 | 26.05 | `ID=nixos`, `VERSION_ID=26.05` | nixpkgs `version.nix` (sets `ID` to `nixos` and `VERSION_ID` to the release) |
 | 25.11 | `ID=nixos`, `VERSION_ID=25.11` | nixpkgs `version.nix` (sets `ID` to `nixos` and `VERSION_ID` to the release) |
 
+## Security relevance
+
+NixOS builds the whole system declaratively from a configuration, so its distinctive property is a reproducible, auditable host where changes are explicit and rollbacks are clean. That reduces configuration drift, a common source of weakness, but the build inputs and the Nix channels are a supply-chain surface to trust. As a running host it still presents the standard Linux foothold surface of SSH, sudo, and kernel escalation.
+
 ## Hardening
 
 - [Linux Hardening Reference Library](/LINUX_HARDENING_REFERENCE.md)

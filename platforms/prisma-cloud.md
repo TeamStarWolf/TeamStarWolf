@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,082 words at 230 words a minute)
+About 6 min (1,374 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -98,6 +98,25 @@ Data flows into Prisma Cloud from connected cloud accounts and from scan targets
 Outbound, findings reach the tools a team already runs. Alerts and tickets can route to messaging and work-tracking systems. Severity and risk data can feed a SIEM or data lake. The platform exposes an API and supports automation so findings can drive pipelines and workflows.
 
 Code security integrates with source control and CI so scans run during pull requests and builds. That placement lets a team block or warn on risky changes before they reach a cloud account.
+
+## Adversary perspective
+
+Because a CNAPP holds a broad read role across cloud accounts and a map of every exposure, adversaries treat Prisma Cloud as both something to blind and a target worth stealing from. The steps to lock the deployment down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Stealing a connector role or API key (ATT&CK T1078, Valid Accounts): connectors read across accounts, so a stolen credential gives an attacker the same cross-account read the platform has ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Tampering with the Defender component (ATT&CK T1685, Disable or Modify Tools): where runtime Defender runs on hosts and clusters, an attacker with local privilege may try to stop or evade it, as with any runtime agent.
+- Suppressing or re-scoping findings (ATT&CK T1685, Disable or Modify Tools): tenant access lets an attacker mute policies, change alert routing, or narrow scope so a risk stops surfacing.
+- Reading the findings: the attack-path correlation and workload findings rank where the cloud is weakest, which is direct reconnaissance.
+
+### Residual risk and own exposure
+
+Posture evaluation reads configuration state and point-in-time scans, so runtime-only activity outside Defender coverage can be missed, and it reports only what the connectors can see. The connector roles, API keys, and Defender run with privilege, so a flaw in the product is high-impact and belongs in the patch and monitoring scope like any other software.
+
+### Why it matters
+
+A tester targets the connector roles and the tenant rather than the workloads Prisma Cloud already reports on. A defender monitors connector-role use, policy and alert-routing changes, and Defender health as signals in their own right. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) for the cloud attack paths and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

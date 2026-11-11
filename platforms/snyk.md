@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,201 words at 230 words a minute)
+About 6 min (1,494 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -107,6 +107,25 @@ In a pipeline, the command-line interface or a plugin runs a test and returns a 
 Ticketing integration lets a finding become a tracked work item in the team's issue tracker. This keeps remediation visible in the same backlog as other engineering work rather than in a separate security queue.
 
 Data flows from the scanned assets to the hosted platform for analysis and back to the developer surfaces. Because manifests, code snippets, and image metadata leave the local environment, scope the integration to the repositories and registries that the program intends to cover.
+
+## Adversary perspective
+
+Because Snyk holds tokens that read source across an organization and a map of every unpatched dependency, adversaries treat it as both a reconnaissance prize and a possible supply-chain foothold. The steps to lock the deployment down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Stealing API tokens or service accounts (ATT&CK T1078, Valid Accounts): a token that can import projects and read source gives broad read of the codebase, and a committed token is a common exposure ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)).
+- Reading the findings: the finding set lists which dependencies and code paths are known-vulnerable before a fix ships, which is target selection for the window between disclosure and deploy.
+- Abusing the ignore workflow (ATT&CK T1685, Disable or Modify Tools): with policy access an attacker suppresses findings with a plausible reason, or loosens a continuous-integration gate so a vulnerable build passes.
+- Integration abuse: write access to source-control integrations is a path to introduce or approve a malicious change, a software supply-chain concern.
+
+### Residual risk and own exposure
+
+Snyk reports on source and build artifacts, so a merged fix can still leave a vulnerable version running until the artifact is rebuilt and redeployed, and reachability analysis is not on every tier. The hosted platform and its source-reading tokens are high value, so the integration belongs in the patch and monitoring scope like any other software.
+
+### Why it matters
+
+A tester targets the tokens and the source-control integrations rather than the code the scanner already reports on. A defender monitors token use, ignore and gate changes, and fix-pull-request activity as signals in their own right. See [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md) for the supply-chain attack surface and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

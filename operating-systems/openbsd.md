@@ -47,6 +47,10 @@ pkg_add -u
 
 From the vendor documentation cited at the foot of this page; not run on a host for this page.
 
+## Security relevance
+
+OpenBSD is built around proactive security and ships hardened defaults, pledge and unveil, and the origin of OpenSSH, so it commonly runs firewalls, VPN endpoints, and other exposed roles. Its value as a reference is the design stance: reduce privilege and surface before a flaw is found rather than after. It is still a host with SSH and privilege boundaries, but the platform assumes far less about the trustworthiness of the code it runs.
+
 ## Hardening
 
 - [Security Operating Systems and Distributions](/SECURITY_OPERATING_SYSTEMS_REFERENCE.md)

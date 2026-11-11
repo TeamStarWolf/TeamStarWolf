@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,153 words at 230 words a minute)
+About 6 min (1,425 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -155,6 +155,25 @@ The main integration patterns are federation, provisioning, and logging.
 Keep the data in these flows minimal. Send only the attributes an application needs,
 and avoid placing sensitive personal data in claims that downstream systems do not
 require.
+
+## Adversary perspective
+
+Okta is the identity control plane, so adversaries treat it both as the prize and as something to bypass, and its admin console and federation trust are themselves an attack surface. The steps to lock it down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Phishing and MFA fatigue (ATT&CK T1621, T1556): real-time phishing proxies relay a login, and repeated push prompts wear a user into approving. Phishing-resistant factors such as FIDO2 are the counter.
+- Session and token theft (T1539, T1550): stealing a live session cookie or OAuth token lets an attacker replay an authenticated session without touching MFA at all.
+- Federation and token forging (T1606.002): a stolen signing key or an added trusted identity provider lets an attacker mint or accept assertions in golden-SAML style and impersonate any user ([CWE-287](https://cwe.mitre.org/data/definitions/287.html)).
+- Admin and help-desk abuse (T1098): social-engineering a factor reset, or hijacking an admin session, turns the identity provider into a foothold ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+
+### Residual risk and own exposure
+
+The identity provider is the keys to the kingdom, so its own compromise is catastrophic: one forged assertion or stolen admin session can reach every connected application. Identity platforms have themselves been targeted through support systems and session theft, so the tenant configuration, admin accounts, and integration agents belong in the patch and monitoring scope.
+
+### Why it matters
+
+Treating the identity provider as trusted by default is the mistake. A tester probes factor downgrade, stale OAuth grants, and recoverable admin paths; a defender watches the system log for factor changes, new trusted providers, and impossible-travel sign-ins. See [the identity security reference](/IDENTITY_SECURITY_REFERENCE.md) and [the red team reference](/RED_TEAM_REFERENCE.md).
 
 ## Hardening and secure use
 

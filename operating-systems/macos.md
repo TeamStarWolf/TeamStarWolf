@@ -42,6 +42,10 @@ Apple recommends the latest macOS that is compatible with the Mac. Software Upda
 
 From Apple Support's Find out which macOS your Mac is using; Apple's support pages opened for this page describe the menus, not command-line tools.
 
+## Security relevance
+
+macOS is a high-value enterprise and targeted-attack endpoint, so the surface is the user session and the platform controls around it: TCC privacy prompts, Gatekeeper, notarization, and the launch agent and daemon paths used for persistence. Attackers work around these with consent tricks, unsigned or notarization-abusing code, and persistence in user and system launch points. The Endpoint Security framework and an MDM are the main defensive hooks.
+
 ## Hardening
 
 - [macOS Security Reference](/MACOS_SECURITY_REFERENCE.md)

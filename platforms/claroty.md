@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (768 words at 230 words a minute)
+About 4 min (1,034 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -93,6 +93,24 @@ Claroty forwards asset data, exposure findings, and detections to a `SIEM` such 
 Segmentation guidance can inform firewall and network-access-control policy, including a network-access-control platform such as Cisco ISE. Detections can drive a security orchestration tool, with enforcement actions kept human-gated in sensitive environments.
 
 Data flows outward as inventory, findings, and detections. Inbound change is limited to configuration and content updates. Keep connected accounts scoped to the data each integration needs.
+
+## Adversary perspective
+
+Claroty mostly watches rather than blocks, so the adversary angle is evading its detection and the fragility of the cyber-physical systems it monitors, not the tool as a route to code execution. The defensive steps are in the "Hardening and secure use" section that follows.
+
+### Evasion and detection gaps
+
+- Blending with normal operations: because detection baselines normal behavior, an attacker who issues valid-looking control commands within expected patterns, or who moves slowly, can stay under the anomaly threshold.
+- Blind spots in passive collection: a passive sensor sees only traffic that crosses a monitored span or tap. Activity on an unmonitored segment, a serial link, or direct physical access to a controller leaves no network record to detect.
+- Starving or spoofing the view (ATT&CK T1685, Disable or Modify Tools): an attacker with a foothold can disrupt the span or tap feeding a sensor, or inject traffic, so the inventory and detections no longer reflect the real state.
+
+### Residual risk and own exposure
+
+Monitoring does not harden the underlying devices: the controllers and medical equipment it watches often cannot be patched quickly and tolerate little active probing, so known weaknesses persist by design. The platform and its collectors hold broad visibility and credentials (leaked keys map to [CWE-798](https://cwe.mitre.org/data/definitions/798.html)), so the management interface belongs off the general network and in the monitoring scope.
+
+### Why it matters
+
+Treat loss of sensor visibility as an event, validate segmentation against observed flows, and remember the control reports risk it cannot itself remove. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for prioritizing fragile assets and [the incident response reference](/INCIDENT_RESPONSE_REFERENCE.md) for control-environment response.
 
 ## Hardening and secure use
 

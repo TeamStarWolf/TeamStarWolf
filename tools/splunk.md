@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 13 min (3,082 words at 230 words a minute)
+About 14 min (3,314 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -98,6 +98,24 @@ Splunk is a detection, monitoring and virtual-patching-orchestration control rat
 **Framework mapping:** NIST CSF 2.0: Detect (primary), Respond, Identify (asset/vuln context), Govern/Protect (reporting, orchestrated controls); CIS Controls v8: 8 (Audit Log Management: core), 13 (Network Monitoring & Defense), 17 (Incident Response Management), 16 (Application Software Security monitoring), 7 (Continuous Vulnerability Management, via ingested scan data), 6 (Access Control monitoring); MITRE ATT&CK: platform maps detections to ATT&CK techniques for coverage analysis; as compensating-control orchestration it supports mitigations such as M1031 (Network Intrusion Prevention), M1037 (Filter Network Traffic), M1030 (Network Segmentation), M1018 (User Account Management), M1049 (Antivirus/Antimalware) executed via SOAR; MITRE Engage/detection-focused and Lockheed Martin Cyber Kill Chain mapping also supported in ES framework insights
 
 **In a critical-CVE scenario.** First 24-72h after a critical CVE in an internet-facing app and a cloud workload: (0-4h) Run SPL/threat-hunt searches across ingested logs for IOCs and exploitation patterns; query the Vulnerability data model to identify which internet-facing and cloud assets are affected and their risk/identity context. (4-24h) Stand up a targeted RBA/correlation detection for the CVE's exploitation signature (WAF, IDS, EDR, cloud audit logs), map it to the relevant MITRE ATT&CK techniques, and raise its risk weighting; enrich with Talos/threat-intel indicators. (24-72h) Trigger SOAR playbooks to deploy compensating controls (WAF/edge block rules, security-group/NACL tightening on the cloud workload, host isolation, credential resets), create and track the remediation case in Mission Control, alert stakeholders, and continuously monitor for bypass while patching proceeds; validate closure once patched.
+
+## Adversary perspective
+
+A SIEM does not block attacks; it sees them, so adversaries work to blind it and, because it aggregates the organization's logs and holds automation credentials, to abuse it as a target. The detection and validation guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and tampering
+
+- Blinding the feed: attackers stop forwarders, disable or clear logging at the source, or filter events before they ship so the activity never reaches Splunk (ATT&CK T1685.001, Disable Windows Event Logging; T1070, Indicator Removal).
+- Living below the detections: staying within normal SPL baselines, avoiding sources that are CIM-mapped, or exploiting a data-model acceleration lag so a search returns nothing while the attack proceeds.
+- Abusing the platform: SOAR playbooks and ES hold broad API credentials to EDR, firewalls and identity, so a compromised search head or SOAR account can read everything and push changes to those connected controls.
+
+### Residual risk
+
+Splunk asserts only what it ingests: an unmonitored source, a stale scanner feed or a dropped allow-log is a gap, and a notable firing proves detection, not that any control blocked the attack. Its broad data access and automation credentials make it a high-value target in its own right.
+
+### Why it matters
+
+A tester targets log gaps and the SOAR credentials; a defender monitors feed health and treats the SIEM as crown-jewel infrastructure. See [the SIEM reference](/SIEM_REFERENCE.md) and [the red team reference](/RED_TEAM_REFERENCE.md).
 
 ## Validation & telemetry
 

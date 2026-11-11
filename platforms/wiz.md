@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (993 words at 230 words a minute)
+About 6 min (1,280 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -96,6 +96,25 @@ Findings flow to downstream systems. Wiz integrates with ticketing systems so th
 SIEM integration sends cloud risk and finding data to log analytics platforms. Detection teams correlate cloud posture with alerts and telemetry. APIs and the graph query interface export data for reporting and custom workflows.
 
 Wiz is the source of cloud risk truth, and ticketing and SIEM systems consume it. Consistent resource identity across the systems keeps the join reliable.
+
+## Adversary perspective
+
+Because an agentless CNAPP holds a broad read role across cloud accounts and a map of every exposure, adversaries treat Wiz as both something to blind and a target worth stealing from. The steps to lock the deployment down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Stealing the connector role or API token (ATT&CK T1078, Valid Accounts): the connector reads across accounts, so a stolen token or assumed role gives an attacker the same cross-account read the platform has ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Blending with the platform: because collection is API-based and continuous, attacker API calls can be lost among the platform's own reads of the provider.
+- Suppressing or re-scoping findings (ATT&CK T1685, Disable or Modify Tools): tenant access lets an attacker mute risks, change policy, or narrow connector scope so a toxic combination stops surfacing.
+- Reading the Security Graph: the graph is an attack-path map of the environment, so copying it hands an attacker the reachable paths and over-permissioned identities ready-made.
+
+### Residual risk and own exposure
+
+Agentless scanning reads snapshots and control-plane state, so it can miss in-memory and runtime-only activity, and it reports only what the connector role can see. The connector role, tokens, and tenant are high value because they span many accounts, so the integration belongs in the patch and monitoring scope like any other software.
+
+### Why it matters
+
+A tester targets the connector role and the tenant rather than the workloads Wiz already reports on. A defender monitors connector-role use, policy and scope changes, and graph exports as signals in their own right. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) for the cloud attack paths and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

@@ -44,6 +44,10 @@ Microsoft publishes a cumulative monthly security update on the second Tuesday o
 
 From Microsoft documentation (Hyper-V host hardware requirements and What version of Windows am I running?); not run on a Windows host for this page.
 
+## Security relevance
+
+Hyper-V is the Windows hypervisor, so it is the isolation boundary between guest virtual machines and the host rather than an application platform. The critical risk is a guest-to-host escape that breaks that boundary and exposes every other guest, which makes the parent partition and the management plane the assets to protect. Keeping the host patched and its management access tightly scoped is the core control.
+
 ## Hardening
 
 - [Hypervisor Security Reference](/HYPERVISOR_SECURITY_REFERENCE.md)

@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 9 min (2,161 words at 230 words a minute)
+About 11 min (2,478 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -92,6 +92,24 @@ Acts across the full detect-and-remediate axis within AWS. Inspector continuousl
 **Framework mapping:** NIST CSF 2.0: Identify (asset/vuln inventory - Inspector, Config), Protect (Patch Manager, baselines), Detect (GuardDuty, Security Hub), Respond (EventBridge automation); CIS Controls v8: 1-2 (inventory), 4 (secure config), 7 (continuous vulnerability management - Inspector), 8 (audit logs - GuardDuty), 12 (network), 13 (monitoring); MITRE ATT&CK mitigations: M1051 Update Software (Patch Manager), M1030 Network Segmentation (SGs/NACLs), M1047 Audit, M1049 Antivirus/Antimalware (GuardDuty Malware Protection), M1026 Privileged Account Management (IAM Access Analyzer)
 
 **In a critical-CVE scenario.** First 24-72h of a critical internet-facing-app CVE: Inspector re-scans EC2/ECR/Lambda to identify every affected package and image across accounts; Security Hub exposure view (and attack-path visualization) ranks which affected assets are internet-reachable and already targeted by GuardDuty, producing a prioritized remediation list. As compensating mitigation, tighten security groups/NACLs and add AWS WAF rules to cut reachability, and enable/verify GuardDuty Runtime Monitoring to detect exploitation. Then build or update a Patch Manager baseline approving the fix, target the affected patch group, and push it via an emergency maintenance window in scan-and-install mode; Inspector re-scan and Security Hub compliance checks validate closure.
+
+## Adversary perspective
+
+These services detect, assess, and aggregate risk; they do not stand between the attacker and the workload, so an adversary treats them as something to blind, starve of coverage, or quietly live alongside. They also run with broad, privileged read across the account, which makes their roles and findings a target in their own right. The detection and tuning guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and tampering
+
+- Blinding the service: an attacker with sufficient IAM can disable GuardDuty, suppress or archive findings, stop Inspector scans, or delete the Config recorder and CloudTrail trail they feed on (ATT&CK T1685 Disable or Modify Tools, T1685.002 disable cloud logs), so the console looks clean while activity continues.
+- Coverage gaps: findings exist only where the services are enabled and the member accounts are enrolled; a region, account, or resource type left out of the delegated-admin configuration is simply unseen, and agentless assessment can miss what only shows at runtime.
+- Blending with scans: attackers time enumeration and access to look like normal assessment and automation traffic, and GuardDuty is detective, not preventive, so a finding is after the fact.
+
+### Residual risk and own exposure
+
+A finding is not a fix: these services surface misconfiguration, vulnerable software, and suspicious behavior, but the exposure remains until someone remediates it, and prioritization still depends on the operator. The services hold privileged read across the estate and their findings reveal exactly where the weak spots are ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)), so their IAM roles, delegated-admin account, and finding stores belong in the patch and monitoring scope.
+
+### Why it matters
+
+Knowing that detection can be disabled, enrollment can be incomplete, and findings lag the event tells a tester where to look and a defender to monitor the monitors and protect the finding plane. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) for the control model and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for turning findings into tracked remediation.
 
 ## Validation & telemetry
 

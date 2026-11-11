@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (822 words at 230 words a minute)
+About 5 min (1,070 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -95,6 +95,24 @@ Mimecast exposes an `API` for tenant administration, message tracking, and event
 Click and threat events can feed a security orchestration tool to drive takedown and user-notification workflows. Directory integration keeps user and group data current. Threat telemetry can inform block decisions in other controls.
 
 Data flows outward as logs and events for monitoring. Data flows inward as directory updates and policy changes. Keep the connected accounts scoped to only the data each integration needs.
+
+## Adversary perspective
+
+Mimecast is the gateway attackers must pass to reach a mailbox, so they tune lures to clear its filters and abuse trusted paths, and the console and API are themselves a target. The defensive steps are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Tuning lures past inspection: attackers test content against common filters, hide payloads behind links weaponized after delivery, and use attachment types or password-protected files that resist sandboxing.
+- Trusted-sender and allow-list abuse: an over-broad permit rule, a trusted relay, or a compromised partner account can let mail skip inspection, so attackers seek those gaps rather than defeat the engines head-on.
+- Reaching mailboxes directly: mail delivered to the platform through a path that does not traverse the gateway, or a look-alike domain that passes authentication checks the organization never configured, bypasses the control.
+
+### Residual risk and own exposure
+
+A gateway reduces volume but does not stop every targeted message, and business email compromise that carries no malware can clear signature and reputation checks. The service holds mail content, archives, and admin credentials, and can release and remove mail, so the tenant and its API belong in the monitoring and review scope (leaked keys map to [CWE-798](https://cwe.mitre.org/data/definitions/798.html)).
+
+### Why it matters
+
+Keep authentication records aligned so spoofed mail is rejected, review allow-lists and bulk-release activity, and pair the gateway with endpoint and identity controls. See [the incident response reference](/INCIDENT_RESPONSE_REFERENCE.md) for scoping a phishing campaign and [the red team reference](/RED_TEAM_REFERENCE.md) for phishing technique.
 
 ## Hardening and secure use
 

@@ -44,6 +44,10 @@ Advisories name the fixed maintenance or hotfix release per train, for example 1
 
 From the vendor documentation cited at the foot of this page; not run on a host for this page.
 
+## Security relevance
+
+PAN-OS runs Palo Alto Networks firewalls, so it sits on the perimeter and its GlobalProtect VPN portal and management interface are high-value targets with pre-authentication flaws exploited in the wild. A foothold on the firewall yields policy, credentials, and a vantage point over all traffic it inspects. Keep the management interface off untrusted networks and patch urgently; see the network protocols reference below.
+
 ## Hardening
 
 - [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md)

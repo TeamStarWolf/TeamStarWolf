@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (992 words at 230 words a minute)
+About 6 min (1,308 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -87,6 +87,24 @@ Operations run in the Trend Vision One console: detections and the investigation
 The XDR data lake is the center of the platform's data flow, holding correlated events from each layer. The platform exposes APIs and connectors to send detections and events to a SIEM for correlation and retention, and to drive response from a SOAR platform. Posture and vulnerability findings can be exported into a vulnerability management workflow or a ticketing system such as ServiceNow so remediation is tracked.
 
 Cloud connectors pull configuration and activity from cloud provider accounts, and the container integration ties into the build and deployment pipeline. These keep the platform's view of cloud and container risk current and feed the same console used for endpoint and network detection.
+
+## Adversary perspective
+
+Because Trend Vision One is a prevention and detection control across workloads, endpoints, and cloud, adversaries treat its agents as something to blind or disable, and its console and API are themselves an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and tampering
+
+- Impairing the agent (ATT&CK T1685, Disable or Modify Tools): with local administrator or root rights an attacker tries to stop or uninstall the workload or endpoint agent, cut its connectivity, or move policy from enforce back to detect-only. Tamper protection and enforce-mode policy are the countermeasures.
+- Running below or around the agent: bring-your-own-vulnerable-driver (BYOVD) and user-mode unhooking aim to act outside endpoint visibility, and on workloads an attacker may target gaps where no agent or IPS rule covers a path.
+- Console and API abuse: a stolen Vision One or workload API key, or a hijacked console session, lets an attacker change policy, disable virtual patching, or isolate hosts across linked accounts, which turns the control into a foothold ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+
+### Residual risk and own exposure
+
+The agents run with high privilege on every host and workload, so a flaw in an agent or the console is high-impact, and endpoint and workload agents across the industry have carried privilege-escalation and remote issues. Virtual patching shields a known weakness but does not remove it, so the underlying patch still belongs in scope. The agents and the console integrations belong in the patch and monitoring scope, and no agent catches every technique on its own.
+
+### Why it matters
+
+Treating the control as infallible is the mistake. A mature program monitors the control's own health, including agent removals, policy downgrades, and reporting gaps, as a detection signal, and keeps the agents current. See [the red team reference](/RED_TEAM_REFERENCE.md) for the evasion techniques and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

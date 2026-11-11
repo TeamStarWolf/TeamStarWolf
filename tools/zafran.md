@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 8 min (1,794 words at 230 words a minute)
+About 9 min (2,041 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -93,6 +93,24 @@ This is the case-study exemplar for mitigation-as-compensating-control. Zafran's
 **Framework mapping:** NIST CSF 2.0: Identify, Protect (compensating controls), Detect, Respond (mitigation); CIS Controls v8: 7 (Continuous Vulnerability Management), 4 (Secure Configuration), 13 (Network Monitoring/Defense), 12 (Network Infrastructure); MITRE ATT&CK mitigations: M1031 Network Intrusion Prevention, M1037 Filter Network Traffic, M1030 Network Segmentation, M1050 Exploit Protection, M1051 Update Software (one option among mitigations)
 
 **In a critical-CVE scenario.** First 24-72h on a critical CVE in an internet-facing app + cloud workload: (1) Exposure Graph instantly identifies affected assets from already-ingested scanner/cloud data; (2) determines true exploitability via internet reachability, runtime presence and in-the-wild exploitation; (3) checks which existing controls (WAF, EDR, IPS, cloud SG) already mitigate it and flags residual exposure; (4) for still-exposed assets, recommends or (agentically) pushes a mitigating policy to existing controls - a virtual patch/block rule - to close the window before the vendor patch is deployed; (5) tracks the shrinking exposure and validates mitigation.
+
+## Adversary perspective
+
+Zafran reads from every security control in the stack and can push mitigation policy back to them, so to an adversary it is a concentrated map of exposure and a lever over other controls rather than something to defeat directly. The detection and validation guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and bypass
+
+- Credential and access theft: the platform holds API read access to scanners, EDR, WAF, firewalls and identity providers, and can write policy to them, so stealing its API key or connector credentials yields a broad view and, potentially, control (ATT&CK T1552, Unsecured Credentials; T1078, Valid Accounts).
+- Blind-spot abuse: Zafran's verdict is only as good as the controls it ingests, so a stale or missing connector shows "no mitigation available" or a false coverage gap an attacker can exploit.
+- Trusting detect-only: a control that is present but not in block mode does not reduce real exploitability, even where the graph might imply coverage.
+
+### Residual risk
+
+Zafran enforces nothing itself: it correlates and recommends, so a mis-synced control or an un-pushed mitigation leaves the exposure open. Its aggregated findings and its write access to other tools make it a high-value target that belongs in the patch and monitoring scope.
+
+### Why it matters
+
+A tester goes after the platform's keys and the controls it trusts; a defender vaults those credentials, keeps connectors fresh, and verifies block mode rather than mere presence. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) and [the red team reference](/RED_TEAM_REFERENCE.md).
 
 ## Validation & telemetry
 

@@ -49,6 +49,10 @@ The `ID` and `VERSION_ID` fields of `/etc/os-release` (the [os-release format](h
 |---|---|---|
 | Rolling | `ID=arch`, `BUILD_ID=rolling` | Not checked on a running system |
 
+## Security relevance
+
+Arch is a rolling, build-it-yourself distribution used mostly by developers and enthusiasts, so it is more often a workstation than a fleet host. Its newest-in-class kernel and packages bring current mitigations and current bugs together. The notable supply-chain point is the Arch User Repository, which builds unreviewed third-party recipes and is untrusted by design, so a PKGBUILD should be read before it is used.
+
 ## Hardening
 
 - [Linux Hardening Reference Library](/LINUX_HARDENING_REFERENCE.md)

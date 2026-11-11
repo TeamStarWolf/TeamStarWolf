@@ -21,7 +21,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,133 words at 230 words a minute)
+About 6 min (1,410 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -154,6 +154,26 @@ custom logic at the edge.
 Tunnels create outbound-only connections from origins to Cloudflare. This lets
 private applications be reachable through Cloudflare One without inbound firewall
 rules on the origin network.
+
+## Adversary perspective
+
+Because Cloudflare fronts an application and governs workforce access, adversaries treat its firewall as something to bypass and its account and tokens as a high-value target. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Origin discovery: an attacker who finds the origin address through DNS history, an unproxied subdomain, or a leaked record connects directly and skips the edge firewall and denial-of-service protection entirely.
+- Signature and normalization gaps: encoded, fragmented, or oversized requests can defeat managed rules while still reaching the application ([CWE-693](https://cwe.mitre.org/data/definitions/693.html)).
+- Rules left in log mode: a managed or custom rule set to log records attacks without blocking them, so coverage is only apparent.
+- Logic and bot abuse: credential stuffing and application-logic flaws pass as valid traffic.
+- Token and account abuse (ATT&CK T1685, Disable or Modify Tools): a leaked API token or a compromised account can change DNS, disable the firewall, or alter Zero Trust Access policy.
+
+### Residual risk and own exposure
+
+The Cloudflare account controls DNS and the security posture of every fronted site, so its compromise is high impact, and the zero-trust side becomes an access path an attacker will target like any VPN or gateway. The firewall only blocks what its rules express and only sees proxied traffic. Tokens, account access, and tunnel configuration belong in the monitoring scope.
+
+### Why it matters
+
+For a tester, origin discovery and encoding are the first moves against an edge. For a defender, a locked origin, rules confirmed in block, scoped tokens, and account hardening are what make the control real. See [the red team reference](/RED_TEAM_REFERENCE.md) and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md).
 
 ## Hardening and secure use
 

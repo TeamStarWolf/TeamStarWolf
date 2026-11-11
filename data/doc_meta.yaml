@@ -2455,6 +2455,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the technical record](#part-1-the-technical-record), [Part 4: the defender view and legacy](#part-4-the-defender-view-and-legacy)"
     pairs_with: "[ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md), [Malware Families](/MALWARE_FAMILIES.md), [Industrial Control System Attacks and Advisories, 2024 to 2026: Incidents, CVEs and Attribution](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md)"
     reviewed: null
+  case-studies/THREAT_ACTORS_CHINA.md:
+    audience: "Threat intelligence analysts, threat hunters, defenders of critical infrastructure and healthcare security teams"
+    level: "Intermediate"
+    read_when: "You need a sourced account of who governments and ATT&CK attribute to China, which sponsors and contractors the record names, what the joint advisories say these actors do, or the defender and vulnerability-management lessons in one place"
+    start_at: "[Executive summary](#executive-summary), [Part 4: the actors behind the headlines](#part-4-the-actors-behind-the-headlines), [Part 8: the defender view](#part-8-the-defender-view)"
+    pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
+    reviewed: null
   case-studies/XZ_UTILS_BACKDOOR_2024.md:
     audience: "Supply chain security engineers, Linux administrators and open-source maintainers"
     level: "Intermediate"

@@ -126,6 +126,29 @@ Startup is fast because the binary format is designed for streaming compilation 
 - Debugging compiled modules needs source maps or DWARF information; without them you are reading the text format, not your source.
 - A module can only do what the host grants; forgetting to import a needed capability yields a module that cannot perform I/O.
 
+## Security relevance
+
+WebAssembly reaches security work as an opaque binary that runs in a sandbox: the sandbox contains host memory access, but it does not make the compiled program correct, and a module must be disassembled to be understood. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Performance-sensitive web and edge code. Modules compiled from C, C++, or Rust run in browsers and in edge and serverless runtimes, extending an application's attack surface into compiled code the browser cannot easily show. See the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Reverse-engineering targets. Because a `.wasm` file ships as a compact binary, analysts disassemble it to understand browser-delivered payloads and obfuscated logic. See the [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md).
+- Isolation and plugin hosts. Standalone runtimes use WebAssembly as a sandbox to run untrusted plugins, so the host-to-module trust boundary and the capabilities a runtime grants are themselves part of the security picture.
+
+### Dominant weakness classes
+
+WebAssembly validates every module and runs it with no ambient authority, so a module cannot reach host memory; whether the memory-corruption classes apply depends on the source language, because a memory-unsafe language keeps its bugs inside the module's own linear memory:
+
+- Out-of-bounds write inside linear memory. A buffer overflow in C or C++ compiled to WebAssembly corrupts the module's own flat memory, which has no guard pages, and can subvert the module's logic; this is [CWE-787](https://cwe.mitre.org/data/definitions/787.html).
+- Uncontrolled resource consumption. An untrusted module run without resource limits can exhaust CPU or memory on the host, which is [CWE-400](https://cwe.mitre.org/data/definitions/400.html).
+- Over-broad capability grants. A runtime that hands a module wide file-system or network access through the WebAssembly System Interface widens the blast radius, so least privilege applies to the grants themselves.
+- Supply chain. A `.wasm` binary is opaque, so its provenance and the source it was built from must be established. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading or disassembling WebAssembly lets a reverse engineer understand a module that ships without source, such as a browser cryptominer or a packed payload, and lets a platform reviewer check which capabilities a module is granted. The inspection tools are [wasm-tools](https://github.com/bytecodealliance/wasm-tools) and [wabt](https://github.com/WebAssembly/wabt) for working with the binary and text formats, with the source language's own analyzers run before compilation.
+
 ## Secure coding
 
 WebAssembly's sandbox addresses host-level memory safety, but it does not make the compiled program logically correct, and classic bugs in the source language survive the compile:

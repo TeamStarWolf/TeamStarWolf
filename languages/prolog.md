@@ -106,6 +106,29 @@ Performance depends on the implementation and on how well the search is constrai
 - Relying on clause order and side effects in ways that break the declarative reading.
 - Building goals from strings or terms and calling them, which is both error-prone and a security risk (see below).
 
+## Security relevance
+
+Prolog reaches security practitioners rarely as offensive tooling and mostly as embedded reasoning: rule engines, expert systems, and logic components inside larger applications that an auditor may need to read. The defensive patterns that counter each weakness below are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Reasoning and rule engines. Prolog and its constraint-logic extensions appear in expert systems, policy and configuration reasoning, and program-analysis and verification tools, so it is read as embedded decision logic rather than as a standalone attack tool.
+- Artificial intelligence and language work. Its roots in automated theorem proving and natural-language processing keep it in research and some production inference engines. See the [AI Security Reference](/AI_SECURITY_REFERENCE.md).
+- Service endpoints. Implementations such as SWI-Prolog ship an HTTP server library, so a Prolog component can sit behind a network interface and take untrusted input directly.
+
+### Dominant weakness classes
+
+Prolog is memory-safe: its runtime is garbage-collected and programs manipulate terms rather than raw memory, so the memory-corruption classes do not apply. The risks come from executing or parsing untrusted input:
+
+- Goal injection. Building a term from external text with `term_to_atom/2` or `read_term/2` and running it with `call/1` executes arbitrary predicates, which is code injection, [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Improper input validation. Terms read from outside are unchecked until validated, mapping to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- Uncontrolled resource consumption. Unbounded search or recursion driven by untrusted input exhausts stack and heap, which is [CWE-400](https://cwe.mitre.org/data/definitions/400.html).
+- Dangerous built-ins. Predicates that run shell commands or open files reach the host when given untrusted arguments, relating to [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+
+### Why it matters
+
+Auditing Prolog means finding every `call/1` on a constructed goal, confirming that external terms are validated before use, and bounding searches that attacker input can size. Dedicated security tooling is scarce: SWI-Prolog's `library(check)` and cross-referencing catch undefined and singleton issues, so manual review of dynamic goal execution is the main control.
+
 ## Secure coding
 
 Prolog's main language-specific risk is executing goals assembled from untrusted input, plus the usual input-handling concerns:

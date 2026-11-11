@@ -460,13 +460,18 @@ CATALOG = [
       ("analytics/mobile_group_frequency.json", "Mobile: Group Frequency",
        "MITRE ATT&CK for Mobile techniques colored by threat-group usage")]),
     ("AI Systems (MITRE ATLAS)",
-     "MITRE ATLAS layers in ATLAS's own `atlas-atlas` Navigator domain, vendored with provenance "
-     "metadata; see the [ATLAS reference](/ATLAS_REFERENCE.md). Open them in the "
+     "MITRE ATLAS layers in ATLAS's own `atlas-atlas` Navigator domain: two vendored with "
+     "provenance metadata, plus library layers built on ATLAS ids; see the [ATLAS reference](/ATLAS_REFERENCE.md). Open them in the "
      "[ATLAS Navigator](https://mitre-atlas.github.io/atlas-navigator/); ATLAS keeps its own tactic "
      "set (including Defense Evasion), separate from ATT&CK Enterprise.",
      [("ai/atlas-matrix.json", "ATLAS Matrix", "The full ATLAS matrix of techniques against AI systems"),
       ("ai/atlas-case-study-frequency.json", "ATLAS Case Study Frequency",
-       "ATLAS techniques shaded by how often they appear in ATLAS case studies")]),
+       "ATLAS techniques shaded by how often they appear in ATLAS case studies"),
+      ("ai/hugging-face-supply-chain-atlas.json", "Hugging Face AI Supply Chain (ATLAS)",
+       "The ATLAS techniques in the five Hugging Face case studies plus the adjacent LAMEHUG "
+       "step, as bound in the library's "
+       "[Hugging Face case study](/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md); a library layer, "
+       "not vendored from MITRE")]),
     ("Fraud Matrix (MITRE F3)",
      "The [MITRE Fight Fraud Framework](/FRAUD_FRAMEWORK_REFERENCE.md) matrix, published by "
      "MITRE's Center for Threat-Informed Defense (Apache-2.0) and vendored here with provenance "
@@ -475,6 +480,20 @@ CATALOG = [
      [("fraud/f3-matrix.json", "F3 Matrix",
        "The full F3 fraud matrix: use with the [F3 reference](/FRAUD_FRAMEWORK_REFERENCE.md) and "
        f"[datasets]({repo_href('data/fraud/')})")]),
+    ("Case Study Layers (ICS)",
+     "ATT&CK for ICS layers bound to library case studies. Curated layers under `navigator/library-layers/` "
+     "must be `enterprise-attack`, so ICS case-study layers live in `navigator/case-studies/`. Scores mean "
+     "only that ATT&CK lists the technique on the named software or that a source cited in the case "
+     "study maps it, not severity or prevalence.",
+     [("case-studies/ics-attacks-2024-2026-ics.json", "ICS Attacks 2024 to 2026 (ICS)",
+       "The 43 ATT&CK for ICS techniques the verified 2024 to 2026 incident record supports, from the "
+       "[ICS attacks and advisories case study](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md)"),
+      ("case-studies/stuxnet-s0603-ics.json", "Stuxnet (S0603) ICS",
+       "The 25 ATT&CK for ICS techniques ATT&CK v20.0 lists for Stuxnet, from the "
+       "[Stuxnet case study](/case-studies/STUXNET.md)"),
+      ("case-studies/chronicle-2020-ics.json", "The Year 2020 in Intrusions (ICS)",
+       "The 9 ATT&CK for ICS techniques that NSA and CISA advisory AA20-205A maps for operational technology, from the "
+       "[2020 chronicle case study](/case-studies/CHRONICLE_2020.md)")]),
 ]
 
 

@@ -44,16 +44,16 @@ New here? [How to use this library](guides/HOW_TO_USE_THIS_LIBRARY.md) shows wha
 ## What's inside
 
 <!-- stats:start (written by scripts/build_stats.py; do not edit) -->
-| What | Count | Contents | Start at |
-|---|---:|---|---|
-| Reference documents | 164 | One topic each: its terms, tooling, and the frameworks and guidance that apply | [Reference index](INDEX.md) |
-| How-to guides | 22 | One task, step by step, with the time it takes, what you need, and what you produce | [Guides](guides/README.md) |
-| Learning paths | 47 | An order of study for one discipline, with training, tools, books, and certifications | [Learning paths](disciplines/README.md) |
-| Framework pages | 3,019 | One page per Enterprise ATT&CK technique, tactic, group, software entry, campaign, and mitigation, CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, and F3 technique | [Framework pages](mitre/README.md) |
-| Developer reference pages | 191 | One page per programming language, paradigm, software framework, command-line tool, data format, and database engine | [Languages](languages/README.md) |
-| Security platform pages | 59 | One page per vendor platform a security program runs on, from endpoint and exposure management to identity, cloud, OT, and backup | [Security platforms](platforms/README.md) |
-| AI tooling pages | 50 | AI tools and models in groups, a one-page manual for each tool, a learning path, and hands-on labs | [AI tooling](ai-tooling/README.md) |
-| Case studies | 8 | Evidence-graded studies of how the threat landscape is changing, written from primary sources, with figures and PDF downloads | [Case studies](case-studies/README.md) |
+| What | Contents | Start at |
+|---|---|---|
+| Reference documents | One topic each: its terms, tooling, and the frameworks and guidance that apply | [Reference index](INDEX.md) |
+| How-to guides | One task, step by step, with the time it takes, what you need, and what you produce | [Guides](guides/README.md) |
+| Learning paths | An order of study for one discipline, with training, tools, books, and certifications | [Learning paths](disciplines/README.md) |
+| Framework pages | One page per Enterprise ATT&CK technique, tactic, group, software entry, campaign, and mitigation, CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, and F3 technique | [Framework pages](mitre/README.md) |
+| Developer reference pages | One page per programming language, paradigm, software framework, command-line tool, data format, and database engine | [Languages](languages/README.md) |
+| Security platform pages | One page per vendor platform a security program runs on, from endpoint and exposure management to identity, cloud, OT, and backup | [Security platforms](platforms/README.md) |
+| AI tooling pages | AI tools and models in groups, a one-page manual for each tool, a learning path, and hands-on labs | [AI tooling](ai-tooling/README.md) |
+| Case studies | Evidence-graded studies of how the threat landscape is changing, written from primary sources, with figures and PDF downloads | [Case studies](case-studies/README.md) |
 <!-- stats:end -->
 
 The references, guides, and learning paths are written for defenders, learners, and anyone with a security job to do, and corrections from anyone are welcome. Where a published mapping exists, a technique page links the NIST SP 800-53 controls, MITRE detection strategies and analytics, CAPEC attack patterns, and D3FEND countermeasures that relate to it. The same relationships ship as JSONL files and ATT&CK Navigator layers. [About the data](ABOUT_THE_DATA.md) gives their sources, the ATT&CK version each part is built from (v20.0 for the data and framework pages), and what CI checks. The library also holds [vendor tool pages](tools/README.md), [AI tooling notes](ai-tooling/README.md), [case studies](case-studies/README.md), [tools research](tools-research/README.md), and [research notes](research/README.md).

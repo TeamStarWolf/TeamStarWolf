@@ -110,6 +110,29 @@ CoffeeScript has no run-time of its own, so its performance and concurrency are 
 - Debugging runs against compiled JavaScript; use source maps so stack traces point back to the `.coffee` source.
 - The language is in maintenance rather than active growth; weigh that before choosing it for new work.
 
+## Security relevance
+
+CoffeeScript reaches security practitioners as a thin layer over JavaScript: it compiles to JavaScript and carries that language's entire security model, so the threat-facing context is JavaScript's, seen through older code that still uses CoffeeScript. The defensive patterns are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Legacy web front ends. CoffeeScript appeared heavily in early-2010s [Ruby on Rails](https://rubyonrails.org/) asset pipelines and in [Backbone.js](https://backbonejs.org/) and jQuery client applications, so it turns up when auditing or maintaining older web codebases. See [Web Application Pentesting](/WEB_APPLICATION_PENTESTING.md) and the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Node.js back ends. CoffeeScript code also ran server side on Node.js, so the same server-side injection surface applies to the compiled output.
+- No offensive tooling of note. New security tools are not written in CoffeeScript; the interest is reading the compiled JavaScript and the source that produced it, because the shipped attack surface is the generated JavaScript.
+
+### Dominant weakness classes
+
+CoffeeScript has no runtime of its own and inherits JavaScript's garbage-collected, memory-safe model, so the memory-corruption classes do not apply. The weaknesses are the web and Node.js classes of its output:
+
+- Cross-site scripting. The same DOM sinks (`innerHTML`, `document.write`) are dangerous in compiled output; insert untrusted data as text, not markup. This is [CWE-79](https://cwe.mitre.org/data/definitions/79.html).
+- Code injection. `eval` and `new Function` remain unsafe when fed untrusted input, which maps to [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Prototype pollution. Merging untrusted data into objects can poison prototypes just as in JavaScript, which is [CWE-1321](https://cwe.mitre.org/data/definitions/1321.html).
+- Server-side injection. In Node.js, string-built SQL is [CWE-89](https://cwe.mitre.org/data/definitions/89.html) and passing a shell string to `child_process` is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+
+### Why it matters
+
+Reading CoffeeScript, and the JavaScript it compiles to, lets an analyst trace untrusted data to DOM sinks, `eval`, and Node.js sinks in older applications. Because security analyzers target JavaScript, scanning the compiled output with [semgrep](https://semgrep.dev/) and [ESLint](https://eslint.org/) rather than the CoffeeScript source is the practical audit path, as the Secure coding section details.
+
 ## Secure coding
 
 CoffeeScript compiles to JavaScript, so every JavaScript risk applies to the output, and the lighter syntax does not change the security model:

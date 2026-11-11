@@ -44,5 +44,6 @@ Part of the [domain hubs](/hubs/README.md). 9 reference documents in this domain
 - [AI tooling](/ai-tooling/README.md)
 - [ATLAS pages](/mitre/atlas/README.md)
 - [AI threats: a 2026 case study](/case-studies/AI_THREATS_2026.md)
+- [Hugging Face supply chain: a case study](/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md)
 
 <!-- hub:end -->

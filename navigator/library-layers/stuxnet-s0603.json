@@ -1,0 +1,421 @@
+{
+  "name": "TeamStarWolf - Stuxnet (S0603) Enterprise",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Enterprise techniques that ATT&CK v20.0 lists for Stuxnet (S0603), as bound in the Stuxnet case study. Every row cites the Symantec W32.Stuxnet Dossier v1.4. Scores indicate membership only.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Impersonates an anonymous token to enumerate service control manager bindings. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Impersonates an anonymous token to enumerate service control manager bindings. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1087.001",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Enumerates local user accounts. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1087.002",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Enumerates domain user accounts. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "HTTP command and control on port 80. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1560.003",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Encrypts exfiltrated data with static 31-byte XOR keys. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Boot-start driver service (MrxCls.sys) as the main load point. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Boot-start driver service (MrxCls.sys) as the main load point. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1132.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Hex-encodes encrypted data into the index.php?data= URL parameter. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1140",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Decrypts resources loaded into memory and executed. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Lowers object integrity levels to allow writes. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1573.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "XOR with 0xFF, then a 31-byte static key, on C2 traffic. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1480",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Exits on 64-bit hosts, on the NTVDM TRACE 19790509 marker, and after configured dates. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Sends victim information to the C2 servers over HTTP. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "MS10-073 and a Task Scheduler flaw for local privilege escalation. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "MS10-061 Print Spooler and MS08-067 Server service for network spread. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1008",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Can generate new C2 domains. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Driver scans for specific filesystem driver objects. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Deletes OLE Automation and SQL stored procedures that held payloads. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "RPC file-deletion routine and self-removal. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1070.006",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Driver files take the timestamps of other system files. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1570",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "RPC server drops files and serves P2P version updates. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Creates registry keys to load its drivers. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Creates registry keys to load its drivers. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1106",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "SetSecurityDescriptorDacl to lower object integrity levels. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1135",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Enumerates directories of network resources. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1027.013",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Encrypted configuration blocks and encrypted files on disk. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1120",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Enumerates removable drives for infection. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1055.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Injects its DLL into trusted processes such as services.exe. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1055.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Injects its DLL into trusted processes such as services.exe. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1090.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Installs an RPC server for P2P communication. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1012",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Searches the Registry for security product indicators. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1021",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "P2P propagation and updates over RPC. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Spreads to network shares. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Removable drives via autorun.inf (June 2009 variant) or the CVE-2010-2568 LNK flaw (from March 2010). Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Removable drives via autorun.inf (June 2009 variant) or the CVE-2010-2568 LNK flaw (from March 2010). Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1014",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "MrxNet.sys rootkit hides its .LNK and ~WTR files. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Network job that runs the copied file two minutes after infection. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Network job that runs the copied file two minutes after infection. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Network job that runs the copied file two minutes after infection. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1505.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "xp_cmdshell to store and run SQL code in WinCC databases. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1129",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "LoadLibrary, then calls DLL exports. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1518.001",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Enumerates running security product processes. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1553.002",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Drivers signed with a compromised Realtek certificate (signed 2010-01-25). Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Collects computer and domain names, OS version and S7P paths. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Collects the host IP address. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1124",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Records infection time and date. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1080",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Infects remote servers through network shares and WinCC database views. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Hard-coded WinCC database password (CVE-2010-2772). Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011). CVE-2010-2772 per [28] NVD."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Hard-coded WinCC database password (CVE-2010-2772). Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011). CVE-2010-2772 per [28] NVD."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Hard-coded WinCC database password (CVE-2010-2772). Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011). CVE-2010-2772 per [28] NVD."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Hard-coded WinCC database password (CVE-2010-2772). Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011). CVE-2010-2772 per [28] NVD."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Tries domain account credentials on network resources. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Tries domain account credentials on network resources. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Tries domain account credentials on network resources. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Tries domain account credentials on network resources. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "WMI with an explorer.exe token to run on a remote share. Sources: [30] ATT&CK S0603 v1.5; [1] Symantec W32.Stuxnet Dossier v1.4 (Feb 2011)."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: listed for Stuxnet (S0603) in ATT&CK v20.0 (membership, not severity)",
+      "color": "#15803d"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/STUXNET.md; ATT&CK software S0603 (v1.5, modified 24 April 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "44"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "57"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 means the technique is listed on ATT&CK S0603; no severity, prevalence, or coverage is measured."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics it has in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every tactic applies to the Stuxnet procedure."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "Stuxnet: The Case Study",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/STUXNET.md"
+    },
+    {
+      "label": "ATT&CK S0603",
+      "url": "https://attack.mitre.org/software/S0603/"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

@@ -453,7 +453,8 @@ def title_of(rel: str) -> str:
     for ln in (read_text(rel) or "").split("\n"):
         m = re.match(r"^# +(.+?) *#*$", ln)
         if m:
-            return re.sub(r"[*_`]", "", m.group(1)).strip()
+            # Drop emphasis and code markers; an underscore inside a word (mod_copy) is text.
+            return re.sub(r"(?<![A-Za-z0-9])_+|_+(?![A-Za-z0-9])", "", re.sub(r"[*`]", "", m.group(1))).strip()
     return rel
 
 

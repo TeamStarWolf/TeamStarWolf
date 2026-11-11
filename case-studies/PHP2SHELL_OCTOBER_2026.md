@@ -4,6 +4,55 @@
 
 [All case studies](/case-studies/README.md) · House intelligence: [Team Star Wolf Intelligence Hub](https://teamstarwolf.github.io/intelligence-hub/) · Related: [eMudhra CA Key Compromise](/case-studies/EMUDHRA_CA_COMPROMISE_2026.md), [Supply Chain Security](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, incident responders and web platform owners
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 12 min (2,712 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the facts of the PHP2Shell flaws and the October 2026 attack wave around them, you run PHP on the internet, or you want the vulnerability-management lessons from three trust layers failing in a few days
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Executive summary](#executive-summary), [Part 1: PHP2Shell (CVE-2026-109618, CVE-2026-109619)](#part-1-php2shell-cve-2026-109618-cve-2026-109619), [Part 4: the vulnerability-management lens](#part-4-the-vulnerability-management-lens)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[The eMudhra Certificate Authority Key Compromise: A 2026 Case Study](/case-studies/EMUDHRA_CA_COMPROMISE_2026.md), [The XZ Utils Backdoor: A 2024 Supply-Chain Case Study](/case-studies/XZ_UTILS_BACKDOOR_2024.md), [AI Threats: A 2026 Case Study](/case-studies/AI_THREATS_2026.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Executive summary
 
 October 2026 compressed several years' worth of trust failures into a few weeks. The centerpiece was PHP2Shell: two pre-authentication remote-code-execution flaws in PHP itself (CVE-2026-109618 and CVE-2026-109619), disclosed on 20–21 October and exploited at internet scale within the hour. Around it, three trust layers failed in roughly 72 hours (the web runtime, the Web PKI, and the software and SaaS supply chain), the largest cryptocurrency theft in history drained about $6.3 billion from Binance, a trojanized build of an AI coding extension planted SSH backdoors on developer machines, and a dense cluster of Japanese consumer breaches ran in parallel. Agentic AI appeared on both sides of the ledger, as an attacker accelerant and as a target.

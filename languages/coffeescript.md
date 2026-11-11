@@ -14,6 +14,55 @@ CoffeeScript is a language that compiles to JavaScript, created by Jeremy Ashken
 
 Related: [JavaScript](/languages/javascript.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain CoffeeScript code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,351 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing CoffeeScript code (typical uses: front-end and Node.js code, historically in Rails projects), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[JavaScript](/languages/javascript.md), [TypeScript](/languages/typescript.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Jeremy Ashkenas released CoffeeScript in 2009 to smooth over the parts of JavaScript that developers found awkward at the time: verbose function syntax, confusing equality rules, and `var` scoping. It compiles one-to-one to JavaScript that a person can read, following the slogan that it is "just JavaScript" underneath. Ruby on Rails shipped CoffeeScript support by default for several years, which drove much of its adoption.
@@ -109,6 +158,29 @@ CoffeeScript has no run-time of its own, so its performance and concurrency are 
 - Everything is an expression, so constructs such as `if` return values; this is convenient but can surprise readers coming from JavaScript.
 - Debugging runs against compiled JavaScript; use source maps so stack traces point back to the `.coffee` source.
 - The language is in maintenance rather than active growth; weigh that before choosing it for new work.
+
+## Security relevance
+
+CoffeeScript reaches security practitioners as a thin layer over JavaScript: it compiles to JavaScript and carries that language's entire security model, so the threat-facing context is JavaScript's, seen through older code that still uses CoffeeScript. The defensive patterns are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Legacy web front ends. CoffeeScript appeared heavily in early-2010s [Ruby on Rails](https://rubyonrails.org/) asset pipelines and in [Backbone.js](https://backbonejs.org/) and jQuery client applications, so it turns up when auditing or maintaining older web codebases. See [Web Application Pentesting](/WEB_APPLICATION_PENTESTING.md) and the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Node.js back ends. CoffeeScript code also ran server side on Node.js, so the same server-side injection surface applies to the compiled output.
+- No offensive tooling of note. New security tools are not written in CoffeeScript; the interest is reading the compiled JavaScript and the source that produced it, because the shipped attack surface is the generated JavaScript.
+
+### Dominant weakness classes
+
+CoffeeScript has no runtime of its own and inherits JavaScript's garbage-collected, memory-safe model, so the memory-corruption classes do not apply. The weaknesses are the web and Node.js classes of its output:
+
+- Cross-site scripting. The same DOM sinks (`innerHTML`, `document.write`) are dangerous in compiled output; insert untrusted data as text, not markup. This is [CWE-79](https://cwe.mitre.org/data/definitions/79.html).
+- Code injection. `eval` and `new Function` remain unsafe when fed untrusted input, which maps to [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Prototype pollution. Merging untrusted data into objects can poison prototypes just as in JavaScript, which is [CWE-1321](https://cwe.mitre.org/data/definitions/1321.html).
+- Server-side injection. In Node.js, string-built SQL is [CWE-89](https://cwe.mitre.org/data/definitions/89.html) and passing a shell string to `child_process` is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+
+### Why it matters
+
+Reading CoffeeScript, and the JavaScript it compiles to, lets an analyst trace untrusted data to DOM sinks, `eval`, and Node.js sinks in older applications. Because security analyzers target JavaScript, scanning the compiled output with [semgrep](https://semgrep.dev/) and [ESLint](https://eslint.org/) rather than the CoffeeScript source is the practical audit path, as the Secure coding section details.
 
 ## Secure coding
 

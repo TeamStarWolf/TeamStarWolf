@@ -14,6 +14,55 @@ GNU Octave is a dynamically typed, garbage-collected language and environment fo
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [MATLAB](/languages/matlab.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain GNU Octave code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,314 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing GNU Octave code (typical uses: numerical linear algebra, teaching, signal processing, batch computation), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [MATLAB](/languages/matlab.md), [R](/languages/r.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Octave began as companion software for a chemical-reactor-design textbook, so that students could do numerical work without writing Fortran. Eaton grew it into a general numerical environment, and it became part of the GNU Project. Its language deliberately tracks MATLAB syntax and semantics so code can move between them, while adding some conveniences of its own such as C-style increment operators and block comments.
@@ -118,6 +167,29 @@ Octave is an interpreter, so scalar loops are slower than vectorized array opera
 - One-based indexing: arrays start at 1.
 - Automatic broadcasting: operations on arrays of compatible but unequal shapes broadcast, which can mask a dimension mismatch.
 - Floating-point default: numeric literals are doubles; compare computed values with a tolerance rather than `==`.
+
+## Security relevance
+
+Octave reaches a practitioner as a numerical and teaching environment rather than as a tooling language for offense or defense, so its security interest is narrow: the scripts that read external data and sometimes call out to the operating system. There is effectively no offensive-tooling presence to speak of, and the honest framing is around the weaknesses that apply to data-processing code. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Numerical and scientific computing. Octave runs linear algebra, signal processing, and batch numerical work, often on data files supplied from outside the script.
+- Teaching and shared coursework. Scripts move between people and machines, so a received `.m` file or data file is untrusted until reviewed.
+- MATLAB-compatible batch jobs. Octave runs much MATLAB code unchanged, so the same data-handling risks carry across both environments.
+
+### Dominant weakness classes
+
+Octave is memory-safe: it is a garbage-collected interpreter with copy-on-write arrays, so memory-corruption classes do not apply. The risks come from evaluating strings, calling external programs, and loading untrusted data.
+
+- Code injection. `eval`, `feval`, and `str2func` on strings built from untrusted input run arbitrary Octave, which is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Operating-system command injection. `system`, `unix`, `dos`, and the `!` shell escape run external programs, so assembling their command from untrusted input is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Untrusted data files. Loading saved `.mat` or Octave data files restores arbitrary variables, so a file from an untrusted source should not be loaded blindly, which relates to [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- Dependency provenance. `pkg install` compiles and runs package code, so an unreviewed package is a supply-chain risk. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading Octave matters when auditing a numerical pipeline that ingests outside data or shells out, since it reveals where strings become code, where external commands are built, and which data files are loaded. Dedicated security tooling is limited; external MATLAB and Octave linters such as MISS_HIT perform static and style analysis on `.m` files, as the Secure coding section details.
 
 ## Secure coding
 

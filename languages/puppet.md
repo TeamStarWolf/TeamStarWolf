@@ -14,6 +14,55 @@ Puppet is a declarative language and tool for configuration management: describi
 
 Related: [HCL](/languages/hcl.md), [Nix](/languages/nix.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Puppet code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,602 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Puppet code (typical uses: server configuration management, infrastructure as code, compliance enforcement), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[HCL (HashiCorp Configuration Language)](/languages/hcl.md), [Nix](/languages/nix.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Puppet was released in 2005 as one of the early tools to treat system administration as code rather than as manual steps or shell scripts. Its model is declarative: an administrator states what a system should look like, and Puppet figures out the actions needed to get there, applying them idempotently so that running the same manifest repeatedly converges on the same state without repeating work. Puppet 4 (2015) introduced a formal type system and tightened the language; later versions continued on that base.
@@ -120,6 +169,28 @@ Scaling is about compilation throughput and run scheduling across a fleet, not a
 - Resource conflicts: declaring the same resource twice with different attributes causes a compilation error; use classes and parameters to avoid duplication.
 - Putting environment-specific data in manifests instead of Hiera, which makes modules non-portable.
 - Non-idempotent manifests that change something on every run, hiding real drift in the noise.
+
+## Security relevance
+
+Puppet reaches security practitioners as infrastructure code: it configures fleets of systems with administrative privilege, so its manifests are both a hardening tool defenders rely on and an attack surface worth auditing. The defensive patterns that counter each weakness below are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Configuration management and compliance. Manifests enforce desired state across servers, including hardening baselines such as CIS benchmarks, so Puppet code is where a fleet's security posture is actually written down. See the [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md).
+- Secret handling. Manifests and Hiera data carry the passwords, keys, and certificates that nodes need, so they are a concentrated target for credential exposure.
+- Module supply chain. Reusable modules pulled from the Puppet Forge run with Puppet's privilege on every managed node, which makes their provenance a supply-chain concern. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+Puppet manifests compile to a catalog rather than to a running program, so memory-corruption classes do not apply (the engine itself is written in [Ruby](/languages/ruby.md)). The risks are about secrets, privilege, and the commands configuration runs:
+
+- Hardcoded credentials. Secrets written into manifests or plain Hiera data land in version control and in compiled catalogs, which is [CWE-798](https://cwe.mitre.org/data/definitions/798.html).
+- Improper access control. Puppet applies changes as root, so a wrong file mode, a broad sudo rule, or a service exposed on a public interface is a privileged misconfiguration, mapping to [CWE-284](https://cwe.mitre.org/data/definitions/284.html).
+- Command injection through `exec`. An `exec` resource or template built from unvalidated data can run attacker-controlled commands on managed nodes, relating to [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+
+### Why it matters
+
+Reading Puppet code lets a reviewer find secrets committed in the clear, resources that grant more privilege than intended, and `exec` blocks assembled from data rather than fixed commands, before any of it is applied across a fleet. [puppet-lint](https://github.com/puppetlabs/puppet-lint) and rspec-puppet catch style and resource problems during review, and hiera-eyaml keeps secrets encrypted at rest, as the Secure coding section details.
 
 ## Secure coding
 

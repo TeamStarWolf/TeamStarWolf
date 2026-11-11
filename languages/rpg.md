@@ -14,6 +14,55 @@ RPG (Report Program Generator) is a statically typed, compiled language from IBM
 
 Related: [COBOL](/languages/cobol.md), [PL/I](/languages/pli.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain RPG (IBM) code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,518 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing RPG code (typical uses: business applications on IBM i: transaction processing, reporting, Db2 data access), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[COBOL](/languages/cobol.md), [PL/I](/languages/pli.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 RPG began as a tool for generating reports from punched-card data, with a fixed-column source format and an implicit program cycle: the runtime read an input record, performed calculations, and wrote output, looping automatically until the input was exhausted. Through RPG II and RPG III it grew into a general business language on IBM midrange systems. RPG IV, introduced in 1994 as part of the Integrated Language Environment (ILE), added subprocedures, a wider set of data types, and modular binding. A free-format calculation syntax arrived in 2001, and fully free-format RPG, which drops the column dependence entirely, became available in 2013.
@@ -102,6 +151,29 @@ RPG compiles to native code on IBM i and runs efficiently for record and transac
 - Field truncation: moving a value into a shorter character or decimal field drops data without an error.
 - Numeric overflow in packed or zoned decimal arithmetic when results exceed declared digits.
 - Resource scoping across ILE activation groups, where files or storage outlive or die with the wrong group.
+
+## Security relevance
+
+RPG reaches security practitioners as a legacy business language on IBM i: it is read where decades-old transaction and reporting code meets modern database access and untrusted input, rather than as any kind of offensive tooling. The defensive patterns that counter each weakness below are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Business systems on IBM i. Transaction processing, reporting, and Db2 data access for banking, insurance, and other record-keeping run in RPG on IBM Power servers, so an assessment of an IBM i estate means reading RPG.
+- Database access. Embedded and dynamic SQL against Db2 for i, alongside native record-level I/O, is where injection risk concentrates. See the [Database Security Reference](/DATABASE_SECURITY_REFERENCE.md).
+- Host integration. Calls to system command APIs such as `QCMDEXC` let RPG programs run operating-system work, which widens the attack surface beyond the data.
+
+### Dominant weakness classes
+
+RPG is statically typed and compiles to native code, but its storage is managed by the runtime and activation groups rather than by manual pointers, so the pointer-level memory-corruption classes of C are largely absent; its fixed-length fields create their own truncation risks:
+
+- SQL injection. Dynamic SQL built by concatenating untrusted input rather than using parameter markers and host variables is [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Fixed-length field handling. Moving external data into fixed character or decimal fields truncates or misaligns it when lengths are unchecked, relating to [CWE-120](https://cwe.mitre.org/data/definitions/120.html).
+- Numeric overflow. Packed and zoned arithmetic can exceed declared digits on untrusted values, which is [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- Command injection. Passing untrusted input to `QCMDEXC` and similar command APIs is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+
+### Why it matters
+
+Reading RPG lets a reviewer find SQL assembled by concatenation, input moved into fixed-length fields without bounds checks, and command APIs fed from external data. Dedicated static analysis for RPG is scarce, so IBM i object authority and adopted-authority settings, compiler diagnostics, and manual review of SQL and input handling are the main controls, as the Secure coding section details.
 
 ## Secure coding
 

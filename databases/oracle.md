@@ -2,6 +2,55 @@
 
 Oracle Database is a commercial relational database used in large enterprises for transactional and mixed workloads. It stores data in tables within schemas and tablespaces, and it is known for strong concurrency, high availability through Real Application Clusters, and a deep feature set. Procedural logic is written in PL/SQL, Oracle's server-side language. It runs on Linux, Unix, and Windows, and in Oracle Cloud Infrastructure as an Autonomous Database.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Database administrators, developers and security engineers who run, query or assess Oracle Database
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 3 min (658 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are modeling data or writing queries for Oracle Database, you are administering or hardening a deployment, or you want a worked example to start from
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Data model and architecture](#data-model-and-architecture), [Security and hardening](#security-and-hardening), [A worked example](#a-worked-example)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[PL/SQL](/languages/plsql.md), [SQL](/languages/sql.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [PostgreSQL](/databases/postgresql.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 Oracle backs banking cores, telecom billing, ERP systems such as Oracle E-Business Suite, and other systems with heavy transaction and reporting demands. It is licensed per processor or per named user, with editions from Express up to Enterprise. Organizations choose it for mature partitioning, advanced security options, and long-term support. Managed forms include Autonomous Transaction Processing and Autonomous Data Warehouse.

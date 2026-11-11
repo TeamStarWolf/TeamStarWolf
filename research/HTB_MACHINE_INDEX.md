@@ -2,11 +2,54 @@
 
 > In one minute: An index of 127 retired Hack The Box machines with official writeups, organized by difficulty (Easy through Insane) with each machine's OS and the key skills it teaches. It doubles as a progressive learning roadmap: pick machines by the technique you want to learn, follow the enumeration and note-taking workflow, and use writeups only after genuine effort. Useful whenever you want deliberate hands-on practice instead of random machine grinding.
 
-| | |
-|---|---|
-| Read this when | picking your next HTB machine at your skill level, looking for machines that teach a specific technique, starting HTB from scratch and wanting a proven beginner order |
-| Start at | [How to Use This Index](#how-to-use-this-index), [Recommended Easy Machines for Beginners](#recommended-easy-machines-for-beginners), [How to Approach a Machine](#how-to-approach-a-machine) |
-| Pairs with | [Hands-On Labs](/LABS.md), [Offensive Security](/disciplines/offensive-security.md), [Certifications Reference](/CERTIFICATIONS.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Students and penetration testers who practice on Hack The Box
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (1,979 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are picking your next Hack The Box machine at your skill level, you want machines that teach a specific technique, or you are starting from scratch and want a proven beginner order
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[How to Use This Index](#how-to-use-this-index), [Recommended Easy Machines for Beginners](#recommended-easy-machines-for-beginners), [How to Approach a Machine](#how-to-approach-a-machine)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Hands-On Labs](/LABS.md), [Offensive Security](/disciplines/offensive-security.md), [Certifications Reference](/CERTIFICATIONS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 
 
@@ -162,7 +205,7 @@ Official HTB retired machine writeup index: 127 machines organized by difficulty
 
 | Sense | Linux | Modifying publicly available |
 
-| Silo | Windows | Enumerating Oracle SIDs; Enumerating Oracle credentials; Leveraging Oracle to upload and |
+| Silo | Windows | Enumerating Oracle SIDs; Enumerating Oracle credentials; Using Oracle to upload and |
 
 | Sneaky | Linux | Basic SQL injection; Enumerating SNMP |
 

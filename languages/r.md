@@ -14,6 +14,55 @@ R is a dynamically typed, garbage-collected language and environment for statist
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Julia](/languages/julia.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain R code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,396 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing R code (typical uses: statistics, data analysis, bioinformatics, visualization, research), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Julia](/languages/julia.md), [GNU Octave](/languages/octave.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 R grew out of the S language designed by John Chambers and colleagues at Bell Labs in the 1970s and 1980s. Ihaka and Gentleman wrote a new interpreter with S-like syntax but a different internal design borrowed in part from Scheme, and released it under the GNU General Public License. The R Development Core Team formed in 1997, and [CRAN](https://cran.r-project.org/), the central archive network for R packages, became the main home for distributed code.
@@ -117,6 +166,29 @@ The R interpreter is single-threaded for ordinary code, and interpreted loops ov
 - Integer versus double: a literal like `1` is a double; write `1L` for an integer when the distinction matters.
 - Recycling: binary operations on vectors of unequal length recycle the shorter one, which can hide a length bug.
 - Floating-point equality: use `all.equal` with a tolerance rather than `==` on computed doubles.
+
+## Security relevance
+
+R reaches security practitioners as a data-analysis language: it is read mainly where analytics meet untrusted inputs, such as scripts that ingest external data files and the Shiny applications that put R behind a web interface. The defensive patterns that counter each weakness below are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Data and threat analytics. R is used to analyze logs, telemetry, and other security data, so analysts read and run R scripts that consume external, sometimes untrusted, inputs.
+- Shiny web applications. The Shiny framework turns R code into interactive web apps, which exposes R evaluation and file handling to the network. See the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Research and bioinformatics. Large shared codebases and data files in statistics and genomics make loaded R objects and packages a provenance concern.
+
+### Dominant weakness classes
+
+R is memory-safe: it uses a tracing garbage collector with copy-on-modify values and no manual memory, so memory-corruption classes do not apply (outside compiled extensions). The risks come from code execution, external programs, and loaded data:
+
+- Code injection. `eval(parse(text = ...))` on untrusted input runs arbitrary R, which is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Operating-system command injection. `system`, `system2`, and `shell` run external programs, mapping to [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Insecure deserialization. `readRDS`, `load`, and `unserialize` can execute code through object attributes, so `.RData` and `.rds` files from untrusted sources are dangerous, which is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- SQL injection. Database access through DBI that pastes values into SQL rather than binding them is [CWE-89](https://cwe.mitre.org/data/definitions/89.html). See the [Database Security Reference](/DATABASE_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading R lets a reviewer spot code built from strings, external-program calls assembled from input, and `.RData` or `.rds` files loaded from untrusted sources, and lets an assessor check a Shiny application's input handling. [lintr](https://lintr.r-lib.org/) flags undesirable constructs during static analysis, including uses of `eval(parse(...))`, as the Secure coding section details.
 
 ## Secure coding
 

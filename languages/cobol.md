@@ -14,6 +14,55 @@ COBOL (Common Business-Oriented Language) is a statically typed, compiled langua
 
 Related: [PL/I](/languages/pli.md), [RPG (IBM)](/languages/rpg.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain COBOL code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,531 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing COBOL code (typical uses: mainframe batch and transaction processing, banking, insurance, payroll, government), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[PL/I](/languages/pli.md), [RPG (IBM)](/languages/rpg.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 COBOL grew out of a 1959 effort by the Conference on Data Systems Languages (CODASYL), with input from Grace Hopper's earlier work on English-like languages. The goal was a portable language for business data processing that managers could read. Standardization followed through ANSI and then ISO: COBOL-68, COBOL-74, COBOL-85 (which added structured programming constructs), COBOL 2002 (object orientation and free-form source), and the 2014 and 2023 editions.
@@ -97,6 +146,29 @@ Compiled COBOL runs efficiently for its intended record and batch processing, an
 - Implicit decimal alignment: the `V` in a picture is an assumed decimal point, and mismatched scales between fields produce wrong results.
 - Uninitialized `WORKING-STORAGE` carrying stale values when `VALUE` clauses are omitted.
 - Dialect drift: compiler extensions that do not port between IBM, Micro Focus, and GnuCOBOL.
+
+## Security relevance
+
+COBOL reaches security practitioners almost entirely on the defensive side, as the language of mainframe systems that process money and personal records and that defenders have to audit. Offensive tooling written in COBOL is rare. The defensive patterns that counter each weakness below are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Mainframe business systems. COBOL runs core banking, insurance, payroll, and government batch and transaction processing on z/OS under CICS and IMS, against VSAM files and Db2. These systems hold regulated financial and personal data, so an assessor reads COBOL to see how that data is validated, moved, and stored.
+- Embedded SQL and external interfaces. Many programs reach data through embedded SQL compiled by the Db2 precompiler and call C or system services, which is where external input meets fixed-length fields. See the [Database Security Reference](/DATABASE_SECURITY_REFERENCE.md).
+- Little offensive presence. COBOL is not a tool-building language for red teams, so the security interest is reading and auditing existing code, and safely wrapping or migrating it.
+
+### Dominant weakness classes
+
+COBOL has no garbage collector and a fixed-length, position-based data model, so field-handling mistakes corrupt data even though classic pointer-style corruption is less common than in C. The weaknesses that matter are about field handling, numeric limits, and untrusted input:
+
+- Fixed-length field handling. Moving external data into a shorter `PICTURE` field with `MOVE`, `STRING`, or reference modification truncates or mis-aligns it, and unchecked lengths in calls to C or system services can overflow buffers. These are [CWE-120](https://cwe.mitre.org/data/definitions/120.html) and [CWE-787](https://cwe.mitre.org/data/definitions/787.html).
+- Numeric overflow and truncation. Arithmetic whose result exceeds a field's declared digits is silently truncated unless `ON SIZE ERROR` is handled, which maps to [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- SQL injection. Embedded SQL that concatenates untrusted input into a dynamic statement is injectable; this is [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Improper input validation. Data read from files, terminals, or messages is unchecked until the program checks its structure, sign, and range, which maps to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+
+### Why it matters
+
+Reading COBOL lets an analyst follow how a mainframe system validates, moves, and stores regulated data, and audit the embedded-SQL and external-call boundaries where untrusted input enters fixed fields. Tooling is scarce: COBOL support in SonarQube and commercial mainframe analyzers cover some of these patterns, and GnuCOBOL compiler warnings catch others, so manual review of data handling remains the main control, as the Secure coding section details.
 
 ## Secure coding
 

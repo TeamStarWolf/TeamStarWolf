@@ -14,6 +14,55 @@ Elixir is a dynamically typed, functional language that runs on the Erlang virtu
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Erlang](/languages/erlang.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Elixir code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,431 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Elixir code (typical uses: web back ends, real-time and distributed systems, data pipelines), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Erlang](/languages/erlang.md), [Gleam](/languages/gleam.md), [Haskell](/languages/haskell.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Elixir was created to pair a productive, extensible syntax with the strengths of the Erlang runtime, which has run telecommunications systems with long uptimes since the 1990s. Elixir compiles to BEAM bytecode and interoperates directly with Erlang modules, so Elixir code can call Erlang libraries and vice versa without a foreign-function boundary.
@@ -125,6 +174,29 @@ The BEAM schedules large numbers of lightweight processes across operating-syste
 - Unbounded process mailboxes: a process that receives faster than it handles grows its mailbox until memory is exhausted; apply back pressure or selective receive.
 - Large messages between processes are copied, not shared, so passing big data structures repeatedly costs memory and time.
 - Thinking in objects: state lives in processes and immutable data, not mutable objects, so model it with `GenServer` and message passing.
+
+## Security relevance
+
+Elixir reaches security practitioners as a web and distributed-systems back end that defenders assess, running on the Erlang BEAM, and as the source of a specific set of weaknesses tied to that runtime. Offensive tooling written in it is uncommon. The defensive patterns that counter each class are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Web back ends. [Phoenix](https://www.phoenixframework.org/) and LiveView applications, with Ecto for data access, are the common assessment targets. See [Web Application Pentesting](/WEB_APPLICATION_PENTESTING.md) and the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Real-time and distributed systems. Elixir runs clustered, supervised services, so the attack surface includes node distribution and inter-process messaging.
+- Little offensive presence. Elixir is not a common tool-building language, so the interest is reading and auditing Elixir services and their BEAM-specific pitfalls.
+
+### Dominant weakness classes
+
+Elixir is memory-safe: it uses per-process garbage collection on the BEAM and is dynamically typed with run-time checks, so the memory-corruption classes do not apply. The weaknesses are about runtime resource limits, deserialization, and untrusted input:
+
+- Atom exhaustion. Converting untrusted input to atoms with `String.to_atom/1` fills the bounded atom table and can crash the node, so prefer `String.to_existing_atom/1`. This is a form of resource exhaustion, [CWE-400](https://cwe.mitre.org/data/definitions/400.html).
+- Unsafe deserialization. `:erlang.binary_to_term/1` on attacker-controlled data can create arbitrary terms and exhaust resources, which is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- Improper input validation. Dynamic typing means external data is unchecked until it is validated with Ecto changesets or explicit guards, which maps to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- Injection. String-interpolated SQL instead of Ecto's parameterized queries is [CWE-89](https://cwe.mitre.org/data/definitions/89.html), and passing untrusted input to `System.cmd/3` as a shell string is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+
+### Why it matters
+
+Reading Elixir lets an analyst find BEAM-specific denial-of-service paths such as atom and mailbox growth, unsafe term decoding, and injection in Phoenix and Ecto code. [Sobelow](https://github.com/nccgroup/sobelow) scans Phoenix applications for common web vulnerabilities, [Credo](https://github.com/rrrene/credo) reports consistency issues, and [Dialyzer](https://www.erlang.org/doc/apps/dialyzer/dialyzer_chapter.html) finds type discrepancies, as the Secure coding section details.
 
 ## Secure coding
 

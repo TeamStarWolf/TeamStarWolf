@@ -361,7 +361,7 @@ The API automatically binds request body fields to database model fields without
 POST /api/v1/users/register
 {"email": "attacker@evil.com", "password": "pass123"}
 
-# Mass assignment attack — add admin:true to request body
+# Mass assignment attack: add admin:true to request body
 POST /api/v1/users/register
 {"email": "attacker@evil.com", "password": "pass123", "admin": true, "balance": 99999}
 ```
@@ -598,7 +598,7 @@ Common Misconfigurations:
 
 *CORS misconfiguration:*
 ```
-# Overly permissive CORS — reflects Origin header
+# Overly permissive CORS: reflects Origin header
 Access-Control-Allow-Origin: https://attacker.com  ← should never happen
 Access-Control-Allow-Credentials: true             ← allows cookie theft cross-origin
 ```
@@ -774,7 +774,7 @@ If a server uses RS256 (asymmetric), the public key is often obtainable. If the 
 import jwt
 with open('public_key.pem', 'r') as f:
     public_key = f.read()
-# Server validates HS256 using public key as secret — attacker knows public key!
+# Server validates HS256 using public key as secret: attacker knows public key!
 forged = jwt.encode({"sub": "admin"}, public_key, algorithm="HS256")
 ```
 
@@ -809,7 +809,7 @@ def validate_jwt(token: str, expected_audience: str) -> dict:
         payload = jwt.decode(
             token,
             PUBLIC_KEY,
-            algorithms=["RS256"],  # Explicit allowlist — never accept "none"
+            algorithms=["RS256"],  # Explicit allowlist, never accept "none"
             audience=expected_audience,
             options={
                 "require": ["exp", "iat", "sub", "aud"],  # Required claims
@@ -998,7 +998,7 @@ app.use('/api/', cors(corsOptions));
 GraphQL's introspection system allows clients to query the schema itself, discovering all types, queries, mutations, and fields. In production, this capability is a reconnaissance goldmine for attackers.
 
 ```graphql
-# Introspection query — reveals entire API schema
+# Introspection query: reveals entire API schema
 {
   __schema {
     types {
@@ -1073,7 +1073,7 @@ const server = new ApolloServer({
 Depth limiting alone is insufficient; a query can be shallow but wide, requesting thousands of fields:
 
 ```graphql
-# Wide query — expensive even at depth 2
+# Wide query: expensive even at depth 2
 {
   users(limit: 10000) {
     id email name phone address paymentMethods transactions
@@ -1138,14 +1138,14 @@ const permissions = shield({
 GraphQL allows multiple operations in a single request via batching and aliases:
 
 ```graphql
-# Batching attack — 1000 operations in 1 HTTP request
+# Batching attack: 1000 operations in 1 HTTP request
 [
   {"query": "mutation { login(email: "user1@x.com", pass: "password1") { token } }"},
   {"query": "mutation { login(email: "user2@x.com", pass: "password2") { token } }"},
   ...999 more
 ]
 
-# Alias attack — bypass rate limiting with aliases
+# Alias attack: bypass rate limiting with aliases
 {
   a1: login(email: "user1@x.com", pass: "pass1") { token }
   a2: login(email: "user2@x.com", pass: "pass2") { token }
@@ -2475,7 +2475,7 @@ groups:
       labels:
         severity: warning
       annotations:
-        summary: "High API authentication failure rate — possible credential stuffing"
+        summary: "High API authentication failure rate, possible credential stuffing"
 
     # Unusual endpoint access (BOLA probing)
     - alert: UnusualEndpointEnumeration
@@ -2484,7 +2484,7 @@ groups:
       labels:
         severity: warning
       annotations:
-        summary: "High rate of 403 responses — possible BOLA/authorization probing"
+        summary: "High rate of 403 responses, possible BOLA/authorization probing"
 
     # Data volume spike (possible exfiltration)
     - alert: APIDataExfiltrationSuspect
@@ -2494,7 +2494,7 @@ groups:
       labels:
         severity: critical
       annotations:
-        summary: "API outbound data volume 3x above baseline — investigate for exfiltration"
+        summary: "API outbound data volume 3x above baseline; investigate for exfiltration"
 
     # New endpoint discovered (shadow API)
     - alert: UnregisteredEndpointAccess
@@ -2503,7 +2503,7 @@ groups:
       labels:
         severity: high
       annotations:
-        summary: "Request to unregistered API endpoint — shadow API detected"
+        summary: "Request to unregistered API endpoint, shadow API detected"
 ```
 
 ### API Threat Modeling: STRIDE for APIs

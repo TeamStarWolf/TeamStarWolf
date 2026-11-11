@@ -4,6 +4,55 @@
 
 [All case studies](/case-studies/README.md) · Related: [AI Security Reference](/AI_SECURITY_REFERENCE.md), [Supply Chain Security](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [AI Threats 2026](/case-studies/AI_THREATS_2026.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+AI and ML engineers, supply chain security engineers and security teams that pull models from public hubs
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 48 min (11,102 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the record of malicious models, leaked tokens and platform incidents on Hugging Face, you load models or datasets from a public hub, or you want the scanning and defender steps for the AI supply chain
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Executive summary](#executive-summary), [Part 3: Malicious models on the Hub](#part-3-malicious-models-on-the-hub), [Part 8: The defender view](#part-8-the-defender-view)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[AI Security Reference](/AI_SECURITY_REFERENCE.md), [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [npm Supply-Chain Attacks, 2018 to 2026: The Record and the Defenses](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Executive summary
 
 Hugging Face is where much of the open machine-learning community shares its work: model weights, datasets, demo apps (Spaces) and the libraries that load them (`transformers`, `datasets`, `huggingface_hub`, Gradio). That openness is the point, and it is also why the Hub is a supply chain. When an engineer writes `from_pretrained("author/model")`, they are pulling code and data from a stranger's repository by name, often into a machine that holds cloud credentials. This study follows that chain from end to end: the file formats that can run code on load, the scanners built to catch them and the advisories that show how often the scanners are bypassed, the malicious models researchers have found on the Hub, the credential leaks and platform intrusions Hugging Face itself has disclosed, and the July 2026 intrusion in which autonomous AI evaluation agents broke into Hugging Face's own dataset-processing pipeline.

@@ -2,11 +2,54 @@
 
 > In one minute: A catalog of HackTheBox's 45 learning tracks: curated sequences of hacking machines and challenges grouped by theme, skill, or certification. Completing a track builds depth in one area (Active Directory, blue team, web, cloud) instead of scattered breadth, and many tracks map directly to certification exams like CPTS, CDSA, and CREST. It also covers Pro Labs (full enterprise network simulations) and how to build your own custom track when no official one fits.
 
-| | |
-|---|---|
-| Read this when | picking your next structured HTB learning path, prepping for a cert like CPTS/CDSA/OSCP, deciding which Pro Lab matches your skill level |
-| Start at | [Recommended Learning Sequences](#recommended-learning-sequences), [Certification Alignment](#certification-alignment), [Pro Labs](#pro-labs) |
-| Pairs with | [HTB Machine Index](/research/HTB_MACHINE_INDEX.md), [Labs Reference](/LABS.md), [Certifications](/CERTIFICATIONS.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Students and practitioners who follow structured Hack The Box learning tracks
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,671 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are picking your next structured Hack The Box learning path, you are preparing for a certification like CPTS, CDSA or OSCP, or you are deciding which Pro Lab matches your skill level
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Recommended Learning Sequences](#recommended-learning-sequences), [Certification Alignment](#certification-alignment), [Pro Labs](#pro-labs)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[HackTheBox Machine Index](/research/HTB_MACHINE_INDEX.md), [Hands-On Labs](/LABS.md), [Certifications Reference](/CERTIFICATIONS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 Curated learning tracks from [HackTheBox](https://app.hackthebox.com/tracks): structured paths grouping machines and challenges by theme, skill, or certification. Data extracted April 2026.
 
@@ -233,7 +276,7 @@ HTB Pro Labs are full enterprise network simulations, not individual machines. T
 A multi-machine network pentest simulating a small enterprise environment. Covers: initial external foothold, internal pivoting, Active Directory basics, credential reuse, and report writing. Widely recommended as OSCP preparation; the attack surface and methodology closely match the exam format. Best starting point for Pro Labs.
 
 ### Offshore (Intermediate-Advanced)
-External penetration test of a large enterprise Active Directory environment with multiple forests, domain trusts, and segmented networks. Requires solid BloodHound usage, trust relationship abuse, and multi-hop pivoting. One of the most comprehensive AD labs available.
+External penetration test of a large enterprise Active Directory environment with multiple forests, domain trusts, and segmented networks. Requires solid BloodHound usage, trust relationship abuse, and multi-hop pivoting. One of the largest AD labs available.
 
 ### RastaLabs (Advanced)
 A hardened Active Directory environment with modern defensive controls: AMSI bypass requirements, EDR evasion, constrained language mode, and application whitelisting. Mirrors real enterprise environments that have invested in security tooling. Requires EDR bypass skills before machines can be compromised.

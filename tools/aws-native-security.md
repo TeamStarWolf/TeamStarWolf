@@ -4,6 +4,55 @@
 
 AWS's first-party security services collectively provide continuous vulnerability assessment (Inspector), threat detection (GuardDuty), unified findings aggregation and cloud risk/exposure management (Security Hub), and OS/application patch orchestration (Systems Manager Patch Manager) for AWS accounts and workloads. Rather than a single product, they are composable, account-native services that together cover the discover-assess-prioritize-mitigate-remediate lifecycle for AWS estates. They solve the problem of getting vulnerability, misconfiguration, and threat visibility plus remediation for cloud workloads without deploying third-party agents everywhere. How the same services sit on a CTEM cycle, next to the Azure and GCP suites, is in the [CTEM reference](/CTEM_REFERENCE.md). The landing-zone placement is in [Cloud Architecture](/CLOUD_ARCHITECTURE_REFERENCE.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the cloud security engineers who run AWS Native Security
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (2,161 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what AWS Native Security can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[CTEM Reference](/CTEM_REFERENCE.md), [Cloud Architecture Reference](/CLOUD_ARCHITECTURE_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities & architecture
 
 **Core capabilities**
@@ -61,10 +110,10 @@ Acts across the full detect-and-remediate axis within AWS. Inspector continuousl
 
 **Validation signals (actually working?)**
 - CONFIGURED: recorder/detector ENABLED, Config rule present, trail IsLogging=true.
-- EFFECTIVE (Inspector): finding status NEW->CLOSED with fixAvailable and resource installedVersion >= fixedInVersion after patch — CVE actually remediated, not just reported.
-- EFFECTIVE (Config): rule ComplianceType flips NON_COMPLIANT->COMPLIANT and, if auto-remediation attached, a CloudTrail StartAutomationExecution of the SSM document (e.g. AWS-ConfigureS3BucketPublicAccessBlock) — enforcement fired.
+- EFFECTIVE (Inspector): finding status NEW->CLOSED with fixAvailable and resource installedVersion >= fixedInVersion after patch: CVE actually remediated, not just reported.
+- EFFECTIVE (Config): rule ComplianceType flips NON_COMPLIANT->COMPLIANT and, if auto-remediation attached, a CloudTrail StartAutomationExecution of the SSM document (e.g. AWS-ConfigureS3BucketPublicAccessBlock): enforcement fired.
 - EFFECTIVE (Security Hub): finding Workflow.Status RESOLVED and Compliance.Status PASSED.
-- EFFECTIVE (GuardDuty): an exploitation/recon finding against the host (detective only) plus, if paired with EventBridge->Lambda, a quarantine-SG action logged in CloudTrail — that is the actual block.
+- EFFECTIVE (GuardDuty): an exploitation/recon finding against the host (detective only) plus, if paired with EventBridge->Lambda, a quarantine-SG action logged in CloudTrail: that is the actual block.
 - Distinguish: Inspector/Config prove the mitigation is PRESENT; a closed finding + patched version + executed-remediation CloudTrail event prove it WORKED.
 
 **Key events / fields / tables / APIs**
@@ -89,7 +138,7 @@ aws guardduty list-detectors --query DetectorIds[0] --output text | xargs -I{} a
 index=aws sourcetype="aws:securityhub:finding" ProductName="Inspector" | spath Vulnerabilities{}.Id output=cve | eval status=coalesce('Workflow.Status',RecordState) | stats latest(status) as status latest(FixAvailable) as fix by cve, Resources{}.Id | search status IN ("ARCHIVED","RESOLVED")
 ```
 
-*Validation: prove Config rule enforcement — resources flipped to COMPLIANT + remediation ran in CloudTrail* (CLI)
+*Validation: prove Config rule enforcement: resources flipped to COMPLIANT + remediation ran in CloudTrail* (CLI)
 
 ```
 aws configservice get-compliance-details-by-config-rule --config-rule-name <rule> --compliance-types COMPLIANT && aws cloudtrail lookup-events --lookup-attributes AttributeKey=EventName,AttributeValue=StartAutomationExecution
@@ -98,9 +147,9 @@ aws configservice get-compliance-details-by-config-rule --config-rule-name <rule
 **How it mitigates (mechanism).** Config enforcement (non-compliant resource auto-remediated by an attached SSM Automation document, removing the exposure) and Inspector patch verification (installedVersion advancing past fixedInVersion removes CVE reachability) are the observable mitigations; GuardDuty is detective and only becomes a block when its finding triggers an EventBridge->Lambda isolation action, itself logged in CloudTrail.
 
 **Logging gotchas**
-- Inspector EC2 scanning needs a healthy SSM agent — hosts without it show UNSCANNED coverage, so an empty finding list can be a blind spot, not a clean host.
+- Inspector EC2 scanning needs a healthy SSM agent: hosts without it show UNSCANNED coverage, so an empty finding list can be a blind spot, not a clean host.
 - GuardDuty is detection-only by default (no inline prevention).
-- CloudTrail data events (S3 object-level, Lambda invoke) are OFF unless explicitly selected — data-plane exploitation can be invisible.
+- CloudTrail data events (S3 object-level, Lambda invoke) are OFF unless explicitly selected: data-plane exploitation can be invisible.
 - Config records only enabled resource types; INSUFFICIENT_DATA rolls a conformance pack up as effectively compliant.
 - Security Hub finding updates are throttled/deduplicated (UpdatedAt may lag); CloudTrail->S3 delivery can lag ~15 min, so real-time validation should use the EventBridge stream.
 - Check specific type strings (for example Execution:Runtime/ReverseShell) against the [GuardDuty Runtime Monitoring finding types](https://docs.aws.amazon.com/guardduty/latest/ug/findings-runtime-monitoring.html) reference before alerting on them; the list grows as AWS adds detections.

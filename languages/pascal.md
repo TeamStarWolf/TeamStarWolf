@@ -14,6 +14,55 @@ Pascal is a statically typed, compiled, procedural language designed by Niklaus 
 
 Related: [ALGOL](/languages/algol.md), [Delphi (Object Pascal)](/languages/delphi.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Pascal code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,356 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Pascal code (typical uses: teaching, application development, systems programming (historically)), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[ALGOL](/languages/algol.md), [Delphi (Object Pascal)](/languages/delphi.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Niklaus Wirth designed Pascal at ETH Zurich as a successor to his earlier work and as a reaction to the size of languages such as ALGOL 68. The language was meant to be small enough to teach and to compile in a single pass, which shaped rules such as declaring every identifier before use. Turbo Pascal, released by Borland in 1983, made Pascal popular on personal computers with a fast compiler and integrated editor, and it added units and other extensions.
@@ -107,6 +156,29 @@ Pascal compiles to native code and performs comparably to C for equivalent proce
 - Dialect differences: code written for Turbo Pascal, Delphi's Object Pascal, or ISO Pascal may not compile unchanged elsewhere.
 - Range and overflow checks are often compiler options; disabling them for speed removes protection against out-of-range indexing and integer overflow.
 - Single-pass declaration rules require careful ordering, and mutual recursion across units needs forward declarations.
+
+## Security relevance
+
+Pascal reaches security practitioners mainly through maintenance and reverse engineering of native code: application and systems software built with Turbo Pascal, Free Pascal, or the Object Pascal dialect, much of it long-lived. It has little modern offensive-tooling presence, so the security interest is auditing and analyzing the binaries it produces. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Native desktop and systems applications. Free Pascal and Lazarus build cross-platform native programs, and historical Turbo Pascal code persists, so reviewers meet Pascal in maintained application binaries.
+- Reverse engineering. Compiled Pascal is a native-binary analysis target with its own runtime and calling conventions. See the [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md).
+- Teaching and legacy codebases. Pascal survives in curricula and in older code that is still extended, where range and overflow checking may have been left off for speed.
+
+### Dominant weakness classes
+
+Pascal is memory-unsafe: it has manual heap management through `new` and `dispose`, and its bounds and overflow checks are compiler options that can be disabled, so the memory-corruption classes apply.
+
+- Out-of-bounds array access. With range checking disabled, an index outside a declared range reads or writes adjacent memory, which is [CWE-125](https://cwe.mitre.org/data/definitions/125.html) and [CWE-787](https://cwe.mitre.org/data/definitions/787.html).
+- Integer overflow. Arithmetic can wrap when overflow checking is off, so calculations on external data can produce wrong or dangerous values, which is [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- Use-after-free and dangling pointers. Manual `new` and `dispose` allow use of freed or never-initialized pointers, which is [CWE-416](https://cwe.mitre.org/data/definitions/416.html).
+- Improper input validation. External data placed into fixed-size structures without bounds or range checks is a frequent source of corruption, which is [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+
+### Why it matters
+
+Reviewing Pascal matters for maintaining legacy applications safely and for reversing native Pascal binaries, since it shows whether range and overflow checks are enabled, where pointers are managed by hand, and how external data enters fixed-size structures. Third-party static analysis for Pascal is scarce, so the main controls are the Free Pascal compiler's hints and warnings with range and overflow checks turned on, as the Secure coding section details.
 
 ## Secure coding
 

@@ -14,6 +14,55 @@ WebAssembly (abbreviated Wasm) is a portable binary instruction format for a sta
 
 Related: [JavaScript](/languages/javascript.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain WebAssembly code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,691 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing WebAssembly code (typical uses: performance-sensitive web code, plugins, edge and serverless compute), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[JavaScript](/languages/javascript.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 WebAssembly grew out of earlier efforts to run fast, low-level code in browsers, notably asm.js and Google's Native Client. Browser vendors (from Mozilla, Google, Microsoft, and Apple) designed it jointly, and it reached a cross-browser release in 2017. The core specification became a W3C recommendation in 2019. The goals were a compact binary format that loads and compiles quickly, predictable near-native performance, and a sandbox that fits the security model of the web.
@@ -125,6 +174,29 @@ Startup is fast because the binary format is designed for streaming compilation 
 - Not every language maps cleanly: those that need a garbage collector historically shipped one inside the module, enlarging it, until the garbage-collection proposal landed.
 - Debugging compiled modules needs source maps or DWARF information; without them you are reading the text format, not your source.
 - A module can only do what the host grants; forgetting to import a needed capability yields a module that cannot perform I/O.
+
+## Security relevance
+
+WebAssembly reaches security work as an opaque binary that runs in a sandbox: the sandbox contains host memory access, but it does not make the compiled program correct, and a module must be disassembled to be understood. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Performance-sensitive web and edge code. Modules compiled from C, C++, or Rust run in browsers and in edge and serverless runtimes, extending an application's attack surface into compiled code the browser cannot easily show. See the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Reverse-engineering targets. Because a `.wasm` file ships as a compact binary, analysts disassemble it to understand browser-delivered payloads and obfuscated logic. See the [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md).
+- Isolation and plugin hosts. Standalone runtimes use WebAssembly as a sandbox to run untrusted plugins, so the host-to-module trust boundary and the capabilities a runtime grants are themselves part of the security picture.
+
+### Dominant weakness classes
+
+WebAssembly validates every module and runs it with no ambient authority, so a module cannot reach host memory; whether the memory-corruption classes apply depends on the source language, because a memory-unsafe language keeps its bugs inside the module's own linear memory:
+
+- Out-of-bounds write inside linear memory. A buffer overflow in C or C++ compiled to WebAssembly corrupts the module's own flat memory, which has no guard pages, and can subvert the module's logic; this is [CWE-787](https://cwe.mitre.org/data/definitions/787.html).
+- Uncontrolled resource consumption. An untrusted module run without resource limits can exhaust CPU or memory on the host, which is [CWE-400](https://cwe.mitre.org/data/definitions/400.html).
+- Over-broad capability grants. A runtime that hands a module wide file-system or network access through the WebAssembly System Interface widens the blast radius, so least privilege applies to the grants themselves.
+- Supply chain. A `.wasm` binary is opaque, so its provenance and the source it was built from must be established. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading or disassembling WebAssembly lets a reverse engineer understand a module that ships without source, such as a browser cryptominer or a packed payload, and lets a platform reviewer check which capabilities a module is granted. The inspection tools are [wasm-tools](https://github.com/bytecodealliance/wasm-tools) and [wabt](https://github.com/WebAssembly/wabt) for working with the binary and text formats, with the source language's own analyzers run before compilation.
 
 ## Secure coding
 

@@ -1,5 +1,5 @@
 {
-  "name": "Stage 6 — Data & Cloud Security",
+  "name": "Stage 6: Data & Cloud Security",
   "versions": {
     "attack": "20",
     "navigator": "4.9",
@@ -44,55 +44,55 @@
       "techniqueID": "T1552.001",
       "tactic": "credential-access",
       "score": 3,
-      "comment": "Credentials in files — DLP scanning of storage objects"
+      "comment": "Credentials in files: DLP scanning of storage objects"
     },
     {
       "techniqueID": "T1552.005",
       "tactic": "credential-access",
       "score": 3,
-      "comment": "Cloud Instance Metadata API — CSPM metadata exposure checks"
+      "comment": "Cloud Instance Metadata API: CSPM metadata exposure checks"
     },
     {
       "techniqueID": "T1580",
       "tactic": "discovery",
       "score": 3,
-      "comment": "CSPM: Cloud Infrastructure Discovery — posture management alerts on enumeration"
+      "comment": "CSPM (Cloud Infrastructure Discovery): posture management alerts on enumeration"
     },
     {
       "techniqueID": "T1619",
       "tactic": "discovery",
       "score": 3,
-      "comment": "Cloud Storage Object Discovery — CSPM bucket access logging"
+      "comment": "Cloud Storage Object Discovery: CSPM bucket access logging"
     },
     {
       "techniqueID": "T1537",
       "tactic": "exfiltration",
       "score": 3,
-      "comment": "Transfer to Cloud — CASB egress monitoring; DLP blocks exfil to unauthorized cloud"
+      "comment": "Transfer to Cloud: CASB egress monitoring; DLP blocks exfil to unauthorized cloud"
     },
     {
       "techniqueID": "T1048",
       "tactic": "exfiltration",
       "score": 2,
-      "comment": "Exfiltration over alt protocol — CASB + DLP network inspection"
+      "comment": "Exfiltration over alt protocol: CASB + DLP network inspection"
     },
     {
       "techniqueID": "T1048.003",
       "tactic": "exfiltration",
       "score": 2,
-      "comment": "Exfiltration over unencrypted protocol — DLP SSL inspection"
+      "comment": "Exfiltration over unencrypted protocol: DLP SSL inspection"
     },
     {
       "techniqueID": "T1567",
       "tactic": "exfiltration",
       "score": 3,
-      "comment": "Exfiltration to cloud service — CASB blocks unauthorized SaaS uploads"
+      "comment": "Exfiltration to cloud service: CASB blocks unauthorized SaaS uploads"
     },
     {
       "techniqueID": "T1567.002",
       "tactic": "exfiltration",
       "score": 3,
-      "comment": "Exfiltration to cloud storage — CASB Google Drive/OneDrive controls"
+      "comment": "Exfiltration to cloud storage: CASB Google Drive/OneDrive controls"
     },
     {
       "techniqueID": "T1190",
@@ -104,49 +104,49 @@
       "techniqueID": "T1525",
       "tactic": "persistence",
       "score": 2,
-      "comment": "Implant Container Image — CSPM container registry scanning"
+      "comment": "Implant Container Image: CSPM container registry scanning"
     },
     {
       "techniqueID": "T1611",
       "tactic": "privilege-escalation",
       "score": 2,
-      "comment": "Escape to Host — CSPM container hardening checks"
+      "comment": "Escape to Host: CSPM container hardening checks"
     },
     {
       "techniqueID": "T1078.004",
       "tactic": "initial-access",
       "score": 2,
-      "comment": "Cloud Accounts — CIEM excessive permissions detection"
+      "comment": "Cloud Accounts: CIEM excessive permissions detection"
     },
     {
       "techniqueID": "T1098",
       "tactic": "persistence",
       "score": 2,
-      "comment": "Account Manipulation in cloud — CSPM IAM change monitoring"
+      "comment": "Account Manipulation in cloud: CSPM IAM change monitoring"
     },
     {
       "techniqueID": "T1578",
       "tactic": "defense-impairment",
       "score": 2,
-      "comment": "Modify Cloud Compute Infrastructure — CSPM change detection"
+      "comment": "Modify Cloud Compute Infrastructure: CSPM change detection"
     },
     {
       "techniqueID": "T1578.002",
       "tactic": "defense-impairment",
       "score": 2,
-      "comment": "Create Cloud Instance — CSPM anomalous resource creation"
+      "comment": "Create Cloud Instance: CSPM anomalous resource creation"
     },
     {
       "techniqueID": "T1213",
       "tactic": "collection",
       "score": 2,
-      "comment": "Data from Information Repositories — DLP SharePoint/Confluence scanning"
+      "comment": "Data from Information Repositories: DLP SharePoint/Confluence scanning"
     },
     {
       "techniqueID": "T1005",
       "tactic": "collection",
       "score": 2,
-      "comment": "Data from Local System — DLP endpoint agents; data classification enforcement"
+      "comment": "Data from Local System: DLP endpoint agents; data classification enforcement"
     }
   ],
   "gradient": {
@@ -174,7 +174,7 @@
   "metadata": [
     {
       "name": "stage",
-      "value": "Stage 6 — Data & Cloud Security"
+      "value": "Stage 6: Data & Cloud Security"
     },
     {
       "name": "nist_families",
@@ -182,7 +182,7 @@
     },
     {
       "name": "source",
-      "value": "TeamStarWolf — https://github.com/TeamStarWolf/TeamStarWolf"
+      "value": "TeamStarWolf: https://github.com/TeamStarWolf/TeamStarWolf"
     },
     {
       "name": "attack_version",

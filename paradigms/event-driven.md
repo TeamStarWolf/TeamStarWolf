@@ -2,6 +2,55 @@
 
 Event-driven programming organizes control flow around events and the handlers that respond to them, rather than a fixed top-to-bottom sequence. It is a cross-cutting style: the program waits, an event arrives, and a registered handler runs. It matters because interactive user interfaces, network servers, and distributed systems are all naturally described as reactions to things that happen.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers and students learning event-driven programming, and reviewers who assess code written in that style
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (826 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning event-driven programming or deciding whether it fits a problem, you want the languages and tools that support it, or you need its secure-coding considerations before a review
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core idea](#core-idea), [Strengths and trade-offs](#strengths-and-trade-offs), [Secure-coding considerations](#secure-coding-considerations)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Reactive Programming](/paradigms/reactive.md), [Dataflow Programming](/paradigms/dataflow.md), [Concurrent Programming](/paradigms/concurrent.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Core idea
 
 In a sequential program, your code decides what happens next. In an event-driven program, the arrival of events decides. You register handlers in advance and hand control to a dispatcher that calls them when matching events occur. This reversal is inversion of control: the framework calls your code, not the other way around.

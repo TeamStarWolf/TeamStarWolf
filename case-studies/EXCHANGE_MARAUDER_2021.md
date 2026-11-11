@@ -550,7 +550,7 @@ The study's techniques are saved as an ATT&CK Navigator layer, [navigator/librar
 
 ## Sources
 
-All sources were opened on 3 November 2026. "Primary" means the organization that published the fact; grades apply to the source as used here.
+All sources were opened on 3 November 2026. "Primary" means the organization that published the fact; grades apply to the source as used here. The URL for source 69 is printed as text rather than a link because the EEAS site answers automated link checkers with HTTP 403; copy it into a browser to read it.
 
 | # | Source | URL | Opened | Grade |
 |---|---|---|---|---|
@@ -622,7 +622,7 @@ All sources were opened on 3 November 2026. "Primary" means the organization tha
 | 66 | The White House (archived), The United States, joined by allies and partners, attributes malicious cyber activity to the PRC, 19 Jul 2021 | [bidenwhitehouse.archives.gov/briefing-room/statements-releases/2021/07/19/...](https://bidenwhitehouse.archives.gov/briefing-room/statements-releases/2021/07/19/the-united-states-joined-by-allies-and-partners-attributes-malicious-cyber-activity-and-irresponsible-state-behavior-to-the-peoples-republic-of-china/) | 2026-11-03 | Confirmed |
 | 67 | UK Government (FCDO), UK and allies hold Chinese state responsible for a pervasive pattern of hacking, 19 Jul 2021 | [gov.uk/government/news/uk-and-allies-hold-chinese-state-responsible-for-a-pervasive-pattern-of-hacking](https://www.gov.uk/government/news/uk-and-allies-hold-chinese-state-responsible-for-a-pervasive-pattern-of-hacking) | 2026-11-03 | Confirmed |
 | 68 | UK NCSC, UK and allies hold Chinese state responsible for pervasive pattern of hacking, 19 Jul 2021 | [ncsc.gov.uk/news/uk-allies-hold-chinese-state-responsible-for-pervasive-pattern-of-hacking](https://www.ncsc.gov.uk/news/uk-allies-hold-chinese-state-responsible-for-pervasive-pattern-of-hacking) | 2026-11-03 | Confirmed |
-| 69 | EU High Representative, declaration urging Chinese authorities to act, 19 Jul 2021 (read on the EEAS delegation copy; the Council page refused automated requests) | [eeas.europa.eu/delegations/bolivia/...](https://www.eeas.europa.eu/delegations/bolivia/china-declaraci%C3%B3n-del-alto-representante-nombre-de-la-uni%C3%B3n-europea-instando-las-autoridades-chinas_und_en) | 2026-11-03 | Confirmed |
+| 69 | EU High Representative, declaration urging Chinese authorities to act, 19 Jul 2021 (read on the EEAS delegation copy; the Council page refused automated requests) | `https://www.eeas.europa.eu/delegations/bolivia/china-declaraci%C3%B3n-del-alto-representante-nombre-de-la-uni%C3%B3n-europea-instando-las-autoridades-chinas_und_en` | 2026-11-03 | Confirmed |
 | 70 | NATO North Atlantic Council, statement in solidarity with those affected by the Microsoft Exchange compromise, 19 Jul 2021 | [nato.int/cps/en/natohq/news_185863.htm](https://www.nato.int/cps/en/natohq/news_185863.htm) | 2026-11-03 | Confirmed |
 | 71 | Global Affairs Canada, Statement on China's cyber campaigns, 19 Jul 2021 | canada.ca/en/global-affairs/news/2021/07/statement-on-chinas-cyber-campaigns.html (plain text: the host fails automated link checks) | 2026-11-03 | Confirmed |
 | 72 | MITRE ATT&CK v20, G0125 HAFNIUM | [attack.mitre.org/groups/G0125/](https://attack.mitre.org/groups/G0125/) | 2026-11-03 | Confirmed |

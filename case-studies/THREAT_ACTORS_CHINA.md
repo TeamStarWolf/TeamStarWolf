@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 71 min (16,317 words at 230 words a minute)
+About 74 min (17,115 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -57,7 +57,7 @@ No review recorded yet
 
 When defenders, journalists and governments talk about "Chinese hackers", they are describing dozens of distinct clusters with different sponsors, different missions and very different evidence behind them. Some are military units named in a US indictment more than a decade ago. Some are Ministry of State Security bureaus working through front companies. Some are private contractors that sell stolen mailboxes by the inbox, and some are botnet operators whose customers are other hacking teams. This study pulls the public record on the main ones into one place: who the governments of the United States, the United Kingdom, Japan, the Czech Republic, Australia and their partners have named, on what date, with what confidence, and what the advisories say the actors actually did.
 
-Four patterns stand out. First, the sponsor picture is now unusually specific. US charging documents, Treasury designations and joint advisories name PLA Unit 61398 and the PLA 54th Research Institute, five provincial or municipal State Security bureaus (Jiangsu, Tianjin, Hainan, Hubei, Shanghai), the Ministry of Public Security, and twelve companies that hacked, brokered data or ran infrastructure for them. Second, the tradecraft has moved to the network edge. The 2021 advisories still describe spearphishing and watering holes; the 2023 to 2025 advisories on Volt Typhoon and Salt Typhoon describe routers, VPN concentrators, firewalls and living off the land with built-in tools, and every one of the 43 initial-access CVEs named across five joint advisories is in CISA's Known Exploited Vulnerabilities catalog. Third, the purpose has widened from espionage to pre-positioning: in February 2024 a group of US and partner agencies assessed with high confidence that Volt Typhoon was positioning inside US critical infrastructure IT networks to disrupt operational technology in a crisis, with some footholds held for at least five years. Fourth, healthcare and life sciences appear throughout: from the 2014 Anthem and Community Health Systems breaches to Ebola and COVID-19 research theft, to a 2023 to 2025 campaign against medical research servers and an October 2026 advisory that names the Healthcare and Public Health sector among the targets.
+Four patterns stand out. First, the sponsor picture is now unusually specific. US charging documents, Treasury designations and joint advisories name PLA Unit 61398 and the PLA 54th Research Institute, five provincial or municipal State Security bureaus (Jiangsu, Tianjin, Hainan, Hubei, Shanghai), the Ministry of Public Security, and twelve companies that hacked, brokered data or ran infrastructure for them. Second, the tradecraft has moved to the network edge. The 2021 advisories still describe spearphishing and watering holes; the 2023 to 2025 advisories on Volt Typhoon and Salt Typhoon describe routers, VPN concentrators, firewalls and living off the land with built-in tools, and every one of the 43 initial-access CVEs named across five joint advisories is in CISA's Known Exploited Vulnerabilities catalog. Third, the purpose has widened from espionage to pre-positioning: in February 2024 the US agencies that wrote AA24-038A (CISA, NSA, FBI and their US co-authors) assessed with high confidence that Volt Typhoon was positioning inside US critical infrastructure IT networks to disrupt operational technology in a crisis, with some footholds held for at least five years; partners in Australia, Canada, the United Kingdom and New Zealand co-released the advisory. Fourth, healthcare and life sciences appear throughout: from the 2014 Anthem and Community Health Systems breaches to Ebola and COVID-19 research theft, to a 2023 to 2025 campaign against medical research servers and an October 2026 advisory that names the Healthcare and Public Health sector among the targets.
 
 Evidence grade: the indictments, sanctions, government attributions and joint advisories are **Confirmed** from the issuing agency's own page. Vendor attributions (Microsoft, Mandiant and Google Threat Intelligence Group, BAE Systems) are **Confirmed** where the vendor's own report was opened, and carry the vendor's own confidence words. The Chinese government's counter-narrative, two press accounts of an extradition and an arrest, and one press account of a 2026 seizure are **Reported**. Where this study draws its own conclusion, it is labelled **Inferred**.
 
@@ -82,8 +82,8 @@ Evidence grade: the indictments, sanctions, government attributions and joint ad
 
 - **The sponsor is usually named, and it is usually the MSS.** Of the government attributions in this study, the Ministry of State Security or one of its bureaus is named for APT10, APT40, APT31, HAFNIUM-related activity, the Jiangsu turbofan case and the Salt Typhoon companies; the PLA is named for APT1, the Equifax intrusion and the AA25-239A companies; the Ministry of Public Security is named for Sichuan Silence and i-Soon (Confirmed [18][20][21][24][28][35][42][47][52][53]).
 - **Contractors carry much of the load.** Huaying Haitai, Boyusec, Hainan Xiandun, Wuhan Xiaoruizhi, Shanghai Powerock, Sichuan Silence, i-Soon, Shanghai Heiying, Integrity Technology Group, Sichuan Juxinhe, Beijing Huanyu Tianqiong and Sichuan Zhixin Ruijie all appear in US or partner records, and the FBI says the MSS and MPS "weaponize" InfoSec companies (Confirmed [19][21][28][35][42][47][48][49][44][53]).
-- **Edge devices are the front door.** Exploit Public-Facing Application (T1190) is named in five of the six advisories whose technique lists this study verified, and it holds at 10 of the 15 groups this study profiles most closely while phishing falls to 6 of 15 in that set (Confirmed [29][31][33][37][97][3]; the reading of the shift is Inferred).
-- **Pre-positioning is the new mission.** Ten agencies in five countries assessed with high confidence that Volt Typhoon is pre-positioning to disrupt OT in Communications, Energy, Transportation and Water (Confirmed [33]). Microsoft's earlier view was moderate confidence on intent (Confirmed [62]).
+- **Edge devices are the front door.** Exploit Public-Facing Application (T1190) is named in all six advisories whose technique lists this study verified, and it holds at 10 of the 15 groups this study profiles most closely while phishing falls to 6 of 15 in that set (Confirmed [29][31][33][37][97][53][3]; the reading of the shift is Inferred).
+- **Pre-positioning is the new mission.** The US agencies that wrote AA24-038A (CISA, NSA, FBI and their US co-authors) assessed with high confidence that Volt Typhoon is pre-positioning to disrupt OT in Communications, Energy, Transportation and Water, in an advisory co-released with partners in Australia, Canada, the UK and New Zealand (Confirmed [33]). Microsoft's earlier view was moderate confidence on intent (Confirmed [62]).
 - **Healthcare is a recurring target, mostly for intellectual property and identity data.** The record runs from Anthem and Community Health Systems (2014) through Ebola research theft and the targeting of HIV and COVID-19 research, to UNC6508's medical research campaign (2023 to 2025) and the Healthcare and Public Health sector named in AA26-281A (October 2026) (Confirmed [23][56][87][26][78][80]).
 - **Names do not line up, and the disagreements are on the record.** The FBI lists Silk Typhoon as a name for the APT27 actors Yin Kecheng and Zhou Shuai; ATT&CK and Microsoft file Silk Typhoon under HAFNIUM; Google says UNC5221 is not Silk Typhoon while Microsoft lists under Silk Typhoon CVE-2025-0282, which Mandiant attributes to UNC5221 (Confirmed [48][1][68][69][70]).
 - **Some of the biggest names have no ATT&CK object.** Flax Typhoon, Storm-0558, UNC5221 (now ARMORY CASTLE), UNC2814, UNC6508 and Storm-2603 have no group page in the library; Microsoft's Linen Typhoon and Violet Typhoon are filed as aliases of G0027 Threat Group-3390 and G0128 ZIRCONIUM (Confirmed [1][6]).
@@ -113,7 +113,7 @@ This study covers threat actors that governments or the ATT&CK knowledge base at
 
 **Attribution language.** Each attribution is given in the source's own words: "almost certain", "highly likely", "high confidence", "moderate confidence", "suspected", "consistent with" and "linked to" are carried through. Where two sources disagree, the study says so in the text and in Cross-cutting themes.
 
-**Home studies.** APT41 has its own companion study, APT41: The Public Record; this study summarizes it in one paragraph. The 2025 SharePoint exploitation is covered in [The SharePoint ToolShell Mass Exploitation](/case-studies/SHAREPOINT_TOOLSHELL_2025.md), and the 2021 Exchange mass exploitation in Operation Exchange Marauder.
+**Home studies.** APT41 has its own companion study, [APT41: The Public Record](/case-studies/APT41_PUBLIC_RECORD.md); this study summarizes it in one paragraph. The 2025 SharePoint exploitation is covered in [The SharePoint ToolShell Mass Exploitation](/case-studies/SHAREPOINT_TOOLSHELL_2025.md), and the 2021 Exchange mass exploitation in [Operation Exchange Marauder](/case-studies/EXCHANGE_MARAUDER_2021.md).
 
 **Tradecraft level.** Behavior is described at the level the advisories use: technique names and ATT&CK ids. No commands, payloads or exploit details are reproduced.
 
@@ -351,15 +351,15 @@ Threat Group-3390 (APT27, Emissary Panda, LuckyMouse, Linen Typhoon) is known fo
 
 Microsoft attributed exploitation of four Exchange Server zero-days (CVE-2021-26855, CVE-2021-26857, CVE-2021-26858 and CVE-2021-27065) with high confidence to HAFNIUM on 2 March 2021, naming infectious disease researchers, law firms, higher education, defense contractors, think tanks and NGOs as targets (Confirmed [59]). On 19 July 2021 the US, joined by the EU, UK and NATO, attributed the campaign with a high degree of confidence to MSS-affiliated actors (Confirmed [60]); NCSC called it "almost certain" a Chinese state-backed actor was behind it (Confirmed [30]). The 2025 arrest of Xu Zewei in Milan connects the campaign to a named contractor: DOJ says the Shanghai SSB directed Xu, who worked at Shanghai Powerock, from February 2020 to June 2021, and the FBI says over 60,000 US entities were targeted and more than 12,700 victimized (Confirmed [52]). In March 2025 Microsoft described Silk Typhoon, its current name for HAFNIUM, abusing stolen API keys and credentials of IT providers since late 2024 to reach downstream tenants, with healthcare among the targets (Confirmed [69]).
 
-The 2021 Exchange mass exploitation is covered in its own study, Operation Exchange Marauder; this section summarizes the actor record only.
+The 2021 Exchange mass exploitation is covered in its own study, [Operation Exchange Marauder](/case-studies/EXCHANGE_MARAUDER_2021.md); this section summarizes the actor record only.
 
 ### APT41 (G0096): summary of the home study
 
-APT41 (Wicked Panda, Brass Typhoon, BARIUM) is assessed by researchers, per ATT&CK, as a Chinese state-sponsored espionage group that also runs financially motivated operations, active since at least 2012 and targeting industries including healthcare in 14 countries, with 82 techniques, 32 software and campaigns [C0017](/mitre/campaigns/C0017.md) (May 2021 to February 2022) and [C0040 APT41 DUST](/mitre/campaigns/C0040.md) (January 2023 to June 2024) (Confirmed [9]). DOJ charged five PRC nationals and two Malaysian businessmen in September 2020 over more than 100 victims (Confirmed [27]), and HC3 lists its health-sector attacks from 2014 to 2022 (Confirmed [86]). The full record, tooling and timeline are in APT41: The Public Record.
+APT41 (Wicked Panda, Brass Typhoon, BARIUM) is assessed by researchers, per ATT&CK, as a Chinese state-sponsored espionage group that also runs financially motivated operations, active since at least 2012 and targeting industries including healthcare in 14 countries, with 82 techniques, 32 software and campaigns [C0017](/mitre/campaigns/C0017.md) (May 2021 to February 2022) and [C0040 APT41 DUST](/mitre/campaigns/C0040.md) (January 2023 to June 2024) (Confirmed [9]). DOJ charged five PRC nationals and two Malaysian businessmen in September 2020 over more than 100 victims (Confirmed [27]), and HC3 lists its health-sector attacks from 2014 to 2022 (Confirmed [86]). The full record, tooling and timeline are in [APT41: The Public Record](/case-studies/APT41_PUBLIC_RECORD.md).
 
 ### Volt Typhoon and pre-positioning (G1017)
 
-Microsoft introduced Volt Typhoon on 24 May 2023 as a China-based state-sponsored actor active since mid-2021, targeting US critical infrastructure including Guam, and assessed with moderate confidence that it was developing capabilities to disrupt US-Asia communications in a crisis (Confirmed [62]). Initial access came through internet-facing Fortinet FortiGuard devices, and traffic was proxied through compromised ASUS, Cisco, D-Link, NETGEAR and Zyxel SOHO devices (Confirmed [62]). AA23-144A, from NSA, CISA, FBI and the Five Eyes, described the same actor living off the land (Confirmed [31]). In December 2023 a court-authorized operation removed KV Botnet malware from hundreds of US SOHO routers, mostly end-of-life Cisco and NetGear devices, and FBI Director Wray described the activity as pre-positioning to cause harm in a conflict (Confirmed [32]). AA24-038A, from ten agencies in five countries, then assessed with high confidence that Volt Typhoon is pre-positioning on IT networks to reach and disrupt OT in Communications, Energy, Transportation and Water, with some footholds held at least five years; it names CVE-2022-42475 on a FortiGate 300D among the entry points (Confirmed [33]). ATT&CK records campaigns [C0035 KV Botnet Activity](/mitre/campaigns/C0035.md) and [C0039 Versa Director Zero Day Exploitation](/mitre/campaigns/C0039.md) and software including [S1144 FRP](/mitre/software/S1144.md) and [S1154 VersaMem](/mitre/software/S1154.md) (Confirmed [10]).
+Microsoft introduced Volt Typhoon on 24 May 2023 as a China-based state-sponsored actor active since mid-2021, targeting US critical infrastructure including Guam, and assessed with moderate confidence that it was developing capabilities to disrupt US-Asia communications in a crisis (Confirmed [62]). Initial access came through internet-facing Fortinet FortiGuard devices, and traffic was proxied through compromised ASUS, Cisco, D-Link, NETGEAR and Zyxel SOHO devices (Confirmed [62]). AA23-144A, from NSA, CISA, FBI and the Five Eyes, described the same actor living off the land (Confirmed [31]). In December 2023 a court-authorized operation removed KV Botnet malware from hundreds of US SOHO routers, mostly end-of-life Cisco and NetGear devices, and FBI Director Wray described the activity as pre-positioning to cause harm in a conflict (Confirmed [32]). AA24-038A, written by CISA, NSA, FBI and their US co-authors and co-released with partners in Australia, Canada, the UK and New Zealand, then gave the US authoring agencies' assessment, with high confidence, that Volt Typhoon is pre-positioning on IT networks to reach and disrupt OT in Communications, Energy, Transportation and Water, with some footholds held at least five years; it names CVE-2022-42475 on a FortiGate 300D among the entry points (Confirmed [33]). ATT&CK records campaigns [C0035 KV Botnet Activity](/mitre/campaigns/C0035.md) and [C0039 Versa Director Zero Day Exploitation](/mitre/campaigns/C0039.md) and software including [S1144 FRP](/mitre/software/S1144.md) and [S1154 VersaMem](/mitre/software/S1154.md) (Confirmed [10]).
 
 ### Salt Typhoon and the telecoms (G1045)
 
@@ -412,7 +412,7 @@ The ATT&CK binding for the HC3 names: [G0026 APT18](/mitre/groups/G0026.md), [G0
 | Sep 2012 to Jul 2015 | APT40 overt acts: malware on a school-of-medicine system (Sep 2012) and on Research Facility A's Ebola program (Nov 2012, 25 Jul 2014); in 2015 the conspirators sought information on tularemia, Marburg vaccine, Ebola, US national health security and HIV/AIDS strategies | [G0065](/mitre/groups/G0065.md) | Confirmed | [87] |
 | Feb 2014 to Jan 2015 | Anthem: about 78.8 million people's records, including health identification numbers and Social Security numbers; DOJ and the FBI allege a China-based hacking group but no state direction | [G0009](/mitre/groups/G0009.md) per ATT&CK | Confirmed | [23][89][1] |
 | Apr and Jun 2014 | Community Health Systems: names, addresses, birthdates, phone numbers and SSNs of about 4.5 million people, no medical, clinical or card data; attributed to an APT group originating from China | No group in the filing; APT18 per HC3 | Confirmed (filing); APT18 Reported | [56][83] |
-| Jul 2014 to 2022 | APT41 health-sector attacks: a medical devices subsidiary (2014 to 2016), a biotech being acquired (2015), a cancer-research center (2018), Citrix, Zoho and Cisco exploitation in health (2021), at least USD 20 million in COVID relief funds (2022) | [G0096](/mitre/groups/G0096.md); home study | Confirmed (HC3) | [86] |
+| Jul 2014 to 2022 | APT41 health-sector attacks: a medical devices subsidiary (2014 to 2016), a biotech being acquired (2015), a cancer-research center (2018), Citrix, Zoho and Cisco exploitation in health (2021), at least USD 20 million in COVID relief funds (2022) | [G0096](/mitre/groups/G0096.md); [home study](/case-studies/APT41_PUBLIC_RECORD.md) | Confirmed (HC3) | [86] |
 | Apr 2019 | Suspected Chinese espionage actors target a US cancer-research health center | Unnamed; APT41 and APT22 earlier | Confirmed (HC3) | [83] |
 | Jan to Jun 2020 | Li Xiaoyu and Dong Jiazhi: a Maryland biotech announcing COVID-19 vaccine work (Jan), a California biotech on COVID-19 antivirals (Feb), a California diagnostics firm making COVID-19 test kits (May), a Massachusetts cancer-treatment biotech (Jun) | No ATT&CK binding | Confirmed | [26][83] |
 | Feb 2020 | Xu Zewei targets COVID-19 research mailboxes at a Texas university; press add immunologists and virologists | [G0125](/mitre/groups/G0125.md) | Confirmed (DOJ); detail Reported | [52][91] |
@@ -431,7 +431,7 @@ The ATT&CK binding for the HC3 names: [G0026 APT18](/mitre/groups/G0026.md), [G0
 
 ### What the record does not show
 
-Volt Typhoon, the actor most associated with disruption, does not list healthcare among its primary sectors: AA24-038A names Communications, Energy, Transportation Systems and Water and Wastewater (Confirmed [33]). Salt Typhoon targets telecommunications, government, transportation, lodging and military networks (Confirmed [53]). No source in this study attributes a disruptive or ransomware attack on a hospital to a Chinese state actor; the healthcare record is theft of research, identity data and mail (Inferred from [1][23][56][78][86]). The 2024 Change Healthcare ransomware attack, a criminal operation, is covered in its own study, Change Healthcare 2024. Sichuan Silence's plan to deploy ransomware if victims remediated, and Cinnamon Tempest's Babuk-derived ransomware, show the capability exists in the ecosystem (Confirmed [42][1]).
+Volt Typhoon, the actor most associated with disruption, does not list healthcare among its primary sectors: AA24-038A names Communications, Energy, Transportation Systems and Water and Wastewater (Confirmed [33]). Salt Typhoon targets telecommunications, government, transportation, lodging and military networks (Confirmed [53]). No source in this study attributes a disruptive or ransomware attack on a hospital to a Chinese state actor; the healthcare record is theft of research, identity data and mail (Inferred from [1][23][56][78][86]). The 2024 Change Healthcare ransomware attack, a criminal operation, is covered in its own study, [Change Healthcare 2024](/case-studies/CHANGE_HEALTHCARE_2024.md). Sichuan Silence's plan to deploy ransomware if victims remediated, and Cinnamon Tempest's Babuk-derived ransomware, show the capability exists in the ecosystem (Confirmed [42][1]).
 
 ### The healthcare defender's watch list
 
@@ -440,7 +440,7 @@ Ranked by how recent and how health-specific the primary record is (Inferred ran
 1. **UNC6508** for medical research institutions, academic medical centers, military health and regulators: REDCap and other research applications, credential capture, mail rule abuse [78].
 2. **Actors enabled by Integrity Technology Group (Flax Typhoon and related)** for US HPH organizations: automated scanning and covert device networks [80][76].
 3. **Silk Typhoon (HAFNIUM)** for any hospital that relies on an IT provider, MSP or RMM tool: stolen API keys and provider credentials [69].
-4. **APT41** for medical devices, biotech and pharmaceuticals, per HC3 and its home study [86].
+4. **APT41** for medical devices, biotech and pharmaceuticals, per HC3 and its [home study](/case-studies/APT41_PUBLIC_RECORD.md) [86].
 5. **APT40** for biomedical and infectious disease research [87][37].
 6. **APT27 and the brokers (Yin, Zhou, i-Soon)** for health systems, especially university-affiliated ones [47][49].
 
@@ -448,7 +448,7 @@ Ranked by how recent and how health-specific the primary record is (Inferred ran
 
 ### Shared software
 
-ATT&CK's software records show a shared toolkit across the China-attributed groups, dominated by built-in Windows tools and a few long-lived malware families (Confirmed [3]):
+ATT&CK's software records show a shared toolkit across the China-attributed groups, dominated by built-in Windows tools and a few long-lived malware families. The table lists every software object ATT&CK v20.0 records for six or more of the 46 groups (Confirmed [3]):
 
 | Software | Type | Groups (of 46) | Notes |
 |---|---|---|---|
@@ -459,10 +459,13 @@ ATT&CK's software records show a shared toolkit across the China-attributed grou
 | [S0012 PoisonIvy](/mitre/software/S0012.md) | Malware | 11 | |
 | [S0057 Tasklist](/mitre/software/S0057.md) | Tool | 9 | Built-in |
 | [S0029 PsExec](/mitre/software/S0029.md) | Tool | 8 | |
+| [S0097 Ping](/mitre/software/S0097.md) | Tool | 8 | Built-in |
+| [S0100 ipconfig](/mitre/software/S0100.md) | Tool | 8 | Built-in |
 | [S0032 gh0st RAT](/mitre/software/S0032.md) | Malware | 7 | |
 | [S0357 Impacket](/mitre/software/S0357.md) | Tool | 7 | |
 | [S0596 ShadowPad](/mitre/software/S0596.md) | Malware | 7 | |
 | [S0020 China Chopper](/mitre/software/S0020.md) | Malware | 6 | Web shell |
+| [S0104 netstat](/mitre/software/S0104.md) | Tool | 6 | Built-in |
 
 Volt Typhoon's ATT&CK record adds [S0108 netsh](/mitre/software/S0108.md), [S0359 Nltest](/mitre/software/S0359.md) and [S0645 Wevtutil](/mitre/software/S0645.md), all built in, plus FRP and VersaMem (Confirmed [10]). Salt Typhoon's single software entry is JumbledPath (Confirmed [12]). BRICKSTORM is in ATT&CK as [S9015](/mitre/software/S9015.md), with no group attached (Confirmed [3]). The vendor reports name further families with no ATT&CK object in the library data: GRIDTIDE, INFINITERED, SAWFLY and BARECLAW, and the TINYSHELL-based Juniper backdoors (Confirmed [70][75][78][82][71]).
 
@@ -563,28 +566,36 @@ Each id below is named in at least one joint government advisory on PRC actors a
 | [T1595.002](/mitre/techniques/T1595-002.md) | Vulnerability Scanning | Reconnaissance | AA22-158A (PRC actors, network devices, 7 Jun 2022) | [97] |
 | [T1584.005](/mitre/techniques/T1584-005.md) | Botnet | Resource Development | AA24-038A (Volt Typhoon, 7 Feb 2024) | [33] |
 | [T1584.008](/mitre/techniques/T1584-008.md) | Network Devices | Resource Development | AA24-190A (APT40, 8 Jul 2024); AA25-239A (Salt Typhoon cluster, 27 Aug 2025) | [37][53] |
+| [T1588.002](/mitre/techniques/T1588-002.md) | Tool | Resource Development | AA25-239A (Salt Typhoon cluster, 27 Aug 2025) | [53] |
 | [T1078](/mitre/techniques/T1078.md) | Valid Accounts | Stealth, Persistence, Privilege Escalation, Initial Access | AA21-200A (APT40, 19 Jul 2021); AA24-038A (Volt Typhoon, 7 Feb 2024) | [29][33] |
 | [T1078.002](/mitre/techniques/T1078-002.md) | Domain Accounts | Stealth, Persistence, Privilege Escalation, Initial Access | AA24-190A (APT40, 8 Jul 2024) | [37] |
 | [T1133](/mitre/techniques/T1133.md) | External Remote Services | Persistence, Initial Access | AA21-200A (APT40, 19 Jul 2021); AA22-158A (PRC actors, network devices, 7 Jun 2022); AA24-038A (Volt Typhoon, 7 Feb 2024) | [29][97][33] |
 | [T1189](/mitre/techniques/T1189.md) | Drive-by Compromise | Initial Access | AA21-200A (APT40, 19 Jul 2021) | [29] |
-| [T1190](/mitre/techniques/T1190.md) | Exploit Public-Facing Application | Initial Access | AA21-200A (APT40, 19 Jul 2021); AA22-158A (PRC actors, network devices, 7 Jun 2022); AA23-144A (Volt Typhoon, 24 May 2023); AA24-038A (Volt Typhoon, 7 Feb 2024); AA24-190A (APT40, 8 Jul 2024) | [29][97][31][33][37] |
+| [T1190](/mitre/techniques/T1190.md) | Exploit Public-Facing Application | Initial Access | AA21-200A (APT40, 19 Jul 2021); AA22-158A (PRC actors, network devices, 7 Jun 2022); AA23-144A (Volt Typhoon, 24 May 2023); AA24-038A (Volt Typhoon, 7 Feb 2024); AA24-190A (APT40, 8 Jul 2024); AA25-239A (Salt Typhoon cluster, 27 Aug 2025) | [29][97][31][33][37][53] |
 | [T1199](/mitre/techniques/T1199.md) | Trusted Relationship | Initial Access | AA25-239A (Salt Typhoon cluster, 27 Aug 2025) | [53] |
 | [T1566.001](/mitre/techniques/T1566-001.md) | Spearphishing Attachment | Initial Access | AA21-200A (APT40, 19 Jul 2021) | [29] |
 | [T1566.002](/mitre/techniques/T1566-002.md) | Spearphishing Link | Initial Access | AA21-200A (APT40, 19 Jul 2021) | [29] |
 | [T1047](/mitre/techniques/T1047.md) | Windows Management Instrumentation | Execution | AA23-144A (Volt Typhoon, 24 May 2023); AA24-038A (Volt Typhoon, 7 Feb 2024) | [31][33] |
+| [T1053.005](/mitre/techniques/T1053-005.md) | Scheduled Task | Execution, Persistence, Privilege Escalation | AA24-190A (APT40, 8 Jul 2024) | [37] |
 | [T1059.001](/mitre/techniques/T1059-001.md) | PowerShell | Execution | AA23-144A (Volt Typhoon, 24 May 2023); AA24-038A (Volt Typhoon, 7 Feb 2024) | [31][33] |
 | [T1059.003](/mitre/techniques/T1059-003.md) | Windows Command Shell | Execution | AA23-144A (Volt Typhoon, 24 May 2023) | [31] |
 | [T1059.008](/mitre/techniques/T1059-008.md) | Network Device CLI | Execution | AA25-239A (Salt Typhoon cluster, 27 Aug 2025) | [53] |
 | [T1072](/mitre/techniques/T1072.md) | Software Deployment Tools | Execution, Lateral Movement | AA24-190A (APT40, 8 Jul 2024) | [37] |
+| [T1203](/mitre/techniques/T1203.md) | Exploitation for Client Execution | Execution | AA21-200A (APT40, 19 Jul 2021); AA24-190A (APT40, 8 Jul 2024) | [29][37] |
+| [T1204.002](/mitre/techniques/T1204-002.md) | Malicious File | Execution | AA21-200A (APT40, 19 Jul 2021); AA24-190A (APT40, 8 Jul 2024) | [29][37] |
+| [T1574.001](/mitre/techniques/T1574-001.md) | DLL | Stealth, Execution | AA24-190A (APT40, 8 Jul 2024) | [37] |
 | [T1609](/mitre/techniques/T1609.md) | Container Administration Command | Execution | AA25-239A (Salt Typhoon cluster, 27 Aug 2025) | [53] |
 | [T1610](/mitre/techniques/T1610.md) | Deploy Container | Execution | AA25-239A (Salt Typhoon cluster, 27 Aug 2025) | [53] |
 | [T1098.004](/mitre/techniques/T1098-004.md) | SSH Authorized Keys | Persistence, Privilege Escalation | AA25-239A (Salt Typhoon cluster, 27 Aug 2025) | [53] |
 | [T1505.003](/mitre/techniques/T1505-003.md) | Web Shell | Persistence | AA21-200A (APT40, 19 Jul 2021); AA23-144A (Volt Typhoon, 24 May 2023); AA24-190A (APT40, 8 Jul 2024) | [29][31][37] |
 | [T1543.005](/mitre/techniques/T1543-005.md) | Container Service | Persistence, Privilege Escalation | AA25-239A (Salt Typhoon cluster, 27 Aug 2025) | [53] |
+| [T1547.001](/mitre/techniques/T1547-001.md) | Registry Run Keys / Startup Folder | Persistence, Privilege Escalation | AA24-190A (APT40, 8 Jul 2024) | [37] |
 | [T1556](/mitre/techniques/T1556.md) | Modify Authentication Process | Defense Impairment, Persistence, Credential Access | AA25-239A (Salt Typhoon cluster, 27 Aug 2025) | [53] |
 | [T1006](/mitre/techniques/T1006.md) | Direct Volume Access | Stealth | AA24-038A (Volt Typhoon, 7 Feb 2024) | [33] |
 | [T1036.005](/mitre/techniques/T1036-005.md) | Match Legitimate Resource Name or Location | Stealth | AA24-038A (Volt Typhoon, 7 Feb 2024) | [33] |
+| [T1070.004](/mitre/techniques/T1070-004.md) | File Deletion | Stealth | AA24-038A (Volt Typhoon, 7 Feb 2024); AA24-190A (APT40, 8 Jul 2024) | [33][37] |
 | [T1070.009](/mitre/techniques/T1070-009.md) | Clear Persistence | Stealth | AA24-038A (Volt Typhoon, 7 Feb 2024) | [33] |
+| [T1140](/mitre/techniques/T1140.md) | Deobfuscate/Decode Files or Information | Stealth | AA24-190A (APT40, 8 Jul 2024) | [37] |
 | [T1218](/mitre/techniques/T1218.md) | System Binary Proxy Execution | Stealth | AA24-038A (Volt Typhoon, 7 Feb 2024) | [33] |
 | [T1599](/mitre/techniques/T1599.md) | Network Boundary Bridging | Defense Impairment | AA22-158A (PRC actors, network devices, 7 Jun 2022); AA25-239A (Salt Typhoon cluster, 27 Aug 2025) | [97][53] |
 | [T1685.005](/mitre/techniques/T1685-005.md) | Clear Windows Event Logs (reported as T1070.001, revoked in v20.0) | Defense Impairment | AA23-144A (Volt Typhoon, 24 May 2023); AA24-038A (Volt Typhoon, 7 Feb 2024) | [31][33][4] |
@@ -599,21 +610,32 @@ Each id below is named in at least one joint government advisory on PRC actors a
 | [T1539](/mitre/techniques/T1539.md) | Steal Web Session Cookie | Credential Access | AA24-190A (APT40, 8 Jul 2024) | [37] |
 | [T1555](/mitre/techniques/T1555.md) | Credentials from Password Stores | Credential Access | AA23-144A (Volt Typhoon, 24 May 2023) | [31] |
 | [T1558.003](/mitre/techniques/T1558-003.md) | Kerberoasting | Credential Access | AA24-190A (APT40, 8 Jul 2024) | [37] |
+| [T1016](/mitre/techniques/T1016.md) | System Network Configuration Discovery | Discovery | AA23-144A (Volt Typhoon, 24 May 2023); AA24-038A (Volt Typhoon, 7 Feb 2024); AA25-239A (Salt Typhoon cluster, 27 Aug 2025) | [31][33][53] |
+| [T1018](/mitre/techniques/T1018.md) | Remote System Discovery | Discovery | AA24-190A (APT40, 8 Jul 2024) | [37] |
+| [T1033](/mitre/techniques/T1033.md) | System Owner/User Discovery | Discovery | AA23-144A (Volt Typhoon, 24 May 2023); AA24-038A (Volt Typhoon, 7 Feb 2024); AA24-190A (APT40, 8 Jul 2024) | [31][33][37] |
+| [T1046](/mitre/techniques/T1046.md) | Network Service Discovery | Discovery | AA24-038A (Volt Typhoon, 7 Feb 2024); AA24-190A (APT40, 8 Jul 2024) | [33][37] |
+| [T1049](/mitre/techniques/T1049.md) | System Network Connections Discovery | Discovery | AA24-190A (APT40, 8 Jul 2024) | [37] |
+| [T1057](/mitre/techniques/T1057.md) | Process Discovery | Discovery | AA24-038A (Volt Typhoon, 7 Feb 2024); AA24-190A (APT40, 8 Jul 2024) | [33][37] |
 | [T1069.001](/mitre/techniques/T1069-001.md) | Local Groups | Discovery | AA23-144A (Volt Typhoon, 24 May 2023) | [31] |
 | [T1069.002](/mitre/techniques/T1069-002.md) | Domain Groups | Discovery | AA23-144A (Volt Typhoon, 24 May 2023) | [31] |
+| [T1082](/mitre/techniques/T1082.md) | System Information Discovery | Discovery | AA23-144A (Volt Typhoon, 24 May 2023); AA24-038A (Volt Typhoon, 7 Feb 2024); AA24-190A (APT40, 8 Jul 2024); AA25-239A (Salt Typhoon cluster, 27 Aug 2025) | [31][33][37][53] |
+| [T1083](/mitre/techniques/T1083.md) | File and Directory Discovery | Discovery | AA24-038A (Volt Typhoon, 7 Feb 2024); AA24-190A (APT40, 8 Jul 2024) | [33][37] |
 | [T1654](/mitre/techniques/T1654.md) | Log Enumeration | Discovery | AA24-038A (Volt Typhoon, 7 Feb 2024) | [33] |
 | [T1021.001](/mitre/techniques/T1021-001.md) | Remote Desktop Protocol | Lateral Movement | AA24-038A (Volt Typhoon, 7 Feb 2024) | [33] |
 | [T1021.002](/mitre/techniques/T1021-002.md) | SMB/Windows Admin Shares | Lateral Movement | AA24-190A (APT40, 8 Jul 2024) | [37] |
 | [T1021.007](/mitre/techniques/T1021-007.md) | Cloud Services | Lateral Movement | AA24-038A (Volt Typhoon, 7 Feb 2024) | [33] |
 | [T1563.002](/mitre/techniques/T1563-002.md) | RDP Hijacking | Lateral Movement | AA24-190A (APT40, 8 Jul 2024) | [37] |
+| [T1005](/mitre/techniques/T1005.md) | Data from Local System | Collection | AA24-190A (APT40, 8 Jul 2024); AA25-239A (Salt Typhoon cluster, 27 Aug 2025) | [37][53] |
 | [T1560](/mitre/techniques/T1560.md) | Archive Collected Data | Collection | AA21-200A (APT40, 19 Jul 2021) | [29] |
 | [T1560.001](/mitre/techniques/T1560-001.md) | Archive via Utility | Collection | AA24-038A (Volt Typhoon, 7 Feb 2024) | [33] |
 | [T1602.001](/mitre/techniques/T1602-001.md) | SNMP (MIB Dump) | Collection | AA25-239A (Salt Typhoon cluster, 27 Aug 2025) | [53] |
 | [T1602.002](/mitre/techniques/T1602-002.md) | Network Device Configuration Dump | Collection | AA25-239A (Salt Typhoon cluster, 27 Aug 2025) | [53] |
 | [T1001.003](/mitre/techniques/T1001-003.md) | Protocol or Service Impersonation | Command and Control | AA24-190A (APT40, 8 Jul 2024) | [37] |
+| [T1071.001](/mitre/techniques/T1071-001.md) | Web Protocols | Command and Control | AA24-190A (APT40, 8 Jul 2024) | [37] |
 | [T1090.001](/mitre/techniques/T1090-001.md) | Internal Proxy | Command and Control | AA24-038A (Volt Typhoon, 7 Feb 2024) | [33] |
 | [T1090.002](/mitre/techniques/T1090-002.md) | External Proxy | Command and Control | AA23-144A (Volt Typhoon, 24 May 2023) | [31] |
 | [T1090.003](/mitre/techniques/T1090-003.md) | Multi-hop Proxy | Command and Control | AA21-200A (APT40, 19 Jul 2021); AA24-038A (Volt Typhoon, 7 Feb 2024); AA25-239A (Salt Typhoon cluster, 27 Aug 2025) | [29][33][53] |
+| [T1105](/mitre/techniques/T1105.md) | Ingress Tool Transfer | Command and Control | AA24-038A (Volt Typhoon, 7 Feb 2024); AA24-190A (APT40, 8 Jul 2024) | [33][37] |
 | [T1572](/mitre/techniques/T1572.md) | Protocol Tunneling | Command and Control | AA21-200A (APT40, 19 Jul 2021); AA22-158A (PRC actors, network devices, 7 Jun 2022); AA25-239A (Salt Typhoon cluster, 27 Aug 2025) | [29][97][53] |
 | [T1020.001](/mitre/techniques/T1020-001.md) | Traffic Duplication | Exfiltration | AA22-158A (PRC actors, network devices, 7 Jun 2022) | [97] |
 | [T1041](/mitre/techniques/T1041.md) | Exfiltration Over C2 Channel | Exfiltration | AA21-200A (APT40, 19 Jul 2021); AA24-190A (APT40, 8 Jul 2024) | [29][37] |
@@ -621,39 +643,39 @@ Each id below is named in at least one joint government advisory on PRC actors a
 
 ### ATT&CK Enterprise techniques most shared across China-attributed groups
 
-ATT&CK v20.0 records 320 distinct Enterprise techniques across the 46 groups (Scarlet Mimic set aside); this table gives the 30 most shared, with the number of groups and whether a verified advisory names the same id (Confirmed [3]; names and tactics [101]). The counts reflect how much has been reported about each group, not how often each technique is used (Inferred [3]).
+ATT&CK v20.0 records 320 distinct Enterprise techniques across the 46 groups (Scarlet Mimic set aside); this table gives the 30 most shared, with the number of groups and whether a verified advisory names the same id (Confirmed [3]; names and tactics [101]). All 30 are named in at least one of the six advisories and appear in the table above (Confirmed [29][31][33][37][53]). The counts reflect how much has been reported about each group, not how often each technique is used (Inferred [3]).
 
 | Rank | Id | Name | Tactic (v20.0) | Groups | In an advisory above |
 |---|---|---|---|---|---|
-| 1 | [T1105](/mitre/techniques/T1105.md) | Ingress Tool Transfer | Command and Control | 23 | no |
+| 1 | [T1105](/mitre/techniques/T1105.md) | Ingress Tool Transfer | Command and Control | 23 | yes |
 | 2 | [T1059.001](/mitre/techniques/T1059-001.md) | PowerShell | Execution | 21 | yes |
-| 3 | [T1588.002](/mitre/techniques/T1588-002.md) | Tool | Resource Development | 21 | no |
+| 3 | [T1588.002](/mitre/techniques/T1588-002.md) | Tool | Resource Development | 21 | yes |
 | 4 | [T1059.003](/mitre/techniques/T1059-003.md) | Windows Command Shell | Execution | 20 | yes |
-| 5 | [T1204.002](/mitre/techniques/T1204-002.md) | Malicious File | Execution | 19 | no |
+| 5 | [T1204.002](/mitre/techniques/T1204-002.md) | Malicious File | Execution | 19 | yes |
 | 6 | [T1566.001](/mitre/techniques/T1566-001.md) | Spearphishing Attachment | Initial Access | 19 | yes |
-| 7 | [T1016](/mitre/techniques/T1016.md) | System Network Configuration Discovery | Discovery | 18 | no |
-| 8 | [T1574.001](/mitre/techniques/T1574-001.md) | DLL | Stealth, Execution | 18 | no |
-| 9 | [T1018](/mitre/techniques/T1018.md) | Remote System Discovery | Discovery | 17 | no |
+| 7 | [T1016](/mitre/techniques/T1016.md) | System Network Configuration Discovery | Discovery | 18 | yes |
+| 8 | [T1574.001](/mitre/techniques/T1574-001.md) | DLL | Stealth, Execution | 18 | yes |
+| 9 | [T1018](/mitre/techniques/T1018.md) | Remote System Discovery | Discovery | 17 | yes |
 | 10 | [T1190](/mitre/techniques/T1190.md) | Exploit Public-Facing Application | Initial Access | 17 | yes |
 | 11 | [T1003.001](/mitre/techniques/T1003-001.md) | LSASS Memory | Credential Access | 16 | yes |
-| 12 | [T1083](/mitre/techniques/T1083.md) | File and Directory Discovery | Discovery | 16 | no |
+| 12 | [T1083](/mitre/techniques/T1083.md) | File and Directory Discovery | Discovery | 16 | yes |
 | 13 | [T1560.001](/mitre/techniques/T1560-001.md) | Archive via Utility | Collection | 16 | yes |
-| 14 | [T1005](/mitre/techniques/T1005.md) | Data from Local System | Collection | 15 | no |
+| 14 | [T1005](/mitre/techniques/T1005.md) | Data from Local System | Collection | 15 | yes |
 | 15 | [T1036.005](/mitre/techniques/T1036-005.md) | Match Legitimate Resource Name or Location | Stealth | 15 | yes |
-| 16 | [T1203](/mitre/techniques/T1203.md) | Exploitation for Client Execution | Execution | 15 | no |
-| 17 | [T1033](/mitre/techniques/T1033.md) | System Owner/User Discovery | Discovery | 14 | no |
+| 16 | [T1203](/mitre/techniques/T1203.md) | Exploitation for Client Execution | Execution | 15 | yes |
+| 17 | [T1033](/mitre/techniques/T1033.md) | System Owner/User Discovery | Discovery | 14 | yes |
 | 18 | [T1047](/mitre/techniques/T1047.md) | Windows Management Instrumentation | Execution | 14 | yes |
-| 19 | [T1057](/mitre/techniques/T1057.md) | Process Discovery | Discovery | 14 | no |
+| 19 | [T1057](/mitre/techniques/T1057.md) | Process Discovery | Discovery | 14 | yes |
 | 20 | [T1078](/mitre/techniques/T1078.md) | Valid Accounts | Stealth, Persistence, Privilege Escalation, Initial Access | 14 | yes |
-| 21 | [T1049](/mitre/techniques/T1049.md) | System Network Connections Discovery | Discovery | 13 | no |
-| 22 | [T1070.004](/mitre/techniques/T1070-004.md) | File Deletion | Stealth | 13 | no |
-| 23 | [T1071.001](/mitre/techniques/T1071-001.md) | Web Protocols | Command and Control | 13 | no |
-| 24 | [T1547.001](/mitre/techniques/T1547-001.md) | Registry Run Keys / Startup Folder | Persistence, Privilege Escalation | 13 | no |
+| 21 | [T1049](/mitre/techniques/T1049.md) | System Network Connections Discovery | Discovery | 13 | yes |
+| 22 | [T1070.004](/mitre/techniques/T1070-004.md) | File Deletion | Stealth | 13 | yes |
+| 23 | [T1071.001](/mitre/techniques/T1071-001.md) | Web Protocols | Command and Control | 13 | yes |
+| 24 | [T1547.001](/mitre/techniques/T1547-001.md) | Registry Run Keys / Startup Folder | Persistence, Privilege Escalation | 13 | yes |
 | 25 | [T1021.001](/mitre/techniques/T1021-001.md) | Remote Desktop Protocol | Lateral Movement | 12 | yes |
-| 26 | [T1082](/mitre/techniques/T1082.md) | System Information Discovery | Discovery | 12 | no |
-| 27 | [T1140](/mitre/techniques/T1140.md) | Deobfuscate/Decode Files or Information | Stealth | 12 | no |
-| 28 | [T1046](/mitre/techniques/T1046.md) | Network Service Discovery | Discovery | 11 | no |
-| 29 | [T1053.005](/mitre/techniques/T1053-005.md) | Scheduled Task | Execution, Persistence, Privilege Escalation | 11 | no |
+| 26 | [T1082](/mitre/techniques/T1082.md) | System Information Discovery | Discovery | 12 | yes |
+| 27 | [T1140](/mitre/techniques/T1140.md) | Deobfuscate/Decode Files or Information | Stealth | 12 | yes |
+| 28 | [T1046](/mitre/techniques/T1046.md) | Network Service Discovery | Discovery | 11 | yes |
+| 29 | [T1053.005](/mitre/techniques/T1053-005.md) | Scheduled Task | Execution, Persistence, Privilege Escalation | 11 | yes |
 | 30 | [T1566.002](/mitre/techniques/T1566-002.md) | Spearphishing Link | Initial Access | 11 | yes |
 
 In the 15 groups this study profiles most closely (G0004, G0006, G0022, G0027, G0045, G0065, G0096, G0125, G0128, G0129, G0143, G1017, G1023, G1045, G1048) the leaders are T1059.003 (13 groups), T1003.001 (12), T1105 (12), T1016 (11), T1560.001 (11), T1059.001 (11), T1005 (10) and T1190 (10), across 286 distinct techniques (Confirmed [3]). Spearphishing Attachment is recorded for 19 of the 46 groups in the full set but for only 6 of these 15, while T1190 holds at 10 of 15: the groups with recent advisories lean on edge and public-facing exploitation (Inferred [3]).
@@ -668,7 +690,7 @@ In the 15 groups this study profiles most closely (G0004, G0006, G0022, G0027, G
 | ZIRCONIUM (APT31) | [G0128](/mitre/groups/G0128.md) | Indictment, OFAC, UK, 2024; Czech attribution, 2025 | [34][35][36][50] |
 | Threat Group-3390 (APT27) | [G0027](/mitre/groups/G0027.md) | i-Soon and APT27 charges, OFAC, 2025 | [47][49] |
 | HAFNIUM (Silk Typhoon) | [G0125](/mitre/groups/G0125.md) | Microsoft, 2021 and 2025; US, UK attribution 2021; Xu Zewei, 2025 | [59][60][30][52][69] |
-| APT41 | [G0096](/mitre/groups/G0096.md) | Charges, 2020; home study | [27] |
+| APT41 | [G0096](/mitre/groups/G0096.md) | Charges, 2020; [home study](/case-studies/APT41_PUBLIC_RECORD.md) | [27] |
 | Volt Typhoon | [G1017](/mitre/groups/G1017.md) | AA23-144A, AA24-038A, KV Botnet disruption | [31][32][33] |
 | Salt Typhoon | [G1045](/mitre/groups/G1045.md) | FBI and CISA statement, OFAC, AA25-239A | [40][46][53] |
 | UNC3886 | [G1048](/mitre/groups/G1048.md) | Mandiant, 2025 | [71] |
@@ -727,38 +749,56 @@ CWE: the weakness class of each named CVE is set by its NVD record, and those re
 
 ### D3FEND countermeasures
 
-Three advisories map their mitigations to D3FEND: AA25-239A (Appendix C, D3FEND v1.2.0), AA22-158A and AA21-200B (Confirmed [53][97][93]). The table lists 22 of the 39 advisory-named countermeasures, the ones that have a library page, each with the techniques in this Part's advisory table that the library's `d3fend_countermeasures.jsonl` maps to it, where there are any (Confirmed [5]). Fifteen advisory-named countermeasures are absent: D3-PM Platform Monitoring, D3-NI Network Isolation, D3-NTA Network Traffic Analysis, D3-FCR, D3-PA, D3-SEA, D3-OSM, D3-FAPA, D3-UBA, D3-ANET, D3-JFAPA, D3-AH, D3-PH, D3-TAAN and D3-MAC are named by the advisories but absent from the library's D3FEND 1.6.0 data, so they are not linked (Confirmed [5]). AA21-200B itself cautions that its D3FEND mapping may not match automated mappings (Confirmed [93]).
+Three advisories map their mitigations to D3FEND: AA25-239A (Appendix C, D3FEND v1.2.0), AA22-158A and AA21-200B (Confirmed [53][97][93]). Together they name 55 distinct countermeasures, counting the D3-CFP that AA25-239A's rendered page prints for changing default passwords as the library's D3-CDP, and the one D3-SPA that AA21-200B prints against Process Spawn Analysis as D3-PSA, the id it uses elsewhere (Confirmed [53][93]). Forty of the 55 have a library page, and the table lists all 40: the ten named in AA25-239A or AA22-158A first, then the 30 that only AA21-200B names, which include D3-CSPP, D3-DA, D3-DQSA, D3-FA, D3-FC, D3-HD, D3-MENCR, D3-PHDURA, D3-PMAD, D3-SBV, D3-SCA, D3-SDM, D3-SFA, D3-SJA, D3-SMRA, D3-SRA and D3-UA. Each row gives the techniques in this Part's advisory table that the library's `d3fend_countermeasures.jsonl` maps to it, where there are any (Confirmed [5]). The other fifteen are absent from the library's D3FEND 1.6.0 data, so they are not linked: D3-PM Platform Monitoring, D3-NI Network Isolation, D3-NTA Network Traffic Analysis, D3-FCR, D3-PA, D3-SEA, D3-OSM, D3-FAPA, D3-UBA, D3-ANET, D3-JFAPA, D3-AH, D3-PH, D3-TAAN and D3-MAC (Confirmed [5]). AA21-200B itself cautions that its D3FEND mapping may not match automated mappings (Confirmed [93]).
 
 | Countermeasure | Id | D3FEND tactic | Named in | Library-mapped techniques from this study | Source |
 |---|---|---|---|---|---|
-| [Network Traffic Community Deviation](/mitre/d3fend/network-traffic-community-deviation.md) | D3-NTCD | Detect | AA25-239A | 15, including T1190, T1199, T1572, T1090.003, T1048.003 | [53][5] |
-| [Outbound Traffic Filtering](/mitre/d3fend/outbound-traffic-filtering.md) | D3-OTF | Isolate | AA25-239A, AA21-200B | T1048.003, T1090.002, T1090.003, T1572 | [53][93][5] |
-| [Application Configuration Hardening](/mitre/d3fend/application-configuration-hardening.md) | D3-ACH | Harden | AA25-239A | none in this set | [53][5] |
+| [Network Traffic Community Deviation](/mitre/d3fend/network-traffic-community-deviation.md) | D3-NTCD | Detect | AA25-239A | 18, including T1190, T1199, T1572, T1090.003, T1048.003 | [53][5] |
+| [Outbound Traffic Filtering](/mitre/d3fend/outbound-traffic-filtering.md) | D3-OTF | Isolate | AA25-239A, AA22-158A, AA21-200B | T1048.003, T1071.001, T1090.002, T1090.003, T1105, T1572 | [53][97][93][5] |
+| [Application Configuration Hardening](/mitre/d3fend/application-configuration-hardening.md) | D3-ACH | Harden | AA25-239A, AA22-158A | none in this set | [53][97][5] |
 | [Change Default Password](/mitre/d3fend/change-default-password.md) | D3-CDP | Harden | AA25-239A (the advisory's rendered page shows D3-CFP; the library id is D3-CDP) | T1078, T1078.002, T1110.003 | [53][5] |
 | [Credential Hardening](/mitre/d3fend/credential-hardening.md) | D3-CH | Harden | AA25-239A, AA21-200B | T1003.003, T1110.003, T1528, T1539 | [53][93][5] |
 | [Software Update](/mitre/d3fend/software-update.md) | D3-SU | Harden | AA25-239A, AA22-158A, AA21-200B | T1056.003, T1072 | [53][97][93][5] |
-| [Inbound Traffic Filtering](/mitre/d3fend/inbound-traffic-filtering.md) | D3-ITF | Isolate | AA25-239A, AA21-200B | T1190, T1566.001, T1566.002 | [53][93][5] |
+| [Inbound Traffic Filtering](/mitre/d3fend/inbound-traffic-filtering.md) | D3-ITF | Isolate | AA25-239A, AA22-158A, AA21-200B | T1190, T1566.001, T1566.002 | [53][97][93][5] |
 | [Multi-factor Authentication](/mitre/d3fend/multi-factor-authentication.md) | D3-MFA | Harden | AA22-158A, AA21-200B | T1003.003, T1110.003, T1528, T1539 | [97][93][5] |
 | [Strong Password Policy](/mitre/d3fend/strong-password-policy.md) | D3-SPP | Harden | AA22-158A | T1110.003 | [97][5] |
+| [User Account Permissions](/mitre/d3fend/user-account-permissions.md) | D3-UAP | Isolate | AA22-158A | T1078, T1078.002 | [97][5] |
 | [Connection Attempt Analysis](/mitre/d3fend/connection-attempt-analysis.md) | D3-CAA | Detect | AA21-200B | T1047, T1090.001, T1110.003, T1199 | [93][5] |
-| [Process Lineage Analysis](/mitre/d3fend/process-lineage-analysis.md) | D3-PLA | Detect | AA21-200B | T1003.001, T1505.003, T1556 | [93][5] |
-| [Process Spawn Analysis](/mitre/d3fend/process-spawn-analysis.md) | D3-PSA | Detect | AA21-200B | T1003.001, T1047, T1505.003, T1556 | [93][5] |
+| [Process Lineage Analysis](/mitre/d3fend/process-lineage-analysis.md) | D3-PLA | Detect | AA21-200B | T1003.001, T1033, T1053.005, T1505.003, T1556 | [93][5] |
+| [Process Spawn Analysis](/mitre/d3fend/process-spawn-analysis.md) | D3-PSA | Detect | AA21-200B | T1003.001, T1016, T1018, T1033, T1047, T1053.005, T1057, T1082, T1140, T1505.003, T1556 | [93][5] |
 | [Administrative Network Activity Analysis](/mitre/d3fend/administrative-network-activity-analysis.md) | D3-ANAA | Detect | AA21-200B | T1047, T1110.003 | [93][5] |
-| [Relay Pattern Analysis](/mitre/d3fend/relay-pattern-analysis.md) | D3-RPA | Detect | AA21-200B | T1048.003, T1090.002, T1090.003, T1572 | [93][5] |
-| [User Geolocation Logon Pattern Analysis](/mitre/d3fend/user-geolocation-logon-pattern-analysis.md) | D3-UGLPA | Detect | AA21-200B | 15, the same set as D3-NTCD | [93][5] |
-| [Remote Terminal Session Detection](/mitre/d3fend/remote-terminal-session-detection.md) | D3-RTSD | Detect | AA21-200B | 15, the same set as D3-NTCD | [93][5] |
+| [Relay Pattern Analysis](/mitre/d3fend/relay-pattern-analysis.md) | D3-RPA | Detect | AA21-200B | T1048.003, T1071.001, T1090.002, T1090.003, T1105, T1572 | [93][5] |
+| [User Geolocation Logon Pattern Analysis](/mitre/d3fend/user-geolocation-logon-pattern-analysis.md) | D3-UGLPA | Detect | AA21-200B | 18, the same set as D3-NTCD | [93][5] |
+| [Remote Terminal Session Detection](/mitre/d3fend/remote-terminal-session-detection.md) | D3-RTSD | Detect | AA21-200B | 18, the same set as D3-NTCD | [93][5] |
 | [DNS Traffic Analysis](/mitre/d3fend/dns-traffic-analysis.md) | D3-DNSTA | Detect | AA21-200B | T1040 | [93][5] |
 | [Message Authentication](/mitre/d3fend/message-authentication.md) | D3-MAN | Harden | AA21-200B | none in this set | [93][5] |
-| [Executable Allowlisting](/mitre/d3fend/executable-allowlisting.md) | D3-EAL | Isolate | AA21-200B | T1047, T1505.003 | [93][5] |
-| [Executable Denylisting](/mitre/d3fend/executable-denylisting.md) | D3-EDL | Isolate | AA21-200B | T1047, T1505.003 | [93][5] |
+| [Executable Allowlisting](/mitre/d3fend/executable-allowlisting.md) | D3-EAL | Isolate | AA21-200B | T1016, T1018, T1033, T1047, T1057, T1082, T1140, T1204.002, T1505.003, T1547.001 | [93][5] |
+| [Executable Denylisting](/mitre/d3fend/executable-denylisting.md) | D3-EDL | Isolate | AA21-200B | T1016, T1018, T1033, T1047, T1057, T1082, T1140, T1204.002, T1505.003, T1547.001 | [93][5] |
 | [DNS Denylisting](/mitre/d3fend/dns-denylisting.md) | D3-DNSDL | Isolate | AA21-200B | none in this set | [93][5] |
-| [Hardware-based Process Isolation](/mitre/d3fend/hardware-based-process-isolation.md) | D3-HBPI | Isolate | AA21-200B | T1003.001, T1047, T1505.003, T1556 | [93][5] |
+| [Hardware-based Process Isolation](/mitre/d3fend/hardware-based-process-isolation.md) | D3-HBPI | Isolate | AA21-200B | T1003.001, T1016, T1018, T1033, T1047, T1053.005, T1057, T1082, T1140, T1505.003, T1556 | [93][5] |
+| [Client-server Payload Profiling](/mitre/d3fend/client-server-payload-profiling.md) | D3-CSPP | Detect | AA21-200B | 18, the same set as D3-NTCD | [93][5] |
+| [Dynamic Analysis](/mitre/d3fend/dynamic-analysis.md) | D3-DA | Detect | AA21-200B | T1016, T1140, T1204.002, T1505.003, T1547.001, T1566.001, T1566.002 | [93][5] |
+| [Database Query String Analysis](/mitre/d3fend/database-query-string-analysis.md) | D3-DQSA | Detect | AA21-200B | T1190 | [93][5] |
+| [File Analysis](/mitre/d3fend/file-analysis.md) | D3-FA | Detect | AA21-200B | T1005, T1016, T1018, T1033, T1036.005, T1041, T1070.004, T1071.001, T1072, T1083, T1140, T1204.002, T1505.003, T1547.001, T1555, T1560, T1560.001, T1566.001, T1566.002, T1574.001 | [93][5] |
+| [File Carving](/mitre/d3fend/file-carving.md) | D3-FC | Detect | AA21-200B | none in this set | [93][5] |
+| [Homoglyph Detection](/mitre/d3fend/homoglyph-detection.md) | D3-HD | Detect | AA21-200B | T1189, T1566.001, T1566.002 | [93][5] |
+| [Message Encryption](/mitre/d3fend/message-encryption.md) | D3-MENCR | Harden | AA21-200B | none in this set | [93][5] |
+| [Per Host Download-Upload Ratio Analysis](/mitre/d3fend/per-host-download-upload-ratio-analysis.md) | D3-PHDURA | Detect | AA21-200B | 18, the same set as D3-NTCD | [93][5] |
+| [Protocol Metadata Anomaly Detection](/mitre/d3fend/protocol-metadata-anomaly-detection.md) | D3-PMAD | Detect | AA21-200B | 18, the same set as D3-NTCD | [93][5] |
+| [Service Binary Verification](/mitre/d3fend/service-binary-verification.md) | D3-SBV | Detect | AA21-200B | T1056.003, T1072 | [93][5] |
+| [System Call Analysis](/mitre/d3fend/system-call-analysis.md) | D3-SCA | Detect | AA21-200B | T1016, T1018, T1033, T1036.005, T1047, T1049, T1057, T1082, T1140 | [93][5] |
+| [System Daemon Monitoring](/mitre/d3fend/system-daemon-monitoring.md) | D3-SDM | Detect | AA21-200B | T1053.005 | [93][5] |
+| [System File Analysis](/mitre/d3fend/system-file-analysis.md) | D3-SFA | Detect | AA21-200B | T1018 | [93][5] |
+| [Scheduled Job Analysis](/mitre/d3fend/scheduled-job-analysis.md) | D3-SJA | Detect | AA21-200B | none in this set | [93][5] |
+| [Sender MTA Reputation Analysis](/mitre/d3fend/sender-mta-reputation-analysis.md) | D3-SMRA | Detect | AA21-200B | T1566.001, T1566.002 | [93][5] |
+| [Sender Reputation Analysis](/mitre/d3fend/sender-reputation-analysis.md) | D3-SRA | Detect | AA21-200B | T1566.001, T1566.002 | [93][5] |
+| [URL Analysis](/mitre/d3fend/url-analysis.md) | D3-UA | Detect | AA21-200B | T1189, T1566.002 | [93][5] |
 
-A note on the automated join. Joining the 30 most shared techniques to the library's `technique_to_d3fend.jsonl` is dominated by generic file-artifact countermeasures (Content Filtering, File Analysis and File Integrity Monitoring each cover 15 of the 30), and four of the 30 (T1588.002, T1059.001, T1059.003, T1046) have no mapping at all; the advisory-named countermeasures above are the better guide, and the automated join is secondary (Inferred [5]). The three countermeasures that map to the same 15 techniques (D3-NTCD, D3-UGLPA, D3-RTSD) show the same effect: they map to network-facing techniques broadly rather than to these specific advisories (Inferred [5]).
+A note on the automated join. Joining the 30 most shared techniques to the library's `technique_to_d3fend.jsonl` is dominated by generic file-artifact countermeasures (Content Filtering, File Analysis and File Integrity Monitoring each cover 15 of the 30), and four of the 30 (T1588.002, T1059.001, T1059.003, T1046) have no mapping at all; the advisory-named countermeasures above are the better guide, and the automated join is secondary (Inferred [5]). The six countermeasures that map to the same 18 techniques (D3-NTCD, D3-UGLPA, D3-RTSD, D3-CSPP, D3-PHDURA, D3-PMAD) show the same effect: they map to network-facing techniques broadly rather than to these specific advisories (Inferred [5]).
 
 ### Navigator layer
 
-The study's techniques are saved as an ATT&CK Navigator layer, [navigator/library-layers/threat-actors-china.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/threat-actors-china.json), listed on [the Navigator layers page](/navigator/index.md). It is pinned to ATT&CK v20 and holds 77 techniques: the 58 named in the six government advisories in this Part, scored 100, and the 19 of the 30 most shared techniques that no verified advisory names, scored 60. Each entry's comment names the source numbers above.
+The study's techniques are saved as an ATT&CK Navigator layer, [navigator/library-layers/threat-actors-china.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/threat-actors-china.json), listed on [the Navigator layers page](/navigator/index.md). It is pinned to ATT&CK v20 and holds the 77 techniques of the advisory table in this Part, each named in at least one of the six government advisories and scored 100; all 30 of the most shared techniques are among them. Each entry's comment names the source numbers above.
 
 ## Cross-cutting themes
 
@@ -903,7 +943,7 @@ All sources were opened on 3 November 2026. "Primary" means the organization tha
 ## Related references
 
 - [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [CVE Reference](/CVE_REFERENCE.md)
-- Other case studies: [The SharePoint ToolShell Mass Exploitation](/case-studies/SHAREPOINT_TOOLSHELL_2025.md), [Log4Shell (CVE-2021-44228)](/case-studies/LOG4SHELL.md), [SolarWinds SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md), [Stuxnet](/case-studies/STUXNET.md); companion studies: APT41: The Public Record, Operation Exchange Marauder, Change Healthcare 2024, Sandworm Operations
+- Other case studies: [The SharePoint ToolShell Mass Exploitation](/case-studies/SHAREPOINT_TOOLSHELL_2025.md), [Log4Shell (CVE-2021-44228)](/case-studies/LOG4SHELL.md), [SolarWinds SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md), [Stuxnet](/case-studies/STUXNET.md); companion studies: [APT41: The Public Record](/case-studies/APT41_PUBLIC_RECORD.md), [Operation Exchange Marauder](/case-studies/EXCHANGE_MARAUDER_2021.md), [Change Healthcare 2024](/case-studies/CHANGE_HEALTHCARE_2024.md), Sandworm Operations
 - Groups: [G0006 APT1](/mitre/groups/G0006.md), [G0045 menuPass](/mitre/groups/G0045.md), [G0065 Leviathan](/mitre/groups/G0065.md), [G0128 ZIRCONIUM](/mitre/groups/G0128.md), [G0027 Threat Group-3390](/mitre/groups/G0027.md), [G0125 HAFNIUM](/mitre/groups/G0125.md), [G0096 APT41](/mitre/groups/G0096.md), [G1017 Volt Typhoon](/mitre/groups/G1017.md), [G1045 Salt Typhoon](/mitre/groups/G1045.md), [G1048 UNC3886](/mitre/groups/G1048.md), [G0004 Ke3chang](/mitre/groups/G0004.md), [G0022 APT3](/mitre/groups/G0022.md), [G0009 Deep Panda](/mitre/groups/G0009.md), [G0143 Aquatic Panda](/mitre/groups/G0143.md), [G1054 MirrorFace](/mitre/groups/G1054.md), [G0129 Mustang Panda](/mitre/groups/G0129.md), [G0114 Chimera](/mitre/groups/G0114.md), [G1023 APT5](/mitre/groups/G1023.md), [G0011 PittyTiger](/mitre/groups/G0011.md), [G0026 APT18](/mitre/groups/G0026.md)
 - Campaigns: [C0017](/mitre/campaigns/C0017.md), [C0040](/mitre/campaigns/C0040.md), [C0035](/mitre/campaigns/C0035.md), [C0039](/mitre/campaigns/C0039.md), [C0049](/mitre/campaigns/C0049.md), [C0047](/mitre/campaigns/C0047.md), [C0052](/mitre/campaigns/C0052.md), [C0056](/mitre/campaigns/C0056.md), [C0058](/mitre/campaigns/C0058.md), [C0060](/mitre/campaigns/C0060.md), [C0029](/mitre/campaigns/C0029.md), [C0012](/mitre/campaigns/C0012.md)
 - Software: [S0013 PlugX](/mitre/software/S0013.md), [S0596 ShadowPad](/mitre/software/S0596.md), [S0154 Cobalt Strike](/mitre/software/S0154.md), [S0002 Mimikatz](/mitre/software/S0002.md), [S0020 China Chopper](/mitre/software/S0020.md), [S0032 gh0st RAT](/mitre/software/S0032.md), [S1206 JumbledPath](/mitre/software/S1206.md), [S1144 FRP](/mitre/software/S1144.md), [S1154 VersaMem](/mitre/software/S1154.md), [S9015 BRICKSTORM](/mitre/software/S9015.md)

@@ -6,7 +6,7 @@
     "layer": "4.5"
   },
   "domain": "enterprise-attack",
-  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified public record on China-attributed threat actors supports: the technique ids named in joint government advisories AA21-200A, AA22-158A, AA23-144A, AA24-038A, AA24-190A and AA25-239A, and the 30 techniques ATT&CK v20.0 records most often across the 46 China-attributed groups in the library data. Ids reported under earlier ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/THREAT_ACTORS_CHINA.md. Scores: 100 is named in a government advisory, 60 is recorded by ATT&CK for at least 11 China-attributed groups but not among the advisory ids verified.",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified public record on China-attributed threat actors supports: the technique ids named in joint government advisories AA21-200A, AA22-158A, AA23-144A, AA24-038A, AA24-190A and AA25-239A, and the 30 techniques ATT&CK v20.0 records most often across the 46 China-attributed groups in the library data. Ids reported under earlier ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/THREAT_ACTORS_CHINA.md. Every technique scores 100: each is named in at least one of the six advisories, including all 30 of the most shared techniques.",
   "sorting": 3,
   "layout": {
     "layout": "side",
@@ -25,10 +25,6 @@
     "maxValue": 100
   },
   "legendItems": [
-    {
-      "label": "60: recorded by ATT&CK across China-attributed groups, not named in a verified advisory",
-      "color": "#38bdf8"
-    },
     {
       "label": "100: named in a joint government advisory on PRC actors",
       "color": "#7c3aed"
@@ -92,8 +88,8 @@
     {
       "techniqueID": "T1005",
       "tactic": "collection",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 15 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA24-190A [37], AA25-239A [53]; also recorded by ATT&CK for 15 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1006",
@@ -104,14 +100,14 @@
     {
       "techniqueID": "T1016",
       "tactic": "discovery",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 18 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA23-144A [31], AA24-038A [33], AA25-239A [53]; also recorded by ATT&CK for 18 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1018",
       "tactic": "discovery",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 17 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA24-190A [37]; also recorded by ATT&CK for 17 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1020.001",
@@ -140,8 +136,8 @@
     {
       "techniqueID": "T1033",
       "tactic": "discovery",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 14 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA23-144A [31], AA24-038A [33], AA24-190A [37]; also recorded by ATT&CK for 14 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1036.005",
@@ -170,8 +166,8 @@
     {
       "techniqueID": "T1046",
       "tactic": "discovery",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 11 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA24-038A [33], AA24-190A [37]; also recorded by ATT&CK for 11 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1047",
@@ -188,26 +184,26 @@
     {
       "techniqueID": "T1049",
       "tactic": "discovery",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 13 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA24-190A [37]; also recorded by ATT&CK for 13 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1053.005",
       "tactic": "execution",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 11 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA24-190A [37]; also recorded by ATT&CK for 11 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1053.005",
       "tactic": "persistence",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 11 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA24-190A [37]; also recorded by ATT&CK for 11 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1053.005",
       "tactic": "privilege-escalation",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 11 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA24-190A [37]; also recorded by ATT&CK for 11 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1056.003",
@@ -224,8 +220,8 @@
     {
       "techniqueID": "T1057",
       "tactic": "discovery",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 14 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA24-038A [33], AA24-190A [37]; also recorded by ATT&CK for 14 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1059.001",
@@ -260,8 +256,8 @@
     {
       "techniqueID": "T1070.004",
       "tactic": "stealth",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 13 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA24-038A [33], AA24-190A [37]; also recorded by ATT&CK for 13 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1070.009",
@@ -272,8 +268,8 @@
     {
       "techniqueID": "T1071.001",
       "tactic": "command-and-control",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 13 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA24-190A [37]; also recorded by ATT&CK for 13 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1072",
@@ -338,14 +334,14 @@
     {
       "techniqueID": "T1082",
       "tactic": "discovery",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 12 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA23-144A [31], AA24-038A [33], AA24-190A [37], AA25-239A [53]; also recorded by ATT&CK for 12 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1083",
       "tactic": "discovery",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 16 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA24-038A [33], AA24-190A [37]; also recorded by ATT&CK for 16 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1090.001",
@@ -380,8 +376,8 @@
     {
       "techniqueID": "T1105",
       "tactic": "command-and-control",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 23 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA24-038A [33], AA24-190A [37]; also recorded by ATT&CK for 23 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1110.003",
@@ -410,8 +406,8 @@
     {
       "techniqueID": "T1140",
       "tactic": "stealth",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 12 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA24-190A [37]; also recorded by ATT&CK for 12 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1189",
@@ -423,7 +419,7 @@
       "techniqueID": "T1190",
       "tactic": "initial-access",
       "score": 100,
-      "comment": "Named in joint government advisories: AA21-200A [29], AA22-158A [97], AA23-144A [31], AA24-038A [33], AA24-190A [37]; also recorded by ATT&CK for 17 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "comment": "Named in joint government advisories: AA21-200A [29], AA22-158A [97], AA23-144A [31], AA24-038A [33], AA24-190A [37], AA25-239A [53]; also recorded by ATT&CK for 17 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1199",
@@ -434,14 +430,14 @@
     {
       "techniqueID": "T1203",
       "tactic": "execution",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 15 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA21-200A [29], AA24-190A [37]; also recorded by ATT&CK for 15 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1204.002",
       "tactic": "execution",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 19 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA21-200A [29], AA24-190A [37]; also recorded by ATT&CK for 19 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1218",
@@ -482,14 +478,14 @@
     {
       "techniqueID": "T1547.001",
       "tactic": "persistence",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 13 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA24-190A [37]; also recorded by ATT&CK for 13 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1547.001",
       "tactic": "privilege-escalation",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 13 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA24-190A [37]; also recorded by ATT&CK for 13 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1555",
@@ -560,14 +556,14 @@
     {
       "techniqueID": "T1574.001",
       "tactic": "stealth",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 18 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA24-190A [37]; also recorded by ATT&CK for 18 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1574.001",
       "tactic": "execution",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 18 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA24-190A [37]; also recorded by ATT&CK for 18 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1584.005",
@@ -584,8 +580,8 @@
     {
       "techniqueID": "T1588.002",
       "tactic": "resource-development",
-      "score": 60,
-      "comment": "Recorded by ATT&CK v20.0 for 21 of the 46 China-attributed groups in the library data [3]; not among the advisory ids this study verified. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
+      "score": 100,
+      "comment": "Named in joint government advisories: AA25-239A [53]; also recorded by ATT&CK for 21 of the 46 China-attributed groups [3]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_CHINA.md."
     },
     {
       "techniqueID": "T1595.002",

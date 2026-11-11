@@ -277,7 +277,7 @@ studies:
       - "G0128"
     tags: ["pandemic", "ransomware", "Zerologon", "VPN flaws"]
     pdf: "Chronicle_2020_Case_Study.pdf"
-    pptx: null
+    pptx: "Chronicle_2020_Case_Study.pptx"
     events:
       - {"date": "2020-01-14", "label": "CISA ED 20-02 for CryptoAPI CVE-2020-0601 and the RD Gateway flaws"}
       - {"date": "2020-02-10", "label": "Equifax indictment of four PLA 54th Research Institute members announced"}
@@ -448,7 +448,7 @@ studies:
       - "G1043"
     tags: ["ProxyLogon", "ProxyShell", "HAFNIUM", "web shells"]
     pdf: "Exchange_Marauder_2021_Case_Study.pdf"
-    pptx: null
+    pptx: "Exchange_Marauder_2021_Case_Study.pptx"
     events:
       - {"date": "2020-12-10", "label": "DEVCORE finds the pre-auth proxy bug, later CVE-2021-26855"}
       - {"date": "2021-01-03", "label": "Earliest SSRF mailbox theft Volexity observed"}

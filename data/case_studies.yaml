@@ -510,6 +510,30 @@ studies:
       - {"date": "2021-08-21", "label": "CISA urgent alert on active ProxyShell exploitation"}
       - {"date": "2021-11-03", "label": "KEV launches with the seven ProxyLogon and ProxyShell CVEs"}
       - {"date": "2025-07-03", "label": "Xu Zewei arrested in Milan"}
+  case-studies/EXPOSURE_CHECKS_2026_11.md:
+    kind: "reference"
+    title: "Thirty Days of Exposure Checks: Version and Configuration Evidence from the Lab"
+    start: "2026-10"
+    end: "2026-11"
+    sectors: ["technology"]
+    cves: ["CVE-2015-3306", "CVE-2015-5477", "CVE-2016-3081", "CVE-2020-1938", "CVE-2021-3199", "CVE-2023-22894", "CVE-2026-21589", "CVE-2026-46300", "CVE-2026-88779", "CVE-2026-96652", "CVE-2026-96654", "CVE-2026-96951", "CVE-2026-97229", "CVE-2026-105133", "CVE-2026-105134", "CVE-2026-106931", "CVE-2026-109618", "CVE-2026-109619", "CVE-2026-110447", "CVE-2026-110936", "CVE-2026-111497", "CVE-2026-119977"]
+    actors: []
+    tags: ["KEV", "exposure check", "version check", "WordPress", "Fragnesia", "AhsayCBS", "SiteGuard", "ONLYOFFICE", "Windows Shell", "Docker", "lab"]
+    pdf: "Exposure_Checks_2026_11_Case_Study.pdf"
+    pptx: "Exposure_Checks_2026_11_Case_Study.pptx"
+    events:
+      - {"date": "2026-10-04", "label": "CISA lists NetScaler CVE-2026-88779, the window's first KEV addition; NVD publishes the AhsayCBS pair"}
+      - {"date": "2026-10-07", "label": "Huntress observes exploitation of the AhsayCBS chain from 23:20 UTC (Reported)"}
+      - {"date": "2026-10-08", "label": "CISA lists five CVEs from 2015 to 2023 in one day, among them ONLYOFFICE CVE-2021-3199, each due in three days"}
+      - {"date": "2026-10-12", "label": "Ahsay says its earlier AhsayCBS patches, 10.3.4.0 and 9.15.2.59, did not fully fix either CVE"}
+      - {"date": "2026-10-13", "label": "Microsoft releases Windows Shell CVE-2026-96951 as exploited; CISA lists it the same day"}
+      - {"date": "2026-10-14", "label": "CISA lists the AhsayCBS pair; SiteGuard and JVN publish CVE-2026-106931"}
+      - {"date": "2026-10-20", "label": "CISA lists SiteGuard Server Edition CVE-2026-106931"}
+      - {"date": "2026-10-26", "label": "Microsoft revision 2 adds Edge to CVE-2026-96951"}
+      - {"date": "2026-10-28", "label": "WordPress 7.1.4 security release; CISA lists the Linux kernel flaw Fragnesia, CVE-2026-46300"}
+      - {"date": "2026-10-31", "label": "NVD publishes WordPress CVE-2026-119977 with no CPE configuration yet"}
+      - {"date": "2026-11-03", "label": "CISA lists CVE-2026-119977, due 6 November; 34 KEV additions in the thirty-day window"}
+      - {"date": "2026-11-03", "label": "TeamStarWolf lab run, 3 to 4 November 2026: version and configuration checks on matched pairs and real hosts"}
   case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md:
     kind: "era"
     title: "Five Hacks and Why They Worked: The Cases in Fancy Bear Goes Phishing"

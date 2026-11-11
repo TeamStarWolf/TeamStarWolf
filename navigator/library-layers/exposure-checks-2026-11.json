@@ -1,0 +1,156 @@
+{
+  "name": "TeamStarWolf - Thirty Days of Exposure Checks (KEV, October to November 2026) Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Enterprise ATT&CK v20.0 techniques bound in the Thirty Days of Exposure Checks case study (KEV additions dated 2026-10-04 to 2026-11-03 and the lab run of 3 and 4 November 2026). ATT&CK has no procedure that names these CVEs; each entry is the study's binding of a flaw's documented attack path to the technique definition. Score 100: a Confirmed record plus a lab-shown vulnerable version on a matched target. Score 75: a Confirmed record without a lab demonstration. Score 50: a Reported source or the study's own inference. Comments carry the study's source numbers. This is not an official MITRE mapping.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#86efac",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: Confirmed record plus a lab-shown vulnerable version",
+      "color": "#15803d"
+    },
+    {
+      "label": "75: Confirmed record; no lab demonstration",
+      "color": "#4ade80"
+    },
+    {
+      "label": "50: Reported source or the study's inference",
+      "color": "#bbf7d0"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/EXPOSURE_CHECKS_2026_11.md (sources opened 4 November 2026; lab captures 3 and 4 November 2026)"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 = record plus lab; 75 = Confirmed record only; 50 = Reported or Inferred. No severity, prevalence or coverage is measured."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "Thirty Days of Exposure Checks: Version and Configuration Evidence from the Lab",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/EXPOSURE_CHECKS_2026_11"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "enabled": true,
+      "comment": "ONLYOFFICE /upload traversal with RCE (NVD 2021-01-26); AhsayCBS CVE-2026-105133 and CVE-2026-105134, remote and unauthenticated (NVD 2026-10-04); Confluence CVE-2026-21589 unauthenticated file access (Atlassian 2026-10-05); WordPress CVE-2026-119977 unauthenticated upgrade race (GHSA 2026-10-29); Struts DMI RCE (NVD 2016-04-26). Lab showed the vulnerable version on matched ONLYOFFICE, AhsayCBS and WordPress targets, and the JWT precondition on ONLYOFFICE (2026-11-04, Demonstrated). Sources: [23]; [14]; [16]; [35]; [1]; [29]; [43]; [37]."
+    },
+    {
+      "techniqueID": "T1499.004",
+      "tactic": "impact",
+      "score": 75,
+      "enabled": true,
+      "comment": "BIND CVE-2015-5477 TKEY assertion failure and daemon exit (ISC 2015-07-28, NVD 2015-07-29, Confirmed); NetScaler CVE-2026-88779 CWE-119 (NVD 2026-10-04, binding Inferred). Lab blocked for both. Sources: [26]; [25]; [34]; [38]."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 75,
+      "enabled": true,
+      "comment": "Fragnesia CVE-2026-46300: low-privileged local attacker overwrites privileged binaries for root (Red Hat; oss-security 2026-05-13, Confirmed); SiteGuard CVE-2026-106931 AV:L/PR:L with commands as root (JVN 2026-10-14, binding Inferred). Sources: [8]; [7]; [10]; [12]."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 75,
+      "enabled": true,
+      "comment": "KEV: Fragnesia chained with CVE-2026-109618 and CVE-2026-109619 to implant PHP web shells (2026-10-28, Confirmed); JSP web shells on AhsayCBS per Huntress (2026-10-07, Reported) and Horizon3 (Reported). Sources: [4]; [18]; [17]."
+    },
+    {
+      "techniqueID": "T1059.004",
+      "tactic": "execution",
+      "score": 50,
+      "enabled": true,
+      "comment": "SiteGuard CVE-2026-106931 OS command injection on the Apache and Nginx editions (JVN 2026-10-14); shell not named in the record, binding Inferred. Sources: [10]; [11]."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 50,
+      "enabled": true,
+      "comment": "XMRig miners placed on exploited AhsayCBS servers (Huntress, 2026-10-07 to 2026-10-08, Reported). Sources: [18]."
+    },
+    {
+      "techniqueID": "T1496.001",
+      "tactic": "impact",
+      "score": 50,
+      "enabled": true,
+      "comment": "XMRig miners on exploited AhsayCBS servers (Huntress, 2026-10-07 to 2026-10-08, Reported). Sources: [18]."
+    },
+    {
+      "techniqueID": "T1553.005",
+      "tactic": "defense-impairment",
+      "score": 75,
+      "enabled": true,
+      "comment": "Windows Shell CVE-2026-96951: a successful exploit evades Mark of the Web (Microsoft 2026-10-13, Confirmed). Lab host already at a fixed build. Sources: [20]."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 75,
+      "enabled": true,
+      "comment": "CVE-2026-96951: attacker sends a crafted file by email or instant message (Microsoft 2026-10-13, Confirmed). Sources: [20]."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 75,
+      "enabled": true,
+      "comment": "CVE-2026-96951: the user must click a link or open the file (Microsoft 2026-10-13, Confirmed). Sources: [20]."
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 50,
+      "enabled": true,
+      "comment": "Confluence CVE-2026-21589 arbitrary file access with a known file name and path (Atlassian and NVD 2026-10-05); binding Inferred from CWE-552. Sources: [35]; [36]."
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 50,
+      "enabled": true,
+      "comment": "The banner reads the lab used (version.bind, X-Powered-By, /identity, ajs-version-number) are the reads a scanner makes (lab 2026-11-03 to 2026-11-04); binding Inferred. Sources: [43]."
+    }
+  ]
+}

@@ -148,7 +148,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 11 July 2022: The CSRB publishes its report
   - 10 December 2025: Sonatype: about 13 percent of 2025 Log4j downloads still contained Log4Shell
   - 23 January 2026: OMB M-26-05 rescinds M-22-18 and M-23-16
-- [Operation Exchange Marauder and the 2021 Exchange Server Mass Exploitation](/case-studies/EXCHANGE_MARAUDER_2021.md). Campaign, January to November 2021. Sectors: cross-sector, government, education. CVEs: CVE-2020-0688, CVE-2021-26412, CVE-2021-26854, CVE-2021-26855, CVE-2021-26857, CVE-2021-26858 and 11 more. ATT&CK groups: G0027 Threat Group-3390, G0044 Winnti Group, G0046 FIN7, G0059 Magic Hound, G0060 BRONZE BUTLER, G0065 Leviathan and 7 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Exchange_Marauder_2021_Case_Study.pdf).
+- [Operation Exchange Marauder and the 2021 Exchange Server Mass Exploitation](/case-studies/EXCHANGE_MARAUDER_2021.md). Campaign, January to November 2021. Sectors: cross-sector, government, education. CVEs: CVE-2020-0688, CVE-2021-26412, CVE-2021-26854, CVE-2021-26855, CVE-2021-26857, CVE-2021-26858 and 11 more. ATT&CK groups: G0027 Threat Group-3390, G0044 Winnti Group, G0046 FIN7, G0059 Magic Hound, G0060 BRONZE BUTLER, G0065 Leviathan and 7 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Exchange_Marauder_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Exchange_Marauder_2021_Case_Study.pptx).
   - 10 December 2020: DEVCORE finds the pre-auth proxy bug, later CVE-2021-26855
   - 3 January 2021: Earliest SSRF mailbox theft Volexity observed
   - 5 January 2021: DEVCORE submits its advisory and exploit to MSRC
@@ -203,7 +203,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 3 March 2022: CISA adds CVE-2020-1938 to KEV in a batch of 95 entries
   - October 2026: DShield still records about 950 to 6,200 port 8009 events a day
   - 3 November 2026: KEV still lists the CVE; the TeamStarWolf lab run
-- [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md). Period record, January to December 2020. Sectors: cross-sector, healthcare. CVEs: CVE-2017-5638, CVE-2017-11882, CVE-2018-7600, CVE-2018-13379, CVE-2019-0604, CVE-2019-1652 and 27 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly and 12 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2020_Case_Study.pdf).
+- [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md). Period record, January to December 2020. Sectors: cross-sector, healthcare. CVEs: CVE-2017-5638, CVE-2017-11882, CVE-2018-7600, CVE-2018-13379, CVE-2019-0604, CVE-2019-1652 and 27 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly and 12 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2020_Case_Study.pptx).
   - 14 January 2020: CISA ED 20-02 for CryptoAPI CVE-2020-0601 and the RD Gateway flaws
   - 10 February 2020: Equifax indictment of four PLA 54th Research Institute members announced
   - 31 March 2020: Marriott announces an incident involving up to about 5.2 million guests
@@ -263,7 +263,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2014 <!-- {docsify-ignore} -->
 
-- [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md). Threat actor, 2003 to July 2026 (core: 2014 to 2026). Sectors: government, energy, healthcare, defense, transport. CVEs: CVE-2008-4128, CVE-2017-6742, CVE-2018-0171, CVE-2018-13379, CVE-2019-1653, CVE-2019-2725 and 28 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0034 Sandworm Team, G0035 Dragonfly, G0047 Gamaredon Group and 7 more.
+- [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md). Threat actor, 2003 to July 2026 (core: 2014 to 2026). Sectors: government, energy, healthcare, defense, transport. CVEs: CVE-2008-4128, CVE-2017-6742, CVE-2018-0171, CVE-2018-13379, CVE-2019-1653, CVE-2019-2725 and 28 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0034 Sandworm Team, G0035 Dragonfly, G0047 Gamaredon Group and 7 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_Russia_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Threat_Actors_Russia_Case_Study.pptx).
   - 27 October 2014: First public APT28 report
   - December 2015: BlackEnergy attack on Ukraine's grid; 230,000 people without power
   - 29 December 2016: GRIZZLY STEPPE joint analysis report on APT28 and APT29
@@ -308,7 +308,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - March 2026: Tampering with internet-exposed Rockwell, Schneider Electric and Siemens PLCs begins (AA26-097A)
   - 11 March 2026: Stryker reports a global disruption to its Microsoft environment; Handala claims a wiper attack
   - 18 August 2026: Superseding indictment of 17 Mabna Institute members for intrusions for the IRGC since 2013
-- [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md). Threat actor, 2011 to April 2024. Sectors: energy, government, media, telecommunications, transport. CVEs: CVE-2013-3906, CVE-2014-0751, CVE-2014-4114, CVE-2015-5374, CVE-2017-0144, CVE-2017-0145 and 1 more. ATT&CK groups: G0034 Sandworm Team, G0035 Dragonfly.
+- [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md). Threat actor, 2011 to April 2024. Sectors: energy, government, media, telecommunications, transport. CVEs: CVE-2013-3906, CVE-2014-0751, CVE-2014-4114, CVE-2015-5374, CVE-2017-0144, CVE-2017-0145 and 1 more. ATT&CK groups: G0034 Sandworm Team, G0035 Dragonfly. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Sandworm_Operations_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Sandworm_Operations_Case_Study.pptx).
   - 14 October 2014: MS14-060 patched; CVE-2014-4114 had been exploited in a Sandworm campaign
   - 23 December 2015: First Ukrainian blackout: three distribution companies, about 225,000 customers
   - 17 December 2016: Industroyer attack on a Kyiv transmission substation; about one hour of disruption
@@ -322,9 +322,25 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 10 October 2022: Third Ukrainian blackout, 10 to 12 October
   - 17 April 2024: Mandiant designates APT44
 
+### 2009 <!-- {docsify-ignore} -->
+
+- [North Korea-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_NORTH_KOREA.md). Threat actor, 2009 to October 2026. Sectors: finance, government, defense, healthcare, technology, energy, media, education. CVEs: CVE-2017-4946, CVE-2021-20038, CVE-2021-43226, CVE-2021-44228, CVE-2021-45837, CVE-2022-24990 and 3 more. ATT&CK groups: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G0138 Andariel, G1036 Moonstone Sleet and 2 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_North_Korea_Case_Study.pdf).
+  - November 2014: Destructive attack on Sony Pictures Entertainment; the FBI names the North Korean government on 19 December 2014
+  - February 2016: Bangladesh Bank SWIFT heist, $81 million (Treasury, 2018)
+  - 12 May 2017: WannaCry ransomware; at least 81 NHS trusts in England disrupted; UK attribution to Lazarus Group on 19 December 2017
+  - 8 June 2018: Federal complaint against Park Jin Hyok, an alleged RGB hacker
+  - 13 September 2019: Treasury designates Lazarus Group, Bluenoroff and Andariel under E.O. 13722
+  - 4 May 2021: Maui ransomware encrypts servers at a Kansas hospital; AA22-187A warns the health sector in July 2022
+  - 23 March 2022: Ronin bridge theft, $620 million; the FBI attributes it to Lazarus Group and APT38 on 14 April 2022
+  - 16 May 2022: State, Treasury and FBI guidance on thousands of North Korean IT workers posing as non-North Koreans
+  - 24 July 2024: Indictment of Rim Jong Hyok of Andariel for ransomware against US hospitals; AA24-207A follows the next day
+  - 21 February 2025: Bybit theft, about $1.5 billion; the FBI names TraderTraitor on 26 February 2025
+  - 21 September 2026: Operation Lonestar Roundup searches of Texas laptop farms (21 to 25 September), announced 13 October 2026
+  - 29 October 2026: Binance theft, more than $6 billion; the FBI names TraderTraitor on 31 October 2026, an attribution disputed in press
+
 ### 2006 <!-- {docsify-ignore} -->
 
-- [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md). Threat actor, 2006 to October 2026. Sectors: government, healthcare, telecommunications, technology, defense. CVEs: CVE-2017-6862, CVE-2018-0171, CVE-2018-13382, CVE-2018-14847, CVE-2019-1652, CVE-2019-7192 and 44 more. ATT&CK groups: G0001 Axiom, G0002 Moafee, G0004 Ke3chang, G0005 APT12, G0006 APT1, G0009 Deep Panda and 41 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_China_Case_Study.pdf).
+- [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md). Threat actor, 2006 to October 2026. Sectors: government, healthcare, telecommunications, technology, defense. CVEs: CVE-2017-6862, CVE-2018-0171, CVE-2018-13382, CVE-2018-14847, CVE-2019-1652, CVE-2019-7192 and 44 more. ATT&CK groups: G0001 Axiom, G0002 Moafee, G0004 Ke3chang, G0005 APT12, G0006 APT1, G0009 Deep Panda and 41 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_China_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Threat_Actors_China_Case_Study.pptx).
   - 12 January 2010: Google discloses a targeted attack from China that stole intellectual property
   - 19 February 2013: Mandiant's APT1 report ties APT1 to PLA Unit 61398
   - 19 May 2014: Indictment of five Unit 61398 officers, 31 counts
@@ -356,7 +372,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2004 <!-- {docsify-ignore} -->
 
-- [Other State-Linked Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_OTHER_STATES.md). Threat actor, 2004 to 2025. Sectors: government, defense, telecommunications, energy, education, media. CVEs: CVE-2009-1151, CVE-2010-2568, CVE-2010-3333, CVE-2012-0158, CVE-2012-1856, CVE-2014-4114 and 23 more. ATT&CK groups: G0012 Darkhotel, G0021 Molerats, G0038 Stealth Falcon, G0040 Patchwork, G0050 APT32, G0056 PROMETHIUM and 14 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_Other_States_Case_Study.pdf).
+- [Other State-Linked Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_OTHER_STATES.md). Threat actor, 2004 to 2025. Sectors: government, defense, telecommunications, energy, education, media. CVEs: CVE-2009-1151, CVE-2010-2568, CVE-2010-3333, CVE-2012-0158, CVE-2012-1856, CVE-2014-4114 and 23 more. ATT&CK groups: G0012 Darkhotel, G0021 Molerats, G0038 Stealth Falcon, G0040 Patchwork, G0050 APT32, G0056 PROMETHIUM and 14 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_Other_States_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Threat_Actors_Other_States_Case_Study.pptx).
   - 10 November 2014: Kaspersky reports Darkhotel's hotel-network delivery, Flash zero-days and certificate abuse
   - 29 May 2016: Citizen Lab reports Stealth Falcon's macro documents and PowerShell backdoor
   - January 2017: Sea Turtle DNS hijacking through registrars and registries begins, to early 2019

@@ -2490,6 +2490,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the actors and their sponsors](#part-1-the-actors-and-their-sponsors), [Part 8: the defender view](#part-8-the-defender-view)"
     pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [ICS and OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), [Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
     reviewed: null
+  case-studies/THREAT_ACTORS_NORTH_KOREA.md:
+    audience: "Threat intelligence analysts, threat hunters, vulnerability managers, healthcare security teams, hiring and HR security partners, and teams protecting cryptocurrency operations"
+    level: "Intermediate"
+    read_when: "You need a graded, dated account of which North Korean state bodies and ATT&CK groups the public record names, how they get in (recruiter and interview lures, trojanized software, known flaws in internet-facing systems and IT workers hired under false identities), where healthcare appears, and what the advisories say to patch, hunt and harden"
+    start_at: "[Executive summary](#executive-summary), [Part 1: identity, names and the sponsor](#part-1-identity-names-and-the-sponsor), [Part 7: the defender view](#part-7-the-defender-view)"
+    pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Insider Threat Reference](/INSIDER_THREAT_REFERENCE.md), [Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md)"
+    reviewed: null
   case-studies/THREAT_ACTORS_OTHER_STATES.md:
     audience: "Threat intelligence analysts, threat hunters, vulnerability management teams and security teams supporting travelers, journalists or civil society"
     level: "Intermediate"

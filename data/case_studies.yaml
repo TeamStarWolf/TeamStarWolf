@@ -277,7 +277,7 @@ studies:
       - "G0128"
     tags: ["pandemic", "ransomware", "Zerologon", "VPN flaws"]
     pdf: "Chronicle_2020_Case_Study.pdf"
-    pptx: null
+    pptx: "Chronicle_2020_Case_Study.pptx"
     events:
       - {"date": "2020-01-14", "label": "CISA ED 20-02 for CryptoAPI CVE-2020-0601 and the RD Gateway flaws"}
       - {"date": "2020-02-10", "label": "Equifax indictment of four PLA 54th Research Institute members announced"}
@@ -448,7 +448,7 @@ studies:
       - "G1043"
     tags: ["ProxyLogon", "ProxyShell", "HAFNIUM", "web shells"]
     pdf: "Exchange_Marauder_2021_Case_Study.pdf"
-    pptx: null
+    pptx: "Exchange_Marauder_2021_Case_Study.pptx"
     events:
       - {"date": "2020-12-10", "label": "DEVCORE finds the pre-auth proxy bug, later CVE-2021-26855"}
       - {"date": "2021-01-03", "label": "Earliest SSRF mailbox theft Volexity observed"}
@@ -810,8 +810,8 @@ studies:
       - "CVE-2019-10149"
     actors: ["G0034", "G0035"]
     tags: ["Russia", "GRU", "Unit 74455", "wipers", "ICS"]
-    pdf: null
-    pptx: null
+    pdf: "Sandworm_Operations_Case_Study.pdf"
+    pptx: "Sandworm_Operations_Case_Study.pptx"
     events:
       - {"date": "2014-10-14", "label": "MS14-060 patched; CVE-2014-4114 had been exploited in a Sandworm campaign"}
       - {"date": "2015-12-23", "label": "First Ukrainian blackout: three distribution companies, about 225,000 customers"}
@@ -1019,7 +1019,7 @@ studies:
       - "G1054"
     tags: ["China", "MSS", "PLA", "espionage", "Typhoon"]
     pdf: "Threat_Actors_China_Case_Study.pdf"
-    pptx: null
+    pptx: "Threat_Actors_China_Case_Study.pptx"
     events:
       - {"date": "2010-01-12", "label": "Google discloses a targeted attack from China that stole intellectual property"}
       - {"date": "2013-02-19", "label": "Mandiant's APT1 report ties APT1 to PLA Unit 61398"}
@@ -1101,6 +1101,47 @@ studies:
       - {"date": "2026-03", "label": "Tampering with internet-exposed Rockwell, Schneider Electric and Siemens PLCs begins (AA26-097A)"}
       - {"date": "2026-03-11", "label": "Stryker reports a global disruption to its Microsoft environment; Handala claims a wiper attack"}
       - {"date": "2026-08-18", "label": "Superseding indictment of 17 Mabna Institute members for intrusions for the IRGC since 2013"}
+  case-studies/THREAT_ACTORS_NORTH_KOREA.md:
+    kind: "actor"
+    title: "North Korea-Attributed Threat Actors: The Public Record"
+    start: "2009"
+    end: "2026-10"
+    sectors: ["finance", "government", "defense", "healthcare", "technology", "energy", "media", "education"]
+    cves:
+      - "CVE-2017-4946"
+      - "CVE-2021-20038"
+      - "CVE-2021-43226"
+      - "CVE-2021-44228"
+      - "CVE-2021-45837"
+      - "CVE-2022-24990"
+      - "CVE-2022-47966"
+      - "CVE-2023-32784"
+      - "CVE-2023-42793"
+    actors:
+      - "G0032"
+      - "G0067"
+      - "G0082"
+      - "G0094"
+      - "G0138"
+      - "G1036"
+      - "G1049"
+      - "G1052"
+    tags: ["North Korea", "DPRK", "Lazarus Group", "RGB", "TraderTraitor", "IT workers", "cryptocurrency theft", "Maui ransomware"]
+    pdf: "Threat_Actors_North_Korea_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2014-11", "label": "Destructive attack on Sony Pictures Entertainment; the FBI names the North Korean government on 19 December 2014"}
+      - {"date": "2016-02", "label": "Bangladesh Bank SWIFT heist, $81 million (Treasury, 2018)"}
+      - {"date": "2017-05-12", "label": "WannaCry ransomware; at least 81 NHS trusts in England disrupted; UK attribution to Lazarus Group on 19 December 2017"}
+      - {"date": "2018-06-08", "label": "Federal complaint against Park Jin Hyok, an alleged RGB hacker"}
+      - {"date": "2019-09-13", "label": "Treasury designates Lazarus Group, Bluenoroff and Andariel under E.O. 13722"}
+      - {"date": "2021-05-04", "label": "Maui ransomware encrypts servers at a Kansas hospital; AA22-187A warns the health sector in July 2022"}
+      - {"date": "2022-03-23", "label": "Ronin bridge theft, $620 million; the FBI attributes it to Lazarus Group and APT38 on 14 April 2022"}
+      - {"date": "2022-05-16", "label": "State, Treasury and FBI guidance on thousands of North Korean IT workers posing as non-North Koreans"}
+      - {"date": "2024-07-24", "label": "Indictment of Rim Jong Hyok of Andariel for ransomware against US hospitals; AA24-207A follows the next day"}
+      - {"date": "2025-02-21", "label": "Bybit theft, about $1.5 billion; the FBI names TraderTraitor on 26 February 2025"}
+      - {"date": "2026-09-21", "label": "Operation Lonestar Roundup searches of Texas laptop farms (21 to 25 September), announced 13 October 2026"}
+      - {"date": "2026-10-29", "label": "Binance theft, more than $6 billion; the FBI names TraderTraitor on 31 October 2026, an attribution disputed in press"}
   case-studies/THREAT_ACTORS_OTHER_STATES.md:
     kind: "actor"
     title: "Other State-Linked Threat Actors: The Public Record"
@@ -1160,7 +1201,7 @@ studies:
       - "G1041"
     tags: ["state-linked", "South Asia", "Middle East", "spyware", "DNS hijacking"]
     pdf: "Threat_Actors_Other_States_Case_Study.pdf"
-    pptx: null
+    pptx: "Threat_Actors_Other_States_Case_Study.pptx"
     events:
       - {"date": "2014-11-10", "label": "Kaspersky reports Darkhotel's hotel-network delivery, Flash zero-days and certificate abuse"}
       - {"date": "2016-05-29", "label": "Citizen Lab reports Stealth Falcon's macro documents and PowerShell backdoor"}
@@ -1232,8 +1273,8 @@ studies:
       - "G1033"
       - "G1035"
     tags: ["Russia", "GRU", "SVR", "FSB", "APT28", "APT29"]
-    pdf: null
-    pptx: null
+    pdf: "Threat_Actors_Russia_Case_Study.pdf"
+    pptx: "Threat_Actors_Russia_Case_Study.pptx"
     events:
       - {"date": "2014-10-27", "label": "First public APT28 report"}
       - {"date": "2015-12", "label": "BlackEnergy attack on Ukraine's grid; 230,000 people without power"}

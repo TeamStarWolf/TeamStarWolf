@@ -38,6 +38,7 @@ Comparing a value stored in a stack frame with a known good value in order to pr
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [Five Hacks and Why They Worked: The Cases in Fancy Bear Goes Phishing](/case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md)
+- [Node.js, CVE-2026-111497: Version Check and Fix in the Lab](/case-studies/NODEJS_CVE_2026_111497.md)
 
 <!-- library-refs:end -->
 

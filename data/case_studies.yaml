@@ -857,6 +857,29 @@ studies:
     events:
       - {"date": "2020", "label": "Linux kernel 5.6 ships a mainline Multipath TCP implementation"}
       - {"date": "2026-11-03", "label": "Lab readings on a host running Kali 2026.2 with kernel 7.1.5"}
+  case-studies/NODEJS_CVE_2026_111497.md:
+    kind: "vulnerability"
+    title: "Node.js, CVE-2026-111497: Version Check and Fix in the Lab"
+    start: "2026-02"
+    end: "2026-11"
+    sectors: ["technology"]
+    cves: ["CVE-2026-111497", "CVE-2026-105481", "CVE-2026-98432"]
+    actors: []
+    tags: ["Node.js", "Brotli", "Node2Shell", "Express", "decompression", "lab"]
+    pdf: "Nodejs_CVE_2026_111497_Case_Study.pdf"
+    pptx: "Nodejs_CVE_2026_111497_Case_Study.pptx"
+    events:
+      - {"date": "2026-02-27", "label": "Brotli fix commit 0ed4268 lands on the default branch with no release"}
+      - {"date": "2026-10-14", "label": "Node.js pre-announces a security release for 21 October"}
+      - {"date": "2026-10-16", "label": "Google reserves CVE-2026-111497"}
+      - {"date": "2026-10-21", "label": "Node.js v22.23.4, v24.22.1 and v26.12.1 and Brotli 1.0.10, 1.1.1 and 1.2.1 released"}
+      - {"date": "2026-10-22", "label": "CVE and NVD records and GHSA-9v8h-qqgm-4m35 published; Imperva's Node2Shell write-up"}
+      - {"date": "2026-10-23", "label": "Debian DLA-4855-1; CISA's SSVC entry records exploitation as active"}
+      - {"date": "2026-10-25", "label": ".NET advisory with fixed runtimes; ELLIO's first report"}
+      - {"date": "2026-10-26", "label": "ELLIO reports a 23 MB Brotli body aimed at Node 24.22.0"}
+      - {"date": "2026-10-27", "label": "CISA adds the CVE to KEV as Google Brotli Unchecked Return Value Vulnerability"}
+      - {"date": "2026-11-04", "label": "TeamStarWolf lab run: 24.22.0 flagged, 24.22.1 not, both report Brotli 1.2.0"}
+      - {"date": "2026-11-10", "label": "KEV due date"}
   case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md:
     kind: "reference"
     title: "npm Supply-Chain Attacks, 2018 to 2026: The Record and the Defenses"

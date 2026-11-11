@@ -2462,6 +2462,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 3: how to check your exposure, and why](#part-3-how-to-check-your-exposure-and-why), [Part 4: reducing the surface safely](#part-4-reducing-the-surface-safely)"
     pairs_with: "[Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md), [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md), [Network Attacks Reference](/NETWORK_ATTACKS_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
     reviewed: null
+  case-studies/NODEJS_CVE_2026_111497.md:
+    audience: "Vulnerability management leads, Node.js and platform engineers, and security engineers who own services or clients that decompress Brotli"
+    level: "Intermediate"
+    read_when: "You need the facts of the Brotli decoder flaw CVE-2026-111497, you run Node.js or another product that bundles Brotli, or you want to check and fix it on your own hosts"
+    start_at: "[Executive summary](#executive-summary), [Part 4: what the lab showed](#part-4-what-the-lab-showed), [Part 5: find it and fix it on real hosts](#part-5-find-it-and-fix-it-on-real-hosts)"
+    pairs_with: "[CVE Reference](/CVE_REFERENCE.md), [CWE Reference](/CWE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)"
+    reviewed: null
   case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md:
     audience: "JavaScript developers, supply chain security engineers and platform teams that install npm packages"
     level: "Intermediate"

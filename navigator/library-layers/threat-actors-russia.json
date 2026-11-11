@@ -1,0 +1,2450 @@
+{
+  "name": "TeamStarWolf - Russia-Attributed Threat Actors Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified public record on Russia-attributed threat actors supports: the techniques ATT&CK v20.0 records for nine Russia-attributed groups (APT28, APT29, Sandworm Team, Turla, Dragonfly, Gamaredon Group, Ember Bear, Star Blizzard, TEMP.Veles) and their eight attributed campaigns, the technique ids named in joint government advisories AA20-296A, AA22-011A, AA23-129A, AA23-341A, AA23-347A, AA24-057A, AA24-249A and AA25-141A, and two techniques inferred by the study. Ids reported under earlier ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Campaign C0063 is left out because ATT&CK associates it with no group. Each comment names source numbers from case-studies/THREAT_ACTORS_RUSSIA.md. Scores: 100 is named in a government advisory, 60 is recorded by ATT&CK for one of the groups or campaigns but not named in a verified advisory, 30 is inferred by the study.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#fcd34d",
+      "#f97316",
+      "#b91c1c"
+    ],
+    "minValue": 30,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "30: inferred by the study from a dated narrative, not an ATT&CK or advisory mapping",
+      "color": "#fcd34d"
+    },
+    {
+      "label": "60: recorded by ATT&CK for a Russia-attributed group or campaign, not named in a verified advisory",
+      "color": "#f97316"
+    },
+    {
+      "label": "100: named in a joint government advisory on Russian state actors",
+      "color": "#b91c1c"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/THREAT_ACTORS_RUSSIA.md (sources opened 3 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "332"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "395"
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "Russia-Attributed Threat Actors: The Public Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/THREAT_ACTORS_RUSSIA.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]; recorded by ATT&CK v20.0 for Gamaredon Group [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1001.001",
+      "tactic": "command-and-control",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1001.002",
+      "tactic": "command-and-control",
+      "score": 60,
+      "comment": "Recorded for campaigns C0023 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1001.003",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38], AA23-347A [42], AA24-249A [51]; recorded by ATT&CK v20.0 for APT28, Ember Bear [80] [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42], AA24-249A [51]; recorded by ATT&CK v20.0 for APT28, Sandworm Team, Ember Bear [80] [82] [86]; recorded for campaigns C0025, C0030, C0032 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1003.002",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42], AA24-249A [51]; recorded by ATT&CK v20.0 for APT29, Dragonfly, Ember Bear [81] [84] [86]; recorded for campaigns C0051 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1003.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA22-011A [26], AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, Sandworm Team, Dragonfly [80] [82] [84]; recorded for campaigns C0051 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1003.004",
+      "tactic": "credential-access",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29, Dragonfly, Ember Bear [81] [84] [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1003.006",
+      "tactic": "credential-access",
+      "score": 60,
+      "comment": "Recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28, Turla, APT29, Sandworm Team, Dragonfly, Gamaredon Group, Ember Bear [80] [83] [81] [82] [84] [85] [86]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1006",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded for campaigns C0051 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1007",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla [83]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1012",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla, Dragonfly, Gamaredon Group [83] [84] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1014",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]; recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla, Dragonfly [83] [84]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1016.001",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla, APT29, Gamaredon Group [83] [81] [85]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1016.002",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Recorded for campaigns C0051 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla, Sandworm Team, Dragonfly, Ember Bear [83] [82] [84] [86]; recorded for campaigns C0024, C0025, C0028 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1020",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]; recorded by ATT&CK v20.0 for Gamaredon Group [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1021",
+      "tactic": "lateral-movement",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Ember Bear [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]; recorded by ATT&CK v20.0 for Dragonfly [84]; recorded for campaigns C0024, C0032, C0051 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28, Turla, Sandworm Team [80] [83] [82]; recorded for campaigns C0024, C0025, C0051 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1021.004",
+      "tactic": "lateral-movement",
+      "score": 60,
+      "comment": "Recorded for campaigns C0032 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1021.005",
+      "tactic": "lateral-movement",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Gamaredon Group [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1021.006",
+      "tactic": "lateral-movement",
+      "score": 60,
+      "comment": "Recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1021.007",
+      "tactic": "lateral-movement",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1025",
+      "tactic": "collection",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28, Turla, Gamaredon Group [80] [83] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]; recorded by ATT&CK v20.0 for Sandworm Team, Gamaredon Group [82] [85]; recorded for campaigns C0025 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1027.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]; recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1027.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]; recorded by ATT&CK v20.0 for APT29 [81]; recorded for campaigns C0025 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1027.003",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded for campaigns C0023 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1027.004",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Gamaredon Group [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1027.005",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla [83]; recorded for campaigns C0030 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1027.006",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1027.010",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla, Sandworm Team, Gamaredon Group [83] [82] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1027.011",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla [83]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1027.012",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Gamaredon Group [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1027.013",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1027.015",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Gamaredon Group [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1027.016",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Gamaredon Group [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1029",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1030",
+      "tactic": "exfiltration",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1033",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]; recorded by ATT&CK v20.0 for Sandworm Team, Dragonfly, Gamaredon Group [82] [84] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38], AA23-347A [42]; recorded by ATT&CK v20.0 for APT28, Sandworm Team, Ember Bear [80] [82] [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1036.004",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded for campaigns C0024, C0034 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28, Turla, APT29, Sandworm Team, Gamaredon Group, Ember Bear [80] [83] [81] [82] [85] [86]; recorded for campaigns C0024, C0025, C0030, C0032 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1036.008",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded for campaigns C0025 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1036.010",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Dragonfly [84]; recorded for campaigns C0025 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1037",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1037",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1037.001",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1037.001",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1037.004",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1037.004",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1039",
+      "tactic": "collection",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28, Gamaredon Group [80] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]; recorded by ATT&CK v20.0 for APT28, Sandworm Team [80] [82]; recorded for campaigns C0028 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]; recorded by ATT&CK v20.0 for APT28, Sandworm Team [80] [82]; recorded for campaigns C0028 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]; recorded by ATT&CK v20.0 for Sandworm Team, Gamaredon Group [82] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38], AA23-347A [42], AA24-249A [51]; recorded by ATT&CK v20.0 for Ember Bear [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]; recorded by ATT&CK v20.0 for APT29, Sandworm Team, Gamaredon Group, Ember Bear [81] [82] [85] [86]; recorded for campaigns C0024, C0025 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1048",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1048.002",
+      "tactic": "exfiltration",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1049",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]; recorded by ATT&CK v20.0 for Turla, Sandworm Team [83] [82]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42], AA25-141A [55]; recorded by ATT&CK v20.0 for APT29, Sandworm Team, Dragonfly, Gamaredon Group, Ember Bear [81] [82] [84] [85] [86]; recorded for campaigns C0024, C0030, C0032, C0034 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42], AA25-141A [55]; recorded by ATT&CK v20.0 for APT29, Sandworm Team, Dragonfly, Gamaredon Group, Ember Bear [81] [82] [84] [85] [86]; recorded for campaigns C0024, C0030, C0032, C0034 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42], AA25-141A [55]; recorded by ATT&CK v20.0 for APT29, Sandworm Team, Dragonfly, Gamaredon Group, Ember Bear [81] [82] [84] [85] [86]; recorded for campaigns C0024, C0030, C0032, C0034 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]; recorded by ATT&CK v20.0 for Turla, Gamaredon Group [83] [85]; recorded for campaigns C0028 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]; recorded by ATT&CK v20.0 for Turla, Gamaredon Group [83] [85]; recorded for campaigns C0028 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1055.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]; recorded by ATT&CK v20.0 for Turla [83]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1055.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]; recorded by ATT&CK v20.0 for Turla [83]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1056",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1056",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]; recorded by ATT&CK v20.0 for APT28, Sandworm Team [80] [82]; recorded for campaigns C0028 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]; recorded by ATT&CK v20.0 for APT28, Sandworm Team [80] [82]; recorded for campaigns C0028 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1056.003",
+      "tactic": "credential-access",
+      "score": 60,
+      "comment": "Recorded for campaigns C0030 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1056.003",
+      "tactic": "collection",
+      "score": 60,
+      "comment": "Recorded for campaigns C0030 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]; recorded by ATT&CK v20.0 for APT28, Turla, Gamaredon Group [80] [83] [85]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]; recorded by ATT&CK v20.0 for Dragonfly [84]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38], AA23-347A [42], AA24-249A [51], AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, Turla, APT29, Sandworm Team, Dragonfly, Gamaredon Group, Ember Bear [80] [83] [81] [82] [84] [85] [86]; recorded for campaigns C0024, C0025, C0030, C0032, C0034, C0051 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Named in government advisories: AA22-011A [26], AA23-347A [42], AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, Turla, Dragonfly, Gamaredon Group [80] [83] [84] [85]; recorded for campaigns C0024, C0025, C0051 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1059.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]; recorded by ATT&CK v20.0 for Turla, Sandworm Team, Gamaredon Group [83] [82] [85]; recorded for campaigns C0024, C0025, C0028 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1059.006",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]; recorded by ATT&CK v20.0 for Turla, APT29, Dragonfly [83] [81] [84]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1059.007",
+      "tactic": "execution",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla, Star Blizzard [83] [87]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1059.009",
+      "tactic": "execution",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]; recorded by ATT&CK v20.0 for APT28, Turla, APT29 [80] [83] [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1069",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1069.001",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla [83]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1069.002",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla, Dragonfly [83] [84]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28, APT29, Sandworm Team, Dragonfly, Gamaredon Group, Ember Bear [80] [81] [82] [84] [85] [86]; recorded for campaigns C0024, C0028, C0032 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1070.006",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28, APT29 [80] [81]; recorded for campaigns C0024, C0032 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1070.008",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1071",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38], AA24-249A [51]; recorded by ATT&CK v20.0 for APT28, Turla, Sandworm Team, Gamaredon Group [80] [83] [82] [85]; recorded for campaigns C0024, C0028 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1071.002",
+      "tactic": "command-and-control",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Dragonfly [84]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1071.003",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]; recorded by ATT&CK v20.0 for APT28, Turla [80] [83]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1071.004",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38], AA24-249A [51]; recorded by ATT&CK v20.0 for Ember Bear [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1072",
+      "tactic": "execution",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team [82]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1072",
+      "tactic": "lateral-movement",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team [82]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1074",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1074.001",
+      "tactic": "collection",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28, Dragonfly [80] [84]; recorded for campaigns C0032, C0051 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1074.002",
+      "tactic": "collection",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA20-296A [16], AA22-011A [26], AA23-129A [38], AA23-341A [40]; recorded by ATT&CK v20.0 for APT28, APT29, Sandworm Team, Dragonfly, Star Blizzard [80] [81] [82] [84] [87]; recorded for campaigns C0024, C0028, C0032 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Named in government advisories: AA20-296A [16], AA22-011A [26], AA23-129A [38], AA23-341A [40]; recorded by ATT&CK v20.0 for APT28, APT29, Sandworm Team, Dragonfly, Star Blizzard [80] [81] [82] [84] [87]; recorded for campaigns C0024, C0028, C0032 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Named in government advisories: AA20-296A [16], AA22-011A [26], AA23-129A [38], AA23-341A [40]; recorded by ATT&CK v20.0 for APT28, APT29, Sandworm Team, Dragonfly, Star Blizzard [80] [81] [82] [84] [87]; recorded for campaigns C0024, C0028, C0032 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Named in government advisories: AA20-296A [16], AA22-011A [26], AA23-129A [38], AA23-341A [40]; recorded by ATT&CK v20.0 for APT28, APT29, Sandworm Team, Dragonfly, Star Blizzard [80] [81] [82] [84] [87]; recorded for campaigns C0024, C0028, C0032 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51]; recorded by ATT&CK v20.0 for Ember Bear [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51]; recorded by ATT&CK v20.0 for Ember Bear [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51]; recorded by ATT&CK v20.0 for Ember Bear [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51]; recorded by ATT&CK v20.0 for Ember Bear [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "initial-access",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team [82]; recorded for campaigns C0023, C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team [82]; recorded for campaigns C0023, C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team [82]; recorded for campaigns C0023, C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team [82]; recorded for campaigns C0023, C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "initial-access",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla, APT29 [83] [81]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla, APT29 [83] [81]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla, APT29 [83] [81]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla, APT29 [83] [81]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-057A [45]; recorded by ATT&CK v20.0 for APT28, APT29 [80] [81]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-057A [45]; recorded by ATT&CK v20.0 for APT28, APT29 [80] [81]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-057A [45]; recorded by ATT&CK v20.0 for APT28, APT29 [80] [81]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-057A [45]; recorded by ATT&CK v20.0 for APT28, APT29 [80] [81]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1080",
+      "tactic": "lateral-movement",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Gamaredon Group [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla, Sandworm Team, Gamaredon Group [83] [82] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]; recorded by ATT&CK v20.0 for APT28, Turla, Sandworm Team, Dragonfly, Gamaredon Group [80] [83] [82] [84] [85]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1087",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1087.001",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla [83]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1087.002",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]; recorded by ATT&CK v20.0 for Turla, Sandworm Team, Dragonfly [83] [82] [84]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1087.003",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team [82]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1087.004",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla, Sandworm Team, Gamaredon Group [83] [82] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1090.001",
+      "tactic": "command-and-control",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla [83]; recorded for campaigns C0024, C0051 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1090.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-057A [45], AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, APT29 [80] [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Named in government advisories: AA22-011A [26], AA23-129A [38], AA24-249A [51], AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, APT29, Gamaredon Group, Ember Bear [80] [81] [85] [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1090.004",
+      "tactic": "command-and-control",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "initial-access",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28, Gamaredon Group [80] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "lateral-movement",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28, Gamaredon Group [80] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1092",
+      "tactic": "command-and-control",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1095",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38], AA24-249A [51]; recorded by ATT&CK v20.0 for Gamaredon Group, Ember Bear [85] [86]; recorded for campaigns C0034 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]; recorded for campaigns C0025 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]; recorded for campaigns C0025 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1098.001",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1098.001",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "Recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1098.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, APT29 [80] [81]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1098.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, APT29 [80] [81]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1098.003",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1098.003",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "Recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1098.005",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-057A [45]; recorded by ATT&CK v20.0 for APT29 [81]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1098.005",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-057A [45]; recorded by ATT&CK v20.0 for APT29 [81]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1098.007",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Dragonfly [84]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1098.007",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Dragonfly [84]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1102",
+      "tactic": "command-and-control",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla, Gamaredon Group [83] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1102.002",
+      "tactic": "command-and-control",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28, Turla, Sandworm Team, Gamaredon Group [80] [83] [82] [85]; recorded for campaigns C0023 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1102.003",
+      "tactic": "command-and-control",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Gamaredon Group [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1104",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38], AA25-141A [55]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51]; recorded by ATT&CK v20.0 for APT28, Turla, APT29, Sandworm Team, Dragonfly, Gamaredon Group [80] [83] [81] [82] [84] [85]; recorded for campaigns C0024, C0028 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1106",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]; recorded by ATT&CK v20.0 for Turla, Sandworm Team, Gamaredon Group [83] [82] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA20-296A [16], AA24-057A [45], AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, Turla, Dragonfly, Ember Bear [80] [83] [84] [86]; recorded for campaigns C0025 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1110.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA22-011A [26], AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, APT29 [80] [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1110.002",
+      "tactic": "credential-access",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Dragonfly [84]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA22-011A [26], AA24-249A [51], AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, APT29, Ember Bear [80] [81] [86]; recorded for campaigns C0051 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1111",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]; recorded by ATT&CK v20.0 for Turla, Dragonfly, Gamaredon Group, Ember Bear [83] [84] [85] [86]; recorded for campaigns C0028 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]; recorded by ATT&CK v20.0 for Turla, Dragonfly, Gamaredon Group, Ember Bear [83] [84] [85] [86]; recorded for campaigns C0028 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1113",
+      "tactic": "collection",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28, Dragonfly, Gamaredon Group [80] [84] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1114",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51], AA25-141A [55]; recorded by ATT&CK v20.0 for Ember Bear [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1114.002",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-341A [40], AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, APT29, Dragonfly, Star Blizzard [80] [81] [84] [87]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1114.003",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-341A [40]; recorded by ATT&CK v20.0 for Star Blizzard [87]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1119",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38], AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, Gamaredon Group, Ember Bear [80] [85] [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1120",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28, Turla, Gamaredon Group [80] [83] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1124",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla [83]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1125",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51], AA25-141A [55]; recorded by ATT&CK v20.0 for Ember Bear [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1132",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1132.001",
+      "tactic": "command-and-control",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team [82]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1132.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA20-296A [16], AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, APT29, Sandworm Team, Dragonfly, Ember Bear [80] [81] [82] [84] [86]; recorded for campaigns C0024, C0028, C0032 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Named in government advisories: AA20-296A [16], AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, APT29, Sandworm Team, Dragonfly, Ember Bear [80] [81] [82] [84] [86]; recorded for campaigns C0024, C0028, C0032 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1134.002",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla [83]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1134.002",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla [83]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1135",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]; recorded by ATT&CK v20.0 for Dragonfly [84]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1136",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded for campaigns C0025 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1136.001",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Dragonfly [84]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1136.002",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded for campaigns C0025, C0028 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1136.003",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1137",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Gamaredon Group [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1137.002",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1140",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]; recorded by ATT&CK v20.0 for APT28, Turla, Sandworm Team, Gamaredon Group [80] [83] [82] [85]; recorded for campaigns C0024, C0051 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1187",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]; recorded by ATT&CK v20.0 for Dragonfly [84]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA20-296A [16]; recorded by ATT&CK v20.0 for APT28, Turla, Dragonfly [80] [83] [84]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA20-296A [16], AA22-011A [26], AA23-129A [38], AA23-347A [42], AA24-249A [51], AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, APT29, Sandworm Team, Dragonfly, Ember Bear [80] [81] [82] [84] [86]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1195",
+      "tactic": "initial-access",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team, Ember Bear [82] [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA22-011A [26]; recorded by ATT&CK v20.0 for Sandworm Team, Dragonfly [82] [84]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, APT29, Sandworm Team [80] [81] [82]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1201",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla [83]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]; recorded by ATT&CK v20.0 for APT28, APT29, Sandworm Team, Dragonfly, Ember Bear [80] [81] [82] [84] [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1204.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, Turla, APT29, Sandworm Team, Gamaredon Group [80] [83] [81] [82] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, APT29, Sandworm Team, Dragonfly, Gamaredon Group, Star Blizzard [80] [81] [82] [84] [85] [87]; recorded for campaigns C0028 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]; recorded by ATT&CK v20.0 for APT28, Dragonfly, Ember Bear [80] [84] [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1211",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1212",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA22-011A [26]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1213",
+      "tactic": "collection",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1213.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1213.002",
+      "tactic": "collection",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1213.003",
+      "tactic": "collection",
+      "score": 60,
+      "comment": "Recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1213.006",
+      "tactic": "collection",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla, Sandworm Team [83] [82]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1218.005",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29, Gamaredon Group [81] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1218.011",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28, Sandworm Team, Gamaredon Group [80] [82] [85]; recorded for campaigns C0024, C0028 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team [82]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1221",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28, Dragonfly, Gamaredon Group [80] [84] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1480",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Gamaredon Group [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1482",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1484.001",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "Recorded for campaigns C0034 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1484.001",
+      "tactic": "defense-impairment",
+      "score": 60,
+      "comment": "Recorded for campaigns C0034 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1484.002",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "Recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1484.002",
+      "tactic": "defense-impairment",
+      "score": 60,
+      "comment": "Recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51]; recorded by ATT&CK v20.0 for Sandworm Team [82]; recorded for campaigns C0034 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team [82]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1489",
+      "tactic": "impact",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team [82]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team [82]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1491.001",
+      "tactic": "impact",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Gamaredon Group [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1491.002",
+      "tactic": "impact",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team, Ember Bear [82] [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1497.001",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Gamaredon Group [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1497.001",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Gamaredon Group [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1499",
+      "tactic": "impact",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team [82]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1505.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]; recorded for campaigns C0025 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51]; recorded by ATT&CK v20.0 for APT28, APT29, Sandworm Team, Dragonfly, Ember Bear [80] [81] [82] [84] [86]; recorded for campaigns C0032, C0034 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1518.001",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla, Gamaredon Group [83] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1528",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-057A [45]; recorded by ATT&CK v20.0 for APT28, APT29 [80] [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1534",
+      "tactic": "lateral-movement",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Gamaredon Group [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1539",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-341A [40]; recorded by ATT&CK v20.0 for Sandworm Team, Star Blizzard [82] [87]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1542.003",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1542.003",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1543.002",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded for campaigns C0034 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1543.002",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "Recorded for campaigns C0034 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded for campaigns C0025 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "Recorded for campaigns C0025 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1546.003",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla, APT29 [83] [81]; recorded for campaigns C0023, C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1546.003",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla, APT29 [83] [81]; recorded for campaigns C0023, C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1546.008",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1546.008",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1546.012",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded for campaigns C0032 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1546.012",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "Recorded for campaigns C0032 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1546.013",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla [83]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1546.013",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla [83]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1546.015",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1546.015",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1546.016",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1546.016",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1547",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1547",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, Turla, APT29, Dragonfly, Gamaredon Group [80] [83] [81] [84] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, Turla, APT29, Dragonfly, Gamaredon Group [80] [83] [81] [84] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1547.004",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla [83]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1547.004",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla [83]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1547.006",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1547.006",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1547.009",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1547.009",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1548.002",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1550",
+      "tactic": "lateral-movement",
+      "score": 60,
+      "comment": "Recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1550.001",
+      "tactic": "lateral-movement",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1550.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51]; recorded by ATT&CK v20.0 for APT28, Ember Bear [80] [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1550.003",
+      "tactic": "lateral-movement",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1550.004",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-341A [40]; recorded by ATT&CK v20.0 for Star Blizzard [87]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1552.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51]; recorded by ATT&CK v20.0 for Ember Bear [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1552.004",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA22-011A [26]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1552.006",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1553.002",
+      "tactic": "defense-impairment",
+      "score": 60,
+      "comment": "Recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1553.005",
+      "tactic": "defense-impairment",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1553.006",
+      "tactic": "defense-impairment",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla [83]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1554",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded for campaigns C0025 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1555",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA22-011A [26]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1555.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]; recorded by ATT&CK v20.0 for Sandworm Team [82]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1555.004",
+      "tactic": "credential-access",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla [83]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1556.007",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1556.007",
+      "tactic": "defense-impairment",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1556.007",
+      "tactic": "credential-access",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "credential-access",
+      "score": 30,
+      "comment": "Inferred by this study, not an ATT&CK or advisory mapping: Secret Blizzard used an ISP-level adversary-in-the-middle position against embassies in Moscow (Microsoft, 2025-07-31); APT28 hijacked DHCP and DNS on SOHO routers for adversary-in-the-middle attacks on Outlook Web Access (FBI PSA, 2026-04-07) [77] [59]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "collection",
+      "score": 30,
+      "comment": "Inferred by this study, not an ATT&CK or advisory mapping: Secret Blizzard used an ISP-level adversary-in-the-middle position against embassies in Moscow (Microsoft, 2025-07-31); APT28 hijacked DHCP and DNS on SOHO routers for adversary-in-the-middle attacks on Outlook Web Access (FBI PSA, 2026-04-07) [77] [59]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1557.004",
+      "tactic": "credential-access",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1557.004",
+      "tactic": "collection",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1558.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1558.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA22-011A [26]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1559",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1559.001",
+      "tactic": "execution",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Gamaredon Group [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1559.002",
+      "tactic": "execution",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1560",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51], AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, Dragonfly, Ember Bear [80] [84] [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1560.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, Turla [80] [83]; recorded for campaigns C0024, C0051 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1560.003",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1561.001",
+      "tactic": "impact",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Gamaredon Group [85]; recorded for campaigns C0051 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1561.002",
+      "tactic": "impact",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team, Ember Bear [82] [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1564",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38], AA23-347A [42]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1564.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]; recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1564.002",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Dragonfly [84]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1564.003",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28, Gamaredon Group [80] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1564.012",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla [83]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-341A [40], AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, APT29, Sandworm Team, Dragonfly, Gamaredon Group, Star Blizzard [80] [81] [82] [84] [85] [87]; recorded for campaigns C0028 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-341A [40], AA25-141A [55]; recorded by ATT&CK v20.0 for Turla, APT29, Sandworm Team [83] [81] [82]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1566.003",
+      "tactic": "initial-access",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1566.004",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1567",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]; recorded by ATT&CK v20.0 for APT28 [80]; recorded for campaigns C0051 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1567.002",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51]; recorded by ATT&CK v20.0 for Turla, Ember Bear [83] [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1568",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]; recorded by ATT&CK v20.0 for APT29, Gamaredon Group [81] [85]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1568.001",
+      "tactic": "command-and-control",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Gamaredon Group [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1569.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1570",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]; recorded by ATT&CK v20.0 for Turla, Sandworm Team, Ember Bear [83] [82] [86]; recorded for campaigns C0025, C0028, C0034 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1571",
+      "tactic": "command-and-control",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team, Gamaredon Group, Ember Bear [82] [85] [86]; recorded for campaigns C0032 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38], AA23-347A [42], AA24-249A [51]; recorded by ATT&CK v20.0 for Ember Bear [86]; recorded for campaigns C0032, C0034 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1573",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38], AA25-141A [55]; recorded by ATT&CK v20.0 for APT29 [81]; recorded for campaigns C0030 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1573.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]; recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1573.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42], AA25-141A [55]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42], AA25-141A [55]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1583",
+      "tactic": "resource-development",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team, Ember Bear, Star Blizzard [82] [86] [87]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-341A [40]; recorded by ATT&CK v20.0 for APT28, Sandworm Team, Dragonfly, Gamaredon Group, Star Blizzard [80] [82] [84] [85] [87]; recorded for campaigns C0023, C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1583.003",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51]; recorded by ATT&CK v20.0 for APT28, Dragonfly, Gamaredon Group, Ember Bear [80] [84] [85] [86]; recorded for campaigns C0032 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1583.004",
+      "tactic": "resource-development",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team [82]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1583.006",
+      "tactic": "resource-development",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28, Turla, APT29, Gamaredon Group [80] [83] [81] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1584",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]; recorded for campaigns C0051 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1584.001",
+      "tactic": "resource-development",
+      "score": 60,
+      "comment": "Recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1584.003",
+      "tactic": "resource-development",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla [83]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1584.004",
+      "tactic": "resource-development",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla, Sandworm Team, Dragonfly [83] [82] [84]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1584.005",
+      "tactic": "resource-development",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team [82]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1584.006",
+      "tactic": "resource-development",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla [83]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1584.008",
+      "tactic": "resource-development",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1585",
+      "tactic": "resource-development",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Ember Bear [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1585.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-341A [40]; recorded by ATT&CK v20.0 for Sandworm Team, Star Blizzard [82] [87]; recorded for campaigns C0023 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1585.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-341A [40]; recorded by ATT&CK v20.0 for Sandworm Team, Star Blizzard [82] [87]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1586.001",
+      "tactic": "resource-development",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team [82]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1586.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-341A [40], AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, APT29, Star Blizzard [80] [81] [87]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1586.003",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]; recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1587.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Named in government advisories: AA22-011A [26], AA23-129A [38]; recorded by ATT&CK v20.0 for Turla, APT29, Sandworm Team [83] [81] [82]; recorded for campaigns C0023, C0024, C0030 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1587.003",
+      "tactic": "resource-development",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29, Gamaredon Group [81] [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1588",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1588.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51]; recorded by ATT&CK v20.0 for Turla, Ember Bear [83] [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1588.002",
+      "tactic": "resource-development",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28, Turla, APT29, Sandworm Team, Dragonfly, Gamaredon Group, Star Blizzard [80] [83] [81] [82] [84] [85] [87]; recorded for campaigns C0030, C0032 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1588.005",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51]; recorded by ATT&CK v20.0 for Ember Bear [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1588.006",
+      "tactic": "resource-development",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team [82]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1588.007",
+      "tactic": "resource-development",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1589",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-341A [40]; recorded by ATT&CK v20.0 for Star Blizzard [87]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1589.001",
+      "tactic": "reconnaissance",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1589.002",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]; recorded by ATT&CK v20.0 for Sandworm Team [82]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1589.003",
+      "tactic": "reconnaissance",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team [82]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1590",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1590.001",
+      "tactic": "reconnaissance",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team [82]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1590.002",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1590.004",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1591",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]; recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1591.002",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]; recorded by ATT&CK v20.0 for Sandworm Team, Dragonfly [82] [84]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1591.004",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1592",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1592.002",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]; recorded by ATT&CK v20.0 for Sandworm Team [82]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1593",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-341A [40]; recorded by ATT&CK v20.0 for Sandworm Team, Star Blizzard [82] [87]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1594",
+      "tactic": "reconnaissance",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team [82]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1595",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51]; recorded for campaigns C0030 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1595.001",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51]; recorded by ATT&CK v20.0 for Ember Bear [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Named in government advisories: AA22-011A [26], AA24-249A [51]; recorded by ATT&CK v20.0 for APT28, APT29, Sandworm Team, Dragonfly, Ember Bear [80] [81] [82] [84] [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1596",
+      "tactic": "reconnaissance",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1596.005",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1598",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Named in government advisories: AA22-011A [26]; recorded by ATT&CK v20.0 for APT28 [80]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1598.002",
+      "tactic": "reconnaissance",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Dragonfly, Star Blizzard [84] [87]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1598.003",
+      "tactic": "reconnaissance",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28, Sandworm Team, Dragonfly, Star Blizzard [80] [82] [84] [87]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1602.002",
+      "tactic": "collection",
+      "score": 30,
+      "comment": "Inferred by this study, not an ATT&CK or advisory mapping: FSB Center 16 collected configuration files from thousands of US networking devices (FBI PSA, 2025-08-20) and copied router configurations worldwide (AA26-194A, 2026-07-13) [56] [62]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1606.001",
+      "tactic": "credential-access",
+      "score": 60,
+      "comment": "Recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1606.002",
+      "tactic": "credential-access",
+      "score": 60,
+      "comment": "Recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1608",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1608.001",
+      "tactic": "resource-development",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Sandworm Team, Gamaredon Group, Star Blizzard [82] [85] [87]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1608.004",
+      "tactic": "resource-development",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Dragonfly [84]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1610",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-129A [38]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1615",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Turla [83]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1620",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Gamaredon Group [85]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1621",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-057A [45]; recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1649",
+      "tactic": "credential-access",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1651",
+      "tactic": "execution",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1654",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Named in government advisories: AA24-249A [51]; recorded by ATT&CK v20.0 for Ember Bear [86]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1659",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1659",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1665",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]; recorded by ATT&CK v20.0 for APT29 [81]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1669",
+      "tactic": "initial-access",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28 [80]; recorded for campaigns C0051 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1680",
+      "tactic": "discovery",
+      "score": 60,
+      "comment": "Recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1684.001",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT28, Star Blizzard [80] [87]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Named in government advisories: AA23-347A [42]; recorded by ATT&CK v20.0 for Turla, Gamaredon Group [83] [85]; recorded for campaigns C0024, C0028 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1685.001",
+      "tactic": "defense-impairment",
+      "score": 60,
+      "comment": "Recorded for campaigns C0024, C0025 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1685.002",
+      "tactic": "defense-impairment",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for APT29 [81]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1685.005",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Named in government advisories: AA25-141A [55]; recorded by ATT&CK v20.0 for APT28, Dragonfly [80] [84]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1686",
+      "tactic": "defense-impairment",
+      "score": 60,
+      "comment": "Recorded by ATT&CK v20.0 for Dragonfly [84]; recorded for campaigns C0024 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    },
+    {
+      "techniqueID": "T1686.003",
+      "tactic": "defense-impairment",
+      "score": 60,
+      "comment": "Recorded for campaigns C0051 [94]. Source numbers refer to the Sources table of case-studies/THREAT_ACTORS_RUSSIA.md."
+    }
+  ]
+}

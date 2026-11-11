@@ -35,6 +35,7 @@ Determining if a URL is benign or malicious by analyzing the URL or its componen
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md)
+- [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
 
 <!-- library-refs:end -->
 

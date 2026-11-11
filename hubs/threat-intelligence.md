@@ -48,5 +48,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [SolarWinds and SUNBURST: a 2019 to 2021 case study](/case-studies/SOLARWINDS_SUNBURST.md)
 - [APT41: the public record](/case-studies/APT41_PUBLIC_RECORD.md)
 - [The year 2020 in intrusions: a case study](/case-studies/CHRONICLE_2020.md)
+- [Exchange Marauder 2021: a case study](/case-studies/EXCHANGE_MARAUDER_2021.md)
 
 <!-- hub:end -->

@@ -2,6 +2,55 @@
 
 Cohesity is a data management and security platform that consolidates backup with threat and anomaly analytics. DataProtect handles backup and recovery with immutable snapshots, while DataHawk adds threat detection and data classification. The Helios control plane manages estates from one place. Licence tier decides which products and capabilities are in force.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Backup administrators, infrastructure engineers and incident responders who run, tune or assess Cohesity
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,361 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Cohesity for backup and cyber recovery, you are hardening its deployment, or you need to see where it fits in the program
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md), [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Rubrik](/platforms/rubrik.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Cohesity is a platform for backup, recovery, and data security. It protects virtual machines, physical servers, databases, cloud workloads, and SaaS data, and manages them across sites from a cloud-delivered control plane.
@@ -60,6 +109,24 @@ DataHawk provides backup-anomaly and threat detection. It studies change rates, 
 Data classification adds impact context. Knowing which sensitive data a compromised system held informs notification, prioritization, and recovery order.
 
 Recovery testing turns the verification step into evidence. Scheduled restores and documented results confirm that the surviving copies recover cleanly.
+
+## Adversary perspective
+
+Because Cohesity holds the recovery capability and copies of sensitive data, ransomware actors treat it as something to neutralize before they detonate, and the Helios control plane, the clusters, and the admin identities over them are themselves an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Destroying recovery before impact (ATT&CK T1490, Inhibit System Recovery): with backup admin access an attacker tries to delete snapshots, expire protection, or lower retention before encrypting production. Immutable snapshots that cannot be altered in place, plus an isolated or archived copy, are the counters.
+- Abusing the backup identity (ATT&CK T1078, Valid Accounts): a compromised Cohesity administrator, or a reused production domain admin account, can change policy or attempt to erase retained copies, which is why separate identities and role separation matter ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Blinding or outrunning detection: an attacker who pre-stages encryption slowly can try to stay under DataHawk anomaly thresholds, so the analytics are a signal rather than a guarantee.
+
+### Residual risk and own exposure
+
+Cohesity cannot prevent a compromise and cannot recover workloads that were never protected or that were restored from an infected point. The platform stores credentials for many systems and classifies sensitive data, and backup software across the industry has been a notable exploitation target, so its control plane belongs in the patch and monitoring scope and its own compromise is a breach in its own right.
+
+### Why it matters
+
+A tester probes whether snapshots can be deleted or retention weakened with the access at hand, and whether an isolated copy is truly out of reach. A defender alarms on mass snapshot deletion, retention changes, and policy edits as incidents in their own right, and treats DataHawk findings as an early warning. See [the ransomware defense reference](/RANSOMWARE_DEFENSE_REFERENCE.md) for how immutable and isolated copies fit, and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

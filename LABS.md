@@ -17,7 +17,7 @@ Beginner
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Length</th><td>
 
-Lookup page: 1,498 words, 75% in tables; look entries up from Start at or the search (about 7 min end to end at 230 words a minute)
+Lookup page: 1,499 words, 75% in tables; look entries up from Start at or the search (about 7 min end to end at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -82,7 +82,7 @@ A curated index of free and accessible lab environments, CTF platforms, and prac
 |---|---|---|
 | MISP Training Environment | Threat sharing, IOC ingestion | [misp-project.org/misp-training](https://www.misp-project.org/misp-training/) |
 | OpenCTI Sandbox | Threat intel platform operations | [docs.opencti.io](https://docs.opencti.io/) |
-| ISAC Threat Intel Feeds (free) | Sector-specific threat data | [cisa.gov/ais](https://www.cisa.gov/resources-tools/programs/automated-indicator-sharing-ais) |
+| ISAC Threat Intel Feeds (free) | Sector-specific threat data | [cisa.gov/ais](https://www.cisa.gov/topics/cyber-threats-and-advisories/information-sharing/automated-indicator-sharing-ais) |
 | TraceLabs OSINT CTF | OSINT-based missing persons investigations | [tracelabs.org](https://www.tracelabs.org/) |
 
 ### Detection Engineering
@@ -158,7 +158,7 @@ A curated index of free and accessible lab environments, CTF platforms, and prac
 ### ICS / OT Security
 | Lab / Platform | Focus | Link |
 |---|---|---|
-| CISA ICS-CERT Training | Free ICS security courses | [cisa.gov/ics-training](https://www.cisa.gov/resources-tools/training/ics-cybersecurity-training) |
+| CISA ICS-CERT Training | Free ICS security courses | [cisa.gov ICS training](https://www.cisa.gov/resources-tools/programs/ics-training-available-through-cisa) |
 | iTrust SWaT Dataset | Secure Water Treatment attack dataset | [itrust.sutd.edu.sg](https://itrust.sutd.edu.sg/research/dataset/) |
 | OpenPLC Runtime | Soft PLC for lab simulation | [openplcproject.com](https://www.openplcproject.com/) |
 | GrassMarlin | Passive ICS network mapping tool | [GitHub: nsacyber/GRASSMARLIN](https://github.com/nsacyber/GRASSMARLIN) |
@@ -225,15 +225,15 @@ Use AWS Free Tier + CloudGoat + Prowler:
 1. Create free AWS account
 2. Deploy [CloudGoat](https://github.com/RhinoSecurityLabs/cloudgoat) vulnerable scenarios
 3. Run [Prowler](https://github.com/prowler-cloud/prowler) to identify misconfigurations
-4. Practice with [flaws.cloud](http://flaws.cloud) — no AWS account needed
+4. Practice with [flaws.cloud](http://flaws.cloud): no AWS account needed
 
 ---
 
 ## Related Resources
-- [Career Paths & Cert Roadmap](CAREER_PATHS.md) — skill progression by career track
-- [Enterprise Security Pipeline](SECURITY_PIPELINE.md) — vendor and control mapping by stage
-- [ATT&CK Navigator](navigator/) — technique coverage visualization
-- [Starred Repositories](STARRED_REPOS.md) — curated tool and project repos
+- [Career Paths & Cert Roadmap](CAREER_PATHS.md): skill progression by career track
+- [Enterprise Security Pipeline](SECURITY_PIPELINE.md): vendor and control mapping by stage
+- [ATT&CK Navigator](navigator/): technique coverage visualization
+- [Starred Repositories](STARRED_REPOS.md): curated tool and project repos
 
 ---
 

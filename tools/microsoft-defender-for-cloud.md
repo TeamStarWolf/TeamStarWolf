@@ -4,6 +4,55 @@
 
 Microsoft Defender for Cloud is Microsoft's CNAPP: a unified platform combining Cloud Security Posture Management (CSPM) for misconfiguration/risk and Cloud Workload Protection (CWPP) for runtime threat protection across Azure, AWS, GCP, on-premises and hybrid estates. Azure Update Manager is the companion native patch-management service that assesses and deploys OS updates to Windows/Linux machines across Azure, on-prem and other clouds. Together they solve posture-plus-workload security and the remediation (patching) step for Microsoft-centric and multicloud environments.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the cloud security engineers who run Microsoft Defender for Cloud
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,400 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what Microsoft Defender for Cloud can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Cloud Security Benchmark](/CLOUD_SECURITY_BENCHMARK.md), [CTEM Reference](/CTEM_REFERENCE.md), [Cloud Architecture Reference](/CLOUD_ARCHITECTURE_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities & architecture
 
 **Core capabilities**
@@ -45,10 +94,28 @@ Serves the full lifecycle for Microsoft and multicloud estates. Agentless vulner
 
 **In a critical-CVE scenario.** First 24-72h of a critical CVE in an internet-facing app and cloud workload: Defender for Cloud agentless scan and MDVM identify all affected VMs, containers and registry images across Azure/AWS/GCP; attack-path analysis and Cloud Security Explorer rank which affected assets are internet-exposed with privileged identity or sensitive data. Immediate mitigation: enable just-in-time access and adaptive network hardening to reduce reachability, confirm Defender for Servers EDR is detecting exploitation attempts, and tighten Azure Policy. Then use Azure Update Manager to schedule and deploy the patch (or hotpatch) across affected machines through an expedited maintenance window, with re-assessment and secure-score/compliance checks validating remediation.
 
+## Adversary perspective
+
+Defender for Cloud assesses posture and detects workload threats; it reports and alerts rather than standing between the attacker and the resource, so an adversary treats it as something to blind, starve of coverage, or live alongside. It runs with broad, privileged read across the connected estate, and its attack-path and finding data map exactly where the weak spots are, which makes it a target in its own right. The detection and tuning guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and tampering
+
+- Blinding the platform: an attacker with sufficient rights can disable Defender plans, stop or redirect the diagnostic settings and Log Analytics ingestion the alerts depend on, or dismiss and suppress findings (ATT&CK T1685 Disable or Modify Tools, T1685.002 disable cloud logs), so the dashboard looks clean while activity continues.
+- Coverage gaps: posture and workload protection apply only where the plan is enabled and the subscription or cloud connector is onboarded; an un-onboarded AWS or GCP connector, an agentless-scan gap, or an unmanaged machine is unseen, and a secure-score finding is detective, not a block.
+- Blending with assessment: attackers time enumeration and access to resemble normal scanning and automation.
+
+### Residual risk and own exposure
+
+A recommendation or an alert is not a fix: the misconfiguration or unpatched workload remains exploitable until someone remediates it, and Azure Update Manager still has to deploy the update. The platform holds privileged read and exposes attack paths ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)), so its roles, connectors, and log workspaces belong at the front of the patch and monitoring scope.
+
+### Why it matters
+
+Knowing that the platform can be disabled, onboarding can be partial, and findings lag the event tells a tester where to look and a defender to monitor the monitors and close the loop to real remediation. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) for the control model and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for turning findings into tracked remediation.
+
 ## Validation & telemetry
 
 **Log sources**
-- Posture/recommendation data (control-present evidence): Azure Resource Graph securityresources table — assessment results (type microsoft.security/assessments), secure-score controls, regulatory compliance states, and sub-assessments (microsoft.security/assessments/subassessments) carrying CVE-level findings from the integrated scanner / MDVM.
+- Posture/recommendation data (control-present evidence): Azure Resource Graph securityresources table, assessment results (type microsoft.security/assessments), secure-score controls, regulatory compliance states, and sub-assessments (microsoft.security/assessments/subassessments) carrying CVE-level findings from the integrated scanner / MDVM.
 - Security alerts (detection/block evidence): emitted by Defender plans; readable in portal, Microsoft.Security/alerts API, exported to Log Analytics SecurityAlert table, and ingested into Sentinel via the Defender for Cloud / Defender XDR connector.
 - Unified Defender portal Advanced Hunting: AlertInfo / AlertEvidence, plus CloudStorageAggregatedEvents (GA-preview Aug 2025).
 - Collection: Azure Monitor / Log Analytics agent or AMA + Data Collection Rules for guest telemetry; Continuous Export (Log Analytics or Event Hub) for alerts/recommendations/secure score; Event Hub -> third-party SIEM. Sentinel maps alerts to the ASIM schema.
@@ -60,9 +127,9 @@ Serves the full lifecycle for Microsoft and multicloud estates. Agentless vulner
 
 **Validation signals (actually working?)**
 - CONFIGURED: assessment/recommendation status.code == Healthy and Defender plan pricingTier == Standard.
-- EFFECTIVE: a CVE sub-assessment transitions Unhealthy->Healthy / stops returning after patch — vulnerability remediated.
+- EFFECTIVE: a CVE sub-assessment transitions Unhealthy->Healthy / stops returning after patch: vulnerability remediated.
 - EFFECTIVE: a SecurityAlert row for an exploitation attempt against the asset (with Intent/kill-chain stage) proves the plan is actively detecting.
-- EFFECTIVE (inline): Defender for Containers admission denial, or an upstream Azure WAF (Front Door/App Gateway) action=Block — note WAF block logs live in that resource's diagnostic logs, NOT in SecurityAlert.
+- EFFECTIVE (inline): Defender for Containers admission denial, or an upstream Azure WAF (Front Door/App Gateway) action=Block: note WAF block logs live in that resource's diagnostic logs, NOT in SecurityAlert.
 - Distinguish: a Healthy assessment proves the control is PRESENT; a disappearing CVE sub-assessment + an alert showing a blocked/contained action prove it MITIGATED something.
 
 **Key events / fields / tables / APIs**
@@ -70,7 +137,7 @@ Serves the full lifecycle for Microsoft and multicloud estates. Agentless vulner
 - sub-assessments: properties.id (CVE), properties.additionalData.cve, properties.status.code, properties.resourceDetails.
 - SecurityAlert (Log Analytics): AlertName, AlertType, AlertSeverity, CompromisedEntity, ProductName ('Microsoft Defender for Cloud'/'Azure Security Center'), Entities, ExtendedProperties, Intent, Status, RemediationSteps, Tactics.
 - Advanced Hunting: AlertInfo (AlertId, Title, Severity, Category, ServiceSource, DetectionSource), AlertEvidence; DeviceTvmSecureConfigurationAssessment (ConfigurationId, IsCompliant, IsApplicable), DeviceTvmSoftwareVulnerabilities (CveId, RecommendedSecurityUpdate) for onboarded servers.
-- NOTE: SecurityAlert AlertType/CompromisedEntity column names are from general knowledge — verify against the live Log Analytics SecurityAlert table reference for your workspace.
+- NOTE: SecurityAlert AlertType/CompromisedEntity column names are from general knowledge; verify against the live Log Analytics SecurityAlert table reference for your workspace.
 
 **Example queries**
 
@@ -106,9 +173,9 @@ SecurityAlert
 **How it mitigates (mechanism).** Mitigation = config enforcement + reachability removal: a Healthy assessment means the enforced baseline/patch/network restriction is in place, and a CVE sub-assessment dropping to Healthy means the vulnerable-package reachability is gone; SecurityAlert is detective proof the plan is live, while true inline blocking is done by an upstream enforcement point (WAF, Just-in-Time VM access, admission control) logged in that resource's own diagnostics.
 
 **Logging gotchas**
-- 'Standard' pricing (plan enabled) != coverage — without AMA/MDE extension or agentless scanning provisioned, assessments return NotApplicable, which is neither Healthy nor a pass.
+- 'Standard' pricing (plan enabled) != coverage, without AMA/MDE extension or agentless scanning provisioned, assessments return NotApplicable, which is neither Healthy nor a pass.
 - Posture in Resource Graph refreshes on a scan cadence (not real-time), so a freshly patched host can show Unhealthy for a cycle.
-- Defender for Cloud is largely posture+detection and does not block inline — prevention proof must come from the enforcing service's logs (Azure WAF diagnostic action=Block, Just-in-Time records, Entra SigninLogs appliedConditionalAccessPolicies), not SecurityAlert.
+- Defender for Cloud is largely posture+detection and does not block inline: prevention proof must come from the enforcing service's logs (Azure WAF diagnostic action=Block, Just-in-Time records, Entra SigninLogs appliedConditionalAccessPolicies), not SecurityAlert.
 - The legacy subscription-based Sentinel connector writes only to SecurityAlert and does not support DCRs.
 - Read recommendations and regulatory compliance state via the Azure Resource Graph securityresources table ([Resource Graph samples](https://learn.microsoft.com/en-us/azure/governance/resource-graph/samples/samples-by-category)) or Continuous Export, and confirm any Advanced Hunting table name with getschema before building detections on it.
 
@@ -142,7 +209,7 @@ _Learning & reference_
 - [Defender for Cloud Ninja training (Microsoft Tech Community)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/become-a-microsoft-defender-for-cloud-ninja/ba-p/1608761)
 - [Microsoft Defender for Cloud blog (Tech Community)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog)
 
-> Note: Product was renamed from Azure Security Center / Azure Defender to Microsoft Defender for Cloud; older REST docs still live under the 'securitycenter' namespace and the ARM Microsoft.Security provider. REST reference pages on Microsoft Learn may show a sign-in/authorization banner. Do NOT confuse with 'Microsoft Defender for Cloud Apps' (MCAS) — a separate product with its own tenant-scoped REST API. The Azure/Microsoft-Defender-for-Cloud GitHub repo is the official home for workbooks, automation playbooks, and sample policies.
+> Note: Product was renamed from Azure Security Center / Azure Defender to Microsoft Defender for Cloud; older REST docs still live under the 'securitycenter' namespace and the ARM Microsoft.Security provider. REST reference pages on Microsoft Learn may show a sign-in/authorization banner. Do NOT confuse with 'Microsoft Defender for Cloud Apps' (MCAS): a separate product with its own tenant-scoped REST API. The Azure/Microsoft-Defender-for-Cloud GitHub repo is the official home for workbooks, automation playbooks, and sample policies.
 
 ## Current state (2025-26)
 

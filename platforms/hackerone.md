@@ -2,6 +2,55 @@
 
 HackerOne is a crowdsourced security platform. It connects organizations with a community of external security researchers who find and report vulnerabilities. The platform manages the programs, the incoming reports, and the workflow that turns a report into a tracked fix.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Application security and vulnerability management teams who run, tune or assess HackerOne
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,420 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running HackerOne for crowdsourced vulnerability discovery, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Snyk](/platforms/snyk.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 HackerOne brings outside testers to an organization's attack surface. Where internal scanning and testing find what known tools detect, a researcher community finds issues that come from human creativity and from attacker-style thinking.
@@ -58,6 +107,24 @@ The main data flow starts with a researcher submitting a report. The report is t
 The API is the extension point for anything beyond the built-in integrations. It lets an organization pull reports, program data, and state into its own tooling, including a SIEM for correlation with other security events.
 
 Data flowing out includes vulnerability detail and reproduction steps, which are sensitive. Route that flow only to the organization's own authorized systems and recipients, and keep the integration scoped to what the program needs.
+
+## Adversary perspective
+
+HackerOne is a disclosure channel rather than a control on an asset, so the adversary angle is abuse of scope and triage and the sensitivity of the report data it holds, kept honest. The defensive steps are in the "Hardening and secure use" section that follows.
+
+### Scope, triage, and report-data risk
+
+- Scope and authorization edges: a vague or over-broad scope can draw testing against systems the organization did not mean to expose, and a bad-faith reporter may probe out-of-bounds assets under cover of the program. A precise, current scope is what keeps activity authorized.
+- Triage and disclosure pressure: duplicate and low-value noise can bury a real report, and a reporter may push for premature public disclosure or inflate severity for a larger reward, so triage integrity and consistent scoring matter.
+- Sensitive report data: a valid report contains a working vulnerability and reproduction steps for an unpatched flaw. That detail is sensitive until a fix ships, and a leaked API token ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)) or over-broad access could expose the backlog of live weaknesses.
+
+### Residual risk and own exposure
+
+The platform finds issues but does not fix them, so an unpatched report is a known, documented exposure for as long as it stays open. Report data and program access concentrate sensitive detail, so tokens and roles belong in the review and monitoring scope, and findings should flow only to the organization's own authorized systems.
+
+### Why it matters
+
+Keep scope tight and current, protect report detail until remediation, and move valid findings into the same prioritization as internal results. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for tracking findings to closure and [the penetration testing methodology](/PENETRATION_TESTING_METHODOLOGY.md) for scope and authorization.
 
 ## Hardening and secure use
 

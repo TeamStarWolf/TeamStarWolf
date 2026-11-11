@@ -2,6 +2,55 @@
 
 Orca Security is an agentless cloud-native application protection platform (CNAPP). It reads cloud workloads from the control plane and combines posture, vulnerabilities, misconfigurations, secrets, and identities in one model. The sections below describe the generally available product in 2026. The licence tier a team holds decides which modules are in force.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Cloud security and platform engineers who run, tune or assess Orca Security
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,280 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Orca Security for cloud and workload security, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Wiz](/platforms/wiz.md), [Prisma Cloud](/platforms/prisma-cloud.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Orca Security gives a cloud security team coverage of risk without placing an agent on each workload. It collects data through the cloud provider's APIs and through a technique the vendor calls SideScanning, which reads the storage behind running workloads from outside them.
@@ -47,6 +96,25 @@ Data flows into Orca from connected cloud accounts through the scoped connector 
 Outbound, findings integrate with the tools a team already uses. Alerts and tickets route to messaging and work-tracking systems. Risk and vulnerability data can feed a SIEM or data warehouse. An API and automation hooks let findings drive pipelines and workflows.
 
 Because collection is agentless and read-only, the data flow is largely one direction, from the cloud account into Orca and then out to the team's response tooling.
+
+## Adversary perspective
+
+Because an agentless CNAPP holds a broad read role across cloud accounts and a ranked map of every exposure, adversaries treat Orca as both something to blind and a target worth stealing from. The steps to lock the deployment down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Stealing the connector role or API token (ATT&CK T1078, Valid Accounts): the connector reads configuration and storage across accounts, so a stolen token or assumed role gives an attacker the same read the platform has ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Blending with the platform: because collection is API-based and control-plane driven, attacker API calls can be lost among the platform's own reads of the provider.
+- Suppressing or re-scoping findings (ATT&CK T1685, Disable or Modify Tools): tenant access lets an attacker mute risks, change policy, or suppress findings so an attack path stops surfacing.
+- Reading the risk list and reconstructed file systems: the prioritized risk list, with the secrets and exposures SideScanning recovers, is a precise map of where to attack.
+
+### Residual risk and own exposure
+
+SideScanning reads block storage and snapshots, so runtime-only and in-memory activity can be missed, and it reports only what the connector role can reach. The connector role, tokens, and tenant are high value because they span many accounts, so the integration belongs in the patch and monitoring scope like any other software.
+
+### Why it matters
+
+A tester targets the connector role and the tenant rather than the workloads Orca already reports on. A defender monitors connector-role use, policy and suppression changes, and data exports as signals in their own right. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) for the cloud attack paths and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

@@ -4,6 +4,55 @@
 
 [All case studies](/case-studies/README.md) · Related: [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [CVE Reference](/CVE_REFERENCE.md), [Threat Intelligence](/THREAT_INTELLIGENCE_REFERENCE.md), [Healthcare Security](/HEALTHCARE_SECURITY_REFERENCE.md), [SolarWinds SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md), [ICS attacks and advisories, 2024 to 2026](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Threat intelligence analysts, threat hunters, defenders of critical infrastructure and healthcare security teams
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 105 min (24,183 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need a sourced account of which Russian services and units governments name behind the tracked groups, what the joint advisories and indictments say these actors do, which vulnerabilities they exploit, or the defender and vulnerability-management lessons in one place
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Executive summary](#executive-summary), [Part 1: the services, the units and the names](#part-1-the-services-the-units-and-the-names), [Part 7: the defender view](#part-7-the-defender-view)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Executive summary
 
 Anyone who has defended a network in Europe or North America over the past decade has met the activity in this study, usually under a nickname. Fancy Bear in an election inbox. Cozy Bear in a vaccine lab. Sandworm switching off substations in Ukraine. Snake infrastructure in more than 50 countries. Star Blizzard writing to a think-tank researcher as a trusted colleague. Behind those nicknames, governments have now named the paying customer: three military intelligence units of the GRU, the SVR foreign intelligence service, two centers of the FSB security service and a Ministry of Defense research institute. This study gathers the public record on those units and the groups the community tracks for them, dates every event, and grades every claim by the source that supports it.

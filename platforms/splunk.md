@@ -2,6 +2,55 @@
 
 Splunk Enterprise Security is a security information and event management (SIEM) application that runs on the Splunk platform, turning ingested machine data into detections, investigations, and risk-based alerts.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+SOC analysts and detection engineers who run, tune or assess Splunk Enterprise Security
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,299 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Splunk Enterprise Security for security event management and detection, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [IBM QRadar](/platforms/qradar.md), [Cortex XSOAR](/platforms/cortex-xsoar.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Splunk collects and indexes machine data, then makes it searchable. Enterprise Security (ES) is the security content layer on top: correlation searches, notable events, risk scoring, and investigation workflow for a security operations center.
@@ -55,6 +104,24 @@ The inbound flow is broad: endpoints, network devices, firewalls, identity provi
 ES content consumes that normalized data to produce notable events and risk scores. SOAR takes those events and runs playbooks that call out to other tools, for example to enrich an indicator, isolate a host through an endpoint platform, or open a ticket.
 
 Data flows from sources into indexes, from indexes into searches and detections, and from detections into response and reporting. Outbound actions happen through SOAR and alert actions rather than from the index itself.
+
+## Adversary perspective
+
+Splunk ES is the detection surface a SOC relies on, so adversaries work to blind it or starve it of the events that would reveal them, and the platform's broad data access and ingestion credentials are themselves a target. The defensive steps are in the "Hardening and secure use" section that follows.
+
+### Evasion and tampering
+
+- Blinding the log source (ATT&CK T1685.001, Disable or Modify Tools: Disable or Modify Logging, and T1070, Indicator Removal): with host access an attacker stops the forwarder, disables Windows event logging, or clears logs so events never reach the indexer. Detection depends on data that was never collected.
+- Starving or spoofing ingestion: a leaked HTTP Event Collector token lets an attacker inject noise or spoofed events to bury or misdirect a true signal ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)). Gaps in CIM mapping mean a source is indexed but invisible to the content written against the model.
+- Console and search abuse: a hijacked account or an over-broad role can delete indexes, disable correlation searches, or read sensitive data, turning the SIEM into reconnaissance ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+
+### Residual risk and own exposure
+
+A SIEM can only correlate what reaches it, so an attacker who acts before a source is onboarded, or who disables that source first, is not caught. The platform aggregates sensitive data across the estate and holds credentials to many sources, so its own servers belong in the patch and monitoring scope, and SIEM software has carried its own serious flaws.
+
+### Why it matters
+
+Treat gaps in log flow as a detection signal in their own right: alert on forwarders going silent, correlation searches disabled, and index deletions. See [the red team reference](/RED_TEAM_REFERENCE.md) for the evasion techniques and [the incident response reference](/INCIDENT_RESPONSE_REFERENCE.md) for log integrity.
 
 ## Hardening and secure use
 

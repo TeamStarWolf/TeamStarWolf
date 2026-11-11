@@ -14,6 +14,55 @@ V is a statically typed, compiled language created by Alexander Medvednikov, fir
 
 Related: [Go](/languages/go.md), [C](/languages/c.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain V code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,243 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing V code (typical uses: CLI tools, systems and application programming), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Go](/languages/go.md), [C](/languages/c.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 V was announced in 2019 with goals of a small language, fast compilation, and safety by default. Its syntax resembles Go: no semicolons, short keywords, and simple structure. V compiles to C and then uses a C compiler to produce a binary, giving direct C interoperability. Its memory story has several modes: an experimental autofree scheme, an optional garbage collector (the default in many builds), and manual management. The language is pre-1.0 and its features and defaults have shifted across releases, so claims here should be checked against the current version.
@@ -121,6 +170,29 @@ Compiling through C, V produces native binaries whose performance tracks the C i
 - Expecting a large third-party ecosystem; many needs are met by binding to C libraries.
 - Forgetting to handle the `none` or error branch of an optional or result, which the compiler requires.
 - Overflow and conversion behavior between integer types on untrusted input.
+
+## Security relevance
+
+V reaches security work as a young systems language that compiles through C and can call C directly, so its risk profile is closer to a systems language than its safety defaults alone suggest. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows. The language is pre-1.0, so confirm behavior against the version in use.
+
+### Where it appears
+
+- Command-line and systems tools. V is used for small command-line utilities and for systems and application programming, where it handles files, processes, and network input.
+- C interoperation. Because V emits C and imports C headers directly, projects often bind to existing C libraries, so a V program's real attack surface includes the C code it calls. See the [C](/languages/c.md) page.
+- Build and application code. The compiler and several project tools are written in V, so reading or auditing them means reading the language.
+
+### Dominant weakness classes
+
+V offers several memory modes (an optional garbage collector, an experimental autofree scheme, and manual management) and bounds-checks array access by default, so ordinary code is memory-safe; the memory-corruption classes return inside `unsafe` blocks, with raw pointers, and across the C boundary:
+
+- Out-of-bounds write. Code in an `unsafe` block or using raw pointers can write past a buffer, which is [CWE-787](https://cwe.mitre.org/data/definitions/787.html).
+- Use-after-free. Manual memory management and C interop can free data that is still referenced, which is [CWE-416](https://cwe.mitre.org/data/definitions/416.html).
+- Integer overflow. Arithmetic on untrusted sizes used for allocation or indexing can overflow, which is [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- OS command injection. Building a shell command from untrusted input rather than passing controlled arguments is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+
+### Why it matters
+
+Auditing V means concentrating on the `unsafe` blocks and the C interoperation boundary, where the default safety does not reach, and on arithmetic over untrusted sizes. Because the language is still changing and has no established dedicated static analyzer, assurance leans on building with release checking, confining unsafe code, and tracking the current documentation rather than on a single tool.
 
 ## Secure coding
 

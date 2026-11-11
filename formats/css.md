@@ -2,6 +2,55 @@
 
 Cascading Style Sheets is the language that controls the presentation of HTML and other markup documents. It sets color, layout, typography, and responsive behavior. CSS separates how a document looks from what it contains. Though often treated as harmless styling, injected CSS can exfiltrate data and enable interface deception.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers, engineers and analysts who read, write or parse CSS
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (865 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are reading or writing CSS by hand or in code, you want a worked example and the tools that handle it, or you are parsing untrusted input and need its security considerations
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax and structure](#syntax-and-structure), [A worked example](#a-worked-example), [Security considerations](#security-considerations)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [HTML](/formats/html.md), [Markdown](/formats/markdown.md), [XML](/formats/xml.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 CSS declares rules that match elements and assign them style. The browser combines author styles, user styles, and built-in defaults to compute the final appearance of each element.
@@ -124,6 +173,28 @@ body {
 Stylelint checks stylesheets for errors and enforces conventions. Prettier formats CSS consistently. PostCSS transforms CSS through plugins, including Autoprefixer for vendor prefixes.
 
 Preprocessors such as Sass and Less add variables, nesting, and functions that compile to plain CSS. Browser developer tools inspect computed styles, the box model, and specificity conflicts at runtime.
+
+## Security relevance
+
+This section is the threat-facing view of CSS: why injected style is more than a cosmetic problem and where it is abused. The validation and loading controls that defend against these are in the "Security considerations" section that follows.
+
+### Where it appears
+
+- Injection points that accept style. A field that lets a user set a theme color, a `style` attribute copied into a page, or a user-supplied stylesheet reference all put attacker-controlled CSS into a trusted document.
+- Rendered output that mixes trust levels. Email templates, server-rendered dashboards, and design systems interpolate values into style context, where an unescaped value changes far more than one element.
+- Third-party stylesheets. A page that links a stylesheet from an external origin trusts that origin to restyle every control, including a login form.
+
+### Dominant weakness classes
+
+CSS is style, not script, so the risks are exfiltration, injection, and interface deception rather than memory corruption. The defensive settings for each are in the section below.
+
+- Improper neutralization in a style context ([CWE-79](https://cwe.mitre.org/data/definitions/79.html)), where injected CSS, or style parsing that historically crossed into script, becomes a cross-site scripting issue.
+- Exposure of sensitive information ([CWE-200](https://cwe.mitre.org/data/definitions/200.html)) through attribute selectors and `url()`, which leak a secret attribute value one character at a time and reconstruct CSRF tokens rendered into the page.
+- Improper restriction of rendered UI layers ([CWE-1021](https://cwe.mitre.org/data/definitions/1021.html)), the clickjacking and overlay deception an attacker builds by resizing, hiding, or stacking controls.
+
+### Why it matters
+
+Recognizing a point where user input reaches style context tells a tester to try selector-based exfiltration of tokens and overlay-based UI redress, both of which work without any script running. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for the surrounding method.
 
 ## Security considerations
 

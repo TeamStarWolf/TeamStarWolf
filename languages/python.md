@@ -14,6 +14,55 @@ Python is a dynamically typed, garbage-collected, multi-paradigm language create
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Python code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,332 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Python code (typical uses: automation, web, data science, machine learning, security tooling), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Python emerged from the ABC language and Amoeba project work at CWI in the Netherlands. The language reached a deliberate break with Python 3.0 (2008), which fixed long-standing text and integer issues at the cost of source compatibility; Python 2 reached end of life on January 1, 2020, per the [official sunset notice](https://www.python.org/doc/sunset-python-2/). Current development follows a yearly release cadence defined in [PEP 602](https://peps.python.org/pep-0602/), with each feature release supported for several years.
@@ -126,6 +175,29 @@ When raw speed matters, PyPy or native extensions (Cython, or bindings to C and 
 - Late binding in closures: a lambda inside a loop captures the variable, not its value at creation; bind with a default argument.
 - `==` compares value, `is` compares identity; use `is` only for singletons such as `None`.
 - Floating-point arithmetic is binary; use `decimal.Decimal` for money.
+
+## Security relevance
+
+Python reaches security practitioners as heavily as any language: it is the language of much offensive tooling, a common web and data back end that defenders assess, and the glue of automation and machine-learning pipelines. The defensive patterns that counter each weakness below are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Offensive tooling. Exploitation and reconnaissance tools including the [pwntools](https://github.com/Gallopsled/pwntools) exploit framework, the [Impacket](https://github.com/fortra/impacket) network-protocol toolkit, the [Scapy](https://scapy.net/) packet library, and the sqlmap injection tool are written in Python, so reading or extending offensive code usually means reading Python. See the [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md) and the [Exploit Development Reference](/EXPLOIT_DEVELOPMENT_REFERENCE.md).
+- Web and API back ends. Django, Flask, and FastAPI applications are frequent assessment targets. See the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Machine-learning pipelines. Python drives most model training and serving, where serialized model files and notebooks are a live attack surface. See the [AI Security Reference](/AI_SECURITY_REFERENCE.md) and the [Hugging Face supply-chain case study](/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md).
+
+### Dominant weakness classes
+
+Python is memory-safe: CPython uses reference counting with a cyclic collector and programs do not manage raw memory, so memory-corruption classes do not apply (outside bugs in C extensions). The weaknesses that matter are about injection, deserialization, and trust:
+
+- Code and command injection. `eval`, `exec`, `os.system`, and `subprocess` with `shell=True` on assembled strings run attacker input, mapping to [CWE-78](https://cwe.mitre.org/data/definitions/78.html) and [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Insecure deserialization. `pickle` and `yaml.load` without a safe loader instantiate arbitrary objects, which is [CWE-502](https://cwe.mitre.org/data/definitions/502.html); the same pattern makes untrusted machine-learning model files dangerous.
+- Server-side template injection and path traversal. Unescaped Jinja2 templating reintroduces [CWE-79](https://cwe.mitre.org/data/definitions/79.html), and joined paths that escape an intended root are [CWE-22](https://cwe.mitre.org/data/definitions/22.html).
+- Dependency supply chain. Typosquatting and malicious packages on PyPI reach a build directly. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading Python lets an analyst understand a public exploit or offensive module, review a web back end for the classes above, and audit a machine-learning pipeline for pickle deserialization of untrusted files. [Bandit](https://bandit.readthedocs.io/) statically flags common Python security issues and [pip-audit](https://github.com/pypa/pip-audit) checks installed packages against advisory databases, as the Secure coding section details.
 
 ## Secure coding
 

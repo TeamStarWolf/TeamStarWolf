@@ -2,6 +2,55 @@
 
 CyberArk is a privileged access management platform. It vaults and rotates privileged credentials, isolates and records privileged sessions, removes local administrator rights from endpoints, and supplies secrets to applications. Its goal is to reduce standing privilege.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Identity and privileged access engineers who run, tune or assess CyberArk
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (1,012 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running CyberArk for privileged access management, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Microsoft Entra ID](/platforms/entra-id.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Privileged accounts hold the keys to infrastructure, directories, databases, and cloud control planes. CyberArk governs those accounts. It stores their credentials in a vault, brokers access to them, and records how they are used.
@@ -42,6 +91,25 @@ CyberArk connects to target systems through connectors: Windows and Linux hosts,
 Applications retrieve secrets from Conjur or the vault through an API at runtime. This removes credentials from source code and configuration files. Pipelines and containers request short-lived secrets the same way.
 
 Audit events, credential checkouts, session starts, elevation decisions, flow to monitoring and SIEM platforms. See `/platforms/splunk.md` for a downstream consumer. Session recordings support investigation during incident response.
+
+## Adversary perspective
+
+CyberArk governs the most privileged accounts in the environment, so an adversary who reaches the vault or a brokered session inherits that privilege at once; the vault and its components are the single most valuable target. The steps to lock it down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Vault and session-manager targeting (ATT&CK T1555, Credentials from Password Stores): compromising the Digital Vault, a Privileged Session Manager, or a stored credential yields privileged access across every connected system.
+- Credential checkout and API abuse (T1078, T1528): a stolen operator session or an over-scoped Conjur or vault API client lets an attacker check out credentials or pull secrets as a legitimate application would ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Session-isolation bypass: if a privileged credential can be used outside the Privileged Session Manager, the recording and isolation are skipped, so the brokered path is not the only path.
+- Break-glass abuse: the emergency path that bypasses normal controls is a prize, and unmonitored use of it grants quiet privileged access.
+
+### Residual risk and own exposure
+
+A vault reduces standing privilege but does not help with credentials that were never onboarded, and its own compromise is catastrophic. The vault, policy managers, and session managers run with deep reach and belong in the patch, backup, and monitoring scope as the environment's most sensitive software.
+
+### Why it matters
+
+A tester hunts for un-vaulted and hardcoded secrets, direct-use paths around the session manager, and break-glass handling; a defender alerts on vault access, failed checkouts, and emergency-path use. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) and [the red team reference](/RED_TEAM_REFERENCE.md).
 
 ## Hardening and secure use
 

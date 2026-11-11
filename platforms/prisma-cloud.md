@@ -2,6 +2,55 @@
 
 Prisma Cloud is the Palo Alto Networks cloud-native application protection platform (CNAPP). It covers posture, workloads, identities, and code across public cloud providers. The sections below describe the generally available product in 2026. The licence tier a team holds decides which modules are in force.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Cloud security and platform engineers who run, tune or assess Prisma Cloud
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,374 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Prisma Cloud for cloud and workload security, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Palo Alto Networks](/platforms/palo-alto-networks.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Prisma Cloud brings several cloud security functions into one product. It performs cloud security posture management (CSPM), cloud workload protection (CWP), cloud infrastructure entitlement management (CIEM), and code security. The aim is coverage from build time through runtime, so findings in source and infrastructure as code can be traced to the running resources they produce.
@@ -49,6 +98,25 @@ Data flows into Prisma Cloud from connected cloud accounts and from scan targets
 Outbound, findings reach the tools a team already runs. Alerts and tickets can route to messaging and work-tracking systems. Severity and risk data can feed a SIEM or data lake. The platform exposes an API and supports automation so findings can drive pipelines and workflows.
 
 Code security integrates with source control and CI so scans run during pull requests and builds. That placement lets a team block or warn on risky changes before they reach a cloud account.
+
+## Adversary perspective
+
+Because a CNAPP holds a broad read role across cloud accounts and a map of every exposure, adversaries treat Prisma Cloud as both something to blind and a target worth stealing from. The steps to lock the deployment down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Stealing a connector role or API key (ATT&CK T1078, Valid Accounts): connectors read across accounts, so a stolen credential gives an attacker the same cross-account read the platform has ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Tampering with the Defender component (ATT&CK T1685, Disable or Modify Tools): where runtime Defender runs on hosts and clusters, an attacker with local privilege may try to stop or evade it, as with any runtime agent.
+- Suppressing or re-scoping findings (ATT&CK T1685, Disable or Modify Tools): tenant access lets an attacker mute policies, change alert routing, or narrow scope so a risk stops surfacing.
+- Reading the findings: the attack-path correlation and workload findings rank where the cloud is weakest, which is direct reconnaissance.
+
+### Residual risk and own exposure
+
+Posture evaluation reads configuration state and point-in-time scans, so runtime-only activity outside Defender coverage can be missed, and it reports only what the connectors can see. The connector roles, API keys, and Defender run with privilege, so a flaw in the product is high-impact and belongs in the patch and monitoring scope like any other software.
+
+### Why it matters
+
+A tester targets the connector roles and the tenant rather than the workloads Prisma Cloud already reports on. A defender monitors connector-role use, policy and alert-routing changes, and Defender health as signals in their own right. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) for the cloud attack paths and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

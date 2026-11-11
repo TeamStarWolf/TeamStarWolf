@@ -2,6 +2,55 @@
 
 Trellix is an endpoint and extended detection and response vendor formed from the combination of McAfee Enterprise and FireEye. Its product line covers Endpoint Security, Trellix XDR, data protection, and threat intelligence. Management centers on ePolicy Orchestrator, known as ePO, the console that deploys agents, applies policy, and collects events.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Endpoint security engineers and SOC analysts who run, tune or assess Trellix
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,331 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Trellix for endpoint protection, detection and response, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Microsoft Defender for Endpoint](/platforms/microsoft-defender.md), [Trend Vision One (Trend Micro)](/platforms/trend-micro.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Trellix sits in the endpoint protection (EPP), endpoint detection and response (EDR), and extended detection and response (XDR) categories, with added data protection and intelligence capabilities. The McAfee Enterprise heritage brings endpoint protection and the ePO management model. The FireEye heritage brings detection engineering and threat intelligence depth.
@@ -45,6 +94,24 @@ Trellix exports events from ePO to SIEM platforms for correlation and archival. 
 SOAR platforms consume Trellix alerts and call platform APIs to drive automated response. The API and ePO interfaces also support custom reporting and bulk management. Treat these interfaces as a control plane because they can change policy and trigger response across many systems.
 
 Trellix intelligence feeds enrich detections, and the platform can ingest external intelligence to inform scoring. Data protection events flow into the same reporting and correlation paths. This shared flow lets endpoint, data, and intelligence signals inform one investigation.
+
+## Adversary perspective
+
+Because Trellix is the prevention and detection control on the host, adversaries treat it as something to blind or disable, and its agent and the ePO console are themselves an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and tampering
+
+- Impairing the agent (ATT&CK T1685, Disable or Modify Tools): with local administrator rights an attacker tries to stop or remove the agent, block its check-in to ePO, or disable threat prevention. Access protection rules and self-protection features are the countermeasures.
+- Running below or around the agent: bring-your-own-vulnerable-driver (BYOVD) and user-mode unhooking aim to act outside the agent's visibility, and an over-broad exclusion becomes a safe harbor to run from.
+- ePO and API abuse: a hijacked ePO session or a stolen service-account credential lets an attacker change policy or deploy a package across the system tree, which turns the management plane into a foothold ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+
+### Residual risk and own exposure
+
+The agent runs with high privilege on every host, and ePO can push software estate-wide, so a flaw in either is high-impact, and endpoint and management agents across the industry have carried privilege-escalation and remote issues. Where ePO runs on-premises, the server and its database are additional targets. The agent, the ePO server, and its integrations belong in the patch and monitoring scope, and no agent catches every technique on its own.
+
+### Why it matters
+
+Treating the endpoint control as infallible is the mistake. A mature program monitors the control's own health, including agent removals, policy changes, and check-in gaps, as a detection signal, and keeps the agent and ePO current. See [the red team reference](/RED_TEAM_REFERENCE.md) for the evasion techniques and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

@@ -2,6 +2,55 @@
 
 systemd is the init system and service manager on most mainstream Linux distributions. `systemctl` controls units, and `journalctl` reads the logs systemd collects. This page covers service control, unit files, timers, and the hardening directives that limit what a service can do. It targets administrators and security engineers managing Linux hosts.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Linux administrators and engineers who manage services and other units with systemd
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (935 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the systemd and systemctl commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Linux Command Reference](/commands/linux-commands.md), [Networking Command Reference](/commands/networking-commands.md), [SSH Command Reference](/commands/ssh.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 systemd is PID 1 on Debian, Ubuntu, RHEL, Fedora, SUSE, Arch, and their derivatives. It starts and supervises services, sockets, mounts, timers, and other units. `systemctl` talks to the system manager, or to a per-user manager with `--user`. Most state-changing commands need root, usually through `sudo`.
@@ -172,6 +221,29 @@ sudo systemctl mask avahi-daemon
 | `--state=` | `list-units` | Filter by load/active/sub state |
 | `--failed` | `systemctl` | Show only failed units |
 | `--no-pager` | most | Print directly without a pager |
+
+## Security relevance
+
+This section is the threat-facing view of systemd: how an operator abuses units and timers on a host and what a defender sees. The safe-use and hardening guidance is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Persistence. A malicious `.service` unit, a drop-in override, or a `.timer` that triggers a payload on a schedule is a durable root foothold; a user unit under `~/.config/systemd/user` gives the same without privilege.
+- Privilege escalation. A writable unit file, or a service that runs as root with capabilities it does not need, is a direct path to code execution as root through `ExecStart`.
+- Defense evasion. Stopping `systemd-journald` or masking a security service blinds logging, so an operator can work without leaving journal entries.
+- Telemetry. Auditd watches on `/etc/systemd/system/` and the unit-file paths catch additions and edits, `journalctl` records service starts, and a diff of `systemctl list-units` and `list-timers` against a baseline surfaces a planted unit.
+
+### Dominant weakness classes
+
+Unit files are configuration consumed by PID 1, so the risks are trust, permission, and privilege rather than memory corruption.
+
+- Incorrect permission assignment for a critical resource ([CWE-732](https://cwe.mitre.org/data/definitions/732.html)) on a world-writable unit file in `/etc/systemd/system/`.
+- Execution with unnecessary privileges ([CWE-250](https://cwe.mitre.org/data/definitions/250.html)) when a service runs as root or with excess capabilities.
+- Inclusion of functionality from an untrusted control sphere ([CWE-829](https://cwe.mitre.org/data/definitions/829.html)) when `ExecStart` points at an attacker-writable path.
+
+### Why it matters
+
+Recognizing unit files and timers as a persistence and escalation surface lets responders baseline and diff them rather than trusting whatever PID 1 has loaded, and lets an admin apply the hardening directives that shrink the blast radius of a compromised service. See [the Linux hardening reference](/LINUX_HARDENING_REFERENCE.md) for the service-confinement controls.
 
 ## Security notes
 

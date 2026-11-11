@@ -36,6 +36,7 @@ Limiting access to a computing device which is not required through or from a no
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
+- [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md)
 
 <!-- library-refs:end -->
 

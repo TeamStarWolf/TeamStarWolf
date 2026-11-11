@@ -2,6 +2,55 @@
 
 Django is a server-side web framework written in Python. It follows a Model-Template-View pattern and ships with an ORM, an admin site, and a strong security posture. Teams use it to build database-backed applications with batteries included, so authentication, forms, and migrations come in the box. It suits content sites, internal tools, and JSON APIs through Django REST Framework.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who build with Django, and the reviewers and application security engineers who assess what they build
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,249 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or reviewing a Django application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture](#architecture), [Security model and common vulnerabilities](#security-model-and-common-vulnerabilities), [Common pitfalls](#common-pitfalls)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Python](/languages/python.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [API Security Reference](/API_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Django grew out of a newspaper web operation in Lawrence, Kansas, and was released publicly in 2005. Its origins explain a focus on fast, content-heavy development and a reusable admin interface. The Django Software Foundation now stewards the project.
@@ -53,6 +102,30 @@ def article_detail(request, pk):
 Packages are installed from PyPI with `pip`, usually inside a virtual environment. The `manage.py` script runs migrations, the development server, the shell, and tests. Django ships a test runner built on Python's `unittest`, and `pytest-django` is a common alternative.
 
 Django REST Framework is the standard choice for APIs. Celery runs background tasks, and Channels adds WebSocket support over ASGI. Gunicorn and uWSGI serve the application in production, often behind Nginx. Bandit and `pip-audit` scan code and dependencies for known issues.
+
+## Security relevance
+
+This section is the threat-facing view of Django: how it appears to an attacker or an auditor in the field, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Internet-facing web applications, content sites, and Django REST Framework JSON APIs. Recognizable by the `csrftoken` and `sessionid` cookies, a reachable `/admin/` login page, an `X-Frame-Options: DENY` header, and the DRF browsable API pages.
+- Audit and defensive tooling: Bandit is the static analysis scanner for Python, `pip-audit` checks dependencies against the Python advisory database, and `manage.py check --deploy` audits production settings.
+- Offensive interest centers on the `SECRET_KEY`, which signs sessions, cookies, and password-reset tokens, so a leaked value lets an attacker forge signed data. The admin site is a high-value target when exposed.
+- The dependency surface is PyPI, pinned through requirements or lock files, the supply-chain pattern covered in [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+Django runs on Python, a memory-managed language, so the dominant classes are logic and injection flaws rather than memory corruption. The fixes for each are detailed in the section below.
+
+- Information exposure ([CWE-200](https://cwe.mitre.org/data/definitions/200.html)) from `DEBUG = True` left on in production, which discloses settings, stack traces, and SQL in error pages.
+- SQL injection ([CWE-89](https://cwe.mitre.org/data/definitions/89.html)) through `raw()` and `extra()` when input is interpolated into the SQL string.
+- Cross-site scripting ([CWE-79](https://cwe.mitre.org/data/definitions/79.html)) when `mark_safe` or the `|safe` filter disables the template autoescape.
+- Exposure of the signing secret ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)) committed to source control, which undermines every signed cookie and token.
+
+### Why it matters
+
+Recognizing Django tells a tester to check for a reachable `/admin/`, probe for `DEBUG` disclosure and `raw()` or `extra()` sinks, and look for a leaked `SECRET_KEY`. Bandit and the deployment check are the audit tools to reach for. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for the cross-cutting review method.
 
 ## Security model and common vulnerabilities
 

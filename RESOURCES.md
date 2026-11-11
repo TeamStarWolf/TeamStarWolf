@@ -17,7 +17,7 @@ Beginner
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Length</th><td>
 
-Lookup page: 1,766 words, 92% in tables; look entries up from Start at or the search (about 8 min end to end at 230 words a minute)
+Lookup page: 1,770 words, 92% in tables; look entries up from Start at or the search (about 8 min end to end at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -99,12 +99,12 @@ A curated reference of books, courses, platforms, communities, and standards for
 | Platform | URL | Cost | Focus |
 |---|---|---|---|
 | HTB Academy | [academy.hackthebox.com](https://academy.hackthebox.com) | Free tier / Subscription | Penetration testing, SOC analyst, DFIR, cloud security paths |
-| OffSec Learn | [learn.offsec.com](https://learn.offsec.com) | Subscription (Learn One / Learn Unlimited) | OSCP-prep, red team, exploit dev, web app testing |
+| OffSec Learn | [offsec.com/products/learn-one](https://www.offsec.com/products/learn-one/) | Subscription (Learn One / Learn Unlimited) | OSCP-prep, red team, exploit dev, web app testing |
 | TCM Security Academy | [academy.tcm-sec.com](https://academy.tcm-sec.com) | Free tier / Paid courses (~$30 each) | Practical ethical hacking, Active Directory, OSINT, SOC |
 | SANS OnDemand | [www.sans.org/ondemand](https://www.sans.org/ondemand) | Paid (premium, ~$5k+ per course) | Advanced technical courses across all security domains; GIAC-aligned |
 | INE / eLearnSecurity | [ine.com](https://ine.com) | Free starter / Subscription | Penetration testing, network security, cloud, eJPT/eCPPT/eWPT paths |
 | Cybrary | [www.cybrary.it](https://www.cybrary.it) | Free tier / Subscription | Broad catalog; cert prep, SOC, threat intel, and career development |
-| Coursera — Google Cybersecurity | [coursera.org/google-certificates/cybersecurity-certificate](https://www.coursera.org/google-certificates/cybersecurity-certificate) | Paid (financial aid available) | Entry-level foundations; Linux, Python, SIEM, and IDS/IPS concepts |
+| Coursera: Google Cybersecurity | [coursera.org/google-certificates/cybersecurity-certificate](https://www.coursera.org/google-certificates/cybersecurity-certificate) | Paid (financial aid available) | Entry-level foundations; Linux, Python, SIEM, and IDS/IPS concepts |
 | ISC2 Certified in Cybersecurity (CC) | [isc2.org/certifications/cc](https://www.isc2.org/certifications/cc) | Free exam (limited offer) | Security fundamentals; ideal first certification for career changers |
 
 ---
@@ -120,7 +120,7 @@ A curated reference of books, courses, platforms, communities, and standards for
 | [STOK](https://www.youtube.com/@STOKfredrik) | Bug bounty methodology, recon automation, and web application security research |
 | [The Cyber Mentor (TCM)](https://www.youtube.com/@TCMSecurityAcademy) | Practical ethical hacking, Active Directory attacks, OSCP prep, and career guidance |
 | [David Bombal](https://www.youtube.com/@davidbombal) | Networking, Python automation, ethical hacking tools, and certification prep |
-| [Gerald Auger — SimplyCyber](https://www.youtube.com/@SimplyCyber) | GRC, security leadership, career development, and daily cybersecurity news |
+| [Gerald Auger: SimplyCyber](https://www.youtube.com/@SimplyCyber) | GRC, security leadership, career development, and daily cybersecurity news |
 | [SANS Institute](https://www.youtube.com/@SANSInstitute) | Technical talks, course previews, Summit recordings, and practitioner interviews |
 | [Seytonic](https://www.youtube.com/@Seytonic) | Hardware hacking, Flipper Zero, RF security, and DIY security projects |
 
@@ -143,7 +143,7 @@ A curated reference of books, courses, platforms, communities, and standards for
 | [CISO Series](https://cisoseries.com) | David Spark | Weekly | Career-focused; leadership perspective for security executives |
 | [Defense in Depth](https://cisoseries.com/defense-in-depth/) | David Spark, Allan Alford | Short episodes | Conceptual security strategy; 15-minute format |
 | [Malicious Life](https://malicious.life) | Ran Levi | Bi-weekly | Documentary style; history of famous hacks and cybersecurity |
-| [Down the Security Rabbit Hole](https://podcast.wh.com/) | Rafal Los, James Jardine | Variable | Deep dives; CISO perspective on strategy and risk |
+| Down the Security Rabbit Hole | Rafal Los, James Jardine | Variable | Deep dives; CISO perspective on strategy and risk |
 | [Open Source Security Podcast](https://opensourcesecurity.io/category/podcast/) | Josh Bressers, Kurt Seifried | Weekly | SCA, supply chain, OSS vulnerability ecosystem |
 ---
 
@@ -155,7 +155,7 @@ A curated reference of books, courses, platforms, communities, and standards for
 | The Hacker News | [thehackernews.com](https://thehackernews.com) | Daily infosec news; CVEs, campaigns, and tool releases |
 | Bleeping Computer | [bleepingcomputer.com](https://www.bleepingcomputer.com) | Technical breach coverage, ransomware tracking, and Windows security news |
 | Dark Reading | [darkreading.com](https://www.darkreading.com) | Enterprise-focused security news, research, and analysis |
-| CISA Alerts | [cisa.gov/news-events/alerts](https://www.cisa.gov/news-events/alerts) | Official US government advisories; KEV catalog, ICS alerts, and joint advisories |
+| CISA Alerts and Advisories | [cisa.gov/news-events/cybersecurity-advisories](https://www.cisa.gov/news-events/cybersecurity-advisories) | Official US government advisories; KEV catalog, ICS alerts, and joint advisories |
 | CERT/CC | [kb.cert.org](https://kb.cert.org/vuls) | Vulnerability notes and coordination advisories from Carnegie Mellon |
 | Threatpost | [threatpost.com](https://threatpost.com) | News coverage of malware, vulnerabilities, and threat actor activity |
 | Schneier on Security | [schneier.com](https://www.schneier.com) | Thoughtful security analysis, policy commentary, and cryptographic research |
@@ -182,7 +182,7 @@ A curated reference of books, courses, platforms, communities, and standards for
 | [CyberDefenders](https://cyberdefenders.org) | Blue team | DFIR investigations | cyberdefenders.org |
 | [BTLO](https://blueteamlabs.online) | Blue team | Investigation challenges | blueteamlabs.online |
 | [Google CTF](https://capturetheflag.withgoogle.com) | Advanced | Annual; high-quality challenges | capturetheflag.withgoogle.com |
-| [CSAW CTF](https://ctf.csaw.io) | Intermediate | NYU annual competition | ctf.csaw.io |
+| [CSAW CTF](https://csaw.io/competition/capture-the-flag) | Intermediate | NYU annual competition | csaw.io |
 | [National Cyber League (NCL)](https://nationalcyberleague.org) | Student | Semi-annual competition | nationalcyberleague.org |
 ---
 

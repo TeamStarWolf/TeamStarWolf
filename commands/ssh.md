@@ -2,6 +2,55 @@
 
 SSH (Secure Shell) opens an encrypted channel to a remote host for login, command execution, and file transfer. The OpenSSH suite provides the client, server, and key tools used on most systems. This page covers connecting, moving files, managing keys, port forwarding, and the config that ties them together. Public-key authentication is the default for anything beyond a one-off login.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Administrators and engineers who reach remote hosts over SSH
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (865 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the SSH commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Git Command Reference](/commands/git.md), [Networking Command Reference](/commands/networking-commands.md), [Linux Command Reference](/commands/linux-commands.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 The `ssh` client ships with Linux, macOS, the BSDs, and modern Windows. It talks to an `sshd` server, usually on TCP port 22. Authentication happens with a key pair or a password, after the client verifies the server's host key. User keys live in `~/.ssh`, the per-user `config` file sets defaults per host, and `sshd_config` controls the server side.
@@ -103,6 +152,30 @@ scp -P 2222 user@prod:/var/www/release.tar.gz ./release.tar.gz
 | `-o <opt>` | `ssh` | set any `config` option inline |
 
 Use `-N -f` together to open a tunnel in the background without starting a shell.
+
+## Security relevance
+
+This section is the threat-facing view of SSH: how it appears in offensive work and in defender telemetry. The safe-use guidance for your own hosts is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Lateral movement. With a stolen key or password, `ssh` is the native way to pivot from host to host, reusing trust that already exists between machines rather than dropping new tooling.
+- Tunneling and pivoting. `-D` opens a SOCKS proxy that routes an attacker's tools through the foothold, `-R` exposes an internal service or builds a reverse channel back out through egress filtering, and `-L` reaches a service on a private segment. See [the network protocols security reference](/NETWORK_PROTOCOLS_SECURITY.md).
+- Key theft and persistence. Attackers harvest `~/.ssh` private keys and live agent sockets, then plant their own public key in `~/.ssh/authorized_keys` for durable access that outlasts a password reset.
+- Telemetry. Defenders watch `sshd` auth logs for accepted key fingerprints and source addresses, new `authorized_keys` entries, unexpected port-forward requests, and connections between hosts that normally never talk.
+
+### Dominant weakness classes
+
+OpenSSH is a hardened codebase, so the common failures are key management and trust rather than memory corruption.
+
+- Insufficiently protected credentials ([CWE-522](https://cwe.mitre.org/data/definitions/522.html)) when a private key sits unencrypted on disk.
+- Improper validation of the server host key ([CWE-295](https://cwe.mitre.org/data/definitions/295.html)), which a machine-in-the-middle exploits when checking is disabled.
+- Exposure of a resource to the wrong control sphere ([CWE-668](https://cwe.mitre.org/data/definitions/668.html)) through agent forwarding a compromised intermediate host can abuse.
+- Improper access control ([CWE-284](https://cwe.mitre.org/data/definitions/284.html)) when an authorized key carries no source or command restriction.
+
+### Why it matters
+
+Anomalous SSH, such as a new key, an unusual reverse forward, or a host-to-host connection that should not exist, is one of the strongest indicators of lateral movement, and SSH tunneling is the quiet pivot red teams reach for first. See [the red team reference](/RED_TEAM_REFERENCE.md) for pivoting and post-exploitation context.
 
 ## Security notes
 

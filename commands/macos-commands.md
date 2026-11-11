@@ -2,6 +2,55 @@
 
 macOS ships a BSD-derived Unix base with a set of Apple-specific tools layered on top. The standard POSIX commands behave as on any Unix, so this page focuses on the macOS-only utilities you run in Terminal. These manage packages, preferences, launch services, disks, code signing, and system policy. Audience: developers and administrators working at the macOS command line.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Administrators, analysts and engineers who work on Macs from Terminal
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (885 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the macOS commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Linux Command Reference](/commands/linux-commands.md), [SSH Command Reference](/commands/ssh.md), [Networking Command Reference](/commands/networking-commands.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 These commands run in Terminal or iTerm on macOS, on top of the Darwin kernel and the BSD userland. Apple supplies tools such as `launchctl`, `defaults`, `diskutil`, `codesign`, and `spctl`; Homebrew (`brew`) is the common third-party package manager. Many commands need `sudo`, and some are constrained by System Integrity Protection even for root. The base Unix commands (`ls`, `grep`, `find`) match the Linux reference page, with BSD rather than GNU flag differences.
@@ -124,6 +173,30 @@ dscl . -list /Users >> host.txt
 | `-a` | `open` | Open with a named application |
 | `bootout` / `bootstrap` | `launchctl` | Unload or load a job in a domain |
 | `-ia` | `softwareupdate` | Install all available updates |
+
+## Security relevance
+
+This section is the threat-facing view of the macOS command line: how an operator abuses the Apple-specific tools on a host and what a defender sees. The safe-use and configuration guidance is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Persistence. `launchctl` and a new plist in `~/Library/LaunchAgents`, `/Library/LaunchAgents`, or `/Library/LaunchDaemons` is the primary foothold on macOS, running a script or an unsigned binary at login or boot. Login items and cron are secondary paths.
+- Discovery. `dscl` enumerates local accounts, `sw_vers` and `system_profiler` fingerprint the host, and `defaults read` pulls data out of application preference plists.
+- Execution and trust evasion. `osascript` runs AppleScript for execution and for phishing prompts, `curl` fetches a payload, and removing the `com.apple.quarantine` extended attribute sidesteps the first Gatekeeper prompt.
+- Telemetry. The Endpoint Security framework and the Unified Log record process execution and plist changes, so EDR and `log show` capture a new launch agent or an `osascript` spawn. Baselining the LaunchAgents and LaunchDaemons directories is the standard hunt.
+
+### Dominant weakness classes
+
+These are userspace tools, so the risks are trust, permission, and search-path abuse rather than memory corruption.
+
+- Inclusion of functionality from an untrusted control sphere ([CWE-829](https://cwe.mitre.org/data/definitions/829.html)) when a launch agent loads an unsigned binary.
+- Uncontrolled search path element ([CWE-427](https://cwe.mitre.org/data/definitions/427.html)), the dynamic-library hijack case.
+- Incorrect permission assignment for a critical resource ([CWE-732](https://cwe.mitre.org/data/definitions/732.html)) on a world-writable launch daemon plist or its target binary.
+- Execution with unnecessary privileges ([CWE-250](https://cwe.mitre.org/data/definitions/250.html)) for code that runs as root rather than a scoped account.
+
+### Why it matters
+
+Recognizing the launchd persistence points and the signature-trust gaps lets responders baseline autostart locations and lets a red teamer model a realistic foothold rather than guessing. See [the red team reference](/RED_TEAM_REFERENCE.md) for how these primitives chain across an engagement.
 
 ## Security notes
 

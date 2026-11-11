@@ -4,6 +4,55 @@
 
 Check Point Quantum is the network-security pillar of Check Point's Infinity Platform: a line of next-generation firewalls (now branded Quantum Force) that combine stateful firewalling, VPN, and a software-blade stack including IPS, Application Control, URL Filtering, Anti-Bot, Antivirus, and Threat Emulation/Extraction (sandboxing), all driven by the ThreatCloud AI intelligence layer. The problem it solves is consolidated, prevention-first perimeter and data-center defense with centralized policy management. In vulnerability-management terms it is a textbook virtual-patching control: its IPS blade blocks exploit traffic for known CVEs at the wire before the host is patched.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the network security engineers who run Check Point Quantum & Infinity
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 12 min (2,736 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what Check Point Quantum & Infinity can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md), [Network Defense Reference](/NETWORK_DEFENSE_REFERENCE.md), [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities & architecture
 
 **Core capabilities**
@@ -44,6 +93,24 @@ Classic network-based virtual patching / compensating control. When a CVE is dis
 **Framework mapping:** NIST CSF 2.0: PROTECT (PR.PS, PR.IR network protections), DETECT (DE.CM), RESPOND (RS via Playblocks), with some IDENTIFY (asset/network visibility); CIS Controls v8: 4 (Secure Configuration), 9 (Email & Web Browser Protections), 12 (Network Infrastructure Management), 13 (Network Monitoring & Defense); MITRE ATT&CK mitigations: M1050 Exploit Protection, M1031 Network Intrusion Prevention, M1037 Filter Network Traffic, M1030 Network Segmentation, M1021 Restrict Web-Based Content
 
 **In a critical-CVE scenario.** Within 24-72h of a critical CVE in an internet-facing app: (1) confirm Check Point has released an IPS protection mapped to the CVE (ThreatCloud auto-update) and search logs for prior exploit attempts; (2) move the relevant IPS signature(s) from Detect to Prevent on the perimeter/data-center gateways fronting the exposed app, applying virtual patching immediately; (3) tighten the policy layer to restrict source geographies/identities and enable Threat Emulation on inbound content; (4) for a cloud workload, enforce the same protections via the CloudGuard Network virtual gateway and segment the workload so only required flows reach it; (5) use Infinity Playblocks to auto-quarantine any host showing Anti-Bot/C2 hits and open a ServiceNow ticket for the real patch, then keep the virtual patch until remediation is validated.
+
+## Adversary perspective
+
+A Quantum gateway sits inline at the perimeter and data-center edge, so adversaries treat its IPS and threat-prevention blades as an obstacle to route around rather than a wall, and the gateway is itself an internet-facing asset and a high-value target. The detection and tuning guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and bypass
+
+- Signature and normalization gaps: attackers encode, fragment, tunnel, or pad traffic so an exploit no longer matches an IPS protection while still reaching the host (ATT&CK T1685, Disable or Modify Tools). Protections left in Detect rather than Prevent log but do not block.
+- Encrypted and trusted channels: without TLS inspection, exploit and command-and-control traffic inside an allowed encrypted session passes uninspected, and traffic that never crosses the gateway is never seen.
+- Logic flaws the rules never see: IPS catches known exploit shapes, not application-specific broken access control or authentication bypass ([CWE-287](https://cwe.mitre.org/data/definitions/287.html)) in the services behind it.
+
+### Residual risk and own exposure
+
+IPS is a compensating control, not a fix: it blocks known exploit traffic for a CVE at the wire, but the host stays vulnerable and an attacker who finds an unsigned variant still reaches it, so each protection stood up for a specific flaw is a temporary measure pending the real patch. Internet-facing firewalls and VPN gateways are among the most-targeted assets, with a history of remote-access and management-plane flaws exploited in the wild, so the gateway firmware, remote-access portal, and management server belong at the front of the patch and monitoring scope.
+
+### Why it matters
+
+Knowing what the gateway cannot see, namely encrypted sessions without inspection, Detect-mode protections, and logic flaws, tells a tester where to push and a defender what not to rely on, and the gateway itself must stay patched. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for treating virtual patches as temporary and [the red team reference](/RED_TEAM_REFERENCE.md) for evasion and perimeter technique.
 
 ## Validation & telemetry
 
@@ -116,7 +183,7 @@ ips stat ; enabled_blades ; cp_log_export status
 
 _Official documentation & manuals_
 - [Check Point Support Center (home for all product docs, SK articles, downloads)](https://support.checkpoint.com)
-- [Check Point Support Center — documentation, admin guides and SK articles](https://support.checkpoint.com/)
+- [Check Point Support Center: documentation, admin guides and SK articles](https://support.checkpoint.com/)
 - [Check Point Portal (formerly Infinity Portal) Administration Guide](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/Infinity-Portal-Admin-Guide/Content/Topics-Infinity-Portal/Introduction-to-CP-Portal.htm)
 - [Quantum product page / resources](https://www.checkpoint.com/quantum/)
 - [Check Point Infinity Platform overview](https://www.checkpoint.com/infinity/)
@@ -158,7 +225,7 @@ CEO Nadav Zafrir (ex-Unit 8200/Team8) took over in December 2024; founder Gil Sh
 - [Network Security Architecture Reference](/NETWORK_SECURITY_ARCHITECTURE.md)
 - [Network Defense Reference Library](/NETWORK_DEFENSE_REFERENCE.md)
 - [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md)
-- [Zero Trust Reference: Comprehensive Cybersecurity Guide](/ZERO_TRUST_REFERENCE.md)
+- [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
 - [Zscaler Zero Trust Exchange](/tools/zscaler.md)
 - [Vendor Tool Pages](/tools/README.md)
 - [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)

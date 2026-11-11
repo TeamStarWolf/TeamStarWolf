@@ -2,6 +2,55 @@
 
 ServiceNow Vulnerability Response is the Security Operations application that turns scanner findings into tracked, owned, and measured remediation work on the Now Platform.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads and ServiceNow administrators who run, tune or assess ServiceNow Vulnerability Response
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,427 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running ServiceNow Vulnerability Response for vulnerability remediation workflow, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Tenable](/platforms/tenable.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Vulnerability Response (often shortened to VR) sits inside the ServiceNow Security Operations suite. It is not a scanner. It consumes findings that scanners produce and gives them a workflow: ownership, priority, service-level agreements, and closure evidence.
@@ -51,6 +100,25 @@ The inbound side pulls from scanners. Integration packs for Tenable, Qualys, Rap
 The outbound and lateral side uses the platform. Remediation Tasks can open or link to Change Requests in Change Management. Notifications and approvals use platform workflow. Findings and groups feed platform reporting and Performance Analytics for trend tracking.
 
 Data flows one direction for findings (scanner into VR) and one direction for state back to reporting. VR does not push fixes to assets; it directs the people and changes that apply them.
+
+## Adversary perspective
+
+Because VR concentrates every scanner's findings mapped to named assets and holds the service accounts that reach those scanners, adversaries treat it as both a reconnaissance prize and a place to quietly suppress remediation. The steps to lock the deployment down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Reading the consolidated finding data: `sn_vul.read_all` and broad ACLs expose a map of every known weakness tied to a named configuration item, which is ready-made target selection ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)).
+- Abusing integration service accounts (ATT&CK T1078, Valid Accounts): each scanner integration authenticates with a service account, so a stolen one reaches the connected scanner with the scanner's own access ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)).
+- Suppressing work (ATT&CK T1685, Disable or Modify Tools): with write access an attacker closes Vulnerable Items as false positive or risk accepted, or edits grouping and assignment rules so findings are silently redirected or dropped.
+- Blending through the platform: VR shares an instance with IT Service Management, so malicious record changes can read as routine platform activity.
+
+### Residual risk and own exposure
+
+VR neither detects nor patches, so it inherits every blind spot of the scanners that feed it, and poor CMDB data leaves findings unassigned and unworked. The instance holds privileged integration credentials and a full exposure map, so it is a high-value target that belongs in the patch and monitoring scope like any other software.
+
+### Why it matters
+
+A tester goes for read-all access and the integration service accounts rather than the assets the findings describe. A defender monitors role and ACL grants, rule changes, and bulk closures or risk acceptances as signals in their own right. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope and [the red team reference](/RED_TEAM_REFERENCE.md) for the credential and evasion techniques.
 
 ## Hardening and secure use
 

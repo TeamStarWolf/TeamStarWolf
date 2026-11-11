@@ -48,6 +48,10 @@ The `ID` and `VERSION_ID` fields of `/etc/os-release` (the [os-release format](h
 |---|---|---|
 | 1.x | `ID=bottlerocket` | Not checked on a running system |
 
+## Security relevance
+
+Bottlerocket is an AWS container host that is immutable, SELinux-enforcing, and API-driven with no interactive SSH by default, so the attack surface is deliberately the container workload and the node, not a shell. That design removes most host-level persistence options an attacker expects. The risk that remains is a container escape to the node and the API and control path that manages the fleet. See the container and Kubernetes security references below.
+
 ## Hardening
 
 - [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md)

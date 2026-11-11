@@ -2,6 +2,55 @@
 
 Microsoft Entra ID is a cloud identity and access management service. It was formerly named Azure Active Directory. It authenticates users and services, issues tokens, and applies access policy for cloud and on-premises applications.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Identity and access engineers who run, tune or assess Microsoft Entra ID
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,067 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Microsoft Entra ID for identity, sign-in and access, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Cisco Duo](/platforms/cisco-duo.md), [CyberArk](/platforms/cyberark.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Entra ID is the identity provider for Microsoft 365 and for applications that federate to it. It holds user accounts, groups, service principals, and application registrations. It sits in front of resources and decides who signs in, under what conditions, and with which roles.
@@ -43,6 +92,25 @@ Applications integrate through SAML and OpenID Connect, either from the applicat
 Device compliance state flows in from Microsoft Intune. Conditional Access can then require a compliant or hybrid-joined device before granting access. This ties the identity decision to device posture.
 
 Sign-in and audit logs flow out to monitoring and SIEM platforms. See `/platforms/splunk.md` and `/platforms/servicenow-vr.md` for downstream consumers of identity events. Group membership and role assignment can be driven by an external governance system.
+
+## Adversary perspective
+
+Entra ID is the authentication and authorization boundary for cloud resources, so adversaries treat it as the prize and work to bypass its controls; the tenant, its admin roles, and its application trust are themselves an attack surface. The steps to lock it down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Phishing and MFA fatigue (ATT&CK T1621, T1556): adversary-in-the-middle phishing and repeated push prompts defeat push and one-time codes. Passkeys and FIDO2 resist them.
+- Token and session theft (T1539, T1550): a stolen session cookie or primary refresh token lets an attacker replay an authenticated session and skip MFA.
+- Token forging and trust abuse (T1606.002): a stolen token-signing key or a federated-trust change enables golden-SAML-style impersonation, and added credentials on a service principal grant standing access ([CWE-287](https://cwe.mitre.org/data/definitions/287.html)).
+- Consent and application abuse (T1098, T1528): illicit consent grants and over-scoped app registrations give an attacker persistent API access that no interactive sign-in reveals.
+
+### Residual risk and own exposure
+
+The identity provider is the keys to the kingdom, so a forged token or a compromised Global Administrator reaches every federated resource. Conditional Access only blocks what its rules cover, and a report-only policy blocks nothing; directory-sync and hybrid-identity components widen the attack surface and belong in scope.
+
+### Why it matters
+
+A tester checks for legacy-authentication paths, risky consent grants, and standing privileged roles; a defender monitors sign-in and audit logs for new service-principal credentials, trust changes, and risky sign-ins. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) and [the red team reference](/RED_TEAM_REFERENCE.md).
 
 ## Hardening and secure use
 

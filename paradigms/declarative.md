@@ -2,6 +2,55 @@
 
 Declarative programming describes the result you want and lets an execution engine decide the steps to produce it. It is the opposite stance from imperative code, which spells out the control flow explicitly. The style matters because it moves scheduling, optimization, and ordering decisions out of your code and into a runtime that can do them better.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers and students learning declarative programming, and reviewers who assess code written in that style
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (916 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning declarative programming or deciding whether it fits a problem, you want the languages and tools that support it, or you need its secure-coding considerations before a review
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core idea](#core-idea), [Strengths and trade-offs](#strengths-and-trade-offs), [Secure-coding considerations](#secure-coding-considerations)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Functional Programming](/paradigms/functional.md), [Logic Programming](/paradigms/logic.md), [Constraint Programming](/paradigms/constraint.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Core idea
 
 The defining move is to separate the specification of what from the strategy of how. You state constraints, relations, or a target state. A solver, query planner, or build engine searches for a plan that satisfies the specification.

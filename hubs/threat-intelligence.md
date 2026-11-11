@@ -43,9 +43,14 @@ Time and difficulty are quoted in full from each guide's header table.
 ## See also
 
 - [ATT&CK threat groups](/mitre/groups/README.md)
+- [China-attributed threat actors: a case study](/case-studies/THREAT_ACTORS_CHINA.md)
 - [ATT&CK software](/mitre/software/README.md)
 - [ATT&CK campaigns](/mitre/campaigns/README.md)
 - [SolarWinds and SUNBURST: a 2019 to 2021 case study](/case-studies/SOLARWINDS_SUNBURST.md)
+- [APT41: the public record](/case-studies/APT41_PUBLIC_RECORD.md)
+- [The year 2020 in intrusions: a case study](/case-studies/CHRONICLE_2020.md)
+- [Exchange Marauder 2021: a case study](/case-studies/EXCHANGE_MARAUDER_2021.md)
+- [The year 2019 in intrusions: a dated record](/case-studies/CHRONICLE_2019.md)
 - [Russia-attributed threat actors: a case study](/case-studies/THREAT_ACTORS_RUSSIA.md)
 
 <!-- hub:end -->

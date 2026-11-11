@@ -2,6 +2,55 @@
 
 Veeam Data Platform provides backup and replication across virtual, physical, cloud, and SaaS workloads. It positions backup as a recovery control against ransomware and other destructive events. The platform pairs immutable storage with recovery verification so that restores are proven, not assumed. Licence tier decides which capabilities, editions, and workload coverage are in force.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Backup administrators, infrastructure engineers and incident responders who run, tune or assess Veeam
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,465 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Veeam for backup and cyber recovery, you are hardening its deployment, or you need to see where it fits in the program
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md), [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Rubrik](/platforms/rubrik.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Veeam Data Platform is a backup, replication, and recovery product for mixed estates. It protects VMware and Hyper-V virtual machines, physical servers, workstations, cloud instances, and SaaS data such as Microsoft 365.
@@ -65,6 +114,24 @@ The trailing 1 and 0 are what harden backups against ransomware. An immutable or
 Backup-anomaly detection watches for signals that often mean an attack, such as unusual change rates, deletion patterns, or encryption-like behaviour in protected data. These signals give responders earlier warning and help identify a clean restore point before reinfection.
 
 SureBackup supports recovery testing by booting machines from backups in an isolated lab, running checks, and confirming they come up cleanly. Scheduled verification turns the final 0 of the rule into evidence.
+
+## Adversary perspective
+
+Because Veeam is the last line of recovery, ransomware actors try to destroy backups before or during an attack so victims cannot restore, and the backup server, repositories, and service accounts are themselves an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Destroying recovery before impact (ATT&CK T1490, Inhibit System Recovery): with backup console or repository access an attacker tries to delete backup files, remove restore points, or lower retention before encrypting production. A hardened Linux repository with immutability flags and object-lock storage are the counters, because those copies cannot be deleted for the lock period even by an elevated account.
+- Abusing the backup identity (ATT&CK T1078, Valid Accounts): the backup server stores credentials for many systems, so a compromised console or a reused production domain admin account can both exfiltrate those secrets and erase backups ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Reaching repositories directly: a repository on a general-purpose Windows or SMB share is reachable from the production network, so an attacker targets the storage itself rather than the console, which is why network isolation and offline copies matter.
+
+### Residual risk and own exposure
+
+Veeam cannot prevent a compromise, cannot protect workloads outside a job, and cannot help if recovery starts from an infected point. The backup server is a credential store in its own right, and backup software across the industry has been a notable exploitation target, so the backup software, operating systems, and appliances belong in the patch and monitoring scope.
+
+### Why it matters
+
+A tester probes whether backup files can be deleted or retention weakened with the access at hand, and whether an immutable or offline copy is truly out of reach. A defender alarms on mass deletion, retention changes, and repository edits as incidents in their own right, and treats anomaly signals as early warning. See [the ransomware defense reference](/RANSOMWARE_DEFENSE_REFERENCE.md) for how immutable and offline copies fit, and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

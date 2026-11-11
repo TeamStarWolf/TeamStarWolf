@@ -2,6 +2,55 @@
 
 Protocol Buffers, often shortened to protobuf, is a binary serialization format from Google. You define message structures in a `.proto` schema, then a compiler generates code to read and write a compact binary wire format. It is widely used for service APIs, especially with gRPC, and for stored records where size and speed matter. Unlike text formats, protobuf data is not self-describing, so the reader needs the schema.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers, engineers and analysts who read, write or parse Protocol Buffers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (935 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are reading or writing Protocol Buffers by hand or in code, you want a worked example and the tools that handle it, or you are parsing untrusted input and need its security considerations
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax and structure](#syntax-and-structure), [A worked example](#a-worked-example), [Security considerations](#security-considerations)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [JSON](/formats/json.md), [XML](/formats/xml.md), [YAML](/formats/yaml.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 Protobuf serializes structured data into a small binary form. A schema file names each message and its fields, and each field carries a number used on the wire. The compiler, `protoc`, turns the schema into classes or structs in many languages.
@@ -119,6 +168,28 @@ message GetInvoiceRequest {
 - `protoc --decode` and `protoscope` help inspect binary payloads during debugging.
 
 Keep schemas under version control and run breaking-change checks in continuous integration before publishing a new version.
+
+## Security relevance
+
+This section is the threat-facing view of Protocol Buffers: where a binary parser meets attacker-reachable input and what goes wrong. The parser limits and validation steps that defend against these are in the "Security considerations" section that follows.
+
+### Where it appears
+
+- Service APIs. gRPC carries protobuf messages between services and to clients, so an edge or internal endpoint decodes attacker-influenced bytes by design.
+- Stored records and logs. Protobuf-encoded data read back from queues, caches, and files is input too, even when it did not arrive over the network.
+- Cross-language boundaries. The same wire bytes are decoded by generated code in several languages, so a reader using a mismatched schema interprets fields differently from the writer.
+
+### Dominant weakness classes
+
+Protobuf is parsed by generated code in managed and native runtimes alike; in C and C++ stacks a malformed frame can reach memory corruption, but the portable risks are exhaustion and misinterpretation.
+
+- Uncontrolled resource consumption ([CWE-400](https://cwe.mitre.org/data/definitions/400.html)) from a small payload that declares huge lengths or deep nesting to exhaust memory or stack.
+- Type confusion ([CWE-843](https://cwe.mitre.org/data/definitions/843.html)) when bytes are decoded against the wrong schema version and a field is read as the wrong type.
+- Improper input validation ([CWE-20](https://cwe.mitre.org/data/definitions/20.html)), since a well-formed message is not a trusted one and unknown fields can carry data past a validator.
+
+### Why it matters
+
+Recognizing a gRPC or protobuf endpoint tells a tester to probe size and depth limits and to look for logic that trusts a decoded message without validating it. See [the API security reference](/API_SECURITY_REFERENCE.md) for the surrounding method.
 
 ## Security considerations
 

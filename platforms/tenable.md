@@ -2,6 +2,55 @@
 
 Tenable is an exposure management vendor whose products scan for vulnerabilities, misconfigurations, and exposures across endpoints, web applications, cloud, and identity. The portfolio centers on Tenable One, an exposure management platform that aggregates findings from the individual products. Licence tier and module entitlement decide which products and data sources are in force for a given account. This page describes the products at a general level and does not describe any specific organization's deployment.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads and analysts who run, tune or assess Tenable
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,336 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Tenable for vulnerability and exposure management, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Qualys](/platforms/qualys.md), [Rapid7 InsightVM](/platforms/rapid7-insightvm.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Tenable sits in the vulnerability management and exposure management part of a security program. It identifies weaknesses before an attacker can use them, then helps rank and track remediation. The products share a finding model built on plugins, so results from different scan types read consistently.
@@ -47,6 +96,25 @@ Findings flow out to downstream systems. Tenable integrates with ServiceNow so t
 SIEM integration sends vulnerability and asset data to log analytics platforms. This lets detection teams correlate exposure data with alerts and telemetry. Export APIs and connectors move bulk finding data for reporting and data warehousing.
 
 The direction of flow is Tenable as the source of vulnerability truth, with ServiceNow and the SIEM as consumers. Keeping asset identity consistent across these systems is what makes the join reliable.
+
+## Adversary perspective
+
+Because a scanner holds privileged scan credentials and a broad read map of the estate, adversaries treat Tenable as both something to blind and a target worth stealing from. The steps to lock the deployment down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Stealing scan credentials (ATT&CK T1078, Valid Accounts): authenticated-scan credentials are often privileged across many hosts, so a leaked Nessus credential or API key gives an attacker the same broad reach the scanner has ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Blending with scans: an attacker who learns the scan schedule can time activity to coincide with it, so probing traffic reads as routine scanning rather than an intrusion.
+- Suppressing findings (ATT&CK T1685, Disable or Modify Tools): with console access an attacker can mark findings fixed or accepted, drop assets from scope, or stop a scan, creating a blind spot that looks like clean coverage.
+- Reading the findings: the finding set is a ranked map of where the estate is weakest, so copying it is reconnaissance in itself.
+
+### Residual risk and own exposure
+
+A scanner only reports what it reaches, so unscanned assets, scope gaps, and point-in-time timing leave real exposure the tool never sees. The scanner appliances, agents, and cloud tenant run with high privilege and broad network reach, so a flaw in the product is high-impact and belongs in the patch and monitoring scope like any other software.
+
+### Why it matters
+
+A tester goes after the scan credentials and the console rather than the hardened hosts the scanner already reports on. A defender monitors the scanner's own account use, scope changes, and suppressed findings as signals in their own right. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope and [the red team reference](/RED_TEAM_REFERENCE.md) for the credential and evasion techniques.
 
 ## Hardening and secure use
 

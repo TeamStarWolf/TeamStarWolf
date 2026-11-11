@@ -2,6 +2,55 @@
 
 sqlmap is an open-source tool that detects and exploits SQL injection in web applications and their database backends. Penetration testers use it to confirm injection, enumerate schema, and demonstrate impact during authorized assessments. This page is for authorized testing only: run it against applications you own or have explicit written permission to test. Keep every example scoped to lab targets or signed engagements.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Penetration testers and application security testers who work on applications they are authorized to test
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (879 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the sqlmap commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you are a defender who needs to spot it in use
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Detection and defense](#detection-and-defense)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [gobuster Command Reference](/commands/gobuster.md), [Nmap Command Reference](/commands/nmap.md), [curl Command Reference](/commands/curl.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 sqlmap is a Python command-line tool that automates SQL injection discovery across MySQL, PostgreSQL, Microsoft SQL Server, Oracle, SQLite, and many other engines. It supports boolean-based, error-based, union-based, time-based blind, and stacked-query techniques. It runs on any system with Python 3. Point it at a URL or a saved HTTP request and it probes parameters, then offers to enumerate or dump data once injection is confirmed.
@@ -97,6 +146,29 @@ Depth and aggressiveness controls widen what sqlmap tries.
 | `--threads <n>` | Parallel requests for blind extraction |
 
 `--level` and `--risk` default to 1. Raise them only when needed, because higher `--risk` sends payloads that can modify data. `--technique` narrows testing to speed up a run or match a known weakness. `--tamper` chains evasion scripts, for example `--tamper=space2comment`, to study how input filters behave in an authorized test. `--batch` makes runs scriptable by choosing default answers. Route through `--proxy http://127.0.0.1:8080` to review every request in Burp or ZAP.
+
+## Security relevance
+
+This section is the threat-facing view of sqlmap and where it sits in a web assessment; authorized use only is assumed. The parameterized-query fix and the traffic signatures are in the "Detection and defense" section that follows.
+
+### Where it appears
+
+- Confirmation. After manual testing flags a suspicious parameter, sqlmap confirms whether it is truly injectable and which techniques work.
+- Enumeration. Once injection is proven, it maps databases, tables, and columns to show what the flaw reaches.
+- Impact demonstration. Dumping a scoped table, reading the current user and database, or extracting credentials proves the blast radius for the report.
+- Evasion testing. Tamper scripts route payloads past input filters so a team can see how a web application firewall actually behaves.
+
+### Dominant weakness classes
+
+sqlmap is a userspace tool, so the risk is injection and trust in input, not memory corruption.
+
+- Improper neutralization of special elements in an SQL command ([CWE-89](https://cwe.mitre.org/data/definitions/89.html)), SQL injection, the core target.
+- Improper input validation ([CWE-20](https://cwe.mitre.org/data/definitions/20.html)) that lets untrusted values reach query logic.
+- Improper encoding or escaping of output ([CWE-116](https://cwe.mitre.org/data/definitions/116.html)) where concatenation replaces parameterization.
+
+### Why it matters
+
+Automating injection confirmation and extraction shows the true reach of a single unparameterized query: full data exfiltration, authentication bypass, and in some backends file read or command execution. Seeing that chain end to end is what justifies the fix to developers and management. See [the SQL language reference](/languages/sql.md) for how injection arises and how prepared statements remove it.
 
 ## Detection and defense
 

@@ -2,6 +2,55 @@
 
 Trend Vision One is Trend Micro's extended detection and response (XDR) platform. It brings together endpoint, server, cloud, network, and email sensors into one data lake and console, and includes the workload and cloud-security capabilities formerly branded Cloud One. The platform spans prevention, detection and response, and cloud security posture across hybrid estates. Capability availability depends on the licence and the entitlements in force.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Endpoint security engineers and SOC analysts who run, tune or assess Trend Vision One
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,308 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Trend Vision One for extended detection and response, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [CrowdStrike Falcon](/platforms/crowdstrike-falcon.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Trend Vision One is an XDR platform that collects signals from several security layers and correlates them centrally. It fits across the estate rather than at one layer: workloads and servers, containers, cloud accounts, network traffic, endpoints, and email all feed the same platform. A security operations team uses it to protect workloads, assess cloud posture, and run detection and response across those layers from one console.
@@ -38,6 +87,24 @@ Operations run in the Trend Vision One console: detections and the investigation
 The XDR data lake is the center of the platform's data flow, holding correlated events from each layer. The platform exposes APIs and connectors to send detections and events to a SIEM for correlation and retention, and to drive response from a SOAR platform. Posture and vulnerability findings can be exported into a vulnerability management workflow or a ticketing system such as ServiceNow so remediation is tracked.
 
 Cloud connectors pull configuration and activity from cloud provider accounts, and the container integration ties into the build and deployment pipeline. These keep the platform's view of cloud and container risk current and feed the same console used for endpoint and network detection.
+
+## Adversary perspective
+
+Because Trend Vision One is a prevention and detection control across workloads, endpoints, and cloud, adversaries treat its agents as something to blind or disable, and its console and API are themselves an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and tampering
+
+- Impairing the agent (ATT&CK T1685, Disable or Modify Tools): with local administrator or root rights an attacker tries to stop or uninstall the workload or endpoint agent, cut its connectivity, or move policy from enforce back to detect-only. Tamper protection and enforce-mode policy are the countermeasures.
+- Running below or around the agent: bring-your-own-vulnerable-driver (BYOVD) and user-mode unhooking aim to act outside endpoint visibility, and on workloads an attacker may target gaps where no agent or IPS rule covers a path.
+- Console and API abuse: a stolen Vision One or workload API key, or a hijacked console session, lets an attacker change policy, disable virtual patching, or isolate hosts across linked accounts, which turns the control into a foothold ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+
+### Residual risk and own exposure
+
+The agents run with high privilege on every host and workload, so a flaw in an agent or the console is high-impact, and endpoint and workload agents across the industry have carried privilege-escalation and remote issues. Virtual patching shields a known weakness but does not remove it, so the underlying patch still belongs in scope. The agents and the console integrations belong in the patch and monitoring scope, and no agent catches every technique on its own.
+
+### Why it matters
+
+Treating the control as infallible is the mistake. A mature program monitors the control's own health, including agent removals, policy downgrades, and reporting gaps, as a detection signal, and keeps the agents current. See [the red team reference](/RED_TEAM_REFERENCE.md) for the evasion techniques and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

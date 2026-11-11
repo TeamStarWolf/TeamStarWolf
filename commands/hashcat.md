@@ -2,6 +2,55 @@
 
 hashcat is a password-recovery tool that tests captured hashes against candidate passwords using GPU or CPU compute. Security teams use it for authorized password audits, recovery of their own locked data, and validating that a password policy resists offline cracking. Run it only on hashes you are authorized to test under a signed audit scope. This page covers hash modes, attack modes, tuning, and the defenses that make offline cracking impractical.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Penetration testers, auditors and responders who crack or audit password hashes with authorization
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (962 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the hashcat commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you are a defender who needs to spot it in use
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Detection and defense](#detection-and-defense)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Metasploit Framework Reference](/commands/metasploit.md), [Nmap Command Reference](/commands/nmap.md), [sqlmap Command Reference](/commands/sqlmap.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 hashcat runs on Linux, Windows, and macOS, and uses OpenCL or CUDA to drive GPUs. Input is a file of hashes in a format matching the selected hash mode. Candidate passwords come from wordlists, rules, or generated masks. Cracked results are written to a potfile and shown on demand. The tool does not touch the target system: it works offline against hashes already collected during an authorized engagement.
@@ -131,6 +180,28 @@ hashcat --session audit1 --restore
 | `-w` | Workload profile |
 | `--force` | Ignore device warnings (use sparingly) |
 | `--runtime` | Abort after N seconds |
+
+## Security relevance
+
+This section is the threat-facing view of hashcat and where it sits in an engagement; authorized use only is assumed. The storage defenses and the precursor telemetry are in the "Detection and defense" section that follows.
+
+### Where it appears
+
+- Post-exploitation. After hashes are captured from a SAM hive, `ntds.dit`, `/etc/shadow`, a NetNTLMv2 exchange, or a WPA handshake, hashcat recovers the plaintext offline and off-target.
+- Lateral movement. A cracked service or domain account becomes working credentials for the next host in scope.
+- Policy audit. Running it against a controlled hash set measures whether a password policy resists real offline attack rather than assuming it does.
+
+### Dominant weakness classes
+
+hashcat is an offline compute tool, so the weakness is in how passwords are stored and chosen, not in memory safety.
+
+- Use of a password hash with insufficient computational effort ([CWE-916](https://cwe.mitre.org/data/definitions/916.html)), fast or unsuitable hashing.
+- Use of a one-way hash without a salt ([CWE-759](https://cwe.mitre.org/data/definitions/759.html)).
+- Weak password requirements ([CWE-521](https://cwe.mitre.org/data/definitions/521.html)) that leave candidates inside a wordlist or small keyspace.
+
+### Why it matters
+
+Recovering plaintext from a stolen hash set converts a single file read into usable credentials, and the crack rate is a direct measurement of how much a password policy and hashing choice actually resist attack. That number, not a checkbox, is what tells an organization whether its stored secrets would survive a breach. See [the cryptography reference](/CRYPTOGRAPHY_REFERENCE.md) for salting and work-factor guidance.
 
 ## Detection and defense
 

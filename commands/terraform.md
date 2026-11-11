@@ -2,6 +2,55 @@
 
 Terraform defines infrastructure as declarative configuration and provisions it through provider APIs. You describe the desired state in `.tf` files, and Terraform computes and applies the difference against recorded state. This page covers the core workflow, state handling, variables, and modules. Security notes focus on state secrets, credential handling, and change review.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Infrastructure, platform and cloud security engineers who manage infrastructure as code
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (923 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the Terraform commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [AWS CLI Reference](/commands/aws-cli.md), [kubectl Command Reference](/commands/kubectl.md), [Docker Command Reference](/commands/docker.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 Terraform runs as a single binary on a workstation or CI runner. It reads `.tf` files in the working directory, loads providers, and tracks what it created in a state file. The state file maps your configuration to real resource IDs. It can live locally as `terraform.tfstate` or in a remote backend such as S3, Azure Blob, or Terraform Cloud. A backend shared by a team usually adds state locking to prevent concurrent writes.
@@ -125,6 +174,30 @@ terraform apply
 | `-upgrade` | `init` | Update providers to newest allowed versions |
 | `-recursive` | `fmt` | Format files in subdirectories too |
 | `-json` | `plan`, `apply` | Machine-readable output for pipelines |
+
+## Security relevance
+
+This section is the threat-facing view of Terraform: how an attacker abuses configuration, modules, and state, and what the review and audit trail shows when they do. The state-handling and credential guidance is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Pipeline abuse. Write access to `.tf` files or to the CI that runs `terraform apply` lets an attacker provision a backdoor, a new admin IAM user, or an open security group, which Terraform then creates with the pipeline's own privileged credentials.
+- Malicious modules and providers. `terraform init` downloads providers and modules from registries and Git URLs, so a poisoned module, a `local-exec` provisioner, or an `external` data source can run attacker code on the runner during plan or apply.
+- State as a secret store. A remote backend or a committed `terraform.tfstate` holds resource attributes in plaintext, so read access to state yields database passwords, private keys, and tokens.
+- Telemetry. Plan output under review, CI logs, version-control history, and the cloud provider's own audit log (the resources an apply created) are where a defender catches an injected resource or an unexpected provider.
+
+### Dominant weakness classes
+
+Terraform is a userspace client that drives provider APIs, so the risks are trust and credential exposure, not memory corruption.
+
+- Use of hard-coded credentials ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)) in `.tf` or committed `.tfvars` files.
+- Cleartext storage of sensitive information ([CWE-312](https://cwe.mitre.org/data/definitions/312.html)) in the state file.
+- Inclusion of functionality from an untrusted control sphere ([CWE-829](https://cwe.mitre.org/data/definitions/829.html)) through unpinned modules and providers.
+- Improper privilege management ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)) when a pipeline applies changes with broad, long-lived credentials.
+
+### Why it matters
+
+Reviewing the plan and pinning module and provider sources is what stops a trusted pipeline from provisioning an attacker's backdoor or running their code on the runner. Auditors trace applied resources back to the configuration and state that created them for the same reason. See [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md) for dependency-integrity and pipeline guidance.
 
 ## Security notes
 

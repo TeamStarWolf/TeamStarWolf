@@ -2,6 +2,55 @@
 
 IBM QRadar is a security information and event management (SIEM) platform that collects events and network flows, correlates them with rules, and raises offenses for analyst review.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+SOC analysts and detection engineers who run, tune or assess IBM QRadar
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,260 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running IBM QRadar for security event management and detection, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Splunk Enterprise Security](/platforms/splunk.md), [Cortex XSOAR](/platforms/cortex-xsoar.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 QRadar ingests log events from devices and applications and network flow data from the wire. It parses both into a common format, correlates them, and produces offenses, which are prioritized, grouped indicators that something warrants investigation.
@@ -50,6 +99,24 @@ Inbound, QRadar receives syslog and other event feeds from firewalls, endpoints,
 Outbound and lateral, offenses can trigger notifications, open tickets, and feed response tooling. QRadar can send data to and receive context from other platforms, and offenses can drive orchestration in a separate SOAR product.
 
 Data flows from sources into collectors, through processors where normalization and correlation happen, and into offenses and searches at the console. Reference sets let external context, such as a threat indicator list, participate in rules.
+
+## Adversary perspective
+
+QRadar is where telemetry becomes offenses an analyst works, so adversaries try to blind it or keep their activity out of the rules that would fire, and the console with its broad data access and service tokens is itself a target. The defensive steps are in the "Hardening and secure use" section that follows.
+
+### Evasion and tampering
+
+- Blinding the log and flow sources (ATT&CK T1685.001, Disable or Modify Tools: Disable or Modify Logging, and T1070, Indicator Removal): with host access an attacker stops a syslog source or clears logs so events never reach a collector, and activity that leaves no flow record cannot raise an offense.
+- Living inside trusted definitions: a building block that marks a host or network as trusted can suppress genuine detections, so an attacker who operates from such an asset stays below the rules. A missing or mismatched DSM means a source is received but not parsed into the fields a rule needs.
+- Token and console abuse: a leaked authorized service token or a hijacked account grants programmatic read of data and functions, which both exposes the estate and lets rules be disabled ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)).
+
+### Residual risk and own exposure
+
+QRadar reasons only over what it collects and parses, so pre-ingestion activity and unparsed sources go unseen. The console concentrates sensitive event and flow data and credentials that reach many systems, so the appliances belong in the patch and monitoring scope like any other software.
+
+### Why it matters
+
+Watch the control's own health: silent log sources, disabled rules, changes to trusted building blocks, and service-token creation are detection signals. See [the red team reference](/RED_TEAM_REFERENCE.md) for the evasion techniques and [the incident response reference](/INCIDENT_RESPONSE_REFERENCE.md) for log integrity.
 
 ## Hardening and secure use
 

@@ -2,6 +2,55 @@
 
 Remix is a React-based meta-framework built on web standards. It renders on the server first and uses loaders and actions to move data between server and client. It favors progressive enhancement, so pages work before JavaScript loads. The project has merged its core into React Router, which now carries the same model.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who build with Remix, and the reviewers and application security engineers who assess what they build
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,257 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or reviewing a Remix application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture](#architecture), [Security model and common vulnerabilities](#security-model-and-common-vulnerabilities), [Common pitfalls](#common-pitfalls)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[JavaScript](/languages/javascript.md), [TypeScript](/languages/typescript.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Remix was created by the authors of React Router and released publicly in 2021. It centered on server-first data flow and nested routing. Shopify acquired the project in 2022.
@@ -49,6 +98,30 @@ Remix uses Vite for the dev server and build. Adapters connect the app to a runt
 Data libraries such as Prisma and Drizzle pair well with loaders and actions. UI work often uses Tailwind CSS. Authentication uses the session utilities or packages such as `remix-auth`.
 
 Testing uses Vitest with React Testing Library and Playwright for end-to-end runs. React Router version 7 shares the tooling for migrated projects.
+
+## Security relevance
+
+This section is the threat-facing view of Remix: how it appears to an attacker or an auditor in the field, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Internet-facing web applications and JSON APIs. Remix and the React Router 7 successor expose `loader` and `action` functions as server endpoints, recognizable from the client data-request pattern (a `?_data=` query on Remix navigations, `.data` requests under React Router 7) layered over server-rendered React markup.
+- Offensive interest uses general web proxies rather than a Remix-specific tool. Burp Suite and OWASP ZAP replay loader and action requests directly with crafted input, since any client can call those endpoints.
+- Audit and defensive tooling is the general JavaScript set: Semgrep and CodeQL for static analysis of loaders and actions, and npm audit or Socket for the dependency tree.
+- The dependency surface is the npm ecosystem, pinned through a lockfile. A compromised or typosquatted package runs with full application privilege, the pattern in [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md) and [the npm supply-chain case study](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md).
+
+### Dominant weakness classes
+
+Remix runs on Node, a memory-managed runtime, so the dominant classes are logic and injection flaws rather than memory corruption. The fixes for each are detailed in the section below.
+
+- Broken access control ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)). Loaders and actions are directly reachable endpoints, so one that returns or mutates a record by id without an ownership check is the most common finding.
+- Cross-site scripting ([CWE-79](https://cwe.mitre.org/data/definitions/79.html)) through `dangerouslySetInnerHTML`, which bypasses React's default escaping.
+- Server-side request forgery ([CWE-918](https://cwe.mitre.org/data/definitions/918.html)) when a loader or action fetches a user-supplied URL and can reach cloud metadata or internal hosts.
+- Information exposure ([CWE-200](https://cwe.mitre.org/data/definitions/200.html)) from returning whole records in loader data, which is serialized into the page and readable in the browser.
+
+### Why it matters
+
+Recognizing Remix from its data-request shape tells a tester that every loader and action is public API surface, so the first moves are to replay those endpoints without a session, test object references for authorization, and look for user-controlled fetches. The audit relies on general JavaScript static analysis and npm dependency scanning rather than a framework-specific scanner. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for the cross-cutting review method.
 
 ## Security model and common vulnerabilities
 

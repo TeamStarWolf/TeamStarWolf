@@ -4,6 +4,55 @@
 
 AWS's first-party security services collectively provide continuous vulnerability assessment (Inspector), threat detection (GuardDuty), unified findings aggregation and cloud risk/exposure management (Security Hub), and OS/application patch orchestration (Systems Manager Patch Manager) for AWS accounts and workloads. Rather than a single product, they are composable, account-native services that together cover the discover-assess-prioritize-mitigate-remediate lifecycle for AWS estates. They solve the problem of getting vulnerability, misconfiguration, and threat visibility plus remediation for cloud workloads without deploying third-party agents everywhere. How the same services sit on a CTEM cycle, next to the Azure and GCP suites, is in the [CTEM reference](/CTEM_REFERENCE.md). The landing-zone placement is in [Cloud Architecture](/CLOUD_ARCHITECTURE_REFERENCE.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the cloud security engineers who run AWS Native Security
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,478 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what AWS Native Security can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[CTEM Reference](/CTEM_REFERENCE.md), [Cloud Architecture Reference](/CLOUD_ARCHITECTURE_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities & architecture
 
 **Core capabilities**
@@ -44,6 +93,24 @@ Acts across the full detect-and-remediate axis within AWS. Inspector continuousl
 
 **In a critical-CVE scenario.** First 24-72h of a critical internet-facing-app CVE: Inspector re-scans EC2/ECR/Lambda to identify every affected package and image across accounts; Security Hub exposure view (and attack-path visualization) ranks which affected assets are internet-reachable and already targeted by GuardDuty, producing a prioritized remediation list. As compensating mitigation, tighten security groups/NACLs and add AWS WAF rules to cut reachability, and enable/verify GuardDuty Runtime Monitoring to detect exploitation. Then build or update a Patch Manager baseline approving the fix, target the affected patch group, and push it via an emergency maintenance window in scan-and-install mode; Inspector re-scan and Security Hub compliance checks validate closure.
 
+## Adversary perspective
+
+These services detect, assess, and aggregate risk; they do not stand between the attacker and the workload, so an adversary treats them as something to blind, starve of coverage, or quietly live alongside. They also run with broad, privileged read across the account, which makes their roles and findings a target in their own right. The detection and tuning guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and tampering
+
+- Blinding the service: an attacker with sufficient IAM can disable GuardDuty, suppress or archive findings, stop Inspector scans, or delete the Config recorder and CloudTrail trail they feed on (ATT&CK T1685 Disable or Modify Tools, T1685.002 disable cloud logs), so the console looks clean while activity continues.
+- Coverage gaps: findings exist only where the services are enabled and the member accounts are enrolled; a region, account, or resource type left out of the delegated-admin configuration is simply unseen, and agentless assessment can miss what only shows at runtime.
+- Blending with scans: attackers time enumeration and access to look like normal assessment and automation traffic, and GuardDuty is detective, not preventive, so a finding is after the fact.
+
+### Residual risk and own exposure
+
+A finding is not a fix: these services surface misconfiguration, vulnerable software, and suspicious behavior, but the exposure remains until someone remediates it, and prioritization still depends on the operator. The services hold privileged read across the estate and their findings reveal exactly where the weak spots are ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)), so their IAM roles, delegated-admin account, and finding stores belong in the patch and monitoring scope.
+
+### Why it matters
+
+Knowing that detection can be disabled, enrollment can be incomplete, and findings lag the event tells a tester where to look and a defender to monitor the monitors and protect the finding plane. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) for the control model and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for turning findings into tracked remediation.
+
 ## Validation & telemetry
 
 **Log sources**
@@ -61,10 +128,10 @@ Acts across the full detect-and-remediate axis within AWS. Inspector continuousl
 
 **Validation signals (actually working?)**
 - CONFIGURED: recorder/detector ENABLED, Config rule present, trail IsLogging=true.
-- EFFECTIVE (Inspector): finding status NEW->CLOSED with fixAvailable and resource installedVersion >= fixedInVersion after patch — CVE actually remediated, not just reported.
-- EFFECTIVE (Config): rule ComplianceType flips NON_COMPLIANT->COMPLIANT and, if auto-remediation attached, a CloudTrail StartAutomationExecution of the SSM document (e.g. AWS-ConfigureS3BucketPublicAccessBlock) — enforcement fired.
+- EFFECTIVE (Inspector): finding status NEW->CLOSED with fixAvailable and resource installedVersion >= fixedInVersion after patch: CVE actually remediated, not just reported.
+- EFFECTIVE (Config): rule ComplianceType flips NON_COMPLIANT->COMPLIANT and, if auto-remediation attached, a CloudTrail StartAutomationExecution of the SSM document (e.g. AWS-ConfigureS3BucketPublicAccessBlock): enforcement fired.
 - EFFECTIVE (Security Hub): finding Workflow.Status RESOLVED and Compliance.Status PASSED.
-- EFFECTIVE (GuardDuty): an exploitation/recon finding against the host (detective only) plus, if paired with EventBridge->Lambda, a quarantine-SG action logged in CloudTrail — that is the actual block.
+- EFFECTIVE (GuardDuty): an exploitation/recon finding against the host (detective only) plus, if paired with EventBridge->Lambda, a quarantine-SG action logged in CloudTrail: that is the actual block.
 - Distinguish: Inspector/Config prove the mitigation is PRESENT; a closed finding + patched version + executed-remediation CloudTrail event prove it WORKED.
 
 **Key events / fields / tables / APIs**
@@ -89,7 +156,7 @@ aws guardduty list-detectors --query DetectorIds[0] --output text | xargs -I{} a
 index=aws sourcetype="aws:securityhub:finding" ProductName="Inspector" | spath Vulnerabilities{}.Id output=cve | eval status=coalesce('Workflow.Status',RecordState) | stats latest(status) as status latest(FixAvailable) as fix by cve, Resources{}.Id | search status IN ("ARCHIVED","RESOLVED")
 ```
 
-*Validation: prove Config rule enforcement — resources flipped to COMPLIANT + remediation ran in CloudTrail* (CLI)
+*Validation: prove Config rule enforcement: resources flipped to COMPLIANT + remediation ran in CloudTrail* (CLI)
 
 ```
 aws configservice get-compliance-details-by-config-rule --config-rule-name <rule> --compliance-types COMPLIANT && aws cloudtrail lookup-events --lookup-attributes AttributeKey=EventName,AttributeValue=StartAutomationExecution
@@ -98,9 +165,9 @@ aws configservice get-compliance-details-by-config-rule --config-rule-name <rule
 **How it mitigates (mechanism).** Config enforcement (non-compliant resource auto-remediated by an attached SSM Automation document, removing the exposure) and Inspector patch verification (installedVersion advancing past fixedInVersion removes CVE reachability) are the observable mitigations; GuardDuty is detective and only becomes a block when its finding triggers an EventBridge->Lambda isolation action, itself logged in CloudTrail.
 
 **Logging gotchas**
-- Inspector EC2 scanning needs a healthy SSM agent — hosts without it show UNSCANNED coverage, so an empty finding list can be a blind spot, not a clean host.
+- Inspector EC2 scanning needs a healthy SSM agent: hosts without it show UNSCANNED coverage, so an empty finding list can be a blind spot, not a clean host.
 - GuardDuty is detection-only by default (no inline prevention).
-- CloudTrail data events (S3 object-level, Lambda invoke) are OFF unless explicitly selected — data-plane exploitation can be invisible.
+- CloudTrail data events (S3 object-level, Lambda invoke) are OFF unless explicitly selected: data-plane exploitation can be invisible.
 - Config records only enabled resource types; INSUFFICIENT_DATA rolls a conformance pack up as effectively compliant.
 - Security Hub finding updates are throttled/deduplicated (UpdatedAt may lag); CloudTrail->S3 delivery can lag ~15 min, so real-time validation should use the EventBridge stream.
 - Check specific type strings (for example Execution:Runtime/ReverseShell) against the [GuardDuty Runtime Monitoring finding types](https://docs.aws.amazon.com/guardduty/latest/ug/findings-runtime-monitoring.html) reference before alerting on them; the list grows as AWS adds detections.

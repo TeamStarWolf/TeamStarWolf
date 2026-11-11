@@ -14,6 +14,55 @@ Ballerina is a statically typed, open-source language built for writing network 
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [API Security Reference](/API_SECURITY_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Ballerina code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,561 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Ballerina code (typical uses: microservices, API back ends, systems integration, cloud-native services), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[API Security Reference](/API_SECURITY_REFERENCE.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Ballerina came from WSO2, a company whose products center on integration and APIs, as an attempt to make writing network-connected code feel first-class rather than bolted on through frameworks. The language reached a stable release (often called Ballerina Swan Lake) after several years of development and redesign. A recurring theme is that a Ballerina program's structure corresponds to a sequence diagram of the interactions it performs, so the code and the picture of the integration stay close.
@@ -124,6 +173,29 @@ CPU-bound work still competes for threads as on any JVM program, so heavy comput
 - Treating `()` (nil) like other languages' null without using optional types and checks, which the compiler otherwise forces you to handle.
 - Blocking a worker on heavy computation and starving I/O concurrency; offload CPU-bound work.
 - Assuming broad third-party library availability as in older ecosystems; the connector set is growing but smaller than long-established platforms.
+
+## Security relevance
+
+Ballerina is used to build network services and integrations, so it reaches practitioners as the implementation language of API back ends and connectors that are assessed as web and service targets, not as a language for offensive tooling. The defensive patterns are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- API and microservice back ends. Ballerina services expose HTTP, GraphQL, and gRPC endpoints that are assessed like any other web API. See the [API Security Reference](/API_SECURITY_REFERENCE.md) and [Web Application Pentesting](/WEB_APPLICATION_PENTESTING.md).
+- Integration and connector code. Ballerina's purpose is connecting systems, so programs routinely make server-side calls to internal and third-party services, which shapes their attack surface.
+- Cloud-native deployment. Services compile to JVM bytecode or GraalVM native images and run in containers, so their configuration and secret handling are part of the review. See the [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+Ballerina runs on the JVM and is garbage-collected and memory-safe, so the memory-corruption classes do not apply; its weaknesses are those of API and integration code.
+
+- Injection in data-store calls. Building SQL by string concatenation rather than using the `sql` module's parameterized queries allows [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Server-side request forgery. Integration code that fetches a URL or calls a service derived from request data can be steered toward internal targets, which is [CWE-918](https://cwe.mitre.org/data/definitions/918.html).
+- Hardcoded credentials. Database passwords, API keys, and tokens placed in source or committed configuration rather than deployment-time configuration map to [CWE-798](https://cwe.mitre.org/data/definitions/798.html).
+- Broken authentication and access control. Missing or misapplied service authentication and authorization map to [CWE-284](https://cwe.mitre.org/data/definitions/284.html).
+
+### Why it matters
+
+Auditing Ballerina means reading service and resource declarations for applied authentication annotations, confirming that data-store and outbound calls are parameterized and constrained, and checking that secrets come from configuration rather than source. The compiler's warnings and pinned dependencies in `Dependencies.toml` support that review, as the Secure coding section details. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
 
 ## Secure coding
 

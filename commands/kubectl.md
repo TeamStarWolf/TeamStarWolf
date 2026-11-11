@@ -2,6 +2,55 @@
 
 `kubectl` is the command-line client for Kubernetes. It sends requests to the API server to inspect and change cluster state. This page covers the read, apply, debug, and scaling commands engineers use most, plus the context and namespace handling that keeps you on the right cluster. Security notes focus on RBAC, Secrets, and audit-worthy actions.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Platform engineers, administrators and security teams who operate Kubernetes clusters
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (876 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the kubectl commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Docker Command Reference](/commands/docker.md), [Terraform Command Reference](/commands/terraform.md), [curl Command Reference](/commands/curl.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 `kubectl` runs on your workstation or a CI runner and authenticates to the Kubernetes API server. It reads connection details, credentials, and contexts from a kubeconfig file, by default `~/.kube/config`. A context binds a cluster, a user, and a namespace. Every command resolves against the current context unless you override it, so confirming your context before a destructive command is a habit worth keeping.
@@ -110,6 +159,30 @@ kubectl auth can-i '*' '*'
 | `-f`, `--filename` | Operate on a manifest file or directory |
 | `--context` | Override the current context for one command |
 | `--previous` | Logs from a container's prior instance |
+
+## Security relevance
+
+This section is the threat-facing view of `kubectl`: how an attacker turns API access into cluster control, and what the audit log records when they do. The RBAC and hardening guidance is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Enumeration with a stolen kubeconfig or token. A leaked `~/.kube/config` or a pod's mounted service-account token lets an attacker run `kubectl auth can-i --list`, `get secrets -A`, and `get pods -A` to map permissions and harvest Secrets.
+- Privilege escalation. Attackers abuse broad RBAC, `create` on pods, or a privileged service account to schedule a pod that mounts the host filesystem or runs privileged, escaping to the node and from there toward the control plane.
+- Lateral movement and tunneling. `kubectl exec` lands a shell inside a running workload, and `kubectl port-forward` bypasses NetworkPolicies to reach cluster-internal services from outside.
+- Telemetry. The Kubernetes audit log records each API call: `create` on `pods/exec` and `pods/portforward`, `get` and `list` on `secrets`, and verb `*` on resource `*`. Defenders alert on these and on calls from an unexpected user agent or IP.
+
+### Dominant weakness classes
+
+The API server mediates everything through RBAC, so the dominant risks are excess authority and weak secret handling, not memory corruption.
+
+- Improper privilege management ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)) through over-broad Roles, ClusterRoles, and `cluster-admin` bindings.
+- Cleartext storage of sensitive information ([CWE-312](https://cwe.mitre.org/data/definitions/312.html)) in base64-encoded Secrets in etcd.
+- Execution with unnecessary privileges ([CWE-250](https://cwe.mitre.org/data/definitions/250.html)) from privileged pods and host-namespace shares.
+- Improper access control ([CWE-284](https://cwe.mitre.org/data/definitions/284.html)) where `exec` and `port-forward` reach past network boundaries.
+
+### Why it matters
+
+Reading an RBAC grant the way an attacker would, and watching the subresources above, is what separates a cluster where one stolen token stays contained from one where it becomes full control. Auditors run `kubectl auth can-i` and review Secret access for the same reason. See [the Kubernetes security reference](/KUBERNETES_SECURITY_REFERENCE.md) and [the container security reference](/CONTAINER_SECURITY_REFERENCE.md) for RBAC and runtime hardening.
 
 ## Security notes
 

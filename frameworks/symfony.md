@@ -2,6 +2,55 @@
 
 Symfony is a server-side web framework written in PHP, built from a set of reusable components. It can run as a full-stack framework or supply individual components to other projects. Many PHP tools, including parts of Laravel and Drupal, depend on Symfony components. Its design favors explicit configuration, dependency injection, and standards compliance.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who build with Symfony, and the reviewers and application security engineers who assess what they build
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,210 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or reviewing a Symfony application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture](#architecture), [Security model and common vulnerabilities](#security-model-and-common-vulnerabilities), [Common pitfalls](#common-pitfalls)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[PHP](/languages/php.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [API Security Reference](/API_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Fabien Potencier released Symfony in 2005. The project introduced decoupled components that could be used on their own. This component model shaped much of the modern PHP ecosystem and influenced the PSR standards.
@@ -49,6 +98,30 @@ class PostController extends AbstractController
 Composer and Symfony Flex manage dependencies and apply recipe-based configuration. The `bin/console` command runs migrations, clears caches, and generates code. The Profiler and web debug toolbar surface request detail during development.
 
 The wider ecosystem includes API Platform for REST and GraphQL APIs, and Doctrine for persistence and migrations. Testing uses PHPUnit with the `BrowserKit` and `DomCrawler` components for functional tests. Messenger integrates with transports such as AMQP and Redis.
+
+## Security relevance
+
+This section is the threat-facing view of Symfony: how it appears to an attacker or an auditor in the field, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Internet-facing PHP web applications and APIs. Because many PHP projects embed Symfony components, including parts of Laravel and Drupal, a single component advisory has wide reach. Symfony is recognizable from `X-Debug-Token` and `X-Debug-Token-Link` headers when the profiler is exposed, the `/_profiler` path, and Twig error pages.
+- Offensive interest centers on object injection. Burp Suite and OWASP ZAP drive endpoint testing, and PHPGGC builds PHP gadget-chain payloads for `unserialize` sinks.
+- Audit and defensive tooling is the PHP set: composer audit or the Local PHP Security Checker for the dependency tree, and Psalm or PHPStan with Semgrep for static analysis.
+- The dependency surface is Composer and Packagist, pinned through `composer.lock`. The surface extends below the framework to the PHP interpreter itself: the PHP2Shell wave put every internet-facing PHP server in scope regardless of framework, covered in [the PHP2Shell case study](/case-studies/PHP2SHELL_OCTOBER_2026.md) and [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+Symfony application code runs on PHP, a memory-managed language, so the dominant classes in that code are injection and access-control flaws rather than memory corruption, though the C interpreter beneath it has had memory-corruption flaws of its own. The fixes for each are detailed in the section below.
+
+- PHP object injection and insecure deserialization ([CWE-502](https://cwe.mitre.org/data/definitions/502.html)) when `unserialize` runs on attacker-controlled data, reachable through published gadget chains.
+- SQL injection ([CWE-89](https://cwe.mitre.org/data/definitions/89.html)) when user input is concatenated into DQL or native SQL instead of bound as a parameter.
+- Cross-site scripting ([CWE-79](https://cwe.mitre.org/data/definitions/79.html)) through the Twig `raw` filter applied to untrusted input.
+- Broken access control ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)) when voters and access-control rules are incomplete and an endpoint is reachable without the intended check.
+
+### Why it matters
+
+Fingerprinting Symfony from an exposed profiler or debug headers tells a tester where to look first: pull the profiler for internal detail, probe `unserialize` and DQL sinks, test the Twig `raw` paths, and audit both the Composer tree and the PHP runtime version for known flaws. composer audit and the Local PHP Security Checker are the engine-specific audit tools for that dependency tree. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for the cross-cutting review method.
 
 ## Security model and common vulnerabilities
 

@@ -4,6 +4,55 @@
 
 Google Cloud splits the same jobs AWS and Azure split. Security Command Center (SCC) is the organization-level finding store. Cloud Audit Logs are the control-plane record. Organization Policy is the preventive guardrail. VPC Service Controls are the API perimeter. Cloud Armor is the edge WAF and DDoS control. VM Manager and Artifact Analysis feed vulnerability findings. Google Security Operations (formerly Chronicle) is the SIEM, and it is a separate product from SCC. Confirm tier names on the product page before you buy: Google has sold SCC as a free tier and as paid tiers (Premium, and an Enterprise tier that adds Mandiant intelligence and a closer tie to Security Operations). Detector coverage is not the same in every tier.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the cloud security engineers who run GCP Native Security
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,285 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what GCP Native Security can do to mitigate a vulnerability before the fix lands, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation and telemetry](#validation-and-telemetry), [Documentation and repositories](#documentation-and-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[CTEM Reference](/CTEM_REFERENCE.md), [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Cloud Architecture Reference](/CLOUD_ARCHITECTURE_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities and architecture
 
 **What each service is for**
@@ -46,6 +95,24 @@ Prioritize a finding that is internet-reachable, in a project that holds sensiti
 Mobilization is a patch job in VM Manager, a rebuilt image that passes Binary Authorization, or an Organization Policy that stops the class of misconfiguration from being created again. Security Health Analytics going quiet is the close of a misconfiguration. A vulnerability finding closing is the close of a CVE. Neither is proof that detection would have fired. That proof is an Event Threat Detection or VM Threat Detection finding during a controlled test, which is the validation stage in the [CTEM reference](/CTEM_REFERENCE.md).
 
 **In a critical CVE.** List SCC vulnerability findings for that CVE at the organization. Split them by exposure. Block the path with Cloud Armor, an ingress firewall rule, or by removing the external IP while the image is rebuilt. Require the new digest in Binary Authorization. Re-query findings until the vulnerable package version is gone. Preserve the Admin Activity log of who changed IAM or the firewall during the window.
+
+## Adversary perspective
+
+These services find, govern, and record risk; they do not stand between the attacker and the workload, so an adversary treats them as something to blind, starve of coverage, or quietly live alongside. They run with broad, privileged read across the organization, which makes their roles, findings, and audit logs a target in their own right. The detection and tuning guidance is in the "Validation and telemetry" section that follows.
+
+### Evasion and tampering
+
+- Blinding the plane: an attacker with sufficient IAM can mute or delete SCC findings, disable detectors or services, or stop and divert the Cloud Audit Logs and log sinks that Security Operations depends on (ATT&CK T1685 Disable or Modify Tools, T1685.002 disable cloud logs), so the console looks clean while activity continues.
+- Coverage gaps: findings exist only where SCC is enabled at the right tier and projects are in scope; detector coverage differs by tier, and a project, folder, or data-plane action outside Organization Policy and VPC Service Controls is unseen.
+- Blending in and reaching past the edge: attackers time activity to look like normal automation, and Cloud Armor, like any edge WAF, can be sidestepped by encoding, oversized bodies, or a path that reaches the service without traversing it.
+
+### Residual risk and own exposure
+
+A finding is not a fix: SCC surfaces misconfiguration and vulnerable software, but the exposure remains until someone remediates it, and preventive guardrails bind only where assigned. The plane holds privileged read and its findings map the weak spots ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)), so the organization-level roles, policy, perimeter config, and log sinks belong at the front of the patch and monitoring scope.
+
+### Why it matters
+
+Knowing that findings can be muted, tier coverage varies, and audit logs can be diverted tells a tester where to look and a defender to monitor the monitors and protect the finding and log plane. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) for the control model and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for turning findings into tracked remediation.
 
 ## Validation and telemetry
 

@@ -2,6 +2,55 @@
 
 SailPoint is an identity security and governance platform. It provisions and removes access, runs access certifications, enforces separation-of-duties policy, and models roles. It is delivered as IdentityIQ for on-premises deployment and as Identity Security Cloud as a service.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Identity governance and access engineers who run, tune or assess SailPoint
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (1,022 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running SailPoint for identity governance and administration, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Microsoft Entra ID](/platforms/entra-id.md), [CyberArk](/platforms/cyberark.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Governance answers who has access to what, why they have it, and whether they still should. SailPoint collects entitlements from connected systems, maps them to identities, and applies policy and review to that picture.
@@ -42,6 +91,25 @@ Target systems integrate through connectors for directories, applications, datab
 The HR system acts as the authoritative source for identities. A new hire, a transfer, or a termination there triggers the matching joiner, mover, or leaver action across connected systems.
 
 Governance events, access grants, revocations, certification decisions, flow to monitoring and ticketing platforms. See `/platforms/servicenow-vr.md` for a downstream workflow consumer. CyberArk and similar privileged systems can be targets under governance; see `/platforms/cyberark.md`.
+
+## Adversary perspective
+
+SailPoint is the authority for access lifecycle and holds privileged connector accounts that read and write across the estate, so adversaries treat it as a high-value target and a way to grant themselves access. The steps to lock it down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Connector service-account theft (ATT&CK T1078, Valid Accounts): the accounts that let SailPoint provision to directories, databases, and cloud platforms are broadly privileged, so stealing one gives write access across many systems at once.
+- Provisioning and policy abuse (T1098): an attacker with governance rights can grant entitlements, approve their own request, or weaken a separation-of-duties rule to create standing access that looks legitimate.
+- Rubber-stamped certifications ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)): a reviewer who approves every item lets privilege creep and orphaned access persist, so the control records approval without enforcing least privilege.
+- Stale and orphaned accounts: access a leaver kept, or an account the authoritative source never drove, is a foothold the governance model is meant to close but often misses.
+
+### Residual risk and own exposure
+
+Governance-platform compromise is high-impact because it can both read the entire entitlement map and write access across connected systems. The connector credentials and the self-run IdentityIQ instance belong in the patch, secret-rotation, and monitoring scope, and governance cannot stop misuse of access it already approved.
+
+### Why it matters
+
+A tester looks for over-privileged connector accounts, bulk approvals, and failed deprovisioning; a defender monitors provisioning events, policy edits, and certification outcomes. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) and [the red team reference](/RED_TEAM_REFERENCE.md).
 
 ## Hardening and secure use
 

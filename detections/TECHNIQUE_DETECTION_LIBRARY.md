@@ -2,11 +2,54 @@
 
 > Multi-platform detection content keyed to MITRE ATT&CK techniques. Each technique below carries ready-to-adapt analytics for the major SIEM/EDR query languages, the telemetry each one needs, an analyst confidence rating, and the NIST 800-53 controls that mitigate the same technique, so a hunt can move from behavior, to detection, to control gap in one place.
 
-| | |
-|---|---|
-| Read this when | you are building or tuning a SIEM/EDR detection for a specific ATT&CK technique, you need a hunt query for your platform's language (SPL, EQL/KQL, YARA-L, CQL), you want to check which NIST 800-53 controls mitigate a technique you just detected |
-| Start at | [How to use this library](#how-to-use-this-library), [Technique index](#technique-index), [Provenance & attribution](#provenance-amp-attribution) |
-| Pairs with | [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [Detection strategies](/detections/strategies/README.md), [Controls Mapping](/CONTROLS_MAPPING.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Detection engineers, threat hunters and SOC analysts
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,598 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or tuning a SIEM or EDR detection for a specific ATT&CK technique, you need a hunt query in your platform's language (SPL, EQL/KQL, YARA-L, CQL), or you want to check which NIST 800-53 controls mitigate a technique you just detected
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[How to use this library](#how-to-use-this-library), [Technique index](#technique-index), [Provenance & attribution](#provenance-amp-attribution)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Detection Rules Reference](/DETECTION_RULES_REFERENCE.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [Detection strategies](/detections/strategies/README.md), [Controls Mapping](/CONTROLS_MAPPING.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 Platforms covered: Splunk (SPL), Elastic (EQL/KQL), Microsoft Defender / Sentinel (KQL), Google SecOps / Chronicle (YARA-L / UDM), CrowdStrike Falcon LogScale (CQL)  
 Techniques covered: 13  
@@ -93,7 +136,7 @@ process where event.code == "10" and
   )
 ```
 
-### Microsoft Defender / Sentinel (KQL): Microsoft Defender — LSASS access from rare process
+### Microsoft Defender / Sentinel (KQL): LSASS access from rare process
 
 - Data source: DeviceEvents (M365 Defender)
 - Confidence: `high`
@@ -110,7 +153,7 @@ DeviceEvents
 | order by Devices asc
 ```
 
-### Google SecOps / Chronicle (YARA-L / UDM): Chronicle YARA-L — LSASS dump indicator
+### Google SecOps / Chronicle (YARA-L / UDM): LSASS dump indicator
 
 - Data source: Sysmon UDM events
 - Confidence: `high`
@@ -133,7 +176,7 @@ rule t1003_001_lsass_dump {
 }
 ```
 
-### CrowdStrike Falcon LogScale (CQL): Falcon LogScale — LSASS access by uncommon process
+### CrowdStrike Falcon LogScale (CQL): LSASS access by uncommon process
 
 - Data source: Falcon detection telemetry (`DetectionSummaryEvent`): not `ProcessRollup2`
 - Confidence: `n/a`: see note
@@ -158,7 +201,7 @@ Tactic(s): Discovery
 ATT&CK: [T1018](https://attack.mitre.org/techniques/T1018/)  
 Validate with: [Atomic Red Team, T1018](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1018)
 
-### Splunk (SPL): Network discovery — net.exe view, ping sweep
+### Splunk (SPL): Network discovery (net.exe view, ping sweep)
 
 - Data source: Sysmon EventCode 1
 - Confidence: `medium`
@@ -185,7 +228,7 @@ process where event.type == "start" and (
 )
 ```
 
-### Microsoft Defender / Sentinel (KQL): M365 — Discovery commands
+### Microsoft Defender / Sentinel (KQL): Discovery commands
 
 - Data source: DeviceProcessEvents
 - Confidence: `medium`
@@ -198,7 +241,7 @@ DeviceProcessEvents
 | project Timestamp, DeviceName, AccountName, ProcessCommandLine
 ```
 
-### Google SecOps / Chronicle (YARA-L / UDM): Chronicle — Built-in discovery commands
+### Google SecOps / Chronicle (YARA-L / UDM): Built-in discovery commands
 
 - Data source: UDM PROCESS_LAUNCH
 - Confidence: `medium`
@@ -217,7 +260,7 @@ rule t1018_remote_system_discovery {
 }
 ```
 
-### CrowdStrike Falcon LogScale (CQL): Falcon LogScale — Discovery commands
+### CrowdStrike Falcon LogScale (CQL): Discovery commands
 
 - Data source: Falcon ProcessRollup2
 - Confidence: `medium`
@@ -238,7 +281,7 @@ ATT&CK: [T1021.001](https://attack.mitre.org/techniques/T1021/001/)
 Mitigating NIST 800-53 R5 controls (23): `AC-11`, `AC-12`, `AC-17`, `AC-2`, `AC-20`, `AC-3`, `AC-4`, `AC-5`, `AC-6`, `AC-7`, `CM-2`, `CM-5`, `CM-6`, `CM-7`, `CM-8`, `IA-2` (+7 more)  
 Validate with: [Atomic Red Team, T1021.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1021.001)
 
-### Splunk (SPL): RDP — successful logon from unusual source
+### Splunk (SPL): RDP successful logon from unusual source
 
 - Data source: Windows Security 4624
 - Confidence: `medium`
@@ -261,7 +304,7 @@ index=wineventlog EventCode=4624 LogonType=10
 authentication where event.outcome == "success" and winlog.event_data.LogonType == "10"
 ```
 
-### Microsoft Defender / Sentinel (KQL): M365 — RDP logon to server
+### Microsoft Defender / Sentinel (KQL): RDP logon to server
 
 - Data source: DeviceLogonEvents
 - Confidence: `medium`
@@ -274,7 +317,7 @@ DeviceLogonEvents
 | project Timestamp, DeviceName, AccountDomain, AccountName, RemoteIP, RemoteDeviceName
 ```
 
-### Google SecOps / Chronicle (YARA-L / UDM): Chronicle — RDP successful logon
+### Google SecOps / Chronicle (YARA-L / UDM): RDP successful logon
 
 - Data source: UDM USER_LOGIN
 - Confidence: `medium`
@@ -293,7 +336,7 @@ rule t1021_001_rdp_logon {
 }
 ```
 
-### CrowdStrike Falcon LogScale (CQL): Falcon LogScale — RDP logon
+### CrowdStrike Falcon LogScale (CQL): RDP logon
 
 - Data source: Falcon UserLogon
 - Confidence: `medium`
@@ -338,7 +381,7 @@ process where length(process.command_line) > 500 and
   process.command_line : ("*FromBase64String*", "*::Base64*", "*-EncodedCommand*")
 ```
 
-### Microsoft Defender / Sentinel (KQL): M365 — Encoded command-line activity
+### Microsoft Defender / Sentinel (KQL): Encoded command-line activity
 
 - Data source: DeviceProcessEvents
 - Confidence: `medium`
@@ -351,7 +394,7 @@ DeviceProcessEvents
 | project Timestamp, DeviceName, FileName, ProcessCommandLine
 ```
 
-### Google SecOps / Chronicle (YARA-L / UDM): Chronicle — Encoded payload pattern
+### Google SecOps / Chronicle (YARA-L / UDM): Encoded payload pattern
 
 - Data source: UDM PROCESS_LAUNCH
 - Confidence: `medium`
@@ -370,7 +413,7 @@ rule t1027_encoded_payload {
 }
 ```
 
-### CrowdStrike Falcon LogScale (CQL): Falcon LogScale — base64 payload in cmdline
+### CrowdStrike Falcon LogScale (CQL): base64 payload in cmdline
 
 - Data source: Falcon ProcessRollup2
 - Confidence: `medium`
@@ -416,7 +459,7 @@ process where process.name : "schtasks.exe" and process.args : "/create" and
   process.command_line : ("*powershell*", "*cmd.exe*", "*wscript*", "*mshta*", "*rundll32*", "*regsvr32*")
 ```
 
-### Microsoft Defender / Sentinel (KQL): M365 — Scheduled task created with payload
+### Microsoft Defender / Sentinel (KQL): Scheduled task created with payload
 
 - Data source: DeviceProcessEvents
 - Confidence: `high`
@@ -430,7 +473,7 @@ DeviceProcessEvents
 | project Timestamp, DeviceName, AccountName, ProcessCommandLine
 ```
 
-### Google SecOps / Chronicle (YARA-L / UDM): Chronicle — Scheduled task with script payload
+### Google SecOps / Chronicle (YARA-L / UDM): Scheduled task with script payload
 
 - Data source: UDM PROCESS_LAUNCH
 - Confidence: `high`
@@ -450,7 +493,7 @@ rule t1053_005_schtasks_create {
 }
 ```
 
-### CrowdStrike Falcon LogScale (CQL): Falcon LogScale — schtasks /create
+### CrowdStrike Falcon LogScale (CQL): schtasks /create
 
 - Data source: Falcon ProcessRollup2
 - Confidence: `high`
@@ -495,7 +538,7 @@ process where event.action == "create-remote-thread" and
                             "?:\\Windows\\System32\\MsMpEng.exe")
 ```
 
-### Microsoft Defender / Sentinel (KQL): M365 — Cross-process injection events
+### Microsoft Defender / Sentinel (KQL): Cross-process injection events
 
 - Data source: DeviceEvents
 - Confidence: `high`
@@ -508,7 +551,7 @@ DeviceEvents
 | project Timestamp, DeviceName, InitiatingProcessFileName, FileName, AdditionalFields
 ```
 
-### Google SecOps / Chronicle (YARA-L / UDM): Chronicle — Process injection indicator
+### Google SecOps / Chronicle (YARA-L / UDM): Process injection indicator
 
 - Data source: UDM PROCESS events
 - Confidence: `high`
@@ -527,7 +570,7 @@ rule t1055_process_injection {
 }
 ```
 
-### CrowdStrike Falcon LogScale (CQL): Falcon LogScale — Cross-process injection
+### CrowdStrike Falcon LogScale (CQL): Cross-process injection
 
 - Data source: Falcon ProcessRollup2 + InjectedThread
 - Confidence: `high`
@@ -577,7 +620,7 @@ powershell where
     "*-EncodedCommand*", "*WindowStyle Hidden*")
 ```
 
-### Microsoft Defender / Sentinel (KQL): M365 Defender — PowerShell with download cradle
+### Microsoft Defender / Sentinel (KQL): PowerShell with download cradle
 
 - Data source: DeviceProcessEvents
 - Confidence: `high`
@@ -591,7 +634,7 @@ DeviceProcessEvents
 | order by Timestamp desc
 ```
 
-### Google SecOps / Chronicle (YARA-L / UDM): Chronicle — PowerShell encoded execution
+### Google SecOps / Chronicle (YARA-L / UDM): PowerShell encoded execution
 
 - Data source: UDM PROCESS_LAUNCH
 - Confidence: `high`
@@ -611,7 +654,7 @@ rule t1059_001_powershell_encoded {
 }
 ```
 
-### CrowdStrike Falcon LogScale (CQL): Falcon LogScale — PowerShell encoded cmdline
+### CrowdStrike Falcon LogScale (CQL): PowerShell encoded cmdline
 
 - Data source: Falcon ProcessRollup2
 - Confidence: `high`
@@ -633,7 +676,7 @@ ATT&CK: [T1078](https://attack.mitre.org/techniques/T1078/)
 Mitigating NIST 800-53 R5 controls (25): `AC-2`, `AC-3`, `AC-5`, `AC-6`, `CA-3`, `CA-7`, `CM-5`, `CM-6`, `CM-7`, `IA-12`, `IA-13`, `IA-2`, `IA-5`, `RA-5`, `SA-10`, `SA-11` (+9 more)  
 Validate with: Atomic Red Team, T1078 sub-techniques (no parent-level test directory): [T1078.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1078.001), [T1078.003](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1078.003), [T1078.004](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1078.004)
 
-### Splunk (SPL): Suspicious successful logon — first time on host
+### Splunk (SPL): Suspicious successful logon (first time on host)
 
 - Data source: Windows Security 4624
 - Confidence: `medium`
@@ -647,7 +690,7 @@ index=wineventlog EventCode=4624 LogonType IN (2,3,10)
 | convert ctime(first_seen)
 ```
 
-### Elastic (EQL/KQL): Anomalous logon — new user/host pair
+### Elastic (EQL/KQL): Anomalous logon (new user/host pair)
 
 - Data source: winlog.event_id 4624
 - Confidence: `medium`
@@ -659,7 +702,7 @@ authentication where event.action == "logged-in" and
   event.outcome == "success"
 ```
 
-### Microsoft Defender / Sentinel (KQL): M365 Defender — Rare logon location for account
+### Microsoft Defender / Sentinel (KQL): Rare logon location for account
 
 - Data source: AADSignInEventsBeta
 - Confidence: `medium`
@@ -676,7 +719,7 @@ AADSignInEventsBeta
 | project Timestamp, AccountUpn, Country, IPAddress, Application
 ```
 
-### Google SecOps / Chronicle (YARA-L / UDM): Chronicle — Impossible travel (UDM)
+### Google SecOps / Chronicle (YARA-L / UDM): Impossible travel (UDM)
 
 - Data source: UDM USER_LOGIN
 - Confidence: `medium`
@@ -699,7 +742,7 @@ rule t1078_impossible_travel {
 }
 ```
 
-### CrowdStrike Falcon LogScale (CQL): Falcon LogScale — Multiple geographies for same user
+### CrowdStrike Falcon LogScale (CQL): Multiple geographies for same user
 
 - Data source: Falcon UserLogon
 - Confidence: `medium`
@@ -721,7 +764,7 @@ ATT&CK: [T1110](https://attack.mitre.org/techniques/T1110/)
 Mitigating NIST 800-53 R5 controls (14): `AC-2`, `AC-20`, `AC-3`, `AC-5`, `AC-6`, `AC-7`, `CA-7`, `CM-2`, `CM-6`, `IA-11`, `IA-2`, `IA-4`, `IA-5`, `SI-4`  
 Validate with: Atomic Red Team, T1110 sub-techniques (no parent-level test directory): [T1110.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1110.001), [T1110.002](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1110.002), [T1110.003](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1110.003), [T1110.004](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1110.004)
 
-### Splunk (SPL): Brute force — high-volume failed logons followed by success
+### Splunk (SPL): Brute force (high-volume failed logons followed by success)
 
 - Data source: Windows Security log
 - Confidence: `high`
@@ -748,7 +791,7 @@ sequence by source.ip with maxspan=5m
   [authentication where event.outcome == "success"]
 ```
 
-### Microsoft Defender / Sentinel (KQL): M365 — Failed sign-ins followed by success (cloud or AD)
+### Microsoft Defender / Sentinel (KQL): Failed sign-ins followed by success (cloud or AD)
 
 - Data source: AADSignInEventsBeta or IdentityLogonEvents
 - Confidence: `high`
@@ -765,7 +808,7 @@ AADSignInEventsBeta
 | project Timestamp, AccountUpn, IPAddress, Country, Failures
 ```
 
-### Google SecOps / Chronicle (YARA-L / UDM): Chronicle — Brute force success
+### Google SecOps / Chronicle (YARA-L / UDM): Brute force success
 
 - Data source: UDM USER_LOGIN events
 - Confidence: `high`
@@ -792,7 +835,7 @@ rule t1110_brute_force {
 }
 ```
 
-### CrowdStrike Falcon LogScale (CQL): Falcon LogScale — Brute force pattern
+### CrowdStrike Falcon LogScale (CQL): Brute force pattern
 
 - Data source: Falcon UserLogonFailed/UserLogon
 - Confidence: `high`
@@ -815,7 +858,7 @@ ATT&CK: [T1190](https://attack.mitre.org/techniques/T1190/)
 Mitigating NIST 800-53 R5 controls (29): `AC-2`, `AC-3`, `AC-4`, `AC-5`, `AC-6`, `CA-2`, `CA-7`, `CM-5`, `CM-6`, `CM-7`, `CM-8`, `IA-2`, `IA-8`, `RA-10`, `RA-5`, `SA-8` (+13 more)  
 Validate with: Atomic Red Team has no T1190 test (listed as "contribute a test" in its [technique index](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/Indexes/Indexes-Markdown/index.md), checked 2026-10-13)
 
-### Splunk (SPL): Public-facing app — exploit attempts in web logs
+### Splunk (SPL): Public-facing app exploit attempts in web logs
 
 - Data source: Web access logs (Apache/IIS/Nginx)
 - Confidence: `medium`
@@ -841,7 +884,7 @@ network where url.path : ("*jndi:ldap*", "*/wp-admin/*", "*/phpmyadmin*", "*/.gi
 or user_agent.original : ("*sqlmap*", "*nmap*", "*nikto*", "*acunetix*")
 ```
 
-### Microsoft Defender / Sentinel (KQL): M365 — Network exposed to known CVE exploit pattern
+### Microsoft Defender / Sentinel (KQL): Network exposed to known CVE exploit pattern
 
 - Data source: DeviceTvmSoftwareVulnerabilities + DeviceNetworkEvents
 - Confidence: `medium`
@@ -858,7 +901,7 @@ DeviceTvmSoftwareVulnerabilities
 | project Timestamp, DeviceName, RemoteUrl, RemoteIP, CveList
 ```
 
-### Google SecOps / Chronicle (YARA-L / UDM): Chronicle — Web exploit string in URL
+### Google SecOps / Chronicle (YARA-L / UDM): Web exploit string in URL
 
 - Data source: UDM NETWORK_HTTP
 - Confidence: `medium`
@@ -877,7 +920,7 @@ rule t1190_web_exploit {
 }
 ```
 
-### CrowdStrike Falcon LogScale (CQL): Falcon LogScale — Web exploit indicators
+### CrowdStrike Falcon LogScale (CQL): Web exploit indicators
 
 - Data source: Falcon Network/HTTP
 - Confidence: `medium`
@@ -926,7 +969,7 @@ sequence by host.id, user.name with maxspan=5m
     file.extension in ("crypt", "locked", "enc", "crypted", "encrypted", "crypz", "locky", "wcry", "wncry")] with runs=20
 ```
 
-### Microsoft Defender / Sentinel (KQL): M365 Defender — Mass file encryption activity
+### Microsoft Defender / Sentinel (KQL): Mass file encryption activity
 
 - Data source: DeviceFileEvents
 - Confidence: `high`
@@ -942,7 +985,7 @@ DeviceFileEvents
 | where Files > 100
 ```
 
-### Google SecOps / Chronicle (YARA-L / UDM): Chronicle — Bulk file modification with ransom extension
+### Google SecOps / Chronicle (YARA-L / UDM): Bulk file modification with ransom extension
 
 - Data source: UDM FILE_CREATION/MODIFICATION
 - Confidence: `high`
@@ -965,7 +1008,7 @@ rule t1486_ransomware_ext {
 }
 ```
 
-### CrowdStrike Falcon LogScale (CQL): Falcon LogScale — Ransomware file extension burst
+### CrowdStrike Falcon LogScale (CQL): Ransomware file extension burst
 
 - Data source: Falcon FsWriteEnded
 - Confidence: `high`
@@ -986,7 +1029,7 @@ Tactic(s): Persistence, Privilege Escalation
 ATT&CK: [T1547.001](https://attack.mitre.org/techniques/T1547/001/)  
 Validate with: [Atomic Red Team, T1547.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1547.001)
 
-### Splunk (SPL): Persistence — registry Run key modification
+### Splunk (SPL): Persistence via registry Run key modification
 
 - Data source: Sysmon EventCode 13
 - Confidence: `high`
@@ -1012,7 +1055,7 @@ registry where event.type == "change" and
                    "HKEY_USERS\\*\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\*")
 ```
 
-### Microsoft Defender / Sentinel (KQL): M365 — Autostart registry persistence
+### Microsoft Defender / Sentinel (KQL): Autostart registry persistence
 
 - Data source: DeviceRegistryEvents
 - Confidence: `high`
@@ -1026,7 +1069,7 @@ DeviceRegistryEvents
 | project Timestamp, DeviceName, InitiatingProcessFileName, RegistryKey, RegistryValueName, RegistryValueData
 ```
 
-### Google SecOps / Chronicle (YARA-L / UDM): Chronicle — Run-key persistence
+### Google SecOps / Chronicle (YARA-L / UDM): Run-key persistence
 
 - Data source: UDM REGISTRY_MODIFICATION
 - Confidence: `high`
@@ -1044,7 +1087,7 @@ rule t1547_001_run_key {
 }
 ```
 
-### CrowdStrike Falcon LogScale (CQL): Falcon LogScale — Run-key persistence
+### CrowdStrike Falcon LogScale (CQL): Run-key persistence
 
 - Data source: Falcon AsepValueUpdate
 - Confidence: `high`
@@ -1065,7 +1108,7 @@ ATT&CK: [T1566.001](https://attack.mitre.org/techniques/T1566/001/)
 Mitigating NIST 800-53 R5 controls (12): `AC-4`, `CA-7`, `CM-2`, `CM-6`, `IA-9`, `SC-20`, `SC-44`, `SC-7`, `SI-2`, `SI-3`, `SI-4`, `SI-8`  
 Validate with: [Atomic Red Team, T1566.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1566.001)
 
-### Splunk (SPL): Spearphishing attachment — email gateway → endpoint execution
+### Splunk (SPL): Spearphishing attachment (email gateway → endpoint execution)
 
 - Data source: Email gateway + Sysmon EventCode 1
 - Confidence: `high`
@@ -1090,7 +1133,7 @@ process where event.type == "start" and
   process.name : ("powershell.exe", "cmd.exe", "wscript.exe", "cscript.exe", "mshta.exe", "rundll32.exe", "regsvr32.exe", "certutil.exe")
 ```
 
-### Microsoft Defender / Sentinel (KQL): M365 — Office app spawning script interpreter
+### Microsoft Defender / Sentinel (KQL): Office app spawning script interpreter
 
 - Data source: DeviceProcessEvents
 - Confidence: `high`
@@ -1103,7 +1146,7 @@ DeviceProcessEvents
 | project Timestamp, DeviceName, AccountName, InitiatingProcessFileName, FileName, ProcessCommandLine
 ```
 
-### Google SecOps / Chronicle (YARA-L / UDM): Chronicle — Office macro spawn
+### Google SecOps / Chronicle (YARA-L / UDM): Office macro spawn
 
 - Data source: UDM PROCESS_LAUNCH
 - Confidence: `high`
@@ -1123,7 +1166,7 @@ rule t1566_001_office_macro {
 }
 ```
 
-### CrowdStrike Falcon LogScale (CQL): Falcon LogScale — Office spawning script host
+### CrowdStrike Falcon LogScale (CQL): Office spawning script host
 
 - Data source: Falcon ProcessRollup2
 - Confidence: `high`

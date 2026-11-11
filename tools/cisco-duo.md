@@ -4,6 +4,55 @@
 
 Cisco Duo is a cloud-delivered MFA and secure-access platform that verifies user identity and device trust before granting access to any application, on-prem or cloud. It solves the problem of credential-based attack by adding strong, phishing-resistant, user-friendly authentication plus device-health and trust checks at the access point. Duo is positioned as an easy-to-deploy, application-agnostic access layer that overlays existing identity providers, and it now anchors Cisco's broader identity threat detection and response (ITDR) and Secure Access (SSE) story via Cisco Identity Intelligence. For vulnerability mitigation it is a fast-to-deploy compensating control that blocks the credential/access path to vulnerable systems.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the identity and access engineers who run Cisco Duo
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,627 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what Cisco Duo can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Identity & Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md), [Password Security Reference](/PASSWORD_SECURITY_REFERENCE.md), [Microsoft Entra ID](/tools/entra-id.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities & architecture
 
 **Core capabilities**
@@ -14,41 +63,59 @@ Cisco Duo is a cloud-delivered MFA and secure-access platform that verifies user
 - Device health / posture checks: OS version, disk encryption, firewall, screen lock, password status, browser/plugin versions at each access attempt
 - Adaptive / risk-based authentication: Risk-Based Authentication that steps up based on signals (location, Wi-Fi fingerprint, novel device, attack patterns) and Trust Monitor anomaly detection
 - Policy engine: per-application and per-group policy for user location, device, network, authentication method, and session
-- Duo Network Gateway (DNG) and Duo Passport: VPN-less remote/ZTNA access to on-prem web apps, SSH, RDP; Passport provides seamless re-authentication across apps on a trusted device
+- Duo Network Gateway (DNG) and Duo Passport: VPN-less remote/ZTNA access to on-prem web apps, SSH, RDP; Passport re-authenticates across apps on a trusted device without a new prompt
 - Cisco Identity Intelligence (ITDR/ISPM): ingests identity data from IdPs to surface identity posture risks, dormant/privileged accounts, MFA gaps, and detect identity attacks (MFA flooding, session hijack, inactive-account probing)
 - Privileged session controls (higher tiers) and admin API / reporting / detailed logs
 - Broad application integrations: VPNs, RDP/RADIUS, cloud and SaaS apps, on-prem web apps, Unix/Linux PAM, Windows logon
 
 **Architecture & deployment.** Primarily SaaS: the Duo cloud service handles policy evaluation and the second factor. Applications integrate via a lightweight Duo Authentication Proxy (on-prem connector for RADIUS/LDAP, AD sync), native app integrations/SDKs, or standards-based SSO (SAML/OIDC). A user authenticates to the app/IdP (primary factor) and Duo performs the second factor and device/policy check out-of-band via the cloud. Device trust uses the Duo Desktop agent and/or MDM integration; Trusted Endpoints can also key off management certificates. Duo Network Gateway is a customer-deployed reverse proxy for VPN-less access. Cisco Identity Intelligence is delivered as a shared cloud service via Cisco Security Cloud Control, consuming identity-provider data and feeding context to Duo, Cisco Secure Access (SSE), and Cisco XDR. Agentless options exist for many web/SSO flows.
 
-**Editions & licensing.** Per-user, per-month subscription (list, verify): Free (up to 10 users, pilots), Essentials (~$3), Advantage (~$6), Premier (~$9). Sold in user increments; enterprise negotiated rates typically below list. Essentials provides core phishing-resistant MFA, SSO, Duo Directory, and unlimited app integrations (Trusted Endpoints placement varies by current packaging — verify on duo.com). Advantage adds Risk-Based Authentication, Trusted Endpoints/device trust depth, Cisco Identity Intelligence (ITDR/ISPM), Duo Passport, and Duo Network Gateway capabilities. Premier adds VPN-less remote access via Duo Network Gateway and privileged session controls, and the fullest Passport experience. Duo is also bundled into Cisco suites (e.g., Secure User Protection Suite; entitlement differs by purchase date — Premier before 4 Dec 2024, Advantage after).
+**Editions & licensing.** Per-user, per-month subscription (list, verify): Free (up to 10 users, pilots), Essentials (~$3), Advantage (~$6), Premier (~$9). Sold in user increments; enterprise negotiated rates typically below list. Essentials provides core phishing-resistant MFA, SSO, Duo Directory, and unlimited app integrations (Trusted Endpoints placement varies by current packaging; verify on duo.com). Advantage adds Risk-Based Authentication, Trusted Endpoints/device trust depth, Cisco Identity Intelligence (ITDR/ISPM), Duo Passport, and Duo Network Gateway capabilities. Premier adds VPN-less remote access via Duo Network Gateway and privileged session controls, and the fullest Passport experience. Duo is also bundled into Cisco suites (e.g., Secure User Protection Suite; entitlement differs by purchase date: Premier before 4 Dec 2024, Advantage after).
 
 **Key integrations.** Identity providers: Microsoft Entra ID, Okta, Ping, on-prem Active Directory (as external MFA or federated); MDM/UEM for device trust: Microsoft Intune, Jamf, VMware Workspace ONE, and generic MDM; VPN / network: Cisco AnyConnect/Secure Client, Palo Alto, Fortinet, F5, Citrix, and RADIUS/LDAP apps via Authentication Proxy; Cisco ecosystem: Cisco Secure Access (SSE), Cisco XDR, Cisco Identity Intelligence, Cisco Security Cloud Control; SIEM/log: log export / Admin API to Splunk and other SIEMs; SaaS and on-prem web apps via SAML/OIDC and Duo SSO; Unix/Linux PAM and Windows logon.
 
 **Differentiators**
-- Fastest, simplest MFA deployment in the market with strong UX (Duo Push) driving high adoption — a practical advantage for emergency rollout
+- Fastest, simplest MFA deployment in the market with strong UX (Duo Push) driving high adoption: a practical advantage for emergency rollout
 - Application- and IdP-agnostic overlay: protects legacy and modern apps without ripping out the existing identity stack
-- Device trust / Trusted Endpoints without necessarily owning the full MDM — strong posture gating at access time
+- Device trust / Trusted Endpoints without necessarily owning the full MDM: strong posture gating at access time
 - Now part of a broader Cisco ITDR stack (Duo + Identity Intelligence + Secure Access + XDR) giving identity-centric SSE and continuous risk
 - Duo Passport delivers VPN-less, re-auth-light experience across apps on a trusted device
 
 **Limitations & considerations**
-- Not a full IdP/directory replacement for large enterprises — typically overlays Entra/Okta/AD rather than replacing them; Duo Directory/SSO is lighter-weight
+- Not a full IdP/directory replacement for large enterprises, typically overlays Entra/Okta/AD rather than replacing them; Duo Directory/SSO is lighter-weight
 - Not an IGA or PAM solution: no entitlement governance, no credential vaulting or privileged-session recording at CyberArk depth (privileged session controls are limited and tier-gated)
-- Feature/tier packaging shifts (Trusted Endpoints, Passport, Identity Intelligence placement has moved between Essentials/Advantage/Premier) — must verify current editions
+- Feature/tier packaging shifts (Trusted Endpoints, Passport, Identity Intelligence placement has moved between Essentials/Advantage/Premier): must verify current editions
 - Device health depends on the Duo Desktop agent or MDM integration; unmanaged/BYOD coverage can be partial
 - Authentication Proxy and Duo Network Gateway are customer-run components that need sizing, HA, and patching themselves
 - Risk-Based Authentication and Identity Intelligence require higher tiers; lower tiers are MFA-centric only
 
 ## Vulnerability-mitigation role
 
-Rapid-deploy identity compensating control at the access boundary. When a CVE exposes an internet-facing app, VPN, or workload management interface, Duo can enforce MFA / phishing-resistant MFA and device-trust on that access path in hours, so stolen or sprayed credentials and session-based exploits cannot reach the vulnerable service. Trusted Endpoints restricts access to known managed devices (blocking exploitation from attacker-controlled endpoints). Device health policy can block devices that are themselves unpatched for the CVE (e.g., require a minimum OS/browser/agent version), effectively quarantining vulnerable clients until they update — a direct endpoint-side mitigation. Risk-Based Authentication and Identity Intelligence detect and step up on the anomalous access patterns that accompany active exploitation. It mitigates the access and credential vectors around a vulnerability rather than fixing the flaw itself.
+Rapid-deploy identity compensating control at the access boundary. When a CVE exposes an internet-facing app, VPN, or workload management interface, Duo can enforce MFA / phishing-resistant MFA and device-trust on that access path in hours, so stolen or sprayed credentials and session-based exploits cannot reach the vulnerable service. Trusted Endpoints restricts access to known managed devices (blocking exploitation from attacker-controlled endpoints). Device health policy can block devices that are themselves unpatched for the CVE (e.g., require a minimum OS/browser/agent version), effectively quarantining vulnerable clients until they update: a direct endpoint-side mitigation. Risk-Based Authentication and Identity Intelligence detect and step up on the anomalous access patterns that accompany active exploitation. It mitigates the access and credential vectors around a vulnerability rather than fixing the flaw itself.
 
 **VM lifecycle:** Prioritize · Mitigate · Monitor/Detect · Validate
 
-**Framework mapping:** NIST CSF 2.0: PR (Protect) — PR.AA Identity Management, Authentication, and Access Control (primary); DE (Detect) — DE.CM via Trust Monitor / Identity Intelligence; CIS Controls v8: 6 (Access Control Management — 6.3/6.4 MFA), 5 (Account Management), 4 (Secure Configuration — device posture gating), 1/2 (device/software inventory via endpoint posture), 13 (Network Monitoring — adjacent via Identity Intelligence); MITRE ATT&CK mitigations: M1032 Multi-factor Authentication (primary), M1036 Account Use Policies, M1017/ M1026 (privileged access, higher tiers), M1035 Limit Access to Resource Over Network (DNG/ZTNA)
+**Framework mapping:** NIST CSF 2.0: PR (Protect), PR.AA Identity Management, Authentication, and Access Control (primary); DE (Detect): DE.CM via Trust Monitor / Identity Intelligence; CIS Controls v8: 6 (Access Control Management: 6.3/6.4 MFA), 5 (Account Management), 4 (Secure Configuration: device posture gating), 1/2 (device/software inventory via endpoint posture), 13 (Network Monitoring: adjacent via Identity Intelligence); MITRE ATT&CK mitigations: M1032 Multi-factor Authentication (primary), M1036 Account Use Policies, M1017/ M1026 (privileged access, higher tiers), M1035 Limit Access to Resource Over Network (DNG/ZTNA)
 
 **In a critical-CVE scenario.** Hour 0-24: for an exposed internet-facing app or VPN, attach a Duo application policy requiring phishing-resistant MFA and (where possible) Trusted Endpoint for that app/group; disable weak factors (SMS) for the affected path. If the CVE is client-side, set a device-health policy requiring the patched minimum OS/browser/agent version so unpatched endpoints are blocked from the sensitive app. Enable/raise Risk-Based Authentication to step up on anomalies. Hour 24-72: review Duo authentication logs and Trust Monitor / Cisco Identity Intelligence for suspicious access, MFA-flood, impossible-travel, and new-device events tied to the CVE; tighten policy to managed devices and known networks; coordinate with the IdP (Entra/Okta) for credential resets. For a cloud workload's admin/management access, front it with Duo SSO + device trust. Validate via Duo reporting that enforcement is applied; keep policy until the app/endpoints are patched.
+
+## Adversary perspective
+
+Duo sits on the credential path to protected apps, so adversaries treat it as the MFA gate to defeat and as a control whose own bypasses are worth hunting. The detection and validation guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and bypass
+
+- MFA fatigue and push phishing: flooding a user with Duo Push prompts until one is accepted, or relaying a real-time prompt through an adversary-in-the-middle proxy (ATT&CK T1621, Multi-Factor Authentication Request Generation; T1566, Phishing). Number matching and Verified Push counter this when enabled.
+- Weak-factor and enrollment abuse: downgrading to SMS or phone-call factors, or enrolling an attacker-controlled device for a compromised account, satisfies MFA without the legitimate user.
+- Bypass paths: bypass codes, remembered-device and trusted-network policies let a login skip a live factor, and any app not actually placed behind Duo is unprotected.
+
+### Residual risk
+
+Duo validates the access request, not the account's underlying strength: a weak primary password, an un-enrolled user treated as bypass, or a session stolen after authentication remains exploitable. Its Authentication Proxy and Network Gateway are customer-run components that must themselves be patched.
+
+### Why it matters
+
+A tester looks for the SMS fallback, the remembered-device skip and the app left off Duo; a defender enforces phishing-resistant factors and watches bypass-code and policy-weakening events. See [the identity and access management reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md) and [the red team reference](/RED_TEAM_REFERENCE.md).
 
 ## Validation & telemetry
 
@@ -60,20 +127,20 @@ Rapid-deploy identity compensating control at the access boundary. When a CVE ex
 
 **Telemetry format / transport.** JSON over HTTPS REST (Admin API, HMAC-SHA1 signed requests). Timestamps are Unix seconds plus an ISO-8601 isotimestamp. SIEM add-ons (Splunk, Sentinel, Elastic, Panther) re-emit as JSON and map to Splunk CIM Authentication.
 
-**Control-presence check (present & configured?).** Duo is a cloud 2FA service, so 'control present' is verified through the Admin API/console, not device keys. (1) MFA is actually required for an app: the integration exists — GET /admin/v1/integrations — and its assigned policy requires two-factor (console: policy shows 'Require two-factor authentication'; check via policy API/summary). (2) Users can satisfy MFA: GET /admin/v1/users → status == 'active' with enrolled phones/tokens (so 2FA cannot be silently skipped as bypass). (3) For proxied apps, confirm the Duo Authentication Proxy Windows/Linux service is running and authproxy.cfg points at the right app. There is no registry/sensor on the endpoint — enforcement lives at the Duo integration + policy.
+**Control-presence check (present & configured?).** Duo is a cloud 2FA service, so 'control present' is verified through the Admin API/console, not device keys. (1) MFA is actually required for an app: the integration exists (GET /admin/v1/integrations) and its assigned policy requires two-factor (console: policy shows 'Require two-factor authentication'; check via policy API/summary). (2) Users can satisfy MFA: GET /admin/v1/users → status == 'active' with enrolled phones/tokens (so 2FA cannot be silently skipped as bypass). (3) For proxied apps, confirm the Duo Authentication Proxy Windows/Linux service is running and authproxy.cfg points at the right app. There is no registry/sensor on the endpoint: enforcement lives at the Duo integration + policy.
 
 **Validation signals (actually working?)**
-- /admin/v2/logs/authentication records with result == 'success' AND a real factor (duo_push, passcode, sms_passcode, phone_call, yubikey_passcode, u2f_token) — proves a second factor was genuinely completed for that login.
-- result == 'denied' with a policy-driven reason (e.g. denied_by_policy, locked_out, anomalous_push, location_restricted, factor_restricted, out_of_date / no_duo_certificate for Trusted Endpoints, deny_unenrolled_user) — proves active blocking, not just configuration.
-- result == 'fraud' (user hit 'report fraud' on a push) — proves push-phishing/MFA-fatigue resistance is operating.
-- Distinguish configured-vs-effective: result == 'success' with factor == 'remembered_device' or 'trusted_network' means the policy let the user SKIP a live factor — it counts as success but is NOT proof a fresh second factor ran.
+- /admin/v2/logs/authentication records with result == 'success' AND a real factor (duo_push, passcode, sms_passcode, phone_call, yubikey_passcode, u2f_token): proves a second factor was genuinely completed for that login.
+- result == 'denied' with a policy-driven reason (e.g. denied_by_policy, locked_out, anomalous_push, location_restricted, factor_restricted, out_of_date / no_duo_certificate for Trusted Endpoints, deny_unenrolled_user): proves active blocking, not just configuration.
+- result == 'fraud' (user hit 'report fraud' on a push): proves push-phishing/MFA-fatigue resistance is operating.
+- Distinguish configured-vs-effective: result == 'success' with factor == 'remembered_device' or 'trusted_network' means the policy let the user SKIP a live factor: it counts as success but is NOT proof a fresh second factor ran.
 
 **Key events / fields / tables / APIs**
 - Endpoint: GET /admin/v2/logs/authentication (v2 paging uses next_offset = [timestamp_ms, txid]; v1 is deprecating).
 - Top-level fields: result (success|denied|fraud), reason (failure/outcome reason), factor, event_type (authentication|enrollment), txid, timestamp, isotimestamp, email, trusted_endpoint_status, ood_software.
 - Nested objects: user{key,name,groups}; access_device{ip, hostname, location, browser, browser_version, os, flash_version, java_version, is_encryption_enabled, is_firewall_enabled, is_password_set, trusted_endpoint_status}; auth_device{ip, location, name}; application{key, name}.
-- factor enumerated values (per Panther schema — may not be exhaustive/current): duo_push, phone_call, passcode, sms_passcode, sms_refresh, duo_mobile_passcode, yubikey_passcode, hardware_token, digipass_go_7_token, bypass_code, u2f_token, remembered_device, trusted_network.
-- Config/admin evidence: /admin/v1/logs/administrator (fields action, username, object, description) and /admin/v2/logs/activity capture policy edits, bypass-code creation, and API-app creation — these are NOT in the authentication log.
+- factor enumerated values (per Panther schema: may not be exhaustive/current): duo_push, phone_call, passcode, sms_passcode, sms_refresh, duo_mobile_passcode, yubikey_passcode, hardware_token, digipass_go_7_token, bypass_code, u2f_token, remembered_device, trusted_network.
+- Config/admin evidence: /admin/v1/logs/administrator (fields action, username, object, description) and /admin/v2/logs/activity capture policy edits, bypass-code creation, and API-app creation: these are NOT in the authentication log.
 
 **Example queries**
 
@@ -102,9 +169,9 @@ sourcetype="cisco:duo" event_type=authentication (result=denied OR result=fraud)
 
 **Logging gotchas**
 - Admin API data window is 180 days and records are available only up to ~2 minutes before now; the v2 authentication log uses a special two-value next_offset (timestamp + txid) unlike other endpoints, so naive paging drops or duplicates records.
-- result=='success' with factor 'remembered_device' / 'trusted_network' means 2FA was policy-skipped — it inflates 'MFA worked' counts without a live factor; alert on their proportion.
-- Duo explicitly warns undocumented fields may change or be removed and new ones appear at any time — build tolerant parsers; imported soft-token auth events omit the token ID, so you cannot join auth logs to token records by ID.
-- Only attempts that actually reach Duo are logged; if SSO/RADIUS fails before calling Duo, or an app isn't behind Duo, nothing appears — absence of a deny is not proof of protection.
+- result=='success' with factor 'remembered_device' / 'trusted_network' means 2FA was policy-skipped: it inflates 'MFA worked' counts without a live factor; alert on their proportion.
+- Duo explicitly warns undocumented fields may change or be removed and new ones appear at any time: build tolerant parsers; imported soft-token auth events omit the token ID, so you cannot join auth logs to token records by ID.
+- Only attempts that actually reach Duo are logged; if SSO/RADIUS fails before calling Duo, or an app isn't behind Duo, nothing appears: absence of a deny is not proof of protection.
 - Bypass-code creation and policy weakening show up only in the administrator/activity logs, not the auth log; collect those separately or you'll miss the control being disabled.
 
 ## Documentation & repositories
@@ -145,12 +212,12 @@ _Learning & reference_
 
 ## Current state (2025-26)
 
-Duo remains a Cisco Security product and is increasingly positioned inside Cisco's identity-centric Secure Access (SSE) and ITDR strategy. Cisco Identity Intelligence (ITDR/identity security posture) is delivered via Cisco Security Cloud Control and feeds context to Duo, Cisco Secure Access, and Cisco XDR; it is included with Secure Access subscriptions (standalone CII dashboard separate). Duo Passport (seamless re-auth on trusted devices) and Risk-Based Authentication are the notable recent capabilities, concentrated in Advantage/Premier. Current tier list pricing circa Free/$3/$6/$9 per user/mo; edition feature placement for Trusted Endpoints and Passport has shifted — verify on duo.com/pricing. Note Cisco's 2024 Splunk acquisition strengthens Duo/identity telemetry into Splunk-based SIEM. Confirm current edition matrix before relying on tier specifics.
+Duo remains a Cisco Security product and is increasingly positioned inside Cisco's identity-centric Secure Access (SSE) and ITDR strategy. Cisco Identity Intelligence (ITDR/identity security posture) is delivered via Cisco Security Cloud Control and feeds context to Duo, Cisco Secure Access, and Cisco XDR; it is included with Secure Access subscriptions (standalone CII dashboard separate). Duo Passport (re-auth without a new prompt on trusted devices) and Risk-Based Authentication are the notable recent capabilities, concentrated in Advantage/Premier. Current tier list pricing circa Free/$3/$6/$9 per user/mo; edition feature placement for Trusted Endpoints and Passport has shifted; verify on duo.com/pricing. Note Cisco's 2024 Splunk acquisition strengthens Duo/identity telemetry into Splunk-based SIEM. Confirm current edition matrix before relying on tier specifics.
 
 ## Related pages
 
 - [Identity & Access Management (IAM) Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)
-- [Zero Trust Reference: Comprehensive Cybersecurity Guide](/ZERO_TRUST_REFERENCE.md)
+- [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
 - [Password Security Reference](/PASSWORD_SECURITY_REFERENCE.md)
 - [Microsoft Entra ID](/tools/entra-id.md)
 - [CyberArk](/tools/cyberark.md)

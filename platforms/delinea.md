@@ -4,6 +4,55 @@ Delinea is a privileged access management platform formed from the combination o
 Thycotic and Centrify. It vaults and rotates secrets, manages endpoint privilege, and
 offers cloud-delivered privileged access controls.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Identity and privileged access engineers who run, tune or assess Delinea
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,256 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Delinea for privileged access management, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [BeyondTrust](/platforms/beyondtrust.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Delinea addresses the same core risk as other privileged access platforms: the
@@ -94,6 +143,25 @@ goal is to find those hardcoded uses and move them to the vault, retrieved at ru
   correlation and alerting.
 
 Authenticate and scope every retrieval path, and send only the secret a caller needs.
+
+## Adversary perspective
+
+Delinea vaults privileged secrets and brokers privileged access, so an adversary who reaches Secret Server or a launched session inherits broad privilege; the vault is the most sensitive target in the environment. The steps to lock it down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Vault and secret targeting (ATT&CK T1555, Credentials from Password Stores): compromising Secret Server or a stored secret, key, or token yields privileged access across the systems it manages.
+- Session-launcher and API abuse (T1078, T1528): a stolen operator session or an over-scoped secret-retrieval API client lets an attacker fetch credentials as a legitimate application would ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Endpoint-elevation bypass: a Privilege Manager allow rule that is too broad, or an application-control gap, lets an attacker gain local elevation the policy was meant to deny.
+- Un-vaulted and hardcoded secrets ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)): secrets still embedded in scripts and services sit outside the vault and are discovered and reused directly, and aggressive rotation that breaks them signals where they hide.
+
+### Residual risk and own exposure
+
+The vault reduces standing privilege but cannot protect secrets it never onboarded, and its own compromise is catastrophic. Self-hosted Secret Server instances, the Privilege Manager agents, and the encryption and backup keys belong in the patch, backup, and monitoring scope as the environment's most sensitive software.
+
+### Why it matters
+
+A tester hunts for un-vaulted secrets, over-broad elevation rules, and direct retrieval paths; a defender alerts on vault access, failed checkouts, and agent and instance patch state. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) and [the red team reference](/RED_TEAM_REFERENCE.md).
 
 ## Hardening and secure use
 

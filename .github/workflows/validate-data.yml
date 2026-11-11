@@ -26,7 +26,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.11'
 
@@ -111,7 +111,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.11'
 
@@ -132,7 +132,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.11'
 
@@ -172,11 +172,13 @@ jobs:
     # revoked: hand-written pages may not cite a revoked/deprecated ATT&CK ID (per
     #   data/attack/superseded_by.jsonl) more often than scripts/baselines/revoked_ids.json
     #   records; the baseline holds the pre-existing citations and may only shrink.
-    # voice: hand-written pages follow docs/VOICE.md (no em-dashes, emoji, sentence-ending
+    # voice: hand-written pages follow docs/VOICE.md (no emoji, sentence-ending
     #   exclamation marks, marketing words or hand-typed headline counts) beyond what
     #   scripts/baselines/voice.json records. That baseline only shrinks: --update-baseline
     #   refuses a rise, and on a pull request the step below also fails when any rule's
-    #   baselined total is higher than on the base branch.
+    #   baselined total is higher than on the base branch. Em dashes (U+2014) and agent
+    #   process notes have no baseline: one in any tracked text file (em dash) or any
+    #   Markdown page (note) fails, upstream names and descriptions in data/ JSONL excepted.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -185,7 +187,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.11'
 
@@ -251,7 +253,7 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.11'
 
@@ -275,7 +277,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.11'
 
@@ -308,7 +310,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.11'
 

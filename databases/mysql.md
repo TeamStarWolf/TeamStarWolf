@@ -2,6 +2,55 @@
 
 MySQL is an open-source relational database widely used behind web applications and content systems. MariaDB is a community fork started by the original MySQL authors after the Oracle acquisition, and it stays largely wire-compatible and SQL-compatible. Both store data in tables managed by pluggable storage engines, with InnoDB as the transactional default. This page covers both, noting where they diverge.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Database administrators, developers and security engineers who run, query or assess MySQL and MariaDB
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,094 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are modeling data or writing queries for MySQL and MariaDB, you are administering or hardening a deployment, or you want a worked example to start from
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Data model and architecture](#data-model-and-architecture), [Security and hardening](#security-and-hardening), [A worked example](#a-worked-example)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[SQL](/languages/sql.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [PostgreSQL](/databases/postgresql.md), [Oracle Database](/databases/oracle.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 MySQL powers the classic LAMP stack and backs platforms such as WordPress, Drupal, and many commerce systems. It runs on Linux, Windows, and macOS, and has managed forms on Amazon RDS and Aurora, Azure, and Google Cloud SQL. MariaDB ships as the default in several Linux distributions and offers its own clustering and storage engine options. Applications often target the shared subset so they can run on either.
@@ -69,6 +118,31 @@ FROM orders
 WHERE placed_at > NOW() - INTERVAL 1 DAY
 ORDER BY total_cents DESC;
 ```
+
+## Security relevance
+
+This section is the threat-facing view of MySQL and MariaDB: how the engine is reached and abused in the field, and which weakness classes dominate its record. The settings that defend against them are in the "Security and hardening" section that follows.
+
+### Where it appears
+
+- The data tier behind the LAMP stack, WordPress, Drupal, and commerce platforms, which makes it a primary objective once an attacker finds [SQL injection](/languages/sql.md) in the application or reaches the internal network.
+- On the offensive side, `sqlmap` fingerprints the engine and dialect and automates extraction. A foothold with the `FILE` privilege can read and write files through `LOAD_FILE()` and `SELECT ... INTO OUTFILE`, and a user-defined function can be loaded to reach host command execution.
+- The `LOCAL INFILE` client feature lets a malicious or compromised server request arbitrary files from a connecting client.
+- Managed offerings (Amazon RDS and Aurora, Azure Database, Google Cloud SQL) remove host access but keep the full SQL and privilege surface.
+- Exposure cases: a server bound to all interfaces with anonymous accounts or a reused root password, or a connection string committed to source control.
+
+### Dominant weakness classes
+
+MySQL and MariaDB are mature C/C++ servers hardened against memory corruption in normal use, so the practical risks are injection that reaches the engine and the access-control gaps around it.
+
+- SQL injection ([CWE-89](https://cwe.mitre.org/data/definitions/89.html)), the application-layer flaw whose impact is realized inside the database and the historic workhorse of automated data theft.
+- Missing or weak authentication ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)) from anonymous accounts, `'user'@'%'` grants, or a server listening on `0.0.0.0` with no firewall.
+- Improper privilege management ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)): an application login holding `FILE` or `SUPER` can turn a query into file read and write, or command execution through a user-defined function.
+- Information exposure ([CWE-200](https://cwe.mitre.org/data/definitions/200.html)) through the `LOCAL INFILE` client-file-read behavior and verbose error messages.
+
+### Why it matters
+
+Fingerprinting the server and its version tells an auditor which escalations to test: the `OUTFILE`-to-webshell path, the user-defined-function route to command execution, and anonymous or over-broad accounts. A dialect match also lets `sqlmap` choose the right extraction technique. Keeping applications off `FILE` and `SUPER`, disabling `LOCAL INFILE`, and binding to known interfaces removes those pivots, and the audit log plugin gives the detection trail. See [the database security reference](/DATABASE_SECURITY_REFERENCE.md) for the engine-agnostic hardening checklist.
 
 ## Security and hardening
 

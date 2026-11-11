@@ -31,7 +31,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Length</th><td>
 
-Lookup page: 2,112 words, 77% in tables; look entries up from Start at or the search (about 9 min end to end at 230 words a minute)
+Lookup page: 2,140 words, 76% in tables; look entries up from Start at or the search (about 9 min end to end at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -76,6 +76,8 @@ No review recorded yet
 
 Goals set intent, approaches group tactics, activities are what you actually deploy.
 
+Activity names on this page are plain text. Each one has its own entry on the Engage matrix at engage.mitre.org/matrix/ and in the [mitre/engage data files](https://github.com/mitre/engage/tree/main/Data/json).
+
 ### EGO0001: Expose
 
 Reveal the presence of ongoing adversary operations.
@@ -84,19 +86,19 @@ EAP0001, Collect: Gather adversary tools, observe tactics, and collect other raw
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
-| [EAC0001 API Monitoring](https://engage.mitre.org/matrix/) | 23 | Monitor local APIs that might be used by adversary tools and activity. |
-| [EAC0002 Network Monitoring](https://engage.mitre.org/matrix/) | 25 | Monitor network traffic in order to detect adversary activity. |
-| [EAC0014 Software Manipulation](https://engage.mitre.org/matrix/) | 53 | Make changes to a system’s software properties and functions to achieve a desired effect. |
-| [EAC0003 System Activity Monitoring](https://engage.mitre.org/matrix/) | 22 | Collect system activity logs that can reveal adversary activity. |
+| EAC0001 API Monitoring | 23 | Monitor local APIs that might be used by adversary tools and activity. |
+| EAC0002 Network Monitoring | 25 | Monitor network traffic in order to detect adversary activity. |
+| EAC0014 Software Manipulation | 53 | Make changes to a system’s software properties and functions to achieve a desired effect. |
+| EAC0003 System Activity Monitoring | 22 | Collect system activity logs that can reveal adversary activity. |
 
 EAP0002, Detect: Establish or maintain awareness regarding adversary activity.
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
-| [EAC0005 Lures](https://engage.mitre.org/matrix/) | 93 | Deceptive systems and artifacts intended to serve as decoys, breadcrumbs, or bait to elicit a specific response from the adversary. |
-| [EAC0013 Malware Detonation](https://engage.mitre.org/matrix/) | 11 | Execute malware under controlled conditions to analyze its functionality. |
-| [EAC0004 Network Analysis](https://engage.mitre.org/matrix/) | 12 | Analyze network traffic to gain intelligence on communications between systems. |
-| [EAC0023 Introduced Vulnerabilities](https://engage.mitre.org/matrix/) | 4 | Intentionally introduce vulnerabilities into the environment for the adversary to exploit. |
+| EAC0005 Lures | 93 | Deceptive systems and artifacts intended to serve as decoys, breadcrumbs, or bait to elicit a specific response from the adversary. |
+| EAC0013 Malware Detonation | 11 | Execute malware under controlled conditions to analyze its functionality. |
+| EAC0004 Network Analysis | 12 | Analyze network traffic to gain intelligence on communications between systems. |
+| EAC0023 Introduced Vulnerabilities | 4 | Intentionally introduce vulnerabilities into the environment for the adversary to exploit. |
 
 ---
 
@@ -108,34 +110,34 @@ EAP0003, Prevent: Stop all or part of the adversary’s ability to conduct their
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
-| [EAC0019 Baseline](https://engage.mitre.org/matrix/) | 14 | Identify key system elements to establish a baseline and be prepared to reset a system to that baseline when necessary. |
-| [EAC0017 Hardware Manipulation](https://engage.mitre.org/matrix/) | 3 | Alter the hardware configuration of a system to limit what an adversary can do with the device. |
-| [EAC0020 Isolation](https://engage.mitre.org/matrix/) | 6 | Configure devices, systems, networks, etc. to contain activity and data, thus preventing the expansion of an engagement beyond desired limits. |
-| [EAC0016 Network Manipulation](https://engage.mitre.org/matrix/) | 45 | Make changes to network properties and functions to achieve a desired effect. |
-| [EAC0018 Security Controls](https://engage.mitre.org/matrix/) | 66 | Alter security controls to make the system more or less vulnerable to attack. |
+| EAC0019 Baseline | 14 | Identify key system elements to establish a baseline and be prepared to reset a system to that baseline when necessary. |
+| EAC0017 Hardware Manipulation | 3 | Alter the hardware configuration of a system to limit what an adversary can do with the device. |
+| EAC0020 Isolation | 6 | Configure devices, systems, networks, etc. to contain activity and data, thus preventing the expansion of an engagement beyond desired limits. |
+| EAC0016 Network Manipulation | 45 | Make changes to network properties and functions to achieve a desired effect. |
+| EAC0018 Security Controls | 66 | Alter security controls to make the system more or less vulnerable to attack. |
 
 EAP0004, Direct: Encourage or discourage the adversary from conducting their operation as intended.
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
-| [EAC0005 Lures](https://engage.mitre.org/matrix/) | 93 | Deceptive systems and artifacts intended to serve as decoys, breadcrumbs, or bait to elicit a specific response from the adversary. |
-| [EAC0013 Malware Detonation](https://engage.mitre.org/matrix/) | 11 | Execute malware under controlled conditions to analyze its functionality. |
-| [EAC0009 Email Manipulation](https://engage.mitre.org/matrix/) | 3 | Modify the flow of email in the environment. |
-| [EAC0021 Attack Vector Migration](https://engage.mitre.org/matrix/) | 7 | Move a malicious link, file, or device from its intended location to an engagement system or network for execution/use. |
-| [EAC0016 Network Manipulation](https://engage.mitre.org/matrix/) | 45 | Make changes to network properties and functions to achieve a desired effect. |
-| [EAC0010 Peripheral Management](https://engage.mitre.org/matrix/) | 8 | Manage peripheral devices used on systems within the network for engagement purposes. |
-| [EAC0018 Security Controls](https://engage.mitre.org/matrix/) | 66 | Alter security controls to make the system more or less vulnerable to attack. |
-| [EAC0014 Software Manipulation](https://engage.mitre.org/matrix/) | 53 | Make changes to a system’s software properties and functions to achieve a desired effect. |
-| [EAC0023 Introduced Vulnerabilities](https://engage.mitre.org/matrix/) | 4 | Intentionally introduce vulnerabilities into the environment for the adversary to exploit. |
+| EAC0005 Lures | 93 | Deceptive systems and artifacts intended to serve as decoys, breadcrumbs, or bait to elicit a specific response from the adversary. |
+| EAC0013 Malware Detonation | 11 | Execute malware under controlled conditions to analyze its functionality. |
+| EAC0009 Email Manipulation | 3 | Modify the flow of email in the environment. |
+| EAC0021 Attack Vector Migration | 7 | Move a malicious link, file, or device from its intended location to an engagement system or network for execution/use. |
+| EAC0016 Network Manipulation | 45 | Make changes to network properties and functions to achieve a desired effect. |
+| EAC0010 Peripheral Management | 8 | Manage peripheral devices used on systems within the network for engagement purposes. |
+| EAC0018 Security Controls | 66 | Alter security controls to make the system more or less vulnerable to attack. |
+| EAC0014 Software Manipulation | 53 | Make changes to a system’s software properties and functions to achieve a desired effect. |
+| EAC0023 Introduced Vulnerabilities | 4 | Intentionally introduce vulnerabilities into the environment for the adversary to exploit. |
 
 EAP0005, Disrupt: Impair an adversary’s ability to conduct their operation as intended.
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
-| [EAC0005 Lures](https://engage.mitre.org/matrix/) | 93 | Deceptive systems and artifacts intended to serve as decoys, breadcrumbs, or bait to elicit a specific response from the adversary. |
-| [EAC0020 Isolation](https://engage.mitre.org/matrix/) | 6 | Configure devices, systems, networks, etc. to contain activity and data, thus preventing the expansion of an engagement beyond desired limits. |
-| [EAC0016 Network Manipulation](https://engage.mitre.org/matrix/) | 45 | Make changes to network properties and functions to achieve a desired effect. |
-| [EAC0014 Software Manipulation](https://engage.mitre.org/matrix/) | 53 | Make changes to a system’s software properties and functions to achieve a desired effect. |
+| EAC0005 Lures | 93 | Deceptive systems and artifacts intended to serve as decoys, breadcrumbs, or bait to elicit a specific response from the adversary. |
+| EAC0020 Isolation | 6 | Configure devices, systems, networks, etc. to contain activity and data, thus preventing the expansion of an engagement beyond desired limits. |
+| EAC0016 Network Manipulation | 45 | Make changes to network properties and functions to achieve a desired effect. |
+| EAC0014 Software Manipulation | 53 | Make changes to a system’s software properties and functions to achieve a desired effect. |
 
 ---
 
@@ -147,26 +149,26 @@ EAP0006, Reassure: Add authenticity to deceptive components to convince an adver
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
-| [EAC0006 Application Diversity](https://engage.mitre.org/matrix/) | 23 | Present the adversary with a variety of installed applications and services. |
-| [EAC0022 Artifact Diversity](https://engage.mitre.org/matrix/) | 21 | Present the adversary with a variety of network and system artifacts. |
-| [EAC0008 Burn-In](https://engage.mitre.org/matrix/) | 13 | Exercise a target system in a manner where it will generate desirable system artifacts. |
-| [EAC0009 Email Manipulation](https://engage.mitre.org/matrix/) | 3 | Modify the flow of email in the environment. |
-| [EAC0015 Information Manipulation](https://engage.mitre.org/matrix/) | 54 | Conceal and reveal both facts and fictions to support a deception story |
-| [EAC0007 Network Diversity](https://engage.mitre.org/matrix/) | 10 | Use a diverse set of devices on the network to help establish the legitimacy of a deceptive network. |
-| [EAC0010 Peripheral Management](https://engage.mitre.org/matrix/) | 8 | Manage peripheral devices used on systems within the network for engagement purposes. |
-| [EAC0011 Pocket Litter](https://engage.mitre.org/matrix/) | 58 | Data used to support the engagement narrative. |
+| EAC0006 Application Diversity | 23 | Present the adversary with a variety of installed applications and services. |
+| EAC0022 Artifact Diversity | 21 | Present the adversary with a variety of network and system artifacts. |
+| EAC0008 Burn-In | 13 | Exercise a target system in a manner where it will generate desirable system artifacts. |
+| EAC0009 Email Manipulation | 3 | Modify the flow of email in the environment. |
+| EAC0015 Information Manipulation | 54 | Conceal and reveal both facts and fictions to support a deception story |
+| EAC0007 Network Diversity | 10 | Use a diverse set of devices on the network to help establish the legitimacy of a deceptive network. |
+| EAC0010 Peripheral Management | 8 | Manage peripheral devices used on systems within the network for engagement purposes. |
+| EAC0011 Pocket Litter | 58 | Data used to support the engagement narrative. |
 
 EAP0007, Motivate: Encourage an adversary to conduct part or all of their mission.
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
-| [EAC0006 Application Diversity](https://engage.mitre.org/matrix/) | 23 | Present the adversary with a variety of installed applications and services. |
-| [EAC0022 Artifact Diversity](https://engage.mitre.org/matrix/) | 21 | Present the adversary with a variety of network and system artifacts. |
-| [EAC0013 Malware Detonation](https://engage.mitre.org/matrix/) | 11 | Execute malware under controlled conditions to analyze its functionality. |
-| [EAC0015 Information Manipulation](https://engage.mitre.org/matrix/) | 54 | Conceal and reveal both facts and fictions to support a deception story |
-| [EAC0012 Personas](https://engage.mitre.org/matrix/) | 22 | Create fictitious human user(s) through a combination of planted data and revealed behavior patterns. |
-| [EAC0007 Network Diversity](https://engage.mitre.org/matrix/) | 10 | Use a diverse set of devices on the network to help establish the legitimacy of a deceptive network. |
-| [EAC0023 Introduced Vulnerabilities](https://engage.mitre.org/matrix/) | 4 | Intentionally introduce vulnerabilities into the environment for the adversary to exploit. |
+| EAC0006 Application Diversity | 23 | Present the adversary with a variety of installed applications and services. |
+| EAC0022 Artifact Diversity | 21 | Present the adversary with a variety of network and system artifacts. |
+| EAC0013 Malware Detonation | 11 | Execute malware under controlled conditions to analyze its functionality. |
+| EAC0015 Information Manipulation | 54 | Conceal and reveal both facts and fictions to support a deception story |
+| EAC0012 Personas | 22 | Create fictitious human user(s) through a combination of planted data and revealed behavior patterns. |
+| EAC0007 Network Diversity | 10 | Use a diverse set of devices on the network to help establish the legitimacy of a deceptive network. |
+| EAC0023 Introduced Vulnerabilities | 4 | Intentionally introduce vulnerabilities into the environment for the adversary to exploit. |
 
 ---
 
@@ -178,13 +180,13 @@ SAP0001, Plan: Identify and align an operation with a desired end-state.
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
-| [SAC0004 Cyber Threat Intelligence](https://engage.mitre.org/matrix/) | 0 | The process of analyzing actionable knowledge about adversaries and their malicious activities, enabling defenders and their organizations to reduce h... |
-| [SAC0012 Engagement Environment](https://engage.mitre.org/matrix/) | 0 | Design the systems and network for the operation. |
-| [SAC0005 Gating Criteria](https://engage.mitre.org/matrix/) | 0 | Define the set of events that would lead to the unnegotiable pause or conclusion to the operation. |
-| [SAC0001 Operational Objective](https://engage.mitre.org/matrix/) | 0 | Define the objective of the desired end-state of your adversary engagement operations. |
-| [SAC0002 Persona Creation](https://engage.mitre.org/matrix/) | 0 | Plan and create a fictitious human user through a combination of planted data and revealed behavior patterns. |
-| [SAC0003 Storyboarding](https://engage.mitre.org/matrix/) | 0 | Plan and create the deception story. |
-| [SAC0009 Threat Model](https://engage.mitre.org/matrix/) | 0 | A risk assessment that models organizational strengths and weaknesses |
+| SAC0004 Cyber Threat Intelligence | 0 | The process of analyzing actionable knowledge about adversaries and their malicious activities, enabling defenders and their organizations to reduce h... |
+| SAC0012 Engagement Environment | 0 | Design the systems and network for the operation. |
+| SAC0005 Gating Criteria | 0 | Define the set of events that would lead to the unnegotiable pause or conclusion to the operation. |
+| SAC0001 Operational Objective | 0 | Define the objective of the desired end-state of your adversary engagement operations. |
+| SAC0002 Persona Creation | 0 | Plan and create a fictitious human user through a combination of planted data and revealed behavior patterns. |
+| SAC0003 Storyboarding | 0 | Plan and create the deception story. |
+| SAC0009 Threat Model | 0 | A risk assessment that models organizational strengths and weaknesses |
 
 ---
 
@@ -196,9 +198,9 @@ SAP0002, Analyze: Retrospective review of information gained from an operation .
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
-| [SAC0006 After-Action Review](https://engage.mitre.org/matrix/) | 0 | Review of operational activities. |
-| [SAC0004 Cyber Threat Intelligence](https://engage.mitre.org/matrix/) | 0 | The process of analyzing actionable knowledge about adversaries and their malicious activities, enabling defenders and their organizations to reduce h... |
-| [SAC0009 Threat Model](https://engage.mitre.org/matrix/) | 0 | A risk assessment that models organizational strengths and weaknesses |
+| SAC0006 After-Action Review | 0 | Review of operational activities. |
+| SAC0004 Cyber Threat Intelligence | 0 | The process of analyzing actionable knowledge about adversaries and their malicious activities, enabling defenders and their organizations to reduce h... |
+| SAC0009 Threat Model | 0 | A risk assessment that models organizational strengths and weaknesses |
 
 ---
 
@@ -208,37 +210,37 @@ Which engagement activities apply to the widest range of adversary behavior: a g
 
 | Activity | ATT&CK techniques covered |
 |---|--:|
-| [EAC0005 Lures](https://engage.mitre.org/matrix/) | 93 |
-| [EAC0018 Security Controls](https://engage.mitre.org/matrix/) | 66 |
-| [EAC0011 Pocket Litter](https://engage.mitre.org/matrix/) | 58 |
-| [EAC0015 Information Manipulation](https://engage.mitre.org/matrix/) | 54 |
-| [EAC0014 Software Manipulation](https://engage.mitre.org/matrix/) | 53 |
-| [EAC0016 Network Manipulation](https://engage.mitre.org/matrix/) | 45 |
-| [EAC0002 Network Monitoring](https://engage.mitre.org/matrix/) | 25 |
-| [EAC0001 API Monitoring](https://engage.mitre.org/matrix/) | 23 |
-| [EAC0006 Application Diversity](https://engage.mitre.org/matrix/) | 23 |
-| [EAC0003 System Activity Monitoring](https://engage.mitre.org/matrix/) | 22 |
-| [EAC0012 Personas](https://engage.mitre.org/matrix/) | 22 |
-| [EAC0022 Artifact Diversity](https://engage.mitre.org/matrix/) | 21 |
-| [EAC0019 Baseline](https://engage.mitre.org/matrix/) | 14 |
-| [EAC0008 Burn-In](https://engage.mitre.org/matrix/) | 13 |
-| [EAC0004 Network Analysis](https://engage.mitre.org/matrix/) | 12 |
-| [EAC0013 Malware Detonation](https://engage.mitre.org/matrix/) | 11 |
-| [EAC0007 Network Diversity](https://engage.mitre.org/matrix/) | 10 |
-| [EAC0010 Peripheral Management](https://engage.mitre.org/matrix/) | 8 |
-| [EAC0021 Attack Vector Migration](https://engage.mitre.org/matrix/) | 7 |
-| [EAC0020 Isolation](https://engage.mitre.org/matrix/) | 6 |
-| [EAC0023 Introduced Vulnerabilities](https://engage.mitre.org/matrix/) | 4 |
-| [EAC0009 Email Manipulation](https://engage.mitre.org/matrix/) | 3 |
-| [EAC0017 Hardware Manipulation](https://engage.mitre.org/matrix/) | 3 |
-| [SAC0001 Operational Objective](https://engage.mitre.org/matrix/) | 0 |
-| [SAC0002 Persona Creation](https://engage.mitre.org/matrix/) | 0 |
-| [SAC0003 Storyboarding](https://engage.mitre.org/matrix/) | 0 |
-| [SAC0004 Cyber Threat Intelligence](https://engage.mitre.org/matrix/) | 0 |
-| [SAC0005 Gating Criteria](https://engage.mitre.org/matrix/) | 0 |
-| [SAC0006 After-Action Review](https://engage.mitre.org/matrix/) | 0 |
-| [SAC0012 Engagement Environment](https://engage.mitre.org/matrix/) | 0 |
-| [SAC0009 Threat Model](https://engage.mitre.org/matrix/) | 0 |
+| EAC0005 Lures | 93 |
+| EAC0018 Security Controls | 66 |
+| EAC0011 Pocket Litter | 58 |
+| EAC0015 Information Manipulation | 54 |
+| EAC0014 Software Manipulation | 53 |
+| EAC0016 Network Manipulation | 45 |
+| EAC0002 Network Monitoring | 25 |
+| EAC0001 API Monitoring | 23 |
+| EAC0006 Application Diversity | 23 |
+| EAC0003 System Activity Monitoring | 22 |
+| EAC0012 Personas | 22 |
+| EAC0022 Artifact Diversity | 21 |
+| EAC0019 Baseline | 14 |
+| EAC0008 Burn-In | 13 |
+| EAC0004 Network Analysis | 12 |
+| EAC0013 Malware Detonation | 11 |
+| EAC0007 Network Diversity | 10 |
+| EAC0010 Peripheral Management | 8 |
+| EAC0021 Attack Vector Migration | 7 |
+| EAC0020 Isolation | 6 |
+| EAC0023 Introduced Vulnerabilities | 4 |
+| EAC0009 Email Manipulation | 3 |
+| EAC0017 Hardware Manipulation | 3 |
+| SAC0001 Operational Objective | 0 |
+| SAC0002 Persona Creation | 0 |
+| SAC0003 Storyboarding | 0 |
+| SAC0004 Cyber Threat Intelligence | 0 |
+| SAC0005 Gating Criteria | 0 |
+| SAC0006 After-Action Review | 0 |
+| SAC0012 Engagement Environment | 0 |
+| SAC0009 Threat Model | 0 |
 
 ---
 

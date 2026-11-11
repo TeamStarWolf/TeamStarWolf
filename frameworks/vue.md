@@ -2,6 +2,55 @@
 
 Vue.js is a frontend framework for building user interfaces and single-page applications. It is written in TypeScript and used with JavaScript or TypeScript. It sits between a view-only library and a full framework, with official routing and state packages available when needed. Teams choose it for its gentle learning curve, readable templates, and incremental adoption.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who build with Vue.js, and the reviewers and application security engineers who assess what they build
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,374 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or reviewing a Vue.js application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture](#architecture), [Security model and common vulnerabilities](#security-model-and-common-vulnerabilities), [Common pitfalls](#common-pitfalls)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[JavaScript](/languages/javascript.md), [TypeScript](/languages/typescript.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [React](/frameworks/react.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Vue was created by Evan You and first released in 2014. It drew ideas from AngularJS and React while aiming for a simpler API. Vue 2 grew a large community, and Vue 3 arrived in 2020 with a rewritten reactivity system.
@@ -53,6 +102,29 @@ Vue's official libraries cover routing, state, and build tooling, which keeps th
 Nuxt is the main meta-framework for Vue. It adds file-based routing, server rendering, and data fetching on top of Vue. Teams reach for it when they need SSR or static generation.
 
 Tooling includes the Vue Devtools extension and the Volar language service for editors. Testing uses Vitest with Vue Test Utils. The single-file component format is supported across these tools.
+
+## Security relevance
+
+This section is the threat-facing view of Vue: how it appears to an attacker or an auditor in the field, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Internet-facing single-page applications and the client tier of server-rendered sites, often paired with Nuxt for the server side. Vue is recognized from `data-v-` scoped style attributes, the `__vue_app__` property on the root element, and the Vue Devtools hook exposed on the page.
+- Offensive interest uses general web proxies and client-side analysis rather than a Vue-specific tool. Burp Suite and OWASP ZAP cover the traffic, and browser DevTools inspect the compiled bundle and reactive state.
+- Audit and defensive tooling is the general JavaScript set: Semgrep and CodeQL for static analysis, and npm audit or Socket for the dependency tree.
+- The dependency surface is the npm ecosystem, pinned through a lockfile and pulling in the router, state library, and third-party components. A compromised or typosquatted package runs with full application privilege, the pattern in [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md) and [the npm supply-chain case study](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md).
+
+### Dominant weakness classes
+
+Vue runs on JavaScript in the browser, a memory-managed runtime, so the dominant classes are client-side injection and logic flaws rather than memory corruption. The fixes for each are detailed in the section below.
+
+- Cross-site scripting ([CWE-79](https://cwe.mitre.org/data/definitions/79.html)) through the `v-html` directive, which inserts raw HTML and bypasses Vue's default text escaping.
+- Script-scheme injection ([CWE-79](https://cwe.mitre.org/data/definitions/79.html)) when a user-controlled value is bound to an `href` or `src` and introduces a `javascript:` URL.
+- Improper input validation ([CWE-20](https://cwe.mitre.org/data/definitions/20.html)) when a dynamic component is rendered from an untrusted name rather than an allowed set.
+
+### Why it matters
+
+Because a Vue bundle ships to the browser, an auditor can read the compiled application and reactive state directly, then trace every `v-html` sink, dynamic URL binding, and dynamic component back to its data source. Recognizing Vue tells a tester to focus on client-side injection and on the npm dependency tree rather than on a server the framework runs. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for the cross-cutting review method.
 
 ## Security model and common vulnerabilities
 

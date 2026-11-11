@@ -4,6 +4,55 @@
 
 Snyk is the developer-first security platform that embeds scanning into the places developers already work - IDEs, pull requests, CLI and CI/CD - to find and fix vulnerabilities in open-source dependencies, first-party code, containers and infrastructure-as-code. It emphasizes actionable fix guidance (upgrade paths, fix PRs) over mere detection. In 2024-2025 it extended into AI/ML and agentic-app security (Snyk AI Trust Platform) and risk-based prioritization (Snyk AppRisk/ASPM).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the developers and application security engineers who run Snyk
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (2,048 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what Snyk can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[DevSecOps Reference](/DEVSECOPS_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities & architecture
 
 **Core capabilities**
@@ -45,6 +94,24 @@ Snyk's VM role is Discover-Assess-Prioritize-Remediate for the software supply c
 **Framework mapping:** NIST CSF 2.0: Identify (software inventory/SBOM), Protect; CIS Controls v8: 16 (Application Software Security), 2 (Software Inventory/SBOM), 7 (Continuous Vulnerability Management), 4 (Secure Configuration for IaC); MITRE ATT&CK mitigations: M1051 Update Software, M1016 Vulnerability Scanning, M1047 Audit; strong relevance to supply-chain compromise (T1195)
 
 **In a critical-CVE scenario.** First 24-72h on a critical CVE in an internet-facing app + cloud workload: (1) Snyk Open Source/Container instantly identifies every project, image and running workload pulling the vulnerable package/base image across all monitored repos; (2) prioritizes by reachability, exploit maturity and whether the vulnerable function is actually called; (3) auto-generates fix PRs with the exact safe upgrade/base-image swap; (4) sets CI/CD gates to fail builds containing the vulnerable version so no new exposure ships; (5) tracks remediation across the portfolio in AppRisk. Pair with a runtime/CNAPP tool for assets Snyk does not build.
+
+## Adversary perspective
+
+Snyk finds and helps fix vulnerabilities in dependencies, code, containers, and IaC; it does not block exploitation at runtime, so an adversary treats it as something to outrun or starve of coverage, and the platform holds broad read into source repositories and registries through its integrations, which makes its tokens a target in their own right. The detection and tuning guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and coverage gaps
+
+- Unscanned surface: results exist only where a project is imported and scanning runs; a repository, branch, registry, or build path outside the integration is untested, and a dependency resolved at runtime but absent from the manifest or lockfile is unseen.
+- Known-only detection: SCA matches against advisory databases, so a dependency whose flaw is not yet published, or a malicious package planted in the supply chain, can pass a clean scan; findings also lag the moment a new advisory lands.
+- Reachability and logic gaps: a flagged dependency may not be reachable in the running app, while business-logic abuse and broken access control ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)) are outside what dependency and static scanning assert.
+
+### Residual risk and own exposure
+
+A finding is not a fix: the vulnerable component stays exploitable until the upgrade or fix PR is merged and deployed, and risk-based prioritization can defer real exposure. The platform's repository and registry tokens are high value, since they grant read across the codebase and reveal exactly where the weak spots are ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)), so those integrations and service accounts belong in the patch and monitoring scope.
+
+### Why it matters
+
+Knowing that coverage depends on what is imported, that only known flaws are matched, and that a finding is not reachability tells a tester where to probe and a defender not to treat a clean scan as a secure build. See [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md) for the dependency-risk method and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for turning findings into tracked remediation.
 
 ## Validation & telemetry
 
@@ -116,25 +183,25 @@ _API & developer docs_
 
 _GitHub (official)_
 - [Snyk GitHub organization (~240 repos)](https://github.com/snyk)
-- [snyk/cli — Snyk CLI (TypeScript, ~5.7k stars)](https://github.com/snyk/cli)
-- [snyk/actions — official GitHub Actions for CI scanning](https://github.com/snyk/actions)
-- [snyk/snyk-to-html — export CLI reports to HTML](https://github.com/snyk/snyk-to-html)
-- [snyk/vscode-extension & snyk/snyk-intellij-plugin — IDE plugins](https://github.com/snyk/vscode-extension)
-- [snyk/driftctl — IaC drift detection](https://github.com/snyk/driftctl)
+- [snyk/cli: Snyk CLI (TypeScript, ~5.7k stars)](https://github.com/snyk/cli)
+- [snyk/actions: official GitHub Actions for CI scanning](https://github.com/snyk/actions)
+- [snyk/snyk-to-html: export CLI reports to HTML](https://github.com/snyk/snyk-to-html)
+- [snyk/vscode-extension & snyk/snyk-intellij-plugin: IDE plugins](https://github.com/snyk/vscode-extension)
+- [snyk/driftctl: IaC drift detection](https://github.com/snyk/driftctl)
 
 _Community / integration / detection repos_
 - [snyk-labs GitHub organization (community/example tooling)](https://github.com/snyk-labs)
-- [snyk-apps-demo — starter for building a Snyk App](https://github.com/snyk/snyk-apps-demo)
-- [snyk-api-import — bulk import/onboard projects via API](https://github.com/snyk/snyk-api-import)
+- [snyk-apps-demo: starter for building a Snyk App](https://github.com/snyk/snyk-apps-demo)
+- [snyk-api-import: bulk import/onboard projects via API](https://github.com/snyk/snyk-api-import)
 - [snyk-labs/nodejs-goof & other 'goof' vulnerable demo apps](https://github.com/snyk-labs/nodejs-goof)
 
 _Learning & reference_
-- [Snyk Learn — free interactive secure-coding lessons (NIST NICE aligned)](https://learn.snyk.io)
+- [Snyk Learn: free interactive secure-coding lessons (NIST NICE aligned)](https://learn.snyk.io)
 - [Snyk blog](https://snyk.io/blog/)
 - [Snyk Vulnerability Database](https://security.snyk.io)
-- [Snyk Tutorials & product training —  (learning series within docs)](https://docs.snyk.io)
+- [Snyk Tutorials & product training: (learning series within docs)](https://docs.snyk.io)
 
-> Note: Snyk REST API is OpenAPI + JSON:API and requires a date-based ?version= query parameter on every request; the older V1 API is being sunset in favor of REST. API availability can depend on plan tier (historically Business/Enterprise, with some token access on lower tiers) — check the current plans page. Core open-source tooling (CLI, actions, IDE plugins, driftctl, snyk-ls language server) lives under github.com/snyk; demos/experiments under github.com/snyk-labs.
+> Note: Snyk REST API is OpenAPI + JSON:API and requires a date-based ?version= query parameter on every request; the older V1 API is being sunset in favor of REST. API availability can depend on plan tier (historically Business/Enterprise, with some token access on lower tiers): check the current plans page. Core open-source tooling (CLI, actions, IDE plugins, driftctl, snyk-ls language server) lives under github.com/snyk; demos/experiments under github.com/snyk-labs.
 
 ## Current state (2025-26)
 

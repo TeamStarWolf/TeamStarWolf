@@ -14,6 +14,55 @@ Scheme is a minimalist dialect of Lisp, first described in 1975 by Gerald Sussma
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Racket](/languages/racket.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Scheme code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,502 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Scheme code (typical uses: teaching, language research, scripting, embedded extension language), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Racket](/languages/racket.md), [Common Lisp](/languages/common-lisp.md), [Standard ML](/languages/standard-ml.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Scheme began as an experiment in applying the actor model and lexical scope to Lisp, and it became influential for its small, carefully specified core. Its evolution is recorded in the Revised Reports, informally the RnRS series: R5RS (1998) is a compact and widely implemented standard, R6RS (2007) added a larger library and a module system and was more contentious, and R7RS (2013) split the language into a small language and a larger standard library to serve both teaching and application needs.
@@ -121,6 +170,29 @@ Performance varies widely by implementation. Chez Scheme compiles to native code
 - Portability gaps: code that relies on one implementation's extensions will not run on another; stay within R7RS and declared SRFIs for portable programs.
 - First-class continuations captured with `call/cc` are general but can produce control flow that is hard to follow; use them deliberately and document the intent.
 - `eq?`, `eqv?`, and `equal?` test identity, equivalence, and structural equality respectively; choosing the wrong one causes subtle bugs.
+
+## Security relevance
+
+Scheme reaches security practitioners less as a tool-building language than as an embedded extension and scripting language inside larger applications, and as a teaching and research vehicle. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Embedded extension language. Guile is the GNU project's extension language and is embedded in applications to script their behavior, so untrusted or user-supplied Scheme that an application evaluates becomes part of that application's trust boundary.
+- Scripting and small tools. Implementations such as [Chicken](https://www.call-cc.org/) compile Scheme to native executables used for small tools and build steps, where the program processes external input.
+- Teaching and language research. Scheme is a common vehicle for courses and for prototyping interpreters and analyzers, so the security-relevant code is often a parser or evaluator under study rather than a production service.
+
+### Dominant weakness classes
+
+Scheme is memory-safe: it is garbage-collected and does not expose manual memory management, so buffer overflows and use-after-free do not arise from Scheme code itself. The weaknesses that remain concern dynamic evaluation and unchecked input:
+
+- Code injection through evaluation. Applying `eval` to data derived from untrusted input executes arbitrary code; parse external data with a reader for the expected format instead. This is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Unsafe reading. Using the Scheme reader on attacker-controlled text can build unexpected structures and, in implementations with reader extensions, trigger evaluation. This relates to [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- Improper input validation. Dynamic typing leaves external data unchecked until the program checks it, so structure and ranges must be validated at the boundary. This is [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- Uncontrolled resource consumption. Non-tail recursion or allocation sized by untrusted input can exhaust memory, even though proper tail calls bound tail recursion. This is [CWE-400](https://cwe.mitre.org/data/definitions/400.html).
+
+### Why it matters
+
+Reading Scheme lets a practitioner audit the extension scripts an application evaluates and find where external data reaches `eval` or the reader. Static analysis is implementation-specific: compilers such as [Chez Scheme](https://cisco.github.io/ChezScheme/) emit warnings for unbound references and arity errors, and Scheme code running under Racket can use DrRacket's Check Syntax, as the Secure coding section notes.
 
 ## Secure coding
 

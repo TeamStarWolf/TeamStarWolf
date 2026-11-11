@@ -117,13 +117,13 @@ No review recorded yet
 ### Hash Identification Tools
 
 ```bash
-# hashid — Python tool for hash format identification
+# hashid: Python tool for hash format identification
 hashid '5f4dcc3b5aa765d61d8327deb882cf99'
 hashid -m '5f4dcc3b5aa765d61d8327deb882cf99'  # Show Hashcat mode
 hashid -e '5f4dcc3b5aa765d61d8327deb882cf99'  # Show extended info
 hashid -f hashes.txt                            # Process file
 
-# hash-identifier — Interactive Python tool
+# hash-identifier: Interactive Python tool
 hash-identifier
 # Paste hash at prompt; lists likely algorithms
 
@@ -131,7 +131,7 @@ hash-identifier
 hashcat --identify hash.txt
 hashcat --identify --quiet hash.txt | awk '{print $1}'  # Just the mode
 
-# Name That Hash (nth) — modern tool with confidence scores
+# Name That Hash (nth): modern tool with confidence scores
 nth -t '5f4dcc3b5aa765d61d8327deb882cf99'    # Single hash
 nth -f hashes.txt                              # File of hashes
 nth -t hash --no-banner -g                    # Grep-friendly output
@@ -149,7 +149,7 @@ nth -t hash --no-banner -g                    # Grep-friendly output
 ### Hash Extraction Commands
 
 ```bash
-# Windows — dump SAM/NTDS hashes
+# Windows: dump SAM/NTDS hashes
 # Impacket secretsdump (remote)
 secretsdump.py domain/admin@dc01 -just-dc-ntlm
 secretsdump.py -ntds ntds.dit -system SYSTEM -hashes lmhash:nthash LOCAL
@@ -158,14 +158,14 @@ secretsdump.py -ntds ntds.dit -system SYSTEM -hashes lmhash:nthash LOCAL
 crackmapexec smb 192.168.1.10 -u admin -p password --ntds
 
 # Mimikatz (local, needs SeDebugPrivilege)
-# lsadump::sam — SAM database (local accounts)
-# lsadump::dcsync /domain:corp.local /all — DCSync all users
-# sekurlsa::logonpasswords — memory credentials
+# lsadump::sam: SAM database (local accounts)
+# lsadump::dcsync /domain:corp.local /all: DCSync all users
+# sekurlsa::logonpasswords: memory credentials
 
-# Linux — shadow file
+# Linux: shadow file
 sudo cat /etc/shadow  # hashtype:$6$... for SHA512crypt
 
-# Network capture — NTLM challenge-response
+# Network capture: NTLM challenge-response
 responder -I eth0 -wrf  # Poison LLMNR/NBT-NS; captures NTLMv2
 # Hashes saved to /usr/share/responder/logs/
 
@@ -260,12 +260,12 @@ hashcat -m 1000 hashes.txt --potfile-path=custom.pot --show              # Custo
 ### Hashcat Mask Charset Reference
 
 ```
-?l = lowercase letters (abcdefghijklmnopqrstuvwxyz) — 26 chars
-?u = uppercase letters (ABCDEFGHIJKLMNOPQRSTUVWXYZ) — 26 chars
-?d = digits (0123456789) — 10 chars
-?s = special characters (space!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~) — 33 chars
-?a = all printable ASCII = ?l?u?d?s — 95 chars
-?b = all bytes 0x00-0xff — 256 values (use for binary hashes)
+?l = lowercase letters (abcdefghijklmnopqrstuvwxyz): 26 chars
+?u = uppercase letters (ABCDEFGHIJKLMNOPQRSTUVWXYZ): 26 chars
+?d = digits (0123456789): 10 chars
+?s = special characters (space!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~): 33 chars
+?a = all printable ASCII = ?l?u?d?s: 95 chars
+?b = all bytes 0x00-0xff: 256 values (use for binary hashes)
 
 # Custom charsets: -1, -2, -3, -4
 hashcat -m 1000 -a 3 -1 '!@#$%^&*' hashes.txt ?u?l?l?l?l?l?1?d  # Custom special chars
@@ -577,11 +577,11 @@ Common spray passwords (in order of effectiveness):
 Tools:
 
 ```bash
-# Kerbrute — Kerberos-based spray (no lockout risk on misconfigured DCs)
+# Kerbrute: Kerberos-based spray (no lockout risk on misconfigured DCs)
 kerbrute passwordspray -d corp.local --dc 192.168.1.10 users.txt 'Spring2024!'
 kerbrute passwordspray -d corp.local --dc 192.168.1.10 users.txt 'Company123!'
 
-# CrackMapExec — SMB spray
+# CrackMapExec: SMB spray
 crackmapexec smb 192.168.1.0/24 -u users.txt -p 'Spring2024!' --continue-on-success
 crackmapexec smb dc01 -u users.txt -p passwords.txt --no-bruteforce  # 1:1 pairing
 
@@ -589,10 +589,10 @@ crackmapexec smb dc01 -u users.txt -p passwords.txt --no-bruteforce  # 1:1 pairi
 Invoke-DomainPasswordSpray -Password "Spring2024!" -OutFile spray_results.txt
 Invoke-DomainPasswordSpray -UserList users.txt -Password "Company123!" -Delay 30
 
-# MSOLSpray — Office 365 spray
+# MSOLSpray: Office 365 spray
 Invoke-MSOLSpray -UserList users.txt -Password "Spring2024!"
 
-# Spray365 — Microsoft 365 / Azure AD
+# Spray365: Microsoft 365 / Azure AD
 spray365.py spray --spray-file spray_file.s365 --count 1 --lockout 5.0
 
 # Metasploit
@@ -616,9 +616,9 @@ Exhaustive combination attack; only practical for short passwords with fast hash
 
 ```bash
 # Hashcat brute force examples (all printable ASCII)
-hashcat -m 0 -a 3 md5_hashes.txt ?a?a?a?a?a?a       # MD5 up to 6 chars — seconds
-hashcat -m 1000 -a 3 ntlm.txt ?a?a?a?a?a?a?a?a      # NTLM 8 chars — ~2 hours RTX 4090
-hashcat -m 3200 -a 3 bcrypt.txt ?a?a?a?a?a?a?a?a    # bcrypt 8 chars — years
+hashcat -m 0 -a 3 md5_hashes.txt ?a?a?a?a?a?a       # MD5 up to 6 chars: seconds
+hashcat -m 1000 -a 3 ntlm.txt ?a?a?a?a?a?a?a?a      # NTLM 8 chars: ~2 hours RTX 4090
+hashcat -m 3200 -a 3 bcrypt.txt ?a?a?a?a?a?a?a?a    # bcrypt 8 chars: years
 
 # Targeted: known charset (e.g., complex requirement: Upper+lower+digit+special)
 hashcat -m 1000 -a 3 hashes.txt ?u?l?l?l?l?l?d?d?s  # 9-char pattern
@@ -630,7 +630,7 @@ hydra -L users.txt -P passwords.txt 192.168.1.10 http-post-form \
   "/login:user=^USER^&pass=^PASS^:Invalid credentials"
 hydra -l admin@corp.com -P rockyou.txt smtp://mail.corp.com
 
-# Medusa — parallel online brute force
+# Medusa: parallel online brute force
 medusa -h 192.168.1.10 -u admin -P rockyou.txt -M ssh -t 4
 
 # Ncrack
@@ -660,11 +660,11 @@ Defeated by salting:
 
 Relevant tools:
 ```bash
-# Ophcrack — Windows SAM/NTLM rainbow table cracker (GUI)
+# Ophcrack: Windows SAM/NTLM rainbow table cracker (GUI)
 ophcrack -g              # GUI mode
 ophcrack -t /path/to/tables -f hashes.txt -o cracked.txt  # CLI
 
-# RainbowCrack — generic rainbow table attack
+# RainbowCrack: generic rainbow table attack
 rcrack /path/to/tables -h HASH
 rcrack /path/to/tables -f hashes.txt
 
@@ -709,7 +709,7 @@ hashcat -m 1000 -a 0 hashes.txt target.txt -r best64.rule
 Generates targeted wordlists based on OSINT about a specific person (name, birthday, significant dates, pet names, etc.).
 
 ```bash
-cupp -i   # Interactive mode — prompts for target info:
+cupp -i   # Interactive mode: prompts for target info:
            # First name, last name, nickname, birthdate
            # Partner name, partner birthdate
            # Child name, pet name, company
@@ -794,7 +794,7 @@ Rule: If an algorithm was designed for speed (checksums, data integrity), do not
 Winner of the Password Hashing Competition (PHC) 2015. Memory-hard algorithm that maximizes resistance to GPU/ASIC cracking.
 
 ```python
-# Python — argon2-cffi library
+# Python: argon2-cffi library
 from argon2 import PasswordHasher
 from argon2.exceptions import VerifyMismatchError, VerificationError, InvalidHashError
 
@@ -818,11 +818,11 @@ try:
         new_hash = ph.hash("user_supplied_password")
         # Update database with new_hash
 except VerifyMismatchError:
-    pass  # Wrong password — do not reveal to user
+    pass  # Wrong password: do not reveal to user
 except (VerificationError, InvalidHashError):
     pass  # Corrupted hash
 
-# PHP — password_hash() with PASSWORD_ARGON2ID
+# PHP: password_hash() with PASSWORD_ARGON2ID
 $hash = password_hash($password, PASSWORD_ARGON2ID, [
     'memory_cost' => 65536,  // 64 MiB
     'time_cost'   => 3,
@@ -841,7 +841,7 @@ OWASP 2023 minimum parameters:
 Battle-tested algorithm with excellent library support. Note 72-byte input limit.
 
 ```python
-# Python — bcrypt library
+# Python: bcrypt library
 import bcrypt
 
 # Hash a password
@@ -861,13 +861,13 @@ def bcrypt_hash_long_password(password: str) -> bytes:
     pre_hashed = base64.b64encode(hashlib.sha256(password.encode()).digest())
     return bcrypt.hashpw(pre_hashed, bcrypt.gensalt(rounds=12))
 
-# Node.js — bcryptjs
+# Node.js: bcryptjs
 const bcrypt = require('bcryptjs');
 const saltRounds = 12;
 const hash = await bcrypt.hash(password, saltRounds);
 const match = await bcrypt.compare(password, hash);
 
-# PHP — built-in
+# PHP: built-in
 $hash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
 $valid = password_verify($password, $hash);
 // Check if rehash needed (e.g., cost increased)
@@ -887,7 +887,7 @@ Work factor guidance:
 NIST-approved and FIPS-compliant. Not memory-hard (GPU can parallelize), but acceptable with high iteration counts.
 
 ```python
-# Python — standard library
+# Python: standard library
 import hashlib, os, base64
 
 def pbkdf2_hash(password: str) -> str:
@@ -912,7 +912,7 @@ def pbkdf2_verify(password: str, stored: str) -> bool:
 # Django uses PBKDF2-SHA256 by default with 600,000 iterations (Django 4.2+)
 # Format: pbkdf2_sha256$600000$SALT$HASH
 
-# Java — Spring Security
+# Java: Spring Security
 PasswordEncoder encoder = new Pbkdf2PasswordEncoder("", 16, 600000,
     Pbkdf2PasswordEncoder.SecretKeyFactoryAlgorithm.PBKDF2WithHmacSHA256);
 String encoded = encoder.encode(rawPassword);
@@ -929,7 +929,7 @@ Iteration count guidance (OWASP 2023):
 Memory-hard algorithm; excellent GPU resistance. Harder to configure correctly than Argon2id.
 
 ```python
-# Python — standard library (Python 3.6+)
+# Python: standard library (Python 3.6+)
 import hashlib, os
 
 def scrypt_hash(password: str) -> str:
@@ -1108,7 +1108,7 @@ Windows LAPS (built into Windows 11 22H2+ and Server 2022 22H2+) automatically m
 
 ```powershell
 # Legacy LAPS (Microsoft LAPS download) vs Windows LAPS (built-in)
-# Windows LAPS preferred — use built-in cmdlets
+# Windows LAPS preferred: use built-in cmdlets
 
 # Active Directory: extend schema for Windows LAPS
 Update-LapsADSchema
@@ -1193,7 +1193,7 @@ Enterprise Privileged Access Management (PAM) solutions provide just-in-time (JI
 | Delinea Secret Server | Web-based vault; approval workflows; checkout/check-in model |
 
 ```bash
-# HashiCorp Vault — just-in-time AD credentials
+# HashiCorp Vault: just-in-time AD credentials
 vault secrets enable ad
 vault write ad/config \
     binddn="CN=vault,OU=ServiceAccounts,DC=corp,DC=local" \

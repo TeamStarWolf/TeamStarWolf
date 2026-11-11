@@ -59,6 +59,10 @@ The `ID` and `VERSION_ID` fields of `/etc/os-release` (the [os-release format](h
 | 12 | `ID=debian`, `VERSION_ID=12` | Not checked on a running system |
 | 11 | `ID=debian`, `VERSION_ID=11` | Not checked on a running system |
 
+## Security relevance
+
+Debian is one of the most widely deployed server bases, so it is a frequent foothold rather than an initial target. The surface is the usual Linux one: SSH and sudo, SUID binaries, and kernel local-privilege-escalation paths, plus the apt and dpkg supply chain, which the XZ Utils backdoor targeted at the upstream level. Measure the host against the CIS Benchmark and audit with Lynis; see the case study and hardening references below.
+
 ## Hardening
 
 - [Linux Hardening Reference Library](/LINUX_HARDENING_REFERENCE.md)

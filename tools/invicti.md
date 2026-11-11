@@ -4,6 +4,55 @@
 
 Invicti is the umbrella brand uniting two pioneering DAST scanners - Netsparker (rebranded Invicti in 2022) and Acunetix - plus the Kondukto ASPM engine acquired in 2025. Its signature is proof-based scanning: when it finds a likely vulnerability it safely auto-exploits it to confirm the finding is real, cutting false positives. In 2025 it broadened from pure web-app scanning into a unified application security platform spanning DAST, SAST, IAST, SCA, API security, container and secrets scanning, and ASPM.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the application security engineers who run Invicti
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (2,027 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what Invicti can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md), [Application Security Testing](/APPSEC_TESTING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Snyk](/tools/snyk.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities & architecture
 
 **Core capabilities**
@@ -44,6 +93,24 @@ Invicti's VM role is Assess/Scan-Prioritize-Validate for the web/API layer: it f
 **Framework mapping:** NIST CSF 2.0: Identify (app/API inventory), Protect, Detect; CIS Controls v8: 16 (Application Software Security), 7 (Continuous Vulnerability Management), 18 (Penetration Testing); MITRE ATT&CK mitigations: M1050 Exploit Protection, M1051 Update Software, M1016 Vulnerability Scanning; OWASP Top 10 / ASVS alignment for web findings
 
 **In a critical-CVE scenario.** First 24-72h on a critical CVE in an internet-facing app: (1) run targeted Invicti/Acunetix DAST across the affected web apps and APIs to detect whether the vulnerable condition is present and reachable; (2) use Proof-Based Scanning and Shark/AcuSensor IAST to confirm exploitability and locate the vulnerable code; (3) prioritize confirmed, exploitable findings over theoretical ones; (4) export a virtual-patch/WAF rule to block exploitation while developers fix the code; (5) re-scan to validate the fix and feed results into ASPM for posture tracking. Cloud workload coverage is limited to its web/API surface - pair with a VM/CNAPP tool.
+
+## Adversary perspective
+
+Invicti finds vulnerabilities; it does not block them, so an adversary treats it as something to blind or outrun rather than evade at runtime, and the scanner itself holds stored application credentials and broad authenticated access, which makes it a target in its own right. The detection and tuning guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and coverage gaps
+
+- Unscanned surface: a DAST sees only what it can reach and crawl; single-page-app routes, unlinked endpoints, states behind complex workflows, and APIs absent from the provided schema go untested, so an absent finding is not proof of safety.
+- Authenticated blind spots: areas behind a login are tested only when the scan's credentials and session handling hold; a dropped session or an un-provided role leaves that surface unexamined.
+- Logic the scanner cannot model: proof-based scanning confirms injection-class flaws well, but business-logic abuse, broken access control, and authorization gaps ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)) are largely outside what an automated crawler asserts; attackers also pace requests to resemble normal traffic.
+
+### Residual risk and own exposure
+
+A finding is not a fix: the vulnerability remains exploitable until code is changed or a compensating control is added, and a quiet or stale scanner leaves fresh exposure unseen. The scanner stores privileged scan credentials and its results are a map of exactly where the weak spots are ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)), so its credential store, service account, and findings belong in the patch and monitoring scope.
+
+### Why it matters
+
+Knowing that coverage depends on crawl reach and valid authentication, and that logic flaws slip past automation, tells a tester to probe by hand where the scanner is blind and a defender not to read a clean report as a clean application. See [web application pentesting](/WEB_APPLICATION_PENTESTING.md) for the manual method and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for turning findings into tracked remediation.
 
 ## Validation & telemetry
 
@@ -107,17 +174,17 @@ _Official documentation & manuals_
 - [Invicti Support / Help Center](https://www.invicti.com/support)
 
 _API & developer docs_
-- [Invicti Platform API — getting started](https://docs.invicti.com/ip/category/platform-api)
+- [Invicti Platform API: getting started](https://docs.invicti.com/ip/category/platform-api)
 - [Get your Invicti Platform API key](https://docs.invicti.com/ip/s1-get-your-api-key)
 - [Access API documentation (Swagger UI from user settings)](https://docs.invicti.com/ip/access-api-documentation)
-- [Acunetix API usage articles —  (examples; no formal standalone REST reference published)](https://www.acunetix.com/blog/)
+- [Acunetix API usage articles: (examples; no formal standalone REST reference published)](https://www.acunetix.com/blog/)
 
 _GitHub (official)_
 - [Invicti Security GitHub organization](https://github.com/Invicti-Security)
-- [brainstorm — LLM-assisted web fuzzing (ffuf wrapper)](https://github.com/Invicti-Security/brainstorm)
-- [netsparker-custom-security-checks — custom checks for Netsparker/Invicti](https://github.com/Invicti-Security/netsparker-custom-security-checks)
-- [netsparker-cloud-scan-plugin — Jenkins plugin to trigger Enterprise scans](https://github.com/Invicti-Security/netsparker-cloud-scan-plugin)
-- [invicti-platform-onprem-tools — on-prem deployment tooling](https://github.com/Invicti-Security/invicti-platform-onprem-tools)
+- [brainstorm: LLM-assisted web fuzzing (ffuf wrapper)](https://github.com/Invicti-Security/brainstorm)
+- [netsparker-custom-security-checks: custom checks for Netsparker/Invicti](https://github.com/Invicti-Security/netsparker-custom-security-checks)
+- [netsparker-cloud-scan-plugin: Jenkins plugin to trigger Enterprise scans](https://github.com/Invicti-Security/netsparker-cloud-scan-plugin)
+- [invicti-platform-onprem-tools: on-prem deployment tooling](https://github.com/Invicti-Security/invicti-platform-onprem-tools)
 
 _Community / integration / detection repos_
 - Acunetix/Invicti CI integrations are mostly first-party (Jenkins, Azure DevOps, GitHub) under the Invicti-Security org; few notable independent community repos exist for this commercial DAST.

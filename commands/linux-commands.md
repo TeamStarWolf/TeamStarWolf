@@ -2,6 +2,55 @@
 
 The GNU/Linux core utilities are the programs you reach for at any shell prompt on a Linux system. They run on servers, workstations, containers, and embedded devices. This page groups the commands by task: files, text, processes, permissions, disk, archives, and packages. Every example is a real invocation you can paste at a `bash` prompt.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Administrators, analysts and engineers who work on Linux hosts
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (958 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the Linux commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [macOS Command Reference](/commands/macos-commands.md), [systemd and systemctl Reference](/commands/systemctl.md), [SSH Command Reference](/commands/ssh.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 Most of these tools come from GNU coreutils, `util-linux`, `findutils`, and `grep`, installed by default on nearly every Linux distribution. They operate on files, streams, and processes through the kernel. They read from standard input, write to standard output, and signal errors through standard error and an exit status. Pipes (`|`) and redirection (`>`, `<`) compose them into larger operations.
@@ -147,6 +196,30 @@ tar -tzf home-*.tgz | head
 | `-n` | `grep`, `sort` | Line numbers, or numeric sort |
 | `--preserve-root` | `rm` | Refuse to act on `/` (default on GNU `rm`) |
 | `-p` | `mkdir` | Create parent directories as needed |
+
+## Security relevance
+
+This section is the threat-facing view of the Linux core utilities: how an operator abuses the tools already on a host and what a defender sees. The safe-use and configuration guidance is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Living off the land. After a foothold, an operator prefers the stock binaries rather than dropping tools: `find`, `ls`, and `cat` for discovery, `id` and `whoami` for context, `curl` or `wget` to pull a payload, `chmod +x` to make it runnable, and `base64` and `tar` to stage and compress data for exfiltration.
+- Persistence. A new cron entry, a modified shell profile, or a `nohup`/`setsid` detached process keeps access across logout and reboot.
+- Scripting. These commands are driven by `bash`; a script that passes untrusted data to the shell is where command injection lives (/languages/bash.md).
+- Telemetry. The kernel audit framework and auditd record `execve`, so process-creation events capture the `curl` to `chmod` to run sequence; shell history, `/var/log`, and osquery add context. Defenders use the same tools for triage: `find -mtime` surfaces recent changes and `stat` exposes timestamp tampering.
+
+### Dominant weakness classes
+
+These are userspace utilities acting on files and processes, so the risks are misuse, exposure, and injection rather than memory corruption.
+
+- OS command injection when a script builds a shell command from untrusted input ([CWE-78](https://cwe.mitre.org/data/definitions/78.html)).
+- Incorrect permission assignment for a critical resource ([CWE-732](https://cwe.mitre.org/data/definitions/732.html)) through `chmod 777` or a loose `umask`.
+- Execution with unnecessary privileges ([CWE-250](https://cwe.mitre.org/data/definitions/250.html)) via broad `sudo` or setuid binaries.
+- Untrusted search path ([CWE-426](https://cwe.mitre.org/data/definitions/426.html)) when a privileged program trusts `PATH`.
+
+### Why it matters
+
+Recognizing that routine binaries are also an adversary's toolkit lets a defender write detections keyed on command sequences rather than file names, and lets an auditor spot the permission and `sudo` mistakes that turn a single foothold into root. See [the Linux hardening reference](/LINUX_HARDENING_REFERENCE.md) for the controls that constrain this behavior.
 
 ## Security notes
 

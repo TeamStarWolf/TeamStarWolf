@@ -2,6 +2,55 @@
 
 XML (Extensible Markup Language) is a text format for structured, hierarchical documents. It uses nested tagged elements with attributes to describe data and its relationships. It predates JSON and remains common in enterprise systems, documents, and configuration. Its support for external entities and document type definitions is the source of its best-known vulnerabilities.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers, engineers and analysts who read, write or parse XML
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (918 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are reading or writing XML by hand or in code, you want a worked example and the tools that handle it, or you are parsing untrusted input and need its security considerations
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax and structure](#syntax-and-structure), [A worked example](#a-worked-example), [Security considerations](#security-considerations)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [JSON](/formats/json.md), [YAML](/formats/yaml.md), [HTML](/formats/html.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 XML marks up data with tags so that structure and content travel together. It is verbose compared with JSON but supports namespaces, schemas, and mixed content.
@@ -84,6 +133,28 @@ The ampersand in the customer name is escaped as `&amp;` so the document stays w
 - Schema tools validate against XSD or RELAX NG.
 
 Choose a streaming parser for large or untrusted input, and configure the parser securely before you read anything, as described below.
+
+## Security relevance
+
+This section is the threat-facing view of XML: why it is a high-value target and where it is attacked in the field. The parser-hardening steps that defend against these are in the "Security considerations" section that follows.
+
+### Where it appears
+
+- Trust boundaries. XML carries SOAP requests, SAML authentication assertions, and many enterprise integrations, so a parser on the edge processes attacker-reachable input by design.
+- Document formats. Office Open XML (`.docx`) and SVG are XML under the surface, which makes them carriers for entity-based payloads and markup injection delivered through ordinary-looking files.
+- Configuration. `pom.xml`, Spring beans, and similar files are parsed by build and application servers, extending the surface into the toolchain.
+
+### Dominant weakness classes
+
+XML is text, so the risks are parser behavior and trust, not memory corruption. The defensive settings for each are in the section below.
+
+- XML external entity injection ([CWE-611](https://cwe.mitre.org/data/definitions/611.html)), the class that made XML infamous: a resolved external entity reads local files or performs server-side requests, and in some stacks reaches code execution.
+- Improper verification of a cryptographic signature ([CWE-347](https://cwe.mitre.org/data/definitions/347.html)) through SAML signature-wrapping, which can forge an authenticated session.
+- Recursive entity expansion ([CWE-776](https://cwe.mitre.org/data/definitions/776.html)), the billion-laughs denial of service.
+
+### Why it matters
+
+Recognizing an XML or SOAP endpoint tells a tester to try a `DOCTYPE` with an external entity and, on a SAML flow, a signature-wrapping bypass, because both are high-impact and still common. Burp Suite and SAML Raider are the usual tools. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for the surrounding method.
 
 ## Security considerations
 

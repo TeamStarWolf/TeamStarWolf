@@ -96,6 +96,7 @@ Controlling access to local computer system resources with kernel-level capabili
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
+- [Stuxnet: The Case Study](/case-studies/STUXNET.md)
 
 <!-- library-refs:end -->
 

@@ -2,6 +2,55 @@
 
 Azure Backup is the native backup service for Microsoft Azure. It protects Azure virtual machines, databases, file shares, and other workloads using Recovery Services vaults and Backup vaults. Immutability, soft delete, and multi-user authorization defend the backups themselves against tampering. For a security team it is the corrective control that restores cloud data after a destructive attack or a rogue administrator.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Backup administrators, infrastructure engineers and incident responders who run, tune or assess Azure Backup
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,258 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Azure Backup for backup and cyber recovery, you are hardening its deployment, or you need to see where it fits in the program
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md), [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [AWS Backup](/platforms/aws-backup.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Azure Backup centralizes backup for Azure workloads through two vault types. Recovery Services vaults cover virtual machines, SQL and SAP in Azure VMs, and Azure Files. Backup vaults cover newer workloads such as Azure Blobs, disks, and PostgreSQL.
@@ -59,6 +108,24 @@ Follow the 3-2-1-1-0 rule in cloud terms. Keep multiple copies across regions, w
 Anomaly detection comes from the surrounding services. Use Microsoft Defender for Cloud and Azure Monitor alerts to flag mass deletions, suspicious restores, or attempts to disable soft delete.
 
 Test restores on a schedule. Recover virtual machines, databases, and file shares into an isolated environment to confirm the recovery points are usable.
+
+## Adversary perspective
+
+Because Azure Backup is the recovery of last resort, ransomware actors and rogue administrators treat it as something to neutralize before they detonate, and the vaults, their policies, and the identities over them are themselves an attack surface. The steps to lock the service down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Destroying recovery before impact (ATT&CK T1490, Inhibit System Recovery): with a stolen or malicious admin identity an attacker tries to delete recovery points or shorten retention before encrypting production. Soft delete keeps deleted data for a window, and a locked immutable vault cannot be weakened early, which blunts this path.
+- Disabling the protections first (ATT&CK T1685, Disable or Modify Tools): the attacker's precursor step is to turn off soft delete or lower retention. Multi-user authorization requires a second principal to approve those sensitive changes, so one compromised account is not enough.
+- Abusing the backup identity (ATT&CK T1078, Valid Accounts): over-broad Azure RBAC on vaults, or a compromised privileged account, lets an attacker alter policy or destroy copies ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+
+### Residual risk and own exposure
+
+Azure Backup cannot prevent a compromise and cannot recover workloads that were never enrolled, so unprotected resources are a silent gap. The service runs with high privilege over backup data, and backup software across the industry has been a notable exploitation target, so its control plane and the identities over it belong in the patch and monitoring scope.
+
+### Why it matters
+
+A tester probes whether soft delete can be disabled or retention weakened with the access at hand, and whether multi-user authorization is actually enforced. A defender alarms on attempts to disable soft delete, retention changes, and mass deletion as incidents in their own right. See [the ransomware defense reference](/RANSOMWARE_DEFENSE_REFERENCE.md) for how immutable and isolated copies fit, and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

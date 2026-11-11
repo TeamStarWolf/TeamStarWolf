@@ -2,6 +2,55 @@
 
 AWS Backup is the native, centralized backup service for Amazon Web Services. It applies backup plans and policies across many AWS services from one place instead of per-service scripts. Backups land in Backup Vaults, which can be locked for write-once-read-many immutability. For a security team it is the corrective control that restores cloud data after a destructive attack or accidental deletion.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Backup administrators, infrastructure engineers and incident responders who run, tune or assess AWS Backup
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,252 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running AWS Backup for backup and cyber recovery, you are hardening its deployment, or you need to see where it fits in the program
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md), [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Azure Backup](/platforms/azure-backup.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 AWS Backup coordinates backup across AWS services such as EBS, RDS, DynamoDB, EFS, S3, and others. It replaces scattered, per-service snapshot jobs with one policy-driven service.
@@ -57,6 +106,24 @@ Follow the 3-2-1-1-0 rule in cloud terms. Keep multiple copies across Regions an
 Anomaly detection in AWS comes from the surrounding services. Use CloudTrail, GuardDuty, and CloudWatch alarms to flag mass deletions, policy changes, or suspicious restore activity against vaults.
 
 Test restores on a schedule. Recover EBS volumes, RDS databases, and other resources into an isolated environment to confirm the recovery points are usable.
+
+## Adversary perspective
+
+Because AWS Backup is the recovery of last resort, ransomware actors treat it as something to neutralize before they detonate, and the service, its IAM roles, and its vaults are themselves an attack surface. The steps to lock the service down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Destroying recovery before impact (ATT&CK T1490, Inhibit System Recovery): with stolen credentials an attacker tries to delete recovery points, shorten retention, or remove vaults before encrypting or wiping production. Vault Lock in compliance mode and cross-account copies are the counters, because a locked copy cannot be deleted early even by the account root user.
+- Abusing the backup identity (ATT&CK T1078, Valid Accounts): the IAM service role and broad console or API permissions are a target, and an over-scoped role or a stolen long-lived key lets an attacker change plans, disable copies, or read protected data ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Reaching the data behind the service: recovery points ultimately sit in storage that an attacker with enough IAM reach can target directly, so cross-account isolation matters as much as the vault setting.
+
+### Residual risk and own exposure
+
+AWS Backup cannot stop a compromise and cannot recover data that was never in scope, so a missed tag is a silent gap. The service holds broad permissions across accounts, and backup software across the industry has been a notable exploitation target, so its control plane and credentials belong in the patch and monitoring scope.
+
+### Why it matters
+
+A tester probes whether backups can be deleted or retention weakened with the credentials at hand. A defender alarms on mass deletion, retention changes, and vault policy edits as incidents in their own right. See [the ransomware defense reference](/RANSOMWARE_DEFENSE_REFERENCE.md) for how immutable and isolated copies fit, and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

@@ -2,6 +2,55 @@
 
 The Windows Command Prompt (`cmd.exe`) runs built-in commands and console utilities on every Windows release. It is the oldest Windows shell and still the home of batch scripting and many administrative tools. This page covers the builtins and utilities a sysadmin or security engineer uses at the prompt. PowerShell is the modern shell, but `cmd.exe` remains on every host and in countless scripts.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Windows administrators, analysts and responders who work in cmd.exe
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (859 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the Windows Command Prompt commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [PowerShell Command Reference](/commands/powershell-commands.md), [Networking Command Reference](/commands/networking-commands.md), [Linux Command Reference](/commands/linux-commands.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 `cmd.exe` is the Windows command interpreter, present on Windows client and server editions. Some commands listed here are interpreter builtins (`dir`, `copy`, `del`); others are separate executables in `%SystemRoot%\System32` (`ipconfig.exe`, `sc.exe`, `reg.exe`). Many administrative commands require an elevated prompt, started with "Run as administrator". Paths use backslashes, and environment variables are written `%VAR%`.
@@ -119,6 +168,30 @@ reg query HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 | `/a` | `dir` | Include hidden and system entries |
 | `/fo LIST` | `schtasks`, `tasklist` | Format output as a readable list |
 | `/grant` `/deny` | `icacls` | Add or remove an ACL entry |
+
+## Security relevance
+
+This section is the threat-facing view of `cmd.exe`: how an operator abuses the built-in commands and console utilities on a host and what a defender sees. The safe-use and configuration guidance is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Living off the land. Signed Windows binaries double as downloaders and runners, so an operator avoids dropping new tools: `certutil` fetches and decodes a payload, `bitsadmin` transfers it, and `regsvr32`, `mshta`, and `rundll32` execute code through trusted hosts.
+- Discovery. `whoami /all`, `net user`, `net localgroup`, `systeminfo`, and `tasklist` build a picture of the account, patch level, and running processes right after access.
+- Persistence. A new `schtasks` entry or a value under a `...\CurrentVersion\Run` registry key pointing at a user-writable path keeps access across reboot.
+- Telemetry. Process-creation events (Event ID 4688 with command line auditing on, or Sysmon Event ID 1) capture the full command line, so defenders hunt `certutil -urlcache`, encoded arguments, and account-enumeration bursts.
+
+### Dominant weakness classes
+
+These are built-in interpreters and utilities, so the risks are trust and misuse rather than memory corruption.
+
+- OS command injection when a batch script builds a command line from untrusted input ([CWE-78](https://cwe.mitre.org/data/definitions/78.html)).
+- Incorrect permission assignment for a critical resource ([CWE-732](https://cwe.mitre.org/data/definitions/732.html)) through an `icacls` grant such as `Everyone:F`.
+- Inclusion of functionality from an untrusted control sphere ([CWE-829](https://cwe.mitre.org/data/definitions/829.html)) when a living-off-the-land binary pulls a remote payload.
+- Execution with unnecessary privileges ([CWE-250](https://cwe.mitre.org/data/definitions/250.html)) when work runs from an elevated prompt by default.
+
+### Why it matters
+
+Knowing which signed binaries act as downloaders and runners lets a defender alert on their abuse instead of trusting them by name, and lets an auditor catch the weak ACLs and autostart entries that invite persistence. See [the Windows hardening reference](/WINDOWS_HARDENING_REFERENCE.md) for the controls that limit this surface.
 
 ## Security notes
 

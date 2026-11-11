@@ -2,6 +2,55 @@
 
 Rapid7 InsightVM is a vulnerability management product on the Rapid7 Insight platform. It uses the Nexpose scan engine and the Insight Agent to find and track vulnerabilities across hosts and networks. It sits alongside other Insight products, including InsightIDR for detection and response and InsightConnect for automation. Licence tier and module entitlement decide what is in force; this page does not describe any specific organization's deployment.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads and analysts who run, tune or assess Rapid7 InsightVM
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,249 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Rapid7 InsightVM for vulnerability and exposure management, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Tenable](/platforms/tenable.md), [Qualys](/platforms/qualys.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 InsightVM covers the vulnerability management part of a security program. It identifies vulnerabilities and misconfigurations, scores them by real risk, and tracks remediation to closure. It is built for ongoing management rather than one-off scanning.
@@ -47,6 +96,25 @@ Findings flow to downstream systems. InsightVM integrates with ServiceNow so vul
 SIEM integration sends vulnerability and asset data to log analytics platforms, and InsightVM data can feed InsightIDR within the same platform. Detection teams correlate exposure with alerts and telemetry. InsightConnect can automate response steps across these systems.
 
 InsightVM is the source of vulnerability truth, and ServiceNow and the SIEM consume it. Consistent asset identity across the systems keeps the join reliable.
+
+## Adversary perspective
+
+Because a scanner holds privileged scan credentials and a broad read map of the estate, adversaries treat InsightVM as both something to blind and a target worth stealing from. The steps to lock the deployment down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Stealing scan credentials (ATT&CK T1078, Valid Accounts): authenticated-scan credentials and API keys reach many hosts, so a leaked credential gives an attacker the scanner's own broad access ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Blending with scans: an attacker who learns the scan window times activity to it, so engine probing traffic masks malicious requests.
+- Suppressing findings (ATT&CK T1685, Disable or Modify Tools): with console access an attacker can close findings, exclude assets, or edit scan templates to create a blind spot that still looks covered.
+- Reading the findings: the finding set and Real Risk ordering rank where the estate is weakest, which is direct reconnaissance.
+
+### Residual risk and own exposure
+
+A scanner only reports what its engines and agents reach, so scope gaps and point-in-time timing leave real exposure unseen. The scan engines, Insight Agent, and console run with high privilege and broad network reach, so a flaw in the product is high-impact and belongs in the patch and monitoring scope like any other software.
+
+### Why it matters
+
+A tester targets the scan credentials and the console rather than the hosts the scanner already reports on. A defender monitors the scanner's own account use, template and scope changes, and suppressed findings as signals in their own right. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope and [the red team reference](/RED_TEAM_REFERENCE.md) for the credential and evasion techniques.
 
 ## Hardening and secure use
 

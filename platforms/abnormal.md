@@ -2,6 +2,55 @@
 
 Abnormal AI is a behavioral-artificial-intelligence email security service. It models normal communication for an organization, then flags messages that deviate from that baseline. This page describes the generally available product in 2026. Licence tier decides which capabilities are in force.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Email security engineers, messaging administrators and SOC analysts who run, tune or assess Abnormal AI
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,053 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Abnormal AI for email protection, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Mimecast](/platforms/mimecast.md), [Proofpoint](/platforms/proofpoint.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Signature and reputation controls catch known-bad mail. They struggle with socially engineered attacks that carry no malware and come from a legitimate or newly compromised account. Abnormal AI targets that gap.
@@ -45,6 +94,24 @@ Abnormal AI connects to the mail platform through an `API` grant and reads mail 
 Account-takeover signals can drive identity response, such as session revocation in the identity provider. Case data can feed a security orchestration tool for notification and ticketing.
 
 Data flows inward from the mail tenant as the signals the models need. Data flows outward as detections and events. Keep the grant limited to the scopes the service actually uses.
+
+## Adversary perspective
+
+Abnormal AI is a control attackers study and try to slip past, so they shape messages to read as normal and abuse trusted relationships, and the mail-tenant grant it runs on is itself a target. The defensive steps are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Staying inside the baseline: because detection is behavioral, an attacker who compromises a real account and sends from it, in the expected style and to the usual contacts, can act within the learned pattern before the model reacts.
+- Trusted-sender and allow-list abuse: mail from a partner domain or an address on an allow-list can skip scrutiny, so attackers favor compromised third-party accounts and vendor-thread hijacking for payment fraud.
+- Look-alike and display-name fraud: registered look-alike domains and spoofed display names carry no payload and no known-bad signal, which is the gap behavioral scoring aims at but does not always close.
+
+### Residual risk and own exposure
+
+No model catches every socially engineered message, and one that stays within pattern or arrives from a trusted account can still get through. Because integration is through a scoped grant to the mail tenant, that grant is a high-value target: an over-broad or stolen token ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)) could read mail and identity signals, so the connection belongs in the monitoring and review scope.
+
+### Why it matters
+
+Pair the control with identity response and user reporting, and treat sudden payment or vendor-change requests as worth out-of-band verification regardless of a clean verdict. See [the incident response reference](/INCIDENT_RESPONSE_REFERENCE.md) for scoping a mail compromise and [the red team reference](/RED_TEAM_REFERENCE.md) for social-engineering technique.
 
 ## Hardening and secure use
 

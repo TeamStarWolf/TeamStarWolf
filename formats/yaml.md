@@ -2,6 +2,55 @@
 
 YAML (YAML Ain't Markup Language) is a text format for structured data that favors human readability. It uses indentation instead of brackets and supports scalars, lists, and maps. It is common in configuration and infrastructure tooling. Its flexibility makes it convenient but also creates several sharp edges.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers, engineers and analysts who read, write or parse YAML
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (902 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are reading or writing YAML by hand or in code, you want a worked example and the tools that handle it, or you are parsing untrusted input and need its security considerations
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax and structure](#syntax-and-structure), [A worked example](#a-worked-example), [Security considerations](#security-considerations)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [JSON](/formats/json.md), [TOML](/formats/toml.md), [XML](/formats/xml.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 YAML encodes the same data model as JSON (every JSON document is valid YAML) with a layout meant for people to edit by hand. Significant whitespace replaces most punctuation.
@@ -100,6 +149,28 @@ The version is quoted so it stays a string and is not read as the number `2.0`. 
 - Editors with YAML language servers flag structural errors as you type.
 
 In PyYAML, always call `yaml.safe_load`, never `yaml.load` with the default loader. Other libraries have an equivalent safe mode; prefer it.
+
+## Security relevance
+
+This section is the threat-facing view of YAML: why an unsafe loader is a direct path to code execution and where that is reached. The safe-loader and limit settings that defend against these are in the "Security considerations" section that follows.
+
+### Where it appears
+
+- Infrastructure as code. Kubernetes manifests, Helm charts, and Ansible playbooks are YAML, so a loader processing a supplied manifest handles attacker-influenced input.
+- CI and CD pipelines. GitHub Actions and GitLab CI read YAML, and a workflow file in a pull request is untrusted input to the parser that reads it.
+- Application and API config. Services and OpenAPI tooling load YAML, bringing untrusted documents to whichever loader the library defaults to.
+
+### Dominant weakness classes
+
+YAML is text, so the risk is not memory corruption but what the loader is allowed to do while building objects from the document.
+
+- Deserialization of untrusted data ([CWE-502](https://cwe.mitre.org/data/definitions/502.html)), where a loader that honors tags such as `!!python/object/apply` constructs arbitrary objects or invokes code, turning a parsed document into code execution.
+- Uncontrolled resource consumption ([CWE-400](https://cwe.mitre.org/data/definitions/400.html)) through nested anchors and aliases that expand a tiny input into an enormous structure, the billion-laughs attack adapted to YAML.
+- Incorrect type conversion ([CWE-704](https://cwe.mitre.org/data/definitions/704.html)) when plain scalars are guessed into the wrong type, so a value an attacker controls can flip meaning between parsers.
+
+### Why it matters
+
+Recognizing a YAML sink tells a tester to check which loader is used and to try an object-instantiating tag and an alias-expansion payload, because the default loader in some libraries is still unsafe. See [the secure coding reference](/SECURE_CODING_REFERENCE.md) for the surrounding method.
 
 ## Security considerations
 

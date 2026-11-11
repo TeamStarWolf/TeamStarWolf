@@ -4,6 +4,55 @@
 
 Wiz is a unified, agentless CNAPP that scans entire multicloud environments by connecting to cloud provider APIs and analyzing workload snapshots, then normalizes everything into the Wiz Security Graph to surface the toxic combinations and attack paths that create real, exploitable risk. It solves the problem of fragmented cloud security point tools by giving one agentless platform covering posture, workloads, data, identities, containers, code and runtime. It is known for fast time-to-value and for prioritizing the handful of truly critical issues out of thousands of findings.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the cloud security engineers who run Wiz
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,344 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what Wiz can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md), [CTEM Reference](/CTEM_REFERENCE.md), [ServiceNow USEM with Tenable and Wiz](/tools-research/SERVICENOW_USEM_TENABLE_WIZ.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities & architecture
 
 **Core capabilities**
@@ -48,11 +97,29 @@ Wiz is the discover-assess-prioritize powerhouse: it continuously (snapshot-base
 
 **In a critical-CVE scenario.** First 24-72h of a critical CVE in an internet-facing app + cloud workload: Wiz instantly queries the Security Graph to list every affected resource across all clouds and, far more importantly, ranks the few that are internet-exposed AND over-privileged AND near sensitive data - the real blast radius. Teams immediately break the attack path as compensating mitigation (remove public exposure, revoke excessive entitlements via CIEM, isolate), while Wiz Defend watches for active exploitation. Wiz feeds the prioritized target list to the remediation pipeline (rebuild images / patch), then re-scans to confirm the toxic combination is resolved.
 
+## Adversary perspective
+
+Wiz surfaces toxic combinations and attack paths; it reports risk rather than standing between the attacker and the workload, so an adversary treats it as something to blind, starve of coverage, or live alongside. Its agentless model connects to cloud-provider APIs with broad read across the estate, and its Security Graph maps exactly where the exploitable paths are, which makes its connector roles and findings a target in their own right. The detection and tuning guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and coverage gaps
+
+- Blinding the graph: an attacker with sufficient cloud rights can remove or weaken the Wiz connector role, exclude accounts or subscriptions, or tamper with the logs that feed runtime signals (ATT&CK T1685 Disable or Modify Tools), so the graph no longer reflects the real estate.
+- Snapshot and coverage gaps: agentless scanning reads periodic snapshots and API state, so short-lived workloads, in-memory-only activity, and resources between scans can be missed, and a cloud account or region outside the connected scope is unseen.
+- Blending with assessment: attackers time enumeration and access to resemble the platform's own broad read traffic, and a surfaced attack path is detective, not a preventive block.
+
+### Residual risk and own exposure
+
+A prioritized finding is not a fix: the toxic combination stays exploitable until someone breaks the path, and prioritization can defer real exposure. The connector roles hold privileged read across every connected cloud and the graph reveals the shortest path to crown-jewel data ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)), so those roles and the finding store belong at the front of the patch and monitoring scope.
+
+### Why it matters
+
+Knowing that the graph depends on connector coverage and snapshot timing, and that an attack path is a report not a barrier, tells a tester where to look and a defender to protect the connector plane and close paths rather than just view them. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) for the control model and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for turning findings into tracked remediation.
+
 ## Validation & telemetry
 
 **Log sources**
-- Authoritative source: Wiz GraphQL API at https://api.<DC>.app.wiz.io/graphql (DC = us1|us2|eu1|eu2), OAuth2 client-credentials from a service account (scope read:issues etc.).
-- Issues (issuesV2 query): correlated risks, each tied to a sourceRule union — concrete types Control, CloudConfigurationRule, CloudEventRule.
+- Authoritative source: Wiz GraphQL API at `https://api.<DC>.app.wiz.io/graphql` (DC = us1|us2|eu1|eu2), OAuth2 client-credentials from a service account (scope read:issues etc.).
+- Issues (issuesV2 query): correlated risks, each tied to a sourceRule union: concrete types Control, CloudConfigurationRule, CloudEventRule.
 - Vulnerability findings (vulnerabilityFindings): per-CVE results from agentless disk scanning / the Wiz sensor.
 - Cloud configuration findings (cloudConfigurationFindings): result PASS|FAIL|ERROR|NOT_ASSESSED.
 - SIEM delivery: Wiz webhooks (automation rules on Issue create/update with a Severity filter) deliver Wiz.IssuesWebhook JSON near real-time; or scheduled API pull (Wiz.Issues) via Splunk/Sentinel/Cortex XSOAR add-ons; or the Wiz data connector / cloud-events stream. Wiz Sensor (eBPF) + Admission Controller add runtime detections and deploy-time enforcement.
@@ -60,7 +127,7 @@ Wiz is the discover-assess-prioritize powerhouse: it continuously (snapshot-base
 
 **Telemetry format / transport.** GraphQL JSON (API pull) and webhook JSON (push). SIEM add-ons normalize to their own sourcetypes (Splunk 'wiz:issue', Panther Wiz.IssuesWebhook / Wiz.Issues). Transport: HTTPS GraphQL + HTTPS webhook POST. Sentinel parsers map sourceRule fields into a custom schema.
 
-**Control-presence check (present & configured?).** Confirm connector coverage first: query CloudAccounts/graph to confirm the target subscription/account is connected and recently scanned (stale/disconnected = findings not authoritative). Control presence is itself a Wiz Control/CloudConfigurationRule: query cloudConfigurationFindings for the resource+rule — result == 'PASS' means the config control is present and satisfied, 'FAIL' absent/misconfigured, 'NOT_ASSESSED' out of scope. Sensor/runtime presence: confirm the Wiz Sensor DaemonSet / admission controller is deployed (graph node or cluster connector health). Agentless vuln-scan presence: confirm the scanner role/outpost is attached to the cloud account.
+**Control-presence check (present & configured?).** Confirm connector coverage first: query CloudAccounts/graph to confirm the target subscription/account is connected and recently scanned (stale/disconnected = findings not authoritative). Control presence is itself a Wiz Control/CloudConfigurationRule: query cloudConfigurationFindings for the resource+rule; result == 'PASS' means the config control is present and satisfied, 'FAIL' absent/misconfigured, 'NOT_ASSESSED' out of scope. Sensor/runtime presence: confirm the Wiz Sensor DaemonSet / admission controller is deployed (graph node or cluster connector health). Agentless vuln-scan presence: confirm the scanner role/outpost is attached to the cloud account.
 
 **Validation signals (actually working?)**
 - CONFIGURED: cloudConfigurationFinding result == PASS for the hardening/compensating control, account connected + recently scanned.
@@ -75,7 +142,7 @@ Wiz is the discover-assess-prioritize powerhouse: it continuously (snapshot-base
 - cloudConfigurationFindings: rule{id,name}, result (PASS|FAIL|ERROR|NOT_ASSESSED), severity, resource/target_external_id, remediation, analyzedAt, firstSeenAt, securitySubCategories.
 - vulnerabilityFindings: CVE id/name, severity, hasFix, fixedVersion, detailedName/version, vulnerableAsset{id,name,cloudPlatform}, firstDetectedAt, resolvedAt.
 - Webhook (Wiz.IssuesWebhook) carries issue + entitySnapshot + sourceRule; payload differs slightly from the API's Wiz.Issues shape.
-- NOTE: exact GraphQL type names beyond those above are from third-party connectors — run a GraphQL introspection against your tenant to confirm.
+- NOTE: exact GraphQL type names beyond those above are from third-party connectors: run a GraphQL introspection against your tenant to confirm.
 
 **Example queries**
 
@@ -97,15 +164,15 @@ query CfgFindings{ cloudConfigurationFindings(filterBy:{ rule:{ name:{ equals:"<
 index=wiz (sourcetype="wiz:issue" OR sourcetype="Wiz.IssuesWebhook") status=RESOLVED | eval age=resolvedAt-createdAt | stats count by sourceRule.name, severity, entitySnapshot.cloudPlatform
 ```
 
-**How it mitigates (mechanism).** Wiz is agentless/graph-based: 'mitigation' is reachability/exposure removal confirmed on the next scan (a toxic-combination Issue auto-resolves when any node in the attack path — public exposure, vulnerable package, or excessive permission — is removed), not an inline block; the only true inline enforcement is the Wiz Admission Controller rejecting a non-compliant/vulnerable workload at deploy.
+**How it mitigates (mechanism).** Wiz is agentless/graph-based: 'mitigation' is reachability/exposure removal confirmed on the next scan (a toxic-combination Issue auto-resolves when any node in the attack path, public exposure, vulnerable package, or excessive permission, is removed), not an inline block; the only true inline enforcement is the Wiz Admission Controller rejecting a non-compliant/vulnerable workload at deploy.
 
 **Logging gotchas**
-- Findings are only as fresh as the last agentless scan (hours-cadence) — a just-patched resource keeps an OPEN Issue until re-scan, so OPEN != 'still vulnerable right now'.
+- Findings are only as fresh as the last agentless scan (hours-cadence): a just-patched resource keeps an OPEN Issue until re-scan, so OPEN != 'still vulnerable right now'.
 - A PASS configuration finding proves config state, not that an attack was blocked (Wiz mostly observes, rarely blocks inline).
 - NOT_ASSESSED silently means the control wasn't evaluated (out of scope / scanner permission gap) and is easily mistaken for a pass.
 - Webhook (Wiz.IssuesWebhook) and API-pull (Wiz.Issues) payloads differ, so a parser built for one can drop fields from the other.
-- Cloud-event detections depend on the cloud audit log (CloudTrail/Activity Log) being connected to Wiz — if that ingestion is off, CloudEventRule issues never fire.
-- Service-account client secret is shown once at creation; exact GraphQL schema is behind login — verify field/type names by introspection, not third-party connector field maps.
+- Cloud-event detections depend on the cloud audit log (CloudTrail/Activity Log) being connected to Wiz: if that ingestion is off, CloudEventRule issues never fire.
+- Service-account client secret is shown once at creation; exact GraphQL schema is behind login; verify field/type names by introspection, not third-party connector field maps.
 
 ## Documentation & repositories
 
@@ -117,7 +184,7 @@ _Official documentation & manuals_
 _API & developer docs_
 - [Wiz GraphQL API reference (win.wiz.io/reference)](https://win.wiz.io/reference)
 - [Wiz API endpoint pattern: https://api.<dc>.app.wiz.io/graphql (dc = us1/us2/eu1/eu2 etc.), token via OAuth client credentials](https://win.wiz.io/reference/prerequisites)
-- [Wiz CLI (wizcli) for CI/CD & IaC/image scanning —  (Wiz CLI section)](https://docs.wiz.io/)
+- [Wiz CLI (wizcli) for CI/CD & IaC/image scanning: (Wiz CLI section)](https://docs.wiz.io/)
 
 _GitHub (official)_
 - [wiz-sec-public org (Wiz's public GitHub presence)](https://github.com/wiz-sec-public)

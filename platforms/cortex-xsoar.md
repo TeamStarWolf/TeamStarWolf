@@ -2,6 +2,55 @@
 
 Cortex XSOAR is Palo Alto Networks' security orchestration, automation, and response (SOAR) platform. It was formerly named Demisto. The platform coordinates case handling across the security stack, runs automated playbooks, and gives analysts a shared workspace for investigations.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+SOC engineers and automation builders who run, tune or assess Cortex XSOAR
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,320 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Cortex XSOAR for security orchestration and automation, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Splunk Enterprise Security](/platforms/splunk.md), [Tines](/platforms/tines.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Cortex XSOAR sits between detection tools and the people who respond to alerts. Detection products raise signals. A SIEM or a ticketing system groups some of them. Cortex XSOAR takes those signals as incidents and drives a consistent response for each one.
@@ -48,6 +97,24 @@ Playbooks then act. A phishing playbook might extract URLs and attachments, send
 Results flow back into the incident. Verdicts, enrichment, and the outcome of each action are recorded on the case timeline. Analysts see what ran, and an auditor can trace the full sequence later.
 
 Outbound actions reach other systems. The platform tells an endpoint tool to isolate a host, a firewall to block an address, or an identity provider to disable an account. These are consequential steps and belong behind approval gates where the risk warrants it.
+
+## Adversary perspective
+
+Cortex XSOAR drives response across the stack, so adversaries value the credentials it holds and work to keep their activity out of the cases it would act on, and the server, engines, and API are themselves a target. The defensive steps are in the "Hardening and secure use" section that follows.
+
+### Evasion and tampering
+
+- Suppressing or clearing the case trail (ATT&CK T1685, Disable or Modify Tools, and T1070, Indicator Removal): with access an attacker can disable a playbook, mute an integration, or alter incident records so a response never runs or its history is hidden.
+- Credential and engine abuse: a SOAR holds stored credentials to much of the stack, so a compromised server or engine turns those into a foothold that can isolate hosts, block addresses, or disable accounts on the attacker's behalf ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)).
+- API and playbook tampering: an API token scoped too broadly, or a changed playbook, can redirect actions, exfiltrate incident data, or quietly weaken containment across thousands of cases ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+
+### Residual risk and own exposure
+
+Automation acts only on incidents it receives, so a threat that never raises one is never handled, and an integration call that returns success has not proven the target acted. The platform concentrates credentials to endpoint, network, and identity tools, so its server and engines are high-value and belong in the patch and monitoring scope.
+
+### Why it matters
+
+Treat playbook changes, integration disables, and engine credential use as detection signals, and gate consequential actions behind approval. See [the red team reference](/RED_TEAM_REFERENCE.md) for the evasion techniques and [the incident response reference](/INCIDENT_RESPONSE_REFERENCE.md) for response integrity.
 
 ## Hardening and secure use
 

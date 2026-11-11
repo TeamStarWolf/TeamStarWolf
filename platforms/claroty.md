@@ -2,6 +2,55 @@
 
 Claroty protects cyber-physical systems across operational technology, the Internet of Things, and healthcare. Claroty xDome and Continuous Threat Detection give asset discovery, exposure management, and network monitoring. This page describes the generally available product in 2026. Licence tier decides which capabilities are in force.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+OT and ICS security engineers and asset owners who run, tune or assess Claroty
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (1,034 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Claroty for operational technology and industrial control system security, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[ICS, OT, and hardware](/hubs/ics-ot-and-hardware.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Dragos](/platforms/dragos.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Connected devices now reach far beyond servers and laptops. Control systems, building sensors, and connected medical equipment share networks but rarely tolerate traditional scanning or agents. These are cyber-physical systems.
@@ -44,6 +93,24 @@ Claroty forwards asset data, exposure findings, and detections to a `SIEM` such 
 Segmentation guidance can inform firewall and network-access-control policy, including a network-access-control platform such as Cisco ISE. Detections can drive a security orchestration tool, with enforcement actions kept human-gated in sensitive environments.
 
 Data flows outward as inventory, findings, and detections. Inbound change is limited to configuration and content updates. Keep connected accounts scoped to the data each integration needs.
+
+## Adversary perspective
+
+Claroty mostly watches rather than blocks, so the adversary angle is evading its detection and the fragility of the cyber-physical systems it monitors, not the tool as a route to code execution. The defensive steps are in the "Hardening and secure use" section that follows.
+
+### Evasion and detection gaps
+
+- Blending with normal operations: because detection baselines normal behavior, an attacker who issues valid-looking control commands within expected patterns, or who moves slowly, can stay under the anomaly threshold.
+- Blind spots in passive collection: a passive sensor sees only traffic that crosses a monitored span or tap. Activity on an unmonitored segment, a serial link, or direct physical access to a controller leaves no network record to detect.
+- Starving or spoofing the view (ATT&CK T1685, Disable or Modify Tools): an attacker with a foothold can disrupt the span or tap feeding a sensor, or inject traffic, so the inventory and detections no longer reflect the real state.
+
+### Residual risk and own exposure
+
+Monitoring does not harden the underlying devices: the controllers and medical equipment it watches often cannot be patched quickly and tolerate little active probing, so known weaknesses persist by design. The platform and its collectors hold broad visibility and credentials (leaked keys map to [CWE-798](https://cwe.mitre.org/data/definitions/798.html)), so the management interface belongs off the general network and in the monitoring scope.
+
+### Why it matters
+
+Treat loss of sensor visibility as an event, validate segmentation against observed flows, and remember the control reports risk it cannot itself remove. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for prioritizing fragile assets and [the incident response reference](/INCIDENT_RESPONSE_REFERENCE.md) for control-environment response.
 
 ## Hardening and secure use
 

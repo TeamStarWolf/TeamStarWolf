@@ -2,6 +2,55 @@
 
 TOML stands for Tom's Obvious Minimal Language. It is a configuration file format that maps to a hash table through key-value pairs, tables, and arrays. It aims to be easy to read and unambiguous to parse, with typed values that avoid the guesswork common to other config formats. Tooling in the Rust and Python ecosystems has made it a common choice for project metadata.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers, engineers and analysts who read, write or parse TOML
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (849 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are reading or writing TOML by hand or in code, you want a worked example and the tools that handle it, or you are parsing untrusted input and need its security considerations
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax and structure](#syntax-and-structure), [A worked example](#a-worked-example), [Security considerations](#security-considerations)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [INI](/formats/ini.md), [YAML](/formats/yaml.md), [JSON](/formats/json.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 TOML describes configuration as named values grouped under tables. Each value carries an explicit type: string, integer, float, boolean, date, array, or inline table. The format targets humans who edit config by hand, so it favors clear line structure over nesting depth.
@@ -117,6 +166,28 @@ started = 2026-10-31T00:00:00Z
 - `taplo` provides a formatter, linter, and language server for editors.
 
 Validate TOML against the current specification version, because older parsers may reject dates or inline table features added later.
+
+## Security relevance
+
+This section is the threat-facing view of TOML: a small surface, because the format resists the type games that trip other config languages. The handling guidance that defends against what remains is in the "Security considerations" section that follows.
+
+### Where it appears
+
+- Project and build config. `Cargo.toml` and `pyproject.toml` are read by toolchains, so a poisoned file in a dependency or repository influences a build.
+- Application settings. Services load runtime settings from TOML, making the file a place where a secret can leak into version history or a value can be tampered with.
+- Cross-parser boundaries. The same file is read by parsers targeting different specification versions, so a value one accepts another may read differently.
+
+### Dominant weakness classes
+
+TOML is typed text meant for trusted local config, so there is no deserialization-to-code path; the realistic risks are validation and parser disagreement, not memory corruption.
+
+- Improper input validation ([CWE-20](https://cwe.mitre.org/data/definitions/20.html)) when TOML from an untrusted source is parsed without size limits or checks on the resulting values.
+- Improper validation of syntactic correctness of input ([CWE-1286](https://cwe.mitre.org/data/definitions/1286.html)), where a parser accepts ambiguous or version-specific syntax that another tool reads as a different structure.
+- Cleartext storage of sensitive information ([CWE-312](https://cwe.mitre.org/data/definitions/312.html)) when secrets are committed into config files, the most common real finding on TOML in the field.
+
+### Why it matters
+
+Recognizing TOML tells an auditor to check for committed secrets and to confirm the shipping parser matches the specification version assumed, rather than to expect an injection primitive. See [the secure coding reference](/SECURE_CODING_REFERENCE.md) for the surrounding method.
 
 ## Security considerations
 

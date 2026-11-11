@@ -2,6 +2,55 @@
 
 Cisco Secure Access is Cisco's security service edge. It combines several cloud-delivered security functions behind one policy model and one client. It grew in part from the DNS-layer security that Cisco Umbrella provided.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Network and cloud security engineers who run, tune or assess Cisco Secure Access
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,264 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Cisco Secure Access for security service edge, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md), [Zscaler](/platforms/zscaler.md), [Cisco ISE](/platforms/cisco-ise.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Cisco Secure Access is a cloud-delivered service that controls how users reach the internet and private applications. It brings together access brokering, web inspection, cloud application control, and DNS-layer filtering into a single service.
@@ -64,6 +113,25 @@ The platform integrates with identity providers through `SAML` and `SCIM` so pol
 Logs flow to a SIEM for correlation with endpoint, identity, and network data. Access events, web inspection results, and DNS decisions give a security operations team a record of what each user and device attempted, which supports both detection and investigation.
 
 APIs allow configuration, reporting, and log retrieval to be automated, which supports change review and integration with existing workflows and orchestration.
+
+## Adversary perspective
+
+Cisco Secure Access is an enforcement point for outbound and private-application traffic, so adversaries work to avoid being steered through it or to slip past its filters, and its connectors and admin console are themselves an attack surface. The steps to lock it down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Avoiding the steer (ATT&CK T1685): traffic from an endpoint where the unified client is disabled, removed, or never installed never reaches the service, so the policy is simply not applied.
+- Filter and DNS evasion: encrypted DNS to an alternate resolver, domain fronting, fast-flux, and newly registered domains sidestep DNS and web categorization before a session is classified.
+- Decryption gaps: destinations on the no-decrypt bypass list pass uninspected, so an attacker who reaches one moves data without content inspection.
+- Over-broad allow rules and session theft (T1550): a wide allow rule or a stolen brokered session undermines the zero-trust intent and reaches private applications the attacker should not ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)).
+
+### Residual risk and own exposure
+
+The service filters and brokers but cannot see traffic that never transits it, and identity-aware policy is only as strong as the identity provider behind it. Connectors and the admin tenant are targets, and cloud-edge security services belong in the monitoring and change-control scope.
+
+### Why it matters
+
+A tester checks for un-steered paths, DNS and decryption bypasses, and over-broad rules; a defender alerts on client tamper, policy edits, and connector outages. See [the network protocols security reference](/NETWORK_PROTOCOLS_SECURITY.md) and [the red team reference](/RED_TEAM_REFERENCE.md).
 
 ## Hardening and secure use
 

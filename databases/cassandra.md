@@ -2,6 +2,55 @@
 
 Apache Cassandra is a distributed wide-column database built for high write throughput and no single point of failure. Data spreads across a ring of peer nodes, each able to take reads and writes. It is used for time-series data, event logging, messaging, and other write-heavy workloads that must stay available across data centers.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Database administrators, developers and security engineers who run, query or assess Apache Cassandra
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,163 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are modeling data or writing queries for Apache Cassandra, you are administering or hardening a deployment, or you want a worked example to start from
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Data model and architecture](#data-model-and-architecture), [Security and hardening](#security-and-hardening), [A worked example](#a-worked-example)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [MongoDB](/databases/mongodb.md), [Redis](/databases/redis.md), [Amazon DynamoDB](/databases/dynamodb.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 Cassandra has no primary node. Every node is equal and holds a share of the data plus replicas of other nodes' data. A client can connect to any node, which acts as the coordinator for that request. This design keeps the cluster serving even when nodes or whole data centers go down.
@@ -106,6 +155,30 @@ SELECT * FROM readings
 ```
 
 Each query hits one partition (`device_id`) and reads rows already ordered by `ts`. That is why the table was shaped around this exact read.
+
+## Security relevance
+
+This section is the threat-facing view of Cassandra: how the cluster looks to an attacker or auditor on the wire, and which weakness classes dominate its record. The controls that defend against them are in the "Security and hardening" section that follows.
+
+### Where it appears
+
+- The data tier behind write-heavy systems (metrics, event logs, messaging), reached through the native CQL protocol on port 9042, with gossip on 7000 and 7001 and JMX management on 7199.
+- Fingerprinted by the open ports, the CQL native protocol banner, and the default `cassandra` superuser with password `cassandra`. `cqlsh` and `nodetool` are the native clients an operator or attacker uses once connected.
+- Targeted by general tooling rather than a dedicated exploit framework: Nmap service and JMX scripts, Metasploit JMX modules, and credential checks for the shipped default account.
+- Audited with `nodetool`, the role grants in `system_auth`, and JMX monitoring. The supply-chain surface is the JVM, the server jars, and the per-language DataStax drivers.
+
+### Dominant weakness classes
+
+Cassandra is a mature Java server hardened against memory corruption in normal use, so the practical risks are access control, injection reaching the engine, and the management interfaces it exposes.
+
+- Missing authentication ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)) from the historical `AllowAllAuthenticator` default, which let any client reaching 9042 run any query.
+- CQL injection ([CWE-89](https://cwe.mitre.org/data/definitions/89.html)) when statements are built by concatenating untrusted input instead of binding prepared-statement parameters.
+- Deserialization of untrusted data ([CWE-502](https://cwe.mitre.org/data/definitions/502.html)) through an exposed JMX or RMI port, a general Java management-interface risk that can reach code execution.
+- Improper privilege management ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)) when a login role holds broad grants across keyspaces it does not need.
+
+### Why it matters
+
+Recognizing an open 9042 or 7199 tells a practitioner what to try first: the shipped default credential, an unauthenticated JMX endpoint, and whether authorization was ever turned on. Those checks map directly to what a defender must close: enable `PasswordAuthenticator` and `CassandraAuthorizer`, rotate the default superuser, firewall JMX, and grant roles by least privilege. See [the database security reference](/DATABASE_SECURITY_REFERENCE.md) for the engine-agnostic hardening checklist.
 
 ## Security and hardening
 

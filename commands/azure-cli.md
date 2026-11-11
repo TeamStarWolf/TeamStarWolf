@@ -2,6 +2,55 @@
 
 The Azure CLI (`az`) is the command-line tool for Microsoft Azure. It manages resource groups, virtual machines, storage, identity, networking, and secrets through a consistent verb-based syntax. This page covers sign-in, subscription selection, the common resource commands, and the output filtering that makes results scriptable. Commands follow the `az <group> <subgroup> <action>` shape.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Cloud engineers, administrators and security teams who work in Azure from a terminal
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (820 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the Azure CLI commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [AWS CLI Reference](/commands/aws-cli.md), [Google Cloud CLI (gcloud) Reference](/commands/gcloud.md), [jq Command Reference](/commands/jq.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 The CLI is a Python program available for Linux, macOS, and Windows, and preinstalled in Azure Cloud Shell. It authenticates through `az login`, which opens a browser or accepts a device code, a service principal, or a managed identity on an Azure host. One install can hold access to several subscriptions and tenants; you pick the active one with `az account set`. Output defaults to JSON and supports JMESPath filtering with `--query`.
@@ -138,6 +187,30 @@ pw=$(az keyvault secret show --vault-name kv-app --name db-password --query valu
 | `--auth-mode login` | Use your identity for data-plane storage calls |
 | `--only-show-errors` | Suppress warnings in scripted runs |
 | `--verbose` / `--debug` | Increase logging detail |
+
+## Security relevance
+
+This section is the threat-facing view of the Azure CLI: how an attacker drives `az` against a tenant and what the control plane logs when they do. Authorized administration and the safe-use guidance are in the "Security notes" section that follows.
+
+### Where it appears
+
+- Enumeration with stolen tokens. A leaked service-principal secret or a cached token lets an attacker `az login` and run `az account list`, `az ad sp list`, `az role assignment list`, and `az resource list` to map subscriptions, identities, and RBAC without alerting a user.
+- Privilege escalation and pivoting. Over-broad role assignments let an attacker add themselves to a higher-privileged role, create a new service-principal secret, or move between subscriptions in the same tenant.
+- Exfiltration. `az storage blob download` and `az keyvault secret show` pull data and stored credentials out over the trusted management path.
+- Telemetry. Azure activity logs and Microsoft Entra sign-in logs record each control-plane call and token use. Defenders watch for `Microsoft.Authorization/roleAssignments/write`, new service-principal credentials, Key Vault secret-read spikes, and sign-ins from unexpected locations.
+
+### Dominant weakness classes
+
+`az` is a userspace client, so the risks are credential theft and excess authority rather than memory corruption.
+
+- Use of hard-coded credentials ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)) in service-principal secrets committed to source or CI.
+- Insufficiently protected credentials ([CWE-522](https://cwe.mitre.org/data/definitions/522.html)) in cached tokens and profile files on a compromised host.
+- Improper privilege management ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)) through roles like Owner or Contributor assigned too broadly.
+- Improper access control ([CWE-284](https://cwe.mitre.org/data/definitions/284.html)) on storage and Key Vault exposed to an over-scoped identity.
+
+### Why it matters
+
+Knowing how `az` is abused lets a defender separate routine automation from an attacker walking a tenant with a stolen secret, and lets an auditor find the Owner bindings and public storage that make that walk easy. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) for account-hardening and detection guidance.
 
 ## Security notes
 

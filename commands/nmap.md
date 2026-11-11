@@ -2,6 +2,55 @@
 
 Nmap (Network Mapper) is an open-source tool for host discovery, port scanning, and service enumeration. Security teams use it to inventory assets, verify firewall rules, and map attack surface. This page is for authorized testing: scan only networks and hosts you own or have written permission to assess. Treat lab ranges and explicitly scoped engagements as the only valid targets.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Penetration testers, network engineers and defenders who scan networks they are authorized to scan
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (882 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the Nmap commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you are a defender who needs to spot it in use
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Detection and defense](#detection-and-defense)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Networking Command Reference](/commands/networking-commands.md), [Metasploit Framework Reference](/commands/metasploit.md), [tshark Command Reference](/commands/tshark.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 Nmap sends crafted packets to target hosts and interprets the responses to report open ports, running services, and operating system hints. It runs on Linux, macOS, and Windows from the command line. Raw-packet scan types such as SYN scanning need root or administrator rights. The companion `ncat`, `nping`, and `ndiff` tools ship alongside it, and the Zenmap GUI wraps the same engine.
@@ -102,6 +151,30 @@ nmap -F 10.0.0.5
 | `-oA <base>` | Write normal, XML, and grepable at once |
 
 Timing templates balance speed against noise. `-T4` suits fast lab networks; `-T2` is quieter on sensitive links. Evasion options such as fragmentation (`-f`), decoys (`-D`), and source-port spoofing (`--source-port`) exist to test how detection controls respond. Use them only in authorized exercises to validate IDS and firewall coverage, never to hide activity from an asset owner.
+
+## Security relevance
+
+This section is the threat-facing view of Nmap and where it sits in an engagement; authorized use only is assumed. The detection signatures and hardening guidance are in the "Detection and defense" section that follows.
+
+### Where it appears
+
+- Reconnaissance. Nmap is an early step in most assessments: map live hosts, open ports, running services, and operating-system hints across an authorized scope before any exploitation.
+- Attack-surface mapping. The service and version output becomes the target list later tools work from, so an inaccurate scan skews everything downstream.
+- Boundary testing. ACK scans and crafted probes check how firewalls and segmentation actually respond, which validates or disproves the network diagram.
+- Verification. A rescan after remediation confirms that a port or service that should be closed is in fact gone.
+
+### Dominant weakness classes
+
+Nmap does not corrupt memory; it reports reachable services, so the classes it surfaces are exposure and access control.
+
+- Exposure of sensitive information to an unauthorized actor ([CWE-200](https://cwe.mitre.org/data/definitions/200.html)) through services that should not be reachable.
+- Exposure of a resource to the wrong sphere ([CWE-668](https://cwe.mitre.org/data/definitions/668.html)), such as a management port open to the whole network.
+- Binding to an unrestricted IP address ([CWE-1327](https://cwe.mitre.org/data/definitions/1327.html)) that puts a service on every interface.
+- Improper access control ([CWE-284](https://cwe.mitre.org/data/definitions/284.html)) on an exposed listener.
+
+### Why it matters
+
+Enumeration turns an unknown network into a concrete inventory of what an attacker can reach, and every later phase depends on it. Recognizing an unexpected open service early, whether as a tester or a defender doing attack-surface management, closes the gap before it is exploited. See [the penetration testing methodology](/PENETRATION_TESTING_METHODOLOGY.md).
 
 ## Detection and defense
 

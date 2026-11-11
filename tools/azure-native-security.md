@@ -4,6 +4,55 @@
 
 Azure does not ship one security product. The native stack is a set of services that share Entra ID, Azure Resource Manager, and Log Analytics. [Microsoft Defender for Cloud](/tools/microsoft-defender-for-cloud.md) is the CNAPP (CSPM, workload plans, attack paths, and the integrated vulnerability scanner). [Microsoft Entra ID](/tools/entra-id.md) is the identity plane. This page is the rest of the control plane those two sit in, and how the pieces map onto vulnerability management and CTEM. Product names and SKUs move. Confirm the current name on the linked Microsoft Learn page before you buy or automate.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the cloud security engineers who run Azure Native Security
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 8 min (1,878 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what Azure Native Security can do to mitigate a vulnerability before the fix lands, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation and telemetry](#validation-and-telemetry), [Documentation and repositories](#documentation-and-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Microsoft Defender for Cloud](/tools/microsoft-defender-for-cloud.md), [Microsoft Entra ID](/tools/entra-id.md), [CTEM Reference](/CTEM_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities and architecture
 
 **What each service is for**
@@ -34,6 +83,24 @@ The native VM loop on Azure is: discover with Defender for Cloud inventory, Defe
 A Healthy recommendation means the control is present. It does not mean an attacker tried it. That distinction is the CTEM validation stage, and it is written up in the [CTEM reference](/CTEM_REFERENCE.md).
 
 **In a critical CVE.** Identify affected VMs and images from Defender vulnerability sub-assessments. Rank the ones on an attack path or with a public IP. Cut reachability with JIT VM access, an NSG change, or Firewall rules while Update Manager deploys the fix. Re-run the assessment. Close the finding only when the vulnerable package is gone.
+
+## Adversary perspective
+
+This control plane detects, governs, and records; it does not stand between the attacker and the workload, so an adversary treats it as something to blind, starve of coverage, or quietly live alongside. The services run with broad, privileged read through Azure Resource Manager and Entra ID, which makes their roles, policy, and logs a target in their own right. The detection and tuning guidance is in the "Validation and telemetry" section that follows.
+
+### Evasion and tampering
+
+- Blinding the plane: an attacker with sufficient RBAC can stop or redirect diagnostic settings, delete or stop ingestion into the Log Analytics workspace that Sentinel reads, disable Defender plans, or weaken Azure Policy assignments (ATT&CK T1685 Disable or Modify Tools, T1685.002 disable cloud logs), so the portal looks clean while activity continues.
+- Coverage gaps: findings and alerts exist only where plans are enabled and subscriptions are onboarded; an unmanaged subscription, a workspace with no connector, or a resource outside policy scope is unseen.
+- Blending in: attackers time activity to look like normal automation and management traffic, and detection is after the fact, not a preventive gate.
+
+### Residual risk and own exposure
+
+An alert or a non-compliant finding is not a fix: the exposure remains until someone remediates it, and preventive guardrails only bind where assigned. The plane holds privileged read and its findings map the weak spots ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)), so the management roles, policy assignments, and log workspaces belong at the front of the patch and monitoring scope.
+
+### Why it matters
+
+Knowing that logging can be redirected, onboarding can be partial, and detection lags the event tells a tester where to look and a defender to monitor the monitors and protect the log and policy plane. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) for the control model and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for turning findings into tracked remediation.
 
 ## Validation and telemetry
 

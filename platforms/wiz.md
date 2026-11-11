@@ -2,6 +2,55 @@
 
 Wiz is an agentless cloud-native application protection platform (CNAPP). It connects to cloud environments through provider APIs and builds a model of resources, configurations, identities, and exposures. Its defining feature is the Security Graph, which relates these elements so that combinations of risk become visible. Licence tier and module entitlement decide which capabilities are in force; this page does not describe any specific organization's deployment.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Cloud security and platform engineers who run, tune or assess Wiz
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,280 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Wiz for cloud and workload security, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Tenable](/platforms/tenable.md), [Qualys](/platforms/qualys.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Wiz sits in the cloud security part of a program, covering posture, workloads, identities, data, and code. It gives security teams one view of risk across cloud accounts without installing agents on every workload. The scope spans infrastructure, containers, and the pipelines that build them.
@@ -47,6 +96,25 @@ Findings flow to downstream systems. Wiz integrates with ticketing systems so th
 SIEM integration sends cloud risk and finding data to log analytics platforms. Detection teams correlate cloud posture with alerts and telemetry. APIs and the graph query interface export data for reporting and custom workflows.
 
 Wiz is the source of cloud risk truth, and ticketing and SIEM systems consume it. Consistent resource identity across the systems keeps the join reliable.
+
+## Adversary perspective
+
+Because an agentless CNAPP holds a broad read role across cloud accounts and a map of every exposure, adversaries treat Wiz as both something to blind and a target worth stealing from. The steps to lock the deployment down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Stealing the connector role or API token (ATT&CK T1078, Valid Accounts): the connector reads across accounts, so a stolen token or assumed role gives an attacker the same cross-account read the platform has ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Blending with the platform: because collection is API-based and continuous, attacker API calls can be lost among the platform's own reads of the provider.
+- Suppressing or re-scoping findings (ATT&CK T1685, Disable or Modify Tools): tenant access lets an attacker mute risks, change policy, or narrow connector scope so a toxic combination stops surfacing.
+- Reading the Security Graph: the graph is an attack-path map of the environment, so copying it hands an attacker the reachable paths and over-permissioned identities ready-made.
+
+### Residual risk and own exposure
+
+Agentless scanning reads snapshots and control-plane state, so it can miss in-memory and runtime-only activity, and it reports only what the connector role can see. The connector role, tokens, and tenant are high value because they span many accounts, so the integration belongs in the patch and monitoring scope like any other software.
+
+### Why it matters
+
+A tester targets the connector role and the tenant rather than the workloads Wiz already reports on. A defender monitors connector-role use, policy and scope changes, and graph exports as signals in their own right. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) for the cloud attack paths and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

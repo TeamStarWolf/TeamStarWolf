@@ -4,6 +4,55 @@ Ping Identity is an enterprise identity platform for single sign-on, multi-facto
 authentication, and identity orchestration. It spans cloud services and deployable
 software, which suits large and hybrid environments.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Identity and access engineers who run, tune or assess Ping Identity
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,284 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Ping Identity for identity, sign-in and access, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Okta](/platforms/okta.md), [Microsoft Entra ID](/platforms/entra-id.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Ping Identity provides the components an organization uses to authenticate people and
@@ -98,6 +147,25 @@ changes should be tested against a pilot before wide release.
 
 Send only the claims an application needs, and keep signing keys and client secrets
 out of application configuration files.
+
+## Adversary perspective
+
+Ping Identity is the identity control plane for the applications it fronts, so adversaries treat it as the prize and work to bypass it; its federation trust, signing keys, and the self-run servers are themselves an attack surface. The steps to lock it down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Phishing and MFA fatigue (ATT&CK T1621, T1556): real-time phishing proxies and push prompts defeat weaker factors, so phishing-resistant factors matter for administrators and high-risk flows.
+- Session and token theft (T1539, T1550): a stolen session or OAuth token replays an authenticated session without re-authentication.
+- Signing-key theft and assertion forging (T1606.002): a stolen PingFederate signing key, or weak signature and audience validation, lets an attacker mint or inject assertions golden-SAML style ([CWE-287](https://cwe.mitre.org/data/definitions/287.html)).
+- Orchestration-flow bypass: a flow branch that skips a factor or accepts weak input is a logic gap the signature checks never see.
+
+### Residual risk and own exposure
+
+The identity provider is the keys to the kingdom, so a forged assertion or a compromised admin reaches every fronted application. PingFederate and PingAccess are self-run software with their own update cycle, and internet-facing federation and access-gateway components are high-value targets, so unpatched versions, expired keys, and loose trust belong in the patch and monitoring scope.
+
+### Why it matters
+
+A tester probes signature and audience validation, flow branches, and unpatched self-run servers; a defender tracks certificate lifecycle and watches server logs for trust changes and anomalous assertions. See [the identity security reference](/IDENTITY_SECURITY_REFERENCE.md) and [the red team reference](/RED_TEAM_REFERENCE.md).
 
 ## Hardening and secure use
 

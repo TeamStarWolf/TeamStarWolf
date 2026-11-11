@@ -2,6 +2,55 @@
 
 Bitdefender GravityZone is an endpoint protection and detection platform from Bitdefender. It combines layered prevention, endpoint detection and response, risk analytics, and hardening controls in one agent-based product. A single console manages policy, detections, and reporting, with an optional managed detection and response service.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Endpoint security engineers and SOC analysts who run, tune or assess Bitdefender GravityZone
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,330 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Bitdefender GravityZone for endpoint protection, detection and response, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [SentinelOne Singularity](/platforms/sentinelone.md), [Sophos](/platforms/sophos.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 GravityZone sits in the endpoint protection (EPP), endpoint detection and response (EDR), and extended detection and response (XDR) categories. It adds risk analytics that score endpoint and user configuration weaknesses, which connects prevention to exposure reduction. The platform targets security operations teams that want prevention, detection, and response from one agent and console.
@@ -46,6 +95,24 @@ GravityZone exports detections and events to SIEM platforms for correlation and 
 SOAR platforms consume GravityZone alerts and call the API to drive automated response playbooks. The API also supports custom reporting and bulk device management. Treat the API as a control plane because it can change policy and isolate hosts across the estate.
 
 Risk analytics findings can feed exposure reporting so endpoint misconfiguration risk sits beside scanner-based vulnerability data. External threat intelligence enriches detections with context. This flow links prevention, detection, and exposure into one program view.
+
+## Adversary perspective
+
+Because GravityZone is the prevention and detection control on the host, adversaries treat it as something to blind or disable, and its agent and console are themselves an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and tampering
+
+- Impairing the agent (ATT&CK T1685, Disable or Modify Tools): with local administrator rights an attacker tries to stop or uninstall the agent, cut its connectivity to the console, or move it into a weaker policy. Tamper protection and tight exclusion scoping are the countermeasures.
+- Running below or around the agent: bring-your-own-vulnerable-driver (BYOVD) and user-mode unhooking aim to act outside the agent's visibility, and a broad path or process exclusion becomes a safe harbor to run from.
+- Console and API abuse: a stolen API key or a hijacked console session lets an attacker change policy, isolate hosts, or pull telemetry across the estate, which turns the control into a foothold ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+
+### Residual risk and own exposure
+
+The agent runs with high privilege on every host, so a flaw in the agent or the console is high-impact, and endpoint agents across the industry have carried privilege-escalation and remote issues. Where the console runs on-premises, the server and its database are additional targets. The agent version and the console belong in the patch and monitoring scope, and no agent catches every technique on its own.
+
+### Why it matters
+
+Treating the endpoint control as infallible is the mistake. A mature program monitors the control's own health, including uninstalls, policy changes, and reporting gaps, as a detection signal, and keeps the agent current. See [the red team reference](/RED_TEAM_REFERENCE.md) for the evasion techniques and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

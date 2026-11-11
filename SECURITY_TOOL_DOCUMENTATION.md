@@ -109,8 +109,8 @@ _API & developer docs_
 
 _GitHub (official)_
 - [Microsoft GitHub organization](https://github.com/microsoft)
-- [mdatp-xplat — official cross-platform (Linux/macOS) Defender deployment & config samples](https://github.com/microsoft/mdatp-xplat)
-- [mdatp-devicecontrol — official device-control policy samples](https://github.com/microsoft/mdatp-devicecontrol)
+- [mdatp-xplat: official cross-platform (Linux/macOS) Defender deployment & config samples](https://github.com/microsoft/mdatp-xplat)
+- [mdatp-devicecontrol: official device-control policy samples](https://github.com/microsoft/mdatp-devicecontrol)
 
 _Community / integration / detection repos_
 - [Microsoft 365 Defender Hunting Queries (KQL, archived but widely referenced)](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries)
@@ -137,17 +137,17 @@ _API & developer docs_
 
 _GitHub (official)_
 - [CrowdStrike GitHub organization](https://github.com/CrowdStrike)
-- [FalconPy — official Python SDK](https://github.com/CrowdStrike/falconpy)
-- [PSFalcon — official PowerShell SDK](https://github.com/CrowdStrike/psfalcon)
-- [gofalcon — official Go SDK](https://github.com/CrowdStrike/gofalcon)
-- [falcon-scripts — official sensor install/uninstall scripts](https://github.com/CrowdStrike/falcon-scripts)
+- [FalconPy: official Python SDK](https://github.com/CrowdStrike/falconpy)
+- [PSFalcon: official PowerShell SDK](https://github.com/CrowdStrike/psfalcon)
+- [gofalcon: official Go SDK](https://github.com/CrowdStrike/gofalcon)
+- [falcon-scripts: official sensor install/uninstall scripts](https://github.com/CrowdStrike/falcon-scripts)
 
 _Community / integration / detection repos_
-- [rusty-falcon — Rust SDK](https://github.com/CrowdStrike/rusty-falcon)
-- [falcon-helm — Kubernetes Helm charts for Falcon sensors](https://github.com/CrowdStrike/falcon-helm)
-- [falcon-operator — Kubernetes operator](https://github.com/CrowdStrike/falcon-operator)
+- [rusty-falcon: Rust SDK](https://github.com/CrowdStrike/rusty-falcon)
+- [falcon-helm: Kubernetes Helm charts for Falcon sensors](https://github.com/CrowdStrike/falcon-helm)
+- [falcon-operator: Kubernetes operator](https://github.com/CrowdStrike/falcon-operator)
 - [CrowdStrike community samples](https://github.com/CrowdStrike/community)
-- [helpful-links — curated index of CrowdStrike open-source projects & resources](https://github.com/CrowdStrike/helpful-links)
+- [helpful-links: curated index of CrowdStrike open-source projects & resources](https://github.com/CrowdStrike/helpful-links)
 - [Sigma detection rules](https://github.com/SigmaHQ/sigma)
 - [Atomic Red Team (ATT&CK test content)](https://github.com/redcanaryco/atomic-red-team)
 
@@ -171,7 +171,7 @@ _Official documentation & manuals_
 
 _API & developer docs_
 - [Application Security API reference (configures AAP/WAP: policies, WAF modes, rate/custom rules)](https://techdocs.akamai.com/application-security/reference/api)
-- [Akamai Terraform provider — overview & akamai_appsec_* resources](https://techdocs.akamai.com/terraform/docs/overview)
+- [Akamai Terraform provider: overview & akamai_appsec_* resources](https://techdocs.akamai.com/terraform/docs/overview)
 - [Akamai Terraform provider (Terraform Registry)](https://registry.terraform.io/providers/akamai/akamai/latest/docs)
 - [EdgeGrid authentication (required for all Akamai APIs)](https://techdocs.akamai.com/developer/docs/authenticate-with-edgegrid)
 - [Akamai CLI for Application Security (cli-appsec) docs](https://techdocs.akamai.com/cli/docs/appsec)
@@ -195,7 +195,7 @@ _Learning & reference_
 - [Akamai Security blog](https://www.akamai.com/blog/security)
 - [App & API Protector overview and getting started](https://techdocs.akamai.com/cloud-security/docs/app-api-protector)
 
-> Note: App & API Protector (AAP) is the current flagship WAF/WAAP; Web Application Protector (WAP) is the lighter self-service variant and Kona Site Defender is the legacy enterprise WAF — all three share the same Application Security API and akamai_appsec_* Terraform resources. There is no separate 'App & API Protector API' — it is configured through the Application Security API. All APIs require EdgeGrid token auth (.eddgerc client credentials) and an API client granted AppSec access. edgegrid-golang is now v7+ on main (v1 is a legacy branch; package split into edgegrid/config and edgegrid/signer).
+> Note: App & API Protector (AAP) is the current flagship WAF/WAAP; Web Application Protector (WAP) is the lighter self-service variant and Kona Site Defender is the legacy enterprise WAF: all three share the same Application Security API and akamai_appsec_* Terraform resources. There is no separate 'App & API Protector API': it is configured through the Application Security API. All APIs require EdgeGrid token auth (.eddgerc client credentials) and an API client granted AppSec access. edgegrid-golang is now v7+ on main (v1 is a legacy branch; package split into edgegrid/config and edgegrid/signer).
 
 
 ### AWS WAF
@@ -222,15 +222,15 @@ _GitHub (official)_
 _Community / integration / detection repos_
 - [aws-solutions/aws-waf-security-automations (managed WAF rule set + IP reputation/flood/scanner protection)](https://github.com/aws-solutions/aws-waf-security-automations)
 - [aws-samples/aws-waf-sample (sample WAF conditions/rules)](https://github.com/aws-samples/aws-waf-sample)
-- [aws-samples/aws-waf-dashboard — AWS WAF dashboards (OpenSearch)](https://github.com/aws-samples/aws-waf-dashboard)
+- [aws-samples/aws-waf-dashboard: AWS WAF dashboards (OpenSearch)](https://github.com/aws-samples/aws-waf-dashboard)
 
 _Learning & reference_
-- [AWS Security blog — WAF category](https://aws.amazon.com/blogs/security/category/security-identity-compliance/aws-waf/)
+- [AWS Security blog: WAF category](https://aws.amazon.com/blogs/security/category/security-identity-compliance/aws-waf/)
 - [AWS WAF Workshop (Workshop Studio)](https://catalog.workshops.aws/aws-waf/en-US)
 - [AWS Skill Builder (free training)](https://skillbuilder.aws/)
 - [AWS WAF Managed Rules & AWS Marketplace rule groups](https://docs.aws.amazon.com/waf/latest/developerguide/waf-managed-rule-groups.html)
 
-> Note: Use WAFV2 (the current API, single set of endpoints for regional + CloudFront/global). AWS WAF Classic (waf/wafregional, waf.amazonaws.com endpoint) is legacy — do not use for new work. The aws-solutions/aws-waf-security-automations solution is scheduled to retire December 2026; AWS now recommends native AWS Managed Rules + rate-based rules instead. Verify the Terraform aws_wafv2_web_acl page in-browser (Terraform Registry is JS-rendered and did not return text to WebFetch, but the resource is a long-standing part of the hashicorp/aws provider).
+> Note: Use WAFV2 (the current API, single set of endpoints for regional + CloudFront/global). AWS WAF Classic (waf/wafregional, waf.amazonaws.com endpoint) is legacy: do not use for new work. The aws-solutions/aws-waf-security-automations solution is scheduled to retire December 2026; AWS now recommends native AWS Managed Rules + rate-based rules instead. Verify the Terraform aws_wafv2_web_acl page in-browser (Terraform Registry is JS-rendered and did not return text to WebFetch, but the resource is a long-standing part of the hashicorp/aws provider).
 
 
 ### Citrix NetScaler Web App Firewall
@@ -267,7 +267,7 @@ _Learning & reference_
 - [NetScaler Web App Firewall deployment/best-practice guide](https://docs.netscaler.com/en-us/citrix-adc/current-release/application-firewall/appfw-deployment-guide.html)
 - [NetScaler developer hub (NITRO, automation samples)](https://developer-docs.netscaler.com/)
 
-> Note: Product was renamed: Citrix ADC -> NetScaler ADC after the 2022 Cloud Software Group acquisition; the WAF feature has been called Citrix Web App Firewall / NetScaler AppFirewall (NITRO objects are still 'appfw'). Documentation moved from docs.citrix.com to docs.netscaler.com (the citrix-adc URL path is retained). GitHub content is actively migrating from the citrix org to the netscaler org — the Terraform provider (terraform-provider-citrixadc) and some repos still live under github.com/citrix, published to the Terraform Registry under the citrix namespace, while NITRO SDK/Ansible/toolkit repos are under github.com/netscaler.
+> Note: Product was renamed: Citrix ADC -> NetScaler ADC after the 2022 Cloud Software Group acquisition; the WAF feature has been called Citrix Web App Firewall / NetScaler AppFirewall (NITRO objects are still 'appfw'). Documentation moved from docs.citrix.com to docs.netscaler.com (the citrix-adc URL path is retained). GitHub content is actively migrating from the citrix org to the netscaler org: the Terraform provider (terraform-provider-citrixadc) and some repos still live under github.com/citrix, published to the Terraform Registry under the citrix namespace, while NITRO SDK/Ansible/toolkit repos are under github.com/netscaler.
 
 
 ## Network & SSE
@@ -276,7 +276,7 @@ _Learning & reference_
 
 _Official documentation & manuals_
 - [Check Point Support Center (home for all product docs, SK articles, downloads)](https://support.checkpoint.com)
-- [Check Point Support Center — documentation, admin guides and SK articles](https://support.checkpoint.com/)
+- [Check Point Support Center: documentation, admin guides and SK articles](https://support.checkpoint.com/)
 - [Check Point Portal (formerly Infinity Portal) Administration Guide](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/Infinity-Portal-Admin-Guide/Content/Topics-Infinity-Portal/Introduction-to-CP-Portal.htm)
 - [Quantum product page / resources](https://www.checkpoint.com/quantum/)
 - [Check Point Infinity Platform overview](https://www.checkpoint.com/infinity/)
@@ -321,7 +321,7 @@ _Official documentation & manuals_
 - [Zero Trust Exchange platform overview](https://www.zscaler.com/platform/zero-trust-exchange)
 
 _API & developer docs_
-- [ZIA API — Getting Started (OAuth 2.0 / legacy key)](https://help.zscaler.com/zia/api-getting-started)
+- [ZIA API: Getting Started (OAuth 2.0 / legacy key)](https://help.zscaler.com/zia/api-getting-started)
 - [Understanding OneAPI Authentication (ZIdentity OAuth2)](https://help.zscaler.com/unified/understanding-oneapi-authentication)
 - [ZPA API reference](https://help.zscaler.com/zpa/api-reference)
 - [Zscaler Python SDK docs (OneAPI client)](https://zscaler-sdk-python.readthedocs.io/)
@@ -424,7 +424,7 @@ _Learning & reference_
 - [Defender for Cloud Ninja training (Microsoft Tech Community)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/become-a-microsoft-defender-for-cloud-ninja/ba-p/1608761)
 - [Microsoft Defender for Cloud blog (Tech Community)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog)
 
-> Note: Product was renamed from Azure Security Center / Azure Defender to Microsoft Defender for Cloud; older REST docs still live under the 'securitycenter' namespace and the ARM Microsoft.Security provider. REST reference pages on Microsoft Learn may show a sign-in/authorization banner. Do NOT confuse with 'Microsoft Defender for Cloud Apps' (MCAS) — a separate product with its own tenant-scoped REST API. The Azure/Microsoft-Defender-for-Cloud GitHub repo is the official home for workbooks, automation playbooks, and sample policies.
+> Note: Product was renamed from Azure Security Center / Azure Defender to Microsoft Defender for Cloud; older REST docs still live under the 'securitycenter' namespace and the ARM Microsoft.Security provider. REST reference pages on Microsoft Learn may show a sign-in/authorization banner. Do NOT confuse with 'Microsoft Defender for Cloud Apps' (MCAS): a separate product with its own tenant-scoped REST API. The Azure/Microsoft-Defender-for-Cloud GitHub repo is the official home for workbooks, automation playbooks, and sample policies.
 
 ### Azure native security (Defender for Cloud, Sentinel, Policy, Firewall)
 
@@ -472,7 +472,7 @@ _Official documentation & manuals_
 _API & developer docs_
 - [Wiz GraphQL API reference (win.wiz.io/reference)](https://win.wiz.io/reference)
 - [Wiz API endpoint pattern: https://api.<dc>.app.wiz.io/graphql (dc = us1/us2/eu1/eu2 etc.), token via OAuth client credentials](https://win.wiz.io/reference/prerequisites)
-- [Wiz CLI (wizcli) for CI/CD & IaC/image scanning —  (Wiz CLI section)](https://docs.wiz.io/)
+- [Wiz CLI (wizcli) for CI/CD & IaC/image scanning: (Wiz CLI section)](https://docs.wiz.io/)
 
 _GitHub (official)_
 - [wiz-sec-public org (Wiz's public GitHub presence)](https://github.com/wiz-sec-public)
@@ -523,7 +523,7 @@ _Learning & reference_
 - [Chainguard Unchained blog](https://www.chainguard.dev/unchained)
 - [Chainguard developer resources hub](https://edu.chainguard.dev/developer-resources/)
 
-> Note: Supply-chain focused: minimal, distroless, 0-known-CVE hardened container images plus signing/provenance tooling. Note the two GitHub orgs — chainguard-dev (tools: apko, melange, chainctl, images-autodocs) and chainguard-images (image build configs). Images are distroless by default with a `-dev` variant (shell/package manager) for build stages. Free Starter tier is built on Wolfi; other images on Chainguard OS. Full catalog and private-registry (cgr.dev) pulls require an org account. All GitHub/edu URLs here were surfaced or corroborated in search; the Terraform cosign provider path follows Chainguard's standard registry namespace.
+> Note: Supply-chain focused: minimal, distroless, 0-known-CVE hardened container images plus signing/provenance tooling. Note the two GitHub orgs: chainguard-dev (tools: apko, melange, chainctl, images-autodocs) and chainguard-images (image build configs). Images are distroless by default with a `-dev` variant (shell/package manager) for build stages. Free Starter tier is built on Wolfi; other images on Chainguard OS. Full catalog and private-registry (cgr.dev) pulls require an org account. All GitHub/edu URLs here were surfaced or corroborated in search; the Terraform cosign provider path follows Chainguard's standard registry namespace.
 
 
 ## Vulnerability Management & AppSec
@@ -544,14 +544,14 @@ _API & developer docs_
 
 _GitHub (official)_
 - [Tenable GitHub organization (~89 repos)](https://github.com/tenable)
-- [pyTenable — Python library for Tenable platform APIs](https://github.com/tenable/pyTenable)
-- [Tenable Exposure Management connectors — third-party connector documentation](https://docs.tenable.com/exposure-management/Content/connectors/connectors.htm)
-- [integration-jira-cloud — Jira Cloud integration](https://github.com/tenable/integration-jira-cloud)
-- [container-security-action / was-action — official GitHub Actions for Tenable container & WAS scans](https://github.com/tenable/container-security-action)
+- [pyTenable: Python library for Tenable platform APIs](https://github.com/tenable/pyTenable)
+- [Tenable Exposure Management connectors: third-party connector documentation](https://docs.tenable.com/exposure-management/Content/connectors/connectors.htm)
+- [integration-jira-cloud: Jira Cloud integration](https://github.com/tenable/integration-jira-cloud)
+- [container-security-action / was-action: official GitHub Actions for Tenable container & WAS scans](https://github.com/tenable/container-security-action)
 
 _Community / integration / detection repos_
 - [Tenable Add-On for Splunk (Splunkbase app 4060, TA-tenable; SIEM integration)](https://splunkbase.splunk.com/app/4060)
-- [Security-Hub — Tenable.io to AWS Security Hub integration](https://github.com/tenable/Security-Hub)
+- [Security-Hub: Tenable.io to AWS Security Hub integration](https://github.com/tenable/Security-Hub)
 - [Navi (packetchaos/navi), a community command-line tool for the Tenable Vulnerability Management API](https://github.com/packetchaos/navi)
 
 _Learning & reference_
@@ -570,7 +570,7 @@ _Official documentation & manuals_
 - [Zafran resource library (whitepapers, briefs)](https://www.zafran.io/whitepaper)
 
 _API & developer docs_
-- [Zafran Security API profile (third-party index, API Evangelist) —  (no public first-party API reference located; API access is behind customer authentication)](https://providers.apievangelist.com/providers/zafran-security/)
+- [Zafran Security API profile (third-party index, API Evangelist): (no public first-party API reference located; API access is behind customer authentication)](https://providers.apievangelist.com/providers/zafran-security/)
 
 _GitHub (official)_
 - No official Zafran Security GitHub organization or public repositories were found.
@@ -583,7 +583,7 @@ _Learning & reference_
 - [AWS Marketplace listing](https://aws.amazon.com/marketplace/pp/prodview-3fcfd4kifsf7k)
 - CrowdStrike Marketplace / Trend Micro partner platform listings (integration references)
 
-> Note: Zafran is a newer (venture-backed) AI-native Continuous Threat Exposure Management (CTEM) / mitigation platform. There is NO public developer documentation site, no public API reference, and no official GitHub presence that could be verified — technical docs, API, and integration setup require a customer account and vendor engagement. Integrations (Cyera, CrowdStrike, Trend Micro, Jira, ServiceNow VR, SOAR) are configured in-product rather than via open-source repos. Treat vendor exploitability/mitigation claims (e.g. '90% of critical vulns not exploitable') as marketing until validated.
+> Note: Zafran is a newer (venture-backed) AI-native Continuous Threat Exposure Management (CTEM) / mitigation platform. There is NO public developer documentation site, no public API reference, and no official GitHub presence that could be verified: technical docs, API, and integration setup require a customer account and vendor engagement. Integrations (Cyera, CrowdStrike, Trend Micro, Jira, ServiceNow VR, SOAR) are configured in-product rather than via open-source repos. Treat vendor exploitability/mitigation claims (e.g. '90% of critical vulns not exploitable') as marketing until validated.
 
 
 ### Invicti (Invicti Platform / Acunetix / Netsparker)
@@ -596,17 +596,17 @@ _Official documentation & manuals_
 - [Invicti Support / Help Center](https://www.invicti.com/support)
 
 _API & developer docs_
-- [Invicti Platform API — getting started](https://docs.invicti.com/ip/category/platform-api)
+- [Invicti Platform API: getting started](https://docs.invicti.com/ip/category/platform-api)
 - [Get your Invicti Platform API key](https://docs.invicti.com/ip/s1-get-your-api-key)
 - [Access API documentation (Swagger UI from user settings)](https://docs.invicti.com/ip/access-api-documentation)
-- [Acunetix API usage articles —  (examples; no formal standalone REST reference published)](https://www.acunetix.com/blog/)
+- [Acunetix API usage articles: (examples; no formal standalone REST reference published)](https://www.acunetix.com/blog/)
 
 _GitHub (official)_
 - [Invicti Security GitHub organization](https://github.com/Invicti-Security)
-- [brainstorm — LLM-assisted web fuzzing (ffuf wrapper)](https://github.com/Invicti-Security/brainstorm)
-- [netsparker-custom-security-checks — custom checks for Netsparker/Invicti](https://github.com/Invicti-Security/netsparker-custom-security-checks)
-- [netsparker-cloud-scan-plugin — Jenkins plugin to trigger Enterprise scans](https://github.com/Invicti-Security/netsparker-cloud-scan-plugin)
-- [invicti-platform-onprem-tools — on-prem deployment tooling](https://github.com/Invicti-Security/invicti-platform-onprem-tools)
+- [brainstorm: LLM-assisted web fuzzing (ffuf wrapper)](https://github.com/Invicti-Security/brainstorm)
+- [netsparker-custom-security-checks: custom checks for Netsparker/Invicti](https://github.com/Invicti-Security/netsparker-custom-security-checks)
+- [netsparker-cloud-scan-plugin: Jenkins plugin to trigger Enterprise scans](https://github.com/Invicti-Security/netsparker-cloud-scan-plugin)
+- [invicti-platform-onprem-tools: on-prem deployment tooling](https://github.com/Invicti-Security/invicti-platform-onprem-tools)
 
 _Community / integration / detection repos_
 - Acunetix/Invicti CI integrations are mostly first-party (Jenkins, Azure DevOps, GitHub) under the Invicti-Security org; few notable independent community repos exist for this commercial DAST.
@@ -636,58 +636,58 @@ _API & developer docs_
 
 _GitHub (official)_
 - [Snyk GitHub organization (~240 repos)](https://github.com/snyk)
-- [snyk/cli — Snyk CLI (TypeScript, ~5.7k stars)](https://github.com/snyk/cli)
-- [snyk/actions — official GitHub Actions for CI scanning](https://github.com/snyk/actions)
-- [snyk/snyk-to-html — export CLI reports to HTML](https://github.com/snyk/snyk-to-html)
-- [snyk/vscode-extension & snyk/snyk-intellij-plugin — IDE plugins](https://github.com/snyk/vscode-extension)
-- [snyk/driftctl — IaC drift detection](https://github.com/snyk/driftctl)
+- [snyk/cli: Snyk CLI (TypeScript, ~5.7k stars)](https://github.com/snyk/cli)
+- [snyk/actions: official GitHub Actions for CI scanning](https://github.com/snyk/actions)
+- [snyk/snyk-to-html: export CLI reports to HTML](https://github.com/snyk/snyk-to-html)
+- [snyk/vscode-extension & snyk/snyk-intellij-plugin: IDE plugins](https://github.com/snyk/vscode-extension)
+- [snyk/driftctl: IaC drift detection](https://github.com/snyk/driftctl)
 
 _Community / integration / detection repos_
 - [snyk-labs GitHub organization (community/example tooling)](https://github.com/snyk-labs)
-- [snyk-apps-demo — starter for building a Snyk App](https://github.com/snyk/snyk-apps-demo)
-- [snyk-api-import — bulk import/onboard projects via API](https://github.com/snyk/snyk-api-import)
+- [snyk-apps-demo: starter for building a Snyk App](https://github.com/snyk/snyk-apps-demo)
+- [snyk-api-import: bulk import/onboard projects via API](https://github.com/snyk/snyk-api-import)
 - [snyk-labs/nodejs-goof & other 'goof' vulnerable demo apps](https://github.com/snyk-labs/nodejs-goof)
 
 _Learning & reference_
-- [Snyk Learn — free interactive secure-coding lessons (NIST NICE aligned)](https://learn.snyk.io)
+- [Snyk Learn: free interactive secure-coding lessons (NIST NICE aligned)](https://learn.snyk.io)
 - [Snyk blog](https://snyk.io/blog/)
 - [Snyk Vulnerability Database](https://security.snyk.io)
-- [Snyk Tutorials & product training —  (learning series within docs)](https://docs.snyk.io)
+- [Snyk Tutorials & product training: (learning series within docs)](https://docs.snyk.io)
 
-> Note: Snyk REST API is OpenAPI + JSON:API and requires a date-based ?version= query parameter on every request; the older V1 API is being sunset in favor of REST. API availability can depend on plan tier (historically Business/Enterprise, with some token access on lower tiers) — check the current plans page. Core open-source tooling (CLI, actions, IDE plugins, driftctl, snyk-ls language server) lives under github.com/snyk; demos/experiments under github.com/snyk-labs.
+> Note: Snyk REST API is OpenAPI + JSON:API and requires a date-based ?version= query parameter on every request; the older V1 API is being sunset in favor of REST. API availability can depend on plan tier (historically Business/Enterprise, with some token access on lower tiers): check the current plans page. Core open-source tooling (CLI, actions, IDE plugins, driftctl, snyk-ls language server) lives under github.com/snyk; demos/experiments under github.com/snyk-labs.
 
 
 ### HackerOne
 
 _Official documentation & manuals_
 - [HackerOne Platform Documentation (Help Center)](https://docs.hackerone.com)
-- [HackerOne Help Center — Get Started](https://docs.hackerone.com/en/collections/6084098-get-started)
-- [Run a Program (customer/program-owner guidance) —  (Run a Program section)](https://docs.hackerone.com)
-- [Integrate Tools (third-party integrations incl. GitHub/Jira) —  (Integrate Tools section)](https://docs.hackerone.com)
+- [HackerOne Help Center: Get Started](https://docs.hackerone.com/en/collections/6084098-get-started)
+- [Run a Program (customer/program-owner guidance): (Run a Program section)](https://docs.hackerone.com)
+- [Integrate Tools (third-party integrations incl. GitHub/Jira): (Integrate Tools section)](https://docs.hackerone.com)
 
 _API & developer docs_
 - [HackerOne API documentation](https://api.hackerone.com)
 - [HackerOne API getting started](https://api.hackerone.com/getting-started/)
 - [HackerOne REST API reference (reports, programs, bounties, balances)](https://api.hackerone.com/customer-resources/)
-- [HackerOne GraphQL API (used by the official MCP server) — see](https://github.com/Hacker0x01/hackerone-graphql-mcp-server)
+- [HackerOne GraphQL API (used by the official MCP server): see](https://github.com/Hacker0x01/hackerone-graphql-mcp-server)
 
 _GitHub (official)_
-- [Hacker0x01 — HackerOne's verified official GitHub organization (~168 repos)](https://github.com/Hacker0x01)
-- [hacker101 — source for Hacker101.com free security class (~14.6k stars)](https://github.com/Hacker0x01/hacker101)
-- [hackerone-graphql-mcp-server — MCP server for the HackerOne GraphQL API](https://github.com/Hacker0x01/hackerone-graphql-mcp-server)
-- [react-datepicker — widely used React component maintained by HackerOne](https://github.com/Hacker0x01/react-datepicker)
+- [Hacker0x01: HackerOne's verified official GitHub organization (~168 repos)](https://github.com/Hacker0x01)
+- [hacker101: source for Hacker101.com free security class (~14.6k stars)](https://github.com/Hacker0x01/hacker101)
+- [hackerone-graphql-mcp-server: MCP server for the HackerOne GraphQL API](https://github.com/Hacker0x01/hackerone-graphql-mcp-server)
+- [react-datepicker: widely used React component maintained by HackerOne](https://github.com/Hacker0x01/react-datepicker)
 
 _Community / integration / detection repos_
-- [kryndex/hackerone-client — community Node client library (limited operations)](https://github.com/kryndex/hackerone-client)
-- [nu11pointer/hackerone-cli — unofficial CLI client over the official API](https://github.com/nu11pointer/hackerone-cli)
+- [kryndex/hackerone-client: community Node client library (limited operations)](https://github.com/kryndex/hackerone-client)
+- [nu11pointer/hackerone-cli: unofficial CLI client over the official API](https://github.com/nu11pointer/hackerone-cli)
 
 _Learning & reference_
-- [Hacker101 — free web & mobile security course](https://www.hacker101.com)
-- [Hacker101 CTF — hands-on capture-the-flag labs](https://ctf.hacker101.com)
+- [Hacker101: free web & mobile security course](https://www.hacker101.com)
+- [Hacker101 CTF: hands-on capture-the-flag labs](https://ctf.hacker101.com)
 - [HackerOne blog](https://www.hackerone.com/blog)
 - [Hacktivity (public disclosed reports)](https://hackerone.com/hacktivity)
 
-> Note: The official API lives at api.hackerone.com (NOT docs.hackerone.com); the docs.hackerone.com Help Center is the product/program documentation portal (12 sections incl. Get Started, Run a Program, Integrate Tools, Pentesting, AI) but has no standalone API section. Official GitHub org is 'Hacker0x01' (verified controlling hackerone.com) — note github.com/hackerone is an UNRELATED personal user account, not HackerOne. REST API uses HTTP Basic auth (API token identifier + token value); a newer GraphQL API also exists. hackerone-client / hackerone-cli are community, not official.
+> Note: The official API lives at api.hackerone.com (NOT docs.hackerone.com); the docs.hackerone.com Help Center is the product/program documentation portal (12 sections incl. Get Started, Run a Program, Integrate Tools, Pentesting, AI) but has no standalone API section. Official GitHub org is 'Hacker0x01' (verified controlling hackerone.com): note github.com/hackerone is an UNRELATED personal user account, not HackerOne. REST API uses HTTP Basic auth (API token identifier + token value); a newer GraphQL API also exists. hackerone-client / hackerone-cli are community, not official.
 
 
 ## Identity & Privileged Access
@@ -794,7 +794,7 @@ _GitHub (official)_
 - [CyberArk Ansible security automation collection](https://github.com/cyberark/ansible-security-automation-collection)
 
 _Community / integration / detection repos_
-- [psPAS — community PowerShell module for the CyberArk PAS/PVWA REST API (widely used)](https://github.com/pspete/psPAS)
+- [psPAS: community PowerShell module for the CyberArk PAS/PVWA REST API (widely used)](https://github.com/pspete/psPAS)
 - [SigmaHQ detection rules (CyberArk Vault/PAS activity)](https://github.com/SigmaHQ/sigma)
 - [CyberArk apps & add-ons on Splunkbase (SIEM integration)](https://splunkbase.splunk.com/apps?keyword=cyberark)
 
@@ -851,7 +851,7 @@ _Learning & reference_
 - [Splunk Community (Q&A, Splunk Dev)](https://community.splunk.com)
 - [Splunkbase (apps & add-ons marketplace, incl. ES add-ons)](https://splunkbase.splunk.com)
 
-> Note: Splunk was acquired by Cisco (2024); product branding is transitioning but docs/repos remain under Splunk. Documentation is actively migrating from docs.splunk.com to the newer help.splunk.com Help Center — both are live; docs.splunk.com still hosts versioned ES manuals and the version selector. Current ES major line is 8.x (search also surfaced legacy 3.x–4.x/7.x pages — ignore for current deployments). Enterprise Security ships the ESCU (DA-ESS-ContentUpdate) content pack built from splunk/security_content; research.splunk.com is updated daily. REST API runs over HTTPS on splunkd management port 8089; Cloud Platform exposes a subset of Enterprise endpoints. Splunkbase and some training/education resources require a (free) Splunk account login.
+> Note: Splunk was acquired by Cisco (2024); product branding is transitioning but docs/repos remain under Splunk. Documentation is actively migrating from docs.splunk.com to the newer help.splunk.com Help Center: both are live; docs.splunk.com still hosts versioned ES manuals and the version selector. Current ES major line is 8.x (search also surfaced legacy 3.x–4.x/7.x pages: ignore for current deployments). Enterprise Security ships the ESCU (DA-ESS-ContentUpdate) content pack built from splunk/security_content; research.splunk.com is updated daily. REST API runs over HTTPS on splunkd management port 8089; Cloud Platform exposes a subset of Enterprise endpoints. Splunkbase and some training/education resources require a (free) Splunk account login.
 
 
 ---

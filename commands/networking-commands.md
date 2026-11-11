@@ -2,6 +2,55 @@
 
 This page collects the command-line tools for inspecting and testing networks on Linux and, where noted, other platforms. It covers interface and route configuration, socket listing, reachability, DNS lookups, and packet capture. Most tools are read-only diagnostics; a few change state or move data. Full packet analysis lives on the tshark page.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Administrators, network engineers and analysts who troubleshoot connectivity from a terminal
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (935 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the networking commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [tshark Command Reference](/commands/tshark.md), [Nmap Command Reference](/commands/nmap.md), [curl Command Reference](/commands/curl.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 The `iproute2` suite (`ip`, `ss`) is standard on modern Linux and replaces the older `net-tools` commands (`ifconfig`, `route`, `netstat`). DNS tools (`dig`, `host`, `nslookup`) ship with BIND utilities or similar packages. `ping`, `traceroute`, `nc`, and `tcpdump` are near-universal on Unix-like systems. Windows provides `tracert`, `nslookup`, and `ping` with its own flag spellings.
@@ -151,6 +200,29 @@ ip route get 192.168.50.10
 | `+short` | `dig` | Answer only, script-friendly |
 | `-z`, `-v` | `nc` | Scan mode (no data) and verbose |
 | `-w FILE` | `tcpdump` | Write raw packets to a pcap file |
+
+## Security relevance
+
+This section is the threat-facing view of the networking tools: how an operator abuses these diagnostics on a host and what a defender sees. The safe-use and configuration guidance is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Reconnaissance. `ss` and `netstat` map listening services, `ip neigh` and `arp` enumerate the local segment, and `dig` drives DNS enumeration, including zone transfers (`dig AXFR`) and bulk `ANY` queries that reveal an environment before an attack.
+- Command and control and exfiltration. `nc` provides bind and reverse shells and moves data between hosts, `curl` and `wget` pull payloads, and DNS lookups can serve as a covert channel.
+- Pivoting. Adding a route or standing up an `nc` relay extends reach into a segment the operator cannot touch directly.
+- Telemetry. NetFlow, firewall logs, DNS query logs, and EDR network events capture the activity, so defenders alert on unexpected `nc` listeners, outbound connections to new destinations, and `AXFR` or `ANY` query bursts.
+
+### Dominant weakness classes
+
+These are userspace network tools, so the risks are exposure and recon enablement rather than memory corruption.
+
+- Cleartext transmission of sensitive information ([CWE-319](https://cwe.mitre.org/data/definitions/319.html)) over `nc host 25`, telnet, or plain HTTP, readable by anyone capturing the path.
+- Exposure of sensitive information to an unauthorized actor ([CWE-200](https://cwe.mitre.org/data/definitions/200.html)) when a packet capture records credentials and session tokens.
+- Exposure of a resource to the wrong control sphere ([CWE-668](https://cwe.mitre.org/data/definitions/668.html)) when an unintended listening socket is reachable from outside its segment.
+
+### Why it matters
+
+Recognizing that the same diagnostics map a network and move data lets a defender alert on the abuse pattern rather than the tool name, and lets a tester understand what their own traffic reveals on the wire. See [the network protocols security reference](/NETWORK_PROTOCOLS_SECURITY.md) for protocol-level exposure and segmentation guidance.
 
 ## Security notes
 

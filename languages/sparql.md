@@ -14,6 +14,55 @@ SPARQL (a recursive name for SPARQL Protocol and RDF Query Language) is the stan
 
 Related: [API Security Reference](/API_SECURITY_REFERENCE.md), [GraphQL](/languages/graphql.md), [Datalog](/languages/datalog.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain SPARQL code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,705 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing SPARQL code (typical uses: querying knowledge graphs, linked data, and RDF datasets), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[API Security Reference](/API_SECURITY_REFERENCE.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [GraphQL](/languages/graphql.md), [Datalog](/languages/datalog.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 SPARQL was standardized by the W3C to provide a common query language for RDF, which represents data as a graph of subject-predicate-object triples. SPARQL 1.0 became a recommendation in 2008; SPARQL 1.1 followed in 2013, adding aggregates, subqueries, property paths, federated queries across endpoints, and an update language for modifying graphs. It is accompanied by a protocol that defines how queries travel over HTTP to a SPARQL endpoint.
@@ -116,6 +165,29 @@ Federated queries (`SERVICE`) send sub-queries to remote endpoints; a selective 
 - Missing or wrong `PREFIX` declarations cause patterns to match nothing silently, because an IRI typo is just a different IRI.
 - Datatype and language-tag mismatches make a `FILTER` comparison fail even when the lexical values look equal; compare with the right datatype.
 - Default versus named graphs: querying the wrong graph, or assuming a single default graph when the store uses several, returns empty or partial results.
+
+## Security relevance
+
+SPARQL reaches security practitioners as the query interface to RDF data, so its risks sit at the boundary where an application builds queries from input and at the HTTP endpoint that answers them. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context. See the [API Security Reference](/API_SECURITY_REFERENCE.md).
+
+### Where it appears
+
+- Public and internal endpoints. Knowledge graphs and linked-data services such as Wikidata and DBpedia expose SPARQL over HTTP, and internal deployments on engines such as [Apache Jena](https://jena.apache.org/) Fuseki, [RDF4J](https://rdf4j.org/), and Virtuoso answer queries from applications.
+- Application query construction. Code that assembles SPARQL from user input is the point where injection enters, the same way SQL injection enters a relational application.
+- Federated graphs. The `SERVICE` keyword makes an engine contact other endpoints during a query, which extends the reachable network surface from the SPARQL layer.
+
+### Dominant weakness classes
+
+A SPARQL query is evaluated by a triple store that manages its own memory, so memory-corruption classes do not apply to the language. The weaknesses are about query construction and endpoint exposure:
+
+- Query injection. Concatenating untrusted input into a query string lets an attacker alter the query, read data outside the intended scope, or, with the update language, modify or delete graph data. This is the SPARQL case of the injection family, related to [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Server-side request forgery through federation. A `SERVICE` clause aimed at an attacker-influenced or internal address can be used to probe internal services. This is [CWE-918](https://cwe.mitre.org/data/definitions/918.html).
+- Uncontrolled resource consumption. Full-graph scans and unbounded property paths can exhaust server resources, so public endpoints need query timeouts and result-size limits. This is [CWE-400](https://cwe.mitre.org/data/definitions/400.html).
+- Missing authorization for updates. SPARQL 1.1 Update can change data, so an endpoint that accepts updates from untrusted clients risks unauthorized modification. This is [CWE-862](https://cwe.mitre.org/data/definitions/862.html).
+
+### Why it matters
+
+Reading SPARQL lets an assessor tell a parameterized query apart from one built by string concatenation, judge whether a `SERVICE` clause can reach internal hosts, and check whether an endpoint exposes the update language without authorization. The main defensive tools are the query-building APIs of engines such as [Apache Jena](https://jena.apache.org/) and [RDF4J](https://rdf4j.org/), which bind values as RDF terms rather than concatenating strings, as the Secure coding section describes. See the [API Security Reference](/API_SECURITY_REFERENCE.md).
 
 ## Secure coding
 

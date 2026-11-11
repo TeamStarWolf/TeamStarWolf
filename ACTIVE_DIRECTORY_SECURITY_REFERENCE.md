@@ -554,7 +554,7 @@ SecurityEvent
 
 Hardening (double krbtgt reset):
 ```powershell
-# Reset krbtgt password — must be done TWICE with replication delay between resets
+# Reset krbtgt password: must be done TWICE with replication delay between resets
 # This invalidates ALL existing golden tickets
 $krbtgt = Get-ADUser krbtgt
 Set-ADAccountPassword $krbtgt -NewPassword (ConvertTo-SecureString -AsPlainText "$(New-Guid)" -Force)
@@ -1367,8 +1367,8 @@ certipy auth -pfx 'administrator.pfx' -dc-ip 10.0.0.1
 ### 8.4 CA Server Hardening
 
 ```powershell
-# CA service account — dedicated, non-interactive, no logon rights to other systems
-# CA server — Tier 0; domain-joined but restricted; no browsing internet; no email
+# CA service account: dedicated, non-interactive, no logon rights to other systems
+# CA server: Tier 0; domain-joined but restricted; no browsing internet; no email
 
 # Audit CA configuration
 certutil -getreg CA\                    # All CA registry settings
@@ -1604,7 +1604,7 @@ Setup:
 New-ADUser -Name "svc-backup-legacy" -Description "Legacy backup service - DO NOT USE" `
     -Enabled $true -PasswordNeverExpires $true -CannotChangePassword $true
 
-# Set password — complex, stored securely but never provided to anyone
+# Set password: complex, stored securely but never provided to anyone
 Set-ADAccountPassword svc-backup-legacy -NewPassword (ConvertTo-SecureString "$(New-Guid)$(New-Guid)" -AsPlainText -Force)
 
 # Alert on Event 4768/4769/4625/4624 for this account

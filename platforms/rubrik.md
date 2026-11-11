@@ -2,6 +2,55 @@
 
 Rubrik Security Cloud provides backup and cyber recovery with a focus on data security posture. It stores backups in immutable, append-only form and adds analytics that detect ransomware and anomalies inside protected data. The platform also discovers sensitive data and supports investigation after an incident. Licence tier decides which modules and workload coverage are in force.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Backup administrators, infrastructure engineers and incident responders who run, tune or assess Rubrik
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,417 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Rubrik for backup and cyber recovery, you are hardening its deployment, or you need to see where it fits in the program
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md), [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Veeam](/platforms/veeam.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Rubrik Security Cloud is a data protection and cyber-recovery platform. It protects virtual machines, physical servers, databases, cloud workloads, and SaaS data, and manages them from a cloud-delivered control plane.
@@ -58,6 +107,24 @@ Data Threat Analytics provides backup-anomaly detection. It studies change rates
 Ransomware Investigation builds on that analysis. It helps responders trace when compromise began and which restore point predates the damage. Choosing a clean point matters, because recovering from an infected backup reintroduces the attack.
 
 Sensitive Data Discovery adds impact context. Knowing which sensitive data a compromised system held informs notification, prioritization, and the order of recovery.
+
+## Adversary perspective
+
+Because Rubrik holds the recovery capability and copies of sensitive data, ransomware actors treat it as something to neutralize before they detonate, and its control plane, management console, and admin identities are themselves an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Destroying recovery before impact (ATT&CK T1490, Inhibit System Recovery): with backup admin access an attacker tries to expire policy or lower retention before encrypting production. The immutable, append-only format is the counter, because a written backup cannot be changed in place and an isolated copy stays out of reach.
+- Abusing the backup identity (ATT&CK T1078, Valid Accounts): a compromised Rubrik administrator, or a reused production domain admin account, can change policy or attempt to shorten retention, which is why separate identities and role separation matter ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Recovering to a poisoned point: an attacker who corrupts data slowly tries to have every retained copy carry the damage, which is what Data Threat Analytics and Ransomware Investigation are meant to catch by locating a clean restore point.
+
+### Residual risk and own exposure
+
+Rubrik cannot prevent a compromise, cannot protect workloads left out of policy, and cannot help if recovery starts from an infected point. The platform stores credentials and indexes sensitive data, and backup software across the industry has been a notable exploitation target, so its control plane belongs in the patch and monitoring scope and its own compromise is a serious breach, not only a loss of backups.
+
+### Why it matters
+
+A tester probes whether retention can be weakened with the access at hand and whether an isolated copy is truly unreachable. A defender alarms on retention changes, mass expiry, and policy edits as incidents in their own right, and treats analytics findings as an early warning and a path to a clean point. See [the ransomware defense reference](/RANSOMWARE_DEFENSE_REFERENCE.md) for how immutable and isolated copies fit, and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

@@ -2,6 +2,55 @@
 
 Symbolic programming treats programs and data as manipulable symbolic structures rather than as fixed sequences of machine operations. It is cross-cutting: a style that overlays functional, logic, and metaprogramming work rather than a single control model. It matters because it underlies computer algebra, program transformation, and the classic artificial intelligence tradition, where the thing being computed is itself an expression.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers and students learning symbolic programming, and reviewers who assess code written in that style
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (891 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning symbolic programming or deciding whether it fits a problem, you want the languages and tools that support it, or you need its secure-coding considerations before a review
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core idea](#core-idea), [Strengths and trade-offs](#strengths-and-trade-offs), [Secure-coding considerations](#secure-coding-considerations)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Functional Programming](/paradigms/functional.md), [Logic Programming](/paradigms/logic.md), [Metaprogramming](/paradigms/metaprogramming.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Core idea
 
 The defining concept is that symbols and the structures built from them are first-class values. A variable, an operator, or a whole expression like `(+ x (* 2 y))` is data you can build, inspect, transform, and evaluate. The program reasons about expressions, not just numbers and strings.

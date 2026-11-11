@@ -2,6 +2,55 @@
 
 tshark is the command-line version of Wireshark. It captures and reads network traffic, applies filters, extracts fields, and prints protocol statistics, all without a graphical interface. Security teams use it for authorized network analysis, incident response, and protocol troubleshooting on networks they are permitted to monitor. Capturing traffic needs privilege and authorization, so confirm both before you start. This page covers capture, read, filtering, field extraction, and statistics, plus the handling rules for captured data.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Network engineers, SOC analysts and incident responders who capture and read packets from a terminal
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (966 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the tshark commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you are a defender who needs to spot it in use
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Detection and defense](#detection-and-defense)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Networking Command Reference](/commands/networking-commands.md), [Nmap Command Reference](/commands/nmap.md), [SSH Command Reference](/commands/ssh.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 tshark runs on Linux, Windows, and macOS and ships with the Wireshark distribution. It reads the same dissectors as Wireshark and the same capture file formats (`pcap`, `pcapng`). Live capture needs access to a network interface, which usually means root or membership in a capture group, plus packet-capture privileges on the host. Read and analysis of an existing capture file need only file access.
@@ -120,6 +169,29 @@ tshark -i eth0 -w ir.pcapng -b duration:3600 -b files:24 -f "not port 22"
 | `-x` | Hex and ASCII dump of each packet |
 | `-V` | Verbose, full protocol tree per packet |
 | `-s` | Snap length, bytes captured per packet |
+
+## Security relevance
+
+This section is the threat-facing view of tshark and where it sits in an engagement; authorized use only is assumed. The capture-access controls and the data-handling rules are in the "Detection and defense" section that follows.
+
+### Where it appears
+
+- Passive reconnaissance. On a segment an operator already reaches, tshark reads traffic to harvest cleartext credentials, session tokens, and message bodies without touching the target.
+- Collection. Scoped captures during an authorized network test record exactly what crosses the wire for later field extraction.
+- Incident response. Analysts read captures to reconstruct command-and-control, exfiltration, and the timeline of an intrusion.
+- Protocol review. Field extraction and statistics expose where a service still speaks plaintext when it should not.
+
+### Dominant weakness classes
+
+tshark observes traffic rather than running code against a host, so the weaknesses it reveals are in data protection in transit, not memory safety.
+
+- Cleartext transmission of sensitive information ([CWE-319](https://cwe.mitre.org/data/definitions/319.html)), the core finding for HTTP, FTP, and Telnet.
+- Unprotected transport of credentials ([CWE-523](https://cwe.mitre.org/data/definitions/523.html)).
+- Exposure of sensitive information to an unauthorized actor ([CWE-200](https://cwe.mitre.org/data/definitions/200.html)) to anyone on the same path.
+
+### Why it matters
+
+Reading traffic off the wire shows precisely what a passive adversary sharing the segment can collect, which turns an abstract argument for encryption into a concrete list of exposed credentials and data. The same view lets a defender confirm that services have moved to protected transports. See [network protocols security](/NETWORK_PROTOCOLS_SECURITY.md).
 
 ## Detection and defense
 

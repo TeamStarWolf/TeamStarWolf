@@ -2,6 +2,55 @@
 
 Ruby on Rails is a server-side web framework written in Ruby. It follows the Model-View-Controller pattern and favors convention over configuration. Teams use it to build database-backed web applications quickly, because sensible defaults remove most wiring decisions. It ships an opinionated full stack: an ORM, a controller layer, a view system, background jobs, and a front-end interaction layer.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who build with Ruby on Rails, and the reviewers and application security engineers who assess what they build
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,408 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or reviewing a Ruby on Rails application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture](#architecture), [Security model and common vulnerabilities](#security-model-and-common-vulnerabilities), [Common pitfalls](#common-pitfalls)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Ruby](/languages/ruby.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [API Security Reference](/API_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 David Heinemeier Hansson extracted Rails from the Basecamp application and released it in 2004. It popularized convention over configuration and the idea that a small team could ship a complete application fast. The framework reached 1.0 in 2005 and has shipped major versions steadily since.
@@ -55,6 +104,30 @@ end
 RubyGems distributes libraries, and Bundler pins versions through a `Gemfile` and `Gemfile.lock`. Rake and the `rails` command run tasks such as migrations, the console, and the server. The generators scaffold models, controllers, and tests.
 
 Testing is built in with Minitest, and RSpec is a widely used alternative. Devise handles authentication, Pundit and CanCanCan handle authorization, and Sidekiq runs background jobs. Brakeman is a static analysis scanner written specifically for Rails security issues.
+
+## Security relevance
+
+This section is the threat-facing view of Rails: how it appears to an attacker or an auditor in the field, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Internet-facing web applications and JSON APIs. Rails is often recognizable from the outside by its conventions: default RESTful route shapes, a `_session_id` cookie, an `X-Runtime` header, 422 responses on a missing CSRF token, and fingerprinted asset paths.
+- Audit and defensive tooling is written specifically for it. Brakeman is the static analysis scanner built for Rails, and bundler-audit checks the gem dependency tree against the ruby-advisory-db.
+- Offensive interest centers on the signing secret. The `secret_key_base` signs cookies and sessions, so a leaked value lets an attacker forge signed data and, combined with an unsafe deserialization sink, reach code execution.
+- The dependency surface is the RubyGems ecosystem, pinned through `Gemfile.lock`. A compromised or typosquatted gem runs with full application privilege, the same pattern covered in [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+Rails runs on Ruby, a memory-managed language, so the dominant classes are logic and injection flaws rather than memory corruption. The fixes for each are detailed in the section below.
+
+- Insecure deserialization (CWE-502) is the highest-severity historical class, since a crafted object graph reaching `Marshal.load` or an unsafe `YAML.load` can execute code. See [Ruby](/languages/ruby.md) for the language-level sinks.
+- Mass assignment ([CWE-915](https://cwe.mitre.org/data/definitions/915.html)). The 2012 GitHub incident, where an attacker set a protected attribute through form data, is the canonical public example.
+- SQL and code injection ([CWE-89](https://cwe.mitre.org/data/definitions/89.html), [CWE-94](https://cwe.mitre.org/data/definitions/94.html)) through query methods or view paths that accept raw strings.
+- Exposure of the signing secret ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)) committed to source control, which undermines every signed cookie and token at once.
+
+### Why it matters
+
+Convention over configuration cuts both ways: it lets an auditor trace the whole request path from `config/routes.rb` through the controllers and Active Record quickly, because the layout is predictable. Recognizing Rails in the field tells a tester which injection classes and which signing-secret pivots to try first. Brakeman is the framework-specific static analyzer to reach for, and bundler-audit covers the dependency side. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for the cross-cutting review method.
 
 ## Security model and common vulnerabilities
 

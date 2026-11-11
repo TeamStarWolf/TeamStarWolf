@@ -2,6 +2,55 @@
 
 Git is a distributed version control system that tracks changes in source trees. Every clone holds the full history, so most operations run locally and offline. This page covers the everyday commands plus the history, branching, and remote operations that teams rely on. It assumes Git 2.23 or later, where `switch` and `restore` split the old `checkout` behavior.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers and anyone else who keeps code or documents in Git
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (906 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the Git commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [SSH Command Reference](/commands/ssh.md), [curl Command Reference](/commands/curl.md), [Linux Command Reference](/commands/linux-commands.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 Git runs as a command-line tool on Linux, macOS, Windows, and the BSDs. A repository is a working tree plus a hidden `.git` directory that stores objects, refs, and config. Commands act on the local repository first; `fetch`, `pull`, and `push` are the only ones that talk to a remote. Hosting platforms (GitHub, GitLab, Bitbucket) add access control and review on top of the same protocol.
@@ -133,6 +182,30 @@ git clean -fxd                 # delete after you confirm the list
 | `--depth <n>` | `clone`, `fetch` | limit history to the last n commits |
 
 Prefer `--force-with-lease` over `--force`. The lease aborts the push if someone else advanced the branch after your last fetch, which prevents overwriting their work.
+
+## Security relevance
+
+This section is the threat-facing view of Git: how it appears in offensive and defensive work. The safe-use guidance for your own repositories is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Reconnaissance. Public and leaked repositories are a primary intelligence source. Attackers mine commit history for credentials, internal hostnames, and API keys, and scan web roots for an exposed `.git/` directory, which lets them reconstruct the full source and history of a site.
+- Code execution on clone. A repository can carry a malicious `.git/hooks` script or a `.gitmodules` submodule pointing at an attacker-controlled URL, so cloning or checking out untrusted code can run it.
+- Supply chain. Poisoned repositories, dependency confusion, and tampered tags ride the same fetch and pull path that developers trust. See [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+- Tooling. Secret scanners such as gitleaks and trufflehog run on both sides: defenders gate pushes with them, and testers point them at a fresh clone. `git-dumper` reconstructs a repository from an exposed `.git/` directory.
+
+### Dominant weakness classes
+
+Git is a content-addressed store, so the risks are exposure and trust rather than memory corruption.
+
+- Sensitive information left in version-control history ([CWE-540](https://cwe.mitre.org/data/definitions/540.html)).
+- Exposure of a version-control directory to an unauthorized sphere ([CWE-527](https://cwe.mitre.org/data/definitions/527.html)), the exposed `.git/` case.
+- Inclusion of functionality from an untrusted control sphere ([CWE-829](https://cwe.mitre.org/data/definitions/829.html)) through hooks and submodules.
+- Cleartext storage of credentials ([CWE-312](https://cwe.mitre.org/data/definitions/312.html)) in a plaintext credential file.
+
+### Why it matters
+
+Checking for an exposed `.git/` directory and scanning history for secrets are standard steps in a web application assessment, because both convert a single oversight into full source disclosure or working credentials. On the defensive side, host-level secret scanning and push protection close the same gap before it reaches shared history. See [the secure coding reference](/SECURE_CODING_REFERENCE.md) for secret-handling guidance.
 
 ## Security notes
 

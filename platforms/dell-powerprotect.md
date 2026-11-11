@@ -2,6 +2,55 @@
 
 Dell PowerProtect is a family for data protection and cyber recovery. It combines PowerProtect Data Manager software, PowerProtect Data Domain protection storage, and the PowerProtect Cyber Recovery vault. Together they back up workloads, store them with deduplication and retention lock, and keep an isolated copy for recovery after a destructive attack. The isolated vault pattern is the product's defining security feature.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Backup administrators, infrastructure engineers and incident responders who run, tune or assess Dell PowerProtect
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,292 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Dell PowerProtect for backup and cyber recovery, you are hardening its deployment, or you need to see where it fits in the program
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md), [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Veritas NetBackup](/platforms/veritas-netbackup.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 PowerProtect Data Manager discovers workloads, runs protection policies, and tracks copies. PowerProtect Data Domain is the storage tier that holds those copies with deduplication and immutability.
@@ -59,6 +108,24 @@ Follow the 3-2-1-1-0 rule. Keep three copies on two media types, one offsite, on
 CyberSense is the anomaly detection layer. Content-level analysis finds the corruption that metadata alone can miss, and it points to the last clean copy for recovery.
 
 Test vault recovery on a schedule. Rehearse recovering critical systems from the vault so the air gap does not hide a broken restore path.
+
+## Adversary perspective
+
+Because PowerProtect is the recovery of last resort, ransomware actors treat it as something to neutralize before they detonate, and Data Manager, Data Domain, and the Cyber Recovery vault are themselves an attack surface. The steps to lock the family down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Destroying recovery before impact (ATT&CK T1490, Inhibit System Recovery): with backup admin access an attacker tries to delete backups, expire policy, or unlock retention before encrypting production. Retention Lock and the normally closed vault link are the counters, because a locked copy cannot be erased early and the air gap removes the network path to the vaulted data.
+- Abusing the backup identity (ATT&CK T1078, Valid Accounts): a compromised Data Manager or Data Domain administrator, or a shared production admin account, can change policy or attempt early deletion, which is why separate vault operators and multi-person approval matter ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Poisoning the copy: an attacker who corrupts data slowly tries to have the damage replicated into the vault before it is noticed, which is what CyberSense content analysis is meant to catch by pointing to the last clean copy.
+
+### Residual risk and own exposure
+
+PowerProtect cannot prevent a compromise, cannot protect data left out of the vault scope, and cannot help if recovery starts from an infected point. The backup and vault control planes run with high privilege, and backup software across the industry has been a notable exploitation target, so Data Manager, Data Domain, and the vault software belong in the patch and monitoring scope.
+
+### Why it matters
+
+A tester probes whether backups can be deleted or retention unlocked with the access at hand, and whether the air-gap link is ever left open. A defender alarms on early deletion attempts, retention changes, and synchronization-window edits as incidents, and treats CyberSense scores as a trigger. See [the ransomware defense reference](/RANSOMWARE_DEFENSE_REFERENCE.md) for how immutable and isolated copies fit, and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

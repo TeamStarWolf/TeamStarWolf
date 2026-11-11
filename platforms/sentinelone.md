@@ -2,6 +2,55 @@
 
 SentinelOne Singularity is an endpoint and extended detection and response platform from SentinelOne. It runs a single agent with on-device AI models that detect, correlate, and respond to threats without waiting on the cloud. The platform spans endpoint, identity, cloud, and network telemetry, backed by a data lake for long-term analytics.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Endpoint security engineers and SOC analysts who run, tune or assess SentinelOne Singularity
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,377 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running SentinelOne Singularity for endpoint protection, detection and response, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [CrowdStrike Falcon](/platforms/crowdstrike-falcon.md), [Microsoft Defender for Endpoint](/platforms/microsoft-defender.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Singularity sits in the endpoint protection (EPP) and endpoint detection and response (EDR) category, extending into XDR. It replaces traditional signature antivirus with behavioral AI that scores process activity as it executes. The platform targets security operations teams that need prevention, detection, investigation, and response from one agent and one console.
@@ -47,6 +96,24 @@ Singularity exports detections and telemetry to SIEM platforms for correlation w
 SOAR integration drives automated playbooks. A detection can open a case, enrich it with asset and user context, and trigger containment steps such as network isolation. Cortex XSOAR and similar orchestration tools consume Singularity alerts and call its API to run response actions.
 
 The platform exposes a documented API for retrieving threats, managing endpoints, and invoking response. API access underpins SIEM forwarding, SOAR actions, and custom reporting. Treat the API as a sensitive control plane because it can isolate, kill, and roll back at scale.
+
+## Adversary perspective
+
+Because Singularity is the primary detection and response control on the host, adversaries treat it as something to blind or disable, and its agent and console are themselves an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and tampering
+
+- Impairing the agent (ATT&CK T1685, Disable or Modify Tools): with local administrator rights an attacker tries to stop or uninstall the agent, sever its console connectivity, or push it into a weaker policy mode. Agent tamper protection and tight exclusion scoping are the countermeasures.
+- Running below or around the agent: bring-your-own-vulnerable-driver (BYOVD) and user-mode unhooking aim to act outside the agent's visibility, and an over-broad exclusion becomes a safe harbor to run from.
+- Console and API abuse: a stolen API token or a hijacked console session lets an attacker change policy, run remote script execution, or trigger kill and rollback at scale, which turns the control into a foothold ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+
+### Residual risk and own exposure
+
+The agent runs with high privilege on every host, so a flaw in the agent or the console is high-impact, and endpoint agents across the industry have carried privilege-escalation and remote issues. The agent version and the console integrations belong in the patch and monitoring scope, and no agent catches every technique on its own.
+
+### Why it matters
+
+Treating the endpoint control as infallible is the mistake. A mature program monitors the control's own health, including uninstalls, policy changes, and reporting gaps, as a detection signal, and keeps the agent current. See [the red team reference](/RED_TEAM_REFERENCE.md) for the evasion techniques and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

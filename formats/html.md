@@ -2,6 +2,55 @@
 
 HyperText Markup Language is the markup language that describes the structure and content of web pages. Browsers parse it into a tree of nodes called the Document Object Model. Every page a user loads begins as an HTML document, with CSS and JavaScript applied on top. It is the primary surface where untrusted data meets executable context, so its security properties matter to every web application.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers, engineers and analysts who read, write or parse HTML
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (858 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are reading or writing HTML by hand or in code, you want a worked example and the tools that handle it, or you are parsing untrusted input and need its security considerations
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax and structure](#syntax-and-structure), [A worked example](#a-worked-example), [Security considerations](#security-considerations)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [CSS](/formats/css.md), [Markdown](/formats/markdown.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 HTML describes documents as a hierarchy of elements. Each element has a meaning, such as a heading, a paragraph, a link, or a form control. The browser reads the markup, builds the DOM, and renders the result.
@@ -98,6 +147,28 @@ The W3C Nu Html Checker validates markup against the living standard. `html-vali
 Formatters such as Prettier normalize indentation and attribute wrapping. Linters such as `htmlhint` and `eslint-plugin-html` catch structural errors and inline script issues.
 
 Sanitization libraries, including DOMPurify and the server-side `sanitize-html`, strip dangerous markup from untrusted input before it reaches the DOM. Treat these as security controls, not formatters.
+
+## Security relevance
+
+This section is the threat-facing view of HTML: why it is the primary place untrusted data meets executable context and where it is attacked. The output-encoding and sanitization controls that defend against these are in the "Security considerations" section that follows.
+
+### Where it appears
+
+- Server-rendered templates. Any value interpolated into a page without context-aware encoding is a candidate for markup injection.
+- Client-side sinks. Assigning attacker-influenced data to `innerHTML`, `document.write`, or a framework's raw-HTML helper runs injected script in the victim's session. See [JavaScript](/languages/javascript.md) for the DOM sinks involved.
+- Stored content. Comment fields, profile text, and rich-text bodies that are later shown to other users turn a single injection into stored cross-site scripting.
+
+### Dominant weakness classes
+
+HTML is text, so the risks are injection and the execution context it creates rather than memory corruption. The defensive settings for each are in the section below.
+
+- Cross-site scripting ([CWE-79](https://cwe.mitre.org/data/definitions/79.html)), untrusted data placed into markup without context-correct encoding so that it runs as script.
+- Improper neutralization of script-related HTML tags ([CWE-80](https://cwe.mitre.org/data/definitions/80.html)), the basic markup-injection case that a naive tag stripper fails to stop.
+- Improper restriction of rendered UI layers ([CWE-1021](https://cwe.mitre.org/data/definitions/1021.html)), clickjacking through framing and overlays when framing controls are absent.
+
+### Why it matters
+
+Recognizing untrusted data flowing into an HTML sink tells a tester the payload can run as script with the victim's privileges, which is why cross-site scripting remains among the most reported web flaws. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for the surrounding method.
 
 ## Security considerations
 

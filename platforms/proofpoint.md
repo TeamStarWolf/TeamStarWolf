@@ -2,6 +2,55 @@
 
 Proofpoint is an email-centric security vendor. Its products protect the mail delivery path, which is the route most attacks take to reach people. The portfolio covers filtering, attack protection, data loss prevention, response, and user training.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Email security engineers, messaging administrators and SOC analysts who run, tune or assess Proofpoint
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,258 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Proofpoint for email protection, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md), [Cortex XSOAR](/platforms/cortex-xsoar.md), [Zscaler](/platforms/zscaler.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Email is a primary delivery path for phishing, malware, and business email compromise. Proofpoint focuses on that path. It inspects inbound and outbound mail, sandboxes suspect content, and gives teams a way to respond when a message gets through.
@@ -47,6 +96,24 @@ Detection data flows outward to other tools. Proofpoint integrates with SIEM pla
 The platform also integrates with SOAR tools. A response workflow can act on a Proofpoint verdict: enriching an incident, pulling a message from mailboxes, or triggering further containment. This connects email events to the broader response process.
 
 Outcomes feed back into reporting and training. Click data and threat verdicts inform which users and which campaigns need attention, and they can shape the simulated phishing program.
+
+## Adversary perspective
+
+Proofpoint is the control on the delivery path, so attackers craft messages to pass its filters and sandboxes and abuse trusted routes, and its console with mail-removal and release functions is itself a target. The defensive steps are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Defeating dynamic inspection: attackers delay weaponization so a rewritten URL resolves clean at click time, use sandbox-evasion and environment checks so an attachment behaves differently when detonated, and rely on credential-harvest pages that host no malware.
+- Trusted-sender and allow-list abuse: permit rules, trusted relays, and compromised partner accounts let mail skip scrutiny, so attackers target those gaps rather than the engines directly.
+- Look-alike domains and impersonation: display-name spoofing and registered look-alike domains support business email compromise that carries no payload for a signature to catch.
+
+### Residual risk and own exposure
+
+Filtering lowers volume but does not remove the need for endpoint and identity controls, and a well-crafted targeted message can still reach a user. The platform can pull mail from mailboxes and release quarantined messages, and holds integration credentials, so the console and its API are consequential and belong in the monitoring and review scope (leaked keys map to [CWE-798](https://cwe.mitre.org/data/definitions/798.html)).
+
+### Why it matters
+
+Guard the removal and release functions, review quarantine and allow-list trends, and treat the gateway as one layer among endpoint and identity defenses. See [the incident response reference](/INCIDENT_RESPONSE_REFERENCE.md) for scoping a phishing campaign and [the red team reference](/RED_TEAM_REFERENCE.md) for phishing technique.
 
 ## Hardening and secure use
 

@@ -2,6 +2,55 @@
 
 tmux is a terminal multiplexer. It lets one terminal hold many sessions, windows, and panes, and keeps them running after you disconnect. On remote servers it means a long job survives a dropped SSH connection, and you can reattach later from anywhere. This page covers the prefix key, the session and pane model, copy mode, scripting, and the config file.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Administrators, engineers and testers who keep terminal sessions running on servers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,123 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the tmux commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Vim Command Reference](/commands/vim.md), [SSH Command Reference](/commands/ssh.md), [Linux Command Reference](/commands/linux-commands.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 tmux runs a background server that owns your sessions; the `tmux` client attaches to it. It is available on Linux and macOS through the standard package managers and is a common pick on servers where screen sessions must outlive a login. The server communicates with clients over a Unix domain socket, by default under a per-user directory such as `/tmp/tmux-<uid>/`.
@@ -141,6 +190,29 @@ tmux attach -t api
 | `tmux -S /path/sock` | Use an explicit socket path |
 | `tmux send-keys -t target` | Send keys to a named target |
 | `tmux kill-session -t name` | Terminate one session |
+
+## Security relevance
+
+This section is the threat-facing view of tmux: how it appears in offensive work and in defender telemetry. The safe-use guidance for your own sessions is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Socket hijack and session takeover. A tmux socket another user can write to, or a shared session, lets an attacker drive every pane, read scrollback full of secrets, and run commands as the session owner. If that owner is root, so is the attacker.
+- Persistence and backgrounding. Attackers run an implant or beacon inside a detached session so the process survives logout and a dropped SSH connection, then reattach later; `send-keys` drives a target pane without an interactive attach.
+- Restricted-shell breakout. Like other interactive tools, if tmux is reachable from a locked-down account it can start a fresh shell outside the restriction, a GTFOBins-style escape.
+- Telemetry. Defenders look for new servers and sockets under `/tmp/tmux-<uid>/`, long-lived detached sessions owned by service accounts, and processes parented by tmux rather than a login shell.
+
+### Dominant weakness classes
+
+tmux is a userspace multiplexer, so the risks are access control and exposure rather than memory corruption.
+
+- Incorrect permission assignment for a critical resource ([CWE-732](https://cwe.mitre.org/data/definitions/732.html)) on a writable or world-reachable socket.
+- Exposure of a resource to the wrong control sphere ([CWE-668](https://cwe.mitre.org/data/definitions/668.html)) when a session is shared or left attachable.
+- Exposure of sensitive information to an unauthorized actor ([CWE-200](https://cwe.mitre.org/data/definitions/200.html)) through scrollback and environment variables that persist in a detached session.
+
+### Why it matters
+
+A long-lived detached session owned by a service account is both an attacker's persistence trick and a defender's hunt target, so checking socket permissions and who can attach is a quick step in a Linux review. See [the Linux hardening reference](/LINUX_HARDENING_REFERENCE.md) for access-control and service-account guidance.
 
 ## Security notes
 

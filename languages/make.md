@@ -14,6 +14,55 @@ Make is a build-automation language and tool created by Stuart Feldman at Bell L
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Bash](/languages/bash.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Make code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,572 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Make code (typical uses: building software, task automation, reproducible command sequences), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Bash](/languages/bash.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Make was written to solve a specific problem: rebuilding only the parts of a program whose sources had changed, instead of recompiling everything. The idea, a dependency graph plus timestamp comparison, proved general enough to drive almost any task that turns inputs into outputs. POSIX standardized a core `make`, and implementations diverged: GNU Make added pattern rules, functions, and conditionals; BSD Make took a different extension path.
@@ -109,6 +158,29 @@ Make runs recipes in parallel with `-j N`, scheduling independent targets across
 - Incomplete dependencies cause stale results under incremental and parallel builds; the build looks correct until a change is silently missed.
 - `=` versus `:=`: deferred expansion can pick up a later value than expected, and `$(shell ...)` in a deferred variable may run many times.
 - Portability: GNU Make functions and pattern rules do not all work under BSD Make, so makefiles that must travel should stay within POSIX features.
+
+## Security relevance
+
+Make drives builds and continuous-integration pipelines, where recipes run with developer or CI credentials, so a makefile is code that executes and its security relevance is build integrity. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Build and CI pipelines. Makefiles build C, C++, and many other projects, and because recipes run with the pipeline's credentials, a malicious or compromised makefile is code execution in the build.
+- Supply-chain surface. Recipes that fetch and run code during a build pull unverified input into execution; the [XZ Utils backdoor](/case-studies/XZ_UTILS_BACKDOOR_2024.md) was delivered partly through build-system machinery. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+- Make has no offensive tooling written in it; its security interest is the build itself as an execution surface.
+
+### Dominant weakness classes
+
+Make is untyped and runs shell recipes rather than a managed-memory program, so memory-corruption classes do not apply. The weaknesses are about injection into recipes and the integrity of the build:
+
+- Operating-system command injection when variables, `$(shell ...)` results, or environment values carrying untrusted content are expanded into recipe command lines. This is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Untrusted included or generated makefiles that execute as part of the build, the build-system equivalent of evaluating code. This is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Search-path and tool substitution, where a `PATH` that includes an attacker-writable directory can replace a build tool. This is [CWE-426](https://cwe.mitre.org/data/definitions/426.html).
+- Build-time fetch-and-run steps that bring unverified code into execution, described in the Supply Chain Security Reference above.
+
+### Why it matters
+
+Reading a makefile tells a practitioner exactly what a build does: what it downloads, what it runs, and with what `PATH`, which is where build-system compromises hide. `make --warn-undefined-variables` and [checkmake](https://github.com/mrtazz/checkmake) catch a class of issues, and recipes that handle untrusted input deserve the same review as any shell script with [ShellCheck](https://www.shellcheck.net/), as the Secure coding section details.
 
 ## Secure coding
 

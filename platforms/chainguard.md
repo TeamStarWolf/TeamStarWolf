@@ -2,6 +2,55 @@
 
 Chainguard builds secure-by-default container images and a hardened Linux base that carry few or no known vulnerabilities, which cuts the container remediation load before a scanner ever runs. Instead of hardening a general-purpose base image after the fact, it ships minimal images rebuilt continuously from source, each signed and shipped with a bill of materials. It is described at a product level as generally available in 2026; the exact image catalog and tiers depend on the subscription.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Platform, DevOps and vulnerability management engineers who run, tune or assess Chainguard
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (878 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Chainguard for hardened container images, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md), [Application Security Testing](/APPSEC_TESTING_REFERENCE.md), [Package Managers](/PACKAGE_MANAGERS_REFERENCE.md), [Docker Command Reference](/commands/docker.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Most container vulnerabilities come from the base image and the packages it drags in. Chainguard's answer is to start from Wolfi, a minimal Linux build system designed for containers, and to produce distroless images that contain only what the application needs. Fewer packages means fewer CVEs, so the finding queue from image scanning shrinks. This is a shift-left supply-chain control that sits in front of [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md) and the software-composition work in [Application Security Testing](/APPSEC_TESTING_REFERENCE.md).
@@ -25,6 +74,25 @@ Adoption is mostly swapping base images: point a Dockerfile or build at a Chaing
 ## Integrations and data flow
 
 Chainguard images flow through the same registries, CI pipelines, and scanners already in use; the visible change is that scanners such as Trivy, [Snyk](/platforms/snyk.md), and [Wiz](/platforms/wiz.md) report far fewer findings against them. Signature and provenance verification fits an admission controller or a CI gate.
+
+## Adversary perspective
+
+Because Chainguard supplies the base images that downstream builds trust, adversaries treat the image supply chain itself as the target, and a low-vulnerability image is not the same as no risk. The steps to lock usage down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Skipping verification: if a pipeline pulls images without checking Sigstore signatures and provenance, the assurance is only as good as the check, and an attacker who can tamper with the registry or the pull path could substitute a different image ([CWE-287](https://cwe.mitre.org/data/definitions/287.html)).
+- Mutable tags: pulling by tag rather than digest lets a rebuild or a malicious push change what runs unseen, so pinning by digest matters.
+- Stealing registry pull credentials (ATT&CK T1078, Valid Accounts): leaked pull credentials expose the image supply and can enable registry abuse ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)).
+- Upstream and build-tooling compromise: Wolfi, melange, and apko build from source, so the integrity of that source and the build path is part of the trust, as with any software supply chain.
+
+### Residual risk and own exposure
+
+A minimal, continuously rebuilt image still drifts as new vulnerabilities are disclosed, and distroless reduces but does not remove application-level and dependency risk, so the control shrinks the finding queue without emptying it. The registry and the signing trust are high value, because a compromise of that path would reach every image consumed.
+
+### Why it matters
+
+A tester looks for unverified pulls, mutable tags, and the registry credentials rather than CVEs in the image. A defender enforces signature and provenance verification at an admission controller or continuous-integration gate and keeps images current. See [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md) for the supply-chain attack surface and [the container security reference](/CONTAINER_SECURITY_REFERENCE.md) for the runtime context.
 
 ## Hardening and secure use
 

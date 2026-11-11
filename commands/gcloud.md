@@ -2,6 +2,55 @@
 
 The Google Cloud CLI (`gcloud`) is the command-line tool for Google Cloud Platform. It manages projects, compute, identity, storage, and logging through a consistent group-and-command syntax. This page covers authentication, configuration, the common resource commands, and the output controls that make results scriptable. The related `gsutil` and the newer `gcloud storage` handle Cloud Storage.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Cloud engineers, administrators and security teams who work in Google Cloud from a terminal
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (814 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the gcloud commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [AWS CLI Reference](/commands/aws-cli.md), [Azure CLI Reference](/commands/azure-cli.md), [jq Command Reference](/commands/jq.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 `gcloud` ships in the Google Cloud CLI bundle for Linux, macOS, and Windows, and is preinstalled in Cloud Shell. It authenticates with a user account through `gcloud auth login`, or with a service account, or with Application Default Credentials for client libraries. Commands follow the `gcloud <group> <command>` shape and act within an active project and configuration. Output supports filtering with `--filter` and reshaping with `--format`.
@@ -138,6 +187,30 @@ gcloud logging read \
 | `--zone` / `--region` | Set location for the command |
 | `--flatten` | Expand a repeated field into one row each |
 | `--verbosity` | Set log detail (`debug`, `info`, `error`) |
+
+## Security relevance
+
+This section is the threat-facing view of `gcloud`: how an attacker uses it against a project and what Cloud Audit Logs capture when they do. Authorized administration and the safe-use guidance are in the "Security notes" section that follows.
+
+### Where it appears
+
+- Enumeration with stolen credentials. A leaked service-account key or an exfiltrated `gcloud auth print-access-token` lets an attacker run `projects list`, `compute instances list`, `projects get-iam-policy`, and `storage ls` to map resources and IAM bindings.
+- Privilege escalation and pivoting. Attackers abuse `--impersonate-service-account`, actAs permissions, or over-broad roles to assume a more privileged service account and move across projects in the organization.
+- Exfiltration. `gcloud storage cp` and `gsutil` pull buckets out, and metadata-server tokens on a compromised instance feed the same commands.
+- Telemetry. Cloud Audit Logs (Admin Activity and Data Access) record `SetIamPolicy`, service-account key creation, impersonation, and bulk object reads. Defenders alert on these and on tokens used from an unfamiliar source.
+
+### Dominant weakness classes
+
+`gcloud` is a userspace client, so the risks are credential theft and excess authority rather than memory corruption.
+
+- Use of hard-coded credentials ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)) in service-account key files committed to source or CI.
+- Insufficiently protected credentials ([CWE-522](https://cwe.mitre.org/data/definitions/522.html)) in key files and cached tokens on a host.
+- Improper privilege management ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)) through roles like `roles/owner` or `roles/editor` and actAs-based impersonation chains.
+- Incorrect permission assignment for a critical resource ([CWE-732](https://cwe.mitre.org/data/definitions/732.html)), the public Cloud Storage bucket case.
+
+### Why it matters
+
+Spotting `gcloud` in telemetry tells a defender whether they are seeing a deploy pipeline or an attacker enumerating and impersonating across a project with a stolen key, and gives an auditor the exact bindings and keys to remove first. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) for account-hardening and detection guidance.
 
 ## Security notes
 

@@ -2,6 +2,55 @@
 
 Gin is a lightweight HTTP web framework for Go built around a fast router and a middleware chain. It stays close to the standard library, adding routing, parameter binding, validation, and response rendering without imposing an ORM or application structure. Teams reach for it when they want speed and small dependencies over convention.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who build with Gin, and the reviewers and application security engineers who assess what they build
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,353 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or reviewing a Gin application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture](#architecture), [Security model and common vulnerabilities](#security-model-and-common-vulnerabilities), [Common pitfalls](#common-pitfalls)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Go](/languages/go.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [API Security Reference](/API_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Gin emerged around 2014 as a faster alternative to earlier Go web frameworks. It uses a radix-tree router, which keeps route matching quick even with many routes. The project stayed small and focused, which suited Go's preference for explicit code.
@@ -49,6 +98,30 @@ Gin relies on Go's own toolchain. `go build`, `go test`, and `go vet` cover buil
 Middleware exists for common needs: CORS, rate limiting, request IDs, and JWT verification are available as third-party packages. The `net/http/httptest` package drives handler tests without a live server. Gin's `Engine` works directly with `httptest.NewRecorder`.
 
 The validator library ships with Gin's binding and covers field rules, formats, and cross-field checks. For data access, `database/sql` plus a driver is the baseline, with `sqlx` or GORM layered on when wanted.
+
+## Security relevance
+
+This section is the threat-facing view of Gin: how it appears to an attacker or an auditor in the field, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Internet-facing JSON APIs and web backends. Gin is thin over `net/http` and adds few distinctive response headers, so it is hard to fingerprint from the outside; its plain-text `404 page not found` body and default panic-recovery behavior are weak tells rather than reliable signatures.
+- Audit tooling is the Go toolchain rather than a framework-specific scanner. gosec flags unsafe patterns such as string-built SQL in the source, and govulncheck reports known-vulnerable symbols the binary actually calls against the Go vulnerability database.
+- Offensive interest uses standard web and API tooling such as Burp Suite, since Gin exposes no framework-specific defaults to subvert.
+- The dependency surface is Go modules, resolved from source hosts and verified through the checksum database. A compromised module is compiled in with full application privilege, the pattern covered in [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+Gin runs on [Go](/languages/go.md), a memory-managed language, so the dominant classes are logic, injection, and concurrency flaws rather than memory corruption.
+
+- SQL injection ([CWE-89](https://cwe.mitre.org/data/definitions/89.html)), because Gin ships no ORM and a handler that concatenates input into a `database/sql` query string is exposed.
+- Missing cross-site request forgery protection ([CWE-352](https://cwe.mitre.org/data/definitions/352.html)), since Gin adds none by default and cookie-authenticated browser routes stay open until middleware is added.
+- Cross-site scripting ([CWE-79](https://cwe.mitre.org/data/definitions/79.html)) when a handler writes user input into a response with `c.String` under an HTML content type instead of the auto-escaping `html/template`.
+- Race conditions ([CWE-362](https://cwe.mitre.org/data/definitions/362.html)) when a goroutine touches a `*gin.Context` after the handler returns and the request object has been recycled.
+
+### Why it matters
+
+Gin provides almost no automatic protection, so an auditor assumes nothing is in place and confirms each control was added deliberately, with particular attention to query construction and the handling of a `Context` passed into a goroutine. gosec and govulncheck are the Go-ecosystem tools to pair with the review. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for the cross-cutting method.
 
 ## Security model and common vulnerabilities
 

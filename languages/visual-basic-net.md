@@ -14,6 +14,55 @@ Visual Basic .NET is a statically typed, object-oriented language on the .NET pl
 
 Related: [C#](/languages/csharp.md), [F#](/languages/fsharp.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Visual Basic .NET code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,287 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Visual Basic .NET code (typical uses: business applications, desktop tools, legacy .NET maintenance), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[C#](/languages/csharp.md), [F#](/languages/fsharp.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Visual Basic .NET replaced the classic Visual Basic 6 line in 2002, moving the language onto the .NET runtime with full object orientation and shared libraries. It compiles, like C#, to the same intermediate language and runs on the Common Language Runtime. Microsoft has stated that the language is stabilized: it is supported on current [.NET](https://dotnet.microsoft.com/) and the Roslyn compiler, but new language features are generally not being added, and the focus is compatibility rather than growth. Microsoft's position is documented in its [.NET language strategy](https://devblogs.microsoft.com/vbteam/visual-basic-support-planned-for-net-5-0/).
@@ -137,6 +186,30 @@ Because Visual Basic .NET compiles to the same intermediate language as C# and r
 - The `On Error` statement from classic Visual Basic still compiles but is inferior to structured `Try`/`Catch`; use the latter.
 - Blocking on an async result with `.Result` can deadlock in a synchronization context.
 - Default property and optional-argument behavior can hide which overload is called; be explicit.
+
+## Security relevance
+
+Visual Basic .NET reaches security practitioners as a managed .NET language that defenders maintain and assess, sharing its runtime and weakness classes with C#. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Business and line-of-business applications. Much Visual Basic .NET code sits in internal business tools, desktop applications built on [Windows Forms](https://learn.microsoft.com/dotnet/desktop/winforms/) and [WPF](https://learn.microsoft.com/dotnet/desktop/wpf/), and long-lived services that still process sensitive data.
+- Legacy .NET maintenance. Because the language is kept stable rather than extended, a large body of older code remains in production and under review, where it connects to databases and parses external input.
+- Server-side components. Some web tiers use ASP.NET Core with Visual Basic .NET, so the same request-handling attack surface applies. See the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+Visual Basic .NET runs on the Common Language Runtime with a garbage collector, so it is memory-safe and the memory-corruption classes do not apply. The weaknesses mirror those of any .NET application and center on injection, deserialization, and input handling:
+
+- SQL injection. ADO.NET commands built by concatenating input are injectable, which is [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Insecure deserialization. The obsolete `BinaryFormatter` on untrusted data can instantiate arbitrary objects, which is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- XML external entities. XML readers left with DTD processing enabled can be driven to read files or make requests, which is [CWE-611](https://cwe.mitre.org/data/definitions/611.html).
+- Command injection. Launching a process with a shell string rather than an argument list is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Dependency supply chain. Packages come from NuGet and carry the same risk as other package ecosystems. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading Visual Basic .NET lets an analyst audit the same weakness classes as a C# codebase, since both compile to the same intermediate language, and the English-keyword syntax does not change where untrusted input enters or how queries are built. The main tools are the built-in .NET Roslyn security analyzers, which apply to Visual Basic projects, and `dotnet list package --vulnerable` for dependency advisories.
 
 ## Secure coding
 

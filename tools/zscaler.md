@@ -4,6 +4,55 @@
 
 The Zscaler Zero Trust Exchange is a cloud-native SSE platform delivered as a globally distributed inline proxy. Its core services are ZIA (Zscaler Internet Access - secure web/internet gateway, cloud firewall, sandbox, DLP, CASB) and ZPA (Zscaler Private Access - identity-based ZTNA to private apps), with ZDX for digital-experience monitoring. It brokers every user-to-app and app-to-app connection based on identity and policy, never placing users on the network. Its defining vulnerability-mitigation value is attack-surface elimination: ZPA makes private apps dark to the internet so unpatched internal services can't be reached, and ZIA inline inspection blocks exploit and C2 traffic.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the network and cloud security engineers who run Zscaler Zero Trust Exchange
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 13 min (2,955 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what Zscaler Zero Trust Exchange can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Zero Trust Reference](/ZERO_TRUST_REFERENCE.md), [Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md), [Cloud Network Security](/CLOUD_NETWORK_SECURITY.md), [Enterprise Security Controls](/ENTERPRISE_SECURITY_CONTROLS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities & architecture
 
 **Core capabilities**
@@ -45,6 +94,24 @@ Two complementary mitigation modes. (1) Attack-surface reduction: ZPA removes in
 **Framework mapping:** NIST CSF 2.0: IDENTIFY (ID.AM asset/exposure via AEM/EASM), PROTECT (PR.AA access control, PR.IR network protection), DETECT (DE.CM), RESPOND (via Red Canary SecOps); CIS Controls v8: 3 (Data Protection), 6 (Access Control Management), 9 (Email & Web Browser Protections), 12 (Network Infrastructure Management), 13 (Network Monitoring & Defense); MITRE ATT&CK mitigations: M1030 Network Segmentation, M1035 Limit Access to Resource Over Network, M1037 Filter Network Traffic, M1031 Network Intrusion Prevention, M1021 Restrict Web-Based Content
 
 **In a critical-CVE scenario.** Within 24-72h of a critical CVE in an internet-facing app and a cloud workload: (1) use Asset Exposure Management/EASM to find every instance of the affected service and confirm which are internet-reachable; (2) for internal/private instances, move them behind ZPA so they are no longer internet-exposed - immediate attack-surface removal; (3) in ZIA, enable/verify the relevant Cloud IPS and advanced threat-protection signatures, tighten URL/DNS and firewall rules to the exploited destinations, and route inbound content through Cloud Sandbox; (4) for the cloud workload, use Zscaler for Workloads/Posture Control to segment it so only required app-to-app flows are brokered and block egress C2; (5) in Unified Vulnerability Management, down-rank findings now mitigated by these controls and hand the still-exposed assets to the owners via ServiceNow for the real patch, keeping the compensating controls until remediation is validated.
+
+## Adversary perspective
+
+The Zero Trust Exchange brokers traffic inline as a cloud proxy, so adversaries treat its inspection as an obstacle to route around rather than a wall, and the broker and its connectors become high-value targets because they sit between every user and app. The detection and tuning guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and bypass
+
+- Inspection gaps: without TLS inspection enabled for a destination, or where bypass lists exempt a category or domain, exploit and command-and-control traffic inside that session passes uninspected (ATT&CK T1685, Disable or Modify Tools). Attackers favor allow-listed cloud services and categories to blend in.
+- Reaching past the proxy: traffic that never routes through the service, a device without the forwarding client, or an exempted path leaves the inline controls out of line entirely.
+- Policy and identity abuse: once a user or service identity is phished or a session token is stolen, ZPA grants access to the private apps that identity is entitled to ([CWE-287](https://cwe.mitre.org/data/definitions/287.html)), so the policy is only as strong as the identity behind it.
+
+### Residual risk and own exposure
+
+Attack-surface elimination reduces reachability but does not remediate the unpatched internal service; an attacker already inside the entitled segment, or on a compromised endpoint, still reaches it. The platform, its admin console, and the App Connectors that bridge into private networks are high-value targets, and software that sits in the traffic path belongs in the patch and monitoring scope.
+
+### Why it matters
+
+Knowing what the proxy cannot see, namely uninspected TLS, bypassed paths, and sessions riding stolen identity, tells a tester where to push and a defender what not to rely on. See [the red team reference](/RED_TEAM_REFERENCE.md) for identity and evasion technique and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for treating reachability reduction as a compensating control.
 
 ## Validation & telemetry
 
@@ -124,7 +191,7 @@ _Official documentation & manuals_
 - [Zero Trust Exchange platform overview](https://www.zscaler.com/platform/zero-trust-exchange)
 
 _API & developer docs_
-- [ZIA API — Getting Started (OAuth 2.0 / legacy key)](https://help.zscaler.com/zia/api-getting-started)
+- [ZIA API: Getting Started (OAuth 2.0 / legacy key)](https://help.zscaler.com/zia/api-getting-started)
 - [Understanding OneAPI Authentication (ZIdentity OAuth2)](https://help.zscaler.com/unified/understanding-oneapi-authentication)
 - [ZPA API reference](https://help.zscaler.com/zpa/api-reference)
 - [Zscaler Python SDK docs (OneAPI client)](https://zscaler-sdk-python.readthedocs.io/)
@@ -161,7 +228,7 @@ Core platform remains the Zero Trust Exchange with ZIA, ZPA, and ZDX. Confirmed 
 
 ## Related pages
 
-- [Zero Trust Reference: Comprehensive Cybersecurity Guide](/ZERO_TRUST_REFERENCE.md)
+- [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
 - [Network Security Architecture Reference](/NETWORK_SECURITY_ARCHITECTURE.md)
 - [Cloud Network Security Reference](/CLOUD_NETWORK_SECURITY.md)
 - [Enterprise Security Controls Reference](/ENTERPRISE_SECURITY_CONTROLS.md)

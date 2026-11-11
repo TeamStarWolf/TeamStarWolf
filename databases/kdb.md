@@ -2,6 +2,55 @@
 
 kdb+ is a columnar database built for time-series data at high volume. It pairs an in-memory store with an on-disk column store and is queried through the `q` language. Finance teams use it for tick data: order books, trades, and quotes recorded at microsecond resolution. A kdb+ system usually runs as several cooperating processes connected over IPC.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Database administrators, developers and security engineers who run, query or assess kdb+ and q
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,222 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are modeling data or writing queries for kdb+ and q, you are administering or hardening a deployment, or you want a worked example to start from
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Data model and architecture](#data-model-and-architecture), [Security and hardening](#security-and-hardening), [A worked example](#a-worked-example)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[K and Q](/languages/k-q.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [ClickHouse](/databases/clickhouse.md), [Redis](/databases/redis.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 kdb+ comes from KX Systems. The database and the `q` language ship as one small binary. The same binary serves as an in-memory engine, an on-disk store, and an IPC server.
@@ -86,6 +135,30 @@ select from res where minute within 09:30 16:00
 ```
 
 The `by` clause groups into bars. `lj` is a left join against a keyed table. The whole pipeline runs over column vectors without copying unrelated columns.
+
+## Security relevance
+
+This section is the threat-facing view of kdb+: how a `q` process looks to an attacker or auditor on the wire, and which weakness classes dominate its record. The controls that defend against them are in the "Security and hardening" section that follows.
+
+### Where it appears
+
+- The data tier in capital-markets systems, reached as a `q` process listening on its `-p` port over the kdb+ IPC protocol. These processes often hold tick data of direct financial value.
+- Recognized by the kdb+ IPC handshake on the listening port rather than by a web banner. It is a niche engine with little dedicated offensive tooling, so recognition and testing are usually manual.
+- The decisive offensive fact is that the default synchronous handler passes incoming messages to `value`, so an open port with no `.z.pw` check runs whatever `q` it is sent. Defensive work is scripted in `q` itself through the `.z` callbacks and connection logging.
+- The supply-chain surface is small: a single KX binary and a `q` codebase with few external dependencies.
+
+### Dominant weakness classes
+
+kdb+ is a mature C core hardened against memory corruption in normal use, so the practical risks are access control and the fact that the query interface is a general programming language.
+
+- Missing authentication ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)) when a process starts with `-p` and no `-u`, `-U`, or `.z.pw` check, accepting any client that reaches the port.
+- Code injection ([CWE-94](https://cwe.mitre.org/data/definitions/94.html)) because handlers that evaluate incoming strings with `value` turn a query into arbitrary `q` execution on the host.
+- Cleartext storage of sensitive information ([CWE-312](https://cwe.mitre.org/data/definitions/312.html)) when password files or credentials are committed alongside the database code.
+- Improper privilege management ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)) when the process runs as an operating-system user with more access than the database files require.
+
+### Why it matters
+
+kdb+ is a high-value, low-volume target: recognizing an IPC port and testing whether a `value`-based handler runs arbitrary `q` is the core check, since that single fact converts a reachable port into host code execution. It maps straight to the controls the defender owns: require password-file authentication with `-u` or `-U`, validate in `.z.pw`, allow-list calls in `.z.pg` and `.z.ps` instead of calling `value`, and run under a least-privilege account. See [the database security reference](/DATABASE_SECURITY_REFERENCE.md) for the engine-agnostic hardening checklist.
 
 ## Security and hardening
 

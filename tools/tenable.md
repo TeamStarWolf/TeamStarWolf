@@ -4,6 +4,55 @@
 
 Tenable is the long-standing vulnerability-management vendor whose Nessus scanner is the de facto industry standard for vulnerability assessment. Tenable One is its unified Exposure Management platform that ingests findings across VM, cloud, OT, identity, web apps and attack surface, then prioritizes them against real-world threat context so teams fix what actually matters. VPR (Vulnerability Priority Rating) is its dynamic, ML-driven 0.1-10.0 risk score that supplements static CVSS by weighting exploitability and threat activity.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the vulnerability analysts and scanner administrators who run Tenable
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (2,119 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what Tenable can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [ServiceNow USEM with Tenable and Wiz](/tools-research/SERVICENOW_USEM_TENABLE_WIZ.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities & architecture
 
 **Core capabilities**
@@ -46,6 +95,24 @@ Tenable's primary VM role is Discover-Assess-Prioritize, telling teams which exp
 **Framework mapping:** NIST CSF 2.0: Identify (asset/vuln discovery), Protect, Detect; CIS Controls v8: 1 (Inventory), 2 (Software Inventory), 7 (Continuous Vulnerability Management), 4 (Secure Configuration), 12 (Network); MITRE ATT&CK mitigations: M1051 Update Software, M1016 Vulnerability Scanning, M1030 Network Segmentation (attack-path remediation)
 
 **In a critical-CVE scenario.** First 24-72h on a critical CVE in an internet-facing app + cloud workload: (1) Query Tenable ASM/Inventory and Cloud Security for all affected internet-facing and cloud assets; (2) run targeted Nessus/agent and Web App Scanning + agentless cloud checks to confirm presence and exploitability; (3) use VPR and Attack Path Analysis to rank which exposed assets sit on paths to crown-jewel assets; (4) push prioritized remediation/mitigation tickets (ServiceNow/Jira) and recommend compensating controls or segmentation via Vulcan-derived orchestration; (5) re-scan to validate and track CES reduction.
+
+## Adversary perspective
+
+A vulnerability scanner holds privileged credentials and a detailed map of every weakness in the estate, so adversaries treat it as a high-value target rather than a threat to them directly. The detection and validation guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and bypass
+
+- Credential and data theft: Nessus credentialed scans and the agents use privileged accounts (SSH, Windows admin) and the platform stores the organization's findings, so stealing the scanner service account or export API keys yields both reusable credentials and a ready-made target list (ATT&CK T1552, Unsecured Credentials; T1078, Valid Accounts).
+- Blending with scans: attackers time probing to coincide with scheduled scan windows so their traffic resembles expected scanner noise.
+- Blind-spot abuse: a scan degraded to unauthenticated (plugin 19506 showing no credentialed checks) or an asset left out of scope is simply not assessed, which an attacker can rely on.
+
+### Residual risk
+
+Tenable assesses and prioritizes but enforces nothing: a finding marked accepted or recast is still exploitable, and point-in-time scans miss what changes between them. The console's broad read access and stored credentials make it part of the attack surface it measures.
+
+### Why it matters
+
+A tester goes after the scanner's credentials and its findings store; a defender vaults those credentials, scopes its access tightly, and treats the platform as crown-jewel infrastructure. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) and [the penetration testing methodology](/PENETRATION_TESTING_METHODOLOGY.md).
 
 ## Validation & telemetry
 
@@ -118,14 +185,14 @@ _API & developer docs_
 
 _GitHub (official)_
 - [Tenable GitHub organization (~89 repos)](https://github.com/tenable)
-- [pyTenable — Python library for Tenable platform APIs](https://github.com/tenable/pyTenable)
-- [Tenable Exposure Management connectors — third-party connector documentation](https://docs.tenable.com/exposure-management/Content/connectors/connectors.htm)
-- [integration-jira-cloud — Jira Cloud integration](https://github.com/tenable/integration-jira-cloud)
-- [container-security-action / was-action — official GitHub Actions for Tenable container & WAS scans](https://github.com/tenable/container-security-action)
+- [pyTenable: Python library for Tenable platform APIs](https://github.com/tenable/pyTenable)
+- [Tenable Exposure Management connectors: third-party connector documentation](https://docs.tenable.com/exposure-management/Content/connectors/connectors.htm)
+- [integration-jira-cloud: Jira Cloud integration](https://github.com/tenable/integration-jira-cloud)
+- [container-security-action / was-action: official GitHub Actions for Tenable container & WAS scans](https://github.com/tenable/container-security-action)
 
 _Community / integration / detection repos_
 - [Tenable Add-On for Splunk (Splunkbase app 4060, TA-tenable; SIEM integration)](https://splunkbase.splunk.com/app/4060)
-- [Security-Hub — Tenable.io to AWS Security Hub integration](https://github.com/tenable/Security-Hub)
+- [Security-Hub: Tenable.io to AWS Security Hub integration](https://github.com/tenable/Security-Hub)
 - [Navi (packetchaos/navi), a community command-line tool for the Tenable Vulnerability Management API](https://github.com/packetchaos/navi)
 
 _Learning & reference_

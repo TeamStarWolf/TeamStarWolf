@@ -2,6 +2,55 @@
 
 Regular expressions are a notation for describing sets of strings through patterns. An engine matches a pattern against input to find, extract, validate, or replace text. They appear in search tools, editors, log pipelines, input validators, and data-extraction code across nearly every language. They are a format for expressing text patterns, not a data serialization format.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers, engineers and analysts who read, write or parse Regular Expressions
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,491 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are reading or writing Regular Expressions by hand or in code, you want a worked example and the tools that handle it, or you are parsing untrusted input and need its security considerations
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[What it is and where it is used](#what-it-is-and-where-it-is-used), [A worked example](#a-worked-example), [Security considerations](#security-considerations)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [JSON](/formats/json.md), [CSV](/formats/csv.md), [Markdown](/formats/markdown.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 A regular expression (regex) is a compact string that encodes a matching rule. The engine reads the pattern, builds an internal matcher, and runs it over input text. A match can report whether the input conforms, where a substring sits, or what captured groups contain.
@@ -158,6 +207,28 @@ Language standard libraries vary:
 - Rust `regex` is automaton-based and linear-time, like RE2.
 
 **Backtracking versus automaton-based:** a backtracking engine tries one path, and on failure returns to a saved choice point to try another. This supports backreferences and lookaround but can take exponential time on some patterns. An automaton-based engine (NFA or DFA simulation) tracks all possible states at once, running in time proportional to input length, at the cost of those features.
+
+## Security relevance
+
+This section is the threat-facing view of regular expressions: how a pattern becomes a denial-of-service primitive and an injection point. The engine choices and limits that defend against these are in the "Security considerations" section that follows.
+
+### Where it appears
+
+- Input validators. Patterns that run on every request field are reachable by any attacker, so a vulnerable pattern turns ordinary input into a stall.
+- Log and data pipelines. Regexes extract fields from untrusted log lines and feeds at volume, where one crafted line can pin a worker.
+- WAF and routing rules. Firewalls, proxies, and routers match requests against patterns, so a pattern that backtracks becomes a way to tax the edge itself.
+
+### Dominant weakness classes
+
+A regex is a pattern, not a data format, so the risks are the engine's runtime behavior and whether an attacker controls the pattern, not memory corruption.
+
+- Inefficient regular expression complexity ([CWE-1333](https://cwe.mitre.org/data/definitions/1333.html)), ReDoS, where nested quantifiers or overlapping alternation make a backtracking engine take exponential time on a short string.
+- Uncontrolled resource consumption ([CWE-400](https://cwe.mitre.org/data/definitions/400.html)), the broader denial-of-service class that catastrophic backtracking falls under.
+- Pattern injection ([CWE-20](https://cwe.mitre.org/data/definitions/20.html)), where untrusted input is concatenated into a pattern string, letting an attacker alter matching logic or supply a deliberately explosive expression.
+
+### Why it matters
+
+Recognizing a user-reachable pattern tells a tester to send adversarial strings built for catastrophic backtracking and to check whether any pattern is itself built from input. See [the secure coding reference](/SECURE_CODING_REFERENCE.md) for the surrounding method.
 
 ## Security considerations
 

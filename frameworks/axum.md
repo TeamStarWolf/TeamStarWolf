@@ -2,6 +2,55 @@
 
 Axum is an async web framework for Rust built on Tokio for the runtime and Tower for middleware. It describes handlers as plain async functions whose arguments are extractors, so request parsing is driven by the type system. The framework stays small and composes with the broader Tokio and Tower ecosystem rather than replacing it.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who build with Axum, and the reviewers and application security engineers who assess what they build
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,338 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or reviewing an Axum application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture](#architecture), [Security model and common vulnerabilities](#security-model-and-common-vulnerabilities), [Common pitfalls](#common-pitfalls)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Rust](/languages/rust.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [API Security Reference](/API_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Axum is maintained by the Tokio project and reached 0.1 in 2021. It was designed to feel ergonomic without macros for routing, relying instead on traits and generics. The framework reached a 0.6 and later releases that stabilized its extractor and state model.
@@ -51,6 +100,30 @@ Axum builds with Cargo and the standard Rust toolchain. `cargo build`, `cargo te
 Tower and `tower-http` supply middleware: tracing, compression, CORS, timeouts, and request limits come as layers. `tokio` provides the runtime and async primitives, and `hyper` is the HTTP engine underneath. These crates are shared across the async Rust world.
 
 SQLx and SeaORM handle databases asynchronously. `serde` and `serde_json` drive serialization through the `Json` extractor and response type. For testing, handlers can be called directly or exercised through the router with `tower::ServiceExt::oneshot`.
+
+## Security relevance
+
+This section is the threat-facing view of Axum: how it appears to an attacker or an auditor in the field, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Internet-facing JSON APIs and services, usually a single compiled binary behind a reverse proxy. Axum is harder to fingerprint than stack-heavy frameworks: it sets few default headers and returns generic error bodies, so it is identified more by deployment shape and `tower-http` middleware defaults than by a banner.
+- Audit and defensive tooling: `cargo audit` and `cargo deny` check the crate dependency tree against the RustSec advisory database, and `cargo clippy` catches some unsafe patterns.
+- Offensive interest is the handler and extractor layer, exercised with standard API testing proxies such as Burp Suite, since the surface is the routes and the data access behind them.
+- The dependency surface is crates.io, pinned through `Cargo.lock`.
+
+### Dominant weakness classes
+
+Axum runs on Rust, which is memory-safe in its safe subset, so buffer overflows and use-after-free do not occur outside `unsafe` blocks, and the dominant classes are authorization, injection, and validation flaws. The fixes for each are detailed in the section below.
+
+- Missing authorization ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)): nothing enforces an access check on a route unless a handler or middleware adds one explicitly.
+- SQL injection ([CWE-89](https://cwe.mitre.org/data/definitions/89.html)) when a query string is built by hand and passed to a dynamic query function instead of using SQLx parameter binding.
+- Cross-site scripting ([CWE-79](https://cwe.mitre.org/data/definitions/79.html)) in HTML responses, since Axum does not template or escape output by default.
+- Improper input validation ([CWE-20](https://cwe.mitre.org/data/definitions/20.html)), because type-driven extraction checks shape but not semantic rules such as ranges and formats.
+
+### Why it matters
+
+Recognizing a Rust service on Axum tells a tester that memory-corruption classes are off the table in safe code, so effort shifts to authorization and injection at the handler layer, and that `cargo audit` covers the dependency side. See [the API security reference](/API_SECURITY_REFERENCE.md) for the cross-cutting review method.
 
 ## Security model and common vulnerabilities
 

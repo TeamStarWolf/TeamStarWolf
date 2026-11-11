@@ -14,6 +14,55 @@ Windows Batch is the scripting language of the Windows command interpreter, `cmd
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [PowerShell](/languages/powershell.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Windows Batch (cmd) code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,522 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Windows Batch code (typical uses: startup scripts, installer and build glue, small Windows automation), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [PowerShell](/languages/powershell.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 The batch language began as a way to script `COMMAND.COM` under MS-DOS. Windows NT introduced `cmd.exe` in 1993 with a larger command set, delayed variable expansion, and better arithmetic, and that interpreter is what modern `.bat` and `.cmd` files target. The `.cmd` extension differs from `.bat` mainly in how it sets the error level for some built-in commands; otherwise they are the same language.
@@ -120,6 +169,28 @@ Each external command in a batch file launches a process, so, as with Unix shell
 - Quoting and special characters: `&`, `|`, `<`, `>`, `^`, and `%` have meaning to the interpreter, so unquoted or unescaped values with these characters break or redirect commands.
 - `errorlevel` handling: batch continues after a failed command by default, and `if errorlevel 1` means "1 or greater", which trips up comparisons.
 - `.bat` versus `.cmd` differences in how built-ins set the error level can change behavior subtly between the two extensions.
+
+## Security relevance
+
+Windows Batch is security-relevant as a Windows automation language that attackers use for droppers and persistence and that defenders read during triage, and as an injection target because it builds and runs command lines. The defensive patterns are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Malware and post-exploitation. Batch files serve as droppers, loaders, and persistence scripts on Windows, often chaining to PowerShell and built-in utilities, so they are read during malware triage. See the [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md) and the [Red Team Reference](/RED_TEAM_REFERENCE.md).
+- Startup, installer, and build glue. Batch runs at boot, during installation, and in build steps, often with elevated privilege, so weaknesses in these scripts carry weight. See the [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md).
+- Living-off-the-land use. Because `cmd.exe` is present on every Windows system, batch appears in command sequences that invoke `reg`, `schtasks`, and other built-in tools rather than dropping new binaries.
+
+### Dominant weakness classes
+
+Batch is interpreter-managed and memory-safe (all values are strings), so the memory-corruption classes do not apply; its risks center on command construction and the execution environment.
+
+- Operating-system command injection. Building a command from untrusted input (arguments, file contents, registry values) lets metacharacters such as `&` and `|` append commands, which is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Dynamic command construction. Assembling a command line from variables and running it, the batch equivalent of `eval`, executes whatever the data contains, which is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Untrusted search path. `cmd.exe` searches the current directory before `PATH` for some invocations, so a batch file run in an attacker-writable directory can execute a planted program, which relates to [CWE-426](https://cwe.mitre.org/data/definitions/426.html).
+
+### Why it matters
+
+Reading batch tells an analyst what a dropper or startup script does to a Windows host: which built-in tools it invokes, whether it builds commands from untrusted values, and where it looks for the programs it runs. There is no established batch linter, so the practical controls are keeping scripts short, reviewing them, and moving untrusted-input handling to PowerShell where [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) can inspect it, as the Secure coding section notes.
 
 ## Secure coding
 

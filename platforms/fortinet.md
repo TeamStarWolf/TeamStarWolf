@@ -2,6 +2,55 @@
 
 Fortinet builds a set of network and security products that are designed to work together. The connective layer is branded the Fortinet Security Fabric. The firewall, FortiGate, is the anchor, and other products extend protection to endpoints, analytics, and detection.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Network security engineers who run, tune or assess Fortinet
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,273 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Fortinet for network firewalling and threat prevention, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Check Point](/platforms/check-point.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Fortinet offers a product family rather than a single tool. FortiGate is the next-generation firewall at the center. Around it sit products for network detection, analytics, endpoint protection, and threat intelligence. The Security Fabric is the set of integrations that lets these products share context and policy.
@@ -67,6 +116,25 @@ The Security Fabric is the integration layer. Products share telemetry and autom
 Logs flow to FortiAnalyzer and FortiSIEM, and can be forwarded to an external SIEM for correlation with non-Fortinet sources. This gives a security operations team a combined view across network, endpoint, and boundary events.
 
 FortiGuard feeds threat intelligence into the fabric. APIs on FortiGate and FortiManager allow configuration and reporting to be automated, which supports change control and integration with ticketing and orchestration.
+
+## Adversary perspective
+
+FortiGate sits at the network boundary and commonly terminates remote-access VPN, so adversaries treat it as an appliance to exploit as much as a firewall to evade. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Edge-device exploitation: firewalls and their VPN components have a history of high-severity, sometimes pre-authentication flaws exploited in the wild, and an unpatched FortiGate is a direct entry point (ATT&CK T1190, Exploit Public-Facing Application).
+- Management-interface exposure: a management plane reachable from the internet is a frequent path to compromise.
+- Inspection gaps: traffic that is not decrypted or that uses an allowed application can pass without threat inspection, and an IPS signature can be evaded by encoding or fragmentation.
+- Credential and configuration abuse: stolen administrator or API credentials let an attacker rewrite policy or add access (ATT&CK T1685, Disable or Modify Tools).
+
+### Residual risk and own exposure
+
+Internet-facing firewalls and VPN gateways are among the most-targeted assets, so a flaw in the device is high impact and the estate must be tracked as an asset, not only relied on as a control. The firewall only enforces what its policy expresses and only inspects what it is configured to decrypt. Firmware currency and management isolation belong in the patch and monitoring scope ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)).
+
+### Why it matters
+
+For a tester, firmware level, VPN exposure, and management reachability are the first checks against a FortiGate. For a defender, prompt patching, trusted-host restriction on the admin interface, and monitored configuration changes are what keep the boundary from becoming the breach. See [the red team reference](/RED_TEAM_REFERENCE.md) and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md).
 
 ## Hardening and secure use
 

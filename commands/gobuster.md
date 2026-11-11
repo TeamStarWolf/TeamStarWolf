@@ -2,6 +2,55 @@
 
 gobuster is an open-source content and DNS discovery tool that brute-forces paths, subdomains, and virtual hosts using a wordlist. Penetration testers use it to find directories, files, and hostnames that are reachable but not linked. This page is for authorized testing: run it only against targets you own or have written permission to assess. Keep scope to lab systems or signed engagements, and respect any rate or traffic limits in the rules of engagement.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Penetration testers and bug bounty hunters who enumerate web paths, DNS names and virtual hosts on targets they are authorized to test
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (875 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the gobuster commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you are a defender who needs to spot it in use
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Detection and defense](#detection-and-defense)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [sqlmap Command Reference](/commands/sqlmap.md), [Nmap Command Reference](/commands/nmap.md), [curl Command Reference](/commands/curl.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 gobuster is a Go binary that sends many requests against a target and reports which ones return meaningful responses. It is a single static executable on Linux, macOS, and Windows, with no runtime dependencies. It works in modes: `dir` for web paths, `dns` for subdomains, `vhost` for virtual hosts, and `fuzz` for custom placeholder injection. Wordlist quality drives results, so pair it with lists such as those from SecLists.
@@ -88,6 +137,29 @@ Common flags apply across modes; some are mode-specific.
 | `-o` | Write results to a file |
 
 Tune `-t` to the target's capacity; high thread counts speed discovery but raise load and detection risk, so stay within the engagement's limits. Use `-s` to show only codes you care about, or `-b` to hide noise like `404` and `403`. `-k` helps against lab hosts with self-signed certificates. In `vhost` mode, `--append-domain` builds full hostnames from the wordlist. Always set `-o` so results are preserved for the report.
+
+## Security relevance
+
+This section is the threat-facing view of gobuster and where it sits in a web assessment; authorized use only is assumed. The log signatures and the mitigation guidance are in the "Detection and defense" section that follows.
+
+### Where it appears
+
+- Content discovery. In `dir` mode it brute-forces paths and files to find admin panels, backups, and config left reachable but unlinked.
+- Subdomain enumeration. In `dns` mode it widens the attack surface by finding hostnames that are not published anywhere else.
+- Virtual-host discovery. In `vhost` mode it reveals sites served from one address that a direct request would not show.
+- Fuzzing. The `fuzz` mode injects wordlist entries at a marker, which maps parameters and endpoints for later manual testing and tools such as sqlmap.
+
+### Dominant weakness classes
+
+gobuster sends ordinary requests and reads responses, so the risk is exposure and access control, not memory corruption.
+
+- Direct request, also called forced browsing ([CWE-425](https://cwe.mitre.org/data/definitions/425.html)), reaching a resource by requesting its path without a link.
+- Exposure of sensitive information to an unauthorized actor ([CWE-200](https://cwe.mitre.org/data/definitions/200.html)).
+- File and directory information exposure ([CWE-538](https://cwe.mitre.org/data/definitions/538.html)) through backups and stray files in the web root.
+
+### Why it matters
+
+Content discovery surfaces resources a team forgot were reachable, and an unguessed path is not an access control. Turning a hidden endpoint into an entry point is often the first real foothold in a web assessment, which is why defenders run the same enumeration to find and close those gaps first. See [web application pentesting](/WEB_APPLICATION_PENTESTING.md).
 
 ## Detection and defense
 

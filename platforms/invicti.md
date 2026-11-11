@@ -2,6 +2,55 @@
 
 Invicti is a dynamic and interactive application security testing platform. It scans running web applications and APIs for exploitable vulnerabilities and confirms many of them automatically. Invicti is the platform that brought together the Netsparker and Acunetix product lines.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Application security engineers who run, tune or assess Invicti
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,455 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Invicti for dynamic application security testing, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Snyk](/platforms/snyk.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Invicti tests applications from the outside, the way an attacker reaches them, rather than reading source. This dynamic approach finds issues that appear only when the application is running, such as injection flaws reachable through a live endpoint.
@@ -59,6 +108,25 @@ Issue-tracker integration turns a confirmed finding into a work item in the team
 Where supported, Invicti can export rules for a web application firewall. This gives a team a temporary mitigation for a confirmed issue while a code fix is developed, shortening the window of exposure.
 
 Data flows from the scanned application to the platform, which stores findings, scan history, and reports. Confirmed findings then flow outward to trackers and pipelines. Keep that flow scoped to the applications and environments the program intends to test.
+
+## Adversary perspective
+
+Because Invicti is an active scanner that holds real login credentials for the applications it tests, adversaries treat it as both something to misdirect and a credential store worth stealing from. The steps to lock the deployment down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Stealing authenticated-scan credentials (ATT&CK T1078, Valid Accounts): the scanner stores working logins for target applications, so a leaked credential gives an attacker direct application access ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)).
+- Blending with scans: dynamic scans send active attack traffic, so an attacker who times activity to a scan window can hide real exploitation among expected scanner noise.
+- Suppressing or re-scoping findings (ATT&CK T1685, Disable or Modify Tools): console access lets an attacker narrow scope, mute confirmed findings, or stop scans so an exploitable endpoint is never reported.
+- Abusing the scan engine: the ability to launch active scans against chosen targets is itself an attack primitive if it is granted too widely.
+
+### Residual risk and own exposure
+
+A dynamic scanner only tests the scope and endpoints it is pointed at, so unmapped routes, business-logic flaws, and out-of-scope systems stay unseen, and a proven finding is a point-in-time result. The agents and platform hold target credentials and findings, so they are high value and belong in the patch and monitoring scope like any other software.
+
+### Why it matters
+
+A tester goes for the stored application credentials and the console rather than re-finding what the scanner already proved. A defender monitors credential use, scope and target changes, and who can launch scans as signals in their own right. See [the web application pentesting reference](/WEB_APPLICATION_PENTESTING.md) for the application attack surface and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

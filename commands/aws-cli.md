@@ -2,6 +2,55 @@
 
 The AWS CLI (`aws`) is a unified command-line tool for Amazon Web Services. It wraps the service APIs, so almost any action you can take in the console has a command. This page covers identity, storage, compute, IAM, logging, and secrets, plus the output controls that make results scriptable. Commands target AWS CLI v2.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Cloud engineers, administrators and security teams who work in AWS from a terminal
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (862 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the AWS CLI commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Azure CLI Reference](/commands/azure-cli.md), [Google Cloud CLI (gcloud) Reference](/commands/gcloud.md), [jq Command Reference](/commands/jq.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 The CLI is a Python-based program distributed as a standalone installer for Linux, macOS, and Windows. Calls authenticate with credentials from a profile, an environment variable, an IAM role, or AWS IAM Identity Center (SSO). Every command follows the shape `aws <service> <operation> [parameters]`. Output defaults to JSON, which pairs well with `jq` or the built-in `--query` filter.
@@ -148,6 +197,30 @@ aws secretsmanager get-secret-value --secret-id db/password \
 | `--no-cli-pager` | Print output directly instead of through a pager |
 | `--debug` | Emit the full request and signing trace |
 | `--cli-read-timeout` / `--cli-connect-timeout` | Bound long or stalled calls |
+
+## Security relevance
+
+This section is the threat-facing view of the AWS CLI: how an attacker uses it against an account and what a defender sees when they do. Authorized administration and the safe-use guidance are in the "Security notes" section that follows.
+
+### Where it appears
+
+- Enumeration with stolen keys. An access key found in a leaked repository, on a laptop, or on an exposed instance lets an attacker run `aws sts get-caller-identity`, then `iam`, `ec2 describe-*`, and `s3 ls` to map the account's identities, resources, and open buckets without touching the console.
+- Privilege escalation and pivoting. Attackers abuse over-broad IAM to `assume-role` into higher-privileged roles, create new access keys, or attach an admin policy, turning one key into account-wide control.
+- Exfiltration. `s3 sync` and `s3 cp` pull whole buckets out over the same trusted path a backup job uses, and `secretsmanager get-secret-value` harvests stored credentials.
+- Telemetry. CloudTrail records every call: `GetCallerIdentity`, `AssumeRole`, `CreateAccessKey`, bulk `GetObject`, and `ConsoleLogin` without MFA. A defender correlates these against the source IP and the `aws-cli/2.x` user agent to spot a credential compromise.
+
+### Dominant weakness classes
+
+The CLI is a userspace client, so the risks are stolen credentials and excess authority, not memory corruption.
+
+- Use of hard-coded credentials ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)) in access keys committed to source or CI.
+- Insufficiently protected credentials ([CWE-522](https://cwe.mitre.org/data/definitions/522.html)) in the plaintext `~/.aws/credentials` file.
+- Improper privilege management ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)) through over-permissive IAM that allows role-assumption chains.
+- Incorrect permission assignment for a critical resource ([CWE-732](https://cwe.mitre.org/data/definitions/732.html)), the public S3 bucket case.
+
+### Why it matters
+
+Recognizing the CLI in a compromise is the difference between seeing noise and seeing an attacker enumerate and drain an account with valid keys. Auditors reproduce the same calls to find over-permissioned roles and public buckets before an adversary does, and defenders tune CloudTrail alerting to the API calls above. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) for account-hardening and detection guidance.
 
 ## Security notes
 

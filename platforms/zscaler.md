@@ -2,6 +2,55 @@
 
 Zscaler delivers security as a cloud service that sits between users and the destinations they reach. The platform is branded the Zscaler Zero Trust Exchange. It inspects traffic inline in the cloud rather than on appliances at each site.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Network and cloud security engineers who run, tune or assess Zscaler
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,473 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Zscaler for security service edge, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Cisco Secure Access](/platforms/cisco-secure-access.md), [Forcepoint](/platforms/forcepoint.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Zscaler is a cloud security service edge. It moves the inspection and access-control functions that once lived in branch firewalls and web proxies into a shared cloud fabric. Users connect to the nearest Zscaler data center, and policy follows the user and the device instead of the network location.
@@ -71,6 +120,25 @@ Zscaler integrates with identity providers through `SAML` and `SCIM` so that pol
 Logging to a SIEM uses the Nanolog Streaming Service. This streams web, firewall, and access logs from the Zscaler cloud to a collector, which forwards them to the SIEM. The stream lets a security operations team correlate Zscaler events with endpoint and identity data, and build detections on blocked destinations, sandbox verdicts, and anomalous access.
 
 APIs allow configuration and reporting to be automated. Administrators can pull policy, read logs, and manage objects programmatically, which supports version control and change review.
+
+## Adversary perspective
+
+Zscaler decides which destinations a user or device may reach, so adversaries work to route around its inspection and to compromise the admin tenant that controls policy. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Forwarding bypass: traffic that escapes the Client Connector, a disabled agent, or a path that is not steered to the cloud is never inspected, so finding an unsteered route defeats the gateway (ATT&CK T1685, Disable or Modify Tools).
+- SSL-inspection bypass list: an overly broad bypass or an exclusion for a pinned-certificate destination leaves that encrypted traffic uninspected, and an attacker will prefer those channels.
+- Over-broad access policy: a Private Access rule that grants a broad application group to a broad user group recreates the flat network that zero trust is meant to remove.
+- Admin tenant and token abuse: a leaked API key or a compromised admin login can weaken inspection and open access policy.
+
+### Residual risk and own exposure
+
+The admin tenant holds identity-aware policy and sees decrypted traffic, so its compromise is high impact, and the Client Connector and App Connectors are targets like any remote-access software. The service inspects only what is steered to it and decrypted, so forwarding and bypass gaps are the real residual risk. Admin access, API tokens, and connector health belong in the monitoring scope.
+
+### Why it matters
+
+For a tester, unsteered paths and broad bypass or access rules are the first things to look for. For a defender, closing forwarding gaps, keeping the bypass list small and documented, and hardening the admin tenant are what make the control real. See [the red team reference](/RED_TEAM_REFERENCE.md) and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md).
 
 ## Hardening and secure use
 

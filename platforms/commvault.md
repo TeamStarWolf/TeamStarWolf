@@ -2,6 +2,55 @@
 
 Commvault Cloud is a data protection and cyber-recovery platform that covers backup, recovery, and resilience across workloads. It includes the Metallic software-as-a-service offerings for cloud-delivered protection. The platform adds immutable and air-gapped copies, Threatwise cyber deception, and recovery orchestration and testing. Licence tier decides which products and capabilities are in force.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Backup administrators, infrastructure engineers and incident responders who run, tune or assess Commvault
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,390 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Commvault for backup and cyber recovery, you are hardening its deployment, or you need to see where it fits in the program
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md), [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Veeam](/platforms/veeam.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Commvault Cloud is a platform for backup, recovery, and cyber resilience. It protects virtual machines, physical servers, databases, applications, cloud workloads, and SaaS data across on-premises and cloud environments.
@@ -59,6 +108,24 @@ Anomaly detection provides backup-side warning. It studies change rates, encrypt
 Threatwise adds cyber deception. It places decoy assets that have no legitimate use, so interaction with them is a strong signal of attacker activity. Early detection through deception can shorten dwell time before an attack reaches production and backups.
 
 Recovery orchestration and testing turn verification into a repeatable process. Orchestrated test restores confirm that the surviving copies recover in the right order and within recovery targets.
+
+## Adversary perspective
+
+Because Commvault holds the recovery capability and the catalog of protected data, ransomware actors treat it as something to neutralize before they detonate, and its control plane, management console, and admin identities are themselves an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Destroying recovery before impact (ATT&CK T1490, Inhibit System Recovery): with backup admin access an attacker tries to delete copies, expire jobs, or lower retention before encrypting production. Immutable copies on object-lock storage and air-gapped offline targets are the counters, because they cannot be erased for the retention period.
+- Abusing the backup identity (ATT&CK T1078, Valid Accounts): a compromised Commvault administrator, or a reused production domain admin account, can change plans or attempt to erase retained copies, which is why separate identities and role separation matter ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Evading detection: an attacker who stages activity slowly tries to stay under anomaly thresholds and to avoid Threatwise decoys, so deception and anomaly findings are a signal rather than a guarantee.
+
+### Residual risk and own exposure
+
+Commvault cannot prevent a compromise and cannot recover workloads that were never protected or that were restored from an infected point. The platform stores credentials for many systems and catalogs protected data, and backup software across the industry has been a notable exploitation target, so its control plane belongs in the patch and monitoring scope and its own compromise is a broad breach, not only a loss of backups.
+
+### Why it matters
+
+A tester probes whether copies can be deleted or retention weakened with the access at hand, and whether an immutable or offline copy is truly out of reach. A defender alarms on mass deletion, retention changes, and plan edits as incidents in their own right, and treats Threatwise and anomaly findings as early warning. See [the ransomware defense reference](/RANSOMWARE_DEFENSE_REFERENCE.md) for how immutable and offline copies fit, and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

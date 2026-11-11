@@ -2,6 +2,55 @@
 
 `curl` transfers data to and from a server over HTTP, HTTPS, FTP, and many other protocols. It is the default tool for testing APIs, scripting downloads, and debugging requests from the command line. This page covers the request, output, authentication, and TLS options you reach for daily. Examples assume HTTP or HTTPS, the most common case.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers, administrators and testers who send HTTP and other URL requests from a terminal
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (815 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the curl commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [jq Command Reference](/commands/jq.md), [SSH Command Reference](/commands/ssh.md), [Networking Command Reference](/commands/networking-commands.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 `curl` is a command-line client built on the libcurl library. It ships on Linux, macOS, and recent Windows, and builds on most other systems. It reads a URL, sends a request, and writes the response to standard output unless told otherwise. It does not run JavaScript or render pages; it moves bytes.
@@ -98,6 +147,30 @@ if [ "$code" != "200" ]; then echo "unhealthy: $code"; exit 1; fi
 | `--fail` | exit non-zero on an HTTP error status |
 
 Add `--fail` in scripts so a 404 or 500 returns a non-zero exit code instead of writing an error page to your output.
+
+## Security relevance
+
+This section is the threat-facing view of `curl`: how it appears in offensive work and in defender telemetry. The safe-use guidance for your own scripts is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Payload staging. Once on a host, `curl` is a living-off-the-land way to pull a second stage from attacker infrastructure, often piped straight into a shell so nothing lands on disk first. It avoids shipping a toolkit up front.
+- Server-side request forgery. When a service builds a `curl` target from user input, an attacker steers it at `http://169.254.169.254/` or an internal host to reach a cloud metadata endpoint or a service behind the firewall.
+- Exfiltration. A POST over HTTPS carries stolen data out while blending into normal web traffic.
+- Telemetry. Defenders see it in process-creation logs that capture the remote URL on the command line, in proxy and DNS records, and in endpoint alerts when `curl` is spawned by a web-server account or writes to a temp path.
+
+### Dominant weakness classes
+
+`curl` is a userspace client, so the risks are trust and exposure rather than memory corruption.
+
+- Server-side request forgery ([CWE-918](https://cwe.mitre.org/data/definitions/918.html)) when a destination URL comes from untrusted input.
+- Download of code without an integrity check ([CWE-494](https://cwe.mitre.org/data/definitions/494.html)), the fetch-and-run pattern.
+- Inclusion of functionality from an untrusted control sphere ([CWE-829](https://cwe.mitre.org/data/definitions/829.html)) when fetched content is executed directly.
+- Improper certificate validation ([CWE-295](https://cwe.mitre.org/data/definitions/295.html)) whenever `-k` suppresses TLS checks.
+
+### Why it matters
+
+Spotting `curl` spawned by a service account, or fetching a URL into a pipe to a shell, is a high-value signal for initial access and staging. For an auditor, a `curl` call that takes a user-supplied URL is the first place to probe for SSRF. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for SSRF and request-handling guidance.
 
 ## Security notes
 

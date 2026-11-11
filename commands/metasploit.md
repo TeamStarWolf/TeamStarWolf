@@ -2,6 +2,55 @@
 
 Metasploit is an exploitation and post-exploitation framework used by penetration testers and red teams. It bundles exploit modules, payloads, encoders, and auxiliary scanners behind the `msfconsole` interface. Use it only against lab systems or targets covered by a signed rules-of-engagement document. This page covers the authorized testing workflow and the controls that detect and stop the activity.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Penetration testers and red teamers who work on systems they are authorized to test
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (960 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the Metasploit Framework commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you are a defender who needs to spot it in use
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Detection and defense](#detection-and-defense)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Nmap Command Reference](/commands/nmap.md), [sqlmap Command Reference](/commands/sqlmap.md), [hashcat Command Reference](/commands/hashcat.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 Metasploit runs on Linux (Kali, Parrot) and other Unix-like hosts, and on Windows. The main entry point is `msfconsole`, an interactive console backed by a PostgreSQL database for storing hosts, services, and loot. Supporting command-line tools include `msfvenom` for payload generation and `msfdb` for database control. Operators drive it from an attack box that has network reach to the authorized scope.
@@ -155,6 +204,30 @@ background
 | `-p` (on `msfvenom`) | Payload to build |
 | `-f` (on `msfvenom`) | Output format, such as `exe`, `elf`, `raw` |
 | `-e` (on `msfvenom`) | Encoder to apply |
+
+## Security relevance
+
+This section is the threat-facing view of Metasploit and where it sits in the attack lifecycle; authorized use only is assumed. The signatures, root-cause fixes, and scope controls are in the "Detection and defense" section that follows.
+
+### Where it appears
+
+- Exploitation. Once reconnaissance confirms a vulnerable service, an exploit module delivers a payload to gain initial access on an in-scope host.
+- Delivery. `msfvenom` builds standalone payloads and `exploit/multi/handler` catches the callback, which covers sanctioned phishing and custom-loader tests.
+- Post-exploitation. Meterpreter drives privilege escalation, credential access, pivoting, and lateral movement from the first foothold through the rest of the scope.
+- Validation. The `check` action and a controlled `run` prove whether a patch actually closed a known-exploitable flaw.
+
+### Dominant weakness classes
+
+Unlike most tools here, Metasploit does reach memory corruption: many modules exploit it directly, alongside logic and authentication flaws. The classes its modules target include:
+
+- Out-of-bounds write ([CWE-787](https://cwe.mitre.org/data/definitions/787.html)), the memory-corruption class behind exploits such as EternalBlue.
+- Missing authentication for a critical function ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)).
+- Deserialization of untrusted data ([CWE-502](https://cwe.mitre.org/data/definitions/502.html)).
+- OS command injection ([CWE-78](https://cwe.mitre.org/data/definitions/78.html)).
+
+### Why it matters
+
+A working exploit proves exploitability that a scanner can only guess at, and a live session shows the real impact of a weakness: data access, lateral reach, and persistence. Demonstrating that chain, within signed scope, is what moves a finding from theoretical to actionable. See [the penetration testing methodology](/PENETRATION_TESTING_METHODOLOGY.md).
 
 ## Detection and defense
 

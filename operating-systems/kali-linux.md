@@ -49,6 +49,10 @@ The `ID` and `VERSION_ID` fields of `/etc/os-release` (the [os-release format](h
 |---|---|---|
 | Rolling (2026.3 snapshot) | `ID=kali`, `VERSION_ID=2026.3` | Lab host over SSH, 2026-11-03 (`VERSION_CODENAME=kali-rolling`, kernel `7.1.5+kali-amd64`) |
 
+## Security relevance
+
+Kali is an offensive and testing distribution, so it is the practitioner's platform rather than a target: it ships the toolset for authorized assessment work. The relevant disciplines are keeping the testing host itself clean and segregated, operating only within an authorized scope, and protecting the engagement data it holds. The penetration testing methodology and red team references below set the ground rules.
+
 ## Hardening
 
 - [Security Operating Systems and Distributions](/SECURITY_OPERATING_SYSTEMS_REFERENCE.md)

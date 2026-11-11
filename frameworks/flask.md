@@ -2,6 +2,55 @@
 
 Flask is a microframework for web development in Python. It provides routing, request handling, and templating, and leaves most other choices to the developer. Teams use it when they want a small core they can extend only where needed, rather than a full stack of defaults. It builds on two libraries from the same author: Werkzeug for WSGI and Jinja2 for templates.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who build with Flask, and the reviewers and application security engineers who assess what they build
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,383 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or reviewing a Flask application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture](#architecture), [Security model and common vulnerabilities](#security-model-and-common-vulnerabilities), [Common pitfalls](#common-pitfalls)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Python](/languages/python.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [API Security Reference](/API_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Armin Ronacher released Flask in 2010, initially as an April Fools joke that became a real project. It is deliberately minimal: the core stays small, and features arrive through extensions. The Pallets Projects organization now maintains Flask and its dependencies.
@@ -51,6 +100,30 @@ def create_app():
 Packages install from PyPI with `pip` inside a virtual environment. The `flask` command runs the development server and shell, reading the app from `FLASK_APP`. Testing uses `pytest` with the built-in test client.
 
 SQLAlchemy and Flask-SQLAlchemy cover data access, and Marshmallow handles serialization and validation. Celery runs background tasks. Gunicorn or uWSGI serves the app in production behind Nginx. `pip-audit` and Bandit check dependencies and code for known issues.
+
+## Security relevance
+
+This section is the threat-facing view of Flask: how it appears to an attacker or an auditor in the field, and which weakness classes shape its record. The defensive controls and the per-flaw fixes are in the "Security model and common vulnerabilities" section that follows.
+
+### Where it appears
+
+- Internet-facing web applications, small services, and JSON APIs. Flask is often recognizable from a `Server: Werkzeug` header, the signed session cookie format, and above all the Werkzeug interactive debugger page, a styled traceback with an in-browser console, served when `debug=True` is left on.
+- Offensive interest centers on template injection and the debugger. Server-side template injection is the signature Flask finding, and tplmap automates detection and exploitation of it; Burp Suite handles manual request tampering.
+- Audit and defensive tooling is general Python rather than Flask-specific: Bandit scans the source for dangerous calls such as `render_template_string` on user input, and pip-audit checks the dependency tree against the PyPA advisory database.
+- The dependency surface is PyPI, since most features arrive as extensions. A compromised or typosquatted package runs with full application privilege, the pattern covered in [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+Flask runs on [Python](/languages/python.md), a memory-managed language, so the dominant classes are logic and injection flaws rather than memory corruption. The fixes for each are detailed in the section below.
+
+- Server-side template injection ([CWE-94](https://cwe.mitre.org/data/definitions/94.html)), where `render_template_string` on attacker input evaluates template expressions and reaches Python objects, leading to code execution.
+- Exposed debug mode ([CWE-94](https://cwe.mitre.org/data/definitions/94.html)), since the Werkzeug debugger console is remote code execution when reachable on a public host.
+- Exposure of the signing secret ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)), because `SECRET_KEY` signs the client-side session cookie, so a leaked value lets an attacker forge sessions.
+- Missing cross-site request forgery protection ([CWE-352](https://cwe.mitre.org/data/definitions/352.html)), which Flask does not enable on its own, leaving state-changing form routes open until an extension adds token checks.
+
+### Why it matters
+
+Flask ships almost no defaults, so an auditor treats every protection as opt-in and checks whether it was actually added rather than assuming the framework supplied it. Recognizing Flask in the field tells a tester to probe for template injection and a left-on debugger first, the two findings that turn a web bug into code execution. Bandit is the static analyzer to reach for on the source side. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for the cross-cutting review method.
 
 ## Security model and common vulnerabilities
 

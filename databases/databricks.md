@@ -2,6 +2,55 @@
 
 Databricks is a lakehouse platform built on Apache Spark and Delta Lake. It combines the open storage of a data lake with table semantics closer to a warehouse: ACID transactions, schema enforcement, and time travel over files in cloud object storage. Work happens in notebooks and SQL against clusters, and Unity Catalog governs access across workspaces. The query interface is Spark SQL plus the DataFrame APIs.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Database administrators, developers and security engineers who run, query or assess Databricks and Spark SQL
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,130 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are modeling data or writing queries for Databricks and Spark SQL, you are administering or hardening a deployment, or you want a worked example to start from
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Data model and architecture](#data-model-and-architecture), [Security and hardening](#security-and-hardening), [A worked example](#a-worked-example)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[SQL](/languages/sql.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Snowflake](/databases/snowflake.md), [ClickHouse](/databases/clickhouse.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 The lakehouse model stores data once, in open file formats on cloud storage, and serves both analytics and machine learning from it. Teams avoid copying data between a lake and a separate warehouse.
@@ -103,6 +152,30 @@ WHEN NOT MATCHED THEN INSERT
 ```
 
 The whole `MERGE` is one transaction in the Delta log. Readers see either the old state or the new state, never a partial write.
+
+## Security relevance
+
+This section is the threat-facing view of Databricks: how a managed lakehouse looks to an attacker or auditor, and which weakness classes dominate its record. The controls that defend against them are in the "Security and hardening" section that follows.
+
+### Where it appears
+
+- A managed cloud service on AWS, Azure, and Google Cloud, so the attack surface is the control plane (the workspace and account console, notebooks, and jobs) and the cloud object storage that holds the Delta files behind the tables.
+- Recognized by workspace hostnames such as `*.cloud.databricks.com` and `*.azuredatabricks.net`, and by personal access tokens that begin with `dapi`. Spark SQL and the DataFrame APIs are the query interfaces.
+- Targeted less by network exploits than by credential discovery: leaked `dapi` tokens in source control, notebooks, or CI, and over-broad cloud roles that reach the storage bucket directly and bypass table access control. General cloud-exploitation tooling such as Pacu applies to the underlying accounts.
+- Audited through Unity Catalog lineage and grants, the platform audit logs, and the cloud provider's IAM analyzers. The supply-chain surface is notebook library installs from PyPI and Maven and cluster init scripts.
+
+### Dominant weakness classes
+
+Databricks is a managed cloud platform, so the practical risks are identity and access-management misconfiguration and credential exposure rather than memory corruption in the engine.
+
+- Use of hardcoded credentials ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)) when access tokens or service keys are embedded in notebooks, job definitions, or repositories instead of read from secret scopes.
+- Missing authorization ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)) from over-broad Unity Catalog grants, or from a cloud role that reaches the storage bucket beneath the table and bypasses the catalog entirely.
+- Information exposure through logs ([CWE-532](https://cwe.mitre.org/data/definitions/532.html)) when secrets or sensitive rows land in notebook output or job logs.
+- SQL injection ([CWE-89](https://cwe.mitre.org/data/definitions/89.html)) when Spark SQL is assembled from untrusted input inside a job or notebook.
+
+### Why it matters
+
+Recognizing a workspace URL and a `dapi` token tells a practitioner the pivot to test: a leaked token grants workspace access, and a mis-scoped cloud role can reach the data files directly. Each maps to a control the defender owns: keep secrets in scopes, scope Unity Catalog and cloud roles to least privilege, isolate the data plane on private networking, and enable audit logs. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) alongside [the database security reference](/DATABASE_SECURITY_REFERENCE.md).
 
 ## Security and hardening
 

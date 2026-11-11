@@ -14,6 +14,55 @@ Eiffel is a statically typed, compiled, object-oriented language created by Bert
 
 Related: [Smalltalk](/languages/smalltalk.md), [Delphi (Object Pascal)](/languages/delphi.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Eiffel code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,483 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Eiffel code (typical uses: business and mission-critical systems, teaching object-oriented design), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Smalltalk](/languages/smalltalk.md), [Delphi (Object Pascal)](/languages/delphi.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Bertrand Meyer designed Eiffel to put object-oriented software construction on a firm, verifiable footing, and set out its principles in the book Object-Oriented Software Construction. Design by Contract, the central contribution, treats the relationship between a method and its callers as a contract: the caller must meet the precondition, and the method guarantees the postcondition, with class invariants holding between calls. These assertions are written in the code and can be checked while the program runs, turning specification into executable checks.
@@ -116,6 +165,29 @@ Eiffel compiles to native code (historically through C), so compute-bound code p
 - Multiple-inheritance name clashes that need explicit renaming or selection; ignoring them causes compile errors or wrong feature resolution.
 - Violating command-query separation, so queries have side effects that break reasoning about calls.
 - Ignoring void-safety warnings in code written before void safety, leaving null-reference risks.
+
+## Security relevance
+
+Eiffel reaches security practitioners as the language of business and mission-critical systems built with Design by Contract that defenders audit. Offensive tooling written in it is rare. The defensive patterns that counter each class are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Business and mission-critical systems. Eiffel is used where correctness matters, so an auditor reads the contracts (`require`, `ensure`, `invariant`) to understand a program's stated obligations.
+- The external-interface surface. Calls to C or other external code bypass Eiffel's type and contract checks, which is where validation must be explicit.
+- Little offensive presence. Eiffel is not a tool-building language for red teams, so the interest is reading and auditing existing systems.
+
+### Dominant weakness classes
+
+Eiffel is memory-safe: it is garbage-collected and statically typed, with void safety that rules out many null-reference errors, so the memory-corruption classes do not apply. The weaknesses are about input handling at boundaries and the assumptions that contracts make:
+
+- Improper input validation. Contracts constrain parts of the program, but data crossing in from files, networks, or users must still be validated before it is trusted; do not rely on a precondition to sanitize external input. This maps to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- Contract checking disabled in production. If assertions are turned off in release builds, precondition checks no longer run, so input that would have been rejected can flow through; keep boundary validation in ordinary code, not only in contracts. This is the same validation gap, [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- Integer overflow. Fixed-size integer arithmetic driven by untrusted input can overflow, which maps to [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- External interface risk. Data crossing to and from C or other external code bypasses Eiffel's checks and can involve [CWE-78](https://cwe.mitre.org/data/definitions/78.html) when launching processes.
+
+### Why it matters
+
+Reading Eiffel lets an analyst see a program's obligations stated as contracts and find where external input or foreign-code boundaries escape those checks. Dedicated security tooling is scarce, so AutoTest, the contract system, and research verification work (AutoProof), together with manual review of input handling and external interfaces, are the main controls, as the Secure coding section details.
 
 ## Secure coding
 

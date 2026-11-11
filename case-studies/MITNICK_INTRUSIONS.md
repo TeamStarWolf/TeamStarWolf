@@ -278,7 +278,7 @@ AA23-320A recommends phishing-resistant MFA (FIDO/WebAuthn or PKI), vishing trai
 
 ## Part 8: MITRE mappings
 
-This Part binds the record to MITRE ATT&CK v20.0, CAPEC and D3FEND, with every id checked against the library's data files on 3 November 2026 and, for T1684.001, the live ATT&CK page (Confirmed [26][35]). No source in the Mitnick record cites an ATT&CK id; those mappings are this study's reading of Confirmed facts (Inferred). The modern comparison rows carry ids that AA23-320A and HC3 cite themselves (Confirmed [24][25]). There is no ATT&CK for ICS or Mobile mapping in this study.
+This Part binds the record to MITRE ATT&CK v20.0, CAPEC and D3FEND, with every id checked against the library's data files on 3 November 2026 and, for T1684.001, the live ATT&CK page (Confirmed [26][35]). No source in the Mitnick record cites an ATT&CK id; those mappings are this study's reading of Confirmed facts (Inferred). The modern comparison rows carry ids that AA23-320A and HC3 cite themselves (Confirmed [24][25]). There is no ATT&CK for ICS mapping. The one ATT&CK for Mobile id AA23-320A cites, T1451, is noted after the modern comparison table and is not mapped.
 
 ATT&CK revoked T1656 Impersonation in v19.0; the library's `data/attack/superseded_by.jsonl` maps it to T1684.001 Impersonation, a sub-technique of T1684 Social Engineering under the Stealth tactic, created on 14 April 2026, whose procedure examples include help desk impersonation by Scattered Spider, LAPSUS$ and Storm-1811 (Confirmed [26][35]). Where AA23-320A cites T1656, this study shows T1684.001.
 
@@ -336,7 +336,7 @@ AA23-320A also cites T1451 SIM Card Swap from ATT&CK for Mobile (Confirmed [24][
 
 | Object | Id and library page | Tie to this study | Source |
 |---|---|---|---|
-| Scattered Spider | [G1015](/mitre/groups/G1015.md) | The modern comparison object. The library's group data lists, among others, T1598, T1598.003, T1598.004, T1589, T1621, T1078, T1078.004, T1684.001 and T1556.006 for it, but not T1566.004, which AA23-320A cites; the live ATT&CK G1015 page was not checked | [35][24] |
+| Scattered Spider | [G1015](/mitre/groups/G1015.md) | The modern comparison object. The library's group data lists, among others, T1598, T1598.003, T1598.004, T1589, T1621, T1078, T1078.004, T1684.001 and T1556.006 for it, but not T1566.004, T1594 or T1199, which AA23-320A cites; the live ATT&CK G1015 page was not checked | [35][24] |
 
 ATT&CK has no group, software or campaign object for Mitnick's activity and no matching page exists in the library's `mitre/` tree, so this study maps techniques only (Confirmed for the tree [35]; Inferred for the conclusion). ALPHV, which HC3 names, is ATT&CK software [S1068 BlackCat](/mitre/software/S1068.md) (Confirmed [35]).
 
@@ -347,7 +347,7 @@ ATT&CK has no group, software or campaign object for Mitnick's activity and no m
 | User Training | [M1017](/mitre/mitigations/M1017.md) | T1598, T1598.004, T1566.004, T1684.001, T1621, T1078, T1078.002, T1213 | [35] |
 | Multi-factor Authentication | [M1032](/mitre/mitigations/M1032.md) | T1040, T1078, T1078.002, T1098, T1114, T1136, T1199, T1213, T1556.006, T1621 | [35] |
 | Threat Intelligence Program | [M1019](/mitre/mitigations/M1019.md) | T1684.001 | [35] |
-| Pre-compromise | [M1056](/mitre/mitigations/M1056.md) | T1589, T1591, T1591.004, T1595, T1584.004 | [35] |
+| Pre-compromise | [M1056](/mitre/mitigations/M1056.md) | T1589, T1591, T1591.004, T1594, T1595, T1584.004 | [35] |
 
 M1017 matches Mitnick's own 2000 recommendation of extensive user training (Confirmed as testimony [5]); M1032 in its phishing-resistant form is AA23-320A's main recommendation (Confirmed [24]).
 

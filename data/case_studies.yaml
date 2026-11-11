@@ -412,6 +412,30 @@ studies:
       - {"date": "1989-09-30", "label": "Stoll posts the details of his book The Cuckoo's Egg (Doubleday, 1989)"}
       - {"date": "1990-02-15", "label": "Court in Celle gives Carl, Hess and Brzezinski suspended sentences (Reported)"}
       - {"date": "1991-07", "label": "RFC 1244 frames \"Protect and Proceed\" against \"Pursue and Prosecute\" and cites both Stoll works"}
+  case-studies/CYBERCRIME_FOUR_BOOKS.md:
+    kind: "era"
+    title: "Cybercrime and Hacktivism in Four Books: Kingpin, Fatal System Error, We Are Anonymous, The Hacker Crackdown"
+    start: "1984"
+    end: "2014-05"
+    sectors: ["finance", "telecommunications", "government", "technology", "media", "retail"]
+    cves: []
+    actors: []
+    tags: ["Kingpin", "Fatal System Error", "We Are Anonymous", "The Hacker Crackdown", "Shadowcrew", "CardersMarket", "Max Butler", "DDoS extortion", "Russian Business Network", "Anonymous", "LulzSec", "HBGary Federal", "Operation Sundevil", "Steve Jackson Games", "EFF"]
+    pdf: "Cybercrime_Four_Books_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "1990-01-15", "label": "AT&T long-distance crash from its own 4ESS software update, at first suspected to be hackers"}
+      - {"date": "1990-03-01", "label": "Secret Service searches Steve Jackson Games and seizes the Illuminati BBS"}
+      - {"date": "1990-05-07", "label": "Operation Sundevil, 7 to 8 May 1990: about 27 warrants, 150 agents, 13 cities"}
+      - {"date": "1990-07-23", "label": "Neidorf trial, 23 to 27 July 1990: the prosecution moves to dismiss and a mistrial is declared (Reported)"}
+      - {"date": "1994-10-31", "label": "Fifth Circuit affirms Steve Jackson Games: seizing stored unread e-mail is not an intercept"}
+      - {"date": "2004-10-28", "label": "Shadowcrew indictment and Operation Firewall's 28 arrests announced"}
+      - {"date": "2006-10", "label": "Russian court sentences three bookmaker DDoS extortionists to eight years each (Reported)"}
+      - {"date": "2010-02-12", "label": "Max Butler sentenced to 13 years and $27.5 million restitution"}
+      - {"date": "2011-02", "label": "HBGary Federal breach: SQL injection, cracked and reused passwords, hijacked mail"}
+      - {"date": "2011-06-07", "label": "FBI approaches Monsegur, who agrees to cooperate that night (about this date)"}
+      - {"date": "2013-11-15", "label": "Jeremy Hammond sentenced to 10 years for computer hacking conspiracy"}
+      - {"date": "2014-05-27", "label": "Monsegur sentenced to time served"}
   case-studies/EMUDHRA_CA_COMPROMISE_2026.md:
     kind: "incident"
     title: "The eMudhra Certificate Authority Key Compromise: A 2026 Case Study"

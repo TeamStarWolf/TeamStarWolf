@@ -226,5 +226,11 @@
     "name": "TeamStarWolf - Magento and Adobe Commerce CVE-2026-48356 Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified CVE-2026-48356 (PolyShell) record supports: Sansec's PolyShell advisory, mass-wave and deepveindrilling reports, and the TeamStarWolf lab run of 4 November 2026 on Magento Open Source 2.4.8-p5. Each comment names source numbers from case-studies/MAGENTO_CVE_2026_48356.md. Scores: 100 is reported by Sansec and demonstrated in the lab, 75 is a follow-on stage known only from Sansec's reports.",
     "blurb": "Techniques from the PolyShell record, from the unauthenticated guest-cart upload to the webshells and storefront loaders Sansec reported. A curated layer for the Magento CVE-2026-48356 case study."
+  },
+  {
+    "file": "php-8-4-27-cves.json",
+    "name": "TeamStarWolf - PHP 8.4.27, CVE-2026-109618 and CVE-2026-109619 Lab Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the lab-backed study of the two PHP flaws fixed in 8.4.27 (php2shell). Score 100: the vendor advisories and the CISA KEV listing support the technique directly. Score 50: the study's own mapping, labelled Inferred in its comment. Each comment names source numbers from case-studies/PHP_8_4_27_CVES.md. No severity, prevalence or coverage is measured.",
+    "blurb": "Techniques from the record of the two PHP flaws fixed in 8.4.27, from unauthenticated exploitation of the web runtime to the follow-on behavior CISA tells defenders to watch for. A curated layer for the PHP 8.4.27 lab study."
   }
 ]

@@ -1,0 +1,111 @@
+{
+  "name": "TeamStarWolf - PHP 8.4.27, CVE-2026-109618 and CVE-2026-109619 Lab Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the lab-backed study of the two PHP flaws fixed in 8.4.27 (php2shell). Score 100: the vendor advisories and the CISA KEV listing support the technique directly. Score 50: the study's own mapping, labelled Inferred in its comment. Each comment names source numbers from case-studies/PHP_8_4_27_CVES.md. No severity, prevalence or coverage is measured.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Unauthenticated RCE over HTTP: validated against mod_php before application code runs (CVE-2026-109618, GHSA-w8hw-w9fx-j79w, 2026-10-21) and against mod_php and PHP-FPM (CVE-2026-109619, GHSA-6wmf-4rv5-p3rp, 2026-10-21); both in CISA KEV from 2026-10-26. Sources: [1]; [2]; [16]; [18]; [39].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059.004",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "Inferred follow-on: the CISA alert (2026-10-21) tells defenders to watch for PHP worker processes launching shells. Sources: [17]; [40].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 50,
+      "comment": "Inferred follow-on: the CISA alert (2026-10-21) names PHP workers downloading tools; TU Delft (Reported) counts 181 source IPs that sent code or a dropper by 2026-11-04. Sources: [17]; [23]; [45]; [49].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 50,
+      "comment": "Inferred follow-on: a web shell is a common next step after RCE as the web worker account; no source opened for this study records one. Sources: [1]; [2]; [45]; [48].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1499.004",
+      "tactic": "impact",
+      "score": 50,
+      "comment": "Inferred side effect: the OOM producers of CVE-2026-109618 and the worker-state corruption of CVE-2026-109619 can end a PHP worker. Sources: [1]; [2]; [41].",
+      "enabled": true
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#86efac",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: supported directly by the vendor advisories and the KEV listing",
+      "color": "#15803d"
+    },
+    {
+      "label": "50: analyst inference, labelled in the comment",
+      "color": "#86efac"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/PHP_8_4_27_CVES.md (sources opened 4 November 2026; lab run 4 November 2026 UTC)"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 = supported directly by the record; 50 = the study's labelled inference. No severity, prevalence or coverage is measured."
+    },
+    {
+      "name": "techniques_scored",
+      "value": "5"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "5"
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "PHP 8.4.27, CVE-2026-109618 and CVE-2026-109619: Two Fixes Verified in the Lab",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/PHP_8_4_27_CVES"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

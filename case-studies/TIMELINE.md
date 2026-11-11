@@ -49,6 +49,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 23 October 2026: CISA adds the CVE to KEV with forensic triage, due 26 October; 26.4.502 released
   - 30 October 2026: A user reports the attack works on a disabled, not-updated app; Collabora points to the advisory
   - 4 November 2026: TeamStarWolf lab run: 26.4.302 flagged vulnerable, 26.4.303 fixed, fix read in proxy.php
+- [Plex Media Server, CVE-2026-96652, CVE-2026-96654, CVE-2026-96655 and CVE-2026-96656: The Plex2Shell Chain in the Lab](/case-studies/PLEX_MEDIA_SERVER_2026_CVES.md). Vulnerability, July to November 2026. Sectors: technology, media. CVEs: CVE-2026-96651, CVE-2026-96652, CVE-2026-96654, CVE-2026-96655, CVE-2026-96656, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Plex_Media_Server_2026_CVEs_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Plex_Media_Server_2026_CVEs_Case_Study.pptx).
+  - 14 July 2026: 1.43.3.10828 general release, the last vulnerable 1.43.3 build; its notes list no security fixes
+  - 27 July 2026: Zach Main reports the chain to Plex
+  - 3 August 2026: 1.43.3.10861 Beta; the CISA advisory gives this as each CVE's release date
+  - 4 August 2026: 1.43.3.10861 general release and Docker tag; Plex acknowledges the report
+  - 1 September 2026: Plex announces the security update and asks owners for "1.43.3 or newer"
+  - 23 September 2026: CISA as CNA publishes the four CVEs and advisory VA-26-266-01
+  - 16 October 2026: The researcher's Plex2Shell write-up goes public
+  - 17 October 2026: A honeypot operator sees the first in-the-wild exploitation
+  - 19 October 2026: Plex reports active, wide exploitation with miners and proxy software
+  - 20 October 2026: CISA adds all four CVEs to KEV, each marked as chainable with the other three
+  - 3 November 2026: KEV due date for CVE-2026-96652 and CVE-2026-96655
+  - 4 November 2026: TeamStarWolf lab run: 1.43.2.10687 and 1.43.3.10828 told from 1.43.3.10861; no exploit step run
 - [PHP 8.4.27, CVE-2026-109618 and CVE-2026-109619: Two Fixes Verified in the Lab](/case-studies/PHP_8_4_27_CVES.md). Vulnerability, July to November 2026. Sectors: technology. CVEs: CVE-2015-3306, CVE-2020-1938, CVE-2021-44228, CVE-2026-48356, CVE-2026-98432, CVE-2026-109618 and 3 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/PHP_8_4_27_CVEs_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/PHP_8_4_27_CVEs_Case_Study.pptx).
   - 30 July 2026: Calif begins its audit of PHP
   - 11 August 2026: Calif reports unconditional remote code execution to PHP

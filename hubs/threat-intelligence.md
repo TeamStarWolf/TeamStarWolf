@@ -63,6 +63,7 @@ Time and difficulty are quoted in full from each guide's header table.
 - [The zero-day trade and its fallout: a case study](/case-studies/ZERO_DAY_MARKET_EVENTS.md)
 - [Cybercrime and hacktivism in four books: a case study](/case-studies/CYBERCRIME_FOUR_BOOKS.md)
 - [Cyber operations as statecraft: the cases in The Hacker and the State](/case-studies/HACKER_AND_THE_STATE_CASES.md)
+- [Five hacks and why they worked: the cases in Fancy Bear Goes Phishing](/case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md)
 - [Kevin Mitnick, Ghost in the Wires and The Art of Intrusion: a case study](/case-studies/MITNICK_INTRUSIONS.md)
 
 <!-- hub:end -->

@@ -444,6 +444,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 16 November 2023: CISA and FBI publish AA23-320A on Scattered Spider's help desk impersonation
   - 3 April 2024: HHS HC3 analyst note on social engineering of health sector IT help desks
 
+### 1988 <!-- {docsify-ignore} -->
+
+- [Five Hacks and Why They Worked: The Cases in Fancy Bear Goes Phishing](/case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md). Period record, November 1988 to September 2018. Sectors: education, government, telecommunications, technology. CVEs: CVE-1999-0095. ATT&CK groups: G0007 APT28, G0016 APT29. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Fancy_Bear_Goes_Phishing_Cases_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Fancy_Bear_Goes_Phishing_Cases_Case_Study.pptx).
+  - 2 November 1988: The Morris worm is released from an MIT computer at about 8:30 p.m. and spreads through sendmail, fingerd, trusted hosts and guessed passwords
+  - March 1989: The Dark Avenger releases his first virus from Sofia, begun in September 1988
+  - 16 May 1990: The judgment against Morris sets three years probation, 400 hours of community service and a $10,050 fine
+  - 1992: The Dark Avenger's Mutation Engine (MtE) lets any virus mutate through one subroutine
+  - 8 September 2005: A Massachusetts juvenile is sentenced to 11 months for entry to an ISP and a telephone provider, accounts at an identity-data company and a denial of service
+  - 19 March 2016: GRU Unit 26165 phishes the Clinton campaign chairman with a spoofed Google notice; over 50,000 emails taken
+  - 14 June 2016: The DNC announces the Russian intrusion; CrowdStrike names two actors, APT29 and APT28
+  - 22 July 2016: Over 20,000 DNC emails and documents released, about three days before the convention
+  - 20 September 2016: Mirai hits Krebs on Security with a 623 Gbps attack
+  - 21 October 2016: The Dyn attack, which the USENIX paper attributes to Mirai cluster 6, not the original cluster 1
+  - 5 December 2017: Informations and plea agreements against three Mirai and clickfraud defendants filed in Alaska
+  - 13 July 2018: Twelve GRU officers indicted in the District of Columbia over the 2016 intrusions and leaks
+
 ### 1986 <!-- {docsify-ignore} -->
 
 - [The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986](/case-studies/CUCKOOS_EGG_1986.md). Incident, August 1986 to February 1990. Sectors: government, defense, education. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cuckoos_Egg_1986_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Cuckoos_Egg_1986_Case_Study.pptx).

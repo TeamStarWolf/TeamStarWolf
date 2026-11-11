@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 76 min (17,526 words at 230 words a minute)
+About 76 min (17,537 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -772,9 +772,9 @@ CWE IDs come from the KEV `cwes` field for each exploited CVE (Part 4); CAPEC ID
 | Weakness | CVEs in this record | CAPEC patterns linked in the library data |
 |---|---|---|
 | CWE-502 Deserialization of Untrusted Data | CVE-2021-44228 | [CAPEC-586](/mitre/capec/CAPEC-586.md) Object Injection |
-| CWE-917 Expression Language Injection | CVE-2021-44228 (NVD, per the [Log4Shell study](/case-studies/LOG4SHELL.md)) | None in the library data |
+| CWE-917 Improper Neutralization of Special Elements used in an Expression Language Statement (Expression Language Injection) | CVE-2021-44228 (NVD, per the [Log4Shell study](/case-studies/LOG4SHELL.md)) | None in the library data |
 | CWE-121 Stack-based Buffer Overflow | CVE-2021-20038 | None in the library data |
-| CWE-306 Missing Authentication for Critical Function | CVE-2022-24990 | Five broad patterns, not expanded here |
+| CWE-306 Missing Authentication for Critical Functionality | CVE-2022-24990 | Five broad patterns, not expanded here |
 | CWE-288 Authentication Bypass Using an Alternate Path or Channel | CVE-2023-42793 | Two patterns, neither specific to this flaw |
 | CWE-20, CWE-400 | CVE-2021-44228 (KEV field) | Broad classes, not expanded |
 

@@ -21,8 +21,13 @@ Rules (--check and --self-test fail on any of them):
     never mixes two descriptions of the same system;
   * every root-relative link (hardening pages, case studies) names a tracked page;
   * no text carries an em dash (docs/VOICE.md);
-  * an endoflife.date row names its product, cycle and fetch date; a vendor or rolling
-    row names no API product and carries a note.
+  * an endoflife.date row names its product, cycle and fetch date; a vendor, rolling or
+    unknown row names no API product and carries a note (`unknown` is for a system whose
+    end-of-life date no vendor page confirmed: the page says so instead of guessing);
+  * `shell` is one of SHELLS; a system with no shell (`none`), or one whose vendor pages
+    document no command line for it (`undocumented`), lists no patch commands;
+  * a system with no identify commands says why in `identify_basis`; a system with no
+    os-release file has `os_release` null and no `os_release_checked`.
 
 The status column ("Supported", "Security support only", ...) is computed against the
 row's fetch date, not today's date, so a page only changes when the data does.
@@ -60,15 +65,26 @@ EM_DASH = "\u2014"
 
 FIELDS = ("id", "os", "family", "name", "summary", "version", "codename", "release_model",
           "base", "kernel", "architectures", "package_manager", "update_channel", "patch_commands",
-          "patch_notes", "advisories", "advisory_notes", "identify", "os_release",
+          "shell", "patch_notes", "advisories", "advisory_notes", "identify", "identify_basis",
+          "os_release",
           "os_release_checked", "eol", "hardening", "case_studies", "vocab_id", "licence",
           "sources", "reviewed_at")
 # Fields that describe the system, not one version: identical on every row of an `os`.
-OS_FIELDS = ("family", "name", "summary", "package_manager", "patch_commands", "patch_notes",
-             "advisories", "advisory_notes", "identify", "hardening", "case_studies", "vocab_id",
-             "licence")
+OS_FIELDS = ("family", "name", "summary", "package_manager", "patch_commands", "shell", "patch_notes",
+             "advisories", "advisory_notes", "identify", "identify_basis", "hardening", "case_studies",
+             "vocab_id", "licence")
 RELEASE_MODELS = ("point", "rolling", "channel")
-EOL_SOURCES = ("endoflife.date", "vendor", "rolling")
+EOL_SOURCES = ("endoflife.date", "vendor", "rolling", "unknown")
+# shell -> (code fence language or None, identify heading, first identify column)
+SHELLS = {
+    "sh": ("sh", "Identify it from a terminal", "Command"),
+    "powershell": ("powershell", "Identify it from a terminal", "Command"),
+    "cli": ("text", "Identify it from the device CLI", "Command"),
+    "none": (None, "Identify the version", "Where to look"),
+    # The vendor pages opened for the system document no identify or patch command line (which
+    # is not a claim that it has no shell), so the page names a settings screen (or nothing).
+    "undocumented": (None, "Identify the version", "Where to look"),
+}
 EOL_FIELDS = ("source", "product", "cycle", "fetched", "release_date", "support_end",
               "security_end", "extended_end", "latest", "url", "note")
 ADVISORY_FIELDS = ("name", "id_format", "example", "url", "feeds")
@@ -84,6 +100,21 @@ FAMILIES = {
                   "and hosts that update by swapping whole images."),
     "security": ("Security testing distributions", "Distributions for penetration testing and security research, built "
                  "on Debian."),
+    "bsd": ("BSD family", "FreeBSD, OpenBSD, and NetBSD, each released as one base system (kernel and userland) with "
+            "its own update tools and its own advisory series."),
+    "windows": ("Windows", "Windows client and Windows Server, patched by the monthly cumulative updates that Microsoft "
+                "publishes on the second Tuesday of each month."),
+    "macos": ("macOS", "Apple's desktop operating system, updated through Software Update."),
+    "mobile": ("Mobile operating systems", "Android and iOS: the phone and tablet systems whose security fixes arrive "
+               "as vendor updates and monthly bulletins."),
+    "network": ("Network operating systems", "The software on routers, switches, firewalls, and application delivery "
+                "controllers, upgraded by installing a vendor image; their advisories fill a large share of the "
+                "known-exploited record."),
+    "hypervisor": ("Hypervisors and Kubernetes node images", "The hosts that run virtual machines and containers: "
+                   "bare-metal hypervisors, the KVM stack on general-purpose Linux, and the node images managed "
+                   "Kubernetes services boot."),
+    "embedded": ("Embedded and real-time systems", "Real-time kernels, embedded platforms, and router firmware, "
+                 "most of them built into products by a device maker rather than installed by the operator."),
 }
 ID_RE = re.compile(r"^[a-z0-9][a-z0-9.-]*[a-z0-9]$")
 SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]*[a-z0-9]$")
@@ -147,10 +178,17 @@ def validate(rows: list[dict], exists=lambda rel: True) -> list[str]:
                 errs.append(f"{where}: {f} must be null or a non-empty string")
         if r["release_model"] not in RELEASE_MODELS:
             errs.append(f"{where}: release_model must be one of {RELEASE_MODELS}")
-        if not _str_list(r["architectures"]) or not r["architectures"]:
-            errs.append(f"{where}: architectures must be a non-empty list of strings")
+        if not _str_list(r["architectures"]):
+            errs.append(f"{where}: architectures must be a list of strings (empty when not checked)")
         if not _str_list(r["patch_commands"]):
             errs.append(f"{where}: patch_commands must be a list of strings")
+        if r["shell"] not in SHELLS:
+            errs.append(f"{where}: shell must be one of {list(SHELLS)}")
+        elif SHELLS[r["shell"]][0] is None and r["patch_commands"]:
+            errs.append(f"{where}: a system with no documented command line lists no patch commands")
+        if r["identify_basis"] is not None and (not isinstance(r["identify_basis"], str)
+                                                or not r["identify_basis"].strip()):
+            errs.append(f"{where}: identify_basis must be null or a non-empty string")
         if not isinstance(r["advisories"], list):
             errs.append(f"{where}: advisories must be a list")
         else:
@@ -166,14 +204,19 @@ def validate(rows: list[dict], exists=lambda rel: True) -> list[str]:
         if not r["advisories"] and not r["advisory_notes"]:
             errs.append(f"{where}: a system with no advisory series needs advisory_notes saying so")
         ident = r["identify"]
-        if not isinstance(ident, list) or not ident or not all(
+        if not isinstance(ident, list) or not all(
                 isinstance(c, dict) and tuple(c.keys()) == ("command", "shows")
                 and isinstance(c["command"], str) and isinstance(c["shows"], str) for c in ident):
-            errs.append(f"{where}: identify must be a non-empty list of {{command, shows}}")
+            errs.append(f"{where}: identify must be a list of {{command, shows}}")
+        elif not ident and not r["identify_basis"]:
+            errs.append(f"{where}: a system with no identify commands says why in identify_basis")
         osr = r["os_release"]
-        if not isinstance(osr, dict) or "ID" not in osr or not all(
+        if osr is None:
+            if r["os_release_checked"] is not None:
+                errs.append(f"{where}: os_release_checked needs an os_release")
+        elif not isinstance(osr, dict) or "ID" not in osr or not all(
                 isinstance(k, str) and isinstance(v, str) for k, v in osr.items()):
-            errs.append(f"{where}: os_release must map os-release keys (at least ID) to values")
+            errs.append(f"{where}: os_release must be null or map os-release keys (at least ID) to values")
         e = r["eol"]
         if not isinstance(e, dict) or tuple(e.keys()) != EOL_FIELDS:
             errs.append(f"{where}: eol must have exactly {list(EOL_FIELDS)}")
@@ -190,11 +233,16 @@ def validate(rows: list[dict], exists=lambda rel: True) -> list[str]:
                     errs.append(f"{where}: an endoflife.date row names product and cycle and has no note")
                 if e["url"] != EOL_API.format(product=e["product"]):
                     errs.append(f"{where}: eol.url must be the API URL for product {e['product']!r}")
-            elif e["source"] in ("vendor", "rolling"):
+            elif e["source"] in ("vendor", "rolling", "unknown"):
                 if e["product"] is not None or e["cycle"] is not None or not e["note"]:
                     errs.append(f"{where}: a {e['source']} row has no API product or cycle and needs a note")
                 if e["source"] == "vendor" and not _is_url(e["url"]):
                     errs.append(f"{where}: a vendor eol row cites the vendor page in eol.url")
+                if e["source"] == "unknown" and (e["url"] is not None and not _is_url(e["url"])):
+                    errs.append(f"{where}: an unknown eol row's url is null or https")
+                if e["source"] == "unknown" and any(e[f] is not None for f in (
+                        "support_end", "security_end", "extended_end")):
+                    errs.append(f"{where}: an unknown eol row carries no end dates")
         for f in ("hardening", "case_studies"):
             items = r[f]
             if not isinstance(items, list) or not all(
@@ -245,12 +293,18 @@ def status(e: dict, model: str) -> str:
     """Support status on the fetch date (computed, never typed)."""
     if e["source"] == "rolling":
         return "Rolling release" if model == "rolling" else "Channel moves forward"
+    if e["source"] == "unknown":
+        return "Not confirmed (see note)"
     day = e["fetched"]
     sec = e["security_end"]
     ext = e["extended_end"]
     act = e["support_end"]
     if sec is None:
-        return "Vendor statement (see note)" if e["source"] == "vendor" else "No date published"
+        if e["source"] == "vendor":
+            return "Vendor statement (see note)"
+        if act is not None and act <= day:
+            return "Security support only (no end date published)"
+        return "No date published"
     if day < sec:
         if act is not None and act <= day:
             return "Security support only"
@@ -260,10 +314,12 @@ def status(e: dict, model: str) -> str:
     return "Ended"
 
 
-def date_or(v, rolling: bool) -> str:
+def date_or(v, rolling: bool, unknown: bool = False) -> str:
     if v is not None:
         return v
-    return "Not applicable" if rolling else "Not published"
+    if rolling:
+        return "Not applicable"
+    return "Not checked" if unknown else "Not published"
 
 
 def group(rows: list[dict]) -> dict[str, list[dict]]:
@@ -280,13 +336,23 @@ def fetched_dates(rows: list[dict]) -> list[str]:
 def eol_line(rs: list[dict]) -> str:
     api = [r for r in rs if r["eol"]["source"] == "endoflife.date"]
     if not api:
-        return ("endoflife.date does not track this system, so the support column below quotes the "
-                "vendor's own statement.") if any(r["eol"]["source"] == "vendor" for r in rs) else (
-                "This is a rolling release: it has no numbered versions that reach end of life.")
-    p = api[0]["eol"]["product"]
+        srcs = {r["eol"]["source"] for r in rs}
+        if "vendor" in srcs:
+            return ("endoflife.date does not track this system, so the support column below quotes the "
+                    "vendor's own statement.")
+        if "unknown" in srcs:
+            return ("endoflife.date does not track this system and no vendor page confirmed an "
+                    "end-of-life date, so the support columns say so; the notes under the table "
+                    "say where to look.")
+        return "This is a rolling release: it has no numbered versions that reach end of life."
+    prods = list(dict.fromkeys(r["eol"]["product"] for r in api))
     days = ", ".join(fetched_dates(api))
-    return ("Support dates come from the " + md_link("endoflife.date", EOL_SITE + p) + " API ("
-            + code(EOL_API.format(product=p)) + "), fetched on " + days + ".")
+    if len(prods) == 1:
+        p = prods[0]
+        return ("Support dates come from the " + md_link("endoflife.date", EOL_SITE + p) + " API ("
+                + code(EOL_API.format(product=p)) + "), fetched on " + days + ".")
+    return ("Support dates come from the " + md_link("endoflife.date", EOL_SITE) + " API ("
+            + ", ".join(code(EOL_API.format(product=p)) for p in prods) + "), fetched on " + days + ".")
 
 
 def render_page(rs: list[dict]) -> str:
@@ -304,15 +370,20 @@ def render_page(rs: list[dict]) -> str:
     for r in rs:
         e = r["eol"]
         roll = r["release_model"] != "point"
+        unk = e["source"] == "unknown"
         out.append("| " + " | ".join([
-            cell(r["version"]), cell(r["codename"] or "None"), cell(date_or(e["release_date"], roll)),
-            cell(e["latest"] or ("Not applicable" if roll else "Not published")),
-            cell(date_or(e["support_end"], roll)), cell(date_or(e["security_end"], roll)),
-            cell(date_or(e["extended_end"], roll)), cell(status(e, r["release_model"]))]) + " |")
+            cell(r["version"]), cell(r["codename"] or "None"), cell(date_or(e["release_date"], roll, unk)),
+            cell(e["latest"] or date_or(None, roll, unk)),
+            cell(date_or(e["support_end"], roll, unk)), cell(date_or(e["security_end"], roll, unk)),
+            cell(date_or(e["extended_end"], roll, unk)), cell(status(e, r["release_model"]))]) + " |")
     out.append("")
-    notes = [(r["version"], r["eol"]["note"], r["eol"]["url"]) for r in rs if r["eol"]["note"]]
-    for v, note, url in notes:
-        line = "- " + cell(v) + ": " + note
+    notes: dict[tuple, list[str]] = {}
+    for r in rs:
+        if r["eol"]["note"]:
+            notes.setdefault((r["eol"]["note"], r["eol"]["url"]), []).append(r["version"])
+    for (note, url), vs in notes.items():
+        label = "All versions" if len(vs) == len(rs) and len(rs) > 1 else ", ".join(vs)
+        line = "- " + cell(label) + ": " + note
         if url:
             line += " (" + md_link("source", url) + ")"
         out.append(line)
@@ -325,7 +396,7 @@ def render_page(rs: list[dict]) -> str:
     out += ["| Version | Kernel | Architectures | Based on | Updates from |", "|---|---|---|---|---|"]
     for r in rs:
         out.append("| " + " | ".join([cell(r["version"]), cell(r["kernel"] or "Not checked"),
-                                      cell(", ".join(r["architectures"])), cell(r["base"]),
+                                      cell(", ".join(r["architectures"]) or "Not checked"), cell(r["base"]),
                                       cell(r["update_channel"])]) + " |")
     out.append("")
 
@@ -352,22 +423,30 @@ def render_page(rs: list[dict]) -> str:
     out += ["## How it patches", "", "Package manager: " + r0["package_manager"] + ".", ""]
     if r0["patch_notes"]:
         out += [r0["patch_notes"], ""]
+    lang, ident_heading, ident_col = SHELLS[r0["shell"]]
     if r0["patch_commands"]:
-        out += ["```sh"] + r0["patch_commands"] + ["```", ""]
+        out += ["```" + lang] + r0["patch_commands"] + ["```", ""]
 
     # identify
-    out += ["## Identify it from a terminal", "", "| Command | What it shows |", "|---|---|"]
-    for c in r0["identify"]:
-        out.append("| " + code(cell(c["command"])) + " | " + cell(c["shows"]) + " |")
-    out += ["", "The `ID` and `VERSION_ID` fields of `/etc/os-release` (the "
-            + md_link("os-release format", "https://www.freedesktop.org/software/systemd/man/latest/os-release.html")
-            + ") for each version:", "",
-            "| Version | os-release fields | Checked against |", "|---|---|---|"]
-    for r in rs:
-        fields = ", ".join(code(k + "=" + v) for k, v in r["os_release"].items())
-        out.append("| " + cell(r["version"]) + " | " + fields + " | "
-                   + cell(r["os_release_checked"] or "Not checked on a running system") + " |")
-    out.append("")
+    out += ["## " + ident_heading, ""]
+    if r0["identify"]:
+        out += ["| " + ident_col + " | What it shows |", "|---|---|"]
+        for c in r0["identify"]:
+            what = code(cell(c["command"])) if lang else cell(c["command"])
+            out.append("| " + what + " | " + cell(c["shows"]) + " |")
+        out.append("")
+    if r0["identify_basis"]:
+        out += [r0["identify_basis"], ""]
+    if any(r["os_release"] is not None for r in rs):
+        out += ["The `ID` and `VERSION_ID` fields of `/etc/os-release` (the "
+                + md_link("os-release format", "https://www.freedesktop.org/software/systemd/man/latest/os-release.html")
+                + ") for each version:", "",
+                "| Version | os-release fields | Checked against |", "|---|---|---|"]
+        for r in rs:
+            fields = ", ".join(code(k + "=" + v) for k, v in (r["os_release"] or {}).items()) or "None"
+            out.append("| " + cell(r["version"]) + " | " + fields + " | "
+                       + cell(r["os_release_checked"] or "Not checked on a running system") + " |")
+        out.append("")
 
     # hardening
     out += ["## Hardening", ""]
@@ -401,16 +480,20 @@ def render_page(rs: list[dict]) -> str:
 
 def render_index(rows: list[dict]) -> str:
     groups = group(rows)
-    days = fetched_dates(rows)
+    days = fetched_dates([r for r in rows if r["eol"]["source"] == "endoflife.date"] or rows)
     out = [START, "", "# Operating systems", "",
-           "> The Linux distributions defenders run, patch, and have to identify: one page per system with "
-           "its versions and support dates, where its security advisories are published, how it takes "
-           "updates, and the terminal commands that tell you which one you are on.", "",
+           "> The operating systems defenders run, patch, and have to identify, from Linux and BSD servers "
+           "to Windows, Apple, and Android devices, network appliances, hypervisors, and embedded systems: "
+           "one page per system with its versions and support dates, where its security advisories are "
+           "published, how it takes updates, and the commands that tell you which one you are on.", "",
            "Support dates come from the " + md_link("endoflife.date", EOL_SITE) + " API, fetched on "
-           + ", ".join(days) + "; everything else comes from the vendor and project pages each page "
-           "cites. For hardening steps, start with the "
-           + md_link("Linux Hardening Reference", "/LINUX_HARDENING_REFERENCE.md") + " and the "
-           + md_link("Harden a Linux Host", "/guides/HARDEN_A_LINUX_HOST.md") + " guide; for what each "
+           + ", ".join(days) + ", or from the vendor page a row cites; where neither gives a date the page "
+           "says so. Everything else comes from the vendor and project pages each page cites. For "
+           "hardening steps, start with the "
+           + md_link("Linux Hardening Reference", "/LINUX_HARDENING_REFERENCE.md") + ", the "
+           + md_link("Harden a Linux Host", "/guides/HARDEN_A_LINUX_HOST.md") + " guide, the "
+           + md_link("Windows Hardening Reference", "/WINDOWS_HARDENING_REFERENCE.md") + ", and the "
+           + md_link("macOS Security Reference", "/MACOS_SECURITY_REFERENCE.md") + "; for what each "
            "offensive, forensic, and privacy distribution is for, see "
            + md_link("Security Operating Systems and Distributions", "/SECURITY_OPERATING_SYSTEMS_REFERENCE.md")
            + ".", ""]
@@ -428,7 +511,8 @@ def render_index(rows: list[dict]) -> str:
         out.append("")
     out += ["## About the catalog", "",
             "Every page here is written by " + code("scripts/build_os_pages.py") + " from "
-            + code(CATALOG) + ", one row per system and major version. Edit the catalog, then run "
+            + code(CATALOG) + ", one row per system and major version (or release train, channel, or "
+            "node image). Edit the catalog, then run "
             + code("python scripts/build_os_pages.py") + "; " + code("--refresh-eol")
             + " re-reads the support dates from endoflife.date, and CI runs " + code("--check")
             + ". The vocabulary ids in each page's last section are the " + code("product:")
@@ -563,11 +647,12 @@ def _planted() -> dict:
             "summary": "A planted test system.", "version": "1", "codename": None,
             "release_model": "point", "base": "Independent", "kernel": "Linux 6.1 series",
             "architectures": ["x86_64"], "package_manager": "`acme-get`", "update_channel": "acme-security",
-            "patch_commands": ["sudo acme-get upgrade"], "patch_notes": None,
+            "patch_commands": ["sudo acme-get upgrade"], "shell": "sh", "patch_notes": None,
             "advisories": [{"name": "Acme Security Advisories", "id_format": "ASA-NNNN", "example": "ASA-0001",
                             "url": "https://acme.example/sec", "feeds": [{"label": "RSS", "url": "https://acme.example/sec.rss"}]}],
             "advisory_notes": None,
             "identify": [{"command": "cat /etc/os-release", "shows": "ID and VERSION_ID"}],
+            "identify_basis": None,
             "os_release": {"ID": "acme", "VERSION_ID": "1"}, "os_release_checked": None, "eol": eol,
             "hardening": [{"label": "Linux Hardening Reference", "path": "/LINUX_HARDENING_REFERENCE.md"}],
             "case_studies": [], "vocab_id": "product:acme-linux", "licence": "Planted.",
@@ -614,6 +699,45 @@ def self_test() -> int:
     bad = json.loads(json.dumps(good))
     bad["id"] = two["id"] = "dup"
     expect("duplicate id fails", any("duplicate id" in e for e in validate([bad, two])))
+    bad = json.loads(json.dumps(good))
+    bad["shell"] = "fish"
+    expect("unknown shell fails", any("shell must be" in e for e in validate([bad])))
+    bad = json.loads(json.dumps(good))
+    bad["shell"] = "none"
+    expect("no-shell system with patch commands fails", any("no patch commands" in e for e in validate([bad])))
+    bad["shell"] = "undocumented"
+    expect("undocumented-shell system with patch commands fails",
+           any("no patch commands" in e for e in validate([bad])))
+    bad = json.loads(json.dumps(good))
+    bad["identify"] = []
+    expect("no identify commands and no basis fails", any("identify_basis" in e for e in validate([bad])))
+    bad["identify_basis"] = "The vendor's command reference refused automated requests."
+    expect("no identify commands with a basis validates", validate([bad]) == [])
+    bad = json.loads(json.dumps(good))
+    bad["os_release"], bad["os_release_checked"] = None, "2026-01-10 on a VM"
+    expect("os_release_checked without os_release fails", any("needs an os_release" in e for e in validate([bad])))
+    bad["os_release_checked"] = None
+    expect("system with no os-release validates", validate([bad]) == [])
+    unk = json.loads(json.dumps(good))
+    unk["eol"].update({"source": "unknown", "product": None, "cycle": None, "release_date": None,
+                       "support_end": None, "security_end": None, "extended_end": None, "url": None,
+                       "note": "No vendor page gives a date."})
+    expect("unknown eol row validates", validate([unk]) == [])
+    expect("status: unknown", status(unk["eol"], "point") == "Not confirmed (see note)")
+    bad = json.loads(json.dumps(unk))
+    bad["eol"]["security_end"] = "2030-01-01"
+    expect("unknown eol row with a date fails", any("no end dates" in e for e in validate([bad])))
+    page = build([unk])[OUT + "/acme.md"]
+    expect("unknown row page says no date was confirmed", "no vendor page confirmed" in page)
+    expect("unknown row dates read Not checked", "| 1 | None | Not checked | 1.4 | Not checked |" in page)
+    idx = build([good, dict(unk, id="acme-x", os="acme-x", eol=dict(unk["eol"], fetched="2026-02-02"))])[INDEX]
+    expect("index cites only the API fetch dates", "fetched on 2026-01-10," in idx and "2026-02-02" not in idx)
+    cli = json.loads(json.dumps(unk))
+    cli.update({"shell": "none", "patch_commands": [], "os_release": None,
+                "identify": [{"command": "Settings > About", "shows": "Version"}]})
+    page = build([cli])[OUT + "/acme.md"]
+    expect("no-shell page uses the plain identify heading",
+           "\n## Identify the version\n" in page and "/etc/os-release" not in page and "```" not in page)
 
     e = dict(good["eol"])
     expect("status: active support ended, security running", status(e, "point") == "Security support only")
@@ -624,6 +748,16 @@ def self_test() -> int:
     e.update({"extended_end": None})
     expect("status: ended", status(e, "point") == "Ended")
     expect("status: rolling", status(dict(good["eol"], source="rolling"), "rolling") == "Rolling release")
+    e = dict(good["eol"], security_end=None, extended_end=None)
+    expect("status: full support ended, no security end published",
+           status(e, "point") == "Security support only (no end date published)")
+    e.update({"support_end": "2026-01-10"})
+    expect("status: full support ends on the fetch day, no security end published",
+           status(e, "point") == "Security support only (no end date published)")
+    e.update({"support_end": "2026-06-01"})
+    expect("status: full support running, no security end published", status(e, "point") == "No date published")
+    e.update({"support_end": None})
+    expect("status: no dates published", status(e, "point") == "No date published")
 
     pages = build([good, two])
     expect("one page per system plus the index", sorted(pages) == sorted([OUT + "/acme.md", INDEX]))
@@ -638,6 +772,14 @@ def self_test() -> int:
     expect("no em dash in output", all(EM_DASH not in t for t in pages.values()))
     expect("rendering is stable", build([good, two]) == pages)
     expect("index links the page", "](/operating-systems/acme.md)" in pages[INDEX])
+    u2 = json.loads(json.dumps(unk))
+    u2["id"], u2["version"] = "acme-2", "2"
+    expect("a note shared by every version is written once",
+           build([unk, u2])[OUT + "/acme.md"].count("No vendor page gives a date.") == 1)
+    other = json.loads(json.dumps(two))
+    other["eol"].update({"product": "other", "url": EOL_API.format(product="other")})
+    expect("two API products are both cited",
+           EOL_API.format(product="other") in build([good, other])[OUT + "/acme.md"])
 
     api = {"acme": [{"cycle": "1", "releaseDate": "2024-02-02", "eol": "2028-01-01", "support": True,
                      "extendedSupport": False, "latest": "1.5"}]}

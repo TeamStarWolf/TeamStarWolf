@@ -147,11 +147,13 @@ SCHEMAS = {
     "data/os/os-catalog.jsonl": {
         "required": ["id", "os", "family", "name", "summary", "version", "codename", "release_model",
                      "base", "kernel", "architectures", "package_manager", "update_channel",
-                     "patch_commands", "patch_notes", "advisories", "advisory_notes", "identify",
-                     "os_release", "os_release_checked", "eol", "hardening", "case_studies",
+                     "patch_commands", "shell", "patch_notes", "advisories", "advisory_notes", "identify",
+                     "identify_basis", "os_release", "os_release_checked", "eol", "hardening", "case_studies",
                      "vocab_id", "licence", "sources", "reviewed_at"],
         "field_values": {
-            "family": ["debian", "rhel", "suse", "independent", "cloud", "container", "security"],
+            "family": ["debian", "rhel", "suse", "independent", "cloud", "container", "security", "bsd",
+                       "windows", "macos", "mobile", "network", "hypervisor", "embedded"],
+            "shell": ["sh", "powershell", "cli", "none", "undocumented"],
             "release_model": ["point", "rolling", "channel"],
         }
     },

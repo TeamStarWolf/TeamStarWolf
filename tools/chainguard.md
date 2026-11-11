@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 9 min (2,081 words at 230 words a minute)
+About 10 min (2,316 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -93,6 +93,24 @@ Chainguard is a preventive/remediation control that attacks the vulnerability li
 **Framework mapping:** NIST CSF 2.0: Protect (hardened minimal images, secure dependencies), Identify (SBOM/provenance for supply-chain inventory); CIS Controls v8: 2 (software inventory/SBOM), 4 (secure configuration of base images), 7 (continuous vulnerability management via from-source rebuilds), 16 (application software security / supply chain); MITRE ATT&CK mitigations: M1051 Update Software (continuous from-source rebuilds), M1038 Execution Prevention / reduced surface (no shell/package manager), M1016 Vulnerability Scanning (SBOM-enabled); supply-chain alignment with SLSA framework
 
 **In a critical-CVE scenario.** First 24-72h of a critical CVE in an internet-facing app's container stack: if the affected component is a Chainguard image/library, the Chainguard Factory rebuilds from source and publishes a patched, re-signed image under its remediation SLA - often faster than upstream - so the team's response is simply to pull the updated tag and redeploy (CI/CD), then verify with Trivy/Grype/Wiz that the CVE is gone. For components not yet on Chainguard, the incident becomes the trigger to migrate that base image to a Chainguard equivalent to prevent recurrence. Chainguard does not scan or shield your running fleet - it provides the clean artifact that remediates the exposure and permanently reduces surface.
+
+## Adversary perspective
+
+Chainguard shifts trust to a build pipeline and a signing identity, so the adversary angle is the supply chain itself: compromising or impersonating the source of a trusted artifact, and the gap between "verified" and "actually not vulnerable". The verification guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and bypass
+
+- Trusted-software compromise: the highest-value target is the Factory build system, registry or signing identity, since a malicious artifact that still carried valid provenance would be trusted downstream (ATT&CK T1195, Supply Chain Compromise), the class of attack the SolarWinds Sunburst intrusion demonstrated.
+- Weak verification: consumers who pull a floating tag instead of a digest, skip cosign verification, or run an over-broad certificate-identity policy can be served drifted or unverified content.
+- Triage is not absence: a CVE flagged not-affected is a prioritization judgment, so "zero-CVE" is best read as minimal surface plus fast remediation, not a guarantee of no vulnerability.
+
+### Residual risk
+
+Hardened images cover only the base image and dependencies, not your own application code, its misconfigurations, or runtime threats. A passing signature proves provenance, not current CVE status, and attestations lag a rebuild, so the SBOM must still be scanned.
+
+### Why it matters
+
+A tester probes the verification policy and the unguarded free-tier image; a defender pins by digest, enforces attestation at admission, and keeps a scanner alongside. See [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md) and [the SolarWinds Sunburst case study](/case-studies/SOLARWINDS_SUNBURST.md).
 
 ## Validation & telemetry
 

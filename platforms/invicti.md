@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,166 words at 230 words a minute)
+About 6 min (1,455 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -108,6 +108,25 @@ Issue-tracker integration turns a confirmed finding into a work item in the team
 Where supported, Invicti can export rules for a web application firewall. This gives a team a temporary mitigation for a confirmed issue while a code fix is developed, shortening the window of exposure.
 
 Data flows from the scanned application to the platform, which stores findings, scan history, and reports. Confirmed findings then flow outward to trackers and pipelines. Keep that flow scoped to the applications and environments the program intends to test.
+
+## Adversary perspective
+
+Because Invicti is an active scanner that holds real login credentials for the applications it tests, adversaries treat it as both something to misdirect and a credential store worth stealing from. The steps to lock the deployment down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Stealing authenticated-scan credentials (ATT&CK T1078, Valid Accounts): the scanner stores working logins for target applications, so a leaked credential gives an attacker direct application access ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)).
+- Blending with scans: dynamic scans send active attack traffic, so an attacker who times activity to a scan window can hide real exploitation among expected scanner noise.
+- Suppressing or re-scoping findings (ATT&CK T1685, Disable or Modify Tools): console access lets an attacker narrow scope, mute confirmed findings, or stop scans so an exploitable endpoint is never reported.
+- Abusing the scan engine: the ability to launch active scans against chosen targets is itself an attack primitive if it is granted too widely.
+
+### Residual risk and own exposure
+
+A dynamic scanner only tests the scope and endpoints it is pointed at, so unmapped routes, business-logic flaws, and out-of-scope systems stay unseen, and a proven finding is a point-in-time result. The agents and platform hold target credentials and findings, so they are high value and belong in the patch and monitoring scope like any other software.
+
+### Why it matters
+
+A tester goes for the stored application credentials and the console rather than re-finding what the scanner already proved. A defender monitors credential use, scope and target changes, and who can launch scans as signals in their own right. See [the web application pentesting reference](/WEB_APPLICATION_PENTESTING.md) for the application attack surface and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

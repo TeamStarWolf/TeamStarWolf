@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (590 words at 230 words a minute)
+About 4 min (878 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -74,6 +74,25 @@ Adoption is mostly swapping base images: point a Dockerfile or build at a Chaing
 ## Integrations and data flow
 
 Chainguard images flow through the same registries, CI pipelines, and scanners already in use; the visible change is that scanners such as Trivy, [Snyk](/platforms/snyk.md), and [Wiz](/platforms/wiz.md) report far fewer findings against them. Signature and provenance verification fits an admission controller or a CI gate.
+
+## Adversary perspective
+
+Because Chainguard supplies the base images that downstream builds trust, adversaries treat the image supply chain itself as the target, and a low-vulnerability image is not the same as no risk. The steps to lock usage down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Skipping verification: if a pipeline pulls images without checking Sigstore signatures and provenance, the assurance is only as good as the check, and an attacker who can tamper with the registry or the pull path could substitute a different image ([CWE-287](https://cwe.mitre.org/data/definitions/287.html)).
+- Mutable tags: pulling by tag rather than digest lets a rebuild or a malicious push change what runs unseen, so pinning by digest matters.
+- Stealing registry pull credentials (ATT&CK T1078, Valid Accounts): leaked pull credentials expose the image supply and can enable registry abuse ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)).
+- Upstream and build-tooling compromise: Wolfi, melange, and apko build from source, so the integrity of that source and the build path is part of the trust, as with any software supply chain.
+
+### Residual risk and own exposure
+
+A minimal, continuously rebuilt image still drifts as new vulnerabilities are disclosed, and distroless reduces but does not remove application-level and dependency risk, so the control shrinks the finding queue without emptying it. The registry and the signing trust are high value, because a compromise of that path would reach every image consumed.
+
+### Why it matters
+
+A tester looks for unverified pulls, mutable tags, and the registry credentials rather than CVEs in the image. A defender enforces signature and provenance verification at an admission controller or continuous-integration gate and keeps images current. See [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md) for the supply-chain attack surface and [the container security reference](/CONTAINER_SECURITY_REFERENCE.md) for the runtime context.
 
 ## Hardening and secure use
 

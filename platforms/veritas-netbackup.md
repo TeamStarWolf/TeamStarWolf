@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,044 words at 230 words a minute)
+About 6 min (1,376 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -108,6 +108,24 @@ Follow the 3-2-1-1-0 rule. Keep three copies of data on two media types with one
 Anomaly detection and malware scanning address the quiet attack that encrypts or poisons data over time. Scanning before restore reduces the chance that recovery reinstates the infection.
 
 Test recovery on a schedule. A restore that has never been exercised is an assumption, not a capability, so validate full application recoveries, not just single files.
+
+## Adversary perspective
+
+Because NetBackup is the recovery of last resort, ransomware actors treat it as something to neutralize before they detonate, and the primary server, its catalog, the media servers, and the Flex appliances are themselves an attack surface. The steps to lock the domain down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Destroying recovery before impact (ATT&CK T1490, Inhibit System Recovery): with backup admin access an attacker tries to expire images early, delete copies, or corrupt the catalog before encrypting production. WORM and immutable, indelible storage are the counters, because a locked image cannot be altered or erased before retention ends.
+- Abusing the backup identity (ATT&CK T1078, Valid Accounts): a compromised NetBackup administrator, or a reused production domain admin account, can change policy or attempt early deletion, which is why separate credentials and multi-person authorization matter ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Recovering to a poisoned point: an attacker who seeds a dormant payload counts on it being restored with the data, which is what pre-restore malware scanning and anomaly detection are meant to catch.
+
+### Residual risk and own exposure
+
+NetBackup cannot prevent a compromise, cannot protect workloads left out of a policy, and cannot help if the catalog is lost or recovery starts from an infected image. The primary server and catalog are the system of record and run with high privilege, and backup software across the industry has been a notable exploitation target, so the primary, media, and appliance software belong in the patch and monitoring scope.
+
+### Why it matters
+
+A tester probes whether images can be expired or the catalog reached with the access at hand, and whether an offline or immutable copy is truly out of reach. A defender alarms on early expiry, mass deletion, and catalog changes as incidents in their own right, and runs malware scanning before restore. See [the ransomware defense reference](/RANSOMWARE_DEFENSE_REFERENCE.md) for how immutable and offline copies fit, and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

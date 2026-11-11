@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 12 min (2,687 words at 230 words a minute)
+About 13 min (2,925 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -99,6 +99,24 @@ The definitive lateral-movement and privilege-escalation mitigation: it attacks 
 **Framework mapping:** NIST CSF 2.0: PR (Protect), PR.AA Identity Management & Access Control, PR.PS platform security/least privilege (primary); DE (Detect): DE.CM via PTA/CORA AI; RS (Respond): credential rotation/containment; ID (Identify): privileged account/secret discovery; CIS Controls v8: 5 (Account Management), 6 (Access Control Management: esp. 6.8 role-based, least privilege), 4 (Secure Configuration), 8 (Audit Log Management: session recording), 3 (Data Protection: secrets), 2 (adjacent, app/secret inventory); MITRE ATT&CK mitigations: M1026 Privileged Account Management (primary), M1027 Password Policies, M1032 Multi-factor Authentication, M1028 Operating System Configuration, M1015/M1018 account/user management, M1043 Credential Access Protection, M1047 Audit
 
 **In a critical-CVE scenario.** Hour 0-24: when a critical CVE drops on an internet-facing app or cloud workload, immediately trigger CPM to rotate all credentials associated with the affected systems, service accounts, and any secrets the workload could expose, invalidating anything an attacker may have harvested. Enforce that all admin access to affected systems goes only through PSM (isolated, recorded) and require MFA + approval; ensure no standing privileged credentials remain (switch to JIT/ZSP for the exposed estate). For the cloud workload, use Secure Cloud/Infrastructure Access to grant only ephemeral, time-boxed access and rotate cloud-native secrets/keys via Secrets Manager. Pull local admin on exposed endpoints via EPM to prevent privilege abuse/ransomware post-exploit. Hour 24-72: use PTA/CORA AI and session recordings to hunt for anomalous privileged activity indicating exploitation; review which accounts/secrets touched the vulnerable system; expand rotation and JIT scope; feed telemetry to SIEM/SOAR. Validate that no standing credentials and no direct-credential sessions remain, and keep the tightened posture until systems are patched and confirmed clean.
+
+## Adversary perspective
+
+CyberArk concentrates the most dangerous access in the enterprise, so to an adversary it is both the control that denies them standing privilege and the single highest-value target on the network. The detection and validation guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and bypass
+
+- Attacking the vault and its components: a compromised Vault, CPM or PSM, or theft of their service accounts, can expose or re-route the credentials PAM exists to protect (ATT&CK T1555, Credentials from Password Stores; T1003, OS Credential Dumping).
+- Session and token theft rather than password theft: stealing a live PSM or web session, or a privileged OAuth or SAML token, sidesteps the vault because the attacker never needs the stored secret.
+- Bypassing the broker: any standing local admin, break-glass account, or target reachable without going through PSM is a path around the control, and attackers hunt for exactly these gaps.
+
+### Residual risk
+
+PAM reduces but cannot remove privilege: accounts not yet onboarded, detect-only rotation that never fires, and credentials cached on a compromised endpoint remain exploitable. Because compromise of the platform itself is catastrophic, its servers, operators and break-glass design belong at the top of the patch and monitoring scope.
+
+### Why it matters
+
+A tester looks for the un-vaulted account and the session it can steal; a defender closes onboarding gaps and watches for retrievals that bypass PSM. See [the identity security reference](/IDENTITY_SECURITY_REFERENCE.md) and [the red team reference](/RED_TEAM_REFERENCE.md).
 
 ## Validation & telemetry
 

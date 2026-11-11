@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,129 words at 230 words a minute)
+About 6 min (1,427 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -100,6 +100,25 @@ The inbound side pulls from scanners. Integration packs for Tenable, Qualys, Rap
 The outbound and lateral side uses the platform. Remediation Tasks can open or link to Change Requests in Change Management. Notifications and approvals use platform workflow. Findings and groups feed platform reporting and Performance Analytics for trend tracking.
 
 Data flows one direction for findings (scanner into VR) and one direction for state back to reporting. VR does not push fixes to assets; it directs the people and changes that apply them.
+
+## Adversary perspective
+
+Because VR concentrates every scanner's findings mapped to named assets and holds the service accounts that reach those scanners, adversaries treat it as both a reconnaissance prize and a place to quietly suppress remediation. The steps to lock the deployment down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Reading the consolidated finding data: `sn_vul.read_all` and broad ACLs expose a map of every known weakness tied to a named configuration item, which is ready-made target selection ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)).
+- Abusing integration service accounts (ATT&CK T1078, Valid Accounts): each scanner integration authenticates with a service account, so a stolen one reaches the connected scanner with the scanner's own access ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)).
+- Suppressing work (ATT&CK T1685, Disable or Modify Tools): with write access an attacker closes Vulnerable Items as false positive or risk accepted, or edits grouping and assignment rules so findings are silently redirected or dropped.
+- Blending through the platform: VR shares an instance with IT Service Management, so malicious record changes can read as routine platform activity.
+
+### Residual risk and own exposure
+
+VR neither detects nor patches, so it inherits every blind spot of the scanners that feed it, and poor CMDB data leaves findings unassigned and unworked. The instance holds privileged integration credentials and a full exposure map, so it is a high-value target that belongs in the patch and monitoring scope like any other software.
+
+### Why it matters
+
+A tester goes for read-all access and the integration service accounts rather than the assets the findings describe. A defender monitors role and ACL grants, rule changes, and bulk closures or risk acceptances as signals in their own right. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope and [the red team reference](/RED_TEAM_REFERENCE.md) for the credential and evasion techniques.
 
 ## Hardening and secure use
 

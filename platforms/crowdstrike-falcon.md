@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (956 words at 230 words a minute)
+About 5 min (1,240 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -90,6 +90,24 @@ Day-to-day operations run in the cloud console: prevention and sensor policy, ho
 Falcon exposes a platform API for configuration, detection retrieval, and host actions. The Event Streams API provides a near-real-time feed of detections and audit events for downstream systems. Teams commonly forward detections and telemetry to a SIEM for correlation and long-term retention, and drive response playbooks from a SOAR platform through the API.
 
 Vulnerability findings from Exposure Management can be exported or pulled by API into a vulnerability management workflow or a ticketing system such as ServiceNow, so remediation is tracked alongside findings from other scanners. The console also supports prebuilt connectors to common SIEM and SOAR products.
+
+## Adversary perspective
+
+Because Falcon is the primary detection control on the host, adversaries treat it as something to blind or bypass, and its agent and console are themselves an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and tampering
+
+- Impairing the sensor (ATT&CK T1685, Disable or Modify Tools): with local administrator rights an attacker tries to stop or unload the sensor, block its connectivity to the cloud, or remove it. Uninstall protection and a controlled sensor update policy are the countermeasures.
+- Running below or around the agent: bring-your-own-vulnerable-driver (BYOVD) and user-mode unhooking are common endpoint-detection evasion techniques that aim to act outside the sensor's visibility.
+- Console and API abuse: a stolen API client secret with broad scope, or a hijacked console session, lets an attacker change policy, run Real Time Response, or pull telemetry, which turns the control into a foothold ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+
+### Residual risk and own exposure
+
+A security agent runs with high privilege on every host, so a flaw in the agent or its console is high-impact, and endpoint and management agents across the industry have carried privilege-escalation and remote issues. The sensor version and the console integrations belong in the patch and monitoring scope like any other software, and no agent catches every technique on its own.
+
+### Why it matters
+
+Treating the endpoint control as infallible is the mistake. A mature program monitors the control's own health, including sensor uninstalls, policy changes, and connectivity gaps, as a detection signal in its own right, and keeps the agent current. See [the red team reference](/RED_TEAM_REFERENCE.md) for the evasion techniques and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 8 min (1,725 words at 230 words a minute)
+About 9 min (2,027 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -93,6 +93,24 @@ Invicti's VM role is Assess/Scan-Prioritize-Validate for the web/API layer: it f
 **Framework mapping:** NIST CSF 2.0: Identify (app/API inventory), Protect, Detect; CIS Controls v8: 16 (Application Software Security), 7 (Continuous Vulnerability Management), 18 (Penetration Testing); MITRE ATT&CK mitigations: M1050 Exploit Protection, M1051 Update Software, M1016 Vulnerability Scanning; OWASP Top 10 / ASVS alignment for web findings
 
 **In a critical-CVE scenario.** First 24-72h on a critical CVE in an internet-facing app: (1) run targeted Invicti/Acunetix DAST across the affected web apps and APIs to detect whether the vulnerable condition is present and reachable; (2) use Proof-Based Scanning and Shark/AcuSensor IAST to confirm exploitability and locate the vulnerable code; (3) prioritize confirmed, exploitable findings over theoretical ones; (4) export a virtual-patch/WAF rule to block exploitation while developers fix the code; (5) re-scan to validate the fix and feed results into ASPM for posture tracking. Cloud workload coverage is limited to its web/API surface - pair with a VM/CNAPP tool.
+
+## Adversary perspective
+
+Invicti finds vulnerabilities; it does not block them, so an adversary treats it as something to blind or outrun rather than evade at runtime, and the scanner itself holds stored application credentials and broad authenticated access, which makes it a target in its own right. The detection and tuning guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and coverage gaps
+
+- Unscanned surface: a DAST sees only what it can reach and crawl; single-page-app routes, unlinked endpoints, states behind complex workflows, and APIs absent from the provided schema go untested, so an absent finding is not proof of safety.
+- Authenticated blind spots: areas behind a login are tested only when the scan's credentials and session handling hold; a dropped session or an un-provided role leaves that surface unexamined.
+- Logic the scanner cannot model: proof-based scanning confirms injection-class flaws well, but business-logic abuse, broken access control, and authorization gaps ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)) are largely outside what an automated crawler asserts; attackers also pace requests to resemble normal traffic.
+
+### Residual risk and own exposure
+
+A finding is not a fix: the vulnerability remains exploitable until code is changed or a compensating control is added, and a quiet or stale scanner leaves fresh exposure unseen. The scanner stores privileged scan credentials and its results are a map of exactly where the weak spots are ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)), so its credential store, service account, and findings belong in the patch and monitoring scope.
+
+### Why it matters
+
+Knowing that coverage depends on crawl reach and valid authentication, and that logic flaws slip past automation, tells a tester to probe by hand where the scanner is blind and a defender not to read a clean report as a clean application. See [web application pentesting](/WEB_APPLICATION_PENTESTING.md) for the manual method and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for turning findings into tracked remediation.
 
 ## Validation & telemetry
 

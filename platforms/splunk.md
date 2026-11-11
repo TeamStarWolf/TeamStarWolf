@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (1,013 words at 230 words a minute)
+About 6 min (1,299 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -104,6 +104,24 @@ The inbound flow is broad: endpoints, network devices, firewalls, identity provi
 ES content consumes that normalized data to produce notable events and risk scores. SOAR takes those events and runs playbooks that call out to other tools, for example to enrich an indicator, isolate a host through an endpoint platform, or open a ticket.
 
 Data flows from sources into indexes, from indexes into searches and detections, and from detections into response and reporting. Outbound actions happen through SOAR and alert actions rather than from the index itself.
+
+## Adversary perspective
+
+Splunk ES is the detection surface a SOC relies on, so adversaries work to blind it or starve it of the events that would reveal them, and the platform's broad data access and ingestion credentials are themselves a target. The defensive steps are in the "Hardening and secure use" section that follows.
+
+### Evasion and tampering
+
+- Blinding the log source (ATT&CK T1685.001, Disable or Modify Tools: Disable or Modify Logging, and T1070, Indicator Removal): with host access an attacker stops the forwarder, disables Windows event logging, or clears logs so events never reach the indexer. Detection depends on data that was never collected.
+- Starving or spoofing ingestion: a leaked HTTP Event Collector token lets an attacker inject noise or spoofed events to bury or misdirect a true signal ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)). Gaps in CIM mapping mean a source is indexed but invisible to the content written against the model.
+- Console and search abuse: a hijacked account or an over-broad role can delete indexes, disable correlation searches, or read sensitive data, turning the SIEM into reconnaissance ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+
+### Residual risk and own exposure
+
+A SIEM can only correlate what reaches it, so an attacker who acts before a source is onboarded, or who disables that source first, is not caught. The platform aggregates sensitive data across the estate and holds credentials to many sources, so its own servers belong in the patch and monitoring scope, and SIEM software has carried its own serious flaws.
+
+### Why it matters
+
+Treat gaps in log flow as a detection signal in their own right: alert on forwarders going silent, correlation searches disabled, and index deletions. See [the red team reference](/RED_TEAM_REFERENCE.md) for the evasion techniques and [the incident response reference](/INCIDENT_RESPONSE_REFERENCE.md) for log integrity.
 
 ## Hardening and secure use
 

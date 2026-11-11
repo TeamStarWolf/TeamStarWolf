@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (1,025 words at 230 words a minute)
+About 6 min (1,280 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -145,6 +145,25 @@ on its own schedule.
 
 Keep the data minimal and the paths authenticated. Credential retrieval should require
 a scoped, authenticated request, not an open endpoint.
+
+## Adversary perspective
+
+BeyondTrust holds privileged credentials and brokers administrator and vendor sessions, so an adversary who reaches Password Safe or a brokered session inherits broad privilege; the vault and the remote-access broker are themselves high-value targets. The steps to lock it down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Vault and credential targeting (ATT&CK T1555, Credentials from Password Stores): compromising Password Safe or a stored secret yields privileged access across the systems it manages.
+- Session and injection abuse (T1078, T1550): a stolen operator or vendor session, or credential injection used outside policy, lets an attacker act as a trusted administrator while the recording captures a legitimate-looking session.
+- Remote-access path abuse: Privileged Remote Access replaces VPNs and standing vendor accounts, so the broker is the way in, and a weak vendor identity or recovery flow becomes the foothold ([CWE-287](https://cwe.mitre.org/data/definitions/287.html)).
+- Un-vaulted and hardcoded secrets ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)): credentials still hardcoded in scripts and services sit outside the control and are discovered and reused directly.
+
+### Residual risk and own exposure
+
+The platform shrinks standing privilege but cannot protect secrets it never discovered, and its own compromise is high-impact. Privileged remote-access and PAM products have been exploitation targets, so self-hosted appliances, the Endpoint Privilege Management agents, and the broker belong in the patch and monitoring scope.
+
+### Why it matters
+
+A tester looks for un-vaulted secrets, direct paths around the broker, and vendor-access weaknesses; a defender monitors vault access, session recordings, and appliance patch state. See [the identity security reference](/IDENTITY_SECURITY_REFERENCE.md) and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md).
 
 ## Hardening and secure use
 

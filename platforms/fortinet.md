@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (998 words at 230 words a minute)
+About 6 min (1,273 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -116,6 +116,25 @@ The Security Fabric is the integration layer. Products share telemetry and autom
 Logs flow to FortiAnalyzer and FortiSIEM, and can be forwarded to an external SIEM for correlation with non-Fortinet sources. This gives a security operations team a combined view across network, endpoint, and boundary events.
 
 FortiGuard feeds threat intelligence into the fabric. APIs on FortiGate and FortiManager allow configuration and reporting to be automated, which supports change control and integration with ticketing and orchestration.
+
+## Adversary perspective
+
+FortiGate sits at the network boundary and commonly terminates remote-access VPN, so adversaries treat it as an appliance to exploit as much as a firewall to evade. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Edge-device exploitation: firewalls and their VPN components have a history of high-severity, sometimes pre-authentication flaws exploited in the wild, and an unpatched FortiGate is a direct entry point (ATT&CK T1190, Exploit Public-Facing Application).
+- Management-interface exposure: a management plane reachable from the internet is a frequent path to compromise.
+- Inspection gaps: traffic that is not decrypted or that uses an allowed application can pass without threat inspection, and an IPS signature can be evaded by encoding or fragmentation.
+- Credential and configuration abuse: stolen administrator or API credentials let an attacker rewrite policy or add access (ATT&CK T1685, Disable or Modify Tools).
+
+### Residual risk and own exposure
+
+Internet-facing firewalls and VPN gateways are among the most-targeted assets, so a flaw in the device is high impact and the estate must be tracked as an asset, not only relied on as a control. The firewall only enforces what its policy expresses and only inspects what it is configured to decrypt. Firmware currency and management isolation belong in the patch and monitoring scope ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)).
+
+### Why it matters
+
+For a tester, firmware level, VPN exposure, and management reachability are the first checks against a FortiGate. For a defender, prompt patching, trusted-host restriction on the admin interface, and monitored configuration changes are what keep the boundary from becoming the breach. See [the red team reference](/RED_TEAM_REFERENCE.md) and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md).
 
 ## Hardening and secure use
 

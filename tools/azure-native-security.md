@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 7 min (1,573 words at 230 words a minute)
+About 8 min (1,878 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -83,6 +83,24 @@ The native VM loop on Azure is: discover with Defender for Cloud inventory, Defe
 A Healthy recommendation means the control is present. It does not mean an attacker tried it. That distinction is the CTEM validation stage, and it is written up in the [CTEM reference](/CTEM_REFERENCE.md).
 
 **In a critical CVE.** Identify affected VMs and images from Defender vulnerability sub-assessments. Rank the ones on an attack path or with a public IP. Cut reachability with JIT VM access, an NSG change, or Firewall rules while Update Manager deploys the fix. Re-run the assessment. Close the finding only when the vulnerable package is gone.
+
+## Adversary perspective
+
+This control plane detects, governs, and records; it does not stand between the attacker and the workload, so an adversary treats it as something to blind, starve of coverage, or quietly live alongside. The services run with broad, privileged read through Azure Resource Manager and Entra ID, which makes their roles, policy, and logs a target in their own right. The detection and tuning guidance is in the "Validation and telemetry" section that follows.
+
+### Evasion and tampering
+
+- Blinding the plane: an attacker with sufficient RBAC can stop or redirect diagnostic settings, delete or stop ingestion into the Log Analytics workspace that Sentinel reads, disable Defender plans, or weaken Azure Policy assignments (ATT&CK T1685 Disable or Modify Tools, T1685.002 disable cloud logs), so the portal looks clean while activity continues.
+- Coverage gaps: findings and alerts exist only where plans are enabled and subscriptions are onboarded; an unmanaged subscription, a workspace with no connector, or a resource outside policy scope is unseen.
+- Blending in: attackers time activity to look like normal automation and management traffic, and detection is after the fact, not a preventive gate.
+
+### Residual risk and own exposure
+
+An alert or a non-compliant finding is not a fix: the exposure remains until someone remediates it, and preventive guardrails only bind where assigned. The plane holds privileged read and its findings map the weak spots ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)), so the management roles, policy assignments, and log workspaces belong at the front of the patch and monitoring scope.
+
+### Why it matters
+
+Knowing that logging can be redirected, onboarding can be partial, and detection lags the event tells a tester where to look and a defender to monitor the monitors and protect the log and policy plane. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) for the control model and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for turning findings into tracked remediation.
 
 ## Validation and telemetry
 

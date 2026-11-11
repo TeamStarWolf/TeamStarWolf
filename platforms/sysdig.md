@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (994 words at 230 words a minute)
+About 6 min (1,303 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -96,6 +96,24 @@ Data flows into Sysdig from agents on hosts and clusters and from connected clou
 Outbound, events and findings reach the team's response stack. Alerts and tickets route to messaging and work-tracking systems. Runtime and cloud events feed a SIEM for correlation and retention. An API and automation hooks let detections drive response workflows.
 
 Because Falco is open source, its detections also flow through standalone and third-party pipelines, which gives a team a consistent runtime detection engine across tooling.
+
+## Adversary perspective
+
+Because Sysdig is the runtime detection control on hosts and clusters, adversaries treat its agent as something to blind, and the agent and cloud connector are themselves an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and tampering
+
+- Impairing the agent (ATT&CK T1685, Disable or Modify Tools): with host or node privilege an attacker tries to stop or remove the agent, or disrupt its kernel-level instrumentation so system-call visibility goes dark. Running the agent with protected, least-privilege access is the countermeasure.
+- Evading the rules: an attacker who understands the Falco and managed rule set works to stay within behavior the rules do not flag, and an over-broad suppression becomes a blind spot. Detection depends on rule coverage, so gaps and silenced rules are the openings.
+- Connector and API abuse: a stolen cloud connector credential or platform API key lets an attacker read findings and activity, or quiet detections, which exposes the defense and can turn it into a foothold ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)).
+
+### Residual risk and own exposure
+
+The agent runs with deep host and kernel visibility, so a flaw in it is high-impact, and a container escape that reaches the node can undercut the very layer meant to watch it. The connector holds read access to cloud accounts, so its credential is high value. The agent, the connector, and their credentials belong in the patch and monitoring scope, and runtime detection alone does not prevent the initial compromise.
+
+### Why it matters
+
+Treating runtime detection as complete coverage is the mistake. A mature program monitors the agent's own health and reporting gaps as a signal, reviews rule and suppression changes as control changes, and keeps the agent current. See [the red team reference](/RED_TEAM_REFERENCE.md) for the techniques and [the container security reference](/CONTAINER_SECURITY_REFERENCE.md) for the runtime and escape context.
 
 ## Hardening and secure use
 

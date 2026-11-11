@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,080 words at 230 words a minute)
+About 6 min (1,417 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -107,6 +107,24 @@ Data Threat Analytics provides backup-anomaly detection. It studies change rates
 Ransomware Investigation builds on that analysis. It helps responders trace when compromise began and which restore point predates the damage. Choosing a clean point matters, because recovering from an infected backup reintroduces the attack.
 
 Sensitive Data Discovery adds impact context. Knowing which sensitive data a compromised system held informs notification, prioritization, and the order of recovery.
+
+## Adversary perspective
+
+Because Rubrik holds the recovery capability and copies of sensitive data, ransomware actors treat it as something to neutralize before they detonate, and its control plane, management console, and admin identities are themselves an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Destroying recovery before impact (ATT&CK T1490, Inhibit System Recovery): with backup admin access an attacker tries to expire policy or lower retention before encrypting production. The immutable, append-only format is the counter, because a written backup cannot be changed in place and an isolated copy stays out of reach.
+- Abusing the backup identity (ATT&CK T1078, Valid Accounts): a compromised Rubrik administrator, or a reused production domain admin account, can change policy or attempt to shorten retention, which is why separate identities and role separation matter ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Recovering to a poisoned point: an attacker who corrupts data slowly tries to have every retained copy carry the damage, which is what Data Threat Analytics and Ransomware Investigation are meant to catch by locating a clean restore point.
+
+### Residual risk and own exposure
+
+Rubrik cannot prevent a compromise, cannot protect workloads left out of policy, and cannot help if recovery starts from an infected point. The platform stores credentials and indexes sensitive data, and backup software across the industry has been a notable exploitation target, so its control plane belongs in the patch and monitoring scope and its own compromise is a serious breach, not only a loss of backups.
+
+### Why it matters
+
+A tester probes whether retention can be weakened with the access at hand and whether an isolated copy is truly unreachable. A defender alarms on retention changes, mass expiry, and policy edits as incidents in their own right, and treats analytics findings as an early warning and a path to a clean point. See [the ransomware defense reference](/RANSOMWARE_DEFENSE_REFERENCE.md) for how immutable and isolated copies fit, and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

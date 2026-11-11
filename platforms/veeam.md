@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,128 words at 230 words a minute)
+About 6 min (1,465 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -114,6 +114,24 @@ The trailing 1 and 0 are what harden backups against ransomware. An immutable or
 Backup-anomaly detection watches for signals that often mean an attack, such as unusual change rates, deletion patterns, or encryption-like behaviour in protected data. These signals give responders earlier warning and help identify a clean restore point before reinfection.
 
 SureBackup supports recovery testing by booting machines from backups in an isolated lab, running checks, and confirming they come up cleanly. Scheduled verification turns the final 0 of the rule into evidence.
+
+## Adversary perspective
+
+Because Veeam is the last line of recovery, ransomware actors try to destroy backups before or during an attack so victims cannot restore, and the backup server, repositories, and service accounts are themselves an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Destroying recovery before impact (ATT&CK T1490, Inhibit System Recovery): with backup console or repository access an attacker tries to delete backup files, remove restore points, or lower retention before encrypting production. A hardened Linux repository with immutability flags and object-lock storage are the counters, because those copies cannot be deleted for the lock period even by an elevated account.
+- Abusing the backup identity (ATT&CK T1078, Valid Accounts): the backup server stores credentials for many systems, so a compromised console or a reused production domain admin account can both exfiltrate those secrets and erase backups ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Reaching repositories directly: a repository on a general-purpose Windows or SMB share is reachable from the production network, so an attacker targets the storage itself rather than the console, which is why network isolation and offline copies matter.
+
+### Residual risk and own exposure
+
+Veeam cannot prevent a compromise, cannot protect workloads outside a job, and cannot help if recovery starts from an infected point. The backup server is a credential store in its own right, and backup software across the industry has been a notable exploitation target, so the backup software, operating systems, and appliances belong in the patch and monitoring scope.
+
+### Why it matters
+
+A tester probes whether backup files can be deleted or retention weakened with the access at hand, and whether an immutable or offline copy is truly out of reach. A defender alarms on mass deletion, retention changes, and repository edits as incidents in their own right, and treats anomaly signals as early warning. See [the ransomware defense reference](/RANSOMWARE_DEFENSE_REFERENCE.md) for how immutable and offline copies fit, and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

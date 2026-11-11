@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 11 min (2,537 words at 230 words a minute)
+About 12 min (2,766 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -100,6 +100,25 @@ Acts as an identity-layer compensating / virtual-patching control during the exp
 **Framework mapping:** NIST CSF 2.0: PR (Protect), PR.AA Identity Management, Authentication, and Access Control (primary); DE (Detect): DE.CM continuous monitoring via Identity Protection; RS (Respond): automated remediation; GV (Govern): access governance; CIS Controls v8: 5 (Account Management), 6 (Access Control Management: esp. 6.3/6.4 MFA, 6.5 unique admin), 4 (Secure Configuration), 8 (Audit Log Management), 12 (Network, via Global Secure Access); MITRE ATT&CK mitigations: M1032 Multi-factor Authentication, M1036 Account Use Policies, M1018 User Account Management, M1026 Privileged Account Management, M1047 Audit, M1017 User Training (adjacent)
 
 **In a critical-CVE scenario.** Hour 0-24: identify affected app(s) in Entra enterprise apps; create (report-only then enforced) Conditional Access policies to require phishing-resistant MFA and a compliant device for the exposed app, and block legacy auth. For a high-severity identity-exploitable flaw, scope a block or session-limit policy to all users or to Identity Protection high-risk users. Raise PIM so no standing admin access is active; require approval+MFA on activation. Hour 24-72: review Entra sign-in and audit logs (and Sentinel) for anomalous sign-ins, token anomalies, and risky users tied to the CVE; force credential reset / sign-in block on compromised accounts via Identity Protection; tighten named-location and device filters. For a cloud workload, constrain the relevant workload identity / managed identity with Conditional Access for workload identities and rotate associated secrets. Validate via report-only insights and sign-in telemetry; keep policies until the patched version is deployed and confirmed.
+
+## Adversary perspective
+
+Entra ID is the identity control plane for the whole Microsoft estate, so adversaries treat it as the keys to the kingdom: a control to evade at sign-in and the most consequential system to compromise outright. The detection and validation guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and bypass
+
+- Phishing and MFA fatigue: adversary-in-the-middle kits and repeated push prompts defeat non-phishing-resistant MFA (ATT&CK T1621, Multi-Factor Authentication Request Generation; T1566, Phishing).
+- Token and session theft: stealing refresh tokens or session cookies lets an attacker replay an already-authenticated session and skip Conditional Access (T1539, Steal Web Session Cookie).
+- Federation and token forging: control of signing keys or a trusted federation enables golden-SAML-style token forgery, and legacy or basic authentication bypasses most grant controls.
+- Consent phishing: a malicious OAuth app or over-privileged service principal grants durable access without a password.
+
+### Residual risk
+
+Conditional Access decides only what reaches it: report-only policies, un-collected non-interactive and service-principal sign-ins, and legacy-auth paths leave gaps. A directory this central is itself the highest-value target, so its admin roles, signing keys and app registrations belong in the patch and monitoring scope.
+
+### Why it matters
+
+A tester hunts for the non-phishing-resistant factor, the stealable token and the over-consented app; a defender enforces phishing-resistant MFA and watches token and consent events. See [the identity and access management reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md) and [the red team reference](/RED_TEAM_REFERENCE.md).
 
 ## Validation & telemetry
 

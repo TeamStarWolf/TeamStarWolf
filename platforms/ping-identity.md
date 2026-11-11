@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (1,030 words at 230 words a minute)
+About 6 min (1,284 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -147,6 +147,25 @@ changes should be tested against a pilot before wide release.
 
 Send only the claims an application needs, and keep signing keys and client secrets
 out of application configuration files.
+
+## Adversary perspective
+
+Ping Identity is the identity control plane for the applications it fronts, so adversaries treat it as the prize and work to bypass it; its federation trust, signing keys, and the self-run servers are themselves an attack surface. The steps to lock it down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Phishing and MFA fatigue (ATT&CK T1621, T1556): real-time phishing proxies and push prompts defeat weaker factors, so phishing-resistant factors matter for administrators and high-risk flows.
+- Session and token theft (T1539, T1550): a stolen session or OAuth token replays an authenticated session without re-authentication.
+- Signing-key theft and assertion forging (T1606.002): a stolen PingFederate signing key, or weak signature and audience validation, lets an attacker mint or inject assertions golden-SAML style ([CWE-287](https://cwe.mitre.org/data/definitions/287.html)).
+- Orchestration-flow bypass: a flow branch that skips a factor or accepts weak input is a logic gap the signature checks never see.
+
+### Residual risk and own exposure
+
+The identity provider is the keys to the kingdom, so a forged assertion or a compromised admin reaches every fronted application. PingFederate and PingAccess are self-run software with their own update cycle, and internet-facing federation and access-gateway components are high-value targets, so unpatched versions, expired keys, and loose trust belong in the patch and monitoring scope.
+
+### Why it matters
+
+A tester probes signature and audience validation, flow branches, and unpatched self-run servers; a defender tracks certificate lifecycle and watches server logs for trust changes and anomalous assertions. See [the identity security reference](/IDENTITY_SECURITY_REFERENCE.md) and [the red team reference](/RED_TEAM_REFERENCE.md).
 
 ## Hardening and secure use
 

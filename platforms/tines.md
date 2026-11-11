@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,050 words at 230 words a minute)
+About 6 min (1,294 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -102,6 +102,24 @@ Actions then process that event. An HTTP request action queries an external API;
 Outbound calls act on other systems. A story can tell an endpoint tool to isolate a host, a ticketing system to open a case, or an identity provider to disable an account. These calls use credentials from the credential store.
 
 Because any endpoint is reachable, data flow is defined per story rather than fixed by a connector. This flexibility means the security of a workflow depends on how it is built and which endpoints it is allowed to call.
+
+## Adversary perspective
+
+Tines runs logic and holds credentials across connected systems, so adversaries value the credential store and the stories' outbound reach, and the platform and its webhooks are themselves a target. The defensive steps are in the "Hardening and secure use" section that follows.
+
+### Evasion and tampering
+
+- Suppressing or altering workflows (ATT&CK T1685, Disable or Modify Tools): with access an attacker can disable or edit a story so a detection-driven action never runs, or change it to hide its own activity.
+- Credential store abuse: the store holds secrets that authenticate to connected systems, so a compromise turns those into a foothold that can isolate hosts, open or close tickets, or disable accounts ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)).
+- Webhook and endpoint abuse: because the HTTP action can call any endpoint, an unreviewed or altered story can send data to an unintended destination, and an exposed webhook URL can be driven with crafted input to trigger actions ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)).
+
+### Residual risk and own exposure
+
+Automation acts only on the events it receives, and a call that returns success has not proven the target acted. The platform concentrates credentials and can reach many systems, so its servers, tenants, and webhooks are high-value and belong in the patch and monitoring scope.
+
+### Why it matters
+
+Treat story changes, credential use, and the list of outbound endpoints as detection and review signals, and gate consequential actions. See [the red team reference](/RED_TEAM_REFERENCE.md) for the evasion techniques and [the incident response reference](/INCIDENT_RESPONSE_REFERENCE.md) for response integrity.
 
 ## Hardening and secure use
 

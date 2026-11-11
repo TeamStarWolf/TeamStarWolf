@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 8 min (1,888 words at 230 words a minute)
+About 9 min (2,119 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -95,6 +95,24 @@ Tenable's primary VM role is Discover-Assess-Prioritize, telling teams which exp
 **Framework mapping:** NIST CSF 2.0: Identify (asset/vuln discovery), Protect, Detect; CIS Controls v8: 1 (Inventory), 2 (Software Inventory), 7 (Continuous Vulnerability Management), 4 (Secure Configuration), 12 (Network); MITRE ATT&CK mitigations: M1051 Update Software, M1016 Vulnerability Scanning, M1030 Network Segmentation (attack-path remediation)
 
 **In a critical-CVE scenario.** First 24-72h on a critical CVE in an internet-facing app + cloud workload: (1) Query Tenable ASM/Inventory and Cloud Security for all affected internet-facing and cloud assets; (2) run targeted Nessus/agent and Web App Scanning + agentless cloud checks to confirm presence and exploitability; (3) use VPR and Attack Path Analysis to rank which exposed assets sit on paths to crown-jewel assets; (4) push prioritized remediation/mitigation tickets (ServiceNow/Jira) and recommend compensating controls or segmentation via Vulcan-derived orchestration; (5) re-scan to validate and track CES reduction.
+
+## Adversary perspective
+
+A vulnerability scanner holds privileged credentials and a detailed map of every weakness in the estate, so adversaries treat it as a high-value target rather than a threat to them directly. The detection and validation guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and bypass
+
+- Credential and data theft: Nessus credentialed scans and the agents use privileged accounts (SSH, Windows admin) and the platform stores the organization's findings, so stealing the scanner service account or export API keys yields both reusable credentials and a ready-made target list (ATT&CK T1552, Unsecured Credentials; T1078, Valid Accounts).
+- Blending with scans: attackers time probing to coincide with scheduled scan windows so their traffic resembles expected scanner noise.
+- Blind-spot abuse: a scan degraded to unauthenticated (plugin 19506 showing no credentialed checks) or an asset left out of scope is simply not assessed, which an attacker can rely on.
+
+### Residual risk
+
+Tenable assesses and prioritizes but enforces nothing: a finding marked accepted or recast is still exploitable, and point-in-time scans miss what changes between them. The console's broad read access and stored credentials make it part of the attack surface it measures.
+
+### Why it matters
+
+A tester goes after the scanner's credentials and its findings store; a defender vaults those credentials, scopes its access tightly, and treats the platform as crown-jewel infrastructure. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) and [the penetration testing methodology](/PENETRATION_TESTING_METHODOLOGY.md).
 
 ## Validation & telemetry
 

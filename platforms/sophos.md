@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,080 words at 230 words a minute)
+About 6 min (1,360 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -95,6 +95,24 @@ Sophos Central exports alerts and events to SIEM platforms through its API and c
 SOAR platforms can consume Sophos alerts and call the Central API to run response actions, supporting automated playbooks. The API also drives custom reporting and bulk device management. Treat the API as a control plane because it can change policy and isolate hosts.
 
 Sophos products share telemetry inside Central, so a firewall detection can enrich an endpoint investigation. This cross-product flow is part of the XDR value when several Sophos products are licensed. External threat intelligence feeds enrich detections with context.
+
+## Adversary perspective
+
+Because Sophos is the prevention and detection control on the host, adversaries treat its agent as something to blind or disable, and Sophos Central is itself an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and tampering
+
+- Impairing the agent (ATT&CK T1685, Disable or Modify Tools): with local administrator rights an attacker tries to stop or uninstall the agent, cut its connection to Central, or disable protection layers. Tamper protection and controlled recovery codes are the countermeasures, and the tamper-protection password itself is a target.
+- Running below or around the agent: bring-your-own-vulnerable-driver (BYOVD) and user-mode unhooking aim to act outside the agent's visibility, and a broad exclusion becomes a safe harbor to run from.
+- Central and API abuse: a hijacked Central session or a stolen API credential lets an attacker change policy, isolate hosts, or pull telemetry across the tenant, which turns the control into a foothold ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+
+### Residual risk and own exposure
+
+The agent runs with high privilege on every host, so a flaw in the agent or the console is high-impact, and endpoint agents across the industry have carried privilege-escalation and remote issues. The agent version and the Central integrations belong in the patch and monitoring scope, and no agent catches every technique on its own.
+
+### Why it matters
+
+Treating the endpoint control as infallible is the mistake. A mature program monitors the control's own health, including uninstalls, policy changes, and reporting gaps, as a detection signal, and keeps the agent current. See [the red team reference](/RED_TEAM_REFERENCE.md) for the evasion techniques and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

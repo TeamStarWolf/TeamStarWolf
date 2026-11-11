@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (971 words at 230 words a minute)
+About 5 min (1,249 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -96,6 +96,25 @@ Findings flow to downstream systems. InsightVM integrates with ServiceNow so vul
 SIEM integration sends vulnerability and asset data to log analytics platforms, and InsightVM data can feed InsightIDR within the same platform. Detection teams correlate exposure with alerts and telemetry. InsightConnect can automate response steps across these systems.
 
 InsightVM is the source of vulnerability truth, and ServiceNow and the SIEM consume it. Consistent asset identity across the systems keeps the join reliable.
+
+## Adversary perspective
+
+Because a scanner holds privileged scan credentials and a broad read map of the estate, adversaries treat InsightVM as both something to blind and a target worth stealing from. The steps to lock the deployment down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Stealing scan credentials (ATT&CK T1078, Valid Accounts): authenticated-scan credentials and API keys reach many hosts, so a leaked credential gives an attacker the scanner's own broad access ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Blending with scans: an attacker who learns the scan window times activity to it, so engine probing traffic masks malicious requests.
+- Suppressing findings (ATT&CK T1685, Disable or Modify Tools): with console access an attacker can close findings, exclude assets, or edit scan templates to create a blind spot that still looks covered.
+- Reading the findings: the finding set and Real Risk ordering rank where the estate is weakest, which is direct reconnaissance.
+
+### Residual risk and own exposure
+
+A scanner only reports what its engines and agents reach, so scope gaps and point-in-time timing leave real exposure unseen. The scan engines, Insight Agent, and console run with high privilege and broad network reach, so a flaw in the product is high-impact and belongs in the patch and monitoring scope like any other software.
+
+### Why it matters
+
+A tester targets the scan credentials and the console rather than the hosts the scanner already reports on. A defender monitors the scanner's own account use, template and scope changes, and suppressed findings as signals in their own right. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope and [the red team reference](/RED_TEAM_REFERENCE.md) for the credential and evasion techniques.
 
 ## Hardening and secure use
 

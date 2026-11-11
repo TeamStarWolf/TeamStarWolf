@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (765 words at 230 words a minute)
+About 4 min (1,022 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -91,6 +91,25 @@ Target systems integrate through connectors for directories, applications, datab
 The HR system acts as the authoritative source for identities. A new hire, a transfer, or a termination there triggers the matching joiner, mover, or leaver action across connected systems.
 
 Governance events, access grants, revocations, certification decisions, flow to monitoring and ticketing platforms. See `/platforms/servicenow-vr.md` for a downstream workflow consumer. CyberArk and similar privileged systems can be targets under governance; see `/platforms/cyberark.md`.
+
+## Adversary perspective
+
+SailPoint is the authority for access lifecycle and holds privileged connector accounts that read and write across the estate, so adversaries treat it as a high-value target and a way to grant themselves access. The steps to lock it down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Connector service-account theft (ATT&CK T1078, Valid Accounts): the accounts that let SailPoint provision to directories, databases, and cloud platforms are broadly privileged, so stealing one gives write access across many systems at once.
+- Provisioning and policy abuse (T1098): an attacker with governance rights can grant entitlements, approve their own request, or weaken a separation-of-duties rule to create standing access that looks legitimate.
+- Rubber-stamped certifications ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)): a reviewer who approves every item lets privilege creep and orphaned access persist, so the control records approval without enforcing least privilege.
+- Stale and orphaned accounts: access a leaver kept, or an account the authoritative source never drove, is a foothold the governance model is meant to close but often misses.
+
+### Residual risk and own exposure
+
+Governance-platform compromise is high-impact because it can both read the entire entitlement map and write access across connected systems. The connector credentials and the self-run IdentityIQ instance belong in the patch, secret-rotation, and monitoring scope, and governance cannot stop misuse of access it already approved.
+
+### Why it matters
+
+A tester looks for over-privileged connector accounts, bulk approvals, and failed deprovisioning; a defender monitors provisioning events, policy edits, and certification outcomes. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) and [the red team reference](/RED_TEAM_REFERENCE.md).
 
 ## Hardening and secure use
 

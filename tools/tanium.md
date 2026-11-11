@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 10 min (2,198 words at 230 words a minute)
+About 11 min (2,428 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -99,6 +99,24 @@ Tanium is the fast-acting compensating/remediation control in the mitigation win
 **Framework mapping:** NIST CSF 2.0: IDENTIFY (asset/vuln inventory), PROTECT (patch, config enforcement), DETECT (Threat Response), RESPOND (remediation/containment); CIS Controls v8: 1 (Inventory of Enterprise Assets), 2 (Software Assets), 4 (Secure Configuration), 7 (Continuous Vulnerability Management), 10 (Malware Defenses), 12 (Network Infrastructure); MITRE ATT&CK mitigations: M1051 Update Software, M1053 Data Backup (n/a), M1042 Disable or Remove Feature/Program, M1035 Limit Access to Resource Over Network, M1026 Privileged Account Management, M1038 Execution Prevention
 
 **In a critical-CVE scenario.** Hour 0-6: Comply runs an on-demand query to find every asset with the vulnerable software/version (including shadow/unmanaged devices surfaced by Discover), giving an exact, real-time blast radius for both the internet-facing app and cloud workloads. Hour 6-24: Enforce/Automate push an immediate compensating control (disable the vulnerable feature, block the port, remove the component, apply the vendor workaround), while Threat Response deploys IOCs/hunt queries to catch active exploitation. Hour 24-72: Patch/Deploy roll out the vendor patch in risk-ordered rings (internet-facing first) with live success telemetry, feeding ServiceNow change records; Comply re-scans to validate remediation reached 100% and flags stragglers for auto-remediation.
+
+## Adversary perspective
+
+Tanium drives real-time action across the whole estate at high privilege, so adversaries treat its agent both as a control to subvert and as a far-reaching foothold if the platform itself is taken. The detection and health-check guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and tampering
+
+- Agent tampering: with local admin, attackers try to stop the Tanium Client, block its registration, or degrade module tools so an endpoint stops answering while still appearing managed (ATT&CK T1685, Disable or Modify Tools).
+- Abuse of the platform's own reach: Tanium can run commands, deploy packages and change config fleet-wide, so a compromised console, package path or operator account becomes a mass-execution capability an attacker covets.
+- Blending with legitimate activity: exploitation can be timed to resemble normal Patch, Deploy and Enforce traffic, and Threat Response coverage depends on module tools being current.
+
+### Residual risk
+
+Real-time questions reflect only online endpoints, so offline or unagentable devices (much OT and IoT) under-count exposure. A platform able to act on every host is a concentration of privilege whose compromise is high-impact, which is why its servers and operator accounts belong in the patch and monitoring scope.
+
+### Why it matters
+
+A tester targets the console, package and operator access, not just individual agents; a defender guards those and watches for silent agents. See [the red team reference](/RED_TEAM_REFERENCE.md) and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md).
 
 ## Validation & telemetry
 

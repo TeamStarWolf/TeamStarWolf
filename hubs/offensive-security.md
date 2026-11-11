@@ -10,7 +10,7 @@ Part of the [domain hubs](/hubs/README.md). 13 reference documents in this domai
 
 | Reference | What it covers | Reading time |
 |---|---|---|
-| [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md) | Scoping, recon, exploitation, post-exploitation, web, cloud, reporting, and MITRE ATT&CK mapping | 10 min |
+| [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md) | Scoping, recon, exploitation, post-exploitation, web, cloud, reporting, and MITRE ATT&CK mapping | 11 min |
 | [Pentest Checklists](/PENTEST_CHECKLISTS.md) | Step-by-step checklists for external, internal, AD, web app, cloud, and post-exploitation testing | 21 min |
 | [Red Team Reference](/RED_TEAM_REFERENCE.md) | Red team methodology, ROE, C2 framework comparison (Cobalt Strike/Sliver/Havoc/Mythic), LOLBAS, persistence, lateral movement tradecraft | 30 min |
 | [Purple Team Reference](/PURPLE_TEAM_REFERENCE.md) | Adversary emulation, Atomic Red Team, CALDERA, detection validation, Sigma rules, BAS tools, ATT&CK Navigator coverage | 20 min |
@@ -19,7 +19,7 @@ Part of the [domain hubs](/hubs/README.md). 13 reference documents in this domai
 | [Fuzzing & Vulnerability Research](/FUZZING_VULNERABILITY_RESEARCH.md) | AFL++, libFuzzer, OSS-Fuzz, binary analysis, Ghidra/angr, symbolic execution, CVE process, bug bounty methodology | 8 min |
 | [Privilege Escalation Reference](/PRIVESC_REFERENCE.md) | Linux and Windows privilege escalation techniques with ATT&CK mappings and automated tools | 7 min |
 | [Active Directory Attacks](/ACTIVE_DIRECTORY_ATTACKS.md) | BloodHound, Kerberoasting, DCSync, Golden/Silver/Diamond tickets, RBCD, ADCS ESC1-8, NTLM relay, lateral movement | 12 min |
-| [Active Directory Attack Reference](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md) | Kerberoasting, DCSync, NTLM relay, Golden/Silver tickets, AD CS attacks, lateral movement detection | 31 min |
+| [Active Directory Attack Reference](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md) | Kerberoasting, DCSync, NTLM relay, Golden/Silver tickets, AD CS attacks, lateral movement detection | 33 min |
 | [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md) | AWS, Azure, and GCP attack techniques, IAM escalation paths, and defensive controls | 7 min |
 | [Network Attacks Reference](/NETWORK_ATTACKS_REFERENCE.md) | ARP poisoning, VLAN hopping, LLMNR poisoning, MITM, network pivoting, tunneling, evasion techniques, and Scapy/Nmap reference | 22 min |
 | [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md) | Phishing taxonomy, AiTM attacks, vishing, pretexting, physical SE, simulation programs, and awareness training | 32 min |

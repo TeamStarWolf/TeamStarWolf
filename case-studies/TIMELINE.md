@@ -309,6 +309,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 10 October 2022: Third Ukrainian blackout, 10 to 12 October
   - 17 April 2024: Mandiant designates APT44
 
+### 2009 <!-- {docsify-ignore} -->
+
+- [North Korea-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_NORTH_KOREA.md). Threat actor, 2009 to October 2026. Sectors: finance, government, defense, healthcare, technology, energy, media, education. CVEs: CVE-2017-4946, CVE-2021-20038, CVE-2021-43226, CVE-2021-44228, CVE-2021-45837, CVE-2022-24990 and 3 more. ATT&CK groups: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G0138 Andariel, G1036 Moonstone Sleet and 2 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_North_Korea_Case_Study.pdf).
+  - November 2014: Destructive attack on Sony Pictures Entertainment; the FBI names the North Korean government on 19 December 2014
+  - February 2016: Bangladesh Bank SWIFT heist, $81 million (Treasury, 2018)
+  - 12 May 2017: WannaCry ransomware; at least 81 NHS trusts in England disrupted; UK attribution to Lazarus Group on 19 December 2017
+  - 8 June 2018: Federal complaint against Park Jin Hyok, an alleged RGB hacker
+  - 13 September 2019: Treasury designates Lazarus Group, Bluenoroff and Andariel under E.O. 13722
+  - 4 May 2021: Maui ransomware encrypts servers at a Kansas hospital; AA22-187A warns the health sector in July 2022
+  - 23 March 2022: Ronin bridge theft, $620 million; the FBI attributes it to Lazarus Group and APT38 on 14 April 2022
+  - 16 May 2022: State, Treasury and FBI guidance on thousands of North Korean IT workers posing as non-North Koreans
+  - 24 July 2024: Indictment of Rim Jong Hyok of Andariel for ransomware against US hospitals; AA24-207A follows the next day
+  - 21 February 2025: Bybit theft, about $1.5 billion; the FBI names TraderTraitor on 26 February 2025
+  - 21 September 2026: Operation Lonestar Roundup searches of Texas laptop farms (21 to 25 September), announced 13 October 2026
+  - 29 October 2026: Binance theft, more than $6 billion; the FBI names TraderTraitor on 31 October 2026, an attribution disputed in press
+
 ### 2006 <!-- {docsify-ignore} -->
 
 - [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md). Threat actor, 2006 to October 2026. Sectors: government, healthcare, telecommunications, technology, defense. CVEs: CVE-2017-6862, CVE-2018-0171, CVE-2018-13382, CVE-2018-14847, CVE-2019-1652, CVE-2019-7192 and 44 more. ATT&CK groups: G0001 Axiom, G0002 Moafee, G0004 Ke3chang, G0005 APT12, G0006 APT1, G0009 Deep Panda and 41 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_China_Case_Study.pdf).

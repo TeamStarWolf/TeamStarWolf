@@ -501,7 +501,7 @@ pages:
     audience: "Vulnerability and exposure-management practitioners, red and blue teams, and anyone orienting across the library"
     level: "Intermediate"
     read_when: "You want the root causes behind recurring vulnerabilities grounded in the CWE Pillars, you are organizing exposure discovery by weakness class rather than by single CVE, or you need the map that ties the library's offensive and defensive references together"
-    start_at: "[Top things to worry about](#top-things-to-worry-about) for the prioritized list with case studies, [The eight root causes](#the-eight-root-causes), [Commonalities by layer](#commonalities-by-layer) for the attack-beside-defense tables"
+    start_at: "[Top things to worry about](#top-things-to-worry-about) for the prioritized list with case studies, [The root causes](#the-root-causes), [Commonalities by layer](#commonalities-by-layer) for the attack-beside-defense tables"
     learning_path: []
     reviewed: null
   CTF_METHODOLOGY.md:
@@ -2350,6 +2350,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the year as a dated timeline](#part-1-the-year-as-a-dated-timeline), [Part 7: the defender view](#part-7-the-defender-view)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md), [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md)"
     reviewed: null
+  case-studies/CHRONICLE_2021.md:
+    audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
+    level: "Intermediate"
+    read_when: "You want a dated record of the major intrusions of 2021, you need the edge-device exploitation, state operations and ransomware of that year side by side, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the year at a glance](#part-1-the-year-at-a-glance), [Part 8: the defender view](#part-8-the-defender-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md), [Operation Exchange Marauder and the 2021 Exchange Server Mass Exploitation](/case-studies/EXCHANGE_MARAUDER_2021.md)"
+    reviewed: null
   case-studies/CL0P_FILE_TRANSFER_2023.md:
     audience: "Vulnerability management leads, incident responders and owners of managed file transfer systems"
     level: "Intermediate"
@@ -2468,6 +2475,13 @@ pages:
     read_when: "You need a sourced account of who governments and ATT&CK attribute to China, which sponsors and contractors the record names, what the joint advisories say these actors do, or the defender and vulnerability-management lessons in one place"
     start_at: "[Executive summary](#executive-summary), [Part 4: the actors behind the headlines](#part-4-the-actors-behind-the-headlines), [Part 8: the defender view](#part-8-the-defender-view)"
     pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
+    reviewed: null
+  case-studies/THREAT_ACTORS_IRAN.md:
+    audience: "Threat intelligence analysts, threat hunters, vulnerability managers, OT engineers and healthcare security teams"
+    level: "Intermediate"
+    read_when: "You need a graded, dated account of which Iranian services, contractors and ATT&CK groups the public record names, how they got in (known edge-device flaws, password spraying, MFA fatigue and exposed controllers), where healthcare appears, and what the advisories say to patch, hunt and harden"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the actors and their sponsors](#part-1-the-actors-and-their-sponsors), [Part 8: the defender view](#part-8-the-defender-view)"
+    pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [ICS and OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), [Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
     reviewed: null
   case-studies/THREAT_ACTORS_OTHER_STATES.md:
     audience: "Threat intelligence analysts, threat hunters, vulnerability management teams and security teams supporting travelers, journalists or civil society"

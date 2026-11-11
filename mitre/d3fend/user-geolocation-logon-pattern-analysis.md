@@ -123,6 +123,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [Iran-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_IRAN.md)
 - [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
 - [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md)
+- [The Ransomware Ecosystem: The Public Record, 2019 to 2026](/case-studies/RANSOMWARE_ECOSYSTEM.md)
 - [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md)
 
 <!-- library-refs:end -->

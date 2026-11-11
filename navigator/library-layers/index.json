@@ -256,5 +256,11 @@
     "name": "TeamStarWolf - Thirty Days of Exposure Checks (KEV, October to November 2026) Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the Thirty Days of Exposure Checks case study. No opened source names an ATT&CK technique for these CVEs, so every binding is the study's own mapping, labelled in its comment. Scores: 100 is a Confirmed record plus a lab-shown vulnerable version, 75 is a Confirmed record without a lab demonstration, 50 is a Reported source or the study's inference. Each comment names source numbers from case-studies/EXPOSURE_CHECKS_2026_11.md.",
     "blurb": "Techniques from a month of KEV listings checked in the lab: public-facing exploitation, privilege escalation, web shells, the Mark-of-the-Web bypass and the follow-on mining. A curated layer for the exposure-checks case study."
+  },
+  {
+    "file": "ransomware-ecosystem-2019-2026.json",
+    "name": "TeamStarWolf - The Ransomware Ecosystem, 2019 to 2026",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2019 to 2026 ransomware record supports: the joint #StopRansomware and other CISA advisories (AA20-302A, AA22-040A, AA22-187A, AA22-294A, AA23-320A, AA23-325A, AA23-352A, AA23-353A, AA24-131A, AA25-203A, AA26-222A, AA26-293A and others), victims' statements and testimony, and ATT&CK's own records. Each comment names source numbers from case-studies/RANSOMWARE_ECOSYSTEM.md. Scores: 100 the source prints the id, 70 the source describes the behavior and the study assigns the id.",
+    "blurb": "Techniques from the 2019 to 2026 ransomware record, from VPNs without MFA, edge exploits and help-desk calls to RClone exfiltration, encryption and leak-site extortion. A curated layer for the ransomware ecosystem case study."
   }
 ]

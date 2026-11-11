@@ -305,6 +305,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2019 <!-- {docsify-ignore} -->
 
+- [The Ransomware Ecosystem: The Public Record, 2019 to 2026](/case-studies/RANSOMWARE_ECOSYSTEM.md). Period record, May 2019 to November 2026. Sectors: cross-sector, healthcare, government, education, energy, manufacturing, retail, finance, transport. CVEs: CVE-2018-13379, CVE-2021-30116, CVE-2019-19781, CVE-2023-0669, CVE-2023-34362, CVE-2023-4966 and 26 more. ATT&CK groups: G0102 Wizard Spider, G0092 TA505, G0115 GOLD SOUTHFIELD, G0119 Indrik Spider, G1015 Scattered Spider, G1024 Akira and 5 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ransomware_Ecosystem_2019_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Ransomware_Ecosystem_2019_2026_Case_Study.pptx).
+  - May 2019: Maze discovered; its operators steal data before encrypting and post it online
+  - 28 October 2020: CISA, FBI and HHS warn that TrickBot and BazarLoader against hospitals lead to Ryuk and Conti (AA20-302A)
+  - 7 May 2021: Colonial Pipeline halts operations after a ransom note on its IT network; about 75 bitcoin paid
+  - 2 July 2021: Kaseya VSA attack, later charged as REvil; 800 to 1,500 downstream businesses compromised
+  - 9 February 2022: 9 to 10 Feb: five agencies describe the professional ransomware-as-a-service market of 2021 (AA22-040A)
+  - 26 January 2023: Justice Department announces the Hive disruption after the FBI ran inside its network from July 2022
+  - 27 May 2023: CL0P begins exploiting MOVEit Transfer CVE-2023-34362
+  - 20 February 2024: Operation Cronos: the NCA takes control of LockBit's admin environment and leak site
+  - 7 May 2024: LockBitSupp unmasked as Dmitry Khoroshev and sanctioned by the US, UK and Australia
+  - August 2025: Jaguar Land Rover incident, rated Category 3 at an estimated 1.9 billion pounds
+  - 16 July 2026: Thalha Jubair and Owen Flowers, called leading Scattered Spider members by the NCA, each sentenced to five years six months
+  - 10 November 2026: KEV catalog version 2026.11.10: 361 of 1,779 entries flagged for known ransomware use
 - [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md). Period record, January to December 2019. Sectors: cross-sector. CVEs: CVE-2009-1151, CVE-2014-6271, CVE-2017-3881, CVE-2017-6736, CVE-2017-12617, CVE-2018-0296 and 31 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0045 menuPass and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2019_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2019_Case_Study.pptx).
   - 22 January 2019: CISA Emergency Directive 19-01 orders federal agencies to audit DNS records
   - 19 March 2019: Norsk Hydro hit by ransomware; plants switch to manual operations

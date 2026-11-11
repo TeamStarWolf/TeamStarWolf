@@ -238,5 +238,11 @@
     "name": "TeamStarWolf - Collabora Built-in CODE Server (richdocumentscode) CVE-2026-110447 Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified CVE-2026-110447 record supports: the Collabora advisory, the CVE, NVD and CISA KEV records, and the victim administrators' first-hand reports on richdocumentscode issue #354. The TeamStarWolf lab run of 4 November 2026 checked versions and the fix only. Each comment names source numbers from case-studies/NEXTCLOUD_RICHDOCUMENTS_CVE_2026_110447.md. Scores: 100 is the exploitation itself, 75 is a post-exploitation step known only from the victims' reports.",
     "blurb": "Techniques from the Collabora Built-in CODE Server record, from the unauthenticated proxy.php command injection to the web shells and host discovery victims reported. A curated layer for the Nextcloud CVE-2026-110447 case study."
+  },
+  {
+    "file": "plex-media-server-2026.json",
+    "name": "TeamStarWolf - Plex Media Server Plex2Shell Chain (CVE-2026-96652, -96654, -96655, -96656) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified Plex2Shell record supports: the CVE and NVD records, CISA's KEV entries, Plex's security update, the researcher's write-up and an independent honeypot report. The TeamStarWolf lab run of 4 November 2026 checked versions, baselines and the fix only and ran no exploit step. Each comment names source numbers from case-studies/PLEX_MEDIA_SERVER_2026_CVES.md. Scores: 100 is a binding a primary source supports for these CVEs; 60 rests on a single press report. No severity, prevalence or coverage is measured.",
+    "blurb": "Techniques from the Plex2Shell record, from the unauthenticated chain on exposed Plex Media Servers to the owner-token theft, the unsigned library load and the miners and proxyware on compromised servers. A curated layer for the Plex Media Server lab case study."
   }
 ]

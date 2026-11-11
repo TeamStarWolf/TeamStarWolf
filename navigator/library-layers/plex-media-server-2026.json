@@ -1,0 +1,91 @@
+{
+  "name": "TeamStarWolf - Plex Media Server Plex2Shell Chain (CVE-2026-96652, -96654, -96655, -96656) Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified Plex2Shell record supports: the CVE and NVD records, CISA's KEV entries, Plex's security update, the researcher's write-up and an independent honeypot report. The TeamStarWolf lab run of 4 November 2026 checked versions, baselines and the fix only and ran no exploit step. Each comment names source numbers from case-studies/PLEX_MEDIA_SERVER_2026_CVES.md. Scores: 100 is a binding a primary source supports for these CVEs; 60 rests on a single press report. Scores mean evidence basis, not frequency or severity.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 60,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "60: binding that rests on a single press report",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: binding a primary source supports for these CVEs",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/PLEX_MEDIA_SERVER_2026_CVES.md (sources opened 4 November 2026)"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "techniques": [
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Exploit public-facing application: Plex's update of 19 Oct 2026 says the chained issues let an unauthenticated remote attacker run code [9]; honeypot exploitation from 17 Oct 2026 [14]; ATT&CK page [24]. Source numbers refer to the Sources table of case-studies/PLEX_MEDIA_SERVER_2026_CVES.md."
+    },
+    {
+      "techniqueID": "T1528",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Steal application access token: theft of the server owner's token, in Plex's CVE table for CVE-2026-96655 (19 Oct 2026) [9] and stage 3 of the researcher's write-up (16 Oct 2026) [12]; ATT&CK page [25]. Source numbers refer to the Sources table of case-studies/PLEX_MEDIA_SERVER_2026_CVES.md."
+    },
+    {
+      "techniqueID": "T1129",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Shared modules: every .so file in the Codecs folder is loaded at startup with no signature check, per the NVD record for CVE-2026-96656 (23 Sep 2026) [4] and stage 5 of the researcher's write-up [12]; ATT&CK page [26]. Source numbers refer to the Sources table of case-studies/PLEX_MEDIA_SERVER_2026_CVES.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Ingress tool transfer: the transcoder fetches an attacker-hosted file (researcher stage 4, 16 Oct 2026) [12]; a miner and a packed binary downloaded on the honeypot, 17 Oct 2026 [14]; ATT&CK page [27]. Source numbers refer to the Sources table of case-studies/PLEX_MEDIA_SERVER_2026_CVES.md."
+    },
+    {
+      "techniqueID": "T1496.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Compute hijacking: cryptocurrency miners on compromised servers, Plex's update of 19 Oct 2026 [9]; an XMRig sample on the honeypot, 17 Oct 2026 [14]; ATT&CK page [28]. Source numbers refer to the Sources table of case-studies/PLEX_MEDIA_SERVER_2026_CVES.md."
+    },
+    {
+      "techniqueID": "T1496.002",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Bandwidth hijacking: proxy software routing other people's traffic through the victim, Plex's update of 19 Oct 2026 [9]; the proxy tool myawesomeproxy on the honeypot, 17 Oct 2026 [14]; ATT&CK page [28]. Source numbers refer to the Sources table of case-studies/PLEX_MEDIA_SERVER_2026_CVES.md."
+    },
+    {
+      "techniqueID": "T1059.004",
+      "tactic": "execution",
+      "score": 60,
+      "comment": "Unix shell: the public proof of concept opens a reverse shell (researcher write-up, 16 Oct 2026) [12]; The Hacker News reports a shell script fetching the miner x12345 in the wild, 19 Oct 2026 (Reported) [17]; ATT&CK page [30]. Source numbers refer to the Sources table of case-studies/PLEX_MEDIA_SERVER_2026_CVES.md."
+    }
+  ]
+}

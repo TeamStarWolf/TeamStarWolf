@@ -81,6 +81,7 @@
 
 - Case studies and research
   - [Case studies](/case-studies/README.md)
+  - [Case study timeline](/case-studies/TIMELINE.md)
   - [Research notes](/research/README.md)
 
 ---

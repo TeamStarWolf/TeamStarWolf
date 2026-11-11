@@ -61,7 +61,7 @@ This study covers CVE-2015-3306 from the 2015 report to the 2026 KEV listing, th
 
 ### About the figures
 
-The four screenshots are renderings of real command output captured on a lab host on 4 November 2026 UTC (container log timestamps 04:06 to 04:07), with a neutral `lab$` prompt; the host kernel string and the lab account name are cropped from the renders. The targets were two containers run from Docker images published by VulnCheck, bound to the loopback address only, and removed afterwards. The capture of the exploit-class test steps is not shown, and in the mitigation screenshot the copy command is replaced by a one-line description; the results are quoted line by line in Part 4.
+The four screenshots are renderings of real command output captured on a lab host on 4 November 2026 UTC (container log timestamps 04:06 to 04:07), with a neutral `lab$` prompt; the host kernel line is removed and the lab account name is replaced with a neutral user. The targets were two containers run from Docker images published by VulnCheck, bound to the loopback address only, and removed afterwards. The capture of the exploit-class test steps is not shown, and in the mitigation screenshot the copy command is replaced by a one-line description; the results are quoted line by line in Part 4.
 
 ## Part 1: the flaw
 
@@ -169,7 +169,7 @@ The source explains why. At the pre-fix commit `4c3cd1d1a1a1`, `include/version.
 
 ### Finding 2: the read-only probe separates them
 
-The plan's read-only probe, graded Inferred before the run, sends SITE CPFR on its own, without logging in and without a CPTO, so no copy can happen. The first attempt returned nothing, because the netcat client closed its input before the server's banner arrived; a re-run that waited for the banner produced the replies (**Demonstrated** [36], `02-test.txt`). The vulnerable build answered:
+The plan's read-only probe, graded Inferred before the run, sends SITE CPFR on its own, without logging in and without a CPTO, so no copy can happen. The first attempt returned nothing, because the netcat client closed its input before the server's banner arrived (the empty output is **Demonstrated** [36], `02-test.txt`; the cause is **Inferred**); a re-run that waited for the banner produced the replies (**Demonstrated** [36], `02-test.txt`). The vulnerable build answered:
 
 ```
 350 File or directory exists, ready for destination name
@@ -245,9 +245,9 @@ The banner and the version string are not reliable. Distribution backports keep 
 | Upstream source | 1.3.5a (27 May 2015) and 1.3.6rc1 and later for CVE-2015-3306; current releases on 4 November 2026 were 1.3.9e and 1.3.10rc5. Prefer a current release because CVE-2019-12815 affects mod_copy up to 1.3.5b | [3][8][20][27] |
 | Debian 7 wheezy | proftpd-dfsg 1.3.4a-5+deb7u3 (DSA-3263-1) | [17] |
 | Debian 8 jessie | proftpd-dfsg 1.3.5-1.1+deb8u1 (DSA-3263-1) | [17] |
-| Debian 12 bookworm | 1.3.8+dfsg-4+deb12u5 | [17] |
-| Debian 13 trixie | 1.3.8.c+dfsg-4+deb13u3 | [17] |
-| Debian forky and sid | 1.3.9e~dfsg-3 | [17] |
+| Debian 12 bookworm | All versions in this release are fixed; the fix has been in Debian since 1.3.5-2 (unstable, bug 782781). Current packages 1.3.8+dfsg-4+deb12u5, and 1.3.8+dfsg-4+deb12u4 in bookworm-security | [17] |
+| Debian 13 trixie | All versions in this release are fixed (fixed since 1.3.5-2 in unstable); current package 1.3.8.c+dfsg-4+deb13u3 | [17] |
+| Debian forky and sid | Fixed since 1.3.5-2 (unstable, bug 782781); current package 1.3.9e~dfsg-3 | [17] |
 | Debian 6 squeeze | Not affected (mod_copy is not in 1.3.3) | [17] |
 | Ubuntu 12.04 | proftpd-dfsg 1.3.4a-1ubuntu0.1 | [18] |
 | Ubuntu 14.04 | proftpd-dfsg 1.3.5~rc3-2.1ubuntu2.1 | [18] |
@@ -284,11 +284,17 @@ Verify any workaround the way the lab verified the fix: the SITE CPFR-alone prob
 
 ## Part 6: the vulnerability-management view
 
-- **The signals agree, for once.** A CVSS v2 10.0, an SSVC decision of active, automatable and total, a KEV listing with a three-day due date, a multinational advisory, and public exploits since 2015 all point the same way (**Confirmed** [1][22][24]; **Demonstrated** [14][15]). The main signal that points down is Ubuntu's Medium rating (**Confirmed** [18]); GHSA's High [21] is the other lower rating, which a program should read as a statement about Ubuntu's packaging, not as a reason to defer an exposed host (**Inferred**).
+- **The signals agree, for once.** A CVSS v2 10.0, an SSVC decision of active, automatable and total, a KEV listing with a three-day due date, a multinational advisory, and public exploits since 2015 all point the same way (**Confirmed** [1][22][24]; **Demonstrated** [14][15]). The ratings that point down are Ubuntu's Medium (**Confirmed** [18]) and GHSA's High [21]; read Ubuntu's rating as a statement about its packaging, not as a reason to defer an exposed host (**Inferred**).
 - **Scope by precondition, not by product name.** The flaw needs mod_copy. The vendor leaves it out of default builds; a host where `proftpd -l` does not list it and no configuration loads it is not exposed to this CVE (**Confirmed** [10]; the scoping rule is **Inferred**). That turns a "ProFTPD everywhere" emergency into a list of specific hosts.
 - **Old CVEs need the same speed as new ones.** A flaw from 2015 carried a three-day KEV due date in 2026 (**Confirmed** [22]). Patch SLAs keyed to a CVE's publication date, or to "it is too old to matter", fail on exactly this case (**Inferred**).
 - **Asset inventory is the bottleneck.** The lab container's daemon was invisible to the package manager (**Demonstrated** [36]). Source builds, vendor appliances and containers carry their own copies of daemons like this one, and only a listener-first, binary-first inventory finds them (**Inferred**).
 - **Fix the module, not just the CVE.** CVE-2019-12815 reaches the same module up to 1.3.5b (**Confirmed** [20]). Closing CVE-2015-3306 by moving to 1.3.5a, then closing the ticket, would leave the host exposed (**Inferred**).
+
+### What is overstated and what is understated
+
+- **Overstated: the "Successfully Exploited" listing as a record of intrusions.** AA26-281A lists CVE-2015-3306 in a table of "Successfully Exploited CVEs" that it says was recovered from penetration-testing scripts, and it dates no ProFTPD intrusion and names no victim (**Confirmed** [24]). Reading the listing as evidence of dated intrusions goes beyond the advisory (**Inferred** [24]).
+- **Understated: the blind default logs and the builds a package query misses.** The lab images' default logging recorded nothing of SITE CPFR, SITE CPTO or the copy, and the source build under `/usr/local` was invisible to `dpkg -l` (**Demonstrated** [36]). Exposure counts and hunts built on package inventories and default logs therefore undercount (**Inferred**).
+- **Understated: the CVE-2019-12815 tail.** The later mod_copy flaw reaches ProFTPD up to 1.3.5b (**Confirmed** [20]), so a host fixed for CVE-2015-3306 at 1.3.5a or 1.3.5b with mod_copy loaded is still exposed (**Inferred** from [20]).
 
 ## MITRE mappings
 
@@ -301,7 +307,7 @@ No opened source names an ATT&CK technique for CVE-2015-3306 itself: NVD, the KE
 | [T1190](/mitre/techniques/T1190.md) | Exploit Public-Facing Application | Initial Access (TA0001) | Bug 4169 (7 Apr 2015); public exploits (13 to 22 Apr 2015); KEV add and AA26-281A (8 Oct 2026); lab run (4 Nov 2026) | Inferred mapping: an unauthenticated network client abuses a listening FTP daemon; the behaviour is Demonstrated in the lab | [1][3][14][22][24][30][36] |
 | [T1005](/mitre/techniques/T1005.md) | Data from Local System | Collection (TA0009) | NVD description (published 18 May 2015); AA26-281A type "Unauthorized read" (8 Oct 2026); lab copy of `/etc/hostname` (4 Nov 2026) | Inferred mapping from the arbitrary read; the copy is Demonstrated in the lab | [1][24][31][36] |
 | [T1505.003](/mitre/techniques/T1505-003.md) | Server Software Component: Web Shell | Persistence (TA0003) | Bug 4169 report's web-root PHP example (7 Apr 2015); Metasploit module (22 Apr 2015) | Inferred mapping from the documented code-execution path; deliberately not demonstrated in the lab | [3][16][32] |
-| [T1595.002](/mitre/techniques/T1595-002.md) | Active Scanning: Vulnerability Scanning | Reconnaissance | AA26-281A (8 Oct 2026): scanning of port 21 among others, dirsearch for PHP and ASP pages | Confirmed in the advisory as actor behaviour; its tie to ProFTPD is Inferred | [24] |
+| [T1595.002](/mitre/techniques/T1595-002.md) | Active Scanning: Vulnerability Scanning | Reconnaissance (TA0043) | AA26-281A (8 Oct 2026): scanning of port 21 among others, dirsearch for PHP and ASP pages | Confirmed in the advisory as actor behaviour; its tie to ProFTPD is Inferred | [24] |
 
 T1059.004 (Unix Shell) is left out of the bound table: AA26-281A lists it for the actors, but no primary ties it to ProFTPD or to this CVE.
 

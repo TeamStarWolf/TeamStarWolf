@@ -1,6 +1,6 @@
 # Cyber Operations as Statecraft: The Cases in The Hacker and the State
 
-*A TeamStarWolf case study. Published 3 November 2026; every source checked as of that date.*
+*A TeamStarWolf case study. Published 3 November 2026; sources checked on that date, with source 5 opened on 11 November 2026.*
 
 [All case studies](/case-studies/README.md) · Related: [Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [CVE Reference](/CVE_REFERENCE.md) · Home studies for events summarized here: [Stuxnet](/case-studies/STUXNET.md), [Sandworm Operations](/case-studies/SANDWORM_OPERATIONS.md), [The Zero-Day Trade and Its Fallout](/case-studies/ZERO_DAY_MARKET_EVENTS.md) · Related studies: [China-Attributed Threat Actors](/case-studies/THREAT_ACTORS_CHINA.md), [Russia-Attributed Threat Actors](/case-studies/THREAT_ACTORS_RUSSIA.md), [North Korea-Attributed Threat Actors](/case-studies/THREAT_ACTORS_NORTH_KOREA.md), [Iran-Attributed Threat Actors](/case-studies/THREAT_ACTORS_IRAN.md), [United States-Attributed Threat Actors](/case-studies/THREAT_ACTORS_UNITED_STATES.md), [APT41: The Public Record](/case-studies/APT41_PUBLIC_RECORD.md)
 
@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 53 min (12,110 words at 230 words a minute)
+About 53 min (12,116 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>

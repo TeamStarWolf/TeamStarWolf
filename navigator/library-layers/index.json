@@ -202,5 +202,11 @@
     "name": "TeamStarWolf - Cyber Operations as Statecraft: The Hacker and the State Cases",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK v20.0 mapping of the state operations of 2006 to 2018 examined in case-studies/HACKER_AND_THE_STATE_CASES.md: OPM, APT1, Belgacom and Regin, Sony Pictures, Shamoon, the 2016 US election, Bangladesh Bank, WannaCry and the 2017 French campaign. Revoked T1070.001 is shown under its v20.0 successor T1685.005 per data/attack/superseded_by.jsonl. Each technique is shown under all its tactics. Scores: 100 a government, court or vendor primary describes the behavior; 60 ATT&CK records it for the group or software but not for the dated event; 40 Reported only (journalism); 30 an Inferred mapping.",
     "blurb": "Techniques from the government, court and vendor record of the state operations of 2006 to 2018: OPM, APT1, Regin, Sony Pictures, Shamoon, the 2016 US election, Bangladesh Bank, WannaCry and the 2017 French campaign. A curated layer for the Hacker and the State case study."
+  },
+  {
+    "file": "fancy-bear-goes-phishing.json",
+    "name": "TeamStarWolf - Fancy Bear Goes Phishing Cases",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified record supports for the five cases in Fancy Bear Goes Phishing: the Morris worm (1988), the Dark Avenger viruses (1989 to 1992), the 2005 phone case, the DNC intrusions by APT28 and APT29 (2015 to 2016) and Mirai (2016). Each comment names the case and source numbers from case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md. Scores: 100 is a technique the opened record or ATT&CK states for the DNC actors, 50 is a mapping that needs an interpretive step, including every row for the four cases ATT&CK does not cover.",
+    "blurb": "Techniques from the five cases in Fancy Bear Goes Phishing, from the Morris worm and the Dark Avenger to the DNC intrusions and Mirai. A curated layer for the case study."
   }
 ]

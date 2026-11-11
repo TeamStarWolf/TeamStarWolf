@@ -1,0 +1,629 @@
+{
+  "name": "TeamStarWolf - Fancy Bear Goes Phishing Cases",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified record supports for the five cases in Fancy Bear Goes Phishing: the Morris worm (1988), the Dark Avenger viruses (1989 to 1992), the 2005 phone case, the DNC intrusions by APT28 and APT29 (2015 to 2016) and Mirai (2016). Each comment names the case and source numbers from case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md. Scores: 100 is a technique the opened record or ATT&CK states for the DNC actors, 50 is a mapping that needs an interpretive step, including every row for the four cases ATT&CK does not cover.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#7c3aed"
+    ],
+    "minValue": 50,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "50: mapping by this study (interpretive step)",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "100: stated by the opened record or ATT&CK",
+      "color": "#7c3aed"
+    }
+  ],
+  "techniques": [
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: Mimikatz. Sources: 47, 53. Case 4: DNC, APT29: PowerShell Mimikatz. Sources: 48.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1003.008",
+      "tactic": "credential-access",
+      "score": 50,
+      "comment": "Case 1: Morris worm: world-readable `/etc/passwd`. Sources: 14.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 50,
+      "comment": "Case 1: Morris worm: netstat routing tables. Sources: 14.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "score": 50,
+      "comment": "Case 1: Morris worm: `hosts.equiv`, `.rhosts`, `.forward`. Sources: 14.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1021",
+      "tactic": "lateral-movement",
+      "score": 50,
+      "comment": "Case 1: Morris worm: `rsh` and `rexec`. Sources: 14.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Case 1: Morris worm: strings XOR'd with 0x81; files encrypted in memory. Sources: 11, 14.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1027.004",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Case 1: Morris worm: `l1.c` compiled on the target. Sources: 11.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1027.010",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Case 4: DNC, APT29: encoded PowerShell. Sources: 48.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1027.013",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Case 2: the Dark Avenger: MtE-wrapped virus bodies. Sources: 33.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1027.014",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Case 2: the Dark Avenger: Leech; MtE, 1992. Sources: 28, 33.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Case 2: the Dark Avenger: UScan posing as a scanner; trojanized VirusScan. Sources: 28, 30. Case 5: Mirai: random process name. Sources: 59.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Case 1: Morris worm: runs as `sh`. Sources: 11.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1036.011",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Case 1: Morris worm: erased argument list. Sources: 11, 14.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 50,
+      "comment": "Case 1: Morris worm: probing random addresses. Sources: 14. Case 5: Mirai: SYN scans of 23 and 2323/TCP. Sources: 59.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: X-Agent keylogging of DCCC staff. Sources: 46, 48.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Case 4: DNC, APT29: PowerShell backdoor. Sources: 48.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1059.004",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "Case 1: Morris worm: body piped to a shell; fingerd return to `/bin/sh`. Sources: 11, 12.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Case 1: Morris worm: deleted its binary. Sources: 11, 14. Case 4: DNC, APT28 and GRU Unit 26165: CCleaner, 1 Jun 2016. Sources: 46, 53. Case 5: Mirai: deletes its binary. Sources: 59.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1070.006",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: reset file timestamps. Sources: 48.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 50,
+      "comment": "Case 4: DNC, APT29: encrypted HTTP command and control. Sources: 48.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Case 3: the phone case: credentials handed over by the store (**Reported**). Sources: 38. Case 4: DNC, APT28 and GRU Unit 26165: DCCC entry with phished credentials, 12 Apr 2016. Sources: 46, 49, 53.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 50,
+      "comment": "Case 5: Mirai: 62 factory credentials. Sources: 59, 62.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "initial-access",
+      "score": 50,
+      "comment": "Case 1: Morris worm: `rexec` with cracked local passwords. Sources: 14.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1080",
+      "tactic": "lateral-movement",
+      "score": 50,
+      "comment": "Case 2: the Dark Avenger: infected files uploaded to bulletin boards. Sources: 28, 30.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: keyword searches, 15 Apr 2016. Sources: 46, 53.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: middle server; X-Tunnel. Sources: 46, 48.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "initial-access",
+      "score": 50,
+      "comment": "Case 2: the Dark Avenger: spread with copied, pirated software. Sources: 28.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 50,
+      "comment": "Case 1: Morris worm: grappling hook pulls object files. Sources: 11, 14. Case 5: Mirai: loader drops the bot. Sources: 59.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1110.001",
+      "tactic": "credential-access",
+      "score": 50,
+      "comment": "Case 1: Morris worm: null, name, GECOS guesses. Sources: 14. Case 5: Mirai: 10 pairs per target. Sources: 59.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1110.002",
+      "tactic": "credential-access",
+      "score": 50,
+      "comment": "Case 1: Morris worm: 432-word list, then `/usr/dict/words`. Sources: 12, 14.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1113",
+      "tactic": "collection",
+      "score": 50,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: X-Agent screenshots. Sources: 46.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1114.002",
+      "tactic": "collection",
+      "score": 50,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: DNC Exchange server, 25 May to 1 Jun 2016. Sources: 46.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1119",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: DCCC and DNC networks. Sources: 53.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1136",
+      "tactic": "persistence",
+      "score": 50,
+      "comment": "Case 3: the phone case: free accounts created at the provider (weak fit). Sources: 37.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 50,
+      "comment": "Case 4: DNC, GRU Unit 74455, election infrastructure: SQL injection at a state board of elections, Jun 2016. Sources: 46, 47. Case 5: Mirai: TCP/7547 CWMP variant, from 26 Nov 2016. Sources: 59, 62.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: DCCC to DNC, 18 Apr 2016. Sources: 46, 53.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "Case 2: the Dark Avenger: infected programs run by users, 1989. Sources: 28.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 50,
+      "comment": "Case 1: Morris worm: sendmail debug and fingerd overflow, 2 Nov 1988. Sources: 11, 12, 14.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1218.011",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: X-Agent via `rundll32`. Sources: 48.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 50,
+      "comment": "Case 3: the phone case: program on an ISP employee's computer, Aug 2004. Sources: 37.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 50,
+      "comment": "Case 2: the Dark Avenger: destructive payloads. Sources: 28.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1489",
+      "tactic": "impact",
+      "score": 50,
+      "comment": "Case 5: Mirai: kills TCP/22 and 23 services and rivals (closest fit). Sources: 59.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1496.002",
+      "tactic": "impact",
+      "score": 50,
+      "comment": "Case 5: Mirai: clickfraud botnet degrading consumers' bandwidth, Dec 2016 to Feb 2017. Sources: 69.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 50,
+      "comment": "Case 3: the phone case: DoS ten minutes after a threat, Jun 2005. Sources: 37.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1498.001",
+      "tactic": "impact",
+      "score": 50,
+      "comment": "Case 5: Mirai: Krebs, OVH and Dyn floods. Sources: 59, 61, 62.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1499",
+      "tactic": "impact",
+      "score": 50,
+      "comment": "Case 1: Morris worm: unintended load from reinfection (effect, not intent). Sources: 7, 14.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1499.002",
+      "tactic": "impact",
+      "score": 50,
+      "comment": "Case 5: Mirai: HTTP flood, 25 Sep 2016. Sources: 59.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1530",
+      "tactic": "collection",
+      "score": 50,
+      "comment": "Case 3: the phone case: phone data held provider-side. Sources: 37.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1537",
+      "tactic": "exfiltration",
+      "score": 50,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: cloud snapshots moved to GRU accounts, from 20 Sep 2016. Sources: 46, 47.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1546.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Case 4: DNC, APT29: WMI persistence. Sources: 48.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1554",
+      "tactic": "persistence",
+      "score": 50,
+      "comment": "Case 2: the Dark Avenger: parasitic infection of .COM and .EXE files. Sources: 28, 31.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1560",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: compression with a public tool; `rar.exe`. Sources: 46, 47, 53.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1561.001",
+      "tactic": "impact",
+      "score": 50,
+      "comment": "Case 2: the Dark Avenger: random sector overwritten every 16th run. Sources: 28.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1565.001",
+      "tactic": "impact",
+      "score": 50,
+      "comment": "Case 2: the Dark Avenger: silent corruption of files and backups. Sources: 28.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 50,
+      "comment": "Case 4: DNC, GRU Unit 74455, election infrastructure: vendor-branded Word documents to Florida officials, Nov 2016. Sources: 46, 47.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Case 4: DNC, APT29: over 1,000 recipients, summer 2015. Sources: 49.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1569.002",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: RemCOM deployment. Sources: 48.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "score": 50,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: X-Tunnel over encrypted channels, 22 and 28 Apr 2016. Sources: 46, 48.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: lookalike and phishing domains, dcleaks.com, actblues.com. Sources: 46, 48.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1583.003",
+      "tactic": "resource-development",
+      "score": 50,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: bitcoin-funded VPS and leased servers. Sources: 46.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1584.005",
+      "tactic": "resource-development",
+      "score": 50,
+      "comment": "Case 5: Mirai: hijacked IoT devices, from 1 Aug 2016. Sources: 59, 75.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1585",
+      "tactic": "resource-development",
+      "score": 50,
+      "comment": "Case 3: the phone case: accounts set up by an associate. Sources: 37.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1585.001",
+      "tactic": "resource-development",
+      "score": 50,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: \"Alice Donovan\", @dcleaks_, @Guccifer_2. Sources: 46.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1585.002",
+      "tactic": "resource-development",
+      "score": 50,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: hi.mymail@yandex.com and hundreds of laundering accounts. Sources: 46.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1589",
+      "tactic": "reconnaissance",
+      "score": 50,
+      "comment": "Case 3: the phone case: identity-data company accounts, Jan 2005. Sources: 37.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1590",
+      "tactic": "reconnaissance",
+      "score": 50,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: DNC and DCCC IP queries, 15 Mar and 7 Apr 2016. Sources: 46.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1593",
+      "tactic": "reconnaissance",
+      "score": 50,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: open-source research on the DNC, Mar 2016. Sources: 46.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 50,
+      "comment": "Case 4: DNC, GRU Unit 74455, election infrastructure: election sites researched for vulnerabilities, Jun to Jul 2016. Sources: 46.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1598.003",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: chairman's phish, 19 Mar 2016; fake webmail pages. Sources: 46, 49, 53.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1598.004",
+      "tactic": "reconnaissance",
+      "score": 50,
+      "comment": "Case 3: the phone case: call to a store posing as corporate (**Reported**). Sources: 38.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1684.001",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Case 2: the Dark Avenger: uploads and viruses in Bontchev's name. Sources: 28.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1684.002",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: spoofed Google notices; mimicked staff address, 6 Apr 2016. Sources: 46, 52.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1685.005",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Case 4: DNC, APT28 and GRU Unit 26165: `wevtutil` log clearing; 13 May 2016. Sources: 46, 48, 53.",
+      "enabled": true,
+      "showSubtechniques": false
+    }
+  ],
+  "metadata": [
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ]
+}

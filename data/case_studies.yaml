@@ -879,6 +879,29 @@ studies:
     events:
       - {"date": "2020", "label": "Linux kernel 5.6 ships a mainline Multipath TCP implementation"}
       - {"date": "2026-11-03", "label": "Lab readings on a host running Kali 2026.2 with kernel 7.1.5"}
+  case-studies/NEXTCLOUD_RICHDOCUMENTS_CVE_2026_110447.md:
+    kind: "vulnerability"
+    title: "Collabora Built-in CODE Server (richdocumentscode), CVE-2026-110447: Lab-Verified Exposure and Fix"
+    start: "2026-08"
+    end: "2026-11"
+    sectors: ["technology"]
+    cves: ["CVE-2026-110447", "CVE-2025-66208", "CVE-2026-67400"]
+    actors: []
+    tags: ["Nextcloud", "Collabora", "richdocumentscode", "CODE", "command injection", "web shell", "lab"]
+    pdf: "Nextcloud_Richdocuments_CVE_2026_110447_Case_Study.pdf"
+    pptx: "Nextcloud_Richdocuments_CVE_2026_110447_Case_Study.pptx"
+    events:
+      - {"date": "2026-08-20", "label": "Fix commit 6cc8dae authored, titled as a tidy-up of the coolwsd launch command"}
+      - {"date": "2026-08-31", "label": "richdocumentscode 26.4.302 released, still vulnerable"}
+      - {"date": "2026-09-10", "label": "First logged exploitation: a request to proxy.php on a server running 26.4.302"}
+      - {"date": "2026-09-11", "label": "26.4.303 released with the fix and no security note; the victim opens issue #354 an hour later"}
+      - {"date": "2026-09-14", "label": "A second source hits a host already on 26.4.303; the vendor says 26.4.303 should fix it"}
+      - {"date": "2026-09-24", "label": "26.4.402 released with launch-path hardening"}
+      - {"date": "2026-10-14", "label": "CVE and NVD records and Collabora advisory GHSA-g3vx-3m76-fghh published, 33 days after the fix"}
+      - {"date": "2026-10-20", "label": "Commit 813c171 stops coolwsd when the app is disabled"}
+      - {"date": "2026-10-23", "label": "CISA adds the CVE to KEV with forensic triage, due 26 October; 26.4.502 released"}
+      - {"date": "2026-10-30", "label": "A user reports the attack works on a disabled, not-updated app; Collabora points to the advisory"}
+      - {"date": "2026-11-04", "label": "TeamStarWolf lab run: 26.4.302 flagged vulnerable, 26.4.303 fixed, fix read in proxy.php"}
   case-studies/NODEJS_CVE_2026_111497.md:
     kind: "vulnerability"
     title: "Node.js, CVE-2026-111497: Version Check and Fix in the Lab"

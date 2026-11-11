@@ -28,13 +28,15 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 30 October 2026: AWS bulletin; Red Hat RHSB-2026-016 rates the flaw Critical
   - 1 November 2026: Red Hat ships fixed kernels for RHEL 8, 9 and 10
   - 2 November 2026: Still no reported in-the-wild exploitation; not in CISA KEV
-- [The eMudhra Certificate Authority Key Compromise: A 2026 Case Study](/case-studies/EMUDHRA_CA_COMPROMISE_2026.md). Incident, October 2026. Sectors: technology. CVEs: CVE-2026-111943. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/eMudhra_CA_Compromise_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/eMudhra_CA_Compromise_2026_Case_Study.pptx).
+- [The eMudhra Certificate Authority Key Compromise: A 2026 Case Study](/case-studies/EMUDHRA_CA_COMPROMISE_2026.md). Incident, October to November 2026. Sectors: technology. CVEs: CVE-2026-114406, CVE-2026-111943, CVE-2026-91403, CVE-2026-113812. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/eMudhra_CA_Compromise_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/eMudhra_CA_Compromise_2026_Case_Study.pptx).
   - 30 April 2025: eMudhra key ceremony produces 24 intermediates; a test deviation generates the weak keys
   - 17 October 2026: A researcher identifies the weak keys against CCADB and proves control
+  - 18 October 2026: eMudhra revokes all eight intermediates; Sectigo revokes the cross-certificates by 19 October
   - 20 October 2026: Mozilla removes the root from NSS; Microsoft blocks the eight intermediates
   - 22 October 2026: eMudhra announces it will exit the global SSL/TLS certificate business
   - 27 October 2026: Chrome Root Store removes the emSign ECC Root CA G3
-  - October 2026: Apple, Go (CVE-2026-111943), Okta and Auth0, and downstream bundles follow
+  - October 2026: Apple, Go (CVE-2026-111943), Okta and Auth0, and downstream bundles follow; trust-store updates coordinated under Red Hat RHSB-2026-012
+  - November 2026: Root programs distrust the fallback emSign Root CA G1 (Chrome and Firefox after 16 November, Apple 30 November); eMudhra winds down all publicly trusted TLS
 
 ### 2025 <!-- {docsify-ignore} -->
 

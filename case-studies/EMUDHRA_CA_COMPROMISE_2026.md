@@ -1,6 +1,6 @@
 # The eMudhra Certificate Authority Key Compromise: A 2026 Case Study
 
-*A TeamStarWolf case study. Published 2 November 2026; every source checked as of that date.*
+*A TeamStarWolf case study. Published 2 November 2026; revised 11 November 2026 as the public record developed. Sources checked as of that date.*
 
 [All case studies](/case-studies/README.md) · Method reference: [Certificate Trust Incident Response](/CERTIFICATE_TRUST_INCIDENT_RESPONSE_REFERENCE.md)
 
@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 13 min (2,967 words at 230 words a minute)
+About 15 min (3,348 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -55,7 +55,7 @@ No review recorded yet
 
 ## Executive summary
 
-In October 2026 a researcher showed that eight intermediate certificate authority private keys operated by eMudhra (its emSign brand) could be recovered from their public certificates. The keys were elliptic-curve keys that should have been chosen from a space of about 10^115 values; instead they were guessable in at most 256 tries, and one was effectively the number 4. Anyone could reconstruct the private keys and sign certificates that chained to a publicly trusted root. Browsers responded within hours to days, but the clients that software uses to make outbound connections (curl, Python, Node.js, Go, Git, container images) lagged, because they carry their own trust bundles and do not check revocation by default. That split, a fixed browser in front of an unfixed client, is the lesson for a vulnerability-management program.
+In October 2026 a researcher showed that eight intermediate certificate authority private keys operated by eMudhra (its emSign brand) could be recovered from their public certificates. The keys were elliptic-curve keys that should have been chosen from a space of about 10^115 values; instead they were guessable in at most 256 tries, and one was effectively the number 4. Anyone could reconstruct the private keys and sign certificates that chained to a publicly trusted root. Browsers responded within hours to days, but the clients that software uses to make outbound connections (curl, Python, Node.js, Go, Git, container images) lagged, because they carry their own trust bundles and do not check revocation by default. That split, a fixed browser in front of an unfixed client, is the lesson for a vulnerability-management program. As the public record developed, the response went further than a single root removal: the root programs moved to distrust eMudhra's fallback root as well (Chrome and Firefox after 16 November 2026, Apple on 30 November 2026), the trust-store updates were coordinated under four tracking CVEs in Red Hat's RHSB-2026-012, and eMudhra is now winding down all of its publicly trusted TLS issuance.
 
 Evidence grade: **Confirmed** (a researcher proved key control to the browser root programs, multiple root programs acted, and eMudhra admitted the cause).
 
@@ -64,14 +64,16 @@ Evidence grade: **Confirmed** (a researcher proved key control to the browser ro
 | Field | Value |
 |---|---|
 | Failure | Eight eMudhra (emSign) intermediate CA private keys recoverable from their public certificates |
-| Root cause | A key ceremony on 30 April 2025 ran a test code path that produced weak ECC keys (one effectively the integer 4) |
+| Root cause | A key ceremony on 30 April 2025, on FIPS 140-2 Level 3 hardware security modules, ran a test key wrap and unwrap path whose script error produced a weak second ECC key set (one key effectively the integer 4) |
 | Keyspace expected vs actual | About 10^115 values expected; recoverable in at most 256 guesses |
 | Scope | Eight intermediates (six TLS, two code-signing); sixteen certificates (one emSign-issued and one Sectigo cross-certificate each) |
-| Leaf certificates issued | None from the eight; the risk was forging new certificates, not existing mis-issued ones |
+| Leaf certificates issued | None from the eight weak intermediates; the risk was forging new certificates, not existing mis-issued ones |
 | Discovery | Researcher "Wayne" via a CCADB check on 17 October 2026, proven with signed attestations |
-| Browser response | Chrome and Firefox blocked within hours to days; Mozilla root removal 20 October, Chrome 27 October |
+| Revocation | eMudhra revoked all eight intermediates on 18 October 2026; Sectigo revoked the cross-certificates by 19 October |
+| Tracking CVEs | CVE-2026-114406 (ca-certificates), CVE-2026-111943 (Go), CVE-2026-91403 (Java), CVE-2026-113812 (Perl Mozilla::CA), coordinated under Red Hat RHSB-2026-012 to distribute trust-store updates, not flaws in that software |
+| Affected certificate scope | About 30,800 live certificates under the distrusted emSign ECC Root CA G3 hierarchy, in one US customer ecosystem, migrated to the G1 pathway |
 | The gap | Non-browser clients (curl, Python, Node, Go, Git, containers) carry their own bundles and lagged |
-| Outcome | eMudhra announced exit from the global TLS certificate business on 22 October 2026 |
+| Outcome | eMudhra is winding down all publicly trusted TLS issuance; the root programs also moved to distrust the fallback emSign Root CA G1 (Chrome and Firefox after 16 November 2026, Apple 30 November 2026) |
 
 ### Key findings
 
@@ -102,7 +104,7 @@ This study covers the eMudhra (emSign) intermediate-CA key compromise disclosed 
 
 A properly generated P-384 elliptic-curve key is drawn from a space of roughly 10^115 values, which is why a public key does not reveal its private counterpart. The eight eMudhra intermediate keys were not drawn from that space. Reporting describes them as recoverable in at most 256 guesses, with one key effectively equal to 4 (**Confirmed**: eMudhra's own account plus independent researcher analysis). A private key that can be guessed from its public certificate lets anyone issue certificates that chain to a trusted root, which defeats the purpose of the hierarchy.
 
-eMudhra attributed the flaw to a single key ceremony on 30 April 2025 that produced a batch of 24 intermediates (**Confirmed**: eMudhra statement). The ceremony was an approved deviation from the normal process, intended to test key wrap and unwrap, and a code flaw in that path generated a weaker second key pair. Because the key labels were similar, that weaker pair was used for the certificate signing request. eMudhra states that its root keys and its other intermediates were not affected.
+eMudhra attributed the flaw to a single key ceremony on 30 April 2025 that produced a batch of 24 intermediates (**Confirmed**: eMudhra statement). The ceremony was an approved deviation from the normal process, intended to test key wrap and unwrap, and a code flaw in that path generated a weaker second key pair. The keys were generated on FIPS 140-2 Level 3 hardware security modules, so the failure was not weak hardware but a script error in the approved test code, which eMudhra later described as such. Because the key labels were similar, that weaker pair was used for the certificate signing request. eMudhra states that its root keys and its other intermediates were not affected.
 
 ## Scope of the compromise
 
@@ -118,14 +120,17 @@ A researcher known as Wayne identified the weak keys on 17 October 2026 while ru
 
 | Party | Action | Date |
 |---|---|---|
-| Chrome | Blocked the intermediates via CRLSet; removed the emSign ECC Root CA G3 from the Chrome Root Store | within hours; root removal 27 October 2026 |
-| Mozilla | Removed emSign ECC Root CA G3 from NSS (3.131.1) | 20 October 2026 |
+| Chrome | Blocked the intermediates via CRLSet, then removed the emSign ECC Root CA G3 from the Chrome Root Store | within hours; root removal 27 October 2026 |
+| Mozilla | OneCRL block reached Firefox the same day; removed emSign ECC Root CA G3 from NSS (3.131.1) | 17 October (block), 20 October 2026 (removal) |
+| eMudhra | Revoked all eight affected intermediates | 18 October 2026 |
+| Sectigo | Revoked the cross-certificates for the eight keys | by 19 October 2026 |
 | Microsoft | Blocked the eight intermediates | from 20 October 2026 |
 | Apple | Blocks the affected TLS certificates; trust store removing or blocking the parent root | October 2026 |
 | Go project | Tracks the block in `crypto/x509` (CVE-2026-111943) | October 2026 |
 | Okta and Auth0 | Removing trust in the emSign ECC Root CA G3 across their services | October 2026 |
-| Downstream bundles | Python `certifi`, Debian, and Ubuntu dropped the root | October 2026 |
-| eMudhra | Announced exit from the global SSL/TLS certificate business | 22 October 2026 |
+| Downstream bundles | Python `certifi`, `webpki-roots`, Homebrew `ca-certificates`, Debian, and Ubuntu dropped the root | October 2026 |
+| Root programs (fallback root) | Extended the distrust to the fallback emSign Root CA G1: Chrome and Firefox stop trusting G1-chained certificates after 16 November, Apple removes G1 on 30 November | 16 to 30 November 2026 |
+| eMudhra | Announced exit from the global SSL/TLS certificate business, then a wind-down of all publicly trusted TLS issuance | 22 October 2026 onward |
 
 Browser action was effectively complete within days through a mix of blocklists and root removal. The clients that applications use for outbound TLS followed on their own release cadences.
 
@@ -202,11 +207,13 @@ There are two audiences: relying parties (anything that trusts the CA, below) an
 | Date | Event |
 |---|---|
 | 30 April 2025 | eMudhra key ceremony produces a batch of 24 intermediates; a test deviation generates the weak keys |
-| 17 October 2026 | Researcher "Wayne" identifies the weak keys against CCADB and proves control with signed attestations |
+| 17 October 2026 | Researcher "Wayne" identifies the weak keys against CCADB and proves control with signed attestations; Mozilla's OneCRL block reaches Firefox the same day |
+| 18 October 2026 | eMudhra revokes all eight intermediates; Sectigo revokes the cross-certificates by 19 October |
 | 20 October 2026 | Mozilla removes the root from NSS (3.131.1); Microsoft blocks the eight intermediates |
 | 22 October 2026 | eMudhra announces it will exit the global SSL/TLS certificate business |
 | 27 October 2026 | Chrome Root Store removes the emSign ECC Root CA G3 (interim CRLSet block earlier) |
-| October 2026 | Apple, Go (CVE-2026-111943), Okta and Auth0, and downstream bundles follow |
+| October 2026 | Apple, Go (CVE-2026-111943), Okta and Auth0, and downstream bundles follow; trust-store updates coordinated under Red Hat RHSB-2026-012 |
+| 16 to 30 November 2026 | Root programs distrust the fallback emSign Root CA G1 (Chrome and Firefox after 16 November, Apple 30 November); eMudhra winds down all publicly trusted TLS |
 
 ## Detection and the vulnerability-management lens
 
@@ -226,11 +233,11 @@ This incident is a clean teaching case for a specific blind spot: a vulnerabilit
 
 ## Sources
 
-- eMudhra incident statement and the Mozilla CCADB bug record (Bugzilla 2083449).
-- Chrome Root Store, Mozilla NSS, and Apple trust-store announcements.
-- Go project `crypto/x509` advisory (CVE-2026-111943).
-- Vendor analyses from Kudelski Security, Cloudflare, Help Net Security, Keyfactor, and Qualys.
-- Reporting from The Hacker News.
+- eMudhra incident statement (updates through 5 November 2026) and the Mozilla CCADB bug record (Bugzilla 2083449).
+- Chrome Root Store, Mozilla NSS, and Apple trust-store announcements, including the November distrust of the fallback emSign Root CA G1.
+- Red Hat security bulletin RHSB-2026-012, which coordinates the trust-store tracking CVEs (CVE-2026-114406 for ca-certificates, CVE-2026-111943 for Go, CVE-2026-91403 for Java, CVE-2026-113812 for Perl `Mozilla::CA`).
+- Vendor and research analyses from Kudelski Security, Cloudflare, Help Net Security, Keyfactor, Qualys, Endor Labs, and the ctlogs.dev write-up.
+- Reporting from The Hacker News and InfoQ.
 
 ## Related references
 

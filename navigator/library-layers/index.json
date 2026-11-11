@@ -112,5 +112,11 @@
     "name": "TeamStarWolf - The Year 2020 in Intrusions Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified 2020 intrusion record supports: CISA, FBI, NSA and NCSC advisories of 2020 (AA20-099A to AA20-352A), vendor reports, regulator findings and Red Canary's 2020 telemetry. Ids printed under earlier ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Scores: 100 the source prints the id, 75 the source describes the behavior and the mapping is the study's, 50 only a press account supports it, 40 an Inferred mapping.",
     "blurb": "Techniques from the 2020 record: edge-device exploitation, password spraying, the SolarWinds supply chain, and the Ryuk, Maze and WastedLocker ransomware intrusions. A curated layer for the 2020 chronicle case study; the ICS techniques from AA20-205A are in a separate ics-attack layer."
+  },
+  {
+    "file": "exchange-marauder-2021.json",
+    "name": "TeamStarWolf - Exchange Server Mass Exploitation 2021 (Operation Exchange Marauder) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified record of the 2021 Exchange Server mass exploitation supports: ProxyLogon and HAFNIUM-era intrusions (Microsoft, Volexity, Mandiant, Rapid7, ATT&CK G0125), follow-on actors on the same bugs (ESET, Microsoft, Talos, Red Canary, ATT&CK G0131), and the ProxyShell era (CISA AA21-321A and later ATT&CK group rows). Ids reported under earlier ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/EXCHANGE_MARAUDER_2021.md. Scores: 100 ties the technique to ProxyLogon exploitation or HAFNIUM-era intrusions, 75 is follow-on actors on the same bugs or the ProxyShell era, 40 is an Inferred or demonstration-only mapping.",
+    "blurb": "Techniques from the 2021 Exchange Server mass exploitation, from the ProxyLogon chain and HAFNIUM's mailbox theft to the ransomware, miners and ProxyShell actors that followed. A curated layer for the Exchange Marauder case study."
   }
 ]

@@ -337,7 +337,6 @@ None of the eight ATT&CK group descriptions names the healthcare sector, and Mau
 | 2021-03-25 | HC3 briefing | Nine North Korean names | A health-sector briefing on North Korean cyber activity | [33] | Confirmed (contents only) |
 | 2021 | Health-related collection | APT43 (Mandiant); APT45 (Mandiant) | APT43 shifted to health-related verticals for most of 2021; APT45 targeted healthcare and pharma longer than other DPRK groups and showed continued interest in health research in 2023 | [42], [61] | Confirmed |
 | On or about 2021-05-04 | Maui at a Kansas hospital | Andariel (indictment) | Four servers encrypted: intranet, X-ray and diagnostic imaging, electronic document management, sleep lab; further overt acts against Arkansas and Connecticut healthcare companies, a Florida hospital and a Colorado medical clinic | [57] | Confirmed |
-| May 2021 | Kansas hospital ransom | Rim Jong Hyok (DOJ) | The DOJ release (not opened) is reported to give the ransom paid and the amount recovered; no figures are given here because no article reporting them was opened | [58] | Reported |
 | 2021 and 2022 | Maui extortion | Rim Jong Hyok and Andariel co-conspirators (MSMT) | Five US hospitals and medical providers extorted; staff cut off from electronic patient records and tools; services limited and appointments cancelled | [73] | Confirmed |
 | 2022-07-06 | AA22-187A | North Korean state-sponsored actors | Maui against HPH since at least May 2021; EHR, diagnostics, imaging and intranet services encrypted, sometimes for long periods | [38] | Confirmed |
 | 2023-02-09 | AA23-040A | DPRK state-sponsored ransomware actors | HHS co-signs; US and South Korean HPH targets; code likely spread through trojanized X-Popup messenger files, a messenger commonly used at small and medium South Korean hospitals; ransoms collected through foreign affiliates and intermediaries | [41] | Confirmed |
@@ -401,7 +400,6 @@ The UN 1718 Committee's Panel of Experts was disbanded in April 2024 after Russi
 | Cryptocurrency stolen January to September 2025 | At least $1.65 billion ($1.645 billion) | MSMT | [73] | Confirmed |
 | A single IT worker or team per year | Over $300,000 per worker; over $3 million per team | State, Treasury, FBI (2022) | [37] | Confirmed |
 | IT worker program per year | Hundreds of millions of dollars | DOJ (2026) | [78] | Confirmed |
-| US-Japan-ROK figure for 2024 | About $659 million | Press reports of a 2025-01-14 joint statement, which was not opened | none opened | Not checked (primary not opened) |
 
 No single FBI annual theft figure for 2024 or 2025 was found in what was opened; FBI figures are per incident (**Inferred** [64] [68]).
 

@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 2 min (526 words at 230 words a minute)
+About 4 min (815 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -147,6 +147,30 @@ if [ "$code" != "200" ]; then echo "unhealthy: $code"; exit 1; fi
 | `--fail` | exit non-zero on an HTTP error status |
 
 Add `--fail` in scripts so a 404 or 500 returns a non-zero exit code instead of writing an error page to your output.
+
+## Security relevance
+
+This section is the threat-facing view of `curl`: how it appears in offensive work and in defender telemetry. The safe-use guidance for your own scripts is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Payload staging. Once on a host, `curl` is a living-off-the-land way to pull a second stage from attacker infrastructure, often piped straight into a shell so nothing lands on disk first. It avoids shipping a toolkit up front.
+- Server-side request forgery. When a service builds a `curl` target from user input, an attacker steers it at `http://169.254.169.254/` or an internal host to reach a cloud metadata endpoint or a service behind the firewall.
+- Exfiltration. A POST over HTTPS carries stolen data out while blending into normal web traffic.
+- Telemetry. Defenders see it in process-creation logs that capture the remote URL on the command line, in proxy and DNS records, and in endpoint alerts when `curl` is spawned by a web-server account or writes to a temp path.
+
+### Dominant weakness classes
+
+`curl` is a userspace client, so the risks are trust and exposure rather than memory corruption.
+
+- Server-side request forgery ([CWE-918](https://cwe.mitre.org/data/definitions/918.html)) when a destination URL comes from untrusted input.
+- Download of code without an integrity check ([CWE-494](https://cwe.mitre.org/data/definitions/494.html)), the fetch-and-run pattern.
+- Inclusion of functionality from an untrusted control sphere ([CWE-829](https://cwe.mitre.org/data/definitions/829.html)) when fetched content is executed directly.
+- Improper certificate validation ([CWE-295](https://cwe.mitre.org/data/definitions/295.html)) whenever `-k` suppresses TLS checks.
+
+### Why it matters
+
+Spotting `curl` spawned by a service account, or fetching a URL into a pipe to a shell, is a high-value signal for initial access and staging. For an auditor, a `curl` call that takes a user-supplied URL is the first place to probe for SSRF. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for SSRF and request-handling guidance.
 
 ## Security notes
 

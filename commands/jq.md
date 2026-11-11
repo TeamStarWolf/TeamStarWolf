@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 2 min (510 words at 230 words a minute)
+About 3 min (795 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -154,6 +154,30 @@ jq -n --arg name "$NAME" --argjson qty "$QTY" \
 | `--argjson name val` | pass a parsed JSON value into the program |
 
 String interpolation uses `\(...)` inside a string, for example `jq -r '"\(.name): \(.id)"'`. Use `@csv`, `@tsv`, `@base64`, and `@sh` to format output for a specific consumer.
+
+## Security relevance
+
+This section is the threat-facing view of `jq`: how it appears in offensive work and in defender telemetry. The safe-use guidance for your own scripts is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Sifting recon output. Attackers and testers use `jq` to carve large JSON responses from cloud CLIs, API enumeration, and recon tools down to the tokens, ARNs, and hostnames worth keeping.
+- Secret harvesting. `jq` filters dumped config, cloud metadata responses, and credential stores such as a kubeconfig or a cloud credentials file for the exact fields an attacker wants to steal.
+- Pipeline glue. In living-off-the-land chains `jq` shapes data between `curl` and the next step, and its `@sh` and string interpolation become the injection point when that output is handed to a shell.
+- Telemetry. `jq` itself is rarely logged, so the signal is the surrounding process tree, a `curl` into `jq` into a shell, and the command lines that record it.
+
+### Dominant weakness classes
+
+`jq` is a userspace text processor, so the risk is downstream injection and misplaced trust, not memory corruption.
+
+- OS command injection ([CWE-78](https://cwe.mitre.org/data/definitions/78.html)) when `jq` output is spliced into a shell command.
+- Improper input validation ([CWE-20](https://cwe.mitre.org/data/definitions/20.html)) when a program assumes JSON shape that attacker-supplied data does not hold.
+- Improper encoding or escaping of output ([CWE-116](https://cwe.mitre.org/data/definitions/116.html)) when values reach a consumer with different quoting rules.
+- Formula injection ([CWE-1236](https://cwe.mitre.org/data/definitions/1236.html)) when `@csv` output is later opened in a spreadsheet.
+
+### Why it matters
+
+Recognizing `jq` in a living-off-the-land pipeline helps an analyst read a suspicious process tree, and for an auditor the two spots to check are `jq` output flowing into `eval` and `@csv` output destined for a spreadsheet. See [the API security reference](/API_SECURITY_REFERENCE.md) for handling untrusted API data.
 
 ## Security notes
 

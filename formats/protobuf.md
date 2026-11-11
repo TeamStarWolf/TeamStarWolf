@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (680 words at 230 words a minute)
+About 4 min (935 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -168,6 +168,28 @@ message GetInvoiceRequest {
 - `protoc --decode` and `protoscope` help inspect binary payloads during debugging.
 
 Keep schemas under version control and run breaking-change checks in continuous integration before publishing a new version.
+
+## Security relevance
+
+This section is the threat-facing view of Protocol Buffers: where a binary parser meets attacker-reachable input and what goes wrong. The parser limits and validation steps that defend against these are in the "Security considerations" section that follows.
+
+### Where it appears
+
+- Service APIs. gRPC carries protobuf messages between services and to clients, so an edge or internal endpoint decodes attacker-influenced bytes by design.
+- Stored records and logs. Protobuf-encoded data read back from queues, caches, and files is input too, even when it did not arrive over the network.
+- Cross-language boundaries. The same wire bytes are decoded by generated code in several languages, so a reader using a mismatched schema interprets fields differently from the writer.
+
+### Dominant weakness classes
+
+Protobuf is parsed by generated code in managed and native runtimes alike; in C and C++ stacks a malformed frame can reach memory corruption, but the portable risks are exhaustion and misinterpretation.
+
+- Uncontrolled resource consumption ([CWE-400](https://cwe.mitre.org/data/definitions/400.html)) from a small payload that declares huge lengths or deep nesting to exhaust memory or stack.
+- Type confusion ([CWE-843](https://cwe.mitre.org/data/definitions/843.html)) when bytes are decoded against the wrong schema version and a field is read as the wrong type.
+- Improper input validation ([CWE-20](https://cwe.mitre.org/data/definitions/20.html)), since a well-formed message is not a trusted one and unknown fields can carry data past a validator.
+
+### Why it matters
+
+Recognizing a gRPC or protobuf endpoint tells a tester to probe size and depth limits and to look for logic that trusts a decoded message without validating it. See [the API security reference](/API_SECURITY_REFERENCE.md) for the surrounding method.
 
 ## Security considerations
 

@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (733 words at 230 words a minute)
+About 4 min (960 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -204,6 +204,30 @@ background
 | `-p` (on `msfvenom`) | Payload to build |
 | `-f` (on `msfvenom`) | Output format, such as `exe`, `elf`, `raw` |
 | `-e` (on `msfvenom`) | Encoder to apply |
+
+## Security relevance
+
+This section is the threat-facing view of Metasploit and where it sits in the attack lifecycle; authorized use only is assumed. The signatures, root-cause fixes, and scope controls are in the "Detection and defense" section that follows.
+
+### Where it appears
+
+- Exploitation. Once reconnaissance confirms a vulnerable service, an exploit module delivers a payload to gain initial access on an in-scope host.
+- Delivery. `msfvenom` builds standalone payloads and `exploit/multi/handler` catches the callback, which covers sanctioned phishing and custom-loader tests.
+- Post-exploitation. Meterpreter drives privilege escalation, credential access, pivoting, and lateral movement from the first foothold through the rest of the scope.
+- Validation. The `check` action and a controlled `run` prove whether a patch actually closed a known-exploitable flaw.
+
+### Dominant weakness classes
+
+Unlike most tools here, Metasploit does reach memory corruption: many modules exploit it directly, alongside logic and authentication flaws. The classes its modules target include:
+
+- Out-of-bounds write ([CWE-787](https://cwe.mitre.org/data/definitions/787.html)), the memory-corruption class behind exploits such as EternalBlue.
+- Missing authentication for a critical function ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)).
+- Deserialization of untrusted data ([CWE-502](https://cwe.mitre.org/data/definitions/502.html)).
+- OS command injection ([CWE-78](https://cwe.mitre.org/data/definitions/78.html)).
+
+### Why it matters
+
+A working exploit proves exploitability that a scanner can only guess at, and a live session shows the real impact of a weakness: data access, lateral reach, and persistence. Demonstrating that chain, within signed scope, is what moves a finding from theoretical to actionable. See [the penetration testing methodology](/PENETRATION_TESTING_METHODOLOGY.md).
 
 ## Detection and defense
 

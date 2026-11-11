@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (593 words at 230 words a minute)
+About 4 min (885 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -173,6 +173,30 @@ dscl . -list /Users >> host.txt
 | `-a` | `open` | Open with a named application |
 | `bootout` / `bootstrap` | `launchctl` | Unload or load a job in a domain |
 | `-ia` | `softwareupdate` | Install all available updates |
+
+## Security relevance
+
+This section is the threat-facing view of the macOS command line: how an operator abuses the Apple-specific tools on a host and what a defender sees. The safe-use and configuration guidance is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Persistence. `launchctl` and a new plist in `~/Library/LaunchAgents`, `/Library/LaunchAgents`, or `/Library/LaunchDaemons` is the primary foothold on macOS, running a script or an unsigned binary at login or boot. Login items and cron are secondary paths.
+- Discovery. `dscl` enumerates local accounts, `sw_vers` and `system_profiler` fingerprint the host, and `defaults read` pulls data out of application preference plists.
+- Execution and trust evasion. `osascript` runs AppleScript for execution and for phishing prompts, `curl` fetches a payload, and removing the `com.apple.quarantine` extended attribute sidesteps the first Gatekeeper prompt.
+- Telemetry. The Endpoint Security framework and the Unified Log record process execution and plist changes, so EDR and `log show` capture a new launch agent or an `osascript` spawn. Baselining the LaunchAgents and LaunchDaemons directories is the standard hunt.
+
+### Dominant weakness classes
+
+These are userspace tools, so the risks are trust, permission, and search-path abuse rather than memory corruption.
+
+- Inclusion of functionality from an untrusted control sphere ([CWE-829](https://cwe.mitre.org/data/definitions/829.html)) when a launch agent loads an unsigned binary.
+- Uncontrolled search path element ([CWE-427](https://cwe.mitre.org/data/definitions/427.html)), the dynamic-library hijack case.
+- Incorrect permission assignment for a critical resource ([CWE-732](https://cwe.mitre.org/data/definitions/732.html)) on a world-writable launch daemon plist or its target binary.
+- Execution with unnecessary privileges ([CWE-250](https://cwe.mitre.org/data/definitions/250.html)) for code that runs as root rather than a scoped account.
+
+### Why it matters
+
+Recognizing the launchd persistence points and the signature-trust gaps lets responders baseline autostart locations and lets a red teamer model a realistic foothold rather than guessing. See [the red team reference](/RED_TEAM_REFERENCE.md) for how these primitives chain across an engagement.
 
 ## Security notes
 

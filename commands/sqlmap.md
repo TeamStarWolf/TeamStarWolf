@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (640 words at 230 words a minute)
+About 4 min (879 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -146,6 +146,29 @@ Depth and aggressiveness controls widen what sqlmap tries.
 | `--threads <n>` | Parallel requests for blind extraction |
 
 `--level` and `--risk` default to 1. Raise them only when needed, because higher `--risk` sends payloads that can modify data. `--technique` narrows testing to speed up a run or match a known weakness. `--tamper` chains evasion scripts, for example `--tamper=space2comment`, to study how input filters behave in an authorized test. `--batch` makes runs scriptable by choosing default answers. Route through `--proxy http://127.0.0.1:8080` to review every request in Burp or ZAP.
+
+## Security relevance
+
+This section is the threat-facing view of sqlmap and where it sits in a web assessment; authorized use only is assumed. The parameterized-query fix and the traffic signatures are in the "Detection and defense" section that follows.
+
+### Where it appears
+
+- Confirmation. After manual testing flags a suspicious parameter, sqlmap confirms whether it is truly injectable and which techniques work.
+- Enumeration. Once injection is proven, it maps databases, tables, and columns to show what the flaw reaches.
+- Impact demonstration. Dumping a scoped table, reading the current user and database, or extracting credentials proves the blast radius for the report.
+- Evasion testing. Tamper scripts route payloads past input filters so a team can see how a web application firewall actually behaves.
+
+### Dominant weakness classes
+
+sqlmap is a userspace tool, so the risk is injection and trust in input, not memory corruption.
+
+- Improper neutralization of special elements in an SQL command ([CWE-89](https://cwe.mitre.org/data/definitions/89.html)), SQL injection, the core target.
+- Improper input validation ([CWE-20](https://cwe.mitre.org/data/definitions/20.html)) that lets untrusted values reach query logic.
+- Improper encoding or escaping of output ([CWE-116](https://cwe.mitre.org/data/definitions/116.html)) where concatenation replaces parameterization.
+
+### Why it matters
+
+Automating injection confirmation and extraction shows the true reach of a single unparameterized query: full data exfiltration, authentication bypass, and in some backends file read or command execution. Seeing that chain end to end is what justifies the fix to developers and management. See [the SQL language reference](/languages/sql.md) for how injection arises and how prepared statements remove it.
 
 ## Detection and defense
 

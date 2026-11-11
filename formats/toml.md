@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (595 words at 230 words a minute)
+About 4 min (849 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -166,6 +166,28 @@ started = 2026-10-31T00:00:00Z
 - `taplo` provides a formatter, linter, and language server for editors.
 
 Validate TOML against the current specification version, because older parsers may reject dates or inline table features added later.
+
+## Security relevance
+
+This section is the threat-facing view of TOML: a small surface, because the format resists the type games that trip other config languages. The handling guidance that defends against what remains is in the "Security considerations" section that follows.
+
+### Where it appears
+
+- Project and build config. `Cargo.toml` and `pyproject.toml` are read by toolchains, so a poisoned file in a dependency or repository influences a build.
+- Application settings. Services load runtime settings from TOML, making the file a place where a secret can leak into version history or a value can be tampered with.
+- Cross-parser boundaries. The same file is read by parsers targeting different specification versions, so a value one accepts another may read differently.
+
+### Dominant weakness classes
+
+TOML is typed text meant for trusted local config, so there is no deserialization-to-code path; the realistic risks are validation and parser disagreement, not memory corruption.
+
+- Improper input validation ([CWE-20](https://cwe.mitre.org/data/definitions/20.html)) when TOML from an untrusted source is parsed without size limits or checks on the resulting values.
+- Improper validation of syntactic correctness of input ([CWE-1286](https://cwe.mitre.org/data/definitions/1286.html)), where a parser accepts ambiguous or version-specific syntax that another tool reads as a different structure.
+- Cleartext storage of sensitive information ([CWE-312](https://cwe.mitre.org/data/definitions/312.html)) when secrets are committed into config files, the most common real finding on TOML in the field.
+
+### Why it matters
+
+Recognizing TOML tells an auditor to check for committed secrets and to confirm the shipping parser matches the specification version assumed, rather than to expect an injection primitive. See [the secure coding reference](/SECURE_CODING_REFERENCE.md) for the surrounding method.
 
 ## Security considerations
 

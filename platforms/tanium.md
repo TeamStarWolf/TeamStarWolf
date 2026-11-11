@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (961 words at 230 words a minute)
+About 6 min (1,279 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -90,6 +90,24 @@ Operations run in the Tanium console through module workbenches. Because questio
 Tanium provides connectors that send its data to other systems and pull context in. Connect streams endpoint data, findings, and events to a SIEM for correlation and retention. Integrations with ServiceNow synchronize asset inventory and vulnerability findings so that remediation is tracked in the CMDB and the ticketing workflow.
 
 The platform exposes an API for querying data and running actions programmatically, which SOAR and automation tooling use. Vulnerability and compliance findings from Comply feed the vulnerability management workflow, while asset data from the client keeps the inventory current for other tools.
+
+## Adversary perspective
+
+Because Tanium runs actions across the whole estate in near real time, it is both a control an attacker wants to blind and a high-value foothold if its console or content is subverted, so the client and server are themselves an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and tampering
+
+- Impairing the client (ATT&CK T1685, Disable or Modify Tools): with local administrator rights an attacker tries to stop or remove the client, or cut its connection so an endpoint stops answering questions and drops out of the live view.
+- Abusing package execution: the ability to author and run packages across the estate is effectively remote code execution, so a hijacked console session, a stolen API token, or compromised signing keys lets an attacker push a malicious action to many hosts at once, which turns the platform into a mass foothold ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Blending in: an attacker who gains access times activity to look like routine patching or deployment so it hides among legitimate estate-wide actions.
+
+### Residual risk and own exposure
+
+The client runs with high privilege on every host and the server can execute code across the estate, so a flaw in the client, the server, or the Zone Server is high-impact, and endpoint-management platforms are attractive targets for exactly this reach. The Zone Server sits in a DMZ and faces untrusted clients, so it belongs in the internet-facing patch and monitoring scope along with the signing keys and API tokens.
+
+### Why it matters
+
+Treating the management platform as trusted infrastructure that needs no watching is the mistake. A mature program monitors Tanium's own audit trail, including questions, actions, approvals, and content changes, as a detection signal, and keeps the server tier current. See [the red team reference](/RED_TEAM_REFERENCE.md) for the techniques and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

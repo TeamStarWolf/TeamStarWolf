@@ -20,7 +20,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,169 words at 230 words a minute)
+About 6 min (1,423 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -159,6 +159,25 @@ the same APIs.
 WildFire verdicts flow out to the vendor cloud and back as updated protections.
 Threat intelligence feeds, including third-party and custom feeds, drive dynamic
 block lists that policy can reference.
+
+## Adversary perspective
+
+The firewalls sit at internet edges and often terminate GlobalProtect VPN, so adversaries treat PAN-OS as an appliance to exploit as much as a policy to evade. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Management-plane exploitation: PAN-OS management-interface flaws have been exploited, and an exposed management plane is a direct route in (ATT&CK T1190, Exploit Public-Facing Application).
+- VPN and portal exposure: an internet-facing remote-access portal is a standing target for this device class.
+- Inspection gaps: a session that bypasses decryption is not inspected, and App-ID or Threat Prevention can be evaded by encoding, tunneling, or using an allowed application.
+- Credential and API abuse: a leaked or hard-coded API key gives the same control as an admin login and lets an attacker rewrite policy (ATT&CK T1685, Disable or Modify Tools).
+
+### Residual risk and own exposure
+
+Internet-facing firewalls and VPN gateways are high-value targets, and an unpatched PAN-OS device is an exposed asset rather than only a control. The firewall enforces only what policy expresses and inspects only what it decrypts, so a decryption exclusion is a blind spot. Firmware currency and the management plane belong in the patch and monitoring scope ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)).
+
+### Why it matters
+
+For a tester, management-plane reachability, portal exposure, and decryption gaps are the first things to probe. For a defender, short-timeline patching, an isolated management plane, and confirmed deny rules keep the control honest. See [the red team reference](/RED_TEAM_REFERENCE.md) and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md).
 
 ## Hardening and secure use
 

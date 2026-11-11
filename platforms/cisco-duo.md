@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (752 words at 230 words a minute)
+About 4 min (1,004 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -91,6 +91,25 @@ Duo protects web applications, VPN and remote-access gateways, and server logins
 Duo integrates with Entra ID and other identity providers. It can act as the second factor behind a provider's primary authentication, or provide single sign-on itself. See `/platforms/entra-id.md` for the upstream identity provider.
 
 Authentication and device-posture events flow out to monitoring and SIEM platforms for correlation with other security signals. Device inventory signals can align with endpoint management data.
+
+## Adversary perspective
+
+Duo is the multi-factor and device-trust enforcement point, so adversaries work to tire, trick, or sidestep it, and its admin console and integration keys are themselves an attack surface. The steps to lock it down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- MFA fatigue and push bombing (ATT&CK T1621): repeated push prompts wear a user into approving one, a pattern seen in real intrusions. Number matching and phishing-resistant factors reduce it.
+- Real-time phishing and session theft (T1539, T1550): an adversary-in-the-middle proxy relays the push and captures the resulting session cookie, which it replays without prompting again.
+- Unprotected-path bypass: an application reachable through a second route that does not call Duo defeats the control entirely ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)).
+- Enrollment and key abuse (T1556, T1098): enrolling an attacker-controlled device during a weak recovery flow, or stealing an integration key and secret, lets an attacker satisfy or reconfigure the second factor.
+
+### Residual risk and own exposure
+
+Duo verifies a second factor but does not fix a stolen primary credential or a flaw on the protected application, and a bypass path or a stolen session cookie skips it. The integration keys are credentials, and the admin tenant is a target, so both belong in the secret-rotation and monitoring scope.
+
+### Why it matters
+
+A tester inventories every access path for an unprotected route and probes recovery and enrollment; a defender alerts on push-approval spikes, new device enrollments, and admin changes. See [the identity security reference](/IDENTITY_SECURITY_REFERENCE.md) and [the red team reference](/RED_TEAM_REFERENCE.md).
 
 ## Hardening and secure use
 

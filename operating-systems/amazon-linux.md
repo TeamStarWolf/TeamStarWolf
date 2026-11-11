@@ -52,6 +52,10 @@ The `ID` and `VERSION_ID` fields of `/etc/os-release` (the [os-release format](h
 | 2023 | `ID=amzn`, `VERSION_ID=2023` | AWS documentation, Identifying Amazon Linux with os-release |
 | 2 | `ID=amzn`, `VERSION_ID=2` | AWS documentation, Identifying Amazon Linux with os-release |
 
+## Security relevance
+
+Amazon Linux is the default on many EC2 instances, so it is a common foothold in AWS intrusions. The signature pivot is theft of the instance role credentials from the metadata service, which turns code execution on the host into cloud API access, alongside the usual SSH, sudo, and kernel escalation paths and the dnf supply chain. Requiring IMDSv2 and scoping the instance role are the first controls; the hardening references below cover the rest.
+
 ## Hardening
 
 - [Linux Hardening Reference Library](/LINUX_HARDENING_REFERENCE.md)

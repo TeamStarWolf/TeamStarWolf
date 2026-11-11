@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 10 min (2,247 words at 230 words a minute)
+About 11 min (2,467 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -96,6 +96,24 @@ MDE/MDVM mitigates in the pre-patch window chiefly through configuration-based c
 **Framework mapping:** NIST CSF 2.0: IDENTIFY (vuln/asset inventory), PROTECT (AV, ASR, config, patch via Intune), DETECT (EDR, threat analytics), RESPOND (AIR), GOVERN/ IDENTIFY exposure scoring; CIS Controls v8: 1, 2, 4 (Secure Configuration), 7 (Continuous Vulnerability Management), 10 (Malware Defenses), 13 (Network Monitoring & Defense); MITRE ATT&CK mitigations: M1051 Update Software, M1042 Disable or Remove Feature or Program, M1050 Exploit Protection, M1040 Behavior Prevention on Endpoint, M1038 Execution Prevention, M1031 Network Intrusion Prevention
 
 **In a critical-CVE scenario.** Hour 0-6: MDVM's continuous assessment already shows which onboarded devices run the vulnerable software/version with no scan needed; threat analytics flags whether the CVE is under active exploitation and raises its priority. For the internet-facing app, ASR rules / 'block vulnerable application' / network protection are enabled as an immediate compensating control, and EDR detections/hunting queries are deployed to catch exploitation. Hour 6-24: a remediation request is pushed to Intune to deploy the patch or workaround to affected devices; Conditional Access can block non-compliant/high-risk devices. For the cloud workload, Defender for Cloud/Servers surfaces the same exposure and feeds remediation. Hour 24-72: Intune rolls the patch in rings, MDVM re-assesses to confirm the CVE count drops to zero, and AIR/EDR continue monitoring; Security Copilot summarizes status and residual risk.
+
+## Adversary perspective
+
+Defender for Endpoint is built into Windows and runs with high privilege, so adversaries treat it as a control to disable and as part of the attack surface. The detection and health-check guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and tampering
+
+- Sensor and AV tampering: with local admin, attackers attempt to force passive mode, disable real-time protection, or add exclusions so the agent reports while not remediating (ATT&CK T1685, Disable or Modify Tools; T1685). Tamper Protection raises the bar but is not absolute.
+- Bring-your-own-vulnerable-driver and in-memory techniques: a signed vulnerable driver, or AMSI and ETW patching, lets code run beneath or around the sensors.
+- Audit-versus-block gaps: an ASR rule left in audit mode, or a config push silently blocked by Tamper Protection, leaves an exposure the operator believes is closed.
+
+### Residual risk
+
+The sensor covers what it is licensed and configured to cover: non-Windows hosts, appliances, OT and IoT are weaker or absent, and a rule in audit mode logs an attack without stopping it. A deeply integrated, high-privilege agent is itself a large trusted component across the estate.
+
+### Why it matters
+
+A tester probes for passive mode, audit-only rules and exclusions; a defender monitors those same states rather than assuming "onboarded" means "blocking". See [the red team reference](/RED_TEAM_REFERENCE.md) and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md).
 
 ## Validation & telemetry
 

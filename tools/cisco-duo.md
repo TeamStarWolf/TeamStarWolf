@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 10 min (2,401 words at 230 words a minute)
+About 11 min (2,627 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -98,6 +98,24 @@ Rapid-deploy identity compensating control at the access boundary. When a CVE ex
 **Framework mapping:** NIST CSF 2.0: PR (Protect), PR.AA Identity Management, Authentication, and Access Control (primary); DE (Detect): DE.CM via Trust Monitor / Identity Intelligence; CIS Controls v8: 6 (Access Control Management: 6.3/6.4 MFA), 5 (Account Management), 4 (Secure Configuration: device posture gating), 1/2 (device/software inventory via endpoint posture), 13 (Network Monitoring: adjacent via Identity Intelligence); MITRE ATT&CK mitigations: M1032 Multi-factor Authentication (primary), M1036 Account Use Policies, M1017/ M1026 (privileged access, higher tiers), M1035 Limit Access to Resource Over Network (DNG/ZTNA)
 
 **In a critical-CVE scenario.** Hour 0-24: for an exposed internet-facing app or VPN, attach a Duo application policy requiring phishing-resistant MFA and (where possible) Trusted Endpoint for that app/group; disable weak factors (SMS) for the affected path. If the CVE is client-side, set a device-health policy requiring the patched minimum OS/browser/agent version so unpatched endpoints are blocked from the sensitive app. Enable/raise Risk-Based Authentication to step up on anomalies. Hour 24-72: review Duo authentication logs and Trust Monitor / Cisco Identity Intelligence for suspicious access, MFA-flood, impossible-travel, and new-device events tied to the CVE; tighten policy to managed devices and known networks; coordinate with the IdP (Entra/Okta) for credential resets. For a cloud workload's admin/management access, front it with Duo SSO + device trust. Validate via Duo reporting that enforcement is applied; keep policy until the app/endpoints are patched.
+
+## Adversary perspective
+
+Duo sits on the credential path to protected apps, so adversaries treat it as the MFA gate to defeat and as a control whose own bypasses are worth hunting. The detection and validation guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and bypass
+
+- MFA fatigue and push phishing: flooding a user with Duo Push prompts until one is accepted, or relaying a real-time prompt through an adversary-in-the-middle proxy (ATT&CK T1621, Multi-Factor Authentication Request Generation; T1566, Phishing). Number matching and Verified Push counter this when enabled.
+- Weak-factor and enrollment abuse: downgrading to SMS or phone-call factors, or enrolling an attacker-controlled device for a compromised account, satisfies MFA without the legitimate user.
+- Bypass paths: bypass codes, remembered-device and trusted-network policies let a login skip a live factor, and any app not actually placed behind Duo is unprotected.
+
+### Residual risk
+
+Duo validates the access request, not the account's underlying strength: a weak primary password, an un-enrolled user treated as bypass, or a session stolen after authentication remains exploitable. Its Authentication Proxy and Network Gateway are customer-run components that must themselves be patched.
+
+### Why it matters
+
+A tester looks for the SMS fallback, the remembered-device skip and the app left off Duo; a defender enforces phishing-resistant factors and watches bypass-code and policy-weakening events. See [the identity and access management reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md) and [the red team reference](/RED_TEAM_REFERENCE.md).
 
 ## Validation & telemetry
 

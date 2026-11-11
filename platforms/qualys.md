@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (986 words at 230 words a minute)
+About 6 min (1,277 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -96,6 +96,25 @@ Findings flow to downstream systems for remediation and correlation. Qualys inte
 SIEM integration sends vulnerability and asset data to log analytics platforms. Detection teams correlate exposure with alerts and telemetry. Export APIs move bulk finding data for reporting and data warehousing.
 
 Qualys is the source of vulnerability and compliance truth, and ServiceNow and the SIEM consume it. Consistent asset identity across the systems is what keeps the join reliable.
+
+## Adversary perspective
+
+Because a scanner holds privileged scan credentials and a broad read map of the estate, adversaries treat Qualys as both something to blind and a target worth stealing from. The steps to lock the deployment down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Stealing scan credentials (ATT&CK T1078, Valid Accounts): authenticated-scan credentials and API keys are often privileged across many hosts, so a leaked credential gives an attacker the scanner's own broad reach ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Abusing an agent activation key: an activation key enrolls new cloud agents, so a leaked key lets an attacker register rogue hosts or read agent configuration.
+- Blending with scans: an attacker who learns the scan schedule times activity to coincide with it, so probing traffic reads as routine scanning.
+- Suppressing findings (ATT&CK T1685, Disable or Modify Tools): with console access an attacker marks QIDs fixed or ignored, drops assets from scope, or halts a scan, hiding activity behind apparently clean coverage.
+
+### Residual risk and own exposure
+
+A scanner only reports what it reaches, so unscanned hosts, scope gaps, and point-in-time timing leave exposure the tool never records. The scanner appliances, cloud agents, and tenant run with high privilege and broad reach, so a flaw in the product is high-impact and belongs in the patch and monitoring scope like any other software.
+
+### Why it matters
+
+A tester goes for the scan credentials, activation keys, and console rather than the hosts the scanner already covers. A defender watches the scanner's own credential use, agent enrollment, scope changes, and ignored findings as signals in their own right. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope and [the red team reference](/RED_TEAM_REFERENCE.md) for the credential and evasion techniques.
 
 ## Hardening and secure use
 

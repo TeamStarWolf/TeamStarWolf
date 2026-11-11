@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 7 min (1,684 words at 230 words a minute)
+About 8 min (1,918 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -93,6 +93,24 @@ HackerOne's VM role is Discover-Assess-Validate via human/agentic offensive test
 **Framework mapping:** NIST CSF 2.0: Identify, Detect, Respond (coordinated disclosure); CIS Controls v8: 18 (Penetration Testing), 7 (Continuous Vulnerability Management), 16 (Application Software Security); MITRE ATT&CK: offensive emulation across many techniques; mitigations validated include M1051 Update Software and M1050 Exploit Protection (via retest); aligns to ISO 29147/30111 coordinated disclosure
 
 **In a critical-CVE scenario.** First 24-72h on a critical CVE in an internet-facing app + cloud workload: (1) spin up or expand a bounty/PTaaS scope targeting the affected internet-facing app to confirm whether the CVE is actually exploitable in the live environment (and surface variants/chains); (2) researchers/agentic pentest attempt safe exploitation and report with reproduction steps; (3) Hai + human triage validate, dedup and rate severity, routing confirmed findings to dev/ticketing; (4) after the team patches or applies a compensating control, request retest to validate the fix closed the exposure; (5) VDP keeps an open channel for related reports. Cloud workload coverage depends on scope granted to testers; pair with VM/CNAPP for breadth.
+
+## Adversary perspective
+
+HackerOne is a disclosure and testing channel rather than an inline control, so there is nothing here for an attacker to disable. The adversary-relevant risks are how the program is scoped and how sensitive report data is handled. The validation guidance is in the "Validation & telemetry" section that follows.
+
+### Scope and disclosure risk
+
+- Coverage gaps: only assets marked eligible in a structured scope are actually under test, so everything outside it is untested, and absence of reports there is a blind spot, not assurance.
+- Sensitive report data: a valid report is effectively a working exploit with reproduction steps, so the platform, its integrations and ticketing hand-offs hold pre-patch vulnerability detail that is damaging if leaked or if an account is compromised.
+- Trust and triage abuse: malicious or low-quality submissions, duplicate floods, and attempts to social-engineer triage can bury real findings or push testing outside agreed scope.
+
+### Residual risk
+
+Human testing is point-in-time and variable, so it complements rather than replaces continuous scanning, and a report auto-closed as resolved without an independent retest is not proof the fix holds. The program's own accounts and data flows are themselves part of the attack surface.
+
+### Why it matters
+
+A tester respects scope and safe harbor and treats report data as sensitive; a defender guards program access, requires researcher retest for closure, and closes scope gaps. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) and [the penetration testing methodology](/PENETRATION_TESTING_METHODOLOGY.md).
 
 ## Validation & telemetry
 

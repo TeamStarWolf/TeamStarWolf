@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 9 min (2,012 words at 230 words a minute)
+About 10 min (2,344 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -96,6 +96,24 @@ Wiz is the discover-assess-prioritize powerhouse: it continuously (snapshot-base
 **Framework mapping:** NIST CSF 2.0: Identify (asset/vuln/data inventory, Security Graph), Protect (CIEM least-privilege, posture hardening), Detect (Wiz Defend/CDR); CIS Controls v8: 1-2 (inventory), 3 (data protection/DSPM), 4 (secure config), 5-6 (identity/CIEM), 7 (continuous vulnerability management), 13 (monitoring); MITRE ATT&CK mitigations: M1030 Network Segmentation (cut exposure), M1026 Privileged Account Management (CIEM), M1051 Update Software (drives/validates patching), M1018 User Account Management, M1022 Restrict File/Directory Permissions
 
 **In a critical-CVE scenario.** First 24-72h of a critical CVE in an internet-facing app + cloud workload: Wiz instantly queries the Security Graph to list every affected resource across all clouds and, far more importantly, ranks the few that are internet-exposed AND over-privileged AND near sensitive data - the real blast radius. Teams immediately break the attack path as compensating mitigation (remove public exposure, revoke excessive entitlements via CIEM, isolate), while Wiz Defend watches for active exploitation. Wiz feeds the prioritized target list to the remediation pipeline (rebuild images / patch), then re-scans to confirm the toxic combination is resolved.
+
+## Adversary perspective
+
+Wiz surfaces toxic combinations and attack paths; it reports risk rather than standing between the attacker and the workload, so an adversary treats it as something to blind, starve of coverage, or live alongside. Its agentless model connects to cloud-provider APIs with broad read across the estate, and its Security Graph maps exactly where the exploitable paths are, which makes its connector roles and findings a target in their own right. The detection and tuning guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and coverage gaps
+
+- Blinding the graph: an attacker with sufficient cloud rights can remove or weaken the Wiz connector role, exclude accounts or subscriptions, or tamper with the logs that feed runtime signals (ATT&CK T1685 Disable or Modify Tools), so the graph no longer reflects the real estate.
+- Snapshot and coverage gaps: agentless scanning reads periodic snapshots and API state, so short-lived workloads, in-memory-only activity, and resources between scans can be missed, and a cloud account or region outside the connected scope is unseen.
+- Blending with assessment: attackers time enumeration and access to resemble the platform's own broad read traffic, and a surfaced attack path is detective, not a preventive block.
+
+### Residual risk and own exposure
+
+A prioritized finding is not a fix: the toxic combination stays exploitable until someone breaks the path, and prioritization can defer real exposure. The connector roles hold privileged read across every connected cloud and the graph reveals the shortest path to crown-jewel data ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)), so those roles and the finding store belong at the front of the patch and monitoring scope.
+
+### Why it matters
+
+Knowing that the graph depends on connector coverage and snapshot timing, and that an attack path is a report not a barrier, tells a tester where to look and a defender to protect the connector plane and close paths rather than just view them. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) for the control model and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for turning findings into tracked remediation.
 
 ## Validation & telemetry
 

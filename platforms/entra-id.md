@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (813 words at 230 words a minute)
+About 5 min (1,067 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -92,6 +92,25 @@ Applications integrate through SAML and OpenID Connect, either from the applicat
 Device compliance state flows in from Microsoft Intune. Conditional Access can then require a compliant or hybrid-joined device before granting access. This ties the identity decision to device posture.
 
 Sign-in and audit logs flow out to monitoring and SIEM platforms. See `/platforms/splunk.md` and `/platforms/servicenow-vr.md` for downstream consumers of identity events. Group membership and role assignment can be driven by an external governance system.
+
+## Adversary perspective
+
+Entra ID is the authentication and authorization boundary for cloud resources, so adversaries treat it as the prize and work to bypass its controls; the tenant, its admin roles, and its application trust are themselves an attack surface. The steps to lock it down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Phishing and MFA fatigue (ATT&CK T1621, T1556): adversary-in-the-middle phishing and repeated push prompts defeat push and one-time codes. Passkeys and FIDO2 resist them.
+- Token and session theft (T1539, T1550): a stolen session cookie or primary refresh token lets an attacker replay an authenticated session and skip MFA.
+- Token forging and trust abuse (T1606.002): a stolen token-signing key or a federated-trust change enables golden-SAML-style impersonation, and added credentials on a service principal grant standing access ([CWE-287](https://cwe.mitre.org/data/definitions/287.html)).
+- Consent and application abuse (T1098, T1528): illicit consent grants and over-scoped app registrations give an attacker persistent API access that no interactive sign-in reveals.
+
+### Residual risk and own exposure
+
+The identity provider is the keys to the kingdom, so a forged token or a compromised Global Administrator reaches every federated resource. Conditional Access only blocks what its rules cover, and a report-only policy blocks nothing; directory-sync and hybrid-identity components widen the attack surface and belong in scope.
+
+### Why it matters
+
+A tester checks for legacy-authentication paths, risky consent grants, and standing privileged roles; a defender monitors sign-in and audit logs for new service-principal credentials, trust changes, and risky sign-ins. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) and [the red team reference](/RED_TEAM_REFERENCE.md).
 
 ## Hardening and secure use
 

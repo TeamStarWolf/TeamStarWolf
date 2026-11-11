@@ -43,6 +43,10 @@ From FortiOS 7.2.0 each image carries a maturity tag, Feature or Mature, shown n
 
 From the vendor documentation cited at the foot of this page; not run on a host for this page.
 
+## Security relevance
+
+FortiOS runs FortiGate firewalls and SSL-VPN gateways, which places it directly on the perimeter and makes it a repeated initial-access target. Pre-authentication flaws in the SSL-VPN and management surfaces have been exploited in the wild, and a foothold yields configuration and credential harvesting on the device. Keep the management interface off untrusted networks, patch quickly, and track the appliance as an asset; see the network protocols reference below.
+
 ## Hardening
 
 - [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md)

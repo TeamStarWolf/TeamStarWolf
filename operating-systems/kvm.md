@@ -44,6 +44,10 @@ KVM is part of the host kernel, and QEMU and libvirt are ordinary packages, so t
 
 From Ubuntu Server's libvirt documentation (kvm-ok) and the libvirt virsh manual (virsh version); Red Hat's virtualisation guides refused automated requests (HTTP 403) when this page was built.
 
+## Security relevance
+
+KVM is the Linux kernel hypervisor, usually driven through QEMU and libvirt, so it is the virtualization boundary rather than an application host. The key risk is a guest-to-host escape through emulated device code in QEMU, which breaks the boundary between tenants. The host is the trust anchor, so patching QEMU and the kernel and constraining the management path are the core controls.
+
 ## Hardening
 
 - [Hypervisor Security Reference](/HYPERVISOR_SECURITY_REFERENCE.md)

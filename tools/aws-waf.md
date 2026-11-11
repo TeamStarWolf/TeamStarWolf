@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 9 min (2,107 words at 230 words a minute)
+About 10 min (2,363 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -96,6 +96,24 @@ Serves as a fast, code-free virtual-patching and compensating control for AWS-fr
 **Framework mapping:** NIST CSF 2.0: PROTECT (PR.PS, PR.IR), DETECT (DE.CM), RESPOND (RS.MI); CIS Controls v8: 13.10 (application-layer filtering/WAF), 13 (network monitoring and defense), 7 (continuous vulnerability management - compensating control), 8 (audit log management); MITRE ATT&CK mitigations: M1050 Exploit Protection, M1037 Filter Network Traffic, M1031 Network Intrusion Prevention, M1036 Account Use Policies (ATP/ACFP, bot control)
 
 **In a critical-CVE scenario.** First 24-72h on a critical CVE in an internet-facing app and a cloud workload: (1) identify which CloudFront/ALB/API Gateway resources front the vulnerable service; (2) deploy a custom WAF rule matching the exploit (URI/header/body regex or SQLi/XSS statement) and/or enable AWS Managed Rules Known Bad Inputs/CRS, starting in Count mode; (3) inspect sampled requests and CloudWatch metrics to confirm attack traffic matches and legitimate traffic does not, then flip to Block; (4) use Firewall Manager to push the rule to every account/web ACL across the org in one action; (5) add a rate-based rule and the Anti-DDoS managed rule group if exploitation drives floods; (6) keep the rule as a tracked temporary control pending the real patch/redeploy.
+
+## Adversary perspective
+
+A WAF is a filter in front of the application, so adversaries treat it as an obstacle to bypass rather than a wall, and it has blind spots by design. The detection and tuning guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and bypass
+
+- Payload obfuscation and normalization gaps: attackers encode, case-vary, chunk, or pad a request so it no longer matches a signature while still reaching the application (ATT&CK T1685, Disable or Modify Tools). The body-inspection cap (default 16KB, fixed 8KB on ALB and AppSync) means a large-payload attack can pass uninspected.
+- Origin exposure: if the ALB or origin is reachable directly rather than only through the fronting resource, an attacker reaches the application and skips the WAF entirely. Lock the origin to the WAF's attachment point.
+- Logic flaws the rules never see: generic managed rule groups do not catch application-specific issues such as broken access control or authentication bypass ([CWE-284](https://cwe.mitre.org/data/definitions/284.html)).
+
+### Residual risk
+
+A WAF is a compensating control, not a fix: it blocks exploit-shaped requests, but the underlying flaw remains and an attacker who finds an unfiltered variant still reaches it. Every rule added for a specific flaw should be tracked as a temporary measure pending the real patch.
+
+### Why it matters
+
+Knowing what a WAF cannot see, namely oversized bodies, direct-to-origin paths, and logic flaws, tells a tester where to push and a defender what not to rely on. See [web application pentesting](/WEB_APPLICATION_PENTESTING.md) for the bypass method and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for treating virtual patches as temporary.
 
 ## Validation & telemetry
 

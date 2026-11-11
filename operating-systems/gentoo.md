@@ -48,6 +48,10 @@ The `ID` and `VERSION_ID` fields of `/etc/os-release` (the [os-release format](h
 |---|---|---|
 | Rolling | `ID=gentoo` | Not checked on a running system |
 
+## Security relevance
+
+Gentoo is a source-based distribution where packages are compiled locally from the Portage tree with per-system USE flags, so it is a niche developer and appliance host. The distinctive point is that the build step itself is part of the supply chain: a compromised ebuild or upstream source runs during compilation. Otherwise it presents the standard Linux foothold surface of SSH, sudo, SUID, and kernel escalation.
+
 ## Hardening
 
 - [Linux Hardening Reference Library](/LINUX_HARDENING_REFERENCE.md)

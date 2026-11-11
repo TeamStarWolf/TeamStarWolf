@@ -51,6 +51,10 @@ Microsoft publishes a cumulative monthly security update on the second Tuesday o
 
 From Microsoft documentation (What version of Windows am I running?, the in-place upgrade guide, and the Get-ComputerInfo and Get-HotFix references); not run on a Windows host for this page. The registry command reads the key that the upgrade guide tells you to open in Registry Editor.
 
+## Security relevance
+
+Windows Server runs the domain controllers and core services, so its compromise often means domain takeover rather than a single host. The surface is Active Directory and Kerberos, where golden and silver tickets, DCSync, and abused service accounts turn one foothold into control of the directory. Tiered administration, LAPS, and the DISA STIG are the main controls; see the Windows hardening reference below.
+
 ## Hardening
 
 - [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md)

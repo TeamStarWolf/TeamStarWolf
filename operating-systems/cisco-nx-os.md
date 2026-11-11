@@ -38,6 +38,10 @@ Each advisory points to the Cisco Software Checker for the first fixed release; 
 
 From Cisco security advisories for NX-OS; the NX-OS command reference refused automated requests (HTTP 403).
 
+## Security relevance
+
+NX-OS runs Nexus data-center switching, so it is core infrastructure whose compromise affects every workload behind it. The exposed surface is the management plane and the device software itself, where a foothold gives configuration theft and a durable implant on gear that is rarely re-imaged. Restricting management access and tracking the device like any other patchable asset are the main controls; see the network protocols reference below.
+
 ## Hardening
 
 - [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md)

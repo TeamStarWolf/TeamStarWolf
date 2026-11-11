@@ -36,6 +36,10 @@ Fixes ship as firmware builds written as release and build, for example 14.1 47.
 
 No identify command is listed: the NetScaler command reference redirected automated requests to its home page when this page was built. Compare the release and build the appliance reports with the fixed builds in each bulletin.
 
+## Security relevance
+
+NetScaler (the Citrix ADC and Gateway) sits at the application edge as a load balancer and remote-access gateway, which makes it a top initial-access target. The 2023 NetScaler session-token disclosure and earlier pre-authentication flaws were mass-exploited, and the device holds TLS private keys and session material. Patch urgently, rotate secrets after any exposure, and find every internet-facing instance; see the network protocols reference below.
+
 ## Hardening
 
 - [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md)

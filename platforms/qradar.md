@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (978 words at 230 words a minute)
+About 5 min (1,260 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -99,6 +99,24 @@ Inbound, QRadar receives syslog and other event feeds from firewalls, endpoints,
 Outbound and lateral, offenses can trigger notifications, open tickets, and feed response tooling. QRadar can send data to and receive context from other platforms, and offenses can drive orchestration in a separate SOAR product.
 
 Data flows from sources into collectors, through processors where normalization and correlation happen, and into offenses and searches at the console. Reference sets let external context, such as a threat indicator list, participate in rules.
+
+## Adversary perspective
+
+QRadar is where telemetry becomes offenses an analyst works, so adversaries try to blind it or keep their activity out of the rules that would fire, and the console with its broad data access and service tokens is itself a target. The defensive steps are in the "Hardening and secure use" section that follows.
+
+### Evasion and tampering
+
+- Blinding the log and flow sources (ATT&CK T1685.001, Disable or Modify Tools: Disable or Modify Logging, and T1070, Indicator Removal): with host access an attacker stops a syslog source or clears logs so events never reach a collector, and activity that leaves no flow record cannot raise an offense.
+- Living inside trusted definitions: a building block that marks a host or network as trusted can suppress genuine detections, so an attacker who operates from such an asset stays below the rules. A missing or mismatched DSM means a source is received but not parsed into the fields a rule needs.
+- Token and console abuse: a leaked authorized service token or a hijacked account grants programmatic read of data and functions, which both exposes the estate and lets rules be disabled ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)).
+
+### Residual risk and own exposure
+
+QRadar reasons only over what it collects and parses, so pre-ingestion activity and unparsed sources go unseen. The console concentrates sensitive event and flow data and credentials that reach many systems, so the appliances belong in the patch and monitoring scope like any other software.
+
+### Why it matters
+
+Watch the control's own health: silent log sources, disabled rules, changes to trusted building blocks, and service-token creation are detection signals. See [the red team reference](/RED_TEAM_REFERENCE.md) for the evasion techniques and [the incident response reference](/INCIDENT_RESPONSE_REFERENCE.md) for log integrity.
 
 ## Hardening and secure use
 

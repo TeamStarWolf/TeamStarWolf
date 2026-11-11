@@ -46,6 +46,10 @@ apt full-upgrade
 
 From the vendor documentation cited at the foot of this page; not run on a host for this page.
 
+## Security relevance
+
+Proxmox VE is an open virtualization and container platform managed through a web interface and API, so it is both a hypervisor boundary and an exposed management surface. The risks combine a guest-to-host escape through QEMU with web and API exposure that, if reached, grants root over the whole cluster. Keep the management network isolated, patch QEMU and the kernel, and scope administrative access tightly.
+
 ## Hardening
 
 - [Hypervisor Security Reference](/HYPERVISOR_SECURITY_REFERENCE.md)

@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 8 min (1,728 words at 230 words a minute)
+About 9 min (2,048 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -94,6 +94,24 @@ Snyk's VM role is Discover-Assess-Prioritize-Remediate for the software supply c
 **Framework mapping:** NIST CSF 2.0: Identify (software inventory/SBOM), Protect; CIS Controls v8: 16 (Application Software Security), 2 (Software Inventory/SBOM), 7 (Continuous Vulnerability Management), 4 (Secure Configuration for IaC); MITRE ATT&CK mitigations: M1051 Update Software, M1016 Vulnerability Scanning, M1047 Audit; strong relevance to supply-chain compromise (T1195)
 
 **In a critical-CVE scenario.** First 24-72h on a critical CVE in an internet-facing app + cloud workload: (1) Snyk Open Source/Container instantly identifies every project, image and running workload pulling the vulnerable package/base image across all monitored repos; (2) prioritizes by reachability, exploit maturity and whether the vulnerable function is actually called; (3) auto-generates fix PRs with the exact safe upgrade/base-image swap; (4) sets CI/CD gates to fail builds containing the vulnerable version so no new exposure ships; (5) tracks remediation across the portfolio in AppRisk. Pair with a runtime/CNAPP tool for assets Snyk does not build.
+
+## Adversary perspective
+
+Snyk finds and helps fix vulnerabilities in dependencies, code, containers, and IaC; it does not block exploitation at runtime, so an adversary treats it as something to outrun or starve of coverage, and the platform holds broad read into source repositories and registries through its integrations, which makes its tokens a target in their own right. The detection and tuning guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and coverage gaps
+
+- Unscanned surface: results exist only where a project is imported and scanning runs; a repository, branch, registry, or build path outside the integration is untested, and a dependency resolved at runtime but absent from the manifest or lockfile is unseen.
+- Known-only detection: SCA matches against advisory databases, so a dependency whose flaw is not yet published, or a malicious package planted in the supply chain, can pass a clean scan; findings also lag the moment a new advisory lands.
+- Reachability and logic gaps: a flagged dependency may not be reachable in the running app, while business-logic abuse and broken access control ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)) are outside what dependency and static scanning assert.
+
+### Residual risk and own exposure
+
+A finding is not a fix: the vulnerable component stays exploitable until the upgrade or fix PR is merged and deployed, and risk-based prioritization can defer real exposure. The platform's repository and registry tokens are high value, since they grant read across the codebase and reveal exactly where the weak spots are ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)), so those integrations and service accounts belong in the patch and monitoring scope.
+
+### Why it matters
+
+Knowing that coverage depends on what is imported, that only known flaws are matched, and that a finding is not reachability tells a tester where to probe and a defender not to treat a clean scan as a secure build. See [the supply chain security reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md) for the dependency-risk method and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for turning findings into tracked remediation.
 
 ## Validation & telemetry
 

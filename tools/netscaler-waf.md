@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 9 min (2,178 words at 230 words a minute)
+About 11 min (2,480 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -96,6 +96,24 @@ Functions as an inline virtual-patching / compensating control at the reverse pr
 **Framework mapping:** NIST CSF 2.0: PROTECT (PR.PS, PR.IR, PR.DS), DETECT (DE.CM), RESPOND (RS.MI); CIS Controls v8: 13.10 (application-layer filtering/WAF), 7 (continuous vulnerability management - compensating control), 16 (application software security), 3 (data protection - DLP/sensitive-data masking), 8 (audit log management); MITRE ATT&CK mitigations: M1050 Exploit Protection, M1037 Filter Network Traffic, M1031 Network Intrusion Prevention
 
 **In a critical-CVE scenario.** First 24-72h on a critical CVE in an internet-facing app (and a cloud workload fronted by a VPX/CPX NetScaler): (1) confirm which virtual servers front the vulnerable app; (2) update/import the WAF signature set and enable the CVE-specific signature, or write a custom signature/pattern targeting the exploit, applied first in log/learn mode; (3) review NetScaler Console security insight to confirm attack requests match and legitimate traffic is unaffected, then switch the profile to block and bind it; (4) tighten rate limiting, IP reputation, and bot rules on the same device; (5) replicate the WAF profile to the cloud VPX/CPX instances fronting the workload; (6) track the signature as a temporary compensating control until the application is patched and verified.
+
+## Adversary perspective
+
+The WAF module sits inline on the NetScaler ADC in front of the application, so adversaries treat it as an obstacle to route around rather than a wall, and it has blind spots by design. The ADC is also an internet-facing gateway, which makes it a high-value target in its own right. The detection and tuning guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and bypass
+
+- Signature and normalization gaps: attackers encode, case-vary, chunk, or pad a request so it no longer matches the negative-security signatures while still reaching the application (ATT&CK T1685, Disable or Modify Tools). Request-body inspection limits can let a large payload pass uninspected.
+- Reaching past the filter: if a back-end or management path is reachable without traversing the WAF-protected vserver, an attacker reaches the application and skips the filter entirely.
+- Logic flaws the rules never see: generic protections do not catch application-specific broken access control or authentication bypass ([CWE-284](https://cwe.mitre.org/data/definitions/284.html)).
+
+### Residual risk and own exposure
+
+The WAF is a compensating control, not a fix: the underlying flaw remains and an attacker who finds an unfiltered variant still reaches it, so each rule added for a specific flaw is a temporary measure pending the real patch. Internet-facing ADC and gateway appliances are among the most-targeted assets, with a history of pre-authentication flaws in NetScaler ADC exploited in the wild, so the appliance firmware and its management interface belong at the front of the patch and monitoring scope.
+
+### Why it matters
+
+Knowing what the WAF cannot see, namely oversized bodies, unfiltered back-end paths, and logic flaws, tells a tester where to push and a defender what not to rely on, and the appliance itself must stay patched. See [web application pentesting](/WEB_APPLICATION_PENTESTING.md) for the bypass method and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for treating virtual patches as temporary.
 
 ## Validation & telemetry
 

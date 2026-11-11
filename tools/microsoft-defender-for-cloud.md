@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 9 min (2,083 words at 230 words a minute)
+About 10 min (2,400 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -93,6 +93,24 @@ Serves the full lifecycle for Microsoft and multicloud estates. Agentless vulner
 **Framework mapping:** NIST CSF 2.0: Identify (inventory, Defender CSPM), Protect (Update Manager, JIT, adaptive hardening), Detect (Defender for Servers/Containers, XDR), Respond/Recover (Sentinel playbooks); CIS Controls v8: 1-2 (inventory), 4 (secure config/CSPM), 5-6 (identity/CIEM), 7 (continuous vulnerability management), 8 (logging), 13 (monitoring); MITRE ATT&CK mitigations: M1051 Update Software (Azure Update Manager), M1030 Network Segmentation (adaptive network hardening), M1026 Privileged Account Management (JIT/CIEM), M1049 Antimalware (Defender for Storage/Servers), M1047 Audit, M1018 User Account Management
 
 **In a critical-CVE scenario.** First 24-72h of a critical CVE in an internet-facing app and cloud workload: Defender for Cloud agentless scan and MDVM identify all affected VMs, containers and registry images across Azure/AWS/GCP; attack-path analysis and Cloud Security Explorer rank which affected assets are internet-exposed with privileged identity or sensitive data. Immediate mitigation: enable just-in-time access and adaptive network hardening to reduce reachability, confirm Defender for Servers EDR is detecting exploitation attempts, and tighten Azure Policy. Then use Azure Update Manager to schedule and deploy the patch (or hotpatch) across affected machines through an expedited maintenance window, with re-assessment and secure-score/compliance checks validating remediation.
+
+## Adversary perspective
+
+Defender for Cloud assesses posture and detects workload threats; it reports and alerts rather than standing between the attacker and the resource, so an adversary treats it as something to blind, starve of coverage, or live alongside. It runs with broad, privileged read across the connected estate, and its attack-path and finding data map exactly where the weak spots are, which makes it a target in its own right. The detection and tuning guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and tampering
+
+- Blinding the platform: an attacker with sufficient rights can disable Defender plans, stop or redirect the diagnostic settings and Log Analytics ingestion the alerts depend on, or dismiss and suppress findings (ATT&CK T1685 Disable or Modify Tools, T1685.002 disable cloud logs), so the dashboard looks clean while activity continues.
+- Coverage gaps: posture and workload protection apply only where the plan is enabled and the subscription or cloud connector is onboarded; an un-onboarded AWS or GCP connector, an agentless-scan gap, or an unmanaged machine is unseen, and a secure-score finding is detective, not a block.
+- Blending with assessment: attackers time enumeration and access to resemble normal scanning and automation.
+
+### Residual risk and own exposure
+
+A recommendation or an alert is not a fix: the misconfiguration or unpatched workload remains exploitable until someone remediates it, and Azure Update Manager still has to deploy the update. The platform holds privileged read and exposes attack paths ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)), so its roles, connectors, and log workspaces belong at the front of the patch and monitoring scope.
+
+### Why it matters
+
+Knowing that the platform can be disabled, onboarding can be partial, and findings lag the event tells a tester where to look and a defender to monitor the monitors and close the loop to real remediation. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) for the control model and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for turning findings into tracked remediation.
 
 ## Validation & telemetry
 

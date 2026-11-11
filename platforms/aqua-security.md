@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (995 words at 230 words a minute)
+About 6 min (1,310 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -96,6 +96,24 @@ Data flows into Aqua from CI systems, registries, clusters, and connected cloud 
 Outbound, findings and events reach the team's wider tooling. Alerts and tickets route to messaging and work-tracking systems. Runtime and policy events can feed a SIEM for correlation and retention. An API and automation hooks let findings drive pipeline gates and response workflows.
 
 Because Trivy is open source, its output also flows through standalone and third-party pipelines, which gives a team a consistent scanner across tooling.
+
+## Adversary perspective
+
+Because Aqua gates what runs and watches containers at runtime, adversaries work to slip past its admission policy or blind its enforcer, and the enforcer and cloud connector are themselves an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and tampering
+
+- Impairing the enforcer (ATT&CK T1685, Disable or Modify Tools): with node privilege an attacker tries to stop or remove the enforcer so runtime controls and visibility go dark. Running the enforcer with protected, least-privilege access is the countermeasure.
+- Slipping past admission: an image that only warns rather than blocks, a workload scheduled through a path the admission controller does not cover, or a rule set tuned too loosely lets a non-compliant image run. Admission coverage and clear block-versus-warn policy are the openings an attacker probes.
+- Connector and credential abuse: a stolen registry token, scanner credential, or platform API key lets an attacker read findings, push a trusted-looking image, or quiet a gate, which exposes the defense and can turn it into a foothold ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)).
+
+### Residual risk and own exposure
+
+The enforcer runs with deep host and cluster visibility, so a flaw in it is high-impact, and a container escape that reaches the node can undercut the layer meant to contain it. The connector holds cloud read access, so its credential is high value. The enforcer, the connector, and their credentials belong in the patch and monitoring scope, and image assurance does not stop a vulnerability already running in production.
+
+### Why it matters
+
+Treating admission and scanning as complete coverage is the mistake. A mature program monitors the enforcer's own health and reporting gaps as a signal, reviews admission and assurance policy changes as control changes, and keeps the components current. See [the red team reference](/RED_TEAM_REFERENCE.md) for the techniques and [the container security reference](/CONTAINER_SECURITY_REFERENCE.md) for the admission and escape context.
 
 ## Hardening and secure use
 

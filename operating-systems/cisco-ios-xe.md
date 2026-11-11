@@ -44,6 +44,10 @@ IOS XE has no package manager for security fixes: each advisory names the first 
 
 From Cisco security advisories, which tell administrators to log in and use show version to find the running release; the IOS XE command reference refused automated requests (HTTP 403).
 
+## Security relevance
+
+IOS XE runs enterprise and carrier routing and switching, so it is infrastructure that sits in the middle of the network rather than an endpoint. Internet-reachable management has a history of pre-authentication exploitation in the wild, and a foothold there yields configuration, credentials, and a persistent implant on a device few teams monitor. The control is to keep the management plane off untrusted networks and patch promptly; see the network protocols reference below.
+
 ## Hardening
 
 - [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md)

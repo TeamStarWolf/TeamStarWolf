@@ -710,7 +710,7 @@ One trap worth naming: search engines surface a Wikipedia article for "Continuou
 - [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
 - [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)
 - [CVE Reference](/CVE_REFERENCE.md)
-- [Why Vulnerabilities Happen](/WHY_VULNERABILITIES_HAPPEN.md)
+- [Vulnerability Root Causes](/VULNERABILITY_ROOT_CAUSES.md)
 - [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md)
 
 <!-- related:end -->

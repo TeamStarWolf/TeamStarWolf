@@ -894,10 +894,10 @@ Authorization Testing
 
 Endpoint Discovery
 ```bash
-# LinkFinder — extract endpoints from JS files
+# LinkFinder: extract endpoints from JS files
 python3 linkfinder.py -i https://target.com/app.js -o cli
 
-# SecretFinder — find API keys, tokens, credentials
+# SecretFinder: find API keys, tokens, credentials
 python3 SecretFinder.py -i https://target.com/app.js -o cli
 
 # Bulk analysis

@@ -455,7 +455,7 @@ pm3> hf mf rdbl --blk 0 --key ffffffffffff -a
 
 iCLASS attacks:
 ```bash
-# Read iCLASS card (legacy — known default keys)
+# Read iCLASS card (legacy: known default keys)
 pm3> hf iclass read
 
 # Full card dump

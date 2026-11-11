@@ -738,7 +738,7 @@ sudo apt install libopenscap8 scap-security-guide        # Ubuntu/Debian
 # List available profiles in a DataStream
 oscap info /usr/share/xml/scap/ssg/content/ssg-rhel9-ds.xml
 
-# Run compliance scan — CIS profile on RHEL 9
+# Run compliance scan: CIS profile on RHEL 9
 oscap xccdf eval   --profile xccdf_org.ssgproject.content_profile_cis   --results scan-results.xml   --report scan-report.html   /usr/share/xml/scap/ssg/content/ssg-rhel9-ds.xml
 
 # Run STIG scan
@@ -803,7 +803,7 @@ Workbench Workflow:
 ### 4.9 Automating Compliance in CI/CD
 
 ```yaml
-# GitLab CI example — scan container image before deploy
+# GitLab CI example: scan container image before deploy
 stages:
   - build
   - security-scan
@@ -916,10 +916,10 @@ Benchmark Levels:
 CIS-CAT (CIS Configuration Assessment Tool) automates benchmark assessment.
 
 ```bash
-# CIS-CAT Lite (free) — limited benchmarks
+# CIS-CAT Lite (free): limited benchmarks
 java -jar CIS-CAT-Lite-Assessor.jar   --benchmark CIS_Ubuntu_Linux_22.04_LTS_Benchmark_v3.0.0.xml   --profile "Level 1 - Server"   --report-dir /reports
 
-# CIS-CAT Pro (licensed) — full benchmark library + remote scanning
+# CIS-CAT Pro (licensed): full benchmark library + remote scanning
 java -jar CIS-CAT-Pro-Assessor-CLI.jar   --benchmark /benchmarks/CIS_RHEL9_Benchmark.xml   --profile "Level 2"   --report-dir /reports   --report-name rhel9-cis-scan
 
 # Remote scan via SSH

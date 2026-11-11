@@ -727,13 +727,13 @@ Dependency confusion occurs when an attacker publishes a public package with the
 Mitigations:
 
 ```ini
-# .npmrc — always prefer internal registry for scoped packages
+# .npmrc: always prefer internal registry for scoped packages
 @myorg:registry=https://registry.internal.example.com/
 //registry.internal.example.com/:_authToken=${NPM_TOKEN}
 ```
 
 ```ini
-# pip.conf — require internal index
+# pip.conf: require internal index
 [global]
 index-url = https://pypi.internal.example.com/simple/
 # Avoid extra-index-url which falls through to public PyPI
@@ -749,10 +749,10 @@ Artifactory/Nexus controls:
 ### Lockfile Security
 
 ```bash
-# npm — install only from lockfile, no network modification
+# npm: install only from lockfile, no network modification
 npm ci --ignore-scripts
 
-# pip — verify hashes (add with pip-compile --generate-hashes)
+# pip; verify hashes (add with pip-compile --generate-hashes)
 pip install -r requirements.txt --require-hashes
 
 # Verify lockfile integrity
@@ -766,11 +766,11 @@ Lockfile tampering detection: Use git hooks or CI checks to verify lockfile was 
 ### SBOM Generation and Attestation
 
 ```bash
-# cdxgen — CycloneDX SBOM for multiple ecosystems
+# cdxgen: CycloneDX SBOM for multiple ecosystems
 cdxgen -o sbom.cyclonedx.json -t python .
 cdxgen -o sbom.cyclonedx.json -t npm .
 
-# syft — SBOM for containers and filesystems
+# syft: SBOM for containers and filesystems
 syft myimage:latest -o cyclonedx-json > sbom.cyclonedx.json
 syft dir:. -o spdx-json > sbom.spdx.json
 
@@ -918,10 +918,10 @@ Test string: INT-AUTH-20240101-ABC1234567890XYZ
 When secrets may have been committed historically:
 
 ```bash
-# trufflehog — scan all branches and tags
+# trufflehog: scan all branches and tags
 trufflehog git file://. --log-opts="--all" --json | jq .
 
-# gitleaks — scan full history
+# gitleaks: scan full history
 gitleaks detect --source . --log-opts="--all" --report-path history-report.json
 
 # Remove file from history after secret found (BFG Repo Cleaner)
@@ -982,7 +982,7 @@ vault kv get -field=api_key secret/ci/external-api
 # Vault auto-generates short-lived DB credentials
 vault read database/creds/my-role
 # Returns: username=v-ci-abc123, password=A1B2C3..., lease_duration=1h
-# Credentials expire automatically — no manual rotation required
+# Credentials expire automatically: no manual rotation required
 ```
 
 #### GitHub Actions + Vault
@@ -1126,10 +1126,10 @@ AWS IAM trust policy for GitHub OIDC:
 #### Action Pinning to Full SHA
 
 ```yaml
-# Insecure — tag can be moved to malicious commit
+# Insecure: tag can be moved to malicious commit
 - uses: actions/checkout@v4
 
-# Secure — immutable reference
+# Secure: immutable reference
 - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 ```
 
@@ -1185,7 +1185,7 @@ jobs:
 ### GitLab CI Security
 
 ```yaml
-# Protected variables: set in UI as "masked" — not shown in logs
+# Protected variables: set in UI as "masked", not shown in logs
 # Protected branches: only maintainers can push to main
 
 # Limiting job token scope
@@ -1205,7 +1205,7 @@ deploy-prod:
 ### Jenkins Security
 
 ```groovy
-// Credential binding — credentials never exposed as plain env var
+// Credential binding: credentials never exposed as plain env var
 withCredentials([
   usernamePassword(credentialsId: 'aws-creds',
     usernameVariable: 'AWS_ACCESS_KEY_ID',
@@ -1381,7 +1381,7 @@ Policy configuration (.grype.yaml):
 fail-on-severity: high
 ignore:
   - vulnerability: CVE-2023-XXXX
-    reason: "Not exploitable in our configuration — tracked in issue #1234"
+    reason: "Not exploitable in our configuration, tracked in issue #1234"
 ```
 
 ---
@@ -1502,7 +1502,7 @@ terraform {
     encrypt        = true
     kms_key_id     = "arn:aws:kms:us-east-1:123456789012:key/abc123"
     dynamodb_table = "terraform-state-lock"
-    # No credentials in backend config — use OIDC/instance profile
+    # No credentials in backend config: use OIDC/instance profile
   }
 }
 ```
@@ -1669,13 +1669,13 @@ graphql-cop -t https://staging.example.com/graphql \
 #### Common GraphQL Vulnerabilities
 
 ```graphql
-# Introspection query — should be disabled in production
+# Introspection query: should be disabled in production
 { __schema { types { name fields { name } } } }
 
 # Deeply nested query for DoS via complexity
 { user { friends { friends { friends { name email phone } } } } }
 
-# Batch query abuse — rate limit bypass (1000 login attempts in one HTTP request)
+# Batch query abuse: rate limit bypass (1000 login attempts in one HTTP request)
 [
   {"query": "mutation { login(email:"a@a.com", pass:"pass1") { token } }"},
   {"query": "mutation { login(email:"a@a.com", pass:"pass2") { token } }"}
@@ -1691,14 +1691,14 @@ Mitigations: Query complexity limits, depth limits (max 5-7), persisted queries,
 #### JWT Testing
 
 ```bash
-# jwt_tool — algorithm confusion and common JWT attacks
+# jwt_tool: algorithm confusion and common JWT attacks
 python3 jwt_tool.py $JWT -X a  # RS256->HS256 algorithm confusion
 python3 jwt_tool.py $JWT -X n  # none algorithm attack
 python3 jwt_tool.py $JWT -X b  # blank password brute force
 
 # Validate PKCE implementation
 # S256 (correct): code_challenge = BASE64URL(SHA256(code_verifier))
-# Plain (insecure — should be rejected): code_challenge = code_verifier
+# Plain (insecure: should be rejected): code_challenge = code_verifier
 ```
 
 ---
@@ -1839,7 +1839,7 @@ import pulumi
 # Store secret (encrypted in Pulumi state with stack-specific key)
 db_password = pulumi.Config().require_secret("dbPassword")
 # CLI: pulumi config set --secret dbPassword mysecretvalue
-# State stores ciphertext only — plaintext never written to disk
+# State stores ciphertext only: plaintext never written to disk
 ```
 
 Pulumi ESC (Environments, Secrets, Config):
@@ -2015,7 +2015,7 @@ Terraform Cloud drift detection:
 
 AWS Config Rules for drift:
 ```python
-# Config Rule — detect unencrypted EBS volumes
+# Config Rule: detect unencrypted EBS volumes
 def evaluate_compliance(configuration_item):
     if configuration_item['resourceType'] != 'AWS::EC2::Volume':
         return 'NOT_APPLICABLE'
@@ -2119,7 +2119,7 @@ git config --global gpg.format x509
 git config --global commit.gpgsign true
 
 # Commits signed with short-lived Fulcio certificate
-# No GPG key management required — uses OIDC identity
+# No GPG key management required: uses OIDC identity
 
 # Verify a commit
 git verify-commit HEAD
@@ -2171,7 +2171,7 @@ Each step generates a signed link metadata file. in-toto-verify checks that the 
 #### npm
 
 ```bash
-# Install from lockfile only — no lockfile modification permitted
+# Install from lockfile only: no lockfile modification permitted
 npm ci --ignore-scripts
 
 # Security audit
@@ -2214,7 +2214,7 @@ pip-audit --requirement requirements.txt \
 # Security audit against RustSec Advisory DB
 cargo audit
 
-# cargo-deny — comprehensive dependency checks
+# cargo-deny: comprehensive dependency checks
 deny.toml:
 [licenses]
 unlicensed = "deny"
@@ -2380,7 +2380,7 @@ index=app sourcetype=security_events event_type="DATA_ACCESS"
 #### WAF Integration in DevSecOps
 
 ```python
-# AWS WAF CDK construct — WAF rules stored as code in git
+# AWS WAF CDK construct: WAF rules stored as code in git
 from aws_cdk import aws_wafv2 as wafv2
 
 web_acl = wafv2.CfnWebACL(self, "ApiWAF",
@@ -2463,7 +2463,7 @@ def push_evidence(control_id, evidence_type, description, file_path=None):
 push_evidence(
     control_id="CC6.1",
     evidence_type="EXPORT",
-    description=f"IAM Credential Report showing MFA status — {datetime.date.today()}",
+    description=f"IAM Credential Report showing MFA status: {datetime.date.today()}",
     file_path="/tmp/credential-report.csv"
 )
 ```

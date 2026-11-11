@@ -75,9 +75,9 @@ Harvest-now-decrypt-later (HNDL), also written "store now, decrypt later," is th
 Michele Mosca's widely used test for "are we already late?":
 
 ```
-   X  = secrecy lifetime      — how long the data must stay confidential
-   Y  = migration time        — how long your organization needs to fully migrate
-   Z  = time until a CRQC     — how long until an adversary can run Shor's algorithm at scale
+   X  = secrecy lifetime      : how long the data must stay confidential
+   Y  = migration time        : how long your organization needs to fully migrate
+   Z  = time until a CRQC     : how long until an adversary can run Shor's algorithm at scale
 
                  if   X + Y > Z   →   you are already exposed
 
@@ -299,7 +299,7 @@ Not everything migrates at once, and the ordering is not arbitrary; it falls out
    = data disclosed                                           verification time
 
    Exception that jumps the queue: SIGNING KEYS WITH DECADE-SCALE LIVES
-   (firmware/software signing, root CAs) — the signature must still be
+   (firmware/software signing, root CAs): the signature must still be
    trustworthy when a CRQC exists, so they migrate EARLY despite being signatures.
 ```
 

@@ -375,7 +375,7 @@ malware
 phishing
 hacking
 dynamic-dns
-newly-registered-domains (NRDs — 30 days old or less)
+newly-registered-domains (NRDs: 30 days old or less)
 proxy-avoidance-and-anonymizers
 cryptocurrency
 unknown (review by category first)
@@ -672,7 +672,7 @@ Key finding: NSA recommends keeping PowerShell; removing it forces attackers to 
 Disable PowerShell v2 (no AMSI, no logging):
 
 ```powershell
-# Disable PowerShell v2 — requires restart
+# Disable PowerShell v2: requires restart
 Disable-WindowsOptionalFeature -Online -FeatureName MicrosoftWindowsPowerShellV2Root -NoRestart
 
 # Verify disabled
@@ -699,7 +699,7 @@ curl -s https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabi
   jq '.vulnerabilities[] | select(.dueDate >= "2024-01-01") |
       {cveID, vendorProject, product, vulnerabilityName, dueDate, requiredAction}'
 
-# Count by vendor — see which vendors have most exploited CVEs
+# Count by vendor: see which vendors have most exploited CVEs
 curl -s https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json | \
   jq '[.vulnerabilities[].vendorProject] | group_by(.) | map({vendor: .[0], count: length}) | sort_by(-.count) | .[0:10]'
 ```
@@ -869,7 +869,7 @@ An Analytic Story groups related detections, investigations, and baselines aroun
 # Clone the official repository
 git clone https://github.com/Azure/Azure-Sentinel
 
-# Via Azure CLI — deploy a specific ARM template rule
+# Via Azure CLI: deploy a specific ARM template rule
 az rest --method PUT \
   --url "https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.OperationalInsights/workspaces/{ws}/providers/Microsoft.SecurityInsights/alertRules/{rule-id}?api-version=2022-01-01-preview" \
   --body @rule.json

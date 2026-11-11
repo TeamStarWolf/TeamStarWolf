@@ -64,7 +64,7 @@ Apple's own model for malware defense is three layers; the platform architecture
 ```
  ┌─────────────────────────────────────────────────────────────────────┐
  │ 5. OBSERVE      Endpoint Security framework · unified log · osquery │
- │                 (telemetry — nothing below emits alerts by itself)  │
+ │                 (telemetry: nothing below emits alerts by itself)   │
  ├─────────────────────────────────────────────────────────────────────┤
  │ 4. REMEDIATE    Apple's background remediation engine (community    │
  │                 name: "XProtect Remediator") + behavioral engine    │

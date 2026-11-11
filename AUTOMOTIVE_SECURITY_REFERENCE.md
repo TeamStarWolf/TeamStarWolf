@@ -1101,7 +1101,7 @@ __attribute__((stack_protect))
 void process_uds_request(uint8_t *data, uint16_t length) {
     uint8_t local_buffer[64];  // canary placed before return address
     // If canary is overwritten by buffer overflow, __stack_chk_fail() is called
-    memcpy(local_buffer, data, length);  // BUG: no bounds check — canary catches this
+    memcpy(local_buffer, data, length);  // BUG: no bounds check; canary catches this
 }
 ```
 
@@ -1521,7 +1521,7 @@ Key fob responds with UHF signal (315/433/868 MHz)
     ↓ captured by Attacker 2's UHF receiver
     ↓ forwarded via long-range radio link to Attacker 1
     ↓ Attacker 1's UHF transmitter rebroadcasts near vehicle
-Vehicle accepts — door unlocks
+Vehicle accepts: door unlocks
 ```
 
 Total latency increase: ~3-8ms, well within vehicle's acceptance window.

@@ -236,7 +236,7 @@ Responsible AI Principles
 
 Bias and Fairness Testing
 ```python
-# Fairlearn — fairness metrics and mitigation
+# Fairlearn: fairness metrics and mitigation
 from fairlearn.metrics import demographic_parity_difference, equalized_odds_difference
 
 # Check if predictions differ across demographic groups

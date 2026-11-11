@@ -91,11 +91,11 @@ Pyramid of Pain (David Bianco): Attacker cost to evade detections increases as y
 
 ```
 [TTP-Based Detections]     ← Tough! Changing behavior requires significant effort
-[Tools]                    ← Challenging — new tool versions, custom tooling
-[Network/Host Artifacts]   ← Annoying — registry keys, process names
-[Domain Names]             ← Simple — new domain registered
-[IP Addresses]             ← Easy — new IP spun up
-[Hash Values]              ← Trivial — recompile, trivially different hash
+[Tools]                    ← Challenging: new tool versions, custom tooling
+[Network/Host Artifacts]   ← Annoying: registry keys, process names
+[Domain Names]             ← Simple: new domain registered
+[IP Addresses]             ← Easy: new IP spun up
+[Hash Values]              ← Trivial: recompile, trivially different hash
 ```
 
 The detection engineering goal is to build detections as high on this pyramid as possible: detecting behaviors (process injection, LOLBAS execution, credential access patterns) rather than specific indicators.

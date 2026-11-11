@@ -292,7 +292,7 @@ flashrom -p buspirate_spi:dev=/dev/ttyUSB0,spispeed=1M -r dump.bin
 flashrom Voltage Warning:
 ```bash
 # CRITICAL: Many modern routers use 1.8V flash
-# CH341A outputs 3.3V — can destroy 1.8V flash chips
+# CH341A outputs 3.3V: can destroy 1.8V flash chips
 # Check datasheet before connecting
 # Use 1.8V adapter board or Dediprog for safety
 ```
@@ -336,7 +336,7 @@ minicom -D /dev/ttyUSB0 -b 115200
 Boot Log Capture:
 ```bash
 # Connect: TX(device) -> RX(USB-serial), RX(device) -> TX(USB-serial), GND -> GND
-# DO NOT connect device TX to host TX — will damage adapter
+# DO NOT connect device TX to host TX: will damage adapter
 
 # Capture complete boot log
 minicom -D /dev/ttyUSB0 -b 115200 -C bootlog.txt
@@ -997,15 +997,15 @@ Output:
 GUID Identification:
 ```python
 # efiXplorer uses multiple GUID databases:
-# - EDKII (TianoCore) — thousands of protocol GUIDs
+# - EDKII (TianoCore): thousands of protocol GUIDs
 # - Lenovo, Dell, HP, AMI, Phoenix vendor GUIDs
 # - Custom GUID database support
 
 # Important GUIDs to recognize:
-# EFI_SMM_BASE2_PROTOCOL_GUID: {5a90ba11-...} — SMM access
-# EFI_SMM_SW_DISPATCH2_PROTOCOL_GUID: {18a3c6dc-...} — SWSMI handler registration
-# EFI_SMM_CPU_PROTOCOL_GUID: {eb346b97-...} — CPU register access from SMM
-# UEFI_VARIABLE_GUID: {8be4df61-...} — NVRAM variable storage
+# EFI_SMM_BASE2_PROTOCOL_GUID: {5a90ba11-...}, SMM access
+# EFI_SMM_SW_DISPATCH2_PROTOCOL_GUID: {18a3c6dc-...}, SWSMI handler registration
+# EFI_SMM_CPU_PROTOCOL_GUID: {eb346b97-...}, CPU register access from SMM
+# UEFI_VARIABLE_GUID: {8be4df61-...}, NVRAM variable storage
 ```
 
 Protocol Tracking:
@@ -1030,11 +1030,11 @@ efiXplorer flags:
 
 UEFI Secure Boot Verification Chain:
 ```
-PK (Platform Key)     — OEM or enterprise root key
-  └─ KEK (Key Exchange Key) — Microsoft/OEM key
-       └─ db (Signature Database) — Allowed signers
-            └─ shim (signed by Microsoft) — First bootloader
-                  └─ GRUB2 (signed by shim/distro key) — Second stage
+PK (Platform Key)     : OEM or enterprise root key
+  └─ KEK (Key Exchange Key): Microsoft/OEM key
+       └─ db (Signature Database): Allowed signers
+            └─ shim (signed by Microsoft): First bootloader
+                  └─ GRUB2 (signed by shim/distro key): Second stage
                         └─ Linux kernel (signed by distro key)
                               └─ Kernel modules (signed by kernel)
 ```
@@ -1062,7 +1062,7 @@ BlackLotus (CVE-2023-24932):
 - Capabilities: Secure Boot disable, HVCI disable, custom kernel driver loading
 - Persistence: Modifies EFI System Partition (ESP) boot files
 - Detection: Check ESP for unexpected EFI files, monitor UEFI variable changes
-- Patch: KB5025885 (May 2023) — revokes vulnerable Windows Boot Manager versions
+- Patch: KB5025885 (May 2023), revokes vulnerable Windows Boot Manager versions
 ```
 
 BootHole (CVE-2020-10713):
@@ -1098,7 +1098,7 @@ Boot Guard Overview:
 ```
 Intel Boot Guard is a hardware-rooted verified boot mechanism.
 OEM programs ACM (Authenticated Code Module) with SHA256 hash of IBB
-(Initial Boot Block — the first firmware block) into CPU fuses (non-reversible).
+(Initial Boot Block: the first firmware block) into CPU fuses (non-reversible).
 If hash doesn't match, CPU halts or attempts recovery.
 ```
 
@@ -1118,7 +1118,7 @@ Profile 5: Maximum protection (no debug, full measurement)
 PCR Values:
 ```
 TPM PCR measurements from Boot Guard:
-PCR[0]: Core BIOS Measurement (CBM) — BIOS code
+PCR[0]: Core BIOS Measurement (CBM), BIOS code
 PCR[7]: SecureBoot policy (db, dbx, KEK, PK)
 
 Inspect PCR values:
@@ -1264,7 +1264,7 @@ CoAP (Constrained Application Protocol) runs over UDP port 5683, DTLS on port 56
 
 CoAP Amplification Attack:
 ```bash
-# CoAP supports multicast — potential for amplification DDoS
+# CoAP supports multicast: potential for amplification DDoS
 # Request: ~20 bytes, Response: can be hundreds of bytes (amplification factor 10-50x)
 
 # Enumerate CoAP resources
@@ -1341,7 +1341,7 @@ from pymodbus.client import ModbusTcpClient
 client = ModbusTcpClient('192.168.1.100', port=502)
 client.connect()
 
-# Read coils (digital outputs — control physical equipment)
+# Read coils (digital outputs: control physical equipment)
 result = client.read_coils(0, 100, unit=1)
 print(f"Coils: {result.bits}")
 
@@ -1349,11 +1349,11 @@ print(f"Coils: {result.bits}")
 result = client.read_holding_registers(0, 50, unit=1)
 print(f"Registers: {result.registers}")
 
-# WRITE coils — can physically actuate equipment
+# WRITE coils: can physically actuate equipment
 client.write_coil(0, True, unit=1)   # Turn on coil 0
 client.write_coil(5, False, unit=1)  # Turn off coil 5
 
-# Write holding register — change setpoints
+# Write holding register: change setpoints
 client.write_register(10, 9999, unit=1)  # Dangerous: change process setpoint
 
 # Scan all unit IDs (1-247)
@@ -1464,7 +1464,7 @@ Step 1: Visual inspection
 Step 2: Identify ground (GND)
 - Set multimeter to continuity mode
 - One probe on known ground (PCB screw mount, USB ground pin)
-- Probe suspected UART pins — continuity = GND
+- Probe suspected UART pins: continuity = GND
 
 Step 3: Identify VCC
 - Set multimeter to DC voltage
@@ -1521,7 +1521,7 @@ Open-source hardware for automated JTAG discovery:
 1. Connect all suspected JTAG pins to JTAGulator channels
 2. Connect GND
 3. Serial console at 115200 baud
-4. Command: B (bypass scan) — finds TCK, TMS, TDI, TDO
+4. Command: B (bypass scan), finds TCK, TMS, TDI, TDO
 5. Reports detected JTAG pin assignments and device count
 
 jtagulator> b          # BYPASS scan (finds TCK/TMS/TDI/TDO)
@@ -1592,7 +1592,7 @@ I2C Sniffing:
 sigrok-cli -d fx2lafw --channels SDA=D0,SCL=D1     --config samplerate=1MHz --samples 1000000     -P i2c:sda=SDA:scl=SCL     -A i2c=data-read,data-write,address-read,address-write
 
 # Common I2C targets on IoT boards:
-# 0x50-0x57: EEPROM (AT24Cxx) — often stores config/credentials
+# 0x50-0x57: EEPROM (AT24Cxx), often stores config/credentials
 # 0x68: RTC (DS1307, DS3231)
 # 0x3C: OLED display
 # 0x40: Power management IC
@@ -1694,7 +1694,7 @@ Differential Power Analysis (DPA):
 import numpy as np
 from scipy.stats import pearsonr
 
-# Correlation Power Analysis (CPA) — most effective
+# Correlation Power Analysis (CPA): most effective
 # 1. Collect N traces with known plaintexts
 # 2. For each key hypothesis k (0-255):
 #    Predict intermediate value: SubBytes(plaintext[0] XOR k)
@@ -1937,21 +1937,21 @@ cat /proc/cmdline
 ### 7.7 Unencrypted Management Protocols
 
 ```bash
-# Telnet (port 23) — plaintext
+# Telnet (port 23): plaintext
 nmap -p 23 192.168.1.0/24 --open
 
-# HTTP management (port 80) — plaintext
+# HTTP management (port 80): plaintext
 nmap -p 80 192.168.1.0/24 --open
 
-# SNMP v1/v2c (port 161) — plaintext, default community "public"
+# SNMP v1/v2c (port 161): plaintext, default community "public"
 snmpwalk -v2c -c public 192.168.1.1
 nmap -sU -p 161 --script snmp-brute 192.168.1.0/24
 
-# TR-069/CWMP (port 7547) — ISP remote management
+# TR-069/CWMP (port 7547): ISP remote management
 nmap -p 7547 192.168.1.0/24 --open
 # CVE-2014-9222 "Misfortune Cookie": TR-069 HTTP cookie overflow
 
-# FTP (port 21) — plaintext
+# FTP (port 21): plaintext
 nmap -p 21 192.168.1.0/24 --open
 ftp 192.168.1.1  # Try anonymous login
 
@@ -2073,7 +2073,7 @@ Phase 5: Filesystem Enumeration
 ├── /etc/passwd, /etc/shadow (credentials)
 ├── /etc/config/ (router config files)
 ├── init scripts (startup services)
-├── Web root (/www/, /htdocs/) — CGI scripts
+├── Web root (/www/, /htdocs/): CGI scripts
 ├── SUID/SGID binaries
 └── Crypto material (certs, keys)
 
@@ -2241,14 +2241,14 @@ Key NIST SP 800-213 requirements for federal IoT:
 The ioXt Alliance "Pledge" certification program defines 8 security principles:
 
 ```
-1. No universal passwords — factory-unique or user-set credentials
-2. Protected interfaces — only necessary ports open
-3. Proven cryptography — current standards, no custom crypto
-4. Security by default — secure settings from factory
-5. Signed and verified updates — cryptographic verification required
-6. Automatically applied security updates — automatic patching capability
-7. Vulnerability reporting program — published CVD policy
-8. Security expiration date — published end-of-support date
+1. No universal passwords: factory-unique or user-set credentials
+2. Protected interfaces, only necessary ports open
+3. Proven cryptography: current standards, no custom crypto
+4. Security by default: secure settings from factory
+5. Signed and verified updates: cryptographic verification required
+6. Automatically applied security updates: automatic patching capability
+7. Vulnerability reporting program: published CVD policy
+8. Security expiration date: published end-of-support date
 ```
 
 ioXt Certification Levels:
@@ -2376,13 +2376,13 @@ FR 7: Resource Availability
 
 IoT VLAN Architecture:
 ```
-Architecture principle: Zero trust for IoT — no lateral movement possible
+Architecture principle: Zero trust for IoT; no lateral movement possible
 
 Recommended VLAN design:
-VLAN 1:   Corporate LAN (workstations, servers) — management network
+VLAN 1:   Corporate LAN (workstations, servers), management network
 VLAN 10:  Server DMZ (internet-facing servers)
-VLAN 20:  IoT VLAN (all IoT devices — no internet direct access)
-VLAN 30:  OT/SCADA VLAN (industrial devices — air-gapped from IT)
+VLAN 20:  IoT VLAN (all IoT devices, no internet direct access)
+VLAN 30:  OT/SCADA VLAN (industrial devices, air-gapped from IT)
 VLAN 100: Guest WiFi (isolated, internet only)
 VLAN 200: Security cameras (isolated, NVR access only)
 
@@ -2550,9 +2550,9 @@ Software Bill of Materials (SBOM), IoT Context:
 
 ```
 SBOM formats:
-- SPDX (Software Package Data Exchange) — Linux Foundation standard
-- CycloneDX — OWASP project, XML/JSON
-- SWID (Software Identification Tags) — ISO/IEC 19770-2
+- SPDX (Software Package Data Exchange): Linux Foundation standard
+- CycloneDX: OWASP project, XML/JSON
+- SWID (Software Identification Tags): ISO/IEC 19770-2
 
 SBOM minimum elements (NTIA Consensus):
 1. Supplier Name

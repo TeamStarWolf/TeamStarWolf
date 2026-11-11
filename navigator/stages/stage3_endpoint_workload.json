@@ -1,5 +1,5 @@
 {
-  "name": "Stage 3 — Endpoint & Workload Protection",
+  "name": "Stage 3: Endpoint & Workload Protection",
   "versions": {
     "attack": "20",
     "navigator": "4.9",
@@ -118,7 +118,7 @@
       "techniqueID": "T1685",
       "tactic": "defense-impairment",
       "score": 3,
-      "comment": "EDR self-protection; tamper protection; AU integrity (Re-keyed from T1562, which ATT&CK v19 revoked in favour of T1685; data/attack/superseded_by.jsonl.) | Disable/modify security tools — tamper protection (Re-keyed from T1562.001, which ATT&CK v19 revoked in favour of T1685; data/attack/superseded_by.jsonl.)"
+      "comment": "EDR self-protection; tamper protection; AU integrity (Re-keyed from T1562, which ATT&CK v19 revoked in favour of T1685; data/attack/superseded_by.jsonl.) | Disable/modify security tools: tamper protection (Re-keyed from T1562.001, which ATT&CK v19 revoked in favour of T1685; data/attack/superseded_by.jsonl.)"
     },
     {
       "techniqueID": "T1003",
@@ -194,7 +194,7 @@
   "metadata": [
     {
       "name": "stage",
-      "value": "Stage 3 — Endpoint & Workload Protection"
+      "value": "Stage 3: Endpoint & Workload Protection"
     },
     {
       "name": "nist_families",
@@ -202,7 +202,7 @@
     },
     {
       "name": "source",
-      "value": "TeamStarWolf — https://github.com/TeamStarWolf/TeamStarWolf"
+      "value": "TeamStarWolf: https://github.com/TeamStarWolf/TeamStarWolf"
     },
     {
       "name": "attack_version",

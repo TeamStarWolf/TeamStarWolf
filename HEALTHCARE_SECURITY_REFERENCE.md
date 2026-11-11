@@ -135,9 +135,9 @@ FHIR (Fast Healthcare Interoperability Resources) is a RESTful API exposing data
 ```text
 # SMART on FHIR scope hygiene
 patient/Observation.rs        # good: one resource, read+search, single patient context
-patient/*.read                # broad: entire record for the launch patient — justify it
-system/Patient.read           # backend service — gate behind client-credentials + allow-list
-$export (Bulk Data)           # population-scale export — treat as a data-exfil primitive
+patient/*.read                # broad: entire record for the launch patient, justify it
+system/Patient.read           # backend service: gate behind client-credentials + allow-list
+$export (Bulk Data)           # population-scale export: treat as a data-exfil primitive
 ```
 
 ### DICOM and PACS

@@ -314,12 +314,12 @@ TCP is a connection-oriented, reliable, ordered protocol. Understanding its inte
 #### TCP Flags: Security Reference
 
 ```
-URG — Urgent data present (Urgent Pointer field is valid)
-ACK — Acknowledgment number is valid (set after first SYN-ACK)
-PSH — Push: deliver data to application immediately, don't buffer
-RST — Reset: abort connection immediately, no graceful close
-SYN — Synchronize: initiate connection, exchange Initial Sequence Numbers
-FIN — Finish: no more data from sender, begin graceful close
+URG: Urgent data present (Urgent Pointer field is valid)
+ACK: Acknowledgment number is valid (set after first SYN-ACK)
+PSH: Push: deliver data to application immediately, don't buffer
+RST: Reset: abort connection immediately, no graceful close
+SYN: Synchronize: initiate connection, exchange Initial Sequence Numbers
+FIN: Finish: no more data from sender, begin graceful close
 ```
 
 Attack relevance of flag combinations:
@@ -543,23 +543,23 @@ ARP resolves Layer 3 IPv4 addresses to Layer 2 MAC addresses. It operates at "La
 ```
 Host A (192.168.1.100) wants to reach Host B (192.168.1.50):
 
-Step 1 — ARP Request (broadcast):
+Step 1: ARP Request (broadcast):
   Ethernet: Src=AA:BB:CC:11:22:33  Dst=FF:FF:FF:FF:FF:FF
   ARP: "Who has 192.168.1.50? Tell 192.168.1.100"
   (Every host on the segment receives this)
 
-Step 2 — ARP Reply (unicast):
+Step 2: ARP Reply (unicast):
   Ethernet: Src=DD:EE:FF:44:55:66  Dst=AA:BB:CC:11:22:33
   ARP: "192.168.1.50 is at DD:EE:FF:44:55:66"
 
-Step 3 — Host A caches: 192.168.1.50 → DD:EE:FF:44:55:66
+Step 3: Host A caches: 192.168.1.50 → DD:EE:FF:44:55:66
   Cache lifetime: Linux = 60s (reachable) → 30s probe; Windows = 45-65s
 ```
 
 ARP cache inspection:
 ```bash
-arp -a          # Windows and Linux — show ARP cache
-ip neigh show   # Linux (preferred) — shows state (REACHABLE, STALE, etc.)
+arp -a          # Windows and Linux: show ARP cache
+ip neigh show   # Linux (preferred): shows state (REACHABLE, STALE, etc.)
 ```
 
 Gratuitous ARP: An unsolicited ARP reply where the sender announces its own IP-to-MAC mapping. Used legitimately by HSRP/VRRP failover (announce new MAC for VIP) and IP conflict detection. Attackers abuse gratuitous ARP to poison caches without waiting for a request.
@@ -646,7 +646,7 @@ Attack 1: Switch Spoofing (DTP Negotiation)
 Dynamic Trunking Protocol (DTP) is a Cisco protocol that allows switches to auto-negotiate trunk links. An attacker on an access port sends DTP frames pretending to be a switch; if the port is in `dynamic desirable` or `dynamic auto` mode, it may become a trunk, granting access to all VLANs.
 
 ```bash
-# Yersinia — DTP trunk negotiation attack
+# Yersinia: DTP trunk negotiation attack
 yersinia dtp -attack 1   # Send DTP frames to negotiate trunk port
 
 # If successful: sniff traffic from any VLAN using 802.1Q tagging
@@ -654,7 +654,7 @@ yersinia dtp -attack 1   # Send DTP frames to negotiate trunk port
 
 Mitigation:
 ```
-switchport mode access          ! Force access mode — no DTP negotiation
+switchport mode access          ! Force access mode: no DTP negotiation
 switchport nonegotiate          ! Explicitly disable DTP
 ```
 
@@ -796,7 +796,7 @@ DOWN:     No Hellos received from neighbor
 INIT:     Hello received; neighbor doesn't list us yet
 2-WAY:    Both routers see each other in Hello packets (bidirectional)
 EXSTART:  Negotiate master/slave for DBD exchange (higher RID = master)
-EXCHANGE: Exchange DBD (Database Description) packets — LSDB summaries
+EXCHANGE: Exchange DBD (Database Description) packets, LSDB summaries
 LOADING:  Send LSR (Link State Request) for missing LSAs; receive LSU
 FULL:     LSDB synchronized; routing can begin
 ```
@@ -854,7 +854,7 @@ BGP is the routing protocol of the internet, a path vector EGP (Exterior Gateway
 3. Locally originated (network command, redistribute, or aggregate)
 4. Shortest AS_PATH (fewest ASes to traverse)
 5. Lowest ORIGIN type (IGP=0 < EGP=1 < Incomplete=2)
-6. Lowest MED (Multi-Exit Discriminator — hint to upstream for preferred entry point)
+6. Lowest MED (Multi-Exit Discriminator: hint to upstream for preferred entry point)
 7. eBGP over iBGP
 8. Lowest IGP metric to BGP next hop
 9. Oldest eBGP route (stability preference)
@@ -1087,10 +1087,10 @@ def entropy(s):
     freq = collections.Counter(s)
     return -sum((c/len(s))*math.log2(c/len(s)) for c in freq.values())
 
-# Normal domain label: "www" or "mail" — entropy ~1.5-2.5
-# Base32 encoded payload: "y3zk9x2b8m1n4p" — entropy ~4.0-4.5+
-print(entropy("a7f3k9x2b8m1n4p"))   # ~3.9 — suspicious
-print(entropy("www"))                 # ~1.58 — normal
+# Normal domain label: "www" or "mail", entropy ~1.5-2.5
+# Base32 encoded payload: "y3zk9x2b8m1n4p", entropy ~4.0-4.5+
+print(entropy("a7f3k9x2b8m1n4p"))   # ~3.9: suspicious
+print(entropy("www"))                 # ~1.58: normal
 ```
 
 ATT&CK: T1071.004 (Application Layer Protocol: DNS); T1048.003 (Exfiltration Over Alternative Protocol); T1568.002 (Domain Generation Algorithms)
@@ -1155,7 +1155,7 @@ Matches traffic against rules based on header fields only: source/destination IP
 
 ```
 Rule: permit tcp 10.0.0.0/8 any eq 443
-Problem: Rule allows ANY TCP packet to port 443 — including unsolicited
+Problem: Rule allows ANY TCP packet to port 443, including unsolicited
          inbound packets. Cannot distinguish response from attack.
 ```
 
@@ -1324,7 +1324,7 @@ Client                                    Access Point
   |--- Probe Request (broadcast) ------------>|  "Any AP with SSID CorpWiFi?"
   |<-- Probe Response ------------------------|  AP sends capabilities, RSSI info
   |                                            |
-  |--- Open System Authentication ----------->|  (Shared Key was WEP — do not use)
+  |--- Open System Authentication ----------->|  (Shared Key was WEP: do not use)
   |<-- Authentication ACK --------------------|
   |                                            |
   |--- Association Request ------------------>|  Client specifies supported rates, cipher
@@ -1352,7 +1352,7 @@ PMK + ANonce (AP random) + SNonce (Client random) + AP MAC + Client MAC
 Step 3: PTK split
 PTK = KCK (128-bit, MIC calculation)
     + KEK (128-bit, GTK encryption)
-    + TK  (128-bit, data encryption — used for AES-CCMP)
+    + TK  (128-bit, data encryption: used for AES-CCMP)
     + 2x MIC keys (64-bit each)
 
 Step 4: GTK delivery
@@ -1435,18 +1435,18 @@ Every command below has security relevance beyond basic troubleshooting. Know wh
 # LAYER 3 CONNECTIVITY
 # ============================================================
 
-# ICMP echo test — confirms L3 reachability and ICMP policy
+# ICMP echo test: confirms L3 reachability and ICMP policy
 ping -c 4 8.8.8.8
 ping -c 4 -s 1472 8.8.8.8     # Test MTU: 1472+28 IP/ICMP header = 1500 byte frame
 
-# Path discovery — reveals routing hops and intermediate router IPs (network footprinting)
+# Path discovery: reveals routing hops and intermediate router IPs (network footprinting)
 traceroute -n 8.8.8.8          # Linux: UDP probes by default, -n skips reverse DNS
 tracert -d 8.8.8.8             # Windows: ICMP probes, -d skips DNS resolution
 traceroute -T -p 443 8.8.8.8   # TCP SYN traceroute on port 443 (bypass ICMP-blocking firewalls)
 traceroute -I 8.8.8.8          # Linux ICMP mode (same as Windows tracert)
 
 # Path MTU discovery
-ping -M do -s 1472 gateway_ip  # Linux: DF-bit forced — find where fragmentation occurs
+ping -M do -s 1472 gateway_ip  # Linux: DF-bit forced, find where fragmentation occurs
 pathping 8.8.8.8               # Windows: combines ping + tracert with packet loss statistics
 
 # ============================================================
@@ -1464,10 +1464,10 @@ dig domain.com TXT | grep -i dmarc        # Extract DMARC policy
 nmap --script dns-brute domain.com        # DNS subdomain brute force
 
 # ============================================================
-# NETWORK STATE — CRITICAL FOR INCIDENT RESPONSE
+# NETWORK STATE: CRITICAL FOR INCIDENT RESPONSE
 # ============================================================
 
-# Windows: all connections with PIDs — identify what process owns suspicious connection
+# Windows: all connections with PIDs; identify what process owns suspicious connection
 netstat -ano
 netstat -ano | findstr ESTABLISHED        # Active connections only
 netstat -ano | findstr :443               # Connections to/from specific port
@@ -1479,13 +1479,13 @@ ss -tunap                                 # TCP+UDP, all states, with process
 ss -o state established '( dport = :443 or sport = :443 )'  # Established HTTPS connections
 ss -s                                     # Connection state summary
 
-# Routing table — where will traffic be sent?
+# Routing table, where will traffic be sent?
 netstat -rn                               # Windows + Linux legacy
 ip route show                             # Linux (preferred)
 ip route get 8.8.8.8                      # Exactly which route would be used for 8.8.8.8
 route print                               # Windows: full routing table
 
-# ARP cache — who is on the local segment?
+# ARP cache: who is on the local segment?
 arp -a                                    # Windows + Linux
 ip neigh show                             # Linux (preferred): shows ARP/NDP state
 ip neigh show | grep -v REACHABLE         # Find STALE, INCOMPLETE, FAILED entries
@@ -1498,10 +1498,10 @@ ipconfig /all                             # Windows: full interface details incl
 ip -s link                                # Linux: interface statistics (errors, drops, collisions)
 
 # ============================================================
-# PACKET CAPTURE — FOUNDATIONAL INVESTIGATIVE TOOL
+# PACKET CAPTURE: FOUNDATIONAL INVESTIGATIVE TOOL
 # ============================================================
 
-# Basic capture — first step in any network investigation
+# Basic capture: first step in any network investigation
 tcpdump -i eth0 -n -c 100
 
 # Targeted captures by host, port, protocol
@@ -1521,7 +1521,7 @@ tcpdump -G 3600 -W 24 -w /tmp/cap_%Y%m%d_%H.pcap  # Rotate hourly, keep 24 files
 # arp.duplicate-address-detected          → ARP poisoning indicator
 # dns.qry.name contains "."              → Abnormally long DNS labels (potential tunneling)
 # http.request.method == "POST"           → HTTP POST requests (data submission / exfil)
-# tls.handshake.type == 1                → TLS ClientHello (new TLS connections — watch SNI)
+# tls.handshake.type == 1                → TLS ClientHello (new TLS connections: watch SNI)
 # ip.ttl < 5                             → Very low TTL (traceroute or TTL manipulation)
 # icmp.data_len > 100                    → Large ICMP payload (potential ICMP tunnel)
 
@@ -1529,7 +1529,7 @@ tcpdump -G 3600 -W 24 -w /tmp/cap_%Y%m%d_%H.pcap  # Rotate hourly, keep 24 files
 # PORT SCANNING AND SERVICE DISCOVERY
 # ============================================================
 
-nmap -sS -p 1-65535 target              # SYN (stealth) scan — all 65535 ports
+nmap -sS -p 1-65535 target              # SYN (stealth) scan: all 65535 ports
 nmap -sV -sC -p 22,80,443,8080 target   # Version detection + default scripts on common ports
 nmap -sU -p 53,161,500,4500 target      # UDP scan: DNS, SNMP, IKE/IPsec ports
 nmap -O target                          # OS fingerprinting via TTL + TCP options
@@ -1538,7 +1538,7 @@ nmap -sn 10.0.0.0/24                   # Ping sweep (host discovery without port
 nmap --script vuln target              # Run vulnerability NSE scripts
 nmap --script banner -sS target        # Grab service banners
 
-# Masscan — for large ranges where nmap -sS is too slow
+# Masscan, for large ranges where nmap -sS is too slow
 masscan -p1-65535 10.0.0.0/16 --rate=1000 -oG masscan_out.txt
 masscan -p80,443,8080,8443 10.0.0.0/8 --rate=10000
 
@@ -1549,7 +1549,7 @@ masscan -p80,443,8080,8443 10.0.0.0/8 --rate=10000
 # Linux
 iptables -L -n -v --line-numbers        # All rules with packet/byte counts and line numbers
 iptables -t nat -L -n -v               # NAT table rules (SNAT, DNAT, MASQUERADE)
-ip6tables -L -n -v                     # IPv6 rules — often neglected!
+ip6tables -L -n -v                     # IPv6 rules, often neglected!
 nft list ruleset                        # nftables (modern replacement for iptables on Linux)
 ufw status verbose                      # Ubuntu UFW (Uncomplicated Firewall) rules
 firewall-cmd --list-all                 # firewalld (RHEL/CentOS/Fedora) active rules
@@ -1583,7 +1583,7 @@ ss -tlnp | awk '{print $4}' | sort | uniq -c | sort -rn
 # Watch for new connections in real time
 watch -n 1 'ss -tn state established | wc -l'
 
-# DNS cache inspection (Windows — look for malicious cached entries)
+# DNS cache inspection (Windows: look for malicious cached entries)
 ipconfig /displaydns | grep -A2 "attacker"
 
 # Check for hosts file manipulation (persistence/redirect technique)
@@ -1632,7 +1632,7 @@ type C:\Windows\System32\drivers\etc\hosts
     ┌───────────────────────────────────────────────────┐
     │                  Core Network                     │
     │    AD/LDAP  |  DNS  |  NTP  |  PKI               │
-    │    (Critical services — isolated /28 subnets)     │
+    │    (Critical services: isolated /28 subnets)      │
     └───────────────────────────────────────────────────┘
             |                |                |
     ┌───────┴──────┐  ┌──────┴──────┐  ┌─────┴──────┐

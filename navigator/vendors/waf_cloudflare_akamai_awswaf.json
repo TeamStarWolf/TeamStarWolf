@@ -1,5 +1,5 @@
 {
-  "name": "WAF/WAAP — Cloudflare / Akamai / AWS WAF / F5 Advanced",
+  "name": "WAF/WAAP: Cloudflare / Akamai / AWS WAF / F5 Advanced",
   "versions": {
     "attack": "20",
     "navigator": "4.9",
@@ -206,7 +206,7 @@
       "techniqueID": "T1102",
       "tactic": "command-and-control",
       "color": "#10b981",
-      "comment": "Web service C2 via allowed cloud platforms — CASB + WAF combination",
+      "comment": "Web service C2 via allowed cloud platforms: CASB + WAF combination",
       "enabled": true,
       "metadata": [],
       "links": [],
@@ -216,7 +216,7 @@
       "techniqueID": "T1530",
       "tactic": "collection",
       "color": "#10b981",
-      "comment": "Cloud storage object access — S3 presigned URL abuse detection",
+      "comment": "Cloud storage object access: S3 presigned URL abuse detection",
       "enabled": true,
       "metadata": [],
       "links": [],
@@ -246,7 +246,7 @@
       "techniqueID": "T1091",
       "tactic": "lateral-movement",
       "color": "#10b981",
-      "comment": "Replication through removable media — web-delivered payload blocked",
+      "comment": "Replication through removable media: web-delivered payload blocked",
       "enabled": true,
       "metadata": [],
       "links": [],
@@ -283,7 +283,7 @@
   },
   "legendItems": [
     {
-      "label": "Covered by WAF/WAAP — Cloudflare / Akamai / AWS WAF / F5 Advanced",
+      "label": "Covered by WAF/WAAP: Cloudflare / Akamai / AWS WAF / F5 Advanced",
       "color": "#10b981"
     }
   ],

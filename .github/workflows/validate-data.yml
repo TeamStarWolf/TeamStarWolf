@@ -172,11 +172,13 @@ jobs:
     # revoked: hand-written pages may not cite a revoked/deprecated ATT&CK ID (per
     #   data/attack/superseded_by.jsonl) more often than scripts/baselines/revoked_ids.json
     #   records; the baseline holds the pre-existing citations and may only shrink.
-    # voice: hand-written pages follow docs/VOICE.md (no em-dashes, emoji, sentence-ending
+    # voice: hand-written pages follow docs/VOICE.md (no emoji, sentence-ending
     #   exclamation marks, marketing words or hand-typed headline counts) beyond what
     #   scripts/baselines/voice.json records. That baseline only shrinks: --update-baseline
     #   refuses a rise, and on a pull request the step below also fails when any rule's
-    #   baselined total is higher than on the base branch.
+    #   baselined total is higher than on the base branch. Em dashes (U+2014) and agent
+    #   process notes have no baseline: one in any tracked text file (em dash) or any
+    #   Markdown page (note) fails, upstream names and descriptions in data/ JSONL excepted.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

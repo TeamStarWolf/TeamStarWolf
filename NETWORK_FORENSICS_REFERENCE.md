@@ -1667,7 +1667,7 @@ NETWORK FORENSICS EXAMINATION REPORT
    | SHA256 | abc123... | 2024-01-15T14:30Z | ... | files.log |
 
 5. NETWORK FORENSICS TIMELINE
-   [Tabular timeline correlating all evidence sources — see Section 6 methodology]
+   [Tabular timeline correlating all evidence sources: see Section 6 methodology]
 
 6. EVIDENCE APPENDIX
    - Evidence hash manifest

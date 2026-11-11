@@ -400,14 +400,14 @@ tcpdump -r capture.pcap -w filtered.pcap 'host 10.0.0.1'
 ### File Carving
 
 ```bash
-# foremost — carve by file type signatures
+# foremost: carve by file type signatures
 foremost -i disk.img -o ./output/
 foremost -t png,jpg,zip -i disk.img -o ./output/
 
-# scalpel — faster, config-based carving
+# scalpel: faster, config-based carving
 scalpel disk.img -o ./output/
 
-# photorec — GUI/TUI for carving photos and documents
+# photorec: GUI/TUI for carving photos and documents
 photorec disk.img
 ```
 

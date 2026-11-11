@@ -162,7 +162,7 @@ Official HTB retired machine writeup index: 127 machines organized by difficulty
 
 | Sense | Linux | Modifying publicly available |
 
-| Silo | Windows | Enumerating Oracle SIDs; Enumerating Oracle credentials; Leveraging Oracle to upload and |
+| Silo | Windows | Enumerating Oracle SIDs; Enumerating Oracle credentials; Using Oracle to upload and |
 
 | Sneaky | Linux | Basic SQL injection; Enumerating SNMP |
 

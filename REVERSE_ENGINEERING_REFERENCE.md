@@ -1062,7 +1062,7 @@ ql.run()
 
 ## Section 6: Decompilers & Code Recovery
 
-### Ghidra Decompiler — Advanced Techniques
+### Ghidra Decompiler: Advanced Techniques
 
 #### Struct Recovery Workflow
 

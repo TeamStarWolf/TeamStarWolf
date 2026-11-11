@@ -1,5 +1,5 @@
 {
-  "name": "Identity — Okta / Microsoft Entra ID / CyberArk PAM",
+  "name": "Identity: Okta / Microsoft Entra ID / CyberArk PAM",
   "versions": {
     "attack": "20",
     "navigator": "4.9",
@@ -282,7 +282,7 @@
   },
   "legendItems": [
     {
-      "label": "Covered by Identity — Okta / Microsoft Entra ID / CyberArk PAM",
+      "label": "Covered by Identity: Okta / Microsoft Entra ID / CyberArk PAM",
       "color": "#8b5cf6"
     }
   ],

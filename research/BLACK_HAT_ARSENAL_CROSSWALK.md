@@ -20,7 +20,7 @@ The goal is not to mirror Arsenal entry-for-entry. The goal is to turn a confere
 
 - Builder script: [scripts/build_blackhat_arsenal_dataset.py](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/research/scripts/build_blackhat_arsenal_dataset.py)
 
-- Current snapshot in this repo: 103 tool pages across 19 Arsenal categories
+- Current snapshot in this repo: 103 tools across 19 Arsenal categories
 
 - GitHub-backed entries: 97
 
@@ -268,7 +268,7 @@ Use this table to find Arsenal tools by discipline and ATT&CK technique coverage
 
 | step-ca | BH USA 2020 | PKI | [Cryptography & PKI](/disciplines/cryptography-pki.md) | T1557, T1040 | Private ACME CA with automated cert issuance |
 
-| testssl.sh | BH USA 2016 | TLS Testing | [Cryptography & PKI](/disciplines/cryptography-pki.md) | T1040, T1557 | Comprehensive TLS/SSL server testing |
+| testssl.sh | BH USA 2016 | TLS Testing | [Cryptography & PKI](/disciplines/cryptography-pki.md) | T1040, T1557 | TLS/SSL server testing across protocols, ciphers and known flaws |
 
 | Presidio | BH USA 2022 | Privacy / PII | [Privacy Engineering](/disciplines/privacy-engineering.md) | T1005, T1213 | Microsoft PII detection and anonymization |
 
@@ -347,7 +347,7 @@ This section catalogs notable Black Hat Arsenal and community offensive/defensiv
 | Havoc | HavocFramework | Modern C2 framework featuring the Demon agent with sleep obfuscation, indirect syscalls, and BOF support | github.com/HavocC2/Havoc |
 | Merlin | Ne0nd0g | HTTP/2-based cross-platform C2 server and agent; supports JA3 fingerprint evasion | github.com/Ne0nd0g/merlin |
 | Covenant | cobbr | .NET collaborative C2 framework with a web UI; supports Grunt implants and task chaining | github.com/cobbr/Covenant |
-| SILENTTRINITY | byt3bl33d3r | Python/Boo language C2 that leverages .NET's DLR for in-memory payload execution | github.com/byt3bl33d3r/SILENTTRINITY |
+| SILENTTRINITY | byt3bl33d3r | Python/Boo language C2 that uses .NET's DLR for in-memory payload execution | github.com/byt3bl33d3r/SILENTTRINITY |
 
 ---
 
@@ -457,7 +457,7 @@ This section catalogs notable Black Hat Arsenal and community offensive/defensiv
 | BloodHound | T1087, T1482, T1069 | AD Attack Paths | Graph-based AD attack path analysis; SharpHound collector; Community Edition (CE) is free |
 | SharpHound | T1087, T1069, T1482 | AD Enumeration | .NET BloodHound data collector; also available as PowerShell |
 | PowerView | T1069, T1087, T1482 | AD Enumeration | PowerShell AD recon: Get-NetUser, Get-ObjectAcl, Find-DomainShare |
-| ADRecon | T1087, T1069 | AD Enumeration | Comprehensive AD snapshot in Excel: users, groups, GPOs, trusts, SPNs |
+| ADRecon | T1087, T1069 | AD Enumeration | Full AD snapshot in Excel: users, groups, GPOs, trusts, SPNs |
 | PingCastle | T1087, T1069 | AD Risk Assessment | Domain risk scoring and attack path visualization; produces health report |
 | Ldapdomaindump | T1087, T1069 | AD Enumeration | LDAP data dump to JSON/CSV/HTML; users, groups, computers, GPOs, trusts |
 
@@ -488,8 +488,8 @@ This section catalogs notable Black Hat Arsenal and community offensive/defensiv
 
 | Tool | ATT&CK Techniques | Category | Description |
 |---|---|---|---|
-| WinPEAS | T1087, T1083, T1548 | Windows Enum | Comprehensive Windows privilege escalation enumeration; color-coded output |
-| LinPEAS | T1087, T1083, T1548 | Linux Enum | Comprehensive Linux privilege escalation enumeration; PEASS-ng project |
+| WinPEAS | T1087, T1083, T1548 | Windows Enum | Windows privilege escalation enumeration; color-coded output |
+| LinPEAS | T1087, T1083, T1548 | Linux Enum | Linux privilege escalation enumeration; PEASS-ng project |
 | Seatbelt | T1087, T1082, T1083 | Windows Enum | .NET security config audit; 100+ checks for credentials, configs, and misconfigs |
 | PowerUp | T1548, T1083 | Windows Privesc | PowerShell privilege escalation checks; unquoted paths, weak service ACLs |
 | pspy | T1053, T1059 | Linux Process Monitor | Unprivileged Linux process monitor; catches cron jobs and SUID execution |
@@ -504,7 +504,7 @@ This section catalogs notable Black Hat Arsenal and community offensive/defensiv
 | Spiderfoot | T1589, T1590 | Automated OSINT | 200+ OSINT modules; email, domain, IP, social media, dark web |
 | Shodan | T1595, T1590 | Internet Scanner | Search engine for internet-connected devices; CVE search; banner grabbing |
 | theHarvester | T1589, T1590 | Recon | Email/subdomain/IP harvesting from Google, Bing, LinkedIn, Shodan |
-| Amass | T1595.002 | Subdomain Enum | OWASP tool for comprehensive subdomain enumeration; DNS brute force and scraping |
+| Amass | T1595.002 | Subdomain Enum | OWASP tool for subdomain enumeration; DNS brute force and scraping |
 | recon-ng | T1589, T1590 | Recon Framework | Modular web recon framework similar to Metasploit; marketplace modules |
 
 ### Defensive and Forensics Tools

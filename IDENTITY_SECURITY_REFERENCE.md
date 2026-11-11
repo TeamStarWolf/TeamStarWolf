@@ -514,7 +514,7 @@ Update-MgPolicyAuthenticationMethodPolicyAuthenticationMethodConfiguration `
     -AuthenticationMethodConfigurationId "fido2" `
     -IsRegistrationRequired $true
 
-# Block legacy auth — check Named Locations
+# Block legacy auth: check Named Locations
 Get-MgIdentityConditionalAccessNamedLocation | Select-Object DisplayName, Id
 
 # Export risky sign-ins (last 30 days)
@@ -875,7 +875,7 @@ MOVER:
 LEAVER:
   Trigger: HR termination event
   Actions:
-    1. Disable AD account (T+0 hours — immediate)
+    1. Disable AD account (T+0 hours: immediate)
     2. Revoke all active sessions (M365 revoke token)
     3. Remove all group memberships (T+1 hour)
     4. Reassign owned resources to manager
@@ -1068,7 +1068,7 @@ procdump.exe -accepteula -ma lsass.exe lsass.dmp
 privilege::debug
 sekurlsa::logonpasswords
 
-# comsvcs.dll (LOLBIN — no external binary needed)
+# comsvcs.dll (LOLBIN: no external binary needed)
 rundll32.exe C:\Windows\System32\comsvcs.dll MiniDump <PID> C:\Windows\Temp\lsass.dmp full
 ```
 
@@ -1119,7 +1119,7 @@ Event log: 4662 (Directory service access) with GUID:
 ```
 Protection mechanism:
   - Runs LSASS in isolated virtualization-based security (VBS) process (LSAIso)
-  - NTLM hashes and Kerberos TGTs stored in LSAIso — not accessible to
+  - NTLM hashes and Kerberos TGTs stored in LSAIso, not accessible to
     normal LSASS process
   - Mimikatz sekurlsa::logonpasswords returns only DES/RC4 partial hashes
 
@@ -1130,7 +1130,7 @@ Enable:
 
 Bypasses (advanced):
   - Hyper-V partition escape (patched in recent builds)
-  - DMA attacks (Thunderbolt — mitigate with Kernel DMA Protection)
+  - DMA attacks (Thunderbolt: mitigate with Kernel DMA Protection)
   - Memory forensics on running system before hibernation
 ```
 
@@ -1154,7 +1154,7 @@ hashcat -m 13100 spn_hashes.txt wordlist.txt -r rules/best64.rule
 # Detection
 # Event ID 4769 (Kerberos Service Ticket Requested)
 # Filter: Ticket Encryption Type = 0x17 (RC4) for service accounts
-# with SPNs — legitimate services use AES (0x12)
+# with SPNs: legitimate services use AES (0x12)
 ```
 
 #### AS-REP Roasting (T1558.004)

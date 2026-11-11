@@ -400,7 +400,7 @@ control = {
     "deployment_coverage": 0.94,  # 94% of endpoints have agent
     "nist_controls": ["SI-3", "SI-7", "AU-12", "IR-4"],
     "attack_techniques": ["T1059.001", "T1055", "T1003", "T1548"],
-    "gap_notes": "6% coverage gap — Linux servers in DMZ zone"
+    "gap_notes": "6% coverage gap, Linux servers in DMZ zone"
 }
 ```
 

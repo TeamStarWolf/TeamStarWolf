@@ -1,5 +1,5 @@
 {
-  "name": "EDR — CrowdStrike Falcon / SentinelOne / Carbon Black",
+  "name": "EDR: CrowdStrike Falcon / SentinelOne / Carbon Black",
   "versions": {
     "attack": "20",
     "navigator": "4.9",
@@ -312,7 +312,7 @@
   },
   "legendItems": [
     {
-      "label": "Covered by EDR — CrowdStrike Falcon / SentinelOne / Carbon Black",
+      "label": "Covered by EDR: CrowdStrike Falcon / SentinelOne / Carbon Black",
       "color": "#ef4444"
     }
   ],

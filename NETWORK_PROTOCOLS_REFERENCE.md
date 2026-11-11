@@ -158,7 +158,7 @@ Connection Tracking (conntrack):
 conntrack -L -p tcp --state ESTABLISHED
 # Monitor new connections
 conntrack -E --event-mask NEW
-# Limits — tune for DDoS resistance
+# Limits: tune for DDoS resistance
 sysctl net.netfilter.nf_conntrack_max=262144
 sysctl net.netfilter.nf_conntrack_tcp_timeout_established=86400
 ```
@@ -321,7 +321,7 @@ IPv6 First-Hop Security Checklist:
 # IP source/destination
 ip.src == 192.168.1.100
 ip.dst == 10.0.0.0/8
-ip.ttl < 10               # Unusual TTL — possibly crafted
+ip.ttl < 10               # Unusual TTL, possibly crafted
 
 # TCP flags
 tcp.flags.syn == 1 && tcp.flags.ack == 0     # SYN only (connection initiation)
@@ -374,7 +374,7 @@ icmpv6.type == 135        # Neighbor Solicitation
 
 Zone Transfer Enumeration:
 ```bash
-# Attempt zone transfer (AXFR) — should fail on properly configured servers
+# Attempt zone transfer (AXFR): should fail on properly configured servers
 dig @ns1.example.com example.com AXFR
 # Check if zone transfer is restricted
 nmap --script dns-zone-transfer -p 53 ns1.example.com
@@ -403,7 +403,7 @@ Mitigations:
 ```bash
 # Verify source port randomization (should show random ports)
 tcpdump -n -i eth0 'src port 53' | head -20
-# BIND — enable query source port randomization (default in modern versions)
+# BIND: enable query source port randomization (default in modern versions)
 # /etc/named.conf
 query-source address * port *;    # Wildcard = random port
 # Validate with dig
@@ -443,9 +443,9 @@ Mitigations:
 
 Record Chain of Trust:
 ```
-Root Zone (.) — signed by ICANN Root KSK
-  └─ .com — DS record in root, DNSKEY in .com zone
-       └─ example.com — DS record in .com, DNSKEY + RRSIG in example.com
+Root Zone (.): signed by ICANN Root KSK
+  └─ .com: DS record in root, DNSKEY in .com zone
+       └─ example.com: DS record in .com, DNSKEY + RRSIG in example.com
 ```
 
 Key Record Types:
@@ -489,8 +489,8 @@ DoH (RFC 8484):
 
 Enterprise DoH Blocking:
 ```
-# Cisco Umbrella — enforces DNS via Umbrella resolvers; blocks direct DoH
-# Palo Alto Networks — App-ID "dns-over-https" application block
+# Cisco Umbrella: enforces DNS via Umbrella resolvers; blocks direct DoH
+# Palo Alto Networks: App-ID "dns-over-https" application block
 # Windows Group Policy: Disable DoH
 # HKLM\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters
 # EnableAutoDoh = 0
@@ -544,7 +544,7 @@ zeek-cut query < dns.log | awk 'length($1) > 50' | sort | uniq -c | sort -rn
 # Low TTL queries (evasion)
 zeek-cut query TTLs < dns.log | awk '{split($2,a,","); if(a[1]<60) print $0}'
 
-# Beaconing — regular query intervals
+# Beaconing: regular query intervals
 zeek-cut ts id.orig_h query < dns.log | sort -k1 | awk '{print $2,$3}' | sort | uniq -c
 ```
 
@@ -800,9 +800,9 @@ Enterprise TLS Inspection:
 
 Detection by endpoint:
 ```bash
-# Check certificate issuer — should be legitimate CA, not corporate proxy
+# Check certificate issuer: should be legitimate CA, not corporate proxy
 openssl s_client -connect example.com:443 2>/dev/null | openssl x509 -noout -issuer
-# If issuer is "Corporate CA" or "Forcepoint" etc. — inspection in place
+# If issuer is "Corporate CA" or "Forcepoint" etc.: inspection in place
 ```
 
 Bypass techniques (attacker perspective):
@@ -915,7 +915,7 @@ Security Considerations:
 
 Blocking QUIC (enterprise):
 ```bash
-# iptables — block UDP 443 to force HTTP/2 fallback
+# iptables: block UDP 443 to force HTTP/2 fallback
 iptables -A FORWARD -p udp --dport 443 -j DROP
 # Chrome respects this and falls back to TCP/HTTP2
 ```
@@ -973,12 +973,12 @@ Credentialed vs Non-Credentialed:
 
 CORS Misconfiguration Vulnerabilities:
 ```
-# Vulnerable — reflects Origin header blindly
+# Vulnerable: reflects Origin header blindly
 Access-Control-Allow-Origin: https://attacker.com
 Access-Control-Allow-Credentials: true
 # Attacker can read authenticated cross-origin responses
 
-# Vulnerable — null origin
+# Vulnerable: null origin
 Access-Control-Allow-Origin: null
 # Sandboxed iframes have null origin; allows cross-origin reads
 
@@ -1042,11 +1042,11 @@ hashcat -m 13100 hashes.kerberoast rockyou.txt
 
 Detection Queries (Windows Event Log):
 ```
-# Kerberoasting — Event ID 4769, Encryption Type 0x17
+# Kerberoasting: Event ID 4769, Encryption Type 0x17
 EventID=4769 AND TicketEncryptionType=0x17 AND ServiceName!=krbtgt AND ServiceName!=$*
-# AS-REP Roasting — Event ID 4768, Preauth Type 0
+# AS-REP Roasting: Event ID 4768, Preauth Type 0
 EventID=4768 AND PreAuthType=0
-# Golden Ticket — Event ID 4768 from non-DC
+# Golden Ticket: Event ID 4768 from non-DC
 EventID=4768 AND SourceIPAddress NOT IN (dc_ips)
 ```
 
@@ -1078,9 +1078,9 @@ NTLM Relay Attacks:
 3. No cracking needed: relay authentication to access resources.
 
 ```bash
-# Responder — LLMNR/NBT-NS/mDNS poisoning
+# Responder: LLMNR/NBT-NS/mDNS poisoning
 responder -I eth0 -dwv
-# ntlmrelayx — relay to SMB/LDAP/HTTP targets
+# ntlmrelayx: relay to SMB/LDAP/HTTP targets
 ntlmrelayx.py -tf targets.txt -smb2support
 # Combine: Responder poisons, ntlmrelayx relays
 ```
@@ -1100,7 +1100,7 @@ Disable LLMNR/NBT-NS:
 # Group Policy
 Computer Configuration → Administrative Templates → Network → DNS Client
 "Turn off multicast name resolution" = Enabled
-# Registry — NBT-NS
+# Registry: NBT-NS
 HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters\Interfaces\[Interface]
 NetbiosOptions = 2  (disabled)
 ```
@@ -1275,7 +1275,7 @@ A man-in-the-middle attack on the handshake above. The attacker inserts ignorabl
 
 Host Key Verification:
 ```bash
-# TOFU (Trust On First Use) — default behavior
+# TOFU (Trust On First Use): default behavior
 # First connection: "The authenticity of host can't be established. fingerprint is SHA256:xxxx. Are you sure?"
 # Saved to ~/.ssh/known_hosts
 
@@ -1362,7 +1362,7 @@ nfdump Analysis:
 # Top 10 talkers by bytes
 nfdump -R /data/netflow/2024/01/01 -n 10 -s record/bytes
 
-# Find beaconing — regular connections to same destination
+# Find beaconing: regular connections to same destination
 nfdump -R /data -A srcip,dstip,dstport -o "fmt:%ts %td %sa %da %dp %byt" 'proto tcp and bytes > 0'
 
 # Detect port scanning (high unique destination ports from single source)
@@ -1408,7 +1408,7 @@ Anonymous Bind Risk:
 ```bash
 # Test anonymous bind
 ldapsearch -x -H ldap://192.168.1.10 -b "dc=example,dc=com" "(objectclass=*)"
-# If results returned without credentials — anonymous bind enabled
+# If results returned without credentials: anonymous bind enabled
 # Microsoft AD: anonymous bind allowed but limited by default
 ```
 
@@ -1458,7 +1458,7 @@ Notable BGP Incidents:
 
 RPKI (Resource Public Key Infrastructure):
 ```bash
-# ROA (Route Origin Authorization) — what you create as prefix owner
+# ROA (Route Origin Authorization): what you create as prefix owner
 # Specifies: prefix, maximum prefix length, authorized origin AS
 
 # Check ROA existence for a prefix
@@ -1504,7 +1504,7 @@ interface GigabitEthernet0/0
 router ospf 1
  area 0 authentication message-digest
 
-! Passive interfaces (no OSPF peers — suppress Hello packets)
+! Passive interfaces (no OSPF peers: suppress Hello packets)
 router ospf 1
  passive-interface default
  no passive-interface GigabitEthernet0/0    ! Only active on uplinks
@@ -1524,7 +1524,7 @@ STP Attack (Yersinia):
 ```bash
 # Send crafted BPDU to become root bridge
 yersinia stp -attack 1    # Claiming root role
-# Impact: Traffic reroutes through attacker device — MITM
+# Impact: Traffic reroutes through attacker device, MITM
 ```
 
 BPDU Guard:
@@ -1588,7 +1588,7 @@ interface GigabitEthernet0/24
  switchport nonegotiate
 
 ! Or tag native VLAN on trunk (dot1q native VLAN tagging)
-vlan dot1q tag native    ! Global command — Cisco
+vlan dot1q tag native    ! Global command: Cisco
 ```
 
 Additional VLAN Hardening:
@@ -1615,7 +1615,7 @@ ARP Spoofing Attack:
 
 Detection:
 ```bash
-# ARPwatch — detect ARP cache changes
+# ARPwatch: detect ARP cache changes
 arpwatch -i eth0 -f /var/lib/arpwatch/arp.dat
 # Alert on new/changed MAC-IP pairs
 
@@ -1670,13 +1670,13 @@ DHCP Snooping (Cisco):
 ! Enable globally and per VLAN
 ip dhcp snooping
 ip dhcp snooping vlan 10,20,30
-no ip dhcp snooping information option    ! Option 82 — remove if causing issues
+no ip dhcp snooping information option    ! Option 82: remove if causing issues
 
 ! Trust ONLY uplink ports (legitimate DHCP server)
 interface GigabitEthernet0/24    ! Uplink
  ip dhcp snooping trust
 
-! Access ports — untrusted (rate limit DHCP messages)
+! Access ports: untrusted (rate limit DHCP messages)
 interface range GigabitEthernet0/1-23
  ip dhcp snooping limit rate 15    ! 15 DHCP packets/second max
 
@@ -1715,13 +1715,13 @@ Mechanisms:
   include    Delegate to another domain's SPF
   a          Domain's A/AAAA records
   mx         Domain's MX records
-  ptr        Reverse DNS (deprecated — avoid)
+  ptr        Reverse DNS (deprecated: avoid)
   exists     Custom logic
 
 Qualifiers:
-  +all       Pass (default — insecure)
+  +all       Pass (default: insecure)
   ~all       Softfail (mark as suspicious but accept)
-  -all       Fail (reject) — recommended
+  -all       Fail (reject): recommended
   ?all       Neutral
 
 # SPF lookup limit: 10 DNS lookups max (includes includes, redirects)
@@ -1911,7 +1911,7 @@ Modbus TCP (Port 502):
 nmap -sV -p 502 --script modbus-discover 192.168.1.0/24
 nmap -p 502 --script modbus-enum 192.168.1.100
 
-# Modbusclient (pymodbus) — read registers
+# Modbusclient (pymodbus): read registers
 python3 -c "
 from pymodbus.client import ModbusTcpClient
 c = ModbusTcpClient('192.168.1.100')
@@ -2071,7 +2071,7 @@ require_certificate true    # Mutual TLS
 password_file /etc/mosquitto/passwd
 allow_anonymous false
 
-# ACL — restrict topic access
+# ACL: restrict topic access
 acl_file /etc/mosquitto/acl
 # acl file contents:
 # user device-001
@@ -2357,14 +2357,14 @@ monitor session 1 destination interface GigabitEthernet0/24
 ! Caution: SPAN may drop packets under high load
 ! Cannot monitor traffic between devices on same switch at wire speed
 
-# Remote SPAN (RSPAN) — across switches
+# Remote SPAN (RSPAN): across switches
 vlan 999
  name RSPAN-VLAN
  remote-span
 monitor session 1 source interface Gi0/1
 monitor session 1 destination remote vlan 999
 
-# ERSPAN (Encapsulated RSPAN) — across layer 3
+# ERSPAN (Encapsulated RSPAN): across layer 3
 monitor session 1 type erspan-source
  source interface Gi0/1 both
  destination

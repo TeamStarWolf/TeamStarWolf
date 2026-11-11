@@ -205,26 +205,26 @@ Example: `ALLOW-USER-SERVER-HTTPS-CorporateApps`
 ### Perimeter Firewall Rules (Example Policy)
 
 ```
-# Rule 1 — Allow internal clients to reach internal DNS servers only
+# Rule 1: Allow internal clients to reach internal DNS servers only
 ALLOW   INTERNAL        DNS_SERVERS     UDP/53          Internal DNS queries
 
-# Rule 2 — Allow web browsing via explicit proxy (users must go through proxy)
+# Rule 2: Allow web browsing via explicit proxy (users must go through proxy)
 ALLOW   USER            PROXY           TCP/8080        Web browsing via proxy
 
-# Rule 3 — Allow outbound SMTP from email gateway only
+# Rule 3: Allow outbound SMTP from email gateway only
 ALLOW   DMZ_EMAIL       INTERNET        TCP/25          Outbound email relay
 
-# Rule 4 — Allow inbound HTTPS to WAF / web servers in DMZ
+# Rule 4: Allow inbound HTTPS to WAF / web servers in DMZ
 ALLOW   INTERNET        DMZ_WEB         TCP/443         Public web services
 
-# Rule 5 — Allow HTTPS from WAF to internal app servers (proxied)
+# Rule 5: Allow HTTPS from WAF to internal app servers (proxied)
 ALLOW   DMZ_WEB         SERVER          TCP/8443        Backend app servers
 
-# Rule 6 — Allow privileged access from jump server to all devices
+# Rule 6: Allow privileged access from jump server to all devices
 ALLOW   MGMT_JUMP       ANY             TCP/22,3389     Admin access (MFA required)
 
-# Rule 7 — Block and log all other traffic
-DENY    ANY             ANY             ANY             Default deny — log all
+# Rule 7: Block and log all other traffic
+DENY    ANY             ANY             ANY             Default deny: log all
 ```
 
 Operational notes:
@@ -269,11 +269,11 @@ State synchronization checklist:
 ```
 Internet
     |
-[Perimeter IPS — inline, block mode]
+[Perimeter IPS: inline, block mode]
     |
   [DMZ]
     |
-[Internal IDS — passive tap, detect mode]
+[Internal IDS: passive tap, detect mode]
     |
 [User VLAN]            [Server VLAN]
     |                        |
@@ -303,7 +303,7 @@ Cloud-based IPS:
 ### Suricata Inline IPS Configuration
 
 ```yaml
-# /etc/suricata/suricata.yaml — inline IPS mode via AF_PACKET
+# /etc/suricata/suricata.yaml: inline IPS mode via AF_PACKET
 af-packet:
   - interface: eth0
     threads: auto
@@ -312,7 +312,7 @@ af-packet:
     defrag: yes
     use-mmap: yes
     ring-size: 200000
-    copy-mode: ips               # IPS mode — drop matching packets
+    copy-mode: ips               # IPS mode, drop matching packets
     copy-iface: eth1             # Forward non-matching traffic out eth1
 
 # Alert output (JSON for SIEM ingestion)
@@ -404,28 +404,28 @@ vlan 99
 vlan 999
  name NativeTrunk
 
-! Access port — user workstation
+! Access port: user workstation
 interface GigabitEthernet1/0/1
  description UserWorkstation
  switchport mode access
  switchport access vlan 30
- switchport nonegotiate          ! Disable DTP — prevent VLAN hopping
+ switchport nonegotiate          ! Disable DTP: prevent VLAN hopping
  spanning-tree portfast          ! Skip STP listening/learning (endpoints only)
  spanning-tree bpduguard enable  ! Shutdown port if BPDU received (rogue switch)
- ip dhcp snooping limit rate 15  ! DHCP rate-limit — prevent starvation
+ ip dhcp snooping limit rate 15  ! DHCP rate-limit: prevent starvation
  ip arp inspection limit rate 100 ! DAI rate-limit
  storm-control broadcast level 20.00 10.00
  storm-control action shutdown
  no shutdown
 
-! Access port — unused (blackhole)
+! Access port: unused (blackhole)
 interface GigabitEthernet1/0/48
  description UNUSED
  switchport mode access
  switchport access vlan 99
  shutdown
 
-! Trunk port — to distribution switch
+! Trunk port, to distribution switch
 interface GigabitEthernet1/0/49
  description UptrunkToDistribution
  switchport mode trunk
@@ -666,7 +666,7 @@ crypto ikev2 proposal STRONG_PROPOSAL
  integrity sha384
  group 20
 
-! IKEv2 policy — only accept STRONG_PROPOSAL
+! IKEv2 policy, only accept STRONG_PROPOSAL
 crypto ikev2 policy STRICT_POLICY
  proposal STRONG_PROPOSAL
 
@@ -755,16 +755,16 @@ ltm monitor http WEBAPP_MONITOR {
 ```
 Internet
     |
-[Upstream scrubbing — Cloudflare Magic Transit / Akamai Prolexic]
+[Upstream scrubbing: Cloudflare Magic Transit / Akamai Prolexic]
     |   (BGP anycast redirects traffic to scrubbing centers during attack)
     |
-[ISP-level filtering — null routing / rate limiting on request]
+[ISP-level filtering: null routing / rate limiting on request]
     |
-[On-premises anti-DDoS appliance — Radware DefensePro / Arbor APS]
+[On-premises anti-DDoS appliance: Radware DefensePro / Arbor APS]
     |
 [Perimeter NGFW]
     |
-[Edge CDN — Cloudflare / CloudFront for origin shielding]
+[Edge CDN: Cloudflare / CloudFront for origin shielding]
     |
 [Application Servers]
 ```
@@ -876,9 +876,9 @@ OOB network architecture:
 ```
 [Management Workstation]
         |
-[Management Switch — VLAN 10 only]
+[Management Switch: VLAN 10 only]
         |
-[Serial Console Server — Opengear CM7100 / Lantronix]
+[Serial Console Server: Opengear CM7100 / Lantronix]
     |     |     |     |
   FW1   SW1   SW2   Router1    (console cables to each device)
 ```
@@ -960,7 +960,7 @@ event connection_state_remove(c: connection)
     {
     if ( c$duration < 0.5 sec && c$resp_bytes < 100 )
         {
-        # Short, small connection — possible beacon
+        # Short, small connection: possible beacon
         NOTICE([$note=Weird::Short_Beacon,
                 $conn=c,
                 $msg=fmt("Possible C2 beacon: %s -> %s every ~%.1f seconds",

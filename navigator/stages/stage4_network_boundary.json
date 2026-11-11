@@ -1,5 +1,5 @@
 {
-  "name": "Stage 4 — Network & Boundary Defense",
+  "name": "Stage 4: Network & Boundary Defense",
   "versions": {
     "attack": "20",
     "navigator": "4.9",
@@ -35,122 +35,122 @@
     {
       "techniqueID": "T1566",
       "score": 1,
-      "comment": "Stage 4 Email — Proofpoint + Mimecast: email gateway prevents phishing delivery"
+      "comment": "Stage 4 Email (Proofpoint + Mimecast): email gateway prevents phishing delivery"
     },
     {
       "techniqueID": "T1566.001",
       "score": 1,
-      "comment": "Stage 4 Email — Spearphishing attachment sandbox detonation"
+      "comment": "Stage 4 Email: Spearphishing attachment sandbox detonation"
     },
     {
       "techniqueID": "T1566.002",
       "score": 1,
-      "comment": "Stage 4 Email — Spearphishing link URL rewriting and time-of-click protection"
+      "comment": "Stage 4 Email: Spearphishing link URL rewriting and time-of-click protection"
     },
     {
       "techniqueID": "T1566.003",
       "score": 1,
-      "comment": "Stage 4 Email — Impersonation protection"
+      "comment": "Stage 4 Email: Impersonation protection"
     },
     {
       "techniqueID": "T1598",
       "score": 1,
-      "comment": "Stage 4 Email — Phishing-for-info email detection"
+      "comment": "Stage 4 Email: Phishing-for-info email detection"
     },
     {
       "techniqueID": "T1598.002",
       "score": 1,
-      "comment": "Stage 4 Email — Spearphishing attachment recon"
+      "comment": "Stage 4 Email: Spearphishing attachment recon"
     },
     {
       "techniqueID": "T1598.003",
       "score": 1,
-      "comment": "Stage 4 Email — Spearphishing link recon"
+      "comment": "Stage 4 Email: Spearphishing link recon"
     },
     {
       "techniqueID": "T1204",
       "score": 1,
-      "comment": "Stage 4 Email — User execution of malicious email content prevented"
+      "comment": "Stage 4 Email: User execution of malicious email content prevented"
     },
     {
       "techniqueID": "T1204.001",
       "score": 1,
-      "comment": "Stage 4 Email — Malicious link execution prevention"
+      "comment": "Stage 4 Email: Malicious link execution prevention"
     },
     {
       "techniqueID": "T1204.002",
       "score": 1,
-      "comment": "Stage 4 Email — Malicious file execution prevention"
+      "comment": "Stage 4 Email: Malicious file execution prevention"
     },
     {
       "techniqueID": "T1021",
       "score": 1,
-      "comment": "Stage 4 Network — Zscaler ZTNA: remote service access via explicit policy authorization"
+      "comment": "Stage 4 Network (Zscaler ZTNA): remote service access via explicit policy authorization"
     },
     {
       "techniqueID": "T1133",
       "score": 1,
-      "comment": "Stage 4 Network — Zscaler: external remote services replaced by ZTNA"
+      "comment": "Stage 4 Network (Zscaler): external remote services replaced by ZTNA"
     },
     {
       "techniqueID": "T1048",
       "score": 1,
-      "comment": "Stage 4 Network — Zscaler + Palo Alto: exfiltration over alternative protocols blocked"
+      "comment": "Stage 4 Network (Zscaler + Palo Alto): exfiltration over alternative protocols blocked"
     },
     {
       "techniqueID": "T1048.002",
       "score": 1,
-      "comment": "Stage 4 Network — Encrypted exfiltration blocked by SSL inspection"
+      "comment": "Stage 4 Network: Encrypted exfiltration blocked by SSL inspection"
     },
     {
       "techniqueID": "T1071",
       "score": 1,
-      "comment": "Stage 4 Network — C2 over application layer protocols detected"
+      "comment": "Stage 4 Network: C2 over application layer protocols detected"
     },
     {
       "techniqueID": "T1071.001",
       "score": 1,
-      "comment": "Stage 4 Network — C2 over HTTP/S detection"
+      "comment": "Stage 4 Network: C2 over HTTP/S detection"
     },
     {
       "techniqueID": "T1071.004",
       "score": 1,
-      "comment": "Stage 4 Network — C2 over DNS detection"
+      "comment": "Stage 4 Network: C2 over DNS detection"
     },
     {
       "techniqueID": "T1040",
       "score": 1,
-      "comment": "Stage 4 Network — Palo Alto: encrypted traffic prevents network sniffing"
+      "comment": "Stage 4 Network (Palo Alto): encrypted traffic prevents network sniffing"
     },
     {
       "techniqueID": "T1557",
       "score": 1,
-      "comment": "Stage 4 Network — Palo Alto: MITM detection on network segments"
+      "comment": "Stage 4 Network (Palo Alto): MITM detection on network segments"
     },
     {
       "techniqueID": "T1090",
       "score": 1,
-      "comment": "Stage 4 Network — Proxy/relay traffic inspection"
+      "comment": "Stage 4 Network: Proxy/relay traffic inspection"
     },
     {
       "techniqueID": "T1095",
       "score": 1,
-      "comment": "Stage 4 Network — Non-standard protocol detection"
+      "comment": "Stage 4 Network: Non-standard protocol detection"
     },
     {
       "techniqueID": "T1572",
       "score": 1,
-      "comment": "Stage 4 Network — Protocol tunneling detection"
+      "comment": "Stage 4 Network: Protocol tunneling detection"
     },
     {
       "techniqueID": "T1041",
       "score": 1,
-      "comment": "Stage 4 Network — Exfiltration over C2 channel blocked"
+      "comment": "Stage 4 Network: Exfiltration over C2 channel blocked"
     },
     {
       "techniqueID": "T1537",
       "score": 1,
-      "comment": "Stage 4 Network — Zscaler CASB: cloud account data transfer monitoring"
+      "comment": "Stage 4 Network (Zscaler CASB): cloud account data transfer monitoring"
     }
   ],
   "gradient": {
@@ -163,14 +163,14 @@
   },
   "legendItems": [
     {
-      "label": "Covered by Stage 4 — Network & Boundary Defense",
+      "label": "Covered by Stage 4: Network & Boundary Defense",
       "color": "#22c55eff"
     }
   ],
   "metadata": [
     {
       "name": "Pipeline Stage",
-      "value": "Stage 4 — Network & Boundary Defense"
+      "value": "Stage 4: Network & Boundary Defense"
     },
     {
       "name": "NIST Controls",

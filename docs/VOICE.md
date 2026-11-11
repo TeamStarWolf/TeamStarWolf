@@ -5,6 +5,7 @@
 - Write plain declarative sentences: what a thing does, under what conditions.
 - Use US English and the serial comma.
 - No exclamation marks outside quotations, em-dashes (U+2014), or emoji. A plain check mark (U+2713) is fine; U+2705 and U+2714 are not.
+- Where an em dash would go, use a colon, a comma, parentheses, or a new sentence. A hyphen pair or an en dash is not a stand-in. The rule covers code comments, layer JSON, issue templates, and scripts too, not only prose.
 
 ## Terms
 
@@ -56,7 +57,7 @@ battle-tested\
 leverage\
 empower
 
-Write "a disassembler with a decompiler", not `a powerful disassembler`. Proper names pass (Seamless SSO). Use `robust`, `unlock`, and `ultimate` only in their technical sense.
+Write "a disassembler with a decompiler", not `a powerful disassembler`. Proper names pass (Seamless SSO, the Unbreakable Enterprise Kernel). Use `robust`, `unlock`, and `ultimate` only in their technical sense.
 
 ## Provenance and credit
 
@@ -72,4 +73,6 @@ Write "a disassembler with a decompiler", not `a powerful disassembler`. Proper 
 
 ## How the lint works
 
-`scripts/check_voice.py` fails CI on hits missing from `scripts/baselines/voice.json`, which holds the existing hits until they are fixed, and on a pull request raising a baselined total. `--update-baseline` only lowers counts unless `--allow-growth` records a new rule's existing hits.
+`scripts/check_voice.py` checks every hand-written page: the root pages, `guides/`, `disciplines/`, `case-studies/`, `tools-research/`, `docs/`, and every page `scripts/build_site_nav.py` counts as hand-written (`tools/`, `platforms/`, `languages/`, `research/`, `ai-tooling/` and the other page folders). It fails CI on hits missing from `scripts/baselines/voice.json`, which holds the existing hits until they are fixed, and on a pull request raising a baselined total. `--update-baseline` only lowers counts unless `--allow-growth` records a new rule's existing hits.
+
+Two rules have no baseline: one hit fails the gate. An agent process note fails in any Markdown page. An em dash (U+2014) fails in any tracked text file, Markdown, JSON, YAML, scripts, and dotfiles alike; the only exemption is upstream text in the JSONL rows under `data/`, where an ATT&CK or F3 name or description keeps its own punctuation.

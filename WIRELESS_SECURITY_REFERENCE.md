@@ -380,7 +380,7 @@ aireplay-ng -0 5 -a AA:BB:CC:DD:EE:FF -c 11:22:33:44:55:66 wlan0mon
 aircrack-ng -w /usr/share/wordlists/rockyou.txt capture-01.cap
 aircrack-ng -w wordlist.txt -e "TargetSSID" capture-01.cap
 
-# Using hashcat (faster — uses GPU)
+# Using hashcat (faster: uses GPU)
 cap2hccapx capture-01.cap capture.hccapx
 hashcat -m 2500 capture.hccapx wordlist.txt
 # Or with newer format:
@@ -646,7 +646,7 @@ Affects any Bluetooth Classic device that honors entropy reduction to 1 byte. Fi
 ### 3.4 BLE Sniffing
 
 ```bash
-# Ubertooth One — open-source BLE sniffer
+# Ubertooth One: open-source BLE sniffer
 ubertooth-btle -f -c capture.pcap        # follow connections (all channels)
 ubertooth-btle -f -c capture.pcap -A 38  # start on adv channel 38
 ubertooth-specan-ui                       # spectrum analyzer
@@ -973,26 +973,26 @@ pip install killerbee
 
 # Supported hardware: RZUSBSTICK, ApiMote, Freakduino, TelosB
 
-# zbdump — capture packets
+# zbdump: capture packets
 zbdump -i /dev/ttyUSB0 -w capture.pcap -c 11   # channel 11
 zbdump -i /dev/ttyUSB0 -w capture.pcap -c 11 -n 100  # capture 100 frames
 
-# zbstumbler — discover Zigbee networks
+# zbstumbler: discover Zigbee networks
 zbstumbler -i /dev/ttyUSB0 -v
 
-# zbid — identify devices
+# zbid: identify devices
 zbid -f capture.pcap
 
-# zbreplay — replay captured packets
+# zbreplay: replay captured packets
 zbreplay -i /dev/ttyUSB0 -r capture.pcap -c 11
 
-# zbassoc — force association
+# zbassoc: force association
 zbassoc -i /dev/ttyUSB0 -s 0x1234 -p 0x5678 -c 11
 
-# zbdecrypt — decrypt captured Zigbee traffic (if key known)
+# zbdecrypt: decrypt captured Zigbee traffic (if key known)
 zbdecrypt -f capture.pcap -k 5A6967426565416C6C69616E63653039
 
-# zbfind — direction finding (signal strength-based)
+# zbfind: direction finding (signal strength-based)
 zbfind -i /dev/ttyUSB0 -c 11
 ```
 
@@ -1365,10 +1365,10 @@ Time-frequency visualization showing spectral power over time. Used to identify:
 
 Tools:
 ```bash
-# Kismet — comprehensive wireless monitoring
+# Kismet: comprehensive wireless monitoring
 kismet -c wlan0mon
 
-# GQRX — SDR spectrum analyzer
+# GQRX: SDR spectrum analyzer
 gqrx  # Requires RTL-SDR or similar
 
 # GNU Radio + RTL-SDR
@@ -1409,7 +1409,7 @@ WIPS products:
 ### 8.2 Aircrack-ng Suite Reference
 
 ```bash
-# airmon-ng — manage monitor mode
+# airmon-ng: manage monitor mode
 airmon-ng                            # list wireless interfaces
 airmon-ng check                      # show processes that may interfere
 airmon-ng check kill                 # kill interfering processes
@@ -1417,31 +1417,31 @@ airmon-ng start wlan0                # create wlan0mon
 airmon-ng start wlan0 11             # start on channel 11
 airmon-ng stop wlan0mon              # stop monitor mode
 
-# airodump-ng — capture and discover
+# airodump-ng: capture and discover
 airodump-ng wlan0mon                            # discover all networks
 airodump-ng -c 6 --bssid AA:BB:CC:DD:EE:FF -w cap wlan0mon  # targeted capture
 airodump-ng --band abg wlan0mon                 # 2.4 + 5 GHz scan
 airodump-ng --manufacturer --uptime wlan0mon    # show extra info
 
-# aireplay-ng — injection
+# aireplay-ng: injection
 aireplay-ng --test wlan0mon                              # injection test
 aireplay-ng -0 5 -a <AP> -c <client> wlan0mon            # deauth
 aireplay-ng -1 0 -e "SSID" -a <AP> -h <myMAC> wlan0mon  # fake auth
 aireplay-ng -3 -b <AP> -h <myMAC> wlan0mon               # ARP replay
 aireplay-ng -6 -b <AP> -h <myMAC> wlan0mon               # fragmentation attack
 
-# aircrack-ng — crack
+# aircrack-ng: crack
 aircrack-ng -w wordlist.txt -b AA:BB:CC:DD:EE:FF capture-01.cap
 aircrack-ng -w - -b AA:BB:CC:DD:EE:FF capture-01.cap < <(crunch 8 8 0123456789)
 
-# airdecap-ng — decrypt captured traffic
+# airdecap-ng: decrypt captured traffic
 airdecap-ng -e "SSID" -p password capture-01.cap   # WPA/WPA2
 airdecap-ng -w AABBCCDDEEFF capture-01.cap         # WEP (key in hex)
 
-# airtun-ng — create virtual tunnel
+# airtun-ng: create virtual tunnel
 airtun-ng -a <AP> -p password -e "SSID" wlan0mon   # create at0 tap interface
 
-# packetforge-ng — craft packets
+# packetforge-ng: craft packets
 packetforge-ng -0 -a <AP> -h <myMAC> -l 255.255.255.255 -k 255.255.255.255 \
   -y frag-<n>-<n>.xor -w arp.cap
 ```
@@ -1714,22 +1714,22 @@ Key compliance considerations:
 ### 10.1 IEEE 802.11 Security Standards Timeline
 
 ```
-1997  IEEE 802.11 original (WEP — RC4-based, 40/104-bit key)
+1997  IEEE 802.11 original (WEP: RC4-based, 40/104-bit key)
 1999  802.11b ratified (higher speeds, WEP still used)
-2001  FMS attack published — WEP shown cryptographically broken
-2003  WPA released (Wi-Fi Alliance) — TKIP as interim fix
-2004  IEEE 802.11i ratified (WPA2) — CCMP/AES mandated
+2001  FMS attack published: WEP shown cryptographically broken
+2003  WPA released (Wi-Fi Alliance): TKIP as interim fix
+2004  IEEE 802.11i ratified (WPA2): CCMP/AES mandated
 2007  WPA2 mandatory for Wi-Fi Alliance certification
-2009  IEEE 802.11w — Management Frame Protection (MFP)
-2012  IEEE 802.11r — Fast BSS Transition (roaming), 802.1X keys fast-roamed
+2009  IEEE 802.11w: Management Frame Protection (MFP)
+2012  IEEE 802.11r: Fast BSS Transition (roaming), 802.1X keys fast-roamed
 2013  RC4 officially deprecated (RFC 7465 for TLS; similar guidance for TKIP)
-2018  WPA3 announced (Wi-Fi Alliance) — SAE, 192-bit enterprise mode
+2018  WPA3 announced (Wi-Fi Alliance): SAE, 192-bit enterprise mode
 2019  WPA3 certifications begin; Dragonblood vulnerabilities disclosed
-2019  IEEE 802.11ax (Wi-Fi 6) ratified — OFDMA, BSS coloring, improved efficiency
+2019  IEEE 802.11ax (Wi-Fi 6) ratified: OFDMA, BSS coloring, improved efficiency
 2020  WPA3 mandatory for Wi-Fi CERTIFIED devices
-2021  Wi-Fi 6E (6 GHz band extension) — same security, new spectrum
-2022  IEEE 802.11be (Wi-Fi 7) development — MLO (Multi-Link Operation)
-2024  Wi-Fi 7 certification — Enhanced MFP, updated SAE
+2021  Wi-Fi 6E (6 GHz band extension): same security, new spectrum
+2022  IEEE 802.11be (Wi-Fi 7) development: MLO (Multi-Link Operation)
+2024  Wi-Fi 7 certification: Enhanced MFP, updated SAE
 ```
 
 ---

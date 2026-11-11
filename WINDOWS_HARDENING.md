@@ -200,15 +200,15 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" `
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" `
   -Name "RestrictAnonymous" -Value 1 -Type DWord
 
-# Network security: LAN Manager authentication level — NTLMv2 only
+# Network security: LAN Manager authentication level, NTLMv2 only
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" `
   -Name "LmCompatibilityLevel" -Value 5 -Type DWord
 
-# Network security: LDAP client signing requirements — Negotiate signing (2)
+# Network security: LDAP client signing requirements, Negotiate signing (2)
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LDAP" `
   -Name "LDAPClientIntegrity" -Value 2 -Type DWord
 
-# Network security: Minimum session security for NTLM SSP — require NTLMv2 + 128-bit
+# Network security: Minimum session security for NTLM SSP; require NTLMv2 + 128-bit
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0" `
   -Name "NTLMMinClientSec" -Value 537395200 -Type DWord
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0" `
@@ -218,7 +218,7 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0" `
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" `
   -Name "SCENoApplyLegacyAuditPolicy" -Value 1 -Type DWord
 
-# UAC settings — CIS Level 1
+# UAC settings: CIS Level 1
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" `
   -Name "EnableLUA" -Value 1 -Type DWord
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" `
@@ -998,7 +998,7 @@ $ExecutionContext.SessionState.LanguageMode
 # 1. WDAC policy is active
 # 2. AppLocker policy with script enforcement is active
 
-# Force CLM via environment variable (soft enforcement — not recommended alone)
+# Force CLM via environment variable (soft enforcement, not recommended alone)
 [System.Environment]::SetEnvironmentVariable("__PSLockDownPolicy", "4", "Machine")
 ```
 
@@ -1080,7 +1080,7 @@ Disable-WindowsOptionalFeature -Online -FeatureName "MicrosoftWindowsPowerShellV
 AMSI allows security products to scan PowerShell scripts, VBA macros, JScript, and other script-based content before execution.
 
 ```powershell
-# Verify AMSI is active (from within PowerShell — should trigger AMSI)
+# Verify AMSI is active (from within PowerShell: should trigger AMSI)
 # Test with EICAR-style string (AMSI test token):
 # [Ref].Assembly.GetType('System.Management.Automation.Am'+'siUtils')
 
@@ -1142,7 +1142,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Se
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" `
   -Name "MaxConnectionTime" -Value 28800000 -Type DWord
 
-# Disconnect on limit (don't end session — allow reconnect)
+# Disconnect on limit (don't end session: allow reconnect)
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" `
   -Name "fResetBroken" -Value 1 -Type DWord
 
@@ -1239,7 +1239,7 @@ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstatio
 ### Disable SMB Compression (CVE-2020-0796 Mitigation)
 
 ```powershell
-# Disable SMB compression (SMBv3.1.1 compression — CVE-2020-0796 / SMBGhost)
+# Disable SMB compression (SMBv3.1.1 compression: CVE-2020-0796 / SMBGhost)
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" `
   -Name "DisableCompression" -Value 1 -Type DWord
 
@@ -1356,7 +1356,7 @@ ATT&CK: T1078.003 (Local Accounts), T1110 (Brute Force)
 CIS-CAT Pro is the official scanning tool for CIS Benchmarks. It produces scored HTML/CSV reports mapped to CIS controls.
 
 ```powershell
-# CIS-CAT Pro Assessor (Java-based) — requires CIS membership
+# CIS-CAT Pro Assessor (Java-based): requires CIS membership
 # Download from: https://www.cisecurity.org/cybersecurity-tools/cis-cat-pro/
 
 # Run assessment (CLI)
@@ -1373,7 +1373,7 @@ CIS-CAT Pro is the official scanning tool for CIS Benchmarks. It produces scored
 SCT includes baselines for Windows, Office, Edge, and more. Download from Microsoft Download Center.
 
 ```powershell
-# LGPO.exe — apply GPO backups locally without domain
+# LGPO.exe: apply GPO backups locally without domain
 LGPO.exe /g ".\GPOs\{GUID}"
 
 # Compare current settings against baseline
@@ -1414,14 +1414,14 @@ Get-Service -Name "Tenable Nessus Agent"
 While OpenSCAP is primarily Linux-native, SCAP Workbench and the DISA SCAP Compliance Checker (SCC) run on Windows.
 
 ```powershell
-# DISA SCAP Compliance Checker (SCC) — free for US Gov, DoD
+# DISA SCAP Compliance Checker (SCC): free for US Gov, DoD
 # Download from: https://public.cyber.mil/stigs/scap/
 
 # Run SCC from CLI
 & "C:\Program Files\DISA\SCC\cscc.exe" --scan --stigs `
   -d "C:\Results" --stig "Windows_Server_2022_STIG"
 
-# STIG Viewer — GUI tool for reviewing STIG checklists
+# STIG Viewer: GUI tool for reviewing STIG checklists
 # Download: https://public.cyber.mil/stigs/stig-viewer/
 ```
 

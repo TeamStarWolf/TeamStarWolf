@@ -22,7 +22,7 @@ body:
     id: scope
     attributes:
       label: What does this discipline cover?
-      description: Describe the scope — what problems does a practitioner in this area solve?
+      description: Describe the scope: what problems does a practitioner in this area solve?
       placeholder: |
         Supply Chain Security covers securing the software and hardware supply chain: 
         SBOMs, dependency scanning, build pipeline integrity, vendor risk for software components...
@@ -47,7 +47,7 @@ body:
       description: If you know key tools, certs, or training resources to include, list them here
       placeholder: |
         Tools: Syft, Grype, in-toto, SLSA framework
-        Certs: None dedicated — CSSLP covers some aspects
+        Certs: None dedicated; CSSLP covers some aspects
         Training: CISA SBOM resources, OpenSSF Scorecard docs
         Commercial: Snyk, JFrog Xray, Anchore, Chainguard
     validations:

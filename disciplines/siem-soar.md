@@ -169,7 +169,7 @@ Together, they reduce mean time to detect (MTTD) and mean time to respond (MTTR)
 ### SPL (Splunk Processing Language): Production Queries
 
 ```spl
-# Top talkers — identify unusual data volumes by host
+# Top talkers: identify unusual data volumes by host
 index=network
 | stats sum(bytes_out) AS total_out BY src_ip
 | sort -total_out
@@ -208,7 +208,7 @@ SigninLogs
     by UserPrincipalName, bin(TimeGenerated, 1h)
 | where array_length(Locations) > 1 and Locations[0] != Locations[1]
 
-// Alert on mass file deletion — ransomware indicator
+// Alert on mass file deletion: ransomware indicator
 DeviceFileEvents
 | where ActionType == "FileDeleted"
 | summarize DeletedCount = count() by DeviceName, InitiatingProcessFileName, bin(Timestamp, 5m)

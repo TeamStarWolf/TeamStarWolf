@@ -477,10 +477,10 @@ aws cloudhsmv2 create-hsm --cluster-id <id>   --availability-zone us-east-1b
 Secure Boot validates each component in the boot chain using a public key infrastructure stored in NVRAM:
 
 ```
-PK  (Platform Key)      — One key; controls KEK updates; OEM-held
- └── KEK (Key Exchange Key) — Signs db/dbx updates; OEM + Microsoft
-       ├── db  (Signature Database) — Allowed cert/hash whitelist
-       └── dbx (Forbidden Signature Database) — Revocation list
+PK  (Platform Key)      : One key; controls KEK updates; OEM-held
+ └── KEK (Key Exchange Key): Signs db/dbx updates; OEM + Microsoft
+       ├── db  (Signature Database): Allowed cert/hash whitelist
+       └── dbx (Forbidden Signature Database): Revocation list
 ```
 
 Secure Boot Verification Flow:
@@ -760,7 +760,7 @@ Flush+Reload:
 ```
 1. Attacker flushes target cache line (clflush)
 2. Victim accesses secret-dependent memory address
-3. Attacker reloads — fast = cached (victim accessed it), slow = not cached
+3. Attacker reloads: fast = cached (victim accessed it), slow = not cached
 4. Threshold: ~200 cycles = cached; >300 cycles = not cached (LLC miss)
 ```
 
@@ -768,7 +768,7 @@ Prime+Probe:
 ```
 1. Attacker "primes" cache sets by filling with own data
 2. Victim runs and accesses its data, evicting attacker's data
-3. Attacker "probes" — measures which sets were evicted
+3. Attacker "probes": measures which sets were evicted
 4. Infers victim's memory access pattern without shared memory
 ```
 
@@ -1330,16 +1330,16 @@ hexdump -C dump.bin | grep -i "key"
 ARM CoreSight provides hardware authentication to disable debug access:
 
 ```
-DBGEN  — Invasive debug enable (halt, step, register access)
-NIDEN  — Non-invasive debug enable (trace only)
-SPIDEN — Secure privileged invasive debug (TrustZone secure world)
-SPNIDEN — Secure non-invasive debug
+DBGEN  : Invasive debug enable (halt, step, register access)
+NIDEN  : Non-invasive debug enable (trace only)
+SPIDEN: Secure privileged invasive debug (TrustZone secure world)
+SPNIDEN: Secure non-invasive debug
 
 Authentication Interface (AUTHSTATUS register):
-  Bits [1:0] = NSID — Non-secure invasive debug supported/enabled
-  Bits [3:2] = NSNID — Non-secure non-invasive debug
-  Bits [5:4] = SID — Secure invasive debug
-  Bits [7:6] = SNID — Secure non-invasive debug
+  Bits [1:0] = NSID: Non-secure invasive debug supported/enabled
+  Bits [3:2] = NSNID: Non-secure non-invasive debug
+  Bits [5:4] = SID: Secure invasive debug
+  Bits [7:6] = SNID: Secure non-invasive debug
 ```
 
 Disabling Debug in Production (STM32 example):
@@ -1440,7 +1440,7 @@ MRENCLAVE: Hash of enclave measurement (code + data layout)
 
 Writing SGX Enclaves (Intel SGX SDK):
 ```c
-// enclave.edl — Interface definition
+// enclave.edl: Interface definition
 enclave {
     trusted {
         // ECALLs: untrusted → enclave
@@ -2173,7 +2173,7 @@ X-ray inspection:
 
 Electrical Testing:
 ```python
-# Automated test using boundary scan (ICT — In-Circuit Test)
+# Automated test using boundary scan (ICT: In-Circuit Test)
 # JTAG boundary scan verifies IO cell behavior
 
 # Functional verification script (example for AES IC)
@@ -2203,7 +2203,7 @@ Hardware Implant Attacks:
 
 Notable Case Studies:
 ```
-Bloomberg "Big Hack" (2018) — disputed but informative:
+Bloomberg "Big Hack" (2018): disputed but informative:
   - Alleged: Tiny IC (~pencil tip) added to server motherboards at Supermicro's
     Chinese contract manufacturer
   - Purported capability: Intercept BMC communications, create backdoor
@@ -2215,7 +2215,7 @@ Cisco Router Implants (documented by NSA/TAO, Snowden documents):
   - HALLUXWATER: Huawei router backdoor implant
   - Countermeasure: Verify router firmware hash immediately on delivery
 
-SolarWinds Orion (2020) — Software supply chain:
+SolarWinds Orion (2020): Software supply chain:
   - Malicious code injected into build system
   - Signed update distributed to 18,000+ customers
   - Hardware equivalent: Subverted programming station at manufacturer
@@ -2338,7 +2338,7 @@ Implementation (battery-backed tamper detection):
 Testing:
   - Shock (MIL-STD-810H, Method 516.8)
   - Vibration (MIL-STD-810H, Method 514.8)
-  - Temperature cycling (-40°C to +85°C) — does sealing maintain integrity?
+  - Temperature cycling (-40°C to +85°C): does sealing maintain integrity?
 ```
 
 ### COTS Risk Assessment
@@ -2432,7 +2432,7 @@ Techniques:
      - Key stored in battery-backed SRAM on FPGA
 
   6. Supply chain provenance tracking:
-     - Physically Unclonable Functions (PUF) — unique IC fingerprint
+     - Physically Unclonable Functions (PUF): unique IC fingerprint
      - Device responds to challenge with PUF-derived response
      - Cannot be cloned (manufactured variation used as ID)
 

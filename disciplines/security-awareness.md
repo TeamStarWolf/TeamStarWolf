@@ -120,7 +120,7 @@ A defensible phishing simulation program follows a structured cycle:
 
 5. Remediation Training
    → Automatic immediate micro-training for clickers (just-in-time)
-   → Manager notification for repeat offenders (handle with care — blame culture is counterproductive)
+   → Manager notification for repeat offenders (handle with care: blame culture is counterproductive)
    → Targeted role-based training for high-risk departments
 
 6. Trend Tracking

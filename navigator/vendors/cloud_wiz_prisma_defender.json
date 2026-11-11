@@ -4,7 +4,7 @@
     "navigator": "4.9",
     "layer": "4.5"
   },
-  "name": "Cloud Security Coverage — Wiz, Prisma Cloud, Microsoft Defender for Cloud",
+  "name": "Cloud Security Coverage: Wiz, Prisma Cloud, Microsoft Defender for Cloud",
   "description": "ATT&CK technique coverage provided by Wiz, Prisma Cloud (Palo Alto Networks), and Microsoft Defender for Cloud through CSPM, secrets scanning, cloud account protection, and workload security.",
   "domain": "enterprise-attack",
   "techniques": [
@@ -107,7 +107,7 @@
     {
       "techniqueID": "T1685.002",
       "score": 3,
-      "comment": "Cloud logging disable detection — CloudTrail/Diagnostic settings (Re-keyed from T1562.008, which ATT&CK v19 revoked in favour of T1685.002; data/attack/superseded_by.jsonl.)",
+      "comment": "Cloud logging disable detection: CloudTrail/Diagnostic settings (Re-keyed from T1562.008, which ATT&CK v19 revoked in favour of T1685.002; data/attack/superseded_by.jsonl.)",
       "color": ""
     },
     {

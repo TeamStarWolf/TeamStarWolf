@@ -253,7 +253,7 @@ The Minimum Standards' "information integration and analysis" element is the par
    Identity & PAM logs              Legal / compliance referrals
           │                                │
           └───────────►  FUSION  ◄─────────┘
-                    (analysis & triage —
+                    (analysis & triage:
                      one case record per concern)
                              │
                              ▼

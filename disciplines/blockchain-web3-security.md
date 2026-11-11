@@ -80,7 +80,7 @@ Reentrancy pattern:
 1. Victim contract checks balance (OK)
 2. Victim sends ETH to attacker
 3. Attacker fallback() fires → calls back into victim withdraw()
-4. Victim checks balance again (still unchanged — state not yet updated)
+4. Victim checks balance again (still unchanged: state not yet updated)
 5. Victim sends ETH again → repeat until drained
 6. Victim finally updates balance (too late)
 ```

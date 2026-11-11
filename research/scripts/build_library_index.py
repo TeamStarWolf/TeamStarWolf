@@ -9,7 +9,7 @@ Inputs (in the profile repo root):
   - "Cybersecurity Research.md"       → books / learning resources
 
 Output:
-  - research/data/library.json        — single JSON consumed by the explorer site
+  - research/data/library.json        : single JSON consumed by the explorer site
 
 Schema: see Asset / Library types below. One asset per entry, normalized.
 """
@@ -29,7 +29,7 @@ OUT_PATH = PROFILE_ROOT / "research" / "data" / "library.json"
 
 @dataclass
 class Asset:
-    """A single library entry — tool, channel, account, book, or research note."""
+    """A single library entry: tool, channel, account, book, or research note."""
 
     id: str
     type: str  # "tool" | "channel" | "x-account" | "book" | "field-note"
@@ -55,7 +55,7 @@ class Library:
 
 
 # --------------------------------------------------------------------------- #
-# Parsers — one per source file
+# Parsers: one per source file
 # --------------------------------------------------------------------------- #
 
 REPO_LINE = re.compile(r"^\s*-\s*\[([^\]]+)\]\(([^)]+)\)\s*$")
@@ -139,13 +139,13 @@ def parse_youtube_channels(text: str) -> Iterable[Asset]:
         )
 
 
-X_LINE = re.compile(r"^\s*-\s*@([\w_]+)\s*[—\-]\s*(.+?)\s*$")
+X_LINE = re.compile(r"^\s*-\s*@([\w_]+)\s*[\u2014\-]\s*(.+?)\s*$")
 
 
 def parse_x_accounts(text: str) -> Iterable[Asset]:
     """Parse 'X Account Lists.md'.
 
-    Structure: ## Section, - @handle — Display Name (Affiliation)
+    Structure: ## Section, - @handle - Display Name (Affiliation) (the separator is a hyphen or an em dash)
     """
     section = ""
     for line in text.splitlines():
@@ -179,7 +179,7 @@ def parse_x_accounts(text: str) -> Iterable[Asset]:
 
 
 # --------------------------------------------------------------------------- #
-# Vendor normalization — collapses obvious variants for cleaner faceting
+# Vendor normalization: collapses obvious variants for cleaner faceting
 # --------------------------------------------------------------------------- #
 
 VENDOR_ALIASES = {
@@ -228,7 +228,7 @@ def normalize_vendor(raw: str) -> str:
 
 
 # --------------------------------------------------------------------------- #
-# ATT&CK tactic classification — keyword heuristics
+# ATT&CK tactic classification: keyword heuristics
 # --------------------------------------------------------------------------- #
 
 # Tactic IDs match ATT&CK STIX (TA0043, TA0042, TA0001, ...) but use slugs for
@@ -447,7 +447,7 @@ CATEGORY_TACTIC_MAP: dict[str, list[str]] = {
     # frameworks / research / misc
     "mitre att&ck": ["reconnaissance", "execution", "credential-access"],
     "mitre attack": ["reconnaissance", "execution", "credential-access"],
-    "frameworks & standards": ["reconnaissance"],   # very broad — at least gives recon as default
+    "frameworks & standards": ["reconnaissance"],   # very broad, at least gives recon as default
 
     # cryptography / passwords
     "cryptography": ["credential-access"],
@@ -476,7 +476,7 @@ def classify_attack_tactics(asset: Asset) -> list[str]:
     """Best-effort heuristic mapping of an asset to ATT&CK tactic slugs.
 
     Strategy:
-      1. Bulk-map by category substring (high signal — categories were curated).
+      1. Bulk-map by category substring (high signal: categories were curated).
       2. Add per-keyword hits from title + description + subcategory.
       3. Deduplicate and return.
 

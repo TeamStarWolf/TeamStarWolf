@@ -417,7 +417,7 @@ ROPA_ENTRY = {
     "dpo": "Jane Smith, dpo@acme.com",
     "purposes": [
         "Fulfilment of purchase contract (Art. 6(1)(b))",
-        "Legal obligation — VAT records (Art. 6(1)(c))"
+        "Legal obligation: VAT records (Art. 6(1)(c))"
     ],
     "data_subjects": ["customers", "prospective_customers"],
     "data_categories": [
@@ -430,7 +430,7 @@ ROPA_ENTRY = {
         {"name": "AWS", "role": "processor", "purpose": "hosting", "country": "US", "safeguard": "SCCs + BCRs"}
     ],
     "retention": {
-        "order_data": "7 years (legal obligation — tax)",
+        "order_data": "7 years (legal obligation, tax)",
         "marketing_preferences": "Until consent withdrawn or 3 years inactivity",
         "server_logs": "90 days"
     },
@@ -438,7 +438,7 @@ ROPA_ENTRY = {
         "AES-256 encryption at rest",
         "TLS 1.3 in transit",
         "PAN tokenized (never stored)",
-        "Access control — role-based, least privilege",
+        "Access control: role-based, least privilege",
         "Annual penetration testing"
     ],
     "dpia_required": False,
@@ -461,7 +461,7 @@ import hmac
 import hashlib
 import secrets
 
-# Secret key — stored in HSM or secrets manager, never in code
+# Secret key: stored in HSM or secrets manager, never in code
 PSEUDONYM_SECRET = secrets.token_bytes(32)
 
 def pseudonymize(value: str, domain: str = "default") -> str:
@@ -473,12 +473,12 @@ def pseudonymize(value: str, domain: str = "default") -> str:
 
 # Example usage
 email_pseudo = pseudonymize("user@example.com", domain="email")
-# Same call always returns same pseudonym — linkable within system
+# Same call always returns same pseudonym: linkable within system
 # But without PSEUDONYM_SECRET, cannot reverse
 
 # Re-pseudonymization: rotate the key to break old pseudonyms
 def re_pseudonymize(old_pseudonym: str, old_key: bytes, new_key: bytes, domain: str) -> str:
-    raise NotImplementedError("Re-pseudonymization requires original values — use key rotation at source")
+    raise NotImplementedError("Re-pseudonymization requires original values: use key rotation at source")
 ```
 
 Key management for pseudonymization:
@@ -501,7 +501,7 @@ k=3 example (ZIP, Age, Gender):
 10001, 28, M  →  10001, 2*, M   (generalized)
 10001, 29, M  →  10001, 2*, M
 10001, 27, M  →  10001, 2*, M
-Each row now matches at least 2 others — k=3 satisfied
+Each row now matches at least 2 others: k=3 satisfied
 ```
 
 Weakness: Homogeneity attack (if all k records share the same sensitive attribute, knowing quasi-identifiers reveals it).
@@ -526,7 +526,7 @@ from pydp.algorithms.laplacian import BoundedMean
 # lower_bound/upper_bound: clamp values to limit sensitivity
 dp_mean = BoundedMean(epsilon=1.0, lower_bound=18, upper_bound=100, dtype="float")
 
-ages = [25, 34, 45, 29, 52, 38, 61, 27]  # User ages — sensitive
+ages = [25, 34, 45, 29, 52, 38, 61, 27]  # User ages: sensitive
 private_mean_age = dp_mean.quick_result(ages)
 print(f"DP mean age: {private_mean_age:.1f}")  # Noisy but private result
 ```
@@ -575,7 +575,7 @@ Encrypt specific sensitive fields at the application level: database stores ciph
 from cryptography.fernet import Fernet
 import base64
 
-# Key generation — store in KMS/HSM, not in code
+# Key generation: store in KMS/HSM, not in code
 key = Fernet.generate_key()
 f = Fernet(key)
 
@@ -659,7 +659,7 @@ window.__tcfapi('getTCData', 2, function(tcData, success) {
             blockAdvertisingPixels();
         }
     } else if (!tcData.gdprApplies) {
-        // GDPR does not apply (non-EU user) — still check CCPA/GPC
+        // GDPR does not apply (non-EU user), still check CCPA/GPC
         if (!navigator.globalPrivacyControl) {
             gtag('config', 'GA-XXXXXXXX');
         }
@@ -821,7 +821,7 @@ def log_data_access(
     accessor_id: str,
     accessor_type: str,          # "user" | "service" | "admin"
     data_subject_id: str,        # Pseudonymized subject identifier
-    fields_accessed: list,       # ["email", "dob"] — what fields were accessed
+    fields_accessed: list,       # ["email", "dob"]; what fields were accessed
     purpose: str,                # DataPurpose enum value
     legal_basis: str,            # "contract" | "consent" | "legal_obligation" etc.
     request_ip: str,
@@ -853,7 +853,7 @@ from django.utils import timezone
 from datetime import timedelta
 
 class Command(BaseCommand):
-    help = 'Enforce data retention policies — delete or anonymize expired records'
+    help = 'Enforce data retention policies: delete or anonymize expired records'
 
     RETENTION_POLICIES = {
         'Order': {'field': 'created_at', 'days': 7 * 365, 'action': 'retain'},   # 7yr legal

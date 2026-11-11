@@ -54,7 +54,7 @@ body:
     attributes:
       label: Name
       description: Exact name of the tool, platform, certification, book, channel, or person
-      placeholder: e.g. "Hayabusa" or "GCFE — GIAC Certified Forensic Examiner"
+      placeholder: e.g. "Hayabusa" or "GCFE: GIAC Certified Forensic Examiner"
     validations:
       required: true
 

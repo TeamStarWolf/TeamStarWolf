@@ -61,10 +61,10 @@ Acts across the full detect-and-remediate axis within AWS. Inspector continuousl
 
 **Validation signals (actually working?)**
 - CONFIGURED: recorder/detector ENABLED, Config rule present, trail IsLogging=true.
-- EFFECTIVE (Inspector): finding status NEW->CLOSED with fixAvailable and resource installedVersion >= fixedInVersion after patch — CVE actually remediated, not just reported.
-- EFFECTIVE (Config): rule ComplianceType flips NON_COMPLIANT->COMPLIANT and, if auto-remediation attached, a CloudTrail StartAutomationExecution of the SSM document (e.g. AWS-ConfigureS3BucketPublicAccessBlock) — enforcement fired.
+- EFFECTIVE (Inspector): finding status NEW->CLOSED with fixAvailable and resource installedVersion >= fixedInVersion after patch: CVE actually remediated, not just reported.
+- EFFECTIVE (Config): rule ComplianceType flips NON_COMPLIANT->COMPLIANT and, if auto-remediation attached, a CloudTrail StartAutomationExecution of the SSM document (e.g. AWS-ConfigureS3BucketPublicAccessBlock): enforcement fired.
 - EFFECTIVE (Security Hub): finding Workflow.Status RESOLVED and Compliance.Status PASSED.
-- EFFECTIVE (GuardDuty): an exploitation/recon finding against the host (detective only) plus, if paired with EventBridge->Lambda, a quarantine-SG action logged in CloudTrail — that is the actual block.
+- EFFECTIVE (GuardDuty): an exploitation/recon finding against the host (detective only) plus, if paired with EventBridge->Lambda, a quarantine-SG action logged in CloudTrail: that is the actual block.
 - Distinguish: Inspector/Config prove the mitigation is PRESENT; a closed finding + patched version + executed-remediation CloudTrail event prove it WORKED.
 
 **Key events / fields / tables / APIs**
@@ -89,7 +89,7 @@ aws guardduty list-detectors --query DetectorIds[0] --output text | xargs -I{} a
 index=aws sourcetype="aws:securityhub:finding" ProductName="Inspector" | spath Vulnerabilities{}.Id output=cve | eval status=coalesce('Workflow.Status',RecordState) | stats latest(status) as status latest(FixAvailable) as fix by cve, Resources{}.Id | search status IN ("ARCHIVED","RESOLVED")
 ```
 
-*Validation: prove Config rule enforcement — resources flipped to COMPLIANT + remediation ran in CloudTrail* (CLI)
+*Validation: prove Config rule enforcement: resources flipped to COMPLIANT + remediation ran in CloudTrail* (CLI)
 
 ```
 aws configservice get-compliance-details-by-config-rule --config-rule-name <rule> --compliance-types COMPLIANT && aws cloudtrail lookup-events --lookup-attributes AttributeKey=EventName,AttributeValue=StartAutomationExecution
@@ -98,9 +98,9 @@ aws configservice get-compliance-details-by-config-rule --config-rule-name <rule
 **How it mitigates (mechanism).** Config enforcement (non-compliant resource auto-remediated by an attached SSM Automation document, removing the exposure) and Inspector patch verification (installedVersion advancing past fixedInVersion removes CVE reachability) are the observable mitigations; GuardDuty is detective and only becomes a block when its finding triggers an EventBridge->Lambda isolation action, itself logged in CloudTrail.
 
 **Logging gotchas**
-- Inspector EC2 scanning needs a healthy SSM agent — hosts without it show UNSCANNED coverage, so an empty finding list can be a blind spot, not a clean host.
+- Inspector EC2 scanning needs a healthy SSM agent: hosts without it show UNSCANNED coverage, so an empty finding list can be a blind spot, not a clean host.
 - GuardDuty is detection-only by default (no inline prevention).
-- CloudTrail data events (S3 object-level, Lambda invoke) are OFF unless explicitly selected — data-plane exploitation can be invisible.
+- CloudTrail data events (S3 object-level, Lambda invoke) are OFF unless explicitly selected: data-plane exploitation can be invisible.
 - Config records only enabled resource types; INSUFFICIENT_DATA rolls a conformance pack up as effectively compliant.
 - Security Hub finding updates are throttled/deduplicated (UpdatedAt may lag); CloudTrail->S3 delivery can lag ~15 min, so real-time validation should use the EventBridge stream.
 - Check specific type strings (for example Execution:Runtime/ReverseShell) against the [GuardDuty Runtime Monitoring finding types](https://docs.aws.amazon.com/guardduty/latest/ug/findings-runtime-monitoring.html) reference before alerting on them; the list grows as AWS adds detections.

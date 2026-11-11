@@ -1,5 +1,5 @@
 {
-  "name": "Network Security — Palo Alto NGFW / Fortinet FortiGate / Cisco Secure",
+  "name": "Network Security: Palo Alto NGFW / Fortinet FortiGate / Cisco Secure",
   "versions": {
     "attack": "20",
     "navigator": "4.9",
@@ -282,7 +282,7 @@
   },
   "legendItems": [
     {
-      "label": "Covered by Network Security — Palo Alto NGFW / Fortinet FortiGate / Cisco Secure",
+      "label": "Covered by Network Security: Palo Alto NGFW / Fortinet FortiGate / Cisco Secure",
       "color": "#0ea5e9"
     }
   ],

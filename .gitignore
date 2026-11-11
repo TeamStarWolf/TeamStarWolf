@@ -1,4 +1,4 @@
-# TeamStarWolf reference library — ignore IDE/OS/secret artifacts only.
+# TeamStarWolf reference library: ignore IDE/OS/secret artifacts only.
 # This is a static docsify site (no build step); NOTHING that is served
 # (*.md, data/**, navigator/**, mitre/**, index.html, _*.md, assets/**) is ignored.
 # Added to prevent recurrence of the .vs/ PII class (audit F-lylat-and-prior-9).
@@ -32,8 +32,8 @@ node_modules/
 npm-debug.log*
 yarn-error.log*
 
-# Secrets / env — never commit real values (examples like *.env.example stay tracked).
-# NOTE: deliberately NOT using *secret*/*credential*/*password*/*token* filename globs —
+# Secrets / env: never commit real values (examples like *.env.example stay tracked).
+# NOTE: deliberately NOT using *secret*/*credential*/*password*/*token* filename globs:
 # this library legitimately ships reference docs named e.g. PASSWORD_SECURITY_REFERENCE.md,
 # and those globs would silently exclude real content. Ignore by extension/exact env only.
 .env
@@ -49,7 +49,7 @@ yarn-error.log*
 *.sqlite3
 *.db
 
-# Staged MITRE ATT&CK STIX cache — a ~53 MB offline copy used by
+# Staged MITRE ATT&CK STIX cache: a ~53 MB offline copy used by
 # scripts/build_attack_core.py via --stix/ATTACK_STIX_PATH. The generator fetches
 # the commit-pinned URL by default and checks every bundle (fetched or local) against
 # its pinned SHA-256, so this local bundle is never committed.

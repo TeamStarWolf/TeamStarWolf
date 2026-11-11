@@ -219,7 +219,7 @@ The reference shape, whatever the vendor names on the boxes:
  appliances, apps  ┘    │ vendor agents   │      │ replayable)     │       │ Logstash, or a      │  └─► Cold archive /
                         └────────────────┘      └────────────────┘       │ commercial pipeline │      compliance store
                               agent mode:                                 └────────────────────┘
-                              collect + ship,                              normalize HERE, once —
+                              collect + ship,                              normalize HERE, once,
                               minimal logic                                not per destination
 ```
 
@@ -514,7 +514,7 @@ The chain, and where the pipeline enters it:
                 └─► Data Components (telemetry required)
                       └─► Log sources / channels            ◄── DATA ENGINEERING OWNS
                             └─► Pipeline decisions: onboard, normalize,
-                                route, retain — per component
+                                route, retain, per component
 ```
 
 Worked usage (turning priority techniques into pipeline requirements):

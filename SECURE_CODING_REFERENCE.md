@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 13 min (3,051 words at 230 words a minute)
+About 13 min (3,068 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -42,7 +42,7 @@ You are reviewing a pull request for security flaws, you are fixing a scanner fi
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last corrected</th><td>
 
-2026-09-29, note added on OWASP Top 10:2025; CWE Top 25 and ATT&CK versions in the footer updated ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+2026-11-04, IBM breach-lifecycle figure updated to the 2024 report; the 600,000 PBKDF2 iterations attributed to OWASP, not NIST ([#175](https://github.com/TeamStarWolf/TeamStarWolf/pull/175))
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
@@ -443,7 +443,7 @@ Detection: Ban `pickle.loads(untrusted)` via Semgrep; require signed commits; en
 
 ### A09: Security Logging and Monitoring Failures
 
-Description: Insufficient logging, detection, monitoring, and active response. Breaches go undetected for an average of 207 days (IBM Cost of a Data Breach 2023). CWE-223, CWE-778. ATT&CK: T1070 (Indicator Removal).
+Description: Insufficient logging, detection, monitoring, and active response. IBM's Cost of a Data Breach 2024 puts the average time to identify and contain a breach at 258 days, down from 277 days the year before. CWE-223, CWE-778. ATT&CK: T1070 (Indicator Removal).
 
 What to log (security events):
 ```python
@@ -692,7 +692,7 @@ def add_csp_header(response):
 
 ### Password Hashing
 
-PBKDF2-HMAC-SHA256 (NIST SP 800-132, ≥600,000 iterations per NIST 2023):
+PBKDF2-HMAC-SHA256 (defined in NIST SP 800-132; ≥600,000 iterations per the OWASP Password Storage Cheat Sheet):
 ```python
 import hashlib, os, base64
 

@@ -1,0 +1,294 @@
+{
+  "name": "TeamStarWolf - Change Healthcare Attack 2024",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Techniques in the Change Healthcare ransomware attack of February 2024, not an official MITRE mapping. Sources: Andrew Witty's House and Senate testimony and UHG's answers for the record, the State of Nebraska complaint, FBI, CISA and HHS advisory AA23-353A, and ATT&CK software S1068 BlackCat as published in ATT&CK v20. Tactics are taken from data/attack/technique_profiles.jsonl. Scores: 100 is documented in the Change record, 75 is alleged in the Nebraska complaint, 40 is ALPHV/BlackCat general tradecraft not documented at Change. Each comment names source numbers from the Sources table of case-studies/CHANGE_HEALTHCARE_2024.md.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "score": 40,
+      "comment": "Remote System Discovery. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1033",
+      "tactic": "discovery",
+      "score": 40,
+      "comment": "System Owner/User Discovery. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 40,
+      "comment": "Windows Management Instrumentation. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 40,
+      "comment": "Windows Command Shell. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1069.002",
+      "tactic": "discovery",
+      "score": 40,
+      "comment": "Domain Groups. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Valid Accounts. Compromised credentials used to log in to the Change Healthcare Citrix portal, 12 Feb 2024 (Witty testimony, 1 May 2024). Sources: [14][17] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Valid Accounts. Compromised credentials used to log in to the Change Healthcare Citrix portal, 12 Feb 2024 (Witty testimony, 1 May 2024). Sources: [14][17] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Valid Accounts. Compromised credentials used to log in to the Change Healthcare Citrix portal, 12 Feb 2024 (Witty testimony, 1 May 2024). Sources: [14][17] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Valid Accounts. Compromised credentials used to log in to the Change Healthcare Citrix portal, 12 Feb 2024 (Witty testimony, 1 May 2024). Sources: [14][17] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 40,
+      "comment": "System Information Discovery. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 40,
+      "comment": "File and Directory Discovery. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1087.002",
+      "tactic": "discovery",
+      "score": 40,
+      "comment": "Domain Account. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-impairment",
+      "score": 40,
+      "comment": "Modify Registry. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "Modify Registry. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "External Remote Services. Citrix remote-desktop portal with no multifactor authentication, 12 Feb 2024 (Witty testimony, 1 May 2024). Sources: [14][17] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "External Remote Services. Citrix remote-desktop portal with no multifactor authentication, 12 Feb 2024 (Witty testimony, 1 May 2024). Sources: [14][17] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "privilege-escalation",
+      "score": 40,
+      "comment": "Access Token Manipulation. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "Access Token Manipulation. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1135",
+      "tactic": "discovery",
+      "score": 40,
+      "comment": "Network Share Discovery. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1136",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "Create Account. Privileged administrator accounts allegedly created on the SelectRX server, 12 to 21 Feb 2024 (State of Nebraska complaint, 16 Dec 2024; an allegation). Sources: [46] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1222.001",
+      "tactic": "defense-impairment",
+      "score": 40,
+      "comment": "Windows Permissions. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Data Encrypted for Impact. Ransomware deployed and Change systems encrypted, 21 Feb 2024 (Witty testimony; UHG Senate answers). Sources: [14][17] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1489",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "Service Stop. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "Inhibit System Recovery. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1491.001",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "Internal Defacement. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1548.002",
+      "tactic": "privilege-escalation",
+      "score": 40,
+      "comment": "Bypass User Account Control. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1555",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "Credentials from Password Stores. ALPHV affiliates in general per AA23-353A (updated 27 Feb 2024); not documented at Change. Sources: [23] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "Adversary-in-the-Middle. ALPHV affiliates in general per AA23-353A (updated 27 Feb 2024); not documented at Change. Sources: [23] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "Adversary-in-the-Middle. ALPHV affiliates in general per AA23-353A (updated 27 Feb 2024); not documented at Change. Sources: [23] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1558",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "Steal or Forge Kerberos Tickets. ALPHV affiliates in general per AA23-353A (updated 27 Feb 2024); not documented at Change. Sources: [23] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1561.001",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "Disk Content Wipe. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1570",
+      "tactic": "lateral-movement",
+      "score": 40,
+      "comment": "Lateral Tool Transfer. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1586",
+      "tactic": "resource-development",
+      "score": 40,
+      "comment": "Compromise Accounts. ALPHV affiliates in general per AA23-353A (updated 27 Feb 2024); not documented at Change. Sources: [23] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1598",
+      "tactic": "reconnaissance",
+      "score": 40,
+      "comment": "Phishing for Information. ALPHV affiliates in general per AA23-353A (updated 27 Feb 2024); not documented at Change. Sources: [23] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Financial Theft. UHG paid the demanded $22 million ransom in Bitcoin (UHG answer for the record, Senate Finance, 1 May 2024). Source: [17] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1680",
+      "tactic": "discovery",
+      "score": 40,
+      "comment": "Local Storage Discovery. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    },
+    {
+      "techniqueID": "T1685.005",
+      "tactic": "defense-impairment",
+      "score": 40,
+      "comment": "Clear Windows Event Logs. ATT&CK S1068 BlackCat capability; not documented at Change. Sources: [30][33] in case-studies/CHANGE_HEALTHCARE_2024.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: ALPHV/BlackCat general tradecraft (AA23-353A, ATT&CK S1068), not documented at Change",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "75: alleged in the State of Nebraska complaint",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: documented in the Change Healthcare record (testimony and filings)",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in its technique profile"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "30"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "37"
+    },
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHANGE_HEALTHCARE_2024.md (sources opened 3 November 2026)"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Change Healthcare Attack of 2024: The Largest Healthcare Breach on Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHANGE_HEALTHCARE_2024.md"
+    }
+  ]
+}

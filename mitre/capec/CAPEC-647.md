@@ -56,6 +56,7 @@ An adversary exploits a weakness in authorization to gather system-specific data
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [Cyber Operations as Statecraft: The Cases in The Hacker and the State](/case-studies/HACKER_AND_THE_STATE_CASES.md)
 
 <!-- library-refs:end -->
 

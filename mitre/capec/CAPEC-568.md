@@ -33,6 +33,7 @@ Hand-written pages in this library that link to this page or to this object's en
 
 - [APT41: The Public Record, 2012 to 2026](/case-studies/APT41_PUBLIC_RECORD.md)
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [Cyber Operations as Statecraft: The Cases in The Hacker and the State](/case-studies/HACKER_AND_THE_STATE_CASES.md)
 - [North Korea-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_NORTH_KOREA.md)
 
 <!-- library-refs:end -->

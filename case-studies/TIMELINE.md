@@ -279,6 +279,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2012 <!-- {docsify-ignore} -->
 
+- [Cyber Operations as Statecraft: The Cases in The Hacker and the State](/case-studies/HACKER_AND_THE_STATE_CASES.md). Period record, 2006 to December 2020 (core: 2012 to 2018). Sectors: government, media, energy, finance, telecommunications, healthcare, cross-sector. CVEs: CVE-2017-0143, CVE-2017-0144, CVE-2017-0148. ATT&CK groups: G0006 APT1, G0007 APT28, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0082 APT38. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Hacker_And_The_State_Cases_Case_Study.pdf).
+  - 2006: APT1's observed compromises begin, per Mandiant
+  - July 2012: First known adversarial access to the US Office of Personnel Management (OPM)
+  - August 2012: Shamoon wipes systems at a Saudi energy company (30,000 or more, per Unit 42)
+  - February 2013: Mandiant publishes APT1 and assesses it as PLA Unit 61398
+  - 1 May 2014: Five PLA Unit 61398 officers indicted for economic espionage (announced 19 May)
+  - 24 November 2014: The Sony Pictures wiper attack and the "Hacked By #GOP" screen
+  - 19 December 2014: The FBI attributes the Sony attack to North Korea; US-CERT publishes TA14-353A
+  - February 2016: Bangladesh Bank loses about $81 million through fraudulent SWIFT messages
+  - March 2016: March to June 2016: GRU phishing, implants and theft at the Clinton campaign, the DCCC and the DNC
+  - 3 April 2017: 3 April to 3 May 2017: GRU spearphishing of the French presidential campaign
+  - 19 December 2017: The US and five partner governments attribute WannaCry to North Korea
+  - 13 July 2018: Twelve GRU officers indicted over the 2016 election hacking
 - [APT41: The Public Record, 2012 to 2026](/case-studies/APT41_PUBLIC_RECORD.md). Threat actor, 2012 to 2026. Sectors: technology, government, healthcare, telecommunications, education. CVEs: CVE-2012-0158, CVE-2015-1641, CVE-2017-0199, CVE-2017-11882, CVE-2019-1652, CVE-2019-1653 and 12 more. ATT&CK groups: G0096 APT41. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/APT41_Public_Record_2012_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/APT41_Public_Record_2012_2026_Case_Study.pptx).
   - 2012: FireEye traces APT41 activity to 2012, when members targeted the video game industry
   - July 2017: NetSarang's nssock2.dll backdoored in five software packages

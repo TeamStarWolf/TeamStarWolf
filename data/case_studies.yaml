@@ -98,7 +98,7 @@ studies:
     actors: ["G0096"]
     tags: ["China", "espionage", "cybercrime", "supply chain", "video games"]
     pdf: "APT41_Public_Record_2012_2026_Case_Study.pdf"
-    pptx: null
+    pptx: "APT41_Public_Record_2012_2026_Case_Study.pptx"
     events:
       - {"date": "2012", "label": "FireEye traces APT41 activity to 2012, when members targeted the video game industry"}
       - {"date": "2017-07", "label": "NetSarang's nssock2.dll backdoored in five software packages"}
@@ -122,7 +122,7 @@ studies:
     actors: []
     tags: ["ransomware", "ALPHV", "BlackCat", "data breach", "MFA"]
     pdf: "Change_Healthcare_2024_Case_Study.pdf"
-    pptx: null
+    pptx: "Change_Healthcare_2024_Case_Study.pptx"
     events:
       - {"date": "2024-02-12", "label": "Login to the Citrix remote-access portal with compromised credentials and no MFA"}
       - {"date": "2024-02-17", "label": "Exfiltration of protected health information, 17 to 20 February"}

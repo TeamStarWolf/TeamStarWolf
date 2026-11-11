@@ -1,0 +1,270 @@
+{
+  "name": "TeamStarWolf - Kevin Mitnick Intrusions Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified record of Kevin Mitnick's intrusions and the two Mitnick and Simon books supports: the 1999 DOJ plea record, Mitnick's 2000 Senate testimony, Shimomura's January 1995 technical account of the Christmas Day 1994 intrusion, DOJ records for two Art of Intrusion stories, and CISA AA23-320A and HHS HC3 for the modern help desk comparison. Revoked ids map through data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/MITNICK_INTRUSIONS.md. Scores rank the record, not the mapping: 100 is conduct Mitnick admitted in the plea or described in testimony, 75 is the 1994 intrusion whose attacker the primary record does not name, 50 is an Art of Intrusion story with a DOJ record, 25 is the modern comparison only. Except where AA23-320A or HC3 cite an id, the mappings are this study's reading.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 25,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "25: modern help desk comparison only (AA23-320A, HC3)",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: Art of Intrusion story with a DOJ record",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "75: Christmas Day 1994 intrusion, attacker not named in the primary record",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: conduct admitted in the 1999 plea or described in testimony",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/MITNICK_INTRUSIONS.md (sources opened 3 November 2026; library data rechecked 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "24"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "31"
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "Kevin Mitnick: Ghost in the Wires and The Art of Intrusion",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/MITNICK_INTRUSIONS.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1684.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Impersonation: the 1999 plea record (impersonating Nokia Mobile Phones employees; De Payne posing as a Nokia employee) [1]; Mitnick's testimony on posing as a fellow employee to IRS and SSA staff [4][5]. Revoked T1656 maps here via data/attack/superseded_by.jsonl [35][26]. Modern comparison: AA23-320A cites T1656 for Scattered Spider [24]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1598.004",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Pretext phone calls: testimony on finding modem numbers by social engineering and on the Motorola firmware calls [4][5]; plea admission of social engineering [1]. Modern comparison: AA23-320A cites the id [24]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1589",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Information mining across an organization, per the 2000 testimony [5]. Modern comparison: AA23-320A cites the id [24]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1591",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Gathering organization information by phone before an intrusion, per the 2000 testimony [5]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1591.004",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Information mining to learn who holds which role, per the 2000 testimony [5]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Sniffer programs placed on victim systems, admitted in the plea [1]. Art of Intrusion thread: the DOJ 00-555 juvenile's router program that intercepted more than 3,300 messages [22]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Sniffer programs placed on victim systems, admitted in the plea [1]. Art of Intrusion thread: the DOJ 00-555 juvenile's router program that intercepted more than 3,300 messages [22]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1114",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Stealing e-mail, admitted in the plea [1]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1584.004",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Altering University of Southern California systems to store misappropriated programs, admitted in the plea [1]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1074.002",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Storing misappropriated programs on University of Southern California systems, admitted in the plea [1]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1595",
+      "tactic": "reconnaissance",
+      "score": 75,
+      "comment": "Christmas Day 1994: finger, showmount and rpcinfo probes from toad.com [3]. The primary record does not name the attacker. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 75,
+      "comment": "Christmas Day 1994: showmount and rpcinfo probes of the target's services [3]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1499.001",
+      "tactic": "impact",
+      "score": 75,
+      "comment": "Christmas Day 1994: SYN flood of the trusted server's login port to silence it during the spoofed connection [3]. Used to suppress a reply, not for impact. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 75,
+      "comment": "Christmas Day 1994: abuse of the rsh host trust between x-terminal and server through IP spoofing and sequence prediction [3]. Loose fit. Modern comparison: AA23-320A cites the id for abuse of the trusted relationships of contracted IT help desks in password reset calls [24]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "Christmas Day 1994: the forged rsh command added a wildcard trust entry to root's .rhosts file [3]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "privilege-escalation",
+      "score": 75,
+      "comment": "Christmas Day 1994: the forged rsh command added a wildcard trust entry to root's .rhosts file [3]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1563",
+      "tactic": "lateral-movement",
+      "score": 75,
+      "comment": "Christmas Day 1994: the tap-2.01 STREAMS module took over an authenticated login session to 'target' [3]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 50,
+      "comment": "Art of Intrusion thread: proprietary software downloaded from 13 NASA Marshall computers [22]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1213",
+      "tactic": "collection",
+      "score": 50,
+      "comment": "Art of Intrusion thread: Lamo's access to the New York Times Op-Ed contributor database [23]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1136",
+      "tactic": "persistence",
+      "score": 50,
+      "comment": "Art of Intrusion thread: Lamo created five fictitious user IDs on the Times' LexisNexis account [23]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1598",
+      "tactic": "reconnaissance",
+      "score": 25,
+      "comment": "Modern comparison only: AA23-320A cites the id for Scattered Spider [24]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1594",
+      "tactic": "reconnaissance",
+      "score": 25,
+      "comment": "Modern comparison only: AA23-320A cites the id for searching business-to-business websites to learn a target's role [24]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1566.004",
+      "tactic": "initial-access",
+      "score": 25,
+      "comment": "Modern comparison only: AA23-320A [24] and the HC3 help desk note [25] cite the id. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1621",
+      "tactic": "credential-access",
+      "score": 25,
+      "comment": "Modern comparison only: MFA fatigue, AA23-320A [24]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "stealth",
+      "score": 25,
+      "comment": "Modern comparison only: AA23-320A cites the id [24]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "persistence",
+      "score": 25,
+      "comment": "Modern comparison only: AA23-320A cites the id [24]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "privilege-escalation",
+      "score": 25,
+      "comment": "Modern comparison only: AA23-320A cites the id [24]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "initial-access",
+      "score": 25,
+      "comment": "Modern comparison only: AA23-320A cites the id [24]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "defense-impairment",
+      "score": 25,
+      "comment": "Modern comparison only: moving MFA to attacker devices, AA23-320A [24]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "persistence",
+      "score": 25,
+      "comment": "Modern comparison only: moving MFA to attacker devices, AA23-320A [24]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "credential-access",
+      "score": 25,
+      "comment": "Modern comparison only: moving MFA to attacker devices, AA23-320A [24]. Source numbers refer to the Sources table of case-studies/MITNICK_INTRUSIONS.md."
+    }
+  ]
+}

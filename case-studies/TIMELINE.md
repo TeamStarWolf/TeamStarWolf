@@ -428,6 +428,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 1 June 2023: Kaspersky discloses Operation Triangulation; the FSB blames US intelligence the same day
   - 19 October 2025: China's Ministry of State Security alleges an NSA campaign against the National Time Service Center
 
+### 1992 <!-- {docsify-ignore} -->
+
+- [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md). Threat actor, 1981 to April 2024 (core: 1992 to 2000). Sectors: telecommunications, technology, government, education, media, healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Mitnick_Intrusions_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Mitnick_Intrusions_Case_Study.pptx).
+  - 15 March 1989: Guilty plea to possessing 16 unauthorized MCI codes and computer fraud for copying a DEC security program (Reported)
+  - 1992: Fugitive intrusion series against technology companies begins, after a warrant for violating the 1989 supervised release
+  - 25 December 1994: IP-spoofing and session-hijack intrusion on Shimomura's systems; his account names no attacker
+  - 25 January 1995: Shimomura posts the technical details of the Christmas Day attack to Usenet
+  - February 1995: Mitnick arrested in North Carolina
+  - 20 May 1998: Ninth Circuit upholds the sentence and the bar on computers and cellular phones during supervised release
+  - March 1999: Global plea: four counts of wire fraud, two of computer fraud, one of intercepting a wire communication
+  - 9 August 1999: Sentenced to 46 months, 68 months combined, with restitution of just over $4,125
+  - 21 January 2000: Released; supervised release runs to 20 January 2003
+  - 2 March 2000: Testifies to the Senate Committee on Governmental Affairs on pretext calls and weak callbacks
+  - 16 November 2023: CISA and FBI publish AA23-320A on Scattered Spider's help desk impersonation
+  - 3 April 2024: HHS HC3 analyst note on social engineering of health sector IT help desks
+
 ### 1988 <!-- {docsify-ignore} -->
 
 - [Five Hacks and Why They Worked: The Cases in Fancy Bear Goes Phishing](/case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md). Period record, November 1988 to September 2018. Sectors: education, government, telecommunications, technology. CVEs: CVE-1999-0095. ATT&CK groups: G0007 APT28, G0016 APT29. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Fancy_Bear_Goes_Phishing_Cases_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Fancy_Bear_Goes_Phishing_Cases_Case_Study.pptx).

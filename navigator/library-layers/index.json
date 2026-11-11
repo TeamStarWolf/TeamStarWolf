@@ -174,6 +174,12 @@
     "blurb": "The ATT&CK records of the eight North Korea-attributed groups, from Lazarus Group to Contagious Interview, plus the techniques only the US and allied advisories state (AA23-040A healthcare ransomware, AA24-207A Andariel). A curated layer for the North Korea threat actors case study."
   },
   {
+    "file": "healthcare-threat-watchlist-2023-2026.json",
+    "name": "TeamStarWolf - Healthcare Threat Actor Watchlist 2023-2026",
+    "description": "Enterprise techniques named in the eleven US joint advisories (2022 to 2026) that name the Healthcare and Public Health sector as a victim or carry HHS as an author or co-sealer: ALPHV Blackcat, Black Basta, Rhysida, RansomHub, Interlock, Andariel, Maui, Medusa, Akira, LockBit and Pioneer Kitten. Revoked advisory ids are mapped to their ATT&CK v20 successors through data/attack/superseded_by.jsonl; Mobile ids and the Maui advisory's T1059.008 tag are left out. Tactics are taken from data/attack/technique_profiles.jsonl. Score = number of advisories naming the technique (1 to 8). Each comment names source numbers from the Sources table of case-studies/HEALTHCARE_THREAT_WATCHLIST.md. Not an official MITRE mapping.",
+    "blurb": "Techniques named in the joint advisories on the ransomware and state actors that hit healthcare from 2023 to 2026, scored by how many advisories name each one. A curated layer for the Healthcare Threat Actor Watchlist case study."
+  },
+  {
     "file": "fancy-bear-goes-phishing.json",
     "name": "TeamStarWolf - Fancy Bear Goes Phishing Cases",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified record supports for the five cases in Fancy Bear Goes Phishing: the Morris worm (1988), the Dark Avenger viruses (1989 to 1992), the 2005 phone case, the DNC intrusions by APT28 and APT29 (2015 to 2016) and Mirai (2016). Each comment names the case and source numbers from case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md. Scores: 100 is a technique the opened record or ATT&CK states for the DNC actors, 50 is a mapping that needs an interpretive step, including every row for the four cases ATT&CK does not cover.",

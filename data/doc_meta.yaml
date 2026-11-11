@@ -2441,6 +2441,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 4: the vulnerability-management view](#part-4-the-vulnerability-management-view), [Part 5: the defender view](#part-5-the-defender-view)"
     pairs_with: "[CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)"
     reviewed: null
+  case-studies/MITNICK_INTRUSIONS.md:
+    audience: "Security awareness leads, help desk and identity managers, threat intelligence analysts and anyone who has read Ghost in the Wires or The Art of Intrusion and wants the primary record behind them"
+    level: "Beginner"
+    read_when: "You want what Kevin Mitnick admitted, was sentenced for and testified to, as the court and government record tells it, you need to know what the record says about the Christmas Day 1994 intrusion, or you want the help desk lessons that run from the 1990s pretext call to Scattered Spider"
+    start_at: "[Executive summary](#executive-summary), [Part 3: the admitted conduct, 1992 to 1995](#part-3-the-admitted-conduct-1992-to-1995), [Part 7: the defender view, from pretext calls to help desk vishing](#part-7-the-defender-view-from-pretext-calls-to-help-desk-vishing)"
+    pairs_with: "[Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md), [Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986](/case-studies/CUCKOOS_EGG_1986.md)"
+    reviewed: null
   case-studies/MPTCP_ATTACK_SURFACE_2026.md:
     audience: "Linux administrators, vulnerability management leads and security engineers"
     level: "Intermediate"

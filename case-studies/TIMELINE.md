@@ -428,6 +428,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 1 June 2023: Kaspersky discloses Operation Triangulation; the FSB blames US intelligence the same day
   - 19 October 2025: China's Ministry of State Security alleges an NSA campaign against the National Time Service Center
 
+### 1992 <!-- {docsify-ignore} -->
+
+- [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md). Threat actor, 1981 to April 2024 (core: 1992 to 2000). Sectors: telecommunications, technology, government, education, media, healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Mitnick_Intrusions_Case_Study.pdf).
+  - 15 March 1989: Guilty plea to possessing 16 unauthorized MCI codes and computer fraud for copying a DEC security program (Reported)
+  - 1992: Fugitive intrusion series against technology companies begins, after a warrant for violating the 1989 supervised release
+  - 25 December 1994: IP-spoofing and session-hijack intrusion on Shimomura's systems; his account names no attacker
+  - 25 January 1995: Shimomura posts the technical details of the Christmas Day attack to Usenet
+  - February 1995: Mitnick arrested in North Carolina
+  - 20 May 1998: Ninth Circuit upholds the sentence and the bar on computers and cellular phones during supervised release
+  - March 1999: Global plea: four counts of wire fraud, two of computer fraud, one of intercepting a wire communication
+  - 9 August 1999: Sentenced to 46 months, 68 months combined, with restitution of just over $4,125
+  - 21 January 2000: Released; supervised release runs to 20 January 2003
+  - 2 March 2000: Testifies to the Senate Committee on Governmental Affairs on pretext calls and weak callbacks
+  - 16 November 2023: CISA and FBI publish AA23-320A on Scattered Spider's help desk impersonation
+  - 3 April 2024: HHS HC3 analyst note on social engineering of health sector IT help desks
+
 ### 1986 <!-- {docsify-ignore} -->
 
 - [The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986](/case-studies/CUCKOOS_EGG_1986.md). Incident, August 1986 to February 1990. Sectors: government, defense, education. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cuckoos_Egg_1986_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Cuckoos_Egg_1986_Case_Study.pptx).

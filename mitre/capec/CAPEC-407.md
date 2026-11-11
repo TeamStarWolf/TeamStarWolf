@@ -41,6 +41,7 @@ An adversary engages in pretexting behavior to solicit information from target p
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md)
 
 <!-- library-refs:end -->
 

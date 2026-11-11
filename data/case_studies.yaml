@@ -793,6 +793,32 @@ studies:
       - {"date": "2022-07-11", "label": "The CSRB publishes its report"}
       - {"date": "2025-12-10", "label": "Sonatype: about 13 percent of 2025 Log4j downloads still contained Log4Shell"}
       - {"date": "2026-01-23", "label": "OMB M-26-05 rescinds M-22-18 and M-23-16"}
+  case-studies/MITNICK_INTRUSIONS.md:
+    kind: "actor"
+    title: "Kevin Mitnick: Ghost in the Wires and The Art of Intrusion"
+    start: "1981"
+    end: "2024-04"
+    core_start: "1992"
+    core_end: "2000"
+    sectors: ["telecommunications", "technology", "government", "education", "media", "healthcare"]
+    cves: []
+    actors: []
+    tags: ["Kevin Mitnick", "Ghost in the Wires", "The Art of Intrusion", "social engineering", "pretexting", "Shimomura", "IP spoofing", "session hijacking", "Adrian Lamo", "help desk", "vishing", "Scattered Spider"]
+    pdf: "Mitnick_Intrusions_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "1989-03-15", "label": "Guilty plea to possessing 16 unauthorized MCI codes and computer fraud for copying a DEC security program (Reported)"}
+      - {"date": "1992", "label": "Fugitive intrusion series against technology companies begins, after a warrant for violating the 1989 supervised release"}
+      - {"date": "1994-12-25", "label": "IP-spoofing and session-hijack intrusion on Shimomura's systems; his account names no attacker"}
+      - {"date": "1995-01-25", "label": "Shimomura posts the technical details of the Christmas Day attack to Usenet"}
+      - {"date": "1995-02", "label": "Mitnick arrested in North Carolina"}
+      - {"date": "1998-05-20", "label": "Ninth Circuit upholds the sentence and the bar on computers and cellular phones during supervised release"}
+      - {"date": "1999-03", "label": "Global plea: four counts of wire fraud, two of computer fraud, one of intercepting a wire communication"}
+      - {"date": "1999-08-09", "label": "Sentenced to 46 months, 68 months combined, with restitution of just over $4,125"}
+      - {"date": "2000-01-21", "label": "Released; supervised release runs to 20 January 2003"}
+      - {"date": "2000-03-02", "label": "Testifies to the Senate Committee on Governmental Affairs on pretext calls and weak callbacks"}
+      - {"date": "2023-11-16", "label": "CISA and FBI publish AA23-320A on Scattered Spider's help desk impersonation"}
+      - {"date": "2024-04-03", "label": "HHS HC3 analyst note on social engineering of health sector IT help desks"}
   case-studies/MPTCP_ATTACK_SURFACE_2026.md:
     kind: "reference"
     title: "The Multipath TCP Attack Surface: A 2026 Case Study"

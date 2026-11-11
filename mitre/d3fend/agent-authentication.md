@@ -48,6 +48,7 @@ Agent authentication is the process of verifying the identities of agents to ens
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md)
 - [The Change Healthcare Attack of 2024: The Largest Healthcare Breach on Record](/case-studies/CHANGE_HEALTHCARE_2024.md)
 
 <!-- library-refs:end -->

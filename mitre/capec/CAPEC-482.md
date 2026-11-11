@@ -44,6 +44,7 @@ An adversary may execute a flooding attack using the TCP protocol with the inten
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md)
 
 <!-- library-refs:end -->
 

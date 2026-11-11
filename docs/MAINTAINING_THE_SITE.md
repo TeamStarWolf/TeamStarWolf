@@ -62,6 +62,8 @@ Avoid it. If a page is superseded, keep the file and replace its body with a not
 | `data/generated/stats.json` | Headline counts | `build_stats.py` | README and HOME "What's inside", `build_stats.py --check` |
 | `assets/site-nav.json` | Breadcrumb trails | `build_site_nav.py` | `index.html` |
 | `assets/explore.json` | One row per framework object with a page | `build_explore.py` | The Explore page in `index.html` |
+| `data/case_studies.yaml` | One entry per case study: kind, period, sectors, CVEs, ATT&CK groups, exports, dated key events | Hand (a new study adds its entry) | `build_case_study_timeline.py` |
+| `assets/case-studies.json` | One row per case study with its events | `build_case_study_timeline.py` | The case study timeline in `index.html` |
 | `data/MANIFEST.json` | Rows, bytes, SHA-256 and provenance per dataset | `build_manifest.py` | `build_manifest.py --check`, readers |
 | `scripts/baselines/` | Ratchet baselines for links, voice, revoked IDs and the lychee allowlist; each may only shrink | The checks' `--update-baseline` modes | The checks |
 | `scripts/old_urls.txt` | Old site routes that must keep resolving | Hand (add lines, never remove one to pass) | `check_old_urls.py` |
@@ -80,6 +82,7 @@ Generated blocks inside pages sit between `<!-- name:start -->` and `<!-- name:e
 | `build_doc_meta.py` | Header cards, folds, "Which page should I read?" tables, takeaways | A reference or path is added, `data/doc_meta.yaml` or the takeaway files change, or a page's words change much |
 | `build_crosslinks.py` | "Matching reference" lines, "Related pages" footers, "(local)" ID links, "Library references" blocks | Links between pages change, or `docs/crosslinks.json` changes |
 | `build_explore.py` | `assets/explore.json` and `explore.md` | The framework data in `data/` changes |
+| `build_case_study_timeline.py` | `assets/case-studies.json` and `case-studies/TIMELINE.md` | A case study is added, renamed or exported, or `data/case_studies.yaml` changes |
 | `build_stats.py` | `stats.json` and the README and HOME counts; `--check` scans pages for stale headline numbers | Any data change, and before every pull request |
 | `build_home_guides.py` | The homepage guide cards, from each guide's time and difficulty table | A guide's header table changes |
 | `build_search_index.py` | The Pagefind index and `ids.json` in the deploy artifact (never committed) | Only in the deploy job, or locally to try search |
@@ -104,7 +107,7 @@ Every writer has a `--check` mode that rebuilds in memory and fails on any diffe
 | Validate Data Files (`validate-data.yml`) | JSONL edge tables | A JSONL file breaks its schema or edge contract, or the ATT&CK core, CAPEC or CTID edges differ from their pinned sources |
 | Validate Data Files | Corpus signal | The corpus-signal paragraphs and their data file disagree |
 | Validate Data Files | Generated page trees | A `mitre/`, `techniques/` or `detections/strategies/` page differs from what the data produces |
-| Validate Data Files | Repo hygiene | Junk, bad encoding, a new revoked ID, a theme colour below AA, stale navigation or a hand-written page in no nav section, a stale Explore page, stale cross-link blocks, or a new voice violation |
+| Validate Data Files | Repo hygiene | Junk, bad encoding, a new revoked ID, a theme colour below AA, stale navigation or a hand-written page in no nav section, a stale Explore page, a stale case study timeline or a study with no timeline entry, stale cross-link blocks, or a new voice violation |
 | Validate Data Files | Header cards | A header card, fold or overlap table differs from `data/doc_meta.yaml`, a reference or path has no entry, or a takeaway's quote is no longer in its section |
 | Validate Data Files | Navigator layers | A layer is malformed, uses a revoked technique, or differs from the data |
 | Validate Data Files | Headline-number drift | `stats.json`, the README or HOME counts, the guide cards, the manifest or the control rollup are stale, or a page states a headline number the data does not support |

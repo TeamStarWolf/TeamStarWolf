@@ -82,6 +82,7 @@
     ]},
     {"label": "Case studies and research", "links": [
       ["Case studies", "/case-studies/README.md"],
+      ["Case study timeline", "/case-studies/TIMELINE.md"],
       ["Research notes", "/research/README.md"]
     ]},
     {"label": "About", "links": [

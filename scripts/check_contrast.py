@@ -78,6 +78,9 @@ PAIRS = [
     ("--tsw-red", "--tsw-bg", UI, "red accent rules (door, navbar)"),
     ("--tsw-green", "--tsw-surface", UI, "green accent rule (door)"),
     ("--tsw-link", "--tsw-surface", UI, "blue accent rule (door)"),
+    ("--tsw-link", "--tsw-bg-alt", TEXT, "case study timeline: ATT&CK group chips"),
+    ("--tsw-link", "--tsw-surface-2", UI, "case study timeline: event ticks on a card's strip"),
+    ("--tsw-link", "--tsw-bg", UI, "case study timeline: year rail markers"),
 ]
 
 BLOCKS = {

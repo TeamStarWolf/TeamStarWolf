@@ -110,6 +110,29 @@ Modern Smalltalk systems compile methods to bytecode and run them on a virtual m
 - Overusing reflection and `become:` in ways that make behavior hard to follow.
 - Blocking the UI process with long computations instead of forking a separate process.
 
+## Security relevance
+
+Smalltalk reaches security practitioners through the live, reflective image model that defines it rather than through offensive tooling, and it appears in a small set of long-lived research, education, and enterprise systems. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Live-image applications. [Pharo](https://pharo.org/) and [Squeak](https://squeak.org/), and commercial systems such as Cincom VisualWorks, run a program as a persistent object image whose compiler and tools are themselves objects, so the ability to evaluate source at run time is always present.
+- Web and enterprise back ends. Frameworks such as Seaside build web applications in Smalltalk, and some financial and enterprise systems run on commercial Smalltalk, which makes those back ends assessment targets. See the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Research and education. Smalltalk is used to teach object-oriented design and to prototype live systems, where the security-relevant code is typically the evaluation and reflection machinery itself.
+
+### Dominant weakness classes
+
+Smalltalk is memory-safe: it is garbage-collected within its object image and does not expose manual memory, so memory-corruption classes do not apply. The weaknesses concentrate in dynamic evaluation and persistence:
+
+- Code injection through evaluation. `Compiler evaluate:` and similar methods compile and run source at run time, so evaluating untrusted text runs arbitrary code. This is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Unsafe deserialization. Loading objects from untrusted serialized data or image segments can reconstruct unexpected objects and trigger behavior. This is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- Improper input validation. Dynamic typing leaves external data unchecked until the program checks it, so structure and range need validation at the boundary. This is [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- Uncontrolled resource consumption. Recursion or collection growth sized by untrusted input can exhaust the image's memory. This is [CWE-400](https://cwe.mitre.org/data/definitions/400.html).
+
+### Why it matters
+
+Reading Smalltalk lets a reviewer trace where an application evaluates source or loads serialized objects, the two places untrusted input turns into behavior in a live image. Dedicated security analyzers are scarce; the code critics and lint rules in Pharo and Squeak (SmallLint and the Refactoring Browser rules) flag some risky patterns, and manual review of every `evaluate:` and deserialization path is the primary control, as the Secure coding section explains.
+
 ## Secure coding
 
 Smalltalk's reflective, image-based model concentrates its security-relevant risks in dynamic evaluation and persistence:

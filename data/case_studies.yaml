@@ -1,0 +1,1009 @@
+# The case study timeline: one entry per study in case-studies/ (every .md file there
+# except README.md and the generated TIMELINE.md), keyed by the study's repository path.
+#
+# scripts/build_case_study_timeline.py reads this file and writes assets/case-studies.json
+# (read by the timeline on the site) and case-studies/TIMELINE.md (the timeline page and its
+# plain list). Edit here, run python scripts/build_case_study_timeline.py, and commit the
+# two files it rewrites; the --check run in CI fails when they are stale, when a study has
+# no entry here or an entry names no study, and on any field below that breaks its rule.
+# Every value is JSON on one line, so any YAML reader and the script's own reader see the
+# same data. A new study adds its entry in the pull request that adds the study.
+#
+# Per study:
+#   kind         vulnerability  one flaw or exploit chain at the centre
+#                incident       one organization's or one product's compromise
+#                campaign       one operation or exploitation wave across many victims
+#                actor          a threat actor's public record
+#                era            a period of time across many actors and events
+#                reference      an attack surface or technology studied across many incidents
+#   title        the study's H1, exactly
+#   start, end   the study's period, as its row in case-studies/README.md gives it: "YYYY",
+#                "YYYY-MM" or "YYYY-MM-DD"; end is null while the subject is ongoing
+#   core_start, core_end
+#                optional: the core period the README names ("core: November to December
+#                2021"); the study is placed under the year its core starts
+#   sectors      from the sectors list below: the sectors the study's victims or subject
+#                belong to; "technology" covers software, cloud and internet services and the
+#                vendors that build them; "cross-sector" means victims across many sectors
+#   cves         every CVE id the study names (the check fails on one it does not name)
+#   actors       the ATT&CK group ids the study binds: the groups it links to their library
+#                page as actors in its record, never a group it says is not involved; each
+#                must be in data/attack/group_profiles.jsonl
+#   tags         a few words a reader might search for
+#   pdf, pptx    the export file names in case-studies/pdf/ and case-studies/slides/, when
+#                they exist; every export in those folders must belong to an entry
+#   events       at most 12 dated key events, oldest first, each taken from the study's own
+#                timeline or record table (never added from outside it):
+#                {"date": "YYYY[-MM[-DD]]", "label": "..."}, the label one line of at most
+#                160 characters. Where the study gives a range, the date is its first day and
+#                the label names the range.
+#
+# Provenance: the entries for the studies on main on 2026-11-11 were written from each
+# study's H1, its README row (period and downloads), its CVE ids, the ATT&CK groups it links
+# and the rows of its timeline, operational record or Part 1 table.
+
+sectors: ["healthcare", "finance", "government", "energy", "manufacturing", "technology", "telecommunications", "education", "retail", "defense", "transport", "media", "cross-sector"]
+
+studies:
+  case-studies/AI_THREATS_2026.md:
+    kind: "era"
+    title: "AI Threats in the Cybersecurity Industry: A 2026 Case Study"
+    start: "2024-01"
+    end: "2026-10"
+    sectors: ["cross-sector", "technology"]
+    cves: ["CVE-2021-29441", "CVE-2025-3248", "CVE-2025-7775", "CVE-2025-32711"]
+    actors: []
+    tags: ["AI agents", "deepfakes", "prompt injection", "AI supply chain"]
+    pdf: "AI_Threats_2026_Case_Study.pdf"
+    pptx: "AI_Threats_2026_Case_Study.pptx"
+    events:
+      - {"date": "2024-02", "label": "Microsoft and OpenAI see five state actors use LLMs as a productivity tool, with no novel techniques"}
+      - {"date": "2025-08", "label": "Anthropic reports a \"vibe hacking\" extortion of at least 17 organizations run with Claude Code"}
+      - {"date": "2025-09", "label": "Forum posts claim the HexStrike-AI framework exploited NetScaler CVE-2025-7775 within 12 hours (Reported)"}
+      - {"date": "2025-11", "label": "GTG-1002 espionage: Claude Code runs 80 to 90 percent of the tactical work against about 30 targets"}
+      - {"date": "2026-04", "label": "NIST limits NVD enrichment to KEV, federal-use and EO 14028 critical software"}
+      - {"date": "2026-05-22", "label": "Project Glasswing update: about 50 partners found more than 10,000 high or critical flaws"}
+      - {"date": "2026-06", "label": "CISA BOD 26-04 replaces BOD 19-02 and 22-01 with risk tiers; the top tier gets three days"}
+      - {"date": "2026-07", "label": "JADEPUFFER runs a ransomware extortion end to end through Langflow and Nacos flaws"}
+      - {"date": "2026-07", "label": "OpenAI test agents exploit a zero-day in their sandbox's package proxy and breach Hugging Face"}
+      - {"date": "2026-07", "label": "Microsoft's July Patch Tuesday fixes 570 flaws, almost triple June"}
+      - {"date": "2026-09", "label": "GTIG reports a multi-agent credential-theft campaign run in under 6 hours"}
+  case-studies/APT41_PUBLIC_RECORD.md:
+    kind: "actor"
+    title: "APT41: The Public Record, 2012 to 2026"
+    start: "2012"
+    end: "2026"
+    sectors: ["technology", "government", "healthcare", "telecommunications", "education"]
+    cves:
+      - "CVE-2012-0158"
+      - "CVE-2015-1641"
+      - "CVE-2017-0199"
+      - "CVE-2017-11882"
+      - "CVE-2019-1652"
+      - "CVE-2019-1653"
+      - "CVE-2019-3396"
+      - "CVE-2019-11510"
+      - "CVE-2019-16098"
+      - "CVE-2019-16278"
+      - "CVE-2019-16920"
+      - "CVE-2019-19781"
+      - "CVE-2019-19871"
+      - "CVE-2020-10189"
+      - "CVE-2021-26855"
+      - "CVE-2021-44207"
+      - "CVE-2021-44228"
+      - "CVE-2022-21894"
+    actors:
+      - "G0001"
+      - "G0044"
+      - "G0096"
+      - "G0143"
+      - "G1006"
+      - "G1042"
+      - "G1048"
+    tags: ["China", "espionage", "cybercrime", "supply chain", "video games"]
+    pdf: "APT41_Public_Record_2012_2026_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2012", "label": "FireEye traces APT41 activity to 2012, when members targeted the video game industry"}
+      - {"date": "2017-07", "label": "NetSarang's nssock2.dll backdoored in five software packages"}
+      - {"date": "2018-06", "label": "ASUS Live Update compromise (ShadowHammer), June to November 2018; stage 1 unconfirmed as APT41"}
+      - {"date": "2019-08-07", "label": "FireEye publishes APT41: A Dual Espionage and Cyber Crime Operation"}
+      - {"date": "2019-08-15", "label": "A D.C. grand jury indicts Zhang Haoran and Tan Dailin"}
+      - {"date": "2020-08-11", "label": "Indictment of Jiang, Qian and Fu over the Chengdu 404 racketeering conspiracy"}
+      - {"date": "2020-10-01", "label": "CISA AA20-275A names APT41 exploiting Citrix NetScaler and Cisco routers"}
+      - {"date": "2021-05", "label": "Campaign C0017 compromises at least six US state government networks, to February 2022"}
+      - {"date": "2022-12-05", "label": "The US Secret Service says APT41 stole at least $20 million in COVID relief benefits"}
+      - {"date": "2024-07-18", "label": "APT41 DUST (C0040) reported: prolonged access at shipping and logistics organizations"}
+      - {"date": "2026-07-24", "label": "Google renames APT41 to SPIRE CASTLE"}
+      - {"date": "2026-10-22", "label": "BlackX UEFI bootkit reported at diplomatic agencies in Tajikistan, Uzbekistan and Turkmenistan"}
+  case-studies/CHANGE_HEALTHCARE_2024.md:
+    kind: "incident"
+    title: "The Change Healthcare Attack of 2024: The Largest Healthcare Breach on Record"
+    start: "2024-02"
+    end: "2026-11"
+    sectors: ["healthcare"]
+    cves: []
+    actors: []
+    tags: ["ransomware", "ALPHV", "BlackCat", "data breach", "MFA"]
+    pdf: "Change_Healthcare_2024_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2024-02-12", "label": "Login to the Citrix remote-access portal with compromised credentials and no MFA"}
+      - {"date": "2024-02-17", "label": "Exfiltration of protected health information, 17 to 20 February"}
+      - {"date": "2024-02-21", "label": "Ransomware deployed and systems encrypted; connectivity severed"}
+      - {"date": "2024-02-22", "label": "Form 8-K names a suspected nation-state associated actor"}
+      - {"date": "2024-03-01", "label": "350 BTC (about $22 million) reaches an ALPHV-linked address (Reported)"}
+      - {"date": "2024-03-05", "label": "ALPHV shuts down behind a seizure banner researchers judge fake"}
+      - {"date": "2024-03-07", "label": "E-prescribing fully working; pharmacy claims and payment available"}
+      - {"date": "2024-04-07", "label": "RansomHub lists Change Healthcare and claims 4 TB (Reported)"}
+      - {"date": "2024-05-01", "label": "Witty testifies to the Senate Finance Committee and a House oversight subcommittee"}
+      - {"date": "2024-10-22", "label": "About 100 million individual notices sent"}
+      - {"date": "2025-07-31", "label": "About 192.7 million people counted as affected"}
+      - {"date": "2026-09-30", "label": "S.3315 passes the Senate by unanimous consent"}
+  case-studies/CHRONICLE_2019.md:
+    kind: "era"
+    title: "The Year 2019 in Intrusions: A Dated Record"
+    start: "2019-01"
+    end: "2019-12"
+    sectors: ["cross-sector"]
+    cves:
+      - "CVE-2009-1151"
+      - "CVE-2014-6271"
+      - "CVE-2017-3881"
+      - "CVE-2017-6736"
+      - "CVE-2017-12617"
+      - "CVE-2018-0296"
+      - "CVE-2018-7600"
+      - "CVE-2018-13379"
+      - "CVE-2018-13382"
+      - "CVE-2018-13383"
+      - "CVE-2018-20250"
+      - "CVE-2019-0604"
+      - "CVE-2019-0708"
+      - "CVE-2019-1181"
+      - "CVE-2019-1182"
+      - "CVE-2019-1579"
+      - "CVE-2019-1652"
+      - "CVE-2019-2725"
+      - "CVE-2019-3395"
+      - "CVE-2019-3396"
+      - "CVE-2019-5544"
+      - "CVE-2019-5591"
+      - "CVE-2019-10149"
+      - "CVE-2019-11510"
+      - "CVE-2019-11539"
+      - "CVE-2019-11580"
+      - "CVE-2019-12255"
+      - "CVE-2019-12256"
+      - "CVE-2019-12265"
+      - "CVE-2019-15107"
+      - "CVE-2019-15846"
+      - "CVE-2019-16759"
+      - "CVE-2019-18935"
+      - "CVE-2019-19781"
+      - "CVE-2019-1003000"
+      - "CVE-2019-1003001"
+      - "CVE-2020-12812"
+    actors:
+      - "G0007"
+      - "G0010"
+      - "G0016"
+      - "G0032"
+      - "G0034"
+      - "G0045"
+      - "G0049"
+      - "G0059"
+      - "G0064"
+      - "G0082"
+      - "G0088"
+      - "G0093"
+      - "G0096"
+      - "G0102"
+      - "G0115"
+      - "G0119"
+      - "G0138"
+      - "G1041"
+      - "G1055"
+    tags: ["ransomware", "VPN flaws", "DNS hijacking", "BlueKeep"]
+    pdf: "Chronicle_2019_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2019-01-22", "label": "CISA Emergency Directive 19-01 orders federal agencies to audit DNS records"}
+      - {"date": "2019-03-19", "label": "Norsk Hydro hit by ransomware; plants switch to manual operations"}
+      - {"date": "2019-03-25", "label": "Kaspersky discloses Operation ShadowHammer through the ASUS Live Update tool"}
+      - {"date": "2019-04-17", "label": "Cisco Talos publishes Sea Turtle: DNS hijacking of at least 40 organizations in 13 countries"}
+      - {"date": "2019-05-14", "label": "Microsoft patches BlueKeep, CVE-2019-0708, including out-of-support XP and Server 2003"}
+      - {"date": "2019-07-29", "label": "Capital One announces its cloud data incident; DOJ announces an arrest"}
+      - {"date": "2019-08-16", "label": "Coordinated ransomware attack on Texas local government entities"}
+      - {"date": "2019-09", "label": "Earliest suspicious activity in the SolarWinds environment"}
+      - {"date": "2019-10-28", "label": "Disruptive attack on Georgia: several thousand websites disrupted and many defaced"}
+      - {"date": "2019-12-05", "label": "Treasury sanctions Evil Corp and Maksim Yakubets"}
+      - {"date": "2019-12-17", "label": "Citrix discloses CVE-2019-19781 with interim mitigations"}
+      - {"date": "2019-12-31", "label": "Travelex hit by Sodinokibi; more than 1,500 stores affected"}
+  case-studies/CHRONICLE_2020.md:
+    kind: "era"
+    title: "The Year 2020 in Intrusions: A Dated Record"
+    start: "2020-01"
+    end: "2020-12"
+    sectors: ["cross-sector", "healthcare"]
+    cves:
+      - "CVE-2017-5638"
+      - "CVE-2017-11882"
+      - "CVE-2018-7600"
+      - "CVE-2018-13379"
+      - "CVE-2019-0604"
+      - "CVE-2019-1652"
+      - "CVE-2019-1653"
+      - "CVE-2019-3396"
+      - "CVE-2019-9670"
+      - "CVE-2019-10149"
+      - "CVE-2019-11510"
+      - "CVE-2019-11539"
+      - "CVE-2019-11580"
+      - "CVE-2019-18935"
+      - "CVE-2019-19781"
+      - "CVE-2020-0601"
+      - "CVE-2020-0609"
+      - "CVE-2020-0688"
+      - "CVE-2020-0787"
+      - "CVE-2020-0796"
+      - "CVE-2020-1350"
+      - "CVE-2020-1472"
+      - "CVE-2020-2021"
+      - "CVE-2020-5902"
+      - "CVE-2020-6287"
+      - "CVE-2020-10189"
+      - "CVE-2020-11896"
+      - "CVE-2020-11897"
+      - "CVE-2020-11914"
+      - "CVE-2020-14750"
+      - "CVE-2020-14882"
+      - "CVE-2020-14883"
+      - "CVE-2020-15505"
+    actors:
+      - "G0007"
+      - "G0010"
+      - "G0016"
+      - "G0032"
+      - "G0034"
+      - "G0035"
+      - "G0037"
+      - "G0050"
+      - "G0059"
+      - "G0082"
+      - "G0087"
+      - "G0094"
+      - "G0096"
+      - "G0102"
+      - "G0117"
+      - "G0119"
+      - "G0127"
+      - "G0128"
+    tags: ["pandemic", "ransomware", "Zerologon", "VPN flaws"]
+    pdf: "Chronicle_2020_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2020-01-14", "label": "CISA ED 20-02 for CryptoAPI CVE-2020-0601 and the RD Gateway flaws"}
+      - {"date": "2020-02-10", "label": "Equifax indictment of four PLA 54th Research Institute members announced"}
+      - {"date": "2020-03-31", "label": "Marriott announces an incident involving up to about 5.2 million guests"}
+      - {"date": "2020-05-13", "label": "FBI and CISA warn COVID-19 research organizations of likely PRC targeting"}
+      - {"date": "2020-07-15", "label": "Twitter account takeover through phone spear phishing of employees"}
+      - {"date": "2020-07-16", "label": "NCSC and CSE: APT29 targets COVID-19 vaccine development"}
+      - {"date": "2020-08-11", "label": "Microsoft releases the Netlogon fix for CVE-2020-1472, first of two phases"}
+      - {"date": "2020-09-18", "label": "CISA ED 20-04: patch every domain controller for Zerologon by 21 September"}
+      - {"date": "2020-09-27", "label": "UHS IT security incident suspends access to its US IT applications"}
+      - {"date": "2020-10-15", "label": "A grand jury indicts six GRU Unit 74455 officers"}
+      - {"date": "2020-10-28", "label": "AA20-302A warns of ransomware against US hospitals"}
+      - {"date": "2020-12-08", "label": "FireEye discloses the theft of its Red Team tools"}
+  case-studies/CL0P_FILE_TRANSFER_2023.md:
+    kind: "campaign"
+    title: "The Cl0p MOVEit Breach and the File-Transfer Extortion Playbook: A 2023 Case Study"
+    start: "2023-05"
+    end: "2023-06"
+    sectors: ["cross-sector", "government", "education", "finance", "healthcare"]
+    cves:
+      - "CVE-2021-27101"
+      - "CVE-2021-27102"
+      - "CVE-2021-27103"
+      - "CVE-2021-27104"
+      - "CVE-2023-0669"
+      - "CVE-2023-34362"
+      - "CVE-2023-35036"
+      - "CVE-2023-35708"
+      - "CVE-2024-50623"
+      - "CVE-2024-55956"
+    actors: []
+    tags: ["MOVEit", "Cl0p", "data extortion", "managed file transfer"]
+    pdf: "Cl0p_MOVEit_File_Transfer_2023_Case_Study.pdf"
+    pptx: "Cl0p_MOVEit_File_Transfer_2023_Case_Study.pptx"
+    events:
+      - {"date": "2020", "label": "Accellion File Transfer Appliance exploited, 2020 to 2021"}
+      - {"date": "2023", "label": "Fortra GoAnywhere MFT exploited, early 2023"}
+      - {"date": "2023-05-27", "label": "Around this date, mass exploitation of CVE-2023-34362 begins over the US Memorial Day weekend"}
+      - {"date": "2023-05-31", "label": "Progress publishes its advisory and emergency patch"}
+      - {"date": "2023-06", "label": "CISA and the FBI publish AA23-158A; the CVE is added to the KEV catalog"}
+      - {"date": "2023-06-14", "label": "Cl0p begins naming victims on its leak site with payment deadlines"}
+      - {"date": "2024-08", "label": "The running tally reaches about 2,773 organizations and 95.8 million individuals"}
+      - {"date": "2024", "label": "Cleo Harmony, VLTrader and LexiCom exploited, late 2024"}
+  case-studies/EMUDHRA_CA_COMPROMISE_2026.md:
+    kind: "incident"
+    title: "The eMudhra Certificate Authority Key Compromise: A 2026 Case Study"
+    start: "2026-10"
+    end: "2026-10"
+    sectors: ["technology"]
+    cves: ["CVE-2026-111943"]
+    actors: []
+    tags: ["Web PKI", "certificate authority", "key ceremony", "distrust"]
+    pdf: "eMudhra_CA_Compromise_2026_Case_Study.pdf"
+    pptx: "eMudhra_CA_Compromise_2026_Case_Study.pptx"
+    events:
+      - {"date": "2025-04-30", "label": "eMudhra key ceremony produces 24 intermediates; a test deviation generates the weak keys"}
+      - {"date": "2026-10-17", "label": "A researcher identifies the weak keys against CCADB and proves control"}
+      - {"date": "2026-10-20", "label": "Mozilla removes the root from NSS; Microsoft blocks the eight intermediates"}
+      - {"date": "2026-10-22", "label": "eMudhra announces it will exit the global SSL/TLS certificate business"}
+      - {"date": "2026-10-27", "label": "Chrome Root Store removes the emSign ECC Root CA G3"}
+      - {"date": "2026-10", "label": "Apple, Go (CVE-2026-111943), Okta and Auth0, and downstream bundles follow"}
+  case-studies/EXCHANGE_MARAUDER_2021.md:
+    kind: "campaign"
+    title: "Operation Exchange Marauder and the 2021 Exchange Server Mass Exploitation"
+    start: "2021-01"
+    end: "2021-11"
+    sectors: ["cross-sector", "government", "education"]
+    cves:
+      - "CVE-2020-0688"
+      - "CVE-2021-26412"
+      - "CVE-2021-26854"
+      - "CVE-2021-26855"
+      - "CVE-2021-26857"
+      - "CVE-2021-26858"
+      - "CVE-2021-27065"
+      - "CVE-2021-27078"
+      - "CVE-2021-28480"
+      - "CVE-2021-28483"
+      - "CVE-2021-31195"
+      - "CVE-2021-31196"
+      - "CVE-2021-31207"
+      - "CVE-2021-33766"
+      - "CVE-2021-34473"
+      - "CVE-2021-34523"
+      - "CVE-2025-53786"
+    actors:
+      - "G0027"
+      - "G0044"
+      - "G0046"
+      - "G0059"
+      - "G0060"
+      - "G0065"
+      - "G0096"
+      - "G0125"
+      - "G0128"
+      - "G0131"
+      - "G1003"
+      - "G1022"
+      - "G1043"
+    tags: ["ProxyLogon", "ProxyShell", "HAFNIUM", "web shells"]
+    pdf: "Exchange_Marauder_2021_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2020-12-10", "label": "DEVCORE finds the pre-auth proxy bug, later CVE-2021-26855"}
+      - {"date": "2021-01-03", "label": "Earliest SSRF mailbox theft Volexity observed"}
+      - {"date": "2021-01-05", "label": "DEVCORE submits its advisory and exploit to MSRC"}
+      - {"date": "2021-03-02", "label": "Microsoft ships out-of-band fixes and attributes the exploitation to HAFNIUM"}
+      - {"date": "2021-03-03", "label": "CISA issues ED 21-02 and Alert AA21-062A"}
+      - {"date": "2021-03-10", "label": "ESET: more than ten APT groups, web shells on more than 5,000 servers in over 115 countries"}
+      - {"date": "2021-03-15", "label": "Microsoft releases EOMT"}
+      - {"date": "2021-04-13", "label": "April updates fix CVE-2021-34473, 34523 and 33766; the FBI web shell filing is unsealed"}
+      - {"date": "2021-07-19", "label": "US, UK, EU, NATO and Canada statements attribute the Exchange compromise"}
+      - {"date": "2021-08-21", "label": "CISA urgent alert on active ProxyShell exploitation"}
+      - {"date": "2021-11-03", "label": "KEV launches with the seven ProxyLogon and ProxyShell CVEs"}
+      - {"date": "2025-07-03", "label": "Xu Zewei arrested in Milan"}
+  case-studies/GHOSTCAT_CVE_2020_1938.md:
+    kind: "vulnerability"
+    title: "Ghostcat, CVE-2020-1938: The Tomcat AJP File Read in the Lab"
+    start: "2020-01"
+    end: "2026-11"
+    sectors: ["technology"]
+    cves: ["CVE-2020-1938", "CVE-2021-44228", "CVE-2026-98432"]
+    actors: []
+    tags: ["Tomcat", "AJP", "file read", "lab"]
+    pdf: "Ghostcat_CVE_2020_1938_Case_Study.pdf"
+    pptx: "Ghostcat_CVE_2020_1938_Case_Study.pptx"
+    events:
+      - {"date": "2020-01-03", "label": "Chaitin Tech reports the flaw to the Apache Tomcat Security Team"}
+      - {"date": "2020-02-11", "label": "Tomcat 9.0.31 and 8.5.51 released"}
+      - {"date": "2020-02-20", "label": "CNVD and Chaitin publish Ghostcat notices; Exploit-DB EDB-48143 published"}
+      - {"date": "2020-02-24", "label": "Apache makes the issue public; NVD publishes CVE-2020-1938"}
+      - {"date": "2020-02-29", "label": "Bad Packets reports mass scanning, including checks for /WEB-INF/web.xml"}
+      - {"date": "2020-11-13", "label": "A Metasploit module, Apache Tomcat AJP File Read, appears"}
+      - {"date": "2022-03-03", "label": "CISA adds CVE-2020-1938 to KEV in a batch of 95 entries"}
+      - {"date": "2026-10", "label": "DShield still records about 950 to 6,200 port 8009 events a day"}
+      - {"date": "2026-11-03", "label": "KEV still lists the CVE; the TeamStarWolf lab run"}
+  case-studies/HUGGING_FACE_SUPPLY_CHAIN.md:
+    kind: "reference"
+    title: "Hugging Face as an AI Supply-Chain Attack Surface: A 2021 to 2026 Case Study"
+    start: "2021-12"
+    end: "2026-11"
+    sectors: ["technology"]
+    cves:
+      - "CVE-2023-6730"
+      - "CVE-2023-51449"
+      - "CVE-2024-1561"
+      - "CVE-2024-1728"
+      - "CVE-2024-3568"
+      - "CVE-2024-3660"
+      - "CVE-2024-4325"
+      - "CVE-2024-7804"
+      - "CVE-2024-21802"
+      - "CVE-2024-21825"
+      - "CVE-2024-21836"
+      - "CVE-2024-23496"
+      - "CVE-2024-23605"
+      - "CVE-2024-32878"
+      - "CVE-2024-34359"
+      - "CVE-2024-41130"
+      - "CVE-2024-47867"
+      - "CVE-2024-47871"
+      - "CVE-2025-1550"
+      - "CVE-2025-1716"
+      - "CVE-2025-1889"
+      - "CVE-2025-1944"
+      - "CVE-2025-1945"
+      - "CVE-2025-8747"
+      - "CVE-2025-9905"
+      - "CVE-2025-10155"
+      - "CVE-2025-23042"
+      - "CVE-2025-32434"
+      - "CVE-2025-46417"
+      - "CVE-2025-49655"
+      - "CVE-2025-49847"
+      - "CVE-2025-52566"
+      - "CVE-2025-53630"
+      - "CVE-2025-67747"
+      - "CVE-2025-67748"
+      - "CVE-2026-3490"
+      - "CVE-2026-4372"
+      - "CVE-2026-5241"
+      - "CVE-2026-12481"
+      - "CVE-2026-12484"
+      - "CVE-2026-22606"
+      - "CVE-2026-22609"
+      - "CVE-2026-22612"
+      - "CVE-2026-24747"
+      - "CVE-2026-27940"
+      - "CVE-2026-28416"
+      - "CVE-2026-33298"
+      - "CVE-2026-49119"
+      - "CVE-2026-80047"
+    actors: ["G0007"]
+    tags: ["AI supply chain", "pickle", "model hub", "tokens"]
+    pdf: "Hugging_Face_Supply_Chain_2021_2026_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2021-12-21", "label": "Hugging Face announces it is acquiring Gradio"}
+      - {"date": "2023-07-09", "label": "PoisonGPT: an edited GPT-J-6B uploaded under a lookalike organization name"}
+      - {"date": "2023-11-02", "label": "transformers v4.35.0 makes safetensors the default save format"}
+      - {"date": "2023-12-04", "label": "Lasso reports 1,681 valid Hugging Face tokens exposed"}
+      - {"date": "2024-02-27", "label": "JFrog reports about 100 malicious models on the Hub"}
+      - {"date": "2024-04-04", "label": "Wiz and Hugging Face publish the Inference API and Spaces findings"}
+      - {"date": "2024-05-31", "label": "Hugging Face discloses unauthorized access related to Spaces secrets"}
+      - {"date": "2025-01-29", "label": "PyTorch 2.6.0 makes weights_only=True the default"}
+      - {"date": "2025-04-17", "label": "CVE-2025-32434: torch.load with weights_only=True still reaches RCE before 2.6.0"}
+      - {"date": "2026-07-09", "label": "Autonomous evaluation agents intrude on Hugging Face infrastructure, to 13 July"}
+      - {"date": "2026-07-16", "label": "Hugging Face discloses the intrusion"}
+      - {"date": "2026-10-28", "label": "ATLAS 2026.10 released with five Hugging Face case studies"}
+  case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md:
+    kind: "era"
+    title: "Industrial Control System Attacks and Advisories, 2024 to 2026: Incidents, CVEs and Attribution"
+    start: "2024-01"
+    end: "2026-11"
+    sectors: ["energy", "manufacturing"]
+    cves:
+      - "CVE-2017-7921"
+      - "CVE-2018-0171"
+      - "CVE-2018-4063"
+      - "CVE-2018-7522"
+      - "CVE-2018-8872"
+      - "CVE-2019-7256"
+      - "CVE-2019-11043"
+      - "CVE-2020-15368"
+      - "CVE-2021-22681"
+      - "CVE-2021-26828"
+      - "CVE-2021-26829"
+      - "CVE-2022-42475"
+      - "CVE-2023-4346"
+      - "CVE-2023-6448"
+      - "CVE-2024-2617"
+      - "CVE-2024-8956"
+      - "CVE-2024-8957"
+      - "CVE-2024-54085"
+      - "CVE-2025-0994"
+      - "CVE-2025-1316"
+      - "CVE-2025-14847"
+      - "CVE-2025-20352"
+      - "CVE-2025-32433"
+      - "CVE-2025-41660"
+      - "CVE-2025-67038"
+      - "CVE-2026-110936"
+    actors: ["G0034", "G0035", "G0088", "G1017"]
+    tags: ["ICS", "OT", "PLC", "water", "hacktivists"]
+    pdf: "ICS_Attacks_and_Advisories_2024_2026_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2023-11-22", "label": "Unitronics PLC defacements begin: at least 75 US devices, at least 34 in water and wastewater"}
+      - {"date": "2024-01-22", "label": "FrostyGoop in Lviv: heating outage for over 600 apartment buildings"}
+      - {"date": "2024-02-07", "label": "AA24-038A on Volt Typhoon pre-positioning on IT networks"}
+      - {"date": "2024-04-17", "label": "Mandiant graduates Sandworm to APT44"}
+      - {"date": "2024-09-22", "label": "Arkansas City, Kansas: water treatment facility switches to manual operations"}
+      - {"date": "2025-04-07", "label": "Bremanger dam, Norway: a valve or flood gate opened for four hours"}
+      - {"date": "2025-09-02", "label": "Jaguar Land Rover shuts down systems; retail and production severely disrupted"}
+      - {"date": "2025-12-09", "label": "AA25-343A and DOJ charges against pro-Russia hacktivist groups"}
+      - {"date": "2025-12-29", "label": "Poland energy attack on more than 30 wind and PV farms, a manufacturer and a CHP plant"}
+      - {"date": "2026-04-07", "label": "AA26-097A on the Iranian-affiliated campaign disrupting exposed Rockwell PLCs"}
+      - {"date": "2026-07-26", "label": "Coordinated attack on OT at more than 30 Minnesota community water systems"}
+      - {"date": "2026-10-20", "label": "Siemens Software Center CVE-2026-110936 added to KEV"}
+  case-studies/LINUX_TCP_UAF_2026.md:
+    kind: "vulnerability"
+    title: "The CVE-2026-98432 Linux Kernel Flaw and an AI-Written Exploit: A 2026 Case Study"
+    start: "2026-10"
+    end: "2026-10"
+    sectors: ["technology"]
+    cves: ["CVE-2026-98432"]
+    actors: []
+    tags: ["Linux kernel", "use-after-free", "Multipath TCP", "AI exploit"]
+    pdf: "Linux_TCP_UAF_2026_Case_Study.pdf"
+    pptx: "Linux_TCP_UAF_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-10-05", "label": "Two-line kfree_rcu fix merged upstream and backported to stable branches"}
+      - {"date": "2026-10-15", "label": "CVE-2026-98432 published by the kernel CNA (CVSS 9.8)"}
+      - {"date": "2026-10-16", "label": "Oracle Linux UEK fixes released"}
+      - {"date": "2026-10-27", "label": "Anthropic's Frontier Red Team publishes the AI-exploit report"}
+      - {"date": "2026-10-30", "label": "AWS bulletin; Red Hat RHSB-2026-016 rates the flaw Critical"}
+      - {"date": "2026-11-01", "label": "Red Hat ships fixed kernels for RHEL 8, 9 and 10"}
+      - {"date": "2026-11-02", "label": "Still no reported in-the-wild exploitation; not in CISA KEV"}
+  case-studies/LOG4SHELL.md:
+    kind: "vulnerability"
+    title: "Log4Shell (CVE-2021-44228): The Case Study"
+    start: "2013-07"
+    end: "2026"
+    core_start: "2021-11"
+    core_end: "2021-12"
+    sectors: ["technology", "cross-sector"]
+    cves:
+      - "CVE-2021-4104"
+      - "CVE-2021-35247"
+      - "CVE-2021-44207"
+      - "CVE-2021-44228"
+      - "CVE-2021-44832"
+      - "CVE-2021-45046"
+      - "CVE-2021-45105"
+    actors:
+      - "G0032"
+      - "G0059"
+      - "G0069"
+      - "G0096"
+      - "G0125"
+      - "G0138"
+      - "G0143"
+      - "G1021"
+      - "G1041"
+    tags: ["Log4j", "JNDI", "Java", "SBOM"]
+    pdf: "Log4Shell_CVE_2021_44228_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2013-07-17", "label": "LOG4J2-313, JNDI Lookup plugin support, created for 2.0-beta9"}
+      - {"date": "2021-11-24", "label": "An Alibaba Cloud Security engineer reports the flaw to Apache"}
+      - {"date": "2021-12-01", "label": "Earliest known exploitation, consistent with testing of the reporter's proof of concept"}
+      - {"date": "2021-12-09", "label": "Public disclosure; log4j-core 2.15.0 on Maven Central"}
+      - {"date": "2021-12-10", "label": "Apache announces CVE-2021-44228; CISA adds it to KEV"}
+      - {"date": "2021-12-14", "label": "Apache announces CVE-2021-45046; Microsoft reports nation-state use"}
+      - {"date": "2021-12-17", "label": "CISA issues Emergency Directive 22-02"}
+      - {"date": "2021-12-22", "label": "AA21-356A, the joint Five Eyes advisory"}
+      - {"date": "2021-12-28", "label": "Apache announces CVE-2021-44832; 2.17.1 on Maven Central"}
+      - {"date": "2022-07-11", "label": "The CSRB publishes its report"}
+      - {"date": "2025-12-10", "label": "Sonatype: about 13 percent of 2025 Log4j downloads still contained Log4Shell"}
+      - {"date": "2026-01-23", "label": "OMB M-26-05 rescinds M-22-18 and M-23-16"}
+  case-studies/MPTCP_ATTACK_SURFACE_2026.md:
+    kind: "reference"
+    title: "The Multipath TCP Attack Surface: A 2026 Case Study"
+    start: "2020"
+    end: "2026"
+    sectors: ["technology"]
+    cves: ["CVE-2021-47152", "CVE-2022-50071", "CVE-2025-40258", "CVE-2026-31669", "CVE-2026-80588", "CVE-2026-98432"]
+    actors: []
+    tags: ["Multipath TCP", "Linux kernel", "attack surface", "sysctl"]
+    pdf: "MPTCP_Attack_Surface_2026_Case_Study.pdf"
+    pptx: "MPTCP_Attack_Surface_2026_Case_Study.pptx"
+    events:
+      - {"date": "2020", "label": "Linux kernel 5.6 ships a mainline Multipath TCP implementation"}
+      - {"date": "2026-11-03", "label": "Lab readings on a host running Kali 2026.2 with kernel 7.1.5"}
+  case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md:
+    kind: "reference"
+    title: "npm Supply-Chain Attacks, 2018 to 2026: The Record and the Defenses"
+    start: "2018-09"
+    end: "2026-10"
+    sectors: ["technology"]
+    cves: ["CVE-2022-23812"]
+    actors: ["G0082", "G1052", "G1056"]
+    tags: ["npm", "supply chain", "worms", "phishing"]
+    pdf: "npm_Supply_Chain_Attacks_2018_2026_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2018-09-09", "label": "event-stream: a new maintainer who took over by social engineering adds flatmap-stream"}
+      - {"date": "2021-02-09", "label": "Dependency confusion: internal package names uploaded to public registries are detected inside more than 35 organizations"}
+      - {"date": "2021-10-22", "label": "ua-parser-js: the maintainer believes his npm account was hijacked"}
+      - {"date": "2022-01-05", "label": "faker 6.6.6 published empty; on 8 January colors 1.4.1 adds an infinite loop"}
+      - {"date": "2022-03-07", "label": "node-ipc peacenotwar: maintainer-introduced code meant to overwrite files"}
+      - {"date": "2023-07-18", "label": "GitHub ties a social engineering campaign to Jade Sleet (TraderTraitor)"}
+      - {"date": "2025-08-26", "label": "Nx s1ngularity: a pull_request_target workflow leaks a GitHub token"}
+      - {"date": "2025-09-08", "label": "chalk, debug and 16 other packages published after a maintainer phishing"}
+      - {"date": "2025-09-14", "label": "Shai-Hulud: @ctrl/tinycolor 4.1.1 and 4.1.2 carry a payload that republishes the maintainer's packages"}
+      - {"date": "2025-11-21", "label": "Shai-Hulud 2.0 trojanized uploads, 21 to 23 November"}
+      - {"date": "2026-03-30", "label": "axios: social engineering and a RAT on the lead maintainer's PC expose the npm credentials"}
+      - {"date": "2026-08-04", "label": "keyv maintainer's GitHub account compromised; the CHAINDROP worm follows"}
+  case-studies/PHP2SHELL_OCTOBER_2026.md:
+    kind: "vulnerability"
+    title: "PHP2Shell and the October 2026 Attack Wave: A Case Study"
+    start: "2026-10"
+    end: "2026-10"
+    sectors: ["technology", "finance"]
+    cves: ["CVE-2026-109618", "CVE-2026-109619"]
+    actors: []
+    tags: ["PHP", "remote code execution", "KEV", "Binance"]
+    pdf: "PHP2Shell_October_2026_Case_Study.pdf"
+    pptx: "PHP2Shell_October_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-10-14", "label": "ConnectWise identifies the Cloud Backup issue"}
+      - {"date": "2026-10-17", "label": "Amazon MadPot sees PHP2Shell attempts four days before disclosure"}
+      - {"date": "2026-10-20", "label": "PHP2Shell disclosed and patched (20 to 21 October); eMudhra intermediates distrusted"}
+      - {"date": "2026-10-22", "label": "Exploit attempts climb from tens of thousands to millions"}
+      - {"date": "2026-10-29", "label": "Binance drained of about $6.3 billion; a trojanized Claude Code Cursor extension published"}
+  case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md:
+    kind: "vulnerability"
+    title: "ProFTPD mod_copy, CVE-2015-3306: Unauthenticated File Copy in the Lab"
+    start: "2015-04"
+    end: "2026-11"
+    sectors: ["technology"]
+    cves: ["CVE-2015-3306", "CVE-2019-12815"]
+    actors: []
+    tags: ["ProFTPD", "FTP", "mod_copy", "KEV", "lab"]
+    pdf: "ProFTPD_mod_copy_CVE_2015_3306_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2015-04-07", "label": "Bug 4169 filed; the fix is merged twelve minutes later and backported to 1.3.5"}
+      - {"date": "2015-04-13", "label": "Exploit-DB 36742, ProFTPd 1.3.5 File Copy, published"}
+      - {"date": "2015-04-15", "label": "CVE-2015-3306 assigned; the flaw disclosed on oss-security"}
+      - {"date": "2015-04-22", "label": "Disclosure date of the Metasploit module proftpd_modcopy_exec"}
+      - {"date": "2015-05-27", "label": "ProFTPD 1.3.5a released"}
+      - {"date": "2019-07-19", "label": "Related flaw CVE-2019-12815 published"}
+      - {"date": "2026-10-08", "label": "CISA adds CVE-2015-3306 to KEV; joint advisory AA26-281A lists it"}
+      - {"date": "2026-11-04", "label": "Lab run: the vulnerable build copies a file without login; the fixed build refuses"}
+  case-studies/SANDWORM_OPERATIONS.md:
+    kind: "actor"
+    title: "Sandworm: The Operations in the Public Record"
+    start: "2011"
+    end: "2024-04"
+    sectors: ["energy", "government", "media", "telecommunications", "transport"]
+    cves:
+      - "CVE-2013-3906"
+      - "CVE-2014-0751"
+      - "CVE-2014-4114"
+      - "CVE-2015-5374"
+      - "CVE-2017-0144"
+      - "CVE-2017-0145"
+      - "CVE-2019-10149"
+    actors: ["G0034", "G0035"]
+    tags: ["Russia", "GRU", "Unit 74455", "wipers", "ICS"]
+    pdf: null
+    pptx: null
+    events:
+      - {"date": "2014-10-14", "label": "MS14-060 patched; CVE-2014-4114 had been exploited in a Sandworm campaign"}
+      - {"date": "2015-12-23", "label": "First Ukrainian blackout: three distribution companies, about 225,000 customers"}
+      - {"date": "2016-12-17", "label": "Industroyer attack on a Kyiv transmission substation; about one hour of disruption"}
+      - {"date": "2017-06-27", "label": "NotPetya spreads worldwide from the M.E.Doc update server"}
+      - {"date": "2017-10-24", "label": "Bad Rabbit watering-hole ransomware"}
+      - {"date": "2018-02-09", "label": "Olympic Destroyer wiper pushed during the opening ceremony"}
+      - {"date": "2018-05-23", "label": "VPNFilter disclosed: at least 500,000 devices in at least 54 countries"}
+      - {"date": "2019-10-28", "label": "About 15,000 Georgian websites defaced; broadcasters interrupted"}
+      - {"date": "2020-10-15", "label": "Indictment of six Unit 74455 officers filed"}
+      - {"date": "2022-04-08", "label": "Industroyer2 planned against high-voltage substations; CERT-UA says it was prevented"}
+      - {"date": "2022-10-10", "label": "Third Ukrainian blackout, 10 to 12 October"}
+      - {"date": "2024-04-17", "label": "Mandiant designates APT44"}
+  case-studies/SHAREPOINT_TOOLSHELL_2025.md:
+    kind: "vulnerability"
+    title: "The SharePoint ToolShell Mass Exploitation: A 2025 Case Study"
+    start: "2025-07"
+    end: "2025-07"
+    sectors: ["government", "education", "telecommunications", "finance"]
+    cves: ["CVE-2025-49704", "CVE-2025-49706", "CVE-2025-53770", "CVE-2025-53771"]
+    actors: []
+    tags: ["SharePoint", "ToolShell", "machine keys", "ransomware"]
+    pdf: "SharePoint_ToolShell_2025_Case_Study.pdf"
+    pptx: "SharePoint_ToolShell_2025_Case_Study.pptx"
+    events:
+      - {"date": "2025-05", "label": "ToolShell exploit chain demonstrated at Pwn2Own Berlin"}
+      - {"date": "2025-07", "label": "July Patch Tuesday fixes CVE-2025-49704 and CVE-2025-49706"}
+      - {"date": "2025-07-14", "label": "Code White reports a working public reproduction of the chain"}
+      - {"date": "2025-07-18", "label": "Around this date, mass exploitation of the CVE-2025-53770 and CVE-2025-53771 bypass begins"}
+      - {"date": "2025-07-19", "label": "Microsoft ships out-of-band updates, 19 to 20 July"}
+      - {"date": "2025-07-20", "label": "CISA adds CVE-2025-53770 to the KEV catalog"}
+      - {"date": "2025-09", "label": "Warlock's leak site lists roughly 60 victims"}
+  case-studies/SOLARWINDS_SUNBURST.md:
+    kind: "campaign"
+    title: "SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021"
+    start: "2019-01"
+    end: "2021"
+    core_start: "2020-02"
+    core_end: "2020-12"
+    sectors: ["technology", "government"]
+    cves:
+      - "CVE-2018-13379"
+      - "CVE-2019-9670"
+      - "CVE-2019-11510"
+      - "CVE-2019-19781"
+      - "CVE-2020-0688"
+      - "CVE-2020-1472"
+      - "CVE-2020-4006"
+      - "CVE-2020-10148"
+    actors: ["G0010", "G0016"]
+    tags: ["supply chain", "SUNBURST", "APT29", "Golden SAML"]
+    pdf: "SolarWinds_SUNBURST_2019_2021_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2019-09-04", "label": "Threat actor accesses SolarWinds"}
+      - {"date": "2019-09-12", "label": "Test code injection trial run, to 4 November 2019"}
+      - {"date": "2020-02-20", "label": "SUNSPOT build timestamp; SUNBURST injected into Orion builds from this day"}
+      - {"date": "2020-03", "label": "Trojanized Orion updates released, March to June 2020"}
+      - {"date": "2020-06-04", "label": "Actor removes the malware from SolarWinds' build VMs"}
+      - {"date": "2020-12-08", "label": "FireEye discloses the theft of its red-team tools"}
+      - {"date": "2020-12-13", "label": "Mandiant publishes SUNBURST; CISA issues ED 21-01"}
+      - {"date": "2021-01-05", "label": "Joint statement: the APT actor is likely Russian in origin"}
+      - {"date": "2021-04-15", "label": "US attributes the operation to the SVR and imposes sanctions"}
+      - {"date": "2021-05-12", "label": "Executive Order 14028 signed"}
+      - {"date": "2023-10-30", "label": "SEC charges SolarWinds and its CISO"}
+      - {"date": "2025-11-20", "label": "SEC case dismissed with prejudice by joint stipulation"}
+  case-studies/STUXNET.md:
+    kind: "campaign"
+    title: "Stuxnet: The Case Study"
+    start: "2005"
+    end: "2017"
+    sectors: ["energy"]
+    cves:
+      - "CVE-2008-4250"
+      - "CVE-2010-2568"
+      - "CVE-2010-2729"
+      - "CVE-2010-2743"
+      - "CVE-2010-2772"
+      - "CVE-2010-3338"
+      - "CVE-2010-3888"
+      - "CVE-2011-3402"
+      - "CVE-2012-3015"
+      - "CVE-2020-15368"
+    actors: ["G0020"]
+    tags: ["ICS", "PLC", "zero-days", "air gap", "sabotage"]
+    pdf: "Stuxnet_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2005-11-03", "label": "Stuxnet 0.5 C&C server registration"}
+      - {"date": "2007-11-15", "label": "Stuxnet 0.5 submitted to a public scanning service"}
+      - {"date": "2009-06-23", "label": "First initial infection, 12 hours after compile"}
+      - {"date": "2010-01-25", "label": "Stuxnet driver signed with a valid Realtek certificate"}
+      - {"date": "2010-06-17", "label": "VirusBlokAda reports the threat"}
+      - {"date": "2010-07-16", "label": "Microsoft Security Advisory 2286198 on the LNK flaw"}
+      - {"date": "2010-08-02", "label": "MS10-046 published"}
+      - {"date": "2010-09-29", "label": "About 100,000 infected hosts, about 60 percent of them in Iran"}
+      - {"date": "2011-10-14", "label": "CrySyS Duqu report: Stuxnet code massively reused"}
+      - {"date": "2012-06-01", "label": "New York Times Olympic Games account, relayed by the Guardian"}
+      - {"date": "2012-06-24", "label": "Coded infection stop date for Stuxnet 1.x"}
+      - {"date": "2013-02-26", "label": "Symantec publishes Stuxnet 0.5: The Missing Link"}
+  case-studies/THREAT_ACTORS_CHINA.md:
+    kind: "actor"
+    title: "China-Attributed Threat Actors: The Public Record"
+    start: "2006"
+    end: "2026-10"
+    sectors: ["government", "healthcare", "telecommunications", "technology", "defense"]
+    cves:
+      - "CVE-2017-6862"
+      - "CVE-2018-0171"
+      - "CVE-2018-13382"
+      - "CVE-2018-14847"
+      - "CVE-2019-1652"
+      - "CVE-2019-7192"
+      - "CVE-2019-7195"
+      - "CVE-2019-11510"
+      - "CVE-2019-15271"
+      - "CVE-2019-16920"
+      - "CVE-2019-19781"
+      - "CVE-2020-5902"
+      - "CVE-2020-8515"
+      - "CVE-2020-12271"
+      - "CVE-2020-29583"
+      - "CVE-2021-1497"
+      - "CVE-2021-20090"
+      - "CVE-2021-22005"
+      - "CVE-2021-22205"
+      - "CVE-2021-22893"
+      - "CVE-2021-26084"
+      - "CVE-2021-26855"
+      - "CVE-2021-26857"
+      - "CVE-2021-26858"
+      - "CVE-2021-27065"
+      - "CVE-2021-31207"
+      - "CVE-2021-34473"
+      - "CVE-2021-34523"
+      - "CVE-2021-36260"
+      - "CVE-2021-40539"
+      - "CVE-2021-41773"
+      - "CVE-2021-42237"
+      - "CVE-2021-44228"
+      - "CVE-2022-1388"
+      - "CVE-2022-24112"
+      - "CVE-2022-26134"
+      - "CVE-2022-42475"
+      - "CVE-2023-3519"
+      - "CVE-2023-20198"
+      - "CVE-2023-20273"
+      - "CVE-2023-46805"
+      - "CVE-2024-3400"
+      - "CVE-2024-21887"
+      - "CVE-2025-0282"
+      - "CVE-2025-21590"
+      - "CVE-2025-49704"
+      - "CVE-2025-49706"
+      - "CVE-2025-53770"
+      - "CVE-2025-53771"
+      - "CVE-2026-102764"
+    actors:
+      - "G0001"
+      - "G0002"
+      - "G0004"
+      - "G0005"
+      - "G0006"
+      - "G0009"
+      - "G0011"
+      - "G0013"
+      - "G0018"
+      - "G0019"
+      - "G0022"
+      - "G0023"
+      - "G0024"
+      - "G0025"
+      - "G0026"
+      - "G0027"
+      - "G0029"
+      - "G0039"
+      - "G0044"
+      - "G0045"
+      - "G0060"
+      - "G0062"
+      - "G0065"
+      - "G0066"
+      - "G0073"
+      - "G0093"
+      - "G0096"
+      - "G0098"
+      - "G0103"
+      - "G0106"
+      - "G0114"
+      - "G0125"
+      - "G0128"
+      - "G0129"
+      - "G0131"
+      - "G0136"
+      - "G0143"
+      - "G1006"
+      - "G1007"
+      - "G1014"
+      - "G1017"
+      - "G1021"
+      - "G1023"
+      - "G1034"
+      - "G1042"
+      - "G1045"
+      - "G1048"
+      - "G1054"
+    tags: ["China", "MSS", "PLA", "espionage", "Typhoon"]
+    pdf: "Threat_Actors_China_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2010-01-12", "label": "Google discloses a targeted attack from China that stole intellectual property"}
+      - {"date": "2013-02-19", "label": "Mandiant's APT1 report ties APT1 to PLA Unit 61398"}
+      - {"date": "2014-05-19", "label": "Indictment of five Unit 61398 officers, 31 counts"}
+      - {"date": "2017-04-04", "label": "BAE Systems attributes Operation Cloud Hopper against MSPs to APT10"}
+      - {"date": "2020-02-10", "label": "Four PLA 54th Research Institute members charged over Equifax"}
+      - {"date": "2021-03-02", "label": "Microsoft attributes Exchange zero-day exploitation to HAFNIUM"}
+      - {"date": "2021-07-19", "label": "The US with the EU, UK and NATO names MSS-affiliated actors for the Exchange campaign"}
+      - {"date": "2024-02-07", "label": "AA24-038A: high confidence that Volt Typhoon is pre-positioning for OT disruption"}
+      - {"date": "2024-03-25", "label": "Seven APT31-linked nationals charged; OFAC sanctions Wuhan XRZ"}
+      - {"date": "2024-10", "label": "Media first report Salt Typhoon in US telecoms"}
+      - {"date": "2025-03-05", "label": "12 people charged, including eight i-Soon employees and APT27 actors"}
+      - {"date": "2025-08-27", "label": "AA25-239A: 23 agencies in 13 countries on Salt Typhoon"}
+  case-studies/THREAT_ACTORS_RUSSIA.md:
+    kind: "actor"
+    title: "Russia-Attributed Threat Actors: The Public Record"
+    start: "2003"
+    end: "2026-07"
+    core_start: "2014"
+    core_end: "2026"
+    sectors: ["government", "energy", "healthcare", "defense", "transport"]
+    cves:
+      - "CVE-2008-4128"
+      - "CVE-2017-6742"
+      - "CVE-2018-0171"
+      - "CVE-2018-13379"
+      - "CVE-2019-1653"
+      - "CVE-2019-2725"
+      - "CVE-2019-7609"
+      - "CVE-2019-9670"
+      - "CVE-2019-10149"
+      - "CVE-2019-11510"
+      - "CVE-2019-19781"
+      - "CVE-2020-0688"
+      - "CVE-2020-1472"
+      - "CVE-2020-4006"
+      - "CVE-2020-5902"
+      - "CVE-2020-12641"
+      - "CVE-2020-14882"
+      - "CVE-2020-35730"
+      - "CVE-2021-3156"
+      - "CVE-2021-4034"
+      - "CVE-2021-26084"
+      - "CVE-2021-26855"
+      - "CVE-2021-33044"
+      - "CVE-2021-33045"
+      - "CVE-2021-44026"
+      - "CVE-2022-3236"
+      - "CVE-2022-26134"
+      - "CVE-2022-26138"
+      - "CVE-2022-27666"
+      - "CVE-2022-38028"
+      - "CVE-2023-23397"
+      - "CVE-2023-38831"
+      - "CVE-2023-42793"
+      - "CVE-2023-50224"
+    actors:
+      - "G0007"
+      - "G0010"
+      - "G0016"
+      - "G0034"
+      - "G0035"
+      - "G0047"
+      - "G0088"
+      - "G0102"
+      - "G0119"
+      - "G1003"
+      - "G1031"
+      - "G1033"
+      - "G1035"
+    tags: ["Russia", "GRU", "SVR", "FSB", "APT28", "APT29"]
+    pdf: null
+    pptx: null
+    events:
+      - {"date": "2014-10-27", "label": "First public APT28 report"}
+      - {"date": "2015-12", "label": "BlackEnergy attack on Ukraine's grid; 230,000 people without power"}
+      - {"date": "2016-12-29", "label": "GRIZZLY STEPPE joint analysis report on APT28 and APT29"}
+      - {"date": "2017-06", "label": "NotPetya"}
+      - {"date": "2018-07-13", "label": "Indictment of 12 GRU officers for 2016 election interference"}
+      - {"date": "2020-10-15", "label": "Indictment of six GRU officers in the Western District of Pennsylvania"}
+      - {"date": "2021-04-15", "label": "US formal attribution of SolarWinds to the SVR; Treasury sanctions"}
+      - {"date": "2022-02-24", "label": "Viasat KA-SAT disruption about an hour before the invasion"}
+      - {"date": "2023-05-09", "label": "AA23-129A on Snake (FSB Center 16)"}
+      - {"date": "2024-04-17", "label": "Mandiant graduates Sandworm to APT44"}
+      - {"date": "2025-12-29", "label": "Poland energy attack: RTUs damaged at more than 30 wind and PV farms"}
+      - {"date": "2026-07-13", "label": "UK and EU formally attribute the Poland attack to FSB Centre 16; first joint cyber sanctions"}
+  case-studies/XZ_UTILS_BACKDOOR_2024.md:
+    kind: "incident"
+    title: "The XZ Utils Backdoor: A 2024 Supply-Chain Case Study"
+    start: "2024-02"
+    end: "2024-03"
+    sectors: ["technology"]
+    cves: ["CVE-2024-3094"]
+    actors: []
+    tags: ["supply chain", "backdoor", "open source", "sshd"]
+    pdf: "XZ_Utils_Backdoor_2024_Case_Study.pdf"
+    pptx: "XZ_Utils_Backdoor_2024_Case_Study.pptx"
+    events:
+      - {"date": "2021", "label": "From about 2021, the Jia Tan identity builds trust and gains co-maintainer, then release authority"}
+      - {"date": "2024-02-24", "label": "XZ Utils 5.6.0 tarball, carrying the backdoor, released"}
+      - {"date": "2024-03-09", "label": "5.6.1 tarball released"}
+      - {"date": "2024-03-29", "label": "Andres Freund discloses the backdoor; distributions pull the versions; CISA issues an alert"}

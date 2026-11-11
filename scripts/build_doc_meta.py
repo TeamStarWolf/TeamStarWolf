@@ -179,6 +179,9 @@ FOLDERS = (
     "research/", "tools/", "tools-research/",
 )
 FOLDER_FILES = ("detections/TECHNIQUE_DETECTION_LIBRARY.md",)
+# Generated pages inside a subject folder, written whole by their own script, so they carry
+# no card: the case study timeline (scripts/build_case_study_timeline.py).
+GENERATED_FOLDER_PAGES = ("case-studies/TIMELINE.md",)
 # Pages that are read through, not looked up, so their card always gives a reading time:
 # learning paths, how-to guides and case studies.
 READ_THROUGH = ("disciplines/", "guides/", "case-studies/")
@@ -298,11 +301,12 @@ def load(rel: str, required: bool = True) -> dict:
 def folder_pages(files: list[str]) -> list[str]:
     """The hand-written pages of the subject folders in FOLDERS (each folder's own pages,
     not its subfolders), plus the single pages in FOLDER_FILES. A folder's README.md (its
-    landing page), its _sidebar.md and a superseded stub are not in scope."""
+    landing page), its _sidebar.md, a superseded stub and a page another script writes whole
+    (GENERATED_FOLDER_PAGES) are not in scope."""
     out = []
     for f in files:
         folder, _, name = f.rpartition("/")
-        if not name.endswith(".md") or name == "README.md" or name.startswith("_"):
+        if not name.endswith(".md") or name == "README.md" or name.startswith("_")                 or f in GENERATED_FOLDER_PAGES:
             continue
         if (folder + "/" in FOLDERS or f in FOLDER_FILES) and not bsn.is_stub(f):
             out.append(f)

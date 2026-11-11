@@ -82,6 +82,7 @@
     ]},
     {"label": "Case studies and research", "links": [
       ["Case studies", "/case-studies/README.md"],
+      ["Case study timeline", "/case-studies/TIMELINE.md"],
       ["Research notes", "/research/README.md"]
     ]},
     {"label": "About", "links": [
@@ -223,6 +224,8 @@
         ["The year 2019 in intrusions: a dated record", "/case-studies/CHRONICLE_2019.md"],
         ["Sandworm: the operations in the public record", "/case-studies/SANDWORM_OPERATIONS.md"],
         ["Russia-attributed threat actors: a case study", "/case-studies/THREAT_ACTORS_RUSSIA.md"],
+        ["Other state-linked threat actors: a case study", "/case-studies/THREAT_ACTORS_OTHER_STATES.md"],
+        ["United States-attributed threat actors: a case study", "/case-studies/THREAT_ACTORS_UNITED_STATES.md"],
         ["The year 2021 in intrusions: a dated record", "/case-studies/CHRONICLE_2021.md"]
       ]
     },
@@ -405,8 +408,8 @@
           "SECURITY_ARCHITECTURE_REFERENCE.md", "ARCHITECTURE_REFERENCE.md", "ENTERPRISE_SECURITY_CONTROLS.md",
           "ENTERPRISE_INFRASTRUCTURE.md"]},
         {"heading": "Vulnerability and exposure management", "docs": [
-          "VULNERABILITY_MANAGEMENT_REFERENCE.md", "VULNERABILITY_PRIORITIZATION_REFERENCE.md", "SCANNER_PLATFORMS_REFERENCE.md",
-          "CTEM_REFERENCE.md", "CVE_REFERENCE.md", "CPE_REFERENCE.md"]},
+          "VULNERABILITY_ROOT_CAUSES.md", "VULNERABILITY_MANAGEMENT_REFERENCE.md", "VULNERABILITY_PRIORITIZATION_REFERENCE.md",
+          "SCANNER_PLATFORMS_REFERENCE.md", "CTEM_REFERENCE.md", "CVE_REFERENCE.md", "CPE_REFERENCE.md"]},
         {"heading": "Careers and learning", "docs": [
           "CAREER_PATHS.md", "IT_DOMAINS_REFERENCE.md", "CERTIFICATIONS.md", "CISSP_DOMAIN_CROSSWALK.md", "CEH_DOMAIN_CROSSWALK.md",
           "INTERVIEW_PREP.md", "LABS.md", "HOMELAB_SETUP.md", "CTF_METHODOLOGY.md", "GLOSSARY.md"]},

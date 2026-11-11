@@ -37,6 +37,9 @@ ROOT_META = {
     "explore.md",   # the Explore page (scripts/build_explore.py), a framework index
 }
 STUB_MARK = "This document has been superseded."
+# Generated pages inside a content folder that are an index of the folder, not one of its
+# pages: the case study timeline (scripts/build_case_study_timeline.py) is not a study.
+FOLDER_INDEXES = {"case-studies/TIMELINE.md"}
 # The folders of the developer reference (README "What's inside": Developer reference pages).
 DEVELOPER_FOLDERS = ("languages/", "paradigms/", "frameworks/", "commands/", "formats/", "databases/")
 
@@ -84,7 +87,7 @@ def _library_counts():
     def page(f):
         """A content page: not a section README and not docsify chrome (_sidebar.md)."""
         base = f.rsplit("/", 1)[-1]
-        return base != "README.md" and not base.startswith("_")
+        return base != "README.md" and not base.startswith("_") and f not in FOLDER_INDEXES
 
     def folder(prefix):
         return sum(1 for f in files if f.startswith(prefix) and "/" not in f[len(prefix):]

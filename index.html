@@ -1058,6 +1058,90 @@
       .markdown-section .tsw-x-filters label:not(.tsw-x-check) { flex: 1 1 100%; }
       .markdown-section .tsw-x select { width: 100%; }
     }
+    /* ===================== Case study timeline (case-studies/TIMELINE.md, the timeline script below) ===================== */
+    .markdown-section .tsw-tl { margin: 1.4rem 0 2rem; }
+    .markdown-section .tsw-tl-q { display: block; margin: 0 0 .8rem; }
+    .markdown-section .tsw-tl input[type="search"], .markdown-section .tsw-tl select {
+      font: inherit; color: var(--tsw-text); background: var(--tsw-surface);
+      border: 1px solid var(--tsw-border); border-radius: 8px; box-sizing: border-box;
+    }
+    .markdown-section .tsw-tl input[type="search"] { width: 100%; padding: .6rem .8rem; font-size: .95rem; }
+    .markdown-section .tsw-tl input[type="search"]::placeholder { color: var(--tsw-text-dim); opacity: 1; }
+    .markdown-section .tsw-tl select { padding: .35rem .5rem; font-size: .86rem; max-width: 100%; }
+    .markdown-section .tsw-tl input:focus-visible, .markdown-section .tsw-tl select:focus-visible,
+    .markdown-section .tsw-tl button:focus-visible, .markdown-section .tsw-tl summary:focus-visible,
+    .markdown-section .tsw-tl a:focus-visible {
+      outline: 2px solid var(--tsw-focus); outline-offset: 2px;
+    }
+    .markdown-section .tsw-tl-filters { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px 14px; margin: 0 0 .7rem; }
+    .markdown-section .tsw-tl-filters label { display: flex; flex-direction: column; gap: 3px; font-size: .78rem; color: var(--tsw-text-muted); }
+    .markdown-section .tsw-tl-filters .tsw-tl-check { flex-direction: row; align-items: center; gap: 6px; font-size: .84rem; padding-bottom: .35rem; }
+    .markdown-section .tsw-tl-group { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 .6rem; }
+    .markdown-section .tsw-tl-group-label { font-size: .78rem; color: var(--tsw-text-muted); margin-right: 2px; }
+    .markdown-section .tsw-tl-group button {
+      font: inherit; font-size: .82rem; cursor: pointer; padding: .28rem .65rem; border-radius: 999px;
+      border: 1px solid var(--tsw-border); background: var(--tsw-surface); color: var(--tsw-link);
+    }
+    .markdown-section .tsw-tl-group button:hover { border-color: var(--tsw-link); }
+    .markdown-section .tsw-tl-group button[aria-pressed="true"] {
+      background: var(--tsw-tint-strong); border-color: var(--tsw-focus); color: var(--tsw-heading); font-weight: 650;
+    }
+    .markdown-section .tsw-tl-group button span { color: inherit; opacity: .85; }
+    .markdown-section .tsw-tl-btn {
+      font: inherit; font-size: .84rem; cursor: pointer; padding: .35rem .8rem; border-radius: 8px;
+      border: 1px solid var(--tsw-border); background: var(--tsw-surface); color: var(--tsw-link);
+    }
+    .markdown-section .tsw-tl-btn:hover { border-color: var(--tsw-link); }
+    .markdown-section .tsw-tl-status { margin: .4rem 0 .2rem; font-size: .86rem; color: var(--tsw-text-muted); }
+    .markdown-section .tsw-tl-year { margin: 1.3rem 0 0; }
+    .markdown-section h2.tsw-tl-yh { font-size: 1.25rem; margin: 0 0 .7rem; padding: 0; border: 0; }
+    .markdown-section ol.tsw-tl-list {
+      list-style: none; margin: 0; padding: 0 0 0 20px; border-left: 2px solid var(--tsw-border);
+    }
+    .markdown-section ol.tsw-tl-list > li { position: relative; list-style: none; margin: 0 0 .9rem; padding: 0; }
+    .markdown-section ol.tsw-tl-list > li::before {
+      content: ''; position: absolute; left: -27px; top: 1rem; width: 8px; height: 8px; border-radius: 50%;
+      background: var(--tsw-link); border: 2px solid var(--tsw-bg);
+    }
+    .markdown-section .tsw-tl-card {
+      background: var(--tsw-surface); border: 1px solid var(--tsw-border); border-radius: 12px;
+      padding: .75rem 1rem .8rem; min-width: 0;
+    }
+    .markdown-section .tsw-tl-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; font-size: .8rem; color: var(--tsw-text-muted); }
+    .markdown-section .tsw-tl-kind { font-weight: 650; color: var(--tsw-heading); background: var(--tsw-tint-strong); border-radius: 999px; padding: .08rem .55rem; }
+    .markdown-section h3.tsw-tl-title { font-size: 1.02rem; margin: .35rem 0 .3rem; line-height: 1.35; overflow-wrap: anywhere; }
+    .markdown-section .tsw-tl-line { margin: 0 0 .4rem; font-size: .84rem; color: var(--tsw-text-muted); overflow-wrap: anywhere; }
+    .markdown-section .tsw-tl-ids { display: flex; flex-wrap: wrap; gap: 5px; margin: 0 0 .45rem; }
+    .markdown-section .tsw-tl-id {
+      display: inline-flex; align-items: baseline; gap: .35rem; font-size: .76rem; padding: .12rem .45rem;
+      border: 1px solid var(--tsw-border); border-radius: 6px; background: var(--tsw-bg-alt); color: var(--tsw-text);
+      overflow-wrap: anywhere; text-decoration: none;
+    }
+    .markdown-section .tsw-tl-id[hidden] { display: none; }
+    .markdown-section a.tsw-tl-id { color: var(--tsw-link); }
+    .markdown-section a.tsw-tl-id:hover { border-color: var(--tsw-link); }
+    .markdown-section .tsw-tl-id code { background: none; border: 0; padding: 0; font-size: inherit; color: var(--tsw-green); }
+    .markdown-section .tsw-tl-more {
+      font: inherit; font-size: .76rem; cursor: pointer; padding: .12rem .5rem; border-radius: 6px;
+      border: 1px dashed var(--tsw-border); background: var(--tsw-surface); color: var(--tsw-link);
+    }
+    .markdown-section .tsw-tl-strip { position: relative; height: 12px; margin: .55rem 4px .15rem; background: var(--tsw-surface-2); border-radius: 6px; }
+    .markdown-section .tsw-tl-strip span {
+      position: absolute; top: 2px; width: 3px; height: 8px; margin-left: -1px; border-radius: 2px; background: var(--tsw-link);
+    }
+    .markdown-section .tsw-tl-axis { display: flex; justify-content: space-between; gap: 8px; margin: 0 0 .35rem; font-size: .72rem; color: var(--tsw-text-dim); }
+    .markdown-section .tsw-tl-ev { margin: .2rem 0 0; }
+    .markdown-section .tsw-tl-ev > summary { cursor: pointer; font-size: .84rem; color: var(--tsw-link); }
+    .markdown-section .tsw-tl-ev ol { margin: .45rem 0 0; padding-left: 1.1rem; font-size: .86rem; }
+    .markdown-section .tsw-tl-ev li { margin: 0 0 .3rem; overflow-wrap: anywhere; }
+    .markdown-section .tsw-tl-ev time { color: var(--tsw-text-muted); font-weight: 600; margin-right: .35rem; }
+    @media screen and (max-width: 600px) {
+      .markdown-section .tsw-tl-filters label:not(.tsw-tl-check) { flex: 1 1 40%; }
+      .markdown-section .tsw-tl select { width: 100%; }
+      .markdown-section ol.tsw-tl-list { padding-left: 14px; }
+      .markdown-section ol.tsw-tl-list > li::before { left: -21px; }
+      .markdown-section .tsw-tl-card { padding: .65rem .75rem .7rem; }
+    }
   </style>
 </head>
 <body>
@@ -1353,7 +1437,11 @@
           reference, a framework page) gets an "On this page" list of its sections.
        2. Explore (explore.md): the filterable table of the framework objects that have a page, from
           assets/explore.json (scripts/build_explore.py). Without the JSON the page still
-          shows its family index tables, which is all GitHub shows. -->
+          shows its family index tables, which is all GitHub shows.
+       3. Case study timeline (case-studies/TIMELINE.md): every case study by year, from
+          assets/case-studies.json (scripts/build_case_study_timeline.py), filtered by years,
+          kind, sector and a text box, with the filters in the route query so a filtered view
+          can be shared. Without the JSON the page shows its plain list, as GitHub does. -->
   <script>
     (function () {
       var BASE = location.href.split('#')[0].split('?')[0].replace(/[^\/]*$/, '');
@@ -1775,6 +1863,304 @@
         hook.doneEach(function () {
           var root = document.getElementById('tsw-explore');
           if (root && vm.route.file === 'explore.md') { mountExplore(root, vm); }
+        });
+      });
+
+      // ---------- 3. Case study timeline (case-studies/TIMELINE.md)
+      var TL_MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
+        'September', 'October', 'November', 'December'];
+      var TL_CHIPS = 8;
+      function tlParse(s) {
+        var m = /^(\d{4})(?:-(\d{2})(?:-(\d{2}))?)?$/.exec(s || '');
+        return m ? [+m[1], m[2] ? +m[2] : 0, m[3] ? +m[3] : 0] : null;
+      }
+      function tlHuman(s) {
+        var p = tlParse(s);
+        if (!p) { return s || ''; }
+        if (!p[1]) { return String(p[0]); }
+        return (p[2] ? p[2] + ' ' : '') + TL_MONTHS[p[1] - 1] + ' ' + p[0];
+      }
+      function tlPeriod(a, b) {
+        if (b == null) { return 'From ' + tlHuman(a) + ', ongoing'; }
+        if (a === b) { return tlHuman(a); }
+        var x = tlParse(a), y = tlParse(b);
+        if (x && y && x[1] && !x[2] && y[1] && !y[2] && x[0] === y[0]) { return TL_MONTHS[x[1] - 1] + ' to ' + tlHuman(b); }
+        return tlHuman(a) + ' to ' + tlHuman(b);
+      }
+      // a date as a fractional year: the middle of the month or year it names when it has no day
+      function tlPos(s) {
+        var p = tlParse(s);
+        if (!p) { return null; }
+        if (!p[1]) { return p[0] + 0.5; }
+        return p[0] + (p[1] - 1 + (p[2] ? (p[2] - 0.5) / 31 : 0.5)) / 12;
+      }
+      function tlList(v) {
+        return (v || '').split(',').map(function (x) { return x.trim(); }).filter(Boolean);
+      }
+
+      function mountTimeline(root, vm) {
+        if (root.getAttribute('data-ready')) { return; }
+        root.setAttribute('data-ready', '1');
+        getJson('assets/case-studies.json').then(function (d) {
+          if (!d || !d.rows) { return; }
+          var thisYear = new Date().getFullYear();
+          var kindLabel = {}, kindKeys = d.kinds.map(function (k) { kindLabel[k.key] = k; return k.key; });
+          var minY = 9999, maxY = 0;
+          d.rows.forEach(function (r) {
+            r._y0 = tlParse(r.s)[0];
+            r._y1 = r.e == null ? thisYear : tlParse(r.e)[0];
+            minY = Math.min(minY, r._y0);
+            maxY = Math.max(maxY, r._y1);
+            r._text = [r.t].concat(r.cve, r.tag, r.act.map(function (a) { return a[0] + ' ' + a[1]; }))
+              .join(' \n ').toLowerCase();
+          });
+          var years = [];
+          for (var y = minY; y <= maxY; y++) { years.push(String(y)); }
+          var st = { q: '', from: '', to: '', kinds: [], sectors: [], events: false };
+          function fromParams(q1) {
+            st.q = q1.q || '';
+            st.from = years.indexOf(q1.from || '') === -1 ? '' : q1.from;
+            st.to = years.indexOf(q1.to || '') === -1 ? '' : q1.to;
+            st.kinds = tlList(q1.kind).filter(function (k) { return kindKeys.indexOf(k) !== -1; });
+            st.sectors = tlList(q1.sector).filter(function (s) { return d.sectors.indexOf(s) !== -1; });
+            st.events = q1.events === '1';
+          }
+          fromParams(vm.route.query || {});
+
+          var ui = el('div', { className: 'tsw-tl' });
+          var qWrap = el('label', { className: 'tsw-tl-q' });
+          qWrap.appendChild(el('span', { className: 'tsw-sr-only' }, 'Find a study by title, CVE, ATT&CK group or tag'));
+          var input = el('input', { type: 'search', autocomplete: 'off', spellcheck: 'false',
+            placeholder: 'Title, CVE or ATT&CK group: Log4Shell, CVE-2021-44228, G0016, APT29' });
+          qWrap.appendChild(input);
+          ui.appendChild(qWrap);
+          var filters = el('div', { className: 'tsw-tl-filters' });
+          function yearSelect(label, key) {
+            var lab = el('label', {});
+            lab.appendChild(document.createTextNode(label));
+            var s = el('select', {});
+            s.appendChild(el('option', { value: '' }, 'Any year'));
+            years.forEach(function (yy) { s.appendChild(el('option', { value: yy }, yy)); });
+            s.addEventListener('change', function () { st[key] = s.value; update(); });
+            lab.appendChild(s);
+            filters.appendChild(lab);
+            return s;
+          }
+          var fromSel = yearSelect('From year', 'from');
+          var toSel = yearSelect('To year', 'to');
+          var evLab = el('label', { className: 'tsw-tl-check' });
+          var evBox = el('input', { type: 'checkbox' });
+          evBox.addEventListener('change', function () { st.events = evBox.checked; update(); });
+          evLab.appendChild(evBox);
+          evLab.appendChild(document.createTextNode('Show every study\'s dated events'));
+          filters.appendChild(evLab);
+          var reset = el('button', { type: 'button', className: 'tsw-tl-btn' }, 'Clear filters');
+          filters.appendChild(reset);
+          ui.appendChild(filters);
+          var kindsBox = el('div', { className: 'tsw-tl-group', role: 'group', 'aria-label': 'Kind of study' });
+          var sectorsBox = el('div', { className: 'tsw-tl-group', role: 'group', 'aria-label': 'Sector' });
+          ui.appendChild(kindsBox);
+          ui.appendChild(sectorsBox);
+          var status = el('p', { className: 'tsw-tl-status', role: 'status', 'aria-live': 'polite' });
+          ui.appendChild(status);
+          var results = el('div', { className: 'tsw-tl-results' });
+          ui.appendChild(results);
+          root.appendChild(ui);
+
+          // The plain list after the mount point is what GitHub shows; here the timeline
+          // replaces it, up to the list-end comment the generator writes.
+          for (var n = root.nextSibling; n; n = n.nextSibling) {
+            if (n.nodeType === 8 && /case-study-timeline:list-end/.test(n.nodeValue)) { break; }
+            if (n.nodeType === 1) { n.hidden = true; }
+          }
+
+          function controls() {
+            input.value = st.q; fromSel.value = st.from; toSel.value = st.to; evBox.checked = st.events;
+          }
+          var timer = 0;
+          input.addEventListener('input', function () {
+            clearTimeout(timer);
+            timer = setTimeout(function () { st.q = input.value; update(); }, 120);
+          });
+          reset.addEventListener('click', function () {
+            st.q = ''; st.from = ''; st.to = ''; st.kinds = []; st.sectors = []; st.events = false;
+            controls(); update(); input.focus();
+          });
+
+          function passes(r, skip) {
+            var a = st.from ? +st.from : -Infinity, b = st.to ? +st.to : Infinity;
+            if (a > b) { var t = a; a = b; b = t; }
+            if (r._y0 > b || r._y1 < a) { return false; }
+            if (skip !== 'kind' && st.kinds.length && st.kinds.indexOf(r.k) === -1) { return false; }
+            if (skip !== 'sector' && st.sectors.length && !r.sec.some(function (s) { return st.sectors.indexOf(s) !== -1; })) { return false; }
+            var terms = st.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+            for (var i = 0; i < terms.length; i++) { if (r._text.indexOf(terms[i]) === -1) { return false; } }
+            return true;
+          }
+          function chips(box, label, keys, names, chosen, counts) {
+            box.textContent = '';
+            box.appendChild(el('span', { className: 'tsw-tl-group-label', 'aria-hidden': 'true' }, label));
+            keys.forEach(function (k) {
+              var nn = counts[k] || 0;
+              if (!nn && chosen.indexOf(k) === -1) { return; }
+              var on = chosen.indexOf(k) !== -1;
+              var b = el('button', { type: 'button', 'aria-pressed': on ? 'true' : 'false', 'data-key': k });
+              b.appendChild(document.createTextNode(names(k) + ' '));
+              b.appendChild(el('span', {}, String(nn)));
+              b.addEventListener('click', function () {
+                var i = chosen.indexOf(k);
+                if (i === -1) { chosen.push(k); } else { chosen.splice(i, 1); }
+                update();
+                // the chips are rebuilt with their counts; keep the focus on the same chip
+                (box.querySelector('button[data-key="' + k + '"]') || box.querySelector('button') || input).focus();
+              });
+              box.appendChild(b);
+            });
+          }
+          function writeUrl() {
+            var p = [];
+            if (st.q) { p.push('q=' + encodeURIComponent(st.q)); }
+            if (st.kinds.length) { p.push('kind=' + st.kinds.map(encodeURIComponent).join(',')); }
+            if (st.sectors.length) { p.push('sector=' + st.sectors.map(encodeURIComponent).join(',')); }
+            if (st.from) { p.push('from=' + st.from); }
+            if (st.to) { p.push('to=' + st.to); }
+            if (st.events) { p.push('events=1'); }
+            var h = '#/case-studies/TIMELINE' + (p.length ? '?' + p.join('&') : '');
+            if (location.hash !== h && history.replaceState) { history.replaceState(history.state, '', h); }
+          }
+          function idChips(r) {
+            var box = el('div', { className: 'tsw-tl-ids' });
+            var items = r.cve.map(function (c) { return el('span', { className: 'tsw-tl-id' }, c); })
+              .concat(r.act.map(function (a) {
+                var link = el('a', { className: 'tsw-tl-id', href: '#/mitre/groups/' + a[0], title: 'ATT&CK group ' + a[0] + ', ' + a[1] });
+                link.appendChild(el('code', {}, a[0]));
+                link.appendChild(document.createTextNode(a[1]));
+                return link;
+              }));
+            items.forEach(function (it, i) { if (i >= TL_CHIPS) { it.hidden = true; } box.appendChild(it); });
+            if (items.length > TL_CHIPS) {
+              var more = el('button', { type: 'button', className: 'tsw-tl-more', 'aria-expanded': 'false' },
+                'Show ' + (items.length - TL_CHIPS) + ' more');
+              more.addEventListener('click', function () {
+                items.forEach(function (it) { it.hidden = false; });
+                more.remove();
+                if (items[TL_CHIPS]) { items[TL_CHIPS].setAttribute('tabindex', '-1'); items[TL_CHIPS].focus(); }
+              });
+              box.appendChild(more);
+            }
+            return items.length ? box : null;
+          }
+          function strip(r) {
+            var pos = r.ev.map(function (e) { return tlPos(e[0]); }).filter(function (v) { return v != null; });
+            if (!pos.length) { return null; }
+            var a = Math.min.apply(null, pos), b = Math.max.apply(null, pos);
+            var frag = document.createDocumentFragment();
+            var bar = el('div', { className: 'tsw-tl-strip', 'aria-hidden': 'true' });
+            r.ev.forEach(function (e) {
+              var v = tlPos(e[0]);
+              if (v == null) { return; }
+              var x = b > a ? (v - a) / (b - a) * 100 : 50;
+              var tick = el('span', { title: tlHuman(e[0]) + ': ' + e[1] });
+              tick.style.left = x.toFixed(2) + '%';
+              bar.appendChild(tick);
+            });
+            frag.appendChild(bar);
+            var axis = el('div', { className: 'tsw-tl-axis', 'aria-hidden': 'true' });
+            axis.appendChild(el('span', {}, tlHuman(r.ev[0][0])));
+            if (r.ev.length > 1) { axis.appendChild(el('span', {}, tlHuman(r.ev[r.ev.length - 1][0]))); }
+            frag.appendChild(axis);
+            return frag;
+          }
+          function card(r) {
+            var art = el('article', { className: 'tsw-tl-card' });
+            var head = el('div', { className: 'tsw-tl-head' });
+            head.appendChild(el('span', { className: 'tsw-tl-kind' }, kindLabel[r.k].label));
+            head.appendChild(el('span', {}, tlPeriod(r.s, r.e) + (r.cs ? ' (core: ' + tlPeriod(r.cs, r.ce) + ')' : '')));
+            art.appendChild(head);
+            var h = el('h3', { className: 'tsw-tl-title' });
+            h.appendChild(el('a', { href: '#/' + r.p.replace(/\.md$/, '') }, r.t));
+            art.appendChild(h);
+            art.appendChild(el('p', { className: 'tsw-tl-line' }, 'Sectors: ' + r.sec.join(', ')));
+            var ids = idChips(r);
+            if (ids) { art.appendChild(ids); }
+            if (r.pdf || r.pptx) {
+              var dl = el('p', { className: 'tsw-tl-line' }, 'Download: ');
+              if (r.pdf) { dl.appendChild(el('a', { href: r.pdf, rel: 'noopener' }, 'PDF')); }
+              if (r.pdf && r.pptx) { dl.appendChild(document.createTextNode(', ')); }
+              if (r.pptx) { dl.appendChild(el('a', { href: r.pptx, rel: 'noopener' }, 'Slides (PowerPoint)')); }
+              art.appendChild(dl);
+            }
+            if (r.ev.length) {
+              var s = strip(r);
+              if (s) { art.appendChild(s); }
+              var det = el('details', { className: 'tsw-tl-ev' });
+              if (st.events) { det.open = true; }
+              det.appendChild(el('summary', {}, 'Key events (' + r.ev.length + ')'));
+              var ol = el('ol', {});
+              r.ev.forEach(function (e) {
+                var li = el('li', {});
+                li.appendChild(el('time', { datetime: e[0] }, tlHuman(e[0])));
+                li.appendChild(document.createTextNode(e[1]));
+                ol.appendChild(li);
+              });
+              det.appendChild(ol);
+              art.appendChild(det);
+            }
+            return art;
+          }
+          function update() {
+            var kc = {}, sc = {}, res = [];
+            d.rows.forEach(function (r) {
+              if (passes(r, 'kind')) { kc[r.k] = (kc[r.k] || 0) + 1; }
+              if (passes(r, 'sector')) { r.sec.forEach(function (s) { sc[s] = (sc[s] || 0) + 1; }); }
+              if (passes(r, '')) { res.push(r); }
+            });
+            chips(kindsBox, 'Kind', kindKeys, function (k) { return kindLabel[k].plural; }, st.kinds, kc);
+            chips(sectorsBox, 'Sector', d.sectors, function (s) { return s; }, st.sectors, sc);
+            results.textContent = '';
+            var byYear = {}, order = [];
+            res.forEach(function (r) {
+              if (!byYear[r.y]) { byYear[r.y] = []; order.push(r.y); }
+              byYear[r.y].push(r);
+            });
+            order.sort(function (a, b) { return b - a; });
+            var frag = document.createDocumentFragment();
+            order.forEach(function (yy) {
+              var sec = el('section', { className: 'tsw-tl-year', 'aria-labelledby': 'tsw-tl-y' + yy });
+              sec.appendChild(el('h2', { className: 'tsw-tl-yh', id: 'tsw-tl-y' + yy }, String(yy)));
+              var ol = el('ol', { className: 'tsw-tl-list' });
+              byYear[yy].forEach(function (r) { var li = el('li', {}); li.appendChild(card(r)); ol.appendChild(li); });
+              sec.appendChild(ol);
+              frag.appendChild(sec);
+            });
+            results.appendChild(frag);
+            status.textContent = res.length
+              ? 'Showing ' + res.length + ' of ' + d.rows.length + ' studies, newest first.'
+              : 'Nothing matches. Clear a filter, or try a CVE such as CVE-2021-44228 or a group such as G0016.';
+            writeUrl();
+          }
+          controls();
+          update();
+          timelineSync = { root: root, sync: function (q1) { fromParams(q1); controls(); update(); } };
+        });
+      }
+      var timelineSync = null;
+      window.addEventListener('hashchange', function () {
+        var m = /^#\/case-studies\/TIMELINE(?:\.md)?(?:\?(.*))?$/.exec(location.hash);
+        if (!m || !timelineSync || !document.body.contains(timelineSync.root)) { return; }
+        var q1 = {};
+        (m[1] || '').split('&').forEach(function (p) {
+          if (!p) { return; }
+          var i = p.indexOf('='), key = i < 0 ? p : p.slice(0, i);
+          try { q1[decodeURIComponent(key)] = i < 0 ? '' : decodeURIComponent(p.slice(i + 1).replace(/\+/g, ' ')); } catch (e) { /* skip a malformed pair */ }
+        });
+        // ?id= is a heading anchor on the page itself, not a filter change
+        if (!('id' in q1)) { timelineSync.sync(q1); }
+      });
+      window.$docsify.plugins.push(function (hook, vm) {
+        hook.doneEach(function () {
+          var root = document.getElementById('tsw-timeline');
+          if (root && vm.route.file === 'case-studies/TIMELINE.md') { mountTimeline(root, vm); }
         });
       });
     })();

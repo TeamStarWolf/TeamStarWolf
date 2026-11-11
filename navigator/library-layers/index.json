@@ -72,6 +72,48 @@
     "blurb": "The Enterprise techniques behind the Hugging Face case study: malicious models, loader exploits, exposed tokens and the July 2026 pipeline intrusion. Score 100 marks a MITRE-published link, 50 the study's labelled inference."
   },
   {
+    "file": "ics-attacks-2024-2026-enterprise.json",
+    "name": "TeamStarWolf - ICS attacks 2024 to 2026 (Enterprise)",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified record of the ICS 2024 to 2026 case study supports: CISA advisories AA23-335A, AA24-038A, AA25-343A and AA26-097A, and ATT&CK v20.0 pages C0041, C0063, G1017 and S9046 (C0063 rows from data/attack/campaign_profiles.jsonl). Each comment names source numbers from case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md. Score 100 means membership only.",
+    "blurb": "The IT-side techniques behind 2024 to 2026 ICS incidents: default accounts on exposed PLCs, edge-appliance exploitation and credential theft, the Poland wiper intrusion chain and the IOControl implant. A curated layer for the ICS 2024 to 2026 case study."
+  },
+  {
+    "file": "stuxnet-s0603.json",
+    "name": "TeamStarWolf - Stuxnet (S0603) Enterprise",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise techniques that ATT&CK v20.0 lists for Stuxnet (S0603), each with a comment naming source numbers from case-studies/STUXNET.md; every row cites the Symantec W32.Stuxnet Dossier v1.4. Each selected technique is shown under all its tactics. Scores indicate membership only.",
+    "blurb": "The Windows side of Stuxnet: USB and network spread, privilege escalation, signed rootkit drivers and Step 7 project infection. A curated layer for the Stuxnet case study; the ICS techniques are in a separate ics-attack layer."
+  },
+  {
+    "file": "apt41-public-record.json",
+    "name": "TeamStarWolf - APT41 Public Record",
+    "description": "Curated view of the techniques bound in the TeamStarWolf case study APT41: The Public Record, 2012 to 2026 (case-studies/APT41_PUBLIC_RECORD.md). Not an official MITRE mapping. Score 100: ATT&CK v20.0 records the technique for G0096 APT41 or its attributed campaigns C0017 and C0040. Score 60: a vendor or government primary states the id in its own ATT&CK table (revoked ids normalized through data/attack/superseded_by.jsonl). Score 30: the study's own inference from a dated report. Each comment names the study's source numbers. Campaign C0012 Operation CuckooBees is left out because ATT&CK attributes it to no group.",
+    "blurb": "Techniques from the public APT41 record, 2012 to 2026: what ATT&CK records for G0096 and campaigns C0017 and C0040, what vendor and government primaries state, and the study's own labelled inferences. A curated layer for the APT41 case study."
+  },
+  {
+    "file": "change-healthcare-2024.json",
+    "name": "TeamStarWolf - Change Healthcare Attack 2024",
+    "description": "Techniques in the Change Healthcare ransomware attack of February 2024, not an official MITRE mapping. Sources: Andrew Witty's House and Senate testimony and UHG's answers for the record, the State of Nebraska complaint, FBI, CISA and HHS advisory AA23-353A, and ATT&CK software S1068 BlackCat as published in ATT&CK v20. Tactics are taken from data/attack/technique_profiles.jsonl. Scores: 100 is documented in the Change record, 75 is alleged in the Nebraska complaint, 40 is ALPHV/BlackCat general tradecraft not documented at Change. Each comment names source numbers from the Sources table of case-studies/CHANGE_HEALTHCARE_2024.md.",
+    "blurb": "Techniques from the Change Healthcare record, from the single-factor Citrix login to the February 2024 encryption, with ALPHV/BlackCat general tradecraft shown separately. A curated layer for the Change Healthcare case study."
+  },
+  {
+    "file": "ghostcat-cve-2020-1938.json",
+    "name": "TeamStarWolf - Ghostcat CVE-2020-1938 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified CVE-2020-1938 (Ghostcat) record supports: the Apache Tomcat advisory, Chaitin's and CNVD's disclosures, the 2020 scanning reports, the CISA KEV listing, and the TeamStarWolf lab run of 3 November 2026 on Tomcat 9.0.30 against a 9.0.31 control. No CTID mapping exists for this CVE, so every row is the study's own mapping. Each comment names source numbers from case-studies/GHOSTCAT_CVE_2020_1938.md. Scores: 100 is demonstrated in the lab, 75 is reported in the public record, 40 is a defender-side check or a follow-on stage the lab did not run.",
+    "blurb": "Techniques from the Ghostcat record, from the unauthenticated AJP file read the lab demonstrated to the scanning and the follow-on stages it did not run. A curated layer for the Ghostcat CVE-2020-1938 case study."
+  },
+  {
+    "file": "proftpd-mod-copy-cve-2015-3306.json",
+    "name": "TeamStarWolf - ProFTPD mod_copy (CVE-2015-3306) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the ProFTPD mod_copy (CVE-2015-3306) case study. No opened source names an ATT&CK technique for this CVE, so every binding is the study's own mapping, labelled in its comment. Scores: 100 is behavior the lab run of 4 November 2026 demonstrated, 75 is a documented exploitation path the lab did not demonstrate, 40 is actor context from joint advisory AA26-281A not tied to a ProFTPD intrusion. Each comment names source numbers from case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md.",
+    "blurb": "Techniques from the ProFTPD mod_copy record: the unauthenticated file copy the lab demonstrated, the web-shell path it did not, and the scanning AA26-281A describes. A curated layer for the CVE-2015-3306 case study."
+  },
+  {
+    "file": "chronicle-2020.json",
+    "name": "TeamStarWolf - The Year 2020 in Intrusions Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified 2020 intrusion record supports: CISA, FBI, NSA and NCSC advisories of 2020 (AA20-099A to AA20-352A), vendor reports, regulator findings and Red Canary's 2020 telemetry. Ids printed under earlier ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Scores: 100 the source prints the id, 75 the source describes the behavior and the mapping is the study's, 50 only a press account supports it, 40 an Inferred mapping.",
+    "blurb": "Techniques from the 2020 record: edge-device exploitation, password spraying, the SolarWinds supply chain, and the Ryuk, Maze and WastedLocker ransomware intrusions. A curated layer for the 2020 chronicle case study; the ICS techniques from AA20-205A are in a separate ics-attack layer."
+  },
+  {
     "file": "exchange-marauder-2021.json",
     "name": "TeamStarWolf - Exchange Server Mass Exploitation 2021 (Operation Exchange Marauder) Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified record of the 2021 Exchange Server mass exploitation supports: ProxyLogon and HAFNIUM-era intrusions (Microsoft, Volexity, Mandiant, Rapid7, ATT&CK G0125), follow-on actors on the same bugs (ESET, Microsoft, Talos, Red Canary, ATT&CK G0131), and the ProxyShell era (CISA AA21-321A and later ATT&CK group rows). Ids reported under earlier ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/EXCHANGE_MARAUDER_2021.md. Scores: 100 ties the technique to ProxyLogon exploitation or HAFNIUM-era intrusions, 75 is follow-on actors on the same bugs or the ProxyShell era, 40 is an Inferred or demonstration-only mapping.",

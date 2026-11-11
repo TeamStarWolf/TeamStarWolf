@@ -98,6 +98,29 @@ VB6 compiles to native code (or optionally p-code) and performs adequately for t
 - "DLL hell": COM components registered system-wide create versioning conflicts between applications.
 - Using floating-point types for currency, producing rounding errors.
 
+## Security relevance
+
+Classic Visual Basic reaches security work in two distinct ways: as the language core of Office VBA macros that analysts read in malicious documents, and as native Windows business software that is still maintained and assessed. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Office macro malware. Visual Basic for Applications shares the classic Visual Basic language core and has been a long-standing delivery mechanism for malicious documents, so reading a hostile macro means reading this language. See the [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md).
+- Legacy Windows applications. VB6 business applications remain in production, calling the Windows API through `Declare` statements and building database queries, which is where review and assessment focus.
+- COM automation. Classic Visual Basic consumes and exposes ActiveX and COM components, so its trust boundaries run through system-registered binaries.
+
+### Dominant weakness classes
+
+Classic Visual Basic manages its own objects through COM reference counting, so ordinary code is memory-safe; the memory-corruption classes appear only at the boundary where `Declare`d Windows API calls pass raw buffers. The dominant weaknesses are injection, that buffer boundary, and loose input handling:
+
+- SQL injection. ADO or DAO queries assembled by concatenating user input are injectable, which is [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Buffer handling across API calls. Passing fixed-length strings or mis-sized buffers to `Declare`d functions can overflow memory, which relates to [CWE-120](https://cwe.mitre.org/data/definitions/120.html).
+- Command and process execution. Building a command for `Shell` from untrusted input runs attacker-controlled programs, which is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Improper input validation. Data from text boxes, files, and COM callers is unchecked until validated, with the `Variant` type masking type and range errors, which is [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+
+### Why it matters
+
+Reading classic Visual Basic and VBA lets a malware analyst work out what a malicious macro actually does and lets a reviewer audit a legacy business application for injectable queries and unsafe API interop. Dedicated static analysis for the language is scarce, so this review is largely manual, which makes the ability to read the code directly the practical tool.
+
 ## Secure coding
 
 Classic VB applications run as native Windows programs and often call the Windows API and build SQL, so they carry those risks:

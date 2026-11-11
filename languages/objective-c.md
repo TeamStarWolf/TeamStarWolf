@@ -137,6 +137,29 @@ Objective-C compiles to native code and performs close to C for straight-line co
 - Method swizzling and category method collisions produce behavior that is hard to trace; use them sparingly.
 - Format-string mismatches in `NSLog` and `stringWithFormat:` cause crashes or disclosure; keep format specifiers and arguments aligned.
 
+## Security relevance
+
+Objective-C reaches security practitioners as the language of a large body of Apple platform software: applications, frameworks, and the system code that predates Swift. Mobile application assessment and the reverse engineering of macOS and iOS binaries both run into it, helped by the runtime metadata the language leaves in a compiled binary. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- iOS and macOS applications. Objective-C and mixed Objective-C and Swift apps are routine mobile-assessment targets, where the review covers data storage, transport, and platform API use. See the [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md).
+- Binary reverse engineering. The Objective-C runtime stores class and method names in the Mach-O binary, so tools can recover much of the class structure, which makes it a frequent reverse-engineering subject. See the [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md).
+- Frameworks and legacy code. Foundation, AppKit, and UIKit code and long-lived pre-Swift codebases are maintained and audited in Objective-C.
+
+### Dominant weakness classes
+
+Objective-C is memory-unsafe where it uses C: automatic reference counting manages Objective-C objects, but the language is a strict superset of C, so raw pointers and manual memory in C portions can corrupt memory.
+
+- Memory corruption in C portions. Raw buffers and manual allocation allow out-of-bounds writes and use-after-free, which are [CWE-787](https://cwe.mitre.org/data/definitions/787.html) and [CWE-416](https://cwe.mitre.org/data/definitions/416.html).
+- Format-string injection. Passing user input as the format argument to `NSLog` or `stringWithFormat:` lets an attacker read or corrupt memory through format specifiers, which is [CWE-134](https://cwe.mitre.org/data/definitions/134.html).
+- Insecure data storage. Secrets placed in `NSUserDefaults` or plain files rather than the Keychain are exposed on the device, which is [CWE-312](https://cwe.mitre.org/data/definitions/312.html).
+- Dependency supply chain. CocoaPods and Carthage dependencies run inside the app, so unpinned or unreviewed packages are a risk. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading Objective-C lets an analyst follow what a mobile app does with sensitive data, recover behavior from a Mach-O binary using its runtime metadata, and spot unsafe C and format-string use in a framework. The [Clang Static Analyzer](https://clang-analyzer.llvm.org/) in Xcode is the main audit tool, with the address and thread sanitizers catching memory and race errors at run time, as the Secure coding section details.
+
 ## Secure coding
 
 Language-specific risks and the safe patterns that address them:

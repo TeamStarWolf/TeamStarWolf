@@ -131,6 +131,29 @@ Delphi compiles to native machine code, so compute-bound code runs at speeds com
 - Relying on implicit string conversions between `AnsiString`, `UnicodeString`, and `UTF8String`, which can corrupt text.
 - Blocking the UI thread with long work instead of moving it to a background thread.
 
+## Security relevance
+
+Delphi reaches security practitioners as the language of long-lived Windows desktop and business applications that defenders audit and reverse-engineer, compiling to native code with manual object lifetimes. Offensive tooling written in it is uncommon, though Delphi-compiled malware appears periodically. The defensive patterns that counter each class are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Windows desktop and business applications. VCL applications and their database access are the common audit and reverse-engineering targets. See the [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md).
+- Native binaries with manual memory. Objects are created and freed by hand and `PChar` buffers are manipulated directly, which is where memory-safety defects live.
+- Malware samples. Delphi-compiled binaries show up in malware analysis, so recognizing the Delphi runtime structures helps an analyst read them. See the [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md).
+
+### Dominant weakness classes
+
+Delphi is memory-unsafe for objects and raw buffers: objects use manual `Create`/`Free` lifetimes while strings, dynamic arrays, and interfaces are reference-counted, so the memory-corruption classes apply to buffer and object handling:
+
+- Buffer and bounds handling. Writing past a static array or a `PChar` buffer corrupts memory, which relates to [CWE-120](https://cwe.mitre.org/data/definitions/120.html) and [CWE-787](https://cwe.mitre.org/data/definitions/787.html).
+- Use-after-free and double free. Freeing an object still referenced elsewhere, or mixing manual `Free` with interface reference counting on the same object, is [CWE-416](https://cwe.mitre.org/data/definitions/416.html).
+- Integer overflow. Arithmetic on untrusted values without overflow checking is [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- Injection and input validation. Concatenating user input into SQL is [CWE-89](https://cwe.mitre.org/data/definitions/89.html), and unchecked external input is [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+
+### Why it matters
+
+Reading Delphi, in source or decompiled, lets an analyst find object-lifetime and buffer defects, audit data-access code, and recognize Delphi structures in a malware sample. Dedicated static tooling is limited, so the compiler's range and overflow checks and manual review of memory and input handling are the main controls, as the Secure coding section details.
+
 ## Secure coding
 
 Delphi compiles native code and, like other systems-oriented languages, leaves memory and input handling to the programmer:

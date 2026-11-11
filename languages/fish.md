@@ -119,6 +119,28 @@ Concurrency uses background jobs with `&` and `wait`, and external tools such as
 - Expecting word splitting: because fish does not split, a Bash idiom that relied on splitting a string into arguments behaves differently; use `string split` to split explicitly.
 - Universal variables persist and are shared between shells, so a stray `set -U` can surprise you later; prefer `set -g` or `set -l` unless persistence is intended.
 
+## Security relevance
+
+fish reaches security practitioners as an interactive shell and personal-automation language on developer and operator workstations, where the main concern is code that runs at shell start and commands built from untrusted input. This section is the threat-facing context; the defensive patterns that counter each class are in the Secure coding section that follows.
+
+### Where it appears
+
+- Interactive shells and automation. fish is a common login shell, so its configuration, autoloaded functions, and universal variables run on every session and are a target for persistence: a modified config or a malicious plugin executes whenever a shell starts.
+- Dotfiles and startup code. Functions under `~/.config/fish/functions` autoload on first use and plugin managers add third-party code, so the integrity of these sources matters.
+- Scripting. fish scripts drive personal and operational tasks that call external tools and handle their output. Portable production scripting tends to use POSIX [Bash](/languages/bash.md) or [Zsh](/languages/zsh.md), and fish has little offensive-tooling presence.
+
+### Dominant weakness classes
+
+fish is interpreted and manages its own memory, so the memory-corruption classes do not apply. Its no-word-splitting default also removes one classic shell bug. The risks are injection and the integrity of code that runs at shell start:
+
+- Operating-system command injection. Building a command string from untrusted input and running it executes attacker-controlled commands, which maps to [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Dynamic code execution. The `eval` builtin runs its argument as a command, so passing untrusted data through it executes arbitrary code, which maps to [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Startup and plugin integrity. Autoloaded functions, universal variables, and installed plugins run with the user's privileges on shell start, so unpinned or unreviewed sources are a supply-chain exposure. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading a fish script or configuration lets an analyst spot `eval` of untrusted data, command strings assembled from input, and functions or plugins loaded from sources that are not pinned, which is the usual path to persistence in a shell. fish has no dedicated security static analyzer; `fish --no-execute` checks syntax and `fish_indent` normalizes style, so review centers on keeping untrusted input out of command construction, as the Secure coding section details.
+
 ## Secure coding
 
 fish shares the shell family's injection risks, with its no-splitting default removing one of them:

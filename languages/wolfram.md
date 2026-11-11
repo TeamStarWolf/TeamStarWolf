@@ -113,6 +113,29 @@ Term rewriting on large symbolic expressions can be slow, so numeric work should
 - Global symbols leak between notebook cells and sessions; clear them with `Clear` or scope them with `Module` and `Block`.
 - Large intermediate expressions can consume memory quickly; watch for symbolic results that grow without simplification.
 
+## Security relevance
+
+The Wolfram Language reaches security work mainly where it crosses a trust boundary: when it evaluates text as code, runs host programs, imports untrusted files, or is deployed as a cloud endpoint. For most technical-computing use it is not exposed to attackers at all. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Technical-computing and data-analysis code. The language runs in notebooks and scripts for mathematics, data analysis, and visualization, where the main exposure is the external data a workflow imports.
+- Cloud deployments. An `APIFunction` or `FormFunction` deployed to the Wolfram Cloud runs server-side code in response to a request, so its inputs are an attack surface like any other web endpoint.
+- Host integration. Through `RunProcess`, `ExternalEvaluate`, and `Import`, the language reaches the operating system and other interpreters, which is where untrusted input can turn into execution.
+
+### Dominant weakness classes
+
+The runtime is garbage-collected, so it is memory-safe and the memory-corruption classes do not apply. The weaknesses come from evaluating or importing untrusted content:
+
+- Code injection. `ToExpression` parses and evaluates arbitrary Wolfram code from a string, which is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- OS command injection. `Run`, `RunProcess`, and `ExternalEvaluate` run external programs, so a shell string built from input is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Untrusted data files. `Get` evaluates a package as code and some import formats run converters, so loading from an untrusted source relates to [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- Cloud input handling. A deployed endpoint that does not validate and constrain its inputs is exposed to the same abuse as any server-side handler, which relates to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+
+### Why it matters
+
+Reading the Wolfram Language matters most when auditing a cloud deployment or a notebook that evaluates or imports untrusted input, where the question is whether any path reaches `ToExpression`, a process call, or `Get`. The available tools are the built-in Code Analysis facilities and the [CodeInspector](https://github.com/WolframResearch/codeinspector) package, which flag suspect constructs statically.
+
 ## Secure coding
 
 Wolfram Language code that imports data, evaluates strings, or calls the host system carries the main risks:

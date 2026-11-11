@@ -144,6 +144,12 @@
     "blurb": "Techniques from the public record on Russia-attributed threat actors: what ATT&CK records for nine groups tied to the GRU, SVR, FSB and TsNIIKhM and their campaigns, plus the ids named in eight joint government advisories. A curated layer for the Russia case study."
   },
   {
+    "file": "other-state-actors.json",
+    "name": "TeamStarWolf - Other state-linked threat actors",
+    "description": "Curated case-study layer, not an official MITRE mapping and not an attribution claim. The 154 Enterprise techniques ATT&CK v20.0 links to the 20 groups in case-studies/THREAT_ACTORS_OTHER_STATES.md, the state-linked tier outside China, Russia, Iran, North Korea and the United States: 14 groups whose ATT&CK text names or suspects a state, a state body, a region or a Hamas affiliation, or calls them likely state-sponsored, plus 6 that ATT&CK leaves stateless and the study places in that tier from vendor primaries or ATT&CK overlap notes. Score is the number of those 20 groups linked to the technique (1 to 13). Comments name the groups, the study's source numbers and, where a vendor or government primary describes the technique, the dated report.",
+    "blurb": "The document-and-lure tradecraft of the state-linked tier outside the five largest programs: South Asian, Vietnamese, Lebanese, Gulf, Gaza, Turkish and Belarus-aligned groups, with Sea Turtle's DNS hijacking and MoustachedBouncer's ISP-level injection as the outliers. A curated layer for the other-states case study."
+  },
+  {
     "file": "threat-actors-united-states.json",
     "name": "TeamStarWolf - United States-Attributed Threat Actors Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping and not an attribution claim: ATT&CK attributes none of these objects to any country. The 85 Enterprise techniques ATT&CK v20.0 records for the six objects discussed in case-studies/THREAT_ACTORS_UNITED_STATES.md (G0020 Equation, S0019 Regin, S0038 Duqu, S0143 Flame, S0603 Stuxnet, S0690 Green Lambert), from data/attack/group_to_technique.jsonl and software_to_technique.jsonl, plus one technique (T1195) inferred by the study from the interdiction reporting. Score is the number of the six objects the technique is recorded for (1 to 3); 0 marks the study's inference. Comments name the objects and the study's source numbers.",

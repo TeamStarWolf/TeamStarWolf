@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 53 min (12,270 words at 230 words a minute)
+About 53 min (12,110 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -103,11 +103,11 @@ Evidence grade: the intrusions, their dates and the government responses are **C
 
 ## Scope and method
 
-This study covers the state operations of 2006 to 2018, sorted here into the book's three categories (**Inferred**): espionage (OPM, APT1 and the 2014 indictment, the 2013 program disclosures and, as this study's own choice, Dual_EC, Belgacom and Regin), attack (Sony Pictures, Shamoon, with Stuxnet, the Ukrainian grid and NotPetya in summary) and destabilization (the 2016 US election, the 2017 French campaign), plus the financial and blowback cases (Bangladesh Bank, Shadow Brokers and WannaCry). It follows the method in the [case studies README](/case-studies/README.md): primary sources first, every claim graded, numbers given as the source states them, and figures checked against the source they cite. Every source in the Sources table was opened on 3 November 2026. Direct quotations are kept under 15 words. Facts taken from complaints and indictments are allegations that have not been tested at trial.
+This study covers the state operations of 2006 to 2018, sorted here into the book's three categories (**Inferred**): espionage (OPM, APT1 and the 2014 indictment, the 2013 program disclosures and, as this study's own choice, Dual_EC, Belgacom and Regin), attack (Sony Pictures, Shamoon, with Stuxnet, the Ukrainian grid and NotPetya in summary) and destabilization (the 2016 US election, the 2017 French campaign), plus the financial and blowback cases (Bangladesh Bank, Shadow Brokers and WannaCry). It follows the method in the [case studies README](/case-studies/README.md): primary sources first, every claim graded, numbers given as the source states them, and figures checked against the source they cite. Every source in the Sources table was opened on 3 November 2026, except Mandiant's APT1 report [5], which was opened at the vendor's own copy on 11 November 2026. Direct quotations are kept under 15 words. Facts taken from complaints and indictments are allegations that have not been tested at trial.
 
 The book was not opened. Its framing comes from the author's interview in *The Diplomat* [48] and from reviews [49] [50] [51]. Two reviews name three of the book's cases: Sony and the 2016 election [49], and the Shadow Brokers leak [50]. For the other operations here, this study examines the state operations of the book's period and categories, and does not claim that the book tells each one or tells it the same way (**Inferred**).
 
-Home studies. Where another study in this series is the home for an event, this study gives one paragraph and links: Stuxnet lives in [Stuxnet](/case-studies/STUXNET.md); the Ukrainian grid attacks of 2015 and 2016 and NotPetya live in [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md); the Shadow Brokers leak and the WannaCry outbreak live in [The Zero-Day Trade and Its Fallout](/case-studies/ZERO_DAY_MARKET_EVENTS.md), so Part 5.2 keeps only the attribution sequence the book's blowback case rests on. Sony 2014, Shamoon, the 2016 election, the French campaign and Bangladesh Bank live here. The actor records behind these cases live in the actor studies: [China](/case-studies/THREAT_ACTORS_CHINA.md) (APT1 and OPM), [Russia](/case-studies/THREAT_ACTORS_RUSSIA.md) (APT28, APT29 and Sandworm Team), [North Korea](/case-studies/THREAT_ACTORS_NORTH_KOREA.md) (Lazarus Group and APT38), [Iran](/case-studies/THREAT_ACTORS_IRAN.md) (the Shamoon wiper lineage) and the [United States](/case-studies/THREAT_ACTORS_UNITED_STATES.md) (the Equation platform). For the long Chinese espionage line after APT1, see [APT41: the public record](/case-studies/APT41_PUBLIC_RECORD.md).
+Home studies. Where another study in this series is the home for an event, this study gives one paragraph and links: Stuxnet lives in [Stuxnet](/case-studies/STUXNET.md); the Ukrainian grid attacks of 2015 and 2016 and NotPetya live in [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md); the Shadow Brokers leak and the WannaCry outbreak live in [The Zero-Day Trade and Its Fallout](/case-studies/ZERO_DAY_MARKET_EVENTS.md), and WannaCry's attribution and government record live in the [North Korea](/case-studies/THREAT_ACTORS_NORTH_KOREA.md) actor study, so Part 5.2 gives one summary paragraph that links both. Sony 2014, Shamoon, the 2016 election, the French campaign and Bangladesh Bank live here. The actor records behind these cases live in the actor studies: [China](/case-studies/THREAT_ACTORS_CHINA.md) (APT1 and OPM), [Russia](/case-studies/THREAT_ACTORS_RUSSIA.md) (APT28, APT29 and Sandworm Team), [North Korea](/case-studies/THREAT_ACTORS_NORTH_KOREA.md) (Lazarus Group and APT38), [Iran](/case-studies/THREAT_ACTORS_IRAN.md) (the Shamoon wiper lineage) and the [United States](/case-studies/THREAT_ACTORS_UNITED_STATES.md) (the Equation platform). For the long Chinese espionage line after APT1, see [APT41: the public record](/case-studies/APT41_PUBLIC_RECORD.md).
 
 | Grade | Meaning in this study |
 |---|---|
@@ -288,26 +288,11 @@ The Park Jin Hyok complaint [14] (**Confirmed** throughout unless marked) covers
 - **Hiding it.** The heist malware tampered with printed or PDF confirmations and with the Oracle message database, and other malware deleted the evidence.
 - **The links.** The FBI linked intrusions at Bangladesh Bank, a bank in Vietnam and other victims to the same subjects and to the Sony attack.
 
-BAE Systems' analysis of 25 April 2016 adds the mechanics. The tool `evtdiag.exe` patched two bytes of `liboradb.dll` in memory, ran SQL `DELETE` statements against the `SAAOWNER` database and altered printed SWIFT confirmations; BAE put the attempted theft at $951 million [35] (**Confirmed** as BAE's analysis). ATT&CK's G0082 APT38 page (version 4.0, modified 9 October 2026) describes a North Korean RGB group for financial operations that targets SWIFT endpoints and credits it with the 2016 heist of USD 81 million [23] (**Confirmed**). It maps the SWIFT fraud tool DYEPACK to stored, transmitted and runtime data manipulation, though DYEPACK has no ATT&CK software id, and lists KillDisk (S0607) among APT38's software [23] (**Confirmed**).
+BAE Systems' analysis of 25 April 2016 adds the mechanics. The tool `evtdiag.exe` patched two bytes of `liboradb.dll` in memory, ran SQL `DELETE` statements against the `SAAOWNER` database and altered printed SWIFT confirmations; BAE put the attempted theft at $951 million [35] (**Confirmed** as BAE's analysis). ATT&CK's G0082 APT38 page (version 4.0, modified 9 October 2026) describes a North Korean RGB group for financial operations that targets SWIFT endpoints and credits it with the 2016 Bank of Bangladesh heist [23]; the library's ATT&CK v20.0 data gives the amount as $81 million [52] (**Confirmed**). It maps the SWIFT fraud tool DYEPACK to stored, transmitted and runtime data manipulation, though DYEPACK has no ATT&CK software id, and lists KillDisk (S0607) among APT38's software [23] (**Confirmed**).
 
 ### 5.2 The Shadow Brokers and WannaCry, 2017
 
-The leak, the exploit and the outbreak are told in full in [The Zero-Day Trade and Its Fallout](/case-studies/ZERO_DAY_MARKET_EVENTS.md); this section keeps the sequence from patch to attribution that the book's blowback case rests on. From patch to coalition attribution the sequence took nine months, 14 March to 19 December 2017; the attribution revision and the KEV listings came later.
-
-| Date | Event | Source | Grade |
-|---|---|---|---|
-| 14 Mar 2017 | Microsoft bulletin MS17-010 fixes SMBv1 flaws CVE-2017-0143 to CVE-2017-0148, rated Critical for remote code execution | [36] | Confirmed |
-| 15 Apr 2017 | A group calling itself the Shadow Brokers publicly releases an exploit for CVE-2017-0144 | [14] | Confirmed |
-| 15 Apr 2017 | Microsoft says most of the released exploits were already patched: EternalBlue, EternalChampion, EternalRomance and EternalSynergy by MS17-010; three did not reproduce on supported platforms | [37] | Confirmed |
-| 12 May 2017 | WannaCry Version 2 begins spreading; at least 80 of 236 NHS trusts are affected and 6,912 appointments cancelled; Europol reports cite more than 150 countries | [14] | Confirmed |
-| 12 May 2017 | CISA TA17-132A describes the `mssecsvc2.0` service, spread over TCP 445 and the kill-switch domain | [38] | Confirmed |
-| 14 May 2017 | Microsoft says the exploits were drawn from those stolen from the NSA and compares the loss to stolen Tomahawk missiles | [43] | Confirmed (Microsoft's statement) |
-| 19 Dec 2017 | The UK says the NCSC assesses it highly likely that North Korean actors known as Lazarus Group were behind WannaCry | [39] | Confirmed |
-| 19 Dec 2017 | The US attributes WannaCry to the North Korean government, joined by the UK, Australia, Canada, New Zealand and Japan | [44] | Confirmed |
-| 7 Jun 2018 | TA17-132A revised to add attribution to the North Korean government | [38] | Confirmed |
-| 3 Nov 2021 and 10 Feb 2022 | CISA KEV adds CVE-2017-0143 and CVE-2017-0144 | [41] | Confirmed |
-
-The complaint describes WannaCry spreading as a worm through CVE-2017-0144, using the victim's network configuration to scan its local network and also scanning internet hosts; paying the ransom did not decrypt files [14] (**Confirmed**). At the attribution briefing, Tom Bossert said the US discloses about 90 percent of the vulnerabilities it finds and did not confirm that the exploit came from the NSA [44] (**Confirmed**). The NSA provenance therefore rests on Microsoft's assertion [43], not on any government admission among the sources opened. NVD lists `NVD-CWE-noinfo` for CVE-2017-0144, so no CWE is assigned to it [40] (**Confirmed**). The broader market for exploits is the subject of [The Zero-Day Trade and Its Fallout](/case-studies/ZERO_DAY_MARKET_EVENTS.md).
+The leak, the exploit and the outbreak are told in full in [The Zero-Day Trade and Its Fallout](/case-studies/ZERO_DAY_MARKET_EVENTS.md), and WannaCry's attribution and government record live in the [North Korea](/case-studies/THREAT_ACTORS_NORTH_KOREA.md) actor study; this paragraph keeps only the dated outline the book's blowback case rests on. Microsoft fixed the SMBv1 flaws in bulletin MS17-010 on 14 March 2017 [36]; on 15 April a group calling itself the Shadow Brokers released an exploit for CVE-2017-0144, and Microsoft said that MS17-010 already fixed it [14] [37]; WannaCry began spreading on 12 May [14] [38] (**Confirmed**). Microsoft said on 14 May that the exploits were drawn from those stolen from the NSA [43], while at the attribution briefing Tom Bossert did not confirm that the exploit came from the NSA [44], so the NSA provenance rests on Microsoft's assertion, not on any government admission among the sources opened (**Confirmed** for both statements). On 19 December 2017 the UK and the US, joined by Australia, Canada, New Zealand and Japan, attributed WannaCry to North Korea [39] [44] (**Confirmed**). The dated rows are in Part 6 and the technique rows in Part 9.5.
 
 ## Part 6: the timeline
 
@@ -417,7 +402,7 @@ AA22-057A was written for the 2022 wipers (WhisperGate, HermeticWiper, IsaacWipe
 ### 8.3 Library corrections
 
 1. **Regin proxy mapping.** The library's `/mitre/software/S0019.md` maps T1090.002 External Proxy, while Kaspersky describes internal relay drones, which fits T1090.001 Internal Proxy [11] [53] (**Confirmed** for both texts). The page is generated from ATT&CK data, so the fix is a note, not a hand edit.
-2. **Operation Aurora attribution.** `NOTABLE_INCIDENTS.md` line 84 attributes Operation Aurora to "APT10 / Comment Crew (Chinese PLA Unit 61398)", which merges distinct groups [54] (**Inferred**; a primary check is still needed before the line is changed).
+2. **Operation Aurora attribution.** `NOTABLE_INCIDENTS.md` line 84 attributes Operation Aurora to "APT10 / Comment Crew (Chinese PLA Unit 61398)", which merges distinct groups [54] (**Inferred**; a primary check is still needed before the line is changed; the Aurora record lives in [The Zero-Day Trade and Its Fallout](/case-studies/ZERO_DAY_MARKET_EVENTS.md)).
 3. **Shamoon.** `MALWARE_FAMILIES.md` lines 440 and 568 attribute Shamoon to "APT33 / Iranian IRGC", which goes beyond ATT&CK, since ATT&CK lists no group for S0140 [21]; the fix is to state the Cutting Sword of Justice claim and the absence of an ATT&CK group [21] (**Confirmed**).
 4. **Book cross-reference.** The book's entry in `CYBERSECURITY_BOOK_LIST.md` (line 1136) [54] can link this study.
 
@@ -516,7 +501,7 @@ Mapping grades: **Confirmed** when a primary describes the behaviour the techniq
 | [`T1486`](/mitre/techniques/T1486.md) | Data Encrypted for Impact | Impact | Shamoon 2: E mode RC4, a capability (the analysed sample used F) | [19] | Confirmed (capability) |
 | [`T1570`](/mitre/techniques/T1570.md) | Lateral Tool Transfer | Lateral Movement | Shamoon, as ATT&CK records for S0140 | [21] | ATT&CK |
 
-T1110 Brute Force and T1047 also appear in G0032's mapping, but ATT&CK does not tie them to Sony; the Sony rows above rest on TA14-353A [13] [22] (**Inferred** for the Sony link at the group level).
+T1110.003 Password Spraying (a Brute Force sub-technique) and T1047 also appear in G0032's mapping, but ATT&CK does not tie them to Sony; the Sony rows above rest on TA14-353A [13] [22] (**Inferred** for the Sony link at the group level).
 
 ### 9.4 Destabilization: the 2016 US election and the 2017 French campaign
 
@@ -637,7 +622,7 @@ Scores mean only how the mapping is graded. 100: a government, court or vendor p
 | 2 | Same report, full text (PDF; pages i to vii read) | https://oversight.house.gov/wp-content/uploads/2016/09/The-OPM-Data-Breach-How-the-Government-Jeopardized-Our-National-Security-for-More-than-a-Generation.pdf | 3 Nov 2026 | Confirmed |
 | 3 | Same committee, "Timeline of Key Events" (PDF) | https://oversight.house.gov/wp-content/uploads/2016/09/Timeline-of-Key-Events-.pdf | 3 Nov 2026 | Confirmed |
 | 4 | Privacy and Civil Liberties Oversight Board, report on the Section 702 program, 2 Jul 2014 | https://documents.pclob.gov/prod/Documents/OversightReport/823399ae-92ea-447a-ab60-0da28b555437/702-Report-2.pdf | 3 Nov 2026 | Confirmed |
-| 5 | Mandiant, "APT1: Exposing One of China's Cyber Espionage Units", Feb 2013 (university course copy) | https://cs.brown.edu/courses/cs180/sources/2013_Mandiant_APT1_Report.pdf | 3 Nov 2026 | Confirmed |
+| 5 | Mandiant, "APT1: Exposing One of China's Cyber Espionage Units", Feb 2013 (PDF, vendor-hosted) | https://services.google.com/fh/files/misc/mandiant-apt1-report.pdf | 11 Nov 2026 | Confirmed |
 | 6 | The White House (archived), fact sheet on President Xi Jinping's state visit, 25 Sep 2015 | https://obamawhitehouse.archives.gov/the-press-office/2015/09/25/fact-sheet-president-xi-jinpings-state-visit-united-states | 3 Nov 2026 | Confirmed |
 | 7 | FBI Most Wanted, Wang Dong (PLA Unit 61398 indictment) | https://www.fbi.gov/wanted/cyber/wang-dong | 3 Nov 2026 | Confirmed |
 | 8 | NIST, "NIST Removes Cryptography Algorithm from Random Number Generator Recommendations", 21 Apr 2014 | https://www.nist.gov/node/395286 | 3 Nov 2026 | Confirmed |

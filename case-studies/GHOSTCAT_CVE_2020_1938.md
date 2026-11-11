@@ -580,6 +580,16 @@ All sources were opened on 4 November 2026. The lab captures are not published; 
 | 69 | Lab capture `04-mitigation.txt`, 3 Nov 2026 | Lab capture (not published); screenshot in Part 3 | 2026-11-04 | Demonstrated |
 | 70 | Lab capture `05-cleanup.txt`, 3 Nov 2026 | Lab capture (not published); screenshot in Part 3 | 2026-11-04 | Demonstrated |
 
+*© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*
+
+*© The MITRE Corporation. Includes material from the Common Weakness Enumeration (CWE™), used under the CWE Terms of Use. https://cwe.mitre.org/*
+
+*© The MITRE Corporation. Includes material from the Common Attack Pattern Enumeration and Classification (CAPEC™), used under the CAPEC Terms of Use. https://capec.mitre.org/*
+
+*© The MITRE Corporation. Includes material from MITRE D3FEND™, used under the D3FEND Terms of Use. https://d3fend.mitre.org/*
+
+*The terms for every MITRE dataset used here are recorded in [THIRD_PARTY_NOTICES.md](/THIRD_PARTY_NOTICES.md).*
+
 ## Related references
 
 - [CVE Reference](/CVE_REFERENCE.md), [CWE Reference](/CWE_REFERENCE.md), [CAPEC Reference](/CAPEC_REFERENCE.md), [D3FEND Reference](/D3FEND_REFERENCE.md)

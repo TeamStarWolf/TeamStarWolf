@@ -135,7 +135,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 11 July 2022: The CSRB publishes its report
   - 10 December 2025: Sonatype: about 13 percent of 2025 Log4j downloads still contained Log4Shell
   - 23 January 2026: OMB M-26-05 rescinds M-22-18 and M-23-16
-- [Operation Exchange Marauder and the 2021 Exchange Server Mass Exploitation](/case-studies/EXCHANGE_MARAUDER_2021.md). Campaign, January to November 2021. Sectors: cross-sector, government, education. CVEs: CVE-2020-0688, CVE-2021-26412, CVE-2021-26854, CVE-2021-26855, CVE-2021-26857, CVE-2021-26858 and 11 more. ATT&CK groups: G0027 Threat Group-3390, G0044 Winnti Group, G0046 FIN7, G0059 Magic Hound, G0060 BRONZE BUTLER, G0065 Leviathan and 7 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Exchange_Marauder_2021_Case_Study.pdf).
+- [Operation Exchange Marauder and the 2021 Exchange Server Mass Exploitation](/case-studies/EXCHANGE_MARAUDER_2021.md). Campaign, January to November 2021. Sectors: cross-sector, government, education. CVEs: CVE-2020-0688, CVE-2021-26412, CVE-2021-26854, CVE-2021-26855, CVE-2021-26857, CVE-2021-26858 and 11 more. ATT&CK groups: G0027 Threat Group-3390, G0044 Winnti Group, G0046 FIN7, G0059 Magic Hound, G0060 BRONZE BUTLER, G0065 Leviathan and 7 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Exchange_Marauder_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Exchange_Marauder_2021_Case_Study.pptx).
   - 10 December 2020: DEVCORE finds the pre-auth proxy bug, later CVE-2021-26855
   - 3 January 2021: Earliest SSRF mailbox theft Volexity observed
   - 5 January 2021: DEVCORE submits its advisory and exploit to MSRC
@@ -190,7 +190,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 3 March 2022: CISA adds CVE-2020-1938 to KEV in a batch of 95 entries
   - October 2026: DShield still records about 950 to 6,200 port 8009 events a day
   - 3 November 2026: KEV still lists the CVE; the TeamStarWolf lab run
-- [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md). Period record, January to December 2020. Sectors: cross-sector, healthcare. CVEs: CVE-2017-5638, CVE-2017-11882, CVE-2018-7600, CVE-2018-13379, CVE-2019-0604, CVE-2019-1652 and 27 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly and 12 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2020_Case_Study.pdf).
+- [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md). Period record, January to December 2020. Sectors: cross-sector, healthcare. CVEs: CVE-2017-5638, CVE-2017-11882, CVE-2018-7600, CVE-2018-13379, CVE-2019-0604, CVE-2019-1652 and 27 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly and 12 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2020_Case_Study.pptx).
   - 14 January 2020: CISA ED 20-02 for CryptoAPI CVE-2020-0601 and the RD Gateway flaws
   - 10 February 2020: Equifax indictment of four PLA 54th Research Institute members announced
   - 31 March 2020: Marriott announces an incident involving up to about 5.2 million guests

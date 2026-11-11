@@ -1026,6 +1026,7 @@ CVEs the library discusses that the Hub also tracks, each with its brief on the 
 | [CVE-2014-6271](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2014-6271) | [HackTheBox Machine Index](/research/HTB_MACHINE_INDEX.md) |
 | [CVE-2014-6324](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2014-6324) | [Active Directory Attack Reference: Defender Edition](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md) |
 | [CVE-2015-1641](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2015-1641) | [APT41: The Public Record, 2012 to 2026](/case-studies/APT41_PUBLIC_RECORD.md) |
+| [CVE-2015-3306](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2015-3306) | [ProFTPD mod_copy, CVE-2015-3306: Unauthenticated File Copy in the Lab](/case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md), [Case Studies](/case-studies/README.md) |
 | [CVE-2016-5195](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2016-5195) | [Notable Cybersecurity Incidents](/NOTABLE_INCIDENTS.md), [Privilege Escalation Reference](/PRIVESC_REFERENCE.md), [Container & Kubernetes Security](/disciplines/container-kubernetes-security.md) |
 | [CVE-2016-6277](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2016-6277) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |
 | [CVE-2016-10174](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2016-10174) | [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md) |

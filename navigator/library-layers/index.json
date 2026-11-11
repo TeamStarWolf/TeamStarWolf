@@ -100,5 +100,11 @@
     "name": "TeamStarWolf - Ghostcat CVE-2020-1938 Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified CVE-2020-1938 (Ghostcat) record supports: the Apache Tomcat advisory, Chaitin's and CNVD's disclosures, the 2020 scanning reports, the CISA KEV listing, and the TeamStarWolf lab run of 3 November 2026 on Tomcat 9.0.30 against a 9.0.31 control. No CTID mapping exists for this CVE, so every row is the study's own mapping. Each comment names source numbers from case-studies/GHOSTCAT_CVE_2020_1938.md. Scores: 100 is demonstrated in the lab, 75 is reported in the public record, 40 is a defender-side check or a follow-on stage the lab did not run.",
     "blurb": "Techniques from the Ghostcat record, from the unauthenticated AJP file read the lab demonstrated to the scanning and the follow-on stages it did not run. A curated layer for the Ghostcat CVE-2020-1938 case study."
+  },
+  {
+    "file": "proftpd-mod-copy-cve-2015-3306.json",
+    "name": "TeamStarWolf - ProFTPD mod_copy (CVE-2015-3306) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the ProFTPD mod_copy (CVE-2015-3306) case study. No opened source names an ATT&CK technique for this CVE, so every binding is the study's own mapping, labelled in its comment. Scores: 100 is behavior the lab run of 4 November 2026 demonstrated, 75 is a documented exploitation path the lab did not demonstrate, 40 is actor context from joint advisory AA26-281A not tied to a ProFTPD intrusion. Each comment names source numbers from case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md.",
+    "blurb": "Techniques from the ProFTPD mod_copy record: the unauthenticated file copy the lab demonstrated, the web-shell path it did not, and the scanning AA26-281A describes. A curated layer for the CVE-2015-3306 case study."
   }
 ]

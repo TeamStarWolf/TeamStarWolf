@@ -47,5 +47,6 @@ Part of the [domain hubs](/hubs/README.md). 11 reference documents in this domai
 
 - [Network defense](/NETWORK_DEFENSE_REFERENCE.md)
 - [Network forensics](/NETWORK_FORENSICS_REFERENCE.md)
+- [ProFTPD mod_copy (CVE-2015-3306): a lab case study](/case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md)
 
 <!-- hub:end -->

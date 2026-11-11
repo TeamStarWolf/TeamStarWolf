@@ -1,6 +1,6 @@
 # United States-Attributed Threat Actors: The Public Record
 
-*A TeamStarWolf case study. Published 3 November 2026; every source checked as of that date.*
+*A TeamStarWolf case study. Published 3 November 2026; every source checked as of that date, unless the Sources table gives a later date.*
 
 [All case studies](/case-studies/README.md) · Related: [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [CVE Reference](/CVE_REFERENCE.md), [Stuxnet](/case-studies/STUXNET.md), [Sandworm Operations](/case-studies/SANDWORM_OPERATIONS.md), [China-attributed threat actors](/case-studies/THREAT_ACTORS_CHINA.md), [Russia-attributed threat actors](/case-studies/THREAT_ACTORS_RUSSIA.md), [Equation group page](/mitre/groups/G0020.md)
 
@@ -340,7 +340,7 @@ Kaspersky disclosed on 1 June 2023 a zero-click iMessage compromise of iOS devic
 | CVE-2015-2360 (Windows kernel) | Duqu 2.0 against Kaspersky | 9 June 2015 | not checked | [21] |
 | CVE-2016-6366, CVE-2016-6367 (Cisco ASA and PIX) | August 2016 Shadow Brokers dump | CVE-2016-6367 fixed in 2011; CVE-2016-6366 new | not checked | [27] |
 | MS09-050, MS14-068 | EducatedScholar and EsikmoRoll in the April 2017 dump | as listed | not checked | [31] |
-| CVE-2017-0143, -0144, -0145, -0146, -0148 (SMBv1 remote code execution), CVE-2017-0147 (information disclosure) | EternalBlue, EternalChampion, EternalRomance, EternalSynergy; then WannaCry and NotPetya | MS17-010, 14 March 2017 | -0143: 3 November 2021; -0144 and -0145: 10 February 2022; -0146: 25 March 2022; -0148: 6 April 2022; all flagged for known ransomware use | [30], [31], [35], [36], [37] |
+| CVE-2017-0143, -0144, -0145, -0146, -0148 (SMBv1 remote code execution), CVE-2017-0147 (information disclosure) | EternalBlue, EternalChampion, EternalRomance, EternalSynergy; then WannaCry and NotPetya | MS17-010, 14 March 2017 | -0143: 3 November 2021; -0144 and -0145: 10 February 2022; -0146: 25 March 2022; -0147: 24 May 2022; -0148: 6 April 2022; all flagged for known ransomware use | [30], [31], [35], [36], [37] |
 | CVE-2023-41990, CVE-2023-32434, CVE-2023-38606, CVE-2023-32435 | Operation Triangulation chain | Apple, 2023 | not checked | [29] |
 
 Two notes on this table. First, NVD lists CVE-2017-0144 (published 17 March 2017) and CVE-2010-2568 as NVD-CWE-noinfo, with no CWE assigned, while CVE-2010-2729 carries CWE-20. No CWE should be claimed for EternalBlue (**Confirmed**, [38], [84], [85]). Second, the KEV dates are the catalog's addition dates, not exploitation dates: EternalBlue was used at internet scale in May 2017 and listed nearly five years later (**Confirmed**, [37]).
